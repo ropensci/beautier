@@ -1,10 +1,24 @@
 Package: beastscriptr
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
-LazyData: TRUE
-Suggests: testthat
+Imports:
+    ape (>= 3.4),
+    testit (>= 0.5)
+Suggests:
+    devtools (>= 1.10.0),
+    knitr (>= 1.12),
+    ggplot2 (>= 2.1.0),
+    lintr (>= 0.3.3),
+    rmarkdown (>= 0.9),
+    testthat (>= 0.11),
+    TreeSim (>= 2.2)
+Title: Create BEAST2 XML input files
+Version: 0.0.0.9000
+Authors@R: person("Richel", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"))
+Description: BEAST2 needs an XML input file. Beauti is a GUI that does this. This R package creates indentical XML files from function parameters.
+Depends:
+    R (>= 3.2)
+License: file LICENSE
+LazyData: true
+RoxygenNote: 5.0.1
+VignetteBuilder: knitr
+URL: https://github.com/richelbilderbeek/beastscript
+BugReports: https://github.com/richelbilderbeek/beastscript/issues
