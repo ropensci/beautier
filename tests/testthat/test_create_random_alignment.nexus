@@ -1,0 +1,14 @@
+#NEXUS
+[Data written by write.nexus.data.R, Thu Mar 19 13:29:58 2015]
+BEGIN DATA;
+  DIMENSIONS NTAX=5 NCHAR=10;
+  FORMAT DATATYPEDNA MISSING=? GAP=- INTERLEAVE=NO;
+  MATRIX
+    t5      gtcaacacaa
+    t4      gtcaacttaa
+    t2      gtcacctgta
+    t1      gtcgcctgaa
+    t3      cccaagataa
+  ;
+END;
+

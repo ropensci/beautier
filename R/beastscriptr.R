@@ -331,7 +331,7 @@ convert_fasta_file_to_sequences <- function(fasta_filename) {
   }
 
   # Read the file
-  sequences_dnabin <- read.FASTA(fasta_filename)
+  sequences_dnabin <- ape::read.FASTA(fasta_filename)
   testit::assert(class(sequences_dnabin) == "DNAbin")
 
   # Convert the file to a table with labels and sequences

@@ -1,6 +1,7 @@
 Package: beastscriptr
 Imports:
     ape (>= 3.4),
+    phangorn(>= 2.0.2),
     testit (>= 0.5)
 Suggests:
     devtools (>= 1.10.0),

@@ -1,0 +1,41 @@
+---
+title: "beastscriptr demo"
+author: "Richel Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{beastscriptr demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+# Helper functions
+
+## Create random alignment
+
+```{r}
+alignment <- beastscriptr::create_random_alignment(
+  n_taxa = 5,
+  sequence_length = 20,
+  rate = 0.1
+)
+
+image(alignment)
+```
+
+
+## Create random FASTA file
+
+```{r}
+n_taxa <- 5
+sequence_length <- 10
+#filename <- paste(getwd(), "/create_random_fasta.fasta", sep = "")
+filename <- "create_random_fasta.fasta"
+beastscriptr::create_random_fasta(
+  n_taxa = n_taxa,
+  sequence_length = sequence_length,
+  filename = filename
+)
+readLines(filename)
+```
