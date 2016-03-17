@@ -1,7 +1,6 @@
 context("test_beastscriptr")
 
 test_that("checks input", {
-  skip("Fix helpers first")
   expect_error(
     beast_scriptr(
       input_fasta_filename = "nonexisting", # Error
@@ -51,7 +50,6 @@ test_that("checks input", {
 })
 
 test_that("beastscriptr test #1", {
-  skip("Fix helpers first")
 
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
@@ -66,6 +64,8 @@ test_that("beastscriptr test #1", {
     output_xml_filename = output_xml_filename
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
+  file.remove(output_xml_filename)
+  expect_equal(file.exists(output_xml_filename), FALSE)
   print("Tested to create an XML file successfully")
 })
 
@@ -97,6 +97,8 @@ test_that("beastscriptr test #2", {
     beastscriptr::save_text(filename = "expected.txt", text = expected_lines)
   }
   expect_equal(identical(created_lines,expected_lines), TRUE)
+  file.remove(filename = "created.txt")
+  file.remove(filename = "expected.txt")
 })
 
 test_that("beastscriptr test #3", {

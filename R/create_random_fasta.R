@@ -1,7 +1,6 @@
 #' Create a random FASTA file
 #' @param n_taxa The number of taxa
 #' @param sequence_length The number of base pairs the alignment will have
-#' @param rate mutation rate
 #' @param filename the name of the FASTA file created
 #' @return Nothing
 #' @export

@@ -12,8 +12,6 @@ create_random_fasta(n_taxa, sequence_length, filename)
 \item{sequence_length}{The number of base pairs the alignment will have}
 
 \item{filename}{the name of the FASTA file created}
-
-\item{rate}{mutation rate}
 }
 \value{
 Nothing
