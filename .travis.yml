@@ -23,7 +23,6 @@ before_script:
  - rm .travis.yml
  - rm -rf .git
  - rm -rf ..Rcheck
- - rm .Rprofile
 
 script: 
  - R CMD check .
