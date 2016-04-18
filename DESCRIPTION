@@ -1,16 +1,4 @@
 Package: beastscriptr
-Imports:
-    ape (>= 3.4),
-    phangorn(>= 2.0.2),
-    testit (>= 0.5)
-Suggests:
-    devtools (>= 1.10.0),
-    knitr (>= 1.12),
-    ggplot2 (>= 2.1.0),
-    lintr (>= 0.3.3),
-    rmarkdown (>= 0.9),
-    testthat (>= 0.11),
-    TreeSim (>= 2.2)
 Title: Create BEAST2 XML input files
 Version: 0.0.0.9000
 Authors@R: person("Richel", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"))
@@ -23,3 +11,15 @@ RoxygenNote: 5.0.1
 VignetteBuilder: knitr
 URL: https://github.com/richelbilderbeek/beastscript
 BugReports: https://github.com/richelbilderbeek/beastscript/issues
+Imports:
+    ape,
+    phangorn,
+    testit
+Suggests:
+    devtools,
+    knitr,
+    ggplot2,
+    lintr,
+    rmarkdown,
+    testthat,
+    TreeSim

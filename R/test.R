@@ -1,3 +1,10 @@
+get_existing_filename <- function() {
+  # Return an existing .trees filename
+
+}
+
+
+
 #' Get the path of a fasta file used in testing
 #' @return the path of a fasta file used in testing
 #' @examples
@@ -7,12 +14,17 @@
 #' @export
 get_input_fasta_filename <- function()
 {
-  my_file <- paste(getwd(), "/../../inst/extdata/test_output_0.fas", sep = "")
-  if (!file.exists(my_file))
-  {
-    stop("get_input_fasta_filename: file not found '", my_file, "'")
+  filenames <- c(
+    "test_output_0.fas",
+    "~/GitHubs/beastscriptr/inst/extdata/test_output_0.fas"
+  )
+  for (filename in filenames) {
+    if (file.exists(filename)) { return (filename) }
   }
-  my_file
+  stop(
+    "get_input_fasta_filename: ",
+    "cannot find the 'test_output_0.fas' file"
+  )
 }
 
 #' Get the path of a BEAST2 XML parameter file used in testing
@@ -24,10 +36,15 @@ get_input_fasta_filename <- function()
 #' @export
 get_output_xml_filename <- function()
 {
-  my_file <- paste(getwd(), "/../../inst/extdata/birth_death_0_20151005.xml", sep = "")
-  if (!file.exists(my_file))
-  {
-    stop("get_input_fasta_filename: file not found '", my_file, "'")
+  filenames <- c(
+    "birth_death_0_20151005.xml",
+    "~/GitHubs/beastscriptr/inst/extdata/birth_death_0_20151005.xml"
+  )
+  for (filename in filenames) {
+    if (file.exists(filename)) { return (filename) }
   }
-  my_file
+  stop(
+    "get_output_xml_filename: ",
+    "cannot find the 'birth_death_0_20151005.xml' file"
+  )
 }

@@ -1,10 +1,37 @@
-language: r
-cache: packages
+sudo: require
+language: cpp
+compiler: gcc
 
-r_github_packages:
-  - jimhester/lintr
-  - jimhester/covr
+before_install:
+  - sudo add-apt-repository --yes ppa:marutter/rrutter 
+  - sudo apt-get update -qq
 
-after_success:
-  - Rscript -e 'lintr::lint_package()'
-  - Rscript -e 'library(covr); codecov()'
+install: 
+  - sudo apt-get install -qq r-base r-base-dev 
+  - sudo apt-get install -qq texlive
+  - sudo pip install codecov
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+
+before_script:
+ - sudo Rscript install_r_packages.R
+ # R wants all hidden files gone...
+ - rm .gitignore
+ - rm .travis.yml
+ - rm -rf .git
+ - rm -rf ..Rcheck
+ - rm .Rprofile
+
+script: 
+ - R CMD check .
+
+after_succes:
+ - codecov
+
+after_failure:
+ - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00install.out
+ - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00check.log
+

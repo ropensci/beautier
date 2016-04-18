@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" version="2.0">
+
+
+    <data
+id="~/GitHubs/beastscriptr/inst/extdata/test_output_0"
+name="alignment">
+                    <sequence id="seq_t2" taxon="t2" totalcount="4" value="TCGTCATCCATGCGCGTAAC"/>
+                    <sequence id="seq_t3" taxon="t3" totalcount="4" value="CCGCGGGCCGAAGTACTCTC"/>
+                    <sequence id="seq_t4" taxon="t4" totalcount="4" value="CCCATGGCCGTACTCGACTC"/>
+                    <sequence id="seq_t1" taxon="t1" totalcount="4" value="CCGATGGCAGTACTCGTCTC"/>
+                    <sequence id="seq_t5" taxon="t5" totalcount="4" value="ACGTTGTACTTACTCAGATC"/>
+                </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform">beast.math.distributions.Uniform</map>
+<map name="Exponential">beast.math.distributions.Exponential</map>
+<map name="LogNormal">beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal">beast.math.distributions.Normal</map>
+<map name="Beta">beast.math.distributions.Beta</map>
+<map name="Gamma">beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution">beast.math.distributions.LaplaceDistribution</map>
+<map name="prior">beast.math.distributions.Prior</map>
+<map name="InverseGamma">beast.math.distributions.InverseGamma</map>
+<map name="OneOnX">beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10000000">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" name="stateNode">
+            <taxonset id="TaxonSet.~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="TaxonSet">
+                <alignment idref="~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+            </taxonset>
+        </tree>
+        <parameter id="birthRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" lower="0.0" name="stateNode" upper="10000.0">1.0</parameter>
+        <parameter id="relativeDeathRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
+    </state>
+
+    <init id="RandomTree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" taxa="@~/GitHubs/beastscriptr/inst/extdata/test_output_0">
+        <populationModel id="ConstantPopulation0.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="BirthDeath.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="beast.evolution.speciation.BirthDeathGernhard08Model" birthDiffRate="@birthRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" relativeDeathRate="@relativeDeathRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+            <prior id="BirthRatePrior.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" name="distribution" x="@birthRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0">
+                <Uniform id="Uniform.0" name="distr" upper="1000.0"/>
+            </prior>
+            <prior id="DeathRatePrior.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" name="distribution" x="@relativeDeathRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0">
+                <Uniform id="Uniform.01" name="distr"/>
+            </prior>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution">
+            <distribution id="treeLikelihood.~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="TreeLikelihood" data="@~/GitHubs/beastscriptr/inst/extdata/test_output_0" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0">
+                <siteModel id="SiteModel.s:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="SiteModel">
+                    <parameter id="mutationRate.s:~/GitHubs/beastscriptr/inst/extdata/test_output_0" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:~/GitHubs/beastscriptr/inst/extdata/test_output_0" estimate="false" name="shape">1.0</parameter>
+                    <parameter id="proportionInvariant.s:~/GitHubs/beastscriptr/inst/extdata/test_output_0" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="JC69.s:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="JukesCantor"/>
+                </siteModel>
+                <branchRateModel id="StrictClock.c:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter id="clockRate.c:~/GitHubs/beastscriptr/inst/extdata/test_output_0" estimate="false" name="clock.rate">1.0</parameter>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="treeScaler.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="3.0"/>
+
+    <operator id="treeRootScaler.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="3.0"/>
+
+    <operator id="UniformOperator.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="Uniform" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="30.0"/>
+
+    <operator id="SubtreeSlide.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="SubtreeSlide" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="15.0"/>
+
+    <operator id="narrow.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="Exchange" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="15.0"/>
+
+    <operator id="wide.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="Exchange" isNarrow="false" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="3.0"/>
+
+    <operator id="WilsonBalding.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="WilsonBalding" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" weight="3.0"/>
+
+    <operator id="BirthRateScaler.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="ScaleOperator" parameter="@birthRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" scaleFactor="0.75" weight="3.0"/>
+
+    <operator id="DeathRateScaler.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="ScaleOperator" parameter="@relativeDeathRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" scaleFactor="0.75" weight="3.0"/>
+
+    <logger id="tracelog" fileName="~/GitHubs/beastscriptr/inst/extdata/test_output_0.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+        <log id="TreeHeight.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+        <log idref="BirthDeath.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+        <log idref="birthRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+        <log idref="relativeDeathRate2.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" fileName="$(tree).trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:~/GitHubs/beastscriptr/inst/extdata/test_output_0"/>
+    </logger>
+
+</run>
+
+</beast>

@@ -1,5 +1,7 @@
 context("test_beastscriptr")
 
+
+
 test_that("checks input", {
   expect_error(
     beast_scriptr(
@@ -66,18 +68,17 @@ test_that("beastscriptr test #1", {
   expect_equal(file.exists(output_xml_filename), TRUE)
   file.remove(output_xml_filename)
   expect_equal(file.exists(output_xml_filename), FALSE)
-  print("Tested to create an XML file successfully")
 })
 
 
 
 test_that("beastscriptr test #2", {
-  skip("Fix helpers first")
+  #skip("Fix helpers first")
 
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
   input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <- "test_output_0.xml"
+  output_xml_filename <-  "test_output_0.xml"
   expected_output_xml_filename <- get_output_xml_filename()
   expect_equal(file.exists(input_fasta_filename), TRUE) # Input file must be found
   expect_equal(file.exists(expected_output_xml_filename), TRUE) # Expected file must be present
@@ -93,12 +94,14 @@ test_that("beastscriptr test #2", {
   created_lines <- readLines(output_xml_filename)
   expected_lines <- readLines(expected_output_xml_filename)
   if (!identical(created_lines,expected_lines)) {
-    beastscriptr::save_text(filename = "created.txt", text = created_lines)
-    beastscriptr::save_text(filename = "expected.txt", text = expected_lines)
+    save_text(filename = "created.txt", text = created_lines)
+    save_text(filename = "expected.txt", text = expected_lines)
+  } else {
+    expect_identical(created_lines,expected_lines)
+    file.remove(filename = "created.txt")
+    file.remove(filename = "expected.txt")
+    file.remove(filename = output_xml_filename)
   }
-  expect_equal(identical(created_lines,expected_lines), TRUE)
-  file.remove(filename = "created.txt")
-  file.remove(filename = "expected.txt")
 })
 
 test_that("beastscriptr test #3", {
@@ -140,6 +143,4 @@ test_that("beastscriptr test #3", {
 
   cmd <- paste("java -jar ~/Programs/beast/lib/beast.jar",output_xml_filename)
   system(cmd)
-
-  print("Tested to create an XML file successfully. If you saw BEAST2 output, it worked!")
 })

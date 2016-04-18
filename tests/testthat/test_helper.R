@@ -36,8 +36,6 @@ test_that("create_random_fasta", {
 
 })
 
-
-
 test_that("save_text", {
   filename <- "tmp.txt"
   text <- c("Hello","world")
