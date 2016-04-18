@@ -4,11 +4,11 @@
     <data
 id="~/GitHubs/beastscriptr/inst/extdata/test_output_0"
 name="alignment">
-                    <sequence id="seq_t2" taxon="t2" totalcount="4" value="TCGTCATCCATGCGCGTAAC"/>
-                    <sequence id="seq_t3" taxon="t3" totalcount="4" value="CCGCGGGCCGAAGTACTCTC"/>
-                    <sequence id="seq_t4" taxon="t4" totalcount="4" value="CCCATGGCCGTACTCGACTC"/>
-                    <sequence id="seq_t1" taxon="t1" totalcount="4" value="CCGATGGCAGTACTCGTCTC"/>
-                    <sequence id="seq_t5" taxon="t5" totalcount="4" value="ACGTTGTACTTACTCAGATC"/>
+                    <sequence id="seq_t4" taxon="t4" totalcount="4" value="AACGACCCGCGATCGGGGAT"/>
+                    <sequence id="seq_t1" taxon="t1" totalcount="4" value="ACTTGTTGCGACTGCGCCTG"/>
+                    <sequence id="seq_t5" taxon="t5" totalcount="4" value="ACTTGTTGCGACTGAGCCTG"/>
+                    <sequence id="seq_t2" taxon="t2" totalcount="4" value="ACTTATTGCGACTGAGGCCG"/>
+                    <sequence id="seq_t3" taxon="t3" totalcount="4" value="ACTTAATGCGAATGAGCCCG"/>
                 </data>
 
 

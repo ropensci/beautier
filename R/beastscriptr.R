@@ -1,6 +1,3 @@
-# source("~/GitHubs/R/Phylogenies/convert_fasta_file_to_sequences.R")
-# source("~/GitHubs/R/FileIo/remove_file_extension.R")
-
 #' Create a BEAST2 XML parameter file
 #' @param input_fasta_filename Filename of a fasta file
 #' @param mcmc_chainlength Length of MCMC chain
@@ -321,6 +318,10 @@ beast_scriptr <- function(
 }
 
 
+#' Convert a FASTA file to a table of sequences
+#' @param fasta_filename Name of an existing FASTA file
+#' @return a table of sequences
+#' @export
 convert_fasta_file_to_sequences <- function(fasta_filename) {
   if (!file.exists(fasta_filename)) {
     stop("convert_fasta_file_to_sequences: ",
@@ -352,6 +353,10 @@ convert_fasta_file_to_sequences <- function(fasta_filename) {
   return(table)
 }
 
+#' Remove a file extension
+#' @param filename A filename
+#' @return That filename without its extension
+#' @export
 remove_file_extension <- function(filename)
 {
   return(strsplit(filename, "\\.")[[1]][1])
