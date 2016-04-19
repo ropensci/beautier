@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000'>
+<statenode id='Tree.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab'>((((0:0.04830695645005423,1:0.04830695645005423)5:0.2264601239687008,3:0.274767080418755)6:0.0759095940463676,2:0.35067667446512263)7:0.4588554891806156,4:0.8095321636457382)8:0.0</statenode>
+<statenode id='birthRate2.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab'>birthRate2.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab[1 1] (0.0,10000.0): 0.2462349252684609 </statenode>
+<statenode id='relativeDeathRate2.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab'>relativeDeathRate2.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab[1 1] (0.0,1.0): 0.8308887311888814 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"treeScaler.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":0.5,"accept":185,"reject":172,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"treeRootScaler.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":0.5,"accept":142,"reject":245,"acceptFC":0,"rejectFC":0,"rejectIv":46,"rejectOp":46},
+{"id":"UniformOperator.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":"NaN","accept":2328,"reject":1591,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":1,"accept":380,"reject":1522,"acceptFC":0,"rejectFC":0,"rejectIv":680,"rejectOp":680},
+{"id":"narrow.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":"NaN","accept":717,"reject":1125,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"wide.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":"NaN","accept":49,"reject":337,"acceptFC":0,"rejectFC":0,"rejectIv":220,"rejectOp":220},
+{"id":"WilsonBalding.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":"NaN","accept":24,"reject":372,"acceptFC":0,"rejectFC":0,"rejectIv":220,"rejectOp":220},
+{"id":"BirthRateScaler.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":0.75,"accept":357,"reject":59,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler.t:/tmp/RtmpgvP5PX/beast_scriptr_test_a3525370eab","p":0.75,"accept":337,"reject":59,"acceptFC":0,"rejectFC":0,"rejectIv":9,"rejectOp":9}
+]}
+-->

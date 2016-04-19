@@ -1,10 +1,10 @@
->t5
-ccagctccat gagtaacgga
->t1
-ccagctccat gggtgacgga
->t2
-cacagcaaaa catacgcatt
->t3
-cacagctcaa gatatgccct
 >t4
-cacagctcaa gatatgccct
+tctcttccgg ttttatttag
+>t2
+tcagttcagg ttttatttgg
+>t3
+ggcgtacata tacaacgagt
+>t5
+ggcgtacata tacaacgagt
+>t1
+gagaaccgtc tacgtcaaga

@@ -104,7 +104,8 @@ name="alignment">
 
     <logger id="screenlog" logEvery="1000">
         <log idref="posterior"/>
-        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log id="ESS.0" spec="util.ESS"  arg="@posterior"/>
+
         <log idref="likelihood"/>
         <log idref="prior"/>
     </logger>

@@ -1,7 +1,5 @@
 context("test_beastscriptr")
 
-
-
 test_that("checks input", {
   expect_error(
     beast_scriptr(
@@ -51,13 +49,12 @@ test_that("checks input", {
   )
 })
 
-test_that("beastscriptr test #1", {
+test_that("Does beastscriptr produce a file?", {
 
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
   expect_equal(file.exists(input_fasta_filename), TRUE)
-  output_xml_filename <- "test_output_0.xml"
-  expect_equal(file.exists(input_fasta_filename), TRUE)
+  output_xml_filename <- tempfile()
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000000,
@@ -72,16 +69,18 @@ test_that("beastscriptr test #1", {
 
 
 
-test_that("beastscriptr test #2", {
-  #skip("Fix helpers first")
-
+test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
   input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <-  "test_output_0.xml"
+  output_xml_filename <-  tempfile()
   expected_output_xml_filename <- get_output_xml_filename()
-  expect_equal(file.exists(input_fasta_filename), TRUE) # Input file must be found
-  expect_equal(file.exists(expected_output_xml_filename), TRUE) # Expected file must be present
+  # Input file must be found
+  expect_equal(file.exists(input_fasta_filename), TRUE)
+  # To-be-created output file must be absent
+  expect_equal(file.exists(output_xml_filename), FALSE)
+  # Expected file must be present
+  expect_equal(file.exists(expected_output_xml_filename), TRUE)
 
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -104,9 +103,8 @@ test_that("beastscriptr test #2", {
   }
 })
 
-test_that("beastscriptr test #3", {
-  skip("Fix helpers first")
-
+test_that("Test if input file can be read by BEAST2", {
+  skip("Only if you have BEAST2 somewhere")
   # Creates an XML file from a generated FASTA file
 
   # Create FASTA file
@@ -114,7 +112,10 @@ test_that("beastscriptr test #3", {
     pattern = "beast_scriptr_test_",
     fileext = ".fas"
   )
-  expect_equal(file.exists(input_fasta_filename), FALSE) # Input file must not be present, otherwise BEAST2 will prompt the user when creating .trees files
+  # Input file must not be present,
+  # otherwise BEAST2 will prompt the user when creating .trees files
+  expect_equal(file.exists(input_fasta_filename), FALSE)
+
   n_taxa <- 5
   sequence_length <- 10
   create_random_fasta(
@@ -129,8 +130,10 @@ test_that("beastscriptr test #3", {
     fileext = ".xml"
   )
 
-  expect_equal(file.exists(input_fasta_filename), TRUE) # Input file must be found now
-  expect_equal(file.exists(output_xml_filename), FALSE) # Output file must not be present, otherwise BEAST2 will prompt the user
+  # Input file must be found now
+  expect_equal(file.exists(input_fasta_filename), TRUE)
+  # Output file must not be present, otherwise BEAST2 will prompt the user
+  expect_equal(file.exists(output_xml_filename), FALSE)
 
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,

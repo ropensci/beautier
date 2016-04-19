@@ -28,6 +28,9 @@ create_random_alignment <- function(
     )
   }
   phylogeny <- ape::rcoal(n = n_taxa)
-  alignments_phydat <- phangorn::simSeq(phylogeny, l = sequence_length, rate = rate)
+  alignments_phydat <- phangorn::simSeq(
+    phylogeny, l = sequence_length, rate = rate
+  )
   alignments_dnabin <- ape::as.DNAbin(alignments_phydat)
+  alignments_dnabin
 }

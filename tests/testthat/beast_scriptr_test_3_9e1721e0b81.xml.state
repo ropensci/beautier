@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000'>
+<statenode id='Tree.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04'>((0:0.1786616030971139,1:0.1786616030971139)7:0.631825704510031,(2:0.48758430481407455,(3:0.11952571711093304,4:0.11952571711093304)6:0.3680585877031415)5:0.32290300279307027)8:0.0</statenode>
+<statenode id='birthRate2.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04'>birthRate2.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04[1 1] (0.0,10000.0): 2.2547402746013736 </statenode>
+<statenode id='relativeDeathRate2.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04'>relativeDeathRate2.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04[1 1] (0.0,1.0): 0.1161377059387605 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"treeScaler.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":0.5,"accept":218,"reject":162,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"treeRootScaler.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":0.5,"accept":202,"reject":196,"acceptFC":0,"rejectFC":0,"rejectIv":31,"rejectOp":31},
+{"id":"UniformOperator.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":"NaN","accept":1385,"reject":2431,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":1,"accept":366,"reject":1576,"acceptFC":0,"rejectFC":0,"rejectIv":744,"rejectOp":744},
+{"id":"narrow.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":"NaN","accept":727,"reject":1203,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"wide.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":"NaN","accept":20,"reject":377,"acceptFC":0,"rejectFC":0,"rejectIv":218,"rejectOp":218},
+{"id":"WilsonBalding.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":"NaN","accept":9,"reject":381,"acceptFC":0,"rejectFC":0,"rejectIv":209,"rejectOp":209},
+{"id":"BirthRateScaler.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":0.75,"accept":311,"reject":48,"acceptFC":0,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler.t:/tmp/RtmpN6QJie/beast_scriptr_test_9e196bd04","p":0.75,"accept":321,"reject":68,"acceptFC":0,"rejectFC":0,"rejectIv":12,"rejectOp":12}
+]}
+-->
