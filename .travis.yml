@@ -33,4 +33,5 @@ after_succes:
 after_failure:
  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00install.out
  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00check.log
-
+ - find . | egrep "test_output_0.fas"
+ - find . | egrep "birth_death_0_20151005.xml"

@@ -18,7 +18,8 @@ get_input_fasta_filename <- function()
     "test_output_0.fas",
     "~/inst/extdata/test_output_0.fas",
     "~/beastscriptr/inst/extdata/test_output_0.fas",
-    "~/GitHubs/beastscriptr/inst/extdata/test_output_0.fas"
+    "~/GitHubs/beastscriptr/inst/extdata/test_output_0.fas",
+    "/home/travis/build/richelbilderbeek/beastscriptr/inst/extdata/test_output_0.fas"
   )
   for (filename in filenames) {
     if (file.exists(filename)) { return (filename) }
@@ -42,7 +43,8 @@ get_output_xml_filename <- function()
     "birth_death_0_20151005.xml",
     "~/inst/extdata/birth_death_0_20151005.xml",
     "~/beastscriptr/inst/extdata/birth_death_0_20151005.xml",
-    "~/GitHubs/beastscriptr/inst/extdata/birth_death_0_20151005.xml"
+    "~/GitHubs/beastscriptr/inst/extdata/birth_death_0_20151005.xml",
+    "/home/travis/build/richelbilderbeek/beastscriptr/inst/extdata/birth_death_0_20151005.xml"
   )
   for (filename in filenames) {
     if (file.exists(filename)) { return (filename) }
