@@ -16,6 +16,8 @@ get_input_fasta_filename <- function()
 {
   filenames <- c(
     "test_output_0.fas",
+    "~/inst/extdata/test_output_0.fas",
+    "~/beastscriptr/inst/extdata/test_output_0.fas",
     "~/GitHubs/beastscriptr/inst/extdata/test_output_0.fas"
   )
   for (filename in filenames) {
@@ -38,6 +40,8 @@ get_output_xml_filename <- function()
 {
   filenames <- c(
     "birth_death_0_20151005.xml",
+    "~/inst/extdata/birth_death_0_20151005.xml",
+    "~/beastscriptr/inst/extdata/birth_death_0_20151005.xml",
     "~/GitHubs/beastscriptr/inst/extdata/birth_death_0_20151005.xml"
   )
   for (filename in filenames) {
