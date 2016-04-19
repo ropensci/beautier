@@ -144,6 +144,6 @@ test_that("Test if input file can be read by BEAST2", {
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
 
-  cmd <- paste("java -jar ~/Programs/beast/lib/beast.jar",output_xml_filename)
+  cmd <- paste("java -jar ~/Programs/beast/lib/beast.jar", output_xml_filename)
   system(cmd)
 })

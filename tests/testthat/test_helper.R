@@ -12,8 +12,6 @@ test_that("locate birth_death_0_20151005.xml", {
   expect_equal(file.exists(get_output_xml_filename()), TRUE)
 })
 
-
-
 test_that("convert_fasta_file_to_sequences", {
   expect_silent(
     sequences_table <- convert_fasta_file_to_sequences(

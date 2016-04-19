@@ -17,4 +17,7 @@ Nothing
 \description{
 Save text (a container of strings) to a file
 }
+\author{
+Richel Bilderbeek
+}
 

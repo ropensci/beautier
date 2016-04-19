@@ -6,8 +6,6 @@ Maintainer: Richel Bilderbeek <richel@richelbilderbeek.nl>
 Description: BEAST2 needs an XML input file.
   Beauti is a GUI that does this, yet requires active user input.
   This R package creates indentical XML files from function parameters.
-Depends:
-    R
 License: file LICENSE
 LazyData: true
 RoxygenNote: 5.0.1
