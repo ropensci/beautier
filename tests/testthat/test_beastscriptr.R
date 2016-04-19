@@ -92,11 +92,11 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
   expect_equal(file.exists(output_xml_filename), TRUE)
   created_lines <- readLines(output_xml_filename)
   expected_lines <- readLines(expected_output_xml_filename)
-  if (!identical(created_lines,expected_lines)) {
+  if (!identical(created_lines, expected_lines)) {
     save_text(filename = "created.txt", text = created_lines)
     save_text(filename = "expected.txt", text = expected_lines)
   } else {
-    expect_identical(created_lines,expected_lines)
+    expect_identical(created_lines, expected_lines)
     file.remove(filename = "created.txt")
     file.remove(filename = "expected.txt")
     file.remove(filename = output_xml_filename)

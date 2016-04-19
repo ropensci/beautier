@@ -36,7 +36,7 @@ test_that("create_random_fasta", {
 
 test_that("save_text", {
   filename <- tempfile()
-  text <- c("Hello","world")
+  text <- c("Hello", "world")
   save_text(
     filename = filename,
     text = text

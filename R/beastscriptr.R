@@ -59,9 +59,9 @@ beast_scriptr <- function(
   text <- c(text, paste("id=\"", filename_base, "\"", sep = ""))
   text <- c(text, "name=\"alignment\">")
   sequences_table <- convert_fasta_file_to_sequences(input_fasta_filename)
-  sequences <- cbind(rownames(sequences_table),sequences_table)
+  sequences <- cbind(rownames(sequences_table), sequences_table)
 
-  apply(sequences,1,function(row) {
+  apply(sequences, 1, function(row) {
       nextline <- paste(
         "                    <sequence id=\"seq_",
         row[1],
@@ -133,7 +133,7 @@ beast_scriptr <- function(
   text <- c(text, "")
   text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
     "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-    " initial=\"@Tree.t:", filename_base, "\" taxa=\"@",filename_base, "\">",
+    " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
     sep = ""))
   text <- c(text, paste("        <populationModel id=\"ConstantPopulation0.t:",
     filename_base, "\" spec=\"ConstantPopulation\">", sep = ""))
@@ -207,7 +207,7 @@ beast_scriptr <- function(
       )
     )
   text <- c(text, paste("            <distribution id=\"treeLikelihood.",
-    filename_base, "\" spec=\"TreeLikelihood\" data=\"@",filename_base,
+    filename_base, "\" spec=\"TreeLikelihood\" data=\"@", filename_base,
     "\" tree=\"@Tree.t:", filename_base, "\">", sep = ""))
   text <- c(text, paste("                <siteModel id=\"SiteModel.s:",
     filename_base, "\" spec=\"SiteModel\">", sep = ""))
@@ -241,26 +241,26 @@ beast_scriptr <- function(
   text <- c(text, "")
   text <- c(text, paste("    <operator id=\"treeRootScaler.t:", filename_base,
     "\" spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
-    "tree=\"@Tree.t:",filename_base, "\" weight=\"3.0\"/>", sep = ""))          # nolint (as this is no absolute path)
+    "tree=\"@Tree.t:", filename_base, "\" weight=\"3.0\"/>", sep = ""))          # nolint (as this is no absolute path)
   text <- c(text, "")
   text <- c(text, paste("    <operator id=\"UniformOperator.t:", filename_base,
-    "\" spec=\"Uniform\" tree=\"@Tree.t:",filename_base,
+    "\" spec=\"Uniform\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"30.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"SubtreeSlide.t:",filename_base,
-    "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:",filename_base,
+  text <- c(text, paste("    <operator id=\"SubtreeSlide.t:", filename_base,
+    "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"narrow.t:",filename_base,
-    "\" spec=\"Exchange\" tree=\"@Tree.t:",filename_base,
+  text <- c(text, paste("    <operator id=\"narrow.t:", filename_base,
+    "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"wide.t:",filename_base,
+  text <- c(text, paste("    <operator id=\"wide.t:", filename_base,
     "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"3.0\"/>", sep = ""))                                           # nolint (as this is no absolute path)
   text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"WilsonBalding.t:",filename_base,
-    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:",filename_base,
+  text <- c(text, paste("    <operator id=\"WilsonBalding.t:", filename_base,
+    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"3.0\"/>", sep = ""))                                           # nolint (as this is no absolute path)
   text <- c(text, "")
 
@@ -306,7 +306,7 @@ beast_scriptr <- function(
     text <- c(text, paste("        <parameter idref=\"popSize.t:",
       filename_base, "\" name=\"log\"/>", sep = ""))                            # nolint (as this is no absolute path)
     text <- c(text, paste("        <log idref=\"CoalescentConstant.t:",
-      filename_base, "\"/>",sep = ""))                                          # nolint (as this is no absolute path)
+      filename_base, "\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   }
 
   text <- c(text, "    </logger>")
