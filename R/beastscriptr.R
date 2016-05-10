@@ -363,7 +363,7 @@ convert_fasta_file_to_sequences <- function(fasta_filename) {
   sequences <- NULL
 
   for (line in chars) {
-    sequence <- capture.output(cat(line, sep = ""))
+    sequence <- utils::capture.output(cat(line, sep = ""))
     sequences <- c(sequences, sequence)
   }
 
