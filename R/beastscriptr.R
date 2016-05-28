@@ -4,6 +4,7 @@
 #' @param tree_prior The tree prior, can be 'birth_death' or 'coalescent_constant_population'
 #' @param date_str The date of today in some unknown format
 #' @param  output_xml_filename Filename of the XML parameter file created
+#' @param verbose give verbose output, should be TRUE or FALSE
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
@@ -35,6 +36,12 @@ beast_scriptr <- function(
          "instead of '",
          mcmc_chainlength,
          "'"
+    )
+  }
+  if (verbose != TRUE && verbose != FALSE) {
+    stop(
+      "convert_alignment_to_beast_input_file: ",
+      "verbose should be TRUE or FALSE"
     )
   }
 
