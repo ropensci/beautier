@@ -104,7 +104,6 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
 })
 
 test_that("Test if input file can be read by BEAST2", {
-  skip("Only if you have BEAST2 somewhere")
   # Creates an XML file from a generated FASTA file
 
   # Create FASTA file
@@ -140,10 +139,14 @@ test_that("Test if input file can be read by BEAST2", {
     mcmc_chainlength = 10000,
     tree_prior = "birth_death",
     date_str = "20151022",
-    output_xml_filename = output_xml_filename
+    output_xml_filename = output_xml_filename,
+    verbose = FALSE
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
 
-  cmd <- paste("java -jar ~/Programs/beast/lib/beast.jar", output_xml_filename)
+  cmd <- paste(
+    "java -jar ~/Programs/beast/lib/beast.jar",
+    output_xml_filename, "1>/dev/null 2>/dev/null"
+  )
   system(cmd)
 })

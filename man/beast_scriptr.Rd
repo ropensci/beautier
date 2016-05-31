@@ -5,7 +5,7 @@
 \title{Create a BEAST2 XML parameter file}
 \usage{
 beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior, date_str,
-  output_xml_filename)
+  output_xml_filename, verbose = FALSE)
 }
 \arguments{
 \item{input_fasta_filename}{Filename of a fasta file}
@@ -17,6 +17,8 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior, date_str,
 \item{date_str}{The date of today in some unknown format}
 
 \item{output_xml_filename}{Filename of the XML parameter file created}
+
+\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \description{
 Create a BEAST2 XML parameter file

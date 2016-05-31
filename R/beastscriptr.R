@@ -3,7 +3,7 @@
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_prior The tree prior, can be 'birth_death' or 'coalescent_constant_population'
 #' @param date_str The date of today in some unknown format
-#' @param  output_xml_filename Filename of the XML parameter file created
+#' @param output_xml_filename Filename of the XML parameter file created
 #' @param verbose give verbose output, should be TRUE or FALSE
 #' @export
 beast_scriptr <- function(
@@ -11,7 +11,8 @@ beast_scriptr <- function(
   mcmc_chainlength,
   tree_prior,
   date_str,
-  output_xml_filename
+  output_xml_filename,
+  verbose = FALSE
 ) {
   if (!file.exists(input_fasta_filename)) {
     stop("beast_scriptr: ",

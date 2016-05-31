@@ -10,6 +10,7 @@ install:
   - sudo apt-get install -qq r-base r-base-dev 
   - sudo apt-get install -qq texlive
   - sudo pip install codecov
+  - ./install_beast2.sh
 
 addons:
   apt:
@@ -28,9 +29,14 @@ script:
  - R CMD check .
 
 after_succes:
+ - Rscript -e 'lintr::lint_package()'
+ - Rscript -e 'library(covr); codecov()'
  - codecov
+ - bash <(curl -s https://codecov.io/bash)
 
 after_failure:
+ - Rscript -e 'lintr::lint_package()'
+ - Rscript -e 'library(covr); codecov()'
  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00install.out
  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00check.log
  - find . | egrep "test_output_0.fas"
