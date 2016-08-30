@@ -1,43 +1,31 @@
-sudo: require
-language: cpp
-compiler: gcc
+language: r
+cache: packages
 
-before_install:
-  - sudo add-apt-repository --yes ppa:marutter/rrutter 
-  - sudo apt-get update -qq
-
-install: 
-  - sudo apt-get install -qq r-base r-base-dev 
-  - sudo apt-get install -qq texlive
-  - sudo pip install codecov
-  - ./install_beast2.sh
-
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
+r_github_packages:
+  - jimhester/covr
+  - jimhester/lintr
+  - MangoTheCat/goodpractice
+  - beast-dev/RBeast
 
 before_script:
- - sudo Rscript install_r_packages.R
- # R wants all hidden files gone...
- - rm .gitignore
- - rm .travis.yml
- - rm -rf .git
- - rm -rf ..Rcheck
+  - sudo apt-get install -qq oracle-java8-installer # Java 8
+  - sudo apt-get install oracle-java8-set-default
+  - ./install_beast2.sh
 
-script: 
- - R CMD check .
-
-after_succes:
- - Rscript -e 'lintr::lint_package()'
- - Rscript -e 'library(covr); codecov()'
- - codecov
- - bash <(curl -s https://codecov.io/bash)
-
+after_success:
+  - Rscript -e 'lintr::lint_package()'
+  - Rscript -e 'covr::codecov()'
+  - Rscript -e 'goodpractice::gp()'
+ 
 after_failure:
- - Rscript -e 'lintr::lint_package()'
- - Rscript -e 'library(covr); codecov()'
- - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00install.out
- - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00check.log
- - find . | egrep "test_output_0.fas"
- - find . | egrep "birth_death_0_20151005.xml"
+  - sudo Rscript install_this_r_package.R
+  - Rscript -e 'library(Cer2016); testit::assert(has_beast2())'
+  - cat /home/travis/build/richelbilderbeek/Cer2016/..Rcheck/00install.out
+  - cat /home/travis/build/richelbilderbeek/Cer2016/..Rcheck/00check.log
+  - cd ~; find . | egrep "beast"
+  - cd ~; find . | egrep "\.log"
+  - cd ~; find . | egrep "\.trees"
+  - cd ~; find . | egrep "\.xml"
+  - cd ~; find . | egrep "\.xml\.state"
+  - cd ~; find . | egrep "\.fasta"
+  - cat /home/travis/build/richelbilderbeek/Cer2016/..Rcheck/tests/testthat/testthat.log
