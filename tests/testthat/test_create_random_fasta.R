@@ -29,6 +29,14 @@ test_that("checks input", {
     create_random_fasta(
       n_taxa = 5,
       sequence_length = 20,
+      filename = ape::rcoal(4)
+    )
+  )
+
+  expect_error(
+    create_random_fasta(
+      n_taxa = 5,
+      sequence_length = 20,
       filename = "" # Error
     )
   )

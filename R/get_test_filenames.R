@@ -6,21 +6,11 @@
 #'   testit::assert(does_exist)
 #' @export
 get_input_fasta_filename <- function() {
-  filenames <- c(
-    "test_output_0.fas",
-    "~/inst/extdata/test_output_0.fas",                                               # nolint
-    "~/beastscriptr/inst/extdata/test_output_0.fas",                                  # nolint
-    "~/GitHubs/beastscriptr/inst/extdata/test_output_0.fas",                          # nolint
-    "/home/travis/build/richelbilderbeek/beastscriptr/inst/extdata/test_output_0.fas" # nolint
-  )
-  for (filename in filenames) {
-    if (file.exists(filename)) {
-      return(filename)
-    }
-  }
-  stop(
-    "get_input_fasta_filename: ",
-    "cannot find the 'test_output_0.fas' file"
+
+  return (
+    system.file(
+      "extdata", "test_output_0.fas", package = "beastscriptr"
+    )
   )
 }
 
@@ -32,20 +22,9 @@ get_input_fasta_filename <- function() {
 #'   testit::assert(does_exist)
 #' @export
 get_output_xml_filename <- function() {
-  filenames <- c(
-    "birth_death_0_20151005.xml",
-    "~/inst/extdata/birth_death_0_20151005.xml",                                                # nolint
-    "~/beastscriptr/inst/extdata/birth_death_0_20151005.xml",                                   # nolint
-    "~/GitHubs/beastscriptr/inst/extdata/birth_death_0_20151005.xml",                           # nolint
-    "/home/travis/build/richelbilderbeek/beastscriptr/inst/extdata/birth_death_0_20151005.xml"  # nolint
-  )
-  for (filename in filenames) {
-    if (file.exists(filename)) {
-      return(filename)
-    }
-  }
-  stop(
-    "get_output_xml_filename: ",
-    "cannot find the 'birth_death_0_20151005.xml' file"
+  return (
+    system.file(
+      "extdata", "birth_death_0_20151005.xml", package = "beastscriptr"
+    )
   )
 }

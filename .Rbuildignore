@@ -1,4 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^install_r_packages.R$
-^.travis.yml$
+^\.travis\.yml$
+^Codecov\.png$
+^TravisCI\.png$
+^Whitespace\.png$

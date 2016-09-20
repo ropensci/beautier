@@ -10,22 +10,13 @@ create_random_alignment <- function(
   rate = 1
 ) {
   if (n_taxa < 2) {
-    stop("create_random_alignment: ",
-         "need n_taxa >= 2, ",
-         "instead of ", n_taxa
-    )
+    stop("need n_taxa >= 2")
   }
-  if (n_taxa < 2) {
-    stop("create_random_alignment: ",
-         "need sequence_length >= 1, ",
-         "instead of ", sequence_length
-    )
+  if (sequence_length < 1) {
+    stop("need sequence_length >= 1")
   }
   if (rate < 0.0 || rate > 1.0) {
-    stop("create_random_alignment: ",
-         "rate needs to be [0.0, 1.0], ",
-         "instead of ", rate
-    )
+    stop("rate needs to be [0.0, 1.0]")
   }
   phylogeny <- ape::rcoal(n = n_taxa)
   alignments_phydat <- phangorn::simSeq(

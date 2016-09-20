@@ -9,26 +9,16 @@ create_random_fasta <- function(
   sequence_length,
   filename) {
   if (n_taxa < 2) {
-    stop("create_random_fasta: ",
-         "need n_taxa >= 2, ",
-         "instead of ", n_taxa
-    )
+    stop("need n_taxa >= 2")
   }
-  if (n_taxa < 2) {
-    stop("create_random_fasta: ",
-         "need sequence_length >= 1, ",
-         "instead of ", sequence_length
-    )
+  if (sequence_length < 1) {
+    stop("need sequence_length >= 1")
   }
   if (!is.character(filename)) {
-    stop("create_random_fasta: ",
-         "filename must be a character string"
-    )
+    stop("filename must be a character string")
   }
   if (filename == "") {
-    stop("create_random_fasta: ",
-         "filename must have non-zero length"
-    )
+    stop("filename must have non-zero length")
   }
   alignments <- beastscriptr::create_random_alignment(n_taxa, sequence_length)
   phangorn::write.phyDat(alignments, file = filename, format = "fasta")
