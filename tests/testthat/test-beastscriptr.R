@@ -1,6 +1,7 @@
 context("test_beastscriptr")
 
 test_that("checks input", {
+
   expect_error(
     beast_scriptr(
       input_fasta_filename = "nonexisting", # Error
@@ -37,7 +38,7 @@ test_that("checks input", {
 
 })
 
-test_that("Does beastscriptr produce a file?", {
+test_that("beastscriptr: produce a file for birth-death?", {
 
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
@@ -47,6 +48,23 @@ test_that("Does beastscriptr produce a file?", {
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
+    output_xml_filename = output_xml_filename
+  )
+  expect_equal(file.exists(output_xml_filename), TRUE)
+  file.remove(output_xml_filename)
+  expect_equal(file.exists(output_xml_filename), FALSE)
+})
+
+test_that("beastscriptr: produce a file for coalescent_constant_population?", {
+
+  # Creates an XML file from a known-to-be-valid input file
+  input_fasta_filename <- get_input_fasta_filename()
+  expect_equal(file.exists(input_fasta_filename), TRUE)
+  output_xml_filename <- tempfile()
+  beast_scriptr(
+    input_fasta_filename = input_fasta_filename,
+    mcmc_chainlength = 10000000,
+    tree_prior = "coalescent_constant_population",
     output_xml_filename = output_xml_filename
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
