@@ -101,6 +101,8 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
     file.remove(filename = "expected.txt")
     file.remove(filename = output_xml_filename)
   }
+  file.remove(filename = "created.txt")
+  file.remove(filename = "expected.txt")
 })
 
 test_that("Test if input file can be read by BEAST2", {

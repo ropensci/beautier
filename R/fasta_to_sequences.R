@@ -3,11 +3,9 @@
 #' @return a table of sequences
 #' @export
 fasta_file_to_sequences <- function(fasta_filename) {
+
   if (!file.exists(fasta_filename)) {
-    stop("fasta_filename with path '",
-         fasta_filename,
-         "' is not found"
-    )
+    stop("fasta_filename not found")
   }
 
   # Read the file

@@ -1,13 +1,20 @@
 context("create_random_fasta")
 
-test_that("checks input", {
+test_that("create_random_fasta: use", {
+  filename <- tempfile()
   expect_silent(
-    create_random_fasta(
+    sequences_table <- create_random_fasta(
       n_taxa = 5,
       sequence_length = 20,
-      filename = "test.fasta"
+      filename = filename
     )
   )
+  expect_true(file.exists(filename))
+  file.remove(filename)
+  expect_false(file.exists(filename))
+})
+
+test_that("create_random_fasta: abuse", {
 
   expect_error(
     create_random_fasta(
