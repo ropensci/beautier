@@ -1,6 +1,6 @@
 Package: beastscriptr
 Title: Create BEAST2 XML input files
-Version: 1.0
+Version: 1.2
 Author: Richel Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel Bilderbeek <richel@richelbilderbeek.nl>
 Description: BEAST2 needs an XML input file.
