@@ -30,7 +30,7 @@ test_that("checks input", {
       input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
       tree_prior = "birth_death",
-      verbrose = "not TRUE nor FALSE", # Error
+      verbose = "not TRUE nor FALSE", # Error
       output_xml_filename = "output.xml"
     )
   )

@@ -13,35 +13,17 @@ beast_scriptr <- function(
   verbose = FALSE
 ) {
   if (!file.exists(input_fasta_filename)) {
-    stop("beast_scriptr: ",
-         "input_fasta_filename with path '",
-         input_fasta_filename,
-         "' is not found"
-    )
+    stop("input_fasta_filename not found")
   }
   if (tree_prior != "birth_death" &&
       tree_prior != "coalescent_constant_population") {
-    stop("beast_scriptr: ",
-         "tree_prior must be 'birth_death' ",
-         "or 'coalescent_constant_population', ",
-         "instead of '",
-         tree_prior,
-         "'"
-    )
+    stop("tree_prior is not recognized")
   }
   if (mcmc_chainlength <= 0) {
-    stop("beast_scriptr: ",
-         "mcmc_chainlength must be positive, ",
-         "instead of '",
-         mcmc_chainlength,
-         "'"
-    )
+    stop("mcmc_chainlength must be positive")
   }
   if (verbose != TRUE && verbose != FALSE) {
-    stop(
-      "convert_alignment_to_beast_input_file: ",
-      "verbose should be TRUE or FALSE"
-    )
+    stop("verbose should be TRUE or FALSE")
   }
 
   # Make a million show as 1000000 instead of 1e+06
