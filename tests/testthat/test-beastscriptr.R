@@ -6,47 +6,35 @@ test_that("checks input", {
       input_fasta_filename = "nonexisting", # Error
       mcmc_chainlength = 1000,
       tree_prior = "birth_death",
-      date_str = "20160314",
       output_xml_filename = "output.xml"
     )
   )
   expect_error(
     beast_scriptr(
-      input_fasta_filename = "existing",
+      input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 0, # Error
       tree_prior = "birth_death",
-      date_str = "20160314",
       output_xml_filename = "output.xml"
     )
   )
   expect_error(
     beast_scriptr(
-      input_fasta_filename = "existing",
+      input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
       tree_prior = "nonsense", # Error
-      date_str = "20160314",
       output_xml_filename = "output.xml"
     )
   )
   expect_error(
     beast_scriptr(
-      input_fasta_filename = "existing",
+      input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
       tree_prior = "birth_death",
-      date_str = "20160314", # Error
+      verbrose = "not TRUE nor FALSE", # Error
       output_xml_filename = "output.xml"
     )
   )
 
-  expect_error(
-    beast_scriptr(
-      input_fasta_filename = "existing",
-      mcmc_chainlength = 1000,
-      tree_prior = "birth_death",
-      date_str = "20160314",
-      output_xml_filename = "output.bat" # Error
-    )
-  )
 })
 
 test_that("Does beastscriptr produce a file?", {
@@ -59,7 +47,6 @@ test_that("Does beastscriptr produce a file?", {
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
-    date_str = "20151022",
     output_xml_filename = output_xml_filename
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
@@ -86,7 +73,6 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
-    date_str = "20151022",
     output_xml_filename = output_xml_filename
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
@@ -144,7 +130,6 @@ test_that("Test if input file can be read by BEAST2", {
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_prior = "birth_death",
-    date_str = "20151022",
     output_xml_filename = output_xml_filename,
     verbose = FALSE
   )

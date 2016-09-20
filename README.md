@@ -26,7 +26,6 @@ beast_scriptr(
   input_fasta_filename = fasta_filename,
   mcmc_chainlength = mcmc_chainlength,
   tree_prior = tree_prior,
-  date_str = date_str,
   output_xml_filename = output_xml_filename
 )
 ```

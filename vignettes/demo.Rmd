@@ -78,10 +78,6 @@ mcmc_chainlength <- 10000000
 tree_prior <- "birth_death"
 # tree_prior <- "coalescent_constant_population"
 
-# The date in YYYYMMDD format. 
-# This is important, as BEAST2 and BEAUti2 can change formats
-date_str <- "20151022"
-
 # The name of the file you intend to let BEAST2 run
 output_xml_filename <- "demo.xml"
 ```
@@ -94,7 +90,6 @@ beast_scriptr(
   input_fasta_filename = fasta_filename,
   mcmc_chainlength = mcmc_chainlength,
   tree_prior = tree_prior,
-  date_str = date_str,
   output_xml_filename = output_xml_filename
 )
 

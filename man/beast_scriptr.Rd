@@ -4,7 +4,7 @@
 \alias{beast_scriptr}
 \title{Create a BEAST2 XML parameter file}
 \usage{
-beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior, date_str,
+beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
   output_xml_filename, verbose = FALSE)
 }
 \arguments{
@@ -13,8 +13,6 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior, date_str,
 \item{mcmc_chainlength}{Length of MCMC chain}
 
 \item{tree_prior}{The tree prior, can be 'birth_death' or 'coalescent_constant_population'}
-
-\item{date_str}{The date of today in some unknown format}
 
 \item{output_xml_filename}{Filename of the XML parameter file created}
 
