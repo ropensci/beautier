@@ -133,7 +133,7 @@ test_that("Test if input file can be read by BEAST2", {
 
   # The output file created when it BEAST2 can run
   # (which only happens if the input is valid)
-  output_xml_state_filename <- basename(paste0(output_xml_filename,".state"))
+  output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
 
   # Input file must be found now
   expect_equal(file.exists(input_fasta_filename), TRUE)
