@@ -66,7 +66,7 @@ beast_scriptr <- function(
   text <- c(text, "    <data")
   text <- c(text, paste("id=\"", filename_base, "\"", sep = ""))
   text <- c(text, "name=\"alignment\">")
-  sequences_table <- beastscripts::fasta_file_to_sequences(input_fasta_filename)
+  sequences_table <- beastscriptr::fasta_file_to_sequences(input_fasta_filename)
   sequences <- cbind(rownames(sequences_table), sequences_table)
 
   apply(sequences, 1, function(row) {
