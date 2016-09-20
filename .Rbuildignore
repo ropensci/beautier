@@ -5,3 +5,5 @@
 ^Codecov\.png$
 ^TravisCI\.png$
 ^Whitespace\.png$
+^create_pdf\.sh$
+^demo\.pdf$
