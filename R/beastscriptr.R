@@ -3,14 +3,12 @@
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_prior The tree prior, can be 'birth_death' or 'coalescent_constant_population'
 #' @param output_xml_filename Filename of the XML parameter file created
-#' @param verbose give verbose output, should be TRUE or FALSE
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
   mcmc_chainlength,
   tree_prior,
-  output_xml_filename,
-  verbose = FALSE
+  output_xml_filename
 ) {
   if (!file.exists(input_fasta_filename)) {
     stop("input_fasta_filename not found")
@@ -21,9 +19,6 @@ beast_scriptr <- function(
   }
   if (mcmc_chainlength <= 0) {
     stop("mcmc_chainlength must be positive")
-  }
-  if (verbose != TRUE && verbose != FALSE) {
-    stop("verbose should be TRUE or FALSE")
   }
 
   # Make a million show as 1000000 instead of 1e+06

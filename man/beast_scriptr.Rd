@@ -5,7 +5,7 @@
 \title{Create a BEAST2 XML parameter file}
 \usage{
 beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
-  output_xml_filename, verbose = FALSE)
+  output_xml_filename)
 }
 \arguments{
 \item{input_fasta_filename}{Filename of a fasta file}
@@ -15,8 +15,6 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
 \item{tree_prior}{The tree prior, can be 'birth_death' or 'coalescent_constant_population'}
 
 \item{output_xml_filename}{Filename of the XML parameter file created}
-
-\item{verbose}{give verbose output, should be TRUE or FALSE}
 }
 \description{
 Create a BEAST2 XML parameter file

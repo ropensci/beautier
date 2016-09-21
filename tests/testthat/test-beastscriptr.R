@@ -26,16 +26,6 @@ test_that("checks input", {
       output_xml_filename = "output.xml"
     )
   )
-  expect_error(
-    beast_scriptr(
-      input_fasta_filename = get_input_fasta_filename(),
-      mcmc_chainlength = 1000,
-      tree_prior = "birth_death",
-      verbose = "not TRUE nor FALSE", # Error
-      output_xml_filename = "output.xml"
-    )
-  )
-
 })
 
 test_that("beastscriptr: produce a file for birth-death?", {
@@ -148,8 +138,7 @@ test_that("Test if input file can be read by BEAST2", {
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_prior = "birth_death",
-    output_xml_filename = output_xml_filename,
-    verbose = FALSE
+    output_xml_filename = output_xml_filename
   )
   expect_equal(file.exists(output_xml_filename), TRUE)
 
