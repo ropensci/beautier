@@ -188,6 +188,19 @@ test_that("Can specify fixed crown age", {
   created_lines_fixed <- readLines(output_xml_filename_fixed)
   created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
 
-  beastscriptr::save_text(filename = "~/created.txt", text = created_lines_fixed)
-  print(created_lines_fixed)
+  # Check grep
+  testit::assert(length(grep(pattern = "operator", x = created_lines_fixed)) > 0)
+  testit::assert(length(grep(pattern = "XYZ_ABSENT", x = created_lines_fixed)) == 0)
+
+  # narrow exchange, wide exchange, Wilson Balding and subtree slide
+  testthat::expect_equal(1,
+    length(grep(pattern = "<operator id=\"narrow", x = created_lines_nonfixed))
+  )
+  #NEW
+  #testthat::expect_equal(0,
+  #  length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
+  #)
+
+  #beastscriptr::save_text(filename = "~/created.txt", text = created_lines_fixed)
+  #print(created_lines_fixed)
 })
