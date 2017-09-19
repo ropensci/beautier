@@ -193,12 +193,33 @@ test_that("Can specify fixed crown age", {
   testit::assert(length(grep(pattern = "operator", x = created_lines_fixed)) > 0)
   testit::assert(length(grep(pattern = "XYZ_ABSENT", x = created_lines_fixed)) == 0)
 
-  # narrow exchange, wide exchange, Wilson Balding and subtree slide
+  # narrow exchange
   testthat::expect_equal(1,
     length(grep(pattern = "<operator id=\"narrow", x = created_lines_nonfixed))
   )
   testthat::expect_equal(0,
     length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
+  )
+  # wide exchange
+  testthat::expect_equal(1,
+    length(grep(pattern = "<operator id=\"wide", x = created_lines_nonfixed))
+  )
+  testthat::expect_equal(0,
+    length(grep(pattern = "<operator id=\"wide", x = created_lines_fixed))
+  )
+  # Wilson Balding
+  testthat::expect_equal(1,
+    length(grep(pattern = "<operator id=\"WilsonBalding", x = created_lines_nonfixed))
+  )
+  testthat::expect_equal(0,
+    length(grep(pattern = "<operator id=\"WilsonBalding", x = created_lines_fixed))
+  )
+  # subtree slide
+  testthat::expect_equal(1,
+    length(grep(pattern = "<operator id=\"SubtreeSlide", x = created_lines_nonfixed))
+  )
+  testthat::expect_equal(0,
+    length(grep(pattern = "<operator id=\"SubtreeSlide", x = created_lines_fixed))
   )
 
   #beastscriptr::save_text(filename = "~/created.txt", text = created_lines_fixed)

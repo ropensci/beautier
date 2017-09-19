@@ -237,24 +237,24 @@ beast_scriptr <- function(
     "\" spec=\"Uniform\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"30.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"SubtreeSlide.t:", filename_base,
-    "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
-    "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   if (fix_crown_age == FALSE) {
+    text <- c(text, paste("    <operator id=\"SubtreeSlide.t:", filename_base,
+      "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
+      "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
     text <- c(text, "")
     text <- c(text, paste("    <operator id=\"narrow.t:", filename_base,
       "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
       "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
+    text <- c(text, "")
+    text <- c(text, paste("    <operator id=\"wide.t:", filename_base,
+      "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
+      "\" weight=\"3.0\"/>", sep = ""))                                           # nolint (as this is no absolute path)
+    text <- c(text, "")
+    text <- c(text, paste("    <operator id=\"WilsonBalding.t:", filename_base,
+      "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
+      "\" weight=\"3.0\"/>", sep = ""))                                           # nolint (as this is no absolute path)
+    text <- c(text, "")
   }
-  text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"wide.t:", filename_base,
-    "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
-    "\" weight=\"3.0\"/>", sep = ""))                                           # nolint (as this is no absolute path)
-  text <- c(text, "")
-  text <- c(text, paste("    <operator id=\"WilsonBalding.t:", filename_base,
-    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
-    "\" weight=\"3.0\"/>", sep = ""))                                           # nolint (as this is no absolute path)
-  text <- c(text, "")
 
   if (tree_prior == "birth_death") {
     text <- c(text, paste("    <operator id=\"BirthRateScaler.t:",
