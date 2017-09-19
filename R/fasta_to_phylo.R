@@ -23,8 +23,15 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
   # Extract the taxa names
   taxa_names <- names(sequences_dnabin)
 
-  # Create a random tree
+  # Create a random tree ...
   phylo <- ape::rcoal(n = length(taxa_names), tip.label = taxa_names)
 
+  # ... with the correct crown age
+
+  crown_age_before <- wiritttes::get_phylogeny_crown_age(phylo)
+  phylo$edge.length <- phylo$edge.length * crown_age / crown_age_before
+
+  crown_age_after <- wiritttes::get_phylogeny_crown_age(phylo)
+  testit::assert(crown_age == crown_age_after)
   phylo
 }
