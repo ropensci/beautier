@@ -12,7 +12,8 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
 
 \item{mcmc_chainlength}{Length of MCMC chain}
 
-\item{tree_prior}{The tree prior, can be 'birth_death' or 'coalescent_constant_population'}
+\item{tree_prior}{The tree prior, can be 'birth_death' or
+'coalescent_constant_population'}
 
 \item{output_xml_filename}{Filename of the XML parameter file created}
 }
