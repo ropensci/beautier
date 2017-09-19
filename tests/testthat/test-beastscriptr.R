@@ -187,4 +187,7 @@ test_that("Can specify fixed crown age", {
 
   created_lines_fixed <- readLines(output_xml_filename_fixed)
   created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
+
+  beastscriptr::save_text(filename = "~/created.txt", text = created_lines_fixed)
+  print(created_lines_fixed)
 })
