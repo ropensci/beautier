@@ -199,7 +199,8 @@ test_that("Can specify fixed crown age", {
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
-    initial_phylogeny = ape::rcoal(5)
+    initial_phylogeny = beastscriptr::fasta_to_phylo(
+      input_fasta_filename, crown_age = 15)
   )
   testthat::expect_equal(file.exists(output_xml_filename_fixed), TRUE)
 
@@ -213,10 +214,6 @@ test_that("Can specify fixed crown age", {
 
   created_lines_fixed <- readLines(output_xml_filename_fixed)
   created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
-
-  # Check grep
-  testit::assert(length(grep(pattern = "operator", x = created_lines_fixed)) > 0)
-  testit::assert(length(grep(pattern = "XYZ_ABSENT", x = created_lines_fixed)) == 0)
 
   # narrow exchange operator absent in fixed crown age tree
   testthat::expect_equal(1,
@@ -234,29 +231,32 @@ test_that("Can specify fixed crown age", {
   )
   # Wilson Balding operator absent in fixed crown age tree
   testthat::expect_equal(1,
-    length(grep(pattern = "<operator id=\"WilsonBalding", x = created_lines_nonfixed))
+    length(grep(pattern = "<operator id=\"WilsonBalding",
+      x = created_lines_nonfixed))
   )
   testthat::expect_equal(0,
-    length(grep(pattern = "<operator id=\"WilsonBalding", x = created_lines_fixed))
+    length(grep(pattern = "<operator id=\"WilsonBalding",
+      x = created_lines_fixed))
   )
   # subtree slide operator absent in fixed crown age tree
   testthat::expect_equal(1,
-    length(grep(pattern = "<operator id=\"SubtreeSlide", x = created_lines_nonfixed))
+    length(grep(pattern = "<operator id=\"SubtreeSlide",
+      x = created_lines_nonfixed))
   )
   testthat::expect_equal(0,
-    length(grep(pattern = "<operator id=\"SubtreeSlide", x = created_lines_fixed))
+    length(grep(pattern = "<operator id=\"SubtreeSlide",
+      x = created_lines_fixed))
   )
 
   # Lines below must be absent when a starting tree is given
-  # <init estimate="false" id="RandomTree.t:xxx" initial="@Tree.t:xxx" spec="beast.evolution.tree.RandomTree" taxa="@xxx">
+  # <init estimate="false" id="RandomTree.t:xxx" initial="@Tree.t:xxx" spec="beast.evolution.tree.RandomTree" taxa="@xxx"> # nolint
   # </init>
   testthat::expect_equal(1,
-    length(grep(pattern = "<init id=\"RandomTree.t:.*estimate=\"false\"", x = created_lines_nonfixed))
+    length(grep(pattern = "<init id=\"RandomTree.t:.*estimate=\"false\"",
+      x = created_lines_nonfixed))
   )
   testthat::expect_equal(0,
-    length(grep(pattern = "<init id=\"RandomTree.t:.*estimate=\"false\"", x = created_lines_fixed))
+    length(grep(pattern = "<init id=\"RandomTree.t:.*estimate=\"false\"",
+      x = created_lines_fixed))
   )
-
-  #beastscriptr::save_text(filename = "~/created.txt", text = created_lines_fixed)
-  #print(created_lines_fixed)
 })

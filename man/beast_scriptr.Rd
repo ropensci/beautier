@@ -5,7 +5,7 @@
 \title{Create a BEAST2 XML parameter file}
 \usage{
 beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
-  output_xml_filename, fixed_crown_age = NA)
+  output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filename}{Filename of a fasta file}
@@ -17,8 +17,14 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
 
 \item{output_xml_filename}{Filename of the XML parameter file created}
 
-\item{fixed_crown_age}{if NA, the crown age will estimated. If any postive
-value, the crown age will be fixed to that value}
+\item{fixed_crown_age}{determines if the phylogeny its crown age is
+fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+the crown age is fixed to the crown age
+of the initial phylogeny.}
+
+\item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
+this is set to NA, BEAST2 will use a random phylogeny. Else
+a phylogeny must be supplied of class ape::phylo.}
 }
 \description{
 Create a BEAST2 XML parameter file
