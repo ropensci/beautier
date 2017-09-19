@@ -173,7 +173,8 @@ test_that("Can specify fixed crown age", {
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
-    output_xml_filename = output_xml_filename_fixed
+    output_xml_filename = output_xml_filename_fixed,
+    fix_crown_age = TRUE
   )
   testthat::expect_equal(file.exists(output_xml_filename_fixed), TRUE)
 
@@ -196,10 +197,9 @@ test_that("Can specify fixed crown age", {
   testthat::expect_equal(1,
     length(grep(pattern = "<operator id=\"narrow", x = created_lines_nonfixed))
   )
-  #NEW
-  #testthat::expect_equal(0,
-  #  length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
-  #)
+  testthat::expect_equal(0,
+    length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
+  )
 
   #beastscriptr::save_text(filename = "~/created.txt", text = created_lines_fixed)
   #print(created_lines_fixed)
