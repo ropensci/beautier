@@ -4,15 +4,21 @@
 #' @param tree_prior The tree prior, can be 'birth_death' or
 #'   'coalescent_constant_population'
 #' @param output_xml_filename Filename of the XML parameter file created
-#' @param fixed_crown_age if NA, the crown age will estimated. If any postive
-#'   value, the crown age will be fixed to that value
+#' @param fixed_crown_age determines if the phylogeny its crown age is
+#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+#'   the crown age is fixed to the crown age
+#'   of the initial phylogeny.
+#' @param initial_phylogeny the MCMC chain its initial phylogeny. If
+#'   this is set to NA, BEAST2 will use a random phylogeny. Else
+#'   a phylogeny must be supplied of class ape::phylo.
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
   mcmc_chainlength,
   tree_prior,
   output_xml_filename,
-  fixed_crown_age = NA
+  fixed_crown_age = FALSE,
+  initial_phylogeny = NA
 ) {
   if (!file.exists(input_fasta_filename)) {
     stop("input_fasta_filename not found")
@@ -24,11 +30,11 @@ beast_scriptr <- function(
   if (mcmc_chainlength <= 0) {
     stop("mcmc_chainlength must be positive")
   }
-  if (!is.na(fixed_crown_age) && !is.double(fixed_crown_age)) {
-    stop("fixed_crown_age must be either NA or a double")
+  if (!is.logical(fixed_crown_age)) {
+    stop("fixed_crown_age must be either TRUE or FALSE")
   }
-  if (!is.na(fixed_crown_age) && fixed_crown_age < 0.0) {
-    stop("fixed_crown_age must be either NA or a non-zero positive value")
+  if (fixed_crown_age == TRUE && is.na(initial_phylogeny)) {
+    warning("Using a fixed crown age of a random phylogeny")
   }
 
   # Make a million show as 1000000 instead of 1e+06
@@ -124,7 +130,7 @@ beast_scriptr <- function(
 
   text <- c(text, "    </state>")
   text <- c(text, "")
-  if (is.na(fixed_crown_age)) {
+  if (fixed_crown_age == FALSE) {
     text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
       "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
       " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
@@ -135,7 +141,7 @@ beast_scriptr <- function(
   text <- c(text, paste("            <parameter id=\"randomPopSize.t:",
     filename_base, "\" name=\"popSize\">1.0</parameter>", sep = ""))
   text <- c(text, "        </populationModel>")
-  if (is.na(fixed_crown_age)) {
+  if (fixed_crown_age == FALSE) {
     text <- c(text, "    </init>")
   }
   text <- c(text, "")
@@ -244,7 +250,7 @@ beast_scriptr <- function(
     "\" spec=\"Uniform\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"30.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   text <- c(text, "")
-  if (is.na(fixed_crown_age)) {
+  if (fixed_crown_age == FALSE) {
     text <- c(text, paste("    <operator id=\"SubtreeSlide.t:", filename_base,
       "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
       "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)

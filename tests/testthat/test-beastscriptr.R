@@ -38,13 +38,15 @@ test_that("checks input", {
     )
   )
 
-  testthat::expect_error(
+  # Use a fixed crown age, yet derived from a random phylogeny
+  testthat::expect_warning(
     beast_scriptr(
       input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
       tree_prior = "birth_death",
       output_xml_filename = "output.xml",
-      fixed_crown_age = -12.34 # Error
+      fixed_crown_age = TRUE,
+      initial_phylogeny = NA
     )
   )
 
@@ -196,7 +198,8 @@ test_that("Can specify fixed crown age", {
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename_fixed,
-    fixed_crown_age = 15
+    fixed_crown_age = TRUE,
+    initial_phylogeny = ape::rcoal(5)
   )
   testthat::expect_equal(file.exists(output_xml_filename_fixed), TRUE)
 
