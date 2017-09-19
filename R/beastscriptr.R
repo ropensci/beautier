@@ -1,7 +1,8 @@
 #' Create a BEAST2 XML parameter file
 #' @param input_fasta_filename Filename of a fasta file
 #' @param mcmc_chainlength Length of MCMC chain
-#' @param tree_prior The tree prior, can be 'birth_death' or 'coalescent_constant_population'
+#' @param tree_prior The tree prior, can be 'birth_death' or
+#'   'coalescent_constant_population'
 #' @param output_xml_filename Filename of the XML parameter file created
 #' @export
 beast_scriptr <- function(

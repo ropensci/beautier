@@ -7,7 +7,7 @@
 #' @export
 get_input_fasta_filename <- function() {
 
-  return (
+  return(
     system.file(
       "extdata", "test_output_0.fas", package = "beastscriptr"
     )
@@ -22,7 +22,7 @@ get_input_fasta_filename <- function() {
 #'   testit::assert(does_exist == TRUE)
 #' @export
 get_output_xml_filename <- function() {
-  return (
+  return(
     system.file(
       "extdata", "birth_death_0_20151005.xml", package = "beastscriptr"
     )
