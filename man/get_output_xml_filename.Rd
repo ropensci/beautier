@@ -15,5 +15,5 @@ Get the path of a BEAST2 XML parameter file used in testing
 \examples{
   my_file <- beastscriptr::get_output_xml_filename()
   does_exist <- file.exists(my_file)
-  testit::assert(does_exist)
+  testit::assert(does_exist == TRUE)
 }
