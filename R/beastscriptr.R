@@ -121,10 +121,13 @@ beast_scriptr <- function(
 
   text <- c(text, "    </state>")
   text <- c(text, "")
-  text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
-    "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-    " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
-    sep = ""))
+  if (fix_crown_age == FALSE)
+  {
+    text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
+      "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
+      " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
+      sep = ""))
+  }
   text <- c(text, paste("        <populationModel id=\"ConstantPopulation0.t:",
     filename_base, "\" spec=\"ConstantPopulation\">", sep = ""))
   text <- c(text, paste("            <parameter id=\"randomPopSize.t:",
