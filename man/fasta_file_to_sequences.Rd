@@ -15,4 +15,3 @@ a table of sequences
 \description{
 Convert a FASTA file to a table of sequences
 }
-

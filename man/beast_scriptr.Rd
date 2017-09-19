@@ -19,4 +19,3 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
 \description{
 Create a BEAST2 XML parameter file
 }
-

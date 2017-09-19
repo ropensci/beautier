@@ -15,4 +15,3 @@ That filename without its extension
 \description{
 Remove a file extension
 }
-

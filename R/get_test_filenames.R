@@ -3,7 +3,7 @@
 #' @examples
 #'   my_file <- beastscriptr::get_input_fasta_filename()
 #'   does_exist <- file.exists(my_file)
-#'   testit::assert(does_exist)
+#'   testit::assert(does_exist == TRUE)
 #' @export
 get_input_fasta_filename <- function() {
 

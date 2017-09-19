@@ -8,7 +8,7 @@ Description: BEAST2 needs an XML input file.
   This R package creates indentical XML files from function parameters.
 License: file LICENSE
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 VignetteBuilder: knitr
 URL: https://github.com/richelbilderbeek/beastscript
 BugReports: https://github.com/richelbilderbeek/beastscript/issues

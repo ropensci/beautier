@@ -19,4 +19,3 @@ Nothing
 \description{
 Create a random FASTA file
 }
-
