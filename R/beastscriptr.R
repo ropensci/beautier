@@ -4,15 +4,15 @@
 #' @param tree_prior The tree prior, can be 'birth_death' or
 #'   'coalescent_constant_population'
 #' @param output_xml_filename Filename of the XML parameter file created
-#' @param fix_crown_age if TRUE, the crown age is fixed and set to the crown age
-#'   of the initial phylogeny
+#' @param fixed_crown_age if NA, the crown age will estimated. If any postive
+#'   value, the crown age will be fixed to that value
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
   mcmc_chainlength,
   tree_prior,
   output_xml_filename,
-  fix_crown_age = FALSE
+  fixed_crown_age = NA
 ) {
   if (!file.exists(input_fasta_filename)) {
     stop("input_fasta_filename not found")
@@ -24,8 +24,11 @@ beast_scriptr <- function(
   if (mcmc_chainlength <= 0) {
     stop("mcmc_chainlength must be positive")
   }
-  if (!is.logical(fix_crown_age)) {
-    stop("fix_crown_age must be either TRUE or FALSE")
+  if (!is.na(fixed_crown_age) && !is.double(fixed_crown_age)) {
+    stop("fixed_crown_age must be either NA or a double")
+  }
+  if (!is.na(fixed_crown_age) && fixed_crown_age < 0.0) {
+    stop("fixed_crown_age must be either NA or a non-zero positive value")
   }
 
   # Make a million show as 1000000 instead of 1e+06
@@ -121,8 +124,7 @@ beast_scriptr <- function(
 
   text <- c(text, "    </state>")
   text <- c(text, "")
-  if (fix_crown_age == FALSE)
-  {
+  if (is.na(fixed_crown_age)) {
     text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
       "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
       " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
@@ -133,7 +135,9 @@ beast_scriptr <- function(
   text <- c(text, paste("            <parameter id=\"randomPopSize.t:",
     filename_base, "\" name=\"popSize\">1.0</parameter>", sep = ""))
   text <- c(text, "        </populationModel>")
-  text <- c(text, "    </init>")
+  if (is.na(fixed_crown_age)) {
+    text <- c(text, "    </init>")
+  }
   text <- c(text, "")
   text <- c(text,
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
@@ -240,7 +244,7 @@ beast_scriptr <- function(
     "\" spec=\"Uniform\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"30.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
   text <- c(text, "")
-  if (fix_crown_age == FALSE) {
+  if (is.na(fixed_crown_age)) {
     text <- c(text, paste("    <operator id=\"SubtreeSlide.t:", filename_base,
       "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
       "\" weight=\"15.0\"/>", sep = ""))                                          # nolint (as this is no absolute path)
