@@ -29,7 +29,5 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
   # ... with the correct crown age
   phylo <- geiger::rescale(phylo, "depth", crown_age)
 
-  #crown_age_after <- wiritttes::get_phylogeny_crown_age(phylo)
-  #testit::assert(crown_age == crown_age_after)
   phylo
 }

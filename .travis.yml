@@ -7,7 +7,6 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - beast-dev/RBeast
   - richelbilderbeek/ribir
-  - richelbilderbeek/wiritttes
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8
@@ -18,7 +17,7 @@ after_success:
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
- 
+
 after_failure:
   - sudo Rscript install_this_r_package.R
   - Rscript -e 'library(Cer2016); testit::assert(has_beast2())'
