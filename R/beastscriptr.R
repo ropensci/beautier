@@ -41,15 +41,7 @@ beast_scriptr <- function(
   options(scipen = 20)
 
   text <- NULL
-  text <- c(text,
-    paste("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>",
-      "<beast beautitemplate='Standard' beautistatus='' ",
-      "namespace=\"beast.core:beast.evolution.alignment:",
-      "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
-      "beast.evolution.operators:beast.evolution.sitemodel:",
-      "beast.evolution.substitutionmodel:",
-      "beast.evolution.likelihood\" version=\"2.0\">", sep = "")
-    )
+  text <- c(text, beast_scriptr_xml())
   text <- c(text, "")
   text <- c(text, "")
   filename_base <- beastscriptr::remove_file_extension(input_fasta_filename)
@@ -471,3 +463,15 @@ beast_scriptr_map <- function() {
 
 
 
+#' Creates the xml section of a BEAST2 XML parameter file
+#' @export
+beast_scriptr_xml <- function() {
+  paste0("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>",
+    "<beast beautitemplate='Standard' beautistatus='' ",
+    "namespace=\"beast.core:beast.evolution.alignment:",
+    "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
+    "beast.evolution.operators:beast.evolution.sitemodel:",
+    "beast.evolution.substitutionmodel:",
+    "beast.evolution.likelihood\" version=\"2.0\">"
+  )
+}
