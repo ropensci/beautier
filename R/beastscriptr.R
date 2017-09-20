@@ -68,59 +68,16 @@ beast_scriptr <- function(
   text <- c(text, "")
   text <- c(text, "")
 
-  text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
-    mcmc_chainlength, "\">", sep = ""))
-
   text <- c(text,
-    beast_scriptr_state(
+    beast_scriptr_run(
       filename_base = filename_base,
+      mcmc_chainlength = mcmc_chainlength,
       tree_prior = tree_prior,
+      fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
     )
   )
 
-  text <- c(text, "")
-  if (ribir::is_phylogeny(initial_phylogeny)) {
-    text <- c(text, paste0("    <statenode spec=\"beast.util.TreeParser\" ",
-      "id=\"Tree.t:", filename_base, "\" IsLabelledNewick=\"true\" ",
-      "adjustTipHeights=\"false\" taxa=\"@", filename_base, "\" ",
-      "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
-    text <- c(text, paste0("    </statenode>"))
-  }
-
-  text <- c(text, "")
-
-  text <- c(text,
-    beast_scriptr_init(
-      filename_base = filename_base,
-      initial_phylogeny = initial_phylogeny
-    )
-  )
-
-  text <- c(text, "")
-
-  text <- c(text,
-    beast_scriptr_distribution(
-      filename_base = filename_base,
-      tree_prior = tree_prior
-    )
-  )
-
-  text <- c(text, "")
-
-  text <- c(text, beast_scriptr_operators(
-    filename_base = filename_base,
-    tree_prior = tree_prior,
-    fixed_crown_age = fixed_crown_age))
-
-  text <- c(text, "")
-
-  text <- c(text, beast_scriptr_loggers(
-    filename_base = filename_base,
-    tree_prior = tree_prior))
-
-  text <- c(text, "")
-  text <- c(text, "</run>")
   text <- c(text, "")
   text <- c(text, "</beast>")
 
@@ -456,6 +413,78 @@ beast_scriptr_map <- function() {
   text
 }
 
+
+#' Creates the state section of a BEAST2 XML parameter file
+#' @param filename_base filename its base
+#' @param mcmc_chainlength MCMC chain length
+#' @param tree_prior tree prior
+#' @param fixed_crown_age is the crown age fixed TRUE or FALSE
+#' @param initial_phylogeny initial phylogeny or NA
+#' @export
+beast_scriptr_run <- function(
+  filename_base,
+  mcmc_chainlength,
+  tree_prior,
+  fixed_crown_age,
+  initial_phylogeny
+) {
+  text <- NULL
+
+  text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
+    mcmc_chainlength, "\">", sep = ""))
+
+  text <- c(text,
+    beast_scriptr_state(
+      filename_base = filename_base,
+      tree_prior = tree_prior,
+      initial_phylogeny = initial_phylogeny
+    )
+  )
+
+  text <- c(text, "")
+  if (ribir::is_phylogeny(initial_phylogeny)) {
+    text <- c(text, paste0("    <statenode spec=\"beast.util.TreeParser\" ",
+      "id=\"Tree.t:", filename_base, "\" IsLabelledNewick=\"true\" ",
+      "adjustTipHeights=\"false\" taxa=\"@", filename_base, "\" ",
+      "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
+    text <- c(text, paste0("    </statenode>"))
+  }
+
+  text <- c(text, "")
+
+  text <- c(text,
+    beast_scriptr_init(
+      filename_base = filename_base,
+      initial_phylogeny = initial_phylogeny
+    )
+  )
+
+  text <- c(text, "")
+
+  text <- c(text,
+    beast_scriptr_distribution(
+      filename_base = filename_base,
+      tree_prior = tree_prior
+    )
+  )
+
+  text <- c(text, "")
+
+  text <- c(text, beast_scriptr_operators(
+    filename_base = filename_base,
+    tree_prior = tree_prior,
+    fixed_crown_age = fixed_crown_age))
+
+  text <- c(text, "")
+
+  text <- c(text, beast_scriptr_loggers(
+    filename_base = filename_base,
+    tree_prior = tree_prior))
+
+  text <- c(text, "")
+  text <- c(text, "</run>")
+  text
+}
 
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param filename_base filename its base
