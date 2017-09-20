@@ -37,49 +37,21 @@ beast_scriptr <- function(
   #  warning("Using a fixed crown age of a random phylogeny")
   #}
 
+
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
 
   text <- NULL
   text <- c(text, beast_scriptr_xml())
-  text <- c(text, "")
-  text <- c(text, "")
-  filename_base <- beastscriptr::remove_file_extension(input_fasta_filename)
-
   text <- c(text,
-    beast_scriptr_data(
-      filename_base = filename_base,
-      input_fasta_filename = input_fasta_filename
-    )
-  )
-
-  text <- c(text, "")
-  text <- c(text, "")
-  text <- c(text, "    ")
-  text <- c(text, "")
-  text <- c(text, "")
-  text <- c(text, "    ")
-  text <- c(text, "")
-  text <- c(text, "")
-  text <- c(text, "    ")
-
-  text <- c(text, beast_scriptr_map())
-
-  text <- c(text, "")
-  text <- c(text, "")
-
-  text <- c(text,
-    beast_scriptr_run(
-      filename_base = filename_base,
+    beast_scriptr_beast(
+      input_fasta_filename = input_fasta_filename,
       mcmc_chainlength = mcmc_chainlength,
       tree_prior = tree_prior,
       fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
     )
   )
-
-  text <- c(text, "")
-  text <- c(text, "</beast>")
 
   # Write to file
   my_file <- file(output_xml_filename)
@@ -155,9 +127,70 @@ beast_scriptr_operators <- function(
   text
 }
 
+#' Creates the beast section of a BEAST2 XML parameter file
+#' @param input_fasta_filename name of FASTA file
+#' @param mcmc_chainlength MCMC chain length
+#' @param tree_prior tree prior
+#' @param fixed_crown_age is the crown age fixed TRUE or FALSE
+#' @param initial_phylogeny initial phylogeny or NA
+#' @export
+beast_scriptr_beast <- function(
+  input_fasta_filename,
+  mcmc_chainlength,
+  tree_prior,
+  fixed_crown_age,
+  initial_phylogeny
+) {
+  filename_base <- beastscriptr::remove_file_extension(input_fasta_filename)
+  text <- NULL
+  text <- c(text, paste0(
+    "<beast beautitemplate='Standard' beautistatus='' ",
+    "namespace=\"beast.core:beast.evolution.alignment:",
+    "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
+    "beast.evolution.operators:beast.evolution.sitemodel:",
+    "beast.evolution.substitutionmodel:",
+    "beast.evolution.likelihood\" version=\"2.0\">"
+  ))
 
+  text <- c(text, "")
+  text <- c(text, "")
 
+  text <- c(text,
+    beast_scriptr_data(
+      filename_base = filename_base,
+      input_fasta_filename = input_fasta_filename
+    )
+  )
 
+  text <- c(text, "")
+  text <- c(text, "")
+  text <- c(text, "    ")
+  text <- c(text, "")
+  text <- c(text, "")
+  text <- c(text, "    ")
+  text <- c(text, "")
+  text <- c(text, "")
+  text <- c(text, "    ")
+
+  text <- c(text, beast_scriptr_map())
+
+  text <- c(text, "")
+  text <- c(text, "")
+
+  text <- c(text,
+    beast_scriptr_run(
+      filename_base = filename_base,
+      mcmc_chainlength = mcmc_chainlength,
+      tree_prior = tree_prior,
+      fixed_crown_age = fixed_crown_age,
+      initial_phylogeny = initial_phylogeny
+    )
+  )
+
+  text <- c(text, "")
+  text <- c(text, "</beast>")
+  text
+}
 
 
 
@@ -533,12 +566,5 @@ beast_scriptr_state <- function(
 #' Creates the xml section of a BEAST2 XML parameter file
 #' @export
 beast_scriptr_xml <- function() {
-  paste0("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>",
-    "<beast beautitemplate='Standard' beautistatus='' ",
-    "namespace=\"beast.core:beast.evolution.alignment:",
-    "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
-    "beast.evolution.operators:beast.evolution.sitemodel:",
-    "beast.evolution.substitutionmodel:",
-    "beast.evolution.likelihood\" version=\"2.0\">"
-  )
+  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
 }
