@@ -6,7 +6,7 @@ r_github_packages:
   - jimhester/lintr
   - MangoTheCat/goodpractice
   - beast-dev/RBeast
-  - richelbilderbeek/ribir,
+  - richelbilderbeek/ribir
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8
