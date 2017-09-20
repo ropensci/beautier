@@ -2,6 +2,7 @@
 
 export(beast_scriptr)
 export(beast_scriptr_data)
+export(beast_scriptr_distribution)
 export(beast_scriptr_init)
 export(beast_scriptr_map)
 export(beast_scriptr_operators)

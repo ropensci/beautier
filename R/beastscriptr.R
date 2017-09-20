@@ -125,100 +125,15 @@ beast_scriptr <- function(
   text <- c(text, init_section)
 
   text <- c(text, "")
-  text <- c(text,
-    "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
-  text <- c(text,
-    "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
-  if (tree_prior == "birth_death") {
-    text <- c(text, paste("            <distribution id=\"BirthDeath.t:",
-      filename_base, "\" spec=\"beast.evolution.speciation.",
-      "BirthDeathGernhard08Model\" birthDiffRate=\"@birthRate2.t:",
-      filename_base, "\" relativeDeathRate=\"@relativeDeathRate2.t:",
-      filename_base, "\" tree=\"@Tree.t:", filename_base,
-      "\"/>", sep = "") # nolint (as this is not an absolute path)
-    )
-  } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
-    text <- c(text, paste(
-      "            <distribution id=\"CoalescentConstant.t:",
-      filename_base, "\" spec=\"Coalescent\">", sep = ""))
-    text <- c(text, paste(
-      "                <populationModel id=\"ConstantPopulation.t:",
-      filename_base, "\" popSize=\"@popSize.t:", filename_base,
-      "\" spec=\"ConstantPopulation\"/>",                                       # nolint (as this is not an absolute path)
-      sep = ""))
-    text <- c(text, paste(
-      "                <treeIntervals id=\"TreeIntervals.t:",
-      filename_base, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
-      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
-    text <- c(text, "            </distribution>")
-  }
+  distribution_section <- beast_scriptr_distribution(
+    filename_base = filename_base,
+    tree_prior = tree_prior
+  )
+  text <- c(text, distribution_section)
 
-  if (tree_prior == "birth_death") {
-    text <- c(text, paste("            <prior id=\"BirthRatePrior.t:",
-      filename_base, "\" name=\"distribution\" x=\"@birthRate2.t:",
-      filename_base, "\">", sep = ""))                                          # nolint (as this is no absolute path)
-    text <- c(text,
-      paste(
-        "                <Uniform id=\"Uniform.0\" ",
-        "name=\"distr\" upper=\"1000.0\"/>", sep = ""                           # nolint (as this is no absolute path)
-        )
-      )
-    text <- c(text, "            </prior>")
-    text <- c(text, paste("            <prior id=\"DeathRatePrior.t:",
-      filename_base, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
-      filename_base, "\">", sep = ""))
-    text <- c(text,
-      "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")            # nolint (as this is no absolute path)
-  } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
-    text <- c(text, paste(
-      "            <prior id=\"PopSizePrior.t:", filename_base,
-      "\" name=\"distribution\" x=\"@popSize.t:",
-      filename_base, "\">", sep = ""))
-    text <- c(text, "                <OneOnX id=\"OneOnX.0\" name=\"distr\"/>") # nolint (as this is no absolute path)
-  }
-
-  text <- c(text, "            </prior>")
-  text <- c(text, "        </distribution>")
-  text <- c(
-      text,
-      paste(
-        "        <distribution id=\"likelihood\" ",
-        "spec=\"util.CompoundDistribution\">", sep = ""                         # nolint (as this is no absolute path)
-      )
-    )
-  text <- c(text, paste("            <distribution id=\"treeLikelihood.",
-    filename_base, "\" spec=\"TreeLikelihood\" data=\"@", filename_base,
-    "\" tree=\"@Tree.t:", filename_base, "\">", sep = ""))
-  text <- c(text, paste("                <siteModel id=\"SiteModel.s:",
-    filename_base, "\" spec=\"SiteModel\">", sep = ""))
-  text <- c(text, paste("                    <parameter id=\"mutationRate.s:",
-    filename_base,
-    "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", sep = ""))
-  text <- c(text, paste("                    <parameter id=\"gammaShape.s:",
-    filename_base,
-    "\" estimate=\"false\" name=\"shape\">1.0</parameter>", sep = ""))
-  text <- c(text, paste(
-    "                    <parameter id=\"proportionInvariant.s:",
-    filename_base, "\" estimate=\"false\" lower=\"0.0\" ",
-    "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", sep = ""))
-  text <- c(text, paste("                    <substModel id=\"JC69.s:",
-    filename_base, "\" spec=\"JukesCantor\"/>", sep = ""))                      # nolint (as this is no absolute path)
-  text <- c(text, "                </siteModel>")
-  text <- c(text, paste("                <branchRateModel id=\"StrictClock.c:",
-    filename_base,
-    "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", sep = ""))
-  text <- c(text, paste("                    <parameter id=\"clockRate.c:",
-    filename_base,
-    "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", sep = ""))
-  text <- c(text, "                </branchRateModel>")
-  text <- c(text, "            </distribution>")
-  text <- c(text, "        </distribution>")
-  text <- c(text, "    </distribution>")
   text <- c(text, "")
-  # Operators here
+
   text <- c(text, beast_scriptr_operators(
     filename_base = filename_base,
     tree_prior = tree_prior,
@@ -393,6 +308,111 @@ beast_scriptr_data <- function(
 
 
 
+
+
+#' Creates the distribution section of a BEAST2 XML parameter file
+#' @param filename_base base of the filenames
+#' @param tree_prior the tree prior
+#' @export
+beast_scriptr_distribution <- function(
+  filename_base,
+  tree_prior
+) {
+  text <- NULL
+  text <- c(text,
+    "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
+  text <- c(text,
+    "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
+
+  if (tree_prior == "birth_death") {
+    text <- c(text, paste("            <distribution id=\"BirthDeath.t:",
+      filename_base, "\" spec=\"beast.evolution.speciation.",
+      "BirthDeathGernhard08Model\" birthDiffRate=\"@birthRate2.t:",
+      filename_base, "\" relativeDeathRate=\"@relativeDeathRate2.t:",
+      filename_base, "\" tree=\"@Tree.t:", filename_base,
+      "\"/>", sep = "") # nolint (as this is not an absolute path)
+    )
+  } else {
+    testit::assert(tree_prior == "coalescent_constant_population")
+    text <- c(text, paste(
+      "            <distribution id=\"CoalescentConstant.t:",
+      filename_base, "\" spec=\"Coalescent\">", sep = ""))
+    text <- c(text, paste(
+      "                <populationModel id=\"ConstantPopulation.t:",
+      filename_base, "\" popSize=\"@popSize.t:", filename_base,
+      "\" spec=\"ConstantPopulation\"/>",                                       # nolint (as this is not an absolute path)
+      sep = ""))
+    text <- c(text, paste(
+      "                <treeIntervals id=\"TreeIntervals.t:",
+      filename_base, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
+      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
+    text <- c(text, "            </distribution>")
+  }
+
+  if (tree_prior == "birth_death") {
+    text <- c(text, paste("            <prior id=\"BirthRatePrior.t:",
+      filename_base, "\" name=\"distribution\" x=\"@birthRate2.t:",
+      filename_base, "\">", sep = ""))                                          # nolint (as this is no absolute path)
+    text <- c(text,
+      paste(
+        "                <Uniform id=\"Uniform.0\" ",
+        "name=\"distr\" upper=\"1000.0\"/>", sep = ""                           # nolint (as this is no absolute path)
+        )
+      )
+    text <- c(text, "            </prior>")
+    text <- c(text, paste("            <prior id=\"DeathRatePrior.t:",
+      filename_base, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
+      filename_base, "\">", sep = ""))
+    text <- c(text,
+      "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")            # nolint (as this is no absolute path)
+  } else {
+    testit::assert(tree_prior == "coalescent_constant_population")
+    text <- c(text, paste(
+      "            <prior id=\"PopSizePrior.t:", filename_base,
+      "\" name=\"distribution\" x=\"@popSize.t:",
+      filename_base, "\">", sep = ""))
+    text <- c(text, "                <OneOnX id=\"OneOnX.0\" name=\"distr\"/>") # nolint (as this is no absolute path)
+  }
+
+  text <- c(text, "            </prior>")
+  text <- c(text, "        </distribution>")
+  text <- c(
+      text,
+      paste(
+        "        <distribution id=\"likelihood\" ",
+        "spec=\"util.CompoundDistribution\">", sep = ""                         # nolint (as this is no absolute path)
+      )
+    )
+  text <- c(text, paste("            <distribution id=\"treeLikelihood.",
+    filename_base, "\" spec=\"TreeLikelihood\" data=\"@", filename_base,
+    "\" tree=\"@Tree.t:", filename_base, "\">", sep = ""))
+  text <- c(text, paste("                <siteModel id=\"SiteModel.s:",
+    filename_base, "\" spec=\"SiteModel\">", sep = ""))
+  text <- c(text, paste("                    <parameter id=\"mutationRate.s:",
+    filename_base,
+    "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", sep = ""))
+  text <- c(text, paste("                    <parameter id=\"gammaShape.s:",
+    filename_base,
+    "\" estimate=\"false\" name=\"shape\">1.0</parameter>", sep = ""))
+  text <- c(text, paste(
+    "                    <parameter id=\"proportionInvariant.s:",
+    filename_base, "\" estimate=\"false\" lower=\"0.0\" ",
+    "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", sep = ""))
+  text <- c(text, paste("                    <substModel id=\"JC69.s:",
+    filename_base, "\" spec=\"JukesCantor\"/>", sep = ""))                      # nolint (as this is no absolute path)
+  text <- c(text, "                </siteModel>")
+  text <- c(text, paste("                <branchRateModel id=\"StrictClock.c:",
+    filename_base,
+    "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", sep = ""))
+  text <- c(text, paste("                    <parameter id=\"clockRate.c:",
+    filename_base,
+    "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", sep = ""))
+  text <- c(text, "                </branchRateModel>")
+  text <- c(text, "            </distribution>")
+  text <- c(text, "        </distribution>")
+  text <- c(text, "    </distribution>")
+  text
+}
 
 
 #' Creates the map section of a BEAST2 XML parameter file
