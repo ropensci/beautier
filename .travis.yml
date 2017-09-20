@@ -7,6 +7,7 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - beast-dev/RBeast
   - richelbilderbeek/ribir
+  - richelbilderbeek/wiritttes
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8

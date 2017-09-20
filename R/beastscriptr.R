@@ -135,53 +135,10 @@ beast_scriptr <- function(
     fixed_crown_age = fixed_crown_age))
 
   text <- c(text, "")
-  text <- c(text, paste("    <logger id=\"tracelog\" fileName=\"",
-    filename_base, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
-    "sanitiseHeaders=\"true\" sort=\"smart\">", sep = ""))
-  text <- c(text, "        <log idref=\"posterior\"/>")                         # nolint (as this is no absolute path)
-  text <- c(text, "        <log idref=\"likelihood\"/>")                        # nolint (as this is no absolute path)
-  text <- c(text, "        <log idref=\"prior\"/>")                             # nolint (as this is no absolute path)
-  text <- c(text, paste("        <log idref=\"treeLikelihood.",
-    filename_base, "\"/>", sep = ""))                                           # nolint (as this is no absolute path)
-  text <- c(text, paste("        <log id=\"TreeHeight.t:", filename_base,
-    "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
-    filename_base, "\"/>", sep = ""))                                           # nolint (as this is no absolute path)
 
-  if (tree_prior == "birth_death") {
-    text <- c(text, paste("        <log idref=\"BirthDeath.t:",
-      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
-    text <- c(text, paste("        <log idref=\"birthRate2.t:",
-      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
-    text <- c(text, paste("        <log idref=\"relativeDeathRate2.t:",
-      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
-  } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
-    text <- c(text, paste("        <parameter idref=\"popSize.t:",
-      filename_base, "\" name=\"log\"/>", sep = ""))                            # nolint (as this is no absolute path)
-    text <- c(text, paste("        <log idref=\"CoalescentConstant.t:",
-      filename_base, "\"/>", sep = ""))                                          # nolint (as this is no absolute path)
-  }
-
-  text <- c(text, "    </logger>")
-  text <- c(text, "")
-  text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
-  text <- c(text, "        <log idref=\"posterior\"/>")                         # nolint (as this is no absolute path)
-  text <- c(text, paste("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
-    "arg=\"@posterior\"/>"), sep = "")                                          # nolint (as this is no absolute path)
-  text <- c(text, "        <log idref=\"likelihood\"/>")                        # nolint (as this is no absolute path)
-  text <- c(text, "        <log idref=\"prior\"/>")                             # nolint (as this is no absolute path)
-  text <- c(text, "    </logger>")
-  text <- c(text, "")
-  text <- c(text, paste("    <logger id=\"treelog.t:", filename_base,
-    "\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">",
-    sep = "")
-    )
-  text <- c(text, paste("        <log id=\"TreeWithMetaDataLogger.t:",
-    filename_base, "\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-    "tree=\"@Tree.t:", filename_base, "\"/>",                                   # nolint (as this is no absolute path)
-    sep = ""))
-  text <- c(text, "    </logger>")
-
+  text <- c(text, beast_scriptr_loggers(
+    filename_base = filename_base,
+    tree_prior = tree_prior))
 
   text <- c(text, "")
   text <- c(text, "</run>")
@@ -438,6 +395,65 @@ beast_scriptr_init <- function(
 
 
 
+
+#' Creates the two logger sections of a BEAST2 XML parameter file
+#' @param filename_base filename_base
+#' @param tree_prior tree prior
+#' @export
+beast_scriptr_loggers <- function(
+  filename_base,
+  tree_prior
+) {
+  text <- NULL
+
+  text <- c(text, paste("    <logger id=\"tracelog\" fileName=\"",
+    filename_base, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
+    "sanitiseHeaders=\"true\" sort=\"smart\">", sep = ""))
+  text <- c(text, "        <log idref=\"posterior\"/>")                         # nolint (as this is no absolute path)
+  text <- c(text, "        <log idref=\"likelihood\"/>")                        # nolint (as this is no absolute path)
+  text <- c(text, "        <log idref=\"prior\"/>")                             # nolint (as this is no absolute path)
+  text <- c(text, paste("        <log idref=\"treeLikelihood.",
+    filename_base, "\"/>", sep = ""))                                           # nolint (as this is no absolute path)
+  text <- c(text, paste("        <log id=\"TreeHeight.t:", filename_base,
+    "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
+    filename_base, "\"/>", sep = ""))                                           # nolint (as this is no absolute path)
+
+  if (tree_prior == "birth_death") {
+    text <- c(text, paste("        <log idref=\"BirthDeath.t:",
+      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
+    text <- c(text, paste("        <log idref=\"birthRate2.t:",
+      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
+    text <- c(text, paste("        <log idref=\"relativeDeathRate2.t:",
+      filename_base, "\"/>", sep = ""))                                         # nolint (as this is no absolute path)
+  } else {
+    testit::assert(tree_prior == "coalescent_constant_population")
+    text <- c(text, paste("        <parameter idref=\"popSize.t:",
+      filename_base, "\" name=\"log\"/>", sep = ""))                            # nolint (as this is no absolute path)
+    text <- c(text, paste("        <log idref=\"CoalescentConstant.t:",
+      filename_base, "\"/>", sep = ""))                                          # nolint (as this is no absolute path)
+  }
+
+  text <- c(text, "    </logger>")
+  text <- c(text, "")
+  text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
+  text <- c(text, "        <log idref=\"posterior\"/>")                         # nolint (as this is no absolute path)
+  text <- c(text, paste("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
+    "arg=\"@posterior\"/>"), sep = "")                                          # nolint (as this is no absolute path)
+  text <- c(text, "        <log idref=\"likelihood\"/>")                        # nolint (as this is no absolute path)
+  text <- c(text, "        <log idref=\"prior\"/>")                             # nolint (as this is no absolute path)
+  text <- c(text, "    </logger>")
+  text <- c(text, "")
+  text <- c(text, paste("    <logger id=\"treelog.t:", filename_base,
+    "\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">",
+    sep = "")
+    )
+  text <- c(text, paste("        <log id=\"TreeWithMetaDataLogger.t:",
+    filename_base, "\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
+    "tree=\"@Tree.t:", filename_base, "\"/>",                                   # nolint (as this is no absolute path)
+    sep = ""))
+  text <- c(text, "    </logger>")
+  text
+}
 
 #' Creates the map section of a BEAST2 XML parameter file
 #' @export
