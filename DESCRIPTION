@@ -16,6 +16,7 @@ Imports:
     ape,
     geiger,
     phangorn,
+    PBD,
     RBeast, 
     ribir,
     testit
@@ -32,4 +33,5 @@ Remotes:
     jimhester/covr,
     jimhester/lintr,
     MangoTheCat/goodpractice,
-    richelbilderbeek/ribir
+    richelbilderbeek/ribir,
+    rsetienne/PBD/PBD
