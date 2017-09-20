@@ -70,36 +70,15 @@ beast_scriptr <- function(
 
   text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
     mcmc_chainlength, "\">", sep = ""))
-  text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
 
-  if (!ribir::is_phylogeny(initial_phylogeny)) {
-    # Let BEAST2 use a random tree
-    text <- c(text, paste("        <tree id=\"Tree.t:", filename_base,
-      "\" name=\"stateNode\">", sep = ""))
-    text <- c(text, paste("            <taxonset id=\"TaxonSet.", filename_base,
-      "\" spec=\"TaxonSet\">", sep = ""))
-    text <- c(text, paste("                <alignment idref=\"", filename_base,
-      "\"/>", sep = ""))   # nolint (as this is not an absolute path)
-    text <- c(text, "            </taxonset>")
-    text <- c(text, "        </tree>")
-  }
-
-  if (tree_prior == "birth_death") {
-    text <- c(text, paste("        <parameter id=\"birthRate2.t:",
-      filename_base,
-      "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-      sep = "")
+  text <- c(text,
+    beast_scriptr_state(
+      filename_base = filename_base,
+      tree_prior = tree_prior,
+      initial_phylogeny = initial_phylogeny
     )
-    text <- c(text, paste("        <parameter id=\"relativeDeathRate2.t:",
-      filename_base, "\" lower=\"0.0\" name=\"stateNode\"",
-      " upper=\"1.0\">0.5</parameter>", sep = ""))
-  } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
-    text <- c(text, paste("        <parameter id=\"popSize.t:",
-      filename_base, "\" name=\"stateNode\">0.3</parameter>", sep = ""))
-  }
+  )
 
-  text <- c(text, "    </state>")
   text <- c(text, "")
   if (ribir::is_phylogeny(initial_phylogeny)) {
     text <- c(text, paste0("    <statenode spec=\"beast.util.TreeParser\" ",
@@ -478,6 +457,49 @@ beast_scriptr_map <- function() {
 }
 
 
+#' Creates the state section of a BEAST2 XML parameter file
+#' @param filename_base filename its base
+#' @param tree_prior tree prior
+#' @param initial_phylogeny initial phylogeny or NA
+#' @export
+beast_scriptr_state <- function(
+  filename_base,
+  tree_prior,
+  initial_phylogeny
+) {
+  text <- NULL
+  text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
+
+  if (!ribir::is_phylogeny(initial_phylogeny)) {
+    # Let BEAST2 use a random tree
+    text <- c(text, paste("        <tree id=\"Tree.t:", filename_base,
+      "\" name=\"stateNode\">", sep = ""))
+    text <- c(text, paste("            <taxonset id=\"TaxonSet.", filename_base,
+      "\" spec=\"TaxonSet\">", sep = ""))
+    text <- c(text, paste("                <alignment idref=\"", filename_base,
+      "\"/>", sep = ""))   # nolint (as this is not an absolute path)
+    text <- c(text, "            </taxonset>")
+    text <- c(text, "        </tree>")
+  }
+
+  if (tree_prior == "birth_death") {
+    text <- c(text, paste("        <parameter id=\"birthRate2.t:",
+      filename_base,
+      "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
+      sep = "")
+    )
+    text <- c(text, paste("        <parameter id=\"relativeDeathRate2.t:",
+      filename_base, "\" lower=\"0.0\" name=\"stateNode\"",
+      " upper=\"1.0\">0.5</parameter>", sep = ""))
+  } else {
+    testit::assert(tree_prior == "coalescent_constant_population")
+    text <- c(text, paste("        <parameter id=\"popSize.t:",
+      filename_base, "\" name=\"stateNode\">0.3</parameter>", sep = ""))
+  }
+
+  text <- c(text, "    </state>")
+  text
+}
 
 #' Creates the xml section of a BEAST2 XML parameter file
 #' @export
