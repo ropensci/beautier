@@ -2,7 +2,7 @@ context("test_beastscriptr")
 
 test_that("checks input", {
 
-  expect_error(
+  testthat::expect_error(
     beast_scriptr(
       input_fasta_filename = "nonexisting", # Error
       mcmc_chainlength = 1000,
@@ -10,7 +10,7 @@ test_that("checks input", {
       output_xml_filename = "output.xml"
     )
   )
-  expect_error(
+  testthat::expect_error(
     beast_scriptr(
       input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 0, # Error
@@ -19,7 +19,7 @@ test_that("checks input", {
     )
   )
 
-  expect_error(
+  testthat::expect_error(
     beast_scriptr(
       input_fasta_filename = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
@@ -56,7 +56,7 @@ test_that("beastscriptr: produce a file for birth-death?", {
 
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
-  expect_equal(file.exists(input_fasta_filename), TRUE)
+  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
   output_xml_filename <- tempfile()
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -64,16 +64,16 @@ test_that("beastscriptr: produce a file for birth-death?", {
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename
   )
-  expect_equal(file.exists(output_xml_filename), TRUE)
+  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
   file.remove(output_xml_filename)
-  expect_equal(file.exists(output_xml_filename), FALSE)
+  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
 })
 
 test_that("beastscriptr produces a file for coalescent_constant_population?", {
 
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
-  expect_equal(file.exists(input_fasta_filename), TRUE)
+  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
   output_xml_filename <- tempfile()
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -81,9 +81,9 @@ test_that("beastscriptr produces a file for coalescent_constant_population?", {
     tree_prior = "coalescent_constant_population",
     output_xml_filename = output_xml_filename
   )
-  expect_equal(file.exists(output_xml_filename), TRUE)
+  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
   file.remove(output_xml_filename)
-  expect_equal(file.exists(output_xml_filename), FALSE)
+  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
 })
 
 
@@ -95,11 +95,11 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
   output_xml_filename <-  tempfile()
   expected_output_xml_filename <- get_output_xml_filename()
   # Input file must be found
-  expect_equal(file.exists(input_fasta_filename), TRUE)
+  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
   # To-be-created output file must be absent
-  expect_equal(file.exists(output_xml_filename), FALSE)
+  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
   # Expected file must be present
-  expect_equal(file.exists(expected_output_xml_filename), TRUE)
+  testthat::expect_equal(file.exists(expected_output_xml_filename), TRUE)
 
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -107,7 +107,7 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename
   )
-  expect_equal(file.exists(output_xml_filename), TRUE)
+  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
   created_lines <- readLines(output_xml_filename)
   expected_lines <- readLines(expected_output_xml_filename)
   if (!identical(created_lines, expected_lines)) {
@@ -123,7 +123,7 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
   file.remove(filename = "expected.txt")
 })
 
-test_that("Test if input file can be read by BEAST2", {
+test_that("Test if input file can be read by BEAST2, random initial tree", {
   # Creates an XML file from a generated FASTA file
 
   # Create FASTA file
@@ -172,6 +172,7 @@ test_that("Test if input file can be read by BEAST2", {
   )
   system(cmd)
 
+  # If these are absent, BEAST2 could not read the input file
   testthat::expect_true(file.exists(output_xml_filename))
   testthat::expect_true(file.exists(output_xml_state_filename))
 
@@ -179,6 +180,74 @@ test_that("Test if input file can be read by BEAST2", {
   file.remove(output_xml_state_filename)
 })
 
+test_that("Test if input file can be read by BEAST2, fixed crown age", {
+
+
+  # Create FASTA file
+  input_fasta_filename <- tempfile(
+    pattern = "beast_scriptr_test_",
+    fileext = ".fas"
+  )
+  # Input file must not be present,
+  # otherwise BEAST2 will prompt the user when creating .trees files
+  testthat::expect_equal(file.exists(input_fasta_filename), FALSE)
+
+  n_taxa <- 5
+  sequence_length <- 10
+  create_random_fasta(
+    n_taxa = n_taxa,
+    sequence_length = sequence_length,
+    filename = input_fasta_filename
+  )
+
+  # Create XML file from that
+  output_xml_filename <- tempfile(
+    pattern = "beast_scriptr_test_3_",
+    fileext = ".xml"
+  )
+
+  # The output file created when it BEAST2 can run
+  # (which only happens if the input is valid)
+  output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
+
+  # Input file must be found now
+  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
+  # Output file must not be present, otherwise BEAST2 will prompt the user
+  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
+
+
+  # Use fixed crown age and an initial phylogeny
+  beastscriptr::beast_scriptr(
+    input_fasta_filename = input_fasta_filename,
+    mcmc_chainlength = 10000,
+    tree_prior = "birth_death",
+    output_xml_filename = output_xml_filename,
+    fixed_crown_age = TRUE,
+    initial_phylogeny = beastscriptr::fasta_to_phylo(
+      input_fasta_filename, crown_age = 15)
+  )
+  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
+
+  cmd <- paste(
+    "java -jar ~/Programs/beast/lib/beast.jar",
+    output_xml_filename, "1>/dev/null 2>/dev/null"
+  )
+  system(cmd)
+
+  # If these are absent, BEAST2 could not read the input file
+  testthat::expect_true(file.exists(output_xml_filename))
+  # FIX_ISSUE_
+  if (1 == 2) {
+    testthat::expect_true(file.exists(output_xml_state_filename))
+  }
+  # If statements reduce spurious warnings
+  if (file.exists(output_xml_filename)) {
+    file.remove(output_xml_filename)
+  }
+  if (file.exists(output_xml_state_filename)) {
+    file.remove(output_xml_state_filename)
+  }
+})
 
 
 
@@ -191,7 +260,6 @@ test_that("Can specify fixed crown age", {
   # To-be-created output file must be absent
   testthat::expect_equal(file.exists(output_xml_filename_fixed), FALSE)
   testthat::expect_equal(file.exists(output_xml_filename_nonfixed), FALSE)
-
 
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,

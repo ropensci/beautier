@@ -33,7 +33,7 @@ beast_scriptr <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
-  if (fixed_crown_age == TRUE && is.na(initial_phylogeny)) {
+  if (fixed_crown_age == TRUE && !ribir::is_phylogeny(initial_phylogeny)) {
     warning("Using a fixed crown age of a random phylogeny")
   }
 
@@ -104,15 +104,16 @@ beast_scriptr <- function(
   text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
     mcmc_chainlength, "\">", sep = ""))
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
-  text <- c(text, paste("        <tree id=\"Tree.t:", filename_base,
-    "\" name=\"stateNode\">", sep = ""))
-  text <- c(text, paste("            <taxonset id=\"TaxonSet.", filename_base,
-    "\" spec=\"TaxonSet\">", sep = ""))
-  text <- c(text, paste("                <alignment idref=\"", filename_base,
-    "\"/>", sep = ""))   # nolint (as this is not an absolute path)
-  text <- c(text, "            </taxonset>")
-  text <- c(text, "        </tree>")
-
+  if (!ribir::is_phylogeny(initial_phylogeny)) {
+    text <- c(text, paste("        <tree id=\"Tree.t:", filename_base,
+      "\" name=\"stateNode\">", sep = ""))
+    text <- c(text, paste("            <taxonset id=\"TaxonSet.", filename_base,
+      "\" spec=\"TaxonSet\">", sep = ""))
+    text <- c(text, paste("                <alignment idref=\"", filename_base,
+      "\"/>", sep = ""))   # nolint (as this is not an absolute path)
+    text <- c(text, "            </taxonset>")
+    text <- c(text, "        </tree>")
+  }
   if (tree_prior == "birth_death") {
     text <- c(text, paste("        <parameter id=\"birthRate2.t:",
       filename_base,
@@ -130,7 +131,13 @@ beast_scriptr <- function(
 
   text <- c(text, "    </state>")
   text <- c(text, "")
-  if (fixed_crown_age == FALSE) {
+  if (ribir::is_phylogeny(initial_phylogeny)) {
+    text <- c(text, paste0("    <statenode spec=\"beast.util.TreeParser\" ",
+      "id=\"Tree.t:", filename_base, "\" IsLabelledNewick=\"true\" ",
+      "adjustTipHeights=\"false\" taxa=\"@", filename_base, "\" ",
+      "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
+    text <- c(text, paste0("    </statenode>"))
+  } else {
     text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
       "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
       " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",

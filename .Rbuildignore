@@ -7,3 +7,5 @@
 ^Whitespace\.png$
 ^create_pdf\.sh$
 ^demo\.pdf$
+^create_pdf\.R$
+^install_beast2\.sh$

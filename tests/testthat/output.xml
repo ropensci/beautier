@@ -42,6 +42,7 @@ name="alignment">
         <parameter id="relativeDeathRate2.t:/home/richel/GitHubs/beastscriptr/inst/extdata/test_output_0" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
     </state>
 
+    <init id="RandomTree.t:/home/richel/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:/home/richel/GitHubs/beastscriptr/inst/extdata/test_output_0" taxa="@/home/richel/GitHubs/beastscriptr/inst/extdata/test_output_0">
         <populationModel id="ConstantPopulation0.t:/home/richel/GitHubs/beastscriptr/inst/extdata/test_output_0" spec="ConstantPopulation">
             <parameter id="randomPopSize.t:/home/richel/GitHubs/beastscriptr/inst/extdata/test_output_0" name="popSize">1.0</parameter>
         </populationModel>
