@@ -423,8 +423,6 @@ beast_scriptr_init <- function(
 
 
 #' Creates the map section of a BEAST2 XML parameter file
-#' @param filename_base base of the filenames
-#' @param input_fasta_filename name of the FASTA file
 #' @export
 beast_scriptr_map <- function() {
   text <- NULL
@@ -432,16 +430,16 @@ beast_scriptr_map <- function() {
     "<map name=\"Uniform\">beast.math.distributions.Uniform</map>")
   text <- c(text,
     "<map name=\"Exponential\">beast.math.distributions.Exponential</map>")
-  text <- c(text, paste("<map name=\"LogNormal\">",
-    "beast.math.distributions.LogNormalDistributionModel</map>", sep = ""))
+  text <- c(text, paste0("<map name=\"LogNormal\">",
+    "beast.math.distributions.LogNormalDistributionModel</map>"))
   text <- c(text, "<map name=\"Normal\">beast.math.distributions.Normal</map>")
   text <- c(text, "<map name=\"Beta\">beast.math.distributions.Beta</map>")
   text <- c(text, "<map name=\"Gamma\">beast.math.distributions.Gamma</map>")
-  text <- c(text, paste("<map name=\"LaplaceDistribution\">",
-    "beast.math.distributions.LaplaceDistribution</map>", sep = ""))
+  text <- c(text, paste0("<map name=\"LaplaceDistribution\">",
+    "beast.math.distributions.LaplaceDistribution</map>"))
   text <- c(text, "<map name=\"prior\">beast.math.distributions.Prior</map>")
-  text <- c(text, paste("<map name=\"InverseGamma\">",
-    "beast.math.distributions.InverseGamma</map>", sep = ""))
+  text <- c(text, paste0("<map name=\"InverseGamma\">",
+    "beast.math.distributions.InverseGamma</map>"))
   text <- c(text, "<map name=\"OneOnX\">beast.math.distributions.OneOnX</map>")
   text
 }

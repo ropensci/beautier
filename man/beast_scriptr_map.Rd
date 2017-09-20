@@ -6,11 +6,6 @@
 \usage{
 beast_scriptr_map()
 }
-\arguments{
-\item{filename_base}{base of the filenames}
-
-\item{input_fasta_filename}{name of the FASTA file}
-}
 \description{
 Creates the map section of a BEAST2 XML parameter file
 }
