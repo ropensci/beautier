@@ -16,6 +16,7 @@ Imports:
     ape,
     geiger,
     phangorn,
+    RBeast, 
     ribir,
     testit
 Suggests:
@@ -27,7 +28,8 @@ Suggests:
     testthat,
     TreeSim
 Remotes: 
+    beast-dev/RBeast,
     jimhester/covr,
     jimhester/lintr,
-    richelbilderbeek/ribir,
-    MangoTheCat/goodpractice
+    MangoTheCat/goodpractice,
+    richelbilderbeek/ribir

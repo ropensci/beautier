@@ -33,9 +33,9 @@ beast_scriptr <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
-  if (fixed_crown_age == TRUE && !ribir::is_phylogeny(initial_phylogeny)) {
-    warning("Using a fixed crown age of a random phylogeny")
-  }
+  #if (fixed_crown_age == TRUE && !ribir::is_phylogeny(initial_phylogeny)) {
+  #  warning("Using a fixed crown age of a random phylogeny")
+  #}
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
@@ -104,7 +104,9 @@ beast_scriptr <- function(
   text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
     mcmc_chainlength, "\">", sep = ""))
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
+
   if (!ribir::is_phylogeny(initial_phylogeny)) {
+    # Let BEAST2 use a random tree
     text <- c(text, paste("        <tree id=\"Tree.t:", filename_base,
       "\" name=\"stateNode\">", sep = ""))
     text <- c(text, paste("            <taxonset id=\"TaxonSet.", filename_base,
@@ -114,6 +116,7 @@ beast_scriptr <- function(
     text <- c(text, "            </taxonset>")
     text <- c(text, "        </tree>")
   }
+
   if (tree_prior == "birth_death") {
     text <- c(text, paste("        <parameter id=\"birthRate2.t:",
       filename_base,
@@ -148,7 +151,7 @@ beast_scriptr <- function(
   text <- c(text, paste("            <parameter id=\"randomPopSize.t:",
     filename_base, "\" name=\"popSize\">1.0</parameter>", sep = ""))
   text <- c(text, "        </populationModel>")
-  if (fixed_crown_age == FALSE) {
+  if (!ribir::is_phylogeny(initial_phylogeny)) {
     text <- c(text, "    </init>")
   }
   text <- c(text, "")
