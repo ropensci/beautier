@@ -238,7 +238,8 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
   # TODO, FIX_ISSUE
   if (1 == 2) {
     # All TreeHeights (crown ages) should be the same
-    testthat::expect_true(all(posterior$estimates$TreeHeight == posterior$estimates$TreeHeight[1]))
+    testthat::expect_true(all(posterior$estimates$TreeHeight
+      == posterior$estimates$TreeHeight[1]))
   }
 
   file.remove(output_xml_filename)

@@ -33,10 +33,6 @@ beast_scriptr <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
-  #if (fixed_crown_age == TRUE && !ribir::is_phylogeny(initial_phylogeny)) {
-  #  warning("Using a fixed crown age of a random phylogeny")
-  #}
-
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
