@@ -27,11 +27,9 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
   phylo <- ape::rcoal(n = length(taxa_names), tip.label = taxa_names)
 
   # ... with the correct crown age
+  phylo <- geiger::rescale(phylo, "depth", crown_age)
 
-  crown_age_before <- wiritttes::get_phylogeny_crown_age(phylo)
-  phylo$edge.length <- phylo$edge.length * crown_age / crown_age_before
-
-  crown_age_after <- wiritttes::get_phylogeny_crown_age(phylo)
-  testit::assert(crown_age == crown_age_after)
+  #crown_age_after <- wiritttes::get_phylogeny_crown_age(phylo)
+  #testit::assert(crown_age == crown_age_after)
   phylo
 }
