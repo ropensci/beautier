@@ -54,11 +54,12 @@ beast_scriptr <- function(
   text <- c(text, "")
   filename_base <- beastscriptr::remove_file_extension(input_fasta_filename)
 
-  data_section <- beast_scriptr_data(
-    filename_base = filename_base,
-    input_fasta_filename = input_fasta_filename
+  text <- c(text,
+    beast_scriptr_data(
+      filename_base = filename_base,
+      input_fasta_filename = input_fasta_filename
+    )
   )
-  text <- c(text, data_section)
 
   text <- c(text, "")
   text <- c(text, "")
@@ -70,8 +71,7 @@ beast_scriptr <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  map_section <- beast_scriptr_map()
-  text <- c(text, map_section)
+  text <- c(text, beast_scriptr_map())
 
   text <- c(text, "")
   text <- c(text, "")
@@ -118,19 +118,22 @@ beast_scriptr <- function(
   }
 
   text <- c(text, "")
-  init_section <- beast_scriptr_init(
-    filename_base = filename_base,
-    initial_phylogeny = initial_phylogeny
+
+  text <- c(text,
+    beast_scriptr_init(
+      filename_base = filename_base,
+      initial_phylogeny = initial_phylogeny
+    )
   )
-  text <- c(text, init_section)
 
   text <- c(text, "")
 
-  distribution_section <- beast_scriptr_distribution(
-    filename_base = filename_base,
-    tree_prior = tree_prior
+  text <- c(text,
+    beast_scriptr_distribution(
+      filename_base = filename_base,
+      tree_prior = tree_prior
+    )
   )
-  text <- c(text, distribution_section)
 
   text <- c(text, "")
 
@@ -186,6 +189,8 @@ beast_scriptr <- function(
     "tree=\"@Tree.t:", filename_base, "\"/>",                                   # nolint (as this is no absolute path)
     sep = ""))
   text <- c(text, "    </logger>")
+
+
   text <- c(text, "")
   text <- c(text, "</run>")
   text <- c(text, "")
