@@ -16,6 +16,7 @@ Imports:
     ape,
     geiger,
     phangorn,
+    ribir,
     testit
 Suggests:
     devtools,
