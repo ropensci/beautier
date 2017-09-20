@@ -54,27 +54,12 @@ beast_scriptr <- function(
   text <- c(text, "")
   filename_base <- beastscriptr::remove_file_extension(input_fasta_filename)
 
-  text <- c(text, "    <data")
-  text <- c(text, paste("id=\"", filename_base, "\"", sep = ""))
-  text <- c(text, "name=\"alignment\">")
-  sequences_table <- beastscriptr::fasta_file_to_sequences(input_fasta_filename)
-  sequences <- cbind(rownames(sequences_table), sequences_table)
-
-  apply(sequences, 1, function(row) {
-      nextline <- paste(
-        "                    <sequence id=\"seq_",
-        row[1],
-        "\" taxon=\"",
-        row[1],
-        "\" totalcount=\"4\" value=\"",
-        toupper(row[2]),
-        "\"/>",  # nolint (as this is not an absolute path)
-        sep = ""
-      )
-      text <<- c(text, nextline)
-    }
+  data_section <- beast_scriptr_data(
+    filename_base = filename_base,
+    input_fasta_filename = input_fasta_filename
   )
-  text <- c(text, "                </data>")
+  text <- c(text, data_section)
+
   text <- c(text, "")
   text <- c(text, "")
   text <- c(text, "    ")
@@ -84,21 +69,10 @@ beast_scriptr <- function(
   text <- c(text, "")
   text <- c(text, "")
   text <- c(text, "    ")
-  text <- c(text,
-    "<map name=\"Uniform\">beast.math.distributions.Uniform</map>")
-  text <- c(text,
-    "<map name=\"Exponential\">beast.math.distributions.Exponential</map>")
-  text <- c(text, paste("<map name=\"LogNormal\">",
-    "beast.math.distributions.LogNormalDistributionModel</map>", sep = ""))
-  text <- c(text, "<map name=\"Normal\">beast.math.distributions.Normal</map>")
-  text <- c(text, "<map name=\"Beta\">beast.math.distributions.Beta</map>")
-  text <- c(text, "<map name=\"Gamma\">beast.math.distributions.Gamma</map>")
-  text <- c(text, paste("<map name=\"LaplaceDistribution\">",
-    "beast.math.distributions.LaplaceDistribution</map>", sep = ""))
-  text <- c(text, "<map name=\"prior\">beast.math.distributions.Prior</map>")
-  text <- c(text, paste("<map name=\"InverseGamma\">",
-    "beast.math.distributions.InverseGamma</map>", sep = ""))
-  text <- c(text, "<map name=\"OneOnX\">beast.math.distributions.OneOnX</map>")
+
+  map_section <- beast_scriptr_map()
+  text <- c(text, map_section)
+
   text <- c(text, "")
   text <- c(text, "")
   text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
@@ -377,5 +351,71 @@ beast_scriptr_operators <- function(
       "\" scaleFactor=\"0.75\" spec=\"ScaleOperator\" weight=\"3.0\"/>",        # nolint (as this is no absolute path)
       sep = ""))
   }
+  text
+}
+
+
+
+
+
+
+
+#' Creates the data section of a BEAST2 XML parameter file
+#' @param filename_base base of the filenames
+#' @param input_fasta_filename name of the FASTA file
+#' @export
+beast_scriptr_data <- function(
+  filename_base,
+  input_fasta_filename
+) {
+  text <- NULL
+  text <- c(text, "    <data")
+  text <- c(text, paste("id=\"", filename_base, "\"", sep = ""))
+  text <- c(text, "name=\"alignment\">")
+  sequences_table <- beastscriptr::fasta_file_to_sequences(input_fasta_filename)
+  sequences <- cbind(rownames(sequences_table), sequences_table)
+
+  apply(sequences, 1, function(row) {
+      nextline <- paste(
+        "                    <sequence id=\"seq_",
+        row[1],
+        "\" taxon=\"",
+        row[1],
+        "\" totalcount=\"4\" value=\"",
+        toupper(row[2]),
+        "\"/>",  # nolint (as this is not an absolute path)
+        sep = ""
+      )
+      text <<- c(text, nextline)
+    }
+  )
+  text <- c(text, "                </data>")
+  text
+}
+
+
+
+
+#' Creates the map section of a BEAST2 XML parameter file
+#' @param filename_base base of the filenames
+#' @param input_fasta_filename name of the FASTA file
+#' @export
+beast_scriptr_map <- function() {
+  text <- NULL
+  text <- c(text,
+    "<map name=\"Uniform\">beast.math.distributions.Uniform</map>")
+  text <- c(text,
+    "<map name=\"Exponential\">beast.math.distributions.Exponential</map>")
+  text <- c(text, paste("<map name=\"LogNormal\">",
+    "beast.math.distributions.LogNormalDistributionModel</map>", sep = ""))
+  text <- c(text, "<map name=\"Normal\">beast.math.distributions.Normal</map>")
+  text <- c(text, "<map name=\"Beta\">beast.math.distributions.Beta</map>")
+  text <- c(text, "<map name=\"Gamma\">beast.math.distributions.Gamma</map>")
+  text <- c(text, paste("<map name=\"LaplaceDistribution\">",
+    "beast.math.distributions.LaplaceDistribution</map>", sep = ""))
+  text <- c(text, "<map name=\"prior\">beast.math.distributions.Prior</map>")
+  text <- c(text, paste("<map name=\"InverseGamma\">",
+    "beast.math.distributions.InverseGamma</map>", sep = ""))
+  text <- c(text, "<map name=\"OneOnX\">beast.math.distributions.OneOnX</map>")
   text
 }
