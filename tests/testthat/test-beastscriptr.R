@@ -229,7 +229,6 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
   # If these are absent, BEAST2 could not read the input file
   testthat::expect_true(file.exists(output_xml_filename))
   testthat::expect_true(file.exists(output_xml_state_filename))
-  #wiritttes::alignment_to_beast_posterior
 
   # See that the posterior has identical crown ages
   posterior <- RBeast::parse_beast_posterior(

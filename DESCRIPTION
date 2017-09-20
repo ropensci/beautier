@@ -18,8 +18,7 @@ Imports:
     phangorn,
     RBeast, 
     ribir,
-    testit,
-    wiritttes
+    testit
 Suggests:
     devtools,
     knitr,
@@ -33,5 +32,4 @@ Remotes:
     jimhester/covr,
     jimhester/lintr,
     MangoTheCat/goodpractice,
-    richelbilderbeek/ribir,
-    richelbilderbeek/wiritttes
+    richelbilderbeek/ribir
