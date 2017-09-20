@@ -75,6 +75,7 @@ beast_scriptr <- function(
 
   text <- c(text, "")
   text <- c(text, "")
+
   text <- c(text, paste("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
     mcmc_chainlength, "\">", sep = ""))
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
@@ -114,20 +115,15 @@ beast_scriptr <- function(
       "adjustTipHeights=\"false\" taxa=\"@", filename_base, "\" ",
       "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
     text <- c(text, paste0("    </statenode>"))
-  } else {
-    text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
-      "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-      " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
-      sep = ""))
   }
-  text <- c(text, paste("        <populationModel id=\"ConstantPopulation0.t:",
-    filename_base, "\" spec=\"ConstantPopulation\">", sep = ""))
-  text <- c(text, paste("            <parameter id=\"randomPopSize.t:",
-    filename_base, "\" name=\"popSize\">1.0</parameter>", sep = ""))
-  text <- c(text, "        </populationModel>")
-  if (!ribir::is_phylogeny(initial_phylogeny)) {
-    text <- c(text, "    </init>")
-  }
+
+  text <- c(text, "")
+  init_section <- beast_scriptr_init(
+    filename_base = filename_base,
+    initial_phylogeny = initial_phylogeny
+  )
+  text <- c(text, init_section)
+
   text <- c(text, "")
   text <- c(text,
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
@@ -396,6 +392,36 @@ beast_scriptr_data <- function(
 
 
 
+
+
+
+#' Creates the map section of a BEAST2 XML parameter file
+#' @param filename_base base of the filenames
+#' @param initial_phylogeny initial phylogeny
+#' @export
+beast_scriptr_init <- function(
+  filename_base,
+  initial_phylogeny
+) {
+  text <- NULL
+  if (!ribir::is_phylogeny(initial_phylogeny)) {
+    text <- c(text, paste("    <init id=\"RandomTree.t:", filename_base,
+      "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
+      " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">",
+      sep = ""))
+    text <- c(text, paste("        <populationModel id=\"ConstantPopulation0.t:",
+      filename_base, "\" spec=\"ConstantPopulation\">", sep = ""))
+    text <- c(text, paste("            <parameter id=\"randomPopSize.t:",
+      filename_base, "\" name=\"popSize\">1.0</parameter>", sep = ""))
+    text <- c(text, "        </populationModel>")
+    text <- c(text, "    </init>")
+  }
+  text
+}
+
+
+
+
 #' Creates the map section of a BEAST2 XML parameter file
 #' @param filename_base base of the filenames
 #' @param input_fasta_filename name of the FASTA file
@@ -419,3 +445,6 @@ beast_scriptr_map <- function() {
   text <- c(text, "<map name=\"OneOnX\">beast.math.distributions.OneOnX</map>")
   text
 }
+
+
+
