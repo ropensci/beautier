@@ -290,7 +290,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, specified tree",
     " -statefile ", beast_state_filename,
     " -overwrite", beast_filename
   )
-  verbose <- TRUE
+  verbose <- FALSE
   if (!verbose) {
     cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
   }
@@ -305,7 +305,8 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, specified tree",
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
   testthat::expect_true(all(posterior$estimates$TreeHeight == crown_age))
-
+  testthat::expect_true(crown_age
+    == beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000))
   file.remove(beast_filename)
   file.remove(beast_state_filename)
 })
