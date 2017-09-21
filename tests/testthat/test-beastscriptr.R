@@ -176,15 +176,10 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
   beast_log_filename <- paste0(base_filename, ".log")
   beast_trees_filename <- paste0(base_filename, ".trees")
   beast_state_filename <- paste0(base_filename, ".xml.state")
-  temp_fasta_filename <- paste0(base_filename, ".fasta")
+  input_fasta_filename <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
-  input_fasta_filename <- temp_fasta_filename
-
-  # Input file must not be present,
-  # otherwise BEAST2 will prompt the user when creating .trees files
   testthat::expect_equal(file.exists(input_fasta_filename), FALSE)
-
   n_taxa <- 5
   sequence_length <- 10
   beastscriptr::create_random_fasta(
@@ -219,7 +214,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
     " -statefile ", beast_state_filename,
     " -overwrite", output_xml_filename
   )
-  verbose <- FALSE
+  verbose <- TRUE
   if (!verbose) {
     cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
   }
@@ -235,12 +230,9 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
 
-  # TODO, FIX_ISSUE
-  if (1 == 2) {
-    # All TreeHeights (crown ages) should be the same
-    testthat::expect_true(all(posterior$estimates$TreeHeight
-      == posterior$estimates$TreeHeight[1]))
-  }
+  # All TreeHeights (crown ages) should be the same
+  testthat::expect_true(all(posterior$estimates$TreeHeight
+    == posterior$estimates$TreeHeight[1]))
 
   file.remove(output_xml_filename)
   file.remove(output_xml_state_filename)

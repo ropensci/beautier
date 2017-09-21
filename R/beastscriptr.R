@@ -73,14 +73,16 @@ beast_scriptr_operators <- function(
 ) {
 
   text <- NULL
-  text <- c(text, paste0("    <operator id=\"treeScaler.t:", filename_base,
-    "\" spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
-    filename_base, "\" weight=\"3.0\"/>"))
-  text <- c(text, "")
-  text <- c(text, paste0("    <operator id=\"treeRootScaler.t:", filename_base,
-    "\" spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
-    "tree=\"@Tree.t:", filename_base, "\" weight=\"3.0\"/>"))
-  text <- c(text, "")
+  if (fixed_crown_age == FALSE) { # RHCB hypothesis
+    text <- c(text, paste0("    <operator id=\"treeScaler.t:", filename_base,
+      "\" spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
+      filename_base, "\" weight=\"3.0\"/>"))
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"treeRootScaler.t:", filename_base,
+      "\" spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
+      "tree=\"@Tree.t:", filename_base, "\" weight=\"3.0\"/>"))
+    text <- c(text, "")
+  }
   text <- c(text, paste0("    <operator id=\"UniformOperator.t:", filename_base,
     "\" spec=\"Uniform\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"30.0\"/>"))
