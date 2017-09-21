@@ -3,7 +3,8 @@
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_prior The tree prior, can be 'birth_death' or
 #'   'coalescent_constant_population'
-#' @param output_xml_filename Filename of the XML parameter file created
+#' @param output_xml_filename Name of the XML parameter file created by this
+#'   function. BEAST2 uses this file as input.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age

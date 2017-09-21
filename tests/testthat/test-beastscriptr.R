@@ -167,75 +167,71 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
   file.remove(output_xml_state_filename)
 })
 
-test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
+test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
 
   setwd(path.expand("~"))
+  set.seed(42)
 
-  base_filename <- tempfile(pattern = "beast_scriptr_test_")
+  base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_rand_")
+  # BEAST2 input XML file, created by beastscriptr::beast_scriptr
   beast_filename <- paste0(base_filename, ".xml")
+  # BEAST2 output file, containing the posterior parameter estimates
   beast_log_filename <- paste0(base_filename, ".log")
+  # BEAST2 output file, containing the posterior phylogenies
   beast_trees_filename <- paste0(base_filename, ".trees")
+  # BEAST2 output file, containing the final MCMC state
   beast_state_filename <- paste0(base_filename, ".xml.state")
+  # FASTA file needed only temporarily to store simulated DNA alignments
   input_fasta_filename <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
   testthat::expect_equal(file.exists(input_fasta_filename), FALSE)
-  n_taxa <- 5
-  sequence_length <- 10
   beastscriptr::create_random_fasta(
-    n_taxa = n_taxa,
-    sequence_length = sequence_length,
+    n_taxa = 5,
+    sequence_length = 10,
     filename = input_fasta_filename
   )
-
-  # Create XML file from that
-  output_xml_filename <- beast_filename
-
-  # The output file created when it BEAST2 can run
-  # (which only happens if the input is valid)
-  output_xml_state_filename <- beast_state_filename
-
-  # Input file must be found now
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-  # Output file must not be present, otherwise BEAST2 will prompt the user
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
 
+  # Create BEAST2 input file
+  testthat::expect_equal(file.exists(beast_filename), FALSE)
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_prior = "birth_death",
-    output_xml_filename = output_xml_filename,
+    output_xml_filename = beast_filename,
     fixed_crown_age = TRUE
   )
-  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
+  testthat::expect_equal(file.exists(beast_filename), TRUE)
 
+  # Run BEAST2
+  testthat::expect_false(file.exists(beast_state_filename))
+  testthat::expect_false(file.exists(beast_log_filename))
+  testthat::expect_false(file.exists(beast_trees_filename))
   cmd <- paste(
     "java -jar ~/Programs/beast/lib/beast.jar",
     " -statefile ", beast_state_filename,
-    " -overwrite", output_xml_filename
+    " -overwrite", beast_filename
   )
   verbose <- FALSE
   if (!verbose) {
     cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
   }
-
   system(cmd)
+  # If these are absent, BEAST2 could not parse the input file
+  testthat::expect_true(file.exists(beast_state_filename))
+  testthat::expect_true(file.exists(beast_log_filename))
+  testthat::expect_true(file.exists(beast_trees_filename))
 
-  # If these are absent, BEAST2 could not read the input file
-  testthat::expect_true(file.exists(output_xml_filename))
-  testthat::expect_true(file.exists(output_xml_state_filename))
-
-  # See that the posterior has identical crown ages
+  # All TreeHeights (crown ages) should be the same
   posterior <- RBeast::parse_beast_posterior(
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
-
-  # All TreeHeights (crown ages) should be the same
   testthat::expect_true(all(posterior$estimates$TreeHeight
     == posterior$estimates$TreeHeight[1]))
 
-  file.remove(output_xml_filename)
-  file.remove(output_xml_state_filename)
+  file.remove(beast_filename)
+  file.remove(beast_state_filename)
 })
 
 test_that("Test if input file can be read by BEAST2, fixed crown age", {
