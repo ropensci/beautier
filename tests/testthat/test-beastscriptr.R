@@ -185,16 +185,16 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
   input_fasta_filename <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
-  testthat::expect_equal(file.exists(input_fasta_filename), FALSE)
+  testthat::expect_false(file.exists(input_fasta_filename))
   beastscriptr::create_random_fasta(
     n_taxa = 5,
     sequence_length = 10,
     filename = input_fasta_filename
   )
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
+  testthat::expect_true(file.exists(input_fasta_filename))
 
   # Create BEAST2 input file
-  testthat::expect_equal(file.exists(beast_filename), FALSE)
+  testthat::expect_false(file.exists(beast_filename))
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000,
@@ -202,7 +202,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
     output_xml_filename = beast_filename,
     fixed_crown_age = TRUE
   )
-  testthat::expect_equal(file.exists(beast_filename), TRUE)
+  testthat::expect_true(file.exists(beast_filename))
 
   # Run BEAST2
   testthat::expect_false(file.exists(beast_state_filename))
