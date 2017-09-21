@@ -73,11 +73,13 @@ beast_scriptr_operators <- function(
 ) {
 
   text <- NULL
-  if (fixed_crown_age == FALSE) { # RHCB hypothesis
+  if (fixed_crown_age == FALSE) { # Not mentioned in documentation
     text <- c(text, paste0("    <operator id=\"treeScaler.t:", filename_base,
       "\" spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
       filename_base, "\" weight=\"3.0\"/>"))
     text <- c(text, "")
+  }
+  if (fixed_crown_age == FALSE) { # Not mentioned in documentation
     text <- c(text, paste0("    <operator id=\"treeRootScaler.t:", filename_base,
       "\" spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
       "tree=\"@Tree.t:", filename_base, "\" weight=\"3.0\"/>"))
@@ -92,14 +94,20 @@ beast_scriptr_operators <- function(
       "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
       "\" weight=\"15.0\"/>"))
     text <- c(text, "")
-    text <- c(text, paste0("    <operator id=\"narrow.t:", filename_base,
-      "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
-      "\" weight=\"15.0\"/>"))
-    text <- c(text, "")
+  }
+  # Mentioned in documentation that this operator would change crown age.
+  # It does not
+  text <- c(text, paste0("    <operator id=\"narrow.t:", filename_base,
+    "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
+    "\" weight=\"15.0\"/>"))
+  text <- c(text, "")
+  if (fixed_crown_age == FALSE) {
     text <- c(text, paste0("    <operator id=\"wide.t:", filename_base,
       "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
       "\" weight=\"3.0\"/>"))
     text <- c(text, "")
+  }
+  if (fixed_crown_age == FALSE) {
     text <- c(text, paste0("    <operator id=\"WilsonBalding.t:", filename_base,
       "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
       "\" weight=\"3.0\"/>"))

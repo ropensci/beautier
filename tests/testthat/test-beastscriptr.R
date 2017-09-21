@@ -214,7 +214,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age", {
     " -statefile ", beast_state_filename,
     " -overwrite", output_xml_filename
   )
-  verbose <- TRUE
+  verbose <- FALSE
   if (!verbose) {
     cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
   }
@@ -342,12 +342,12 @@ test_that("Can specify fixed crown age", {
   created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
 
   # narrow exchange operator absent in fixed crown age tree
-  testthat::expect_equal(1,
-    length(grep(pattern = "<operator id=\"narrow", x = created_lines_nonfixed))
-  )
-  testthat::expect_equal(0,
-    length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
-  )
+  # testthat::expect_equal(1,
+  #   length(grep(pattern = "<operator id=\"narrow", x = created_lines_nonfixed))
+  # )
+  # testthat::expect_equal(0,
+  #   length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
+  # )
   # wide exchange operator absent in fixed crown age tree
   testthat::expect_equal(1,
     length(grep(pattern = "<operator id=\"wide", x = created_lines_nonfixed))
