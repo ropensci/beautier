@@ -305,8 +305,10 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   posterior <- RBeast::parse_beast_posterior(
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
-  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age, tolerance = 0.001)
-  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age, tolerance = 0.001)
+  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
+    tolerance = 0.001)
   testthat::expect_equal(crown_age,
     beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000),
     tolerance = 0.001)
