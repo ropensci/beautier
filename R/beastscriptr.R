@@ -74,14 +74,15 @@ beast_scriptr_operators <- function(
 ) {
 
   text <- NULL
-  if (fixed_crown_age == FALSE) { # Not mentioned in documentation
+  if (fixed_crown_age == FALSE) {
     text <- c(text, paste0("    <operator id=\"treeScaler.t:", filename_base,
       "\" spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
       filename_base, "\" weight=\"3.0\"/>"))
     text <- c(text, "")
   }
-  if (fixed_crown_age == FALSE) { # Not mentioned in documentation
-    text <- c(text, paste0("    <operator id=\"treeRootScaler.t:", filename_base,
+  if (fixed_crown_age == FALSE) {
+    text <- c(text, paste0("    <operator id=\"treeRootScaler.t:",
+      filename_base,
       "\" spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
       "tree=\"@Tree.t:", filename_base, "\" weight=\"3.0\"/>"))
     text <- c(text, "")
@@ -97,22 +98,14 @@ beast_scriptr_operators <- function(
     text <- c(text, "")
   }
 
-  # Mentioned in documentation that this operator would change crown age.
-  # It does not
   text <- c(text, paste0("    <operator id=\"narrow.t:", filename_base,
     "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"15.0\"/>"))
   text <- c(text, "")
-
-  # Mentioned in documentation that this operator would change crown age.
-  # It does not
   text <- c(text, paste0("    <operator id=\"wide.t:", filename_base,
     "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
-
-  # Mentioned in documentation that this operator would change crown age.
-  # It does not
   text <- c(text, paste0("    <operator id=\"WilsonBalding.t:", filename_base,
     "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"3.0\"/>"))
@@ -365,6 +358,8 @@ beast_scriptr_init <- function(
   #   </init>
   #
   # remove this element from the file, otherwise the tree will be Newick tree will be overwritten by a random tree.
+  #
+  # In other words: bluntly remove it
   if (!ribir::is_phylogeny(initial_phylogeny)) {
     text <- c(text, paste0("    <init id=\"RandomTree.t:", filename_base,
       "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
@@ -378,8 +373,7 @@ beast_scriptr_init <- function(
     text <- c(text, "        </populationModel>")
     text <- c(text, "    </init>")
   } else {
-    # Put initial tree here
-    HIERO
+    # Do not put initial tree here, but at the state section
   }
   text
 }
@@ -546,33 +540,21 @@ beast_scriptr_state <- function(
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
 
-  text <- c(text, paste0("        <tree id=\"Tree.t:",
-    filename_base, "\" name=\"stateNode\">"))
-  text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
-    filename_base, "\" spec=\"TaxonSet\">"))
-  text <- c(text, paste0("                <alignment idref=\"",
-    filename_base, "\"/>"))
-  text <- c(text, "            </taxonset>")
-  text <- c(text, "        </tree>")
-
-  if (ribir::is_phylogeny(initial_phylogeny) && 1 == 2) {
-    # To start the tree with a tree in Newick format, you need the TreeParser to initialise the tree. You can insert this in the XML by editing it (this is not possible in BEAUti yet) for example, like so:
-    #
-    # <statenode spec="beast.util.TreeParser" id="Tree.t:xyz" islabellednewick="true" adjusttipheights="false" taxa="@xyz" newick="chimp:0.009603178109055574,bonobo:0.009603178109055574):0.01049225186311567):0.013418689384830318):0.02460624740645495,orangutan:0.05812036676345651):0.010656607109573349,siamang:0.06877697387302986);">
-    # </statenode>
-    #
-    # It is a bit tricky, because you have to ensure that
-    #
-    #     the id (here id=’Tree.t:xyz’) is the same as in your original file.
-    #     taxa refers to the alignment so it knows the order of taxa. If your alignment has id=’xyz’ then add taxa=’@xyz’.
-    #     the element name (here stateNode) should be the same as in the original file.
-    #     if the tree is supposed to be ultrametric, that is, all the tips have the same age then also set adjustTipHeights to true.
+  if (!ribir::is_phylogeny(initial_phylogeny)) {
+    text <- c(text, paste0("        <tree id=\"Tree.t:",
+      filename_base, "\" name=\"stateNode\">"))
+    text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
+      filename_base, "\" spec=\"TaxonSet\">"))
+    text <- c(text, paste0("                <alignment idref=\"",
+      filename_base, "\"/>"))
+    text <- c(text, "            </taxonset>")
+    text <- c(text, "        </tree>")
+  } else {
     text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
         "id=\"Tree.t:", filename_base, "\" IsLabelledNewick=\"true\" ",
         "adjustTipHeights=\"false\" taxa=\"@", filename_base, "\" ",
         "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
     text <- c(text, paste0("    </stateNode>"))
-
   }
 
   if (tree_prior == "birth_death") {
