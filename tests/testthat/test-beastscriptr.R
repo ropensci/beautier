@@ -239,7 +239,7 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   "specified tree"), {
 
   setwd(path.expand("~"))
-  set.seed(42)
+  set.seed(43)
 
   base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_spec_")
   # BEAST2 input XML file, created by beastscriptr::beast_scriptr
@@ -305,9 +305,11 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   posterior <- RBeast::parse_beast_posterior(
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
-  testthat::expect_true(all(posterior$estimates$TreeHeight == crown_age))
-  testthat::expect_true(crown_age
-    == beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000))
+  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age, tolerance = 0.001)
+  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age, tolerance = 0.001)
+  testthat::expect_equal(crown_age,
+    beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000),
+    tolerance = 0.001)
   file.remove(beast_filename)
   file.remove(beast_state_filename)
 })
