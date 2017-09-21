@@ -235,7 +235,8 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
 })
 
 
-test_that("Runs BEAST2, BD species tree prior, fixed crown age, specified tree", {
+test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
+  "specified tree"), {
 
   setwd(path.expand("~"))
   set.seed(42)
