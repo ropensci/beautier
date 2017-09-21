@@ -234,73 +234,80 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
   file.remove(beast_state_filename)
 })
 
-test_that("Test if input file can be read by BEAST2, fixed crown age", {
 
+test_that("Runs BEAST2, BD species tree prior, fixed crown age, specified tree", {
+
+  setwd(path.expand("~"))
+  set.seed(42)
+
+  base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_spec_")
+  # BEAST2 input XML file, created by beastscriptr::beast_scriptr
+  beast_filename <- paste0(base_filename, ".xml")
+  # BEAST2 output file, containing the posterior parameter estimates
+  beast_log_filename <- paste0(base_filename, ".log")
+  # BEAST2 output file, containing the posterior phylogenies
+  beast_trees_filename <- paste0(base_filename, ".trees")
+  # BEAST2 output file, containing the final MCMC state
+  beast_state_filename <- paste0(base_filename, ".xml.state")
+  # FASTA file needed only temporarily to store simulated DNA alignments
+  input_fasta_filename <- paste0(base_filename, ".fasta")
+
+  # Initial phylogeny its crown age.
+  # Must be the treeHeights of all posterior's trees
+  crown_age <- 15
 
   # Create FASTA file
-  input_fasta_filename <- tempfile(
-    pattern = "beast_scriptr_test_",
-    fileext = ".fas"
-  )
-  # Input file must not be present,
-  # otherwise BEAST2 will prompt the user when creating .trees files
-  testthat::expect_equal(file.exists(input_fasta_filename), FALSE)
-
-  n_taxa <- 5
-  sequence_length <- 10
-  create_random_fasta(
-    n_taxa = n_taxa,
-    sequence_length = sequence_length,
+  testthat::expect_false(file.exists(input_fasta_filename))
+  beastscriptr::create_random_fasta(
+    n_taxa = 5,
+    sequence_length = 10,
     filename = input_fasta_filename
   )
-
-  # Create XML file from that
-  output_xml_filename <- tempfile(
-    pattern = "beast_scriptr_test_3_",
-    fileext = ".xml"
-  )
-
-  # The output file created when it BEAST2 can run
-  # (which only happens if the input is valid)
-  output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
-
-  # Input file must be found now
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-  # Output file must not be present, otherwise BEAST2 will prompt the user
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
+  testthat::expect_true(file.exists(input_fasta_filename))
 
 
-  # Use fixed crown age and an initial phylogeny
+  # Create BEAST2 input file
+  testthat::expect_false(file.exists(beast_filename))
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_prior = "birth_death",
-    output_xml_filename = output_xml_filename,
+    output_xml_filename = beast_filename,
     fixed_crown_age = TRUE,
     initial_phylogeny = beastscriptr::fasta_to_phylo(
-      input_fasta_filename, crown_age = 15)
-  )
-  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
+      input_fasta_filename,
+      crown_age = crown_age)
 
+  )
+  testthat::expect_true(file.exists(beast_filename))
+
+  # Run BEAST2
+  testthat::expect_false(file.exists(beast_state_filename))
+  testthat::expect_false(file.exists(beast_log_filename))
+  testthat::expect_false(file.exists(beast_trees_filename))
   cmd <- paste(
     "java -jar ~/Programs/beast/lib/beast.jar",
-    output_xml_filename, "1>/dev/null 2>/dev/null"
+    " -statefile ", beast_state_filename,
+    " -overwrite", beast_filename
   )
+  verbose <- TRUE
+  if (!verbose) {
+    cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
+  }
   system(cmd)
+  # If these are absent, BEAST2 could not parse the input file
+  testthat::expect_true(file.exists(beast_state_filename))
+  testthat::expect_true(file.exists(beast_log_filename))
+  testthat::expect_true(file.exists(beast_trees_filename))
 
-  # If these are absent, BEAST2 could not read the input file
-  testthat::expect_true(file.exists(output_xml_filename))
-  # FIX_ISSUE_
-  if (1 == 2) {
-    testthat::expect_true(file.exists(output_xml_state_filename))
-  }
-  # If statements reduce spurious warnings
-  if (file.exists(output_xml_filename)) {
-    file.remove(output_xml_filename)
-  }
-  if (file.exists(output_xml_state_filename)) {
-    file.remove(output_xml_state_filename)
-  }
+  # All TreeHeights (crown ages) should be the same as specified
+  posterior <- RBeast::parse_beast_posterior(
+    trees_filename = beast_trees_filename,
+    log_filename = beast_log_filename)
+  testthat::expect_true(all(posterior$estimates$TreeHeight == crown_age))
+
+  file.remove(beast_filename)
+  file.remove(beast_state_filename)
 })
 
 
