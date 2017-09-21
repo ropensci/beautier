@@ -341,29 +341,26 @@ test_that("Can specify fixed crown age", {
   created_lines_fixed <- readLines(output_xml_filename_fixed)
   created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
 
-  # narrow exchange operator absent in fixed crown age tree
-  # testthat::expect_equal(1,
-  #   length(grep(pattern = "<operator id=\"narrow", x = created_lines_nonfixed))
-  # )
-  # testthat::expect_equal(0,
-  #   length(grep(pattern = "<operator id=\"narrow", x = created_lines_fixed))
-  # )
-  # wide exchange operator absent in fixed crown age tree
-  # testthat::expect_equal(1,
-  #   length(grep(pattern = "<operator id=\"wide", x = created_lines_nonfixed))
-  # )
-  # testthat::expect_equal(0,
-  #   length(grep(pattern = "<operator id=\"wide", x = created_lines_fixed))
-  # )
-  # Wilson Balding operator absent in fixed crown age tree
-  # testthat::expect_equal(1,
-  #   length(grep(pattern = "<operator id=\"WilsonBalding",
-  #     x = created_lines_nonfixed))
-  # )
-  # testthat::expect_equal(0,
-  #   length(grep(pattern = "<operator id=\"WilsonBalding",
-  #     x = created_lines_fixed))
-  # )
+  # treeScaler operator absent in fixed crown age tree
+  testthat::expect_equal(1,
+    length(grep(pattern = "<operator id=\"treeScaler",
+      x = created_lines_nonfixed))
+  )
+  testthat::expect_equal(0,
+    length(grep(pattern = "<operator id=\"treeScaler",
+      x = created_lines_fixed))
+  )
+
+  # wide operator absent in fixed crown age tree
+  testthat::expect_equal(1,
+    length(grep(pattern = "<operator id=\"treeRootScaler",
+      x = created_lines_nonfixed))
+  )
+  testthat::expect_equal(0,
+    length(grep(pattern = "<operator id=\"treeRootScaler",
+      x = created_lines_fixed))
+  )
+
   # subtree slide operator absent in fixed crown age tree
   testthat::expect_equal(1,
     length(grep(pattern = "<operator id=\"SubtreeSlide",
