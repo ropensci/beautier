@@ -95,24 +95,27 @@ beast_scriptr_operators <- function(
       "\" weight=\"15.0\"/>"))
     text <- c(text, "")
   }
+
   # Mentioned in documentation that this operator would change crown age.
   # It does not
   text <- c(text, paste0("    <operator id=\"narrow.t:", filename_base,
     "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"15.0\"/>"))
   text <- c(text, "")
+
   # Mentioned in documentation that this operator would change crown age.
   # It does not
   text <- c(text, paste0("    <operator id=\"wide.t:", filename_base,
     "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
-  if (fixed_crown_age == FALSE) {
-    text <- c(text, paste0("    <operator id=\"WilsonBalding.t:", filename_base,
-      "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
-      "\" weight=\"3.0\"/>"))
-    text <- c(text, "")
-  }
+
+  # Mentioned in documentation that this operator would change crown age.
+  # It does not
+  text <- c(text, paste0("    <operator id=\"WilsonBalding.t:", filename_base,
+    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
+    "\" weight=\"3.0\"/>"))
+  text <- c(text, "")
 
   if (tree_prior == "birth_death") {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
