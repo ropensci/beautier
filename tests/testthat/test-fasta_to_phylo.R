@@ -9,3 +9,16 @@ test_that("example", {
   testthat::expect_equal(crown_age,
     beastscriptr::get_phylogeny_crown_age(phylo))
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    beastscriptr::fasta_to_phylo(fasta_filename = "absent", crown_age = 15)
+  )
+
+  testthat::expect_error(
+    beastscriptr::fasta_to_phylo(
+      fasta_filename = beastscriptr::get_input_fasta_filename(),
+      crown_age = -42)
+  )
+})
