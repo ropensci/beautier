@@ -12,6 +12,8 @@ The purpose of `beastscriptr` is to create
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti` its GUI.
 
+For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev/RBeast).
+
 ## Example #1: birth-death model tree prior  
 
 ```
