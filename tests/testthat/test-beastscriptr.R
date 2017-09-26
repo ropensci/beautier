@@ -113,22 +113,20 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
 # Runs BEAST2
 test_that("Runs BEAST2, BD species tree prior, random initial tree", {
 
-  # Create FASTA file
+  # Simulate a random alignment and save it to a FASTA file
+  n_taxa <- 5
+  sequence_length <- 10
   input_fasta_filename <- tempfile(
     pattern = "beast_scriptr_test_",
     fileext = ".fas"
   )
-  # Input file must not be present,
-  # otherwise BEAST2 will prompt the user when creating .trees files
-  testthat::expect_equal(file.exists(input_fasta_filename), FALSE)
-
-  n_taxa <- 5
-  sequence_length <- 10
-  create_random_fasta(
+  testthat::expect_false(file.exists(input_fasta_filename))
+  beastscriptr::create_random_fasta(
     n_taxa = n_taxa,
     sequence_length = sequence_length,
     filename = input_fasta_filename
   )
+  testthat::expect_true(file.exists(input_fasta_filename))
 
   # Create XML file from that
   output_xml_filename <- tempfile(
@@ -140,19 +138,16 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
   # (which only happens if the input is valid)
   output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
 
-  # Input file must be found now
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-  # Output file must not be present, otherwise BEAST2 will prompt the user
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
-
+  testthat::expect_false(file.exists(output_xml_filename))
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
+  testthat::expect_true(file.exists(output_xml_filename))
 
+  # Let BEAST2 run the created XML file
   cmd <- paste(
     "java -jar ~/Programs/beast/lib/beast.jar",
     output_xml_filename, "1>/dev/null 2>/dev/null"

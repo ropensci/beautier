@@ -5,10 +5,56 @@ Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo]
 master|[![Build Status](https://travis-ci.org/richelbilderbeek/beastscriptr.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beastscriptr)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beastscriptr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastscriptr/branch/master)
 develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beastscriptr.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/beastscriptr)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beastscriptr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/beastscriptr/branch/develop)
 
+`beastscriptr` is `BEAUti` from R.
+
 The purpose of `beastscriptr` is to create 
 [a valid BEAST2 XML input file](inst/extdata/birth_death_0_20151005.xml)
 from its function arguments. In this way, a scientific pipeline using 
-`BEAST2` can be fully scripted, instead of using `BEAUti2` its GUI.
+`BEAST2` can be fully scripted, instead of using `BEAUti` its GUI.
+
+## Example #1: birth-death model tree prior  
+
+```
+# Simulate a random alignment and save it to a FASTA file
+beastscriptr::create_random_fasta(
+  n_taxa = 5,
+  sequence_length = 10,
+  filename = "my_fasta.fas"
+)
+
+# Create the BEAST2 XML input file
+beastscriptr::beast_scriptr(
+  input_fasta_filename = "my_fasta.fas",
+  mcmc_chainlength = 10000,
+  tree_prior = "birth_death",
+  output_xml_filename = "my_beast.xml"
+)
+```
+
+## Example #2: birth-death model tree prior with fixed crown age
+
+```
+# Simulate a random alignment and save it to a FASTA file
+testthat::expect_false(file.exists(input_fasta_filename))
+beastscriptr::create_random_fasta(
+  n_taxa = 5,
+  sequence_length = 10,
+  filename = "my_fasta.fas"
+)
+
+
+# Create the BEAST2 XML input file
+beastscriptr::beast_scriptr(
+  input_fasta_filename = "my_fasta.fas",
+  mcmc_chainlength = 10000,
+  tree_prior = "birth_death",
+  output_xml_filename = "my_beast.xml",
+  fixed_crown_age = TRUE,
+  initial_phylogeny = beastscriptr::fasta_to_phylo(
+    fasta_filename = "my_fasta.fas",
+    crown_age = 15)
+)
+```
 
 ## Installation
 
