@@ -64,30 +64,16 @@ If you use the `devtools` R package, this is easy:
 devtools::install_github("richelbilderbeek/beastscriptr")
 ```
 
-## Demonstration
+## Currently supports
 
-The core function is called `beast_scriptr`:
+`beastscripts` can do only do a small part of `BEAUti`.
+On the other hand, it *does* allow for a fixed crown age.
 
-```
-beast_scriptr(
-  input_fasta_filename = fasta_filename,
-  mcmc_chainlength = mcmc_chainlength,
-  tree_prior = tree_prior,
-  output_xml_filename = output_xml_filename
-)
-```
-
-It is demonstrated in the vignette, you can see its PDF [here](demo.pdf).
-
-## Current limitations
-
-`BEAUti2` contains multiple tree priors. This package currently
-only supports:
-
- * These tree priors:
+ * DNA data
+ * Tree priors:
     * the constant-rate birth-death model
     * the contant-population coalescent model
- * DNA data
+ * Fixed crown age yes/no
 
 ## I want to collaborate
 
