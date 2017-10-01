@@ -15,7 +15,8 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
 \item{tree_prior}{The tree prior, can be 'birth_death' or
 'coalescent_constant_population'}
 
-\item{output_xml_filename}{Filename of the XML parameter file created}
+\item{output_xml_filename}{Name of the XML parameter file created by this
+function. BEAST2 uses this file as input.}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
