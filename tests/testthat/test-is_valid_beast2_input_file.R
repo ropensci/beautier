@@ -17,4 +17,3 @@ test_that("testing BEAST2 input file is a valid BEAST2 input file", {
   )
 
 })
-
