@@ -20,6 +20,7 @@
 #'   # The file created by beastscriptr, a BEAST2 input file
 #'   output_xml_filename <- "example_bd.xml"
 #'
+#'   # Birth-Death tree prior, crown age is estimated
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
 #'     mcmc_chainlength = 10000000,
@@ -27,6 +28,21 @@
 #'     output_xml_filename = output_xml_filename
 #'   )
 #'   testit::assert(file.exists(output_xml_filename))
+#'
+#'   # The file created by beastscriptr, a BEAST2 input file
+#'   output_xml_filename_fixed <- "example_bd_fixed.xml"
+#'
+#'   # Birth-Death tree prior, crown age is fixed at 15 time units
+#'   beast_scriptr(
+#'     input_fasta_filename = get_input_fasta_filename(),
+#'     mcmc_chainlength = 10000000,
+#'     tree_prior = "birth_death",
+#'     output_xml_filename = output_xml_filename_fixed,
+#'     fixed_crown_age = TRUE,
+#'     initial_phylogeny = beastscriptr::fasta_to_phylo(
+#'       input_fasta_filename, crown_age = 15)
+#'   )
+#'   testit::assert(file.exists(output_xml_filename_fixed))
 #' @author Richel Bilderbeek
 #' @export
 beast_scriptr <- function(

@@ -25,5 +25,5 @@ get_phylogeny_crown_age <- function(
   n_taxa <- length(phylogeny$tip.label)
   testit::assert(n_taxa > 0)
   crown_age <- ape::dist.nodes(phylogeny)[n_taxa + 1][1]
-  return(crown_age)
+  crown_age
 }

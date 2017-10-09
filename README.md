@@ -7,6 +7,8 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beastscriptr.svg
 
 `beastscriptr` is `BEAUti` from R.
 
+![beastscriptr logo](beastscriptr_logo.png)
+
 The purpose of `beastscriptr` is to create 
 [a valid BEAST2 XML input file](inst/extdata/birth_death_0_20151005.xml)
 from its function arguments. In this way, a scientific pipeline using 
