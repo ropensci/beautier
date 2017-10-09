@@ -44,7 +44,6 @@ test_that("Produce an XML file for a birth-death species tree prior", {
 
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
   output_xml_filename <- tempfile()
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -52,15 +51,14 @@ test_that("Produce an XML file for a birth-death species tree prior", {
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
-  file.remove(output_xml_filename)
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
+  )
 })
 
 test_that("Produce XML for coalescent constant-population species tree prior", {
 
   input_fasta_filename <- get_input_fasta_filename()
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
   output_xml_filename <- tempfile()
   beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -68,9 +66,9 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
     tree_prior = "coalescent_constant_population",
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
-  file.remove(output_xml_filename)
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
+  )
 })
 
 
