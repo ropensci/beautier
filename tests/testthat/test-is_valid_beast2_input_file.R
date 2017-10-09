@@ -1,6 +1,6 @@
 context("is_valid_beast2_input_file")
 
-test_that("multiplication works", {
+test_that("can detect valid file", {
 
   # Simulate a random alignment and save it to a FASTA file
   n_taxa <- 5
@@ -38,14 +38,11 @@ test_that("multiplication works", {
     output_xml_filename
   )
   output <- system(cmd, intern = TRUE)
-  if (tail(output, n = 1) == "Done!")
+
+  # stub: will always be true
+  testthat::expect_true(tail(output, n = 1) == "Done!")
 
   # If these are absent, BEAST2 could not read the input file
   testthat::expect_true(file.exists(output_xml_filename))
-  testthat::expect_true(file.exists(output_xml_state_filename))
-
-  file.remove(output_xml_filename)
-  file.remove(output_xml_state_filename)
-
 
 })
