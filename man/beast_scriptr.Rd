@@ -30,3 +30,22 @@ a phylogeny must be supplied of class ape::phylo.}
 \description{
 Create a BEAST2 XML parameter file
 }
+\examples{
+  # Get the filename of an example FASTA file
+  input_fasta_filename <- get_input_fasta_filename()
+  testit::assert(file.exists(input_fasta_filename))
+
+  # The file created by beastscriptr, a BEAST2 input file
+  output_xml_filename <- "example_bd.xml"
+
+  beast_scriptr(
+    input_fasta_filename = get_input_fasta_filename(),
+    mcmc_chainlength = 10000000,
+    tree_prior = "birth_death",
+    output_xml_filename = output_xml_filename
+  )
+  testit::assert(file.exists(output_xml_filename))
+}
+\author{
+Richel Bilderbeek
+}
