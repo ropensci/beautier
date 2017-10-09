@@ -143,21 +143,10 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_true(file.exists(output_xml_filename))
-
-  # Let BEAST2 run the created XML file
-  cmd <- paste(
-    "java -jar ~/Programs/beast/lib/beast.jar",
-    output_xml_filename, "1>/dev/null 2>/dev/null"
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
   )
-  system(cmd)
 
-  # If these are absent, BEAST2 could not read the input file
-  testthat::expect_true(file.exists(output_xml_filename))
-  testthat::expect_true(file.exists(output_xml_state_filename))
-
-  file.remove(output_xml_filename)
-  file.remove(output_xml_state_filename)
 })
 
 test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
@@ -196,8 +185,11 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
     fixed_crown_age = TRUE
   )
   testthat::expect_true(file.exists(beast_filename))
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(beast_filename)
+  )
 
-  # Run BEAST2
+  # Run BEAST2 to measure posterior
   testthat::expect_false(file.exists(beast_state_filename))
   testthat::expect_false(file.exists(beast_log_filename))
   testthat::expect_false(file.exists(beast_trees_filename))
@@ -274,8 +266,11 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
 
   )
   testthat::expect_true(file.exists(beast_filename))
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(beast_filename)
+  )
 
-  # Run BEAST2
+  # Run BEAST2 to measure posterior
   testthat::expect_false(file.exists(beast_state_filename))
   testthat::expect_false(file.exists(beast_log_filename))
   testthat::expect_false(file.exists(beast_trees_filename))
@@ -331,6 +326,9 @@ test_that("Can specify fixed crown age", {
       input_fasta_filename, crown_age = 15)
   )
   testthat::expect_equal(file.exists(output_xml_filename_fixed), TRUE)
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(output_xml_filename_fixed)
+  )
 
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -339,6 +337,9 @@ test_that("Can specify fixed crown age", {
     output_xml_filename = output_xml_filename_nonfixed
   )
   testthat::expect_equal(file.exists(output_xml_filename_nonfixed), TRUE)
+  testthat::expect_true(
+    beastscriptr::is_valid_beast2_input_file(output_xml_filename_nonfixed)
+  )
 
   created_lines_fixed <- readLines(output_xml_filename_fixed)
   created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
