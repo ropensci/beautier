@@ -23,6 +23,7 @@ test_that("can detect valid file", {
     fileext = ".xml"
   )
 
+
   testthat::expect_false(file.exists(output_xml_filename))
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -31,18 +32,28 @@ test_that("can detect valid file", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(file.exists(output_xml_filename))
-
-  # Let BEAST2 run the created XML file
-  cmd <- paste(
-    "java -jar ~/Programs/beast/lib/beast.jar -validate",
-    output_xml_filename
-  )
-  output <- system(cmd, intern = TRUE)
-
-  # stub: will always be true
-  testthat::expect_true(tail(output, n = 1) == "Done!")
+  testthat::expect_true(is_valid_beast2_input_file(output_xml_filename))
 
   # If these are absent, BEAST2 could not read the input file
   testthat::expect_true(file.exists(output_xml_filename))
 
 })
+
+test_that("testing FASTA file is not a valid BEAST2 input file", {
+  testthat::expect_false(
+    is_valid_beast2_input_file(
+      beastscriptr::get_input_fasta_filename()
+    )
+  )
+})
+
+test_that("testing BEAST2 input file is a valid BEAST2 input file", {
+
+  testthat::expect_true(
+    is_valid_beast2_input_file(
+      beastscriptr::get_output_xml_filename()
+    )
+  )
+
+})
+

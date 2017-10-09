@@ -6,5 +6,12 @@ is_valid_beast2_input_file <- function(filename) {
   if (!file.exists(filename)) {
     stop("file not found")
   }
-  return (TRUE)
+  # Let BEAST2 run the created XML file
+  cmd <- paste(
+    "java -jar ~/Programs/beast/lib/beast.jar -validate",
+    filename
+  )
+  output <- system(cmd, intern = TRUE, ignore.stderr = TRUE)
+  is_valid <- tail(output, n = 1) == "Done!"
+  is_valid
 }
