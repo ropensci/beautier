@@ -1,5 +1,6 @@
 #' Create a BEAST2 XML parameter file
 #' @param input_fasta_filename Filename of a fasta file
+#' @param site_models one or more site models, as returned by create_site_models
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_prior The tree prior, can be 'birth_death' or
 #'   'coalescent_constant_population'
@@ -23,6 +24,7 @@
 #'   # Birth-Death tree prior, crown age is estimated
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
+#'     site_models = create_site_models(),
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     output_xml_filename = output_xml_filename
@@ -35,6 +37,7 @@
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
+#'     site_models = create_site_models(),
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     output_xml_filename = output_xml_filename_fixed,
@@ -47,6 +50,7 @@
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
+  site_models,
   mcmc_chainlength,
   tree_prior,
   output_xml_filename,
@@ -55,6 +59,9 @@ beast_scriptr <- function(
 ) {
   if (!file.exists(input_fasta_filename)) {
     stop("input_fasta_filename not found")
+  }
+  if (!is_valid_site_model(site_model)) {
+    stop("invalid site_model")
   }
   if (tree_prior != "birth_death" &&
       tree_prior != "coalescent_constant_population") {
