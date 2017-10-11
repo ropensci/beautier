@@ -14,15 +14,14 @@ create_beast2_input_beast <- function(
   initial_phylogeny
 ) {
   filename_base <- beastscriptr::remove_file_extension(input_fasta_filenames)
-  text <- NULL
-  text <- c(text, paste0(
+  text <- paste0(
     "<beast beautitemplate='Standard' beautistatus='' ",
     "namespace=\"beast.core:beast.evolution.alignment:",
     "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
     "beast.evolution.operators:beast.evolution.sitemodel:",
     "beast.evolution.substitutionmodel:",
     "beast.evolution.likelihood\" version=\"2.0\">"
-  ))
+  )
 
   text <- c(text, "")
   text <- c(text, "")

@@ -107,6 +107,42 @@ test_that("Can specify fixed crown age", {
   )
 })
 
+test_that("Check that test_output_0.xml is reproduced", {
+  # Creates an XML file from a known-to-be-valid input file
+  # and tests if this identical to a known-to-be-valid XML output file
+  input_fasta_filename <- get_input_fasta_filename()
+  output_xml_filename <-  tempfile()
+  expected_output_xml_filename <- get_output_xml_filename()
+  # Input file must be found
+  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
+  # To-be-created output file must be absent
+  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
+  # Expected file must be present
+  testthat::expect_equal(file.exists(expected_output_xml_filename), TRUE)
+
+  created_lines <- beastscriptr::create_beast2_input(
+    input_fasta_filenames = input_fasta_filename,
+    mcmc_chainlength = 10000000,
+    tree_priors = create_tree_prior(name = "birth_death"),
+    output_xml_filename = output_xml_filename
+  )
+
+  expected_lines <- readLines(expected_output_xml_filename)
+  testthat::expect_equal(expected_lines[1], created_lines[1])
+  testthat::expect_equal(expected_lines[2], created_lines[2])
+  skip("Found upstream bug")
+  testthat::expect_equal(expected_lines[5], created_lines[5])
+  for (i in 1:120) {
+    print(i)
+    testthat::expect_equal(
+      expected_lines[i], created_lines[i]
+    )
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+
 test_that("Produce XML for Yule species tree prior", {
   skip("First refactor")
   input_fasta_filename <- get_input_fasta_filename()

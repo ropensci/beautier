@@ -60,17 +60,14 @@ create_beast2_input <- function(
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
 
-  text <- NULL
-  text <- c(text, beastscriptr::create_beast2_input_xml())
-  text <- c(
-    text,
-    create_beast2_input_beast(
+
+  text <- create_beast2_input_beast(
       input_fasta_filenames = input_fasta_filenames,
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
-    )
   )
+  text[1] <- paste0(beastscriptr::create_beast2_input_xml(), text[1])
   text
 }
