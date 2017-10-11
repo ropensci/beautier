@@ -13,7 +13,8 @@ create_beast2_input_beast <- function(
   fixed_crown_age,
   initial_phylogeny
 ) {
-  filename_base <- beastscriptr::remove_file_extension(input_fasta_filenames)
+
+  filename_base <- beastscriptr::remove_file_extension(basename(input_fasta_filenames))
   text <- paste0(
     "<beast beautitemplate='Standard' beautistatus='' ",
     "namespace=\"beast.core:beast.evolution.alignment:",
