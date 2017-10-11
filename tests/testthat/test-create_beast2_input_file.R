@@ -108,7 +108,6 @@ test_that("Check that test_output_0.xml is reproduced by create_beast2_input_fil
   file.remove(filename = "expected.txt")
 })
 
-# Runs BEAST2
 test_that("Runs BEAST2, BD species tree prior, random initial tree", {
 
   # Simulate a random alignment and save it to a FASTA file
