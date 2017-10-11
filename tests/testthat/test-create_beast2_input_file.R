@@ -73,7 +73,7 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
 
 
 
-test_that("Check that test_output_0.xml is reproduced by create_beast2_input_file", {
+test_that("Check that test_output_0.xml is reproduced", {
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
   input_fasta_filename <- get_input_fasta_filename()
@@ -153,7 +153,8 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
   setwd(path.expand("~"))
   set.seed(42)
 
-  base_filename <- tempfile(pattern = "create_beast2_input_file_test_bd_fix_rand_")
+  base_filename <- tempfile(
+    pattern = "create_beast2_input_file_test_bd_fix_rand_")
   # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
   # BEAST2 output file, containing the posterior parameter estimates
@@ -225,7 +226,8 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   setwd(path.expand("~"))
   set.seed(43)
 
-  base_filename <- tempfile(pattern = "create_beast2_input_file_test_bd_fix_spec_")
+  base_filename <- tempfile(
+    pattern = "create_beast2_input_file_test_bd_fix_spec_")
   # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
   # BEAST2 output file, containing the posterior parameter estimates

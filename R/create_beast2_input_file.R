@@ -1,8 +1,10 @@
 #' Create a BEAST2 input file
 #' @param input_fasta_filenames One or more fasta filename
-#' @param site_models one or more site models, as returned by 'create_site_models'
+#' @param site_models one or more site models,
+#'   as returned by 'create_site_models'
 #' @param mcmc_chainlength Length of MCMC chain
-#' @param tree_priors On or more tree priors, as returned by 'create_tree_prior'
+#' @param tree_priors On or more tree priors,
+#'   as returned by 'create_tree_prior'
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -247,7 +249,8 @@ create_beast2_input_file_data <- function(
   text <- c(text, "    <data")
   text <- c(text, paste0("id=\"", filename_base, "\""))
   text <- c(text, "name=\"alignment\">")
-  sequences_table <- beastscriptr::fasta_file_to_sequences(input_fasta_filenames)
+  sequences_table <- beastscriptr::fasta_file_to_sequences(
+    input_fasta_filenames)
   sequences <- cbind(rownames(sequences_table), sequences_table)
 
   apply(sequences, 1, function(row) {

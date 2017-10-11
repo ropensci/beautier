@@ -21,5 +21,5 @@ is_beast2_input_file <- function(filename) {
 #' @return TRUE if the file is valid, FALSE if not
 #' @export
 is_valid_beast2_input_file <- function(filename) {
-  is_beast2_input_file(filename = filename)
+  beastscriptr::is_beast2_input_file(filename = filename)
 }

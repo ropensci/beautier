@@ -5,8 +5,7 @@
 is_site_model <- function(
   x
 ) {
-  if (!is_site_model_name(x$name))
-  {
+  if (!is_site_model_name(x$name)) {
     return(FALSE)
   }
   return(TRUE)

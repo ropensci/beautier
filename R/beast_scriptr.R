@@ -1,4 +1,5 @@
-#' Obsolete interface for 'create_beast2_input_file', present for backwards-compatibility
+#' Deprecated interface for 'create_beast2_input_file',
+#'   present for backwards-compatibility
 #' @param input_fasta_filename One or more fasta filename
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_prior On or more tree priors, as returned by 'create_tree_prior'

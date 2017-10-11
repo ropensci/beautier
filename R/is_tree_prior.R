@@ -5,8 +5,7 @@
 is_tree_prior <- function(
   x
 ) {
-  if (!is_tree_prior_name(x$name))
-  {
+  if (!is_tree_prior_name(x$name)) {
     return(FALSE)
   }
   return(TRUE)
