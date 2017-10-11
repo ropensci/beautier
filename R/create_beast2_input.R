@@ -1,4 +1,4 @@
-#' Create a BEAST2 input file
+#' Create a BEAST2 XML input text
 #' @param input_fasta_filenames One or more fasta filename
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_models'
@@ -23,33 +23,16 @@
 #'   output_xml_filename <- "example_bd.xml"
 #'
 #'   # Birth-Death tree prior, crown age is estimated
-#'   create_beast2_input(
+#'   xml <- create_beast2_input(
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
 #'     tree_priors = create_tree_prior(name = "birth_death"),
 #'     output_xml_filename = output_xml_filename
 #'   )
-#'   testit::assert(file.exists(output_xml_filename))
-#'
-#'   # The file created by beastscriptr, a BEAST2 input file
-#'   output_xml_filename_fixed <- "example_bd_fixed.xml"
-#'
-#'   # Birth-Death tree prior, crown age is fixed at 15 time units
-#'   create_beast2_input(
-#'     input_fasta_filenames = get_input_fasta_filename(),
-#'     site_models = create_site_model(name = "JC69"),
-#'     mcmc_chainlength = 10000000,
-#'     tree_priors = create_tree_prior(name = "birth_death"),
-#'     output_xml_filename = output_xml_filename_fixed,
-#'     fixed_crown_age = TRUE,
-#'     initial_phylogeny = beastscriptr::fasta_to_phylo(
-#'       input_fasta_filename, crown_age = 15)
-#'   )
-#'   testit::assert(file.exists(output_xml_filename_fixed))
 #' @author Richel Bilderbeek
 #' @export
-create_beast2_input_file <- function(
+create_beast2_input <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
   mcmc_chainlength,
@@ -73,18 +56,21 @@ create_beast2_input_file <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
-  text <- create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
-    site_models = site_models,
-    mcmc_chainlength,
-    tree_priors = tree_priors,
-    output_xml_filename = output_xml_filename,
-    fixed_crown_age = fixed_crown_age,
-    initial_phylogeny = initial_phylogeny
-  )
 
-  # Write to file
-  my_file <- file(output_xml_filename)
-  writeLines(text, my_file)
-  close(my_file)
+  # Make a million show as 1000000 instead of 1e+06
+  options(scipen = 20)
+
+  text <- NULL
+  text <- c(text, beastscriptr::create_beast2_input_xml())
+  text <- c(
+    text,
+    create_beast2_input_beast(
+      input_fasta_filenames = input_fasta_filenames,
+      mcmc_chainlength = mcmc_chainlength,
+      tree_priors = tree_priors,
+      fixed_crown_age = fixed_crown_age,
+      initial_phylogeny = initial_phylogeny
+    )
+  )
+  text
 }
