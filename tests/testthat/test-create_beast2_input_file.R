@@ -1,9 +1,9 @@
-context("test_beastscriptr")
+context("test_create_beast2_input_file")
 
 test_that("checks input", {
 
   testthat::expect_error(
-    beast_scriptr(
+    create_beast2_input_file(
       input_fasta_filenames = "nonexisting", # Error
       mcmc_chainlength = 1000,
       tree_priors = create_tree_prior(name = "birth_death"),
@@ -11,7 +11,7 @@ test_that("checks input", {
     )
   )
   testthat::expect_error(
-    beast_scriptr(
+    create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
       mcmc_chainlength = 0, # Error
       tree_priors = create_tree_prior(name = "birth_death"),
@@ -20,7 +20,7 @@ test_that("checks input", {
   )
 
   testthat::expect_error(
-    beast_scriptr(
+    create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
       tree_priors = create_tree_prior(name = "nonsense"),
@@ -29,7 +29,7 @@ test_that("checks input", {
   )
 
   testthat::expect_error(
-    beast_scriptr(
+    create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
       tree_priors = create_tree_prior(name = "birth_death"),
@@ -45,7 +45,7 @@ test_that("Produce an XML file for a birth-death species tree prior", {
   # Creates an XML file from a known-to-be-valid input file
   input_fasta_filename <- get_input_fasta_filename()
   output_xml_filename <- tempfile()
-  beast_scriptr(
+  create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -60,7 +60,7 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
 
   input_fasta_filename <- get_input_fasta_filename()
   output_xml_filename <- tempfile()
-  beast_scriptr(
+  create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_priors = create_tree_prior(name = "coalescent_constant_population"),
@@ -73,7 +73,7 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
 
 
 
-test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
+test_that("Check that test_output_0.xml is reproduced by create_beast2_input_file", {
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
   input_fasta_filename <- get_input_fasta_filename()
@@ -86,7 +86,7 @@ test_that("Check that test_output_0.xml is reproduced by beastscriptr", {
   # Expected file must be present
   testthat::expect_equal(file.exists(expected_output_xml_filename), TRUE)
 
-  beast_scriptr(
+  create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -115,7 +115,7 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
   n_taxa <- 5
   sequence_length <- 10
   input_fasta_filename <- tempfile(
-    pattern = "beast_scriptr_test_",
+    pattern = "create_beast2_input_file_test_",
     fileext = ".fas"
   )
   testthat::expect_false(file.exists(input_fasta_filename))
@@ -128,7 +128,7 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
 
   # Create XML file from that
   output_xml_filename <- tempfile(
-    pattern = "beast_scriptr_test_3_",
+    pattern = "create_beast2_input_file_test_3_",
     fileext = ".xml"
   )
 
@@ -137,7 +137,7 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
   output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
 
   testthat::expect_false(file.exists(output_xml_filename))
-  beastscriptr::beast_scriptr(
+  beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -154,8 +154,8 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
   setwd(path.expand("~"))
   set.seed(42)
 
-  base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_rand_")
-  # BEAST2 input XML file, created by beastscriptr::beast_scriptr
+  base_filename <- tempfile(pattern = "create_beast2_input_file_test_bd_fix_rand_")
+  # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
   # BEAST2 output file, containing the posterior parameter estimates
   beast_log_filename <- paste0(base_filename, ".log")
@@ -177,7 +177,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
 
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
-  beastscriptr::beast_scriptr(
+  beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -226,8 +226,8 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   setwd(path.expand("~"))
   set.seed(43)
 
-  base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_spec_")
-  # BEAST2 input XML file, created by beastscriptr::beast_scriptr
+  base_filename <- tempfile(pattern = "create_beast2_input_file_test_bd_fix_spec_")
+  # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
   # BEAST2 output file, containing the posterior parameter estimates
   beast_log_filename <- paste0(base_filename, ".log")
@@ -254,7 +254,7 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
 
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
-  beastscriptr::beast_scriptr(
+  beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -316,7 +316,7 @@ test_that("Can specify fixed crown age", {
   testthat::expect_equal(file.exists(output_xml_filename_fixed), FALSE)
   testthat::expect_equal(file.exists(output_xml_filename_nonfixed), FALSE)
 
-  beastscriptr::beast_scriptr(
+  beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -330,7 +330,7 @@ test_that("Can specify fixed crown age", {
     beastscriptr::is_valid_beast2_input_file(output_xml_filename_fixed)
   )
 
-  beastscriptr::beast_scriptr(
+  beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000000,
     tree_priors = create_tree_prior(name = "birth_death"),

@@ -1,4 +1,4 @@
-#' Create a BEAST2 XML parameter file
+#' Create a BEAST2 input file
 #' @param input_fasta_filenames One or more fasta filename
 #' @param site_models one or more site models, as returned by 'create_site_models'
 #' @param mcmc_chainlength Length of MCMC chain
@@ -21,7 +21,7 @@
 #'   output_xml_filename <- "example_bd.xml"
 #'
 #'   # Birth-Death tree prior, crown age is estimated
-#'   beast_scriptr(
+#'   create_beast2_input_file(
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
@@ -34,7 +34,7 @@
 #'   output_xml_filename_fixed <- "example_bd_fixed.xml"
 #'
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
-#'   beast_scriptr(
+#'   create_beast2_input_file(
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
@@ -47,7 +47,7 @@
 #'   testit::assert(file.exists(output_xml_filename_fixed))
 #' @author Richel Bilderbeek
 #' @export
-beast_scriptr <- function(
+create_beast2_input_file <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
   mcmc_chainlength,
@@ -76,9 +76,9 @@ beast_scriptr <- function(
   options(scipen = 20)
 
   text <- NULL
-  text <- c(text, beastscriptr::beast_scriptr_xml())
+  text <- c(text, beastscriptr::create_beast2_input_file_xml())
   text <- c(text,
-    beast_scriptr_beast(
+    create_beast2_input_file_beast(
       input_fasta_filenames = input_fasta_filenames,
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,
@@ -104,7 +104,7 @@ beast_scriptr <- function(
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
 #' @export
-beast_scriptr_operators <- function(
+create_beast2_input_file_operators <- function(
   filename_base,
   tree_priors,
   fixed_crown_age
@@ -175,7 +175,7 @@ beast_scriptr_operators <- function(
 #' @param fixed_crown_age is the crown age fixed TRUE or FALSE
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
-beast_scriptr_beast <- function(
+create_beast2_input_file_beast <- function(
   input_fasta_filenames,
   mcmc_chainlength,
   tree_priors,
@@ -197,7 +197,7 @@ beast_scriptr_beast <- function(
   text <- c(text, "")
 
   text <- c(text,
-    beast_scriptr_data(
+    create_beast2_input_file_data(
       filename_base = filename_base,
       input_fasta_filenames = input_fasta_filenames
     )
@@ -213,13 +213,13 @@ beast_scriptr_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, beastscriptr::beast_scriptr_map())
+  text <- c(text, beastscriptr::create_beast2_input_file_map())
 
   text <- c(text, "")
   text <- c(text, "")
 
   text <- c(text,
-    beast_scriptr_run(
+    create_beast2_input_file_run(
       filename_base = filename_base,
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,
@@ -239,7 +239,7 @@ beast_scriptr_beast <- function(
 #' @param filename_base base of the filenames
 #' @param input_fasta_filenames name of the FASTA file
 #' @export
-beast_scriptr_data <- function(
+create_beast2_input_file_data <- function(
   filename_base,
   input_fasta_filenames
 ) {
@@ -272,7 +272,7 @@ beast_scriptr_data <- function(
 #' @param filename_base base of the filenames
 #' @param tree_priors one or more tree priors
 #' @export
-beast_scriptr_distribution <- function(
+create_beast2_input_file_distribution <- function(
   filename_base,
   tree_priors
 ) {
@@ -377,7 +377,7 @@ beast_scriptr_distribution <- function(
 #' @param filename_base base of the filenames
 #' @param initial_phylogeny initial phylogeny
 #' @export
-beast_scriptr_init <- function(
+create_beast2_input_file_init <- function(
   filename_base,
   initial_phylogeny
 ) {
@@ -419,7 +419,7 @@ beast_scriptr_init <- function(
 #' @param filename_base filename_base
 #' @param tree_priors one or more tree priors
 #' @export
-beast_scriptr_loggers <- function(
+create_beast2_input_file_loggers <- function(
   filename_base,
   tree_priors
 ) {
@@ -476,7 +476,7 @@ beast_scriptr_loggers <- function(
 
 #' Creates the map section of a BEAST2 XML parameter file
 #' @export
-beast_scriptr_map <- function() {
+create_beast2_input_file_map <- function() {
   text <- NULL
   text <- c(text,
     "<map name=\"Uniform\">beast.math.distributions.Uniform</map>")
@@ -505,7 +505,7 @@ beast_scriptr_map <- function() {
 #' @param fixed_crown_age is the crown age fixed TRUE or FALSE
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
-beast_scriptr_run <- function(
+create_beast2_input_file_run <- function(
   filename_base,
   mcmc_chainlength,
   tree_priors,
@@ -518,7 +518,7 @@ beast_scriptr_run <- function(
     mcmc_chainlength, "\">"))
 
   text <- c(text,
-    beast_scriptr_state(
+    create_beast2_input_file_state(
       filename_base = filename_base,
       tree_priors = tree_priors,
       initial_phylogeny = initial_phylogeny
@@ -529,7 +529,7 @@ beast_scriptr_run <- function(
   text <- c(text, "")
 
   text <- c(text,
-    beast_scriptr_init(
+    create_beast2_input_file_init(
       filename_base = filename_base,
       initial_phylogeny = initial_phylogeny
     )
@@ -538,7 +538,7 @@ beast_scriptr_run <- function(
   text <- c(text, "")
 
   text <- c(text,
-    beast_scriptr_distribution(
+    create_beast2_input_file_distribution(
       filename_base = filename_base,
       tree_priors = tree_priors
     )
@@ -546,14 +546,14 @@ beast_scriptr_run <- function(
 
   text <- c(text, "")
 
-  text <- c(text, beastscriptr::beast_scriptr_operators(
+  text <- c(text, beastscriptr::create_beast2_input_file_operators(
     filename_base = filename_base,
     tree_priors = tree_priors,
     fixed_crown_age = fixed_crown_age))
 
   text <- c(text, "")
 
-  text <- c(text, beastscriptr::beast_scriptr_loggers(
+  text <- c(text, beastscriptr::create_beast2_input_file_loggers(
     filename_base = filename_base,
     tree_priors = tree_priors))
 
@@ -568,7 +568,7 @@ beast_scriptr_run <- function(
 #'   by 'create_tree_prior'
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
-beast_scriptr_state <- function(
+create_beast2_input_file_state <- function(
   filename_base,
   tree_priors,
   initial_phylogeny
@@ -614,6 +614,6 @@ beast_scriptr_state <- function(
 
 #' Creates the xml section of a BEAST2 XML parameter file
 #' @export
-beast_scriptr_xml <- function() {
+create_beast2_input_file_xml <- function() {
   "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
 }

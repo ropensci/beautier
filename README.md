@@ -27,7 +27,7 @@ beastscriptr::create_random_fasta(
 )
 
 # Create the BEAST2 XML input file
-beastscriptr::beast_scriptr(
+beastscriptr::create_beast2_input_file(
   input_fasta_filename = "my_fasta.fas",
   mcmc_chainlength = 10000,
   tree_prior = "birth_death",
@@ -48,7 +48,7 @@ beastscriptr::create_random_fasta(
 
 
 # Create the BEAST2 XML input file
-beastscriptr::beast_scriptr(
+beastscriptr::create_beast2_input_file(
   input_fasta_filename = "my_fasta.fas",
   mcmc_chainlength = 10000,
   tree_prior = "birth_death",
@@ -65,7 +65,7 @@ beastscriptr::beast_scriptr(
 Thanks to Paul van Els.
 
 ```
-beastscriptr::beast_scriptr(
+beastscriptr::create_beast2_input_file(
   input_fasta_filenames = c("nuc.fas", "mit.fas"),
   site_models = c(
     create_site_model(name = "J69"), 
