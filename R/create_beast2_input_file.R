@@ -106,7 +106,7 @@ create_beast2_input_file <- function(
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
 #' @export
-create_beast2_input_file_operators <- function(
+create_beast2_input_file_operators <- function( # nolint keep long function name, as it extends the 'create_beast2_input_file' name
   filename_base,
   tree_priors,
   fixed_crown_age
@@ -275,7 +275,7 @@ create_beast2_input_file_data <- function(
 #' @param filename_base base of the filenames
 #' @param tree_priors one or more tree priors
 #' @export
-create_beast2_input_file_distribution <- function(
+create_beast2_input_file_distribution <- function( # nolint keep long function name, as it extends the 'create_beast2_input_file' name
   filename_base,
   tree_priors
 ) {
@@ -422,7 +422,7 @@ create_beast2_input_file_init <- function(
 #' @param filename_base filename_base
 #' @param tree_priors one or more tree priors
 #' @export
-create_beast2_input_file_loggers <- function(
+create_beast2_input_file_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input_file' name
   filename_base,
   tree_priors
 ) {
