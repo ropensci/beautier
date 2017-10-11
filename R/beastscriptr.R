@@ -24,7 +24,7 @@
 #'   # Birth-Death tree prior, crown age is estimated
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
-#'     site_model = create_site_model("JC69"),
+#'     site_model = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     output_xml_filename = output_xml_filename
@@ -37,7 +37,7 @@
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
-#'     site_model = create_site_model("JC69"),
+#'     site_model = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     output_xml_filename = output_xml_filename_fixed,
@@ -50,9 +50,9 @@
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
-  site_model,
+  site_model = create_site_model(name = "JC69"),
   mcmc_chainlength,
-  tree_prior,
+  tree_prior = create_tree_prior(name = "birth_death"),
   output_xml_filename,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
@@ -63,9 +63,8 @@ beast_scriptr <- function(
   if (!is_valid_site_model(site_model)) {
     stop("invalid site_model")
   }
-  if (tree_prior != "birth_death" &&
-      tree_prior != "coalescent_constant_population") {
-    stop("tree_prior is not recognized")
+  if (!is_valid_tree_prior(tree_prior)) {
+    stop("invalid tree_prior")
   }
   if (mcmc_chainlength <= 0) {
     stop("mcmc_chainlength must be positive")

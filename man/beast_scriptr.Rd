@@ -4,8 +4,10 @@
 \alias{beast_scriptr}
 \title{Create a BEAST2 XML parameter file}
 \usage{
-beast_scriptr(input_fasta_filename, site_model, mcmc_chainlength, tree_prior,
-  output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
+beast_scriptr(input_fasta_filename, site_model = create_site_model(name =
+  "JC69"), mcmc_chainlength, tree_prior = create_tree_prior(name =
+  "birth_death"), output_xml_filename, fixed_crown_age = FALSE,
+  initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filename}{Filename of a fasta file}
@@ -43,7 +45,7 @@ Create a BEAST2 XML parameter file
   # Birth-Death tree prior, crown age is estimated
   beast_scriptr(
     input_fasta_filename = get_input_fasta_filename(),
-    site_model = create_site_model("JC69"),
+    site_model = create_site_model(name = "JC69"),
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename
@@ -56,7 +58,7 @@ Create a BEAST2 XML parameter file
   # Birth-Death tree prior, crown age is fixed at 15 time units
   beast_scriptr(
     input_fasta_filename = get_input_fasta_filename(),
-    site_model = create_site_model("JC69"),
+    site_model = create_site_model(name = "JC69"),
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
     output_xml_filename = output_xml_filename_fixed,

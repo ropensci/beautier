@@ -5,5 +5,9 @@
 is_valid_site_model <- function(
   site_model
 ) {
-  TRUE
+  if (!is_site_model_name(site_model$name))
+  {
+    return(FALSE)
+  }
+  return(TRUE)
 }
