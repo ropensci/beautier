@@ -8,7 +8,11 @@ beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
   output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
 \arguments{
+\item{input_fasta_filename}{One or more fasta filename}
+
 \item{mcmc_chainlength}{Length of MCMC chain}
+
+\item{tree_prior}{On or more tree priors, as returned by 'create_tree_prior'}
 
 \item{output_xml_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
@@ -21,12 +25,6 @@ of the initial phylogeny.}
 \item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
 this is set to NA, BEAST2 will use a random phylogeny. Else
 a phylogeny must be supplied of class ape::phylo.}
-
-\item{input_fasta_filenames}{One or more fasta filename}
-
-\item{site_models}{one or more site models, as returned by 'create_site_models'}
-
-\item{tree_priors}{On or more tree priors, as returned by 'create_tree_prior'}
 }
 \description{
 Obsolete interface for 'create_beast2_input_file', present for backwards-compatibility

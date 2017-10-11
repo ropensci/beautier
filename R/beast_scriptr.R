@@ -1,8 +1,7 @@
 #' Obsolete interface for 'create_beast2_input_file', present for backwards-compatibility
-#' @param input_fasta_filenames One or more fasta filename
-#' @param site_models one or more site models, as returned by 'create_site_models'
+#' @param input_fasta_filename One or more fasta filename
 #' @param mcmc_chainlength Length of MCMC chain
-#' @param tree_priors On or more tree priors, as returned by 'create_tree_prior'
+#' @param tree_prior On or more tree priors, as returned by 'create_tree_prior'
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
