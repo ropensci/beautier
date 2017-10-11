@@ -97,8 +97,8 @@ create_beast2_input_file <- function(
 
 #' Creates the operators section of a BEAST2 XML parameter file
 #' @param filename_base base of the filenames
-#' @param tree_prior The tree prior, can be 'birth_death' or
-#'   'coalescent_constant_population'
+#' @param tree_priors One or more tree priors, as returned
+#'   by 'create_tree_prior'
 #' @param fixed_crown_age determines if the phylogeny its crown age is
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age

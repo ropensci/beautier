@@ -12,6 +12,6 @@ is_valid_beast2_input_file <- function(filename) {
     filename
   )
   output <- system(cmd, intern = TRUE, ignore.stderr = TRUE)
-  is_valid <- tail(output, n = 1) == "Done!"
+  is_valid <- utils::tail(output, n = 1) == "Done!"
   is_valid
 }
