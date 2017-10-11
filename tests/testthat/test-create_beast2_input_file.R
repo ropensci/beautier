@@ -71,43 +71,6 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
   )
 })
 
-
-
-test_that("Check that test_output_0.xml is reproduced", {
-  # Creates an XML file from a known-to-be-valid input file
-  # and tests if this identical to a known-to-be-valid XML output file
-  input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <-  tempfile()
-  expected_output_xml_filename <- get_output_xml_filename()
-  # Input file must be found
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-  # To-be-created output file must be absent
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
-  # Expected file must be present
-  testthat::expect_equal(file.exists(expected_output_xml_filename), TRUE)
-
-  create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "birth_death"),
-    output_xml_filename = output_xml_filename
-  )
-  testthat::expect_equal(file.exists(output_xml_filename), TRUE)
-  created_lines <- readLines(output_xml_filename)
-  expected_lines <- readLines(expected_output_xml_filename)
-  if (!identical(created_lines, expected_lines)) {
-    save_text(filename = "created.txt", text = created_lines)
-    save_text(filename = "expected.txt", text = expected_lines)
-  } else {
-    expect_identical(created_lines, expected_lines)
-    file.remove(filename = "created.txt")
-    file.remove(filename = "expected.txt")
-    file.remove(filename = output_xml_filename)
-  }
-  file.remove(filename = "created.txt")
-  file.remove(filename = "expected.txt")
-})
-
 test_that("Runs BEAST2, BD species tree prior, random initial tree", {
 
   # Simulate a random alignment and save it to a FASTA file
@@ -310,12 +273,9 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
 test_that("Can specify fixed crown age", {
   input_fasta_filename <- beastscriptr::get_input_fasta_filename()
   output_xml_filename_fixed <- tempfile()
-  output_xml_filename_nonfixed <- tempfile()
+
   # Input file must be found
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-  # To-be-created output file must be absent
-  testthat::expect_equal(file.exists(output_xml_filename_fixed), FALSE)
-  testthat::expect_equal(file.exists(output_xml_filename_nonfixed), FALSE)
 
   beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
@@ -326,65 +286,8 @@ test_that("Can specify fixed crown age", {
     initial_phylogeny = beastscriptr::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
   )
-  testthat::expect_equal(file.exists(output_xml_filename_fixed), TRUE)
   testthat::expect_true(
     beastscriptr::is_beast2_input_file(output_xml_filename_fixed)
-  )
-
-  beastscriptr::create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "birth_death"),
-    output_xml_filename = output_xml_filename_nonfixed
-  )
-  testthat::expect_equal(file.exists(output_xml_filename_nonfixed), TRUE)
-  testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename_nonfixed)
-  )
-
-  created_lines_fixed <- readLines(output_xml_filename_fixed)
-  created_lines_nonfixed <- readLines(output_xml_filename_nonfixed)
-
-  # treeScaler operator absent in fixed crown age tree
-  testthat::expect_equal(1,
-    length(grep(pattern = "<operator id=\"treeScaler",
-      x = created_lines_nonfixed))
-  )
-  testthat::expect_equal(0,
-    length(grep(pattern = "<operator id=\"treeScaler",
-      x = created_lines_fixed))
-  )
-
-  # wide operator absent in fixed crown age tree
-  testthat::expect_equal(1,
-    length(grep(pattern = "<operator id=\"treeRootScaler",
-      x = created_lines_nonfixed))
-  )
-  testthat::expect_equal(0,
-    length(grep(pattern = "<operator id=\"treeRootScaler",
-      x = created_lines_fixed))
-  )
-
-  # subtree slide operator absent in fixed crown age tree
-  testthat::expect_equal(1,
-    length(grep(pattern = "<operator id=\"SubtreeSlide",
-      x = created_lines_nonfixed))
-  )
-  testthat::expect_equal(0,
-    length(grep(pattern = "<operator id=\"SubtreeSlide",
-      x = created_lines_fixed))
-  )
-
-  # Lines below must be absent when a starting tree is given
-  # <init estimate="false" id="RandomTree.t:xxx" initial="@Tree.t:xxx" spec="beast.evolution.tree.RandomTree" taxa="@xxx"> # nolint
-  # </init>
-  testthat::expect_equal(1,
-    length(grep(pattern = "<init id=\"RandomTree.t:.*estimate=\"false\"",
-      x = created_lines_nonfixed))
-  )
-  testthat::expect_equal(0,
-    length(grep(pattern = "<init id=\"RandomTree.t:.*estimate=\"false\"",
-      x = created_lines_fixed))
   )
 })
 
