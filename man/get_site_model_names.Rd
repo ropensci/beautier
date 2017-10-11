@@ -4,7 +4,7 @@
 \alias{get_site_model_names}
 \title{Get the site model names}
 \usage{
-get_site_model_names(name)
+get_site_model_names()
 }
 \value{
 the site model names

@@ -4,7 +4,7 @@
 \alias{get_tree_prior_names}
 \title{Get the tree prior names}
 \usage{
-get_tree_prior_names(name)
+get_tree_prior_names()
 }
 \value{
 the tree prior names
