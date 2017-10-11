@@ -4,12 +4,12 @@
 \alias{beast_scriptr_data}
 \title{Creates the data section of a BEAST2 XML parameter file}
 \usage{
-beast_scriptr_data(filename_base, input_fasta_filename)
+beast_scriptr_data(filename_base, input_fasta_filenames)
 }
 \arguments{
 \item{filename_base}{base of the filenames}
 
-\item{input_fasta_filename}{name of the FASTA file}
+\item{input_fasta_filenames}{name of the FASTA file}
 }
 \description{
 Creates the data section of a BEAST2 XML parameter file

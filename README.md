@@ -67,9 +67,18 @@ Thanks to Paul van Els.
 ```
 beastscriptr::beast_scriptr(
   input_fasta_filenames = c("nuc.fas", "mit.fas"),
-  site_models = c("J69", "HKY"),
-  clock_models = c(0.1, 0.2),
-  tree_priors = c("yule", "birth_death"),
+  site_models = c(
+    create_site_model(name = "J69"), 
+    create_site_model(name = "HKY")
+  ),
+  clock_models = c(
+    create_clock_model(0.1), 
+    create_clock_model(0.2)
+  ),
+  tree_priors = c(
+    create_tree_prior(name = "yule"), 
+    create_tree_prior(name = "birth_death")
+  (,
   mcmc = create_mcmc(mcmc_chainlength = 1000000),
   output_xml_filename = "my_beast.xml"
 )

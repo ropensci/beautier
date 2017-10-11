@@ -4,12 +4,12 @@
 \alias{beast_scriptr_loggers}
 \title{Creates the two logger sections of a BEAST2 XML parameter file}
 \usage{
-beast_scriptr_loggers(filename_base, tree_prior)
+beast_scriptr_loggers(filename_base, tree_priors)
 }
 \arguments{
 \item{filename_base}{filename_base}
 
-\item{tree_prior}{tree prior}
+\item{tree_priors}{one or more tree priors}
 }
 \description{
 Creates the two logger sections of a BEAST2 XML parameter file

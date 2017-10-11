@@ -1,9 +1,8 @@
 #' Create a BEAST2 XML parameter file
-#' @param input_fasta_filename Filename of a fasta file
-#' @param site_models one or more site models, as returned by create_site_models
+#' @param input_fasta_filenames One or more fasta filename
+#' @param site_models one or more site models, as returned by 'create_site_models'
 #' @param mcmc_chainlength Length of MCMC chain
-#' @param tree_prior The tree prior, can be 'birth_death' or
-#'   'coalescent_constant_population'
+#' @param tree_priors On or more tree priors, as returned by 'create_tree_prior'
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -23,10 +22,10 @@
 #'
 #'   # Birth-Death tree prior, crown age is estimated
 #'   beast_scriptr(
-#'     input_fasta_filename = get_input_fasta_filename(),
-#'     site_model = create_site_model(name = "JC69"),
+#'     input_fasta_filenames = get_input_fasta_filename(),
+#'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
-#'     tree_prior = "birth_death",
+#'     tree_priors = "birth_death",
 #'     output_xml_filename = output_xml_filename
 #'   )
 #'   testit::assert(file.exists(output_xml_filename))
@@ -36,10 +35,10 @@
 #'
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
 #'   beast_scriptr(
-#'     input_fasta_filename = get_input_fasta_filename(),
-#'     site_model = create_site_model(name = "JC69"),
+#'     input_fasta_filenames = get_input_fasta_filename(),
+#'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
-#'     tree_prior = "birth_death",
+#'     tree_priors = "birth_death",
 #'     output_xml_filename = output_xml_filename_fixed,
 #'     fixed_crown_age = TRUE,
 #'     initial_phylogeny = beastscriptr::fasta_to_phylo(
@@ -49,21 +48,21 @@
 #' @author Richel Bilderbeek
 #' @export
 beast_scriptr <- function(
-  input_fasta_filename,
-  site_model = create_site_model(name = "JC69"),
+  input_fasta_filenames,
+  site_models = create_site_model(name = "JC69"),
   mcmc_chainlength,
-  tree_prior = create_tree_prior(name = "birth_death"),
+  tree_priors = create_tree_prior(name = "birth_death"),
   output_xml_filename,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
-  if (!file.exists(input_fasta_filename)) {
-    stop("input_fasta_filename not found")
+  if (!file.exists(input_fasta_filenames)) {
+    stop("input_fasta_filenames not found")
   }
-  if (!is_valid_site_model(site_model)) {
+  if (!is_valid_site_model(site_models)) {
     stop("invalid site_model")
   }
-  if (!is_valid_tree_prior(tree_prior)) {
+  if (!is_valid_tree_prior(tree_priors)) {
     stop("invalid tree_prior")
   }
   if (mcmc_chainlength <= 0) {
@@ -80,9 +79,9 @@ beast_scriptr <- function(
   text <- c(text, beastscriptr::beast_scriptr_xml())
   text <- c(text,
     beast_scriptr_beast(
-      input_fasta_filename = input_fasta_filename,
+      input_fasta_filenames = input_fasta_filenames,
       mcmc_chainlength = mcmc_chainlength,
-      tree_prior = tree_prior,
+      tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
     )
@@ -107,7 +106,7 @@ beast_scriptr <- function(
 #' @export
 beast_scriptr_operators <- function(
   filename_base,
-  tree_prior,
+  tree_priors,
   fixed_crown_age
 ) {
 
@@ -149,7 +148,7 @@ beast_scriptr_operators <- function(
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
 
-  if (tree_prior == "birth_death") {
+  if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
       filename_base, "\" spec=\"ScaleOperator\" parameter=\"@birthRate2.t:",
       filename_base, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
@@ -159,7 +158,7 @@ beast_scriptr_operators <- function(
       "\" spec=\"ScaleOperator\" parameter=\"@relativeDeathRate2.t:",
       filename_base, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
   } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
+    testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
       filename_base, "\" parameter=\"@popSize.t:", filename_base,
       "\" scaleFactor=\"0.75\" spec=\"ScaleOperator\" weight=\"3.0\"/>",
@@ -169,20 +168,21 @@ beast_scriptr_operators <- function(
 }
 
 #' Creates the beast section of a BEAST2 XML parameter file
-#' @param input_fasta_filename name of FASTA file
+#' @param input_fasta_filenames one ore more FASTA filenames
 #' @param mcmc_chainlength MCMC chain length
-#' @param tree_prior tree prior
+#' @param tree_priors one ore more tree priors,
+#'   as returned from 'create_tree_prior'
 #' @param fixed_crown_age is the crown age fixed TRUE or FALSE
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 beast_scriptr_beast <- function(
-  input_fasta_filename,
+  input_fasta_filenames,
   mcmc_chainlength,
-  tree_prior,
+  tree_priors,
   fixed_crown_age,
   initial_phylogeny
 ) {
-  filename_base <- beastscriptr::remove_file_extension(input_fasta_filename)
+  filename_base <- beastscriptr::remove_file_extension(input_fasta_filenames)
   text <- NULL
   text <- c(text, paste0(
     "<beast beautitemplate='Standard' beautistatus='' ",
@@ -199,7 +199,7 @@ beast_scriptr_beast <- function(
   text <- c(text,
     beast_scriptr_data(
       filename_base = filename_base,
-      input_fasta_filename = input_fasta_filename
+      input_fasta_filenames = input_fasta_filenames
     )
   )
 
@@ -222,7 +222,7 @@ beast_scriptr_beast <- function(
     beast_scriptr_run(
       filename_base = filename_base,
       mcmc_chainlength = mcmc_chainlength,
-      tree_prior = tree_prior,
+      tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
     )
@@ -237,17 +237,17 @@ beast_scriptr_beast <- function(
 
 #' Creates the data section of a BEAST2 XML parameter file
 #' @param filename_base base of the filenames
-#' @param input_fasta_filename name of the FASTA file
+#' @param input_fasta_filenames name of the FASTA file
 #' @export
 beast_scriptr_data <- function(
   filename_base,
-  input_fasta_filename
+  input_fasta_filenames
 ) {
   text <- NULL
   text <- c(text, "    <data")
   text <- c(text, paste0("id=\"", filename_base, "\""))
   text <- c(text, "name=\"alignment\">")
-  sequences_table <- beastscriptr::fasta_file_to_sequences(input_fasta_filename)
+  sequences_table <- beastscriptr::fasta_file_to_sequences(input_fasta_filenames)
   sequences <- cbind(rownames(sequences_table), sequences_table)
 
   apply(sequences, 1, function(row) {
@@ -268,19 +268,13 @@ beast_scriptr_data <- function(
   text
 }
 
-
-
-
-
-
-
 #' Creates the distribution section of a BEAST2 XML parameter file
 #' @param filename_base base of the filenames
-#' @param tree_prior the tree prior
+#' @param tree_priors one or more tree priors
 #' @export
 beast_scriptr_distribution <- function(
   filename_base,
-  tree_prior
+  tree_priors
 ) {
   text <- NULL
   text <- c(text,
@@ -288,7 +282,7 @@ beast_scriptr_distribution <- function(
   text <- c(text,
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
-  if (tree_prior == "birth_death") {
+  if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("            <distribution id=\"BirthDeath.t:",
       filename_base, "\" spec=\"beast.evolution.speciation.",
       "BirthDeathGernhard08Model\" birthDiffRate=\"@birthRate2.t:",
@@ -297,7 +291,7 @@ beast_scriptr_distribution <- function(
       "\"/>")
     )
   } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
+    testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
       "            <distribution id=\"CoalescentConstant.t:",
       filename_base, "\" spec=\"Coalescent\">"))
@@ -313,7 +307,7 @@ beast_scriptr_distribution <- function(
     text <- c(text, "            </distribution>")
   }
 
-  if (tree_prior == "birth_death") {
+  if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:",
       filename_base, "\" name=\"distribution\" x=\"@birthRate2.t:",
       filename_base, "\">"))
@@ -330,7 +324,7 @@ beast_scriptr_distribution <- function(
     text <- c(text,
       "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")
   } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
+    testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
       "            <prior id=\"PopSizePrior.t:", filename_base,
       "\" name=\"distribution\" x=\"@popSize.t:",
@@ -423,11 +417,11 @@ beast_scriptr_init <- function(
 
 #' Creates the two logger sections of a BEAST2 XML parameter file
 #' @param filename_base filename_base
-#' @param tree_prior tree prior
+#' @param tree_priors one or more tree priors
 #' @export
 beast_scriptr_loggers <- function(
   filename_base,
-  tree_prior
+  tree_priors
 ) {
   text <- NULL
 
@@ -443,7 +437,7 @@ beast_scriptr_loggers <- function(
     "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
     filename_base, "\"/>"))
 
-  if (tree_prior == "birth_death") {
+  if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("        <log idref=\"BirthDeath.t:",
       filename_base, "\"/>"))
     text <- c(text, paste0("        <log idref=\"birthRate2.t:",
@@ -451,7 +445,7 @@ beast_scriptr_loggers <- function(
     text <- c(text, paste0("        <log idref=\"relativeDeathRate2.t:",
       filename_base, "\"/>"))
   } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
+    testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0("        <parameter idref=\"popSize.t:",
       filename_base, "\" name=\"log\"/>"))
     text <- c(text, paste0("        <log idref=\"CoalescentConstant.t:",
@@ -506,14 +500,15 @@ beast_scriptr_map <- function() {
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param filename_base filename its base
 #' @param mcmc_chainlength MCMC chain length
-#' @param tree_prior tree prior
+#' @param tree_priors one or more tree priors,
+#'   as returned by 'create_tree_prior'
 #' @param fixed_crown_age is the crown age fixed TRUE or FALSE
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 beast_scriptr_run <- function(
   filename_base,
   mcmc_chainlength,
-  tree_prior,
+  tree_priors,
   fixed_crown_age,
   initial_phylogeny
 ) {
@@ -525,7 +520,7 @@ beast_scriptr_run <- function(
   text <- c(text,
     beast_scriptr_state(
       filename_base = filename_base,
-      tree_prior = tree_prior,
+      tree_priors = tree_priors,
       initial_phylogeny = initial_phylogeny
     )
   )
@@ -545,7 +540,7 @@ beast_scriptr_run <- function(
   text <- c(text,
     beast_scriptr_distribution(
       filename_base = filename_base,
-      tree_prior = tree_prior
+      tree_priors = tree_priors
     )
   )
 
@@ -553,14 +548,14 @@ beast_scriptr_run <- function(
 
   text <- c(text, beastscriptr::beast_scriptr_operators(
     filename_base = filename_base,
-    tree_prior = tree_prior,
+    tree_priors = tree_priors,
     fixed_crown_age = fixed_crown_age))
 
   text <- c(text, "")
 
   text <- c(text, beastscriptr::beast_scriptr_loggers(
     filename_base = filename_base,
-    tree_prior = tree_prior))
+    tree_priors = tree_priors))
 
   text <- c(text, "")
   text <- c(text, "</run>")
@@ -569,12 +564,13 @@ beast_scriptr_run <- function(
 
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param filename_base filename its base
-#' @param tree_prior tree prior
+#' @param tree_priors one or more tree priors, as returned
+#'   by 'create_tree_prior'
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 beast_scriptr_state <- function(
   filename_base,
-  tree_prior,
+  tree_priors,
   initial_phylogeny
 ) {
   text <- NULL
@@ -597,7 +593,7 @@ beast_scriptr_state <- function(
     text <- c(text, paste0("    </stateNode>"))
   }
 
-  if (tree_prior == "birth_death") {
+  if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("        <parameter id=\"birthRate2.t:",
       filename_base,
       "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
@@ -607,7 +603,7 @@ beast_scriptr_state <- function(
       filename_base, "\" lower=\"0.0\" name=\"stateNode\"",
       " upper=\"1.0\">0.5</parameter>"))
   } else {
-    testit::assert(tree_prior == "coalescent_constant_population")
+    testit::assert(tree_priors == "coalescent_constant_population")
     text <- c(text, paste0("        <parameter id=\"popSize.t:",
       filename_base, "\" name=\"stateNode\">0.3</parameter>"))
   }

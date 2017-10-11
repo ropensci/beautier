@@ -4,15 +4,16 @@
 \alias{beast_scriptr_beast}
 \title{Creates the beast section of a BEAST2 XML parameter file}
 \usage{
-beast_scriptr_beast(input_fasta_filename, mcmc_chainlength, tree_prior,
+beast_scriptr_beast(input_fasta_filenames, mcmc_chainlength, tree_priors,
   fixed_crown_age, initial_phylogeny)
 }
 \arguments{
-\item{input_fasta_filename}{name of FASTA file}
+\item{input_fasta_filenames}{one ore more FASTA filenames}
 
 \item{mcmc_chainlength}{MCMC chain length}
 
-\item{tree_prior}{tree prior}
+\item{tree_priors}{one ore more tree priors,
+as returned from 'create_tree_prior'}
 
 \item{fixed_crown_age}{is the crown age fixed TRUE or FALSE}
 

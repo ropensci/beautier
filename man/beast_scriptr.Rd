@@ -4,18 +4,19 @@
 \alias{beast_scriptr}
 \title{Create a BEAST2 XML parameter file}
 \usage{
-beast_scriptr(input_fasta_filename, site_model = create_site_model(name =
-  "JC69"), mcmc_chainlength, tree_prior = create_tree_prior(name =
+beast_scriptr(input_fasta_filenames, site_models = create_site_model(name =
+  "JC69"), mcmc_chainlength, tree_priors = create_tree_prior(name =
   "birth_death"), output_xml_filename, fixed_crown_age = FALSE,
   initial_phylogeny = NA)
 }
 \arguments{
-\item{input_fasta_filename}{Filename of a fasta file}
+\item{input_fasta_filenames}{One or more fasta filename}
+
+\item{site_models}{one or more site models, as returned by 'create_site_models'}
 
 \item{mcmc_chainlength}{Length of MCMC chain}
 
-\item{tree_prior}{The tree prior, can be 'birth_death' or
-'coalescent_constant_population'}
+\item{tree_priors}{On or more tree priors, as returned by 'create_tree_prior'}
 
 \item{output_xml_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
@@ -28,8 +29,6 @@ of the initial phylogeny.}
 \item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
 this is set to NA, BEAST2 will use a random phylogeny. Else
 a phylogeny must be supplied of class ape::phylo.}
-
-\item{site_models}{one or more site models, as returned by create_site_models}
 }
 \description{
 Create a BEAST2 XML parameter file
@@ -44,10 +43,10 @@ Create a BEAST2 XML parameter file
 
   # Birth-Death tree prior, crown age is estimated
   beast_scriptr(
-    input_fasta_filename = get_input_fasta_filename(),
-    site_model = create_site_model(name = "JC69"),
+    input_fasta_filenames = get_input_fasta_filename(),
+    site_models = create_site_model(name = "JC69"),
     mcmc_chainlength = 10000000,
-    tree_prior = "birth_death",
+    tree_priors = "birth_death",
     output_xml_filename = output_xml_filename
   )
   testit::assert(file.exists(output_xml_filename))
@@ -57,10 +56,10 @@ Create a BEAST2 XML parameter file
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
   beast_scriptr(
-    input_fasta_filename = get_input_fasta_filename(),
-    site_model = create_site_model(name = "JC69"),
+    input_fasta_filenames = get_input_fasta_filename(),
+    site_models = create_site_model(name = "JC69"),
     mcmc_chainlength = 10000000,
-    tree_prior = "birth_death",
+    tree_priors = "birth_death",
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
     initial_phylogeny = beastscriptr::fasta_to_phylo(

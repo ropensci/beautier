@@ -4,12 +4,13 @@
 \alias{beast_scriptr_state}
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
-beast_scriptr_state(filename_base, tree_prior, initial_phylogeny)
+beast_scriptr_state(filename_base, tree_priors, initial_phylogeny)
 }
 \arguments{
 \item{filename_base}{filename its base}
 
-\item{tree_prior}{tree prior}
+\item{tree_priors}{one or more tree priors, as returned
+by 'create_tree_prior'}
 
 \item{initial_phylogeny}{initial phylogeny or NA}
 }

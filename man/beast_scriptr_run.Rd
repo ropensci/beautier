@@ -4,7 +4,7 @@
 \alias{beast_scriptr_run}
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
-beast_scriptr_run(filename_base, mcmc_chainlength, tree_prior, fixed_crown_age,
+beast_scriptr_run(filename_base, mcmc_chainlength, tree_priors, fixed_crown_age,
   initial_phylogeny)
 }
 \arguments{
@@ -12,7 +12,8 @@ beast_scriptr_run(filename_base, mcmc_chainlength, tree_prior, fixed_crown_age,
 
 \item{mcmc_chainlength}{MCMC chain length}
 
-\item{tree_prior}{tree prior}
+\item{tree_priors}{one or more tree priors,
+as returned by 'create_tree_prior'}
 
 \item{fixed_crown_age}{is the crown age fixed TRUE or FALSE}
 

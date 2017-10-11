@@ -4,12 +4,12 @@
 \alias{beast_scriptr_distribution}
 \title{Creates the distribution section of a BEAST2 XML parameter file}
 \usage{
-beast_scriptr_distribution(filename_base, tree_prior)
+beast_scriptr_distribution(filename_base, tree_priors)
 }
 \arguments{
 \item{filename_base}{base of the filenames}
 
-\item{tree_prior}{the tree prior}
+\item{tree_priors}{one or more tree priors}
 }
 \description{
 Creates the distribution section of a BEAST2 XML parameter file
