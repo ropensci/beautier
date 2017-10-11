@@ -24,7 +24,7 @@
 #'   # Birth-Death tree prior, crown age is estimated
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
-#'     site_models = create_site_models(),
+#'     site_model = create_site_model("JC69"),
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     output_xml_filename = output_xml_filename
@@ -37,7 +37,7 @@
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
 #'   beast_scriptr(
 #'     input_fasta_filename = get_input_fasta_filename(),
-#'     site_models = create_site_models(),
+#'     site_model = create_site_model("JC69"),
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     output_xml_filename = output_xml_filename_fixed,
@@ -50,7 +50,7 @@
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
-  site_models,
+  site_model,
   mcmc_chainlength,
   tree_prior,
   output_xml_filename,

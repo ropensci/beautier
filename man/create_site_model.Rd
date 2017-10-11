@@ -4,7 +4,10 @@
 \alias{create_site_model}
 \title{Create a site model}
 \usage{
-create_site_model()
+create_site_model(name)
+}
+\arguments{
+\item{name}{the site model name. Can be 'JC69', 'HKY', 'TN93' or 'GTR'}
 }
 \value{
 a site_model
