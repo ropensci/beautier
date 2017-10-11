@@ -150,35 +150,6 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
   testthat::expect_true(
     beastscriptr::is_valid_beast2_input_file(beast_filename)
   )
-
-  # Run BEAST2 to measure posterior
-  testthat::expect_false(file.exists(beast_state_filename))
-  testthat::expect_false(file.exists(beast_log_filename))
-  testthat::expect_false(file.exists(beast_trees_filename))
-  cmd <- paste(
-    "java -jar ~/Programs/beast/lib/beast.jar",
-    " -statefile ", beast_state_filename,
-    " -overwrite", beast_filename
-  )
-  verbose <- FALSE
-  if (!verbose) {
-    cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
-  }
-  system(cmd)
-  # If these are absent, BEAST2 could not parse the input file
-  testthat::expect_true(file.exists(beast_state_filename))
-  testthat::expect_true(file.exists(beast_log_filename))
-  testthat::expect_true(file.exists(beast_trees_filename))
-
-  # All TreeHeights (crown ages) should be the same
-  posterior <- RBeast::parse_beast_posterior(
-    trees_filename = beast_trees_filename,
-    log_filename = beast_log_filename)
-  testthat::expect_true(all(posterior$estimates$TreeHeight
-    == posterior$estimates$TreeHeight[1]))
-
-  file.remove(beast_filename)
-  file.remove(beast_state_filename)
 })
 
 
@@ -231,37 +202,4 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   testthat::expect_true(
     beastscriptr::is_valid_beast2_input_file(beast_filename)
   )
-
-  # Run BEAST2 to measure posterior
-  testthat::expect_false(file.exists(beast_state_filename))
-  testthat::expect_false(file.exists(beast_log_filename))
-  testthat::expect_false(file.exists(beast_trees_filename))
-  cmd <- paste(
-    "java -jar ~/Programs/beast/lib/beast.jar",
-    " -statefile ", beast_state_filename,
-    " -overwrite", beast_filename
-  )
-  verbose <- FALSE
-  if (!verbose) {
-    cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
-  }
-  system(cmd)
-  # If these are absent, BEAST2 could not parse the input file
-  testthat::expect_true(file.exists(beast_state_filename))
-  testthat::expect_true(file.exists(beast_log_filename))
-  testthat::expect_true(file.exists(beast_trees_filename))
-
-  # All TreeHeights (crown ages) should be the same as specified
-  posterior <- RBeast::parse_beast_posterior(
-    trees_filename = beast_trees_filename,
-    log_filename = beast_log_filename)
-  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
-    tolerance = 0.001)
-  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
-    tolerance = 0.001)
-  testthat::expect_equal(crown_age,
-    beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000),
-    tolerance = 0.001)
-  file.remove(beast_filename)
-  file.remove(beast_state_filename)
 })
