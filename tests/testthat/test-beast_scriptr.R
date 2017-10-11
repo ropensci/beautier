@@ -184,7 +184,6 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   )
   testthat::expect_true(file.exists(input_fasta_filename))
 
-
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
   beastscriptr::beast_scriptr(

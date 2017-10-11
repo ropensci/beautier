@@ -57,7 +57,7 @@ beast_scriptr <- function(
     input_fasta_filenames = input_fasta_filename,
     site_models = create_site_model(name = "JC69"),
     mcmc_chainlength,
-    tree_prior = create_tree_prior(name = tree_prior),
+    tree_priors = create_tree_prior(name = tree_prior),
     output_xml_filename,
     fixed_crown_age = fixed_crown_age,
     initial_phylogeny = initial_phylogeny
