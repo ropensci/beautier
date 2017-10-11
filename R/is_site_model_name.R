@@ -3,5 +3,5 @@
 #' @return TRUE if the name is a valid site_model name, FALSE otherwise
 #' @export
 is_site_model_name <- function(name) {
-  return(name %in% c("JC69", "HKY", "TN93", "GTR"))
+  return(name %in% get_site_model_names())
 }

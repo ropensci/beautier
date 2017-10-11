@@ -7,7 +7,8 @@
 create_site_model(name)
 }
 \arguments{
-\item{name}{the site model name. Can be 'JC69', 'HKY', 'TN93' or 'GTR'}
+\item{name}{the site model name. Valid
+names can be found in 'get_site_model_names'}
 }
 \value{
 a site_model

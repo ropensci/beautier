@@ -1,5 +1,6 @@
 #' Create a site model
-#' @param name the site model name. Can be 'JC69', 'HKY', 'TN93' or 'GTR'
+#' @param name the site model name. Valid
+#'   names can be found in 'get_site_model_names'
 #' @return a site_model
 #' @export
 create_site_model <- function(
