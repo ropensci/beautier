@@ -387,3 +387,18 @@ test_that("Can specify fixed crown age", {
       x = created_lines_fixed))
   )
 })
+
+test_that("Produce XML for Yule species tree prior", {
+  skip("First refactor")
+  input_fasta_filename <- get_input_fasta_filename()
+  output_xml_filename <- tempfile()
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    mcmc_chainlength = 10000000,
+    tree_priors = create_tree_prior(name = "yule"),
+    output_xml_filename = output_xml_filename
+  )
+  testthat::expect_true(
+    beastscriptr::is_beast2_input_file(output_xml_filename)
+  )
+})

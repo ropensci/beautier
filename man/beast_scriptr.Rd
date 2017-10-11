@@ -2,7 +2,8 @@
 % Please edit documentation in R/beast_scriptr.R
 \name{beast_scriptr}
 \alias{beast_scriptr}
-\title{Obsolete interface for 'create_beast2_input_file', present for backwards-compatibility}
+\title{Deprecated interface for 'create_beast2_input_file',
+  present for backwards-compatibility}
 \usage{
 beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
   output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
@@ -27,7 +28,8 @@ this is set to NA, BEAST2 will use a random phylogeny. Else
 a phylogeny must be supplied of class ape::phylo.}
 }
 \description{
-Obsolete interface for 'create_beast2_input_file', present for backwards-compatibility
+Deprecated interface for 'create_beast2_input_file',
+  present for backwards-compatibility
 }
 \examples{
   # Get the filename of an example FASTA file
