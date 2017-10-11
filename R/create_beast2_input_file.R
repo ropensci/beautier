@@ -25,7 +25,7 @@
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
-#'     tree_priors = "birth_death",
+#'     tree_priors = create_tree_prior(name = "birth_death"),
 #'     output_xml_filename = output_xml_filename
 #'   )
 #'   testit::assert(file.exists(output_xml_filename))
@@ -38,7 +38,7 @@
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
-#'     tree_priors = "birth_death",
+#'     tree_priors = create_tree_prior(name = "birth_death"),
 #'     output_xml_filename = output_xml_filename_fixed,
 #'     fixed_crown_age = TRUE,
 #'     initial_phylogeny = beastscriptr::fasta_to_phylo(
