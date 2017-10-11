@@ -52,7 +52,7 @@ test_that("Produce an XML file for a birth-death species tree prior", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
+    beastscriptr::is_beast2_input_file(output_xml_filename)
   )
 })
 
@@ -67,7 +67,7 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
+    beastscriptr::is_beast2_input_file(output_xml_filename)
   )
 })
 
@@ -143,7 +143,7 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
+    beastscriptr::is_beast2_input_file(output_xml_filename)
   )
 
 })
@@ -185,7 +185,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(beast_filename)
+    beastscriptr::is_beast2_input_file(beast_filename)
   )
 
   # Run BEAST2 to measure posterior
@@ -266,7 +266,7 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(beast_filename)
+    beastscriptr::is_beast2_input_file(beast_filename)
   )
 
   # Run BEAST2 to measure posterior
@@ -326,7 +326,7 @@ test_that("Can specify fixed crown age", {
   )
   testthat::expect_equal(file.exists(output_xml_filename_fixed), TRUE)
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(output_xml_filename_fixed)
+    beastscriptr::is_beast2_input_file(output_xml_filename_fixed)
   )
 
   beastscriptr::create_beast2_input_file(
@@ -337,7 +337,7 @@ test_that("Can specify fixed crown age", {
   )
   testthat::expect_equal(file.exists(output_xml_filename_nonfixed), TRUE)
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(output_xml_filename_nonfixed)
+    beastscriptr::is_beast2_input_file(output_xml_filename_nonfixed)
   )
 
   created_lines_fixed <- readLines(output_xml_filename_fixed)

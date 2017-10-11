@@ -59,10 +59,10 @@ create_beast2_input_file <- function(
   if (!file.exists(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
-  if (!is_valid_site_model(site_models)) {
+  if (!is_site_model(site_models)) {
     stop("invalid site_model")
   }
-  if (!is_valid_tree_prior(tree_priors)) {
+  if (!is_tree_prior(tree_priors)) {
     stop("invalid tree_prior")
   }
   if (mcmc_chainlength <= 0) {
