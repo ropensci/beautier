@@ -4,10 +4,10 @@
 \alias{create_beast2_input_loggers}
 \title{Creates the two logger sections of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers(filename_base, tree_priors)
+create_beast2_input_loggers(fasta_filenames, tree_priors)
 }
 \arguments{
-\item{filename_base}{filename_base}
+\item{fasta_filenames}{the FASTA filenames}
 
 \item{tree_priors}{one or more tree priors}
 }

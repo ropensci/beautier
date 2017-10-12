@@ -1,5 +1,5 @@
 #' Creates the operators section of a BEAST2 XML parameter file
-#' @param filename_base base of the filenames
+#' @param fasta_filenames the FASTA filesnames
 #' @param tree_priors One or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -8,62 +8,63 @@
 #'   of the initial phylogeny.
 #' @export
 create_beast2_input_operators <- function(
-  filename_base,
+  fasta_filenames,
   tree_priors,
   fixed_crown_age
 ) {
+  ids <- beastscriptr::get_file_base_sans_ext(fasta_filenames)
 
   text <- NULL
   if (fixed_crown_age == FALSE) {
-    text <- c(text, paste0("    <operator id=\"treeScaler.t:", filename_base,
+    text <- c(text, paste0("    <operator id=\"BirthDeathTreeScaler.t:", ids,
       "\" spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
-      filename_base, "\" weight=\"3.0\"/>"))
+      ids, "\" weight=\"3.0\"/>"))
     text <- c(text, "")
   }
   if (fixed_crown_age == FALSE) {
-    text <- c(text, paste0("    <operator id=\"treeRootScaler.t:",
-      filename_base,
+    text <- c(text, paste0("    <operator id=\"BirthDeathTreeRootScaler.t:",
+      ids,
       "\" spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
-      "tree=\"@Tree.t:", filename_base, "\" weight=\"3.0\"/>"))
+      "tree=\"@Tree.t:", ids, "\" weight=\"3.0\"/>"))
     text <- c(text, "")
   }
-  text <- c(text, paste0("    <operator id=\"UniformOperator.t:", filename_base,
-    "\" spec=\"Uniform\" tree=\"@Tree.t:", filename_base,
+  text <- c(text, paste0("    <operator id=\"BirthDeathUniformOperator.t:", ids,
+    "\" spec=\"Uniform\" tree=\"@Tree.t:", ids,
     "\" weight=\"30.0\"/>"))
   text <- c(text, "")
   if (fixed_crown_age == FALSE) {
-    text <- c(text, paste0("    <operator id=\"SubtreeSlide.t:", filename_base,
-      "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", filename_base,
+    text <- c(text, paste0("    <operator id=\"BirthDeathSubtreeSlide.t:", ids,
+      "\" spec=\"SubtreeSlide\" tree=\"@Tree.t:", ids,
       "\" weight=\"15.0\"/>"))
     text <- c(text, "")
   }
 
-  text <- c(text, paste0("    <operator id=\"narrow.t:", filename_base,
-    "\" spec=\"Exchange\" tree=\"@Tree.t:", filename_base,
+  text <- c(text, paste0("    <operator id=\"BirthDeathNarrow.t:", ids,
+    "\" spec=\"Exchange\" tree=\"@Tree.t:", ids,
     "\" weight=\"15.0\"/>"))
   text <- c(text, "")
-  text <- c(text, paste0("    <operator id=\"wide.t:", filename_base,
-    "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", filename_base,
+  text <- c(text, paste0("    <operator id=\"BirthDeathWide.t:", ids,
+    "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", ids,
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
-  text <- c(text, paste0("    <operator id=\"WilsonBalding.t:", filename_base,
-    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", filename_base,
+  text <- c(text, paste0("    <operator id=\"BirthDeathWilsonBalding.t:", ids,
+    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", ids,
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
 
   if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
-      filename_base, "\" spec=\"ScaleOperator\" parameter=\"@birthRate2.t:",
-      filename_base, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+      ids, "\" spec=\"ScaleOperator\" parameter=\"@birthRate2.t:",
+      ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
     text <- c(text, "")
     text <- c(text, paste0("    <operator id=\"DeathRateScaler.t:",
-      filename_base,
+      ids,
       "\" spec=\"ScaleOperator\" parameter=\"@relativeDeathRate2.t:",
-      filename_base, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+      ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
-      filename_base, "\" parameter=\"@popSize.t:", filename_base,
+      ids, "\" parameter=\"@popSize.t:", ids,
       "\" scaleFactor=\"0.75\" spec=\"ScaleOperator\" weight=\"3.0\"/>",
       sep = ""))
   }

@@ -49,14 +49,14 @@ create_beast2_input_run <- function(
   text <- c(text, "")
 
   text <- c(text, beastscriptr::create_beast2_input_operators(
-    filename_base = filename_base,
+    fasta_filenames = fasta_filenames,
     tree_priors = tree_priors,
     fixed_crown_age = fixed_crown_age))
 
   text <- c(text, "")
 
   text <- c(text, beastscriptr::create_beast2_input_loggers(
-    filename_base = filename_base,
+    fasta_filenames = fasta_filenames,
     tree_priors = tree_priors))
 
   text <- c(text, "")
