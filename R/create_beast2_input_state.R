@@ -34,15 +34,6 @@ create_beast2_input_state <- function(
 
     text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
-
-    # text <- c(text, paste0("        <parameter id=\"birthRate2.t:",
-    #   ids,
-    #   "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"
-    #   )
-    # )
-    # text <- c(text, paste0("        <parameter id=\"relativeDeathRate2.t:",
-    #   ids, "\" lower=\"0.0\" name=\"stateNode\"",
-    #   " upper=\"1.0\">0.5</parameter>"))
   } else {
     testit::assert(tree_priors == "coalescent_constant_population")
     text <- c(text, paste0("        <parameter id=\"popSize.t:",

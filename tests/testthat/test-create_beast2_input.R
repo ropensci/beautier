@@ -60,17 +60,60 @@ test_that("Check that birth_death_2_4.xml is reproduced", {
 })
 
 
-test_that("Produce XML for Yule species tree prior", {
-  skip("First refactor")
-  input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <- tempfile()
-  create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+
+
+test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
+  # Creates an XML file from a known-to-be-valid input file
+  # and tests if this identical to a known-to-be-valid XML output file
+  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
+  output_xml_filename <- system.file("extdata", "coalescent_constant_population_2_4.xml", package = "beastscriptr")
+
+  # Input file must be found
+  testthat::expect_true(file.exists(input_fasta_filenames))
+
+  created_lines <- beastscriptr::create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
     mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "yule"),
+    tree_priors = beastscriptr::create_tree_prior(name = "coalescent_constant_population"),
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename)
+
+  expected_lines <- readLines(beastscriptr::get_output_xml_filename())
+
+  testthat::expect_equal(expected_lines[1], created_lines[1])
+  testthat::expect_equal(expected_lines[2], created_lines[2])
+  skip("WIP")
+  write.csv(created_lines, "~/created.csv")
+  write.csv(expected_lines, "~/expected.csv")
+  testthat::expect_equal(expected_lines[5], created_lines[5])
+  testthat::expect_equal(expected_lines[7], created_lines[7])
+  for (i in 1:120) {
+    print(i)
+    testthat::expect_equal(
+      expected_lines[i], created_lines[i]
+    )
+}
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Check that yule_2_4.xml is reproduced", {
+  skip("Do coalescent_constant_population first ")
+  # Creates an XML file from a known-to-be-valid input file
+  # and tests if this identical to a known-to-be-valid XML output file
+  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
+  output_xml_filename <- system.file("extdata", "yule_2_4.xml", package = "beastscriptr")
+
+  # Input file must be found
+  testthat::expect_true(file.exists(input_fasta_filenames))
+
+  created_lines <- beastscriptr::create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    mcmc_chainlength = 10000000,
+    tree_priors = beastscriptr::create_tree_prior(name = "yule"),
+    output_xml_filename = output_xml_filename
   )
+
+  expected_lines <- readLines(beastscriptr::get_output_xml_filename())
+  testthat::expect_identical(created_lines, expected_lines)
 })
