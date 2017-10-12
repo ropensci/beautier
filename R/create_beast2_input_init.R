@@ -1,11 +1,12 @@
 #' Creates the map section of a BEAST2 XML parameter file
-#' @param filename_base base of the filenames
+#' @param fasta_filenames the FASTA filenames
 #' @param initial_phylogeny initial phylogeny
 #' @export
 create_beast2_input_init <- function(
-  filename_base,
+  fasta_filenames,
   initial_phylogeny
 ) {
+  ids <- beastscriptr::get_file_base_sans_ext(fasta_filenames)
   text <- NULL
   # From https://www.beast2.org/fix-starting-tree/:
   #
@@ -20,15 +21,15 @@ create_beast2_input_init <- function(
   #
   # In other words: bluntly remove it
   if (!ribir::is_phylogeny(initial_phylogeny)) {
-    text <- c(text, paste0("    <init id=\"RandomTree.t:", filename_base,
+    text <- c(text, paste0("    <init id=\"RandomTree.t:", ids,
       "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-      " initial=\"@Tree.t:", filename_base, "\" taxa=\"@", filename_base, "\">"
+      " initial=\"@Tree.t:", ids, "\" taxa=\"@", ids, "\">"
     ))
     text <- c(text, paste0(
       "        <populationModel id=\"ConstantPopulation0.t:",
-      filename_base, "\" spec=\"ConstantPopulation\">"))
+      ids, "\" spec=\"ConstantPopulation\">"))
     text <- c(text, paste0("            <parameter id=\"randomPopSize.t:",
-      filename_base, "\" name=\"popSize\">1.0</parameter>"))
+      ids, "\" name=\"popSize\">1.0</parameter>"))
     text <- c(text, "        </populationModel>")
     text <- c(text, "    </init>")
   } else {

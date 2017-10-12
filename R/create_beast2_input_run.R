@@ -32,7 +32,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_init(
-      filename_base = filename_base,
+      fasta_filenames = fasta_filenames,
       initial_phylogeny = initial_phylogeny
     )
   )
