@@ -36,28 +36,14 @@ create_beast2_input_distribution <- function(
   }
 
   if (tree_priors$name == "birth_death") {
-    # text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:",
-    #   ids, "\" name=\"distribution\" x=\"@birthRate2.t:",
-    #   ids, "\">"))
-    # text <- c(text,
-    #   paste0(
-    #     "                <Uniform id=\"Uniform.0\" ",
-    #     "name=\"distr\" upper=\"1000.0\"/>"
-    #     )
-    #   )
-    # text <- c(text, "            </prior>")
-    # text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:",
-    #   ids, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
-    #   ids, "\">"))
-    # text <- c(text,
-    #   "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")
+    # Nothing
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
       "            <prior id=\"PopSizePrior.t:", ids,
       "\" name=\"distribution\" x=\"@popSize.t:",
       ids, "\">"))
-    text <- c(text, "                <OneOnX id=\"OneOnX.0\" name=\"distr\"/>")
+    text <- c(text, "                <OneOnX id=\"OneOnX.1\" name=\"distr\"/>")
     text <- c(text, "            </prior>")
     text <- c(text, "        </distribution>")
   }
