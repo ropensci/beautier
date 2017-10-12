@@ -1,6 +1,6 @@
 context("create_beast2_input_operators")
 
-test_that("usage", {
+test_that("birth_death", {
   testthat::expect_silent(
     create_beast2_input_operators(
       fasta_filenames = beastscriptr::get_input_fasta_filename(),
