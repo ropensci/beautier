@@ -27,11 +27,7 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0(
       "            <distribution id=\"CoalescentConstant.t:",
       ids, "\" spec=\"Coalescent\">"))
-    text <- c(text, paste0(
-      "                <populationModel id=\"ConstantPopulation.t:",
-      ids, "\" popSize=\"@popSize.t:", ids,
-      "\" spec=\"ConstantPopulation\"/>",
-      sep = ""))
+    text <- c(text, paste0("                <populationModel id=\"ConstantPopulation.t:", ids, "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", ids, "\"/>"))
     text <- c(text, paste0(
       "                <treeIntervals id=\"TreeIntervals.t:",
       ids, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
