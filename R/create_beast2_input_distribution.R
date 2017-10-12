@@ -21,7 +21,7 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDDeathRate.t:test_output_0\">"))
     text <- c(text, paste0("                <Uniform id=\"Uniform.4\" name=\"distr\"/>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, "            </distribution>")
+    text <- c(text, "        </distribution>")
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
