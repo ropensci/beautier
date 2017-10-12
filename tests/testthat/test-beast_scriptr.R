@@ -94,10 +94,6 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
     fileext = ".xml"
   )
 
-  # The output file created when it BEAST2 can run
-  # (which only happens if the input is valid)
-  output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
-
   testthat::expect_false(file.exists(output_xml_filename))
   beastscriptr::beast_scriptr(
     input_fasta_filename = input_fasta_filename,
@@ -106,7 +102,7 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
-    beastscriptr::is_valid_beast2_input_file(output_xml_filename)
+    beastscriptr::is_beast2_input_file(output_xml_filename)
   )
 
 })

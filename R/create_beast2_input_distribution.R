@@ -14,11 +14,11 @@ create_beast2_input_distribution <- function(
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
   if (tree_priors$name == "birth_death") {
-    text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids, "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:test_output_0\" relativeDeathRate=\"@BDDeathRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>"))
+    text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids, "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:", ids, "\" relativeDeathRate=\"@BDDeathRate.t:", ids, "\" tree=\"@Tree.t:", ids, "\"/>"))
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", ids, "\" name=\"distribution\" x=\"@BDBirthRate.t:", ids, "\">"))
     text <- c(text, paste0("                <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDDeathRate.t:test_output_0\">"))
+    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:", ids, "\" name=\"distribution\" x=\"@BDDeathRate.t:", ids, "\">"))
     text <- c(text, paste0("                <Uniform id=\"Uniform.4\" name=\"distr\"/>"))
     text <- c(text, paste0("            </prior>"))
     text <- c(text, "        </distribution>")

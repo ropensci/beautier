@@ -1,5 +1,5 @@
 #' Creates the state section of a BEAST2 XML parameter file
-#' @param filename_base filename its base
+#' @param fasta_filenames the fasta filenames
 #' @param tree_priors one or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param initial_phylogeny initial phylogeny or NA
