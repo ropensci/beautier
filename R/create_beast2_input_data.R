@@ -7,36 +7,11 @@ create_beast2_input_data <- function(
   if (!file.exists(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
-
   text <- NULL
   text <- c(text, "    <data")
-
-  # Old:
-  #text <- c(text, paste0("id=\"", filename_base, "\""))
-  # New:
   text <- c(text, paste0("id=\"", get_file_base_sans_ext(input_fasta_filenames), "\""))
-
   text <- c(text, "name=\"alignment\">")
-
   text <- c(text, create_beast2_input_data_sequences(input_fasta_filenames = input_fasta_filenames))
-  # sequences_table <- beastscriptr::fasta_file_to_sequences(
-  #   input_fasta_filenames)
-  # sequences <- cbind(rownames(sequences_table), sequences_table)
-  #
-  # apply(sequences, 1, function(row) {
-  #     nextline <- paste0(
-  #       "                    <sequence id=\"seq_",
-  #       row[1],
-  #       "\" taxon=\"",
-  #       row[1],
-  #       "\" totalcount=\"4\" value=\"",
-  #       ifelse(version == "2.0", toupper(row[2]), row[2]),
-  #       "\"/>",
-  #       sep = ""
-  #     )
-  #     text <<- c(text, nextline)
-  #   }
-  # )
   text <- c(text, "                </data>")
   text
 }

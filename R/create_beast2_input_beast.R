@@ -5,15 +5,13 @@
 #'   as returned from 'create_tree_prior'
 #' @param fixed_crown_age is the crown age fixed TRUE or FALSE
 #' @param initial_phylogeny initial phylogeny or NA
-#' @param version the version
 #' @export
 create_beast2_input_beast <- function(
   input_fasta_filenames,
   mcmc_chainlength,
   tree_priors,
   fixed_crown_age,
-  initial_phylogeny,
-  version = "2.4"
+  initial_phylogeny
 ) {
   if (!file.exists(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
@@ -24,26 +22,11 @@ create_beast2_input_beast <- function(
 
   # Seems more logical, but incorrect:
   # filename_base <- beastscriptr::remove_file_extension(basename(input_fasta_filenames))
-  if (version == "2.0") {
-    text <- paste0(
-      "<beast beautitemplate='Standard' beautistatus='' ",
-      "namespace=\"beast.core:beast.evolution.alignment:",
-      "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
-      "beast.evolution.operators:beast.evolution.sitemodel:",
-      "beast.evolution.substitutionmodel:",
-      "beast.evolution.likelihood\" version=\"2.0\">"
-    )
-  }
-  else if (version == "2.4") {
-    text <- paste0(
-      "<beast beautitemplate='Standard' beautistatus='' ",
-      "namespace=\"beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood\" ",
-      "required=\"\" version=\"2.4\">"
-    )
-  }
-  else {
-    stop("Unsupported version")
-  }
+  text <- paste0(
+    "<beast beautitemplate='Standard' beautistatus='' ",
+    "namespace=\"beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood\" ",
+    "required=\"\" version=\"2.4\">"
+  )
 
   text <- c(text, "")
   text <- c(text, "")
