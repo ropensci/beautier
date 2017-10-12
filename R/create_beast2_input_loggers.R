@@ -25,9 +25,9 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("        <log idref=\"BirthDeath.t:",
       ids, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"birthRate2.t:",
+    text <- c(text, paste0("        <log idref=\"BDBirthRate.t:",
       ids, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"relativeDeathRate2.t:",
+    text <- c(text, paste0("        <log idref=\"BDDeathRate.t:",
       ids, "\"/>"))
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")

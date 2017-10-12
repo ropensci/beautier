@@ -123,20 +123,6 @@ test_that("Check that birth_death_2_4.xml is reproduced", {
   )
 
   expected_lines <- readLines(get_output_xml_filename())
-  testthat::expect_equal(expected_lines[1], created_lines[1])
-  testthat::expect_equal(expected_lines[2], created_lines[2])
-  skip("Found upstream bug")
-  write.csv(created_lines, "~/created.csv")
-  write.csv(expected_lines, "~/expected.csv")
-  testthat::expect_equal(expected_lines[5], created_lines[5])
-  testthat::expect_equal(expected_lines[7], created_lines[7])
-  for (i in 1:120) {
-    print(i)
-    testthat::expect_equal(
-      expected_lines[i], created_lines[i]
-    )
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
