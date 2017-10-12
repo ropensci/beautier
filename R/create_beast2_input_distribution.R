@@ -1,11 +1,12 @@
 #' Creates the distribution section of a BEAST2 XML parameter file
-#' @param filename_base base of the filenames
+#' @param fasta_filenames FASTA filenames
 #' @param tree_priors one or more tree priors
 #' @export
-create_beast2_input_distribution <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
-  filename_base,
+create_beast2_input_distribution <- function(
+  fasta_filenames,
   tree_priors
 ) {
+  ids <- beastscriptr::get_file_base_sans_ext(fasta_filenames)
   text <- NULL
   text <- c(text,
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
@@ -13,34 +14,38 @@ create_beast2_input_distribution <- function( # nolint keep long function name, 
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
   if (tree_priors$name == "birth_death") {
-    text <- c(text, paste0("            <distribution id=\"BirthDeath.t:",
-      filename_base, "\" spec=\"beast.evolution.speciation.",
-      "BirthDeathGernhard08Model\" birthDiffRate=\"@birthRate2.t:",
-      filename_base, "\" relativeDeathRate=\"@relativeDeathRate2.t:",
-      filename_base, "\" tree=\"@Tree.t:", filename_base,
-      "\"/>")
-    )
+    text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids, "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:test_output_0\" relativeDeathRate=\"@BDDeathRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>"))
+    text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", ids, "\" name=\"distribution\" x=\"@BDBirthRate.t:", ids, "\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>"))
+
+    # text <- c(text, paste0("            <distribution id=\"BirthDeath.t:",
+    #   ids, "\" spec=\"beast.evolution.speciation.",
+    #   "BirthDeathGernhard08Model\" birthDiffRate=\"@birthRate2.t:",
+    #   ids, "\" relativeDeathRate=\"@relativeDeathRate2.t:",
+    #   ids, "\" tree=\"@Tree.t:", ids,
+    #   "\"/>")
+    # )
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
       "            <distribution id=\"CoalescentConstant.t:",
-      filename_base, "\" spec=\"Coalescent\">"))
+      ids, "\" spec=\"Coalescent\">"))
     text <- c(text, paste0(
       "                <populationModel id=\"ConstantPopulation.t:",
-      filename_base, "\" popSize=\"@popSize.t:", filename_base,
+      ids, "\" popSize=\"@popSize.t:", ids,
       "\" spec=\"ConstantPopulation\"/>",
       sep = ""))
     text <- c(text, paste0(
       "                <treeIntervals id=\"TreeIntervals.t:",
-      filename_base, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
-      filename_base, "\"/>"))
+      ids, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
+      ids, "\"/>"))
     text <- c(text, "            </distribution>")
   }
 
   if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:",
-      filename_base, "\" name=\"distribution\" x=\"@birthRate2.t:",
-      filename_base, "\">"))
+      ids, "\" name=\"distribution\" x=\"@birthRate2.t:",
+      ids, "\">"))
     text <- c(text,
       paste0(
         "                <Uniform id=\"Uniform.0\" ",
@@ -49,16 +54,16 @@ create_beast2_input_distribution <- function( # nolint keep long function name, 
       )
     text <- c(text, "            </prior>")
     text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:",
-      filename_base, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
-      filename_base, "\">"))
+      ids, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
+      ids, "\">"))
     text <- c(text,
       "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
-      "            <prior id=\"PopSizePrior.t:", filename_base,
+      "            <prior id=\"PopSizePrior.t:", ids,
       "\" name=\"distribution\" x=\"@popSize.t:",
-      filename_base, "\">"))
+      ids, "\">"))
     text <- c(text, "                <OneOnX id=\"OneOnX.0\" name=\"distr\"/>")
   }
 
@@ -72,28 +77,28 @@ create_beast2_input_distribution <- function( # nolint keep long function name, 
       )
     )
   text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
-    filename_base, "\" spec=\"TreeLikelihood\" data=\"@", filename_base,
-    "\" tree=\"@Tree.t:", filename_base, "\">"))
+    ids, "\" spec=\"TreeLikelihood\" data=\"@", ids,
+    "\" tree=\"@Tree.t:", ids, "\">"))
   text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
-    filename_base, "\" spec=\"SiteModel\">"))
+    ids, "\" spec=\"SiteModel\">"))
   text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
-    filename_base,
+    ids,
     "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
   text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
-    filename_base,
+    ids,
     "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
   text <- c(text, paste0(
     "                    <parameter id=\"proportionInvariant.s:",
-    filename_base, "\" estimate=\"false\" lower=\"0.0\" ",
+    ids, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
   text <- c(text, paste0("                    <substModel id=\"JC69.s:",
-    filename_base, "\" spec=\"JukesCantor\"/>"))
+    ids, "\" spec=\"JukesCantor\"/>"))
   text <- c(text, "                </siteModel>")
   text <- c(text, paste0("                <branchRateModel id=\"StrictClock.c:",
-    filename_base,
+    ids,
     "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
   text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
-    filename_base,
+    ids,
     "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>"))
   text <- c(text, "                </branchRateModel>")
   text <- c(text, "            </distribution>")

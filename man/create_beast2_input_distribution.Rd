@@ -4,10 +4,10 @@
 \alias{create_beast2_input_distribution}
 \title{Creates the distribution section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distribution(filename_base, tree_priors)
+create_beast2_input_distribution(fasta_filenames, tree_priors)
 }
 \arguments{
-\item{filename_base}{base of the filenames}
+\item{fasta_filenames}{FASTA filenames}
 
 \item{tree_priors}{one or more tree priors}
 }

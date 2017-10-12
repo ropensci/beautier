@@ -41,7 +41,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_distribution(
-      filename_base = filename_base,
+      fasta_filenames = fasta_filenames,
       tree_priors = tree_priors
     )
   )
