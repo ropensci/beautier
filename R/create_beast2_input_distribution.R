@@ -17,14 +17,11 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids, "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:test_output_0\" relativeDeathRate=\"@BDDeathRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>"))
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", ids, "\" name=\"distribution\" x=\"@BDBirthRate.t:", ids, "\">"))
     text <- c(text, paste0("                <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>"))
-
-    # text <- c(text, paste0("            <distribution id=\"BirthDeath.t:",
-    #   ids, "\" spec=\"beast.evolution.speciation.",
-    #   "BirthDeathGernhard08Model\" birthDiffRate=\"@birthRate2.t:",
-    #   ids, "\" relativeDeathRate=\"@relativeDeathRate2.t:",
-    #   ids, "\" tree=\"@Tree.t:", ids,
-    #   "\"/>")
-    # )
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDDeathRate.t:test_output_0\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.4\" name=\"distr\"/>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, "            </distribution>")
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
@@ -43,21 +40,21 @@ create_beast2_input_distribution <- function(
   }
 
   if (tree_priors$name == "birth_death") {
-    text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:",
-      ids, "\" name=\"distribution\" x=\"@birthRate2.t:",
-      ids, "\">"))
-    text <- c(text,
-      paste0(
-        "                <Uniform id=\"Uniform.0\" ",
-        "name=\"distr\" upper=\"1000.0\"/>"
-        )
-      )
-    text <- c(text, "            </prior>")
-    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:",
-      ids, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
-      ids, "\">"))
-    text <- c(text,
-      "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")
+    # text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:",
+    #   ids, "\" name=\"distribution\" x=\"@birthRate2.t:",
+    #   ids, "\">"))
+    # text <- c(text,
+    #   paste0(
+    #     "                <Uniform id=\"Uniform.0\" ",
+    #     "name=\"distr\" upper=\"1000.0\"/>"
+    #     )
+    #   )
+    # text <- c(text, "            </prior>")
+    # text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:",
+    #   ids, "\" name=\"distribution\" x=\"@relativeDeathRate2.t:",
+    #   ids, "\">"))
+    # text <- c(text,
+    #   "                <Uniform id=\"Uniform.01\" name=\"distr\"/>")
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
