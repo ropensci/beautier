@@ -24,7 +24,7 @@ get_input_fasta_filename <- function() {
 get_output_xml_filename <- function() {
   return(
     system.file(
-      "extdata", "birth_death_0_20151005.xml", package = "beastscriptr"
+      "extdata", "birth_death_2_4.xml", package = "beastscriptr"
     )
   )
 }

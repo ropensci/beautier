@@ -5,43 +5,44 @@
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 create_beast2_input_state <- function(
-  filename_base,
+  fasta_filenames,
   tree_priors,
   initial_phylogeny
 ) {
+  ids <- get_file_base_sans_ext(fasta_filenames)
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
 
   if (!ribir::is_phylogeny(initial_phylogeny)) {
     text <- c(text, paste0("        <tree id=\"Tree.t:",
-      filename_base, "\" name=\"stateNode\">"))
+      ids, "\" name=\"stateNode\">"))
     text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
-      filename_base, "\" spec=\"TaxonSet\">"))
+      ids, "\" spec=\"TaxonSet\">"))
     text <- c(text, paste0("                <alignment idref=\"",
-      filename_base, "\"/>"))
+      ids, "\"/>"))
     text <- c(text, "            </taxonset>")
     text <- c(text, "        </tree>")
   } else {
     text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
-        "id=\"Tree.t:", filename_base, "\" IsLabelledNewick=\"true\" ",
-        "adjustTipHeights=\"false\" taxa=\"@", filename_base, "\" ",
+        "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",
+        "adjustTipHeights=\"false\" taxa=\"@", id, "\" ",
         "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
     text <- c(text, paste0("    </stateNode>"))
   }
 
   if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("        <parameter id=\"birthRate2.t:",
-      filename_base,
-      "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-      sep = "")
+      ids,
+      "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"
+      )
     )
     text <- c(text, paste0("        <parameter id=\"relativeDeathRate2.t:",
-      filename_base, "\" lower=\"0.0\" name=\"stateNode\"",
+      ids, "\" lower=\"0.0\" name=\"stateNode\"",
       " upper=\"1.0\">0.5</parameter>"))
   } else {
     testit::assert(tree_priors == "coalescent_constant_population")
     text <- c(text, paste0("        <parameter id=\"popSize.t:",
-      filename_base, "\" name=\"stateNode\">0.3</parameter>"))
+      ids, "\" name=\"stateNode\">0.3</parameter>"))
   }
 
   text <- c(text, "    </state>")

@@ -107,30 +107,27 @@ test_that("Can specify fixed crown age", {
   )
 })
 
-test_that("Check that test_output_0.xml is reproduced", {
+test_that("Check that birth_death_2_4.xml is reproduced", {
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
-  input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <-  tempfile()
-  expected_output_xml_filename <- get_output_xml_filename()
+  input_fasta_filenames <- get_input_fasta_filename()
+  output_xml_filename <-  basename(get_output_xml_filename())
   # Input file must be found
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-  # To-be-created output file must be absent
-  testthat::expect_equal(file.exists(output_xml_filename), FALSE)
-  # Expected file must be present
-  testthat::expect_equal(file.exists(expected_output_xml_filename), TRUE)
+  testthat::expect_true(file.exists(input_fasta_filename))
 
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+    input_fasta_filenames = input_fasta_filenames,
     mcmc_chainlength = 10000000,
     tree_priors = create_tree_prior(name = "birth_death"),
     output_xml_filename = output_xml_filename
   )
 
-  expected_lines <- readLines(expected_output_xml_filename)
+  expected_lines <- readLines(get_output_xml_filename())
   testthat::expect_equal(expected_lines[1], created_lines[1])
   testthat::expect_equal(expected_lines[2], created_lines[2])
   skip("Found upstream bug")
+  write.csv(created_lines, "~/created.csv")
+  write.csv(expected_lines, "~/expected.csv")
   testthat::expect_equal(expected_lines[5], created_lines[5])
   testthat::expect_equal(expected_lines[7], created_lines[7])
   for (i in 1:120) {

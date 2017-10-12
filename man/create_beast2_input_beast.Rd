@@ -5,7 +5,7 @@
 \title{Creates the beast section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_beast(input_fasta_filenames, mcmc_chainlength, tree_priors,
-  fixed_crown_age, initial_phylogeny)
+  fixed_crown_age, initial_phylogeny, version = "2.4")
 }
 \arguments{
 \item{input_fasta_filenames}{one ore more FASTA filenames}
@@ -18,6 +18,8 @@ as returned from 'create_tree_prior'}
 \item{fixed_crown_age}{is the crown age fixed TRUE or FALSE}
 
 \item{initial_phylogeny}{initial phylogeny or NA}
+
+\item{version}{the version}
 }
 \description{
 Creates the beast section of a BEAST2 XML parameter file

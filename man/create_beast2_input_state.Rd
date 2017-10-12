@@ -4,15 +4,15 @@
 \alias{create_beast2_input_state}
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_state(filename_base, tree_priors, initial_phylogeny)
+create_beast2_input_state(fasta_filenames, tree_priors, initial_phylogeny)
 }
 \arguments{
-\item{filename_base}{filename its base}
-
 \item{tree_priors}{one or more tree priors, as returned
 by 'create_tree_prior'}
 
 \item{initial_phylogeny}{initial phylogeny or NA}
+
+\item{filename_base}{filename its base}
 }
 \description{
 Creates the state section of a BEAST2 XML parameter file

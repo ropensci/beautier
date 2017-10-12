@@ -1,5 +1,6 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param filename_base filename its base
+#' @param fasta_filenames the FASTA filename
 #' @param mcmc_chainlength MCMC chain length
 #' @param tree_priors one or more tree priors,
 #'   as returned by 'create_tree_prior'
@@ -8,6 +9,7 @@
 #' @export
 create_beast2_input_run <- function(
   filename_base,
+  fasta_filenames,
   mcmc_chainlength,
   tree_priors,
   fixed_crown_age,
@@ -20,7 +22,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_state(
-      filename_base = filename_base,
+      fasta_filenames = fasta_filenames,
       tree_priors = tree_priors,
       initial_phylogeny = initial_phylogeny
     )

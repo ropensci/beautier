@@ -78,7 +78,7 @@ beastscriptr::create_beast2_input_file(
   tree_priors = c(
     create_tree_prior(name = "yule"), 
     create_tree_prior(name = "birth_death")
-  (,
+  ),
   mcmc = create_mcmc(mcmc_chainlength = 1000000),
   output_xml_filename = "my_beast.xml"
 )
