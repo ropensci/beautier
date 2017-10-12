@@ -62,10 +62,10 @@ create_beast2_input_distribution <- function(
       "\" name=\"distribution\" x=\"@popSize.t:",
       ids, "\">"))
     text <- c(text, "                <OneOnX id=\"OneOnX.0\" name=\"distr\"/>")
+    text <- c(text, "            </prior>")
+    text <- c(text, "        </distribution>")
   }
 
-  text <- c(text, "            </prior>")
-  text <- c(text, "        </distribution>")
   text <- c(
       text,
       paste0(
