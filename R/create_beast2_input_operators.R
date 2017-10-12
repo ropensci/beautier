@@ -54,12 +54,12 @@ create_beast2_input_operators <- function(
 
   if (tree_priors$name == "birth_death") {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
-      ids, "\" spec=\"ScaleOperator\" parameter=\"@birthRate2.t:",
+      ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
     text <- c(text, "")
     text <- c(text, paste0("    <operator id=\"DeathRateScaler.t:",
       ids,
-      "\" spec=\"ScaleOperator\" parameter=\"@relativeDeathRate2.t:",
+      "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate2.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
