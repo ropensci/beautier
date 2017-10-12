@@ -70,11 +70,11 @@ create_beast2_input_distribution <- function(
       text,
       paste0(
         "        <distribution id=\"likelihood\" ",
-        "spec=\"util.CompoundDistribution\">"
+        "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
       )
     )
   text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
-    ids, "\" spec=\"TreeLikelihood\" data=\"@", ids,
+    ids, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", ids,
     "\" tree=\"@Tree.t:", ids, "\">"))
   text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
     ids, "\" spec=\"SiteModel\">"))
