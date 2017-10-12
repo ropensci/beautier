@@ -24,8 +24,8 @@ create_beast2_input_state <- function(
     text <- c(text, "        </tree>")
   } else {
     text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
-        "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",
-        "adjustTipHeights=\"false\" taxa=\"@", id, "\" ",
+        "id=\"Tree.t:", ids, "\" IsLabelledNewick=\"true\" ",
+        "adjustTipHeights=\"false\" taxa=\"@", ids, "\" ",
         "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
     text <- c(text, paste0("    </stateNode>"))
   }
