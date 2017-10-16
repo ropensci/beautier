@@ -66,6 +66,19 @@ Thanks to Paul van Els.
 
 ```
 beastscriptr::create_beast2_input_file(
+  input_fasta_filenames = "my_alignment.fas",
+  site_models = create_site_model(name = "J69"), 
+  clock_models = create_clock_model(name = "strict"), 
+  tree_priors = create_tree_prior(name = "yule"), 
+  mcmc = create_mcmc(mcmc_chainlength = 1000000),
+  output_xml_filename = "my_beast.xml"
+)
+```
+
+Two input FASTA files:
+
+```
+beastscriptr::create_beast2_input_file(
   input_fasta_filenames = c("nuc.fas", "mit.fas"),
   site_models = c(
     create_site_model(name = "J69"), 
