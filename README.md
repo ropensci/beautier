@@ -16,42 +16,23 @@ from its function arguments. In this way, a scientific pipeline using
 
 For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev/RBeast).
 
-## Example #1: birth-death model tree prior  
+## Example #1
 
 ```
-# Simulate a random alignment and save it to a FASTA file
-beastscriptr::create_random_fasta(
-  n_taxa = 5,
-  sequence_length = 10,
-  filename = "my_fasta.fas"
-)
-
 # Create the BEAST2 XML input file
 beastscriptr::create_beast2_input_file(
   input_fasta_filename = "my_fasta.fas",
-  mcmc_chainlength = 10000,
-  tree_prior = "birth_death",
   output_xml_filename = "my_beast.xml"
 )
 ```
 
-## Example #2: birth-death model tree prior with fixed crown age
+All other parameters are set to their defaults as in BEAUti
+
+## Example #2: fixed crown age
 
 ```
-# Simulate a random alignment and save it to a FASTA file
-testthat::expect_false(file.exists(input_fasta_filename))
-beastscriptr::create_random_fasta(
-  n_taxa = 5,
-  sequence_length = 10,
-  filename = "my_fasta.fas"
-)
-
-
-# Create the BEAST2 XML input file
 beastscriptr::create_beast2_input_file(
   input_fasta_filename = "my_fasta.fas",
-  mcmc_chainlength = 10000,
-  tree_prior = "birth_death",
   output_xml_filename = "my_beast.xml",
   fixed_crown_age = TRUE,
   initial_phylogeny = beastscriptr::fasta_to_phylo(
