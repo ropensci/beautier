@@ -22,7 +22,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
     ids, "\"/>"))
 
-  if (tree_priors$name == "birth_death") {
+  if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("        <log idref=\"BirthDeath.t:",
       ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"BDBirthRate.t:",
@@ -30,9 +30,9 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     text <- c(text, paste0("        <log idref=\"BDDeathRate.t:",
       ids, "\"/>"))
   } else {
-    testit::assert(tree_priors$name == "coalescent_constant_population")
-    text <- c(text, paste0("        <parameter idref=\"popSize.t:",
-      ids, "\" name=\"log\"/>"))
+    testit::assert(is_ccp_tree_prior(tree_priors))
+    text <- c(text, paste0("        <log idref=\"popSize.t:",
+      ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"CoalescentConstant.t:",
       ids, "\"/>"))
   }
