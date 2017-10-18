@@ -40,38 +40,18 @@ test_that("checks input", {
 
 })
 
-test_that("Produce an XML file for a birth-death species tree prior", {
+test_that("Create CCP posterior with random initial tree", {
 
-  # Creates an XML file from a known-to-be-valid input file
-  input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <- tempfile()
-  create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "birth_death"),
-    output_xml_filename = output_xml_filename
+  posterior <- create_posterior(
+    n_taxa = 2,
+    sequence_length = 1,
+    mcmc_chainlength = 10000,
+    tree_priors = create_tree_prior(name = "coalescent_constant_population")
   )
-  testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename)
-  )
+  testthat::expect_true(RBeast::is_posterior(posterior))
 })
 
-test_that("Produce XML for coalescent constant-population species tree prior", {
-
-  input_fasta_filename <- get_input_fasta_filename()
-  output_xml_filename <- tempfile()
-  create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "coalescent_constant_population"),
-    output_xml_filename = output_xml_filename
-  )
-  testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename)
-  )
-})
-
-test_that("Runs BEAST2, BD species tree prior, random initial tree", {
+test_that("Create BD posterior with random initial tree", {
 
   posterior <- create_posterior(
     n_taxa = 2,
@@ -100,12 +80,13 @@ test_that("A fixed crown age must have equal TreeHeights", {
 test_that(paste0("Fixed and specified crown age must results in a posterior",
   "with that TreeHeight"), {
 
+  crown_age <- 123
   posterior <- create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc_chainlength = 10000,
     fixed_crown_age = TRUE,
-    crown_age = 15
+    crown_age = crown_age
   )
   testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
     tolerance = 0.001)
