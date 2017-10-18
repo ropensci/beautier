@@ -73,41 +73,13 @@ test_that("Produce XML for coalescent constant-population species tree prior", {
 
 test_that("Runs BEAST2, BD species tree prior, random initial tree", {
 
-  # Simulate a random alignment and save it to a FASTA file
-  n_taxa <- 5
-  sequence_length <- 10
-  input_fasta_filename <- tempfile(
-    pattern = "create_beast2_input_file_test_",
-    fileext = ".fas"
-  )
-  testthat::expect_false(file.exists(input_fasta_filename))
-  beastscriptr::create_random_fasta(
-    n_taxa = n_taxa,
-    sequence_length = sequence_length,
-    filename = input_fasta_filename
-  )
-  testthat::expect_true(file.exists(input_fasta_filename))
-
-  # Create XML file from that
-  output_xml_filename <- tempfile(
-    pattern = "create_beast2_input_file_test_3_",
-    fileext = ".xml"
-  )
-
-  # The output file created when it BEAST2 can run
-  # (which only happens if the input is valid)
-  output_xml_state_filename <- basename(paste0(output_xml_filename, ".state"))
-
-  testthat::expect_false(file.exists(output_xml_filename))
-  beastscriptr::create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
+  posterior <- create_posterior(
+    n_taxa = 2,
+    sequence_length = 1,
     mcmc_chainlength = 10000,
-    tree_priors = create_tree_prior(name = "birth_death"),
-    output_xml_filename = output_xml_filename
+    tree_priors = create_tree_prior(name = "birth_death")
   )
-  testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename)
-  )
+  testthat::expect_true(RBeast::is_posterior(posterior))
 
 })
 
