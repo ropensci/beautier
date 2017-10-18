@@ -5,7 +5,7 @@
 \title{Create a BEAST2 input file}
 \usage{
 create_beast2_input_file(input_fasta_filenames,
-  site_models = create_site_model(name = "JC69"), mcmc_chainlength,
+  site_models = create_site_model(name = "JC69"), mcmc_chainlength = 1e+07,
   tree_priors = create_tree_prior(name = "birth_death"), output_xml_filename,
   fixed_crown_age = FALSE, initial_phylogeny = NA)
 }

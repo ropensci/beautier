@@ -5,8 +5,9 @@
 \title{Deprecated interface for 'create_beast2_input_file',
   present for backwards-compatibility}
 \usage{
-beast_scriptr(input_fasta_filename, mcmc_chainlength, tree_prior,
-  output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
+beast_scriptr(input_fasta_filename, mcmc_chainlength = 1e+07,
+  tree_prior = "yule", output_xml_filename, fixed_crown_age = FALSE,
+  initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filename}{One or more fasta filename}
