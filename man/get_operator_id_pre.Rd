@@ -17,10 +17,6 @@ Get the prefix of operator IDs
     tree_priors = create_tree_prior(name = "birth_death")
   )
   testthat::expect_equal(bd_pre, "BirthDeath")
-  ccp_pre <- get_operator_id_pre(
-    tree_priors = create_tree_prior(name = "coalescent_constant_population")
-  )
-  testthat::expect_equal(ccp_pre, "CoalescentConstant")
 }
 \author{
 Richel Bilderbeek

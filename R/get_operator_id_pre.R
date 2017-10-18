@@ -5,21 +5,20 @@
 #'     tree_priors = create_tree_prior(name = "birth_death")
 #'   )
 #'   testthat::expect_equal(bd_pre, "BirthDeath")
-#'   ccp_pre <- get_operator_id_pre(
-#'     tree_priors = create_tree_prior(name = "coalescent_constant_population")
-#'   )
-#'   testthat::expect_equal(ccp_pre, "CoalescentConstant")
 #' @author Richel Bilderbeek
 #' @export
 get_operator_id_pre <- function(tree_priors) {
-  if (is_yule_tree_prior(tree_priors)) {
-    return("YuleModel")
-  }
   if (is_bd_tree_prior(tree_priors)) {
     return("BirthDeath")
   }
+    if (is_cbs_tree_prior(tree_priors)) {
+    return("CoalescentBayesianSkyline")
+  }
   if (is_ccp_tree_prior(tree_priors)) {
     return("CoalescentConstant")
+  }
+  if (is_yule_tree_prior(tree_priors)) {
+    return("YuleModel")
   }
   stop("Unknown tree prior")
 }
