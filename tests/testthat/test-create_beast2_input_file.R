@@ -125,81 +125,16 @@ test_that("A fixed crown age must have equal TreeHeights", {
 })
 
 
-test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
-  "specified tree"), {
+test_that(paste0("Fixed and specified crown age must results in a posterior",
+  "with that TreeHeight"), {
 
-  setwd(path.expand("~"))
-  set.seed(43)
-
-  base_filename <- tempfile(
-    tmpdir = "~",
-    pattern = "create_beast2_input_file_test_bd_fix_spec_")
-  # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
-  beast_filename <- paste0(base_filename, ".xml")
-  # BEAST2 output file, containing the posterior parameter estimates
-  beast_log_filename <- paste0(base_filename, ".log")
-  # BEAST2 output file, containing the posterior phylogenies
-  beast_trees_filename <- paste0(base_filename, ".trees")
-  # BEAST2 output file, containing the final MCMC state
-  beast_state_filename <- paste0(base_filename, ".xml.state")
-  # FASTA file needed only temporarily to store simulated DNA alignments
-  input_fasta_filename <- paste0(base_filename, ".fasta")
-
-  # Initial phylogeny its crown age.
-  # Must be the treeHeights of all posterior's trees
-  crown_age <- 15
-
-  # Create FASTA file
-  testthat::expect_false(file.exists(input_fasta_filename))
-  beastscriptr::create_random_fasta(
+  posterior <- create_posterior(
     n_taxa = 5,
     sequence_length = 10,
-    filename = input_fasta_filename
-  )
-  testthat::expect_true(file.exists(input_fasta_filename))
-
-
-  # Create BEAST2 input file
-  testthat::expect_false(file.exists(beast_filename))
-  beastscriptr::create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = 10000,
-    tree_priors = create_tree_prior(name = "birth_death"),
-    output_xml_filename = beast_filename,
     fixed_crown_age = TRUE,
-    initial_phylogeny = beastscriptr::fasta_to_phylo(
-      input_fasta_filename,
-      crown_age = crown_age)
-
+    crown_age = 15
   )
-  testthat::expect_true(file.exists(beast_filename))
-  testthat::expect_true(
-    beastscriptr::is_beast2_input_file(beast_filename)
-  )
-
-  # Run BEAST2 to measure posterior
-  testthat::expect_false(file.exists(beast_state_filename))
-  testthat::expect_false(file.exists(beast_log_filename))
-  testthat::expect_false(file.exists(beast_trees_filename))
-  cmd <- paste(
-    "java -jar ~/Programs/beast/lib/beast.jar",
-    " -statefile ", beast_state_filename,
-    " -overwrite", beast_filename
-  )
-  verbose <- FALSE
-  if (!verbose) {
-    cmd <- paste(cmd, "1>/dev/null 2>/dev/null")
-  }
-  system(cmd)
-  # If these are absent, BEAST2 could not parse the input file
-  testthat::expect_true(file.exists(beast_state_filename))
-  testthat::expect_true(file.exists(beast_log_filename))
-  testthat::expect_true(file.exists(beast_trees_filename))
-
-  # All TreeHeights (crown ages) should be the same as specified
-  posterior <- RBeast::parse_beast_posterior(
-    trees_filename = beast_trees_filename,
-    log_filename = beast_log_filename)
   testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
     tolerance = 0.001)
   testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
@@ -207,14 +142,7 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   testthat::expect_equal(crown_age,
     beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000),
     tolerance = 0.001)
-  file.remove(beast_filename)
-  file.remove(beast_state_filename)
-  file.remove(beast_log_filename)
-  file.remove(beast_trees_filename)
-  file.remove(input_fasta_filename)
 })
-
-
 
 test_that("Can specify fixed crown age", {
   input_fasta_filename <- beastscriptr::get_input_fasta_filename()
