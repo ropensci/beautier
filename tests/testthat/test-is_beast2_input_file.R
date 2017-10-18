@@ -17,3 +17,11 @@ test_that("testing BEAST2 input file is a valid BEAST2 input file", {
   )
 
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    is_beast2_input_file("abs.ent")
+  )
+
+})
