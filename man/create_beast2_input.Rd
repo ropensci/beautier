@@ -33,19 +33,9 @@ a phylogeny must be supplied of class ape::phylo.}
 Create a BEAST2 XML input text
 }
 \examples{
-  # Get the filename of an example FASTA file
-  input_fasta_filename <- get_input_fasta_filename()
-  testit::assert(file.exists(input_fasta_filename))
-
-  # The file created by beastscriptr, a BEAST2 input file
-  output_xml_filename <- "example_bd.xml"
-
-  # Birth-Death tree prior, crown age is estimated
+  # Create a BEAST2 input file's text from th example FASTA file
   xml <- create_beast2_input(
-    input_fasta_filenames = get_input_fasta_filename(),
-    site_models = create_site_model(name = "JC69"),
-    mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "birth_death")
+    input_fasta_filenames = get_input_fasta_filename()
   )
 }
 \author{
