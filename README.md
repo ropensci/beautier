@@ -16,6 +16,15 @@ from its function arguments. In this way, a scientific pipeline using
 
 For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev/RBeast).
 
+## Supported
+
+Priors:
+
+ * Yule
+ * Birth-Death
+ * Coalescent Constant Population
+ * Coalescent Bayesian Skyline
+
 ## Example #1
 
 ```
