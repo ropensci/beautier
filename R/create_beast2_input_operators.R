@@ -66,8 +66,8 @@ create_beast2_input_operators <- function(
   } else {
     testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
-      ids, "\" parameter=\"@popSize.t:", ids,
-      "\" scaleFactor=\"0.75\" spec=\"ScaleOperator\" weight=\"3.0\"/>",
+      ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
+      "\" scaleFactor=\"0.75\" weight=\"3.0\"/>",
       sep = ""))
   }
   text
