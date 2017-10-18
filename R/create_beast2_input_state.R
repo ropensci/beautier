@@ -30,7 +30,9 @@ create_beast2_input_state <- function(
     text <- c(text, paste0("    </stateNode>"))
   }
 
-  if (is_yule_tree_prior(tree_priors) || is_bd_tree_prior(tree_priors)) {
+  if (is_yule_tree_prior(tree_priors)) {
+    text <- c(text, paste0("        <parameter id=\"birthRate.t:", ids, "\" name=\"stateNode\">1.0</parameter>"))
+  } else if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
   } else if (is_ccp_tree_prior(tree_priors)) {
