@@ -35,7 +35,7 @@
 create_beast2_input <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
-  mcmc_chainlength,
+  mcmc_chainlength = 10000000,
   tree_priors = create_tree_prior(name = "birth_death"),
   output_xml_filename,
   fixed_crown_age = FALSE,

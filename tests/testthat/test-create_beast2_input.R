@@ -40,6 +40,25 @@ test_that("checks input", {
 
 })
 
+test_that("Check that 2_4.xml is reproduced", {
+  # Creates an XML file from a known-to-be-valid input file
+  # and tests if this identical to a known-to-be-valid XML output file
+  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
+  output_xml_filename <- system.file("extdata", "2_4.xml", package = "beastscriptr")
+
+  # Input file must be found
+  testthat::expect_true(file.exists(input_fasta_filenames))
+
+  created_lines <- beastscriptr::create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    output_xml_filename = output_xml_filename
+  )
+
+  expected_lines <- readLines(beastscriptr::get_output_xml_filename())
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+
 test_that("Check that birth_death_2_4.xml is reproduced", {
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
