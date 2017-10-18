@@ -1,4 +1,4 @@
-context("test_beastscriptr")
+context("beastscriptr")
 
 test_that("checks input", {
 

@@ -7,11 +7,29 @@ create_posterior <- function(
     tree_priors = create_tree_prior(name = "yule"),
     mcmc_chainlength = 10000000,
     fixed_crown_age = FALSE,
-    initial_phylogeny = NA
+    crown_age = NA
 ) {
-  #setwd(path.expand("~"))
-  #set.seed(42)
-
+  if (n_taxa < 2) {
+    stop("Must create at least two taxa")
+  }
+  if (sequence_length < 1) {
+    stop("Must create a sequence of at least one nucleotide")
+  }
+  if (!is_tree_prior(tree_priors)) {
+    stop("Must use a valid tree prior")
+  }
+  if (mcmc_chainlength < 10000) {
+    stop("Must use an MCMC chain length of at least 10000")
+  }
+  if (!is.logical(fixed_crown_age)) {
+    stop("fixed_crown_age must be either TRUE of FALSE")
+  }
+  if (is.numeric(crown_age) && crown_age <= 0.0) {
+    stop("crown age must be either NA or non-zero postive")
+  }
+  if (fixed_crown_age == FALSE && is.numeric(crown_age)) {
+    stop("Cannot specify a crown age if crown age is not fixed")
+  }
   base_filename <- "tmp_create_posterior"
   # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
@@ -25,13 +43,19 @@ create_posterior <- function(
   input_fasta_filename <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
-  testthat::expect_false(file.exists(input_fasta_filename))
   beastscriptr::create_random_fasta(
     n_taxa = n_taxa,
     sequence_length = sequence_length,
     filename = input_fasta_filename
   )
   testthat::expect_true(file.exists(input_fasta_filename))
+
+  initial_phylogeny <- NA
+  if (fixed_crown_age == TRUE && !is.na(crown_age)) {
+    initial_phylogeny <- fasta_to_phylo(
+      fasta_filename = input_fasta_filename, crown_age = crown_age
+    )
+  }
 
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))

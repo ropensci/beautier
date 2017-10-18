@@ -1,4 +1,4 @@
-context("test_create_beast2_input_file")
+context("create_beast2_input_file")
 
 test_that("checks input", {
 
