@@ -9,6 +9,12 @@ test_that("usage", {
 
   testthat::expect_false(
     is_ccp_tree_prior(
+      create_tree_prior(name = "birth_death")
+    )
+  )
+
+  testthat::expect_false(
+    is_ccp_tree_prior(
       "nonsense"
     )
   )
