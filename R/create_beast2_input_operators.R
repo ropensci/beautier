@@ -74,6 +74,13 @@ create_beast2_input_operators <- function(
     text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
       "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+  } else if (is_cbs_tree_prior(tree_priors)) {
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"popSizesScaler.t:", ids ,"\" spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", ids ,"\" scaleFactor=\"0.75\" weight=\"15.0\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"groupSizesDelta.t:", ids ,"\" spec=\"DeltaExchangeOperator\" integer=\"true\" weight=\"6.0\">"))
+    text <- c(text, paste0("        <intparameter idref=\"bGroupSizes.t:", ids ,"\"/>"))
+    text <- c(text, paste0("    </operator>"))
   }
   text
 }
