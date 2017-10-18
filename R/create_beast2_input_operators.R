@@ -17,6 +17,12 @@ create_beast2_input_operators <- function(
   operator_id_pre <- get_operator_id_pre(tree_priors)
 
   text <- NULL
+
+  if (is_yule_tree_prior(tree_priors)) {
+    text <- c(text, paste0("    <operator id=\"YuleBirthRateScaler.t:", ids, "\" spec=\"ScaleOperator\" parameter=\"@birthRate.t:", ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+    text <- c(text, "")
+  }
+
   if (fixed_crown_age == FALSE) {
     text <- c(text, paste0("    <operator id=\"", operator_id_pre, "TreeScaler.t:", ids,
       "\" spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
@@ -54,7 +60,7 @@ create_beast2_input_operators <- function(
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
 
-  if (is_yule_tree_prior(tree_priors) || is_bd_tree_prior(tree_priors)) {
+  if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))

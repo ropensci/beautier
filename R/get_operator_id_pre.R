@@ -12,7 +12,10 @@
 #' @author Richel Bilderbeek
 #' @export
 get_operator_id_pre <- function(tree_priors) {
-  if (is_yule_tree_prior(tree_priors) || is_bd_tree_prior(tree_priors)) {
+  if (is_yule_tree_prior(tree_priors)) {
+    return("YuleModel")
+  }
+  if (is_bd_tree_prior(tree_priors)) {
     return("BirthDeath")
   }
   if (is_ccp_tree_prior(tree_priors)) {
