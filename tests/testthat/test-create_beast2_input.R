@@ -87,9 +87,7 @@ test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
 })
 
 test_that("Check that yule_2_4.xml is reproduced", {
-  skip("WIP")
-  # Creates an XML file from a known-to-be-valid input file
-  # and tests if this identical to a known-to-be-valid XML output file
+
   input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
 
   # Input file must be found

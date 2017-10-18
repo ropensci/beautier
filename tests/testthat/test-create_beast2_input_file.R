@@ -292,7 +292,7 @@ test_that("Can specify fixed crown age", {
 })
 
 test_that("Produce XML for Yule species tree prior", {
-  skip("First refactor")
+
   input_fasta_filename <- get_input_fasta_filename()
   output_xml_filename <- tempfile()
   create_beast2_input_file(
