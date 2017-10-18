@@ -2,6 +2,15 @@ context("test_beastscriptr")
 
 test_that("checks input", {
 
+  testthat::expect_silent(
+    beast_scriptr(
+      input_fasta_filename = get_input_fasta_filename(),
+      mcmc_chainlength = 1000,
+      tree_prior = "birth_death",
+      output_xml_filename = "output.xml"
+    )
+  )
+
   testthat::expect_error(
     beast_scriptr(
       input_fasta_filename = "nonexisting", # Error

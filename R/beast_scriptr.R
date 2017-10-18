@@ -47,8 +47,8 @@
 #' @export
 beast_scriptr <- function(
   input_fasta_filename,
-  mcmc_chainlength,
-  tree_prior,
+  mcmc_chainlength = 10000000,
+  tree_prior = "yule",
   output_xml_filename,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
