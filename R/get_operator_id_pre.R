@@ -12,7 +12,7 @@ get_operator_id_pre <- function(tree_priors) {
     return("BirthDeath")
   }
     if (is_cbs_tree_prior(tree_priors)) {
-    return("CoalescentBayesianSkyline")
+    return("BayesianSkyline")
   }
   if (is_ccp_tree_prior(tree_priors)) {
     return("CoalescentConstant")
