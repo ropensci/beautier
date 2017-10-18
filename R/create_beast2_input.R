@@ -1,12 +1,10 @@
 #' Create a BEAST2 XML input text
-#' @param input_fasta_filenames One or more fasta filename
+#' @param input_fasta_filenames One or more fasta filenames
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_models'
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_priors On or more tree priors,
 #'   as returned by 'create_tree_prior'
-#' @param output_xml_filename Name of the XML parameter file created by this
-#'   function. BEAST2 uses this file as input.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
@@ -27,8 +25,7 @@
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     site_models = create_site_model(name = "JC69"),
 #'     mcmc_chainlength = 10000000,
-#'     tree_priors = create_tree_prior(name = "birth_death"),
-#'     output_xml_filename = output_xml_filename
+#'     tree_priors = create_tree_prior(name = "birth_death")
 #'   )
 #' @author Richel Bilderbeek
 #' @export
@@ -37,7 +34,6 @@ create_beast2_input <- function(
   site_models = create_site_model(name = "JC69"),
   mcmc_chainlength = 10000000,
   tree_priors = create_tree_prior(name = "birth_death"),
-  output_xml_filename,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
@@ -59,7 +55,6 @@ create_beast2_input <- function(
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
-
 
   text <- create_beast2_input_beast(
       input_fasta_filenames = input_fasta_filenames,

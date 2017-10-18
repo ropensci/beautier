@@ -78,7 +78,6 @@ create_beast2_input_file <- function(
     site_models = site_models,
     mcmc_chainlength,
     tree_priors = tree_priors,
-    output_xml_filename = output_xml_filename,
     fixed_crown_age = fixed_crown_age,
     initial_phylogeny = initial_phylogeny
   )

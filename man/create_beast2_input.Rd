@@ -5,12 +5,12 @@
 \title{Create a BEAST2 XML input text}
 \usage{
 create_beast2_input(input_fasta_filenames,
-  site_models = create_site_model(name = "JC69"), mcmc_chainlength = 1e+05,
-  tree_priors = create_tree_prior(name = "birth_death"), output_xml_filename,
+  site_models = create_site_model(name = "JC69"), mcmc_chainlength = 1e+07,
+  tree_priors = create_tree_prior(name = "birth_death"),
   fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
 \arguments{
-\item{input_fasta_filenames}{One or more fasta filename}
+\item{input_fasta_filenames}{One or more fasta filenames}
 
 \item{site_models}{one or more site models,
 as returned by 'create_site_models'}
@@ -19,9 +19,6 @@ as returned by 'create_site_models'}
 
 \item{tree_priors}{On or more tree priors,
 as returned by 'create_tree_prior'}
-
-\item{output_xml_filename}{Name of the XML parameter file created by this
-function. BEAST2 uses this file as input.}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
@@ -48,8 +45,7 @@ Create a BEAST2 XML input text
     input_fasta_filenames = get_input_fasta_filename(),
     site_models = create_site_model(name = "JC69"),
     mcmc_chainlength = 10000000,
-    tree_priors = create_tree_prior(name = "birth_death"),
-    output_xml_filename = output_xml_filename
+    tree_priors = create_tree_prior(name = "birth_death")
   )
 }
 \author{
