@@ -103,14 +103,9 @@ test_that("Check that yule_2_4.xml is reproduced", {
   expected_lines <- readLines(beastscriptr::get_output_xml_filename())
 
 
-  testthat::expect_equal(expected_lines[1], created_lines[1])
-  testthat::expect_equal(expected_lines[2], created_lines[2])
   skip("WIP")
   write.csv(created_lines, "~/created.csv")
   write.csv(expected_lines, "~/expected.csv")
-  testthat::expect_equal(expected_lines[5], created_lines[5])
-  testthat::expect_equal(expected_lines[41], created_lines[41])
-
   for (i in 1:min(length(expected_lines), length(created_lines))) {
     testthat::expect_equal(
       expected_lines[i], created_lines[i]

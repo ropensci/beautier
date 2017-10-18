@@ -54,7 +54,7 @@ create_beast2_input_operators <- function(
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
 
-  if (is_bd_tree_prior(tree_priors)) {
+  if (is_yule_tree_prior(tree_priors) || is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
@@ -68,9 +68,6 @@ create_beast2_input_operators <- function(
       ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
       "\" scaleFactor=\"0.75\" weight=\"3.0\"/>",
       ))
-  } else {
-    testit::assert(is_yule_tree_prior(tree_priors))
-    warning("Not implemented yet")
   }
   text
 }
