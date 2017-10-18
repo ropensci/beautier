@@ -4,8 +4,9 @@
 \alias{create_posterior}
 \title{Create a BEAST2 posterior by running BEAST2 from a random alignment}
 \usage{
-create_posterior(n_taxa = 5, sequence_length = 10,
-  mcmc_chainlength = 10000)
+create_posterior(n_taxa, sequence_length, tree_priors = create_tree_prior(name
+  = "yule"), mcmc_chainlength = 1e+07, fixed_crown_age = FALSE,
+  initial_phylogeny = NA)
 }
 \description{
 Create a BEAST2 posterior by running BEAST2 from a random alignment

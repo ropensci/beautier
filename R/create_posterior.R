@@ -2,9 +2,12 @@
 #' @author Richel Bilderbeek
 #' @export
 create_posterior <- function(
-    n_taxa = 5,
-    sequence_length = 10,
-    mcmc_chainlength = 10000
+    n_taxa,
+    sequence_length,
+    tree_priors = create_tree_prior(name = "yule"),
+    mcmc_chainlength = 10000000,
+    fixed_crown_age = FALSE,
+    initial_phylogeny = NA
 ) {
   #setwd(path.expand("~"))
   #set.seed(42)
@@ -24,8 +27,8 @@ create_posterior <- function(
   # Create FASTA file
   testthat::expect_false(file.exists(input_fasta_filename))
   beastscriptr::create_random_fasta(
-    n_taxa = 5,
-    sequence_length = 10,
+    n_taxa = n_taxa,
+    sequence_length = sequence_length,
     filename = input_fasta_filename
   )
   testthat::expect_true(file.exists(input_fasta_filename))
@@ -34,10 +37,11 @@ create_posterior <- function(
   testthat::expect_false(file.exists(beast_filename))
   beastscriptr::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
-    mcmc_chainlength = 10000,
+    mcmc_chainlength = mcmc_chainlength,
     tree_priors = create_tree_prior(name = "birth_death"),
     output_xml_filename = beast_filename,
-    fixed_crown_age = TRUE
+    fixed_crown_age = fixed_crown_age,
+    initial_phylogeny = initial_phylogeny
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(
