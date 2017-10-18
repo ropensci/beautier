@@ -87,7 +87,7 @@ test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
 })
 
 test_that("Check that yule_2_4.xml is reproduced", {
-  skip("Do coalescent_constant_population first ")
+  skip("WIP")
   # Creates an XML file from a known-to-be-valid input file
   # and tests if this identical to a known-to-be-valid XML output file
   input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
@@ -101,5 +101,21 @@ test_that("Check that yule_2_4.xml is reproduced", {
   )
 
   expected_lines <- readLines(beastscriptr::get_output_xml_filename())
+
+
+  testthat::expect_equal(expected_lines[1], created_lines[1])
+  testthat::expect_equal(expected_lines[2], created_lines[2])
+  skip("WIP")
+  write.csv(created_lines, "~/created.csv")
+  write.csv(expected_lines, "~/expected.csv")
+  testthat::expect_equal(expected_lines[5], created_lines[5])
+  testthat::expect_equal(expected_lines[41], created_lines[41])
+  for (i in 1:114) {
+    print(i)
+    testthat::expect_equal(
+      expected_lines[i], created_lines[i]
+    )
+  }
+
   testthat::expect_identical(created_lines, expected_lines)
 })

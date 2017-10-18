@@ -29,12 +29,14 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"BDDeathRate.t:",
       ids, "\"/>"))
-  } else {
-    testit::assert(is_ccp_tree_prior(tree_priors))
+  } else if (is_ccp_tree_prior(tree_priors)) {
     text <- c(text, paste0("        <log idref=\"popSize.t:",
       ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"CoalescentConstant.t:",
       ids, "\"/>"))
+  } else {
+    testit::assert(is_yule_tree_prior(tree_priors))
+    warning("Not implemented yet")
   }
 
   text <- c(text, "    </logger>")

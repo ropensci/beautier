@@ -54,7 +54,7 @@ create_beast2_input_operators <- function(
     "\" weight=\"3.0\"/>"))
   text <- c(text, "")
 
-  if (tree_priors$name == "birth_death") {
+  if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
@@ -63,12 +63,14 @@ create_beast2_input_operators <- function(
       ids,
       "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-  } else {
-    testit::assert(tree_priors$name == "coalescent_constant_population")
+  } else if (is_ccp_tree_prior(tree_priors)) {
     text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
       "\" scaleFactor=\"0.75\" weight=\"3.0\"/>",
-      sep = ""))
+      ))
+  } else {
+    testit::assert(is_yule_tree_prior(tree_priors))
+    warning("Not implemented yet")
   }
   text
 }

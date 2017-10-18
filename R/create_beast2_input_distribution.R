@@ -13,7 +13,7 @@ create_beast2_input_distribution <- function(
   text <- c(text,
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
-  if (tree_priors$name == "birth_death") {
+  if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids, "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:", ids, "\" relativeDeathRate=\"@BDDeathRate.t:", ids, "\" tree=\"@Tree.t:", ids, "\"/>"))
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", ids, "\" name=\"distribution\" x=\"@BDBirthRate.t:", ids, "\">"))
     text <- c(text, paste0("                <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>"))
@@ -22,8 +22,7 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("                <Uniform id=\"Uniform.4\" name=\"distr\"/>"))
     text <- c(text, paste0("            </prior>"))
     text <- c(text, "        </distribution>")
-  } else {
-    testit::assert(tree_priors$name == "coalescent_constant_population")
+  } else if (is_ccp_tree_prior(tree_priors)) {
     text <- c(text, paste0(
       "            <distribution id=\"CoalescentConstant.t:",
       ids, "\" spec=\"Coalescent\">"))
@@ -33,12 +32,6 @@ create_beast2_input_distribution <- function(
       ids, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
       ids, "\"/>"))
     text <- c(text, "            </distribution>")
-  }
-
-  if (tree_priors$name == "birth_death") {
-    # Nothing
-  } else {
-    testit::assert(tree_priors$name == "coalescent_constant_population")
     text <- c(text, paste0(
       "            <prior id=\"PopSizePrior.t:", ids,
       "\" name=\"distribution\" x=\"@popSize.t:",
@@ -46,6 +39,9 @@ create_beast2_input_distribution <- function(
     text <- c(text, "                <OneOnX id=\"OneOnX.1\" name=\"distr\"/>")
     text <- c(text, "            </prior>")
     text <- c(text, "        </distribution>")
+  } else {
+    testit::assert(is_yule_tree_prior(tree_priors))
+    warning("not implemented yet")
   }
 
   text <- c(
