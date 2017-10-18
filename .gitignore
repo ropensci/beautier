@@ -8,3 +8,4 @@ tests/testthat/created.txt
 tests/testthat/expected.txt
 tests/testthat/test.fasta
 tests/testthat/output.xml
+tests/testthat/tmp_*

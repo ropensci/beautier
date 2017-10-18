@@ -39,8 +39,11 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"CoalescentConstant.t:",
       ids, "\"/>"))
+  } else if (is_cbs_tree_prior(tree_priors)) {
+    text <- c(text, paste0("        <log idref=\"BayesianSkyline.t:", ids, "\"/>"))
+    text <- c(text, paste0("        <log idref=\"bPopSizes.t:", ids, "\"/>"))
+    text <- c(text, paste0("        <log idref=\"bGroupSizes.t:", ids, "\"/>"))
   }
-
 
   text <- c(text, "    </logger>")
   text <- c(text, "")
