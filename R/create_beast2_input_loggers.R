@@ -22,7 +22,12 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
     ids, "\"/>"))
 
-  if (is_yule_tree_prior(tree_priors) || is_bd_tree_prior(tree_priors)) {
+  if (is_yule_tree_prior(tree_priors)) {
+    text <- c(text, paste0("        <log idref=\"YuleModel.t:",
+      ids, "\"/>"))
+    text <- c(text, paste0("        <log idref=\"birthRate.t:",
+      ids, "\"/>"))
+  } else if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("        <log idref=\"BirthDeath.t:",
       ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"BDBirthRate.t:",

@@ -58,9 +58,9 @@ create_beast2_input_operators <- function(
   text <- c(text, paste0("    <operator id=\"", operator_id_pre, "WilsonBalding.t:", ids,
     "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", ids,
     "\" weight=\"3.0\"/>"))
-  text <- c(text, "")
 
   if (is_bd_tree_prior(tree_priors)) {
+    text <- c(text, "")
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
@@ -70,6 +70,7 @@ create_beast2_input_operators <- function(
       "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
       ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
   } else if (is_ccp_tree_prior(tree_priors)) {
+    text <- c(text, "")
     text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
       ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
       "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
