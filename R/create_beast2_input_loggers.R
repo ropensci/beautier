@@ -1,10 +1,13 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
+#' @param site_models one or more site models,
+#'   as returned by 'create_site_model'
 #' @param tree_priors one or more tree priors
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
+  site_models = create_site_model(name = "JC69"),
   tree_priors = create_tree_prior(name = "yule")
 ) {
 
@@ -43,6 +46,11 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     text <- c(text, paste0("        <log idref=\"BayesianSkyline.t:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"bPopSizes.t:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"bGroupSizes.t:", ids, "\"/>"))
+  }
+
+  if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("        <log idref=\"kappa.s:", ids, "\"/>"))
+    text <- c(text, paste0("        <log idref=\"freqParameter.s:", ids, "\"/>"))
   }
 
   text <- c(text, "    </logger>")

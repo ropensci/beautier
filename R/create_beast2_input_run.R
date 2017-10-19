@@ -62,6 +62,7 @@ create_beast2_input_run <- function(
 
   text <- c(text, beastscriptr::create_beast2_input_loggers(
     ids = ids,
+    site_models = site_models,
     tree_priors = tree_priors))
 
   text <- c(text, "")
