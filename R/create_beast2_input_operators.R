@@ -1,5 +1,6 @@
 #' Creates the operators section of a BEAST2 XML parameter file
-#' @param fasta_filenames the FASTA filesnames
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param tree_priors One or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -8,11 +9,20 @@
 #'   of the initial phylogeny.
 #' @export
 create_beast2_input_operators <- function(
-  fasta_filenames,
-  tree_priors,
+  ids,
+  tree_priors = create_tree_prior(name = "yule"),
   fixed_crown_age
 ) {
-  ids <- beastscriptr::get_file_base_sans_ext(fasta_filenames)
+
+  if (!is.character(ids)) {
+    stop("ids must be a character vector")
+  }
+  if (!is_tree_prior(tree_priors)) {
+    stop("tree_priors must be one or more tree priors")
+  }
+  if (!is.logical(fixed_crown_age)) {
+    stop("fixed_crown_age must be TRUE or FALSE")
+  }
 
   operator_id_pre <- get_operator_id_pre(tree_priors)
 

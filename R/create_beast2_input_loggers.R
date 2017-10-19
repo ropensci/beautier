@@ -1,12 +1,12 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
-#' @param fasta_filenames the FASTA filenames
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param tree_priors one or more tree priors
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
-  fasta_filenames,
-  tree_priors
+  ids,
+  tree_priors = create_tree_prior(name = "yule")
 ) {
-  ids <- beastscriptr::get_file_base_sans_ext(fasta_filenames)
 
   text <- NULL
 

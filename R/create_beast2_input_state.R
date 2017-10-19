@@ -7,12 +7,11 @@
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 create_beast2_input_state <- function(
-  fasta_filenames,
+  ids,
   site_models = create_site_model(name = "JC69"),
   tree_priors = create_tree_prior(name = "yule"),
   initial_phylogeny
 ) {
-  ids <- get_file_base_sans_ext(fasta_filenames)
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
 

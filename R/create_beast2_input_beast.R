@@ -20,8 +20,8 @@ create_beast2_input_beast <- function(
     stop("input_fasta_filenames not found")
   }
 
-  # Seems illogical, but works for now:
-  filename_base <- beastscriptr::remove_file_extension(input_fasta_filenames)
+  # Alignment IDs
+  ids <- get_file_base_sans_ext(input_fasta_filenames)
 
   # Seems more logical, but incorrect:
   # filename_base <- beastscriptr::remove_file_extension(basename(input_fasta_filenames))
@@ -57,8 +57,7 @@ create_beast2_input_beast <- function(
 
   text <- c(text,
     create_beast2_input_run(
-      filename_base = filename_base,
-      fasta_filenames = input_fasta_filenames,
+      ids = ids,
       site_models = site_models,
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,

@@ -6,7 +6,6 @@ test_that("checks input", {
     create_beast2_input_file(
       input_fasta_filenames = "nonexisting", # Error
       mcmc_chainlength = 1000,
-      tree_priors = create_tree_prior(name = "birth_death"),
       output_xml_filename = "output.xml"
     )
   )
@@ -14,7 +13,6 @@ test_that("checks input", {
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
       mcmc_chainlength = 0, # Error
-      tree_priors = create_tree_prior(name = "birth_death"),
       output_xml_filename = "output.xml"
     )
   )
@@ -32,7 +30,6 @@ test_that("checks input", {
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
       mcmc_chainlength = 1000,
-      tree_priors = create_tree_prior(name = "birth_death"),
       output_xml_filename = "output.xml",
       fixed_crown_age = "nonsense" # Error
     )

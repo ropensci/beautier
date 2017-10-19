@@ -1,6 +1,6 @@
 #' Creates the state section of a BEAST2 XML parameter file
-#' @param filename_base filename its base
-#' @param fasta_filenames the FASTA filename
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models, as returned
 #'   by 'create_site_model'
 #' @param tree_priors one or more tree priors,
@@ -10,8 +10,7 @@
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 create_beast2_input_run <- function(
-  filename_base,
-  fasta_filenames,
+  ids,
   site_models = create_site_model(name = "JC69"),
   mcmc_chainlength,
   tree_priors = create_tree_prior(name = "yule"),
@@ -25,7 +24,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_state(
-      fasta_filenames = fasta_filenames,
+      ids = ids,
       site_models = site_models,
       tree_priors = tree_priors,
       initial_phylogeny = initial_phylogeny
@@ -36,7 +35,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_init(
-      fasta_filenames = fasta_filenames,
+      ids = ids,
       initial_phylogeny = initial_phylogeny
     )
   )
@@ -45,7 +44,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_distribution(
-      fasta_filenames = fasta_filenames,
+      ids = ids,
       tree_priors = tree_priors
     )
   )
@@ -53,14 +52,14 @@ create_beast2_input_run <- function(
   text <- c(text, "")
 
   text <- c(text, beastscriptr::create_beast2_input_operators(
-    fasta_filenames = fasta_filenames,
+    ids = ids,
     tree_priors = tree_priors,
     fixed_crown_age = fixed_crown_age))
 
   text <- c(text, "")
 
   text <- c(text, beastscriptr::create_beast2_input_loggers(
-    fasta_filenames = fasta_filenames,
+    ids = ids,
     tree_priors = tree_priors))
 
   text <- c(text, "")

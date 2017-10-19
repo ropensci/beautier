@@ -1,12 +1,12 @@
 #' Creates the map section of a BEAST2 XML parameter file
-#' @param fasta_filenames the FASTA filenames
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param initial_phylogeny initial phylogeny
 #' @export
 create_beast2_input_init <- function(
-  fasta_filenames,
+  ids,
   initial_phylogeny
 ) {
-  ids <- beastscriptr::get_file_base_sans_ext(fasta_filenames)
   text <- NULL
   # From https://www.beast2.org/fix-starting-tree/:
   #

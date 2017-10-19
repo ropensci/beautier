@@ -4,10 +4,12 @@
 \alias{create_beast2_input_operators}
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators(fasta_filenames, tree_priors, fixed_crown_age)
+create_beast2_input_operators(ids, tree_priors = create_tree_prior(name =
+  "yule"), fixed_crown_age)
 }
 \arguments{
-\item{fasta_filenames}{the FASTA filesnames}
+\item{ids}{the IDs of the alignments (can be extracted from
+their FASTA filesnames using 'get_file_base_sans_ext')}
 
 \item{tree_priors}{One or more tree priors, as returned
 by 'create_tree_prior'}

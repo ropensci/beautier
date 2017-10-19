@@ -43,6 +43,7 @@ create_beast2_input <- function(
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
 
+
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
 

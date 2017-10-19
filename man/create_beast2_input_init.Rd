@@ -4,10 +4,11 @@
 \alias{create_beast2_input_init}
 \title{Creates the map section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_init(fasta_filenames, initial_phylogeny)
+create_beast2_input_init(ids, initial_phylogeny)
 }
 \arguments{
-\item{fasta_filenames}{the FASTA filenames}
+\item{ids}{the IDs of the alignments (can be extracted from
+their FASTA filesnames using 'get_file_base_sans_ext')}
 
 \item{initial_phylogeny}{initial phylogeny}
 }

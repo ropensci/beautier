@@ -5,9 +5,9 @@
 \title{Create a BEAST2 input file}
 \usage{
 create_beast2_input_file(input_fasta_filenames,
-  site_models = create_site_model(name = "JC69"), mcmc_chainlength = 1e+07,
-  tree_priors = create_tree_prior(name = "birth_death"), output_xml_filename,
-  fixed_crown_age = FALSE, initial_phylogeny = NA)
+  site_models = create_site_model(name = "JC69"),
+  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
+  output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filename}
@@ -15,10 +15,10 @@ create_beast2_input_file(input_fasta_filenames,
 \item{site_models}{one or more site models,
 as returned by 'create_site_models'}
 
-\item{mcmc_chainlength}{Length of MCMC chain}
-
 \item{tree_priors}{On or more tree priors,
 as returned by 'create_tree_prior'}
+
+\item{mcmc_chainlength}{Length of MCMC chain}
 
 \item{output_xml_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}

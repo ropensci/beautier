@@ -4,15 +4,13 @@
 \alias{create_beast2_input_run}
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_run(filename_base, fasta_filenames,
-  site_models = create_site_model(name = "JC69"), mcmc_chainlength,
-  tree_priors = create_tree_prior(name = "yule"), fixed_crown_age,
-  initial_phylogeny)
+create_beast2_input_run(ids, site_models = create_site_model(name = "JC69"),
+  mcmc_chainlength, tree_priors = create_tree_prior(name = "yule"),
+  fixed_crown_age, initial_phylogeny)
 }
 \arguments{
-\item{filename_base}{filename its base}
-
-\item{fasta_filenames}{the FASTA filename}
+\item{ids}{the IDs of the alignments (can be extracted from
+their FASTA filesnames using 'get_file_base_sans_ext')}
 
 \item{site_models}{one or more site models, as returned
 by 'create_site_model'}

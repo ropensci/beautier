@@ -4,8 +4,7 @@ test_that("birth_death", {
 
   testthat::expect_silent(
     create_beast2_input_state(
-      fasta_filenames = beastscriptr::get_input_fasta_filename(),
-      tree_priors = create_tree_prior("birth_death"),
+      ids = "test_output_0",
       initial_phylogeny = NA
     )
   )
@@ -15,8 +14,7 @@ test_that("usage", {
 
   testthat::expect_silent(
     create_beast2_input_state(
-      fasta_filenames = beastscriptr::get_input_fasta_filename(),
-      tree_priors = create_tree_prior("coalescent_constant_population"),
+      ids = "test_output_0",
       initial_phylogeny = NA
     )
   )

@@ -1,13 +1,28 @@
 context("create_beast2_input_operators")
 
-test_that("birth_death", {
+test_that("abuse", {
+
   testthat::expect_silent(
     create_beast2_input_operators(
-      fasta_filenames = beastscriptr::get_input_fasta_filename(),
-      tree_priors = create_tree_prior("birth_death"),
+      ids = "test_output_0",
       fixed_crown_age = FALSE
     )
   )
+
+  testthat::expect_error(
+    create_beast2_input_operators(
+      ids = ape::rcoal(5),
+      fixed_crown_age = FALSE
+    )
+  )
+
+  testthat::expect_error(
+    create_beast2_input_operators(
+      ids = "test_output_0",
+      fixed_crown_age = "Nonsense"
+    )
+  )
+
 })
 
 test_that("Operators that change crown age are absent at fixed crown age", {
@@ -15,13 +30,13 @@ test_that("Operators that change crown age are absent at fixed crown age", {
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
   created_lines_fixed <- beastscriptr::create_beast2_input_operators(
-    fasta_filenames = input_fasta_filename,
+    ids = "test_output_0",
     tree_priors = create_tree_prior(name = "birth_death"),
     fixed_crown_age = TRUE
   )
 
   created_lines_nonfixed <- beastscriptr::create_beast2_input_operators(
-    fasta_filenames = input_fasta_filename,
+    ids = "test_output_0",
     tree_priors = create_tree_prior(name = "birth_death"),
     fixed_crown_age = FALSE
   )

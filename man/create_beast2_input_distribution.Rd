@@ -4,10 +4,12 @@
 \alias{create_beast2_input_distribution}
 \title{Creates the distribution section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distribution(fasta_filenames, tree_priors)
+create_beast2_input_distribution(ids, tree_priors = create_tree_prior(name =
+  "yule"))
 }
 \arguments{
-\item{fasta_filenames}{FASTA filenames}
+\item{ids}{the IDs of the alignments (can be extracted from
+their FASTA filesnames using 'get_file_base_sans_ext')}
 
 \item{tree_priors}{one or more tree priors}
 }
