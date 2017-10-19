@@ -2,6 +2,8 @@
 #' @param input_fasta_filenames one ore more FASTA filenames
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_model'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param mcmc_chainlength MCMC chain length
 #' @param tree_priors one ore more tree priors,
 #'   as returned from 'create_tree_prior'
@@ -11,6 +13,7 @@
 create_beast2_input_beast <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength,
   fixed_crown_age,
@@ -57,6 +60,7 @@ create_beast2_input_beast <- function(
     create_beast2_input_run(
       ids = ids,
       site_models = site_models,
+      clock_models = clock_models,
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,

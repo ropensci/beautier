@@ -8,6 +8,7 @@
 create_beast2_input_distribution <- function(
   ids,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule")
 ) {
   text <- NULL
@@ -104,6 +105,15 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("            </prior>"))
   }
 
+  if (is_relaxed_log_normal_clock_model(clock_models)) {
+    text <- c(text, paste0("            <prior id=\"ucldStdevPrior.c:", ids, "\" name=\"distribution\" x=\"@ucldStdev.c:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"alpha\">0.5396</parameter>"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.3\" estimate=\"false\" name=\"beta\">0.3819</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+  }
+
   text <- c(text, "        </distribution>")
   text <- c(
       text,
@@ -147,13 +157,21 @@ create_beast2_input_distribution <- function(
   }
 
   text <- c(text, "                </siteModel>")
-  text <- c(text, paste0("                <branchRateModel id=\"StrictClock.c:",
-    ids,
-    "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-  text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
-    ids,
-    "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>"))
-  text <- c(text, "                </branchRateModel>")
+
+  # Clock models
+  if (is_strict_clock_model(clock_models)) {
+    text <- c(text, paste0("                <branchRateModel id=\"StrictClock.c:", ids, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
+    text <- c(text, paste0("                    <parameter id=\"clockRate.c:", ids, "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>"))
+    text <- c(text, "                </branchRateModel>")
+  } else if (is_relaxed_log_normal_clock_model(clock_models)) {
+    text <- c(text, paste0("                <branchRateModel id=\"RelaxedClock.c:", ids, "\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:", ids, "\" tree=\"@Tree.t:", ids, "\">"))
+    text <- c(text, paste0("                    <LogNormal id=\"LogNormalDistributionModel.c:", ids, "\" S=\"@ucldStdev.c:", ids, "\" meanInRealSpace=\"true\" name=\"distr\">"))
+    text <- c(text, paste0("                        <parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>"))
+    text <- c(text, paste0("                    </LogNormal>"))
+    text <- c(text, paste0("                    <parameter id=\"ucldMean.c:", ids, "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>"))
+    text <- c(text, paste0("                </branchRateModel>"))
+  }
+
   text <- c(text, "            </distribution>")
   text <- c(text, "        </distribution>")
   text <- c(text, "    </distribution>")

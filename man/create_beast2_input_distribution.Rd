@@ -5,7 +5,8 @@
 \title{Creates the distribution section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_distribution(ids, site_models = create_site_model(name =
-  "JC69"), tree_priors = create_tree_prior(name = "yule"))
+  "JC69"), clock_models = create_clock_model(name = "strict"),
+  tree_priors = create_tree_prior(name = "yule"))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

@@ -3,6 +3,8 @@
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models, as returned
 #'   by 'create_site_model'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param tree_priors one or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param initial_phylogeny initial phylogeny or NA
@@ -10,6 +12,7 @@
 create_beast2_input_state <- function(
   ids,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   initial_phylogeny
 ) {
@@ -61,6 +64,12 @@ create_beast2_input_state <- function(
     text <- c(text, paste0("        <parameter id=\"rateCG.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"rateGT.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+  }
+
+  # Clock models
+  if (is_relaxed_log_normal_clock_model(clock_models)) {
+    text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", ids, "\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
+    text <- c(text, paste0("        <stateNode id=\"rateCategories.c:", ids, "\" spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
   }
 
   text <- c(text, "    </state>")

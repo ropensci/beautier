@@ -3,11 +3,14 @@
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_model'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param tree_priors one or more tree priors
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule")
 ) {
 
@@ -65,6 +68,12 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 
   }
 
+  # Clock models
+  if (is_relaxed_log_normal_clock_model(clock_models)) {
+    text <- c(text, paste0("        <log idref=\"ucldStdev.c:", ids, "\"/>"))
+    text <- c(text, paste0("        <log id=\"rate.c:", ids, "\" spec=\"beast.evolution.branchratemodel.RateStatistic\" branchratemodel=\"@RelaxedClock.c:", ids, "\" tree=\"@Tree.t:", ids, "\"/>"))
+  }
+
   text <- c(text, "    </logger>")
   text <- c(text, "")
   text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
@@ -75,14 +84,15 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text <- c(text, "        <log idref=\"prior\"/>")
   text <- c(text, "    </logger>")
   text <- c(text, "")
-  text <- c(text, paste0("    <logger id=\"treelog.t:", ids,
-    "\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">",
-    sep = "")
-    )
-  text <- c(text, paste0("        <log id=\"TreeWithMetaDataLogger.t:",
-    ids, "\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-    "tree=\"@Tree.t:", ids, "\"/>",
-    sep = ""))
+  text <- c(text, paste0("    <logger id=\"treelog.t:", ids, "\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
+
+  # Clock models
+  if (is_strict_clock_model(clock_models)) {
+    text <- c(text, paste0("        <log id=\"TreeWithMetaDataLogger.t:", ids, "\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ", "tree=\"@Tree.t:", ids, "\"/>"))
+  } else if (is_relaxed_log_normal_clock_model(clock_models)) {
+    text <- c(text, paste0("        <log id=\"TreeWithMetaDataLogger.t:", ids, "\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" branchratemodel=\"@RelaxedClock.c:", ids, "\" tree=\"@Tree.t:", ids, "\"/>"))
+  }
+
   text <- c(text, "    </logger>")
   text
 }

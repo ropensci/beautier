@@ -5,7 +5,8 @@
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_run(ids, site_models = create_site_model(name = "JC69"),
-  mcmc_chainlength, tree_priors = create_tree_prior(name = "yule"),
+  clock_models = create_clock_model(name = "strict"),
+  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength,
   fixed_crown_age, initial_phylogeny)
 }
 \arguments{
@@ -15,10 +16,13 @@ their FASTA filesnames using 'get_file_base_sans_ext')}
 \item{site_models}{one or more site models, as returned
 by 'create_site_model'}
 
-\item{mcmc_chainlength}{MCMC chain length}
+\item{clock_models}{On or more clock models,
+as returned by 'create_clock_model'}
 
 \item{tree_priors}{one or more tree priors,
 as returned by 'create_tree_prior'}
+
+\item{mcmc_chainlength}{MCMC chain length}
 
 \item{fixed_crown_age}{is the crown age fixed TRUE or FALSE}
 

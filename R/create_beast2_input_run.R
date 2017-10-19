@@ -3,6 +3,8 @@
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models, as returned
 #'   by 'create_site_model'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param tree_priors one or more tree priors,
 #'   as returned by 'create_tree_prior'
 #' @param mcmc_chainlength MCMC chain length
@@ -12,8 +14,9 @@
 create_beast2_input_run <- function(
   ids,
   site_models = create_site_model(name = "JC69"),
-  mcmc_chainlength,
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
+  mcmc_chainlength,
   fixed_crown_age,
   initial_phylogeny
 ) {
@@ -26,6 +29,7 @@ create_beast2_input_run <- function(
     create_beast2_input_state(
       ids = ids,
       site_models = site_models,
+      clock_models = clock_models,
       tree_priors = tree_priors,
       initial_phylogeny = initial_phylogeny
     )
@@ -46,6 +50,7 @@ create_beast2_input_run <- function(
     create_beast2_input_distribution(
       ids = ids,
       site_models = site_models,
+      clock_models = clock_models,
       tree_priors = tree_priors
     )
   )
@@ -55,6 +60,7 @@ create_beast2_input_run <- function(
   text <- c(text, beastscriptr::create_beast2_input_operators(
     ids = ids,
     site_models = site_models,
+    clock_models = clock_models,
     tree_priors = tree_priors,
     fixed_crown_age = fixed_crown_age))
 
@@ -63,6 +69,7 @@ create_beast2_input_run <- function(
   text <- c(text, beastscriptr::create_beast2_input_loggers(
     ids = ids,
     site_models = site_models,
+    clock_models = clock_models,
     tree_priors = tree_priors))
 
   text <- c(text, "")

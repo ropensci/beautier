@@ -3,6 +3,8 @@
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_model'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param tree_priors One or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -13,6 +15,7 @@
 create_beast2_input_operators <- function(
   ids,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   fixed_crown_age
 ) {
@@ -127,5 +130,18 @@ create_beast2_input_operators <- function(
     text <- c(text, paste0("        <intparameter idref=\"bGroupSizes.t:", ids, "\"/>"))
     text <- c(text, paste0("    </operator>"))
   }
+
+  # Clock model
+  if (is_relaxed_log_normal_clock_model(clock_models)) {
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"ucldStdevScaler.c:", ids, "\" spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", ids, "\" scaleFactor=\"0.5\" weight=\"3.0\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"CategoriesRandomWalk.c:", ids, "\" spec=\"IntRandomWalkOperator\" parameter=\"@rateCategories.c:", ids, "\" weight=\"10.0\" windowSize=\"1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"CategoriesSwapOperator.c:", ids, "\" spec=\"SwapOperator\" intparameter=\"@rateCategories.c:", ids, "\" weight=\"10.0\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"CategoriesUniform.c:", ids, "\" spec=\"UniformOperator\" parameter=\"@rateCategories.c:", ids, "\" weight=\"10.0\"/>"))
+  }
+
   text
 }

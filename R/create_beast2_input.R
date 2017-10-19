@@ -53,6 +53,7 @@ create_beast2_input <- function(
   text <- create_beast2_input_beast(
       input_fasta_filenames = input_fasta_filenames,
       site_models = site_models,
+      clock_models = clock_models,
       tree_priors = tree_priors,
       mcmc_chainlength = mcmc_chainlength,
       fixed_crown_age = fixed_crown_age,

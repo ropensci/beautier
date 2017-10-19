@@ -37,15 +37,9 @@ test_that("checks input", {
 })
 
 test_that("Check that 2_4.xml is reproduced", {
-  # Creates an XML file from a known-to-be-valid input file
-  # and tests if this identical to a known-to-be-valid XML output file
-  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
-
-  # Input file must be found
-  testthat::expect_true(file.exists(input_fasta_filenames))
 
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename()
   )
 
   expected_lines <- readLines(system.file("extdata", "2_4.xml", package = "beastscriptr"))
@@ -55,66 +49,50 @@ test_that("Check that 2_4.xml is reproduced", {
 
 test_that("Check that birth_death_2_4.xml is reproduced", {
 
-  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
-
-  # Input file must be found
-  testthat::expect_true(file.exists(input_fasta_filenames))
-
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     tree_priors = beastscriptr::create_tree_prior(name = "birth_death")
   )
 
   expected_lines <- readLines(system.file("extdata", "birth_death_2_4.xml", package = "beastscriptr"))
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 
 test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
 
-  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
-
-  # Input file must be found
-  testthat::expect_true(file.exists(input_fasta_filenames))
-
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     tree_priors = beastscriptr::create_tree_prior(name = "coalescent_constant_population")
   )
 
   expected_lines <- readLines(system.file("extdata", "coalescent_constant_population_2_4.xml", package = "beastscriptr"))
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that yule_2_4.xml is reproduced", {
 
-  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
-
-  # Input file must be found
-  testthat::expect_true(file.exists(input_fasta_filenames))
-
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     tree_priors = beastscriptr::create_tree_prior(name = "yule")
   )
 
   expected_lines <- readLines(system.file("extdata", "yule_2_4.xml", package = "beastscriptr"))
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that coalescent_bayesian_skyline_2_4.xml is reproduced", {
 
-  input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
-
-  # Input file must be found
-  testthat::expect_true(file.exists(input_fasta_filenames))
-
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     tree_priors = beastscriptr::create_tree_prior(name = "coalescent_bayesian_skyline")
   )
 
   expected_lines <- readLines(system.file("extdata", "coalescent_bayesian_skyline_2_4.xml", package = "beastscriptr"))
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -187,7 +165,7 @@ test_that("Check that relaxed_clock_log_normal_2_4.xml is reproduced", {
 
   expected_lines <- readLines(system.file("extdata", "relaxed_clock_log_normal_2_4.xml", package = "beastscriptr"))
 
-  if (1 == 1) {
+  if (1 == 2) {
     write.csv(created_lines, "~/created.csv")
     write.csv(expected_lines, "~/expected.csv")
     for (i in 1:min(length(expected_lines), length(created_lines))) {

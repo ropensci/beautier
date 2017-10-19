@@ -6,6 +6,7 @@
 \usage{
 create_beast2_input_file(input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
   output_xml_filename, fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
@@ -14,6 +15,9 @@ create_beast2_input_file(input_fasta_filenames,
 
 \item{site_models}{one or more site models,
 as returned by 'create_site_models'}
+
+\item{clock_models}{On or more clock models,
+as returned by 'create_clock_model'}
 
 \item{tree_priors}{On or more tree priors,
 as returned by 'create_tree_prior'}

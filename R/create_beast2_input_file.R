@@ -2,9 +2,11 @@
 #' @param input_fasta_filenames One or more fasta filename
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_models'
-#' @param mcmc_chainlength Length of MCMC chain
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param tree_priors On or more tree priors,
 #'   as returned by 'create_tree_prior'
+#' @param mcmc_chainlength Length of MCMC chain
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -46,6 +48,7 @@
 create_beast2_input_file <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
   output_xml_filename,
@@ -70,8 +73,9 @@ create_beast2_input_file <- function(
   text <- create_beast2_input(
     input_fasta_filenames = input_fasta_filenames,
     site_models = site_models,
-    mcmc_chainlength,
+    clock_models = clock_models,
     tree_priors = tree_priors,
+    mcmc_chainlength,
     fixed_crown_age = fixed_crown_age,
     initial_phylogeny = initial_phylogeny
   )

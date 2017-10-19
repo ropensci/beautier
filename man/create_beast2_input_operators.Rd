@@ -5,7 +5,8 @@
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_operators(ids, site_models = create_site_model(name =
-  "JC69"), tree_priors = create_tree_prior(name = "yule"), fixed_crown_age)
+  "JC69"), clock_models = create_clock_model(name = "strict"),
+  tree_priors = create_tree_prior(name = "yule"), fixed_crown_age)
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
@@ -13,6 +14,9 @@ their FASTA filesnames using 'get_file_base_sans_ext')}
 
 \item{site_models}{one or more site models,
 as returned by 'create_site_model'}
+
+\item{clock_models}{On or more clock models,
+as returned by 'create_clock_model'}
 
 \item{tree_priors}{One or more tree priors, as returned
 by 'create_tree_prior'}
