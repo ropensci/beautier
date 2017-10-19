@@ -9,9 +9,9 @@ create_beast2_input_data <- function(
   }
   text <- NULL
   text <- c(text, "    <data")
-  text <- c(text, paste0("id=\"", get_file_base_sans_ext(input_fasta_filenames), "\""))
+  text <- c(text, paste0("id=\"", beastscriptr::get_file_base_sans_ext(input_fasta_filenames), "\""))
   text <- c(text, "name=\"alignment\">")
-  text <- c(text, create_beast2_input_data_sequences(input_fasta_filenames = input_fasta_filenames))
+  text <- c(text, beastscriptr::create_beast2_input_data_sequences(input_fasta_filenames = input_fasta_filenames))
   text <- c(text, "                </data>")
   text
 }
