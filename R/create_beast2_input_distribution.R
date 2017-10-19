@@ -30,9 +30,7 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("                <Uniform id=\"Uniform.4\" name=\"distr\"/>"))
     text <- c(text, paste0("            </prior>"))
   } else if (is_ccp_tree_prior(tree_priors)) {
-    text <- c(text, paste0(
-      "            <distribution id=\"CoalescentConstant.t:",
-      ids, "\" spec=\"Coalescent\">"))
+    text <- c(text, paste0("            <distribution id=\"CoalescentConstant.t:", ids, "\" spec=\"Coalescent\">"))
     text <- c(text, paste0("                <populationModel id=\"ConstantPopulation.t:", ids, "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", ids, "\"/>"))
     text <- c(text, paste0(
       "                <treeIntervals id=\"TreeIntervals.t:",
@@ -52,11 +50,25 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("            <distribution id=\"MarkovChainedPopSizes.t:", ids, "\" spec=\"beast.math.distributions.MarkovChainDistribution\" jeffreys=\"true\" parameter=\"@bPopSizes.t:", ids, "\"/>"))
   }
 
+  # Site models
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("            <prior id=\"KappaPrior.s:", ids, "\" name=\"distribution\" x=\"@kappa.s:", ids, "\">"))
     text <- c(text, paste0("                <LogNormal id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter id=\"RealParameter.1\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+    text <- c(text, paste0("                </LogNormal>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_tn93_site_model(site_models)) {
+    text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", ids, "\" name=\"distribution\" x=\"@kappa1.s:", ids, "\">"))
+    text <- c(text, paste0("                <LogNormal id=\"LogNormalDistributionModel.1\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.3\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.4\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+    text <- c(text, paste0("                </LogNormal>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", ids, "\" name=\"distribution\" x=\"@kappa2.s:", ids, "\">"))
+    text <- c(text, paste0("                <LogNormal id=\"LogNormalDistributionModel.2\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.5\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.6\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
   }
