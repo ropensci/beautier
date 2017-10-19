@@ -151,14 +151,14 @@ test_that("Check that tn93_2_4.xml is reproduced", {
 
   expected_lines <- readLines(system.file("extdata", "tn93_2_4.xml", package = "beastscriptr"))
 
-  # write.csv(created_lines, "~/created.csv")
-  # write.csv(expected_lines, "~/expected.csv")
-  # for (i in 1:min(length(expected_lines), length(created_lines))) {
-  #   testthat::expect_equal(
-  #     expected_lines[i], created_lines[i]
-  #   )
-  #   print(paste0(i, " / ", length(expected_lines)))
-  # }
+  write.csv(created_lines, "~/created.csv")
+  write.csv(expected_lines, "~/expected.csv")
+  for (i in 1:min(length(expected_lines), length(created_lines))) {
+    testthat::expect_equal(
+      expected_lines[i], created_lines[i]
+    )
+    print(paste0(i, " / ", length(expected_lines)))
+  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })

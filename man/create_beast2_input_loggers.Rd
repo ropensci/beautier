@@ -4,12 +4,15 @@
 \alias{create_beast2_input_loggers}
 \title{Creates the two logger sections of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers(ids, tree_priors = create_tree_prior(name =
-  "yule"))
+create_beast2_input_loggers(ids, site_models = create_site_model(name =
+  "JC69"), tree_priors = create_tree_prior(name = "yule"))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using 'get_file_base_sans_ext')}
+
+\item{site_models}{one or more site models,
+as returned by 'create_site_model'}
 
 \item{tree_priors}{one or more tree priors}
 }

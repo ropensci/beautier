@@ -47,6 +47,10 @@ create_beast2_input_state <- function(
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+  } else if (is_tn93_site_model(site_models)) {
+    text <- c(text, paste0("        <parameter id=\"kappa1.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"kappa2.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   }
 
   text <- c(text, "    </state>")
