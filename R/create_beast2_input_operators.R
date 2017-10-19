@@ -1,6 +1,8 @@
 #' Creates the operators section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
+#' @param site_models one or more site models,
+#'   as returned by 'create_site_model'
 #' @param tree_priors One or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -10,6 +12,7 @@
 #' @export
 create_beast2_input_operators <- function(
   ids,
+  site_models = create_site_model(name = "JC69"),
   tree_priors = create_tree_prior(name = "yule"),
   fixed_crown_age
 ) {
@@ -57,8 +60,7 @@ create_beast2_input_operators <- function(
     text <- c(text, "")
   }
 
-  text <- c(text, paste0("    <operator id=\"", operator_id_pre, "Narrow.t:", ids,
-    "\" spec=\"Exchange\" tree=\"@Tree.t:", ids,
+  text <- c(text, paste0("    <operator id=\"", operator_id_pre, "Narrow.t:", ids, "\" spec=\"Exchange\" tree=\"@Tree.t:", ids,
     "\" weight=\"15.0\"/>"))
   text <- c(text, "")
   text <- c(text, paste0("    <operator id=\"", operator_id_pre, "Wide.t:", ids,
@@ -68,6 +70,15 @@ create_beast2_input_operators <- function(
   text <- c(text, paste0("    <operator id=\"", operator_id_pre, "WilsonBalding.t:", ids,
     "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", ids,
     "\" weight=\"3.0\"/>"))
+
+  if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"KappaScaler.s:", ids, "\" spec=\"ScaleOperator\" parameter=\"@kappa.s:", ids, "\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" delta=\"0.01\" weight=\"0.1\">"))
+    text <- c(text, paste0("        <parameter idref=\"freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("    </operator>"))
+  }
 
   if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, "")

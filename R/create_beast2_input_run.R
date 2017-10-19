@@ -54,6 +54,7 @@ create_beast2_input_run <- function(
 
   text <- c(text, beastscriptr::create_beast2_input_operators(
     ids = ids,
+    site_models = site_models,
     tree_priors = tree_priors,
     fixed_crown_age = fixed_crown_age))
 
