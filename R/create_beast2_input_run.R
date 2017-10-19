@@ -45,6 +45,7 @@ create_beast2_input_run <- function(
   text <- c(text,
     create_beast2_input_distribution(
       ids = ids,
+      site_models = site_models,
       tree_priors = tree_priors
     )
   )

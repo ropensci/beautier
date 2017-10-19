@@ -1,10 +1,13 @@
 #' Creates the distribution section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
+#' @param site_models one or more site models,
+#'   as returned by 'create_site_model'
 #' @param tree_priors one or more tree priors
 #' @export
 create_beast2_input_distribution <- function(
   ids,
+  site_models = create_site_model(name = "JC69"),
   tree_priors = create_tree_prior(name = "yule")
 ) {
   text <- NULL
@@ -47,6 +50,15 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("                <treeIntervals id=\"BSPTreeIntervals.t:", ids, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:", ids, "\"/>"))
     text <- c(text, paste0("            </distribution>"))
     text <- c(text, paste0("            <distribution id=\"MarkovChainedPopSizes.t:", ids, "\" spec=\"beast.math.distributions.MarkovChainDistribution\" jeffreys=\"true\" parameter=\"@bPopSizes.t:", ids, "\"/>"))
+  }
+
+  if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("            <prior id=\"KappaPrior.s:test_output_0\" name=\"distribution\" x=\"@kappa.s:test_output_0\">"))
+    text <- c(text, paste0("                <LogNormal id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.1\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+    text <- c(text, paste0("                </LogNormal>"))
+    text <- c(text, paste0("            </prior>"))
   }
 
   text <- c(text, "        </distribution>")
