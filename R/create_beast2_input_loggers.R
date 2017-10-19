@@ -51,6 +51,10 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"freqParameter.s:", ids, "\"/>"))
+  } else if (is_tn93_site_model(site_models)) {
+    text <- c(text, paste0("        <log idref=\"kappa1.s:", ids, "\"/>"))
+    text <- c(text, paste0("        <log idref=\"kappa2.s:", ids, "\"/>"))
+    text <- c(text, paste0("        <log idref=\"freqParameter.s:", ids, "\"/>"))
   }
 
   text <- c(text, "    </logger>")
