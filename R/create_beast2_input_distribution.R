@@ -53,7 +53,7 @@ create_beast2_input_distribution <- function(
   }
 
   if (is_hky_site_model(site_models)) {
-    text <- c(text, paste0("            <prior id=\"KappaPrior.s:test_output_0\" name=\"distribution\" x=\"@kappa.s:test_output_0\">"))
+    text <- c(text, paste0("            <prior id=\"KappaPrior.s:", ids, "\" name=\"distribution\" x=\"@kappa.s:", ids, "\">"))
     text <- c(text, paste0("                <LogNormal id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter id=\"RealParameter.1\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
@@ -84,8 +84,15 @@ create_beast2_input_distribution <- function(
     "                    <parameter id=\"proportionInvariant.s:",
     ids, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
-  text <- c(text, paste0("                    <substModel id=\"JC69.s:",
-    ids, "\" spec=\"JukesCantor\"/>"))
+
+  if (is_jc69_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel id=\"JC69.s:", ids, "\" spec=\"JukesCantor\"/>"))
+  } else if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel id=\"hky.s:", ids, "\" spec=\"HKY\" kappa=\"@kappa.s:", ids, "\">"))
+    text <- c(text, paste0("                        <frequencies id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" frequencies=\"@freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("                    </substModel>"))
+  }
+
   text <- c(text, "                </siteModel>")
   text <- c(text, paste0("                <branchRateModel id=\"StrictClock.c:",
     ids,
