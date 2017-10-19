@@ -5,6 +5,8 @@
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_priors On or more tree priors,
 #'   as returned by 'create_tree_prior'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param fixed_crown_age determines if the phylogeny its crown age is
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
@@ -22,8 +24,9 @@
 create_beast2_input <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
-  mcmc_chainlength = 10000000,
+  clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
+  mcmc_chainlength = 10000000,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {

@@ -5,9 +5,10 @@
 \title{Create a BEAST2 XML input text}
 \usage{
 create_beast2_input(input_fasta_filenames,
-  site_models = create_site_model(name = "JC69"), mcmc_chainlength = 1e+07,
-  tree_priors = create_tree_prior(name = "yule"), fixed_crown_age = FALSE,
-  initial_phylogeny = NA)
+  site_models = create_site_model(name = "JC69"),
+  clock_models = create_clock_model(name = "strict"),
+  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
+  fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filenames}
@@ -15,10 +16,13 @@ create_beast2_input(input_fasta_filenames,
 \item{site_models}{one or more site models,
 as returned by 'create_site_model'}
 
-\item{mcmc_chainlength}{Length of MCMC chain}
+\item{clock_models}{On or more clock models,
+as returned by 'create_clock_model'}
 
 \item{tree_priors}{On or more tree priors,
 as returned by 'create_tree_prior'}
+
+\item{mcmc_chainlength}{Length of MCMC chain}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
