@@ -87,6 +87,21 @@ create_beast2_input_operators <- function(
     text <- c(text, paste0("    <operator id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" delta=\"0.01\" weight=\"0.1\">"))
     text <- c(text, paste0("        <parameter idref=\"freqParameter.s:", ids, "\"/>"))
     text <- c(text, paste0("    </operator>"))
+  } else if (is_gtr_site_model(site_models)) {
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"RateACScaler.s:", ids, "\" spec=\"ScaleOperator\" parameter=\"@rateAC.s:", ids, "\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"RateAGScaler.s:", ids, "\" spec=\"ScaleOperator\" parameter=\"@rateAG.s:", ids, "\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"RateATScaler.s:", ids, "\" spec=\"ScaleOperator\" parameter=\"@rateAT.s:", ids, "\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"RateCGScaler.s:", ids, "\" spec=\"ScaleOperator\" parameter=\"@rateCG.s:", ids, "\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"RateGTScaler.s:", ids, "\" spec=\"ScaleOperator\" parameter=\"@rateGT.s:", ids, "\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" delta=\"0.01\" weight=\"0.1\">"))
+    text <- c(text, paste0("        <parameter idref=\"freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("    </operator>"))
   }
 
   if (is_bd_tree_prior(tree_priors)) {
