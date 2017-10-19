@@ -18,6 +18,13 @@ For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev
 
 ## Supported
 
+Site models:
+
+ * JC69
+ * HKY
+ * TN93
+ * GTR
+
 Priors:
 
  * Yule
