@@ -144,13 +144,8 @@ test_that("Check that tn93_2_4.xml is reproduced", {
 
   skip("WIP")
 
-    input_fasta_filenames <- beastscriptr::get_input_fasta_filename()
-
-  # Input file must be found
-  testthat::expect_true(file.exists(input_fasta_filenames))
-
   created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     site_models = create_site_model(name = "TN93")
   )
 
