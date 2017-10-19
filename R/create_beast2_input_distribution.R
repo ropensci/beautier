@@ -139,6 +139,11 @@ create_beast2_input_distribution <- function(
     text <- c(text, paste0("                    <substModel id=\"tn93.s:", ids, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", ids, "\" kappa2=\"@kappa2.s:", ids, "\">"))
     text <- c(text, paste0("                        <frequencies id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" frequencies=\"@freqParameter.s:", ids, "\"/>"))
     text <- c(text, paste0("                    </substModel>"))
+  } else if (is_gtr_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel id=\"gtr.s:", ids, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", ids, "\" rateAG=\"@rateAG.s:", ids, "\" rateAT=\"@rateAT.s:", ids, "\" rateCG=\"@rateCG.s:", ids, "\" rateGT=\"@rateGT.s:", ids, "\">"))
+    text <- c(text, paste0("                        <parameter id=\"rateCT.s:", ids, "\" estimate=\"false\" lower=\"0.0\" name=\"rateCT\">1.0</parameter>"))
+    text <- c(text, paste0("                        <frequencies id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" frequencies=\"@freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("                    </substModel>"))
   }
 
   text <- c(text, "                </siteModel>")
