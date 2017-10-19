@@ -8,6 +8,9 @@ create_beast2_input_state(ids, site_models = create_site_model(name = "JC69"),
   tree_priors = create_tree_prior(name = "yule"), initial_phylogeny)
 }
 \arguments{
+\item{ids}{the IDs of the alignments (can be extracted from
+their FASTA filesnames using 'get_file_base_sans_ext')}
+
 \item{site_models}{one or more site models, as returned
 by 'create_site_model'}
 
@@ -15,8 +18,6 @@ by 'create_site_model'}
 by 'create_tree_prior'}
 
 \item{initial_phylogeny}{initial phylogeny or NA}
-
-\item{fasta_filenames}{the fasta filenames}
 }
 \description{
 Creates the state section of a BEAST2 XML parameter file
