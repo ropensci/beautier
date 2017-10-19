@@ -4,16 +4,21 @@
 \alias{create_beast2_input_beast}
 \title{Creates the beast section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_beast(input_fasta_filenames, mcmc_chainlength, tree_priors,
+create_beast2_input_beast(input_fasta_filenames,
+  site_models = create_site_model(name = "JC69"),
+  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength,
   fixed_crown_age, initial_phylogeny)
 }
 \arguments{
 \item{input_fasta_filenames}{one ore more FASTA filenames}
 
-\item{mcmc_chainlength}{MCMC chain length}
+\item{site_models}{one or more site models,
+as returned by 'create_site_model'}
 
 \item{tree_priors}{one ore more tree priors,
 as returned from 'create_tree_prior'}
+
+\item{mcmc_chainlength}{MCMC chain length}
 
 \item{fixed_crown_age}{is the crown age fixed TRUE or FALSE}
 

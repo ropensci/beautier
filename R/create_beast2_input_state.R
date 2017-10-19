@@ -1,12 +1,15 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param fasta_filenames the fasta filenames
+#' @param site_models one or more site models, as returned
+#'   by 'create_site_model'
 #' @param tree_priors one or more tree priors, as returned
 #'   by 'create_tree_prior'
 #' @param initial_phylogeny initial phylogeny or NA
 #' @export
 create_beast2_input_state <- function(
   fasta_filenames,
-  tree_priors,
+  site_models = create_site_model(name = "JC69"),
+  tree_priors = create_tree_prior(name = "yule"),
   initial_phylogeny
 ) {
   ids <- get_file_base_sans_ext(fasta_filenames)
@@ -36,11 +39,14 @@ create_beast2_input_state <- function(
     text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
   } else if (is_ccp_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"popSize.t:",
-      ids, "\" name=\"stateNode\">0.3</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"popSize.t:", ids, "\" name=\"stateNode\">0.3</parameter>"))
   } else if (is_cbs_tree_prior(tree_priors)) {
     text <- c(text, paste0("        <parameter id=\"bPopSizes.t:", ids, "\" dimension=\"5\" lower=\"0.0\" name=\"stateNode\" upper=\"380000.0\">380.0</parameter>"))
     text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", ids, "\" spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
+  }
+  if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   }
 
   text <- c(text, "    </state>")

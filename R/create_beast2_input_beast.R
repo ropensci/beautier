@@ -1,5 +1,7 @@
 #' Creates the beast section of a BEAST2 XML parameter file
 #' @param input_fasta_filenames one ore more FASTA filenames
+#' @param site_models one or more site models,
+#'   as returned by 'create_site_model'
 #' @param mcmc_chainlength MCMC chain length
 #' @param tree_priors one ore more tree priors,
 #'   as returned from 'create_tree_prior'
@@ -8,8 +10,9 @@
 #' @export
 create_beast2_input_beast <- function(
   input_fasta_filenames,
+  site_models = create_site_model(name = "JC69"),
+  tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength,
-  tree_priors,
   fixed_crown_age,
   initial_phylogeny
 ) {
@@ -56,6 +59,7 @@ create_beast2_input_beast <- function(
     create_beast2_input_run(
       filename_base = filename_base,
       fasta_filenames = input_fasta_filenames,
+      site_models = site_models,
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,

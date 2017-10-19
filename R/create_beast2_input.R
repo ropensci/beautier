@@ -1,7 +1,7 @@
 #' Create a BEAST2 XML input text
 #' @param input_fasta_filenames One or more fasta filenames
 #' @param site_models one or more site models,
-#'   as returned by 'create_site_models'
+#'   as returned by 'create_site_model'
 #' @param mcmc_chainlength Length of MCMC chain
 #' @param tree_priors On or more tree priors,
 #'   as returned by 'create_tree_prior'
@@ -48,8 +48,9 @@ create_beast2_input <- function(
 
   text <- create_beast2_input_beast(
       input_fasta_filenames = input_fasta_filenames,
-      mcmc_chainlength = mcmc_chainlength,
+      site_models = site_models,
       tree_priors = tree_priors,
+      mcmc_chainlength = mcmc_chainlength,
       fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
   )
