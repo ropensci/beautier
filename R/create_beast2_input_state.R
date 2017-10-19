@@ -1,5 +1,6 @@
 #' Creates the state section of a BEAST2 XML parameter file
-#' @param fasta_filenames the fasta filenames
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models, as returned
 #'   by 'create_site_model'
 #' @param tree_priors one or more tree priors, as returned
