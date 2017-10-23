@@ -4,10 +4,10 @@
 create_tree_priors <- function() {
   return(
     list(
-      create_tree_prior(name = "yule"),
-      create_tree_prior(name = "birth_death"),
-      create_tree_prior(name = "coalescent_constant_population"),
-      create_tree_prior(name = "coalescent_bayesian_skyline")
+      beastscriptr::create_bd_tree_prior(),
+      beastscriptr::create_cbs_tree_prior(),
+      beastscriptr::create_ccp_tree_prior(),
+      beastscriptr::create_yule_tree_prior()
     )
   )
 }

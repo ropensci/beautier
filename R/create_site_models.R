@@ -4,10 +4,10 @@
 create_site_models <- function() {
   return(
     list(
-      create_site_model(name = "JC69"),
-      create_site_model(name = "HKY"),
-      create_site_model(name = "TN93"),
-      create_site_model(name = "GTR")
+      beastscriptr::create_gtr_site_model(),
+      beastscriptr::create_hky_site_model(),
+      beastscriptr::create_jc69_site_model(),
+      beastscriptr::create_tn93_site_model()
     )
   )
 }
