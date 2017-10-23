@@ -1,4 +1,5 @@
-#' Create a clock model
+#' General function to create a clock model.
+#' Prefer using 'create_rln_clock_model' and 'create_strict_clock_model'
 #' @param name the clock model name. Valid
 #'   names can be found in 'get_clock_model_names'
 #' @return a clock_model
@@ -23,4 +24,22 @@ create_clock_model <- function(
   }
   clock_model <- list(name = name)
   clock_model
+}
+
+#' Create a relaxed log-normal clock model
+#' @return a relaxed log-normal clock_model
+#' @export
+create_rln_clock_model <- function(
+  name
+) {
+  return(create_clock_model(name = "relaxed_log_normal"))
+}
+
+#' Create a strict clock model
+#' @return a strict clock_model
+#' @export
+create_strict_clock_model <- function(
+  name
+) {
+  return(create_clock_model(name = "strict"))
 }

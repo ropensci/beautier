@@ -2,7 +2,8 @@
 % Please edit documentation in R/create_clock_model.R
 \name{create_clock_model}
 \alias{create_clock_model}
-\title{Create a clock model}
+\title{General function to create a clock model.
+Prefer using 'create_rln_clock_model' and 'create_strict_clock_model'}
 \usage{
 create_clock_model(name)
 }
@@ -14,5 +15,6 @@ names can be found in 'get_clock_model_names'}
 a clock_model
 }
 \description{
-Create a clock model
+General function to create a clock model.
+Prefer using 'create_rln_clock_model' and 'create_strict_clock_model'
 }

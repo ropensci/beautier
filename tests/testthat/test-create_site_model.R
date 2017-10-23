@@ -31,3 +31,11 @@ test_that("use more typesafe names", {
   testthat::expect_true(beastscriptr::is_site_model(site_model))
 
 })
+
+test_that("Can specify HKY kappa", {
+
+  skip("WIP")
+  site_model <- beastscriptr::create_hky_site_model(kappa = 2.0)
+  testthat::expect_true(beastscriptr::is_site_model(site_model))
+
+})

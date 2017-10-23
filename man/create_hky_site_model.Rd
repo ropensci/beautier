@@ -4,7 +4,10 @@
 \alias{create_hky_site_model}
 \title{Create an HKY site model}
 \usage{
-create_hky_site_model()
+create_hky_site_model(kappa = 2)
+}
+\arguments{
+\item{kappa}{the kappa}
 }
 \value{
 an HKY site_model

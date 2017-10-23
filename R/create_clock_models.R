@@ -4,8 +4,8 @@
 create_clock_models <- function() {
   return(
     list(
-      create_clock_model(name = "relaxed_log_normal"),
-      create_clock_model(name = "strict")
+      create_rln_clock_model(),
+      create_strict_clock_model()
     )
   )
 }

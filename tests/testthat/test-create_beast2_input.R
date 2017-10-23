@@ -165,6 +165,18 @@ test_that("Check that relaxed_clock_log_normal_2_4.xml is reproduced", {
 
   expected_lines <- readLines(system.file("extdata", "relaxed_clock_log_normal_2_4.xml", package = "beastscriptr"))
 
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Check that hky_kappa_2_4.xml is reproduced", {
+
+  created_lines <- beastscriptr::create_beast2_input(
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+    site_models = create_hky_site_model(kappa = 3.4)
+  )
+
+  expected_lines <- readLines(system.file("extdata", "hky_kappa_2_4.xml", package = "beastscriptr"))
+
   if (1 == 2) {
     write.csv(created_lines, "~/created.csv")
     write.csv(expected_lines, "~/expected.csv")
@@ -178,6 +190,7 @@ test_that("Check that relaxed_clock_log_normal_2_4.xml is reproduced", {
 
   testthat::expect_identical(created_lines, expected_lines)
 })
+
 
 test_that("Check that coalescent_bayesian_skyline_2_4.xml is valid", {
 

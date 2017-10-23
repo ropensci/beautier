@@ -35,10 +35,12 @@ create_jc69_site_model <- function() {
 }
 
 #' Create an HKY site model
+#' @param kappa the kappa
 #' @return an HKY site_model
 #' @export
-create_hky_site_model <- function() {
-  return(create_site_model(name = "HKY"))
+create_hky_site_model <- function(kappa = 2.0) {
+  site_model <- list(name = "HKY", kappa = kappa)
+  site_model
 }
 
 #' Create a TN93 site model
