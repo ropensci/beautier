@@ -135,11 +135,30 @@ test_that("All site models produce a valid BEAST2 input file", {
   testthat::expect_true(length(site_models) > 1)
   for (site_model in site_models) {
 
-    input_fasta_filename <- get_input_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_fasta_filenames = get_input_fasta_filename(),
       site_models = site_model,
+      output_xml_filename = output_xml_filename
+    )
+    testthat::expect_true(
+      beastscriptr::is_beast2_input_file(output_xml_filename)
+    )
+  }
+})
+
+test_that("All tree priors produce a valid BEAST2 input file", {
+
+  skip("WIP")
+  tree_priors <- beastscriptr::create_tree_priors()
+  testthat::expect_true(length(tree_priors) > 1)
+
+  for (tree_prior in tree_priors) {
+    print(tree_prior)
+    output_xml_filename <- tempfile()
+    create_beast2_input_file(
+      input_fasta_filenames = get_input_fasta_filename(),
+      tree_priors = tree_prior,
       output_xml_filename = output_xml_filename
     )
     testthat::expect_true(

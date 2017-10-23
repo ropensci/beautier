@@ -7,7 +7,7 @@
 create_site_models()
 }
 \value{
-a vector of site_models
+a list of site_models
 }
 \description{
 Creates all supported site models

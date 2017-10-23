@@ -178,3 +178,9 @@ test_that("Check that relaxed_clock_log_normal_2_4.xml is reproduced", {
 
   testthat::expect_identical(created_lines, expected_lines)
 })
+
+test_that("Check that coalescent_bayesian_skyline_2_4.xml is valid", {
+
+  filename <- system.file("extdata", "coalescent_bayesian_skyline_2_4.xml", package = "beastscriptr")
+  testthat::expect_true(is_beast2_input_file(filename))
+})
