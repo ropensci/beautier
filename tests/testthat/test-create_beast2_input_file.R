@@ -149,7 +149,7 @@ test_that("All site models produce a valid BEAST2 input file", {
 
 test_that("All tree priors produce a valid BEAST2 input file", {
 
-  skip("WIP")
+  skip("All are OK except coalescent_bayesian_skyline")
   tree_priors <- beastscriptr::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
 
