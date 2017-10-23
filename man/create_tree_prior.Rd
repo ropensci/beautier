@@ -11,7 +11,7 @@ create_tree_prior(name)
 or 'coalescent_constant_population'}
 }
 \value{
-a site_model
+a tree_prior
 }
 \description{
 Create a tree prior

@@ -2,7 +2,9 @@
 % Please edit documentation in R/create_site_model.R
 \name{create_site_model}
 \alias{create_site_model}
-\title{Create a site model}
+\title{General function to create a site model. Prefer using
+'create_jk69_site_model', 'create_hky_site_model',
+'create_tn93_site_model' and 'create_gtr_site_model',}
 \usage{
 create_site_model(name)
 }
@@ -14,5 +16,7 @@ names can be found in 'get_site_model_names'}
 a site_model
 }
 \description{
-Create a site model
+General function to create a site model. Prefer using
+'create_jk69_site_model', 'create_hky_site_model',
+'create_tn93_site_model' and 'create_gtr_site_model',
 }

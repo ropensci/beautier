@@ -15,3 +15,19 @@ test_that("abuse", {
   testthat::expect_false(beastscriptr::is_site_model(list(name = "nonsense")))
 
 })
+
+test_that("use more typesafe names", {
+
+  site_model <- beastscriptr::create_jc69_site_model()
+  testthat::expect_true(beastscriptr::is_site_model(site_model))
+
+  site_model <- beastscriptr::create_hky_site_model()
+  testthat::expect_true(beastscriptr::is_site_model(site_model))
+
+  site_model <- beastscriptr::create_tn93_site_model()
+  testthat::expect_true(beastscriptr::is_site_model(site_model))
+
+  site_model <- beastscriptr::create_gtr_site_model()
+  testthat::expect_true(beastscriptr::is_site_model(site_model))
+
+})
