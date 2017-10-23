@@ -147,6 +147,24 @@ test_that("All site models produce a valid BEAST2 input file", {
   }
 })
 
+test_that("All clock models produce a valid BEAST2 input file", {
+
+  clock_models <- beastscriptr::create_clock_models()
+  testthat::expect_true(length(clock_models) > 1)
+
+  for (clock_model in clock_models) {
+    output_xml_filename <- tempfile()
+    create_beast2_input_file(
+      input_fasta_filenames = get_input_fasta_filename(),
+      clock_models = clock_model,
+      output_xml_filename = output_xml_filename
+    )
+    testthat::expect_true(
+      beastscriptr::is_beast2_input_file(output_xml_filename)
+    )
+  }
+})
+
 test_that("All tree priors produce a valid BEAST2 input file", {
 
   skip("All are OK except coalescent_bayesian_skyline")
@@ -166,4 +184,3 @@ test_that("All tree priors produce a valid BEAST2 input file", {
     )
   }
 })
-
