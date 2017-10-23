@@ -32,6 +32,7 @@ Priors:
  * Coalescent Constant Population
  * Coalescent Bayesian Skyline
 
+
 ## Example #1
 
 ```
@@ -54,6 +55,24 @@ beastscriptr::create_beast2_input_file(
   initial_phylogeny = beastscriptr::fasta_to_phylo(
     fasta_filename = "my_fasta.fas",
     crown_age = 15)
+)
+```
+
+## Example #3: HKY site model
+
+Thanks to Yacine Ben Cheheda
+
+![HKY example](hky_example.png)
+
+```
+beastscriptr::create_beast2_input_file(
+  input_fasta_filenames = "my_alignment.fas",
+  site_models = create_hky_site_model(
+    gamma_cat_count = 1, 
+    prop_invariant = 0.2, 
+    kappa = 3.0
+  ), 
+  output_xml_filename = "my_beast.xml"
 )
 ```
 

@@ -35,11 +35,24 @@ create_jc69_site_model <- function() {
 }
 
 #' Create an HKY site model
+#' @param gamma_cat_count the number of gamma categories, must
+#'   be an integer with value zero or more
 #' @param kappa the kappa
+#' @param prop_invariant the proportion invariant, must be a value
+#'   from 0.0 to 1.0
 #' @return an HKY site_model
 #' @export
-create_hky_site_model <- function(kappa = 2.0) {
-  site_model <- list(name = "HKY", kappa = kappa)
+create_hky_site_model <- function(
+  gamma_cat_count = 1,
+  kappa = 2.0,
+  prop_invariant = 0.2
+) {
+  site_model <- list(
+    name = "HKY",
+    gamma_cat_count = gamma_cat_count,
+    kappa = kappa,
+    prop_invariant
+  )
   site_model
 }
 
