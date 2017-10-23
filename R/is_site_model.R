@@ -5,6 +5,9 @@
 is_site_model <- function(
   x
 ) {
+  if (!"name" %in% names(x)) {
+    return(FALSE)
+  }
   if (!is_site_model_name(x$name)) {
     return(FALSE)
   }

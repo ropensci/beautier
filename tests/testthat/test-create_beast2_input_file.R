@@ -127,3 +127,24 @@ test_that("Produce XML for Yule species tree prior", {
     beastscriptr::is_beast2_input_file(output_xml_filename)
   )
 })
+
+
+test_that("All site models produce a valid BEAST2 input file", {
+
+  site_models <- beastscriptr::create_site_models()
+  testthat::expect_true(length(site_models) > 1)
+  for (site_model in site_models) {
+
+    input_fasta_filename <- get_input_fasta_filename()
+    output_xml_filename <- tempfile()
+    create_beast2_input_file(
+      input_fasta_filenames = input_fasta_filename,
+      site_models = site_model,
+      output_xml_filename = output_xml_filename
+    )
+    testthat::expect_true(
+      beastscriptr::is_beast2_input_file(output_xml_filename)
+    )
+  }
+})
+

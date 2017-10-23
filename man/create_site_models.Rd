@@ -2,13 +2,13 @@
 % Please edit documentation in R/create_site_models.R
 \name{create_site_models}
 \alias{create_site_models}
-\title{Create one or more site models}
+\title{Creates all supported site models}
 \usage{
 create_site_models()
 }
 \value{
-a site_model
+a vector of site_models
 }
 \description{
-Create one or more site models
+Creates all supported site models
 }
