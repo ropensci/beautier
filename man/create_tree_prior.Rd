@@ -2,7 +2,9 @@
 % Please edit documentation in R/create_tree_prior.R
 \name{create_tree_prior}
 \alias{create_tree_prior}
-\title{Create a tree prior}
+\title{General function to create a tree prior. Prefer using the
+function 'create_yule_tree_prior', 'create_bd_tree_prior',
+'create_cbs_tree_prior' and 'create_ccp_tree_prior'}
 \usage{
 create_tree_prior(name)
 }
@@ -14,5 +16,7 @@ or 'coalescent_constant_population'}
 a tree_prior
 }
 \description{
-Create a tree prior
+General function to create a tree prior. Prefer using the
+function 'create_yule_tree_prior', 'create_bd_tree_prior',
+'create_cbs_tree_prior' and 'create_ccp_tree_prior'
 }

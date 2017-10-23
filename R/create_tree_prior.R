@@ -1,4 +1,6 @@
-#' Create a tree prior
+#' General function to create a tree prior. Prefer using the
+#' function 'create_yule_tree_prior', 'create_bd_tree_prior',
+#' 'create_cbs_tree_prior' and 'create_ccp_tree_prior'
 #' @param name the tree prior name. Can be 'birth_death'
 #'   or 'coalescent_constant_population'
 #' @return a tree_prior
