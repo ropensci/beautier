@@ -208,6 +208,7 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
 
 test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
 
+  skip("Need more insight before adding gamma site model")
   created_lines <- beastscriptr::create_beast2_input(
     input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     site_models = create_hky_site_model(
