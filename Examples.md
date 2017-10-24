@@ -85,7 +85,7 @@ beastscriptr::create_beast2_input_file(
 )
 ```
 
-Thanks to Yacine Ben Cheheda for this use case
+Thanks to Yacine Ben Chehida for this use case
 
 ## Example #7: Strict clock with a known clock rate
 
@@ -99,4 +99,4 @@ beastscriptr::create_beast2_input_file(
 )
 ```
 
-Thanks to Paul van Els and Yacine Ben Cheheda for this use case.
+Thanks to Paul van Els and Yacine Ben Chehida for this use case.
