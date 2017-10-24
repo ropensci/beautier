@@ -19,14 +19,14 @@ after_success:
   - Rscript -e 'goodpractice::gp()'
 
 after_failure:
-  - sudo Rscript install_this_r_package.R
-  - Rscript -e 'library(Cer2016); testit::assert(has_beast2())'
-  - cat /home/travis/build/richelbilderbeek/Cer2016/..Rcheck/00install.out
-  - cat /home/travis/build/richelbilderbeek/Cer2016/..Rcheck/00check.log
+  # - sudo Rscript install_this_r_package.R
+  # - Rscript -e 'library(beastscriptr); testit::assert(has_beast2())'
+  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00install.out
+  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00check.log
   - cd ~; find . | egrep "beast"
   - cd ~; find . | egrep "\.log"
   - cd ~; find . | egrep "\.trees"
   - cd ~; find . | egrep "\.xml"
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
-  - cat /home/travis/build/richelbilderbeek/Cer2016/..Rcheck/tests/testthat/testthat.log
+  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/tests/testthat/testthat.log
