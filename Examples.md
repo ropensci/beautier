@@ -1,5 +1,11 @@
 # Examples
 
+For all examples, do load `beastscriptr`:
+
+```
+library(beastscriptr)
+```
+
 ## Example #1
 
 Using all default settings, only specify a DNA alignment.
