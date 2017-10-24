@@ -9,7 +9,7 @@ test_that("get_phylogeny_crown_age: basic use", {
    n_taxa <- length(phylogeny$tip.label)
    testit::assert(n_taxa > 0)
    crown_age <- get_phylogeny_crown_age(phylogeny = phylogeny)
-   expect_true(all.equal(age, crown_age, tolerance = 0.001))
+   testthat::expect_true(all.equal(age, crown_age, tolerance = 0.001))
 })
 
 test_that("get_phylogeny_crown_age: abuse", {
