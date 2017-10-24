@@ -43,6 +43,9 @@ create_beast2_input_file(
 )
 ```
 
+`fasta_to_phylo` creates a random phylogeny from
+a FASTA file of a certain crown age. 
+
 ## Example #3: JC69 site model
 
 ![JC69](jc69_2_4.png)
