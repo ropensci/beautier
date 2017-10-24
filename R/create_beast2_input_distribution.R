@@ -21,62 +21,12 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   text <- c(text,
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
-  if (is_yule_tree_prior(tree_priors)) {
-    text <- c(text, paste0("            <distribution id=\"YuleModel.t:", ids,
-      "\" spec=\"beast.evolution.speciation.YuleModel\" ",
-      "birthDiffRate=\"@birthRate.t:", ids, "\" tree=\"@Tree.t:", ids, "\"/>"))
-    text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
-      ids, "\" name=\"distribution\" x=\"@birthRate.t:", ids, "\">"))
-    text <- c(text, paste0("                <Uniform id=\"Uniform.1\" ",
-      "name=\"distr\" upper=\"Infinity\"/>"))
-    text <- c(text, paste0("            </prior>"))
-  } else if (is_bd_tree_prior(tree_priors)) {
-    text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids,
-      "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
-      "birthDiffRate=\"@BDBirthRate.t:", ids, "\" ",
-      "relativeDeathRate=\"@BDDeathRate.t:", ids, "\" ",
-      "tree=\"@Tree.t:", ids, "\"/>"))
-    text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", ids,
-      "\" name=\"distribution\" x=\"@BDBirthRate.t:", ids, "\">"))
-    text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
-      "name=\"distr\" upper=\"1000.0\"/>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:", ids,
-      "\" name=\"distribution\" x=\"@BDDeathRate.t:", ids, "\">"))
-    text <- c(text, paste0("                <Uniform id=\"Uniform.4\" ",
-      "name=\"distr\"/>"))
-    text <- c(text, paste0("            </prior>"))
-  } else if (is_ccp_tree_prior(tree_priors)) {
-    text <- c(text, paste0("            ",
-      "<distribution id=\"CoalescentConstant.t:", ids,
-      "\" spec=\"Coalescent\">"))
-    text <- c(text, paste0("                ",
-      "<populationModel id=\"ConstantPopulation.t:", ids,
-      "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", ids, "\"/>"))
-    text <- c(text, paste0(
-      "                <treeIntervals id=\"TreeIntervals.t:",
-      ids, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
-      ids, "\"/>"))
-    text <- c(text, "            </distribution>")
-    text <- c(text, paste0(
-      "            <prior id=\"PopSizePrior.t:", ids,
-      "\" name=\"distribution\" x=\"@popSize.t:",
-      ids, "\">"))
-    text <- c(text, "                <OneOnX id=\"OneOnX.1\" name=\"distr\"/>")
-    text <- c(text, "            </prior>")
-  } else if (is_cbs_tree_prior(tree_priors)) {
-    text <- c(text, paste0("            <distribution id=\"BayesianSkyline.t:",
-      ids, "\" spec=\"BayesianSkyline\" groupSizes=\"@bGroupSizes.t:", ids,
-      "\" popSizes=\"@bPopSizes.t:", ids, "\">"))
-    text <- c(text, paste0("                ",
-      "<treeIntervals id=\"BSPTreeIntervals.t:", ids, "\" ",
-      "spec=\"TreeIntervals\" tree=\"@Tree.t:", ids, "\"/>"))
-    text <- c(text, paste0("            </distribution>"))
-    text <- c(text, paste0("            ",
-      "<distribution id=\"MarkovChainedPopSizes.t:", ids,
-      "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
-      "jeffreys=\"true\" parameter=\"@bPopSizes.t:", ids, "\"/>"))
-  }
+  text <- c(text,
+    create_beast2_input_distribution_distribution(
+      ids = ids,
+      tree_priors = tree_priors
+    )
+  )
 
   # Site models
   if (is_hky_site_model(site_models)) {
@@ -175,6 +125,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     text <- c(text, paste0("            </prior>"))
   }
 
+  # Clock models
   if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0("            <prior ",
       "id=\"ucldStdevPrior.c:", ids, "\" name=\"distribution\" ",
@@ -295,5 +246,78 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   text <- c(text, "            </distribution>")
   text <- c(text, "        </distribution>")
   text <- c(text, "    </distribution>")
+  text
+}
+
+#' Creates the distribution section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using 'get_file_base_sans_ext')
+#' @param tree_priors one or more tree priors
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @export
+create_beast2_input_distribution_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  tree_priors = create_tree_prior(name = "yule")
+) {
+
+  text <- NULL
+  if (is_yule_tree_prior(tree_priors)) {
+    text <- c(text, paste0("            <distribution id=\"YuleModel.t:", ids,
+      "\" spec=\"beast.evolution.speciation.YuleModel\" ",
+      "birthDiffRate=\"@birthRate.t:", ids, "\" tree=\"@Tree.t:", ids, "\"/>"))
+    text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
+      ids, "\" name=\"distribution\" x=\"@birthRate.t:", ids, "\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.1\" ",
+      "name=\"distr\" upper=\"Infinity\"/>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_bd_tree_prior(tree_priors)) {
+    text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", ids,
+      "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
+      "birthDiffRate=\"@BDBirthRate.t:", ids, "\" ",
+      "relativeDeathRate=\"@BDDeathRate.t:", ids, "\" ",
+      "tree=\"@Tree.t:", ids, "\"/>"))
+    text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", ids,
+      "\" name=\"distribution\" x=\"@BDBirthRate.t:", ids, "\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
+      "name=\"distr\" upper=\"1000.0\"/>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:", ids,
+      "\" name=\"distribution\" x=\"@BDDeathRate.t:", ids, "\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.4\" ",
+      "name=\"distr\"/>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_ccp_tree_prior(tree_priors)) {
+    text <- c(text, paste0("            ",
+      "<distribution id=\"CoalescentConstant.t:", ids,
+      "\" spec=\"Coalescent\">"))
+    text <- c(text, paste0("                ",
+      "<populationModel id=\"ConstantPopulation.t:", ids,
+      "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", ids, "\"/>"))
+    text <- c(text, paste0(
+      "                <treeIntervals id=\"TreeIntervals.t:",
+      ids, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
+      ids, "\"/>"))
+    text <- c(text, "            </distribution>")
+    text <- c(text, paste0(
+      "            <prior id=\"PopSizePrior.t:", ids,
+      "\" name=\"distribution\" x=\"@popSize.t:",
+      ids, "\">"))
+    text <- c(text, "                <OneOnX id=\"OneOnX.1\" name=\"distr\"/>")
+    text <- c(text, "            </prior>")
+  } else if (is_cbs_tree_prior(tree_priors)) {
+    text <- c(text, paste0("            <distribution id=\"BayesianSkyline.t:",
+      ids, "\" spec=\"BayesianSkyline\" groupSizes=\"@bGroupSizes.t:", ids,
+      "\" popSizes=\"@bPopSizes.t:", ids, "\">"))
+    text <- c(text, paste0("                ",
+      "<treeIntervals id=\"BSPTreeIntervals.t:", ids, "\" ",
+      "spec=\"TreeIntervals\" tree=\"@Tree.t:", ids, "\"/>"))
+    text <- c(text, paste0("            </distribution>"))
+    text <- c(text, paste0("            ",
+      "<distribution id=\"MarkovChainedPopSizes.t:", ids,
+      "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
+      "jeffreys=\"true\" parameter=\"@bPopSizes.t:", ids, "\"/>"))
+  }
   text
 }

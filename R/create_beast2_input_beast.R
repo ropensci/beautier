@@ -48,7 +48,7 @@ create_beast2_input_beast <- function(
 
   text <- c(text, "")
   text <- c(text, "")
-  text <- c(text, "    ")
+  text <- c(text, "    ") # Exact same spacing as created by BEAUti
   text <- c(text, "")
   text <- c(text, "")
   text <- c(text, "    ")
