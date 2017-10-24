@@ -42,5 +42,5 @@ create_rln_clock_model <- function() {
 create_strict_clock_model <- function(
   rate = get_default_clock_model_rate()
 ) {
-  return(list(name = "strict", rate = rate))
+  return(beastscriptr::create_clock_model(name = "strict", rate = rate))
 }

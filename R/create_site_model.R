@@ -3,10 +3,12 @@
 #' 'create_tn93_site_model' and 'create_gtr_site_model',
 #' @param name the site model name. Valid
 #'   names can be found in 'get_site_model_names'
+#' @param ... specific site model parameters
 #' @return a site_model
 #' @export
 create_site_model <- function(
-  name
+  name,
+  ...
 ) {
   if (!is_site_model_name(name)) {
     site_models_as_string <- function() {
@@ -23,7 +25,7 @@ create_site_model <- function(
     )
     stop("invalid site model name")
   }
-  site_model <- list(name = name)
+  site_model <- list(name = name, ...)
   site_model
 }
 
@@ -47,13 +49,14 @@ create_hky_site_model <- function(
   kappa = get_default_kappa(),
   prop_invariant = get_default_prop_invariant()
 ) {
-  site_model <- list(
-    name = "HKY",
-    gamma_cat_count = gamma_cat_count,
-    kappa = kappa,
-    prop_invariant = prop_invariant
+  return(
+    beastscriptr::create_site_model(
+      name = "HKY",
+      gamma_cat_count = gamma_cat_count,
+      kappa = kappa,
+      prop_invariant = prop_invariant
+    )
   )
-  site_model
 }
 
 #' Create a TN93 site model

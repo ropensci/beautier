@@ -6,11 +6,13 @@
 'create_jk69_site_model', 'create_hky_site_model',
 'create_tn93_site_model' and 'create_gtr_site_model',}
 \usage{
-create_site_model(name)
+create_site_model(name, ...)
 }
 \arguments{
 \item{name}{the site model name. Valid
 names can be found in 'get_site_model_names'}
+
+\item{...}{specific site model parameters}
 }
 \value{
 a site_model
