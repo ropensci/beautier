@@ -9,10 +9,9 @@ test_that("JC69 is accepted", {
 
 test_that("abuse", {
 
-  testthat::expect_false(beastscriptr::is_site_model(NA))
-  testthat::expect_false(beastscriptr::is_site_model(NULL))
-  testthat::expect_false(beastscriptr::is_site_model("nonsense"))
-  testthat::expect_false(beastscriptr::is_site_model(list(name = "nonsense")))
+  testthat::expect_error(
+    beastscriptr::create_site_model(name = "nonsense")
+  )
 
 })
 

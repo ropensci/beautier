@@ -23,6 +23,13 @@ test_that("abuse", {
     )
   )
 
+testthat::expect_error(
+    create_beast2_input_operators(
+      ids = "test_output_0",
+      tree_priors = "Nonsense"
+    )
+  )
+
 })
 
 test_that("Operators that change crown age are absent at fixed crown age", {

@@ -35,6 +35,30 @@ test_that("checks input", {
     )
   )
 
+  testthat::expect_error(
+    create_beast2_input_file(
+      input_fasta_filenames = get_input_fasta_filename(),
+      output_xml_filename = "output.xml",
+      site_models = "nonsense"
+    )
+  )
+
+  testthat::expect_error(
+    create_beast2_input_file(
+      input_fasta_filenames = get_input_fasta_filename(),
+      output_xml_filename = "output.xml",
+      tree_priors = "nonsense"
+    )
+  )
+
+  testthat::expect_error(
+    create_beast2_input_file(
+      input_fasta_filenames = get_input_fasta_filename(),
+      output_xml_filename = "output.xml",
+      clock_models = "nonsense"
+    )
+  )
+
 })
 
 test_that("Create CCP posterior with random initial tree", {

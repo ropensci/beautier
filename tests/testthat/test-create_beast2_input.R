@@ -34,6 +34,27 @@ test_that("checks input", {
     )
   )
 
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_input_fasta_filename(),
+      site_models = "nonsense"
+    )
+  )
+
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_input_fasta_filename(),
+      tree_priors = "nonsense"
+    )
+  )
+
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_input_fasta_filename(),
+      clock_models = "nonsense"
+    )
+  )
+
 })
 
 test_that("Check that 2_4.xml is reproduced", {

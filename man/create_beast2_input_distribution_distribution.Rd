@@ -5,7 +5,8 @@
 \title{Creates the distribution section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distribution_distribution(ids, tree_priors)
+create_beast2_input_distribution_distribution(ids,
+  tree_priors = create_tree_prior(name = "yule"))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

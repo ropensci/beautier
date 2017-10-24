@@ -36,6 +36,9 @@ create_beast2_input <- function(
   if (!is_site_model(site_models)) {
     stop("invalid site_model")
   }
+  if (!is_clock_model(clock_models)) {
+    stop("invalid clock_model")
+  }
   if (!is_tree_prior(tree_priors)) {
     stop("invalid tree_prior")
   }

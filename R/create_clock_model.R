@@ -22,7 +22,6 @@ create_clock_model <- function(
       "invalid clock model name, must be one these: ",
       clock_models_as_string()
     )
-    stop("invalid clock model name")
   }
   clock_model <- list(name = name, ...)
   clock_model

@@ -39,8 +39,10 @@ test_that("use", {
       crown_age = 15
     )
   )
+})
 
-  # Abuse
+test_that("abuse", {
+
   testthat::expect_error(
     create_posterior(
       n_taxa = -1, # Must be positive
@@ -99,6 +101,15 @@ test_that("use", {
       mcmc_chainlength = 10000,
       fixed_crown_age = FALSE,
       crown_age = 15
+    )
+  )
+
+  testthat::expect_error(
+    create_posterior(
+      n_taxa = 2,
+      sequence_length = 4,
+      mcmc_chainlength = 10000,
+      tree_priors = "nonsense"
     )
   )
 

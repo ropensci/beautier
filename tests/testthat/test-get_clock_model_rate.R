@@ -13,3 +13,11 @@ test_that("use", {
   )
 
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    get_clock_model_rate("nonsense")
+  )
+
+})

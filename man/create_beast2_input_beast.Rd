@@ -7,8 +7,8 @@
 create_beast2_input_beast(input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
-  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength,
-  fixed_crown_age, initial_phylogeny)
+  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
+  fixed_crown_age = FALSE, initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filenames}{one ore more FASTA filenames}
