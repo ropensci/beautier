@@ -38,39 +38,63 @@ create_beast2_input_state <- function(
 
   # Tree priors
   if (is_yule_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"birthRate.t:", ids, "\" name=\"stateNode\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"birthRate.t:", ids, "\" ",
+      "name=\"stateNode\">1.0</parameter>"))
   } else if (is_bd_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
   } else if (is_ccp_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"popSize.t:", ids, "\" name=\"stateNode\">0.3</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"popSize.t:", ids, "\" ",
+      "name=\"stateNode\">0.3</parameter>"))
   } else if (is_cbs_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"bPopSizes.t:", ids, "\" dimension=\"5\" lower=\"0.0\" name=\"stateNode\" upper=\"380000.0\">380.0</parameter>"))
-    text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", ids, "\" spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
+    text <- c(text, paste0("        <parameter id=\"bPopSizes.t:", ids, "\" ",
+      "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
+      "upper=\"380000.0\">380.0</parameter>"))
+    text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", ids, "\" ",
+      "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
   }
 
   # Site models
   if (is_hky_site_model(site_models)) {
-    kappa <- get_kappa(site_models)
-    text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">", kappa, "</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">",
+      beastscriptr::get_kappa(site_models), "</parameter>"))
+    text <- c(text, paste0("        <parameter ",
+      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   } else if (is_tn93_site_model(site_models)) {
-    text <- c(text, paste0("        <parameter id=\"kappa1.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"kappa2.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"kappa1.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"kappa2.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+    text <- c(text, paste0("        <parameter ",
+      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   } else if (is_gtr_site_model(site_models)) {
-    text <- c(text, paste0("        <parameter id=\"rateAC.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateAG.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateAT.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateCG.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateGT.s:", ids, "\" lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"rateAC.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"rateAG.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"rateAT.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"rateCG.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"rateGT.s:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+    text <- c(text, paste0("        <parameter ",
+      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   }
 
   # Clock models
   if (is_relaxed_log_normal_clock_model(clock_models)) {
-    text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", ids, "\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-    text <- c(text, paste0("        <stateNode id=\"rateCategories.c:", ids, "\" spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
+    text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", ids, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
+    text <- c(text, paste0("        <stateNode ",
+      "id=\"rateCategories.c:", ids, "\" ",
+      "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
   }
 
   text <- c(text, "    </state>")
