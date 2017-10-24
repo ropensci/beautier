@@ -34,10 +34,6 @@ Deprecated interface for \code{\link{create_beast2_input_file}},
   present for backwards-compatibility
 }
 \examples{
-  # Get the filename of an example FASTA file
-  input_fasta_filename <- get_input_fasta_filename()
-  testit::assert(file.exists(input_fasta_filename))
-
   # The file created by beastscriptr, a BEAST2 input file
   output_xml_filename <- "example_bd.xml"
 
@@ -48,7 +44,7 @@ Deprecated interface for \code{\link{create_beast2_input_file}},
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death"
   )
-  testit::assert(file.exists(output_xml_filename))
+  testthat::expect_true(file.exists(output_xml_filename))
 
   # The file created by beastscriptr, a BEAST2 input file
   output_xml_filename_fixed <- "example_bd_fixed.xml"
@@ -63,7 +59,7 @@ Deprecated interface for \code{\link{create_beast2_input_file}},
     initial_phylogeny = beastscriptr::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
   )
-  testit::assert(file.exists(output_xml_filename_fixed))
+  testthat::expect_true(file.exists(output_xml_filename_fixed))
 }
 \author{
 Richel J.C. Bilderbeek

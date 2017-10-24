@@ -22,6 +22,8 @@ as returned by \code{\link{create_tree_prior}}}
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
+
+\item{crown_age}{the crown age of the phylogeny}
 }
 \description{
 Create a BEAST2 posterior by running BEAST2 from a random alignment

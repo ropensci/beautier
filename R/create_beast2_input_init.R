@@ -1,5 +1,7 @@
 #' Creates the map section of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_init <- function(

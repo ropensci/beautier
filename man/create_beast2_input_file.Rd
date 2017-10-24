@@ -40,10 +40,6 @@ a phylogeny must be supplied of class ape::phylo.}
 Create a BEAST2 input file
 }
 \examples{
-  # Get the filename of an example FASTA file
-  input_fasta_filename <- get_input_fasta_filename()
-  testit::assert(file.exists(input_fasta_filename))
-
   # The file created by beastscriptr, a BEAST2 input file
   output_xml_filename <- "example_bd.xml"
 
@@ -52,7 +48,7 @@ Create a BEAST2 input file
     input_fasta_filenames = get_input_fasta_filename(),
     output_xml_filename = output_xml_filename
   )
-  testit::assert(file.exists(output_xml_filename))
+  testthat::expect_true(file.exists(output_xml_filename))
 
   # The file created by beastscriptr, a BEAST2 input file
   output_xml_filename_fixed <- "example_bd_fixed.xml"
@@ -65,7 +61,7 @@ Create a BEAST2 input file
     initial_phylogeny = beastscriptr::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
   )
-  testit::assert(file.exists(output_xml_filename_fixed))
+  testthat::expect_true(file.exists(output_xml_filename_fixed))
 }
 \author{
 Richel J.C. Bilderbeek

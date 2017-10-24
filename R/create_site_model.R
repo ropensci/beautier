@@ -1,4 +1,5 @@
-#' General function to create a site model. Prefer using the
+#' General function to create a site model.
+#' @note Prefer using the
 #'   named functions \code{\link{create_jk69_site_model}},
 #'   \code{\link{create_hky_site_model}},
 #'   \code{\link{create_tn93_site_model}},

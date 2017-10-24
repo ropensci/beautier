@@ -1,7 +1,7 @@
-#' General function to create a clock model.
-#' Prefer using the named function
-#' \code{\link{create_rln_clock_model}}
-#' and \code{\link{create_strict_clock_model}}
+#' General function to create a clock model
+#' @note Prefer using the named function
+#'   \code{\link{create_rln_clock_model}}
+#'   and \code{\link{create_strict_clock_model}}
 #' @param name the clock model name. Valid
 #'   names can be found in \code{\link{get_clock_model_names}}
 #' @param ... specific clock model parameters

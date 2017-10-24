@@ -1,6 +1,7 @@
 #' Create a BEAST2 posterior by running BEAST2 from a random alignment
 #' @param n_taxa number of taxa in the simulated phylogeny
 #' @param sequence_length a DNA sequence length, in base pairs
+#' @param crown_age the crown age of the phylogeny
 #' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
 #' @export

@@ -2,10 +2,7 @@
 % Please edit documentation in R/create_tree_prior.R
 \name{create_tree_prior}
 \alias{create_tree_prior}
-\title{General function to create a tree prior. Prefer the use the named
-functions \code{\link{create_yule_tree_prior}},
-\code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
-and \code{\link{create_ccp_tree_prior}}}
+\title{General function to create a tree prior}
 \usage{
 create_tree_prior(name)
 }
@@ -17,10 +14,13 @@ in \code{\link{get_tree_prior_names}}}
 a tree_prior
 }
 \description{
-General function to create a tree prior. Prefer the use the named
-functions \code{\link{create_yule_tree_prior}},
-\code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
-and \code{\link{create_ccp_tree_prior}}
+General function to create a tree prior
+}
+\note{
+Prefer the use the named
+  functions \code{\link{create_yule_tree_prior}},
+  \code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
+  and \code{\link{create_ccp_tree_prior}}
 }
 \author{
 Richel J.C. Bilderbeek
