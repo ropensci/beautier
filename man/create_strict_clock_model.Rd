@@ -6,6 +6,9 @@
 \usage{
 create_strict_clock_model(rate = get_default_clock_model_rate())
 }
+\arguments{
+\item{rate}{a known clock rate}
+}
 \value{
 a strict clock_model
 }
