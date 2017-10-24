@@ -2,10 +2,12 @@
 #' Prefer using 'create_rln_clock_model' and 'create_strict_clock_model'
 #' @param name the clock model name. Valid
 #'   names can be found in 'get_clock_model_names'
+#' @param ... specific clock model parameters
 #' @return a clock_model
 #' @export
 create_clock_model <- function(
-  name
+  name,
+  ...
 ) {
   if (!is_clock_model_name(name)) {
     clock_models_as_string <- function() {
@@ -22,7 +24,7 @@ create_clock_model <- function(
     )
     stop("invalid clock model name")
   }
-  clock_model <- list(name = name)
+  clock_model <- list(name = name, ...)
   clock_model
 }
 

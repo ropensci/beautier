@@ -5,11 +5,13 @@
 \title{General function to create a clock model.
 Prefer using 'create_rln_clock_model' and 'create_strict_clock_model'}
 \usage{
-create_clock_model(name)
+create_clock_model(name, ...)
 }
 \arguments{
 \item{name}{the clock model name. Valid
 names can be found in 'get_clock_model_names'}
+
+\item{...}{specific clock model parameters}
 }
 \value{
 a clock_model
