@@ -167,7 +167,7 @@ create_beast2_input_operators <- function(
   }
 
   # Clock model
-  if (is_relaxed_log_normal_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"ucldStdevScaler.c:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", ids, "\" ",

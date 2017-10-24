@@ -175,7 +175,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     text <- c(text, paste0("            </prior>"))
   }
 
-  if (is_relaxed_log_normal_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0("            <prior ",
       "id=\"ucldStdevPrior.c:", ids, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", ids, "\">"))
@@ -273,7 +273,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
       get_clock_model_rate(clock_models),
       "</parameter>"))
     text <- c(text, "                </branchRateModel>")
-  } else if (is_relaxed_log_normal_clock_model(clock_models)) {
+  } else if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0("                <branchRateModel ",
       "id=\"RelaxedClock.c:", ids, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",

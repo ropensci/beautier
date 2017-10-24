@@ -3,7 +3,7 @@
 #' @return TRUE if x is a valid relaxed log normal clock model, FALSE otherwise
 #' @author Richel Bilderbeek
 #' @export
-is_relaxed_log_normal_clock_model <- function(
+is_rln_clock_model <- function(
   x
 ) {
   return("name" %in% names(x) && x$name == "relaxed_log_normal")

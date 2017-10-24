@@ -89,7 +89,7 @@ create_beast2_input_state <- function(
   }
 
   # Clock models
-  if (is_relaxed_log_normal_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
     text <- c(text, paste0("        <stateNode ",

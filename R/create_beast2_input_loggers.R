@@ -75,7 +75,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   }
 
   # Clock models
-  if (is_relaxed_log_normal_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0("        <log idref=\"ucldStdev.c:", ids, "\"/>"))
     text <- c(text, paste0("        <log id=\"rate.c:", ids, "\" ",
       "spec=\"beast.evolution.branchratemodel.RateStatistic\" ",
@@ -102,7 +102,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       "id=\"TreeWithMetaDataLogger.t:", ids, "\" ",
       "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
       "tree=\"@Tree.t:", ids, "\"/>"))
-  } else if (is_relaxed_log_normal_clock_model(clock_models)) {
+  } else if (is_rln_clock_model(clock_models)) {
     text <- c(text, paste0("        <log ",
       "id=\"TreeWithMetaDataLogger.t:", ids, "\" ",
       "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",

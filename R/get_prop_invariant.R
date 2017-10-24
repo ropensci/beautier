@@ -22,4 +22,3 @@ get_prop_invariant <- function(site_models) {
 get_default_prop_invariant <- function() {
   return("0.0")
 }
-
