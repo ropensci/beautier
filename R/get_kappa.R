@@ -11,7 +11,7 @@ get_kappa <- function(site_models) {
     return(site_models$kappa)
   }
   # The default value
-  return(get_default_kappa())
+  return(beastscriptr::get_default_kappa())
 }
 
 #' Get the default kappa for the HKY nucleotide

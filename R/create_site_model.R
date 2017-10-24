@@ -31,7 +31,7 @@ create_site_model <- function(
 #' @return a JC69 site_model
 #' @export
 create_jc69_site_model <- function() {
-  return(create_site_model(name = "JC69"))
+  return(beastscriptr::create_site_model(name = "JC69"))
 }
 
 #' Create an HKY site model
@@ -60,12 +60,12 @@ create_hky_site_model <- function(
 #' @return a TN93 site_model
 #' @export
 create_tn93_site_model <- function() {
-  return(create_site_model(name = "TN93"))
+  return(beastscriptr::create_site_model(name = "TN93"))
 }
 
 #' Create a GTR site model
 #' @return a GTR site_model
 #' @export
 create_gtr_site_model <- function() {
-  return(create_site_model(name = "GTR"))
+  return(beastscriptr::create_site_model(name = "GTR"))
 }

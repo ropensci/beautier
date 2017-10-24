@@ -11,7 +11,7 @@ get_prop_invariant <- function(site_models) {
     return(site_models$prop_invariant)
   }
   # The default value
-  return(get_default_prop_invariant())
+  return(beastscriptr::get_default_prop_invariant())
 }
 
 #' Get the default proportion invariant for the HKY nucleotide

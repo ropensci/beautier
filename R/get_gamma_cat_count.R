@@ -11,7 +11,7 @@ get_gamma_cat_count <- function(site_models) {
     return(site_models$gamma_cat_count)
   }
   # The default value
-  return(get_default_gamma_cat_count())
+  return(beastscriptr::get_default_gamma_cat_count())
 }
 
 #' Get the default gamma category count for the HKY nucleotide

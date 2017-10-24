@@ -12,7 +12,7 @@ get_clock_model_rate <- function(
     return(clock_models$rate)
   }
   # The default value
-  return(get_default_clock_model_rate())
+  return(beastscriptr::get_default_clock_model_rate())
 }
 
 #' Get the default strict clock model rate.
