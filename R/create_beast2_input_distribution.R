@@ -176,7 +176,10 @@ create_beast2_input_distribution <- function(
   # Clock models
   if (is_strict_clock_model(clock_models)) {
     text <- c(text, paste0("                <branchRateModel id=\"StrictClock.c:", ids, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    text <- c(text, paste0("                    <parameter id=\"clockRate.c:", ids, "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
+      ids, "\" estimate=\"false\" name=\"clock.rate\">",
+      get_clock_model_rate(clock_models),
+      "</parameter>"))
     text <- c(text, "                </branchRateModel>")
   } else if (is_relaxed_log_normal_clock_model(clock_models)) {
     text <- c(text, paste0("                <branchRateModel id=\"RelaxedClock.c:", ids, "\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:", ids, "\" tree=\"@Tree.t:", ids, "\">"))
