@@ -36,6 +36,6 @@ create_rln_clock_model <- function() {
 #' Create a strict clock model
 #' @return a strict clock_model
 #' @export
-create_strict_clock_model <- function() {
-  return(create_clock_model(name = "strict"))
+create_strict_clock_model <- function(rate = get_default_clock_model_rate()) {
+  return(list(name = "strict", rate = rate))
 }
