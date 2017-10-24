@@ -4,7 +4,7 @@
 \alias{create_rln_clock_model}
 \title{Create a relaxed log-normal clock model}
 \usage{
-create_rln_clock_model(name)
+create_rln_clock_model()
 }
 \value{
 a relaxed log-normal clock_model

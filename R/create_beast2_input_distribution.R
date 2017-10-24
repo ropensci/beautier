@@ -3,6 +3,8 @@
 #'   their FASTA filesnames using 'get_file_base_sans_ext')
 #' @param site_models one or more site models,
 #'   as returned by 'create_site_model'
+#' @param clock_models On or more clock models,
+#'   as returned by 'create_clock_model'
 #' @param tree_priors one or more tree priors
 #' @export
 create_beast2_input_distribution <- function(

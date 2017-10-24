@@ -4,7 +4,7 @@
 \alias{create_strict_clock_model}
 \title{Create a strict clock model}
 \usage{
-create_strict_clock_model(name)
+create_strict_clock_model()
 }
 \value{
 a strict clock_model

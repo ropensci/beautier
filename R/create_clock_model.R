@@ -29,17 +29,13 @@ create_clock_model <- function(
 #' Create a relaxed log-normal clock model
 #' @return a relaxed log-normal clock_model
 #' @export
-create_rln_clock_model <- function(
-  name
-) {
+create_rln_clock_model <- function() {
   return(create_clock_model(name = "relaxed_log_normal"))
 }
 
 #' Create a strict clock model
 #' @return a strict clock_model
 #' @export
-create_strict_clock_model <- function(
-  name
-) {
+create_strict_clock_model <- function() {
   return(create_clock_model(name = "strict"))
 }

@@ -35,6 +35,10 @@ Priors:
 
 ## Example #1
 
+Using all default settings, only specify a DNA alignment.
+
+![All default](all_default.png)
+
 ```
 # Create the BEAST2 XML input file
 beastscriptr::create_beast2_input_file(
@@ -47,6 +51,12 @@ All other parameters are set to their defaults as in BEAUti
 
 ## Example #2: fixed crown age
 
+Using all default settings, only specify a DNA alignment.
+
+```
+[No screenshot, as this cannot be done in BEAUti yet]
+```
+
 ```
 beastscriptr::create_beast2_input_file(
   input_fasta_filename = "my_fasta.fas",
@@ -58,40 +68,43 @@ beastscriptr::create_beast2_input_file(
 )
 ```
 
-## Example #3: HKY site model
+## Example #3: JC69 site model
 
-Thanks to Yacine Ben Cheheda
-
-### Change gamma category count 
-
-![HKY example](hky_gcc_4_2_4.png)
+![JC69](jc69_2_4.png)
 
 ```
 beastscriptr::create_beast2_input_file(
   input_fasta_filenames = "my_alignment.fas",
-  site_models = create_hky_site_model(
-    gamma_cat_count = 4
-  ), 
+  site_models = create_jc69_site_model(), 
   output_xml_filename = "my_beast.xml"
 )
 ```
 
-### Change gamma category count and shape
+## Example #4: Relaxed clock log normal
 
-![HKY example](hky_gcc_5_shape_1_5_2_4.png)
+![Relaxed clock log normal](relaxed_clock_log_normal_2_4)
 
 ```
 beastscriptr::create_beast2_input_file(
   input_fasta_filenames = "my_alignment.fas",
-  site_models = create_hky_site_model(
-    gamma_cat_count = 4,
-    gamma_shape = 1.5
-  ), 
+  clock_models = create_rln_clock_model(), 
   output_xml_filename = "my_beast.xml"
 )
 ```
 
-### Change proportion invariant
+## Example #5: Birth-Death tree prior
+
+![Birth-Death tree prior](birth_death_2_4)
+
+```
+beastscriptr::create_beast2_input_file(
+  input_fasta_filenames = "my_alignment.fas",
+  tree_priors = create_bd_tree_prior(), 
+  output_xml_filename = "my_beast.xml"
+)
+```
+
+## Example #6: HKY site model with a non-zero proportion of invariants
 
 ![HKY example](hky_prop_invariant_0_5_2_4.png)
 
@@ -105,20 +118,37 @@ beastscriptr::create_beast2_input_file(
 )
 ```
 
-## Future use cases
+Thanks to Yacine Ben Cheheda for this use case
 
-Thanks to Paul van Els.
+## Example #7: Strict clock with a known clock rate
+
+![Relaxed clock log normal](relaxed_clock_log_normal_2_4)
 
 ```
 beastscriptr::create_beast2_input_file(
   input_fasta_filenames = "my_alignment.fas",
-  site_models = create_site_model(name = "J69"), 
-  clock_models = create_clock_model(name = "strict"), 
-  tree_priors = create_tree_prior(name = "yule"), 
+  clock_models = create_strict_clock_model(rate = 0.5), 
+  output_xml_filename = "my_beast.xml"
+)
+```
+
+
+Thanks to Paul van Els and Yacine Ben Cheheda for this use case.
+
+## Future use cases
+
+```
+beastscriptr::create_beast2_input_file(
+  input_fasta_filenames = "my_alignment.fas",
+  site_models = create_jc69_site_model(), 
+  clock_models = create_strict_clock_model(), 
+  tree_priors = create_yule_tree_prior(), 
   mcmc = create_mcmc(mcmc_chainlength = 1000000),
   output_xml_filename = "my_beast.xml"
 )
 ```
+
+Thanks to Paul van Els for this use case.
 
 Two input FASTA files:
 
@@ -126,16 +156,16 @@ Two input FASTA files:
 beastscriptr::create_beast2_input_file(
   input_fasta_filenames = c("nuc.fas", "mit.fas"),
   site_models = c(
-    create_site_model(name = "J69"), 
-    create_site_model(name = "HKY")
+    create_jc69_site_model(), 
+    create_hky_site_model()
   ),
   clock_models = c(
     create_clock_model(0.1), 
     create_clock_model(0.2)
   ),
   tree_priors = c(
-    create_tree_prior(name = "yule"), 
-    create_tree_prior(name = "birth_death")
+    create_yule_tree_prior(), 
+    create_bd_tree_prior()
   ),
   mcmc = create_mcmc(mcmc_chainlength = 1000000),
   output_xml_filename = "my_beast.xml"
