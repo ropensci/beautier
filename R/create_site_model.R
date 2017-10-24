@@ -23,7 +23,6 @@ create_site_model <- function(
       "invalid site model name, must be one these: ",
       site_models_as_string()
     )
-    stop("invalid site model name")
   }
   site_model <- list(name = name, ...)
   site_model
