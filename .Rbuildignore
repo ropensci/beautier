@@ -9,4 +9,4 @@
 ^demo\.pdf$
 ^create_pdf\.R$
 ^install_beast2\.sh$
-^*\.png$
+^.*\.png$
