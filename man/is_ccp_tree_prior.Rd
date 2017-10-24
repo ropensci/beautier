@@ -18,5 +18,5 @@ TRUE if x is a valid constant coalescence population tree prior,
 Determine if the object is a valid constant coalescence population tree prior
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

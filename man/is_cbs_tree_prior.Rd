@@ -18,5 +18,5 @@ TRUE if x is a valid constant coalescent Bayesian skyline prior,
 Determine if the object is a valid constant coalescent Bayesian skyline prior
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

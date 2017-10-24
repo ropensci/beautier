@@ -7,7 +7,7 @@
 create_beast2_input_data(input_fasta_filenames)
 }
 \arguments{
-\item{input_fasta_filenames}{name of the FASTA file}
+\item{input_fasta_filenames}{One or more fasta filenames}
 }
 \description{
 Creates the data section of a BEAST2 XML parameter file

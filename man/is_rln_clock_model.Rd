@@ -17,5 +17,5 @@ TRUE if x is a valid relaxed log normal clock model, FALSE otherwise
 Determine if the object is a valid relaxed log normal clock model
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

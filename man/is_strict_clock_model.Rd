@@ -16,5 +16,5 @@ TRUE if x is a valid strict clock model, FALSE otherwise
 Determine if the object is a valid strict clock model
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

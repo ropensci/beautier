@@ -14,13 +14,13 @@ create_beast2_input(input_fasta_filenames,
 \item{input_fasta_filenames}{One or more fasta filenames}
 
 \item{site_models}{one or more site models,
-as returned by 'create_site_model'}
+as returned by \code{\link{create_site_model}}}
 
 \item{clock_models}{On or more clock models,
-as returned by 'create_clock_model'}
+as returned by \code{\link{create_clock_model}}}
 
 \item{tree_priors}{On or more tree priors,
-as returned by 'create_tree_prior'}
+as returned by \code{\link{create_tree_prior}}}
 
 \item{mcmc_chainlength}{Length of MCMC chain}
 
@@ -43,5 +43,5 @@ Create a BEAST2 XML input text
   )
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

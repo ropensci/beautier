@@ -1,14 +1,5 @@
 #' Creates the beast section of a BEAST2 XML parameter file
-#' @param input_fasta_filenames one ore more FASTA filenames
-#' @param site_models one or more site models,
-#'   as returned by 'create_site_model'
-#' @param clock_models On or more clock models,
-#'   as returned by 'create_clock_model'
-#' @param mcmc_chainlength MCMC chain length
-#' @param tree_priors one ore more tree priors,
-#'   as returned from 'create_tree_prior'
-#' @param fixed_crown_age is the crown age fixed TRUE or FALSE
-#' @param initial_phylogeny initial phylogeny or NA
+#' @inheritParams create_beast2_input
 #' @export
 create_beast2_input_beast <- function(
   input_fasta_filenames,

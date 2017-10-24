@@ -29,5 +29,5 @@ if and only if the crown age is fixed. Must be NA otherwise.}
 Create a BEAST2 posterior by running BEAST2 from a random alignment
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

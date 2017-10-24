@@ -9,19 +9,18 @@ create_beast2_input_state(ids, site_models = create_site_model(name = "JC69"),
   tree_priors = create_tree_prior(name = "yule"), initial_phylogeny)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using 'get_file_base_sans_ext')}
-
-\item{site_models}{one or more site models, as returned
-by 'create_site_model'}
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 
 \item{clock_models}{On or more clock models,
-as returned by 'create_clock_model'}
+as returned by \code{\link{create_clock_model}}}
 
-\item{tree_priors}{one or more tree priors, as returned
-by 'create_tree_prior'}
+\item{tree_priors}{On or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 
-\item{initial_phylogeny}{initial phylogeny or NA}
+\item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
+this is set to NA, BEAST2 will use a random phylogeny. Else
+a phylogeny must be supplied of class ape::phylo.}
 }
 \description{
 Creates the state section of a BEAST2 XML parameter file

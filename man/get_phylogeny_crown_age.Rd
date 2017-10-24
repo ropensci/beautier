@@ -27,5 +27,5 @@ Obtain the crown age of a phylony
   testit::assert(all.equal(age, crown_age, tolerance = 0.001))
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

@@ -11,7 +11,7 @@
 #'   testit::assert(n_taxa > 0)
 #'   crown_age <- get_phylogeny_crown_age(phylogeny)
 #'   testit::assert(all.equal(age, crown_age, tolerance = 0.001))
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @export
 get_phylogeny_crown_age <- function(
   phylogeny

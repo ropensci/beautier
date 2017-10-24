@@ -1,6 +1,6 @@
 ---
 title: "beastscriptr demo"
-author: "Richel Bilderbeek"
+author: "Richel J.C. Bilderbeek"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

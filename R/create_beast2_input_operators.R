@@ -1,16 +1,5 @@
 #' Creates the operators section of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using 'get_file_base_sans_ext')
-#' @param site_models one or more site models,
-#'   as returned by 'create_site_model'
-#' @param clock_models On or more clock models,
-#'   as returned by 'create_clock_model'
-#' @param tree_priors One or more tree priors, as returned
-#'   by 'create_tree_prior'
-#' @param fixed_crown_age determines if the phylogeny its crown age is
-#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
-#'   the crown age is fixed to the crown age
-#'   of the initial phylogeny.
+#' @inheritParams create_beast2_input
 #' @export
 create_beast2_input_operators <- function(
   ids,

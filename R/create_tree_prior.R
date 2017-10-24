@@ -1,8 +1,9 @@
-#' General function to create a tree prior. Prefer using the
-#' function 'create_yule_tree_prior', 'create_bd_tree_prior',
-#' 'create_cbs_tree_prior' and 'create_ccp_tree_prior'
-#' @param name the tree prior name. Can be 'birth_death'
-#'   or 'coalescent_constant_population'
+#' General function to create a tree prior. Prefer the use the named
+#' functions \code{\link{create_yule_tree_prior}},
+#' \code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
+#' and \code{\link{create_ccp_tree_prior}}
+#' @param name the tree prior name. Can be any name
+#'   in \code{\link{get_tree_prior_names}}
 #' @return a tree_prior
 #' @export
 create_tree_prior <- function(

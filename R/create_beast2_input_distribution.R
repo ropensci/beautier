@@ -1,11 +1,5 @@
 #' Creates the distribution section of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using 'get_file_base_sans_ext')
-#' @param site_models one or more site models,
-#'   as returned by 'create_site_model'
-#' @param clock_models On or more clock models,
-#'   as returned by 'create_clock_model'
-#' @param tree_priors one or more tree priors
+#' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @export
@@ -252,7 +246,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 #' Creates the distribution section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using 'get_file_base_sans_ext')
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param tree_priors one or more tree priors
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted

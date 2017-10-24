@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_beast2_input_file.R
 \name{is_valid_beast2_input_file}
 \alias{is_valid_beast2_input_file}
-\title{Deprecated name for function 'is_beast2_input_file'}
+\title{Deprecated name for function \code{\link{is_beast2_input_file}}}
 \usage{
 is_valid_beast2_input_file(filename)
 }
@@ -13,5 +13,5 @@ is_valid_beast2_input_file(filename)
 TRUE if the file is valid, FALSE if not
 }
 \description{
-Deprecated name for function 'is_beast2_input_file'
+Deprecated name for function \code{\link{is_beast2_input_file}}
 }

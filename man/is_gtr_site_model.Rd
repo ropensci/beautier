@@ -16,5 +16,5 @@ TRUE if x is a valid GTR site model, FALSE otherwise
 Determine if the object is a valid GTR site model
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

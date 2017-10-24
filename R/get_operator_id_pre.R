@@ -5,7 +5,7 @@
 #'     tree_priors = create_tree_prior(name = "birth_death")
 #'   )
 #'   testthat::expect_equal(bd_pre, "BirthDeath")
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @export
 get_operator_id_pre <- function(tree_priors) {
   if (is_bd_tree_prior(tree_priors)) {

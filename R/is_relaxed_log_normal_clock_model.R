@@ -2,7 +2,7 @@
 #' @param x an object, to be determined if it is a valid
 #'   relaxed log normal clock model
 #' @return TRUE if x is a valid relaxed log normal clock model, FALSE otherwise
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @export
 is_rln_clock_model <- function(
   x

@@ -19,5 +19,5 @@ Get the prefix of operator IDs
   testthat::expect_equal(bd_pre, "BirthDeath")
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

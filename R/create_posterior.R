@@ -9,7 +9,7 @@
 #'   fixed_crown_age is set to false, crown ages are estimated by BEAST2
 #' @param crown_age a non-zero and positive crown age,
 #'   if and only if the crown age is fixed. Must be NA otherwise.
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_posterior <- function(
     n_taxa,

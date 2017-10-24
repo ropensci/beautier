@@ -2,21 +2,23 @@
 % Please edit documentation in R/create_tree_prior.R
 \name{create_tree_prior}
 \alias{create_tree_prior}
-\title{General function to create a tree prior. Prefer using the
-function 'create_yule_tree_prior', 'create_bd_tree_prior',
-'create_cbs_tree_prior' and 'create_ccp_tree_prior'}
+\title{General function to create a tree prior. Prefer the use the named
+functions \code{\link{create_yule_tree_prior}},
+\code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
+and \code{\link{create_ccp_tree_prior}}}
 \usage{
 create_tree_prior(name)
 }
 \arguments{
-\item{name}{the tree prior name. Can be 'birth_death'
-or 'coalescent_constant_population'}
+\item{name}{the tree prior name. Can be any name
+in \code{\link{get_tree_prior_names}}}
 }
 \value{
 a tree_prior
 }
 \description{
-General function to create a tree prior. Prefer using the
-function 'create_yule_tree_prior', 'create_bd_tree_prior',
-'create_cbs_tree_prior' and 'create_ccp_tree_prior'
+General function to create a tree prior. Prefer the use the named
+functions \code{\link{create_yule_tree_prior}},
+\code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
+and \code{\link{create_ccp_tree_prior}}
 }

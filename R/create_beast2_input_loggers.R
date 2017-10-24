@@ -1,11 +1,5 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using 'get_file_base_sans_ext')
-#' @param site_models one or more site models,
-#'   as returned by 'create_site_model'
-#' @param clock_models On or more clock models,
-#'   as returned by 'create_clock_model'
-#' @param tree_priors one or more tree priors
+#' @inheritParams create_beast2_input
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,

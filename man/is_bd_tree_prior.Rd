@@ -16,5 +16,5 @@ TRUE if x is a valid birth death tree prior, FALSE otherwise
 Determine if the object is a valid Birth Death tree prior
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

@@ -1,21 +1,7 @@
 #' Create a BEAST2 input file
-#' @param input_fasta_filenames One or more fasta filename
-#' @param site_models one or more site models,
-#'   as returned by 'create_site_models'
-#' @param clock_models On or more clock models,
-#'   as returned by 'create_clock_model'
-#' @param tree_priors On or more tree priors,
-#'   as returned by 'create_tree_prior'
-#' @param mcmc_chainlength Length of MCMC chain
+#' @inheritParams create_beast2_input
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
-#' @param fixed_crown_age determines if the phylogeny its crown age is
-#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
-#'   the crown age is fixed to the crown age
-#'   of the initial phylogeny.
-#' @param initial_phylogeny the MCMC chain its initial phylogeny. If
-#'   this is set to NA, BEAST2 will use a random phylogeny. Else
-#'   a phylogeny must be supplied of class ape::phylo.
 #' @examples
 #'   # Get the filename of an example FASTA file
 #'   input_fasta_filename <- get_input_fasta_filename()
@@ -43,7 +29,7 @@
 #'       input_fasta_filename, crown_age = 15)
 #'   )
 #'   testit::assert(file.exists(output_xml_filename_fixed))
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_file <- function(
   input_fasta_filenames,

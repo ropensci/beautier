@@ -1,5 +1,5 @@
 #' Creates the data section of a BEAST2 XML parameter file
-#' @param input_fasta_filenames name of the FASTA file
+#' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @export

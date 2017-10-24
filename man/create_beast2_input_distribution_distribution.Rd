@@ -10,7 +10,7 @@ create_beast2_input_distribution_distribution(ids,
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using 'get_file_base_sans_ext')}
+their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
 
 \item{tree_priors}{one or more tree priors}
 }

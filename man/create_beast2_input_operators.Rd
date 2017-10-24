@@ -9,17 +9,14 @@ create_beast2_input_operators(ids, site_models = create_site_model(name =
   tree_priors = create_tree_prior(name = "yule"), fixed_crown_age)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using 'get_file_base_sans_ext')}
-
 \item{site_models}{one or more site models,
-as returned by 'create_site_model'}
+as returned by \code{\link{create_site_model}}}
 
 \item{clock_models}{On or more clock models,
-as returned by 'create_clock_model'}
+as returned by \code{\link{create_clock_model}}}
 
-\item{tree_priors}{One or more tree priors, as returned
-by 'create_tree_prior'}
+\item{tree_priors}{On or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,

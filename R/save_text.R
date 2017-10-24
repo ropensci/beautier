@@ -3,7 +3,7 @@
 #' @param text text to be written to file
 #' @return Nothing
 #' @export
-#' @author Richel Bilderbeek
+#' @author Richel J.C. Bilderbeek
 save_text <- function(filename, text) {
   my_file <- file(filename)
   writeLines(text, my_file)

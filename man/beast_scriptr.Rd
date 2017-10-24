@@ -2,22 +2,23 @@
 % Please edit documentation in R/beast_scriptr.R
 \name{beast_scriptr}
 \alias{beast_scriptr}
-\title{Deprecated interface for 'create_beast2_input_file',
+\title{Deprecated interface for \code{\link{create_beast2_input_file}},
   present for backwards-compatibility}
 \usage{
-beast_scriptr(input_fasta_filename, mcmc_chainlength = 1e+07,
-  tree_prior = "yule", output_xml_filename, fixed_crown_age = FALSE,
+beast_scriptr(input_fasta_filename, output_xml_filename,
+  mcmc_chainlength = 1e+07, tree_prior = "yule", fixed_crown_age = FALSE,
   initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filename}{One or more fasta filename}
 
-\item{mcmc_chainlength}{Length of MCMC chain}
-
-\item{tree_prior}{On or more tree priors, as returned by 'create_tree_prior'}
-
 \item{output_xml_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
+
+\item{mcmc_chainlength}{Length of MCMC chain}
+
+\item{tree_prior}{One or more tree prior names,
+must be a name in \code{\link{get_tree_prior_names}}}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
@@ -29,7 +30,7 @@ this is set to NA, BEAST2 will use a random phylogeny. Else
 a phylogeny must be supplied of class ape::phylo.}
 }
 \description{
-Deprecated interface for 'create_beast2_input_file',
+Deprecated interface for \code{\link{create_beast2_input_file}},
   present for backwards-compatibility
 }
 \examples{
@@ -43,9 +44,9 @@ Deprecated interface for 'create_beast2_input_file',
   # Birth-Death tree prior, crown age is estimated
   beast_scriptr(
     input_fasta_filename = get_input_fasta_filename(),
+    output_xml_filename = output_xml_filename,
     mcmc_chainlength = 10000000,
-    tree_prior = "birth_death",
-    output_xml_filename = output_xml_filename
+    tree_prior = "birth_death"
   )
   testit::assert(file.exists(output_xml_filename))
 
@@ -55,9 +56,9 @@ Deprecated interface for 'create_beast2_input_file',
   # Birth-Death tree prior, crown age is fixed at 15 time units
   beast_scriptr(
     input_fasta_filename = get_input_fasta_filename(),
+    output_xml_filename = output_xml_filename_fixed,
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
-    output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
     initial_phylogeny = beastscriptr::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
@@ -65,5 +66,5 @@ Deprecated interface for 'create_beast2_input_file',
   testit::assert(file.exists(output_xml_filename_fixed))
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

@@ -18,5 +18,5 @@ Nothing
 Save text (a container of strings) to a file
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

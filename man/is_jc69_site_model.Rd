@@ -16,5 +16,5 @@ TRUE if x is a valid JC69 site model, FALSE otherwise
 Determine if the object is a valid JC69 site model
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

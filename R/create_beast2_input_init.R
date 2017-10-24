@@ -1,7 +1,5 @@
 #' Creates the map section of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using 'get_file_base_sans_ext')
-#' @param initial_phylogeny initial phylogeny
+#' @inheritParams create_beast2_input
 #' @export
 create_beast2_input_init <- function(
   ids,

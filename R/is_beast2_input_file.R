@@ -16,7 +16,7 @@ is_beast2_input_file <- function(filename) {
   is_valid
 }
 
-#' Deprecated name for function 'is_beast2_input_file'
+#' Deprecated name for function \code{\link{is_beast2_input_file}}
 #' @param filename name of the BEAST2 XML input file
 #' @return TRUE if the file is valid, FALSE if not
 #' @export

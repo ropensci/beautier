@@ -7,10 +7,9 @@
 create_beast2_input_init(ids, initial_phylogeny)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using 'get_file_base_sans_ext')}
-
-\item{initial_phylogeny}{initial phylogeny}
+\item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
+this is set to NA, BEAST2 will use a random phylogeny. Else
+a phylogeny must be supplied of class ape::phylo.}
 }
 \description{
 Creates the map section of a BEAST2 XML parameter file
