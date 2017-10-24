@@ -82,7 +82,7 @@ beastscriptr::create_beast2_input_file(
 
 ## Example #4: Relaxed clock log normal
 
-![Relaxed clock log normal](relaxed_clock_log_normal_2_4)
+![Relaxed clock log normal](relaxed_clock_log_normal_2_4.png)
 
 ```
 beastscriptr::create_beast2_input_file(
@@ -94,7 +94,7 @@ beastscriptr::create_beast2_input_file(
 
 ## Example #5: Birth-Death tree prior
 
-![Birth-Death tree prior](birth_death_2_4)
+![Birth-Death tree prior](birth_death_2_4.png)
 
 ```
 beastscriptr::create_beast2_input_file(
@@ -122,7 +122,7 @@ Thanks to Yacine Ben Cheheda for this use case
 
 ## Example #7: Strict clock with a known clock rate
 
-![Relaxed clock log normal](relaxed_clock_log_normal_2_4)
+![Strict clock with a rate of 0.5](strict_clock_rate_0_5_2_4.png)
 
 ```
 beastscriptr::create_beast2_input_file(
@@ -131,7 +131,6 @@ beastscriptr::create_beast2_input_file(
   output_xml_filename = "my_beast.xml"
 )
 ```
-
 
 Thanks to Paul van Els and Yacine Ben Cheheda for this use case.
 
