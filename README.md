@@ -18,20 +18,25 @@ For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev
 
 ## Supported
 
-Site models:
+The default parameters of these settings are supported:
 
- * JC69
- * HKY
- * TN93
- * GTR
+ * Site models
+   * JC69
+   * HKY
+   * TN93
+   * GTR
+ * Clock models
+   * Strict
+   * Relaxed log-normal
+ * Priors
+   * Yule
+   * Birth-Death
+   * Coalescent Constant Population
+   * Coalescent Bayesian Skyline
 
-Priors:
+`beastscripts` can only do a small part of `BEAUti`.
 
- * Yule
- * Birth-Death
- * Coalescent Constant Population
- * Coalescent Bayesian Skyline
-
+Unlike BEAUti, `beastscriptr` *does* allow for a fixed crown age.
 
 ## Example #1
 
@@ -179,40 +184,17 @@ If you use the `devtools` R package, this is easy:
 devtools::install_github("richelbilderbeek/beastscriptr")
 ```
 
-## Currently supports
+## There is a feature I miss
 
-`beastscripts` can do only do a small part of `BEAUti`.
-On the other hand, it *does* allow for a fixed crown age.
-
- * DNA data
- * Tree priors:
-    * the constant-rate birth-death model
-    * the contant-population coalescent model
- * Fixed crown age yes/no
+See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting use cases`
 
 ## I want to collaborate
 
-Great! These are your options:
-
- * Add an Issue
- * Submit a Pull Request
-
-Pull Requests should
- * try to follow the [R-CodingStandard](https://github.com/richelbilderbeek/R-CodingStandard) guidelines
- * keep the package to be built without warnings and/or notes
- * not trigger any warning by `lintr`
+See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting code'
 
 ## I think I have found a bug
 
-Awesome! These are your options:
-
- * Add an Issue, with the test that fails
- * Submit a Pull Request, where the test is added to the `tests/testthat` folder
-
-Pull Requests should
- * try to follow the [R-CodingStandard](https://github.com/richelbilderbeek/R-CodingStandard) guidelines
- * keep the package to be built without warnings and/or notes
- * not trigger any warning by `lintr`
+See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs' 
 
 ## There's something else I want to say
 
