@@ -59,7 +59,8 @@ Create a BEAST2 input file
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
     initial_phylogeny = beastscriptr::fasta_to_phylo(
-      input_fasta_filename, crown_age = 15)
+      fasta_filename = get_input_fasta_filename(),
+      crown_age = 15)
   )
   testthat::expect_true(file.exists(output_xml_filename_fixed))
 }
