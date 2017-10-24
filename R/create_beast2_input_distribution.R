@@ -6,8 +6,10 @@
 #' @param clock_models On or more clock models,
 #'   as returned by 'create_clock_model'
 #' @param tree_priors one or more tree priors
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
 #' @export
-create_beast2_input_distribution <- function(
+create_beast2_input_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
@@ -210,13 +212,13 @@ create_beast2_input_distribution <- function(
     "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
 
   # proportionInvariant
-  if (is_hky_site_model(site_models))
-  {
-    prop_invariant <- get_prop_invariant(site_models)
+  if (is_hky_site_model(site_models)) {
+
     text <- c(text, paste0(
       "                    <parameter id=\"proportionInvariant.s:",
       ids, "\" estimate=\"false\" lower=\"0.0\" ",
-      "name=\"proportionInvariant\" upper=\"1.0\">", prop_invariant,
+      "name=\"proportionInvariant\" upper=\"1.0\">",
+      beastscriptr::get_prop_invariant(site_models),
       "</parameter>"))
   } else {
     # Just use zero
@@ -225,7 +227,6 @@ create_beast2_input_distribution <- function(
       ids, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
   }
-
 
   # Site models
   if (is_jc69_site_model(site_models)) {

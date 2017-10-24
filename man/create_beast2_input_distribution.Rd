@@ -23,3 +23,7 @@ as returned by 'create_clock_model'}
 \description{
 Creates the distribution section of a BEAST2 XML parameter file
 }
+\note{
+this function is not intended for regular use, thus its
+  long name length is accepted
+}
