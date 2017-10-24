@@ -6,6 +6,9 @@ For all examples, do load `beastscriptr`:
 library(beastscriptr)
 ```
 
+All examples read the alignment in file `my_fasta.fas` and create
+a BEAST2 input file called `my_beast.xml`.
+
 ## Example #1
 
 Using all default settings, only specify a DNA alignment.
@@ -19,7 +22,7 @@ create_beast2_input_file(
 )
 ```
 
-All other parameters are set to their defaults as in BEAUti.
+All other parameters are set to their defaults, as in BEAUti.
 
 ## Example #2: fixed crown age
 
