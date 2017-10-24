@@ -47,11 +47,11 @@
 #' @export
 create_beast2_input_file <- function(
   input_fasta_filenames,
+  output_xml_filename,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
-  output_xml_filename,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
