@@ -13,17 +13,15 @@ create_posterior(n_taxa, sequence_length, tree_priors = create_tree_prior(name
 
 \item{sequence_length}{a DNA sequence length, in base pairs}
 
-\item{tree_priors}{a tree prior, as returned by create_tree_prior}
+\item{tree_priors}{On or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 
-\item{mcmc_chainlength}{MCMC chain length in number of states}
+\item{mcmc_chainlength}{Length of MCMC chain}
 
-\item{fixed_crown_age}{determines if the crown age in the posterior
-must be fixed. If the crown age must be fixed, it can be set to
-a non-zero and positive value with the 'crown_age' parameter. If
-fixed_crown_age is set to false, crown ages are estimated by BEAST2}
-
-\item{crown_age}{a non-zero and positive crown age,
-if and only if the crown age is fixed. Must be NA otherwise.}
+\item{fixed_crown_age}{determines if the phylogeny its crown age is
+fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+the crown age is fixed to the crown age
+of the initial phylogeny.}
 }
 \description{
 Create a BEAST2 posterior by running BEAST2 from a random alignment

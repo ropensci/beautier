@@ -5,6 +5,7 @@
 #' @param name the tree prior name. Can be any name
 #'   in \code{\link{get_tree_prior_names}}
 #' @return a tree_prior
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_tree_prior <- function(
   name

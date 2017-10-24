@@ -26,3 +26,6 @@ of the initial phylogeny.}
 \description{
 Creates the operators section of a BEAST2 XML parameter file
 }
+\author{
+Richel J.C. Bilderbeek
+}

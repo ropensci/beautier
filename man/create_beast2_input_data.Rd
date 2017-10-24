@@ -12,3 +12,6 @@ create_beast2_input_data(input_fasta_filenames)
 \description{
 Creates the data section of a BEAST2 XML parameter file
 }
+\author{
+Richel J.C. Bilderbeek
+}

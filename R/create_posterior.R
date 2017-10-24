@@ -1,14 +1,7 @@
 #' Create a BEAST2 posterior by running BEAST2 from a random alignment
 #' @param n_taxa number of taxa in the simulated phylogeny
 #' @param sequence_length a DNA sequence length, in base pairs
-#' @param tree_priors a tree prior, as returned by create_tree_prior
-#' @param mcmc_chainlength MCMC chain length in number of states
-#' @param fixed_crown_age determines if the crown age in the posterior
-#'   must be fixed. If the crown age must be fixed, it can be set to
-#'   a non-zero and positive value with the 'crown_age' parameter. If
-#'   fixed_crown_age is set to false, crown ages are estimated by BEAST2
-#' @param crown_age a non-zero and positive crown age,
-#'   if and only if the crown age is fixed. Must be NA otherwise.
+#' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_posterior <- function(

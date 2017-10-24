@@ -1,5 +1,6 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,

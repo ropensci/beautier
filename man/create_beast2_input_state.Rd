@@ -25,3 +25,6 @@ a phylogeny must be supplied of class ape::phylo.}
 \description{
 Creates the state section of a BEAST2 XML parameter file
 }
+\author{
+Richel J.C. Bilderbeek
+}

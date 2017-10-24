@@ -21,3 +21,6 @@ as returned by \code{\link{create_tree_prior}}}
 \description{
 Creates the two logger sections of a BEAST2 XML parameter file
 }
+\author{
+Richel J.C. Bilderbeek
+}

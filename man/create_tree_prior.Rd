@@ -22,3 +22,6 @@ functions \code{\link{create_yule_tree_prior}},
 \code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
 and \code{\link{create_ccp_tree_prior}}
 }
+\author{
+Richel J.C. Bilderbeek
+}

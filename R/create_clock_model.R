@@ -1,9 +1,12 @@
 #' General function to create a clock model.
-#' Prefer using 'create_rln_clock_model' and 'create_strict_clock_model'
+#' Prefer using the named function
+#' \code{\link{create_rln_clock_model}}
+#' and \code{\link{create_strict_clock_model}}
 #' @param name the clock model name. Valid
-#'   names can be found in 'get_clock_model_names'
+#'   names can be found in \code{\link{get_clock_model_names}}
 #' @param ... specific clock model parameters
 #' @return a clock_model
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_clock_model <- function(
   name,

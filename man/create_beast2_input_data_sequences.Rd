@@ -16,3 +16,6 @@ Creates the data section of a BEAST2 XML parameter file
 this function is not intended for regular use, thus its
   long name length is accepted
 }
+\author{
+Richel J.C. Bilderbeek
+}

@@ -9,3 +9,6 @@ create_beast2_input_xml()
 \description{
 Creates the xml section of a BEAST2 XML parameter file
 }
+\author{
+Richel J.C. Bilderbeek
+}

@@ -2,15 +2,17 @@
 % Please edit documentation in R/create_site_model.R
 \name{create_site_model}
 \alias{create_site_model}
-\title{General function to create a site model. Prefer using
-'create_jk69_site_model', 'create_hky_site_model',
-'create_tn93_site_model' and 'create_gtr_site_model',}
+\title{General function to create a site model. Prefer using the
+  named functions \code{\link{create_jk69_site_model}},
+  \code{\link{create_hky_site_model}},
+  \code{\link{create_tn93_site_model}},
+  and \code{\link{create_gtr_site_model}}}
 \usage{
 create_site_model(name, ...)
 }
 \arguments{
 \item{name}{the site model name. Valid
-names can be found in 'get_site_model_names'}
+names can be found in \code{\link{get_site_model_names}}}
 
 \item{...}{specific site model parameters}
 }
@@ -18,7 +20,12 @@ names can be found in 'get_site_model_names'}
 a site_model
 }
 \description{
-General function to create a site model. Prefer using
-'create_jk69_site_model', 'create_hky_site_model',
-'create_tn93_site_model' and 'create_gtr_site_model',
+General function to create a site model. Prefer using the
+  named functions \code{\link{create_jk69_site_model}},
+  \code{\link{create_hky_site_model}},
+  \code{\link{create_tn93_site_model}},
+  and \code{\link{create_gtr_site_model}}
+}
+\author{
+Richel J.C. Bilderbeek
 }

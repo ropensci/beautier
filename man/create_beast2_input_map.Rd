@@ -9,3 +9,6 @@ create_beast2_input_map()
 \description{
 Creates the map section of a BEAST2 XML parameter file
 }
+\author{
+Richel J.C. Bilderbeek
+}

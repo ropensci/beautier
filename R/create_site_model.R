@@ -1,10 +1,13 @@
-#' General function to create a site model. Prefer using
-#' 'create_jk69_site_model', 'create_hky_site_model',
-#' 'create_tn93_site_model' and 'create_gtr_site_model',
+#' General function to create a site model. Prefer using the
+#'   named functions \code{\link{create_jk69_site_model}},
+#'   \code{\link{create_hky_site_model}},
+#'   \code{\link{create_tn93_site_model}},
+#'   and \code{\link{create_gtr_site_model}}
 #' @param name the site model name. Valid
-#'   names can be found in 'get_site_model_names'
+#'   names can be found in \code{\link{get_site_model_names}}
 #' @param ... specific site model parameters
 #' @return a site_model
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_site_model <- function(
   name,
