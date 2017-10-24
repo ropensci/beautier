@@ -7,10 +7,12 @@
 is_ccp_tree_prior(x)
 }
 \arguments{
-\item{x}{an object, to be determined if it is a valid constant coalescence population tree prior}
+\item{x}{an object, to be determined if it is a valid
+constant coalescence population tree prior}
 }
 \value{
-TRUE if x is a valid constant coalescence population tree prior, FALSE otherwise
+TRUE if x is a valid constant coalescence population tree prior,
+  FALSE otherwise
 }
 \description{
 Determine if the object is a valid constant coalescence population tree prior

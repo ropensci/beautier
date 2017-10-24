@@ -5,10 +5,12 @@ test_that("use general function", {
   tree_prior <- beastscriptr::create_tree_prior(name = "birth_death")
   testthat::expect_true(beastscriptr::is_tree_prior(tree_prior))
 
-  tree_prior <- beastscriptr::create_tree_prior(name = "coalescent_bayesian_skyline")
+  tree_prior <- beastscriptr::create_tree_prior(
+    name = "coalescent_bayesian_skyline")
   testthat::expect_true(beastscriptr::is_tree_prior(tree_prior))
 
-  tree_prior <- beastscriptr::create_tree_prior(name = "coalescent_constant_population")
+  tree_prior <- beastscriptr::create_tree_prior(
+    name = "coalescent_constant_population")
   testthat::expect_true(beastscriptr::is_tree_prior(tree_prior))
 
   tree_prior <- beastscriptr::create_tree_prior(name = "yule")

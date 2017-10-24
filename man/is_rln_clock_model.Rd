@@ -7,7 +7,8 @@
 is_rln_clock_model(x)
 }
 \arguments{
-\item{x}{an object, to be determined if it is a valid relaxed log normal clock model}
+\item{x}{an object, to be determined if it is a valid
+relaxed log normal clock model}
 }
 \value{
 TRUE if x is a valid relaxed log normal clock model, FALSE otherwise

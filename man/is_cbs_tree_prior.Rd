@@ -7,10 +7,12 @@
 is_cbs_tree_prior(x)
 }
 \arguments{
-\item{x}{an object, to be determined if it is a valid constant coalescent Bayesian skyline prior}
+\item{x}{an object, to be determined if it is a valid constant coalescent
+Bayesian skyline prior}
 }
 \value{
-TRUE if x is a valid constant coalescent Bayesian skyline prior, FALSE otherwise
+TRUE if x is a valid constant coalescent Bayesian skyline prior,
+  FALSE otherwise
 }
 \description{
 Determine if the object is a valid constant coalescent Bayesian skyline prior

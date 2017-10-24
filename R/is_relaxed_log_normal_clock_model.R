@@ -1,5 +1,6 @@
 #' Determine if the object is a valid relaxed log normal clock model
-#' @param x an object, to be determined if it is a valid relaxed log normal clock model
+#' @param x an object, to be determined if it is a valid
+#'   relaxed log normal clock model
 #' @return TRUE if x is a valid relaxed log normal clock model, FALSE otherwise
 #' @author Richel Bilderbeek
 #' @export

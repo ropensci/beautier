@@ -15,5 +15,3 @@ test_that("multiplication works", {
   testthat::expect_true(beastscriptr::is_clock_model(clock_model))
 
 })
-
-

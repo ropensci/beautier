@@ -9,4 +9,3 @@ test_that("all tree_priors must be recognized as such", {
   }
 
 })
-

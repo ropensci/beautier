@@ -147,7 +147,8 @@ test_that("All site models produce a valid BEAST2 input file", {
   }
 })
 
-test_that("All site models produce a valid BEAST2 input file, fixed crown age", {
+test_that(paste0("All site models produce a valid BEAST2 input file, ",
+  "fixed crown age"), {
 
   site_models <- beastscriptr::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -187,7 +188,8 @@ test_that("All clock models produce a valid BEAST2 input file", {
   }
 })
 
-test_that("All clock models produce a valid BEAST2 input file, fixed crown age", {
+test_that(paste0("All clock models produce a valid BEAST2 input file, ",
+  "fixed crown age"), {
 
   clock_models <- beastscriptr::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
@@ -229,7 +231,8 @@ test_that("All tree priors produce a valid BEAST2 input file", {
   }
 })
 
-test_that("All tree priors produce a valid BEAST2 input file, fixed crown age", {
+test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
+  "fixed crown age"), {
 
   skip("All are OK except coalescent_bayesian_skyline")
   tree_priors <- beastscriptr::create_tree_priors()
