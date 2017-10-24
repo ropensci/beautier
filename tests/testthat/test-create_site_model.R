@@ -42,7 +42,6 @@ test_that("Can specify HKY kappa", {
 
 test_that("Can specify HKY gamma category count", {
 
-  skip("WIP")
   site_model <- beastscriptr::create_hky_site_model(gamma_cat_count = 1)
   testthat::expect_true(beastscriptr::is_site_model(site_model))
   testthat::expect_equal(get_gamma_cat_count(site_model), 1)
@@ -51,7 +50,6 @@ test_that("Can specify HKY gamma category count", {
 
 test_that("Can specify HKY proportion invariant", {
 
-  skip("WIP")
   site_model <- beastscriptr::create_hky_site_model(prop_invariant = 0.2)
   testthat::expect_true(beastscriptr::is_site_model(site_model))
   testthat::expect_equal(get_prop_invariant(site_model), 0.2)

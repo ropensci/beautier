@@ -152,20 +152,15 @@ test_that("Check that strict_clock_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-
-
-
-
 test_that("Check that relaxed_clock_log_normal_2_4.xml is reproduced", {
 
   created_lines <- beastscriptr::create_beast2_input(
     input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     clock_models = create_clock_model(name = "relaxed_log_normal")
   )
-
   expected_lines <- readLines(system.file("extdata", "relaxed_clock_log_normal_2_4.xml", package = "beastscriptr"))
-
   testthat::expect_identical(created_lines, expected_lines)
+
 })
 
 test_that("Check that hky_kappa_2_4.xml is reproduced", {
@@ -174,35 +169,21 @@ test_that("Check that hky_kappa_2_4.xml is reproduced", {
     input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     site_models = create_hky_site_model(kappa = 3.4)
   )
-
   expected_lines <- readLines(system.file("extdata", "hky_kappa_2_4.xml", package = "beastscriptr"))
-
-  if (1 == 2) {
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
+
 })
 
-test_that("Check that hky_example_2_4.xml is reproduced", {
+test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
 
   created_lines <- beastscriptr::create_beast2_input(
     input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     site_models = create_hky_site_model(
-      gamma_cat_count = 1,
-      prop_invariant = 0.2,
-      kappa = "3.0"
+      prop_invariant = 0.5
     )
   )
 
-  expected_lines <- readLines(system.file("extdata", "hky_example_2_4.xml", package = "beastscriptr"))
+  expected_lines <- readLines(system.file("extdata", "hky_prop_invariant_0_5_2_4.xml", package = "beastscriptr"))
 
   if (1 == 2) {
     write.csv(created_lines, "~/created.csv")

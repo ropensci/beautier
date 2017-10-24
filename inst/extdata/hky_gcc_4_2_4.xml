@@ -39,7 +39,9 @@ name="alignment">
             </taxonset>
         </tree>
         <parameter id="birthRate.t:test_output_0" name="stateNode">1.0</parameter>
-        <parameter id="kappa.s:test_output_0" lower="0.0" name="stateNode">3.0</parameter>
+        <parameter id="kappa.s:test_output_0" lower="0.0" name="stateNode">2.0</parameter>
+        <parameter id="gammaShape.s:test_output_0" name="stateNode">1.0</parameter>
+        <parameter id="freqParameter.s:test_output_0" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
     </state>
 
     <init id="RandomTree.t:test_output_0" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:test_output_0" taxa="@test_output_0">
@@ -60,15 +62,19 @@ name="alignment">
                     <parameter id="RealParameter.2" estimate="false" name="S">1.25</parameter>
                 </LogNormal>
             </prior>
+            <prior id="GammaShapePrior.s:test_output_0" name="distribution" x="@gammaShape.s:test_output_0">
+                <Exponential id="Exponential.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="false" name="mean">1.0</parameter>
+                </Exponential>
+            </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
             <distribution id="treeLikelihood.test_output_0" spec="ThreadedTreeLikelihood" data="@test_output_0" tree="@Tree.t:test_output_0">
-                <siteModel id="SiteModel.s:test_output_0" spec="SiteModel" gammaCategoryCount="1">
+                <siteModel id="SiteModel.s:test_output_0" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:test_output_0">
                     <parameter id="mutationRate.s:test_output_0" estimate="false" name="mutationRate">1.0</parameter>
-                    <parameter id="gammaShape.s:test_output_0" estimate="false" name="shape">1.0</parameter>
-                    <parameter id="proportionInvariant.s:test_output_0" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.2</parameter>
+                    <parameter id="proportionInvariant.s:test_output_0" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
                     <substModel id="hky.s:test_output_0" spec="HKY" kappa="@kappa.s:test_output_0">
-                        <frequencies id="empiricalFreqs.s:test_output_0" spec="Frequencies" data="@test_output_0"/>
+                        <frequencies id="estimatedFreqs.s:test_output_0" spec="Frequencies" frequencies="@freqParameter.s:test_output_0"/>
                     </substModel>
                 </siteModel>
                 <branchRateModel id="StrictClock.c:test_output_0" spec="beast.evolution.branchratemodel.StrictClockModel">
@@ -96,6 +102,12 @@ name="alignment">
 
     <operator id="KappaScaler.s:test_output_0" spec="ScaleOperator" parameter="@kappa.s:test_output_0" scaleFactor="0.5" weight="0.1"/>
 
+    <operator id="gammaShapeScaler.s:test_output_0" spec="ScaleOperator" parameter="@gammaShape.s:test_output_0" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="FrequenciesExchanger.s:test_output_0" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:test_output_0"/>
+    </operator>
+
     <logger id="tracelog" fileName="test_output_0.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
         <log idref="likelihood"/>
@@ -105,6 +117,8 @@ name="alignment">
         <log idref="YuleModel.t:test_output_0"/>
         <log idref="birthRate.t:test_output_0"/>
         <log idref="kappa.s:test_output_0"/>
+        <log idref="gammaShape.s:test_output_0"/>
+        <log idref="freqParameter.s:test_output_0"/>
     </logger>
 
     <logger id="screenlog" logEvery="1000">

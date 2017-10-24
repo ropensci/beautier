@@ -43,15 +43,15 @@ create_jc69_site_model <- function() {
 #' @return an HKY site_model
 #' @export
 create_hky_site_model <- function(
-  gamma_cat_count = 1,
-  kappa = 2.0,
-  prop_invariant = 0.2
+  gamma_cat_count = get_default_gamma_cat_count(),
+  kappa = get_default_kappa(),
+  prop_invariant = get_default_prop_invariant()
 ) {
   site_model <- list(
     name = "HKY",
     gamma_cat_count = gamma_cat_count,
     kappa = kappa,
-    prop_invariant
+    prop_invariant = prop_invariant
   )
   site_model
 }

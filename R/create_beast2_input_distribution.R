@@ -133,10 +133,23 @@ create_beast2_input_distribution <- function(
   text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
     ids,
     "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
-  text <- c(text, paste0(
-    "                    <parameter id=\"proportionInvariant.s:",
-    ids, "\" estimate=\"false\" lower=\"0.0\" ",
-    "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
+
+  # proportionInvariant
+  if (is_hky_site_model(site_models))
+  {
+    prop_invariant <- get_prop_invariant(site_models)
+    text <- c(text, paste0(
+      "                    <parameter id=\"proportionInvariant.s:",
+      ids, "\" estimate=\"false\" lower=\"0.0\" ",
+      "name=\"proportionInvariant\" upper=\"1.0\">", prop_invariant, "</parameter>"))
+  } else {
+    # Just use zero
+    text <- c(text, paste0(
+      "                    <parameter id=\"proportionInvariant.s:",
+      ids, "\" estimate=\"false\" lower=\"0.0\" ",
+      "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
+  }
+
 
   # Site models
   if (is_jc69_site_model(site_models)) {

@@ -11,5 +11,14 @@ get_kappa <- function(site_models) {
     return(site_models$kappa)
   }
   # The default value
+  return(get_default_kappa())
+}
+
+#' Get the default kappa for the HKY nucleotide
+#' substitution model. Use in, among others, create_hky_site_model
+#' @note the value is returned as a string, to be sure the testing XMLs
+#'   are recreated exactly, as rounding errors are prevented
+#' @export
+get_default_kappa <- function() {
   return("2.0")
 }

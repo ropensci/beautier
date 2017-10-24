@@ -62,15 +62,44 @@ beastscriptr::create_beast2_input_file(
 
 Thanks to Yacine Ben Cheheda
 
-![HKY example](hky_example.png)
+### Change gamma category count 
+
+![HKY example](hky_gcc_4_2_4.png)
 
 ```
 beastscriptr::create_beast2_input_file(
   input_fasta_filenames = "my_alignment.fas",
   site_models = create_hky_site_model(
-    gamma_cat_count = 1, 
-    prop_invariant = 0.2, 
-    kappa = 3.0
+    gamma_cat_count = 4
+  ), 
+  output_xml_filename = "my_beast.xml"
+)
+```
+
+### Change gamma category count and shape
+
+![HKY example](hky_gcc_5_shape_1_5_2_4.png)
+
+```
+beastscriptr::create_beast2_input_file(
+  input_fasta_filenames = "my_alignment.fas",
+  site_models = create_hky_site_model(
+    gamma_cat_count = 4,
+    gamma_shape = 1.5
+  ), 
+  output_xml_filename = "my_beast.xml"
+)
+```
+
+### Change proportion invariant
+
+![HKY example](hky_prop_invariant_0_5_2_4.png)
+
+```
+beastscriptr::create_beast2_input_file(
+  input_fasta_filenames = "my_alignment.fas",
+  site_models = create_hky_site_model(
+    proportion_invariant = 0.5
   ), 
   output_xml_filename = "my_beast.xml"
 )
