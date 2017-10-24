@@ -6,8 +6,8 @@ For all examples, do load `beastscriptr`:
 library(beastscriptr)
 ```
 
-All examples read the alignment in file `my_fasta.fas` and create
-a BEAST2 input file called `my_beast.xml`.
+All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 
+and create a BEAST2 input file called `my_beast.xml`.
 
 ## Example #1
 
@@ -17,7 +17,7 @@ Using all default settings, only specify a DNA alignment.
 
 ```
 create_beast2_input_file(
-  "my_fasta.fas",
+  "test_output_0.fas",
   "my_beast.xml"
 )
 ```
