@@ -14,8 +14,8 @@ Using all default settings, only specify a DNA alignment.
 
 ```
 create_beast2_input_file(
-  input_fasta_filename = "my_fasta.fas",
-  output_xml_filename = "my_beast.xml"
+  "my_fasta.fas",
+  "my_beast.xml"
 )
 ```
 
@@ -31,8 +31,8 @@ Using all default settings, only specify a DNA alignment.
 
 ```
 create_beast2_input_file(
-  input_fasta_filename = "my_fasta.fas",
-  output_xml_filename = "my_beast.xml",
+  "my_fasta.fas",
+  "my_beast.xml",
   fixed_crown_age = TRUE,
   initial_phylogeny = fasta_to_phylo(
     fasta_filename = "my_fasta.fas",
@@ -46,9 +46,9 @@ create_beast2_input_file(
 
 ```
 create_beast2_input_file(
-  input_fasta_filenames = "my_alignment.fas",
-  site_models = create_jc69_site_model(), 
-  output_xml_filename = "my_beast.xml"
+  "my_alignment.fas",
+  "my_beast.xml",
+  site_models = create_jc69_site_model()
 )
 ```
 
@@ -58,9 +58,9 @@ create_beast2_input_file(
 
 ```
 create_beast2_input_file(
-  input_fasta_filenames = "my_alignment.fas",
-  clock_models = create_rln_clock_model(), 
-  output_xml_filename = "my_beast.xml"
+  "my_alignment.fas",
+  "my_beast.xml",
+  clock_models = create_rln_clock_model()
 )
 ```
 
@@ -70,9 +70,9 @@ create_beast2_input_file(
 
 ```
 create_beast2_input_file(
-  input_fasta_filenames = "my_alignment.fas",
-  tree_priors = create_bd_tree_prior(), 
-  output_xml_filename = "my_beast.xml"
+  "my_alignment.fas",
+  "my_beast.xml",
+  tree_priors = create_bd_tree_prior() 
 )
 ```
 
@@ -82,11 +82,9 @@ create_beast2_input_file(
 
 ```
 create_beast2_input_file(
-  input_fasta_filenames = "my_alignment.fas",
-  site_models = create_hky_site_model(
-    proportion_invariant = 0.5
-  ), 
-  output_xml_filename = "my_beast.xml"
+  "my_alignment.fas",
+  "my_beast.xml",
+  site_models = create_hky_site_model(proportion_invariant = 0.5)
 )
 ```
 
@@ -98,9 +96,9 @@ Thanks to Yacine Ben Chehida for this use case
 
 ```
 create_beast2_input_file(
-  input_fasta_filenames = "my_alignment.fas",
-  clock_models = create_strict_clock_model(rate = 0.5), 
-  output_xml_filename = "my_beast.xml"
+  "my_alignment.fas",
+  "my_beast.xml",
+  clock_models = create_strict_clock_model(rate = 0.5) 
 )
 ```
 
