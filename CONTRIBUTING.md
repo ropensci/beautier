@@ -18,7 +18,7 @@ Please send all that is needed to reproduce the use case:
  * the resulting XML file
  * (optional) the desired call to `beastscriptr`
 
-BEAUti plugins are not supported (for now). See [CONTRIBUTING](CONTRIBUTING.md)
+BEAUti plugins are not supported (for now). See 'Submitting code'
 if you'd like `beastscriptr` to do so.
 
 ## Submitting code
