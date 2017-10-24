@@ -118,7 +118,7 @@ test_that("Runs BEAST2, BD species tree prior, random initial tree", {
 
 test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
 
-  setwd(path.expand("~"))
+  # setwd(path.expand("~"))
   set.seed(42)
 
   base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_rand_")
@@ -161,7 +161,7 @@ test_that("Runs BEAST2, BD species tree prior, fixed crown age, random tree", {
 test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   "specified tree"), {
 
-  setwd(path.expand("~"))
+  # setwd(path.expand("~"))
   set.seed(43)
 
   base_filename <- tempfile(pattern = "beast_scriptr_test_bd_fix_spec_")
