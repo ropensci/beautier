@@ -1,4 +1,6 @@
 #' Creates the distribution section of a BEAST2 XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted

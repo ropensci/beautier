@@ -1,4 +1,6 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
 #' @export
