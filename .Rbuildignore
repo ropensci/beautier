@@ -10,3 +10,7 @@
 ^create_pdf\.R$
 ^install_beast2\.sh$
 ^.*\.png$
+^code_of_conduct.md$
+^CONTRIBUTING.md$
+^Examples.md$
+^Future.md$
