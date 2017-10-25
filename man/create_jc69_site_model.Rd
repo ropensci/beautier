@@ -4,7 +4,7 @@
 \alias{create_jc69_site_model}
 \title{Create a JC69 site model}
 \usage{
-create_jc69_site_model()
+create_jc69_site_model(gamma_site_model = get_default_gamma_site_model())
 }
 \value{
 a JC69 site_model

@@ -4,10 +4,11 @@
 \alias{get_prop_invariant}
 \title{Extract the proporion invariants from an HKY site model}
 \usage{
-get_prop_invariant(site_models)
+get_prop_invariant(gamma_site_models)
 }
 \arguments{
-\item{site_models}{one or more site_models}
+\item{gamma_site_models}{one or more gamma_site_models,
+as created by \code{\link{create_gamma_site_model}}}
 }
 \value{
 the proporion invariants

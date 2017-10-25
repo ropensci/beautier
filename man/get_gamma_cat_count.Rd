@@ -4,10 +4,11 @@
 \alias{get_gamma_cat_count}
 \title{Extract the gamma category count from an HKY site model}
 \usage{
-get_gamma_cat_count(site_models)
+get_gamma_cat_count(gamma_site_models)
 }
 \arguments{
-\item{site_models}{one or more site_models}
+\item{site_models}{one or more gamma_site_models, as created
+by \code{\link{create_gamma_site_model}}}
 }
 \value{
 the gamma category count

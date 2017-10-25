@@ -1,17 +1,20 @@
 #' General function to create a site model.
+#' @param name the site model name. Valid
+#'   names can be found in \code{\link{get_site_model_names}}
+#' @param gamma_site_model a gamma site model, as created
+#'   by \code{\link{create_gamma_site_model}}
+#' @param ... specific site model parameters
 #' @note Prefer using the
 #'   named functions \code{\link{create_jc69_site_model}},
 #'   \code{\link{create_hky_site_model}},
 #'   \code{\link{create_tn93_site_model}},
 #'   and \code{\link{create_gtr_site_model}}
-#' @param name the site model name. Valid
-#'   names can be found in \code{\link{get_site_model_names}}
-#' @param ... specific site model parameters
 #' @return a site_model
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_site_model <- function(
   name,
+  gamma_site_model = get_default_gamma_site_model(),
   ...
 ) {
   if (!is_site_model_name(name)) {
@@ -28,50 +31,75 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  site_model <- list(name = name, ...)
+  if (!is_gamma_site_model(gamma_site_model)) {
+    stop("invalid gamma_site_model")
+  }
+  site_model <- list(
+    name = name,
+    gamma_site_model = gamma_site_model,
+    ...
+  )
   site_model
 }
 
 #' Create a JC69 site model
 #' @return a JC69 site_model
 #' @export
-create_jc69_site_model <- function() {
-  return(beastscriptr::create_site_model(name = "JC69"))
+create_jc69_site_model <- function(
+  gamma_site_model = get_default_gamma_site_model()
+) {
+  return(
+    beastscriptr::create_site_model(
+      name = "JC69",
+      gamma_site_model = gamma_site_model
+    )
+  )
 }
 
 #' Create an HKY site model
-#' @param gamma_cat_count the number of gamma categories, must
-#'   be an integer with value zero or more
+#' @inheritParams create_site_model
 #' @param kappa the kappa
-#' @param prop_invariant the proportion invariant, must be a value
-#'   from 0.0 to 1.0
 #' @return an HKY site_model
 #' @export
 create_hky_site_model <- function(
-  gamma_cat_count = get_default_gamma_cat_count(),
   kappa = get_default_kappa(),
-  prop_invariant = get_default_prop_invariant()
+  gamma_site_model = get_default_gamma_site_model()
 ) {
   return(
     beastscriptr::create_site_model(
       name = "HKY",
-      gamma_cat_count = gamma_cat_count,
-      kappa = kappa,
-      prop_invariant = prop_invariant
+      gamma_site_model = gamma_site_model,
+      kappa = kappa
     )
   )
 }
 
 #' Create a TN93 site model
+#' @inheritParams create_site_model
 #' @return a TN93 site_model
 #' @export
-create_tn93_site_model <- function() {
-  return(beastscriptr::create_site_model(name = "TN93"))
+create_tn93_site_model <- function(
+  gamma_site_model = get_default_gamma_site_model()
+) {
+  return(
+    beastscriptr::create_site_model(
+      name = "TN93",
+      gamma_site_model = gamma_site_model
+    )
+  )
 }
 
 #' Create a GTR site model
+#' @inheritParams create_site_model
 #' @return a GTR site_model
 #' @export
-create_gtr_site_model <- function() {
-  return(beastscriptr::create_site_model(name = "GTR"))
+create_gtr_site_model <- function(
+  gamma_site_model = get_default_gamma_site_model()
+) {
+  return(
+    beastscriptr::create_site_model(
+      name = "GTR",
+      gamma_site_model = gamma_site_model
+    )
+  )
 }

@@ -166,7 +166,9 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
       "                    <parameter id=\"proportionInvariant.s:",
       ids, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"proportionInvariant\" upper=\"1.0\">",
-      beastscriptr::get_prop_invariant(site_models),
+      beastscriptr::get_prop_invariant(
+        get_gamma_site_model(site_models)
+      ),
       "</parameter>"))
   } else {
     # Just use zero

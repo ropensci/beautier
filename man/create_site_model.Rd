@@ -4,11 +4,15 @@
 \alias{create_site_model}
 \title{General function to create a site model.}
 \usage{
-create_site_model(name, ...)
+create_site_model(name, gamma_site_model = get_default_gamma_site_model(),
+  ...)
 }
 \arguments{
 \item{name}{the site model name. Valid
 names can be found in \code{\link{get_site_model_names}}}
+
+\item{gamma_site_model}{a gamma site model, as created
+by \code{\link{create_gamma_site_model}}}
 
 \item{...}{specific site model parameters}
 }

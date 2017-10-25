@@ -4,18 +4,14 @@
 \alias{create_hky_site_model}
 \title{Create an HKY site model}
 \usage{
-create_hky_site_model(gamma_cat_count = get_default_gamma_cat_count(),
-  kappa = get_default_kappa(),
-  prop_invariant = get_default_prop_invariant())
+create_hky_site_model(kappa = get_default_kappa(),
+  gamma_site_model = get_default_gamma_site_model())
 }
 \arguments{
-\item{gamma_cat_count}{the number of gamma categories, must
-be an integer with value zero or more}
-
 \item{kappa}{the kappa}
 
-\item{prop_invariant}{the proportion invariant, must be a value
-from 0.0 to 1.0}
+\item{gamma_site_model}{a gamma site model, as created
+by \code{\link{create_gamma_site_model}}}
 }
 \value{
 an HKY site_model

@@ -4,7 +4,11 @@
 \alias{create_gtr_site_model}
 \title{Create a GTR site model}
 \usage{
-create_gtr_site_model()
+create_gtr_site_model(gamma_site_model = get_default_gamma_site_model())
+}
+\arguments{
+\item{gamma_site_model}{a gamma site model, as created
+by \code{\link{create_gamma_site_model}}}
 }
 \value{
 a GTR site_model
