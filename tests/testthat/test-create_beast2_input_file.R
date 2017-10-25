@@ -237,12 +237,15 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
 
 test_that("All tree priors produce a valid BEAST2 input file", {
 
-  skip("All are OK except coalescent_bayesian_skyline")
+  #skip("All are OK except coalescent_bayesian_skyline")
   tree_priors <- beastscriptr::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
 
   for (tree_prior in tree_priors) {
-    print(tree_prior)
+    if (is_cbs_tree_prior(tree_prior)) {
+      warning("All are OK except coalescent_bayesian_skyline")
+      next
+    }
     output_xml_filename <- tempfile()
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
@@ -258,12 +261,14 @@ test_that("All tree priors produce a valid BEAST2 input file", {
 test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
-  skip("All are OK except coalescent_bayesian_skyline")
   tree_priors <- beastscriptr::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
 
   for (tree_prior in tree_priors) {
-    print(tree_prior)
+    if (is_cbs_tree_prior(tree_prior)) {
+      warning("All are OK except coalescent_bayesian_skyline")
+      next
+    }
     input_fasta_filename <- get_input_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
