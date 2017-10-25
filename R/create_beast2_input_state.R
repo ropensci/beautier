@@ -24,6 +24,11 @@ create_beast2_input_state <- function(
   text <- c(text, create_beast2_input_state_site_models_2(
     ids = ids, site_models = site_models))
 
+  if (!is_jc69_site_model(site_models)) {
+    text <- c(text, paste0("        <parameter ",
+      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+  }
 
   # Clock models
   if (is_rln_clock_model(clock_models)) {
@@ -184,11 +189,5 @@ create_beast2_input_state_gamma_site_models <- function( # nolint long function 
       "id=\"gammaShape.s:", ids, "\" ",
       "name=\"stateNode\">", gamma_shape, "</parameter>"))
   }
-  if (is_jc69_site_model(site_models)) {
-    return(text)
-  }
-  text <- c(text, paste0("        <parameter ",
-    "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
-    "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   text
 }
