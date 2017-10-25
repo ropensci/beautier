@@ -8,7 +8,22 @@ is_gamma_site_model <- function(x) {
   if (!"gamma_cat_count" %in% names(x)) {
     return(FALSE)
   }
+  if (x$gamma_cat_count < 0) {
+    return(FALSE)
+  }
+  if (!"gamma_shape" %in% names(x)) {
+    return(FALSE)
+  }
+  if (x$gamma_shape < 0) {
+    return(FALSE)
+  }
   if (!"prop_invariant" %in% names(x)) {
+    return(FALSE)
+  }
+  if (x$prop_invariant < 0.0) {
+    return(FALSE)
+  }
+  if (x$prop_invariant > 1.0) {
     return(FALSE)
   }
   TRUE

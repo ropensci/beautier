@@ -8,9 +8,6 @@ get_gamma_site_model <- function(site_models) {
   if (!is_site_model(site_models)) {
     stop("site_models must be one or more site_models")
   }
-  if ("gamma_site_model" %in% names(site_models)) {
-    return(site_models$gamma_site_model)
-  }
-  # The default value
-  return(beastscriptr::get_default_gamma_site_model())
+  testit::assert("gamma_site_model" %in% names(site_models))
+  site_models$gamma_site_model
 }

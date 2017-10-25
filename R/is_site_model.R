@@ -11,5 +11,8 @@ is_site_model <- function(
   if (!is_site_model_name(x$name)) {
     return(FALSE)
   }
+  if (!"gamma_site_model" %in% names(x)) {
+    return(FALSE)
+  }
   return(TRUE)
 }
