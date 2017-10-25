@@ -2,12 +2,10 @@
 % Please edit documentation in R/get_gamma_cat_count.R
 \name{get_default_gamma_cat_count}
 \alias{get_default_gamma_cat_count}
-\title{Get the default gamma category count for the HKY nucleotide
-substitution model. Use in, among others, create_hky_site_model}
+\title{Get the default gamma category count}
 \usage{
 get_default_gamma_cat_count()
 }
 \description{
-Get the default gamma category count for the HKY nucleotide
-substitution model. Use in, among others, create_hky_site_model
+Get the default gamma category count
 }

@@ -5,6 +5,7 @@
 \title{Create a gamma site model, part of a site model}
 \usage{
 create_gamma_site_model(gamma_cat_count = get_default_gamma_cat_count(),
+  gamma_shape = get_default_gamma_shape(),
   prop_invariant = get_default_prop_invariant())
 }
 \arguments{

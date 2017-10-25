@@ -9,12 +9,13 @@
 #' @export
 create_gamma_site_model <- function(
   gamma_cat_count = get_default_gamma_cat_count(),
+  gamma_shape = get_default_gamma_shape(),
   prop_invariant = get_default_prop_invariant()
-
-  ) {
+) {
   return(
     list(
       gamma_cat_count = gamma_cat_count,
+      gamma_shape = gamma_shape,
       prop_invariant = prop_invariant
     )
   )

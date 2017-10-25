@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_gamma_cat_count.R
 \name{get_gamma_cat_count}
 \alias{get_gamma_cat_count}
-\title{Extract the gamma category count from an HKY site model}
+\title{Extract the gamma category count from a gamma site model}
 \usage{
 get_gamma_cat_count(gamma_site_models)
 }
@@ -14,5 +14,5 @@ by \code{\link{create_gamma_site_model}}}
 the gamma category count
 }
 \description{
-Extract the gamma category count from an HKY site model
+Extract the gamma category count from a gamma site model
 }
