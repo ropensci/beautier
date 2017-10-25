@@ -104,38 +104,12 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
       "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
   }
 
-  # Site models
-  if (is_jc69_site_model(site_models)) {
-    text <- c(text, paste0("                    <substModel ",
-      "id=\"JC69.s:", ids, "\" spec=\"JukesCantor\"/>"))
-  } else if (is_hky_site_model(site_models)) {
-    text <- c(text, paste0("                    <substModel ",
-      "id=\"hky.s:", ids, "\" spec=\"HKY\" kappa=\"@kappa.s:", ids, "\">"))
-    text <- c(text, paste0("                        <frequencies ",
-      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
-    text <- c(text, paste0("                    </substModel>"))
-  } else if (is_tn93_site_model(site_models)) {
-    text <- c(text, paste0("                    <substModel ",
-      "id=\"tn93.s:", ids, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", ids, "\" ",
-      "kappa2=\"@kappa2.s:", ids, "\">"))
-    text <- c(text, paste0("                        <frequencies ",
-      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
-    text <- c(text, paste0("                    </substModel>"))
-  } else if (is_gtr_site_model(site_models)) {
-    text <- c(text, paste0("                    <substModel ",
-      "id=\"gtr.s:", ids, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", ids, "\" ",
-      "rateAG=\"@rateAG.s:", ids, "\" rateAT=\"@rateAT.s:", ids, "\" ",
-      "rateCG=\"@rateCG.s:", ids, "\" rateGT=\"@rateGT.s:", ids, "\">"))
-    text <- c(text, paste0("                        <parameter ",
-      "id=\"rateCT.s:", ids, "\" estimate=\"false\" lower=\"0.0\" ",
-      "name=\"rateCT\">1.0</parameter>"))
-    text <- c(text, paste0("                        <frequencies ",
-      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
-    text <- c(text, paste0("                    </substModel>"))
-  }
+  text <- c(text,
+    create_beast2_input_distribution_subst_model(
+      ids = ids,
+      site_models = site_models
+    )
+  )
 
   text <- c(text, "                </siteModel>")
 
@@ -413,3 +387,52 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
   }
   text
 }
+
+#' Creates the substModel section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models
+) {
+  text <- NULL
+  if (is_jc69_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel ",
+      "id=\"JC69.s:", ids, "\" spec=\"JukesCantor\"/>"))
+  } else if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel ",
+      "id=\"hky.s:", ids, "\" spec=\"HKY\" kappa=\"@kappa.s:", ids, "\">"))
+    text <- c(text, paste0("                        <frequencies ",
+      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
+      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("                    </substModel>"))
+  } else if (is_tn93_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel ",
+      "id=\"tn93.s:", ids, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", ids, "\" ",
+      "kappa2=\"@kappa2.s:", ids, "\">"))
+    text <- c(text, paste0("                        <frequencies ",
+      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
+      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("                    </substModel>"))
+  } else if (is_gtr_site_model(site_models)) {
+    text <- c(text, paste0("                    <substModel ",
+      "id=\"gtr.s:", ids, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", ids, "\" ",
+      "rateAG=\"@rateAG.s:", ids, "\" rateAT=\"@rateAT.s:", ids, "\" ",
+      "rateCG=\"@rateCG.s:", ids, "\" rateGT=\"@rateGT.s:", ids, "\">"))
+    text <- c(text, paste0("                        <parameter ",
+      "id=\"rateCT.s:", ids, "\" estimate=\"false\" lower=\"0.0\" ",
+      "name=\"rateCT\">1.0</parameter>"))
+    text <- c(text, paste0("                        <frequencies ",
+      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
+      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("                    </substModel>"))
+  }
+  text
+}
+
+
+
