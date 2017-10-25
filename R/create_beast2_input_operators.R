@@ -22,7 +22,6 @@ create_beast2_input_operators <- function(
     stop("fixed_crown_age must be TRUE or FALSE")
   }
 
-
   text <- NULL
   text <- c(text, create_beast2_input_operators_tree_priors_1(
     ids = ids, tree_priors = tree_priors, fixed_crown_age = fixed_crown_age))
@@ -160,6 +159,10 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
     text <- c(text, paste0("    <operator id=\"KappaScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa.s:", ids, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
+      text <- c(text, paste0(""))
+      text <- c(text, paste0("    <operator id=\"gammaShapeScaler.s:test_output_0\" spec=\"ScaleOperator\" parameter=\"@gammaShape.s:test_output_0\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator ",
       "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",

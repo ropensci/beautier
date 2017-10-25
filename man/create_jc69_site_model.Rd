@@ -6,6 +6,10 @@
 \usage{
 create_jc69_site_model(gamma_site_model = get_default_gamma_site_model())
 }
+\arguments{
+\item{gamma_site_model}{a gamma site model, as created
+by \code{\link{create_gamma_site_model}}}
+}
 \value{
 a JC69 site_model
 }

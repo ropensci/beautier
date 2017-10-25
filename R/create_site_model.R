@@ -43,6 +43,7 @@ create_site_model <- function(
 }
 
 #' Create a JC69 site model
+#' @inheritParams create_site_model
 #' @return a JC69 site_model
 #' @export
 create_jc69_site_model <- function(
