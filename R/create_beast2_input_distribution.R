@@ -87,23 +87,14 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   }
 
   # proportionInvariant
-  if (is_hky_site_model(site_models)) {
-
-    text <- c(text, paste0(
-      "                    <parameter id=\"proportionInvariant.s:",
-      ids, "\" estimate=\"false\" lower=\"0.0\" ",
-      "name=\"proportionInvariant\" upper=\"1.0\">",
-      beastscriptr::get_prop_invariant(
-        get_gamma_site_model(site_models)
-      ),
-      "</parameter>"))
-  } else {
-    # Just use zero
-    text <- c(text, paste0(
-      "                    <parameter id=\"proportionInvariant.s:",
-      ids, "\" estimate=\"false\" lower=\"0.0\" ",
-      "name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>"))
-  }
+  text <- c(text, paste0(
+    "                    <parameter id=\"proportionInvariant.s:",
+    ids, "\" estimate=\"false\" lower=\"0.0\" ",
+    "name=\"proportionInvariant\" upper=\"1.0\">",
+    beastscriptr::get_prop_invariant(
+      beastscriptr::get_gamma_site_model(site_models)
+    ),
+    "</parameter>"))
 
   text <- c(text,
     create_beast2_input_distribution_subst_model(
