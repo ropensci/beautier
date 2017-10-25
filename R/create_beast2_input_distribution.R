@@ -33,6 +33,13 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   )
 
   text <- c(text,
+    create_beast2_input_distribution_gamma_site_models(
+      ids = ids,
+      site_models = site_models
+    )
+  )
+
+  text <- c(text,
     create_beast2_input_distribution_clock_models(
       ids = ids,
       clock_models = clock_models
@@ -56,10 +63,15 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
       ids, "\" spec=\"SiteModel\">")
     )
-  } else {
+  } else if (gamma_category_count == 1) {
     text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
       ids, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
       "\">")
+    )
+  } else {
+    text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+      ids, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
+      "\" shape=\"@gammaShape.s:", ids, "\">")
     )
   }
   text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
@@ -335,6 +347,34 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "id=\"RealParameter.18\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+  }
+  text
+}
+
+#' Creates the gamma site models section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models
+) {
+  text <- NULL
+  gamma_site_models <- get_gamma_site_model(site_models)
+  if (get_gamma_cat_count(gamma_site_models) >= 2) {
+    text <- c(text, paste0("            <prior ",
+      "id=\"GammaShapePrior.s:", ids, "\" name=\"distribution\" ",
+      "x=\"@gammaShape.s:", ids, "\">"))
+    text <- c(text, paste0("                <Exponential id=\"Exponential.0\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.0\" estimate=\"false\" ",
+      "name=\"mean\">1.0</parameter>"))
+    text <- c(text, paste0("                </Exponential>"))
     text <- c(text, paste0("            </prior>"))
   }
   text
