@@ -12,6 +12,8 @@ create_gamma_site_model(gamma_cat_count = get_default_gamma_cat_count(),
 \item{gamma_cat_count}{the number of gamma categories, must
 be an integer with value zero or more}
 
+\item{gamma_shape}{gamma curve shape parameter}
+
 \item{prop_invariant}{the proportion invariant, must be a value
 from 0.0 to 1.0}
 }

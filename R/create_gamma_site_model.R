@@ -1,6 +1,7 @@
 #' Create a gamma site model, part of a site model
 #' @param gamma_cat_count the number of gamma categories, must
 #'   be an integer with value zero or more
+#' @param gamma_shape gamma curve shape parameter
 #' @param prop_invariant the proportion invariant, must be a value
 #'   from 0.0 to 1.0
 #' @return a gamma site model

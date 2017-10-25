@@ -9,3 +9,7 @@ get_default_gamma_shape()
 \description{
 Get the default gamma shape value
 }
+\note{
+this value is returned as a string, to be able to exactly replicate
+  all XML files
+}
