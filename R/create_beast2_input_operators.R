@@ -154,22 +154,13 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
   site_models = create_site_model(name = "JC69")
 ) {
   text <- NULL
+
+  # Part 1
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"KappaScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa.s:", ids, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
-      text <- c(text, paste0(""))
-      text <- c(text, paste0("    <operator id=\"gammaShapeScaler.s:test_output_0\" spec=\"ScaleOperator\" parameter=\"@gammaShape.s:test_output_0\" scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    }
-    text <- c(text, paste0(""))
-    text <- c(text, paste0("    <operator ",
-      "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
-      "delta=\"0.01\" weight=\"0.1\">"))
-    text <- c(text, paste0("        <parameter ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
-    text <- c(text, paste0("    </operator>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"kappa1Scaler.s:", ids, "\" ",
@@ -207,6 +198,26 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
     text <- c(text, paste0("    <operator id=\"RateGTScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", ids, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator ",
+      "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
+      "delta=\"0.01\" weight=\"0.1\">"))
+    text <- c(text, paste0("        <parameter ",
+      "idref=\"freqParameter.s:", ids, "\"/>"))
+    text <- c(text, paste0("    </operator>"))
+  }
+
+  # Middle part
+  if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator ",
+      "id=\"gammaShapeScaler.s:", ids, "\" spec=\"ScaleOperator\" ",
+      "parameter=\"@gammaShape.s:", ids, "\" scaleFactor=\"0.5\" ",
+      "weight=\"0.1\"/>"))
+  }
+
+  # Part 2
+  if (is_hky_site_model(site_models)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator ",
       "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
