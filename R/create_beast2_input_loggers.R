@@ -153,7 +153,7 @@ create_beast2_input_loggers_gamma_site_models <- function( # nolint long functio
   site_models
 ) {
   text <- NULL
-  if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
+  if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
     text <- c(text, paste0("        <log idref=\"gammaShape.s:", ids, "\"/>"))
   }
   text

@@ -156,7 +156,8 @@ create_beast2_input_state_gamma_site_models <- function( # nolint long function 
   site_models
 ) {
   text <- NULL
-  gamma_site_models <- get_gamma_site_model(site_models = site_models)
+  gamma_site_models <- beastscriptr::get_gamma_site_model(
+    site_models = site_models)
   if (get_gamma_cat_count(gamma_site_models) > 1) {
     text <- c(text, paste0("        <parameter ",
       "id=\"gammaShape.s:", ids, "\" name=\"stateNode\">1.0</parameter>"))
