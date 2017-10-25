@@ -433,6 +433,3 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
   }
   text
 }
-
-
-
