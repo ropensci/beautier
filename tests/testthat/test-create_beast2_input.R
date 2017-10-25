@@ -316,7 +316,6 @@ test_that("Check that jc69_gcc_2_2_4.xml is reproduced", {
 
 test_that("Check that jc69_gcc_2_shape_1_52_4.xml is reproduced", {
 
-  skip("WIP")
   created_lines <- beastscriptr::create_beast2_input(
     input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
     site_models = create_jc69_site_model(
