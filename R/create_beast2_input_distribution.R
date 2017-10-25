@@ -74,12 +74,16 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
       "\" shape=\"@gammaShape.s:", ids, "\">")
     )
   }
+
+
   text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
     ids,
     "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
-  text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
-    ids,
-    "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
+  if (gamma_category_count < 2) {
+    text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
+      ids,
+      "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
+  }
 
   # proportionInvariant
   if (is_hky_site_model(site_models)) {
