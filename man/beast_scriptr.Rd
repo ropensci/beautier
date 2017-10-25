@@ -57,7 +57,7 @@ Deprecated interface for \code{\link{create_beast2_input_file}},
     tree_prior = "birth_death",
     fixed_crown_age = TRUE,
     initial_phylogeny = beastscriptr::fasta_to_phylo(
-      input_fasta_filename = get_input_fasta_filename(),
+      fasta_filename = get_input_fasta_filename(),
       crown_age = 15)
   )
   testthat::expect_true(file.exists(output_xml_filename_fixed))
