@@ -208,7 +208,7 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
   }
 
   # Middle part
-  if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
+  if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator ",
       "id=\"gammaShapeScaler.s:", ids, "\" spec=\"ScaleOperator\" ",

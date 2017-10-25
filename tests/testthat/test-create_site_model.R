@@ -38,4 +38,3 @@ test_that("Can specify HKY kappa", {
   testthat::expect_equal(get_kappa(site_model), 2.0)
 
 })
-

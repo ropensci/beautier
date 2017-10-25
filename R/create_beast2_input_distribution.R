@@ -58,7 +58,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     ids, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", ids,
     "\" tree=\"@Tree.t:", ids, "\">"))
   # gamma category count
-  gamma_category_count <- get_gamma_cat_count(get_gamma_site_model(site_models))
+  gamma_category_count <- beastscriptr::get_gamma_cat_count(
+    beastscriptr::get_gamma_site_model(site_models))
   if (gamma_category_count == 0) {
     text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
       ids, "\" spec=\"SiteModel\">")
@@ -342,7 +343,8 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
   site_models
 ) {
   text <- NULL
-  gamma_site_models <- get_gamma_site_model(site_models)
+  gamma_site_models <- beastscriptr::get_gamma_site_model(
+    site_models = site_models)
   if (get_gamma_cat_count(gamma_site_models) >= 2) {
     text <- c(text, paste0("            <prior ",
       "id=\"GammaShapePrior.s:", ids, "\" name=\"distribution\" ",
