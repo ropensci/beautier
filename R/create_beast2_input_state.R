@@ -156,13 +156,13 @@ create_beast2_input_state_gamma_site_models <- function( # nolint long function 
   site_models
 ) {
   text <- NULL
-  if (is_jc69_site_model(site_models)) {
-    return(text)
-  }
   gamma_site_models <- get_gamma_site_model(site_models = site_models)
   if (get_gamma_cat_count(gamma_site_models) > 1) {
     text <- c(text, paste0("        <parameter ",
       "id=\"gammaShape.s:", ids, "\" name=\"stateNode\">1.0</parameter>"))
+  }
+  if (is_jc69_site_model(site_models)) {
+    return(text)
   }
   text <- c(text, paste0("        <parameter ",
     "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
