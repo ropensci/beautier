@@ -5,7 +5,8 @@
 \title{Creates the clock_models section in the operators section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators_clock_models(ids, clock_models)
+create_beast2_input_operators_clock_models(ids,
+  clock_models = create_clock_model(name = "strict"))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

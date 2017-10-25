@@ -24,40 +24,12 @@ create_beast2_input_operators <- function(
 
 
   text <- NULL
-  text <- c(text, create_beast2_input_operators_tree_priors(
+  text <- c(text, create_beast2_input_operators_tree_priors_1(
     ids = ids, tree_priors = tree_priors, fixed_crown_age = fixed_crown_age))
   text <- c(text, create_beast2_input_operators_site_models(
     ids = ids, site_models = site_models))
-
-
-  if (is_bd_tree_prior(tree_priors)) {
-    text <- c(text, "")
-    text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
-      ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
-      ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-    text <- c(text, "")
-    text <- c(text, paste0("    <operator id=\"DeathRateScaler.t:",
-      ids,
-      "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
-      ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-  } else if (is_ccp_tree_prior(tree_priors)) {
-    text <- c(text, "")
-    text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
-      ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
-      "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-  } else if (is_cbs_tree_prior(tree_priors)) {
-    text <- c(text, "")
-    text <- c(text, paste0("    <operator id=\"popSizesScaler.t:", ids, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", ids, "\" ",
-      "scaleFactor=\"0.75\" weight=\"15.0\"/>"))
-    text <- c(text, paste0(""))
-    text <- c(text, paste0("    <operator id=\"groupSizesDelta.t:", ids, "\" ",
-      "spec=\"DeltaExchangeOperator\" integer=\"true\" weight=\"6.0\">"))
-    text <- c(text, paste0("        <intparameter ",
-      "idref=\"bGroupSizes.t:", ids, "\"/>"))
-    text <- c(text, paste0("    </operator>"))
-  }
-
+  text <- c(text, create_beast2_input_operators_tree_priors_2(
+    ids = ids, tree_priors = tree_priors))
   text <- c(text, create_beast2_input_operators_clock_models(
     ids = ids, clock_models = clock_models))
 
@@ -65,16 +37,16 @@ create_beast2_input_operators <- function(
 }
 
 
-#' Creates the tree_priors section in the operators section
+#' Creates the first tree_priors section in the operators section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_operators
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_operators_tree_priors <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_operators_tree_priors_1 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  tree_priors,
+  tree_priors = create_tree_prior(name = "yule"),
   fixed_crown_age
 ) {
   text <- NULL
@@ -129,6 +101,48 @@ create_beast2_input_operators_tree_priors <- function( # nolint long function na
   text
 }
 
+#' Creates the second tree_priors section in the operators section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_operators
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_operators_tree_priors_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  tree_priors = create_tree_prior(name = "yule")
+) {
+  text <- NULL
+  if (is_bd_tree_prior(tree_priors)) {
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
+      ids, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
+      ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"DeathRateScaler.t:",
+      ids,
+      "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
+      ids, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+  } else if (is_ccp_tree_prior(tree_priors)) {
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"PopSizeScaler.t:",
+      ids, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", ids,
+      "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+  } else if (is_cbs_tree_prior(tree_priors)) {
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"popSizesScaler.t:", ids, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", ids, "\" ",
+      "scaleFactor=\"0.75\" weight=\"15.0\"/>"))
+    text <- c(text, paste0(""))
+    text <- c(text, paste0("    <operator id=\"groupSizesDelta.t:", ids, "\" ",
+      "spec=\"DeltaExchangeOperator\" integer=\"true\" weight=\"6.0\">"))
+    text <- c(text, paste0("        <intparameter ",
+      "idref=\"bGroupSizes.t:", ids, "\"/>"))
+    text <- c(text, paste0("    </operator>"))
+  }
+  text
+}
+
 #' Creates the site_models section in the operators section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_operators
@@ -138,7 +152,7 @@ create_beast2_input_operators_tree_priors <- function( # nolint long function na
 #' @export
 create_beast2_input_operators_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  site_models
+  site_models = create_site_model(name = "JC69")
 ) {
   text <- NULL
   if (is_hky_site_model(site_models)) {
@@ -210,7 +224,7 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
 #' @export
 create_beast2_input_operators_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  clock_models
+  clock_models = create_clock_model(name = "strict")
 ) {
   text <- NULL
   if (is_rln_clock_model(clock_models)) {
