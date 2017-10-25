@@ -25,119 +25,19 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     )
   )
 
-  # Site models
-  if (is_hky_site_model(site_models)) {
-    text <- c(text, paste0("            <prior id=\"KappaPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@kappa.s:", ids, "\">"))
-    text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.1\" estimate=\"false\" name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("                </LogNormal>"))
-    text <- c(text, paste0("            </prior>"))
-  } else if (is_tn93_site_model(site_models)) {
-    text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@kappa1.s:", ids, "\">"))
-    text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.1\" name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.3\" estimate=\"false\" name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.4\" estimate=\"false\" name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("                </LogNormal>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@kappa2.s:", ids, "\">"))
-    text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.2\" name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.5\" estimate=\"false\" name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.6\" estimate=\"false\" name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("                </LogNormal>"))
-    text <- c(text, paste0("            </prior>"))
-  } else if (is_gtr_site_model(site_models)) {
-    text <- c(text, paste0("            <prior ",
-      "id=\"RateACPrior.s:", ids, "\" name=\"distribution\" ",
-      "x=\"@rateAC.s:", ids, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.7\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.8\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateAGPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateAG.s:", ids, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.1\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.9\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.10\" estimate=\"false\" ",
-      "name=\"beta\">20.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateATPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateAT.s:", ids, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.2\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.11\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.12\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateCGPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateCG.s:", ids, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.3\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.13\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.14\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateGTPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateGT.s:", ids, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.5\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.17\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.18\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-  }
+  text <- c(text,
+    create_beast2_input_distribution_site_models(
+      ids = ids,
+      site_models = site_models
+    )
+  )
 
-  # Clock models
-  if (is_rln_clock_model(clock_models)) {
-    text <- c(text, paste0("            <prior ",
-      "id=\"ucldStdevPrior.c:", ids, "\" name=\"distribution\" ",
-      "x=\"@ucldStdev.c:", ids, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.2\" estimate=\"false\" ",
-      "name=\"alpha\">0.5396</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.3\" estimate=\"false\" ",
-      "name=\"beta\">0.3819</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-  }
+  text <- c(text,
+    create_beast2_input_distribution_clock_models(
+      ids = ids,
+      clock_models = clock_models
+    )
+  )
 
   text <- c(text, "        </distribution>")
   text <- c(
@@ -260,17 +160,15 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 
 #' Creates the distribution section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @param tree_priors one or more tree priors
+#' @inheritParams create_beast2_input_distribution
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_distribution_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   tree_priors = create_tree_prior(name = "yule")
 ) {
-
   text <- NULL
   if (is_yule_tree_prior(tree_priors)) {
     text <- c(text, paste0("            <distribution id=\"YuleModel.t:", ids,
@@ -327,6 +225,147 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
       "<distribution id=\"MarkovChainedPopSizes.t:", ids,
       "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
       "jeffreys=\"true\" parameter=\"@bPopSizes.t:", ids, "\"/>"))
+  }
+  text
+}
+
+
+#' Creates the site models section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models
+) {
+  text <- NULL
+  if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("            <prior id=\"KappaPrior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@kappa.s:", ids, "\">"))
+    text <- c(text, paste0("                <LogNormal ",
+      "id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.1\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+    text <- c(text, paste0("                </LogNormal>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_tn93_site_model(site_models)) {
+    text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@kappa1.s:", ids, "\">"))
+    text <- c(text, paste0("                <LogNormal ",
+      "id=\"LogNormalDistributionModel.1\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.3\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.4\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+    text <- c(text, paste0("                </LogNormal>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@kappa2.s:", ids, "\">"))
+    text <- c(text, paste0("                <LogNormal ",
+      "id=\"LogNormalDistributionModel.2\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.5\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.6\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+    text <- c(text, paste0("                </LogNormal>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_gtr_site_model(site_models)) {
+    text <- c(text, paste0("            <prior ",
+      "id=\"RateACPrior.s:", ids, "\" name=\"distribution\" ",
+      "x=\"@rateAC.s:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.7\" estimate=\"false\" ",
+      "name=\"alpha\">0.05</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.8\" estimate=\"false\" ",
+      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"RateAGPrior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@rateAG.s:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.1\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.9\" estimate=\"false\" ",
+      "name=\"alpha\">0.05</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.10\" estimate=\"false\" ",
+      "name=\"beta\">20.0</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"RateATPrior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@rateAT.s:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.2\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.11\" estimate=\"false\" ",
+      "name=\"alpha\">0.05</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.12\" estimate=\"false\" ",
+      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"RateCGPrior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@rateCG.s:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.3\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.13\" estimate=\"false\" ",
+      "name=\"alpha\">0.05</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.14\" estimate=\"false\" ",
+      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"RateGTPrior.s:", ids, "\" ",
+      "name=\"distribution\" x=\"@rateGT.s:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.5\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.17\" estimate=\"false\" ",
+      "name=\"alpha\">0.05</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.18\" estimate=\"false\" ",
+      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
+  }
+  text
+}
+
+#' Creates the clock models section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  clock_models
+) {
+  text <- NULL
+  if (is_rln_clock_model(clock_models)) {
+    text <- c(text, paste0("            <prior ",
+      "id=\"ucldStdevPrior.c:", ids, "\" name=\"distribution\" ",
+      "x=\"@ucldStdev.c:", ids, "\">"))
+    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
+      "name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.2\" estimate=\"false\" ",
+      "name=\"alpha\">0.5396</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.3\" estimate=\"false\" ",
+      "name=\"beta\">0.3819</parameter>"))
+    text <- c(text, paste0("                </Gamma>"))
+    text <- c(text, paste0("            </prior>"))
   }
   text
 }
