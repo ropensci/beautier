@@ -51,13 +51,9 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       "idref=\"bGroupSizes.t:", ids, "\"/>"))
   }
 
+  # Site models 1
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa.s:", ids, "\"/>"))
-    if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
-      text <- c(text, paste0("        <log idref=\"gammaShape.s:", ids, "\"/>"))
-    }
-    text <- c(text, paste0("        <log ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa1.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"kappa2.s:", ids, "\"/>"))
@@ -72,6 +68,16 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     text <- c(text, paste0("        <log ",
       "idref=\"freqParameter.s:", ids, "\"/>"))
 
+  }
+
+  if(get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
+    text <- c(text, paste0("        <log idref=\"gammaShape.s:", ids, "\"/>"))
+  }
+
+  # Site models 2
+  if (is_hky_site_model(site_models)) {
+    text <- c(text, paste0("        <log ",
+      "idref=\"freqParameter.s:", ids, "\"/>"))
   }
 
   # Clock models
