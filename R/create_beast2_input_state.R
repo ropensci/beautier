@@ -13,23 +13,7 @@ create_beast2_input_state <- function(
 ) {
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
-
-  if (!ribir::is_phylogeny(initial_phylogeny)) {
-    text <- c(text, paste0("        <tree id=\"Tree.t:",
-      ids, "\" name=\"stateNode\">"))
-    text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
-      ids, "\" spec=\"TaxonSet\">"))
-    text <- c(text, paste0("                <alignment idref=\"",
-      ids, "\"/>"))
-    text <- c(text, "            </taxonset>")
-    text <- c(text, "        </tree>")
-  } else {
-    text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
-        "id=\"Tree.t:", ids, "\" IsLabelledNewick=\"true\" ",
-        "adjustTipHeights=\"false\" taxa=\"@", ids, "\" ",
-        "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
-    text <- c(text, paste0("    </stateNode>"))
-  }
+  text <- c(text, create_beast2_input_state_tree(ids = ids, initial_phylogeny = initial_phylogeny))
 
   # Tree priors
   if (is_yule_tree_prior(tree_priors)) {
@@ -51,22 +35,16 @@ create_beast2_input_state <- function(
       "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
   }
 
-  # Site models
+  # Site models, specific parameters
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">",
       beastscriptr::get_kappa(site_models), "</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
-      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0("        <parameter id=\"kappa1.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"kappa2.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
-      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   } else if (is_gtr_site_model(site_models)) {
     text <- c(text, paste0("        <parameter id=\"rateAC.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
@@ -78,6 +56,12 @@ create_beast2_input_state <- function(
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"rateGT.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+  }
+
+  # Gamma site models
+  if (is_hky_site_model(site_models)
+    || is_tn93_site_model(site_models)
+    || is_gtr_site_model(site_models)) {
     text <- c(text, paste0("        <parameter ",
       "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
       "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
@@ -93,5 +77,37 @@ create_beast2_input_state <- function(
   }
 
   text <- c(text, "    </state>")
+  text
+}
+
+#' Creates the tree part of the state section of a BEAST2 XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @inheritParams create_beast2_input
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  initial_phylogeny
+) {
+  text <- NULL
+  if (!ribir::is_phylogeny(initial_phylogeny)) {
+    text <- c(text, paste0("        <tree id=\"Tree.t:",
+      ids, "\" name=\"stateNode\">"))
+    text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
+      ids, "\" spec=\"TaxonSet\">"))
+    text <- c(text, paste0("                <alignment idref=\"",
+      ids, "\"/>"))
+    text <- c(text, "            </taxonset>")
+    text <- c(text, "        </tree>")
+  } else {
+    text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
+        "id=\"Tree.t:", ids, "\" IsLabelledNewick=\"true\" ",
+        "adjustTipHeights=\"false\" taxa=\"@", ids, "\" ",
+        "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
+    text <- c(text, paste0("    </stateNode>"))
+  }
   text
 }
