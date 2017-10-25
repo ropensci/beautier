@@ -19,5 +19,5 @@ get_gamma_cat_count <- function(gamma_site_models) {
 #' substitution model. Use in, among others, create_hky_site_model
 #' @export
 get_default_gamma_cat_count <- function() {
-  return(4)
+  return(0)
 }

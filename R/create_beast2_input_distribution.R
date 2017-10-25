@@ -152,7 +152,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     "\" tree=\"@Tree.t:", ids, "\">"))
   # gamma category count
   gamma_category_count <- get_gamma_cat_count(get_gamma_site_model(site_models))
-  if (gamma_category_count == get_default_gamma_cat_count()) {
+  if (gamma_category_count == 0) {
     text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
       ids, "\" spec=\"SiteModel\">")
     )
