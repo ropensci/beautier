@@ -237,7 +237,6 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
 
 test_that("All tree priors produce a valid BEAST2 input file", {
 
-  #skip("All are OK except coalescent_bayesian_skyline")
   tree_priors <- beastscriptr::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
 

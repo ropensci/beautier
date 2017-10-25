@@ -345,7 +345,8 @@ test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", package = "beastscriptr"))
+    "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
+    package = "beastscriptr"))
 
   testthat::expect_identical(created_lines, expected_lines)
 
