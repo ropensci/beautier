@@ -16,7 +16,9 @@ get_gamma_shape <- function(gamma_site_models) {
 }
 
 #' Get the default gamma shape value
+#' @note this value is returned as a string, to be able to exactly replicate
+#'   all XML files
 #' @export
 get_default_gamma_shape <- function() {
-  return(1.0)
+  return("1.0")
 }
