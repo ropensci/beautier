@@ -150,8 +150,18 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
     ids, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", ids,
     "\" tree=\"@Tree.t:", ids, "\">"))
-  text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
-    ids, "\" spec=\"SiteModel\">"))
+  # gamma category count
+  gamma_category_count <- get_gamma_cat_count(get_gamma_site_model(site_models))
+  if (gamma_category_count == get_default_gamma_cat_count()) {
+    text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+      ids, "\" spec=\"SiteModel\">")
+    )
+  } else {
+    text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+      ids, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
+      "\">")
+    )
+  }
   text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
     ids,
     "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))

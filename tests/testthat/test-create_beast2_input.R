@@ -233,6 +233,22 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
 
 })
 
+test_that("Check that hky_gcc_4_2_1.xml is reproduced", {
+
+  created_lines <- beastscriptr::create_beast2_input(
+    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+    site_models = create_hky_site_model(
+      gamma_site_model = create_gamma_site_model(
+        gamma_cat_count = 1
+      )
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "hky_gcc_1_2_4.xml", package = "beastscriptr"))
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
 test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
 
   skip("Need more insight before adding gamma site model")
@@ -246,6 +262,18 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_4_2_4.xml", package = "beastscriptr"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -262,16 +290,6 @@ test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
   expected_lines <- readLines(system.file("extdata",
     "strict_clock_rate_0_5_2_4.xml", package = "beastscriptr"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
   testthat::expect_identical(created_lines, expected_lines)
 
 })
