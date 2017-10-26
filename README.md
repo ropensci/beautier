@@ -10,7 +10,7 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beastscriptr.svg
 ![beastscriptr logo](beastscriptr_logo.png)
 
 The purpose of `beastscriptr` is to create 
-[a valid BEAST2 XML input file](inst/extdata/birth_death_0_20151005.xml)
+[a valid BEAST2 XML input file](inst/extdata/2_4.xml)
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti` its GUI.
 
@@ -32,7 +32,7 @@ The default parameters of these settings are supported:
    * Yule
    * Birth-Death
    * Coalescent Constant Population
-   * Coalescent Bayesian Skyline
+   * (Coalescent Bayesian Skyline)
 
 Unlike BEAUti, `beastscriptr` *does* allow for a fixed crown age.
 
@@ -47,6 +47,10 @@ If you use the `devtools` R package, this is easy:
 ```
 devtools::install_github("richelbilderbeek/beastscriptr")
 ```
+
+## FAQ
+
+See [FAQ](Faq.md)
 
 ## Future use cases
 
