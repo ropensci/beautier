@@ -13,6 +13,14 @@ test_that("abuse", {
     beastscriptr::create_site_model(name = "nonsense")
   )
 
+  testthat::expect_error(
+    beastscriptr::create_site_model(
+      name = "JC69",
+      gamma_site_model = "nonsense"
+    )
+
+  )
+
 })
 
 test_that("use more typesafe names", {
