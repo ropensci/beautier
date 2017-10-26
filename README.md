@@ -74,4 +74,10 @@ Sure, just add an Issue. Or send an email.
 
 ## References
 
+Article about `beastscriptr`:
+
  * Bilderbeek, Richel J.C., Etienne, Rampal S., "beastscriptr: BEAUti from R" *In preparation*.
+
+FASTA files `Anthus_aco.fas` and `Anthus_nd2.fas` from:
+ 
+ * Els, Paul van, ...
