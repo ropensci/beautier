@@ -19,9 +19,9 @@ create_beast2_input_data_sequences <- function( # nolint long function name is f
     row <- sequences[i, ]
     nextline <- paste0(
       "                    <sequence id=\"seq_",
-      row[1],
+      trimws(row[1]),
       "\" taxon=\"",
-      row[1],
+      trimws(row[1]),
       "\" totalcount=\"4\" value=\"",
       ifelse(nucleotides_uppercase == TRUE, toupper(row[2]), row[2]),
       "\"/>"
