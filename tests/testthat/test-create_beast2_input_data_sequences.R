@@ -37,3 +37,16 @@ test_that("abuse", {
     create_beast2_input_data_sequences("nonse.nse")
   )
 })
+
+
+test_that("sort order", {
+
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beastscriptr")
+
+  lines <- create_beast2_input_data_sequences(fasta_filename_1)
+  testthat::expect_true(substr(lines[11],35,46) != "seq_bas3_nd2")
+  testthat::expect_true(substr(lines[11],35,47) == "seq_FALK1_nd2")
+
+})
+

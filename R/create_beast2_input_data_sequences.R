@@ -30,6 +30,6 @@ create_beast2_input_data_sequences <- function( # nolint long function name is f
     )
     text <- c(text, nextline)
   }
-  text <- sort(text)
+  text <- sort(text, method = "radix")
   text
 }
