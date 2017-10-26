@@ -6,12 +6,23 @@ test_that("testing FASTA file is not a valid BEAST2 input file", {
       beastscriptr::get_input_fasta_filename()
     )
   )
+
 })
 
-test_that("testing BEAST2 input file is a valid BEAST2 input file", {
+test_that("birth_death_2_4.xml is valid", {
 
   filename <- system.file(
     "extdata", "birth_death_2_4.xml", package = "beastscriptr"
+  )
+  testthat::expect_true(file.exists(filename))
+  testthat::expect_true(is_beast2_input_file(filename))
+
+})
+
+test_that("anthus_2_4.xml is valid", {
+
+  filename <- system.file(
+    "extdata", "anthus_2_4.xml", package = "beastscriptr"
   )
   testthat::expect_true(file.exists(filename))
   testthat::expect_true(is_beast2_input_file(filename))

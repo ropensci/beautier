@@ -80,4 +80,4 @@ Article about `beastscriptr`:
 
 FASTA files `Anthus_aco.fas` and `Anthus_nd2.fas` from:
  
- * Els, Paul van, ...
+ * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.

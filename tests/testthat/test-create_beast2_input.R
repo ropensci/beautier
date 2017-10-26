@@ -411,9 +411,9 @@ test_that("Check that anthus_2_4.xml is reproduced", {
 
   skip("WIP")
   fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beastscriptr")
-  fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beastscriptr")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_aco.fas", package = "beastscriptr")
 
   created_lines <- beastscriptr::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2)
