@@ -8,5 +8,6 @@ test_that("use", {
   testthat::expect_false(beastscriptr::is_site_model(NULL))
   testthat::expect_false(beastscriptr::is_site_model("nonsense"))
   testthat::expect_false(beastscriptr::is_site_model(list(name = "nonsense")))
+  testthat::expect_false(beastscriptr::is_site_model(list(name = "JC69")))
 
 })
