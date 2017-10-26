@@ -8,7 +8,8 @@ create_beast2_input_beast(input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
-  fixed_crown_age = FALSE, initial_phylogeny = NA)
+  capitalize_first_char_id = FALSE, fixed_crown_age = FALSE,
+  initial_phylogeny = NA)
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filenames}
@@ -23,6 +24,8 @@ as returned by \code{\link{create_clock_model}}}
 as returned by \code{\link{create_tree_prior}}}
 
 \item{mcmc_chainlength}{Length of MCMC chain}
+
+\item{capitalize_first_char_id}{capitalize the first character of the ID}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,

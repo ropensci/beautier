@@ -1,6 +1,5 @@
 #' Creates the data section of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input
-#' @param capitalize_first_char_id capitalize the first character of the ID
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_data <- function(

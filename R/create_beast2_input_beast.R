@@ -8,6 +8,7 @@ create_beast2_input_beast <- function(
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
+  capitalize_first_char_id = FALSE,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
@@ -16,7 +17,10 @@ create_beast2_input_beast <- function(
   }
 
   # Alignment IDs
-  ids <- beastscriptr::get_file_base_sans_ext(input_fasta_filenames)
+  ids <- beastscriptr::get_id(
+    input_fasta_filenames,
+    capitalize_first_char_id = capitalize_first_char_id
+  )
 
   text <- paste0(
     "<beast beautitemplate='Standard' beautistatus='' ",
@@ -34,7 +38,8 @@ create_beast2_input_beast <- function(
 
   text <- c(text,
     create_beast2_input_data(
-      input_fasta_filenames = input_fasta_filenames
+      input_fasta_filenames = input_fasta_filenames,
+      capitalize_first_char_id = capitalize_first_char_id
     )
   )
 
