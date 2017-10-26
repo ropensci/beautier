@@ -1,9 +1,11 @@
 #' Creates the data section of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input
+#' @param capitalize_first_char_id capitalize the first character of the ID
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_data <- function(
-  input_fasta_filenames
+  input_fasta_filenames,
+  capitalize_first_char_id = FALSE
 ) {
   if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
@@ -11,7 +13,10 @@ create_beast2_input_data <- function(
 
   text <- NULL
   for (input_fasta_filename in input_fasta_filenames) {
-    id <- beastscriptr::get_id(input_fasta_filename)
+    id <- beastscriptr::get_id(
+      input_fasta_filename,
+      capitalize_first_char_id = capitalize_first_char_id
+    )
     text <- c(text, "    <data")
     text <- c(text, paste0("id=\"", id, "\""))
     text <- c(text, "name=\"alignment\">")

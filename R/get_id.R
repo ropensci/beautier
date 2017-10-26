@@ -1,12 +1,21 @@
 #' Conclude the ID from a FASTA filename
 #' @param fasta_filename name of a FASTA file
+#' @param capitalize_first_char_id capitalize the first character of the ID
 #' @return the ID
 #' @examples
-#'   testit::assert(get_id("anthus_aco.fas") == "Anthus_aco")
+#'   testit::assert(get_id("anthus_aco.fas") == "anthus_aco")
+#'   testit::assert(
+#'     get_id("anthus_aco.fas", capitalize_first_char_id = TRUE)
+#'     == "Anthus_aco")
 #' @author Richel J.C. Bilderbeek
 #' @export
-get_id <- function(fasta_filename) {
-  file_base <- beastscriptr::get_file_base_sans_ext(fasta_filename)
-  id <- paste0(toupper(substr(file_base, 1, 1)), substring(file_base, 2))
+get_id <- function(
+  fasta_filename,
+  capitalize_first_char_id = FALSE
+) {
+  id <- beastscriptr::get_file_base_sans_ext(fasta_filename)
+  if (capitalize_first_char_id == TRUE) {
+    id <- paste0(toupper(substr(id, 1, 1)), substring(id, 2))
+  }
   id
 }

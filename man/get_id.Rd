@@ -4,10 +4,12 @@
 \alias{get_id}
 \title{Conclude the ID from a FASTA filename}
 \usage{
-get_id(fasta_filename)
+get_id(fasta_filename, capitalize_first_char_id = FALSE)
 }
 \arguments{
 \item{fasta_filename}{name of a FASTA file}
+
+\item{capitalize_first_char_id}{capitalize the first character of the ID}
 }
 \value{
 the ID
@@ -16,7 +18,10 @@ the ID
 Conclude the ID from a FASTA filename
 }
 \examples{
-  testit::assert(get_id("anthus_aco.fas") == "Anthus_aco")
+  testit::assert(get_id("anthus_aco.fas") == "anthus_aco")
+  testit::assert(
+    get_id("anthus_aco.fas", capitalize_first_char_id = TRUE)
+    == "Anthus_aco")
 }
 \author{
 Richel J.C. Bilderbeek

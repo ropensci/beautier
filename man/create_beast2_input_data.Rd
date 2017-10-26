@@ -4,10 +4,13 @@
 \alias{create_beast2_input_data}
 \title{Creates the data section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_data(input_fasta_filenames)
+create_beast2_input_data(input_fasta_filenames,
+  capitalize_first_char_id = FALSE)
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filenames}
+
+\item{capitalize_first_char_id}{capitalize the first character of the ID}
 }
 \description{
 Creates the data section of a BEAST2 XML parameter file
