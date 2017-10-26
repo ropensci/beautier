@@ -33,3 +33,18 @@ test_that("abuse", {
     )
   )
 })
+
+test_that("two alignments", {
+
+  skip("WIP")
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_aco.fas", package = "beastscriptr")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beastscriptr")
+
+  testthat::expect_silent(
+    create_beast2_input_data(
+      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2)
+    )
+  )
+})

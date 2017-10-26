@@ -4,10 +4,10 @@
 \alias{fasta_file_to_sequences}
 \title{Convert a FASTA file to a table of sequences}
 \usage{
-fasta_file_to_sequences(fasta_filename)
+fasta_file_to_sequences(fasta_filenames)
 }
 \arguments{
-\item{fasta_filename}{Name of an existing FASTA file}
+\item{fasta_filenames}{One or more existing FASTA filenames}
 }
 \value{
 a table of sequences
