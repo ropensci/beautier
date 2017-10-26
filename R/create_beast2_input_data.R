@@ -11,7 +11,7 @@ create_beast2_input_data <- function(
 
   text <- NULL
   for (input_fasta_filename in input_fasta_filenames) {
-    id <- beastscriptr::get_file_base_sans_ext(input_fasta_filename)
+    id <- beastscriptr::get_id(input_fasta_filename)
     text <- c(text, "    <data")
     text <- c(text, paste0("id=\"", id, "\""))
     text <- c(text, "name=\"alignment\">")

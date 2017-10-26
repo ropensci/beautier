@@ -37,7 +37,6 @@ test_that("two alignments", {
 
 test_that("alignments start with a capital", {
 
-  skip("WIP")
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beastscriptr")
   fasta_filename_2 <- system.file("extdata",
