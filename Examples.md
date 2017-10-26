@@ -90,7 +90,9 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  site_models = create_hky_site_model(proportion_invariant = 0.5)
+  site_models = create_hky_site_model(
+    gamma_site_model = create_gamma_site_model(proportion_invariant = 0.5)
+  )
 )
 ```
 
