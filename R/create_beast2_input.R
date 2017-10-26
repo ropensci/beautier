@@ -13,9 +13,9 @@
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
-#' @param initial_phylogeny the MCMC chain its initial phylogeny. If
-#'   this is set to NA, BEAST2 will use a random phylogeny. Else
-#'   a phylogeny must be supplied of class ape::phylo.
+#' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
+#'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
+#'   the phylogeny is assumed to be of class ape::phylo.
 #' @examples
 #'   # Create a BEAST2 input file's text from th example FASTA file
 #'   xml <- create_beast2_input(
@@ -31,7 +31,7 @@ create_beast2_input <- function(
   mcmc_chainlength = 10000000,
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
-  initial_phylogeny = NA
+  initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
@@ -51,6 +51,9 @@ create_beast2_input <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
+  if (length(input_fasta_filenames) != length(initial_phylogenies)) {
+    stop("Must supply as much input_fasta_filenames as initial_phylogenies")
+  }
 
 
   # Make a million show as 1000000 instead of 1e+06
@@ -64,7 +67,7 @@ create_beast2_input <- function(
       mcmc_chainlength = mcmc_chainlength,
       misc_options = misc_options,
       fixed_crown_age = fixed_crown_age,
-      initial_phylogeny = initial_phylogeny
+      initial_phylogenies = initial_phylogenies
   )
   text[1] <- paste0(beastscriptr::create_beast2_input_xml(), text[1])
   text

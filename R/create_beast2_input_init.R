@@ -6,7 +6,7 @@
 #' @export
 create_beast2_input_init <- function(
   ids,
-  initial_phylogeny
+  initial_phylogenies
 ) {
   text <- NULL
   # From https://www.beast2.org/fix-starting-tree/:
@@ -21,7 +21,7 @@ create_beast2_input_init <- function(
   #   will be overwritten by a random tree.
   #
   # In other words: bluntly remove it
-  if (!ribir::is_phylogeny(initial_phylogeny)) {
+  if (!ribir::is_phylogeny(initial_phylogenies)) {
     text <- c(text, paste0("    <init id=\"RandomTree.t:", ids,
       "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
       " initial=\"@Tree.t:", ids, "\" taxa=\"@", ids, "\">"

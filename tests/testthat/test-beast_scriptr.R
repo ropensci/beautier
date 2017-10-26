@@ -191,7 +191,7 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
     tree_prior = "birth_death",
     output_xml_filename = beast_filename,
     fixed_crown_age = TRUE,
-    initial_phylogeny = beastscriptr::fasta_to_phylo(
+    initial_phylogenies = beastscriptr::fasta_to_phylo(
       input_fasta_filename,
       crown_age = crown_age)
 

@@ -54,13 +54,13 @@ create_posterior <- function(
   )
   testthat::expect_true(file.exists(input_fasta_filename))
 
-  initial_phylogeny <- NA
+  initial_phylogenies <- NA
   if (fixed_crown_age == TRUE && !is.na(crown_age)) {
-    initial_phylogeny <- fasta_to_phylo(
+    initial_phylogenies <- fasta_to_phylo(
       fasta_filename = input_fasta_filename, crown_age = crown_age
     )
   }
-
+  testit::assert(count_phylos(initial_phylogenies) == length(input_fasta_filename))
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
   beastscriptr::create_beast2_input_file(
@@ -69,7 +69,7 @@ create_posterior <- function(
     tree_priors = create_tree_prior(name = "birth_death"),
     output_xml_filename = beast_filename,
     fixed_crown_age = fixed_crown_age,
-    initial_phylogeny = initial_phylogeny
+    initial_phylogenies = initial_phylogenies
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(

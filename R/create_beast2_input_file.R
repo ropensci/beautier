@@ -21,7 +21,7 @@
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     output_xml_filename = output_xml_filename_fixed,
 #'     fixed_crown_age = TRUE,
-#'     initial_phylogeny = beastscriptr::fasta_to_phylo(
+#'     initial_phylogenies = beastscriptr::fasta_to_phylo(
 #'       fasta_filename = get_input_fasta_filename(),
 #'       crown_age = 15)
 #'   )
@@ -36,7 +36,7 @@ create_beast2_input_file <- function(
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
   fixed_crown_age = FALSE,
-  initial_phylogeny = NA
+  initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
@@ -56,14 +56,18 @@ create_beast2_input_file <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
+  if (length(input_fasta_filenames) != length(initial_phylogenies)) {
+    stop("Must supply as much input_fasta_filenames as initial_phylogenies")
+  }
+
   text <- create_beast2_input(
     input_fasta_filenames = input_fasta_filenames,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
-    mcmc_chainlength,
+    mcmc_chainlength = mcmc_chainlength,
     fixed_crown_age = fixed_crown_age,
-    initial_phylogeny = initial_phylogeny
+    initial_phylogenies = initial_phylogenies
   )
 
   # Write to file

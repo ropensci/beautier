@@ -9,7 +9,7 @@ create_beast2_input(input_fasta_filenames,
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
   misc_options = create_misc_options(), fixed_crown_age = FALSE,
-  initial_phylogeny = NA)
+  initial_phylogenies = rep(NA, length(input_fasta_filenames)))
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filenames}
@@ -33,9 +33,9 @@ fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 
-\item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
-this is set to NA, BEAST2 will use a random phylogeny. Else
-a phylogeny must be supplied of class ape::phylo.}
+\item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
+Each one set to NA will result in BEAST2 using a random phylogeny. Else
+the phylogeny is assumed to be of class ape::phylo.}
 }
 \description{
 Create a BEAST2 XML input text

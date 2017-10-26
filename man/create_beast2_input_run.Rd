@@ -7,7 +7,7 @@
 create_beast2_input_run(ids, site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength,
-  fixed_crown_age, initial_phylogeny)
+  fixed_crown_age, initial_phylogenies = rep(NA, length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
@@ -29,9 +29,8 @@ fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 
-\item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
-this is set to NA, BEAST2 will use a random phylogeny. Else
-a phylogeny must be supplied of class ape::phylo.}
+\item{initial_phylogenies}{initial phylogenies, can be NAs if random
+phylogenies are desired}
 }
 \description{
 Creates the state section of a BEAST2 XML parameter file

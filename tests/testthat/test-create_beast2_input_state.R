@@ -5,17 +5,24 @@ test_that("birth_death", {
   testthat::expect_silent(
     create_beast2_input_state(
       ids = "test_output_0",
-      initial_phylogeny = NA
+      initial_phylogenies = NA
     )
   )
 })
 
-test_that("usage", {
+test_that("use", {
 
   testthat::expect_silent(
     create_beast2_input_state(
-      ids = "test_output_0",
-      initial_phylogeny = NA
+      ids = "test_output_0"
     )
   )
+
+  testthat::expect_silent(
+    create_beast2_input_state(
+      ids = c("Anthus_nd2", "Anthus_aco")
+    )
+  )
+
 })
+

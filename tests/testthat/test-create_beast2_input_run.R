@@ -7,7 +7,7 @@ test_that("usage", {
       ids = "test_output_0",
       mcmc_chainlength = 1000000,
       fixed_crown_age = FALSE,
-      initial_phylogeny = NA
+      initial_phylogenies = NA
     )
   )
 })

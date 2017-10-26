@@ -1,6 +1,8 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param initial_phylogenies initial phylogenies, can be NAs if random
+#'   phylogenies are desired
 #' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -11,8 +13,13 @@ create_beast2_input_run <- function(
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength,
   fixed_crown_age,
-  initial_phylogeny
+  initial_phylogenies = rep(NA, length(ids))
 ) {
+  if (length(ids) != length(initial_phylogenies)) {
+    stop("Must supply as much IDs as initial_phylogenies")
+  }
+
+
   text <- NULL
 
   text <- c(text, paste0("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
@@ -24,7 +31,7 @@ create_beast2_input_run <- function(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors,
-      initial_phylogeny = initial_phylogeny
+      initial_phylogenies = initial_phylogenies
     )
   )
 
@@ -33,7 +40,7 @@ create_beast2_input_run <- function(
   text <- c(text,
     create_beast2_input_init(
       ids = ids,
-      initial_phylogeny = initial_phylogeny
+      initial_phylogenies = initial_phylogenies
     )
   )
 

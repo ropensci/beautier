@@ -1,6 +1,8 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param initial_phylogenies initial phylogenies, can be NAs if random
+#'   phylogenies are desired
 #' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -9,12 +11,16 @@ create_beast2_input_state <- function(
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
-  initial_phylogeny
+  initial_phylogenies = rep(NA, length(ids))
 ) {
+  if (length(ids) != length(initial_phylogenies)) {
+    stop("Must supply as much IDs as initial_phylogenies")
+  }
+
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
-    ids = ids, initial_phylogeny = initial_phylogeny))
+    ids = ids, initial_phylogenies = initial_phylogenies))
   text <- c(text, create_beast2_input_state_tree_priors(
     ids = ids, tree_priors = tree_priors))
   text <- c(text, create_beast2_input_state_site_models_1(
@@ -45,7 +51,7 @@ create_beast2_input_state <- function(
 
 #' Creates the tree part of the state section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#'   their FASTA filesnames using \code{\link{get_id}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -53,24 +59,34 @@ create_beast2_input_state <- function(
 #' @export
 create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  initial_phylogeny
+  initial_phylogenies = rep(NA, length(ids))
 ) {
+  if (length(ids) != length(initial_phylogenies)) {
+    stop("Must supply as much IDs as initial_phylogenies")
+  }
+
   text <- NULL
-  if (!ribir::is_phylogeny(initial_phylogeny)) {
-    text <- c(text, paste0("        <tree id=\"Tree.t:",
-      ids, "\" name=\"stateNode\">"))
-    text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
-      ids, "\" spec=\"TaxonSet\">"))
-    text <- c(text, paste0("                <alignment idref=\"",
-      ids, "\"/>"))
-    text <- c(text, "            </taxonset>")
-    text <- c(text, "        </tree>")
-  } else {
-    text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
-        "id=\"Tree.t:", ids, "\" IsLabelledNewick=\"true\" ",
-        "adjustTipHeights=\"false\" taxa=\"@", ids, "\" ",
-        "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
-    text <- c(text, paste0("    </stateNode>"))
+
+  n <- length(ids)
+  for (i in seq(1, n)) {
+    initial_phylogeny <- initial_phylogenies[i]
+    id <- ids[i]
+    if (!ribir::is_phylogeny(initial_phylogeny)) {
+      text <- c(text, paste0("        <tree id=\"Tree.t:",
+        id, "\" name=\"stateNode\">"))
+      text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
+        id, "\" spec=\"TaxonSet\">"))
+      text <- c(text, paste0("                <alignment idref=\"",
+        id, "\"/>"))
+      text <- c(text, "            </taxonset>")
+      text <- c(text, "        </tree>")
+    } else {
+      text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
+          "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",
+          "adjustTipHeights=\"false\" taxa=\"@", id, "\" ",
+          "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
+      text <- c(text, paste0("    </stateNode>"))
+    }
   }
   text
 }

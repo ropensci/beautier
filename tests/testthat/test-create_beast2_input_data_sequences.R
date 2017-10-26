@@ -49,4 +49,3 @@ test_that("sort order", {
   testthat::expect_true(substr(lines[11], 35, 47) == "seq_FALK1_nd2")
 
 })
-

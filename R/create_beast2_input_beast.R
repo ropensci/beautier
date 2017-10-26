@@ -10,10 +10,13 @@ create_beast2_input_beast <- function(
   mcmc_chainlength = 10000000,
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
-  initial_phylogeny = NA
+  initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
+  }
+  if (length(input_fasta_filenames) != length(initial_phylogenies)) {
+    stop("Must supply as much input_fasta_filenames as initial_phylogenies")
   }
 
   # Alignment IDs
@@ -66,7 +69,7 @@ create_beast2_input_beast <- function(
       mcmc_chainlength = mcmc_chainlength,
       tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,
-      initial_phylogeny = initial_phylogeny
+      initial_phylogenies = initial_phylogenies
     )
   )
 

@@ -130,7 +130,7 @@ test_that("Can specify fixed crown age", {
     tree_priors = create_tree_prior(name = "birth_death"),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
-    initial_phylogeny = beastscriptr::fasta_to_phylo(
+    initial_phylogenies = beastscriptr::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
   )
   testthat::expect_true(
@@ -185,7 +185,7 @@ test_that(paste0("All site models produce a valid BEAST2 input file, ",
       site_models = site_model,
       output_xml_filename = output_xml_filename,
       fixed_crown_age = TRUE,
-      initial_phylogeny = beastscriptr::fasta_to_phylo(
+      initial_phylogenies = beastscriptr::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
     testthat::expect_true(
@@ -226,7 +226,7 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
       clock_models = clock_model,
       output_xml_filename = output_xml_filename,
       fixed_crown_age = TRUE,
-      initial_phylogeny = beastscriptr::fasta_to_phylo(
+      initial_phylogenies = beastscriptr::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
     testthat::expect_true(
@@ -275,7 +275,7 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename,
       fixed_crown_age = TRUE,
-      initial_phylogeny = beastscriptr::fasta_to_phylo(
+      initial_phylogenies = beastscriptr::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
     testthat::expect_true(

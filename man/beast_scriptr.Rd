@@ -7,7 +7,7 @@
 \usage{
 beast_scriptr(input_fasta_filename, output_xml_filename,
   mcmc_chainlength = 1e+07, tree_prior = "yule", fixed_crown_age = FALSE,
-  initial_phylogeny = NA)
+  initial_phylogenies = rep(NA, length(input_fasta_filename)))
 }
 \arguments{
 \item{input_fasta_filename}{One or more fasta filename}
@@ -25,7 +25,7 @@ fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 
-\item{initial_phylogeny}{the MCMC chain its initial phylogeny. If
+\item{initial_phylogenies}{the MCMC chain its initial phylogenies. If
 this is set to NA, BEAST2 will use a random phylogeny. Else
 a phylogeny must be supplied of class ape::phylo.}
 }
@@ -56,7 +56,7 @@ Deprecated interface for \code{\link{create_beast2_input_file}},
     mcmc_chainlength = 10000000,
     tree_prior = "birth_death",
     fixed_crown_age = TRUE,
-    initial_phylogeny = beastscriptr::fasta_to_phylo(
+    initial_phylogenies = beastscriptr::fasta_to_phylo(
       fasta_filename = get_input_fasta_filename(),
       crown_age = 15)
   )

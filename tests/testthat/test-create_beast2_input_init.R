@@ -5,7 +5,7 @@ test_that("use", {
   testthat::expect_silent(
     create_beast2_input_init(
       ids = "test_output_0",
-      initial_phylogeny = NA
+      initial_phylogenies = NA
     )
   )
 })
@@ -20,13 +20,13 @@ test_that("Can specify fixed crown age", {
 
   created_lines_fixed <- beastscriptr::create_beast2_input_init(
     ids = "test_output_0",
-    initial_phylogeny = beastscriptr::fasta_to_phylo(
+    initial_phylogenies = beastscriptr::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
   )
 
   created_lines_nonfixed <- beastscriptr::create_beast2_input_init(
     ids = "test_output_0",
-    initial_phylogeny = NA
+    initial_phylogenies = NA
   )
 
   # Lines below must be absent when a starting tree is given
