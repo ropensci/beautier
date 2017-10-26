@@ -417,7 +417,8 @@ test_that("Check that anthus_2_4.xml is reproduced", {
 
   created_lines <- beastscriptr::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    capitalize_first_char_id = TRUE
+    capitalize_first_char_id = TRUE,
+    nucleotides_uppercase = TRUE
 
   )
   expected_lines <- readLines(system.file("extdata",

@@ -4,9 +4,18 @@ test_that("use", {
 
   testthat::expect_silent(
     create_beast2_input_data_sequences(
-      get_input_fasta_filename()
+      get_input_fasta_filename(),
+      nucleotides_uppercase = FALSE
     )
   )
+
+  testthat::expect_silent(
+    create_beast2_input_data_sequences(
+      get_input_fasta_filename(),
+      nucleotides_uppercase = TRUE
+    )
+  )
+
 })
 
 test_that("sequences are sorted", {

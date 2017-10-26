@@ -5,7 +5,8 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_data_sequences <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  input_fasta_filename
+  input_fasta_filename,
+  nucleotides_uppercase = FALSE
 ) {
   if (!file.exists(input_fasta_filename)) {
     stop("input_fasta_filename not found")
@@ -22,7 +23,7 @@ create_beast2_input_data_sequences <- function( # nolint long function name is f
       "\" taxon=\"",
       row[1],
       "\" totalcount=\"4\" value=\"",
-      row[2],
+      ifelse(nucleotides_uppercase == TRUE, toupper(row[2]), row[2]),
       "\"/>"
     )
     text <- c(text, nextline)

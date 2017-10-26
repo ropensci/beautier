@@ -9,6 +9,7 @@ create_beast2_input_beast <- function(
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
   capitalize_first_char_id = FALSE,
+  nucleotides_uppercase = FALSE,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
@@ -39,7 +40,8 @@ create_beast2_input_beast <- function(
   text <- c(text,
     create_beast2_input_data(
       input_fasta_filenames = input_fasta_filenames,
-      capitalize_first_char_id = capitalize_first_char_id
+      capitalize_first_char_id = capitalize_first_char_id,
+      nucleotides_uppercase = nucleotides_uppercase
     )
   )
 

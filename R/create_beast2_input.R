@@ -8,6 +8,7 @@
 #' @param clock_models On or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
 #' @param capitalize_first_char_id capitalize the first character of the ID
+#' @param nucleotides_uppercase are the nucleotides in uppercase?
 #' @param fixed_crown_age determines if the phylogeny its crown age is
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
@@ -29,6 +30,7 @@ create_beast2_input <- function(
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
   capitalize_first_char_id = FALSE,
+  nucleotides_uppercase = FALSE,
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
@@ -62,6 +64,7 @@ create_beast2_input <- function(
       tree_priors = tree_priors,
       mcmc_chainlength = mcmc_chainlength,
       capitalize_first_char_id = capitalize_first_char_id,
+      nucleotides_uppercase = nucleotides_uppercase,
       fixed_crown_age = fixed_crown_age,
       initial_phylogeny = initial_phylogeny
   )

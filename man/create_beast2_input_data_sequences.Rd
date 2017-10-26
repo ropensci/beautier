@@ -4,7 +4,8 @@
 \alias{create_beast2_input_data_sequences}
 \title{Creates the data section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_data_sequences(input_fasta_filename)
+create_beast2_input_data_sequences(input_fasta_filename,
+  nucleotides_uppercase = FALSE)
 }
 \arguments{
 \item{input_fasta_filename}{one FASTA filename}
