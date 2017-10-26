@@ -67,3 +67,7 @@ See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs'
 ## There's something else I want to say
 
 Sure, just add an Issue. Or send an email.
+
+## References
+
+ * Bilderbeek, Richel J.C., Etienne, Rampal S., "beastscriptr: BEAUti from R" *In preparation*.
