@@ -7,7 +7,7 @@
 create_beast2_input_data_sequences <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   input_fasta_filenames
 ) {
-  if (!file.exists(input_fasta_filenames)) {
+  if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
   sequences_table <- beastscriptr::fasta_file_to_sequences(

@@ -11,7 +11,7 @@ create_beast2_input_beast <- function(
   fixed_crown_age = FALSE,
   initial_phylogeny = NA
 ) {
-  if (!file.exists(input_fasta_filenames)) {
+  if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
 

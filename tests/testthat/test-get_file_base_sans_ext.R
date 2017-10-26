@@ -4,7 +4,7 @@ test_that("use", {
 
   # Single
   testthat::expect_equal(
-    get_file_base_sans_ext("/home/richel/test.txt") ,
+    get_file_base_sans_ext("/home/richel/test.txt"),
     "test"
   )
 

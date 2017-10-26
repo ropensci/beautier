@@ -5,7 +5,7 @@
 create_beast2_input_data <- function(
   input_fasta_filenames
 ) {
-  if (!file.exists(input_fasta_filenames)) {
+  if (!beastscriptr::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
   # Alignment IDs
