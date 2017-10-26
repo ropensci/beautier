@@ -55,11 +55,8 @@ Now we can create our XML file:
 output_xml_filename <- tempfile(pattern = "demo", fileext = ".xml")
 
 beastscriptr::create_beast2_input_file(
-  input_fasta_filenames = fasta_filename,
-  site_models = beastscriptr::create_site_model(name = "JC69"),
-  mcmc_chainlength = 10000000,
-  tree_priors = beastscriptr::create_tree_prior(name = "birth_death"),
-  output_xml_filename = output_xml_filename
+  fasta_filename,
+  output_xml_filename
 )
 ```
 

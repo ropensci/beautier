@@ -16,7 +16,7 @@ create_beast2_input_data <- function(
     text <- c(text, paste0("id=\"", id, "\""))
     text <- c(text, "name=\"alignment\">")
     text <- c(text, beastscriptr::create_beast2_input_data_sequences(
-      input_fasta_filenames = input_fasta_filenames))
+      input_fasta_filename = input_fasta_filename))
     text <- c(text, "                </data>")
   }
   text
