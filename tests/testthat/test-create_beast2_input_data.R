@@ -44,7 +44,9 @@ test_that("alignments start with a capital", {
 
   lines <- create_beast2_input_data(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    capitalize_first_char_id = TRUE
+    create_misc_options(
+      capitalize_first_char_id = TRUE
+    )
   )
   testthat::expect_equal(lines[2], "id=\"Anthus_aco\"")
 

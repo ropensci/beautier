@@ -5,14 +5,13 @@
 \title{Creates the data section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_data(input_fasta_filenames,
-  capitalize_first_char_id = FALSE, nucleotides_uppercase = FALSE)
+  misc_options = create_misc_options())
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filenames}
 
-\item{capitalize_first_char_id}{capitalize the first character of the ID}
-
-\item{nucleotides_uppercase}{are the nucleotides in uppercase?}
+\item{misc_options}{one misc_options object,
+as returned by \code{\link{create_misc_options}}}
 }
 \description{
 Creates the data section of a BEAST2 XML parameter file
