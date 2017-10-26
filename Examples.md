@@ -112,15 +112,6 @@ create_beast2_input_file(
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
-## Example #8: Two alignments
+## Future examples
 
-![anthus_2_4.png](anthus_2_4.png.png)
-
-```
-create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml"
-)
-```
-
-Thanks to Paul van Els for this use case and supplying these FASTA files.
+See [Future](Future.md)

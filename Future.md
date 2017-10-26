@@ -1,10 +1,24 @@
 # Future use cases
 
-## Two input FASTA files
+## Example #8: Two alignments
+
+![anthus_2_4.png](anthus_2_4.png.png)
+
+```
+create_beast2_input_file(
+  c("anthus_aco.fas", "anthus_nd2.fas"),
+  "my_beast.xml"
+)
+```
+
+Thanks to Paul van Els for this use case and supplying these FASTA files.
+
+## Example #9: Two alignments, different site models, clock models and tree priors 
 
 ```
 beastscriptr::create_beast2_input_file(
-  input_fasta_filenames = c("nuc.fas", "mit.fas"),
+  c("anthus_aco.fas", "anthus_nd2.fas"),
+  "my_beast.xml"
   site_models = c(
     create_jc69_site_model(), 
     create_hky_site_model()
