@@ -1,5 +1,7 @@
 #' Creates the data section of a BEAST2 XML parameter file
 #' @param input_fasta_filename one FASTA filename
+#' @param nucleotides_uppercase are the nucleotides written in uppercase?
+#'   Yes if TRUE, no if FALSE
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

@@ -9,6 +9,9 @@ create_beast2_input_data_sequences(input_fasta_filename,
 }
 \arguments{
 \item{input_fasta_filename}{one FASTA filename}
+
+\item{nucleotides_uppercase}{are the nucleotides written in uppercase?
+Yes if TRUE, no if FALSE}
 }
 \description{
 Creates the data section of a BEAST2 XML parameter file
