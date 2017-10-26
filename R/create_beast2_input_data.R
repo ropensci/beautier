@@ -11,12 +11,18 @@ create_beast2_input_data <- function(
   }
 
   text <- NULL
-  for (input_fasta_filename in input_fasta_filenames) {
+  n <- length(input_fasta_filenames)
+  for (i in seq(1, n)) {
+    input_fasta_filename <- input_fasta_filenames[i]
     id <- beastscriptr::get_id(
       input_fasta_filename,
       capitalize_first_char_id = misc_options$capitalize_first_char_id
     )
-    text <- c(text, "    <data")
+    if (i == 1) {
+      text <- c(text, "    <data")
+    } else {
+      text <- c(text, "<data")
+    }
     text <- c(text, paste0("id=\"", id, "\""))
     text <- c(text, "name=\"alignment\">")
     text <- c(
