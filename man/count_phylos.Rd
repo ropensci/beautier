@@ -15,6 +15,9 @@ the number of phylo objects
 \description{
 Count the number of phylo objects in vector x
 }
+\note{
+use \code{\link{get_nth_phylo}} to extract the nth phylo object
+}
 \author{
 Richel J.C. Bilderbeek
 }

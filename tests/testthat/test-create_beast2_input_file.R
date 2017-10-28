@@ -98,7 +98,7 @@ test_that("A fixed crown age must have equal TreeHeights", {
 })
 
 
-test_that(paste0("Fixed and specified crown age must results in a posterior",
+test_that(paste0("Fixed and specified crown age must results in a posterior ",
   "with that TreeHeight"), {
 
   crown_age <- 123

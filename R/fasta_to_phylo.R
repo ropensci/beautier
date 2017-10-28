@@ -25,9 +25,8 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
 
   # Create a random tree ...
   phylo <- ape::rcoal(n = length(taxa_names), tip.label = taxa_names)
-
   # ... with the correct crown age
   phylo <- geiger::rescale(phylo, "depth", crown_age)
 
-  phylo
+  return(phytools::as.multiPhylo(phylo))
 }

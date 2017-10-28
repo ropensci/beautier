@@ -183,6 +183,10 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
   )
   testthat::expect_true(file.exists(input_fasta_filename))
 
+  initial_phylogenies <- beastscriptr::fasta_to_phylo(
+    fasta_filename = input_fasta_filename,
+    crown_age = crown_age)
+  testit::assert(length(initial_phylogenies) == 1)
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
   beastscriptr::beast_scriptr(
@@ -191,10 +195,7 @@ test_that(paste0("Runs BEAST2, BD species tree prior, fixed crown age, ",
     tree_prior = "birth_death",
     output_xml_filename = beast_filename,
     fixed_crown_age = TRUE,
-    initial_phylogenies = beastscriptr::fasta_to_phylo(
-      input_fasta_filename,
-      crown_age = crown_age)
-
+    initial_phylogenies = initial_phylogenies
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(

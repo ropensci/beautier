@@ -60,7 +60,8 @@ create_posterior <- function(
       fasta_filename = input_fasta_filename, crown_age = crown_age
     )
   }
-  testit::assert(count_phylos(initial_phylogenies) == length(input_fasta_filename))
+  testit::assert(length(initial_phylogenies) == length(input_fasta_filename))
+
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
   beastscriptr::create_beast2_input_file(

@@ -18,6 +18,12 @@ test_that("use", {
     )
   )
 
+
+})
+
+test_that("two phylogenies", {
+
+  skip("WIP")
   testthat::expect_silent(
     create_beast2_input_state(
       ids = c("Anthus_nd2", "Anthus_aco")

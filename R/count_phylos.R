@@ -10,8 +10,11 @@ count_phylos <- function(
   if (length(x) == 0) {
     return(0)
   }
-  if (any(is.na(x))) {
-    stop("object must not be NA")
+  if (length(x) == 1 && is.na(x)) {
+    return(1)
+  }
+  if (all(is.na(x))) {
+    return(length(x))
   }
   if (length(x) %% 4 != 0) {
     stop("object must contain of phylo objects")
