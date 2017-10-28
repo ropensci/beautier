@@ -21,20 +21,20 @@ create_beast2_input_init <- function(
   #   will be overwritten by a random tree.
   #
   # In other words: bluntly remove it
-  if (!ribir::is_phylogeny(initial_phylogenies)) {
-    text <- c(text, paste0("    <init id=\"RandomTree.t:", ids,
-      "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-      " initial=\"@Tree.t:", ids, "\" taxa=\"@", ids, "\">"
-    ))
-    text <- c(text, paste0(
-      "        <populationModel id=\"ConstantPopulation0.t:",
-      ids, "\" spec=\"ConstantPopulation\">"))
-    text <- c(text, paste0("            <parameter id=\"randomPopSize.t:",
-      ids, "\" name=\"popSize\">1.0</parameter>"))
-    text <- c(text, "        </populationModel>")
-    text <- c(text, "    </init>")
-  } else {
-    # Do not put initial tree here, but at the state section
+  for (phylogeny in initial_phylogenies) {
+    if (!ribir::is_phylogeny(phylogeny)) {
+      text <- c(text, paste0("    <init id=\"RandomTree.t:", ids,
+        "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
+        " initial=\"@Tree.t:", ids, "\" taxa=\"@", ids, "\">"
+      ))
+      text <- c(text, paste0(
+        "        <populationModel id=\"ConstantPopulation0.t:",
+        ids, "\" spec=\"ConstantPopulation\">"))
+      text <- c(text, paste0("            <parameter id=\"randomPopSize.t:",
+        ids, "\" name=\"popSize\">1.0</parameter>"))
+      text <- c(text, "        </populationModel>")
+      text <- c(text, "    </init>")
+    }
   }
   text
 }

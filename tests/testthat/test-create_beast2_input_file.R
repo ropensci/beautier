@@ -98,11 +98,11 @@ test_that("A fixed crown age must have equal TreeHeights", {
 })
 
 
-test_that(paste0("Fixed and specified crown age must results in a posterior ",
+test_that(paste0("Fixed and specified crown age must result in a posterior ",
   "with that TreeHeight"), {
 
   crown_age <- 123
-  posterior <- create_posterior(
+  posterior <- beastscriptr::create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc_chainlength = 10000,

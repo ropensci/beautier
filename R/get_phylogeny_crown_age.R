@@ -16,11 +16,8 @@
 get_phylogeny_crown_age <- function(
   phylogeny
 ) {
-  if (class(phylogeny) != "phylo") {
-    stop(
-      "get_phylogeny_crown_age: ",
-      "phylogeny must be of class 'phylo'"
-    )
+  if (class(phylogeny) != "phylo" && class(phylogeny) != "multiPhylo") {
+    stop("phylogeny must be of class 'phylo' or multiPhylo")
   }
   n_taxa <- length(phylogeny$tip.label)
   testit::assert(n_taxa > 0)

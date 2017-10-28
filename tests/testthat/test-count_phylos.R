@@ -2,6 +2,7 @@ context("count_phylos")
 
 test_that("use", {
 
+  skip("Obsoleted")
   testthat::expect_equal(count_phylos(NULL), 0)
   testthat::expect_equal(count_phylos(ape::rcoal(3)), 1)
   testthat::expect_equal(count_phylos(rep(ape::rcoal(3), 2)), 2)

@@ -69,7 +69,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
   n <- length(ids)
   for (i in seq(1, n)) {
-    initial_phylogeny <- initial_phylogenies[i]
+    initial_phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
     if (!ribir::is_phylogeny(initial_phylogeny)) {
       text <- c(text, paste0("        <tree id=\"Tree.t:",
