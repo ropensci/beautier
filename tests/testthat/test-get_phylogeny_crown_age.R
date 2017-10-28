@@ -13,8 +13,9 @@ test_that("get_phylogeny_crown_age: basic use", {
 })
 
 test_that("get_phylogeny_crown_age: abuse", {
-    expect_error(get_phylogeny_crown_age(
-    phylogeny = c(1, 2, 3)),
-    "get_phylogeny_crown_age: phylogeny must be of class 'phylo'"
-  )
+
+    testthat::expect_error(get_phylogeny_crown_age(
+      phylogeny = c(1, 2, 3)),
+      "phylogeny must be of class 'phylo'"
+    )
 })
