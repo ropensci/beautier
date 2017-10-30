@@ -242,7 +242,9 @@ test_that("All tree priors produce a valid BEAST2 input file", {
 
   for (tree_prior in tree_priors) {
     if (is_cbs_tree_prior(tree_prior)) {
-      warning("All are OK except coalescent_bayesian_skyline")
+      # CBS fails, because the groupSize's dimension is 5 by default,
+      # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
+      # groupSize cannot be more than 4
       next
     }
     output_xml_filename <- tempfile()
@@ -265,7 +267,9 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
 
   for (tree_prior in tree_priors) {
     if (is_cbs_tree_prior(tree_prior)) {
-      warning("All are OK except coalescent_bayesian_skyline")
+      # CBS fails, because the groupSize's dimension is 5 by default,
+      # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
+      # groupSize cannot be more than 4
       next
     }
     input_fasta_filename <- get_input_fasta_filename()
