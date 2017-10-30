@@ -138,10 +138,13 @@ test_that("Check that coalescent_bayesian_skyline_2_4.xml is reproduced", {
 
 test_that("Check that coalescent_bayesian_skyline_2_4.xml is valid", {
 
-  skip("coalescent_bayesian_skyline_2_4.xml is invalid?")
+  # coalescent_bayesian_skyline_2_4.xml is invalid,
+  # because the groupSize's dimension is 5 by default,
+  # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
+  # groupSize cannot be more than 4
   filename <- system.file("extdata",
     "coalescent_bayesian_skyline_2_4.xml", package = "beastscriptr")
-  testthat::expect_true(is_beast2_input_file(filename))
+  testthat::expect_false(is_beast2_input_file(filename))
 })
 
 test_that("Check that jc69_2_4.xml is reproduced", {

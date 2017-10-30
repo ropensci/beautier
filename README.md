@@ -32,7 +32,7 @@ The default parameters of these settings are supported:
    * Yule
    * Birth-Death
    * Coalescent Constant Population
-   * (Coalescent Bayesian Skyline)
+   * Coalescent Bayesian Skyline
 
 Unlike BEAUti, `beastscriptr` *does* allow for a fixed crown age.
 
