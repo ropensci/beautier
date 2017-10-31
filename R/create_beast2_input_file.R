@@ -56,6 +56,10 @@ create_beast2_input_file <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
+  if (class(initial_phylogenies) == "phylo") {
+    initial_phylogenies <- c(initial_phylogenies)
+    testit::assert(class(initial_phylogenies) == "multiPhylo")
+  }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")
   }
