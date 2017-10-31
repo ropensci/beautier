@@ -1,10 +1,10 @@
 context("is_beast2_input_file")
 
 test_that("testing FASTA file is not a valid BEAST2 input file", {
+
+  filename <- beastscriptr::get_input_fasta_filename()
   testthat::expect_false(
-    is_beast2_input_file(
-      beastscriptr::get_input_fasta_filename()
-    )
+    is_beast2_input_file(filename)
   )
 
 })
