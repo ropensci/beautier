@@ -64,4 +64,3 @@ test_that("two alignments, two initial phylogenies", {
 
 
 })
-

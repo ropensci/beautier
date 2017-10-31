@@ -12,11 +12,12 @@ is_beast2_input_file <- function(filename) {
     filename
   )
 
-  # BEAST2 returns an error code. An error code of 0 denotes that the file was valid
+  # BEAST2 returns an error code.
+  # An error code of 0 denotes that the file was valid
   status_code <- system(cmd, ignore.stderr = TRUE, ignore.stdout = TRUE)
 
   # Invalid files are not valid BEAST2 input files
-  if (status_code != 0) return (FALSE)
+  if (status_code != 0) return(FALSE)
 
   # Valid BEAST2 input files will result in an output with 'Done!' at the
   # last line

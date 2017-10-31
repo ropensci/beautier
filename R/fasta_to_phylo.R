@@ -29,5 +29,4 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
   phylo <- geiger::rescale(phylo, "depth", crown_age)
 
   phylo
-  #return(phytools::as.multiPhylo(phylo))
 }
