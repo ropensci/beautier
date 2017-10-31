@@ -5,7 +5,7 @@
 #' @examples
 #'   fasta_filename <- beastscriptr::get_input_fasta_filename()
 #'   phylo <- beastscriptr::fasta_to_phylo(fasta_filename, crown_age = 15)
-#'   testit::assert(5 == length(phylo$tip.label))
+#'   testit::assert(5 == length(phylo[[1]]$tip.label))
 #' @export
 fasta_to_phylo <- function(fasta_filename, crown_age) {
 
