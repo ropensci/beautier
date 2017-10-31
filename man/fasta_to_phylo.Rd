@@ -20,5 +20,5 @@ Create a random phylogeny, with a specified crown age, from a FASTA file
 \examples{
   fasta_filename <- beastscriptr::get_input_fasta_filename()
   phylo <- beastscriptr::fasta_to_phylo(fasta_filename, crown_age = 15)
-  testit::assert(5 == length(phylo[[1]]$tip.label))
+  testit::assert(5 == length(phylo$tip.label))
 }
