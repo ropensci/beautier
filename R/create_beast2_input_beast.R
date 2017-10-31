@@ -12,7 +12,7 @@ create_beast2_input_beast <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
-  if (!beastscriptr::files_exist(input_fasta_filenames)) {
+  if (!beautier::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
@@ -20,7 +20,7 @@ create_beast2_input_beast <- function(
   }
 
   # Alignment IDs
-  ids <- beastscriptr::get_id(
+  ids <- beautier::get_id(
     input_fasta_filenames,
     capitalize_first_char_id = misc_options$capitalize_first_char_id
   )
@@ -56,7 +56,7 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, beastscriptr::create_beast2_input_map())
+  text <- c(text, beautier::create_beast2_input_map())
 
   text <- c(text, "")
   text <- c(text, "")

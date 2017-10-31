@@ -33,7 +33,7 @@ create_beast2_input <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
-  if (!beastscriptr::files_exist(input_fasta_filenames)) {
+  if (!beautier::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
   if (!is_site_model(site_models)) {
@@ -69,6 +69,6 @@ create_beast2_input <- function(
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies
   )
-  text[1] <- paste0(beastscriptr::create_beast2_input_xml(), text[1])
+  text[1] <- paste0(beautier::create_beast2_input_xml(), text[1])
   text
 }

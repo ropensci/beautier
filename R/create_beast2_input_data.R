@@ -6,7 +6,7 @@ create_beast2_input_data <- function(
   input_fasta_filenames,
   misc_options = create_misc_options()
 ) {
-  if (!beastscriptr::files_exist(input_fasta_filenames)) {
+  if (!beautier::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
 
@@ -14,7 +14,7 @@ create_beast2_input_data <- function(
   n <- length(input_fasta_filenames)
   for (i in seq(1, n)) {
     input_fasta_filename <- input_fasta_filenames[i]
-    id <- beastscriptr::get_id(
+    id <- beautier::get_id(
       input_fasta_filename,
       capitalize_first_char_id = misc_options$capitalize_first_char_id
     )
@@ -27,7 +27,7 @@ create_beast2_input_data <- function(
     text <- c(text, "name=\"alignment\">")
     text <- c(
       text,
-      beastscriptr::create_beast2_input_data_sequences(
+      beautier::create_beast2_input_data_sequences(
         input_fasta_filename = input_fasta_filename,
         nucleotides_uppercase = misc_options$nucleotides_uppercase
       )

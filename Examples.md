@@ -1,9 +1,9 @@
 # Examples
 
-For all examples, do load `beastscriptr`:
+For all examples, do load `beautier`:
 
 ```
-library(beastscriptr)
+library(beautier)
 ```
 
 All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 

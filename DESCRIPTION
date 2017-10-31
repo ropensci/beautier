@@ -1,5 +1,5 @@
-Package: beastscriptr
-Title: Create BEAST2 XML input files
+Package: beautier
+Title: BEAUti for R: creates BEAST2 XML input files
 Version: 1.2
 Author: Richel Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel Bilderbeek <richel@richelbilderbeek.nl>
@@ -10,8 +10,8 @@ License: file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
-URL: https://github.com/richelbilderbeek/beastscript
-BugReports: https://github.com/richelbilderbeek/beastscript/issues
+URL: https://github.com/richelbilderbeek/beautier
+BugReports: https://github.com/richelbilderbeek/beautier/issues
 Imports:
     ape,
     geiger,

@@ -1,4 +1,4 @@
 library(testthat)
-library(beastscriptr)
+library(beautier)
 
-test_check("beastscriptr")
+test_check("beautier")

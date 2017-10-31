@@ -65,8 +65,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     ids, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", ids,
     "\" tree=\"@Tree.t:", ids, "\">"))
   # gamma category count
-  gamma_category_count <- beastscriptr::get_gamma_cat_count(
-    beastscriptr::get_gamma_site_model(site_models))
+  gamma_category_count <- beautier::get_gamma_cat_count(
+    beautier::get_gamma_site_model(site_models))
   if (gamma_category_count == 0) {
     text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
       ids, "\" spec=\"SiteModel\">")
@@ -98,8 +98,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     "                    <parameter id=\"proportionInvariant.s:",
     ids, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">",
-    beastscriptr::get_prop_invariant(
-      beastscriptr::get_gamma_site_model(site_models)
+    beautier::get_prop_invariant(
+      beautier::get_gamma_site_model(site_models)
     ),
     "</parameter>"))
 
@@ -357,7 +357,7 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
   site_models
 ) {
   text <- NULL
-  gamma_site_models <- beastscriptr::get_gamma_site_model(
+  gamma_site_models <- beautier::get_gamma_site_model(
     site_models = site_models)
   if (get_gamma_cat_count(gamma_site_models) >= 2) {
     text <- c(text, paste0("            <prior ",

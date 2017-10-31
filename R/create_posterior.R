@@ -35,7 +35,7 @@ create_posterior <- function(
     stop("Cannot specify a crown age if crown age is not fixed")
   }
   base_filename <- "tmp_create_posterior"
-  # BEAST2 input XML file, created by beastscriptr::create_beast2_input_file
+  # BEAST2 input XML file, created by beautier::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
   # BEAST2 output file, containing the posterior parameter estimates
   beast_log_filename <- paste0(base_filename, ".log")
@@ -47,7 +47,7 @@ create_posterior <- function(
   input_fasta_filename <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
-  beastscriptr::create_random_fasta(
+  beautier::create_random_fasta(
     n_taxa = n_taxa,
     sequence_length = sequence_length,
     filename = input_fasta_filename
@@ -67,7 +67,7 @@ create_posterior <- function(
 
   # Create BEAST2 input file
   testthat::expect_false(file.exists(beast_filename))
-  beastscriptr::create_beast2_input_file(
+  beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc_chainlength = mcmc_chainlength,
     tree_priors = create_tree_prior(name = "birth_death"),
@@ -77,7 +77,7 @@ create_posterior <- function(
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(
-    beastscriptr::is_beast2_input_file(beast_filename)
+    beautier::is_beast2_input_file(beast_filename)
   )
 
   # Run BEAST2 to measure posterior

@@ -59,12 +59,12 @@ test_that("checks input", {
 
 test_that("Check that 2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename()
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename()
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "2_4.xml", package = "beastscriptr"))
+    "2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -83,13 +83,13 @@ test_that("Check that 2_4.xml is reproduced", {
 
 test_that("Check that birth_death_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
-    tree_priors = beastscriptr::create_tree_prior(name = "birth_death")
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = beautier::create_tree_prior(name = "birth_death")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "birth_death_2_4.xml", package = "beastscriptr"))
+    "birth_death_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -97,41 +97,41 @@ test_that("Check that birth_death_2_4.xml is reproduced", {
 
 test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
-    tree_priors = beastscriptr::create_tree_prior(
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = beautier::create_tree_prior(
       name = "coalescent_constant_population")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "coalescent_constant_population_2_4.xml", package = "beastscriptr"))
+    "coalescent_constant_population_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that yule_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
-    tree_priors = beastscriptr::create_tree_prior(name = "yule")
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = beautier::create_tree_prior(name = "yule")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "yule_2_4.xml", package = "beastscriptr"))
+    "yule_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that coalescent_bayesian_skyline_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
-    tree_priors = beastscriptr::create_tree_prior(
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = beautier::create_tree_prior(
       name = "coalescent_bayesian_skyline")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "coalescent_bayesian_skyline_2_4.xml", package = "beastscriptr"))
+    "coalescent_bayesian_skyline_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -143,55 +143,55 @@ test_that("Check that coalescent_bayesian_skyline_2_4.xml is valid", {
   # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
   # groupSize cannot be more than 4
   filename <- system.file("extdata",
-    "coalescent_bayesian_skyline_2_4.xml", package = "beastscriptr")
+    "coalescent_bayesian_skyline_2_4.xml", package = "beautier")
   testthat::expect_false(is_beast2_input_file(filename))
 })
 
 test_that("Check that jc69_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_site_model(name = "JC69")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "jc69_2_4.xml", package = "beastscriptr"))
+    "jc69_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that hky_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_site_model(name = "HKY")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "hky_2_4.xml", package = "beastscriptr"))
+    "hky_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that tn93_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_site_model(name = "TN93")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "tn93_2_4.xml", package = "beastscriptr"))
+    "tn93_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that gtr_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_site_model(name = "GTR")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "gtr_2_4.xml", package = "beastscriptr"))
+    "gtr_2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -210,44 +210,44 @@ test_that("Check that gtr_2_4.xml is reproduced", {
 
 test_that("Check that strict_clock_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_clock_model(name = "strict")
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "strict_clock_2_4.xml", package = "beastscriptr"))
+    "strict_clock_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that relaxed_clock_log_normal_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_clock_model(name = "relaxed_log_normal")
   )
   expected_lines <- readLines(system.file("extdata",
-    "relaxed_clock_log_normal_2_4.xml", package = "beastscriptr"))
+    "relaxed_clock_log_normal_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 
 })
 
 test_that("Check that hky_kappa_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(kappa = 3.4)
   )
   expected_lines <- readLines(system.file("extdata",
-    "hky_kappa_2_4.xml", package = "beastscriptr"))
+    "hky_kappa_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 
 })
 
 test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
       gamma_site_model = create_gamma_site_model(
         prop_invariant = 0.5
@@ -255,15 +255,15 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "hky_prop_invariant_0_5_2_4.xml", package = "beastscriptr"))
+    "hky_prop_invariant_0_5_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 
 })
 
 test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
@@ -271,15 +271,15 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "hky_gcc_1_2_4.xml", package = "beastscriptr"))
+    "hky_gcc_1_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
@@ -287,15 +287,15 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "hky_gcc_2_2_4.xml", package = "beastscriptr"))
+    "hky_gcc_2_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 4
@@ -303,22 +303,22 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "hky_gcc_4_2_4.xml", package = "beastscriptr"))
+    "hky_gcc_4_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 
 })
 
 test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_strict_clock_model(
       rate = 0.5
     )
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "strict_clock_rate_0_5_2_4.xml", package = "beastscriptr"))
+    "strict_clock_rate_0_5_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -326,8 +326,8 @@ test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
 
 test_that("Check that jc69_gcc_2_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_jc69_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
@@ -335,7 +335,7 @@ test_that("Check that jc69_gcc_2_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "jc69_gcc_2_2_4.xml", package = "beastscriptr"))
+    "jc69_gcc_2_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -343,8 +343,8 @@ test_that("Check that jc69_gcc_2_2_4.xml is reproduced", {
 
 test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_jc69_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -353,7 +353,7 @@ test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "jc69_gcc_2_shape_1_5_2_4.xml", package = "beastscriptr"))
+    "jc69_gcc_2_shape_1_5_2_4.xml", package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -361,8 +361,8 @@ test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
 test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
   " is reproduced"), {
 
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_jc69_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -373,7 +373,7 @@ test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
-    package = "beastscriptr"))
+    package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -383,8 +383,8 @@ test_that(paste0("Check that gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
   " is reproduced"), {
 
   skip("WIP")
-  created_lines <- beastscriptr::create_beast2_input(
-    input_fasta_filenames = beastscriptr::get_input_fasta_filename(),
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -394,7 +394,7 @@ test_that(paste0("Check that gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", package = "beastscriptr"))
+    "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -414,11 +414,11 @@ test_that("Check that anthus_2_4.xml is reproduced", {
 
   skip("WIP")
   fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beastscriptr")
+    "anthus_nd2.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beastscriptr")
+    "anthus_aco.fas", package = "beautier")
 
-  created_lines <- beastscriptr::create_beast2_input(
+  created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     misc_options = create_misc_options(
       capitalize_first_char_id = TRUE,
@@ -426,7 +426,7 @@ test_that("Check that anthus_2_4.xml is reproduced", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "anthus_2_4.xml", package = "beastscriptr"))
+    "anthus_2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")

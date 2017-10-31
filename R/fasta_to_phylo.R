@@ -3,8 +3,8 @@
 #' @param crown_age the crown age of the phylogeny
 #' @return a phylogeny
 #' @examples
-#'   fasta_filename <- beastscriptr::get_input_fasta_filename()
-#'   phylo <- beastscriptr::fasta_to_phylo(fasta_filename, crown_age = 15)
+#'   fasta_filename <- beautier::get_input_fasta_filename()
+#'   phylo <- beautier::fasta_to_phylo(fasta_filename, crown_age = 15)
 #'   testit::assert(5 == length(phylo$tip.label))
 #' @export
 fasta_to_phylo <- function(fasta_filename, crown_age) {

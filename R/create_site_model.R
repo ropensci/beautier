@@ -50,7 +50,7 @@ create_jc69_site_model <- function(
   gamma_site_model = get_default_gamma_site_model()
 ) {
   return(
-    beastscriptr::create_site_model(
+    beautier::create_site_model(
       name = "JC69",
       gamma_site_model = gamma_site_model
     )
@@ -67,7 +67,7 @@ create_hky_site_model <- function(
   gamma_site_model = get_default_gamma_site_model()
 ) {
   return(
-    beastscriptr::create_site_model(
+    beautier::create_site_model(
       name = "HKY",
       gamma_site_model = gamma_site_model,
       kappa = kappa
@@ -83,7 +83,7 @@ create_tn93_site_model <- function(
   gamma_site_model = get_default_gamma_site_model()
 ) {
   return(
-    beastscriptr::create_site_model(
+    beautier::create_site_model(
       name = "TN93",
       gamma_site_model = gamma_site_model
     )
@@ -98,7 +98,7 @@ create_gtr_site_model <- function(
   gamma_site_model = get_default_gamma_site_model()
 ) {
   return(
-    beastscriptr::create_site_model(
+    beautier::create_site_model(
       name = "GTR",
       gamma_site_model = gamma_site_model
     )

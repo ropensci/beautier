@@ -102,7 +102,7 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   "with that TreeHeight"), {
 
   crown_age <- 123
-  posterior <- beastscriptr::create_posterior(
+  posterior <- beautier::create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc_chainlength = 10000,
@@ -114,27 +114,27 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
     tolerance = 0.001)
   testthat::expect_equal(crown_age,
-    beastscriptr::get_phylogeny_crown_age(posterior$trees$STATE_10000),
+    beautier::get_phylogeny_crown_age(posterior$trees$STATE_10000),
     tolerance = 0.001)
 })
 
 test_that("Can specify fixed crown age", {
-  input_fasta_filename <- beastscriptr::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_input_fasta_filename()
   output_xml_filename_fixed <- tempfile()
 
   # Input file must be found
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
-  beastscriptr::create_beast2_input_file(
+  beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     tree_priors = create_tree_prior(name = "birth_death"),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
-    initial_phylogenies = beastscriptr::fasta_to_phylo(
+    initial_phylogenies = beautier::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
   )
   testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename_fixed)
+    beautier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
 
@@ -148,14 +148,14 @@ test_that("Produce XML for Yule species tree prior", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
-    beastscriptr::is_beast2_input_file(output_xml_filename)
+    beautier::is_beast2_input_file(output_xml_filename)
   )
 })
 
 
 test_that("All site models produce a valid BEAST2 input file", {
 
-  site_models <- beastscriptr::create_site_models()
+  site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
   for (site_model in site_models) {
 
@@ -166,7 +166,7 @@ test_that("All site models produce a valid BEAST2 input file", {
       output_xml_filename = output_xml_filename
     )
     testthat::expect_true(
-      beastscriptr::is_beast2_input_file(output_xml_filename)
+      beautier::is_beast2_input_file(output_xml_filename)
     )
   }
 })
@@ -174,7 +174,7 @@ test_that("All site models produce a valid BEAST2 input file", {
 test_that(paste0("All site models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
-  site_models <- beastscriptr::create_site_models()
+  site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
   for (site_model in site_models) {
 
@@ -185,18 +185,18 @@ test_that(paste0("All site models produce a valid BEAST2 input file, ",
       site_models = site_model,
       output_xml_filename = output_xml_filename,
       fixed_crown_age = TRUE,
-      initial_phylogenies = beastscriptr::fasta_to_phylo(
+      initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
     testthat::expect_true(
-      beastscriptr::is_beast2_input_file(output_xml_filename)
+      beautier::is_beast2_input_file(output_xml_filename)
     )
   }
 })
 
 test_that("All clock models produce a valid BEAST2 input file", {
 
-  clock_models <- beastscriptr::create_clock_models()
+  clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
 
   for (clock_model in clock_models) {
@@ -207,7 +207,7 @@ test_that("All clock models produce a valid BEAST2 input file", {
       output_xml_filename = output_xml_filename
     )
     testthat::expect_true(
-      beastscriptr::is_beast2_input_file(output_xml_filename)
+      beautier::is_beast2_input_file(output_xml_filename)
     )
   }
 })
@@ -215,7 +215,7 @@ test_that("All clock models produce a valid BEAST2 input file", {
 test_that(paste0("All clock models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
-  clock_models <- beastscriptr::create_clock_models()
+  clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
 
   for (clock_model in clock_models) {
@@ -226,18 +226,18 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
       clock_models = clock_model,
       output_xml_filename = output_xml_filename,
       fixed_crown_age = TRUE,
-      initial_phylogenies = beastscriptr::fasta_to_phylo(
+      initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
     testthat::expect_true(
-      beastscriptr::is_beast2_input_file(output_xml_filename)
+      beautier::is_beast2_input_file(output_xml_filename)
     )
   }
 })
 
 test_that("All tree priors produce a valid BEAST2 input file", {
 
-  tree_priors <- beastscriptr::create_tree_priors()
+  tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
 
   for (tree_prior in tree_priors) {
@@ -254,7 +254,7 @@ test_that("All tree priors produce a valid BEAST2 input file", {
       output_xml_filename = output_xml_filename
     )
     testthat::expect_true(
-      beastscriptr::is_beast2_input_file(output_xml_filename)
+      beautier::is_beast2_input_file(output_xml_filename)
     )
   }
 })
@@ -262,7 +262,7 @@ test_that("All tree priors produce a valid BEAST2 input file", {
 test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
-  tree_priors <- beastscriptr::create_tree_priors()
+  tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
 
   for (tree_prior in tree_priors) {
@@ -279,11 +279,11 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename,
       fixed_crown_age = TRUE,
-      initial_phylogenies = beastscriptr::fasta_to_phylo(
+      initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
     testthat::expect_true(
-      beastscriptr::is_beast2_input_file(output_xml_filename)
+      beautier::is_beast2_input_file(output_xml_filename)
     )
   }
 })

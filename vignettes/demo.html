@@ -14,7 +14,7 @@
 
 <meta name="date" content="2017-10-26" />
 
-<title>beastscriptr demo</title>
+<title>beautier demo</title>
 
 
 
@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title toc-ignore">beastscriptr demo</h1>
+<h1 class="title toc-ignore">beautier demo</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
 <h4 class="date"><em>2017-10-26</em></h4>
 
@@ -76,7 +76,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The purpose of <code>beastscriptr</code> is to create a valid <code>BEAST2</code> XML input file from its function argument. In this way, a scientific pipeline using <code>BEAST2</code> can be fully scripted, instead of using <code>BEAUti</code>’s GUI.</p>
+<p>The purpose of <code>beautier</code> is to create a valid <code>BEAST2</code> XML input file from its function argument. In this way, a scientific pipeline using <code>BEAST2</code> can be fully scripted, instead of using <code>BEAUti</code>’s GUI.</p>
 </div>
 <div id="limitations" class="section level1">
 <h1>Limitations</h1>
@@ -95,7 +95,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A BEAST2 XML input file needs an alignment (as BEAST2 infers phylogenies and parameters on DNA sequences). in this demonstration, a FASTA file with a random alignment is created:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filename &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">pattern =</span> <span class="st">&quot;demo&quot;</span>, <span class="dt">fileext =</span> <span class="st">&quot;.fas&quot;</span>)
 
-beastscriptr::<span class="kw">create_random_fasta</span>(
+beautier::<span class="kw">create_random_fasta</span>(
   <span class="dt">n_taxa =</span> <span class="dv">5</span>, <span class="co"># species</span>
   <span class="dt">sequence_length =</span> <span class="dv">20</span>, <span class="co"># DNA nucleotides</span>
   <span class="dt">filename =</span> fasta_filename
@@ -107,7 +107,7 @@ beastscriptr::<span class="kw">create_random_fasta</span>(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The name of the file you intend to let BEAST2 run</span>
 output_xml_filename &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">pattern =</span> <span class="st">&quot;demo&quot;</span>, <span class="dt">fileext =</span> <span class="st">&quot;.xml&quot;</span>)
 
-beastscriptr::<span class="kw">create_beast2_input_file</span>(
+beautier::<span class="kw">create_beast2_input_file</span>(
   fasta_filename,
   output_xml_filename
 )</code></pre></div>

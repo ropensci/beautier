@@ -2,23 +2,23 @@ context("fasta_to_phylo")
 
 test_that("example", {
 
-  fasta_filename <- beastscriptr::get_input_fasta_filename()
+  fasta_filename <- beautier::get_input_fasta_filename()
   crown_age <- 25.0
-  phylos <- beastscriptr::fasta_to_phylo(fasta_filename, crown_age = crown_age)
+  phylos <- beautier::fasta_to_phylo(fasta_filename, crown_age = crown_age)
   testthat::expect_equal(5, length(phylos$tip.label))
   testthat::expect_equal(crown_age,
-    beastscriptr::get_phylogeny_crown_age(phylos))
+    beautier::get_phylogeny_crown_age(phylos))
 })
 
 test_that("abuse", {
 
   testthat::expect_error(
-    beastscriptr::fasta_to_phylo(fasta_filename = "absent", crown_age = 15)
+    beautier::fasta_to_phylo(fasta_filename = "absent", crown_age = 15)
   )
 
   testthat::expect_error(
-    beastscriptr::fasta_to_phylo(
-      fasta_filename = beastscriptr::get_input_fasta_filename(),
+    beautier::fasta_to_phylo(
+      fasta_filename = beautier::get_input_fasta_filename(),
       crown_age = -42)
   )
 })

@@ -25,19 +25,19 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
     ids, "\"/>"))
 
-  text <- c(text, beastscriptr::create_beast2_input_loggers_tree_priors(
+  text <- c(text, beautier::create_beast2_input_loggers_tree_priors(
     ids = ids, tree_priors = tree_priors))
 
-  text <- c(text, beastscriptr::create_beast2_input_loggers_site_models_1(
+  text <- c(text, beautier::create_beast2_input_loggers_site_models_1(
     ids = ids, site_models = site_models))
 
-  text <- c(text, beastscriptr::create_beast2_input_loggers_gamma_site_models(
+  text <- c(text, beautier::create_beast2_input_loggers_gamma_site_models(
     ids = ids, site_models = site_models))
 
-  text <- c(text, beastscriptr::create_beast2_input_loggers_site_models_2(
+  text <- c(text, beautier::create_beast2_input_loggers_site_models_2(
     ids = ids, site_models = site_models))
 
-  text <- c(text, beastscriptr::create_beast2_input_loggers_clock_models(
+  text <- c(text, beautier::create_beast2_input_loggers_clock_models(
     ids = ids, clock_models = clock_models))
 
   text <- c(text, "    </logger>")

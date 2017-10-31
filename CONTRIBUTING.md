@@ -16,10 +16,10 @@ Please send all that is needed to reproduce the use case:
  * the alignment file
  * screenshots of BEAUti settings you've changed
  * the resulting XML file
- * (optional) the desired call to `beastscriptr`
+ * (optional) the desired call to `beautier`
 
 BEAUti plugins are not supported (for now). See 'Submitting code'
-if you'd like `beastscriptr` to do so.
+if you'd like `beautier` to do so.
 
 ## Submitting code
 
@@ -53,15 +53,15 @@ Pull Requests should follow the same guidelines as 'Submitting code'.
 
 ## git usage
 
-To get started working on `beastscriptr` do:
+To get started working on `beautier` do:
 
 ```
-git clone https://github.com/richelbilderbeek/beastscriptr
+git clone https://github.com/richelbilderbeek/beautier
 ```
 
 Development is done on the `develop` branch. 
 To download and checkout the `develop` branch, 
-first go into the `beastscriptr` folder (`cd beastscriptr`), then do:
+first go into the `beautier` folder (`cd beautier`), then do:
 
 ```
 git checkout -b develop origin/develop

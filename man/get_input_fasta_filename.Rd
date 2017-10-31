@@ -13,7 +13,7 @@ the path of a fasta file used in testing
 Get the path of a fasta file used in testing
 }
 \examples{
-  my_file <- beastscriptr::get_input_fasta_filename()
+  my_file <- beautier::get_input_fasta_filename()
   does_exist <- file.exists(my_file)
   testit::assert(does_exist == TRUE)
 }

@@ -8,7 +8,7 @@ test_that("locate test_output_0.fas", {
 
 test_that("locate birth_death_2_4.xml", {
   filename <- system.file(
-    "extdata", "birth_death_2_4.xml", package = "beastscriptr"
+    "extdata", "birth_death_2_4.xml", package = "beautier"
   )
   testthat::expect_true(file.exists(filename))
 })

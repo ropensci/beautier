@@ -20,13 +20,13 @@ after_success:
 
 after_failure:
   # - sudo Rscript install_this_r_package.R
-  # - Rscript -e 'library(beastscriptr); testit::assert(has_beast2())'
-  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00install.out
-  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/00check.log
+  # - Rscript -e 'library(beautier); testit::assert(has_beast2())'
+  - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/00install.out
+  - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/00check.log
   - cd ~; find . | egrep "beast"
   - cd ~; find . | egrep "\.log"
   - cd ~; find . | egrep "\.trees"
   - cd ~; find . | egrep "\.xml"
   - cd ~; find . | egrep "\.xml\.state"
   - cd ~; find . | egrep "\.fasta"
-  - cat /home/travis/build/richelbilderbeek/beastscriptr/..Rcheck/tests/testthat/testthat.log
+  - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/tests/testthat/testthat.log

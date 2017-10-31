@@ -41,7 +41,7 @@ the phylogeny is assumed to be of class ape::phylo.}
 Create a BEAST2 input file
 }
 \examples{
-  # The file created by beastscriptr, a BEAST2 input file
+  # The file created by beautier, a BEAST2 input file
   output_xml_filename <- "example_bd.xml"
 
   # Birth-Death tree prior, crown age is estimated
@@ -51,7 +51,7 @@ Create a BEAST2 input file
   )
   testthat::expect_true(file.exists(output_xml_filename))
 
-  # The file created by beastscriptr, a BEAST2 input file
+  # The file created by beautier, a BEAST2 input file
   output_xml_filename_fixed <- "example_bd_fixed.xml"
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
@@ -59,7 +59,7 @@ Create a BEAST2 input file
     input_fasta_filenames = get_input_fasta_filename(),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
-    initial_phylogenies = beastscriptr::fasta_to_phylo(
+    initial_phylogenies = beautier::fasta_to_phylo(
       fasta_filename = get_input_fasta_filename(),
       crown_age = 15)
   )

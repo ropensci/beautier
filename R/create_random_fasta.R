@@ -20,6 +20,6 @@ create_random_fasta <- function(
   if (filename == "") {
     stop("filename must have non-zero length")
   }
-  alignments <- beastscriptr::create_random_alignment(n_taxa, sequence_length)
+  alignments <- beautier::create_random_alignment(n_taxa, sequence_length)
   phangorn::write.phyDat(alignments, file = filename, format = "fasta")
 }

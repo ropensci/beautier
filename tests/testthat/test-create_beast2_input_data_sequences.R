@@ -21,7 +21,7 @@ test_that("use", {
 test_that("sequences are sorted", {
 
   lines <- create_beast2_input_data_sequences(
-      input_fasta_filename = beastscriptr::get_input_fasta_filename()
+      input_fasta_filename = beautier::get_input_fasta_filename()
     )
   expected <- paste0("                    <sequence id=\"seq_t1\" ",
     "taxon=\"t1\" ",
@@ -42,7 +42,7 @@ test_that("abuse", {
 test_that("sort order", {
 
   fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beastscriptr")
+    "anthus_nd2.fas", package = "beautier")
 
   lines <- create_beast2_input_data_sequences(fasta_filename_1)
   testthat::expect_true(substr(lines[11], 35, 46) != "seq_bas3_nd2")

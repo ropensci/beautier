@@ -3,7 +3,7 @@ context("create_beast2_input_data")
 test_that("sequences are sorted, as per v2.4", {
 
   lines <- create_beast2_input_data(
-      input_fasta_filenames = beastscriptr::get_input_fasta_filename()
+      input_fasta_filenames = beautier::get_input_fasta_filename()
     )
   expected <- paste0("                    <sequence id=\"seq_t1\" ",
     "taxon=\"t1\" totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>")
@@ -24,9 +24,9 @@ test_that("abuse", {
 test_that("two alignments", {
 
   fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beastscriptr")
+    "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beastscriptr")
+    "anthus_nd2.fas", package = "beautier")
 
   testthat::expect_silent(
     create_beast2_input_data(
@@ -38,9 +38,9 @@ test_that("two alignments", {
 test_that("alignments start with a capital", {
 
   fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beastscriptr")
+    "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beastscriptr")
+    "anthus_nd2.fas", package = "beautier")
 
   lines <- create_beast2_input_data(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),

@@ -16,7 +16,7 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 ## Example #9: Two alignments, different site models, clock models and tree priors 
 
 ```
-beastscriptr::create_beast2_input_file(
+beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
   site_models = c(

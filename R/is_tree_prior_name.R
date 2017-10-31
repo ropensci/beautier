@@ -3,5 +3,5 @@
 #' @return TRUE if the name is a valid tree_prior name, FALSE otherwise
 #' @export
 is_tree_prior_name <- function(name) {
-  return(name %in% beastscriptr::get_tree_prior_names())
+  return(name %in% beautier::get_tree_prior_names())
 }

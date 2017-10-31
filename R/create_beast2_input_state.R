@@ -148,7 +148,7 @@ create_beast2_input_state_site_models_1 <- function( # nolint long function name
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">",
-      beastscriptr::get_kappa(site_models), "</parameter>"))
+      beautier::get_kappa(site_models), "</parameter>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0("        <parameter id=\"kappa1.s:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
@@ -201,10 +201,10 @@ create_beast2_input_state_gamma_site_models <- function( # nolint long function 
   site_models
 ) {
   text <- NULL
-  gamma_site_models <- beastscriptr::get_gamma_site_model(
+  gamma_site_models <- beautier::get_gamma_site_model(
     site_models = site_models)
   if (get_gamma_cat_count(gamma_site_models) > 1) {
-    gamma_shape <- beastscriptr::get_gamma_shape(gamma_site_models)
+    gamma_shape <- beautier::get_gamma_shape(gamma_site_models)
     text <- c(text, paste0("        <parameter ",
       "id=\"gammaShape.s:", ids, "\" ",
       "name=\"stateNode\">", gamma_shape, "</parameter>"))

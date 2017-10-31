@@ -49,7 +49,7 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
   fixed_crown_age
 ) {
   text <- NULL
-  operator_id_pre <- beastscriptr::get_operator_id_pre(tree_priors)
+  operator_id_pre <- beautier::get_operator_id_pre(tree_priors)
 
   if (is_yule_tree_prior(tree_priors)) {
     text <- c(text, paste0("    <operator ",

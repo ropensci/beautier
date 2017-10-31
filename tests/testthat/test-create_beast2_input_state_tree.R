@@ -3,9 +3,9 @@ context("create_beast2_input_state_tree")
 test_that("two alignments with two initial trees", {
 
   fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beastscriptr")
+    "anthus_nd2.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beastscriptr")
+    "anthus_aco.fas", package = "beautier")
   phylo1 <- fasta_to_phylo(fasta_filename_1, crown_age = 10)
   phylo2 <- fasta_to_phylo(fasta_filename_2, crown_age = 5)
   initial_phylogenies <- c(phylo1, phylo2)

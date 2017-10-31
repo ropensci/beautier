@@ -14,7 +14,7 @@
 #'   this is set to NA, BEAST2 will use a random phylogeny. Else
 #'   a phylogeny must be supplied of class ape::phylo.
 #' @examples
-#'   # The file created by beastscriptr, a BEAST2 input file
+#'   # The file created by beautier, a BEAST2 input file
 #'   output_xml_filename <- "example_bd.xml"
 #'
 #'   # Birth-Death tree prior, crown age is estimated
@@ -26,7 +26,7 @@
 #'   )
 #'   testthat::expect_true(file.exists(output_xml_filename))
 #'
-#'   # The file created by beastscriptr, a BEAST2 input file
+#'   # The file created by beautier, a BEAST2 input file
 #'   output_xml_filename_fixed <- "example_bd_fixed.xml"
 #'
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
@@ -36,7 +36,7 @@
 #'     mcmc_chainlength = 10000000,
 #'     tree_prior = "birth_death",
 #'     fixed_crown_age = TRUE,
-#'     initial_phylogenies = beastscriptr::fasta_to_phylo(
+#'     initial_phylogenies = beautier::fasta_to_phylo(
 #'       fasta_filename = get_input_fasta_filename(),
 #'       crown_age = 15)
 #'   )

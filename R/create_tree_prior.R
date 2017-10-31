@@ -34,27 +34,27 @@ create_tree_prior <- function(
 #' @return a Yule tree_prior
 #' @export
 create_yule_tree_prior <- function() {
-  return(beastscriptr::create_tree_prior(name = "yule"))
+  return(beautier::create_tree_prior(name = "yule"))
 }
 
 #' Create a Birth-Death tree prior
 #' @return a Birth-Death tree_prior
 #' @export
 create_bd_tree_prior <- function() {
-  return(beastscriptr::create_tree_prior(name = "birth_death"))
+  return(beautier::create_tree_prior(name = "birth_death"))
 }
 
 #' Create a Coalescent Bayesian Skyline tree prior
 #' @return a Coalescent Bayesian Skyline tree_prior
 #' @export
 create_cbs_tree_prior <- function() {
-  return(beastscriptr::create_tree_prior(name = "coalescent_bayesian_skyline"))
+  return(beautier::create_tree_prior(name = "coalescent_bayesian_skyline"))
 }
 
 #' Create a Coalescent Constant Population tree prior
 #' @return a Coalescent Constant Population tree_prior
 #' @export
 create_ccp_tree_prior <- function() {
-  return(beastscriptr::create_tree_prior(
+  return(beautier::create_tree_prior(
     name = "coalescent_constant_population"))
 }

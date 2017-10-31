@@ -46,9 +46,9 @@ test_that("two phylogenies", {
 test_that("two alignments, two initial phylogenies", {
 
   fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beastscriptr")
+    "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beastscriptr")
+    "anthus_nd2.fas", package = "beautier")
   id1 <- get_id(fasta_filename_1, capitalize_first_char_id = TRUE)
   id2 <- get_id(fasta_filename_2, capitalize_first_char_id = TRUE)
   phylo1 <- fasta_to_phylo(fasta_filename_1, crown_age = 314)
