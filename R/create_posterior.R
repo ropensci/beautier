@@ -56,8 +56,11 @@ create_posterior <- function(
 
   initial_phylogenies <- NA
   if (fixed_crown_age == TRUE && !is.na(crown_age)) {
-    initial_phylogenies <- fasta_to_phylo(
-      fasta_filename = input_fasta_filename, crown_age = crown_age
+    # Use 'c' to create a multiPhylo
+    initial_phylogenies <- c(
+        fasta_to_phylo(
+        fasta_filename = input_fasta_filename, crown_age = crown_age
+      )
     )
   }
   testit::assert(length(initial_phylogenies) == length(input_fasta_filename))
