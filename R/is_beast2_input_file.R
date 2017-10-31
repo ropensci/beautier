@@ -11,9 +11,10 @@ is_beast2_input_file <- function(filename) {
     "java -jar ~/Programs/beast/lib/beast.jar -validate",
     filename
   )
-  output <- system(cmd, intern = TRUE, ignore.stderr = TRUE)
-  is_valid <- utils::tail(output, n = 1) == "Done!"
-  is_valid
+  return(system(cmd, ignore.stderr = TRUE, ignore.stdout = TRUE) == 0)
+  # output <- system(cmd, intern = TRUE, ignore.stderr = TRUE)
+  # is_valid <- utils::tail(output, n = 1) == "Done!"
+  # is_valid
 }
 
 #' Deprecated name for function \code{\link{is_beast2_input_file}}
