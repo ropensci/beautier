@@ -1,15 +1,15 @@
-# beastscriptr
+# beautier
 
 Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo](Codecov.png)](https://www.codecov.io)
 ---|---|---
-master|[![Build Status](https://travis-ci.org/richelbilderbeek/beastscriptr.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beastscriptr)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beastscriptr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastscriptr/branch/master)
-develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beastscriptr.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/beastscriptr)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beastscriptr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/beastscriptr/branch/develop)
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/beautier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beautier)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beautier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beautier/branch/master)
+develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beautier.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/beautier)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beautier/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/beautier/branch/develop)
 
-`beastscriptr` is `BEAUti` from R.
+`beautier` is `BEAUti` from R.
 
-![beastscriptr logo](beastscriptr_logo.png)
+![beautier logo](beautier_logo.png)
 
-The purpose of `beastscriptr` is to create 
+The purpose of `beautier` is to create 
 [a valid BEAST2 XML input file](inst/extdata/2_4.xml)
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti` its GUI.
@@ -34,7 +34,7 @@ The default parameters of these settings are supported:
    * Coalescent Constant Population
    * Coalescent Bayesian Skyline
 
-Unlike BEAUti, `beastscriptr` *does* allow for a fixed crown age.
+Unlike BEAUti, `beautier` *does* allow for a fixed crown age.
 
 ## Examples
 
@@ -45,7 +45,7 @@ See [Examples](Examples.md)
 If you use the `devtools` R package, this is easy:
 
 ```
-devtools::install_github("richelbilderbeek/beastscriptr")
+devtools::install_github("richelbilderbeek/beautier")
 ```
 
 ## FAQ
@@ -74,9 +74,9 @@ Sure, just add an Issue. Or send an email.
 
 ## References
 
-Article about `beastscriptr`:
+Article about `beautier`:
 
- * Bilderbeek, Richel J.C., Etienne, Rampal S., "beastscriptr: BEAUti from R" *In preparation*.
+ * Bilderbeek, Richel J.C., Etienne, Rampal S., "beautier: BEAUti from R" *In preparation*.
 
 FASTA files `Anthus_aco.fas` and `Anthus_nd2.fas` from:
  
