@@ -13,6 +13,10 @@ create_beast2_input_state <- function(
   tree_priors = create_tree_prior(name = "yule"),
   initial_phylogenies = rep(NA, length(ids))
 ) {
+  if (class(initial_phylogenies) == "phylo") {
+    initial_phylogenies <- c(initial_phylogenies)
+    testit::assert(class(initial_phylogenies) == "multiPhylo")
+  }
   if (length(ids) != length(initial_phylogenies)) {
     stop("Must supply as much IDs as initial_phylogenies")
   }

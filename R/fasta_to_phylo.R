@@ -5,7 +5,7 @@
 #' @examples
 #'   fasta_filename <- beastscriptr::get_input_fasta_filename()
 #'   phylo <- beastscriptr::fasta_to_phylo(fasta_filename, crown_age = 15)
-#'   testit::assert(5 == length(phylo[[1]]$tip.label))
+#'   testit::assert(5 == length(phylo$tip.label))
 #' @export
 fasta_to_phylo <- function(fasta_filename, crown_age) {
 
@@ -28,5 +28,6 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
   # ... with the correct crown age
   phylo <- geiger::rescale(phylo, "depth", crown_age)
 
-  return(phytools::as.multiPhylo(phylo))
+  phylo
+  #return(phytools::as.multiPhylo(phylo))
 }
