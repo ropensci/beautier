@@ -257,9 +257,9 @@ create_beast2_input_distribution_site_models_1 <- function( # nolint long functi
     text <- c(text, paste0("                <LogNormal ",
       "id=\"LogNormalDistributionModel.", distribution_ids[1], "\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.", param_ids[1] ,"\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+      "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.", param_ids[2] ,"\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+      "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
     text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", ids, "\" ",
@@ -267,9 +267,9 @@ create_beast2_input_distribution_site_models_1 <- function( # nolint long functi
     text <- c(text, paste0("                <LogNormal ",
       "id=\"LogNormalDistributionModel.", distribution_ids[2], "\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.", param_ids[3] ,"\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+      "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.", param_ids[4] ,"\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+      "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
   }
