@@ -5,11 +5,14 @@
 \title{Creates the freqParameters gamma_site_models part of the state section of
 a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_state_gamma_site_models_freq_parameters(ids)
+create_beast2_input_state_gamma_site_models_freq_parameters(ids, site_models)
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 }
 \description{
 Creates the freqParameters gamma_site_models part of the state section of

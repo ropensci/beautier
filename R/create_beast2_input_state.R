@@ -25,28 +25,42 @@ create_beast2_input_state <- function(
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
     ids = ids, initial_phylogenies = initial_phylogenies))
+
+  # Birth: always first
   text <- c(text, create_beast2_input_state_tree_priors(
     ids = ids, tree_priors = tree_priors))
 
-  if (is_hky_site_model(site_models)) {
-    text <- c(text,
-      create_beast2_input_state_site_models_rates(ids, site_models))
-  } else if (is_tn93_site_model(site_models)) {
-    text <- c(text,
-      create_beast2_input_state_site_models_rates(ids, site_models))
+  # There are three parts:
+  # 1) rates
+  # 2) freq
+  # 3) gamma shape
+  # Order is determined by site model and Gamma Category Count :-(
+  rates <- create_beast2_input_state_site_models_rates(ids, site_models)
+  freq_parameters <- create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids, site_models = site_models)
+  gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(ids = ids, site_models = site_models)
+  gcc <- get_gamma_cat_count(get_gamma_site_model(site_models))
+  if (gcc == 0) {
+    text <- c(text, rates)
+    text <- c(text, freq_parameters)
+  } else if (gcc == 1) {
+    if (is_gtr_site_model(site_models)) {
+      text <- c(text, freq_parameters)
+      text <- c(text, rates)
+    } else {
+      text <- c(text, rates)
+      text <- c(text, freq_parameters)
+    }
+  } else {
+    if (is_gtr_site_model(site_models)) {
+      text <- c(text, freq_parameters)
+      text <- c(text, rates)
+      text <- c(text, gamma_shape)
+    } else {
+      text <- c(text, rates)
+      text <- c(text, gamma_shape)
+      text <- c(text, freq_parameters)
+    }
   }
-
-  text <- c(text, create_beast2_input_state_gamma_site_models_1(
-    ids = ids, site_models = site_models))
-
-  if (is_gtr_site_model(site_models)) {
-    text <- c(text,
-      create_beast2_input_state_site_models_rates(ids, site_models))
-  }
-
-  text <- c(text, create_beast2_input_state_gamma_site_models_2(
-    ids = ids, site_models = site_models))
-
 
   # Clock models
   if (is_rln_clock_model(clock_models)) {
@@ -210,14 +224,15 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids
+  ids,
+  site_models
 ) {
   text <- NULL
-
-  text <- c(text, paste0("        <parameter ",
-    "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
-    "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
-
+  if (!is_jc69_site_model(site_models)) {
+    text <- c(text, paste0("        <parameter ",
+      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+  }
   text
 }
 
