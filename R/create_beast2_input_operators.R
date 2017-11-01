@@ -178,6 +178,15 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
       "idref=\"freqParameter.s:", ids, "\"/>"))
     text <- c(text, paste0("    </operator>"))
   } else if (is_gtr_site_model(site_models)) {
+    if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
+      text <- c(text, paste0(""))
+      text <- c(text, paste0("    <operator ",
+        "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
+        "delta=\"0.01\" weight=\"0.1\">"))
+      text <- c(text, paste0("        <parameter ",
+        "idref=\"freqParameter.s:", ids, "\"/>"))
+      text <- c(text, paste0("    </operator>"))
+    }
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"RateACScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", ids, "\" ",
@@ -198,13 +207,15 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
     text <- c(text, paste0("    <operator id=\"RateGTScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", ids, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0(""))
-    text <- c(text, paste0("    <operator ",
-      "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
-      "delta=\"0.01\" weight=\"0.1\">"))
-    text <- c(text, paste0("        <parameter ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
-    text <- c(text, paste0("    </operator>"))
+    if (get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
+      text <- c(text, paste0(""))
+      text <- c(text, paste0("    <operator ",
+        "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
+        "delta=\"0.01\" weight=\"0.1\">"))
+      text <- c(text, paste0("        <parameter ",
+        "idref=\"freqParameter.s:", ids, "\"/>"))
+      text <- c(text, paste0("    </operator>"))
+    }
   }
 
   # Middle part
