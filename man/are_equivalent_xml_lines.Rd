@@ -4,12 +4,14 @@
 \alias{are_equivalent_xml_lines}
 \title{Determine if XML lines result in equivalent trees}
 \usage{
-are_equivalent_xml_lines(lines1, lines2)
+are_equivalent_xml_lines(lines1, lines2, verbose = FALSE)
 }
 \arguments{
 \item{lines1}{lines of a first XML file}
 
 \item{lines2}{lines of a second XML file}
+
+\item{verbose}{print the reason why the XML lines differ}
 }
 \value{
 TRUE if the two XML lines result in equivalent trees,
