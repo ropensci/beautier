@@ -224,6 +224,7 @@ create_beast2_input_state_site_models_1 <- function( # nolint long function name
   site_models
 ) {
   text <- NULL
+
   if (is_hky_site_model(site_models)) {
     text <- c(text,
       create_beast2_input_state_site_models_rates(ids, site_models))

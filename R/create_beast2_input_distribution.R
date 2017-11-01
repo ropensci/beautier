@@ -243,24 +243,33 @@ create_beast2_input_distribution_site_models_1 <- function( # nolint long functi
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
   } else if (is_tn93_site_model(site_models)) {
+    distribution_ids <- NULL
+    param_ids <- NULL
+    if (get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
+      distribution_ids <- seq(1, 2)
+      param_ids <- seq(3, 6)
+    } else {
+      distribution_ids <- seq(0, 1)
+      param_ids <- seq(1, 4)
+    }
     text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", ids, "\" ",
       "name=\"distribution\" x=\"@kappa1.s:", ids, "\">"))
     text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.1\" name=\"distr\">"))
+      "id=\"LogNormalDistributionModel.", distribution_ids[1], "\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.3\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+      "id=\"RealParameter.", param_ids[1] ,"\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.4\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+      "id=\"RealParameter.", param_ids[2] ,"\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
     text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", ids, "\" ",
       "name=\"distribution\" x=\"@kappa2.s:", ids, "\">"))
     text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.2\" name=\"distr\">"))
+      "id=\"LogNormalDistributionModel.", distribution_ids[2], "\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.5\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+      "id=\"RealParameter.", param_ids[3] ,"\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.6\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+      "id=\"RealParameter.", param_ids[4] ,"\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
   }

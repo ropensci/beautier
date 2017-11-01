@@ -425,11 +425,65 @@ test_that("Check that tn93_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_site_model(name = "TN93")
+    site_models = create_tn93_site_model()
   )
 
   expected_lines <- readLines(system.file("extdata",
     "tn93_2_4.xml", package = "beautier"))
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
+
+  skip("WIP")
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    site_models = create_tn93_site_model(
+      gamma_site_model = create_gamma_site_model(gamma_cat_count = 1)
+    )
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "tn93_gcc_1_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Check that tn93_gcc_2_2_4.xml is reproduced", {
+
+  skip("WIP")
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    site_models = create_tn93_site_model(
+      gamma_site_model = create_gamma_site_model(gamma_cat_count = 2)
+    )
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "tn93_gcc_2_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
