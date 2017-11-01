@@ -63,6 +63,8 @@ test_that("checks input", {
 
 test_that("Create CCP posterior with random initial tree", {
 
+  if (!beautier::is_on_travis()) return()
+
   posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
@@ -74,7 +76,9 @@ test_that("Create CCP posterior with random initial tree", {
 
 test_that("Create BD posterior with random initial tree", {
 
-  posterior <- create_posterior(
+  if (!beautier::is_on_travis()) return()
+
+    posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
     mcmc_chainlength = 10000,
@@ -86,7 +90,9 @@ test_that("Create BD posterior with random initial tree", {
 
 test_that("A fixed crown age must have equal TreeHeights", {
 
-  posterior <- create_posterior(
+  if (!beautier::is_on_travis()) return()
+
+    posterior <- create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc_chainlength = 10000,
@@ -100,6 +106,8 @@ test_that("A fixed crown age must have equal TreeHeights", {
 
 test_that(paste0("Fixed and specified crown age must result in a posterior ",
   "with that TreeHeight"), {
+
+  if (!beautier::is_on_travis()) return()
 
   crown_age <- 123
   posterior <- beautier::create_posterior(
@@ -119,6 +127,9 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
 })
 
 test_that("Can specify fixed crown age", {
+
+  if (!beautier::is_on_travis()) return()
+
   input_fasta_filename <- beautier::get_input_fasta_filename()
   output_xml_filename_fixed <- tempfile()
 
@@ -140,6 +151,8 @@ test_that("Can specify fixed crown age", {
 
 test_that("Produce XML for Yule species tree prior", {
 
+  if (!beautier::is_on_travis()) return()
+
   input_fasta_filename <- get_input_fasta_filename()
   output_xml_filename <- tempfile()
   create_beast2_input_file(
@@ -154,6 +167,8 @@ test_that("Produce XML for Yule species tree prior", {
 
 
 test_that("All site models produce a valid BEAST2 input file", {
+
+  if (!beautier::is_on_travis()) return()
 
   site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -173,6 +188,8 @@ test_that("All site models produce a valid BEAST2 input file", {
 
 test_that(paste0("All site models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
+
+  if (!beautier::is_on_travis()) return()
 
   site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -196,6 +213,8 @@ test_that(paste0("All site models produce a valid BEAST2 input file, ",
 
 test_that("All clock models produce a valid BEAST2 input file", {
 
+  if (!beautier::is_on_travis()) return()
+
   clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
 
@@ -214,6 +233,8 @@ test_that("All clock models produce a valid BEAST2 input file", {
 
 test_that(paste0("All clock models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
+
+  if (!beautier::is_on_travis()) return()
 
   clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
@@ -236,6 +257,8 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
 })
 
 test_that("All tree priors produce a valid BEAST2 input file", {
+
+  if (!beautier::is_on_travis()) return()
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
@@ -261,6 +284,8 @@ test_that("All tree priors produce a valid BEAST2 input file", {
 
 test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
   "fixed crown age"), {
+
+  if (!beautier::is_on_travis()) return()
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
