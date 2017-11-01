@@ -22,18 +22,25 @@ are_equivalent_xml_files <- function(
 #' Determine if XML lines result in equivalent trees
 #' @param lines1 lines of a first XML file
 #' @param lines2 lines of a second XML file
+#' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @export
 are_equivalent_xml_lines <- function(
-  lines1, lines2
+  lines1, lines2, verbose = FALSE
 ) {
   if (length(lines1) != length(lines2)) {
+    if (verbose) {
+      print(paste0("different lengths: ", length(lines1), " vs ", length(lines2)))
+    }
     return(FALSE)
   }
   for (line in lines1) {
     if (!line %in% lines2) {
+      if (verbose) {
+        print(paste0("line '", line, "' not found"))
+      }
       return(FALSE)
     }
   }

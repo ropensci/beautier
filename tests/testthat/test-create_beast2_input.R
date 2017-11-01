@@ -158,7 +158,7 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
       print(paste0(i, " / ", length(expected_lines)))
     }
   }
-
+  are_equivalent_xml_lines(expected_lines, created_lines, verbose = TRUE)
   testthat::expect_identical(created_lines, expected_lines)
 })
 

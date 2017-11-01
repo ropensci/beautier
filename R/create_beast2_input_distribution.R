@@ -280,16 +280,28 @@ create_beast2_input_distribution_site_models_2 <- function( # nolint long functi
 ) {
   text <- NULL
   if (is_gtr_site_model(site_models)) {
+    first_param_id <- ifelse(
+      get_gamma_cat_count(get_gamma_site_model(site_models)) == 0, 7, 1)
+
+    param_ids <- c(
+      seq(first_param_id, first_param_id + 7),
+      seq(first_param_id + 10, first_param_id + 11)
+    )
+
+    #param_ids[8] <- param_ids[8] + 2
+    #param_ids[9] <- param_ids[9] + 2
+
     text <- c(text, paste0("            <prior ",
       "id=\"RateACPrior.s:", ids, "\" name=\"distribution\" ",
       "x=\"@rateAC.s:", ids, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.7\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[1], "\" ",
+      "estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.8\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
@@ -298,10 +310,10 @@ create_beast2_input_distribution_site_models_2 <- function( # nolint long functi
     text <- c(text, paste0("                <Gamma id=\"Gamma.1\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.9\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.10\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" ",
       "name=\"beta\">20.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
@@ -310,10 +322,10 @@ create_beast2_input_distribution_site_models_2 <- function( # nolint long functi
     text <- c(text, paste0("                <Gamma id=\"Gamma.2\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.11\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[5], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.12\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[6], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
@@ -322,10 +334,10 @@ create_beast2_input_distribution_site_models_2 <- function( # nolint long functi
     text <- c(text, paste0("                <Gamma id=\"Gamma.3\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.13\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[7], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.14\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[8], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
@@ -334,10 +346,10 @@ create_beast2_input_distribution_site_models_2 <- function( # nolint long functi
     text <- c(text, paste0("                <Gamma id=\"Gamma.5\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.17\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[9], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.18\" estimate=\"false\" ",
+      "id=\"RealParameter.", param_ids[10], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
@@ -416,7 +428,7 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
   site_models
 ) {
   text <- NULL
-  if (is_jc69_site_model(site_models)) {
+  if (beautier::is_jc69_site_model(site_models)) {
     text <- c(text, paste0("                    <substModel ",
       "id=\"JC69.s:", ids, "\" spec=\"JukesCantor\"/>"))
   } else if (is_hky_site_model(site_models)) {

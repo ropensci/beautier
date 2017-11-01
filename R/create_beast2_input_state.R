@@ -206,7 +206,7 @@ create_beast2_input_state_gamma_site_models_1 <- function( # nolint long functio
       "id=\"gammaShape.s:", ids, "\" ",
       "name=\"stateNode\">", gamma_shape, "</parameter>"))
   }
-  if (is_jc69_site_model(site_models)) return(text)
+  if (beautier::is_jc69_site_model(site_models)) return(text)
 
   if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
     text <- c(text, paste0("        <parameter ",
@@ -230,7 +230,7 @@ create_beast2_input_state_gamma_site_models_2 <- function( # nolint long functio
   site_models
 ) {
   text <- NULL
-  if (is_jc69_site_model(site_models)) return(text)
+  if (beautier::is_jc69_site_model(site_models)) return(text)
   gamma_site_models <- beautier::get_gamma_site_model(
     site_models = site_models)
   if (get_gamma_cat_count(gamma_site_models) == 0) {
