@@ -35,10 +35,10 @@ create_beast2_input_state <- function(
   # 2) freq
   # 3) gamma shape
   # Order is determined by site model and Gamma Category Count :-(
-  rates <- create_beast2_input_state_site_models_rates(ids, site_models)
-  freq_parameters <- create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids, site_models = site_models)
-  gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(ids = ids, site_models = site_models)
-  gcc <- get_gamma_cat_count(get_gamma_site_model(site_models))
+  rates <- beautier::create_beast2_input_state_site_models_rates(ids = ids, site_models = site_models) # nolint
+  freq_parameters <- beautier::create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids, site_models = site_models) # nolint
+  gamma_shape <- beautier::create_beast2_input_state_gamma_site_models_gamma_shape(ids = ids, site_models = site_models) # nolint
+  gcc <- beautier::get_gamma_cat_count(get_gamma_site_model(site_models))
   if (gcc == 0) {
     text <- c(text, rates)
     text <- c(text, freq_parameters)
