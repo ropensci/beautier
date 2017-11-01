@@ -113,8 +113,7 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(
       gamma_site_model = create_gamma_site_model(
-        gamma_cat_count = 2,
-        gamma_shape = 1.5
+        gamma_cat_count = 1
       )
     )
   )
@@ -142,8 +141,7 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(
       gamma_site_model = create_gamma_site_model(
-        gamma_cat_count = 2,
-        gamma_shape = 1.5
+        gamma_cat_count = 2
       )
     )
   )
