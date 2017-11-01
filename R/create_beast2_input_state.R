@@ -31,14 +31,16 @@ create_beast2_input_state <- function(
     ids = ids, site_models = site_models))
   text <- c(text, create_beast2_input_state_gamma_site_models(
     ids = ids, site_models = site_models))
-  text <- c(text, create_beast2_input_state_site_models_2(
-    ids = ids, site_models = site_models))
 
   if (!is_jc69_site_model(site_models)) {
     text <- c(text, paste0("        <parameter ",
       "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
       "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   }
+
+  text <- c(text, create_beast2_input_state_site_models_2(
+    ids = ids, site_models = site_models))
+
 
   # Clock models
   if (is_rln_clock_model(clock_models)) {
