@@ -288,9 +288,6 @@ create_beast2_input_distribution_site_models_2 <- function( # nolint long functi
       seq(first_param_id + 10, first_param_id + 11)
     )
 
-    #param_ids[8] <- param_ids[8] + 2
-    #param_ids[9] <- param_ids[9] + 2
-
     text <- c(text, paste0("            <prior ",
       "id=\"RateACPrior.s:", ids, "\" name=\"distribution\" ",
       "x=\"@rateAC.s:", ids, "\">"))
