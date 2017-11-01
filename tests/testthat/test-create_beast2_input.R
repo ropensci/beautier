@@ -333,7 +333,7 @@ test_that("Check that jc69_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Check that jc69_gcc_2_2_4.xml is reproduced", {
+test_that("Reproduce jc69_gcc_2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -345,6 +345,17 @@ test_that("Check that jc69_gcc_2_2_4.xml is reproduced", {
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
 
   testthat::expect_identical(created_lines, expected_lines)
 
