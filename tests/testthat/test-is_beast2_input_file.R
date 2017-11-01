@@ -2,6 +2,8 @@ context("is_beast2_input_file")
 
 test_that("testing FASTA file is not a valid BEAST2 input file", {
 
+  if (!beautier::is_on_travis()) return()
+
   filename <- beautier::get_input_fasta_filename()
   testthat::expect_false(
     is_beast2_input_file(filename)
@@ -10,6 +12,8 @@ test_that("testing FASTA file is not a valid BEAST2 input file", {
 })
 
 test_that("birth_death_2_4.xml is valid", {
+
+  if (!beautier::is_on_travis()) return()
 
   filename <- system.file(
     "extdata", "birth_death_2_4.xml", package = "beautier"
@@ -21,6 +25,8 @@ test_that("birth_death_2_4.xml is valid", {
 
 test_that("anthus_2_4.xml is valid", {
 
+  if (!beautier::is_on_travis()) return()
+
   filename <- system.file(
     "extdata", "anthus_2_4.xml", package = "beautier"
   )
@@ -30,6 +36,8 @@ test_that("anthus_2_4.xml is valid", {
 })
 
 test_that("abuse", {
+
+  if (!beautier::is_on_travis()) return()
 
   testthat::expect_error(
     is_beast2_input_file("abs.ent")
