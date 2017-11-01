@@ -166,6 +166,50 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
   text
 }
 
+#' Creates the gamma_site_models part of the state section of a BEAST2
+#' XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @inheritParams create_beast2_input
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models
+) {
+  text <- NULL
+  text <- c(text, paste0("        <parameter ",
+    "id=\"gammaShape.s:", ids, "\" ",
+    "name=\"stateNode\">",
+    beautier::get_gamma_shape(get_gamma_site_model(site_models)),
+    "</parameter>")
+  )
+  text
+}
+
+#' Creates the freqParameters gamma_site_models part of the state section of
+#' a BEAST2 XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @inheritParams create_beast2_input
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids
+) {
+  text <- NULL
+
+  text <- c(text, paste0("        <parameter ",
+    "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+    "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+
+  text
+}
+
 #' Creates the first site_models part of the state section of a BEAST2
 #' XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
@@ -181,9 +225,11 @@ create_beast2_input_state_site_models_1 <- function( # nolint long function name
 ) {
   text <- NULL
   if (is_hky_site_model(site_models)) {
-    text <- c(text, create_beast2_input_state_site_models_rates(ids, site_models))
+    text <- c(text,
+      create_beast2_input_state_site_models_rates(ids, site_models))
   } else if (is_tn93_site_model(site_models)) {
-    text <- c(text, create_beast2_input_state_site_models_rates(ids, site_models))
+    text <- c(text,
+      create_beast2_input_state_site_models_rates(ids, site_models))
   }
   text
 }
@@ -203,7 +249,8 @@ create_beast2_input_state_site_models_2 <- function( # nolint long function name
 ) {
   text <- NULL
   if (is_gtr_site_model(site_models)) {
-    text <- c(text, create_beast2_input_state_site_models_rates(ids, site_models))
+    text <- c(text,
+      create_beast2_input_state_site_models_rates(ids, site_models))
   }
   text
 }
@@ -222,20 +269,19 @@ create_beast2_input_state_gamma_site_models_1 <- function( # nolint long functio
   site_models
 ) {
   text <- NULL
-  gamma_site_models <- beautier::get_gamma_site_model(
-    site_models = site_models)
-  if (get_gamma_cat_count(gamma_site_models) > 1) {
-    gamma_shape <- beautier::get_gamma_shape(gamma_site_models)
-    text <- c(text, paste0("        <parameter ",
-      "id=\"gammaShape.s:", ids, "\" ",
-      "name=\"stateNode\">", gamma_shape, "</parameter>"))
+  if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
+    text <- c(
+      text, create_beast2_input_state_gamma_site_models_gamma_shape(
+        ids = ids,
+        site_models = site_models
+      )
+    )
   }
   if (beautier::is_jc69_site_model(site_models)) return(text)
 
   if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
-    text <- c(text, paste0("        <parameter ",
-      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
-      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+    text <- c(text,
+      create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids))
   }
   text
 }
@@ -259,9 +305,8 @@ create_beast2_input_state_gamma_site_models_2 <- function( # nolint long functio
     site_models = site_models
   )
   if (get_gamma_cat_count(gamma_site_models) == 0) {
-    text <- c(text, paste0("        <parameter ",
-      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
-      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+    text <- c(text,
+      create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids))
   }
   text
 }

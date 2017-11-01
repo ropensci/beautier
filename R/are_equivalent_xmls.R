@@ -32,7 +32,8 @@ are_equivalent_xml_lines <- function(
 ) {
   if (length(lines1) != length(lines2)) {
     if (verbose) {
-      print(paste0("different lengths: ", length(lines1), " vs ", length(lines2)))
+      print(paste0("different lengths: ",
+        length(lines1), " vs ", length(lines2)))
     }
     return(FALSE)
   }
