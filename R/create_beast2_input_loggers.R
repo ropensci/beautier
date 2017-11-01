@@ -128,7 +128,10 @@ create_beast2_input_loggers_site_models_1 <- function( # nolint long function na
 ) {
   text <- NULL
 
-  if ((is_tn93_site_model(site_models) || is_gtr_site_model(site_models)) &&
+  is_tn93_or_gtr <- is_tn93_site_model(site_models) ||
+    is_gtr_site_model(site_models)
+
+  if (is_tn93_or_gtr &&
     get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
     text <- c(text, paste0("        <log ",
       "idref=\"freqParameter.s:", ids, "\"/>"))
@@ -147,7 +150,7 @@ create_beast2_input_loggers_site_models_1 <- function( # nolint long function na
     text <- c(text, paste0("        <log idref=\"rateGT.s:", ids, "\"/>"))
   }
 
-  if ((is_tn93_site_model(site_models) || is_gtr_site_model(site_models)) &&
+  if (is_tn93_or_gtr &&
     get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
     text <- c(text, paste0("        <log ",
       "idref=\"freqParameter.s:", ids, "\"/>"))
