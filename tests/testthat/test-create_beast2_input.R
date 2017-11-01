@@ -119,6 +119,17 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_1_2_4.xml", package = "beautier"))
 
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -146,7 +157,6 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
       print(paste0(i, " / ", length(expected_lines)))
     }
   }
-  are_equivalent_xml_lines(expected_lines, created_lines, verbose = TRUE)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -268,6 +278,17 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_1_2_4.xml", package = "beautier"))
 
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -283,6 +304,17 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_2_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
