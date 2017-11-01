@@ -127,22 +127,32 @@ create_beast2_input_loggers_site_models_1 <- function( # nolint long function na
   site_models
 ) {
   text <- NULL
-  if (is_hky_site_model(site_models)) {
+
+  if ((is_tn93_site_model(site_models) || is_gtr_site_model(site_models)) &&
+    get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
+    text <- c(text, paste0("        <log ",
+      "idref=\"freqParameter.s:", ids, "\"/>"))
+  }
+
+    if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa.s:", ids, "\"/>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa1.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"kappa2.s:", ids, "\"/>"))
-    text <- c(text, paste0("        <log ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
   } else if (is_gtr_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"rateAC.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"rateAG.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"rateAT.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"rateCG.s:", ids, "\"/>"))
     text <- c(text, paste0("        <log idref=\"rateGT.s:", ids, "\"/>"))
+  }
+
+  if ((is_tn93_site_model(site_models) || is_gtr_site_model(site_models)) &&
+    get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
     text <- c(text, paste0("        <log ",
       "idref=\"freqParameter.s:", ids, "\"/>"))
   }
+
   text
 }
 
