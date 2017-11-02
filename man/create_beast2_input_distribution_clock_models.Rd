@@ -8,13 +8,10 @@ of a BEAST2 XML parameter file}
 create_beast2_input_distribution_clock_models(ids, clock_models)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+\item{ids}{alignment ID}
 
 \item{clock_models}{On or more clock models,
 as returned by \code{\link{create_clock_model}}}
-
-\item{id}{alignment ID}
 }
 \description{
 Creates the clock models section in the distribution section

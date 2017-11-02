@@ -1,5 +1,5 @@
 #' Get the prefix of operator IDs
-#' @param tree_priors tree priors, as created by create_tree_prior
+#' @param tree_priors tree priors, as created by \code{\link{create_tree_prior}}
 #' @examples
 #'   bd_pre <- get_operator_id_pre(
 #'     tree_priors = create_tree_prior(name = "birth_death")

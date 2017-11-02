@@ -11,6 +11,8 @@ create_beast2_input_operators_tree_priors_2(id,
 \arguments{
 \item{id}{the id of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+
+\item{tree_prior}{tree prior, as created by \code{\link{create_tree_prior}}}
 }
 \description{
 Creates the second tree_priors section in the operators section

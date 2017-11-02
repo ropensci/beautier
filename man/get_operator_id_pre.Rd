@@ -7,7 +7,7 @@
 get_operator_id_pre(tree_priors)
 }
 \arguments{
-\item{tree_priors}{tree priors, as created by create_tree_prior}
+\item{tree_priors}{tree priors, as created by \code{\link{create_tree_prior}}}
 }
 \description{
 Get the prefix of operator IDs
