@@ -27,7 +27,7 @@ create_beast2_input <- function(
   input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
-  tree_priors = create_tree_prior(name = "yule"),
+  tree_priors = rep(create_yule_tree_prior(), length(input_fasta_filenames)),
   mcmc_chainlength = 10000000,
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
@@ -42,14 +42,17 @@ create_beast2_input <- function(
   if (!is_clock_model(clock_models)) {
     stop("invalid clock_model")
   }
-  if (!is_tree_prior(tree_priors)) {
-    stop("invalid tree_prior")
+  if (!are_tree_priors(tree_priors)) {
+    stop("invalid tree_priors")
   }
   if (mcmc_chainlength <= 0) {
     stop("mcmc_chainlength must be positive")
   }
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
+  }
+  if (length(input_fasta_filenames) != length(tree_priors)) {
+    stop("Must supply as much input_fasta_filenames as tree priors")
   }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")

@@ -7,9 +7,10 @@
 create_beast2_input(input_fasta_filenames,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
-  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
-  misc_options = create_misc_options(), fixed_crown_age = FALSE,
-  initial_phylogenies = rep(NA, length(input_fasta_filenames)))
+  tree_priors = rep(create_yule_tree_prior(), length(input_fasta_filenames)),
+  mcmc_chainlength = 1e+07, misc_options = create_misc_options(),
+  fixed_crown_age = FALSE, initial_phylogenies = rep(NA,
+  length(input_fasta_filenames)))
 }
 \arguments{
 \item{input_fasta_filenames}{One or more fasta filenames}

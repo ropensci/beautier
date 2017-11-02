@@ -2,6 +2,7 @@
 
 export(are_equivalent_xml_files)
 export(are_equivalent_xml_lines)
+export(are_tree_priors)
 export(create_bd_tree_prior)
 export(create_beast2_input)
 export(create_beast2_input_beast)
