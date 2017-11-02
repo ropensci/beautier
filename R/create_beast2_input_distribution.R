@@ -438,6 +438,8 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
 #' Creates the substModel section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distribution
+#' @param id alignment ID
+#' @param site_model the site_model
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

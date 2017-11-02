@@ -7,6 +7,11 @@ of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_distribution_subst_model(id, site_model)
 }
+\arguments{
+\item{id}{alignment ID}
+
+\item{site_model}{the site_model}
+}
 \description{
 Creates the substModel section in the distribution section
 of a BEAST2 XML parameter file
