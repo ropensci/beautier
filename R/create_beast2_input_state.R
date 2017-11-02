@@ -38,7 +38,7 @@ create_beast2_input_state <- function(
   rates <- beautier::create_beast2_input_state_site_models_rates(ids = ids, site_models = site_models) # nolint
   freq_parameters <- beautier::create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids, site_models = site_models) # nolint
   gamma_shape <- beautier::create_beast2_input_state_gamma_site_models_gamma_shape(ids = ids, site_models = site_models) # nolint
-  gcc <- beautier::get_gamma_cat_count(get_gamma_site_model(site_models))
+  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models)) # nolint
   if (gcc == 0) {
     text <- c(text, rates)
     text <- c(text, freq_parameters)
