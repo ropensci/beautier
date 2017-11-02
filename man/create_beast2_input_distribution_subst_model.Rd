@@ -10,7 +10,7 @@ create_beast2_input_distribution_subst_model(id, site_model)
 \arguments{
 \item{id}{alignment ID}
 
-\item{site_model}{the site_model}
+\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{
 Creates the substModel section in the distribution section

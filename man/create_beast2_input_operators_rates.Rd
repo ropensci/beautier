@@ -8,6 +8,9 @@ of a BEAST2 XML parameter file}
 create_beast2_input_operators_rates(id, site_model = create_site_model(name =
   "JC69"))
 }
+\arguments{
+\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
+}
 \description{
 Creates the site_models section in the operators section
 of a BEAST2 XML parameter file

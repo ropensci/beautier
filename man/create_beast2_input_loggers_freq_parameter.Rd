@@ -10,6 +10,8 @@ create_beast2_input_loggers_freq_parameter(id, site_model)
 \arguments{
 \item{id}{the id of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+
+\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{
 Creates the freqParameter part of the log sections

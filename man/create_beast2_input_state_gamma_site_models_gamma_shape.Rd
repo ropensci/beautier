@@ -8,6 +8,8 @@ XML parameter file}
 create_beast2_input_state_gamma_site_models_gamma_shape(id, site_model)
 }
 \arguments{
+\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
+
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
 }

@@ -156,6 +156,7 @@ create_beast2_input_loggers_tree_priors <- function( # nolint long function name
 #'   of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -187,6 +188,7 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
 #'   of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -208,7 +210,7 @@ create_beast2_input_loggers_freq_parameter <- function( # nolint long function n
 #'   of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @inheritParams create_beast2_input_loggers
+#' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

@@ -7,6 +7,9 @@ of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_distribution_site_models(id, site_model)
 }
+\arguments{
+\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
+}
 \description{
 Creates the first site models section in the distribution section
 of a BEAST2 XML parameter file
