@@ -43,7 +43,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       text <- c(text, freq_parameters)
       text <- c(text, rates)
     } else {
-      # gcc >= 2
+      testit::assert(gcc >= 2)
       if (prop_invariant == get_default_prop_invariant()) {
         text <- c(text, freq_parameters)
         text <- c(text, rates)

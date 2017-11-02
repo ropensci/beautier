@@ -691,3 +691,67 @@ test_that("Check that anthus_2_4.xml is reproduced", {
 
   testthat::expect_identical(created_lines, expected_lines)
 })
+
+test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
+
+  skip("WIP")
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    misc_options = create_misc_options(
+      capitalize_first_char_id = TRUE,
+      nucleotides_uppercase = TRUE
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "anthus_nd2_anthus_aco_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
+
+  skip("WIP")
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_nds.fas", package = "beautier")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    misc_options = create_misc_options(
+      capitalize_first_char_id = TRUE,
+      nucleotides_uppercase = TRUE
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "anthus_aco_anthus_nd2_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
