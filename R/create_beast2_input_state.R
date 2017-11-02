@@ -39,6 +39,7 @@ create_beast2_input_state <- function(
   freq_parameters <- beautier::create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids, site_models = site_models) # nolint
   gamma_shape <- beautier::create_beast2_input_state_gamma_site_models_gamma_shape(ids = ids, site_models = site_models) # nolint
   gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models)) # nolint
+  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_models)) # nolint
   if (gcc == 0) {
     text <- c(text, rates)
     text <- c(text, freq_parameters)
@@ -52,9 +53,15 @@ create_beast2_input_state <- function(
     }
   } else {
     if (is_gtr_site_model(site_models)) {
-      text <- c(text, freq_parameters)
-      text <- c(text, rates)
-      text <- c(text, gamma_shape)
+      if (prop_invariant == get_default_prop_invariant()) {
+        text <- c(text, freq_parameters)
+        text <- c(text, rates)
+        text <- c(text, gamma_shape)
+      } else {
+        text <- c(text, gamma_shape)
+        text <- c(text, freq_parameters)
+        text <- c(text, rates)
+      }
     } else {
       text <- c(text, rates)
       text <- c(text, gamma_shape)
