@@ -10,6 +10,16 @@ test_that("birth_death", {
   )
 })
 
+test_that("abuse", {
+
+  testthat::expect_error(
+    create_beast2_input_state(
+      ids = c("a", "b"),
+      initial_phylogenies = c(ape::rcoal(4))
+    )
+  )
+})
+
 test_that("use without initial phylogeny", {
 
   testthat::expect_silent(

@@ -10,6 +10,16 @@ test_that("use", {
   )
 })
 
+test_that("abuse", {
+
+  testthat::expect_error(
+    create_beast2_input_init(
+      ids = c("a", "b"),
+      initial_phylogenies = c(ape::rcoal(4))
+    )
+  )
+})
+
 test_that("Can specify fixed crown age", {
 
   input_fasta_filename <- beautier::get_input_fasta_filename()

@@ -6,8 +6,8 @@
 \usage{
 create_beast2_input_run(ids, site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
-  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength,
-  fixed_crown_age, initial_phylogenies = rep(NA, length(ids)))
+  tree_priors = create_tree_prior(name = "yule"), mcmc_chainlength = 1e+07,
+  fixed_crown_age = FALSE, initial_phylogenies = rep(NA, length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

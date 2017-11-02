@@ -59,6 +59,18 @@ test_that("checks input", {
     )
   )
 
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      initial_phylogenies = c(ape::rcoal(4))
+    )
+  )
+
 })
 
 test_that("Check that 2_4.xml is reproduced", {
