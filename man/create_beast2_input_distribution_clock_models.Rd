@@ -13,6 +13,8 @@ their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
 
 \item{clock_models}{On or more clock models,
 as returned by \code{\link{create_clock_model}}}
+
+\item{id}{alignment ID}
 }
 \description{
 Creates the clock models section in the distribution section

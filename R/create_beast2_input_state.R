@@ -184,7 +184,7 @@ create_beast2_input_state_tree_priors <- function( # nolint long function name i
 
 #' Creates the reates of the site_models part of the state section of a BEAST2
 #' XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
+#' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input
@@ -223,7 +223,7 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
 
 #' Creates the gamma_site_models part of the state section of a BEAST2
 #' XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
+#' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its

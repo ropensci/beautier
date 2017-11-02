@@ -9,6 +9,9 @@ create_beast2_input_operators_frequencies_exchanger(id,
   site_model = create_site_model(name = "JC69"))
 }
 \arguments{
+\item{id}{the id of the alignments (can be extracted from
+their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{

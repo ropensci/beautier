@@ -7,7 +7,7 @@
 get_gamma_shape(gamma_site_model)
 }
 \arguments{
-\item{gamma_site_models}{one or more gamma_site_models, as created
+\item{gamma_site_model}{one or more gamma_site_models, as created
 by \code{\link{create_gamma_site_model}}}
 }
 \value{

@@ -379,8 +379,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
 
 #' Creates the gamma site models section in the distribution section
 #' of a BEAST2 XML parameter file
+#' @param id alignment ID
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @inheritParams create_beast2_input_distribution
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
@@ -410,6 +410,7 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
 #' Creates the clock models section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distribution
+#' @param id alignment ID
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

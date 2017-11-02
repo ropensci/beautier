@@ -1,5 +1,5 @@
 #' Extract the proporion invariants from an HKY site model
-#' @param gamma_site_models one or more gamma_site_models,
+#' @param gamma_site_model a gamma_site_models,
 #'   as created by \code{\link{create_gamma_site_model}}
 #' @return the proporion invariants
 #' @export

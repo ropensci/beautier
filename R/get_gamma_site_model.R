@@ -1,5 +1,5 @@
 #' Extract the gamma site model from an HKY site model
-#' @param site_models one or more gamma_site_models, as created
+#' @param site_model one or more gamma_site_models, as created
 #'   by \code{\link{create_gamma_site_model}}
 #' @return the gamma site model
 #' @export

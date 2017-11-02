@@ -81,6 +81,8 @@ create_beast2_input_operators <- function(
 
 #' Creates the first tree_priors section in the operators section
 #' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input_operators
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -145,6 +147,8 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
 
 #' Creates the second tree_priors section in the operators section
 #' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input_operators
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -187,6 +191,8 @@ create_beast2_input_operators_tree_priors_2 <- function( # nolint long function 
 
 #' Creates the site_models section in the operators section
 #' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input_operators
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
@@ -239,6 +245,8 @@ create_beast2_input_operators_rates <- function( # nolint long function name is 
 
 #' Creates the gammaShapeScaler of the operators section
 #' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input_operators
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
@@ -262,6 +270,8 @@ create_beast2_input_operators_gamma_shape_scaler <- function( # nolint long func
 
 #' Creates the FrequenciesExchanger of the operators section
 #' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_operators
 #' @note this function is not intended for regular use, thus its
@@ -287,6 +297,8 @@ create_beast2_input_operators_frequencies_exchanger <- function( # nolint long f
 
 #' Creates the clock_models section in the operators section
 #' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input_operators
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted

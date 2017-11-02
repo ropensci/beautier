@@ -9,6 +9,9 @@ create_beast2_input_operators_tree_priors_1(id,
   tree_prior = create_tree_prior(name = "yule"), fixed_crown_age)
 }
 \arguments{
+\item{id}{the id of the alignments (can be extracted from
+their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age

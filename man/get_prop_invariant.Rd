@@ -7,7 +7,7 @@
 get_prop_invariant(gamma_site_model)
 }
 \arguments{
-\item{gamma_site_models}{one or more gamma_site_models,
+\item{gamma_site_model}{a gamma_site_models,
 as created by \code{\link{create_gamma_site_model}}}
 }
 \value{

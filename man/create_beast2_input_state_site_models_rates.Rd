@@ -8,10 +8,10 @@ XML parameter file}
 create_beast2_input_state_site_models_rates(id, site_model)
 }
 \arguments{
-\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
-
-\item{ids}{the IDs of the alignments (can be extracted from
+\item{id}{the id of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+
+\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{
 Creates the reates of the site_models part of the state section of a BEAST2

@@ -8,6 +8,10 @@ of a BEAST2 XML parameter file}
 create_beast2_input_operators_tree_priors_2(id,
   tree_prior = create_tree_prior(name = "yule"))
 }
+\arguments{
+\item{id}{the id of the alignments (can be extracted from
+their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+}
 \description{
 Creates the second tree_priors section in the operators section
 of a BEAST2 XML parameter file

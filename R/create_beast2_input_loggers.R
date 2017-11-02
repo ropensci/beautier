@@ -228,6 +228,8 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 
 #' Creates the clock models part of the two logger sections
 #'   of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted

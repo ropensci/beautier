@@ -8,6 +8,8 @@ of a BEAST2 XML parameter file}
 create_beast2_input_distribution_gamma_site_models(id, site_model)
 }
 \arguments{
+\item{id}{alignment ID}
+
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{
