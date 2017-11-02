@@ -93,7 +93,7 @@ test_that("Check that 2_4.xml is reproduced", {
 ################################################################################
 
 
-test_that("Check that gtr_2_4.xml is reproduced", {
+test_that("Reproduce gtr_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -102,6 +102,17 @@ test_that("Check that gtr_2_4.xml is reproduced", {
 
   expected_lines <- readLines(system.file("extdata",
     "gtr_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -419,7 +430,7 @@ test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
 # Site model: TN93
 ################################################################################
 
-test_that("Check that tn93_2_4.xml is reproduced", {
+test_that("Reproduce tn93_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -428,6 +439,18 @@ test_that("Check that tn93_2_4.xml is reproduced", {
 
   expected_lines <- readLines(system.file("extdata",
     "tn93_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
   testthat::expect_identical(created_lines, expected_lines)
 })
 

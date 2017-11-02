@@ -25,10 +25,43 @@ create_beast2_input_operators <- function(
   text <- NULL
   text <- c(text, create_beast2_input_operators_tree_priors_1(
     ids = ids, tree_priors = tree_priors, fixed_crown_age = fixed_crown_age))
-  text <- c(text, create_beast2_input_operators_site_models(
-    ids = ids, site_models = site_models))
+
+  # There are three parts: rate, freq and gamma. Order differs
+  gamma_shape_scaler <- beautier::create_beast2_input_operators_gamma_shape_scaler(ids = ids, site_models = site_models)
+  frequencies_exchanger <- beautier::create_beast2_input_operators_frequencies_exchanger(ids = ids, site_models = site_models)
+  rates <- beautier::create_beast2_input_operators_rates(ids = ids, site_models = site_models)
+  gcc <- get_gamma_cat_count(get_gamma_site_model(site_models = site_models))
+  prop_invariant <- get_prop_invariant(get_gamma_site_model(site_models = site_models))
+
+
+  if (is_gtr_site_model(site_models)) {
+    if (gcc == 0) {
+      text <- c(text, rates)
+      text <- c(text, frequencies_exchanger)
+    } else if (gcc == 1) {
+      text <- c(text, frequencies_exchanger)
+      text <- c(text, rates)
+    } else {
+      if (prop_invariant == get_default_prop_invariant()) {
+        text <- c(text, frequencies_exchanger)
+        text <- c(text, rates)
+        text <- c(text, gamma_shape_scaler)
+      } else {
+        text <- c(text, gamma_shape_scaler)
+        text <- c(text, frequencies_exchanger)
+        text <- c(text, rates)
+      }
+    }
+  } else {
+    text <- c(text, rates)
+    text <- c(text, gamma_shape_scaler)
+    text <- c(text, frequencies_exchanger)
+  }
+
   text <- c(text, create_beast2_input_operators_tree_priors_2(
     ids = ids, tree_priors = tree_priors))
+
+  # Clock models
   text <- c(text, create_beast2_input_operators_clock_models(
     ids = ids, clock_models = clock_models))
 
@@ -149,13 +182,12 @@ create_beast2_input_operators_tree_priors_2 <- function( # nolint long function 
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_operators_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_operators_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models = create_site_model(name = "JC69")
 ) {
   text <- NULL
 
-  # Part 1
   if (is_hky_site_model(site_models)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"KappaScaler.s:", ids, "\" ",
@@ -170,25 +202,7 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
     text <- c(text, paste0("    <operator id=\"kappa2Scaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", ids, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0(""))
-    text <- c(text, paste0("    <operator ",
-      "id=\"FrequenciesExchanger.s:", ids, "\" ",
-      "spec=\"DeltaExchangeOperator\" ",
-      "delta=\"0.01\" weight=\"0.1\">"))
-    text <- c(text, paste0("        <parameter ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
-    text <- c(text, paste0("    </operator>"))
   } else if (is_gtr_site_model(site_models)) {
-    if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
-      text <- c(text, paste0(""))
-      text <- c(text, paste0("    <operator ",
-        "id=\"FrequenciesExchanger.s:", ids, "\" ",
-        "spec=\"DeltaExchangeOperator\" ",
-        "delta=\"0.01\" weight=\"0.1\">"))
-      text <- c(text, paste0("        <parameter ",
-        "idref=\"freqParameter.s:", ids, "\"/>"))
-      text <- c(text, paste0("    </operator>"))
-    }
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"RateACScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", ids, "\" ",
@@ -209,19 +223,21 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
     text <- c(text, paste0("    <operator id=\"RateGTScaler.s:", ids, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", ids, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    if (get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
-      text <- c(text, paste0(""))
-      text <- c(text, paste0("    <operator ",
-        "id=\"FrequenciesExchanger.s:", ids, "\" ",
-        "spec=\"DeltaExchangeOperator\" ",
-        "delta=\"0.01\" weight=\"0.1\">"))
-      text <- c(text, paste0("        <parameter ",
-        "idref=\"freqParameter.s:", ids, "\"/>"))
-      text <- c(text, paste0("    </operator>"))
-    }
   }
+}
 
-  # Middle part
+#' Creates the gammaShapeScaler of the operators section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_operators
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_operators_gamma_shape_scaler <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models = create_site_model(name = "JC69")
+) {
+  text <- NULL
   if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator ",
@@ -229,9 +245,22 @@ create_beast2_input_operators_site_models <- function( # nolint long function na
       "parameter=\"@gammaShape.s:", ids, "\" scaleFactor=\"0.5\" ",
       "weight=\"0.1\"/>"))
   }
+  text
+}
 
-  # Part 2
-  if (is_hky_site_model(site_models)) {
+#' Creates the FrequenciesExchanger of the operators section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_operators
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_operators_frequencies_exchanger <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models = create_site_model(name = "JC69")
+) {
+  text <- NULL
+  if (!is_jc69_site_model(site_models)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator ",
       "id=\"FrequenciesExchanger.s:", ids, "\" spec=\"DeltaExchangeOperator\" ",
