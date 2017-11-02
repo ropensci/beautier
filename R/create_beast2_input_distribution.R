@@ -25,19 +25,16 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     )
   )
 
-  text <- c(text,
-    create_beast2_input_distribution_site_models(
-      ids = ids,
-      site_models = site_models
-    )
-  )
-
-  text <- c(text,
-    create_beast2_input_distribution_gamma_site_models(
-      ids = ids,
-      site_models = site_models
-    )
-  )
+  site_models_text <- create_beast2_input_distribution_site_models(ids = ids, site_models = site_models) # nolint
+  gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(ids = ids, site_models = site_models) # nolint
+  prop_invariant <- get_prop_invariant(get_gamma_site_model(site_models)) # nolint
+  if (prop_invariant == get_default_prop_invariant()) {
+    text <- c(text, site_models_text)
+    text <- c(text, gamma_site_models_text)
+  } else {
+    text <- c(text, gamma_site_models_text)
+    text <- c(text, site_models_text)
+  }
 
   text <- c(text,
     create_beast2_input_distribution_clock_models(
