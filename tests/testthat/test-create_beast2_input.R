@@ -682,7 +682,7 @@ test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    misc_options = create_misc_options(
+    misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
     )
