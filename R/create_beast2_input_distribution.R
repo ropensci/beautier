@@ -167,9 +167,11 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
         text <- c(text, paste0("            </prior>"))
       }
 
+      uniform_id <- ifelse(i == 1, 1, 4)
       text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
         id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
-      text <- c(text, paste0("                <Uniform id=\"Uniform.1\" ",
+      text <- c(text, paste0("                <Uniform ",
+        "id=\"Uniform.", uniform_id, "\" ",
         "name=\"distr\" upper=\"Infinity\"/>"))
       text <- c(text, paste0("            </prior>"))
     } else if (is_bd_tree_prior(tree_prior)) {
