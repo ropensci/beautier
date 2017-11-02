@@ -14,3 +14,17 @@ test_that("use", {
   )
 
 })
+
+test_that("abuse", {
+
+  filename <- system.file("extdata", "gtr_gcc_2_2_4.xml", package = "beautier")
+
+  testthat::expect_error(
+    are_equivalent_xml_files("nonse.nse", filename)
+  )
+
+  testthat::expect_error(
+    are_equivalent_xml_files(filename, "nonse.nse")
+  )
+
+})

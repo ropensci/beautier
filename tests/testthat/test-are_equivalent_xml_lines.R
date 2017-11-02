@@ -13,8 +13,17 @@ test_that("use", {
     are_equivalent_xml_lines(lines1, lines1)
   )
 
+  testthat::expect_output(
+    are_equivalent_xml_lines(lines1, lines2, verbose = TRUE)
+  )
+
   testthat::expect_false(
     are_equivalent_xml_lines(lines1, lines2)
   )
+
+  testthat::expect_output(
+    are_equivalent_xml_lines(c("A"), c("B"), verbose = TRUE)
+  )
+
 
 })
