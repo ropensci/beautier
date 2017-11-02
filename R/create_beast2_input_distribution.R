@@ -160,6 +160,13 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
       text <- c(text, paste0("            <distribution id=\"YuleModel.t:", id,
         "\" spec=\"beast.evolution.speciation.YuleModel\" ",
         "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>"))
+
+      if (i == 2 && n > 1) {
+        text <- c(text, paste0("            <prior id=\"ClockPrior.c:", id, "\" name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
+        text <- c(text, paste0("                <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"Infinity\"/>"))
+        text <- c(text, paste0("            </prior>"))
+      }
+
       text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
         id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
       text <- c(text, paste0("                <Uniform id=\"Uniform.1\" ",
