@@ -24,7 +24,9 @@ create_beast2_input_state <- function(
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
-    ids = ids, initial_phylogenies = initial_phylogenies))
+    ids = ids,tree_priors = tree_priors,
+    initial_phylogenies = initial_phylogenies)
+  )
 
   # Birth: always first
   text <- c(text, create_beast2_input_state_tree_priors(
@@ -92,6 +94,7 @@ create_beast2_input_state <- function(
 #' @export
 create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
+  tree_priors = create_tree_prior(name = "yule"),
   initial_phylogenies = rep(NA, length(ids))
 ) {
   if (length(ids) != length(initial_phylogenies)) {
@@ -114,11 +117,9 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
       text <- c(text, "            </taxonset>")
       text <- c(text, "        </tree>")
 
-      if (n > 1 && i == 1) {
+      testit::assert(length(id) == 1)
+      if (n > 1 && i == 2) {
         text <- c(text, paste0("        <parameter id=\"clockRate.c:", id, "\" name=\"stateNode\">1.0</parameter>"))
-      }
-      if (n > 1 && i >= 1) {
-        text <- c(text, paste0("        <parameter id=\"birthRate.t:", id, "\" name=\"stateNode\">1.0</parameter>"))
       }
     } else {
       text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
@@ -127,7 +128,10 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
           "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
       text <- c(text, paste0("    </stateNode>"))
     }
-  }
+    if (is_yule_tree_prior(tree_priors)) {
+      text <- c(text, paste0("        <parameter id=\"birthRate.t:", id, "\" name=\"stateNode\">1.0</parameter>"))
+    }
+  } # next i
   text
 }
 
@@ -146,10 +150,7 @@ create_beast2_input_state_tree_priors <- function( # nolint long function name i
   tree_priors
 ) {
   text <- NULL
-  if (is_yule_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"birthRate.t:", ids, "\" ",
-      "name=\"stateNode\">1.0</parameter>"))
-  } else if (is_bd_tree_prior(tree_priors)) {
+  if (is_bd_tree_prior(tree_priors)) {
     text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" ",
       "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
     text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" ",

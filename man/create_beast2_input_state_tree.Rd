@@ -4,12 +4,15 @@
 \alias{create_beast2_input_state_tree}
 \title{Creates the tree part of the state section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_state_tree(ids, initial_phylogenies = rep(NA,
-  length(ids)))
+create_beast2_input_state_tree(ids, tree_priors = create_tree_prior(name =
+  "yule"), initial_phylogenies = rep(NA, length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_id}})}
+
+\item{tree_priors}{On or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
 Each one set to NA will result in BEAST2 using a random phylogeny. Else
