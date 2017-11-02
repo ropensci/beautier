@@ -30,17 +30,20 @@ create_beast2_input_init <- function(
   #   will be overwritten by a random tree.
   #
   # In other words: bluntly remove it
-  for (phylogeny in initial_phylogenies) {
+  n <- length(ids)
+  for (i in seq(1, n)) {
+    phylogeny <- initial_phylogenies[[i]]
+    id <- ids[i]
     if (!ribir::is_phylogeny(phylogeny)) {
-      text <- c(text, paste0("    <init id=\"RandomTree.t:", ids,
+      text <- c(text, paste0("    <init id=\"RandomTree.t:", id,
         "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-        " initial=\"@Tree.t:", ids, "\" taxa=\"@", ids, "\">"
+        " initial=\"@Tree.t:", id, "\" taxa=\"@", id, "\">"
       ))
       text <- c(text, paste0(
         "        <populationModel id=\"ConstantPopulation0.t:",
-        ids, "\" spec=\"ConstantPopulation\">"))
+        id, "\" spec=\"ConstantPopulation\">"))
       text <- c(text, paste0("            <parameter id=\"randomPopSize.t:",
-        ids, "\" name=\"popSize\">1.0</parameter>"))
+        id, "\" name=\"popSize\">1.0</parameter>"))
       text <- c(text, "        </populationModel>")
       text <- c(text, "    </init>")
     }
