@@ -119,7 +119,9 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
       testit::assert(length(id) == 1)
       if (n > 1 && i == 2) {
-        text <- c(text, paste0("        <parameter id=\"clockRate.c:", id, "\" name=\"stateNode\">1.0</parameter>"))
+        text <- c(text, paste0("        <parameter ",
+          "id=\"clockRate.c:", id, "\" ",
+          "name=\"stateNode\">1.0</parameter>"))
       }
     } else {
       text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
@@ -129,7 +131,9 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
       text <- c(text, paste0("    </stateNode>"))
     }
     if (is_yule_tree_prior(tree_priors)) {
-      text <- c(text, paste0("        <parameter id=\"birthRate.t:", id, "\" name=\"stateNode\">1.0</parameter>"))
+      text <- c(text, paste0("        <parameter ",
+        "id=\"birthRate.t:", id, "\" ",
+        "name=\"stateNode\">1.0</parameter>"))
     }
   } # next i
   text
