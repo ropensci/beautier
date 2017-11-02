@@ -73,7 +73,7 @@ test_that("checks input", {
 
 })
 
-test_that("Check that 2_4.xml is reproduced", {
+test_that("Reproduce 2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename()

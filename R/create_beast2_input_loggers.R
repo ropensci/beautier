@@ -28,14 +28,39 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text <- c(text, beautier::create_beast2_input_loggers_tree_priors(
     ids = ids, tree_priors = tree_priors))
 
-  text <- c(text, beautier::create_beast2_input_loggers_site_models_1(
-    ids = ids, site_models = site_models))
+  # Now three things
+  rates <- beautier::create_beast2_input_loggers_rates(ids = ids, site_models = site_models)
+  freq_parameters <- beautier::create_beast2_input_loggers_freq_parameter(ids = ids, site_models = site_models)
+  gamma_shape <- beautier::create_beast2_input_loggers_gamma_shape(ids = ids, site_models = site_models)
+  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models))
+  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_models))
 
-  text <- c(text, beautier::create_beast2_input_loggers_gamma_site_models(
-    ids = ids, site_models = site_models))
+  if (is_gtr_site_model(site_models)) {
+    if (gcc == 0) {
+      text <- c(text, rates)
+      text <- c(text, freq_parameters)
+    } else if (gcc == 1) {
+      text <- c(text, freq_parameters)
+      text <- c(text, rates)
+    } else {
+      # gcc >= 2
+      if (prop_invariant == get_default_prop_invariant()) {
+        text <- c(text, freq_parameters)
+        text <- c(text, rates)
+        text <- c(text, gamma_shape)
+      } else {
+        text <- c(text, gamma_shape)
+        text <- c(text, freq_parameters)
+        text <- c(text, rates)
+      }
+    }
+  } else {
+    text <- c(text, rates)
+    text <- c(text, gamma_shape)
+    text <- c(text, freq_parameters)
+  }
 
-  text <- c(text, beautier::create_beast2_input_loggers_site_models_2(
-    ids = ids, site_models = site_models))
+
 
   text <- c(text, beautier::create_beast2_input_loggers_clock_models(
     ids = ids, clock_models = clock_models))
@@ -122,22 +147,13 @@ create_beast2_input_loggers_tree_priors <- function( # nolint long function name
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_loggers_site_models_1 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_loggers_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models
 ) {
   text <- NULL
 
-  is_tn93_or_gtr <- is_tn93_site_model(site_models) ||
-    is_gtr_site_model(site_models)
-
-  if (is_tn93_or_gtr &&
-    get_gamma_cat_count(get_gamma_site_model(site_models)) > 0) {
-    text <- c(text, paste0("        <log ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
-  }
-
-    if (is_hky_site_model(site_models)) {
+  if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa.s:", ids, "\"/>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0("        <log idref=\"kappa1.s:", ids, "\"/>"))
@@ -150,16 +166,10 @@ create_beast2_input_loggers_site_models_1 <- function( # nolint long function na
     text <- c(text, paste0("        <log idref=\"rateGT.s:", ids, "\"/>"))
   }
 
-  if (is_tn93_or_gtr &&
-    get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
-    text <- c(text, paste0("        <log ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
-  }
-
   text
 }
 
-#' Creates the gamma site models part of the two logger sections
+#' Creates the freqParameter part of the log sections
 #'   of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
@@ -168,35 +178,34 @@ create_beast2_input_loggers_site_models_1 <- function( # nolint long function na
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_loggers_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_loggers_freq_parameter <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models
+) {
+  text <- NULL
+  if (!is_jc69_site_model(site_models)) {
+    text <- c(text, paste0("        <log ",
+      "idref=\"freqParameter.s:", ids, "\"/>"))
+  }
+  text
+}
+
+#' Creates the gammaShape part of the log sections
+#'   of a BEAST2 XML parameter file
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @inheritParams create_beast2_input_loggers
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_loggers_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models
 ) {
   text <- NULL
   if (get_gamma_cat_count(get_gamma_site_model(site_models)) > 1) {
     text <- c(text, paste0("        <log idref=\"gammaShape.s:", ids, "\"/>"))
-  }
-  text
-}
-
-
-#' Creates the second site models part of the two logger sections
-#'   of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @inheritParams create_beast2_input_loggers
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-#' @export
-create_beast2_input_loggers_site_models_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
-) {
-  text <- NULL
-  if (is_hky_site_model(site_models)) {
-    text <- c(text, paste0("        <log ",
-      "idref=\"freqParameter.s:", ids, "\"/>"))
   }
   text
 }
