@@ -244,7 +244,8 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
 
 #' Creates the first site models section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distribution
+#' @param id the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
