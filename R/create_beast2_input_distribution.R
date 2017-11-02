@@ -26,7 +26,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   )
 
   text <- c(text,
-    create_beast2_input_distribution_site_models_1(
+    create_beast2_input_distribution_site_models(
       ids = ids,
       site_models = site_models
     )
@@ -34,13 +34,6 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 
   text <- c(text,
     create_beast2_input_distribution_gamma_site_models(
-      ids = ids,
-      site_models = site_models
-    )
-  )
-
-  text <- c(text,
-    create_beast2_input_distribution_site_models_2(
       ids = ids,
       site_models = site_models
     )
@@ -226,7 +219,7 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_distribution_site_models_1 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distribution_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models
 ) {
@@ -278,23 +271,7 @@ create_beast2_input_distribution_site_models_1 <- function( # nolint long functi
       "name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
-  }
-  text
-}
-
-#' Creates the second site models section in the distribution section
-#' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distribution
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-#' @export
-create_beast2_input_distribution_site_models_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
-) {
-  text <- NULL
-  if (is_gtr_site_model(site_models)) {
+  } else if (is_gtr_site_model(site_models)) {
     first_param_id <- ifelse(
       get_gamma_cat_count(get_gamma_site_model(site_models)) == 0, 7, 1)
 
