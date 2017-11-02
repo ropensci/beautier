@@ -136,8 +136,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     }
 
     text <- c(text, "            </distribution>")
-    text <- c(text, "        </distribution>")
   }
+  text <- c(text, "        </distribution>")
   text <- c(text, "    </distribution>")
   text
 }
