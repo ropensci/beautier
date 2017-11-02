@@ -33,6 +33,7 @@ create_beast2_input_operators <- function(
     site_model <- site_models[[i]]
     tree_prior <- tree_priors # stub
 
+
     text <- c(text, create_beast2_input_operators_tree_priors_1(
       id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
 
@@ -43,7 +44,7 @@ create_beast2_input_operators <- function(
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model = site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model = site_model)) # nolint
 
-    if (is_gtr_site_model(site_models)) {
+    if (is_gtr_site_model(site_model)) {
       if (gcc == 0) {
         text <- c(text, rates)
         text <- c(text, frequencies_exchanger)

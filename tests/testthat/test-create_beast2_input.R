@@ -132,7 +132,6 @@ test_that("Reproduce gtr_2_4.xml", {
 
 test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
 
-  skip("WIP")
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(
@@ -160,7 +159,6 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
 
 test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
 
-  skip("WIP")
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(
@@ -186,8 +184,6 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
 })
 
 test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
-
-  skip("WIP")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -216,8 +212,6 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
 })
 
 test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"), {
-
-  skip("WIP")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),

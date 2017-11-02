@@ -53,7 +53,7 @@ create_beast2_input_state <- function(
       text <- c(text, rates)
       text <- c(text, freq_parameters)
     } else if (gcc == 1) {
-      if (is_gtr_site_model(site_models)) {
+      if (is_gtr_site_model(site_model)) {
         text <- c(text, freq_parameters)
         text <- c(text, rates)
       } else {
@@ -61,7 +61,7 @@ create_beast2_input_state <- function(
         text <- c(text, freq_parameters)
       }
     } else {
-      if (is_gtr_site_model(site_models)) {
+      if (is_gtr_site_model(site_model)) {
         if (prop_invariant == get_default_prop_invariant()) {
           text <- c(text, freq_parameters)
           text <- c(text, rates)
