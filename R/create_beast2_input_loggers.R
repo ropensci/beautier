@@ -29,11 +29,11 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     ids = ids, tree_priors = tree_priors))
 
   # Now three things
-  rates <- beautier::create_beast2_input_loggers_rates(ids = ids, site_models = site_models)
-  freq_parameters <- beautier::create_beast2_input_loggers_freq_parameter(ids = ids, site_models = site_models)
-  gamma_shape <- beautier::create_beast2_input_loggers_gamma_shape(ids = ids, site_models = site_models)
-  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models))
-  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_models))
+  rates <- beautier::create_beast2_input_loggers_rates(ids = ids, site_models = site_models) # nolint
+  freq_parameters <- beautier::create_beast2_input_loggers_freq_parameter(ids = ids, site_models = site_models) # nolint
+  gamma_shape <- beautier::create_beast2_input_loggers_gamma_shape(ids = ids, site_models = site_models) # nolint
+  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models)) # nolint
+  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_models)) # nolint
 
   if (is_gtr_site_model(site_models)) {
     if (gcc == 0) {
