@@ -89,12 +89,12 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     }
 
 
-    text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
-      id,
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"mutationRate.s:", id,
       "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
     if (gamma_category_count < 2) {
-      text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
-        id,
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"gammaShape.s:", id,
         "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
     }
 
@@ -178,8 +178,11 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
         "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>"))
 
       if (i == 2 && n > 1) {
-        text <- c(text, paste0("            <prior id=\"ClockPrior.c:", id, "\" name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
-        text <- c(text, paste0("                <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"Infinity\"/>"))
+        text <- c(text, paste0("            <prior ",
+          "id=\"ClockPrior.c:", id, "\" name=\"distribution\" ",
+          "x=\"@clockRate.c:", id, "\">"))
+        text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
+          "name=\"distr\" upper=\"Infinity\"/>"))
         text <- c(text, paste0("            </prior>"))
       }
 
@@ -222,10 +225,12 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
         "            <prior id=\"PopSizePrior.t:", id,
         "\" name=\"distribution\" x=\"@popSize.t:",
         id, "\">"))
-      text <- c(text, "                <OneOnX id=\"OneOnX.1\" name=\"distr\"/>")
+      text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
+        "name=\"distr\"/>"))
       text <- c(text, "            </prior>")
     } else if (is_cbs_tree_prior(tree_prior)) {
-      text <- c(text, paste0("            <distribution id=\"BayesianSkyline.t:",
+      text <- c(text, paste0("            <distribution ",
+        "id=\"BayesianSkyline.t:",
         id, "\" spec=\"BayesianSkyline\" groupSizes=\"@bGroupSizes.t:", id,
         "\" popSizes=\"@bPopSizes.t:", id, "\">"))
       text <- c(text, paste0("                ",
