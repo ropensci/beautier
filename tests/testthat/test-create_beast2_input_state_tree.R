@@ -18,6 +18,22 @@ test_that("two alignments with two initial trees", {
 
 })
 
+test_that("abuse: two files, one phylogeny", {
+
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+  phylos <- c(fasta_to_phylo(fasta_filename_1, crown_age = 10))
+  testthat::expect_error(
+    create_beast2_input_state_tree(
+      ids = c("Anthus_nd2", "Anthus_aco"),
+      initial_phylogenies = pylos
+    )
+  )
+
+})
+
 test_that("two alignments use", {
 
   lines <- create_beast2_input_state_tree(ids = c("Anthus_nd2", "Anthus_aco"))
