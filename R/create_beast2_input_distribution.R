@@ -51,88 +51,93 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
         "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
       )
     )
-  text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
-    ids, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", ids,
-    "\" tree=\"@Tree.t:", ids, "\">"))
-  # gamma category count
-  gamma_category_count <- beautier::get_gamma_cat_count(
-    beautier::get_gamma_site_model(site_models))
-  if (gamma_category_count == 0) {
-    text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
-      ids, "\" spec=\"SiteModel\">")
-    )
-  } else if (gamma_category_count == 1) {
-    text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
-      ids, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
-      "\">")
-    )
-  } else {
-    text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
-      ids, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
-      "\" shape=\"@gammaShape.s:", ids, "\">")
-    )
-  }
+
+  n <- length(ids)
+  for (i in seq(1, n)) {
+    id <- ids[i]
+    text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
+      id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
+      "\" tree=\"@Tree.t:", id, "\">"))
+    # gamma category count
+    gamma_category_count <- beautier::get_gamma_cat_count(
+      beautier::get_gamma_site_model(site_models))
+    if (gamma_category_count == 0) {
+      text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+        id, "\" spec=\"SiteModel\">")
+      )
+    } else if (gamma_category_count == 1) {
+      text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+        id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
+        "\">")
+      )
+    } else {
+      text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+        id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
+        "\" shape=\"@gammaShape.s:", id, "\">")
+      )
+    }
 
 
-  text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
-    ids,
-    "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
-  if (gamma_category_count < 2) {
-    text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
-      ids,
-      "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
-  }
+    text <- c(text, paste0("                    <parameter id=\"mutationRate.s:",
+      id,
+      "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
+    if (gamma_category_count < 2) {
+      text <- c(text, paste0("                    <parameter id=\"gammaShape.s:",
+        id,
+        "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
+    }
 
-  # proportionInvariant
-  text <- c(text, paste0(
-    "                    <parameter id=\"proportionInvariant.s:",
-    ids, "\" estimate=\"false\" lower=\"0.0\" ",
-    "name=\"proportionInvariant\" upper=\"1.0\">",
-    beautier::get_prop_invariant(
-      beautier::get_gamma_site_model(site_models)
-    ),
-    "</parameter>"))
-
-  text <- c(text,
-    create_beast2_input_distribution_subst_model(
-      ids = ids,
-      site_models = site_models
-    )
-  )
-
-  text <- c(text, "                </siteModel>")
-
-  # Clock models
-  if (is_strict_clock_model(clock_models)) {
-    text <- c(text, paste0("                <branchRateModel ",
-      "id=\"StrictClock.c:", ids, "\" ",
-      "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
-      ids, "\" estimate=\"false\" name=\"clock.rate\">",
-      get_clock_model_rate(clock_models),
+    # proportionInvariant
+    text <- c(text, paste0(
+      "                    <parameter id=\"proportionInvariant.s:",
+      id, "\" estimate=\"false\" lower=\"0.0\" ",
+      "name=\"proportionInvariant\" upper=\"1.0\">",
+      beautier::get_prop_invariant(
+        beautier::get_gamma_site_model(site_models)
+      ),
       "</parameter>"))
-    text <- c(text, "                </branchRateModel>")
-  } else if (is_rln_clock_model(clock_models)) {
-    text <- c(text, paste0("                <branchRateModel ",
-      "id=\"RelaxedClock.c:", ids, "\" ",
-      "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-      "rateCategories=\"@rateCategories.c:", ids, "\" ",
-      "tree=\"@Tree.t:", ids, "\">"))
-    text <- c(text, paste0("                    <LogNormal ",
-      "id=\"LogNormalDistributionModel.c:", ids, "\" ",
-      "S=\"@ucldStdev.c:", ids, "\" meanInRealSpace=\"true\" name=\"distr\">"))
-    text <- c(text, paste0("                        <parameter ",
-      "id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" ",
-      "upper=\"1.0\">1.0</parameter>"))
-    text <- c(text, paste0("                    </LogNormal>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"ucldMean.c:", ids, "\" estimate=\"false\" ",
-      "name=\"clock.rate\">1.0</parameter>"))
-    text <- c(text, paste0("                </branchRateModel>"))
-  }
 
-  text <- c(text, "            </distribution>")
-  text <- c(text, "        </distribution>")
+    text <- c(text,
+      create_beast2_input_distribution_subst_model(
+        id = id,
+        site_models = site_models
+      )
+    )
+
+    text <- c(text, "                </siteModel>")
+
+    # Clock models
+    if (is_strict_clock_model(clock_models)) {
+      text <- c(text, paste0("                <branchRateModel ",
+        "id=\"StrictClock.c:", id, "\" ",
+        "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
+      text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
+        id, "\" estimate=\"false\" name=\"clock.rate\">",
+        get_clock_model_rate(clock_models),
+        "</parameter>"))
+      text <- c(text, "                </branchRateModel>")
+    } else if (is_rln_clock_model(clock_models)) {
+      text <- c(text, paste0("                <branchRateModel ",
+        "id=\"RelaxedClock.c:", id, "\" ",
+        "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
+        "rateCategories=\"@rateCategories.c:", id, "\" ",
+        "tree=\"@Tree.t:", id, "\">"))
+      text <- c(text, paste0("                    <LogNormal ",
+        "id=\"LogNormalDistributionModel.c:", id, "\" ",
+        "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
+      text <- c(text, paste0("                        <parameter ",
+        "id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" ",
+        "upper=\"1.0\">1.0</parameter>"))
+      text <- c(text, paste0("                    </LogNormal>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
+        "name=\"clock.rate\">1.0</parameter>"))
+      text <- c(text, paste0("                </branchRateModel>"))
+    }
+
+    text <- c(text, "            </distribution>")
+    text <- c(text, "        </distribution>")
+  }
   text <- c(text, "    </distribution>")
   text
 }
@@ -427,39 +432,39 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_distribution_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
+  id,
   site_models
 ) {
   text <- NULL
   if (beautier::is_jc69_site_model(site_models)) {
     text <- c(text, paste0("                    <substModel ",
-      "id=\"JC69.s:", ids, "\" spec=\"JukesCantor\"/>"))
+      "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
   } else if (is_hky_site_model(site_models)) {
     text <- c(text, paste0("                    <substModel ",
-      "id=\"hky.s:", ids, "\" spec=\"HKY\" kappa=\"@kappa.s:", ids, "\">"))
+      "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
     text <- c(text, paste0("                        <frequencies ",
-      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
+      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
+      "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("                    </substModel>"))
   } else if (is_tn93_site_model(site_models)) {
     text <- c(text, paste0("                    <substModel ",
-      "id=\"tn93.s:", ids, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", ids, "\" ",
-      "kappa2=\"@kappa2.s:", ids, "\">"))
+      "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
+      "kappa2=\"@kappa2.s:", id, "\">"))
     text <- c(text, paste0("                        <frequencies ",
-      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
+      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
+      "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("                    </substModel>"))
   } else if (is_gtr_site_model(site_models)) {
     text <- c(text, paste0("                    <substModel ",
-      "id=\"gtr.s:", ids, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", ids, "\" ",
-      "rateAG=\"@rateAG.s:", ids, "\" rateAT=\"@rateAT.s:", ids, "\" ",
-      "rateCG=\"@rateCG.s:", ids, "\" rateGT=\"@rateGT.s:", ids, "\">"))
+      "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
+      "rateAG=\"@rateAG.s:", id, "\" rateAT=\"@rateAT.s:", id, "\" ",
+      "rateCG=\"@rateCG.s:", id, "\" rateGT=\"@rateGT.s:", id, "\">"))
     text <- c(text, paste0("                        <parameter ",
-      "id=\"rateCT.s:", ids, "\" estimate=\"false\" lower=\"0.0\" ",
+      "id=\"rateCT.s:", id, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"rateCT\">1.0</parameter>"))
     text <- c(text, paste0("                        <frequencies ",
-      "id=\"estimatedFreqs.s:", ids, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", ids, "\"/>"))
+      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
+      "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("                    </substModel>"))
   }
   text
