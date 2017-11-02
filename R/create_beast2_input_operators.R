@@ -33,7 +33,6 @@ create_beast2_input_operators <- function(
   gcc <- get_gamma_cat_count(get_gamma_site_model(site_models = site_models))
   prop_invariant <- get_prop_invariant(get_gamma_site_model(site_models = site_models))
 
-
   if (is_gtr_site_model(site_models)) {
     if (gcc == 0) {
       text <- c(text, rates)
