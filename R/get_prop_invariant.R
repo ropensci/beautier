@@ -3,13 +3,13 @@
 #'   as created by \code{\link{create_gamma_site_model}}
 #' @return the proporion invariants
 #' @export
-get_prop_invariant <- function(gamma_site_models) {
+get_prop_invariant <- function(gamma_site_model) {
 
-  if (!is_gamma_site_model(gamma_site_models)) {
-    stop("gamma_site_models must be one or more gamma_site_models")
+  if (!is_gamma_site_model(gamma_site_model)) {
+    stop("gamma_site_model must be a gamma_site_models")
   }
-  testit::assert("prop_invariant" %in% names(gamma_site_models))
-  gamma_site_models$prop_invariant
+  testit::assert("prop_invariant" %in% names(gamma_site_model))
+  gamma_site_model$prop_invariant
 }
 
 #' Get the default proportion invariant for the HKY nucleotide

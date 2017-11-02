@@ -5,12 +5,9 @@
 \title{Creates the clock models part of the two logger sections
   of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers_clock_models(ids, clock_models)
+create_beast2_input_loggers_clock_models(id, clock_models)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
-
 \item{clock_models}{On or more clock models,
 as returned by \code{\link{create_clock_model}}}
 }

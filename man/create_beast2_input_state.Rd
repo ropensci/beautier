@@ -4,7 +4,8 @@
 \alias{create_beast2_input_state}
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_state(ids, site_models = create_site_model(name = "JC69"),
+create_beast2_input_state(ids,
+  site_models = create_jc69_site_models(length(ids)),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   initial_phylogenies = rep(NA, length(ids)))

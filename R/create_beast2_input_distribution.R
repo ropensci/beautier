@@ -8,10 +8,14 @@
 #' @export
 create_beast2_input_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  site_models = create_site_model(name = "JC69"),
+  site_models = create_jc69_site_models(length(ids)),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule")
 ) {
+  if (length(ids) != length(site_models)) {
+    stop("Must supply as much IDs as site_model objects")
+  }
+
   text <- NULL
   text <- c(text,
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
@@ -25,23 +29,28 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     )
   )
 
-  site_models_text <- create_beast2_input_distribution_site_models(ids = ids, site_models = site_models) # nolint
-  gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(ids = ids, site_models = site_models) # nolint
-  prop_invariant <- get_prop_invariant(get_gamma_site_model(site_models)) # nolint
-  if (prop_invariant == get_default_prop_invariant()) {
-    text <- c(text, site_models_text)
-    text <- c(text, gamma_site_models_text)
-  } else {
-    text <- c(text, gamma_site_models_text)
-    text <- c(text, site_models_text)
-  }
+  n <- length(ids)
+  for (i in seq(1, n)) {
+    id <- ids[i]
+    site_model <- site_models[[i]]
+    site_models_text <- create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
+    gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
+    prop_invariant <- get_prop_invariant(get_gamma_site_model(site_model)) # nolint
+    if (prop_invariant == get_default_prop_invariant()) {
+      text <- c(text, site_models_text)
+      text <- c(text, gamma_site_models_text)
+    } else {
+      text <- c(text, gamma_site_models_text)
+      text <- c(text, site_models_text)
+    }
 
-  text <- c(text,
-    create_beast2_input_distribution_clock_models(
-      ids = ids,
-      clock_models = clock_models
+    text <- c(text,
+      create_beast2_input_distribution_clock_models(
+        ids = ids,
+        clock_models = clock_models
+      )
     )
-  )
+  }
 
   text <- c(text, "        </distribution>")
   text <- c(
@@ -55,12 +64,14 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   n <- length(ids)
   for (i in seq(1, n)) {
     id <- ids[i]
+    site_model <- site_models[[i]]
+
     text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     # gamma category count
     gamma_category_count <- beautier::get_gamma_cat_count(
-      beautier::get_gamma_site_model(site_models))
+      beautier::get_gamma_site_model(site_model))
     if (gamma_category_count == 0) {
       text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
         id, "\" spec=\"SiteModel\">")
@@ -93,14 +104,14 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
       id, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"proportionInvariant\" upper=\"1.0\">",
       beautier::get_prop_invariant(
-        beautier::get_gamma_site_model(site_models)
+        beautier::get_gamma_site_model(site_model)
       ),
       "</parameter>"))
 
     text <- c(text,
       create_beast2_input_distribution_subst_model(
         id = id,
-        site_models = site_models
+        site_model = site_model
       )
     )
 
@@ -239,13 +250,13 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_distribution_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
+  id,
+  site_model
 ) {
   text <- NULL
-  if (is_hky_site_model(site_models)) {
-    text <- c(text, paste0("            <prior id=\"KappaPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@kappa.s:", ids, "\">"))
+  if (is_hky_site_model(site_model)) {
+    text <- c(text, paste0("            <prior id=\"KappaPrior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
       "id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -254,18 +265,18 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
-  } else if (is_tn93_site_model(site_models)) {
+  } else if (is_tn93_site_model(site_model)) {
     distribution_ids <- NULL
     param_ids <- NULL
-    if (get_gamma_cat_count(get_gamma_site_model(site_models)) == 0) {
+    if (get_gamma_cat_count(get_gamma_site_model(site_model)) == 0) {
       distribution_ids <- seq(1, 2)
       param_ids <- seq(3, 6)
     } else {
       distribution_ids <- seq(0, 1)
       param_ids <- seq(1, 4)
     }
-    text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@kappa1.s:", ids, "\">"))
+    text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
       "id=\"LogNormalDistributionModel.", distribution_ids[1], "\" ",
       "name=\"distr\">"))
@@ -277,8 +288,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@kappa2.s:", ids, "\">"))
+    text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
       "id=\"LogNormalDistributionModel.", distribution_ids[2], "\" ",
       "name=\"distr\">"))
@@ -290,9 +301,9 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
-  } else if (is_gtr_site_model(site_models)) {
+  } else if (is_gtr_site_model(site_model)) {
     first_param_id <- ifelse(
-      get_gamma_cat_count(get_gamma_site_model(site_models)) == 0, 7, 1)
+      get_gamma_cat_count(get_gamma_site_model(site_model)) == 0, 7, 1)
 
     param_ids <- c(
       seq(first_param_id, first_param_id + 7),
@@ -300,8 +311,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
     )
 
     text <- c(text, paste0("            <prior ",
-      "id=\"RateACPrior.s:", ids, "\" name=\"distribution\" ",
-      "x=\"@rateAC.s:", ids, "\">"))
+      "id=\"RateACPrior.s:", id, "\" name=\"distribution\" ",
+      "x=\"@rateAC.s:", id, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -313,8 +324,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateAGPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateAG.s:", ids, "\">"))
+    text <- c(text, paste0("            <prior id=\"RateAGPrior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.1\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -325,8 +336,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "name=\"beta\">20.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateATPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateAT.s:", ids, "\">"))
+    text <- c(text, paste0("            <prior id=\"RateATPrior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.2\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -337,8 +348,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateCGPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateCG.s:", ids, "\">"))
+    text <- c(text, paste0("            <prior id=\"RateCGPrior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.3\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -349,8 +360,8 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("                </Gamma>"))
     text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateGTPrior.s:", ids, "\" ",
-      "name=\"distribution\" x=\"@rateGT.s:", ids, "\">"))
+    text <- c(text, paste0("            <prior id=\"RateGTPrior.s:", id, "\" ",
+      "name=\"distribution\" x=\"@rateGT.s:", id, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.5\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -373,16 +384,16 @@ create_beast2_input_distribution_site_models <- function( # nolint long function
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_distribution_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
+  id,
+  site_model
 ) {
   text <- NULL
-  gamma_site_models <- beautier::get_gamma_site_model(
-    site_models = site_models)
-  if (get_gamma_cat_count(gamma_site_models) >= 2) {
+  gamma_site_model <- beautier::get_gamma_site_model(
+    site_model = site_model)
+  if (get_gamma_cat_count(gamma_site_model) >= 2) {
     text <- c(text, paste0("            <prior ",
-      "id=\"GammaShapePrior.s:", ids, "\" name=\"distribution\" ",
-      "x=\"@gammaShape.s:", ids, "\">"))
+      "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
+      "x=\"@gammaShape.s:", id, "\">"))
     text <- c(text, paste0("                <Exponential id=\"Exponential.0\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
@@ -433,20 +444,20 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
 #' @export
 create_beast2_input_distribution_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  site_models
+  site_model
 ) {
   text <- NULL
-  if (beautier::is_jc69_site_model(site_models)) {
+  if (beautier::is_jc69_site_model(site_model)) {
     text <- c(text, paste0("                    <substModel ",
       "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
-  } else if (is_hky_site_model(site_models)) {
+  } else if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("                    <substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
     text <- c(text, paste0("                        <frequencies ",
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("                    </substModel>"))
-  } else if (is_tn93_site_model(site_models)) {
+  } else if (is_tn93_site_model(site_model)) {
     text <- c(text, paste0("                    <substModel ",
       "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
       "kappa2=\"@kappa2.s:", id, "\">"))
@@ -454,7 +465,7 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("                    </substModel>"))
-  } else if (is_gtr_site_model(site_models)) {
+  } else if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("                    <substModel ",
       "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
       "rateAG=\"@rateAG.s:", id, "\" rateAT=\"@rateAT.s:", id, "\" ",

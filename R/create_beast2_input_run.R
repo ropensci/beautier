@@ -8,7 +8,7 @@
 #' @export
 create_beast2_input_run <- function(
   ids,
-  site_models = create_site_model(name = "JC69"),
+  site_models = create_jc69_site_models(length(ids)),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
@@ -17,6 +17,9 @@ create_beast2_input_run <- function(
 ) {
   if (length(ids) != length(initial_phylogenies)) {
     stop("Must supply as much IDs as initial_phylogenies")
+  }
+  if (length(ids) != length(site_models)) {
+    stop("Must supply as much IDs as site_model objects")
   }
 
 

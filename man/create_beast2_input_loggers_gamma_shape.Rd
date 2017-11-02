@@ -5,14 +5,11 @@
 \title{Creates the gammaShape part of the log sections
   of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers_gamma_shape(ids, site_models)
+create_beast2_input_loggers_gamma_shape(id, site_model)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
+\item{id}{the id of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
 }
 \description{
 Creates the gammaShape part of the log sections

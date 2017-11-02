@@ -5,15 +5,8 @@
 \title{Creates the FrequenciesExchanger of the operators section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators_frequencies_exchanger(ids,
-  site_models = create_site_model(name = "JC69"))
-}
-\arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
+create_beast2_input_operators_frequencies_exchanger(id,
+  site_model = create_site_model(name = "JC69"))
 }
 \description{
 Creates the FrequenciesExchanger of the operators section

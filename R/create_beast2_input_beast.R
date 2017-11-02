@@ -4,7 +4,7 @@
 #' @export
 create_beast2_input_beast <- function(
   input_fasta_filenames,
-  site_models = create_site_model(name = "JC69"),
+  site_models = create_jc69_site_models(length(input_fasta_filenames)),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
@@ -14,6 +14,14 @@ create_beast2_input_beast <- function(
 ) {
   if (!beautier::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
+  }
+  if (is_site_model(site_models)) {
+    site_models <- list(site_models)
+  }
+  if (length(input_fasta_filenames) != length(site_models)) {
+    stop("Must supply as much FASTA filenames (",
+      length(input_fasta_filenames), "), as site_model objects (",
+      length(site_models), ")")
   }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")

@@ -4,7 +4,7 @@
 \alias{get_gamma_shape}
 \title{Extract the gamma shape from an gamma site model}
 \usage{
-get_gamma_shape(gamma_site_models)
+get_gamma_shape(gamma_site_model)
 }
 \arguments{
 \item{gamma_site_models}{one or more gamma_site_models, as created

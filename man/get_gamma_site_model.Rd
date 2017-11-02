@@ -4,7 +4,7 @@
 \alias{get_gamma_site_model}
 \title{Extract the gamma site model from an HKY site model}
 \usage{
-get_gamma_site_model(site_models)
+get_gamma_site_model(site_model)
 }
 \arguments{
 \item{site_models}{one or more gamma_site_models, as created

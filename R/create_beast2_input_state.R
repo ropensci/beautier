@@ -8,7 +8,7 @@
 #' @export
 create_beast2_input_state <- function(
   ids,
-  site_models = create_site_model(name = "JC69"),
+  site_models = create_jc69_site_models(length(ids)),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
   initial_phylogenies = rep(NA, length(ids))
@@ -20,11 +20,14 @@ create_beast2_input_state <- function(
   if (length(ids) != length(initial_phylogenies)) {
     stop("Must supply as much IDs as initial_phylogenies")
   }
+  if (length(ids) != length(site_models)) {
+    stop("Must supply as much IDs as site_model objects")
+  }
 
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
-    ids = ids,tree_priors = tree_priors,
+    ids = ids, tree_priors = tree_priors,
     initial_phylogenies = initial_phylogenies)
   )
 
@@ -32,42 +35,47 @@ create_beast2_input_state <- function(
   text <- c(text, create_beast2_input_state_tree_priors(
     ids = ids, tree_priors = tree_priors))
 
-  # There are three parts:
-  # 1) rates
-  # 2) freq
-  # 3) gamma shape
-  # Order is determined by site model and Gamma Category Count :-(
-  rates <- beautier::create_beast2_input_state_site_models_rates(ids = ids, site_models = site_models) # nolint
-  freq_parameters <- beautier::create_beast2_input_state_gamma_site_models_freq_parameters(ids = ids, site_models = site_models) # nolint
-  gamma_shape <- beautier::create_beast2_input_state_gamma_site_models_gamma_shape(ids = ids, site_models = site_models) # nolint
-  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models)) # nolint
-  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_models)) # nolint
-  if (gcc == 0) {
-    text <- c(text, rates)
-    text <- c(text, freq_parameters)
-  } else if (gcc == 1) {
-    if (is_gtr_site_model(site_models)) {
-      text <- c(text, freq_parameters)
-      text <- c(text, rates)
-    } else {
+  n <- length(ids)
+  for (i in seq(1, n)) {
+    id <- ids[i]
+    site_model <- site_models[[i]]
+    # There are three parts:
+    # 1) rates
+    # 2) freq
+    # 3) gamma shape
+    # Order is determined by site model and Gamma Category Count :-(
+    rates <- beautier::create_beast2_input_state_site_models_rates(id = id, site_model = site_model) # nolint
+    freq_parameters <- beautier::create_beast2_input_state_gamma_site_models_freq_parameters(id = id, site_model = site_model) # nolint
+    gamma_shape <- beautier::create_beast2_input_state_gamma_site_models_gamma_shape(id = id, site_model = site_model) # nolint
+    gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
+    prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
+    if (gcc == 0) {
       text <- c(text, rates)
       text <- c(text, freq_parameters)
-    }
-  } else {
-    if (is_gtr_site_model(site_models)) {
-      if (prop_invariant == get_default_prop_invariant()) {
+    } else if (gcc == 1) {
+      if (is_gtr_site_model(site_models)) {
         text <- c(text, freq_parameters)
         text <- c(text, rates)
-        text <- c(text, gamma_shape)
       } else {
-        text <- c(text, gamma_shape)
-        text <- c(text, freq_parameters)
         text <- c(text, rates)
+        text <- c(text, freq_parameters)
       }
     } else {
-      text <- c(text, rates)
-      text <- c(text, gamma_shape)
-      text <- c(text, freq_parameters)
+      if (is_gtr_site_model(site_models)) {
+        if (prop_invariant == get_default_prop_invariant()) {
+          text <- c(text, freq_parameters)
+          text <- c(text, rates)
+          text <- c(text, gamma_shape)
+        } else {
+          text <- c(text, gamma_shape)
+          text <- c(text, freq_parameters)
+          text <- c(text, rates)
+        }
+      } else {
+        text <- c(text, rates)
+        text <- c(text, gamma_shape)
+        text <- c(text, freq_parameters)
+      }
     }
   }
 
@@ -107,6 +115,8 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   for (i in seq(1, n)) {
     initial_phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
+    tree_prior <- tree_priors[i]
+
     if (!ribir::is_phylogeny(initial_phylogeny)) {
       text <- c(text, paste0("        <tree id=\"Tree.t:",
         id, "\" name=\"stateNode\">"))
@@ -130,7 +140,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
           "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
       text <- c(text, paste0("    </stateNode>"))
     }
-    if (is_yule_tree_prior(tree_priors)) {
+    if (is_yule_tree_prior(tree_prior)) {
       text <- c(text, paste0("        <parameter ",
         "id=\"birthRate.t:", id, "\" ",
         "name=\"stateNode\">1.0</parameter>"))
@@ -182,29 +192,29 @@ create_beast2_input_state_tree_priors <- function( # nolint long function name i
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_state_site_models_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
+  id,
+  site_model
 ) {
   text <- NULL
-  if (is_gtr_site_model(site_models)) {
-    text <- c(text, paste0("        <parameter id=\"rateAC.s:", ids, "\" ",
+  if (is_gtr_site_model(site_model)) {
+    text <- c(text, paste0("        <parameter id=\"rateAC.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateAG.s:", ids, "\" ",
+    text <- c(text, paste0("        <parameter id=\"rateAG.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateAT.s:", ids, "\" ",
+    text <- c(text, paste0("        <parameter id=\"rateAT.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateCG.s:", ids, "\" ",
+    text <- c(text, paste0("        <parameter id=\"rateCG.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateGT.s:", ids, "\" ",
+    text <- c(text, paste0("        <parameter id=\"rateGT.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-  } else if (is_hky_site_model(site_models)) {
-    text <- c(text, paste0("        <parameter id=\"kappa.s:", ids, "\" ",
+  } else if (is_hky_site_model(site_model)) {
+    text <- c(text, paste0("        <parameter id=\"kappa.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">",
-      beautier::get_kappa(site_models), "</parameter>"))
-  } else if (is_tn93_site_model(site_models)) {
-    text <- c(text, paste0("        <parameter id=\"kappa1.s:", ids, "\" ",
+      beautier::get_kappa(site_model), "</parameter>"))
+  } else if (is_tn93_site_model(site_model)) {
+    text <- c(text, paste0("        <parameter id=\"kappa1.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"kappa2.s:", ids, "\" ",
+    text <- c(text, paste0("        <parameter id=\"kappa2.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
   }
   text
@@ -220,14 +230,14 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
+  id,
+  site_model
 ) {
   text <- NULL
   text <- c(text, paste0("        <parameter ",
-    "id=\"gammaShape.s:", ids, "\" ",
+    "id=\"gammaShape.s:", id, "\" ",
     "name=\"stateNode\">",
-    beautier::get_gamma_shape(get_gamma_site_model(site_models)),
+    beautier::get_gamma_shape(get_gamma_site_model(site_model)),
     "</parameter>")
   )
   text
@@ -243,13 +253,13 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  site_models
+  id,
+  site_model
 ) {
   text <- NULL
-  if (!is_jc69_site_model(site_models)) {
+  if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0("        <parameter ",
-      "id=\"freqParameter.s:", ids, "\" dimension=\"4\" lower=\"0.0\" ",
+      "id=\"freqParameter.s:", id, "\" dimension=\"4\" lower=\"0.0\" ",
       "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   }
   text

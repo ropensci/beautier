@@ -5,15 +5,8 @@
 \title{Creates the second tree_priors section in the operators section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators_tree_priors_2(ids,
-  tree_priors = create_tree_prior(name = "yule"))
-}
-\arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
-
-\item{tree_priors}{On or more tree priors,
-as returned by \code{\link{create_tree_prior}}}
+create_beast2_input_operators_tree_priors_2(id,
+  tree_prior = create_tree_prior(name = "yule"))
 }
 \description{
 Creates the second tree_priors section in the operators section

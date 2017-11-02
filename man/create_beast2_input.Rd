@@ -5,7 +5,7 @@
 \title{Create a BEAST2 XML input text}
 \usage{
 create_beast2_input(input_fasta_filenames,
-  site_models = create_site_model(name = "JC69"),
+  site_models = create_jc69_site_models(length(input_fasta_filenames)),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = rep(create_yule_tree_prior(), length(input_fasta_filenames)),
   mcmc_chainlength = 1e+07, misc_options = create_misc_options(),

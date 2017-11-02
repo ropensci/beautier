@@ -3,13 +3,13 @@
 #'   by \code{\link{create_gamma_site_model}}
 #' @return the gamma category count
 #' @export
-get_gamma_shape <- function(gamma_site_models) {
+get_gamma_shape <- function(gamma_site_model) {
 
-  if (!is_gamma_site_model(gamma_site_models)) {
-    stop("site_models must be one or more gamma_site_models")
+  if (!is_gamma_site_model(gamma_site_model)) {
+    stop("site_models must be a gamma_site_model")
   }
-  testit::assert("gamma_shape" %in% names(gamma_site_models))
-  gamma_site_models$gamma_shape
+  testit::assert("gamma_shape" %in% names(gamma_site_model))
+  gamma_site_model$gamma_shape
 }
 
 #' Get the default gamma shape value

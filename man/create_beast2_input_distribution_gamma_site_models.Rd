@@ -5,14 +5,7 @@
 \title{Creates the gamma site models section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distribution_gamma_site_models(ids, site_models)
-}
-\arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
+create_beast2_input_distribution_gamma_site_models(id, site_model)
 }
 \description{
 Creates the gamma site models section in the distribution section

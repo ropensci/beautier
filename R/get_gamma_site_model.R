@@ -3,11 +3,11 @@
 #'   by \code{\link{create_gamma_site_model}}
 #' @return the gamma site model
 #' @export
-get_gamma_site_model <- function(site_models) {
+get_gamma_site_model <- function(site_model) {
 
-  if (!is_site_model(site_models)) {
-    stop("site_models must be one or more site_models")
+  if (!is_site_model(site_model)) {
+    stop("site_models must be a site_model")
   }
-  testit::assert("gamma_site_model" %in% names(site_models))
-  site_models$gamma_site_model
+  testit::assert("gamma_site_model" %in% names(site_model))
+  site_model$gamma_site_model
 }

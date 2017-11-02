@@ -5,14 +5,11 @@
 \title{Creates the reates of the site_models part of the state section of a BEAST2
 XML parameter file}
 \usage{
-create_beast2_input_state_site_models_rates(ids, site_models)
+create_beast2_input_state_site_models_rates(id, site_model)
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
 }
 \description{
 Creates the reates of the site_models part of the state section of a BEAST2

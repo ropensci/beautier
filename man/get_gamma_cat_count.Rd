@@ -4,7 +4,7 @@
 \alias{get_gamma_cat_count}
 \title{Extract the gamma category count from a gamma site model}
 \usage{
-get_gamma_cat_count(gamma_site_models)
+get_gamma_cat_count(gamma_site_model)
 }
 \arguments{
 \item{gamma_site_models}{one or more gamma_site_models, as created
