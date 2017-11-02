@@ -35,6 +35,7 @@ create_beast2_input_init <- function(
     phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
     if (!ribir::is_phylogeny(phylogeny)) {
+      text <- c(text, "")
       text <- c(text, paste0("    <init id=\"RandomTree.t:", id,
         "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
         " initial=\"@Tree.t:", id, "\" taxa=\"@", id, "\">"

@@ -35,8 +35,6 @@ create_beast2_input_run <- function(
     )
   )
 
-  text <- c(text, "")
-
   text <- c(text,
     create_beast2_input_init(
       ids = ids,
