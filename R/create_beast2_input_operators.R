@@ -27,11 +27,11 @@ create_beast2_input_operators <- function(
     ids = ids, tree_priors = tree_priors, fixed_crown_age = fixed_crown_age))
 
   # There are three parts: rate, freq and gamma. Order differs
-  gamma_shape_scaler <- beautier::create_beast2_input_operators_gamma_shape_scaler(ids = ids, site_models = site_models)
-  frequencies_exchanger <- beautier::create_beast2_input_operators_frequencies_exchanger(ids = ids, site_models = site_models)
-  rates <- beautier::create_beast2_input_operators_rates(ids = ids, site_models = site_models)
-  gcc <- get_gamma_cat_count(get_gamma_site_model(site_models = site_models))
-  prop_invariant <- get_prop_invariant(get_gamma_site_model(site_models = site_models))
+  gamma_shape_scaler <- beautier::create_beast2_input_operators_gamma_shape_scaler(ids = ids, site_models = site_models) # nolint
+  frequencies_exchanger <- beautier::create_beast2_input_operators_frequencies_exchanger(ids = ids, site_models = site_models) # nolint
+  rates <- beautier::create_beast2_input_operators_rates(ids = ids, site_models = site_models) # nolint
+  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_models = site_models)) # nolint
+  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_models = site_models)) # nolint
 
   if (is_gtr_site_model(site_models)) {
     if (gcc == 0) {
