@@ -113,6 +113,13 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
         id, "\"/>"))
       text <- c(text, "            </taxonset>")
       text <- c(text, "        </tree>")
+
+      if (n > 1 && i == 1) {
+        text <- c(text, paste0("        <parameter id=\"clockRate.c:", id, "\" name=\"stateNode\">1.0</parameter>"))
+      }
+      if (n > 1 && i >= 1) {
+        text <- c(text, paste0("        <parameter id=\"birthRate.t:", id, "\" name=\"stateNode\">1.0</parameter>"))
+      }
     } else {
       text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
           "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",

@@ -20,10 +20,7 @@ test_that("two alignments with two initial trees", {
 
 test_that("two alignments use", {
 
-  skip("WIP")
   lines <- create_beast2_input_state_tree(ids = c("Anthus_nd2", "Anthus_aco"))
-  print(lines)
-
   testthat::expect_equal(lines[1],
     "        <tree id=\"Tree.t:Anthus_nd2\" name=\"stateNode\">")
   testthat::expect_equal(lines[2],
