@@ -122,8 +122,8 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     text <- c(text, beautier::create_beast2_input_loggers_clock_models(
       id = id, clock_model = clock_model))
 
-    text <- c(text, "    </logger>")
   }
+  text <- c(text, "    </logger>")
   text
 }
 
