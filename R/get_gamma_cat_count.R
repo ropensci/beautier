@@ -2,6 +2,7 @@
 #' @param gamma_site_model one or more gamma_site_models, as created
 #'   by \code{\link{create_gamma_site_model}}
 #' @return the gamma category count
+#' @author Richel J.C. Bilderbeek
 #' @export
 get_gamma_cat_count <- function(gamma_site_model) {
 

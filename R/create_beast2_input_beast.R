@@ -7,7 +7,7 @@ create_beast2_input_beast <- function(
   site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
   clock_models = create_strict_clock_models(n = length(input_fasta_filenames)),
   tree_priors = create_yule_tree_priors(n = length(input_fasta_filenames)),
-  mcmc_chainlength = get_default_mcmc_chain_length(),
+  mcmc = create_mcmc(),
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
@@ -90,7 +90,7 @@ create_beast2_input_beast <- function(
       ids = ids,
       site_models = site_models,
       clock_models = clock_models,
-      mcmc_chainlength = mcmc_chainlength,
+      mcmc = mcmc,
       tree_priors = tree_priors,
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies

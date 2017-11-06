@@ -20,7 +20,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc_chainlength = 0 # Error
+      mcmc = create_mcmc(chain_length = 0) # Error
     )
   )
 

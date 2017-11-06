@@ -4,8 +4,8 @@
 \alias{create_posterior}
 \title{Create a BEAST2 posterior by running BEAST2 from a random alignment}
 \usage{
-create_posterior(n_taxa, sequence_length, tree_priors = create_tree_prior(name
-  = "yule"), mcmc_chainlength = get_default_mcmc_chain_length(),
+create_posterior(n_taxa, sequence_length,
+  tree_priors = create_yule_tree_prior(), mcmc = create_mcmc(),
   fixed_crown_age = FALSE, crown_age = NA)
 }
 \arguments{
@@ -16,7 +16,8 @@ create_posterior(n_taxa, sequence_length, tree_priors = create_tree_prior(name
 \item{tree_priors}{On or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{mcmc_chainlength}{Length of MCMC chain}
+\item{mcmc}{one mcmc object,
+as returned by \code{\link{create_mcmc}}}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,

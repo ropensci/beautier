@@ -2,6 +2,7 @@
 #' @param site_model one or more gamma_site_models, as created
 #'   by \code{\link{create_gamma_site_model}}
 #' @return the gamma site model
+#' @author Richel J.C. Bilderbeek
 #' @export
 get_gamma_site_model <- function(site_model) {
 

@@ -34,7 +34,7 @@ create_beast2_input_file <- function(
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
   tree_priors = create_tree_prior(name = "yule"),
-  mcmc_chainlength = get_default_mcmc_chain_length(),
+  mcmc = create_mcmc(),
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
@@ -50,8 +50,8 @@ create_beast2_input_file <- function(
   if (!is_tree_prior(tree_priors)) {
     stop("invalid tree_prior")
   }
-  if (mcmc_chainlength <= 0) {
-    stop("mcmc_chainlength must be positive")
+  if (!is_mcmc(mcmc)) {
+    stop("mcmc must be a valid mcmc object")
   }
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
@@ -69,7 +69,7 @@ create_beast2_input_file <- function(
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
-    mcmc_chainlength = mcmc_chainlength,
+    mcmc = mcmc,
     fixed_crown_age = fixed_crown_age,
     initial_phylogenies = initial_phylogenies
   )

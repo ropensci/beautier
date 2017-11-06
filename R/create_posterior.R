@@ -8,8 +8,8 @@
 create_posterior <- function(
     n_taxa,
     sequence_length,
-    tree_priors = create_tree_prior(name = "yule"),
-    mcmc_chainlength = get_default_mcmc_chain_length(),
+    tree_priors = create_yule_tree_prior(),
+    mcmc = create_mcmc(),
     fixed_crown_age = FALSE,
     crown_age = NA
 ) {
@@ -22,8 +22,8 @@ create_posterior <- function(
   if (!is_tree_prior(tree_priors)) {
     stop("Must use a valid tree prior")
   }
-  if (mcmc_chainlength < 10000) {
-    stop("Must use an MCMC chain length of at least 10000")
+  if (!is_mcmc(mcmc)) {
+    stop("Must use a valid mcmc object")
   }
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE of FALSE")
@@ -69,7 +69,7 @@ create_posterior <- function(
   testthat::expect_false(file.exists(beast_filename))
   beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
-    mcmc_chainlength = mcmc_chainlength,
+    mcmc = mcmc,
     tree_priors = create_tree_prior(name = "birth_death"),
     output_xml_filename = beast_filename,
     fixed_crown_age = fixed_crown_age,

@@ -6,4 +6,16 @@ test_that("use", {
     create_mcmc()
   )
 
+  testthat::expect_silent(
+    create_mcmc(chain_length = 1000)
+  )
+
+})
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    create_mcmc(chain_length = -1234)
+  )
+
 })

@@ -5,14 +5,14 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = "nonexisting", # Error
-      mcmc_chainlength = 1000,
+      mcmc = create_mcmc(chain_length = 1000),
       output_xml_filename = "output.xml"
     )
   )
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc_chainlength = 0, # Error
+      mcmc = create_mcmc(chain_length = 0), # Error
       output_xml_filename = "output.xml"
     )
   )
@@ -20,7 +20,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc_chainlength = 1000,
+      mcmc = create_mcmc(chain_length = 1000),
       tree_priors = create_tree_prior(name = "nonsense"),
       output_xml_filename = "output.xml"
     )
@@ -29,7 +29,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc_chainlength = 1000,
+      mcmc = create_mcmc(chain_length = 1000),
       output_xml_filename = "output.xml",
       fixed_crown_age = "nonsense" # Error
     )
@@ -81,7 +81,7 @@ test_that("Create CCP posterior with random initial tree", {
   posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
-    mcmc_chainlength = 10000,
+    mcmc = create_mcmc(chain_length = 10000),
     tree_priors = create_tree_prior(name = "coalescent_constant_population")
   )
   testthat::expect_true(RBeast::is_posterior(posterior))
@@ -94,7 +94,7 @@ test_that("Create BD posterior with random initial tree", {
     posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
-    mcmc_chainlength = 10000,
+    mcmc = create_mcmc(chain_length = 10000),
     tree_priors = create_tree_prior(name = "birth_death")
   )
   testthat::expect_true(RBeast::is_posterior(posterior))
@@ -108,7 +108,7 @@ test_that("A fixed crown age must have equal TreeHeights", {
     posterior <- create_posterior(
     n_taxa = 5,
     sequence_length = 10,
-    mcmc_chainlength = 10000,
+    mcmc = create_mcmc(chain_length = 10000),
     tree_priors = create_tree_prior(name = "birth_death"),
     fixed_crown_age = TRUE
   )
@@ -126,7 +126,7 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   posterior <- beautier::create_posterior(
     n_taxa = 5,
     sequence_length = 10,
-    mcmc_chainlength = 10000,
+    mcmc = create_mcmc(chain_length = 10000),
     fixed_crown_age = TRUE,
     crown_age = crown_age
   )

@@ -1,6 +1,7 @@
 #' Extract the rate from a clock model
 #' @param clock_models one or more clock_models
 #' @return the kappa
+#' @author Richel J.C. Bilderbeek
 #' @export
 get_clock_model_rate <- function(
   clock_models

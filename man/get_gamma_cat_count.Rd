@@ -16,3 +16,6 @@ the gamma category count
 \description{
 Extract the gamma category count from a gamma site model
 }
+\author{
+Richel J.C. Bilderbeek
+}

@@ -2,7 +2,8 @@
 #' @param input_fasta_filenames One or more fasta filenames
 #' @param site_models one or more site models,
 #'   as returned by \code{\link{create_site_model}}
-#' @param mcmc_chainlength Length of MCMC chain
+#' @param mcmc one mcmc object,
+#'   as returned by \code{\link{create_mcmc}}
 #' @param tree_priors On or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param clock_models On or more clock models,
@@ -28,7 +29,7 @@ create_beast2_input <- function(
   site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
   clock_models = create_strict_clock_models(n = length(input_fasta_filenames)),
   tree_priors = create_yule_tree_priors(n = length(input_fasta_filenames)),
-  mcmc_chainlength = get_default_mcmc_chain_length(),
+  mcmc = create_mcmc(),
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
@@ -48,8 +49,8 @@ create_beast2_input <- function(
   if (!are_tree_priors(tree_priors)) {
     stop("invalid tree_priors")
   }
-  if (mcmc_chainlength <= 0) {
-    stop("mcmc_chainlength must be positive")
+  if (!is_mcmc(mcmc)) {
+    stop("mcmc must be a valid mcmc object")
   }
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
@@ -70,7 +71,7 @@ create_beast2_input <- function(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors,
-      mcmc_chainlength = mcmc_chainlength,
+      mcmc = mcmc,
       misc_options = misc_options,
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies

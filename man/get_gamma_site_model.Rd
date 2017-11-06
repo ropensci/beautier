@@ -16,3 +16,6 @@ the gamma site model
 \description{
 Extract the gamma site model from an HKY site model
 }
+\author{
+Richel J.C. Bilderbeek
+}

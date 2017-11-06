@@ -13,7 +13,7 @@ create_beast2_input_run <- function(
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_yule_tree_priors(n = length(ids)),
-  mcmc_chainlength = get_default_mcmc_chain_length(),
+  mcmc = create_mcmc(),
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(ids))
 ) {
@@ -24,8 +24,8 @@ create_beast2_input_run <- function(
 
   text <- NULL
 
-  text <- c(text, paste0("<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"",
-    mcmc_chainlength, "\">"))
+  text <- c(text, paste0("<run id=\"mcmc\" spec=\"MCMC\" ",
+    "chainLength=\"", get_mcmc_chain_length(mcmc), "\">"))
 
   text <- c(text,
     create_beast2_input_state(

@@ -15,3 +15,6 @@ the kappa
 \description{
 Extract the rate from a clock model
 }
+\author{
+Richel J.C. Bilderbeek
+}

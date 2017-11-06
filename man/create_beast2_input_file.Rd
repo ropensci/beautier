@@ -7,8 +7,7 @@
 create_beast2_input_file(input_fasta_filenames, output_xml_filename,
   site_models = create_site_model(name = "JC69"),
   clock_models = create_clock_model(name = "strict"),
-  tree_priors = create_tree_prior(name = "yule"),
-  mcmc_chainlength = get_default_mcmc_chain_length(),
+  tree_priors = create_tree_prior(name = "yule"), mcmc = create_mcmc(),
   fixed_crown_age = FALSE, initial_phylogenies = rep(NA,
   length(input_fasta_filenames)))
 }
@@ -27,7 +26,8 @@ as returned by \code{\link{create_clock_model}}}
 \item{tree_priors}{On or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{mcmc_chainlength}{Length of MCMC chain}
+\item{mcmc}{one mcmc object,
+as returned by \code{\link{create_mcmc}}}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
