@@ -62,8 +62,6 @@ create_beast2_input_run <- function(
     )
   )
 
-  text <- c(text, "")
-
   text <- c(text, beautier::create_beast2_input_operators(
     ids = ids,
     site_models = site_models,

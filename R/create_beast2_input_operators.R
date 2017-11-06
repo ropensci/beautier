@@ -54,6 +54,17 @@ create_beast2_input_operators <- function(
     text <- c(text, create_beast2_input_operators_tree_priors_1(
       id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
 
+    if (i > 1) {
+      text <- c(text, "")
+      text <- c(text, paste0("    <operator id=\"strictClockUpDownOperator.c:", id, "\" spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
+      text <- c(text, paste0("        <up idref=\"clockRate.c:", id, "\"/>"))
+      text <- c(text, paste0("        <down idref=\"Tree.t:", id, "\"/>"))
+      text <- c(text, paste0("    </operator>"))
+    }
+
+    text <- c(text, create_beast2_input_operators_tree_priors_2(
+      id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
+
     # There are three parts: rate, freq and gamma. Order differs
     gamma_shape_scaler <- beautier::create_beast2_input_operators_gamma_shape_scaler(id = id, site_model = site_model) # nolint
     frequencies_exchanger <- beautier::create_beast2_input_operators_frequencies_exchanger(id = id, site_model = site_model) # nolint
@@ -85,7 +96,7 @@ create_beast2_input_operators <- function(
       text <- c(text, frequencies_exchanger)
     }
 
-    text <- c(text, create_beast2_input_operators_tree_priors_2(
+    text <- c(text, create_beast2_input_operators_tree_priors_3(
       id = id, tree_prior = tree_prior))
 
     # Clock models
@@ -115,38 +126,59 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
   operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (is_yule_tree_prior(tree_prior)) {
+    text <- c(text, "")
     text <- c(text, paste0("    <operator ",
       "id=\"YuleBirthRateScaler.t:", id, "\" spec=\"ScaleOperator\" ",
       "parameter=\"@birthRate.t:", id, "\" scaleFactor=\"0.75\" ",
       "weight=\"3.0\"/>"))
-    text <- c(text, "")
   }
+  text
+}
+
+#' Creates the second tree_priors section in the operators section
+#' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
+#' @inheritParams create_beast2_input_operators
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_operators_tree_priors_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  tree_prior = create_tree_prior(name = "yule"),
+  fixed_crown_age
+) {
+  text <- NULL
+  operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (fixed_crown_age == FALSE) {
+    text <- c(text, "")
     text <- c(text, paste0("    <operator ",
       "id=\"", operator_id_pre, "TreeScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
       id, "\" weight=\"3.0\"/>"))
-    text <- c(text, "")
   }
   if (fixed_crown_age == FALSE) {
+    text <- c(text, "")
     text <- c(text, paste0("    <operator ",
       "id=\"", operator_id_pre, "TreeRootScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
       "tree=\"@Tree.t:", id, "\" weight=\"3.0\"/>"))
-    text <- c(text, "")
   }
+  text <- c(text, "")
   text <- c(text, paste0("    <operator ",
     "id=\"", operator_id_pre, "UniformOperator.t:", id, "\" spec=\"Uniform\" ",
     "tree=\"@Tree.t:", id, "\" weight=\"30.0\"/>"))
-  text <- c(text, "")
   if (fixed_crown_age == FALSE) {
+    text <- c(text, "")
     text <- c(text, paste0("    <operator ",
       "id=\"", operator_id_pre, "SubtreeSlide.t:", id, "\" ",
       "spec=\"SubtreeSlide\" tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>"))
-    text <- c(text, "")
   }
 
+  text <- c(text, "")
   text <- c(text, paste0("    <operator ",
     "id=\"", operator_id_pre, "Narrow.t:", id, "\" spec=\"Exchange\" ",
     "tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>"))
@@ -163,7 +195,7 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
   text
 }
 
-#' Creates the second tree_priors section in the operators section
+#' Creates the third tree_priors section in the operators section
 #' of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
@@ -172,7 +204,7 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_operators_tree_priors_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_operators_tree_priors_3 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior = create_tree_prior(name = "yule")
 ) {
