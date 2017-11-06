@@ -8,7 +8,7 @@ create_beast2_input_init(ids, initial_phylogenies)
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+their FASTA filesnames using \code{\link{get_ids}})}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
 Each one set to NA will result in BEAST2 using a random phylogeny. Else

@@ -8,8 +8,8 @@
 create_beast2_input_loggers_tree_priors(id, tree_priors)
 }
 \arguments{
-\item{id}{the id of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+\item{id}{the ID of the alignment (can be extracted from
+its FASTA filesname using \code{\link{get_id}})}
 
 \item{tree_priors}{On or more tree priors,
 as returned by \code{\link{create_tree_prior}}}

@@ -7,6 +7,7 @@
 #'   testit::assert(
 #'     get_id("anthus_aco.fas", capitalize_first_char_id = TRUE)
 #'     == "Anthus_aco")
+#' @seealso Use \code{\link{get_ids}} for one or more filenames
 #' @author Richel J.C. Bilderbeek
 #' @export
 get_id <- function(

@@ -8,8 +8,8 @@ XML parameter file}
 create_beast2_input_state_tree_prior(id, tree_prior)
 }
 \arguments{
-\item{id}{the ID of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+\item{id}{the ID of the alignment (can be extracted from
+its FASTA filesname using \code{\link{get_id}})}
 
 \item{tree_prior}{tree prior, as created by \code{\link{create_tree_prior}}}
 }

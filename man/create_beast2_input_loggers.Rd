@@ -10,7 +10,7 @@ create_beast2_input_loggers(ids, site_models = create_jc69_site_models(n =
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+their FASTA filesnames using \code{\link{get_ids}})}
 
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}

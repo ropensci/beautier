@@ -3,6 +3,7 @@
 #' @param capitalize_first_char_id capitalize the first character of the IDs
 #' @return the ID
 #' @author Richel J.C. Bilderbeek
+#' @seealso Use \code{\link{get_id}} for one filename
 #' @export
 get_ids <- function(
   fasta_filenames,

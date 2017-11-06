@@ -1,6 +1,6 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#'   their FASTA filesnames using \code{\link{get_ids}})
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
 #' @inheritParams create_beast2_input
@@ -153,8 +153,8 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
 #' Creates the tree priors part of the state section of a BEAST2
 #' XML parameter file
-#' @param id the ID of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -185,8 +185,8 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 
 #' Creates the reates of the site_models part of the state section of a BEAST2
 #' XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
@@ -224,8 +224,8 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
 
 #' Creates the gamma_site_models part of the state section of a BEAST2
 #' XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -247,8 +247,8 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 
 #' Creates the freqParameters gamma_site_models part of the state section of
 #' a BEAST2 XML parameter file
-#' @param id the ID of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -269,8 +269,8 @@ create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolin
 
 #' Creates the clock models' part of the state section of
 #' a BEAST2 XML parameter file
-#' @param id the ID of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its

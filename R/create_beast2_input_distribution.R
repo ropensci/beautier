@@ -1,6 +1,6 @@
 #' Creates the distribution section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#'   their FASTA filesnames using \code{\link{get_id}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -31,6 +31,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   text <- NULL
   text <- c(text,
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
+
+
   text <- c(text,
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
@@ -248,8 +250,8 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
 
 #' Creates the first site models section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -496,8 +498,8 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
 
 #' Creates the first clock models' section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
@@ -541,8 +543,8 @@ create_beast2_input_distribution_clock_model_first <- function( # nolint long fu
 
 #' Creates the second or later clock models' section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its

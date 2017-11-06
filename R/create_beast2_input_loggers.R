@@ -1,6 +1,6 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#'   their FASTA filesnames using \code{\link{get_ids}})
 #' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -192,8 +192,8 @@ create_beast2_input_treelogs <- function( # nolint keep long function name, as i
 
 #' Creates the tree priors part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -234,8 +234,8 @@ create_beast2_input_loggers_tree_priors <- function( # nolint long function name
 
 #' Creates the first site models part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
@@ -266,8 +266,8 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
 
 #' Creates the freqParameter part of the log sections
 #'   of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
@@ -288,8 +288,8 @@ create_beast2_input_loggers_freq_parameter <- function( # nolint long function n
 
 #' Creates the gammaShape part of the log sections
 #'   of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -308,8 +308,8 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 
 #' Creates the clock models part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param id the id of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its

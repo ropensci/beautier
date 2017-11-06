@@ -17,6 +17,9 @@ the ID
 \description{
 Conclude the IDs from one or more FASTA filenames
 }
+\seealso{
+Use \code{\link{get_id}} for one filename
+}
 \author{
 Richel J.C. Bilderbeek
 }

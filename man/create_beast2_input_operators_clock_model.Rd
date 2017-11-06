@@ -9,8 +9,8 @@ create_beast2_input_operators_clock_model(id,
   clock_model = create_strict_clock_model())
 }
 \arguments{
-\item{id}{the id of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
+\item{id}{the ID of the alignment (can be extracted from
+its FASTA filesname using \code{\link{get_id}})}
 
 \item{clock_model}{a clock_model,
 as created by \code{\link{create_clock_model}}}
