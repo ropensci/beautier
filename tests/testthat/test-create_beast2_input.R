@@ -776,6 +776,8 @@ test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
 
 test_that("Reproduce aco_hky_nd2_tn93.xml", {
 
+  skip("WIP")
+
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
