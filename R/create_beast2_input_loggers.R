@@ -10,6 +10,15 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
+  if (is_site_model(site_models)) {
+    site_models <- list(site_models)
+  }
+  if (is_clock_model(clock_models)) {
+    clock_models <- list(clock_models)
+  }
+  if (is_tree_prior(tree_priors)) {
+    tree_priors <- list(tree_priors)
+  }
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site models")
   }
@@ -18,6 +27,15 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   }
   if (length(ids) != length(tree_priors)) {
     stop("Must supply as much IDs as tree priors")
+  }
+  if (!are_site_models(site_models)) {
+    stop("Must supply valid site models")
+  }
+  if (!are_clock_models(clock_models)) {
+    stop("Must supply valid clock models")
+  }
+  if (!are_tree_priors(tree_priors)) {
+    stop("Must supply valid tree priors")
   }
 
   text <- NULL
