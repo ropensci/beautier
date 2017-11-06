@@ -31,9 +31,9 @@
 create_beast2_input_file <- function(
   input_fasta_filenames,
   output_xml_filename,
-  site_models = create_site_model(name = "JC69"),
-  clock_models = create_clock_model(name = "strict"),
-  tree_priors = create_tree_prior(name = "yule"),
+  site_models = create_jc69_site_model(),
+  clock_models = create_strict_clock_model(),
+  tree_priors = create_yule_tree_prior(),
   mcmc = create_mcmc(),
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
