@@ -167,7 +167,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 #' XML parameter file
 #' @param id the ID of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @inheritParams create_beast2_input
+#' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

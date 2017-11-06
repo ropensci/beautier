@@ -21,7 +21,44 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   }
 
   text <- NULL
+  text <- c(text, create_beast2_input_tracelog(
+    ids = ids,
+    site_models = site_models,
+    clock_models = clock_models,
+    tree_priors = tree_priors))
 
+  text <- c(text, create_beast2_input_screenlog())
+
+  text <- c(text, create_beast2_input_treelogs(
+    ids = ids,
+    clock_models = clock_models))
+
+  text
+}
+
+
+#' Creates the tracelog section of the logger section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_loggers
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_tracelog <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
+  ids,
+  site_models = create_jc69_site_models(n = length(ids)),
+  clock_models = create_strict_clock_models(n = length(ids)),
+  tree_priors = create_yule_tree_priors(n = length(ids))
+) {
+  if (length(ids) != length(site_models)) {
+    stop("Must supply as much IDs as site models")
+  }
+  if (length(ids) != length(clock_models)) {
+    stop("Must supply as much IDs as clock models")
+  }
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree priors")
+  }
+  text <- NULL
+  # 1 tracelog
   text <- c(text, paste0("    <logger id=\"tracelog\" fileName=\"",
     ids, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
     "sanitiseHeaders=\"true\" sort=\"smart\">"))
@@ -85,14 +122,50 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       id = id, clock_model = clock_model))
 
     text <- c(text, "    </logger>")
-    text <- c(text, "")
-    text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
-    text <- c(text, "        <log idref=\"posterior\"/>")
-    text <- c(text, paste0("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
-      "arg=\"@posterior\"/>"))
-    text <- c(text, "        <log idref=\"likelihood\"/>")
-    text <- c(text, "        <log idref=\"prior\"/>")
-    text <- c(text, "    </logger>")
+  }
+  text
+}
+
+#' Creates the screenlog section of the logger section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_loggers
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_screenlog <- function()
+{
+  text <- NULL
+  text <- c(text, "")
+  text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
+  text <- c(text, "        <log idref=\"posterior\"/>")
+  text <- c(text, paste0("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
+    "arg=\"@posterior\"/>"))
+  text <- c(text, "        <log idref=\"likelihood\"/>")
+  text <- c(text, "        <log idref=\"prior\"/>")
+  text <- c(text, "    </logger>")
+  text
+}
+
+
+
+#' Creates the tracelog section of the logger section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_loggers
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
+  ids,
+  clock_models = create_strict_clock_models(n = length(ids))
+) {
+  if (length(ids) != length(clock_models)) {
+    stop("Must supply as much IDs as clock models")
+  }
+  text <- NULL
+  n <- length(ids)
+  for (i in seq(1, n)) {
+
+    id <- ids[i]
+    clock_model <- clock_models[[i]]
+
     text <- c(text, "")
     text <- c(text, paste0("    <logger id=\"treelog.t:", id, "\" ",
       "fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
@@ -110,10 +183,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
         "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
         "tree=\"@Tree.t:", id, "\"/>"))
     }
-
+    text <- c(text, "    </logger>")
   } # next i
-
-  text <- c(text, "    </logger>")
   text
 }
 

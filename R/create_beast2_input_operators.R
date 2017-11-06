@@ -140,14 +140,17 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
-#' @inheritParams create_beast2_input_operators
+#' @param fixed_crown_age determines if the phylogeny its crown age is
+#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+#'   the crown age is fixed to the crown age
+#'   of the initial phylogeny.
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_operators_tree_priors_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  tree_prior = create_tree_prior(name = "yule"),
+  tree_prior = create_yule_tree_prior(),
   fixed_crown_age
 ) {
   text <- NULL
