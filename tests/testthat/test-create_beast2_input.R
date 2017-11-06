@@ -783,10 +783,14 @@ test_that("Reproduce aco_hky_nd2.xml", {
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
 
+  site_models <- list()
+  site_models[[1]] <- beautier::create_hky_site_model()
+  site_models[[2]] <- beautier::create_jc69_site_model()
+
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    site_models = list(create_hky_site_model(), create_jc69_site_model()),
-    misc_options = create_misc_options(
+    site_models = site_models,
+    misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
     )
@@ -808,7 +812,7 @@ test_that("Reproduce aco_hky_nd2.xml", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Reproduce aco_hky_nd2.xml", {
+test_that("Reproduce aco_nd2_hky.xml", {
 
   skip("WIP")
 
