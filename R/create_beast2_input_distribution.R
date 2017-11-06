@@ -133,8 +133,15 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     text <- c(text, "                </siteModel>")
 
     # Clock models
-    text <- c(text, create_beast2_input_distribution_clock_model(id = id, clock_model = clock_model))
-
+    if (i == 1) {
+      text <- c(text,
+        beautier::create_beast2_input_distribution_clock_model_first(
+        id = id, clock_model = clock_model))
+    } else {
+      text <- c(text,
+        beautier::create_beast2_input_distribution_clock_model_other(
+        id = id, clock_model = clock_model))
+    }
 
     text <- c(text, "            </distribution>")
   }
@@ -485,7 +492,7 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
   text
 }
 
-#' Creates the clock models' section in the distribution section
+#' Creates the first clock models' section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
@@ -494,7 +501,7 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_distribution_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distribution_clock_model_first <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
 ) {
@@ -525,6 +532,29 @@ create_beast2_input_distribution_clock_model <- function( # nolint long function
       "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
       "name=\"clock.rate\">1.0</parameter>"))
     text <- c(text, paste0("                </branchRateModel>"))
+  }
+  text
+}
+
+#' Creates the second or later clock models' section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_clock_model_other <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  clock_model
+) {
+  text <- NULL
+  if (is_strict_clock_model(clock_model)) {
+    text <- c(text, paste0("                <branchRateModel ",
+      "id=\"StrictClock.c:", id, "\" ",
+      "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
+      "clock.rate=\"@clockRate.c:", id, "\"/>"))
   }
   text
 }
