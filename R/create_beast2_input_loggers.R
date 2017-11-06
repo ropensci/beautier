@@ -59,20 +59,15 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   }
   text <- NULL
   # 1 tracelog
+  filename <- utils::head(ids, n = 1)
   text <- c(text, paste0("    <logger id=\"tracelog\" fileName=\"",
-    ids, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
+    filename, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
     "sanitiseHeaders=\"true\" sort=\"smart\">"))
 
   text <- c(text, "        <log idref=\"posterior\"/>")
   text <- c(text, "        <log idref=\"likelihood\"/>")
 
   text <- c(text, "        <log idref=\"prior\"/>")
-  text <- c(text, paste0("        <log idref=\"treeLikelihood.",
-    ids, "\"/>"))
-  text <- c(text, paste0("        <log id=\"TreeHeight.t:", ids,
-    "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
-    ids, "\"/>"))
-
 
   n <- length(ids)
   for (i in seq(1, n)) {
@@ -80,6 +75,12 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     site_model <- site_models[[i]]
     tree_prior <- tree_priors[[i]]
     clock_model <- clock_models[[i]]
+
+    text <- c(text, paste0("        <log idref=\"treeLikelihood.",
+      id, "\"/>"))
+    text <- c(text, paste0("        <log id=\"TreeHeight.t:", id,
+      "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
+      id, "\"/>"))
 
     text <- c(text, beautier::create_beast2_input_loggers_tree_priors(
       id = id, tree_prior = tree_prior))
