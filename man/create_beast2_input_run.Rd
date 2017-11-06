@@ -36,6 +36,10 @@ phylogenies are desired}
 \description{
 Creates the state section of a BEAST2 XML parameter file
 }
+\note{
+this function is not intended for regular use, thus its
+  long name length is accepted
+}
 \author{
 Richel J.C. Bilderbeek
 }
