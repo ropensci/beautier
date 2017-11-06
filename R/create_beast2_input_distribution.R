@@ -485,8 +485,16 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
   text
 }
 
-
-create_beast2_input_distribution_clock_model <- function(
+#' Creates the clock models' section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @param id the id of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
 ) {
