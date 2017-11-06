@@ -21,15 +21,15 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   }
 
   text <- NULL
-  text <- c(text, create_beast2_input_tracelog(
+  text <- c(text, beautier::create_beast2_input_tracelog(
     ids = ids,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors))
 
-  text <- c(text, create_beast2_input_screenlog())
+  text <- c(text, beautier::create_beast2_input_screenlog())
 
-  text <- c(text, create_beast2_input_treelogs(
+  text <- c(text, beautier::create_beast2_input_treelogs(
     ids = ids,
     clock_models = clock_models))
 
@@ -136,8 +136,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 #' @inheritParams create_beast2_input_loggers
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_screenlog <- function()
-{
+create_beast2_input_screenlog <- function() {
   text <- NULL
   text <- c(text, "")
   text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
@@ -149,8 +148,6 @@ create_beast2_input_screenlog <- function()
   text <- c(text, "    </logger>")
   text
 }
-
-
 
 #' Creates the tracelog section of the logger section
 #' of a BEAST2 XML parameter file
@@ -313,7 +310,8 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 #'   of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @param clock_model a clock_model,
+#'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

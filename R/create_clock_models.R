@@ -26,7 +26,7 @@ create_clock_models <- function() {
 create_strict_clock_models <- function(n) {
   ms <- list()
   for (i in seq(1, n)) {
-    ms[[i]] <- create_strict_clock_model()
+    ms[[i]] <- beautier::create_strict_clock_model()
   }
   ms
 }

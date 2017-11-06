@@ -39,8 +39,8 @@ create_beast2_input_operators <- function(
     site_model <- site_models[[i]]
     tree_prior <- tree_priors[[i]]
     clock_model <- clock_models[[i]]
-    testit::assert(is_tree_prior(tree_prior))
-    testit::assert(is_clock_model(clock_model))
+    testit::assert(beautier::is_tree_prior(tree_prior))
+    testit::assert(beautier::is_clock_model(clock_model))
 
     if (i > 1) {
       text <- c(text, "")
@@ -56,7 +56,9 @@ create_beast2_input_operators <- function(
 
     if (i > 1) {
       text <- c(text, "")
-      text <- c(text, paste0("    <operator id=\"strictClockUpDownOperator.c:", id, "\" spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
+      text <- c(text, paste0("    <operator ",
+        "id=\"strictClockUpDownOperator.c:", id, "\" ",
+        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
       text <- c(text, paste0("        <up idref=\"clockRate.c:", id, "\"/>"))
       text <- c(text, paste0("        <down idref=\"Tree.t:", id, "\"/>"))
       text <- c(text, paste0("    </operator>"))
@@ -123,7 +125,6 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
   fixed_crown_age
 ) {
   text <- NULL
-  operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (is_yule_tree_prior(tree_prior)) {
     text <- c(text, "")
@@ -352,7 +353,8 @@ create_beast2_input_operators_frequencies_exchanger <- function( # nolint long f
 #' of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @param clock_model a clock_model,
+#'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

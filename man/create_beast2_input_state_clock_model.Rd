@@ -11,7 +11,8 @@ create_beast2_input_state_clock_model(id, clock_model)
 \item{id}{the ID of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
 
-\item{clock_model}{a clock_model, as created by \code{\link{create_clock_model}}}
+\item{clock_model}{a clock_model,
+as created by \code{\link{create_clock_model}}}
 }
 \description{
 Creates the clock models' part of the state section of

@@ -14,7 +14,7 @@
 create_yule_tree_priors <- function(n) {
   ms <- list()
   for (i in seq(1, n)) {
-    ms[[i]] <- create_yule_tree_prior()
+    ms[[i]] <- beautier::create_yule_tree_prior()
   }
   ms
 }

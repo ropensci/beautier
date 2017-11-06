@@ -11,7 +11,8 @@ create_beast2_input_distribution_clock_model_first(id, clock_model)
 \item{id}{the id of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_file_base_sans_ext}})}
 
-\item{clock_model}{a clock_model, as created by \code{\link{create_clock_model}}}
+\item{clock_model}{a clock_model,
+as created by \code{\link{create_clock_model}}}
 }
 \description{
 Creates the first clock models' section in the distribution section

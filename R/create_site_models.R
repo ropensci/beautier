@@ -28,7 +28,7 @@ create_site_models <- function() {
 create_jc69_site_models <- function(n) {
   ms <- list()
   for (i in seq(1, n)) {
-    ms[[i]] <- create_jc69_site_model()
+    ms[[i]] <- beautier::create_jc69_site_model()
   }
   ms
 }

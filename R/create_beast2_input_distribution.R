@@ -49,11 +49,11 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     id <- ids[i]
     site_model <- site_models[[i]]
     clock_model <- clock_models[[i]]
-    testit::assert(is_clock_model(clock_model))
+    testit::assert(beautier::is_clock_model(clock_model))
 
-    site_models_text <- create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
-    gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
-    prop_invariant <- get_prop_invariant(get_gamma_site_model(site_model)) # nolint
+    site_models_text <- beautier::create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
+    gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
+    prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
     if (prop_invariant == get_default_prop_invariant()) {
       text <- c(text, site_models_text)
       text <- c(text, gamma_site_models_text)
@@ -84,8 +84,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     id <- ids[i]
     site_model <- site_models[[i]]
     clock_model <- clock_models[[i]]
-    testit::assert(is_clock_model(clock_model))
-    testit::assert(is_site_model(site_model))
+    testit::assert(beautier::is_clock_model(clock_model))
+    testit::assert(beautier::is_site_model(site_model))
 
     text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
@@ -503,7 +503,8 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
 #' of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @param clock_model a clock_model,
+#'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
@@ -547,7 +548,8 @@ create_beast2_input_distribution_clock_model_first <- function( # nolint long fu
 #' of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @param clock_model a clock_model,
+#'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
