@@ -54,15 +54,10 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
-  if (length(ids) != length(site_models)) {
-    stop("Must supply as much IDs as site models")
-  }
-  if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as clock models")
-  }
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree priors")
-  }
+  testit::assert(length(ids) == length(site_models))
+  testit::assert(length(ids) == length(clock_models))
+  testit::assert(length(ids) == length(tree_priors))
+
   text <- NULL
   # 1 tracelog
   filename <- utils::head(ids, n = 1)
@@ -164,9 +159,8 @@ create_beast2_input_treelogs <- function( # nolint keep long function name, as i
   ids,
   clock_models = create_strict_clock_models(n = length(ids))
 ) {
-  if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as clock models")
-  }
+  testit::assert(length(ids) == length(clock_models))
+
   text <- NULL
   n <- length(ids)
   for (i in seq(1, n)) {

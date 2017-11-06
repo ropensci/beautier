@@ -107,12 +107,8 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   tree_priors = create_yule_tree_priors(n = length(ids)),
   initial_phylogenies = rep(NA, length(ids))
 ) {
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree_prior objects")
-  }
-  if (length(ids) != length(initial_phylogenies)) {
-    stop("Must supply as much IDs as initial_phylogenies")
-  }
+  testit::assert(length(ids) == length(tree_priors))
+  testit::assert(length(ids) == length(initial_phylogenies))
 
   text <- NULL
 

@@ -164,9 +164,8 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
   ids,
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree priors")
-  }
+  testit::assert(length(ids) == length(tree_priors))
+
   text <- NULL
   n <- length(ids)
   for (i in seq(n)) {
@@ -426,9 +425,8 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
   id,
   clock_model
 ) {
-  if (!is_clock_model(clock_model)) {
-    stop("Must supply a valid clock_model object")
-  }
+  testit::assert(is_clock_model(clock_model))
+
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("            <prior ",
