@@ -83,13 +83,9 @@ create_beast2_input_state <- function(
       }
     }
 
-    if (is_rln_clock_model(clock_model)) {
-      text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", id, "\" ",
-        "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-      text <- c(text, paste0("        <stateNode ",
-        "id=\"rateCategories.c:", id, "\" ",
-        "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
-    }
+    text <- c(text, beautier::create_beast2_input_state_clock_model(
+      id = id, clock_model = clock_model))
+
   }
 
   text <- c(text, "    </state>")
@@ -253,7 +249,6 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 #' @param id the ID of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
@@ -267,6 +262,30 @@ create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolin
     text <- c(text, paste0("        <parameter ",
       "id=\"freqParameter.s:", id, "\" dimension=\"4\" lower=\"0.0\" ",
       "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
+  }
+  text
+}
+
+#' Creates the clock models' part of the state section of
+#' a BEAST2 XML parameter file
+#' @param id the ID of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
+#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_state_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  clock_model
+) {
+  text <- NULL
+  if (is_rln_clock_model(clock_model)) {
+    text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", id, "\" ",
+      "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
+    text <- c(text, paste0("        <stateNode ",
+      "id=\"rateCategories.c:", id, "\" ",
+      "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
   }
   text
 }
