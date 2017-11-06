@@ -1,22 +1,15 @@
 context("create_beast2_input_distribution")
 
-test_that("usa", {
+test_that("use", {
   testthat::expect_silent(
     beautier::create_beast2_input_distribution(
       ids = "test_output_0"
     )
   )
 
-
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-
   testthat::expect_silent(
     beautier::create_beast2_input_distribution(
-      ids = beautier::get_ids(fasta_filenames)
+      ids = c("a", "b")
     )
   )
 
@@ -24,18 +17,28 @@ test_that("usa", {
 
 test_that("abuse", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-
+  # Two IDs, one site model
   testthat::expect_error(
     beautier::create_beast2_input_distribution(
-      ids = get_ids(fasta_filenames),
-      site_models = create_jc69_site_models(n = 1) # Should have been 2
+      ids = c("a", "b"),
+      site_models = create_jc69_site_model()
     )
   )
 
+  # Two IDs, one clock model
+  testthat::expect_error(
+    beautier::create_beast2_input_distribution(
+      ids = c("a", "b"),
+      clock_models = create_strict_clock_model()
+    )
+  )
+
+  # Two IDs, one tree prior
+  testthat::expect_error(
+    beautier::create_beast2_input_distribution(
+      ids = c("a", "b"),
+      clock_models = create_yule_tree_prior()
+    )
+  )
 
 })

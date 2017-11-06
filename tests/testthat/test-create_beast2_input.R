@@ -68,7 +68,23 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      site_models = create_jc69_site_models(n = 1) # Should be 2
+      site_models = create_jc69_site_model()
+    )
+  )
+
+  # Two filesnames, one clock model
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      clock_models = create_strict_model()
+    )
+  )
+
+  # Two filesnames, one tree prior
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      tree_priors = create_yule_tree_prior()
     )
   )
 

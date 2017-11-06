@@ -12,12 +12,40 @@ test_that("birth_death", {
 
 test_that("abuse", {
 
+  ids <- c("a", "b")
+
+  # Two ids, one site model
   testthat::expect_error(
     create_beast2_input_state(
-      ids = c("a", "b"),
+      ids = ids,
+      site_models = create_jc69_site_model()
+    )
+  )
+
+  # Two ids, one clock model
+  testthat::expect_error(
+    create_beast2_input_state(
+      ids = ids,
+      clock_models = create_strict_clock_model()
+    )
+  )
+
+  # Two ids, one tree prior
+  testthat::expect_error(
+    create_beast2_input_state(
+      ids = ids,
+      tree_priors = create_yule_tree_prior()
+    )
+  )
+
+  # Two ids, one phylogeny
+  testthat::expect_error(
+    create_beast2_input_state(
+      ids = ids,
       initial_phylogenies = c(ape::rcoal(4))
     )
   )
+
 })
 
 test_that("use without initial phylogeny", {
@@ -59,15 +87,14 @@ test_that("two alignments, two initial phylogenies", {
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
-  id1 <- get_id(fasta_filename_1, capitalize_first_char_id = TRUE)
-  id2 <- get_id(fasta_filename_2, capitalize_first_char_id = TRUE)
+  ids <- get_ids(c(fasta_filename_1, fasta_filename_2))
   phylo1 <- fasta_to_phylo(fasta_filename_1, crown_age = 314)
   phylo2 <- fasta_to_phylo(fasta_filename_2, crown_age = 42)
   initial_phylogenies <- c(phylo1, phylo2)
 
   testthat::expect_silent(
     create_beast2_input_state(
-      ids = c(id1, id2),
+      ids = ids,
       initial_phylogenies = initial_phylogenies
     )
   )

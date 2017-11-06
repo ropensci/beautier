@@ -30,6 +30,31 @@ testthat::expect_error(
     )
   )
 
+  # Two IDs, one site model
+  testthat::expect_error(
+    beautier::create_beast2_input_operators(
+      ids = c("a", "b"),
+      site_models = create_jc69_site_model()
+    )
+  )
+
+  # Two IDs, one clock model
+  testthat::expect_error(
+    beautier::create_beast2_input_operators(
+      ids = c("a", "b"),
+      clock_models = create_strict_clock_model()
+    )
+  )
+
+  # Two IDs, one tree prior
+  testthat::expect_error(
+    beautier::create_beast2_input_operators(
+      ids = c("a", "b"),
+      clock_models = create_yule_tree_prior()
+    )
+  )
+
+
 })
 
 test_that("Operators that change crown age are absent at fixed crown age", {

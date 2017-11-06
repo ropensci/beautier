@@ -12,6 +12,15 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
+  if (is_site_model(site_models)) {
+    site_models <- list(site_models)
+  }
+  if (is_clock_model(clock_models)) {
+    clock_models <- list(clock_models)
+  }
+  if (is_tree_prior(tree_priors)) {
+    tree_priors <- list(tree_priors)
+  }
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
   }
