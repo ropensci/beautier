@@ -23,7 +23,7 @@ create_beast2_input_state <- function(
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")

@@ -33,4 +33,3 @@ test_that("abuse: two files, one phylogeny", {
   )
 
 })
-
