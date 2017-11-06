@@ -82,6 +82,10 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
       "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
       id, "\"/>"))
 
+    if (i > 1) {
+      text <- c(text, paste0("        <log idref=\"clockRate.c:", id, "\"/>"))
+    }
+
     text <- c(text, beautier::create_beast2_input_loggers_tree_priors(
       id = id, tree_prior = tree_prior))
 
