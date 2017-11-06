@@ -8,8 +8,8 @@
 #' @export
 create_beast2_input_run <- function(
   ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(ids)),
+  clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
   fixed_crown_age = FALSE,
@@ -20,6 +20,9 @@ create_beast2_input_run <- function(
   }
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
+  }
+  if (length(ids) != length(clock_models)) {
+    stop("Must supply as much IDs as clock_model objects")
   }
 
 

@@ -6,8 +6,8 @@
 #' @export
 create_beast2_input_operators <- function(
   ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(ids)),
+  clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule"),
   fixed_crown_age
 ) {
@@ -24,6 +24,9 @@ create_beast2_input_operators <- function(
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
   }
+  if (length(ids) != length(clock_models)) {
+    stop("Must supply as much IDs as clock_model objects")
+  }
 
   text <- NULL
   n <- length(ids)
@@ -32,7 +35,7 @@ create_beast2_input_operators <- function(
     id <- ids[i]
     site_model <- site_models[[i]]
     tree_prior <- tree_priors # stub
-
+    clock_model <- clock_models[[i]]
 
     text <- c(text, create_beast2_input_operators_tree_priors_1(
       id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
@@ -73,7 +76,7 @@ create_beast2_input_operators <- function(
 
     # Clock models
     text <- c(text, create_beast2_input_operators_clock_models(
-      id = id, clock_models = clock_models))
+      id = id, clock_model = clock_model))
   }
   text
 }
@@ -307,10 +310,13 @@ create_beast2_input_operators_frequencies_exchanger <- function( # nolint long f
 #' @export
 create_beast2_input_operators_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  clock_models = create_clock_model(name = "strict")
+  clock_model = create_strict_clock_model()
 ) {
+  if (!is_clock_model(clock_model)) {
+    stop("Must supply a valid clock_model object")
+  }
   text <- NULL
-  if (is_rln_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",

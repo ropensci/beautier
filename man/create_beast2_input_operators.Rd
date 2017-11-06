@@ -4,9 +4,8 @@
 \alias{create_beast2_input_operators}
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators(ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+create_beast2_input_operators(ids, site_models = create_jc69_site_models(n =
+  length(ids)), clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule"), fixed_crown_age)
 }
 \arguments{

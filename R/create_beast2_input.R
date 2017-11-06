@@ -25,8 +25,8 @@
 #' @export
 create_beast2_input <- function(
   input_fasta_filenames,
-  site_models = create_jc69_site_models(length(input_fasta_filenames)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
+  clock_models = create_strict_clock_models(n = length(input_fasta_filenames)),
   tree_priors = rep(create_yule_tree_prior(), length(input_fasta_filenames)),
   mcmc_chainlength = 10000000,
   misc_options = create_misc_options(),
@@ -39,8 +39,8 @@ create_beast2_input <- function(
   if (!are_site_models(site_models)) {
     stop("invalid site_models")
   }
-  if (!is_clock_model(clock_models)) {
-    stop("invalid clock_model")
+  if (!are_clock_models(clock_models)) {
+    stop("invalid clock_models")
   }
   if (!are_tree_priors(tree_priors)) {
     stop("invalid tree_priors")

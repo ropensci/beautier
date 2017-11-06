@@ -8,8 +8,8 @@
 #' @export
 create_beast2_input_state <- function(
   ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(ids)),
+  clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule"),
   initial_phylogenies = rep(NA, length(ids))
 ) {
@@ -22,6 +22,9 @@ create_beast2_input_state <- function(
   }
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
+  }
+  if (length(ids) != length(clock_models)) {
+    stop("Must supply as much IDs as clock_model objects")
   }
 
   text <- NULL
@@ -39,6 +42,8 @@ create_beast2_input_state <- function(
   for (i in seq(1, n)) {
     id <- ids[i]
     site_model <- site_models[[i]]
+    clock_model <- clock_models[[i]]
+    testit::assert(is_clock_model(clock_model))
     # There are three parts:
     # 1) rates
     # 2) freq
@@ -77,15 +82,14 @@ create_beast2_input_state <- function(
         text <- c(text, freq_parameters)
       }
     }
-  }
 
-  # Clock models
-  if (is_rln_clock_model(clock_models)) {
-    text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", ids, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-    text <- c(text, paste0("        <stateNode ",
-      "id=\"rateCategories.c:", ids, "\" ",
-      "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
+    if (is_rln_clock_model(clock_model)) {
+      text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", id, "\" ",
+        "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
+      text <- c(text, paste0("        <stateNode ",
+        "id=\"rateCategories.c:", id, "\" ",
+        "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
+    }
   }
 
   text <- c(text, "    </state>")

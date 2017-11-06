@@ -8,12 +8,21 @@
 #' @export
 create_beast2_input_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(ids)),
+  clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule")
 ) {
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
+  }
+  if (length(ids) != length(clock_models)) {
+    stop("Must supply as much IDs as sclock_model objects")
+  }
+  if (!are_site_models(site_models)) {
+    stop("Must supply valid site_model objects")
+  }
+  if (!are_clock_models(clock_models)) {
+    stop("Must supply valid clock_model objects")
   }
 
   text <- NULL
@@ -33,6 +42,9 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   for (i in seq(1, n)) {
     id <- ids[i]
     site_model <- site_models[[i]]
+    clock_model <- clock_models[[i]]
+    testit::assert(is_clock_model(clock_model))
+
     site_models_text <- create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
     gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
     prop_invariant <- get_prop_invariant(get_gamma_site_model(site_model)) # nolint
@@ -46,8 +58,8 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 
     text <- c(text,
       create_beast2_input_distribution_clock_models(
-        ids = ids,
-        clock_models = clock_models
+        id = id,
+        clock_model = clock_model
       )
     )
   }
@@ -65,6 +77,9 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   for (i in seq(1, n)) {
     id <- ids[i]
     site_model <- site_models[[i]]
+    clock_model <- clock_models[[i]]
+    testit::assert(is_clock_model(clock_model))
+    testit::assert(is_site_model(site_model))
 
     text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
@@ -118,16 +133,16 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     text <- c(text, "                </siteModel>")
 
     # Clock models
-    if (is_strict_clock_model(clock_models)) {
+    if (is_strict_clock_model(clock_model)) {
       text <- c(text, paste0("                <branchRateModel ",
         "id=\"StrictClock.c:", id, "\" ",
         "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
       text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
         id, "\" estimate=\"false\" name=\"clock.rate\">",
-        get_clock_model_rate(clock_models),
+        get_clock_model_rate(clock_model),
         "</parameter>"))
       text <- c(text, "                </branchRateModel>")
-    } else if (is_rln_clock_model(clock_models)) {
+    } else if (is_rln_clock_model(clock_model)) {
       text <- c(text, paste0("                <branchRateModel ",
         "id=\"RelaxedClock.c:", id, "\" ",
         "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
@@ -416,20 +431,23 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
 #' Creates the clock models section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distribution
-#' @param ids alignment ID
+#' @param id alignment ID
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_distribution_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  clock_models
+  id,
+  clock_model
 ) {
+  if (!is_clock_model(clock_model)) {
+    stop("Must supply a valid clock_model object")
+  }
   text <- NULL
-  if (is_rln_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("            <prior ",
-      "id=\"ucldStdevPrior.c:", ids, "\" name=\"distribution\" ",
-      "x=\"@ucldStdev.c:", ids, "\">"))
+      "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
+      "x=\"@ucldStdev.c:", id, "\">"))
     text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",

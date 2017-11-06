@@ -5,13 +5,10 @@
 \title{Creates the clock models section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distribution_clock_models(ids, clock_models)
+create_beast2_input_distribution_clock_models(id, clock_model)
 }
 \arguments{
-\item{ids}{alignment ID}
-
-\item{clock_models}{On or more clock models,
-as returned by \code{\link{create_clock_model}}}
+\item{id}{alignment ID}
 }
 \description{
 Creates the clock models section in the distribution section

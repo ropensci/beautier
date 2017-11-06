@@ -6,11 +6,14 @@
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(ids)),
+  clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule")
 ) {
   if (length(ids) != length(site_models)) {
+    stop("Must supply as much IDs as site models")
+  }
+  if (length(ids) != length(clock_models)) {
     stop("Must supply as much IDs as site models")
   }
 
@@ -36,6 +39,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     id <- ids[i]
     site_model <- site_models[[i]]
     tree_prior <- tree_priors # stub
+    clock_model <- clock_models[[i]]
 
     text <- c(text, beautier::create_beast2_input_loggers_tree_priors(
       id = id, tree_prior = tree_prior))
@@ -75,7 +79,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 
 
     text <- c(text, beautier::create_beast2_input_loggers_clock_models(
-      id = id, clock_models = clock_models))
+      id = id, clock_model = clock_model))
 
     text <- c(text, "    </logger>")
     text <- c(text, "")
@@ -91,12 +95,12 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       "fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
 
     # Clock models
-    if (is_strict_clock_model(clock_models)) {
+    if (is_strict_clock_model(clock_model)) {
       text <- c(text, paste0("        <log ",
         "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
         "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
         "tree=\"@Tree.t:", id, "\"/>"))
-    } else if (is_rln_clock_model(clock_models)) {
+    } else if (is_rln_clock_model(clock_model)) {
       text <- c(text, paste0("        <log ",
         "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
         "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
@@ -230,17 +234,17 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 #'   of a BEAST2 XML parameter file
 #' @param id the id of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
-#' @inheritParams create_beast2_input_loggers
+#' @param clock_model a clock_model, as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_loggers_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  clock_models
+  clock_model
 ) {
   text <- NULL
-  if (is_rln_clock_model(clock_models)) {
+  if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("        <log idref=\"ucldStdev.c:", id, "\"/>"))
     text <- c(text, paste0("        <log id=\"rate.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.RateStatistic\" ",

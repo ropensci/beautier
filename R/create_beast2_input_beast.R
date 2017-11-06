@@ -4,8 +4,8 @@
 #' @export
 create_beast2_input_beast <- function(
   input_fasta_filenames,
-  site_models = create_jc69_site_models(length(input_fasta_filenames)),
-  clock_models = create_clock_model(name = "strict"),
+  site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
+  clock_models = create_strict_clock_models(n = length(input_fasta_filenames)),
   tree_priors = create_tree_prior(name = "yule"),
   mcmc_chainlength = 10000000,
   misc_options = create_misc_options(),
@@ -18,10 +18,18 @@ create_beast2_input_beast <- function(
   if (is_site_model(site_models)) {
     site_models <- list(site_models)
   }
+  if (is_clock_model(clock_models)) {
+    clock_models <- list(clock_models)
+  }
   if (length(input_fasta_filenames) != length(site_models)) {
     stop("Must supply as much FASTA filenames (",
       length(input_fasta_filenames), "), as site_model objects (",
       length(site_models), ")")
+  }
+  if (length(input_fasta_filenames) != length(clock_models)) {
+    stop("Must supply as much FASTA filenames (",
+      length(input_fasta_filenames), "), as clock_model objects (",
+      length(clock_models), ")")
   }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")

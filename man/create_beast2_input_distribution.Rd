@@ -4,9 +4,8 @@
 \alias{create_beast2_input_distribution}
 \title{Creates the distribution section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distribution(ids,
-  site_models = create_jc69_site_models(length(ids)),
-  clock_models = create_clock_model(name = "strict"),
+create_beast2_input_distribution(ids, site_models = create_jc69_site_models(n
+  = length(ids)), clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_tree_prior(name = "yule"))
 }
 \arguments{
