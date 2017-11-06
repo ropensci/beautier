@@ -1,9 +1,31 @@
 context("create_beast2_input_distribution")
 
 test_that("use", {
+
   testthat::expect_silent(
     beautier::create_beast2_input_distribution(
       ids = "test_output_0"
+    )
+  )
+
+  testthat::expect_silent(
+    beautier::create_beast2_input_distribution(
+      ids = "test_output_0",
+      clock_models = create_strict_clock_model()
+    )
+  )
+
+  testthat::expect_silent(
+    beautier::create_beast2_input_distribution(
+      ids = "test_output_0",
+      tree_priors = create_yule_tree_prior()
+    )
+  )
+
+  testthat::expect_silent(
+    beautier::create_beast2_input_distribution(
+      ids = "test_output_0",
+      site_models = create_jc69_site_model()
     )
   )
 

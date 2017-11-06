@@ -4,6 +4,8 @@
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
 #' @inheritParams create_beast2_input
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_run <- function(
@@ -15,19 +17,10 @@ create_beast2_input_run <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(ids))
 ) {
-  if (length(ids) != length(initial_phylogenies)) {
-    stop("Must supply as much IDs as initial_phylogenies")
-  }
-  if (length(ids) != length(site_models)) {
-    stop("Must supply as much IDs as site_model objects")
-  }
-  if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as clock_model objects")
-  }
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree_prior objects")
-  }
-
+  testit::assert(length(ids) == length(initial_phylogenies))
+  testit::assert(length(ids) == length(site_models))
+  testit::assert(length(ids) == length(clock_models))
+  testit::assert(length(ids) == length(tree_priors))
 
   text <- NULL
 

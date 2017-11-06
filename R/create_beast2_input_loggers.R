@@ -19,24 +19,12 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
-  if (length(ids) != length(site_models)) {
-    stop("Must supply as much IDs as site models")
-  }
-  if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as clock models")
-  }
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree priors")
-  }
-  if (!are_site_models(site_models)) {
-    stop("Must supply valid site models")
-  }
-  if (!are_clock_models(clock_models)) {
-    stop("Must supply valid clock models")
-  }
-  if (!are_tree_priors(tree_priors)) {
-    stop("Must supply valid tree priors")
-  }
+  testit::assert(length(ids) == length(site_models))
+  testit::assert(length(ids) == length(clock_models))
+  testit::assert(length(ids) == length(tree_priors))
+  testit::assert(are_site_models(site_models))
+  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_tree_priors(tree_priors))
 
   text <- NULL
   text <- c(text, beautier::create_beast2_input_tracelog(

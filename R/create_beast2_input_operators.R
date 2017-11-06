@@ -2,9 +2,11 @@
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_operators <- function(
+create_beast2_input_operators <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
@@ -12,24 +14,14 @@ create_beast2_input_operators <- function(
   fixed_crown_age
 ) {
 
-  if (!is.character(ids)) {
-    stop("ids must be a character vector")
-  }
-  if (!is.logical(fixed_crown_age)) {
-    stop("fixed_crown_age must be TRUE or FALSE")
-  }
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
-  if (length(ids) != length(site_models)) {
-    stop("Must supply as much IDs as site_model objects")
-  }
-  if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as clock_model objects")
-  }
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree_prior objects")
-  }
+  testit::assert(is.character(ids))
+  testit::assert(is.logical(fixed_crown_age))
+  testit::assert(length(ids) == length(site_models))
+  testit::assert(length(ids) == length(clock_models))
+  testit::assert(length(ids) == length(tree_priors))
 
   text <- NULL
   n <- length(ids)

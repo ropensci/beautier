@@ -21,24 +21,12 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
-  if (length(ids) != length(site_models)) {
-    stop("Must supply as much IDs as site_model objects")
-  }
-  if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as clock_model objects")
-  }
-  if (length(ids) != length(tree_priors)) {
-    stop("Must supply as much IDs as tree_prior objects")
-  }
-  if (!are_site_models(site_models)) {
-    stop("Must supply valid site_model objects")
-  }
-  if (!are_clock_models(clock_models)) {
-    stop("Must supply valid clock_model objects")
-  }
-  if (!are_tree_priors(tree_priors)) {
-    stop("Must supply valid tree_prior objects")
-  }
+  testit::assert(length(ids) == length(site_models))
+  testit::assert(length(ids) == length(clock_models))
+  testit::assert(length(ids) == length(tree_priors))
+  testit::assert(are_site_models(site_models))
+  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_tree_priors(tree_priors))
 
   text <- NULL
   text <- c(text,
