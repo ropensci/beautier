@@ -32,12 +32,49 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   text <- c(text,
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
 
+  # prior
+  text<- c(text, create_beast2_input_distribution_prior(
+      ids = ids,
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors
+    )
+  )
 
+  # likelihood
+  text<- c(text, create_beast2_input_distribution_likelihood(
+      ids = ids,
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors
+    )
+  )
+
+  text <- c(text, "    </distribution>") # posterior distribution
+  text
+}
+
+
+#' Creates the prior section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_prior <- function(
+  ids,
+  site_models,
+  clock_models,
+  tree_priors
+) {
+  text <- NULL
   text <- c(text,
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
+  # Lines starting with '<distribution id ='
   text <- c(text,
-    create_beast2_input_distribution_distribution(
+    create_beast2_input_distribution_prior_distribution(
       ids = ids,
       tree_priors = tree_priors
     )
@@ -70,6 +107,24 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   }
 
   text <- c(text, "        </distribution>")
+  text
+}
+
+
+#' Creates the likelihood section in the distribution section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_likelihood <- function(
+  ids,
+  site_models,
+  clock_models,
+  tree_priors
+) {
+  text <- NULL
   text <- c(
       text,
       paste0(
@@ -151,18 +206,20 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     text <- c(text, "            </distribution>")
   }
   text <- c(text, "        </distribution>")
-  text <- c(text, "    </distribution>")
-  text
+
+    text
 }
 
-#' Creates the distribution section in the distribution section
-#' of a BEAST2 XML parameter file
+
+#' Creates the distribution section in the prior section of the
+#' distribution section of a BEAST2 XML parameter file.
+#' These lines start with '<distribution id='
 #' @inheritParams create_beast2_input_distribution
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_distribution_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distribution_prior_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
