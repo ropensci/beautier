@@ -10,7 +10,7 @@ create_beast2_input_state <- function(
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_tree_prior(name = "yule"),
+  tree_priors = create_yule_tree_priors(n = length(ids)),
   initial_phylogenies = rep(NA, length(ids))
 ) {
   if (class(initial_phylogenies) == "phylo") {
@@ -26,24 +26,34 @@ create_beast2_input_state <- function(
   if (length(ids) != length(clock_models)) {
     stop("Must supply as much IDs as clock_model objects")
   }
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree_prior objects")
+  }
+  if (!are_tree_priors(tree_priors)) {
+    stop("Must supply valid tree_prior objects")
+  }
 
   text <- NULL
   text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
-    ids = ids, tree_priors = tree_priors,
+    ids = ids,
+    tree_priors = tree_priors,
     initial_phylogenies = initial_phylogenies)
   )
-
-  # Birth: always first
-  text <- c(text, create_beast2_input_state_tree_priors(
-    ids = ids, tree_priors = tree_priors))
 
   n <- length(ids)
   for (i in seq(1, n)) {
     id <- ids[i]
     site_model <- site_models[[i]]
     clock_model <- clock_models[[i]]
+    tree_prior <- tree_priors[[i]]
     testit::assert(is_clock_model(clock_model))
+    testit::assert(is_tree_prior(tree_prior))
+
+    # Birth: always first
+    text <- c(text, create_beast2_input_state_tree_prior(
+      id = id, tree_prior = tree_prior))
+
     # There are three parts:
     # 1) rates
     # 2) freq
@@ -102,9 +112,12 @@ create_beast2_input_state <- function(
 #' @export
 create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  tree_priors = create_tree_prior(name = "yule"),
+  tree_priors = create_yule_tree_priors(n = length(ids)),
   initial_phylogenies = rep(NA, length(ids))
 ) {
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree_prior objects")
+  }
   if (length(ids) != length(initial_phylogenies)) {
     stop("Must supply as much IDs as initial_phylogenies")
   }
@@ -115,7 +128,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   for (i in seq(1, n)) {
     initial_phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
-    tree_prior <- tree_priors[i]
+    tree_prior <- tree_priors[[i]]
 
     if (!ribir::is_phylogeny(initial_phylogeny)) {
       text <- c(text, paste0("        <tree id=\"Tree.t:",
@@ -152,31 +165,31 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
 #' Creates the tree priors part of the state section of a BEAST2
 #' XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
+#' @param id the ID of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_file_base_sans_ext}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_state_tree_priors <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  tree_priors
+create_beast2_input_state_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  tree_prior
 ) {
   text <- NULL
-  if (is_bd_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", ids, "\" ",
+  if (is_bd_tree_prior(tree_prior)) {
+    text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", ids, "\" ",
+    text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
-  } else if (is_ccp_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"popSize.t:", ids, "\" ",
+  } else if (is_ccp_tree_prior(tree_prior)) {
+    text <- c(text, paste0("        <parameter id=\"popSize.t:", id, "\" ",
       "name=\"stateNode\">0.3</parameter>"))
-  } else if (is_cbs_tree_prior(tree_priors)) {
-    text <- c(text, paste0("        <parameter id=\"bPopSizes.t:", ids, "\" ",
+  } else if (is_cbs_tree_prior(tree_prior)) {
+    text <- c(text, paste0("        <parameter id=\"bPopSizes.t:", id, "\" ",
       "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
       "upper=\"380000.0\">380.0</parameter>"))
-    text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", ids, "\" ",
+    text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", id, "\" ",
       "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
   }
   text

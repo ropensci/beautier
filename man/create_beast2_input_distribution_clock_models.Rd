@@ -9,6 +9,9 @@ create_beast2_input_distribution_clock_models(id, clock_model)
 }
 \arguments{
 \item{id}{alignment ID}
+
+\item{clock_model}{a clock_model,
+as created by \code{\link{create_clock_model}}}
 }
 \description{
 Creates the clock models section in the distribution section

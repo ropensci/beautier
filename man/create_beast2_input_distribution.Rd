@@ -6,7 +6,7 @@
 \usage{
 create_beast2_input_distribution(ids, site_models = create_jc69_site_models(n
   = length(ids)), clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_tree_prior(name = "yule"))
+  tree_priors = create_yule_tree_priors(n = length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

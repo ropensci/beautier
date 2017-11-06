@@ -10,7 +10,7 @@ create_beast2_input_run <- function(
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_tree_prior(name = "yule"),
+  tree_priors = create_yule_tree_priors(n = length(ids)),
   mcmc_chainlength = 10000000,
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(ids))
@@ -23,6 +23,9 @@ create_beast2_input_run <- function(
   }
   if (length(ids) != length(clock_models)) {
     stop("Must supply as much IDs as clock_model objects")
+  }
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree_prior objects")
   }
 
 

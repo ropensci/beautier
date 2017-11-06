@@ -10,19 +10,25 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_tree_prior(name = "yule")
+  tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
   }
   if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as sclock_model objects")
+    stop("Must supply as much IDs as clock_model objects")
+  }
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree_prior objects")
   }
   if (!are_site_models(site_models)) {
     stop("Must supply valid site_model objects")
   }
   if (!are_clock_models(clock_models)) {
     stop("Must supply valid clock_model objects")
+  }
+  if (!are_tree_priors(tree_priors)) {
+    stop("Must supply valid tree_prior objects")
   }
 
   text <- NULL
@@ -159,7 +165,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 #' @export
 create_beast2_input_distribution_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  tree_priors = rep(create_tree_prior(name = "yule"), length(ids))
+  tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
   if (length(ids) != length(tree_priors)) {
     stop("Must supply as much IDs as tree priors")
@@ -168,7 +174,7 @@ create_beast2_input_distribution_distribution <- function( # nolint long functio
   n <- length(ids)
   for (i in seq(n)) {
     id <- ids[i]
-    tree_prior <- tree_priors[i]
+    tree_prior <- tree_priors[[i]]
     if (is_yule_tree_prior(tree_prior)) {
       text <- c(text, paste0("            <distribution id=\"YuleModel.t:", id,
         "\" spec=\"beast.evolution.speciation.YuleModel\" ",
@@ -412,8 +418,9 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
 
 #' Creates the clock models section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distribution
 #' @param id alignment ID
+#' @param clock_model a clock_model,
+#'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

@@ -27,7 +27,7 @@ create_beast2_input <- function(
   input_fasta_filenames,
   site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
   clock_models = create_strict_clock_models(n = length(input_fasta_filenames)),
-  tree_priors = rep(create_yule_tree_prior(), length(input_fasta_filenames)),
+  tree_priors = create_yule_tree_priors(n = length(input_fasta_filenames)),
   mcmc_chainlength = 10000000,
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
@@ -35,6 +35,9 @@ create_beast2_input <- function(
 ) {
   if (!beautier::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
+  }
+  if (is_tree_prior(tree_priors)) {
+    tree_priors <- list(tree_priors)
   }
   if (!are_site_models(site_models)) {
     stop("invalid site_models")

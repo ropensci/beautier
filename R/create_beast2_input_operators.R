@@ -8,24 +8,27 @@ create_beast2_input_operators <- function(
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_tree_prior(name = "yule"),
+  tree_priors = create_yule_tree_priors(n = length(ids)),
   fixed_crown_age
 ) {
 
   if (!is.character(ids)) {
     stop("ids must be a character vector")
   }
-  if (!is_tree_prior(tree_priors)) {
-    stop("tree_prior must be one or more tree priors")
-  }
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be TRUE or FALSE")
+  }
+  if (is_tree_prior(tree_priors)) {
+    tree_priors <- list(tree_priors)
   }
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site_model objects")
   }
   if (length(ids) != length(clock_models)) {
     stop("Must supply as much IDs as clock_model objects")
+  }
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree_prior objects")
   }
 
   text <- NULL
@@ -34,8 +37,19 @@ create_beast2_input_operators <- function(
 
     id <- ids[i]
     site_model <- site_models[[i]]
-    tree_prior <- tree_priors # stub
+    tree_prior <- tree_priors[[i]]
     clock_model <- clock_models[[i]]
+    testit::assert(is_tree_prior(tree_prior))
+    testit::assert(is_clock_model(clock_model))
+
+    if (i > 1) {
+      text <- c(text, "")
+      text <- c(text, paste0("    <operator ",
+        "id=\"StrictClockRateScaler.c:", id, "\" ",
+        "spec=\"ScaleOperator\" ",
+        "parameter=\"@clockRate.c:", id, "\" ",
+        "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+    }
 
     text <- c(text, create_beast2_input_operators_tree_priors_1(
       id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
@@ -75,7 +89,7 @@ create_beast2_input_operators <- function(
       id = id, tree_prior = tree_prior))
 
     # Clock models
-    text <- c(text, create_beast2_input_operators_clock_models(
+    text <- c(text, create_beast2_input_operators_clock_model(
       id = id, clock_model = clock_model))
   }
   text
@@ -308,7 +322,7 @@ create_beast2_input_operators_frequencies_exchanger <- function( # nolint long f
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_operators_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_operators_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model = create_strict_clock_model()
 ) {

@@ -8,13 +8,16 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
   clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_tree_prior(name = "yule")
+  tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
   if (length(ids) != length(site_models)) {
     stop("Must supply as much IDs as site models")
   }
   if (length(ids) != length(clock_models)) {
-    stop("Must supply as much IDs as site models")
+    stop("Must supply as much IDs as clock models")
+  }
+  if (length(ids) != length(tree_priors)) {
+    stop("Must supply as much IDs as tree priors")
   }
 
   text <- NULL
@@ -38,7 +41,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   for (i in seq(1, n)) {
     id <- ids[i]
     site_model <- site_models[[i]]
-    tree_prior <- tree_priors # stub
+    tree_prior <- tree_priors[[i]]
     clock_model <- clock_models[[i]]
 
     text <- c(text, beautier::create_beast2_input_loggers_tree_priors(

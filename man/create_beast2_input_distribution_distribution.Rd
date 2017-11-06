@@ -6,7 +6,7 @@
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_distribution_distribution(ids,
-  tree_priors = rep(create_tree_prior(name = "yule"), length(ids)))
+  tree_priors = create_yule_tree_priors(n = length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

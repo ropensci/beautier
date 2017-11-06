@@ -592,7 +592,7 @@ test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
 # Tree prior: BD
 ################################################################################
 
-test_that("Check that birth_death_2_4.xml is reproduced", {
+test_that("Reproduce birth_death_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
