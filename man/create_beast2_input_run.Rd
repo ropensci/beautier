@@ -7,8 +7,8 @@
 create_beast2_input_run(ids, site_models = create_jc69_site_models(n =
   length(ids)), clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_yule_tree_priors(n = length(ids)),
-  mcmc_chainlength = 1e+07, fixed_crown_age = FALSE,
-  initial_phylogenies = rep(NA, length(ids)))
+  mcmc_chainlength = get_default_mcmc_chain_length(),
+  fixed_crown_age = FALSE, initial_phylogenies = rep(NA, length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

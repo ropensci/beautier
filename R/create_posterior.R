@@ -9,7 +9,7 @@ create_posterior <- function(
     n_taxa,
     sequence_length,
     tree_priors = create_tree_prior(name = "yule"),
-    mcmc_chainlength = 10000000,
+    mcmc_chainlength = get_default_mcmc_chain_length(),
     fixed_crown_age = FALSE,
     crown_age = NA
 ) {

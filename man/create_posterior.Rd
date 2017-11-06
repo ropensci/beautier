@@ -5,8 +5,8 @@
 \title{Create a BEAST2 posterior by running BEAST2 from a random alignment}
 \usage{
 create_posterior(n_taxa, sequence_length, tree_priors = create_tree_prior(name
-  = "yule"), mcmc_chainlength = 1e+07, fixed_crown_age = FALSE,
-  crown_age = NA)
+  = "yule"), mcmc_chainlength = get_default_mcmc_chain_length(),
+  fixed_crown_age = FALSE, crown_age = NA)
 }
 \arguments{
 \item{n_taxa}{number of taxa in the simulated phylogeny}
