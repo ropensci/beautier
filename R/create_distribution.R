@@ -72,3 +72,16 @@ create_one_div_x_distribution <- function(
     )
   )
 }
+
+#' Create a log-normal distribution
+#' @inheritParams create_distribution
+#' @return a log-normal distribution
+#' @export
+create_log_normal_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "log_normal"
+    )
+  )
+}

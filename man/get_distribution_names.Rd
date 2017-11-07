@@ -17,6 +17,7 @@ Get the distribution names
   testthat::expect_true("uniform" \%in\% names)
   testthat::expect_true("normal" \%in\% names)
   testthat::expect_true("one_div_x" \%in\% names)
+  testthat::expect_true("log_normal" \%in\% names)
 }
 \author{
 Richel J.C. Bilderbeek

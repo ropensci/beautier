@@ -338,6 +338,8 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
         "name=\"distr\" upper=\"Infinity\"/>"))
       text <- c(text, paste0("            </prior>"))
     }
+
+    # birth rate
     uniform_id <- ifelse(i == 1, 1, 4)
     text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
       id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
@@ -361,6 +363,15 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
     } else if (is_one_div_x_distribution(yule_birth_rate_distribution)) {
       text <- c(text, paste0("                <OneOnX ",
         "id=\"OneOnX.1\" name=\"distr\"/>"))
+    } else if (is_log_normal_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <LogNormal ",
+        "id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.3\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.4\" estimate=\"false\" lower=\"0.0\" ",
+        "name=\"S\" upper=\"5.0\">1.25</parameter>"))
+      text <- c(text, paste0("                </LogNormal>"))
     }
     text <- c(text, paste0("            </prior>"))
   } else if (is_bd_tree_prior(tree_prior)) {
