@@ -7,17 +7,17 @@ the prior section of the distribution section
 of a BEAST2 XML parameter file
 for a Yule tree prior}
 \usage{
-
-  create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(yule_birth_rate_distribution,
-  id)
+create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
+  yule_birth_rate_distribution,
+  id
+)
 }
 \arguments{
+\item{yule_birth_rate_distribution}{a Yule birth rate distribution,
+as created by \code{\link{create_distribution}}}
+
 \item{id}{the ID of the alignment (can be extracted from
 its FASTA filesname using \code{\link{get_id}})}
-
-\item{i}{the ith tree prior}
-
-\item{tree_prior}{a tree_prior, as created by \code{\link{create_tree_prior}}}
 }
 \description{
 Creates the tree prior section in the priotr section of
