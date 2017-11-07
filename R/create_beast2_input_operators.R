@@ -231,6 +231,16 @@ create_beast2_input_operators_tree_priors_3 <- function( # nolint long function 
     text <- c(text, paste0("        <intparameter ",
       "idref=\"bGroupSizes.t:", id, "\"/>"))
     text <- c(text, paste0("    </operator>"))
+  } else if (is_cep_tree_prior(tree_prior)) {
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator id=\"ePopSizeScaler.t:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@ePopSize.t:", id, "\" ",
+      "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+    text <- c(text, "")
+    text <- c(text, paste0("    <operator ",
+      "id=\"GrowthRateRandomWalk.t:", id, "\" ",
+      "spec=\"RealRandomWalkOperator\" parameter=\"@growthRate.t:", id, "\" ",
+      "weight=\"3.0\" windowSize=\"1.0\"/>"))
   }
   text
 }
