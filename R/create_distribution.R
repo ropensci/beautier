@@ -5,7 +5,7 @@
 #' @param ... specific distribution parameters
 #' @note Prefer using the
 #'   named functions
-#'   \code{\link{create_uniform_distribution}},
+#'   \code{\link{create_uniform_distr}},
 #'   \code{\link{create_normal_distribution}},
 #'   \code{\link{create_one_div_x_distribution}},
 #'   \code{\link{create_exponential_distr}},
@@ -49,7 +49,7 @@ create_distribution <- function(
 #' @return a uniform distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_uniform_distribution <- function(
+create_uniform_distr <- function(
   id = NA
 ) {
   return(

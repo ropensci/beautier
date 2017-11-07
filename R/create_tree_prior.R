@@ -38,12 +38,12 @@ create_tree_prior <- function(
 #' @return a Yule tree_prior
 #' @usage
 #' create_yule_tree_prior(
-#'   birth_rate_distribution = beautier::create_uniform_distribution()
+#'   birth_rate_distribution = beautier::create_uniform_distr()
 #' )
 #'
 #' @export
 create_yule_tree_prior <- function(
-  birth_rate_distribution = beautier::create_uniform_distribution()
+  birth_rate_distribution = beautier::create_uniform_distr()
 ) {
   return(
     beautier::create_tree_prior(
