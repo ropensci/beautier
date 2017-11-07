@@ -5,6 +5,7 @@
 #'   and \code{\link{create_ccp_tree_prior}}
 #' @param name the tree prior name. Can be any name
 #'   in \code{\link{get_tree_prior_names}}
+#' @param ... specific tree prior parameters
 #' @return a tree_prior
 #' @author Richel J.C. Bilderbeek
 #' @export

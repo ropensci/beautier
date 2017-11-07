@@ -9,6 +9,8 @@ create_tree_prior(name, ...)
 \arguments{
 \item{name}{the tree prior name. Can be any name
 in \code{\link{get_tree_prior_names}}}
+
+\item{...}{specific tree prior parameters}
 }
 \value{
 a tree_prior
