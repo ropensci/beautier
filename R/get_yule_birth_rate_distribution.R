@@ -4,7 +4,7 @@
 #' @return the birth rate distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
-get_yule_birth_rate_distribution <- function(yule_tree_prior) {
+get_yule_birth_rate_distr <- function(yule_tree_prior) {
 
   if (!is_yule_tree_prior(yule_tree_prior)) {
     stop("yule_tree_prior must be a yule_tree_prior")

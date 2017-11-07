@@ -342,7 +342,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
     text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
       id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
 
-    yule_birth_rate_distribution <- beautier::get_yule_birth_rate_distribution(
+    yule_birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
       yule_tree_prior = tree_prior)
     if (is_uniform_distribution(yule_birth_rate_distribution)) {
       text <- c(text, paste0("                <Uniform ",
