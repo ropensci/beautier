@@ -20,8 +20,16 @@ General function to create a distribution.
 }
 \note{
 Prefer using the
-  named functions \code{\link{create_uniform_distribution}},
-  and \code{\link{create_normal_distribution}}
+  named functions
+  \code{\link{create_uniform_distribution}},
+  \code{\link{create_normal_distribution}},
+  \code{\link{create_one_div_x_distribution}},
+  \code{\link{create_exponential_distribution}},
+  \code{\link{create_gamma_distribution}},
+  \code{\link{create_beta_distribution}},
+  \code{\link{create_laplace_distribution}},
+  \code{\link{create_inv_gamma_distribution}},
+  and \code{\link{create_poisson_distribution}}
 }
 \author{
 Richel J.C. Bilderbeek

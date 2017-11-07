@@ -3,8 +3,16 @@
 #'   names can be found in \code{\link{get_distribution_names}}
 #' @param ... specific distribution parameters
 #' @note Prefer using the
-#'   named functions \code{\link{create_uniform_distribution}},
-#'   and \code{\link{create_normal_distribution}}
+#'   named functions
+#'   \code{\link{create_uniform_distribution}},
+#'   \code{\link{create_normal_distribution}},
+#'   \code{\link{create_one_div_x_distribution}},
+#'   \code{\link{create_exponential_distribution}},
+#'   \code{\link{create_gamma_distribution}},
+#'   \code{\link{create_beta_distribution}},
+#'   \code{\link{create_laplace_distribution}},
+#'   \code{\link{create_inv_gamma_distribution}},
+#'   and \code{\link{create_poisson_distribution}}
 #' @return a distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -34,7 +42,6 @@ create_distribution <- function(
 }
 
 #' Create a uniform distribution
-#' @inheritParams create_distribution
 #' @return a uniform distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -48,7 +55,6 @@ create_uniform_distribution <- function(
 }
 
 #' Create an normal distribution
-#' @inheritParams create_distribution
 #' @return a normal distribution
 #' @export
 create_normal_distribution <- function(
@@ -61,7 +67,6 @@ create_normal_distribution <- function(
 }
 
 #' Create a 1/x distribution
-#' @inheritParams create_distribution
 #' @return a 1/x distribution
 #' @export
 create_one_div_x_distribution <- function(
@@ -74,7 +79,6 @@ create_one_div_x_distribution <- function(
 }
 
 #' Create a log-normal distribution
-#' @inheritParams create_distribution
 #' @return a log-normal distribution
 #' @export
 create_log_normal_distribution <- function(
@@ -87,7 +91,6 @@ create_log_normal_distribution <- function(
 }
 
 #' Create an exponential distribution
-#' @inheritParams create_distribution
 #' @return an exponential distribution
 #' @export
 create_exponential_distr <- function(
@@ -100,7 +103,6 @@ create_exponential_distr <- function(
 }
 
 #' Create a gamma distribution
-#' @inheritParams create_distribution
 #' @return a gamma distribution
 #' @export
 create_gamma_distribution <- function(
@@ -113,7 +115,6 @@ create_gamma_distribution <- function(
 }
 
 #' Create a beta distribution
-#' @inheritParams create_distribution
 #' @return a beta distribution
 #' @export
 create_beta_distribution <- function(
@@ -126,7 +127,6 @@ create_beta_distribution <- function(
 }
 
 #' Create a Laplace distribution
-#' @inheritParams create_distribution
 #' @return a Laplace distribution
 #' @export
 create_laplace_distribution <- function(
@@ -139,7 +139,6 @@ create_laplace_distribution <- function(
 }
 
 #' Create an inverse gamma distribution
-#' @inheritParams create_distribution
 #' @return an inverse gamma distribution
 #' @export
 create_inv_gamma_distribution <- function(
@@ -152,7 +151,6 @@ create_inv_gamma_distribution <- function(
 }
 
 #' Create a Poisson distribution
-#' @inheritParams create_distribution
 #' @return a Poisson distribution
 #' @export
 create_poisson_distribution <- function(
