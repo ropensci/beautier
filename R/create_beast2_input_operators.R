@@ -355,7 +355,7 @@ create_beast2_input_operators_clock_model <- function( # nolint long function na
   id,
   clock_model = create_strict_clock_model()
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(beautier::is_clock_model(clock_model))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {

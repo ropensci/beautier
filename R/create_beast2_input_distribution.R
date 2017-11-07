@@ -33,7 +33,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
 
   # prior
-  text<- c(text, create_beast2_input_distribution_prior(
+  text <- c(text, create_beast2_input_distribution_prior(
       ids = ids,
       site_models = site_models,
       clock_models = clock_models,
@@ -42,7 +42,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   )
 
   # likelihood
-  text<- c(text, create_beast2_input_distribution_likelihood(
+  text <- c(text, create_beast2_input_distribution_likelihood(
       ids = ids,
       site_models = site_models,
       clock_models = clock_models,
@@ -62,7 +62,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_distribution_prior <- function(
+create_beast2_input_distribution_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
   clock_models,
@@ -118,7 +118,7 @@ create_beast2_input_distribution_prior <- function(
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_distribution_likelihood <- function(
+create_beast2_input_distribution_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
   clock_models,
@@ -484,7 +484,7 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
   id,
   clock_model
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(beautier::is_clock_model(clock_model))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
