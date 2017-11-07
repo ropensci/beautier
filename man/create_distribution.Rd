@@ -4,11 +4,13 @@
 \alias{create_distribution}
 \title{General function to create a distribution.}
 \usage{
-create_distribution(name, ...)
+create_distribution(name, id = NA, ...)
 }
 \arguments{
 \item{name}{the distribution name. Valid
 names can be found in \code{\link{get_distribution_names}}}
+
+\item{id}{the distribution's ID}
 
 \item{...}{specific distribution parameters}
 }

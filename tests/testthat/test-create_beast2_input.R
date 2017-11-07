@@ -1155,7 +1155,6 @@ test_that("Reproduce aco_hky_nd2.xml", {
 
 test_that("Reproduce aco_nd2_hky.xml", {
 
-  skip("WIP")
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
@@ -1164,6 +1163,10 @@ test_that("Reproduce aco_nd2_hky.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     site_models = list(create_jc69_site_model(), create_hky_site_model()),
+    tree_priors = list(
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distribution(id = 1)),
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distribution(id = 4))
+    ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE

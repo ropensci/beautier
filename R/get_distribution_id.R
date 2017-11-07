@@ -5,5 +5,9 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 get_distribution_id <- function(distribution) {
-  return(1)
+  if (!is_distribution(distribution)) {
+    stop("Must supply a valid distribution")
+  }
+  testit::assert("id" %in% names(distribution))
+  return(distribution$id)
 }

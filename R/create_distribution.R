@@ -1,6 +1,7 @@
 #' General function to create a distribution.
 #' @param name the distribution name. Valid
 #'   names can be found in \code{\link{get_distribution_names}}
+#' @param id the distribution's ID
 #' @param ... specific distribution parameters
 #' @note Prefer using the
 #'   named functions
@@ -18,6 +19,7 @@
 #' @export
 create_distribution <- function(
   name,
+  id = NA,
   ...
 ) {
   if (!is_distribution_name(name)) {
@@ -36,20 +38,24 @@ create_distribution <- function(
   }
   distribution <- list(
     name = name,
+    id = id,
     ...
   )
   distribution
 }
 
 #' Create a uniform distribution
+#' @inheritParams create_distribution
 #' @return a uniform distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_uniform_distribution <- function(
+  id = 1
 ) {
   return(
     beautier::create_distribution(
-      name = "uniform"
+      name = "uniform",
+      id = id
     )
   )
 }
