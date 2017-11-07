@@ -805,6 +805,7 @@ test_that("Reproduce aco_hky_nd2.xml", {
       nucleotides_uppercase = TRUE
     )
   )
+
   expected_lines <- readLines(system.file("extdata",
     "aco_hky_nd2.xml", package = "beautier"))
 

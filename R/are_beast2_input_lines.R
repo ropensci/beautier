@@ -8,7 +8,6 @@
 are_beast2_input_lines <- function(text) {
 
   filename <- tempfile()
-  save_text(filename = filename, text = text)
-  is_beast2_input_file(filename)
+  beautier::save_text(filename = filename, text = text)
+  beautier::is_beast2_input_file(filename)
 }
-
