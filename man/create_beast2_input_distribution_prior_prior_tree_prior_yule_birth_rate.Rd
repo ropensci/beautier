@@ -9,13 +9,11 @@ for a Yule tree prior}
 \usage{
 
   create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(yule_birth_rate_distribution,
-  id, uniform_id)
+  id)
 }
 \arguments{
 \item{id}{the ID of the alignment (can be extracted from
 its FASTA filesname using \code{\link{get_id}})}
-
-\item{uniform_id}{the ID of the uniform distribution}
 
 \item{i}{the ith tree prior}
 
