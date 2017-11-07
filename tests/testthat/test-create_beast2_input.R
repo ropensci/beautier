@@ -59,6 +59,13 @@ test_that("checks input", {
     )
   )
 
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_input_fasta_filename(),
+      mcmc = "nonsense"
+    )
+  )
+
   fasta_filename_1 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",

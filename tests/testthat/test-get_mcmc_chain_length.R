@@ -7,3 +7,10 @@ test_that("use", {
     get_default_mcmc_chain_length()
   )
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    get_mcmc_chain_length("nonsense")
+  )
+})

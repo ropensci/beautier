@@ -5,7 +5,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = "nonexisting", # Error
-      mcmc = create_mcmc(chain_length = 1000),
+      mcmc = create_mcmc(chain_length = 10000),
       output_xml_filename = "output.xml"
     )
   )
@@ -20,7 +20,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc = create_mcmc(chain_length = 1000),
+      mcmc = create_mcmc(chain_length = 10000),
       tree_priors = create_tree_prior(name = "nonsense"),
       output_xml_filename = "output.xml"
     )
@@ -29,7 +29,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc = create_mcmc(chain_length = 1000),
+      mcmc = create_mcmc(chain_length = 10000),
       output_xml_filename = "output.xml",
       fixed_crown_age = "nonsense" # Error
     )

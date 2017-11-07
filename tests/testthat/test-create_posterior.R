@@ -71,7 +71,7 @@ test_that("abuse", {
     create_posterior(
       n_taxa = 2,
       sequence_length = 1,
-      mcmc = create_mcmc(chain_length = -1234), # Must be at least 10000
+      mcmc = "nonsense",
       fixed_crown_age = FALSE,
       crown_age = 15
     )
