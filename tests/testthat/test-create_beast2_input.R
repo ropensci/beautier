@@ -1088,6 +1088,10 @@ test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    tree_priors = list(
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 1)),
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 2))
+    ),
     misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
@@ -1125,6 +1129,10 @@ test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    tree_priors = list(
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 1)),
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 2))
+    ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
@@ -1169,6 +1177,10 @@ test_that("Reproduce aco_hky_nd2.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     site_models = site_models,
+    tree_priors = list(
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 1)),
+      create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 2))
+    ),
     misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
@@ -1244,8 +1256,11 @@ test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     site_models = list(create_hky_site_model(), create_tn93_site_model()),
-    tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1)),
+    tree_priors = list(
+      create_yule_tree_prior(
+        birth_rate_distribution = create_uniform_distr(id = 1)),
+      create_yule_tree_prior()
+    ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
