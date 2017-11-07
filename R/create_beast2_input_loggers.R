@@ -230,6 +230,13 @@ create_beast2_input_loggers_tree_priors <- function( # nolint long function name
       "idref=\"bPopSizes.t:", id, "\"/>"))
     text <- c(text, paste0("        <log ",
       "idref=\"bGroupSizes.t:", id, "\"/>"))
+  } else if (is_cep_tree_prior(tree_priors)) {
+    text <- c(text, paste0("        <log ",
+      "idref=\"CoalescentExponential.t:", id, "\"/>"))
+    text <- c(text, paste0("        <log ",
+      "idref=\"ePopSize.t:", id, "\"/>"))
+    text <- c(text, paste0("        <log ",
+      "idref=\"growthRate.t:", id, "\"/>"))
   }
   text
 }
