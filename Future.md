@@ -1,6 +1,6 @@
 # Future use cases
 
-## Example #9: Two alignments, different site models, clock models and tree priors 
+## Example #9: Two alignments, different site models
 
 ![Example 9](aco_hky_nd2_tn93.png)
 
@@ -8,7 +8,7 @@
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
-  site_models = c(
+  site_models = list(
     create_hky_site_model(), 
     create_tn93_site_model()
   )

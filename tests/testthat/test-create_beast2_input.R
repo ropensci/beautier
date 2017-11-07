@@ -793,9 +793,10 @@ test_that("Reproduce aco_hky_nd2.xml", {
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
 
-  site_models <- list()
-  site_models[[1]] <- beautier::create_hky_site_model()
-  site_models[[2]] <- beautier::create_jc69_site_model()
+  site_models <- list(
+    beautier::create_hky_site_model(),
+    beautier::create_jc69_site_model()
+  )
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
