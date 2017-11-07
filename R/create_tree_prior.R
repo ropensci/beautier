@@ -32,13 +32,17 @@ create_tree_prior <- function(
 
 
 #' Create a Yule tree prior
+#' @param birth_rate_distribution the birth rate distribution,
+#'   as created by a \code{\link{create_distribution}} function
 #' @return a Yule tree_prior
 #' @export
-create_yule_tree_prior <- function() {
+create_yule_tree_prior <- function(
+  birth_rate_distribution = beautier::create_uniform_distribution()
+) {
   return(
     beautier::create_tree_prior(
       name = "yule",
-      birth_rate_distribution = beautier::create_uniform_distribution()
+      birth_rate_distribution = birth_rate_distribution
     )
   )
 }

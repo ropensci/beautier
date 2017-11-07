@@ -769,10 +769,11 @@ test_that("Reproduce birth_rate_uniform_2_4.xml", {
 
 test_that("Reproduce birth_rate_normal_2_4.xml", {
 
-  skip("WIP")
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename()
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_normal_distribution()
+    )
   )
 
   expected_lines <- readLines(system.file("extdata",

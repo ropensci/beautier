@@ -5,8 +5,7 @@
 \title{Creates the third tree_priors section in the operators section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators_tree_priors_3(id,
-  tree_prior = create_tree_prior(name = "yule"))
+create_beast2_input_operators_tree_priors_3(id, tree_prior)
 }
 \arguments{
 \item{id}{the ID of the alignment (can be extracted from
