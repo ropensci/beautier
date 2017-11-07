@@ -9,7 +9,8 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_tree_prior <- function(
-  name
+  name,
+  ...
 ) {
   if (!is_tree_prior_name(name)) {
     tree_priors_as_string <- function() {
@@ -25,7 +26,7 @@ create_tree_prior <- function(
       tree_priors_as_string()
     )
   }
-  tree_prior <- list(name = name)
+  tree_prior <- list(name = name, ...)
   tree_prior
 }
 
@@ -34,7 +35,12 @@ create_tree_prior <- function(
 #' @return a Yule tree_prior
 #' @export
 create_yule_tree_prior <- function() {
-  return(beautier::create_tree_prior(name = "yule"))
+  return(
+    beautier::create_tree_prior(
+      name = "yule",
+      birth_rate_distribution = beautier::create_uniform_distribution()
+    )
+  )
 }
 
 #' Create a Birth-Death tree prior

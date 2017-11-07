@@ -6,5 +6,9 @@
 is_yule_tree_prior <- function(
   x
 ) {
-  return("name" %in% names(x) && x$name == "yule")
+  if (is.list(x) && length(x) == 1) return(is_yule_tree_prior(x[[1]]))
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "yule") return(FALSE)
+  testit::assert("birth_rate_distribution" %in% names(x))
+  TRUE
 }

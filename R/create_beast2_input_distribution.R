@@ -341,9 +341,24 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
     uniform_id <- ifelse(i == 1, 1, 4)
     text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
       id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
-    text <- c(text, paste0("                <Uniform ",
-      "id=\"Uniform.", uniform_id, "\" ",
-      "name=\"distr\" upper=\"Infinity\"/>"))
+
+    yule_birth_rate_distribution <- beautier::get_yule_birth_rate_distribution(
+      yule_tree_prior = tree_prior)
+    if (is_uniform_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <Uniform ",
+        "id=\"Uniform.", uniform_id, "\" ",
+        "name=\"distr\" upper=\"Infinity\"/>"))
+    } else if (is_normal_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <Normal ",
+        "id=\"Normal.0\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.1\" estimate=\"false\" ",
+        "name=\"mean\">0.0</parameter>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.2\" estimate=\"false\" ",
+        "name=\"sigma\">1.0</parameter>"))
+      text <- c(text, paste0("                </Normal>"))
+    }
     text <- c(text, paste0("            </prior>"))
   } else if (is_bd_tree_prior(tree_prior)) {
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", id,

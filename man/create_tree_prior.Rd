@@ -4,7 +4,7 @@
 \alias{create_tree_prior}
 \title{General function to create a tree prior}
 \usage{
-create_tree_prior(name)
+create_tree_prior(name, ...)
 }
 \arguments{
 \item{name}{the tree prior name. Can be any name

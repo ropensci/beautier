@@ -13,7 +13,7 @@ test_that("use general function", {
     name = "coalescent_constant_population")
   testthat::expect_true(beautier::is_tree_prior(tree_prior))
 
-  tree_prior <- beautier::create_tree_prior(name = "yule")
+  tree_prior <- beautier::create_yule_tree_prior()
   testthat::expect_true(beautier::is_tree_prior(tree_prior))
 
 })

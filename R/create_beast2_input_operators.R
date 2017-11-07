@@ -113,7 +113,7 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
 #' @export
 create_beast2_input_operators_tree_priors_1 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  tree_prior = create_tree_prior(name = "yule"),
+  tree_prior,
   fixed_crown_age
 ) {
   text <- NULL
@@ -202,7 +202,7 @@ create_beast2_input_operators_tree_priors_2 <- function( # nolint long function 
 #' @export
 create_beast2_input_operators_tree_priors_3 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  tree_prior = create_tree_prior(name = "yule")
+  tree_prior
 ) {
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {

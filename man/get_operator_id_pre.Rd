@@ -4,17 +4,17 @@
 \alias{get_operator_id_pre}
 \title{Get the prefix of operator IDs}
 \usage{
-get_operator_id_pre(tree_priors)
+get_operator_id_pre(tree_prior)
 }
 \arguments{
-\item{tree_priors}{tree priors, as created by \code{\link{create_tree_prior}}}
+\item{tree_prior}{tree priors, as created by \code{\link{create_tree_prior}}}
 }
 \description{
 Get the prefix of operator IDs
 }
 \examples{
   bd_pre <- get_operator_id_pre(
-    tree_priors = create_tree_prior(name = "birth_death")
+    tree_prior = create_bd_tree_prior()
   )
   testthat::expect_equal(bd_pre, "BirthDeath")
 }

@@ -170,7 +170,7 @@ test_that("Produce XML for Yule species tree prior", {
   output_xml_filename <- tempfile()
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
-    tree_priors = create_tree_prior(name = "yule"),
+    tree_priors = create_yule_tree_prior(),
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
