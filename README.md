@@ -21,18 +21,19 @@ For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev
 The default parameters of these settings are supported:
 
  * Site models
-   * JC69
-   * HKY
-   * TN93
    * GTR
+   * HKY
+   * JC69
+   * TN93
  * Clock models
-   * Strict
    * Relaxed log-normal
+   * Strict
  * Priors
-   * Yule
    * Birth-Death
-   * Coalescent Constant Population
    * Coalescent Bayesian Skyline
+   * Coalescent Constant Population
+   * Coalescent Exponential Population
+   * Yule
 
 Unlike BEAUti, `beautier` *does* allow for a fixed crown age.
 
