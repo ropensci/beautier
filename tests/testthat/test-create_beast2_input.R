@@ -108,7 +108,9 @@ test_that("checks input", {
 test_that("Reproduce 2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename()
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -142,7 +144,9 @@ test_that("Reproduce gtr_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_site_model(name = "GTR")
+    site_models = create_site_model(name = "GTR"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -170,7 +174,9 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_1_2_4.xml", package = "beautier"))
@@ -197,7 +203,9 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_2_4.xml", package = "beautier"))
@@ -224,7 +232,9 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
         gamma_cat_count = 2,
         gamma_shape = 1.5
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_shape_1_5_2_4.xml", package = "beautier"))
@@ -253,7 +263,9 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"), {
         gamma_shape = 1.5,
         prop_invariant = 0.5
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", package = "beautier"))
@@ -280,7 +292,9 @@ test_that("Check that hky_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_site_model(name = "HKY")
+    site_models = create_site_model(name = "HKY"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -294,7 +308,9 @@ test_that("Check that hky_kappa_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_hky_site_model(kappa = 3.4)
+    site_models = create_hky_site_model(kappa = 3.4),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_kappa_2_4.xml", package = "beautier"))
@@ -310,7 +326,9 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         prop_invariant = 0.5
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_prop_invariant_0_5_2_4.xml", package = "beautier"))
@@ -326,7 +344,9 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_1_2_4.xml", package = "beautier"))
@@ -353,7 +373,9 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_2_2_4.xml", package = "beautier"))
@@ -380,7 +402,9 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 4
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_4_2_4.xml", package = "beautier"))
@@ -396,7 +420,9 @@ test_that("Check that jc69_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_site_model(name = "JC69")
+    site_models = create_site_model(name = "JC69"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -412,7 +438,9 @@ test_that("Reproduce jc69_gcc_2_2_4.xml", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_2_4.xml", package = "beautier"))
@@ -441,7 +469,9 @@ test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
         gamma_cat_count = 2,
         gamma_shape = 1.5
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_shape_1_5_2_4.xml", package = "beautier"))
@@ -460,7 +490,10 @@ test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
         gamma_shape = 1.5,
         prop_invariant = 0.5
       )
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
+
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
@@ -478,7 +511,9 @@ test_that("Reproduce tn93_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_tn93_site_model()
+    site_models = create_tn93_site_model(),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -504,7 +539,9 @@ test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_tn93_site_model(
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1)
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -530,7 +567,9 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_tn93_site_model(
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2)
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -562,7 +601,9 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    clock_models = create_rln_clock_model()
+    clock_models = create_rln_clock_model(),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "relaxed_clock_log_normal_2_4.xml", package = "beautier"))
@@ -592,7 +633,9 @@ test_that("Check that strict_clock_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    clock_models = create_clock_model(name = "strict")
+    clock_models = create_clock_model(name = "strict"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -606,7 +649,9 @@ test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_strict_clock_model(
       rate = 0.5
-    )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -731,7 +776,8 @@ test_that("Reproduce yule_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    tree_priors = beautier::create_yule_tree_prior()
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -748,8 +794,7 @@ test_that("Reproduce birth_rate_uniform_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distribution()
-    )
+      birth_rate_distribution = create_uniform_distribution(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
