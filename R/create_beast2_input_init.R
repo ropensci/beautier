@@ -12,9 +12,8 @@ create_beast2_input_init <- function(
     initial_phylogenies <- c(initial_phylogenies)
     testit::assert(class(initial_phylogenies) == "multiPhylo")
   }
-  if (length(ids) != length(initial_phylogenies)) {
-    stop("Must supply as much IDs as initial_phylogenies")
-  }
+  testit::assert(beautier::are_ids(ids))
+  testit::assert(length(ids) == length(initial_phylogenies))
 
   text <- NULL
 

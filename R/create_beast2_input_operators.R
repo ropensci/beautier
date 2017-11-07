@@ -17,7 +17,7 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
-  testit::assert(is.character(ids))
+  testit::assert(beautier::are_ids(ids))
   testit::assert(is.logical(fixed_crown_age))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))

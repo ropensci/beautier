@@ -21,6 +21,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
+  testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))

@@ -17,6 +17,7 @@ create_beast2_input_run <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(ids))
 ) {
+  testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(initial_phylogenies))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
