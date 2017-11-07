@@ -281,11 +281,13 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
     testit::assert(beautier::is_clock_model(clock_model))
 
     tree_priors_text <- beautier::create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior, i = i) # nolint
-    text <- c(text, tree_priors_text)
-
     site_models_text <- beautier::create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
     gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
+    clock_models_text <- create_beast2_input_distribution_clock_models(id = id, clock_model = clock_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
+
+    # Mix text
+    text <- c(text, tree_priors_text)
     if (prop_invariant == get_default_prop_invariant()) {
       text <- c(text, site_models_text)
       text <- c(text, gamma_site_models_text)
@@ -293,13 +295,7 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
       text <- c(text, gamma_site_models_text)
       text <- c(text, site_models_text)
     }
-
-    text <- c(text,
-      create_beast2_input_distribution_clock_models(
-        id = id,
-        clock_model = clock_model
-      )
-    )
+    text <- c(text, clock_models_text)
   }
   text
 }
