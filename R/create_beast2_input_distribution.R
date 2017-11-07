@@ -379,6 +379,52 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
         "id=\"RealParameter.5\" estimate=\"false\" ",
         "name=\"mean\">1.0</parameter>"))
       text <- c(text, paste0("                </Exponential>"))
+    } else if (is_gamma_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <Gamma ",
+        "id=\"Gamma.0\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.6\" estimate=\"false\" ",
+        "name=\"alpha\">2.0</parameter>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.7\" estimate=\"false\" ",
+        "name=\"beta\">2.0</parameter>"))
+      text <- c(text, paste0("                </Gamma>"))
+    } else if (is_beta_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <Beta ",
+        "id=\"Beta.0\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.8\" estimate=\"false\" ",
+        "name=\"alpha\">2.0</parameter>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.9\" estimate=\"false\" ",
+        "name=\"beta\">2.0</parameter>"))
+      text <- c(text, paste0("                </Beta>"))
+    } else if (is_laplace_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <LaplaceDistribution ",
+        "id=\"LaplaceDistribution.0\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.10\" estimate=\"false\" ",
+        "name=\"mu\">0.0</parameter>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.11\" estimate=\"false\" ",
+        "name=\"scale\">1.0</parameter>"))
+      text <- c(text, paste0("                </LaplaceDistribution>"))
+    } else if (is_inv_gamma_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <InverseGamma ",
+        "id=\"InverseGamma.0\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.12\" estimate=\"false\" ",
+        "name=\"alpha\">2.0</parameter>"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.13\" estimate=\"false\" ",
+        "name=\"beta\">2.0</parameter>"))
+      text <- c(text, paste0("                </InverseGamma>"))
+    } else if (is_poisson_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <distr id=\"Poisson.0\" ",
+        "spec=\"beast.math.distributions.Poisson\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.14\" name=\"lambda\">0.693</parameter>"))
+      text <- c(text, paste0("                </distr>"))
     }
     text <- c(text, paste0("            </prior>"))
   } else if (is_bd_tree_prior(tree_prior)) {
