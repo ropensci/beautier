@@ -1,6 +1,8 @@
 #' Is a file a valid BEAST2 input file?
 #' @param filename name of the BEAST2 XML input file
 #' @return TRUE if the file is valid, FALSE if not
+#' @author Richel J.C. Bilderbeek
+#' @seealso Use \code{\link{are_beast2_input_lines}} to check the lines
 #' @export
 is_beast2_input_file <- function(filename) {
   if (!file.exists(filename)) {
