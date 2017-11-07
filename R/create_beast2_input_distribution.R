@@ -219,39 +219,13 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
       text <- c(text, paste0("            <distribution id=\"YuleModel.t:", id,
         "\" spec=\"beast.evolution.speciation.YuleModel\" ",
         "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>"))
-
-      if (i == 2 && n > 1) {
-        text <- c(text, paste0("            <prior ",
-          "id=\"ClockPrior.c:", id, "\" name=\"distribution\" ",
-          "x=\"@clockRate.c:", id, "\">"))
-        text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
-          "name=\"distr\" upper=\"Infinity\"/>"))
-        text <- c(text, paste0("            </prior>"))
-      }
-
-      uniform_id <- ifelse(i == 1, 1, 4)
-      text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
-        id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
-      text <- c(text, paste0("                <Uniform ",
-        "id=\"Uniform.", uniform_id, "\" ",
-        "name=\"distr\" upper=\"Infinity\"/>"))
-      text <- c(text, paste0("            </prior>"))
     } else if (is_bd_tree_prior(tree_prior)) {
       text <- c(text, paste0("            <distribution id=\"BirthDeath.t:", id,
         "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
         "birthDiffRate=\"@BDBirthRate.t:", id, "\" ",
         "relativeDeathRate=\"@BDDeathRate.t:", id, "\" ",
         "tree=\"@Tree.t:", id, "\"/>"))
-      text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", id,
-        "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
-      text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
-        "name=\"distr\" upper=\"1000.0\"/>"))
-      text <- c(text, paste0("            </prior>"))
-      text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:", id,
-        "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
-      text <- c(text, paste0("                <Uniform id=\"Uniform.4\" ",
-        "name=\"distr\"/>"))
-      text <- c(text, paste0("            </prior>"))
+
     } else if (is_ccp_tree_prior(tree_prior)) {
       text <- c(text, paste0("            ",
         "<distribution id=\"CoalescentConstant.t:", id,
@@ -264,13 +238,6 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
         id, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
         id, "\"/>"))
       text <- c(text, "            </distribution>")
-      text <- c(text, paste0(
-        "            <prior id=\"PopSizePrior.t:", id,
-        "\" name=\"distribution\" x=\"@popSize.t:",
-        id, "\">"))
-      text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
-        "name=\"distr\"/>"))
-      text <- c(text, "            </prior>")
     } else if (is_cbs_tree_prior(tree_prior)) {
       text <- c(text, paste0("            <distribution ",
         "id=\"BayesianSkyline.t:",
@@ -310,9 +277,13 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
     id <- ids[i]
     site_model <- site_models[[i]]
     clock_model <- clock_models[[i]]
+    tree_prior <- tree_priors[[i]]
     testit::assert(beautier::is_clock_model(clock_model))
 
-    site_models_text <- beautier::create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
+    tree_priors_text <- beautier::create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior, i = i) # nolint
+    text <- c(text, tree_priors_text)
+
+    site_models_text <- beautier::create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
     gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
     if (prop_invariant == get_default_prop_invariant()) {
@@ -333,7 +304,65 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
   text
 }
 
-#' Creates the first site models section in the distribution section
+#' Creates the tree prior section in the priotr section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @param i the ith tree prior
+#' @param tree_prior a tree_prior, as created by \code{\link{create_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  tree_prior,
+  i
+) {
+  text <- NULL
+  if (is_yule_tree_prior(tree_prior)) {
+
+    if (i == 2) {
+      text <- c(text, paste0("            <prior ",
+        "id=\"ClockPrior.c:", id, "\" name=\"distribution\" ",
+        "x=\"@clockRate.c:", id, "\">"))
+      text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
+        "name=\"distr\" upper=\"Infinity\"/>"))
+      text <- c(text, paste0("            </prior>"))
+    }
+    uniform_id <- ifelse(i == 1, 1, 4)
+    text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
+      id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
+    text <- c(text, paste0("                <Uniform ",
+      "id=\"Uniform.", uniform_id, "\" ",
+      "name=\"distr\" upper=\"Infinity\"/>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_bd_tree_prior(tree_prior)) {
+    text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", id,
+      "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
+      "name=\"distr\" upper=\"1000.0\"/>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:", id,
+      "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
+    text <- c(text, paste0("                <Uniform id=\"Uniform.4\" ",
+      "name=\"distr\"/>"))
+    text <- c(text, paste0("            </prior>"))
+  } else if (is_ccp_tree_prior(tree_prior)) {
+    text <- c(text, paste0(
+      "            <prior id=\"PopSizePrior.t:", id,
+      "\" name=\"distribution\" x=\"@popSize.t:",
+      id, "\">"))
+    text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
+      "name=\"distr\"/>"))
+    text <- c(text, "            </prior>")
+  }
+  text
+}
+
+#' Creates the site models section in the priotr section of
+#' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
@@ -342,20 +371,31 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input_distribution_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distribution_prior_prior_site_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  site_model
+  site_model,
+  i
 ) {
   text <- NULL
   if (is_hky_site_model(site_model)) {
+    distribution_id <- NULL
+    param_ids <- NULL
+    if (i == 1) {
+      distribution_id <- 0
+      param_ids <- c(1, 2)
+    } else {
+      distribution_id <- 1
+      param_ids <- c(4, 5)
+    }
+
     text <- c(text, paste0("            <prior id=\"KappaPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.0\" name=\"distr\">"))
+      "id=\"LogNormalDistributionModel.", distribution_id, "\" name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.1\" estimate=\"false\" name=\"M\">1.0</parameter>"))
+      "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" name=\"M\">1.0</parameter>"))
     text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.2\" estimate=\"false\" name=\"S\">1.25</parameter>"))
+      "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
   } else if (is_tn93_site_model(site_model)) {

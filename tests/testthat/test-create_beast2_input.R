@@ -713,6 +713,7 @@ test_that("Check that yule_2_4.xml is reproduced", {
 
 test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
 
+  skip("WIP")
   fasta_filename_1 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
@@ -744,6 +745,7 @@ test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
 
 test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
 
+  skip("WIP")
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
@@ -808,13 +810,12 @@ test_that("Reproduce aco_hky_nd2.xml", {
       print(paste0(i, " / ", length(expected_lines)))
     }
   }
-
+  testthat::expect_true(
+    beautier::are_equivalent_xml_lines(created_lines, expected_lines, verbose = TRUE))
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("Reproduce aco_nd2_hky.xml", {
-
-  skip("WIP")
 
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
