@@ -372,6 +372,13 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
         "id=\"RealParameter.4\" estimate=\"false\" lower=\"0.0\" ",
         "name=\"S\" upper=\"5.0\">1.25</parameter>"))
       text <- c(text, paste0("                </LogNormal>"))
+    } else if (is_exponential_distribution(yule_birth_rate_distribution)) {
+      text <- c(text, paste0("                <Exponential ",
+        "id=\"Exponential.1\" name=\"distr\">"))
+      text <- c(text, paste0("                    <parameter ",
+        "id=\"RealParameter.5\" estimate=\"false\" ",
+        "name=\"mean\">1.0</parameter>"))
+      text <- c(text, paste0("                </Exponential>"))
     }
     text <- c(text, paste0("            </prior>"))
   } else if (is_bd_tree_prior(tree_prior)) {

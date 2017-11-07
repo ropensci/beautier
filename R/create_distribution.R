@@ -85,3 +85,16 @@ create_log_normal_distribution <- function(
     )
   )
 }
+
+#' Create an exponential distribution
+#' @inheritParams create_distribution
+#' @return an exponential distribution
+#' @export
+create_exponential_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "exponential"
+    )
+  )
+}
