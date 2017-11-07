@@ -364,6 +364,26 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
     text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
       "name=\"distr\"/>"))
     text <- c(text, "            </prior>")
+  } else if (is_cep_tree_prior(tree_prior)) {
+    text <- c(text, paste0("            <prior ",
+      "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
+      "x=\"@ePopSize.t:", id, "\">"))
+    text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
+      "name=\"distr\"/>"))
+    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("            <prior ",
+      "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
+      "x=\"@growthRate.t:", id, "\">"))
+    text <- c(text, paste0("                <LaplaceDistribution ",
+      "id=\"LaplaceDistribution.0\" name=\"distr\">"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.1\" estimate=\"false\" ",
+      "name=\"mu\">0.001</parameter>"))
+    text <- c(text, paste0("                    <parameter ",
+      "id=\"RealParameter.2\" estimate=\"false\" ",
+      "name=\"scale\">30.701135</parameter>"))
+    text <- c(text, paste0("                </LaplaceDistribution>"))
+    text <- c(text, paste0("            </prior>"))
   }
   text
 }
