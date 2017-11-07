@@ -13,6 +13,8 @@ create_beast2_input_distribution_prior_prior_site_model(id, site_model, i)
 its FASTA filesname using \code{\link{get_id}})}
 
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
+
+\item{i}{the ith tree prior}
 }
 \description{
 Creates the site models section in the priotr section of

@@ -363,6 +363,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
+#' @param i the ith tree prior
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
