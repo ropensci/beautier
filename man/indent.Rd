@@ -7,10 +7,12 @@
 indent(text, n_spaces)
 }
 \arguments{
-\item{x}{the object to check if it consists out of IDs}
+\item{text}{the text to indent}
+
+\item{n_spaces}{the number of spaces to add before the text}
 }
 \value{
-TRUE if x, or all elements of x, are IDs
+the indented text
 }
 \description{
 Determine if x consists out of IDs
