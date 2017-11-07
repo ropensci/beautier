@@ -98,3 +98,68 @@ create_exponential_distribution <- function(
     )
   )
 }
+
+#' Create a gamma distribution
+#' @inheritParams create_distribution
+#' @return a gamma distribution
+#' @export
+create_gamma_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "gamma"
+    )
+  )
+}
+
+#' Create a beta distribution
+#' @inheritParams create_distribution
+#' @return a beta distribution
+#' @export
+create_beta_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "beta"
+    )
+  )
+}
+
+#' Create a Laplace distribution
+#' @inheritParams create_distribution
+#' @return a Laplace distribution
+#' @export
+create_laplace_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "laplace"
+    )
+  )
+}
+
+#' Create an inverse gamma distribution
+#' @inheritParams create_distribution
+#' @return an inverse gamma distribution
+#' @export
+create_inv_gamma_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "inv_gamma"
+    )
+  )
+}
+
+#' Create a Poisson distribution
+#' @inheritParams create_distribution
+#' @return a Poisson distribution
+#' @export
+create_poisson_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "poisson"
+    )
+  )
+}
