@@ -11,3 +11,11 @@ test_that("use", {
   )
 
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(get_yule_birth_rate_distr("nonsense"))
+  testthat::expect_error(get_yule_birth_rate_distr(NULL))
+  testthat::expect_error(get_yule_birth_rate_distr(NA))
+
+})
