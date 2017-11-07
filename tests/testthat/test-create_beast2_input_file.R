@@ -12,7 +12,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input_file(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc = create_mcmc(chain_length = 0), # Error
+      mcmc = list(chain_length = 0), # Error
       output_xml_filename = "output.xml"
     )
   )
