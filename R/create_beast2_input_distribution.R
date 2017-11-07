@@ -74,38 +74,22 @@ create_beast2_input_distribution_prior <- function( # nolint long function name 
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
   # Lines starting with '<distribution id ='
-  text <- c(text,
-    create_beast2_input_distribution_prior_distribution(
-      ids = ids,
-      tree_priors = tree_priors
-    )
+  distribution_text <- create_beast2_input_distribution_prior_distribution(
+    ids = ids,
+    tree_priors = tree_priors
   )
 
-  n <- length(ids)
-  for (i in seq(1, n)) {
-    id <- ids[i]
-    site_model <- site_models[[i]]
-    clock_model <- clock_models[[i]]
-    testit::assert(beautier::is_clock_model(clock_model))
+  # Lines starting with '<prior id ='
+  prior_text <- create_beast2_input_distribution_prior_prior(
+    ids = ids,
+    site_models = site_models,
+    clock_models = clock_models,
+    tree_priors = tree_priors
+  )
 
-    site_models_text <- beautier::create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
-    gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
-    prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
-    if (prop_invariant == get_default_prop_invariant()) {
-      text <- c(text, site_models_text)
-      text <- c(text, gamma_site_models_text)
-    } else {
-      text <- c(text, gamma_site_models_text)
-      text <- c(text, site_models_text)
-    }
-
-    text <- c(text,
-      create_beast2_input_distribution_clock_models(
-        id = id,
-        clock_model = clock_model
-      )
-    )
-  }
+  # Lines must be mixed sometimes ...
+  text <- c(text, distribution_text)
+  text <- c(text, prior_text)
 
   text <- c(text, "        </distribution>")
   text
@@ -208,7 +192,7 @@ create_beast2_input_distribution_likelihood <- function( # nolint long function 
   }
   text <- c(text, "        </distribution>")
 
-    text
+  text
 }
 
 
@@ -305,6 +289,49 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
   text
 }
 
+
+#' Creates the prior section in the prior section of the
+#' distribution section of a BEAST2 XML parameter file.
+#' These lines start with '<prior id='
+#' @inheritParams create_beast2_input_distribution
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+#' @export
+ create_beast2_input_distribution_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ids,
+  site_models,
+  clock_models,
+  tree_priors
+) {
+  text <- NULL
+  n <- length(ids)
+  for (i in seq(1, n)) {
+    id <- ids[i]
+    site_model <- site_models[[i]]
+    clock_model <- clock_models[[i]]
+    testit::assert(beautier::is_clock_model(clock_model))
+
+    site_models_text <- beautier::create_beast2_input_distribution_site_models(id = id, site_model = site_model) # nolint
+    gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
+    prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
+    if (prop_invariant == get_default_prop_invariant()) {
+      text <- c(text, site_models_text)
+      text <- c(text, gamma_site_models_text)
+    } else {
+      text <- c(text, gamma_site_models_text)
+      text <- c(text, site_models_text)
+    }
+
+    text <- c(text,
+      create_beast2_input_distribution_clock_models(
+        id = id,
+        clock_model = clock_model
+      )
+    )
+  }
+  text
+}
 
 #' Creates the first site models section in the distribution section
 #' of a BEAST2 XML parameter file
