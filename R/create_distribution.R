@@ -59,3 +59,16 @@ create_normal_distribution <- function(
     )
   )
 }
+
+#' Create a 1/x distribution
+#' @inheritParams create_distribution
+#' @return a 1/x distribution
+#' @export
+create_one_div_x_distribution <- function(
+) {
+  return(
+    beautier::create_distribution(
+      name = "one_div_x"
+    )
+  )
+}

@@ -746,7 +746,10 @@ test_that("Reproduce yule_2_4.xml", {
 test_that("Reproduce birth_rate_uniform_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename()
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distribution()
+    )
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -778,6 +781,36 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_normal_2_4.xml", package = "beautier"))
+
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+
+})
+
+
+
+test_that("Reproduce birth_rate_one_div_x_2_4.xml", {
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_one_div_x_distribution()
+    )
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "birth_rate_one_div_x_2_4.xml", package = "beautier"))
 
 
   if (1 == 2) { # nolint keep this to help fixing future tests
