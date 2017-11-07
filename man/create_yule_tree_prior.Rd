@@ -4,8 +4,9 @@
 \alias{create_yule_tree_prior}
 \title{Create a Yule tree prior}
 \usage{
-
-  create_yule_tree_prior(birth_rate_distribution = beautier::create_uniform_distribution())
+create_yule_tree_prior(
+  birth_rate_distribution = create_uniform_distribution()
+)
 }
 \arguments{
 \item{birth_rate_distribution}{the birth rate distribution,
