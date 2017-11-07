@@ -82,7 +82,23 @@ create_beast2_input_file(
 )
 ```
 
-## Example #6: HKY site model with a non-zero proportion of invariants
+## Example #6: Yule tree prior with a normally distributed birth rate
+
+![Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
+
+```
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  tree_priors = create_yule_tree_prior(
+    birth_rate_distribution = create_normal_distribution()
+  ) 
+)
+```
+
+Thanks to Yacine Ben Chehida for this use case
+
+## Example #7: HKY site model with a non-zero proportion of invariants
 
 ![HKY example](hky_prop_invariant_0_5_2_4.png)
 
@@ -98,7 +114,7 @@ create_beast2_input_file(
 
 Thanks to Yacine Ben Chehida for this use case
 
-## Example #7: Strict clock with a known clock rate
+## Example #8: Strict clock with a known clock rate
 
 ![Strict clock with a rate of 0.5](strict_clock_rate_0_5_2_4.png)
 
@@ -112,7 +128,7 @@ create_beast2_input_file(
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
-## Example #8: Two alignments
+## Example #9: Two alignments
 
 ![anthus_2_4.png](anthus_2_4.png.png)
 
@@ -125,7 +141,7 @@ create_beast2_input_file(
 
 Thanks to Paul van Els for this use case and supplying these FASTA files.
 
-## Example #9: Two alignments, different site models
+## Example #10: Two alignments, different site models
 
 ![Example 9](aco_hky_nd2_tn93.png)
 
