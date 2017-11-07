@@ -686,12 +686,40 @@ test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    tree_priors = beautier::create_tree_prior(
-      name = "coalescent_constant_population")
+    tree_priors = beautier::create_ccp_tree_prior()
   )
 
   expected_lines <- readLines(system.file("extdata",
     "coalescent_constant_population_2_4.xml", package = "beautier"))
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+################################################################################
+# Tree prior: CEP
+################################################################################
+
+test_that("Reproduce coalescent_exponential_population_2_4.xml", {
+
+  skip("WIP")
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = beautier::create_cep_tree_prior()
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "coalescent_exponential_population_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -869,7 +897,7 @@ test_that("Reproduce aco_nd2_hky.xml", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Reproduce aco_hky_nd2_tn93.xml", {
+test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
 
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
@@ -886,6 +914,46 @@ test_that("Reproduce aco_hky_nd2_tn93.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_hky_nd2_tn93.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  if (is_on_travis()) {
+    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
+  } else {
+    if (1 == 2) {
+      testthat::expect_identical(created_lines, expected_lines)
+    }
+  }
+})
+
+test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
+
+  skip("WIP")
+
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beautier")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    clock_models = list(create_strict_clock_model(), create_rln_clock_model()),
+    misc_options = create_misc_options(
+      capitalize_first_char_id = FALSE,
+      nucleotides_uppercase = TRUE
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "aco_strict_nd2_rln.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")

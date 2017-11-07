@@ -125,6 +125,23 @@ create_beast2_input_file(
 
 Thanks to Paul van Els for this use case and supplying these FASTA files.
 
+## Example #9: Two alignments, different site models
+
+![Example 9](aco_hky_nd2_tn93.png)
+
+```
+beautier::create_beast2_input_file(
+  c("anthus_aco.fas", "anthus_nd2.fas"),
+  "my_beast.xml"
+  site_models = list(
+    create_hky_site_model(), 
+    create_tn93_site_model()
+  )
+)
+```
+
+Thanks to Paul van Els for this use case.
+
 ## Future examples
 
 See [Future](Future.md)

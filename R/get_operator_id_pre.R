@@ -17,6 +17,9 @@ get_operator_id_pre <- function(tree_priors) {
   if (is_ccp_tree_prior(tree_priors)) {
     return("CoalescentConstant")
   }
+  if (is_cep_tree_prior(tree_priors)) {
+    return("CoalescentExponential")
+  }
   if (is_yule_tree_prior(tree_priors)) {
     return("YuleModel")
   }

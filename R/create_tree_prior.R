@@ -58,3 +58,11 @@ create_ccp_tree_prior <- function() {
   return(beautier::create_tree_prior(
     name = "coalescent_constant_population"))
 }
+
+#' Create a Coalescent Exponential Population tree prior
+#' @return a Coalescent Exponential Population tree_prior
+#' @export
+create_cep_tree_prior <- function() {
+  return(beautier::create_tree_prior(
+    name = "coalescent_exponential_population"))
+}
