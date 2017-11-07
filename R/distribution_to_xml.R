@@ -10,7 +10,7 @@ distribution_to_xml <- function(
   n_spaces
 ) {
   text <- NULL
-  id <- get_distribution_id(distribution)
+  id <- beautier::get_distribution_id(distribution)
   if (is_uniform_distribution(distribution)) {
     text <- c(text, paste0("<Uniform ",
       "id=\"Uniform.", id, "\" ",
@@ -91,5 +91,5 @@ distribution_to_xml <- function(
       "id=\"RealParameter.14\" name=\"lambda\">0.693</parameter>"))
     text <- c(text, paste0("</distr>"))
   }
-  indent(text = text, n_spaces = n_spaces)
+  beautier::indent(text = text, n_spaces = n_spaces)
 }
