@@ -4,7 +4,7 @@
 \alias{create_uniform_distribution}
 \title{Create a uniform distribution}
 \usage{
-create_uniform_distribution(id = 1)
+create_uniform_distribution(id = NA)
 }
 \arguments{
 \item{id}{the distribution's ID}
