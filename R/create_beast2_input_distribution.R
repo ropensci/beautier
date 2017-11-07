@@ -251,6 +251,17 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
         "<distribution id=\"MarkovChainedPopSizes.t:", id,
         "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
         "jeffreys=\"true\" parameter=\"@bPopSizes.t:", id, "\"/>"))
+    } else if (is_cep_tree_prior(tree_prior)) {
+      text <- c(text, paste0("            <distribution ",
+        "id=\"CoalescentExponential.t:", id, "\" spec=\"Coalescent\">"))
+      text <- c(text, paste0("                <populationModel ",
+        "id=\"ExponentialGrowth.t:", id, "\" spec=\"ExponentialGrowth\" ",
+        "growthRate=\"@growthRate.t:", id, "\" ",
+        "popSize=\"@ePopSize.t:", id, "\"/>"))
+      text <- c(text, paste0("                <treeIntervals ",
+        "id=\"TreeIntervals.t:", id, "\" spec=\"TreeIntervals\" ",
+        "tree=\"@Tree.t:", id, "\"/>"))
+      text <- c(text, paste0("            </distribution>"))
     }
   }
   text

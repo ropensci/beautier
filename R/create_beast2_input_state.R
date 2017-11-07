@@ -180,6 +180,11 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
       "upper=\"380000.0\">380.0</parameter>"))
     text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", id, "\" ",
       "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
+  } else if (is_cep_tree_prior(tree_prior)) {
+    text <- c(text, paste0("        <parameter id=\"ePopSize.t:", id, "\" ",
+      "name=\"stateNode\">0.3</parameter>"))
+    text <- c(text, paste0("        <parameter id=\"growthRate.t:", id, "\" ",
+      "name=\"stateNode\">3.0E-4</parameter>"))
   }
   text
 }
