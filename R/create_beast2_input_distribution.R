@@ -8,19 +8,10 @@
 #' @export
 create_beast2_input_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  site_models = create_jc69_site_models(n = length(ids)),
-  clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_yule_tree_priors(n = length(ids))
+  site_models,
+  clock_models,
+  tree_priors
 ) {
-  if (is_site_model(site_models)) {
-    site_models <- list(site_models)
-  }
-  if (is_clock_model(clock_models)) {
-    clock_models <- list(clock_models)
-  }
-  if (is_tree_prior(tree_priors)) {
-    tree_priors <- list(tree_priors)
-  }
   testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
@@ -28,6 +19,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(beautier::are_initialized_tree_priors(tree_priors))
 
   text <- NULL
   text <- c(text,

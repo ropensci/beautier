@@ -1,56 +1,52 @@
 context("create_beast2_input_distribution")
 
-test_that("use", {
+test_that("use with one ID", {
+
+  site_models = list(create_jc69_site_model())
+  clock_models <- list(create_strict_clock_model())
+  tree_priors <- list(
+      create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distr(id = 1)
+    )
+  )
+  testit::assert(are_initialized_tree_priors(tree_priors))
 
   testthat::expect_silent(
     beautier::create_beast2_input_distribution(
       ids = "test_output_0",
-      tree_priors = create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
-      )
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors
     )
   )
+})
 
-  testthat::expect_silent(
-    beautier::create_beast2_input_distribution(
-      ids = "test_output_0",
-      clock_models = create_strict_clock_model(),
-      tree_priors = create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
-      )
-    )
-  )
+test_that("use with one ID", {
 
-  testthat::expect_silent(
-    beautier::create_beast2_input_distribution(
-      ids = "test_output_0",
-      tree_priors = create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
-      )
+  site_models <- list(
+    create_jc69_site_model(),
+    create_jc69_site_model()
+  )
+  clock_models <- list(
+    create_strict_clock_model(),
+    create_strict_clock_model()
+  )
+  tree_priors <- list(
+    create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distr(id = 1)
+    ),
+    create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distr(id = 2)
     )
   )
-
-  testthat::expect_silent(
-    beautier::create_beast2_input_distribution(
-      ids = "test_output_0",
-      site_models = create_jc69_site_model(),
-      tree_priors = create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
-      )
-    )
-  )
+  testit::assert(are_initialized_tree_priors(tree_priors))
 
   testthat::expect_silent(
     beautier::create_beast2_input_distribution(
       ids = c("a", "b"),
-      tree_priors = list(
-        create_yule_tree_prior(
-          birth_rate_distribution = create_uniform_distr(id = 1)
-        ),
-        create_yule_tree_prior(
-          birth_rate_distribution = create_uniform_distr(id = 2)
-        )
-      )
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors
     )
   )
 

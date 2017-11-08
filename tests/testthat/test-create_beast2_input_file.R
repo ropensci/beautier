@@ -82,7 +82,7 @@ test_that("Create CCP posterior with random initial tree", {
     n_taxa = 2,
     sequence_length = 1,
     mcmc = create_mcmc(chain_length = 10000),
-    tree_priors = create_tree_prior(name = "coalescent_constant_population")
+    tree_priors = create_ccp_tree_prior()
   )
   testthat::expect_true(RBeast::is_posterior(posterior))
 })
@@ -95,7 +95,7 @@ test_that("Create BD posterior with random initial tree", {
     n_taxa = 2,
     sequence_length = 1,
     mcmc = create_mcmc(chain_length = 10000),
-    tree_priors = create_tree_prior(name = "birth_death")
+    tree_priors = create_bd_tree_prior()
   )
   testthat::expect_true(RBeast::is_posterior(posterior))
 
@@ -109,7 +109,7 @@ test_that("A fixed crown age must have equal TreeHeights", {
     n_taxa = 5,
     sequence_length = 10,
     mcmc = create_mcmc(chain_length = 10000),
-    tree_priors = create_tree_prior(name = "birth_death"),
+    tree_priors = create_bd_tree_prior(),
     fixed_crown_age = TRUE
   )
   testthat::expect_true(all(posterior$estimates$TreeHeight
@@ -151,7 +151,7 @@ test_that("Can specify fixed crown age", {
 
   beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
-    tree_priors = create_tree_prior(name = "birth_death"),
+    tree_priors = create_bd_tree_prior(),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(
