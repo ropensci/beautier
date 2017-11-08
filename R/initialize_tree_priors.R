@@ -17,12 +17,14 @@ initialize_tree_priors <- function(
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    testit::assert(is_tree_prior(tree_prior))
+    testit::assert(beautier::is_tree_prior(tree_prior))
 
-    if (is_yule_tree_prior(tree_prior)) {
-      if (!is_initialized_yule_tree_prior(tree_prior)) {
-        tree_prior <- initialize_yule_tree_prior(tree_prior, id = id)
-        testit::assert(is_initialized_yule_tree_prior(tree_prior))
+    if (beautier::is_yule_tree_prior(tree_prior)) {
+
+      if (!beautier::is_initialized_yule_tree_prior(tree_prior)) {
+
+        tree_prior <- beautier::initialize_yule_tree_prior(tree_prior, id = id)
+        testit::assert(beautier::is_initialized_yule_tree_prior(tree_prior))
         id <- id + 1
       }
     }
