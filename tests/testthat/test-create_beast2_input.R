@@ -782,6 +782,34 @@ test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
+test_that("Check that ccp_pop_size_gamma_2_4.xml is reproduced", {
+
+  skip("WIP")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = beautier::create_ccp_tree_prior(
+      pop_size_distribution = beautier::create_gamma_distr(id = 2)
+    )
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "ccp_pop_size_gamma_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
 ################################################################################
 # Tree prior: CEP
 ################################################################################

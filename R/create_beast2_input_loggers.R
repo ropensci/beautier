@@ -31,11 +31,24 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     tree_priors = tree_priors)
   )
 
-  text <- c(text, create_beast2_input_screenlog())
+  text <- c(text, "")
 
-  text <- c(text, create_beast2_input_treelogs(
-    ids = ids,
-    clock_models = clock_models))
+  text <- c(text,
+    indent(
+      create_beast2_input_screenlog(),
+      n_spaces = 4
+    )
+  )
+
+  text <- c(text,
+    indent(
+      create_beast2_input_treelogs(
+        ids = ids,
+        clock_models = clock_models
+      ),
+      n_spaces = 0
+    )
+  )
 
   text
 }
@@ -136,21 +149,20 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   text
 }
 
-# Put on top, to make it visible to create_beast2_input_loggers
 #' Creates the screenlog section of the logger section
 #' of a BEAST2 XML parameter file
+#' @return the XML text
 #' @inheritParams create_beast2_input_loggers
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_screenlog <- function() {
   text <- NULL
-  text <- c(text, "")
-  text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
-  text <- c(text, "        <log idref=\"posterior\"/>")
-  text <- c(text, paste0("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
+  text <- c(text, "<logger id=\"screenlog\" logEvery=\"1000\">")
+  text <- c(text, "    <log idref=\"posterior\"/>")
+  text <- c(text, paste0("    <log id=\"ESS.0\" spec=\"util.ESS\" ",
     "arg=\"@posterior\"/>"))
-  text <- c(text, "        <log idref=\"likelihood\"/>")
-  text <- c(text, "        <log idref=\"prior\"/>")
-  text <- c(text, "    </logger>")
+  text <- c(text, "    <log idref=\"likelihood\"/>")
+  text <- c(text, "    <log idref=\"prior\"/>")
+  text <- c(text, "</logger>")
   text
 }
 

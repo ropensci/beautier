@@ -93,9 +93,15 @@ create_cbs_tree_prior <- function() {
 #' Create a Coalescent Constant Population tree prior
 #' @return a Coalescent Constant Population tree_prior
 #' @export
-create_ccp_tree_prior <- function() {
-  return(beautier::create_tree_prior(
-    name = "coalescent_constant_population"))
+create_ccp_tree_prior <- function(
+  pop_size_distribution = beautier::create_one_div_x_distribution()
+) {
+  return(
+    beautier::create_tree_prior(
+      name = "coalescent_constant_population",
+      pop_size_distribution = pop_size_distribution
+    )
+  )
 }
 
 #' Create a Coalescent Exponential Population tree prior

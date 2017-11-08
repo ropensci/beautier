@@ -7,6 +7,9 @@ of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_screenlog()
 }
+\value{
+the XML text
+}
 \description{
 Creates the screenlog section of the logger section
 of a BEAST2 XML parameter file
