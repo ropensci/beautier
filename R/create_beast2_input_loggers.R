@@ -201,38 +201,25 @@ create_beast2_input_loggers_tree_prior <- function( # nolint long function name 
 ) {
   text <- NULL
   if (is_yule_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <log idref=\"YuleModel.t:",
-      id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"birthRate.t:",
-      id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"YuleModel.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"birthRate.t:", id, "\"/>"))
   } else if (is_bd_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <log idref=\"BirthDeath.t:",
-      id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"BDBirthRate.t:",
-      id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"BDDeathRate.t:",
-      id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"BirthDeath.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"BDBirthRate.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"BDDeathRate.t:", id, "\"/>"))
   } else if (is_ccp_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <log idref=\"popSize.t:",
-      id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"CoalescentConstant.t:",
-      id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"popSize.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"CoalescentConstant.t:", id, "\"/>"))
   } else if (is_cbs_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <log ",
-      "idref=\"BayesianSkyline.t:", id, "\"/>"))
-    text <- c(text, paste0("        <log ",
-      "idref=\"bPopSizes.t:", id, "\"/>"))
-    text <- c(text, paste0("        <log ",
-      "idref=\"bGroupSizes.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"BayesianSkyline.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"bPopSizes.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"bGroupSizes.t:", id, "\"/>"))
   } else if (is_cep_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <log ",
-      "idref=\"CoalescentExponential.t:", id, "\"/>"))
-    text <- c(text, paste0("        <log ",
-      "idref=\"ePopSize.t:", id, "\"/>"))
-    text <- c(text, paste0("        <log ",
-      "idref=\"growthRate.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"CoalescentExponential.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"ePopSize.t:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"growthRate.t:", id, "\"/>"))
   }
-  text
+  indent(text = text, n_spaces = 8)
 }
 
 #' Creates the first site models part of the two logger sections
