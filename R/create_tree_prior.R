@@ -91,6 +91,8 @@ create_cbs_tree_prior <- function() {
 }
 
 #' Create a Coalescent Constant Population tree prior
+#' @param pop_size_distribution the population distribution,
+#'   as created by a \code{\link{create_distribution}} function
 #' @return a Coalescent Constant Population tree_prior
 #' @export
 create_ccp_tree_prior <- function(
@@ -105,6 +107,10 @@ create_ccp_tree_prior <- function(
 }
 
 #' Create a Coalescent Exponential Population tree prior
+#' @param pop_size_distribution the population distribution,
+#'   as created by a \code{\link{create_distribution}} function
+#' @param growth_rate_distribution the growth rate distribution,
+#'   as created by a \code{\link{create_distribution}} function
 #' @return a Coalescent Exponential Population tree_prior
 #' @export
 create_cep_tree_prior <- function(

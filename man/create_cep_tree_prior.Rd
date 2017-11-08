@@ -8,6 +8,13 @@
   create_cep_tree_prior(pop_size_distribution = create_one_div_x_distribution(),
   growth_rate_distribution = create_laplace_distribution())
 }
+\arguments{
+\item{pop_size_distribution}{the population distribution,
+as created by a \code{\link{create_distribution}} function}
+
+\item{growth_rate_distribution}{the growth rate distribution,
+as created by a \code{\link{create_distribution}} function}
+}
 \value{
 a Coalescent Exponential Population tree_prior
 }
