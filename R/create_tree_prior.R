@@ -40,7 +40,7 @@ create_tree_prior <- function(
 #' create_yule_tree_prior(
 #'   birth_rate_distribution = beautier::create_uniform_distr()
 #' )
-#'
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_yule_tree_prior <- function(
   birth_rate_distribution = beautier::create_uniform_distr()
@@ -55,9 +55,29 @@ create_yule_tree_prior <- function(
 
 #' Create a Birth-Death tree prior
 #' @return a Birth-Death tree_prior
+#' @param birth_rate_distribution the birth rate distribution,
+#'   as created by a \code{\link{create_distribution}} function
+#' @param death_rate_distribution the death rate distribution,
+#'   as created by a \code{\link{create_distribution}} function
+#' @return a Birth-Death tree_prior
+#' @usage
+#' create_bd_tree_prior(
+#'   birth_rate_distribution = beautier::create_uniform_distr(),
+#'   death_rate_distribution = beautier::create_uniform_distr()
+#' )
+#' @author Richel J.C. Bilderbeek
 #' @export
-create_bd_tree_prior <- function() {
-  return(beautier::create_tree_prior(name = "birth_death"))
+create_bd_tree_prior <- function(
+  birth_rate_distribution = beautier::create_uniform_distr(),
+  death_rate_distribution = beautier::create_uniform_distr()
+  ) {
+  return(
+    beautier::create_tree_prior(
+      name = "birth_death",
+      birth_rate_distribution = birth_rate_distribution,
+      death_rate_distribution = birth_rate_distribution
+    )
+  )
 }
 
 #' Create a Coalescent Bayesian Skyline tree prior

@@ -1309,6 +1309,12 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     clock_models = list(create_strict_clock_model(), create_rln_clock_model()),
+    tree_priors = list(
+      create_yule_tree_prior(
+        birth_rate_distribution = create_uniform_distr(id = 1)),
+      create_yule_tree_prior(
+        birth_rate_distribution = create_uniform_distr(id = 2))
+    ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
@@ -1338,4 +1344,42 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
 })
 
 
-# birth_death_birth_rate_normal_death_rate_gamma_2_4.xml
+
+
+test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
+
+  skip("WIP")
+
+  fasta_filename <- system.file("extdata",
+    "test_output_0.fas", package = "beautier")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = fasta_filename,
+    tree_priors = create_bd_tree_prior(
+        birth_rate_distribution = create_normal_distr(id = 1),
+        death_rate_distribution = create_gamma_distr(id = 2)
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "birth_death_birth_rate_normal_death_rate_gamma_2_4.xml",
+    package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  if (is_on_travis()) {
+    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
+  } else {
+    if (1 == 2) {
+      testthat::expect_identical(created_lines, expected_lines)
+    }
+  }
+})

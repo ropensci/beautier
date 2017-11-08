@@ -18,3 +18,6 @@ a Yule tree_prior
 \description{
 Create a Yule tree prior
 }
+\author{
+Richel J.C. Bilderbeek
+}

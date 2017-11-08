@@ -4,11 +4,26 @@
 \alias{create_bd_tree_prior}
 \title{Create a Birth-Death tree prior}
 \usage{
-create_bd_tree_prior()
+create_bd_tree_prior(
+  birth_rate_distribution = beautier::create_uniform_distr(),
+  death_rate_distribution = beautier::create_uniform_distr()
+)
+}
+\arguments{
+\item{birth_rate_distribution}{the birth rate distribution,
+as created by a \code{\link{create_distribution}} function}
+
+\item{death_rate_distribution}{the death rate distribution,
+as created by a \code{\link{create_distribution}} function}
 }
 \value{
+a Birth-Death tree_prior
+
 a Birth-Death tree_prior
 }
 \description{
 Create a Birth-Death tree prior
+}
+\author{
+Richel J.C. Bilderbeek
 }
