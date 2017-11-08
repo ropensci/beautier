@@ -30,9 +30,9 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     clock_models = clock_models,
     tree_priors = tree_priors))
 
-  text <- c(text, beautier:::create_beast2_input_screenlog())
+  text <- c(text, create_beast2_input_screenlog())
 
-  text <- c(text, beautier:::create_beast2_input_treelogs(
+  text <- c(text, create_beast2_input_treelogs(
     ids = ids,
     clock_models = clock_models))
 
