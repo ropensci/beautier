@@ -84,7 +84,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
       text <- c(text, paste0("        <log idref=\"clockRate.c:", id, "\"/>"))
     }
 
-    text <- c(text, create_beast2_input_loggers_tree_priors(
+    text <- c(text, create_beast2_input_loggers_tree_prior(
       id = id, tree_prior = tree_prior))
 
     # Now three things
@@ -190,40 +190,41 @@ create_beast2_input_treelogs <- function( # nolint keep long function name, as i
 #'   of a BEAST2 XML parameter file
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
-#' @inheritParams create_beast2_input_loggers
+#' @param tree_prior a tree prior,
+#'   as created by \code{\link{create_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_loggers_tree_priors <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_loggers_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  tree_priors
+  tree_prior
 ) {
   text <- NULL
-  if (is_yule_tree_prior(tree_priors)) {
+  if (is_yule_tree_prior(tree_prior)) {
     text <- c(text, paste0("        <log idref=\"YuleModel.t:",
       id, "\"/>"))
     text <- c(text, paste0("        <log idref=\"birthRate.t:",
       id, "\"/>"))
-  } else if (is_bd_tree_prior(tree_priors)) {
+  } else if (is_bd_tree_prior(tree_prior)) {
     text <- c(text, paste0("        <log idref=\"BirthDeath.t:",
       id, "\"/>"))
     text <- c(text, paste0("        <log idref=\"BDBirthRate.t:",
       id, "\"/>"))
     text <- c(text, paste0("        <log idref=\"BDDeathRate.t:",
       id, "\"/>"))
-  } else if (is_ccp_tree_prior(tree_priors)) {
+  } else if (is_ccp_tree_prior(tree_prior)) {
     text <- c(text, paste0("        <log idref=\"popSize.t:",
       id, "\"/>"))
     text <- c(text, paste0("        <log idref=\"CoalescentConstant.t:",
       id, "\"/>"))
-  } else if (is_cbs_tree_prior(tree_priors)) {
+  } else if (is_cbs_tree_prior(tree_prior)) {
     text <- c(text, paste0("        <log ",
       "idref=\"BayesianSkyline.t:", id, "\"/>"))
     text <- c(text, paste0("        <log ",
       "idref=\"bPopSizes.t:", id, "\"/>"))
     text <- c(text, paste0("        <log ",
       "idref=\"bGroupSizes.t:", id, "\"/>"))
-  } else if (is_cep_tree_prior(tree_priors)) {
+  } else if (is_cep_tree_prior(tree_prior)) {
     text <- c(text, paste0("        <log ",
       "idref=\"CoalescentExponential.t:", id, "\"/>"))
     text <- c(text, paste0("        <log ",
