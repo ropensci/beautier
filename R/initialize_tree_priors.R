@@ -1,0 +1,58 @@
+#' Initializes all tree priors
+#' @param tree_priors a list of one or more tree priors to be initialized.
+#'   Tree priors can be created using \code{\link{create_tree_prior}}
+#' @return a list of initialized tree priors
+#' @author Richel J.C. Bilderbeek
+#' @export
+initialize_tree_priors <- function(
+  tree_priors
+) {
+  if (is_tree_prior(tree_priors)) {
+    tree_priors <- list(tree_priors)
+  }
+  if (!are_tree_priors(tree_priors)) {
+    stop("Must supply valid tree priors")
+  }
+  id <- 0
+
+  for (i in seq_along(tree_priors)) {
+    tree_prior <- tree_priors[[i]]
+    testit::assert(is_tree_prior(tree_prior))
+
+    if (is_yule_tree_prior(tree_prior)) {
+      if (!is_initialized_yule_tree_prior(tree_prior)) {
+        tree_prior <- initialize_yule_tree_prior(tree_prior, id = id)
+        testit::assert(is_initialized_yule_tree_prior(tree_prior))
+        id <- id + 1
+      }
+    }
+
+    tree_priors[[i]] <- tree_prior
+  }
+  tree_priors
+}
+
+#' Initializes a Yule tree prior
+#' @param yule_tree_prior a Yule tree prior,
+#'   as returned by \code{\link{create_yule_tree_prior}}
+#' @param id the index of the first distribution
+#' @return an initialized Yule tree prior
+#' @author Richel J.C. Bilderbeek
+#' @export
+initialize_yule_tree_prior <- function(
+  yule_tree_prior,
+  id
+) {
+  if (!is_yule_tree_prior(yule_tree_prior)) {
+    stop("Must supply a valid Yule tree prior")
+  }
+  birth_rate_distribution <- get_yule_birth_rate_distr(yule_tree_prior)
+  testit::assert(is_distribution(birth_rate_distribution))
+  testit::assert("id" %in% names(birth_rate_distribution))
+  birth_rate_distribution$id <- id
+  result <- create_yule_tree_prior(
+    birth_rate_distribution =  birth_rate_distribution
+  )
+  testit::assert(is_initialized_yule_tree_prior(result))
+  result
+}

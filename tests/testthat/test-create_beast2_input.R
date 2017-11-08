@@ -6,12 +6,17 @@ context("create_beast2_input")
 
 test_that("checks input", {
 
+  tree_priors <- list(
+    create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distr(id = 1)
+    )
+  )
+  testit::assert(are_initialized_tree_priors(tree_priors))
+
   testthat::expect_silent(
     create_beast2_input(
       input_fasta_filenames = get_input_fasta_filename(),
-      tree_priors = create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
-      )
+      tree_priors = tree_priors
     )
   )
 
