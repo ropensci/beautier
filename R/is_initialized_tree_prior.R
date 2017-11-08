@@ -7,16 +7,16 @@ is_initialized_tree_prior <- function(
   x
 ) {
   if (!beautier::is_tree_prior(x)) return(FALSE)
-  if (is_bd_tree_prior(x)) {
+  if (beautier::is_bd_tree_prior(x)) {
     return(is_initialized_bd_tree_prior(x))
-  } else if (is_cbs_tree_prior(x)) {
+  } else if (beautier::is_cbs_tree_prior(x)) {
     return(is_initialized_cbs_tree_prior(x))
-  } else if (is_ccp_tree_prior(x)) {
+  } else if (beautier::is_ccp_tree_prior(x)) {
     return(is_initialized_ccp_tree_prior(x))
-  } else if (is_cep_tree_prior(x)) {
+  } else if (beautier::is_cep_tree_prior(x)) {
     return(is_initialized_cep_tree_prior(x))
   } else {
-    testit::assert(is_yule_tree_prior(x))
+    testit::assert(beautier::is_yule_tree_prior(x))
     return(is_initialized_yule_tree_prior(x))
   }
 }
@@ -29,7 +29,7 @@ is_initialized_tree_prior <- function(
 is_initialized_bd_tree_prior <- function(
   x
 ) {
-  testit::assert(is_bd_tree_prior(x))
+  testit::assert(beautier::is_bd_tree_prior(x))
 
   return(
     !is.na(
@@ -56,7 +56,7 @@ is_initialized_bd_tree_prior <- function(
 is_initialized_cbs_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cbs_tree_prior(x))
+  testit::assert(beautier::is_cbs_tree_prior(x))
 
   # Yup, is always initialized
   TRUE
@@ -73,7 +73,7 @@ is_initialized_cbs_tree_prior <- function(
 is_initialized_ccp_tree_prior <- function(
   x
 ) {
-  testit::assert(is_ccp_tree_prior(x))
+  testit::assert(beautier::is_ccp_tree_prior(x))
 
   return(
     !is.na(
@@ -95,7 +95,7 @@ is_initialized_ccp_tree_prior <- function(
 is_initialized_cep_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cep_tree_prior(x))
+  testit::assert(beautier::is_cep_tree_prior(x))
 
   return(
     !is.na(
@@ -121,7 +121,7 @@ is_initialized_cep_tree_prior <- function(
 is_initialized_yule_tree_prior <- function(
   x
 ) {
-  testit::assert(is_yule_tree_prior(x))
+  testit::assert(beautier::is_yule_tree_prior(x))
 
   return(
     !is.na(
