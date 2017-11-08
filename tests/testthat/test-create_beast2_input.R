@@ -700,8 +700,10 @@ test_that("Reproduce birth_death_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_bd_tree_prior(
-      birth_rate_distribution = beautier::create_uniform_distr(id = 3, upper = "1000.0"),
-      death_rate_distribution = beautier::create_uniform_distr(id = 4, upper = NA)
+      birth_rate_distribution = beautier::create_uniform_distr(
+        id = 3, upper = "1000.0"),
+      death_rate_distribution = beautier::create_uniform_distr(
+        id = 4, upper = NA)
     )
   )
 
@@ -1419,4 +1421,3 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
     }
   }
 })
-
