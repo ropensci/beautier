@@ -24,7 +24,7 @@ create_beast2_input_data <- function(
     text <- c(text, "name=\"alignment\">")
     text <- c(
       text,
-      beautier:::create_beast2_input_data_sequences(
+      create_beast2_input_data_sequences(
         input_fasta_filename = input_fasta_filename,
         nucleotides_uppercase = misc_options$nucleotides_uppercase
       )
