@@ -320,6 +320,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
   i
 ) {
   text <- NULL
+  # Yule
   if (is_yule_tree_prior(tree_prior)) {
 
     if (i == 2) {
@@ -344,16 +345,32 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
       n_spaces = 12)
     )
   } else if (is_bd_tree_prior(tree_prior)) {
-    text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", id,
-      "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
-    text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
-      "name=\"distr\" upper=\"1000.0\"/>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"DeathRatePrior.t:", id,
-      "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
-    text <- c(text, paste0("                <Uniform id=\"Uniform.4\" ",
-      "name=\"distr\"/>"))
-    text <- c(text, paste0("            </prior>"))
+    # Birth Death tree prior
+
+    # BDBirthRate
+    bd_birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
+      bd_tree_prior = tree_prior)
+
+    text <- c(text,
+      indent(
+        create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
+          bd_birth_rate_distribution = bd_birth_rate_distribution,
+          id = id
+        ),
+      n_spaces = 12)
+    )
+    # BDDeathRate
+    bd_death_rate_distribution <- beautier::get_bd_death_rate_distr(
+      bd_tree_prior = tree_prior)
+
+    text <- c(text,
+      indent(
+        create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
+          bd_death_rate_distribution = bd_death_rate_distribution,
+          id = id
+        ),
+      n_spaces = 12)
+    )
   } else if (is_ccp_tree_prior(tree_prior)) {
     text <- c(text, paste0(
       "            <prior id=\"PopSizePrior.t:", id,
@@ -386,7 +403,77 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
   text
 }
 
-#' Creates the tree prior section in the priotr section of
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file
+#' for a Birth-Death tree prior
+#' @param bd_birth_rate_distribution a Birth-Death birth rate distribution,
+#'   as created by \code{\link{create_distribution}}
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @usage
+#' create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
+#'   bd_birth_rate_distribution,
+#'   id
+#' )
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  bd_birth_rate_distribution,
+  id
+) {
+  text <- NULL
+  text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
+    "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
+  text <- c(text,
+    distribution_to_xml(
+      distribution = bd_birth_rate_distribution,
+      n_spaces = 4
+    )
+  )
+  text <- c(text, paste0("</prior>"))
+  text
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file
+#' for a Birth-Death tree prior
+#' @param bd_death_rate_distribution a Birth-Death death rate distribution,
+#'   as created by \code{\link{create_distribution}}
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @usage
+#' create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
+#'   bd_death_rate_distribution,
+#'   id
+#' )
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  bd_death_rate_distribution,
+  id
+) {
+  text <- NULL
+  text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
+    "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
+  text <- c(text,
+    distribution_to_xml(
+      distribution = bd_death_rate_distribution,
+      n_spaces = 4
+    )
+  )
+  text <- c(text, paste0("</prior>"))
+  text
+}
+
+
+
+
+#' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Yule tree prior
@@ -418,6 +505,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- funct
   text <- c(text, paste0("</prior>"))
   text
 }
+
 
 #' Creates the site models section in the priotr section of
 #' the prior section of the distribution section
