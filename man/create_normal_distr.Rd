@@ -4,11 +4,17 @@
 \alias{create_normal_distr}
 \title{Create an normal distribution}
 \usage{
-create_normal_distr()
+create_normal_distr(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a normal distribution
 }
 \description{
 Create an normal distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

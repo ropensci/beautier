@@ -5,7 +5,11 @@ test_that("use", {
   fasta_filename <- get_input_fasta_filename()
   testthat::expect_silent(
     create_beast2_input_beast(
-      input_fasta_filenames = fasta_filename)
+      input_fasta_filenames = fasta_filename,
+      tree_priors = create_yule_tree_prior(
+        birth_rate_distribution = create_uniform_distr(id = 1)
+      )
+    )
   )
 })
 

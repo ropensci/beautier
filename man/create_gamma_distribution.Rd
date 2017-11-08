@@ -4,11 +4,17 @@
 \alias{create_gamma_distribution}
 \title{Create a gamma distribution}
 \usage{
-create_gamma_distribution()
+create_gamma_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a gamma distribution
 }
 \description{
 Create a gamma distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

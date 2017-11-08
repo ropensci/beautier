@@ -4,7 +4,7 @@
 \alias{create_distribution}
 \title{General function to create a distribution.}
 \usage{
-create_distribution(name, id = NA, ...)
+create_distribution(name, id, ...)
 }
 \arguments{
 \item{name}{the distribution name. Valid

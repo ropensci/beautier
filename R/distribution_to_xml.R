@@ -11,6 +11,9 @@ distribution_to_xml <- function(
 ) {
   text <- NULL
   id <- beautier::get_distribution_id(distribution)
+  if (is.na(id)) {
+    stop("distribution must have an ID")
+  }
   if (is_uniform_distribution(distribution)) {
     text <- c(text, paste0("<Uniform ",
       "id=\"Uniform.", id, "\" ",

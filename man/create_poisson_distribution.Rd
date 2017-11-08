@@ -4,11 +4,17 @@
 \alias{create_poisson_distribution}
 \title{Create a Poisson distribution}
 \usage{
-create_poisson_distribution()
+create_poisson_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a Poisson distribution
 }
 \description{
 Create a Poisson distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

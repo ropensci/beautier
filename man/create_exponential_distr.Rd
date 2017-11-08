@@ -4,11 +4,17 @@
 \alias{create_exponential_distr}
 \title{Create an exponential distribution}
 \usage{
-create_exponential_distr()
+create_exponential_distr(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 an exponential distribution
 }
 \description{
 Create an exponential distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

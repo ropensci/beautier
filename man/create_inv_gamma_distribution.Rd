@@ -4,11 +4,17 @@
 \alias{create_inv_gamma_distribution}
 \title{Create an inverse gamma distribution}
 \usage{
-create_inv_gamma_distribution()
+create_inv_gamma_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 an inverse gamma distribution
 }
 \description{
 Create an inverse gamma distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

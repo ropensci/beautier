@@ -4,11 +4,17 @@
 \alias{create_laplace_distribution}
 \title{Create a Laplace distribution}
 \usage{
-create_laplace_distribution()
+create_laplace_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a Laplace distribution
 }
 \description{
 Create a Laplace distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

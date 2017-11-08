@@ -4,11 +4,17 @@
 \alias{create_log_normal_distribution}
 \title{Create a log-normal distribution}
 \usage{
-create_log_normal_distribution()
+create_log_normal_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a log-normal distribution
 }
 \description{
 Create a log-normal distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

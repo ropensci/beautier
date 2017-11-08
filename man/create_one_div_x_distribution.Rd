@@ -4,11 +4,17 @@
 \alias{create_one_div_x_distribution}
 \title{Create a 1/x distribution}
 \usage{
-create_one_div_x_distribution()
+create_one_div_x_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a 1/x distribution
 }
 \description{
 Create a 1/x distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

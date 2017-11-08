@@ -4,11 +4,17 @@
 \alias{create_beta_distribution}
 \title{Create a beta distribution}
 \usage{
-create_beta_distribution()
+create_beta_distribution(id = NA)
+}
+\arguments{
+\item{id}{the distribution's ID}
 }
 \value{
 a beta distribution
 }
 \description{
 Create a beta distribution
+}
+\author{
+Richel J.C. Bilderbeek
 }

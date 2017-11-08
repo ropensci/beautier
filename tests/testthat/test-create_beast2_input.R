@@ -8,7 +8,10 @@ test_that("checks input", {
 
   testthat::expect_silent(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename()
+      input_fasta_filenames = get_input_fasta_filename(),
+      tree_priors = create_yule_tree_prior(
+        birth_rate_distribution = create_uniform_distr(id = 1)
+      )
     )
   )
 
@@ -820,7 +823,7 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_normal_distr()
+      birth_rate_distribution = create_normal_distr(id = 0)
     )
   )
 
@@ -843,14 +846,12 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
 
 })
 
-
-
 test_that("Reproduce birth_rate_one_div_x_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_one_div_x_distribution()
+      birth_rate_distribution = create_one_div_x_distribution(id = 0)
     )
   )
 
@@ -878,7 +879,7 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_log_normal_distribution()
+      birth_rate_distribution = create_log_normal_distribution(id = 0)
     )
   )
 
@@ -906,7 +907,7 @@ test_that("Reproduce birth_rate_exponential_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_exponential_distr()
+      birth_rate_distribution = create_exponential_distr(id = 0)
     )
   )
 
@@ -935,7 +936,7 @@ test_that("Reproduce birth_rate_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_yule_tree_prior(
-      birth_rate_distribution = beautier::create_gamma_distribution()
+      birth_rate_distribution = beautier::create_gamma_distribution(id = 0)
     )
   )
 
@@ -963,7 +964,7 @@ test_that("Reproduce birth_rate_beta_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_beta_distribution()
+      birth_rate_distribution = create_beta_distribution(id = 0)
     )
   )
 
@@ -991,7 +992,7 @@ test_that("Reproduce birth_rate_laplace_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_laplace_distribution()
+      birth_rate_distribution = create_laplace_distribution(id = 0)
     )
   )
 
@@ -1019,7 +1020,7 @@ test_that("Reproduce birth_rate_inv_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_inv_gamma_distribution()
+      birth_rate_distribution = create_inv_gamma_distribution(id = 0)
     )
   )
 
@@ -1047,7 +1048,7 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_poisson_distribution()
+      birth_rate_distribution = create_poisson_distribution(id = 0)
     )
   )
 
@@ -1069,11 +1070,6 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
   testthat::expect_identical(created_lines, expected_lines)
 
 })
-
-
-
-
-
 
 ################################################################################
 # Initial phylogenies
@@ -1266,8 +1262,11 @@ test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
     site_models = list(create_hky_site_model(), create_tn93_site_model()),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)),
-      create_yule_tree_prior()
+        birth_rate_distribution = create_uniform_distr(id = 1)
+      ),
+      create_yule_tree_prior(
+        birth_rate_distribution = create_uniform_distr(id = 2)
+      )
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,

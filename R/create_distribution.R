@@ -19,7 +19,7 @@
 #' @export
 create_distribution <- function(
   name,
-  id = NA,
+  id,
   ...
 ) {
   if (!is_distribution_name(name)) {
@@ -61,109 +61,145 @@ create_uniform_distr <- function(
 }
 
 #' Create an normal distribution
+#' @inheritParams create_distribution
 #' @return a normal distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_normal_distr <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "normal"
+      name = "normal",
+      id = id
     )
   )
 }
 
 #' Create a 1/x distribution
+#' @inheritParams create_distribution
 #' @return a 1/x distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_one_div_x_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "one_div_x"
+      name = "one_div_x",
+      id = id
     )
   )
 }
 
 #' Create a log-normal distribution
+#' @inheritParams create_distribution
 #' @return a log-normal distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_log_normal_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "log_normal"
+      name = "log_normal",
+      id = id
     )
   )
 }
 
 #' Create an exponential distribution
+#' @inheritParams create_distribution
 #' @return an exponential distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_exponential_distr <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "exponential"
+      name = "exponential",
+      id = id
     )
   )
 }
 
 #' Create a gamma distribution
+#' @inheritParams create_distribution
 #' @return a gamma distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_gamma_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "gamma"
+      name = "gamma",
+      id = id
     )
   )
 }
 
 #' Create a beta distribution
+#' @inheritParams create_distribution
 #' @return a beta distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_beta_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "beta"
+      name = "beta",
+      id = id
     )
   )
 }
 
 #' Create a Laplace distribution
+#' @inheritParams create_distribution
 #' @return a Laplace distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_laplace_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "laplace"
+      name = "laplace",
+      id = id
     )
   )
 }
 
 #' Create an inverse gamma distribution
+#' @inheritParams create_distribution
 #' @return an inverse gamma distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_inv_gamma_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "inv_gamma"
+      name = "inv_gamma",
+      id = id
     )
   )
 }
 
 #' Create a Poisson distribution
+#' @inheritParams create_distribution
 #' @return a Poisson distribution
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_poisson_distribution <- function(
+  id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "poisson"
+      name = "poisson",
+      id = id
     )
   )
 }
