@@ -3,16 +3,11 @@
 #'   Tree priors can be created using \code{\link{create_tree_prior}}
 #' @return a list of initialized tree priors
 #' @author Richel J.C. Bilderbeek
-#' @export
 initialize_tree_priors <- function(
   tree_priors
 ) {
-  if (is_tree_prior(tree_priors)) {
-    tree_priors <- list(tree_priors)
-  }
-  if (!are_tree_priors(tree_priors)) {
-    stop("Must supply valid tree priors")
-  }
+  testit::assert(are_tree_priors(tree_priors))
+
   id <- 0
 
   for (i in seq_along(tree_priors)) {
@@ -63,14 +58,12 @@ initialize_tree_priors <- function(
 #' @param id the index of the first distribution
 #' @return an initialized Birth-Death tree prior
 #' @author Richel J.C. Bilderbeek
-#' @export
 initialize_bd_tree_prior <- function(
   bd_tree_prior,
   id
 ) {
-  if (!is_bd_tree_prior(bd_tree_prior)) {
-    stop("Must supply a valid Birth-Death tree prior")
-  }
+  testit::assert(is_bd_tree_prior(bd_tree_prior))
+
   # birth-rate
   birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
     bd_tree_prior)
@@ -100,14 +93,12 @@ initialize_bd_tree_prior <- function(
 #' @param id the index of the first distribution
 #' @return an initialized Coalescent Constant Population tree prior
 #' @author Richel J.C. Bilderbeek
-#' @export
 initialize_ccp_tree_prior <- function(
   ccp_tree_prior,
   id
 ) {
-  if (!is_ccp_tree_prior(ccp_tree_prior)) {
-    stop("Must supply a valid CCP tree prior")
-  }
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+
   pop_size_distribution <- beautier::get_ccp_pop_size_distr(
     ccp_tree_prior)
   testit::assert(beautier::is_distribution(pop_size_distribution))
@@ -126,14 +117,11 @@ initialize_ccp_tree_prior <- function(
 #' @param id the index of the first distribution
 #' @return an initialized Coalescent Exponential Population tree prior
 #' @author Richel J.C. Bilderbeek
-#' @export
 initialize_cep_tree_prior <- function(
   cep_tree_prior,
   id
 ) {
-  if (!is_cep_tree_prior(cep_tree_prior)) {
-    stop("Must supply a valid CEP tree prior")
-  }
+  testit::assert(is_cep_tree_prior(cep_tree_prior))
 
   # pop_size
   pop_size_distribution <- beautier::get_cep_pop_size_distr(cep_tree_prior)
@@ -162,14 +150,12 @@ initialize_cep_tree_prior <- function(
 #' @param id the index of the first distribution
 #' @return an initialized Yule tree prior
 #' @author Richel J.C. Bilderbeek
-#' @export
 initialize_yule_tree_prior <- function(
   yule_tree_prior,
   id
 ) {
-  if (!is_yule_tree_prior(yule_tree_prior)) {
-    stop("Must supply a valid Yule tree prior")
-  }
+  testit::assert(is_yule_tree_prior(yule_tree_prior))
+
   birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
     yule_tree_prior)
   testit::assert(beautier::is_distribution(birth_rate_distribution))

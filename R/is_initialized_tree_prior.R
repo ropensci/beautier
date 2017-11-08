@@ -16,10 +16,10 @@ is_initialized_tree_prior <- function(
     return(beautier::is_initialized_ccp_tree_prior(x))
   } else if (beautier::is_cep_tree_prior(x)) {
     return(beautier::is_initialized_cep_tree_prior(x))
-  } else if (beautier::is_yule_tree_prior(x)) {
+  } else {
+    testit::assert(beautier::is_yule_tree_prior(x))
     return(beautier::is_initialized_yule_tree_prior(x))
   }
-  return(TRUE)
 }
 
 #' Determine if x is an initialized Birth-Death tree_prior object
