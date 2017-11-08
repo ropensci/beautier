@@ -15,17 +15,13 @@ The purpose of `beautier` is to create a valid `BEAST2` XML input file
 from its function argument. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-# Limitations
-
-`BEAUti2` contains multiple tree priors. This package currently
-only supports:
-
- * These tree priors:
-    * the constant-rate birth-death model
-    * the contant-population coalescent model
- * DNA data
-
 # Demonstration
+
+First, `beautier` is loaded:
+
+```{r}
+library(beautier)
+```
 
 A BEAST2 XML input file needs an alignment (as BEAST2 infers
 phylogenies and parameters on DNA sequences). in this demonstration,

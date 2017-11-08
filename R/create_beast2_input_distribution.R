@@ -291,7 +291,8 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
     tree_prior <- tree_priors[[i]]
     testit::assert(beautier::is_clock_model(clock_model))
 
-    tree_priors_text <- beautier::create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior, i = i) # nolint
+    # No beautier:: before create_beast2_input_distribution_prior_prior_tree_prior, as it is private # nolint
+    tree_priors_text <- create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior, i = i) # nolint
     site_models_text <- beautier::create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
     gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
     clock_models_text <- create_beast2_input_distribution_clock_models(id = id, clock_model = clock_model) # nolint
