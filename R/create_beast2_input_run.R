@@ -7,7 +7,6 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_run <- function(
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
@@ -59,7 +58,7 @@ create_beast2_input_run <- function(
     )
   )
 
-  text <- c(text, beautier::create_beast2_input_operators(
+  text <- c(text, beautier:::create_beast2_input_operators(
     ids = ids,
     site_models = site_models,
     clock_models = clock_models,

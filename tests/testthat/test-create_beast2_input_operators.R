@@ -32,7 +32,7 @@ testthat::expect_error(
 
   # Two IDs, one site model
   testthat::expect_error(
-    beautier::create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = c("a", "b"),
       site_models = create_jc69_site_model()
     )
@@ -40,7 +40,7 @@ testthat::expect_error(
 
   # Two IDs, one clock model
   testthat::expect_error(
-    beautier::create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = c("a", "b"),
       clock_models = create_strict_clock_model()
     )
@@ -48,7 +48,7 @@ testthat::expect_error(
 
   # Two IDs, one tree prior
   testthat::expect_error(
-    beautier::create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = c("a", "b"),
       clock_models = create_yule_tree_prior()
     )
@@ -61,15 +61,15 @@ test_that("Operators that change crown age are absent at fixed crown age", {
   input_fasta_filename <- beautier::get_input_fasta_filename()
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
-  created_lines_fixed <- beautier::create_beast2_input_operators(
+  created_lines_fixed <- beautier:::create_beast2_input_operators(
     ids = "test_output_0",
-    tree_priors = create_tree_prior(name = "birth_death"),
+    tree_priors = create_yule_tree_priors(n = 1),
     fixed_crown_age = TRUE
   )
 
-  created_lines_nonfixed <- beautier::create_beast2_input_operators(
+  created_lines_nonfixed <- beautier:::create_beast2_input_operators(
     ids = "test_output_0",
-    tree_priors = create_tree_prior(name = "birth_death"),
+    tree_priors = create_yule_tree_priors(n = 1),
     fixed_crown_age = FALSE
   )
 

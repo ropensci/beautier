@@ -5,7 +5,6 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
@@ -13,15 +12,14 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
   tree_priors = create_yule_tree_priors(n = length(ids)),
   fixed_crown_age
 ) {
-
-  if (is_tree_prior(tree_priors)) {
-    tree_priors <- list(tree_priors)
-  }
   testit::assert(beautier::are_ids(ids))
   testit::assert(is.logical(fixed_crown_age))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
+  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
   n <- length(ids)

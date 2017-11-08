@@ -9,7 +9,6 @@
 #' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
