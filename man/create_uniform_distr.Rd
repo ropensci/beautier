@@ -8,6 +8,8 @@ create_uniform_distr(id = NA, upper = Inf)
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{upper}{an upper limit of the uniform distribution}
 }
 \value{
 a uniform distribution

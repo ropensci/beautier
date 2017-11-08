@@ -46,6 +46,7 @@ create_distribution <- function(
 
 #' Create a uniform distribution
 #' @inheritParams create_distribution
+#' @param upper an upper limit of the uniform distribution
 #' @return a uniform distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
