@@ -3,22 +3,21 @@
 #'   initialized tree_priors object
 #' @return TRUE if x is an initialized tree_prior object
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_initialized_tree_prior <- function(
   x
 ) {
   if (!beautier::is_tree_prior(x)) return(FALSE)
-  if (beautier::is_bd_tree_prior(x)) {
-    return(beautier::is_initialized_bd_tree_prior(x))
-  } else if (beautier::is_cbs_tree_prior(x)) {
-    return(beautier::is_initialized_cbs_tree_prior(x))
-  } else if (beautier::is_ccp_tree_prior(x)) {
-    return(beautier::is_initialized_ccp_tree_prior(x))
-  } else if (beautier::is_cep_tree_prior(x)) {
-    return(beautier::is_initialized_cep_tree_prior(x))
+  if (is_bd_tree_prior(x)) {
+    return(is_initialized_bd_tree_prior(x))
+  } else if (is_cbs_tree_prior(x)) {
+    return(is_initialized_cbs_tree_prior(x))
+  } else if (is_ccp_tree_prior(x)) {
+    return(is_initialized_ccp_tree_prior(x))
+  } else if (is_cep_tree_prior(x)) {
+    return(is_initialized_cep_tree_prior(x))
   } else {
-    testit::assert(beautier::is_yule_tree_prior(x))
-    return(beautier::is_initialized_yule_tree_prior(x))
+    testit::assert(is_yule_tree_prior(x))
+    return(is_initialized_yule_tree_prior(x))
   }
 }
 
@@ -27,13 +26,10 @@ is_initialized_tree_prior <- function(
 #'   initialized Birth-Death tree prior object
 #' @return TRUE if x is an initialized Birth-Death tree_prior object
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_initialized_bd_tree_prior <- function(
   x
 ) {
-  if (!is_bd_tree_prior(x)) {
-    stop("Must supply a Birth Death tree prior object")
-  }
+  testit::assert(is_bd_tree_prior(x))
 
   return(
     !is.na(
@@ -60,9 +56,8 @@ is_initialized_bd_tree_prior <- function(
 is_initialized_cbs_tree_prior <- function(
   x
 ) {
-  if (!is_cbs_tree_prior(x)) {
-    stop("Must supply a Coalescent Bayesian Skyline tree prior object")
-  }
+  testit::assert(is_cbs_tree_prior(x))
+
   # Yup, is always initialized
   TRUE
 }
@@ -78,9 +73,8 @@ is_initialized_cbs_tree_prior <- function(
 is_initialized_ccp_tree_prior <- function(
   x
 ) {
-  if (!is_ccp_tree_prior(x)) {
-    stop("Must supply a Coalescent Constant Population tree prior object")
-  }
+  testit::assert(is_ccp_tree_prior(x))
+
   return(
     !is.na(
       get_distribution_id(
@@ -101,9 +95,8 @@ is_initialized_ccp_tree_prior <- function(
 is_initialized_cep_tree_prior <- function(
   x
 ) {
-  if (!is_cep_tree_prior(x)) {
-    stop("Must supply a Coalescent Exponential Population tree prior object")
-  }
+  testit::assert(is_cep_tree_prior(x))
+
   return(
     !is.na(
       get_distribution_id(
@@ -128,9 +121,8 @@ is_initialized_cep_tree_prior <- function(
 is_initialized_yule_tree_prior <- function(
   x
 ) {
-  if (!is_yule_tree_prior(x)) {
-    stop("Must supply a Yule tree prior object")
-  }
+  testit::assert(is_yule_tree_prior(x))
+
   return(
     !is.na(
       get_distribution_id(
