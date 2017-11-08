@@ -24,10 +24,9 @@ test_that("initialize BD prior", {
 
 test_that("initialize CBS prior", {
 
-  skip("WIP")
-
   before <- list(create_cbs_tree_prior())
-  testit::assert(!are_initialized_tree_priors(before))
+  # CBS is always initialized
+  testit::assert(are_initialized_tree_priors(before))
   after <- initialize_tree_priors(before)
   testthat::expect_true(are_initialized_tree_priors(after))
 
