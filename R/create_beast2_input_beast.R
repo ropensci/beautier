@@ -58,7 +58,7 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, beautier::create_beast2_input_map())
+  text <- c(text, create_beast2_input_map())
 
   text <- c(text, "")
   text <- c(text, "")

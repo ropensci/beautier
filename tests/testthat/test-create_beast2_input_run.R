@@ -5,8 +5,10 @@ test_that("usage", {
   testthat::expect_silent(
     create_beast2_input_run(
       ids = "test_output_0",
-      tree_priors = create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
+      tree_priors = list(
+        create_yule_tree_prior(
+          birth_rate_distribution = create_uniform_distr(id = 1)
+        )
       )
     )
   )

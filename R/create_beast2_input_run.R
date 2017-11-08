@@ -17,20 +17,14 @@ create_beast2_input_run <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(ids))
 ) {
-  if (is_site_model(site_models)) {
-    site_models <- list(site_models)
-  }
-  if (is_clock_model(clock_models)) {
-    clock_models <- list(clock_models)
-  }
-  if (is_tree_prior(tree_priors)) {
-    tree_priors <- list(tree_priors)
-  }
-  testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(initial_phylogenies))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
+  testit::assert(beautier::are_ids(ids))
+  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
 

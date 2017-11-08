@@ -84,6 +84,6 @@ create_beast2_input <- function(
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies
   )
-  text[1] <- paste0(beautier::create_beast2_input_xml(), text[1])
+  text[1] <- paste0(create_beast2_input_xml(), text[1])
   text
 }

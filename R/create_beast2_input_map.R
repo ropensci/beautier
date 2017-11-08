@@ -1,7 +1,6 @@
 #' Creates the map section of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_map <- function() {
   text <- NULL
   text <- c(text,
