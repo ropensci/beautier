@@ -52,9 +52,9 @@ create_beast2_input_state <- function(
     # 2) freq
     # 3) gamma shape
     # Order is determined by site model and Gamma Category Count :-(
-    rates <- beautier::create_beast2_input_state_site_models_rates(id = id, site_model = site_model) # nolint
-    freq_parameters <- beautier::create_beast2_input_state_gamma_site_models_freq_parameters(id = id, site_model = site_model) # nolint
-    gamma_shape <- beautier::create_beast2_input_state_gamma_site_models_gamma_shape(id = id, site_model = site_model) # nolint
+    rates <- create_beast2_input_state_site_models_rates(id = id, site_model = site_model) # nolint
+    freq_parameters <- create_beast2_input_state_gamma_site_models_freq_parameters(id = id, site_model = site_model) # nolint
+    gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(id = id, site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
     if (gcc == 0) {
@@ -86,7 +86,7 @@ create_beast2_input_state <- function(
       }
     }
 
-    text <- c(text, beautier::create_beast2_input_state_clock_model(
+    text <- c(text, create_beast2_input_state_clock_model(
       id = id, clock_model = clock_model))
 
   }
@@ -102,7 +102,6 @@ create_beast2_input_state <- function(
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   tree_priors = create_yule_tree_priors(n = length(ids)),
@@ -160,7 +159,6 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior
@@ -198,7 +196,6 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state_site_models_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
@@ -236,7 +233,6 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
@@ -259,7 +255,6 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
@@ -282,7 +277,6 @@ create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolin
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
