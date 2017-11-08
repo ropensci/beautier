@@ -519,7 +519,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # noli
   id,
   yule_tree_prior
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior))
+  testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
   text <- NULL
 
   # birth rate
