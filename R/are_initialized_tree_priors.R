@@ -8,7 +8,7 @@ are_initialized_tree_priors <- function(
 ) {
   if (!beautier::are_tree_priors(x)) return(FALSE)
   for (i in x) {
-    if (!is_initialized_tree_prior(i)) return(FALSE)
+    if (!is_initialized_tree_prior(i)) return(FALSE)   # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   }
   return(TRUE)
 }

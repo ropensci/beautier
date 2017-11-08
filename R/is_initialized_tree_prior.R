@@ -8,16 +8,16 @@ is_initialized_tree_prior <- function(
 ) {
   if (!beautier::is_tree_prior(x)) return(FALSE)
   if (beautier::is_bd_tree_prior(x)) {
-    return(is_initialized_bd_tree_prior(x))
+    return(is_initialized_bd_tree_prior(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   } else if (beautier::is_cbs_tree_prior(x)) {
-    return(is_initialized_cbs_tree_prior(x))
+    return(is_initialized_cbs_tree_prior(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   } else if (beautier::is_ccp_tree_prior(x)) {
-    return(is_initialized_ccp_tree_prior(x))
+    return(is_initialized_ccp_tree_prior(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   } else if (beautier::is_cep_tree_prior(x)) {
-    return(is_initialized_cep_tree_prior(x))
+    return(is_initialized_cep_tree_prior(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   } else {
     testit::assert(beautier::is_yule_tree_prior(x))
-    return(is_initialized_yule_tree_prior(x))
+    return(is_initialized_yule_tree_prior(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   }
 }
 
