@@ -121,7 +121,7 @@ initialize_ccp_tree_prior <- function(
 }
 
 #' Initializes a Coalescent Exponential Population tree prior
-#' @param ccp_tree_prior a Coalescent Exponential Population tree prior,
+#' @param cep_tree_prior a Coalescent Exponential Population tree prior,
 #'   as returned by \code{\link{create_cep_tree_prior}}
 #' @param id the index of the first distribution
 #' @return an initialized Coalescent Exponential Population tree prior

@@ -7,10 +7,10 @@
 initialize_cep_tree_prior(cep_tree_prior, id)
 }
 \arguments{
-\item{id}{the index of the first distribution}
-
-\item{ccp_tree_prior}{a Coalescent Exponential Population tree prior,
+\item{cep_tree_prior}{a Coalescent Exponential Population tree prior,
 as returned by \code{\link{create_cep_tree_prior}}}
+
+\item{id}{the index of the first distribution}
 }
 \value{
 an initialized Coalescent Exponential Population tree prior
