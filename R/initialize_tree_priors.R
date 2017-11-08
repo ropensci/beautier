@@ -6,43 +6,43 @@
 initialize_tree_priors <- function(
   tree_priors
 ) {
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   id <- 0
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    testit::assert(is_tree_prior(tree_prior))
+    testit::assert(beautier::is_tree_prior(tree_prior))
 
     if (is_bd_tree_prior(tree_prior)) {
 
       if (!is_initialized_bd_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_bd_tree_prior(tree_prior, id = id)
-        testit::assert(is_initialized_bd_tree_prior(tree_prior))
+        tree_prior <- initialize_bd_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        testit::assert(is_initialized_bd_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 2 # Has two distributions
       }
     } else if (is_ccp_tree_prior(tree_prior)) {
 
       if (!is_initialized_ccp_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_ccp_tree_prior(tree_prior, id = id)
-        testit::assert(is_initialized_ccp_tree_prior(tree_prior))
+        tree_prior <- initialize_ccp_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        testit::assert(is_initialized_ccp_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 1 # Has one distribution
       }
     } else if (is_cep_tree_prior(tree_prior)) {
       if (!is_initialized_cep_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_cep_tree_prior(tree_prior, id = id)
-        testit::assert(is_initialized_cep_tree_prior(tree_prior))
+        tree_prior <- initialize_cep_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        testit::assert(is_initialized_cep_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 2 # Has two distribution
       }
     } else if (is_yule_tree_prior(tree_prior)) {
 
       if (!is_initialized_yule_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_yule_tree_prior(tree_prior, id = id)
-        testit::assert(is_initialized_yule_tree_prior(tree_prior))
+        tree_prior <- initialize_yule_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        testit::assert(is_initialized_yule_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 1 # Has one distribution
       }
     }
@@ -67,15 +67,11 @@ initialize_bd_tree_prior <- function(
   # birth-rate
   birth_rate_distribution <- get_bd_birth_rate_distr(
     bd_tree_prior)
-  testit::assert(is_distribution(birth_rate_distribution))
-  testit::assert("id" %in% names(birth_rate_distribution))
   birth_rate_distribution$id <- id
 
   # death rate
   death_rate_distribution <- get_bd_death_rate_distr(
     bd_tree_prior)
-  testit::assert(is_distribution(death_rate_distribution))
-  testit::assert("id" %in% names(death_rate_distribution))
   death_rate_distribution$id <- id + 1
 
   result <- create_bd_tree_prior(
@@ -101,8 +97,6 @@ initialize_ccp_tree_prior <- function(
 
   pop_size_distribution <- get_ccp_pop_size_distr(
     ccp_tree_prior)
-  testit::assert(is_distribution(pop_size_distribution))
-  testit::assert("id" %in% names(pop_size_distribution))
   pop_size_distribution$id <- id
   result <- create_ccp_tree_prior(
     pop_size_distribution =  pop_size_distribution
@@ -125,15 +119,11 @@ initialize_cep_tree_prior <- function(
 
   # pop_size
   pop_size_distribution <- get_cep_pop_size_distr(cep_tree_prior)
-  testit::assert(is_distribution(pop_size_distribution))
-  testit::assert("id" %in% names(pop_size_distribution))
   pop_size_distribution$id <- id
 
   # growth rate
   growth_rate_distribution <- get_cep_growth_rate_distr(
     cep_tree_prior)
-  testit::assert(is_distribution(growth_rate_distribution))
-  testit::assert("id" %in% names(growth_rate_distribution))
   growth_rate_distribution$id <- id + 1
 
   result <- create_cep_tree_prior(
@@ -158,8 +148,6 @@ initialize_yule_tree_prior <- function(
 
   birth_rate_distribution <- get_yule_birth_rate_distr(
     yule_tree_prior)
-  testit::assert(is_distribution(birth_rate_distribution))
-  testit::assert("id" %in% names(birth_rate_distribution))
   birth_rate_distribution$id <- id
   result <- create_yule_tree_prior(
     birth_rate_distribution =  birth_rate_distribution

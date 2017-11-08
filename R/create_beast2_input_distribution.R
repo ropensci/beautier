@@ -18,7 +18,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(are_initialized_tree_priors(tree_priors))
+  testit::assert(are_initialized_tree_priors(tree_priors)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
   text <- NULL
   text <- c(text,
