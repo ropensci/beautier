@@ -13,7 +13,7 @@ and create a BEAST2 input file called `my_beast.xml`.
 
 Using all default settings, only specify a DNA alignment.
 
-![All default](all_default.png)
+![All default](pics/all_default.png)
 
 ```
 create_beast2_input_file(
@@ -48,7 +48,7 @@ a FASTA file of a certain crown age.
 
 ## Example #3: JC69 site model
 
-![JC69](jc69_2_4.png)
+![JC69](pics/jc69_2_4.png)
 
 ```
 create_beast2_input_file(
@@ -60,7 +60,7 @@ create_beast2_input_file(
 
 ## Example #4: Relaxed clock log normal
 
-![Relaxed clock log normal](relaxed_clock_log_normal_2_4.png)
+![Relaxed clock log normal](pics/relaxed_clock_log_normal_2_4.png)
 
 ```
 create_beast2_input_file(
@@ -72,7 +72,7 @@ create_beast2_input_file(
 
 ## Example #5: Birth-Death tree prior
 
-![Birth-Death tree prior](birth_death_2_4.png)
+![Birth-Death tree prior](pics/birth_death_2_4.png)
 
 ```
 create_beast2_input_file(
@@ -84,7 +84,7 @@ create_beast2_input_file(
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
-![Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
+![Yule tree prior with a normally distributed birth rate](pics/birth_rate_normal_2_4.png)
 
 ```
 create_beast2_input_file(
@@ -100,7 +100,7 @@ Thanks to Yacine Ben Chehida for this use case
 
 ## Example #7: HKY site model with a non-zero proportion of invariants
 
-![HKY example](hky_prop_invariant_0_5_2_4.png)
+![HKY example](pics/hky_prop_invariant_0_5_2_4.png)
 
 ```
 create_beast2_input_file(
@@ -116,7 +116,7 @@ Thanks to Yacine Ben Chehida for this use case
 
 ## Example #8: Strict clock with a known clock rate
 
-![Strict clock with a rate of 0.5](strict_clock_rate_0_5_2_4.png)
+![Strict clock with a rate of 0.5](pics/strict_clock_rate_0_5_2_4.png)
 
 ```
 create_beast2_input_file(
@@ -130,7 +130,7 @@ Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
 ## Example #9: Two alignments
 
-![anthus_2_4.png](anthus_2_4.png.png)
+![anthus_2_4.png](pics/anthus_2_4.png.png)
 
 ```
 create_beast2_input_file(
@@ -143,7 +143,7 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 
 ## Example #10: Two alignments, different site models
 
-![Example 9](aco_hky_nd2_tn93.png)
+![Example 10](pics/aco_hky_nd2_tn93.png)
 
 ```
 beautier::create_beast2_input_file(
