@@ -13,7 +13,7 @@ create_posterior(n_taxa, sequence_length,
 
 \item{sequence_length}{a DNA sequence length, in base pairs}
 
-\item{tree_priors}{On or more tree priors,
+\item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
 \item{mcmc}{one mcmc object,

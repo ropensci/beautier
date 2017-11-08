@@ -11,7 +11,7 @@ create_beast2_input_loggers_tree_priors(id, tree_priors)
 \item{id}{the ID of the alignment (can be extracted from
 its FASTA filesname using \code{\link{get_id}})}
 
-\item{tree_priors}{On or more tree priors,
+\item{tree_priors}{a list of one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 }
 \description{

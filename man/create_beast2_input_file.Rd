@@ -20,10 +20,10 @@ function. BEAST2 uses this file as input.}
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 
-\item{clock_models}{On or more clock models,
+\item{clock_models}{one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 
-\item{tree_priors}{On or more tree priors,
+\item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
 \item{mcmc}{one mcmc object,

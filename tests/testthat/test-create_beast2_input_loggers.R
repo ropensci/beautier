@@ -22,7 +22,7 @@ test_that("abuse", {
   testthat::expect_error(
     create_beast2_input_loggers(
       ids = ids,
-      site_models = create_jc69_site_model()
+      site_models = list(create_jc69_site_model())
     )
   )
 
@@ -30,7 +30,7 @@ test_that("abuse", {
   testthat::expect_error(
     create_beast2_input_loggers(
       ids = ids,
-      clock_models = create_strict_clock_model()
+      clock_models = list(create_strict_clock_model())
     )
   )
 
@@ -38,7 +38,7 @@ test_that("abuse", {
   testthat::expect_error(
     create_beast2_input_loggers(
       ids = ids,
-      tree_priors = create_yule_tree_prior()
+      tree_priors = list(create_yule_tree_prior())
     )
   )
 

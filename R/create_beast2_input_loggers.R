@@ -2,6 +2,12 @@
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_ids}})
 #' @inheritParams create_beast2_input
+#' @param site_models a list of one or more site models,
+#'   as returned by \code{\link{create_site_model}}
+#' @param tree_priors a list of one or more tree priors,
+#'   as returned by \code{\link{create_tree_prior}}
+#' @param clock_models a list of one or more clock models,
+#'   as returned by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
@@ -10,15 +16,6 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   clock_models = create_strict_clock_models(n = length(ids)),
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
-  if (is_site_model(site_models)) {
-    site_models <- list(site_models)
-  }
-  if (is_clock_model(clock_models)) {
-    clock_models <- list(clock_models)
-  }
-  if (is_tree_prior(tree_priors)) {
-    tree_priors <- list(tree_priors)
-  }
   testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))

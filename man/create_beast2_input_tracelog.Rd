@@ -13,13 +13,13 @@ create_beast2_input_tracelog(ids, site_models = create_jc69_site_models(n =
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_ids}})}
 
-\item{site_models}{one or more site models,
+\item{site_models}{a list of one or more site models,
 as returned by \code{\link{create_site_model}}}
 
-\item{clock_models}{On or more clock models,
+\item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 
-\item{tree_priors}{On or more tree priors,
+\item{tree_priors}{a list of one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 }
 \description{

@@ -11,7 +11,7 @@ create_beast2_input_state_tree(ids, tree_priors = create_yule_tree_priors(n =
 \item{ids}{the IDs of the alignments (can be extracted from
 their FASTA filesnames using \code{\link{get_id}})}
 
-\item{tree_priors}{On or more tree priors,
+\item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
