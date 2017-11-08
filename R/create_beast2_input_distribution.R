@@ -62,7 +62,6 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
@@ -102,7 +101,6 @@ create_beast2_input_distribution_prior <- function( # nolint long function name 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
@@ -180,12 +178,17 @@ create_beast2_input_distribution_likelihood <- function( # nolint long function 
     # Clock models
     if (i == 1) {
       text <- c(text,
-        beautier::create_beast2_input_distribution_clock_model_first(
-        id = id, clock_model = clock_model))
+        create_beast2_input_distribution_clock_model_first(
+          id = id, clock_model = clock_model
+        )
+      )
     } else {
       text <- c(text,
-        beautier::create_beast2_input_distribution_clock_model_other(
-        id = id, clock_model = clock_model))
+        create_beast2_input_distribution_clock_model_other(
+          id = id,
+          clock_model = clock_model
+        )
+      )
     }
 
     text <- c(text, "            </distribution>")
@@ -203,7 +206,6 @@ create_beast2_input_distribution_likelihood <- function( # nolint long function 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_prior_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   tree_priors = create_yule_tree_priors(n = length(ids))
@@ -275,7 +277,6 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
  create_beast2_input_distribution_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
@@ -293,8 +294,8 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 
     # No beautier:: before create_beast2_input_distribution_prior_prior_tree_prior, as it is private # nolint
     tree_priors_text <- create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior, i = i) # nolint
-    site_models_text <- beautier::create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
-    gamma_site_models_text <- beautier::create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
+    site_models_text <- create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
+    gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
     clock_models_text <- create_beast2_input_distribution_clock_models(id = id, clock_model = clock_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
@@ -408,7 +409,6 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   yule_birth_rate_distribution,
   id
@@ -436,7 +436,6 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- funct
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_prior_prior_site_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model,
@@ -586,7 +585,6 @@ create_beast2_input_distribution_prior_prior_site_model <- function( # nolint lo
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
@@ -617,7 +615,6 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
@@ -651,7 +648,6 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
@@ -700,7 +696,6 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_clock_model_first <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
@@ -745,7 +740,6 @@ create_beast2_input_distribution_clock_model_first <- function( # nolint long fu
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_clock_model_other <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
