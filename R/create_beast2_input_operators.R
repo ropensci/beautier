@@ -60,9 +60,9 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
       id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
 
     # There are three parts: rate, freq and gamma. Order differs
-    gamma_shape_scaler <- beautier::create_beast2_input_operators_gamma_shape_scaler(id = id, site_model = site_model) # nolint
-    frequencies_exchanger <- beautier::create_beast2_input_operators_frequencies_exchanger(id = id, site_model = site_model) # nolint
-    rates <- beautier::create_beast2_input_operators_rates(id = id, site_model = site_model) # nolint
+    gamma_shape_scaler <- create_beast2_input_operators_gamma_shape_scaler(id = id, site_model = site_model) # nolint
+    frequencies_exchanger <- create_beast2_input_operators_frequencies_exchanger(id = id, site_model = site_model) # nolint
+    rates <- create_beast2_input_operators_rates(id = id, site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model = site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model = site_model)) # nolint
 
@@ -110,7 +110,6 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_tree_priors_1 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior,
@@ -140,7 +139,6 @@ create_beast2_input_operators_tree_priors_1 <- function( # nolint long function 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_tree_priors_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior = create_yule_tree_prior(),
@@ -199,7 +197,6 @@ create_beast2_input_operators_tree_priors_2 <- function( # nolint long function 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_tree_priors_3 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior
@@ -254,7 +251,6 @@ create_beast2_input_operators_tree_priors_3 <- function( # nolint long function 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model = create_site_model(name = "JC69")
@@ -308,7 +304,6 @@ create_beast2_input_operators_rates <- function( # nolint long function name is 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_gamma_shape_scaler <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model = create_site_model(name = "JC69")
@@ -333,7 +328,6 @@ create_beast2_input_operators_gamma_shape_scaler <- function( # nolint long func
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_frequencies_exchanger <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model = create_site_model(name = "JC69")
@@ -360,7 +354,6 @@ create_beast2_input_operators_frequencies_exchanger <- function( # nolint long f
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_operators_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model = create_strict_clock_model()

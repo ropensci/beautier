@@ -19,8 +19,7 @@ output_xml_filename <- tempfile(pattern = "demo", fileext = ".xml")
 
 beautier::create_beast2_input_file(
   fasta_filename,
-  output_xml_filename,
-  tree_priors = create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 1))
+  output_xml_filename
 )
 
 ## ------------------------------------------------------------------------

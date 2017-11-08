@@ -91,7 +91,7 @@ test_that("Create BD posterior with random initial tree", {
 
   if (!beautier::is_on_travis()) return()
 
-    posterior <- create_posterior(
+  posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
     mcmc = create_mcmc(chain_length = 10000),
