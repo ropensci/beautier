@@ -4,7 +4,7 @@
 \alias{distribution_to_xml}
 \title{Converts a distribution to XML}
 \usage{
-distribution_to_xml(distribution, n_spaces)
+distribution_to_xml(distribution, n_spaces = 0)
 }
 \arguments{
 \item{distribution}{a distibution,

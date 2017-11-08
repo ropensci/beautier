@@ -7,7 +7,7 @@
 #' @export
 distribution_to_xml <- function(
   distribution,
-  n_spaces
+  n_spaces = 0
 ) {
   text <- NULL
   id <- beautier::get_distribution_id(distribution)
@@ -15,9 +15,16 @@ distribution_to_xml <- function(
     stop("distribution must have an ID")
   }
   if (is_uniform_distribution(distribution)) {
-    text <- c(text, paste0("<Uniform ",
-      "id=\"Uniform.", id, "\" ",
-      "name=\"distr\" upper=\"Infinity\"/>"))
+    line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")
+    line_end <- "/>"
+    upper <- distribution$upper
+    if (is.na(upper)) {
+      text <- c(text, paste0(line_begin, line_end))
+    } else if (is.infinite(upper)) {
+      text <- c(text, paste0(line_begin, " upper=\"Infinity\"", line_end))
+    } else {
+      text <- c(text, paste0(line_begin, " upper=\"", upper, "\"", line_end))
+    }
   } else if (is_normal_distribution(distribution)) {
     text <- c(text, paste0("<Normal ",
       "id=\"Normal.", id, "\" name=\"distr\">"))

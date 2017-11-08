@@ -78,7 +78,7 @@ create_bd_tree_prior <- function(
     beautier::create_tree_prior(
       name = "birth_death",
       birth_rate_distribution = birth_rate_distribution,
-      death_rate_distribution = birth_rate_distribution
+      death_rate_distribution = death_rate_distribution
     )
   )
 }

@@ -4,7 +4,7 @@
 \alias{create_uniform_distr}
 \title{Create a uniform distribution}
 \usage{
-create_uniform_distr(id = NA)
+create_uniform_distr(id = NA, upper = Inf)
 }
 \arguments{
 \item{id}{the distribution's ID}

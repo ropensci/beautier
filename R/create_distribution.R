@@ -50,12 +50,14 @@ create_distribution <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_uniform_distr <- function(
-  id = NA
+  id = NA,
+  upper = Inf
 ) {
   return(
     beautier::create_distribution(
       name = "uniform",
-      id = id
+      id = id,
+      upper = upper
     )
   )
 }

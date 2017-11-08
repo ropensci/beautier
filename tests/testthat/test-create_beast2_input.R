@@ -670,13 +670,11 @@ test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
 
 test_that("Reproduce birth_death_2_4.xml", {
 
-  skip("WIP")
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_bd_tree_prior(
-      birth_rate_distribution = beautier::create_uniform_distr(id = 3),
-      death_rate_distribution = beautier::create_uniform_distr(id = 4)
+      birth_rate_distribution = beautier::create_uniform_distr(id = 3, upper = "1000.0"),
+      death_rate_distribution = beautier::create_uniform_distr(id = 4, upper = NA)
     )
   )
 
