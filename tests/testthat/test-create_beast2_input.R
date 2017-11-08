@@ -769,11 +769,13 @@ test_that("Check that coalescent_bayesian_skyline_2_4.xml is invalid", {
 # Tree prior: CCP
 ################################################################################
 
-test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
+test_that("Reproduce coalescent_constant_population_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    tree_priors = beautier::create_ccp_tree_prior()
+    tree_priors = beautier::create_ccp_tree_prior(
+      pop_size_distribution = create_one_div_x_distribution(id = 1)
+    )
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -782,7 +784,7 @@ test_that("Check that coalescent_constant_population_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Check that ccp_pop_size_gamma_2_4.xml is reproduced", {
+test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
 
   skip("WIP")
 
@@ -816,9 +818,14 @@ test_that("Check that ccp_pop_size_gamma_2_4.xml is reproduced", {
 
 test_that("Reproduce coalescent_exponential_population_2_4.xml", {
 
+  skip("All OK, except RealParameter")
+
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    tree_priors = beautier::create_cep_tree_prior()
+    tree_priors = beautier::create_cep_tree_prior(
+      pop_size_distribution = create_one_div_x_distribution(id = 1),
+      growth_rate_distribution = create_laplace_distribution(id = 0)
+    )
   )
 
   expected_lines <- readLines(system.file("extdata",

@@ -63,7 +63,7 @@ is_initialized_cbs_tree_prior <- function(
   if (!is_cbs_tree_prior(x)) {
     stop("Must supply a Coalescent Bayesian Skyline tree prior object")
   }
-  # stub
+  # Yup, is always initialized
   TRUE
 }
 
@@ -81,8 +81,13 @@ is_initialized_ccp_tree_prior <- function(
   if (!is_ccp_tree_prior(x)) {
     stop("Must supply a Coalescent Constant Population tree prior object")
   }
-  # stub
-  TRUE
+  return(
+    !is.na(
+      get_distribution_id(
+        get_ccp_pop_size_distr(x)
+      )
+    )
+  )
 }
 
 #' Determine if x is an initialized Coalescent Exponential Population
@@ -99,8 +104,19 @@ is_initialized_cep_tree_prior <- function(
   if (!is_cep_tree_prior(x)) {
     stop("Must supply a Coalescent Exponential Population tree prior object")
   }
-  # stub
-  TRUE
+  return(
+    !is.na(
+      get_distribution_id(
+        get_cep_pop_size_distr(x)
+      )
+    )
+    &&
+    !is.na(
+      get_distribution_id(
+        get_cep_growth_rate_distr(x)
+      )
+    )
+  )
 }
 
 #' Determine if x is an initialized Yule tree_prior object

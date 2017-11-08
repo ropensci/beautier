@@ -107,7 +107,15 @@ create_ccp_tree_prior <- function(
 #' Create a Coalescent Exponential Population tree prior
 #' @return a Coalescent Exponential Population tree_prior
 #' @export
-create_cep_tree_prior <- function() {
-  return(beautier::create_tree_prior(
-    name = "coalescent_exponential_population"))
+create_cep_tree_prior <- function(
+  pop_size_distribution = create_one_div_x_distribution(),
+  growth_rate_distribution = create_laplace_distribution()
+) {
+  return(
+    beautier::create_tree_prior(
+      name = "coalescent_exponential_population",
+      pop_size_distribution = pop_size_distribution,
+      growth_rate_distribution = growth_rate_distribution
+    )
+  )
 }

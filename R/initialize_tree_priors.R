@@ -27,9 +27,22 @@ initialize_tree_priors <- function(
         testit::assert(beautier::is_initialized_bd_tree_prior(tree_prior))
         id <- id + 2 # Has two distributions
       }
-    }
+    } else if (beautier::is_ccp_tree_prior(tree_prior)) {
 
-    if (beautier::is_yule_tree_prior(tree_prior)) {
+      if (!beautier::is_initialized_ccp_tree_prior(tree_prior)) {
+
+        tree_prior <- beautier::initialize_ccp_tree_prior(tree_prior, id = id)
+        testit::assert(beautier::is_initialized_ccp_tree_prior(tree_prior))
+        id <- id + 1 # Has one distribution
+      }
+    } else if (beautier::is_cep_tree_prior(tree_prior)) {
+      if (!beautier::is_initialized_cep_tree_prior(tree_prior)) {
+
+        tree_prior <- beautier::initialize_cep_tree_prior(tree_prior, id = id)
+        testit::assert(beautier::is_initialized_cep_tree_prior(tree_prior))
+        id <- id + 2 # Has two distribution
+      }
+    } else if (beautier::is_yule_tree_prior(tree_prior)) {
 
       if (!beautier::is_initialized_yule_tree_prior(tree_prior)) {
 
@@ -80,6 +93,68 @@ initialize_bd_tree_prior <- function(
   result
 }
 
+
+#' Initializes a Coalescent Constant Population tree prior
+#' @param ccp_tree_prior a Coalescent Constant Population tree prior,
+#'   as returned by \code{\link{create_ccp_tree_prior}}
+#' @param id the index of the first distribution
+#' @return an initialized Coalescent Constant Population tree prior
+#' @author Richel J.C. Bilderbeek
+#' @export
+initialize_ccp_tree_prior <- function(
+  ccp_tree_prior,
+  id
+) {
+  if (!is_ccp_tree_prior(ccp_tree_prior)) {
+    stop("Must supply a valid CCP tree prior")
+  }
+  pop_size_distribution <- beautier::get_ccp_pop_size_distr(
+    ccp_tree_prior)
+  testit::assert(beautier::is_distribution(pop_size_distribution))
+  testit::assert("id" %in% names(pop_size_distribution))
+  pop_size_distribution$id <- id
+  result <- beautier::create_ccp_tree_prior(
+    pop_size_distribution =  pop_size_distribution
+  )
+  testit::assert(beautier::is_initialized_ccp_tree_prior(result))
+  result
+}
+
+#' Initializes a Coalescent Exponential Population tree prior
+#' @param ccp_tree_prior a Coalescent Exponential Population tree prior,
+#'   as returned by \code{\link{create_cep_tree_prior}}
+#' @param id the index of the first distribution
+#' @return an initialized Coalescent Exponential Population tree prior
+#' @author Richel J.C. Bilderbeek
+#' @export
+initialize_cep_tree_prior <- function(
+  cep_tree_prior,
+  id
+) {
+  if (!is_cep_tree_prior(cep_tree_prior)) {
+    stop("Must supply a valid CEP tree prior")
+  }
+
+  # pop_size
+  pop_size_distribution <- beautier::get_cep_pop_size_distr(cep_tree_prior)
+  testit::assert(beautier::is_distribution(pop_size_distribution))
+  testit::assert("id" %in% names(pop_size_distribution))
+  pop_size_distribution$id <- id
+
+  # growth rate
+  growth_rate_distribution <- beautier::get_cep_growth_rate_distr(
+    cep_tree_prior)
+  testit::assert(beautier::is_distribution(growth_rate_distribution))
+  testit::assert("id" %in% names(growth_rate_distribution))
+  growth_rate_distribution$id <- id + 1
+
+  result <- beautier::create_cep_tree_prior(
+    pop_size_distribution =  pop_size_distribution,
+    growth_rate_distribution = growth_rate_distribution
+  )
+  testit::assert(beautier::is_initialized_cep_tree_prior(result))
+  result
+}
 
 #' Initializes a Yule tree prior
 #' @param yule_tree_prior a Yule tree prior,

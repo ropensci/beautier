@@ -304,7 +304,7 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
   text
 }
 
-#' Creates the tree prior section in the priotr section of
+#' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' @param id the ID of the alignment (can be extracted from
@@ -320,7 +320,8 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
   i
 ) {
   text <- NULL
-  # Yule
+
+  # Irregularity: WIP, TODO, to be moved to someplace else
   if (is_yule_tree_prior(tree_prior)) {
 
     if (i == 2) {
@@ -331,78 +332,209 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
         "name=\"distr\" upper=\"Infinity\"/>"))
       text <- c(text, paste0("            </prior>"))
     }
+  }
 
-    # birth rate
-    yule_birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
-      yule_tree_prior = tree_prior)
+  if (is_yule_tree_prior(tree_prior)) {
 
     text <- c(text,
       indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
-          yule_birth_rate_distribution = yule_birth_rate_distribution,
+        create_beast2_input_distribution_prior_prior_tree_prior_yule(
+          yule_tree_prior = tree_prior,
           id = id
         ),
-      n_spaces = 12)
+        n_spaces = 12
+      )
     )
+
   } else if (is_bd_tree_prior(tree_prior)) {
-    # Birth Death tree prior
-
-    # BDBirthRate
-    bd_birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
-      bd_tree_prior = tree_prior)
 
     text <- c(text,
       indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
-          bd_birth_rate_distribution = bd_birth_rate_distribution,
+        create_beast2_input_distribution_prior_prior_tree_prior_bd(
+          bd_tree_prior = tree_prior,
           id = id
         ),
-      n_spaces = 12)
+        n_spaces = 12
+      )
     )
-    # BDDeathRate
-    bd_death_rate_distribution <- beautier::get_bd_death_rate_distr(
-      bd_tree_prior = tree_prior)
 
-    text <- c(text,
-      indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
-          bd_death_rate_distribution = bd_death_rate_distribution,
-          id = id
-        ),
-      n_spaces = 12)
-    )
   } else if (is_ccp_tree_prior(tree_prior)) {
-    text <- c(text, paste0(
-      "            <prior id=\"PopSizePrior.t:", id,
-      "\" name=\"distribution\" x=\"@popSize.t:",
-      id, "\">"))
-    text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
-      "name=\"distr\"/>"))
-    text <- c(text, "            </prior>")
+
+    text <- c(text,
+      indent(
+        create_beast2_input_distribution_prior_prior_tree_prior_ccp(
+          ccp_tree_prior = tree_prior,
+          id = id
+        ),
+        n_spaces = 12
+      )
+    )
+
   } else if (is_cep_tree_prior(tree_prior)) {
-    text <- c(text, paste0("            <prior ",
-      "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
-      "x=\"@ePopSize.t:", id, "\">"))
-    text <- c(text, paste0("                <OneOnX id=\"OneOnX.1\" ",
-      "name=\"distr\"/>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior ",
-      "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
-      "x=\"@growthRate.t:", id, "\">"))
-    text <- c(text, paste0("                <LaplaceDistribution ",
-      "id=\"LaplaceDistribution.0\" name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.1\" estimate=\"false\" ",
-      "name=\"mu\">0.001</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.2\" estimate=\"false\" ",
-      "name=\"scale\">30.701135</parameter>"))
-    text <- c(text, paste0("                </LaplaceDistribution>"))
-    text <- c(text, paste0("            </prior>"))
+
+    text <- c(text,
+      indent(
+        create_beast2_input_distribution_prior_prior_tree_prior_cep(
+          cep_tree_prior = tree_prior,
+          id = id
+        ),
+        n_spaces = 12
+      )
+    )
   }
   text
 }
 
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file for a Birth-Death tree prior
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @param bd_tree_prior a Birth-Death tree_prior,
+#'   as created by \code{\link{create_bd_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  bd_tree_prior
+) {
+  text <- NULL
+
+  # BDBirthRate
+  bd_birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
+    bd_tree_prior = bd_tree_prior)
+
+  text <- c(text,
+    create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
+      bd_birth_rate_distribution = bd_birth_rate_distribution,
+      id = id
+    )
+  )
+  # BDDeathRate
+  bd_death_rate_distribution <- beautier::get_bd_death_rate_distr(
+    bd_tree_prior = bd_tree_prior)
+
+  text <- c(text,
+    create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
+      bd_death_rate_distribution = bd_death_rate_distribution,
+      id = id
+    )
+  )
+
+  text
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file for a
+#' Coalescent Bayesian Skyline tree prior
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
+#'   as created by \code{\link{create_cbs_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_cbs <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  cbs_tree_prior
+) {
+  text <- NULL
+  text
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file for a
+#' Coalescent Constant Population tree prior
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @param ccp_tree_prior a Coalescent Constant Population tree prior,
+#'   as created by \code{\link{create_ccp_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_ccp <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  ccp_tree_prior
+) {
+  # pop size
+  create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size(
+    ccp_pop_size_distribution = get_ccp_pop_size_distr(
+      ccp_tree_prior = ccp_tree_prior
+    ),
+    id = id
+  )
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file for a
+#' Coalescent Exponential Population tree prior
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @param cep_tree_prior a Coalescent Exponential Population tree prior,
+#'   as created by \code{\link{create_cep_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_cep <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  cep_tree_prior
+) {
+  text <- NULL
+  text <- c(
+    text,
+    create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size(
+      cep_pop_size_distribution = get_cep_pop_size_distr(
+        cep_tree_prior = cep_tree_prior
+      ),
+      id = id
+    )
+  )
+  text <- c(
+    text,
+    create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate(
+      cep_growth_rate_distribution = get_cep_growth_rate_distr(
+        cep_tree_prior = cep_tree_prior
+      ),
+      id = id
+    )
+  )
+  text
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file for a Yule tree prior
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @param yule_tree_prior a Yule tree_prior,
+#'   as created by \code{\link{create_yule_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  id,
+  yule_tree_prior
+) {
+  testit::assert(is_yule_tree_prior(yule_tree_prior))
+  text <- NULL
+
+  # birth rate
+  yule_birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
+    yule_tree_prior = yule_tree_prior)
+
+  text <- c(
+    text,
+    create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
+      yule_birth_rate_distribution = yule_birth_rate_distribution,
+      id = id
+    )
+  )
+  text
+}
 
 #' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
@@ -474,7 +606,117 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- functio
   text
 }
 
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file
+#' for a Coalescent Constant Population tree prior
+#' @param ccp_pop_size_distribution a Coalescent Constant Population
+#'   population size distribution,
+#'   as created by \code{\link{create_distribution}}
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @usage
+#' create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size(
+#'   ccp_pop_size_distribution,
+#'   id
+#' )
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ccp_pop_size_distribution,
+  id
+) {
+  text <- NULL
+  text <- c(text, paste0(
+    "<prior id=\"PopSizePrior.t:", id,
+    "\" name=\"distribution\" x=\"@popSize.t:",
+    id, "\">"))
+  text <- c(text,
+    indent(
+      distribution_to_xml(
+        distribution = ccp_pop_size_distribution
+      ),
+      n_spaces = 4
+    )
+  )
+  text <- c(text, paste0("</prior>"))
+  text
+}
 
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file
+#' for a Coalescent Exponential Population tree prior
+#' @param cep_pop_size_distribution a Coalescent Exponential Population
+#'   population size distribution,
+#'   as created by \code{\link{create_distribution}}
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @usage
+#' create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size(
+#'   cep_pop_size_distribution,
+#'   id
+#' )
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  cep_pop_size_distribution,
+  id
+) {
+  text <- NULL
+  text <- c(text, paste0("<prior ",
+    "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
+    "x=\"@ePopSize.t:", id, "\">"))
+  text <- c(text,
+    indent(
+      distribution_to_xml(
+        distribution = cep_pop_size_distribution
+      ),
+      n_spaces = 4
+    )
+  )
+  text <- c(text, paste0("</prior>"))
+  text
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
+#' of a BEAST2 XML parameter file
+#' for a Coalescent Exponential Population tree prior
+#' @param cep_growth_rate_distribution a Coalescent Exponential Population
+#'   growth rate distribution,
+#'   as created by \code{\link{create_distribution}}
+#' @param id the ID of the alignment (can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}})
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @usage
+#' create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate(
+#'   cep_growth_rate_distribution,
+#'   id
+#' )
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  cep_growth_rate_distribution,
+  id
+) {
+  text <- NULL
+  text <- c(text, paste0("<prior ",
+    "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
+    "x=\"@growthRate.t:", id, "\">"))
+  text <- c(text,
+    indent(
+      distribution_to_xml(
+        distribution = cep_growth_rate_distribution
+      ),
+      n_spaces = 4
+    )
+  )
+  text <- c(text, paste0("</prior>"))
+  text
+}
 
 
 #' Creates the tree prior section in the prior section of

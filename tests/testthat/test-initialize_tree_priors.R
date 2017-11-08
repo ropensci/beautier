@@ -34,8 +34,6 @@ test_that("initialize CBS prior", {
 
 test_that("initialize CCP prior", {
 
-  skip("WIP")
-
   before <- list(create_ccp_tree_prior())
   testit::assert(!are_initialized_tree_priors(before))
   after <- initialize_tree_priors(before)
@@ -44,8 +42,6 @@ test_that("initialize CCP prior", {
 })
 
 test_that("initialize CEP prior", {
-
-  skip("WIP")
 
   before <- list(create_cep_tree_prior())
   testit::assert(!are_initialized_tree_priors(before))
