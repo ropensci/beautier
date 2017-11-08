@@ -70,7 +70,7 @@ create_posterior <- function(
   beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     mcmc = mcmc,
-    tree_priors = create_tree_prior(name = "birth_death"),
+    tree_priors = create_bd_tree_prior(),
     output_xml_filename = beast_filename,
     fixed_crown_age = fixed_crown_age,
     initial_phylogenies = initial_phylogenies

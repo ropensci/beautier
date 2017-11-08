@@ -4,13 +4,6 @@ test_that("use", {
 
   testthat::expect_equal(
     get_operator_id_pre(
-      tree_prior = create_tree_prior(name = "birth_death")
-    ),
-    "BirthDeath"
-  )
-
-  testthat::expect_equal(
-    get_operator_id_pre(
       tree_prior = create_bd_tree_prior()
     ),
     "BirthDeath"

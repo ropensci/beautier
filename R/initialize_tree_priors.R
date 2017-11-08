@@ -19,13 +19,23 @@ initialize_tree_priors <- function(
     tree_prior <- tree_priors[[i]]
     testit::assert(beautier::is_tree_prior(tree_prior))
 
+    if (beautier::is_bd_tree_prior(tree_prior)) {
+
+      if (!beautier::is_initialized_bd_tree_prior(tree_prior)) {
+
+        tree_prior <- beautier::initialize_bd_tree_prior(tree_prior, id = id)
+        testit::assert(beautier::is_initialized_bd_tree_prior(tree_prior))
+        id <- id + 2 # Has two distributions
+      }
+    }
+
     if (beautier::is_yule_tree_prior(tree_prior)) {
 
       if (!beautier::is_initialized_yule_tree_prior(tree_prior)) {
 
         tree_prior <- beautier::initialize_yule_tree_prior(tree_prior, id = id)
         testit::assert(beautier::is_initialized_yule_tree_prior(tree_prior))
-        id <- id + 1
+        id <- id + 1 # Has one distribution
       }
     }
 
@@ -33,6 +43,43 @@ initialize_tree_priors <- function(
   }
   tree_priors
 }
+
+#' Initializes a Birth-Death tree prior
+#' @param bd_tree_prior a Birth-Death tree prior,
+#'   as returned by \code{\link{create_bd_tree_prior}}
+#' @param id the index of the first distribution
+#' @return an initialized Birth-Death tree prior
+#' @author Richel J.C. Bilderbeek
+#' @export
+initialize_bd_tree_prior <- function(
+  bd_tree_prior,
+  id
+) {
+  if (!is_bd_tree_prior(bd_tree_prior)) {
+    stop("Must supply a valid Birth-Death tree prior")
+  }
+  # birth-rate
+  birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
+    bd_tree_prior)
+  testit::assert(beautier::is_distribution(birth_rate_distribution))
+  testit::assert("id" %in% names(birth_rate_distribution))
+  birth_rate_distribution$id <- id
+
+  # death rate
+  death_rate_distribution <- beautier::get_bd_death_rate_distr(
+    bd_tree_prior)
+  testit::assert(beautier::is_distribution(death_rate_distribution))
+  testit::assert("id" %in% names(death_rate_distribution))
+  death_rate_distribution$id <- id
+
+  result <- beautier::create_bd_tree_prior(
+    birth_rate_distribution = birth_rate_distribution,
+    death_rate_distribution = death_rate_distribution
+  )
+  testit::assert(beautier::is_initialized_bd_tree_prior(result))
+  result
+}
+
 
 #' Initializes a Yule tree prior
 #' @param yule_tree_prior a Yule tree prior,

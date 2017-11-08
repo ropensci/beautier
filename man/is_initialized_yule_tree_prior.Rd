@@ -11,7 +11,7 @@ is_initialized_yule_tree_prior(x)
 initialized Yule tree prior object}
 }
 \value{
-TRUE if x is an initialized tree_prior object
+TRUE if x is an initialized Yule tree_prior object
 }
 \description{
 Determine if x is an initialized Yule tree_prior object

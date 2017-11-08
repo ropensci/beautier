@@ -2,15 +2,16 @@ context("create_tree_prior")
 
 test_that("use general function", {
 
-  tree_prior <- beautier::create_tree_prior(name = "birth_death")
+  tree_prior <- beautier::create_bd_tree_prior()
   testthat::expect_true(beautier::is_tree_prior(tree_prior))
 
-  tree_prior <- beautier::create_tree_prior(
-    name = "coalescent_bayesian_skyline")
+  tree_prior <- beautier::create_cbs_tree_prior()
   testthat::expect_true(beautier::is_tree_prior(tree_prior))
 
-  tree_prior <- beautier::create_tree_prior(
-    name = "coalescent_constant_population")
+  tree_prior <- beautier::create_ccp_tree_prior()
+  testthat::expect_true(beautier::is_tree_prior(tree_prior))
+
+  tree_prior <- beautier::create_cep_tree_prior()
   testthat::expect_true(beautier::is_tree_prior(tree_prior))
 
   tree_prior <- beautier::create_yule_tree_prior()

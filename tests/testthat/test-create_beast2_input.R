@@ -673,7 +673,7 @@ test_that("Reproduce birth_death_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    tree_priors = beautier::create_tree_prior(name = "birth_death")
+    tree_priors = beautier::create_bd_tree_prior()
   )
 
   expected_lines <- readLines(system.file("extdata",

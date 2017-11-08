@@ -67,7 +67,7 @@ create_beast2_input_run <- function(
 
   text <- c(text, "")
 
-  text <- c(text, beautier::create_beast2_input_loggers(
+  text <- c(text, beautier:::create_beast2_input_loggers(
     ids = ids,
     site_models = site_models,
     clock_models = clock_models,
