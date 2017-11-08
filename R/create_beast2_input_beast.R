@@ -57,7 +57,7 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, create_beast2_input_map())
+  text <- c(text, create_beast2_input_map()) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
   text <- c(text, "")
   text <- c(text, "")

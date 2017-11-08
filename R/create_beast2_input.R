@@ -102,6 +102,6 @@ create_beast2_input <- function(
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies
   )
-  text[1] <- paste0(create_beast2_input_xml(), text[1])
+  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   text
 }
