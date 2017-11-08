@@ -24,7 +24,7 @@ General function to create a distribution.
 Prefer using the
   named functions
   \code{\link{create_uniform_distr}},
-  \code{\link{create_normal_distribution}},
+  \code{\link{create_normal_distr}},
   \code{\link{create_one_div_x_distribution}},
   \code{\link{create_exponential_distr}},
   \code{\link{create_gamma_distribution}},

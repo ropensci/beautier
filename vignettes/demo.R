@@ -1,4 +1,7 @@
 ## ------------------------------------------------------------------------
+library(beautier)
+
+## ------------------------------------------------------------------------
 fasta_filename <- tempfile(pattern = "demo", fileext = ".fas")
 
 beautier::create_random_fasta(

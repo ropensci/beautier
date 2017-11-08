@@ -6,7 +6,7 @@
 #' @note Prefer using the
 #'   named functions
 #'   \code{\link{create_uniform_distr}},
-#'   \code{\link{create_normal_distribution}},
+#'   \code{\link{create_normal_distr}},
 #'   \code{\link{create_one_div_x_distribution}},
 #'   \code{\link{create_exponential_distr}},
 #'   \code{\link{create_gamma_distribution}},
@@ -63,7 +63,7 @@ create_uniform_distr <- function(
 #' Create an normal distribution
 #' @return a normal distribution
 #' @export
-create_normal_distribution <- function(
+create_normal_distr <- function(
 ) {
   return(
     beautier::create_distribution(
