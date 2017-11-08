@@ -321,7 +321,6 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior,

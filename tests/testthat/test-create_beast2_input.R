@@ -1336,3 +1336,6 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
     }
   }
 })
+
+
+# birth_death_birth_rate_normal_death_rate_gamma_2_4.xml
