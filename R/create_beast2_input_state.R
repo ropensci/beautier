@@ -102,8 +102,8 @@ create_beast2_input_state <- function(
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  tree_priors = create_yule_tree_priors(n = length(ids)),
-  initial_phylogenies = rep(NA, length(ids))
+  tree_priors,
+  initial_phylogenies
 ) {
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(length(ids) == length(initial_phylogenies))
