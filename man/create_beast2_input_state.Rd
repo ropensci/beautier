@@ -4,10 +4,8 @@
 \alias{create_beast2_input_state}
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_state(ids, site_models = create_jc69_site_models(n =
-  length(ids)), clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_yule_tree_priors(n = length(ids)),
-  initial_phylogenies = rep(NA, length(ids)))
+create_beast2_input_state(ids, site_models, clock_models, tree_priors,
+  initial_phylogenies)
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

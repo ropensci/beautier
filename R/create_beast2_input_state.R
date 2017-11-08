@@ -7,13 +7,12 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_beast2_input_state <- function(
   ids,
-  site_models = create_jc69_site_models(n = length(ids)),
-  clock_models = create_strict_clock_models(n = length(ids)),
-  tree_priors = create_yule_tree_priors(n = length(ids)),
-  initial_phylogenies = rep(NA, length(ids))
+  site_models,
+  clock_models,
+  tree_priors,
+  initial_phylogenies
 ) {
   testit::assert(class(initial_phylogenies) == "multiPhylo" ||
       is.na(initial_phylogenies))
