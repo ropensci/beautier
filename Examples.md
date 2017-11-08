@@ -130,7 +130,7 @@ Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
 ## Example #9: Two alignments
 
-![anthus_2_4.png](pics/anthus_2_4.png.png)
+![anthus_2_4.png](pics/anthus_2_4.png)
 
 ```
 create_beast2_input_file(
