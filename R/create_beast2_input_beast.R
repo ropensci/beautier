@@ -12,36 +12,14 @@ create_beast2_input_beast <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
-  if (!beautier::files_exist(input_fasta_filenames)) {
-    stop("input_fasta_filenames not found")
-  }
-  if (is_site_model(site_models)) {
-    site_models <- list(site_models)
-  }
-  if (is_clock_model(clock_models)) {
-    clock_models <- list(clock_models)
-  }
-  if (is_tree_prior(tree_priors)) {
-    tree_priors <- list(tree_priors)
-  }
-  if (length(input_fasta_filenames) != length(site_models)) {
-    stop("Must supply as much FASTA filenames (",
-      length(input_fasta_filenames), "), as site_model objects (",
-      length(site_models), ")")
-  }
-  if (length(input_fasta_filenames) != length(clock_models)) {
-    stop("Must supply as much FASTA filenames (",
-      length(input_fasta_filenames), "), as clock_model objects (",
-      length(clock_models), ")")
-  }
-  if (length(input_fasta_filenames) != length(tree_priors)) {
-    stop("Must supply as much FASTA filenames (",
-      length(input_fasta_filenames), "), as tree_prior objects (",
-      length(tree_priors), ")")
-  }
-  if (length(input_fasta_filenames) != length(initial_phylogenies)) {
-    stop("Must supply as much input_fasta_filenames as initial_phylogenies")
-  }
+  testit::assert(beautier::files_exist(input_fasta_filenames))
+  testit::assert(length(input_fasta_filenames) == length(site_models))
+  testit::assert(length(input_fasta_filenames) == length(clock_models))
+  testit::assert(length(input_fasta_filenames) == length(tree_priors))
+  testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
+  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   # Alignment IDs
   ids <- beautier::get_id(

@@ -37,6 +37,12 @@ create_beast2_input <- function(
   if (!beautier::files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
+  if (is_site_model(site_models)) {
+    site_models <- list(site_models)
+  }
+  if (is_clock_model(clock_models)) {
+    clock_models <- list(clock_models)
+  }
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
