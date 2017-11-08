@@ -1392,8 +1392,8 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = fasta_filename,
     tree_priors = create_bd_tree_prior(
-        birth_rate_distribution = create_normal_distr(id = 1),
-        death_rate_distribution = create_gamma_distr(id = 2)
+        birth_rate_distribution = create_normal_distr(id = 0),
+        death_rate_distribution = create_gamma_distr(id = 1)
     )
   )
   expected_lines <- readLines(system.file("extdata",
