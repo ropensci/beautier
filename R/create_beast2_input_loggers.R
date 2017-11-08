@@ -28,7 +28,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     ids = ids,
     site_models = site_models,
     clock_models = clock_models,
-    tree_priors = tree_priors))
+    tree_priors = tree_priors)
+  )
 
   text <- c(text, create_beast2_input_screenlog())
 

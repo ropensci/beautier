@@ -336,10 +336,12 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
       yule_tree_prior = tree_prior)
 
     text <- c(text,
-      create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
-        yule_birth_rate_distribution = yule_birth_rate_distribution,
-        id = id
-      )
+      indent(
+        create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
+          yule_birth_rate_distribution = yule_birth_rate_distribution,
+          id = id
+        ),
+      n_spaces = 12)
     )
   } else if (is_bd_tree_prior(tree_prior)) {
     text <- c(text, paste0("            <prior id=\"BirthRatePrior.t:", id,
@@ -405,15 +407,15 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- funct
   id
 ) {
   text <- NULL
-  text <- c(text, paste0("            <prior id=\"YuleBirthRatePrior.t:",
+  text <- c(text, paste0("<prior id=\"YuleBirthRatePrior.t:",
     id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
   text <- c(text,
     distribution_to_xml(
       distribution = yule_birth_rate_distribution,
-      n_spaces = 16
+      n_spaces = 4
     )
   )
-  text <- c(text, paste0("            </prior>"))
+  text <- c(text, paste0("</prior>"))
   text
 }
 
