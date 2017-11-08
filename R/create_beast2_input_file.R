@@ -3,13 +3,19 @@
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @examples
+#'   # WIP: remove this
+#'   temp_tree_prior <- create_yule_tree_prior(
+#'     birth_rate_distribution = create_uniform_distr(id = 1)
+#'   )
+#'
 #'   # The file created by beautier, a BEAST2 input file
 #'   output_xml_filename <- "example_bd.xml"
 #'
 #'   # Birth-Death tree prior, crown age is estimated
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_input_fasta_filename(),
-#'     output_xml_filename = output_xml_filename
+#'     output_xml_filename = output_xml_filename,
+#'     tree_priors = temp_tree_prior
 #'   )
 #'   testthat::expect_true(file.exists(output_xml_filename))
 #'
@@ -20,6 +26,7 @@
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_input_fasta_filename(),
 #'     output_xml_filename = output_xml_filename_fixed,
+#'     tree_priors = temp_tree_prior,
 #'     fixed_crown_age = TRUE,
 #'     initial_phylogenies = beautier::fasta_to_phylo(
 #'       fasta_filename = get_input_fasta_filename(),

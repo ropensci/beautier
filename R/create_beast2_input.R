@@ -18,9 +18,15 @@
 #'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
 #'   the phylogeny is assumed to be of class ape::phylo.
 #' @examples
-#'   # Create a BEAST2 input file's text from th example FASTA file
+#'   # WIP: remove this
+#'   temp_tree_prior <- create_yule_tree_prior(
+#'     birth_rate_distribution = create_uniform_distr(id = 1)
+#'   )
+#'
+#'   # Create a BEAST2 input file's text from the example FASTA file
 #'   xml <- create_beast2_input(
-#'     input_fasta_filenames = get_input_fasta_filename()
+#'     input_fasta_filenames = get_input_fasta_filename(),
+#'     tree_prior = temp_tree_prior
 #'   )
 #' @author Richel J.C. Bilderbeek
 #' @export
