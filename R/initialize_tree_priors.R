@@ -12,37 +12,37 @@ initialize_tree_priors <- function(
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    testit::assert(beautier::is_tree_prior(tree_prior))
+    testit::assert(is_tree_prior(tree_prior))
 
-    if (beautier::is_bd_tree_prior(tree_prior)) {
+    if (is_bd_tree_prior(tree_prior)) {
 
-      if (!beautier::is_initialized_bd_tree_prior(tree_prior)) {
+      if (!is_initialized_bd_tree_prior(tree_prior)) {
 
-        tree_prior <- beautier::initialize_bd_tree_prior(tree_prior, id = id)
-        testit::assert(beautier::is_initialized_bd_tree_prior(tree_prior))
+        tree_prior <- initialize_bd_tree_prior(tree_prior, id = id)
+        testit::assert(is_initialized_bd_tree_prior(tree_prior))
         id <- id + 2 # Has two distributions
       }
-    } else if (beautier::is_ccp_tree_prior(tree_prior)) {
+    } else if (is_ccp_tree_prior(tree_prior)) {
 
-      if (!beautier::is_initialized_ccp_tree_prior(tree_prior)) {
+      if (!is_initialized_ccp_tree_prior(tree_prior)) {
 
-        tree_prior <- beautier::initialize_ccp_tree_prior(tree_prior, id = id)
-        testit::assert(beautier::is_initialized_ccp_tree_prior(tree_prior))
+        tree_prior <- initialize_ccp_tree_prior(tree_prior, id = id)
+        testit::assert(is_initialized_ccp_tree_prior(tree_prior))
         id <- id + 1 # Has one distribution
       }
-    } else if (beautier::is_cep_tree_prior(tree_prior)) {
-      if (!beautier::is_initialized_cep_tree_prior(tree_prior)) {
+    } else if (is_cep_tree_prior(tree_prior)) {
+      if (!is_initialized_cep_tree_prior(tree_prior)) {
 
-        tree_prior <- beautier::initialize_cep_tree_prior(tree_prior, id = id)
-        testit::assert(beautier::is_initialized_cep_tree_prior(tree_prior))
+        tree_prior <- initialize_cep_tree_prior(tree_prior, id = id)
+        testit::assert(is_initialized_cep_tree_prior(tree_prior))
         id <- id + 2 # Has two distribution
       }
-    } else if (beautier::is_yule_tree_prior(tree_prior)) {
+    } else if (is_yule_tree_prior(tree_prior)) {
 
-      if (!beautier::is_initialized_yule_tree_prior(tree_prior)) {
+      if (!is_initialized_yule_tree_prior(tree_prior)) {
 
-        tree_prior <- beautier::initialize_yule_tree_prior(tree_prior, id = id)
-        testit::assert(beautier::is_initialized_yule_tree_prior(tree_prior))
+        tree_prior <- initialize_yule_tree_prior(tree_prior, id = id)
+        testit::assert(is_initialized_yule_tree_prior(tree_prior))
         id <- id + 1 # Has one distribution
       }
     }
@@ -65,24 +65,24 @@ initialize_bd_tree_prior <- function(
   testit::assert(is_bd_tree_prior(bd_tree_prior))
 
   # birth-rate
-  birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
+  birth_rate_distribution <- get_bd_birth_rate_distr(
     bd_tree_prior)
-  testit::assert(beautier::is_distribution(birth_rate_distribution))
+  testit::assert(is_distribution(birth_rate_distribution))
   testit::assert("id" %in% names(birth_rate_distribution))
   birth_rate_distribution$id <- id
 
   # death rate
-  death_rate_distribution <- beautier::get_bd_death_rate_distr(
+  death_rate_distribution <- get_bd_death_rate_distr(
     bd_tree_prior)
-  testit::assert(beautier::is_distribution(death_rate_distribution))
+  testit::assert(is_distribution(death_rate_distribution))
   testit::assert("id" %in% names(death_rate_distribution))
   death_rate_distribution$id <- id + 1
 
-  result <- beautier::create_bd_tree_prior(
+  result <- create_bd_tree_prior(
     birth_rate_distribution = birth_rate_distribution,
     death_rate_distribution = death_rate_distribution
   )
-  testit::assert(beautier::is_initialized_bd_tree_prior(result))
+  testit::assert(is_initialized_bd_tree_prior(result))
   result
 }
 
@@ -99,15 +99,15 @@ initialize_ccp_tree_prior <- function(
 ) {
   testit::assert(is_ccp_tree_prior(ccp_tree_prior))
 
-  pop_size_distribution <- beautier::get_ccp_pop_size_distr(
+  pop_size_distribution <- get_ccp_pop_size_distr(
     ccp_tree_prior)
-  testit::assert(beautier::is_distribution(pop_size_distribution))
+  testit::assert(is_distribution(pop_size_distribution))
   testit::assert("id" %in% names(pop_size_distribution))
   pop_size_distribution$id <- id
-  result <- beautier::create_ccp_tree_prior(
+  result <- create_ccp_tree_prior(
     pop_size_distribution =  pop_size_distribution
   )
-  testit::assert(beautier::is_initialized_ccp_tree_prior(result))
+  testit::assert(is_initialized_ccp_tree_prior(result))
   result
 }
 
@@ -124,23 +124,23 @@ initialize_cep_tree_prior <- function(
   testit::assert(is_cep_tree_prior(cep_tree_prior))
 
   # pop_size
-  pop_size_distribution <- beautier::get_cep_pop_size_distr(cep_tree_prior)
-  testit::assert(beautier::is_distribution(pop_size_distribution))
+  pop_size_distribution <- get_cep_pop_size_distr(cep_tree_prior)
+  testit::assert(is_distribution(pop_size_distribution))
   testit::assert("id" %in% names(pop_size_distribution))
   pop_size_distribution$id <- id
 
   # growth rate
-  growth_rate_distribution <- beautier::get_cep_growth_rate_distr(
+  growth_rate_distribution <- get_cep_growth_rate_distr(
     cep_tree_prior)
-  testit::assert(beautier::is_distribution(growth_rate_distribution))
+  testit::assert(is_distribution(growth_rate_distribution))
   testit::assert("id" %in% names(growth_rate_distribution))
   growth_rate_distribution$id <- id + 1
 
-  result <- beautier::create_cep_tree_prior(
+  result <- create_cep_tree_prior(
     pop_size_distribution =  pop_size_distribution,
     growth_rate_distribution = growth_rate_distribution
   )
-  testit::assert(beautier::is_initialized_cep_tree_prior(result))
+  testit::assert(is_initialized_cep_tree_prior(result))
   result
 }
 
@@ -156,14 +156,14 @@ initialize_yule_tree_prior <- function(
 ) {
   testit::assert(is_yule_tree_prior(yule_tree_prior))
 
-  birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
+  birth_rate_distribution <- get_yule_birth_rate_distr(
     yule_tree_prior)
-  testit::assert(beautier::is_distribution(birth_rate_distribution))
+  testit::assert(is_distribution(birth_rate_distribution))
   testit::assert("id" %in% names(birth_rate_distribution))
   birth_rate_distribution$id <- id
-  result <- beautier::create_yule_tree_prior(
+  result <- create_yule_tree_prior(
     birth_rate_distribution =  birth_rate_distribution
   )
-  testit::assert(beautier::is_initialized_yule_tree_prior(result))
+  testit::assert(is_initialized_yule_tree_prior(result))
   result
 }

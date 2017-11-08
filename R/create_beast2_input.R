@@ -86,8 +86,8 @@ create_beast2_input <- function(
   }
 
 
-  tree_priors <- beautier::initialize_tree_priors(tree_priors)
-  testit::assert(beautier::are_initialized_tree_priors(tree_priors))
+  tree_priors <- initialize_tree_priors(tree_priors)
+  testit::assert(are_initialized_tree_priors(tree_priors))
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
