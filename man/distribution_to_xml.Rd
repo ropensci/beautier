@@ -4,13 +4,11 @@
 \alias{distribution_to_xml}
 \title{Converts a distribution to XML}
 \usage{
-distribution_to_xml(distribution, n_spaces = 0)
+distribution_to_xml(distribution)
 }
 \arguments{
 \item{distribution}{a distibution,
 as created by \code{\link{create_distribution}})}
-
-\item{n_spaces}{the number of spaces to add before the text}
 }
 \value{
 the distribution as XML text

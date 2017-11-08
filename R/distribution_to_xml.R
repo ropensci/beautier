@@ -1,13 +1,11 @@
 #' Converts a distribution to XML
 #' @param distribution a distibution,
 #'   as created by \code{\link{create_distribution}})
-#' @param n_spaces the number of spaces to add before the text
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
 distribution_to_xml <- function(
-  distribution,
-  n_spaces = 0
+  distribution
 ) {
   text <- NULL
   id <- beautier::get_distribution_id(distribution)
@@ -102,5 +100,5 @@ distribution_to_xml <- function(
       "id=\"RealParameter.14\" name=\"lambda\">0.693</parameter>"))
     text <- c(text, paste0("</distr>"))
   }
-  beautier::indent(text = text, n_spaces = n_spaces)
+  text
 }

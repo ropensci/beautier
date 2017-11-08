@@ -428,8 +428,10 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- functio
   text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
-    distribution_to_xml(
-      distribution = bd_birth_rate_distribution,
+    indent(
+      distribution_to_xml(
+        distribution = bd_birth_rate_distribution
+      ),
       n_spaces = 4
     )
   )
@@ -461,8 +463,10 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- functio
   text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
-    distribution_to_xml(
-      distribution = bd_death_rate_distribution,
+    indent(
+      distribution_to_xml(
+        distribution = bd_death_rate_distribution
+      ),
       n_spaces = 4
     )
   )
@@ -497,8 +501,10 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- funct
   text <- c(text, paste0("<prior id=\"YuleBirthRatePrior.t:",
     id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
   text <- c(text,
-    distribution_to_xml(
-      distribution = yule_birth_rate_distribution,
+    indent(
+      distribution_to_xml(
+        distribution = yule_birth_rate_distribution
+      ),
       n_spaces = 4
     )
   )
