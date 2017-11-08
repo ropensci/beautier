@@ -84,8 +84,14 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
       text <- c(text, paste0("        <log idref=\"clockRate.c:", id, "\"/>"))
     }
 
-    text <- c(text, create_beast2_input_loggers_tree_prior(
-      id = id, tree_prior = tree_prior))
+    text <- c(text,
+      indent(
+        create_beast2_input_loggers_tree_prior(
+          id = id, tree_prior = tree_prior
+        ),
+        n_spaces = 8
+      )
+    )
 
     # Now three things
     rates <- create_beast2_input_loggers_rates(id = id, site_model = site_model) # nolint
@@ -219,7 +225,7 @@ create_beast2_input_loggers_tree_prior <- function( # nolint long function name 
     text <- c(text, paste0("<log idref=\"ePopSize.t:", id, "\"/>"))
     text <- c(text, paste0("<log idref=\"growthRate.t:", id, "\"/>"))
   }
-  indent(text = text, n_spaces = 8)
+  text
 }
 
 #' Creates the first site models part of the two logger sections
