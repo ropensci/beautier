@@ -13,7 +13,6 @@ test_that("use", {
       )
     )
   )
-
 })
 
 test_that("abuse", {

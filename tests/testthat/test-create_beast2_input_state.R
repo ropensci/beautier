@@ -60,11 +60,16 @@ test_that("use without initial phylogeny", {
 
 test_that("use one with initial phylogeny", {
 
-  phylo <- fasta_to_phylo(get_input_fasta_filename(), crown_age = 42)
+  phylos <- c( # convert to multiPhylo
+    fasta_to_phylo(
+      get_input_fasta_filename(),
+      crown_age = 42
+    )
+  )
   testthat::expect_silent(
     create_beast2_input_state(
       ids = "test_output_0",
-      initial_phylogenies = phylo
+      initial_phylogenies = phylos
     )
   )
 

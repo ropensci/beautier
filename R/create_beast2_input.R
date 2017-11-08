@@ -34,9 +34,7 @@ create_beast2_input <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
-  if (!beautier::files_exist(input_fasta_filenames)) {
-    stop("input_fasta_filenames not found")
-  }
+  # Convert possible-non-list input to lists and multiPhylo
   if (is_site_model(site_models)) {
     site_models <- list(site_models)
   }
@@ -45,6 +43,14 @@ create_beast2_input <- function(
   }
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
+  }
+  if (class(initial_phylogenies) == "phylo") {
+    initial_phylogenies <- c(initial_phylogenies)
+    testit::assert(class(initial_phylogenies) == "multiPhylo")
+  }
+  # Check input
+  if (!beautier::files_exist(input_fasta_filenames)) {
+    stop("input_fasta_filenames not found")
   }
   if (!are_site_models(site_models)) {
     stop("invalid site_models")
@@ -67,6 +73,10 @@ create_beast2_input <- function(
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")
   }
+  if (class(initial_phylogenies) != "multiPhylo" && !is.na(initial_phylogenies)) {
+    stop("initial_phylogenies must be either NA, or of type 'phylo' or 'multiPhylo'")
+  }
+
 
   tree_priors <- beautier::initialize_tree_priors(tree_priors)
   testit::assert(are_initialized_tree_priors(tree_priors))
