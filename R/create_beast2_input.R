@@ -67,6 +67,12 @@ create_beast2_input <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
+  if (length(input_fasta_filenames) != length(site_models)) {
+    stop("Must supply as much input_fasta_filenames as site_models")
+  }
+  if (length(input_fasta_filenames) != length(clock_models)) {
+    stop("Must supply as much input_fasta_filenames as clock_models")
+  }
   if (length(input_fasta_filenames) != length(tree_priors)) {
     stop("Must supply as much input_fasta_filenames as tree priors")
   }

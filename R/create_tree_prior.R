@@ -1,8 +1,11 @@
-#' General function to create a tree prior
-#' @note Prefer the use the named
-#'   functions \code{\link{create_yule_tree_prior}},
-#'   \code{\link{create_bd_tree_prior}}, \code{\link{create_cbs_tree_prior}},
-#'   and \code{\link{create_ccp_tree_prior}}
+#' Internal function to create a tree prior
+#' @note Prefer the use the named functions
+#'   \code{\link{create_bd_tree_prior}},
+#'   \code{\link{create_cbs_tree_prior}},
+#'   \code{\link{create_ccp_tree_prior}}
+#'   \code{\link{create_cep_tree_prior}}
+#'   and \code{\link{create_yule_tree_prior}}
+#'   instead
 #' @param name the tree prior name. Can be any name
 #'   in \code{\link{get_tree_prior_names}}
 #' @param ... specific tree prior parameters

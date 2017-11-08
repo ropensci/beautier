@@ -3,8 +3,7 @@ context("create_beast2_input")
 ################################################################################
 # General
 ################################################################################
-
-test_that("checks input", {
+test_that("input is checked", {
 
   testthat::expect_silent(
     create_beast2_input(
@@ -75,7 +74,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      site_models = create_jc69_site_model()
+      site_models = create_jc69_site_models(n = 1)
     )
   )
 
@@ -83,7 +82,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      clock_models = create_strict_model()
+      clock_models = create_strict_models(n = 1)
     )
   )
 
@@ -91,7 +90,7 @@ test_that("checks input", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      tree_priors = create_yule_tree_prior()
+      tree_priors = create_yule_tree_priors(n = 1)
     )
   )
 
@@ -702,8 +701,7 @@ test_that("Check that coalescent_bayesian_skyline_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    tree_priors = beautier::create_tree_prior(
-      name = "coalescent_bayesian_skyline")
+    tree_priors = beautier::create_cbs_tree_prior()
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -1352,8 +1350,8 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = fasta_filename,
     tree_priors = create_bd_tree_prior(
-        birth_rate_distribution = create_normal_distr(id = 1),
-        death_rate_distribution = create_gamma_distr(id = 2)
+        birth_rate_distribution = create_normal_distr(),
+        death_rate_distribution = create_gamma_distr()
     )
   )
   expected_lines <- readLines(system.file("extdata",
