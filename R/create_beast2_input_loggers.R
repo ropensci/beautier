@@ -1,21 +1,3 @@
-# Put on top, to make it visible to create_beast2_input_loggers
-#' Creates the screenlog section of the logger section
-#' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_loggers
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_screenlog <- function() {
-  text <- NULL
-  text <- c(text, "")
-  text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
-  text <- c(text, "        <log idref=\"posterior\"/>")
-  text <- c(text, paste0("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
-    "arg=\"@posterior\"/>"))
-  text <- c(text, "        <log idref=\"likelihood\"/>")
-  text <- c(text, "        <log idref=\"prior\"/>")
-  text <- c(text, "    </logger>")
-  text
-}
-
 #' Creates the two logger sections of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_ids}})
@@ -49,9 +31,9 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
     clock_models = clock_models,
     tree_priors = tree_priors))
 
-  text <- c(text, create_beast2_input_screenlog())
+  text <- c(text, beautier:::create_beast2_input_screenlog())
 
-  text <- c(text, create_beast2_input_treelogs(
+  text <- c(text, beautier:::create_beast2_input_treelogs(
     ids = ids,
     clock_models = clock_models))
 
@@ -148,6 +130,23 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   text
 }
 
+# Put on top, to make it visible to create_beast2_input_loggers
+#' Creates the screenlog section of the logger section
+#' of a BEAST2 XML parameter file
+#' @inheritParams create_beast2_input_loggers
+#' @author Richel J.C. Bilderbeek
+create_beast2_input_screenlog <- function() {
+  text <- NULL
+  text <- c(text, "")
+  text <- c(text, "    <logger id=\"screenlog\" logEvery=\"1000\">")
+  text <- c(text, "        <log idref=\"posterior\"/>")
+  text <- c(text, paste0("        <log id=\"ESS.0\" spec=\"util.ESS\" ",
+    "arg=\"@posterior\"/>"))
+  text <- c(text, "        <log idref=\"likelihood\"/>")
+  text <- c(text, "        <log idref=\"prior\"/>")
+  text <- c(text, "    </logger>")
+  text
+}
 
 #' Creates the tracelog section of the logger section
 #' of a BEAST2 XML parameter file

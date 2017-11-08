@@ -27,10 +27,10 @@ test_that("Can specify fixed crown age", {
   # Input file must be found
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
-
+  # 'c' is used to convert phylo to multiPhylo
   created_lines_fixed <- beautier::create_beast2_input_init(
     ids = "test_output_0",
-    initial_phylogenies = c( # convert to multiPhylo
+    initial_phylogenies = c(
       beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15
       )
@@ -54,4 +54,3 @@ test_that("Can specify fixed crown age", {
       x = created_lines_fixed))
   )
 })
-

@@ -73,8 +73,10 @@ create_beast2_input <- function(
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")
   }
-  if (class(initial_phylogenies) != "multiPhylo" && !is.na(initial_phylogenies)) {
-    stop("initial_phylogenies must be either NA, or of type 'phylo' or 'multiPhylo'")
+  if (class(initial_phylogenies) != "multiPhylo" &&
+      !is.na(initial_phylogenies)) {
+    stop("initial_phylogenies must be either NA, ",
+      "or of type 'phylo' or 'multiPhylo'")
   }
 
 
@@ -94,6 +96,6 @@ create_beast2_input <- function(
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies
   )
-  text[1] <- paste0(create_beast2_input_xml(), text[1])
+  text[1] <- paste0(beautier:::create_beast2_input_xml(), text[1])
   text
 }

@@ -60,7 +60,8 @@ test_that("use without initial phylogeny", {
 
 test_that("use one with initial phylogeny", {
 
-  phylos <- c( # convert to multiPhylo
+  # 'c' is used to convert phylo to multiPhylo
+  phylos <- c(
     fasta_to_phylo(
       get_input_fasta_filename(),
       crown_age = 42
