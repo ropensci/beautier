@@ -46,13 +46,14 @@ initialize_yule_tree_prior <- function(
   if (!is_yule_tree_prior(yule_tree_prior)) {
     stop("Must supply a valid Yule tree prior")
   }
-  birth_rate_distribution <- get_yule_birth_rate_distr(yule_tree_prior)
-  testit::assert(is_distribution(birth_rate_distribution))
+  birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
+    yule_tree_prior)
+  testit::assert(beautier::is_distribution(birth_rate_distribution))
   testit::assert("id" %in% names(birth_rate_distribution))
   birth_rate_distribution$id <- id
-  result <- create_yule_tree_prior(
+  result <- beautier::create_yule_tree_prior(
     birth_rate_distribution =  birth_rate_distribution
   )
-  testit::assert(is_initialized_yule_tree_prior(result))
+  testit::assert(beautier::is_initialized_yule_tree_prior(result))
   result
 }

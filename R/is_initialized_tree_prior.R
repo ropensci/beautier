@@ -7,9 +7,9 @@
 is_initialized_tree_prior <- function(
   x
 ) {
-  if (!is_tree_prior(x)) return(FALSE)
-  if (is_yule_tree_prior(x)) {
-    return(is_initialized_yule_tree_prior(x))
+  if (!beautier::is_tree_prior(x)) return(FALSE)
+  if (beautier::is_yule_tree_prior(x)) {
+    return(beautier::is_initialized_yule_tree_prior(x))
   }
   return(TRUE)
 }
