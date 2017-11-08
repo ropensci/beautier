@@ -12,3 +12,4 @@ tests/testthat/tmp_*
 output.xml
 example_bd.xml
 example_bd_fixed.xml
+tmp_*

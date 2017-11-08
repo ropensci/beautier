@@ -70,7 +70,7 @@ initialize_bd_tree_prior <- function(
     bd_tree_prior)
   testit::assert(beautier::is_distribution(death_rate_distribution))
   testit::assert("id" %in% names(death_rate_distribution))
-  death_rate_distribution$id <- id
+  death_rate_distribution$id <- id + 1
 
   result <- beautier::create_bd_tree_prior(
     birth_rate_distribution = birth_rate_distribution,

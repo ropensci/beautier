@@ -104,6 +104,10 @@ test_that("input is checked", {
 
 })
 
+################################################################################
+# Reproduce files
+################################################################################
+
 test_that("Reproduce 2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
@@ -129,6 +133,17 @@ test_that("Reproduce 2_4.xml", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
+test_that("Run all defaults", {
+
+  if (!beautier::is_on_travis()) return()
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename()
+  )
+
+  testthat::expect_true(are_beast2_input_lines(created_lines))
+})
+
 ################################################################################
 # Site models
 ################################################################################
@@ -143,7 +158,7 @@ test_that("Reproduce gtr_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_site_model(name = "GTR"),
+    site_models = create_gtr_site_model(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distribution = create_uniform_distr(id = 1))
   )
@@ -163,6 +178,18 @@ test_that("Reproduce gtr_2_4.xml", {
   }
 
   testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Run GTR", {
+
+  if (!beautier::is_on_travis()) return()
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    site_models = create_gtr_site_model()
+  )
+
+  testthat::expect_true(are_beast2_input_lines(created_lines))
 })
 
 test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
@@ -693,6 +720,18 @@ test_that("Reproduce birth_death_2_4.xml", {
   }
 
   testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Run BD tree prior", {
+
+  if (!beautier::is_on_travis()) return()
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    tree_priors = create_bd_tree_prior()
+  )
+
+  testthat::expect_true(are_beast2_input_lines(created_lines))
 })
 
 
@@ -1380,3 +1419,4 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
     }
   }
 })
+
