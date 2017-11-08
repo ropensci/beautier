@@ -43,15 +43,9 @@ the phylogeny is assumed to be of class ape::phylo.}
 Create a BEAST2 XML input text
 }
 \examples{
-  # WIP: remove this
-  temp_tree_prior <- create_yule_tree_prior(
-    birth_rate_distribution = create_uniform_distr(id = 1)
-  )
-
   # Create a BEAST2 input file's text from the example FASTA file
   xml <- create_beast2_input(
-    input_fasta_filenames = get_input_fasta_filename(),
-    tree_prior = temp_tree_prior
+    input_fasta_filenames = get_input_fasta_filename()
   )
 }
 \author{

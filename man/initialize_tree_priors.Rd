@@ -7,11 +7,11 @@
 initialize_tree_priors(tree_priors)
 }
 \arguments{
-\item{tree_priors}{the one or more tree priors to be initialized,
-as returned by \code{\link{create_tree_prior}}}
+\item{tree_priors}{a list of one or more tree priors to be initialized.
+Tree priors can be created using \code{\link{create_tree_prior}}}
 }
 \value{
-initialized tree priors
+a list of initialized tree priors
 }
 \description{
 Initializes all tree priors
