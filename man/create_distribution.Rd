@@ -27,7 +27,7 @@ Prefer using the
   \code{\link{create_normal_distr}},
   \code{\link{create_one_div_x_distribution}},
   \code{\link{create_exponential_distr}},
-  \code{\link{create_gamma_distribution}},
+  \code{\link{create_gamma_distr}},
   \code{\link{create_beta_distribution}},
   \code{\link{create_laplace_distribution}},
   \code{\link{create_inv_gamma_distribution}},
