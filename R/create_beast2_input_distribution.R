@@ -428,25 +428,6 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint
 #' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a
-#' Coalescent Bayesian Skyline tree prior
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
-#'   as created by \code{\link{create_cbs_tree_prior}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_cbs <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  cbs_tree_prior
-) {
-  text <- NULL
-  text
-}
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file for a
 #' Coalescent Constant Population tree prior
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})

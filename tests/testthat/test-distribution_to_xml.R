@@ -21,3 +21,11 @@ test_that("add upper", {
   )
 
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(distribution_to_xml(distribution = "nonsense"))
+  testthat::expect_error(distribution_to_xml(distribution = NA))
+  testthat::expect_error(distribution_to_xml(distribution = NULL))
+
+})

@@ -65,6 +65,13 @@ test_that("input is checked", {
     )
   )
 
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_input_fasta_filename(),
+      initial_phylogenies = "nonsense"
+    )
+  )
+
   fasta_filename_1 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
@@ -82,7 +89,7 @@ test_that("input is checked", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      clock_models = create_strict_models(n = 1)
+      clock_models = create_strict_clock_models(n = 1)
     )
   )
 
