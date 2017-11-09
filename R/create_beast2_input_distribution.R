@@ -931,19 +931,19 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
-    text <- c(text, paste0("            <prior ",
+    text <- c(text, paste0("<prior ",
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", id, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.2\" estimate=\"false\" ",
-      "name=\"alpha\">0.5396</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
-      "id=\"RealParameter.3\" estimate=\"false\" ",
-      "name=\"beta\">0.3819</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
+    text <- c(text,
+      indent(
+        distribution_to_xml(
+          distribution = get_rln_ucldstdev_distribution(clock_model)
+        ),
+        n_spaces = 4
+      )
+    )
+    text <- c(text, paste0("</prior>"))
+    text <- indent(text, n_spaces = 12)
   }
   text
 }

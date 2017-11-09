@@ -632,11 +632,16 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
 
 test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
 
+  skip("WIP")
+
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    clock_models = create_rln_clock_model(),
+    clock_models = create_rln_clock_model(
+      uclstdev_distribution = create_gamma_distr(id = 0)
+    ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distribution = create_uniform_distr(id = 1)
+    )
   )
   expected_lines <- readLines(system.file("extdata",
     "relaxed_clock_log_normal_2_4.xml", package = "beautier"))
