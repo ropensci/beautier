@@ -129,6 +129,8 @@ create_exponential_distr <- function(
 
 #' Create a gamma distribution
 #' @inheritParams create_distribution
+#' @param alpha the alpha shape parameter
+#' @param beta the beta shape parameter
 #' @return a gamma distribution
 #' @author Richel J.C. Bilderbeek
 #' @export

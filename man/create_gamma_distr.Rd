@@ -10,6 +10,10 @@ create_gamma_distr(id = NA, alpha = create_parameter_alpha(id = NA, estimate
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{alpha}{the alpha shape parameter}
+
+\item{beta}{the beta shape parameter}
 }
 \value{
 a gamma distribution
