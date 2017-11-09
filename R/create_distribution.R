@@ -133,12 +133,16 @@ create_exponential_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_gamma_distr <- function(
-  id = NA
+  id = NA,
+  alpha = create_parameter_alpha(id = NA, estimate = FALSE, value = "0.5396"),
+  beta = create_parameter_beta(id = NA, estimate = FALSE, value = "0.3819")
 ) {
   return(
     beautier::create_distribution(
       name = "gamma",
-      id = id
+      id = id,
+      alpha = alpha,
+      beta = beta
     )
   )
 }
