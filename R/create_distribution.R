@@ -45,77 +45,27 @@ create_distribution <- function(
   distribution
 }
 
-#' Create a uniform distribution
+
+#' Create a beta distribution
 #' @inheritParams create_distribution
-#' @param upper an upper limit of the uniform distribution
-#' @return a uniform distribution
+#' @param alpha the alpha shape parameter
+#' @param beta the beta shape parameter
+#' @return a beta distribution
 #' @seealso the function \code{\link{create_distribution}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_uniform_distr <- function(
+create_beta_distr <- function(
   id = NA,
-  upper = Inf
+  alpha = create_alpha_parameter(id = NA, estimate = NA, value = NA),
+  beta = create_beta_parameter(id = NA, estimate = NA, value = NA)
 ) {
   return(
     beautier::create_distribution(
-      name = "uniform",
+      name = "beta",
       id = id,
-      upper = upper
-    )
-  )
-}
-
-#' Create an normal distribution
-#' @inheritParams create_distribution
-#' @return a normal distribution
-#' @seealso the function \code{\link{create_distribution}} shows an overview
-#'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
-#' @export
-create_normal_distr <- function(
-  id = NA
-) {
-  return(
-    beautier::create_distribution(
-      name = "normal",
-      id = id
-    )
-  )
-}
-
-#' Create a 1/x distribution
-#' @inheritParams create_distribution
-#' @return a 1/x distribution
-#' @seealso the function \code{\link{create_distribution}} shows an overview
-#'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
-#' @export
-create_one_div_x_distr <- function(
-  id = NA
-) {
-  return(
-    beautier::create_distribution(
-      name = "one_div_x",
-      id = id
-    )
-  )
-}
-
-#' Create a log-normal distribution
-#' @inheritParams create_distribution
-#' @return a log-normal distribution
-#' @seealso the function \code{\link{create_distribution}} shows an overview
-#'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
-#' @export
-create_log_normal_distr <- function(
-  id = NA
-) {
-  return(
-    beautier::create_distribution(
-      name = "log_normal",
-      id = id
+      alpha = alpha,
+      beta = beta
     )
   )
 }
@@ -162,19 +112,19 @@ create_gamma_distr <- function(
   )
 }
 
-#' Create a beta distribution
+#' Create an inverse gamma distribution
 #' @inheritParams create_distribution
-#' @return a beta distribution
+#' @return an inverse gamma distribution
 #' @seealso the function \code{\link{create_distribution}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beta_distr <- function(
+create_inv_gamma_distr <- function(
   id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "beta",
+      name = "inv_gamma",
       id = id
     )
   )
@@ -198,19 +148,55 @@ create_laplace_distr <- function(
   )
 }
 
-#' Create an inverse gamma distribution
+#' Create a log-normal distribution
 #' @inheritParams create_distribution
-#' @return an inverse gamma distribution
+#' @return a log-normal distribution
 #' @seealso the function \code{\link{create_distribution}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_inv_gamma_distr <- function(
+create_log_normal_distr <- function(
   id = NA
 ) {
   return(
     beautier::create_distribution(
-      name = "inv_gamma",
+      name = "log_normal",
+      id = id
+    )
+  )
+}
+
+#' Create an normal distribution
+#' @inheritParams create_distribution
+#' @return a normal distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_normal_distr <- function(
+  id = NA
+) {
+  return(
+    beautier::create_distribution(
+      name = "normal",
+      id = id
+    )
+  )
+}
+
+#' Create a 1/x distribution
+#' @inheritParams create_distribution
+#' @return a 1/x distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_one_div_x_distr <- function(
+  id = NA
+) {
+  return(
+    beautier::create_distribution(
+      name = "one_div_x",
       id = id
     )
   )
@@ -230,6 +216,27 @@ create_poisson_distr <- function(
     beautier::create_distribution(
       name = "poisson",
       id = id
+    )
+  )
+}
+
+#' Create a uniform distribution
+#' @inheritParams create_distribution
+#' @param upper an upper limit of the uniform distribution
+#' @return a uniform distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_uniform_distr <- function(
+  id = NA,
+  upper = Inf
+) {
+  return(
+    beautier::create_distribution(
+      name = "uniform",
+      id = id,
+      upper = upper
     )
   )
 }
