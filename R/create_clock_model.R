@@ -31,10 +31,19 @@ create_clock_model <- function(
 }
 
 #' Create a relaxed log-normal clock model
+#' @param uclstdev_distribution the uclstdev distribution,
+#'   as created by a \code{\link{create_distribution}} function
 #' @return a relaxed log-normal clock_model
 #' @export
-create_rln_clock_model <- function() {
-  return(beautier::create_clock_model(name = "relaxed_log_normal"))
+create_rln_clock_model <- function(
+  uclstdev_distribution = create_normal_distr()
+) {
+  return(
+    beautier::create_clock_model(
+      name = "relaxed_log_normal",
+      uclstdev_distribution = uclstdev_distribution
+    )
+  )
 }
 
 #' Create a strict clock model

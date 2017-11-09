@@ -658,6 +658,38 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
 
 })
 
+test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
+
+  skip("WIP")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    clock_models = create_rln_clock_model(
+      uclstdev_distribution = create_beta_distribution()
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distribution = create_uniform_distr(id = 1))
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "relaxed_clock_log_normal_uclstdev_beta_2_4.xml", package = "beautier"))
+
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+
+  testthat::expect_identical(created_lines, expected_lines)
+
+})
+
 ################################################################################
 # Clock model: strict
 ################################################################################

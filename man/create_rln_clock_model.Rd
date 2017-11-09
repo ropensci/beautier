@@ -4,7 +4,11 @@
 \alias{create_rln_clock_model}
 \title{Create a relaxed log-normal clock model}
 \usage{
-create_rln_clock_model()
+create_rln_clock_model(uclstdev_distribution = create_normal_distr())
+}
+\arguments{
+\item{uclstdev_distribution}{the uclstdev distribution,
+as created by a \code{\link{create_distribution}} function}
 }
 \value{
 a relaxed log-normal clock_model
