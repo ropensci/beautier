@@ -4,6 +4,8 @@
 #'   log-normal distribution
 #' @return TRUE if x is a valid log-normal distribution,
 #'   FALSE otherwise
+#' @seealso use \code{\link{is_distribution}} to see if x is any
+#'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_log_normal_distribution <- function(

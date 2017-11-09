@@ -3,7 +3,8 @@
 \name{is_gamma_distribution}
 \alias{is_gamma_distribution}
 \title{Determine if the object is a valid
-gamma distribution}
+gamma distribution,
+as created by \code{\link{create_gamma_distr}}}
 \usage{
 is_gamma_distribution(x)
 }
@@ -17,7 +18,12 @@ TRUE if x is a valid gamma distribution,
 }
 \description{
 Determine if the object is a valid
-gamma distribution
+gamma distribution,
+as created by \code{\link{create_gamma_distr}}
+}
+\seealso{
+use \code{\link{is_distribution}} to see if x is any
+  distribution
 }
 \author{
 Richel J.C. Bilderbeek

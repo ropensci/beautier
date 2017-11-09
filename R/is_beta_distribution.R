@@ -4,6 +4,8 @@
 #'   beta distribution
 #' @return TRUE if x is a valid beta distribution,
 #'   FALSE otherwise
+#' @seealso use \code{\link{is_distribution}} to see if x is any
+#'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_beta_distribution <- function(

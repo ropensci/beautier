@@ -698,6 +698,19 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
 
 })
 
+test_that("Use of an RLN clock", {
+
+  skip("WIP")
+
+  testthat::expect_silent(
+    beautier::create_beast2_input(
+      input_fasta_filenames = beautier::get_input_fasta_filename(),
+      clock_models = create_rln_clock_model()
+    )
+  )
+
+})
+
 ################################################################################
 # Clock model: strict
 ################################################################################

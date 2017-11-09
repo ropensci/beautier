@@ -1,9 +1,12 @@
 #' Determine if the object is a valid
-#' gamma distribution
+#' gamma distribution,
+#' as created by \code{\link{create_gamma_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   gamma distribution
 #' @return TRUE if x is a valid gamma distribution,
 #'   FALSE otherwise
+#' @seealso use \code{\link{is_distribution}} to see if x is any
+#'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_gamma_distribution <- function(

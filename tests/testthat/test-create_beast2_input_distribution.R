@@ -6,8 +6,10 @@ test_that("use with one ID", {
     beautier:::create_beast2_input_distribution(
       ids = "test_output_0",
       site_models = create_jc69_site_models(n = 1),
-      clock_models = create_strict_clock_models(n = 1),
-      tree_priors = initialize_tree_priors(create_yule_tree_priors(n = 1))
+      clock_models = initialize_clock_models(
+        create_strict_clock_models(n = 1)),
+      tree_priors = initialize_tree_priors(
+        create_yule_tree_priors(n = 1), id = 1)
     )
   )
 })

@@ -6,8 +6,10 @@ test_that("birth_death", {
     beautier:::create_beast2_input_state(
       ids = "test_output_0",
       site_models = list(create_jc69_site_model()),
-      clock_models = list(create_strict_clock_model()),
-      tree_priors = initialize_tree_priors(list(create_yule_tree_prior())),
+      clock_models = beautier:::initialize_clock_models(
+        list(create_strict_clock_model()), id = 0),
+      tree_priors = beautier:::initialize_tree_priors(
+        list(create_yule_tree_prior()), id = 1),
       initial_phylogenies = NA
     )
   )

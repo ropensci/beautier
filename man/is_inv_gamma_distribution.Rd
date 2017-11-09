@@ -19,6 +19,10 @@ TRUE if x is a valid inv_gamma distribution,
 Determine if the object is a valid
 inv_gamma distribution
 }
+\seealso{
+use \code{\link{is_distribution}} to see if x is any
+  distribution
+}
 \author{
 Richel J.C. Bilderbeek
 }
