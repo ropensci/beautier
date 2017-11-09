@@ -4,7 +4,9 @@
 \alias{create_laplace_distr}
 \title{Create a Laplace distribution}
 \usage{
-create_laplace_distr(id = NA)
+create_laplace_distr(id = NA, mu = create_mu_parameter(id = NA, estimate =
+  FALSE, value = NA), scale = create_scale_parameter(id = NA, estimate =
+  FALSE, value = NA))
 }
 \arguments{
 \item{id}{the distribution's ID}

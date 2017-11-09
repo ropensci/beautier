@@ -138,12 +138,16 @@ create_inv_gamma_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_laplace_distr <- function(
-  id = NA
+  id = NA,
+  mu = create_mu_parameter(id = NA, estimate = FALSE, value = NA),
+  scale = create_scale_parameter(id = NA, estimate = FALSE, value = NA)
 ) {
   return(
     beautier::create_distribution(
       name = "laplace",
-      id = id
+      id = id,
+      mu = mu,
+      scale = scale
     )
   )
 }

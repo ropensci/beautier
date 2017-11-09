@@ -16,6 +16,8 @@ Get the parameter names
   names <- get_parameter_names()
   testthat::expect_true("alpha" \%in\% names)
   testthat::expect_true("beta" \%in\% names)
+  testthat::expect_true("mu" \%in\% names)
+  testthat::expect_true("scale" \%in\% names)
 }
 \author{
 Richel J.C. Bilderbeek

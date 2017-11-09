@@ -5,12 +5,16 @@
 #'   names <- get_parameter_names()
 #'   testthat::expect_true("alpha" %in% names)
 #'   testthat::expect_true("beta" %in% names)
+#'   testthat::expect_true("mu" %in% names)
+#'   testthat::expect_true("scale" %in% names)
 #' @export
 get_parameter_names <- function() {
   return(
     c(
       "alpha",
-      "beta"
+      "beta",
+      "mu",
+      "scale"
     )
   )
 }

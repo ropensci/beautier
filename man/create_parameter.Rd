@@ -24,7 +24,9 @@ General function to create a parameter.
 Prefer using the
   named functions
   \code{\link{create_alpha_parameter}},
-  and \code{\link{create_beta_parameter}}
+  \code{\link{create_beta_parameter}},
+  \code{\link{create_mu_parameter}},
+  and \code{\link{create_scale_parameter}}
 }
 \author{
 Richel J.C. Bilderbeek

@@ -159,12 +159,18 @@ distribution_to_xml_laplace <- function(
   text <- NULL
   text <- c(text, paste0("<LaplaceDistribution ",
     "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.10\" estimate=\"false\" ",
-    "name=\"mu\">0.0</parameter>"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.11\" estimate=\"false\" ",
-    "name=\"scale\">1.0</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distribution$mu),
+      n_spaces = 4
+    )
+  )
+  text <- c(text,
+    indent(
+      parameter_to_xml(distribution$scale),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</LaplaceDistribution>"))
   text
 }

@@ -6,7 +6,9 @@
 #' @note Prefer using the
 #'   named functions
 #'   \code{\link{create_alpha_parameter}},
-#'   and \code{\link{create_beta_parameter}}
+#'   \code{\link{create_beta_parameter}},
+#'   \code{\link{create_mu_parameter}},
+#'   and \code{\link{create_scale_parameter}}
 #' @return a parameter
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -80,6 +82,56 @@ create_beta_parameter <- function(
   return(
     beautier::create_parameter(
       name = "beta",
+      id = id,
+      estimate = estimate,
+      value = value
+    )
+  )
+}
+
+#' Create a parameter called mu
+#' @inheritParams create_parameter
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
+#' @param value value of the parameter
+#' @return a parameter called mu
+#' @seealso the function \code{\link{create_parameter}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_mu_parameter <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  return(
+    beautier::create_parameter(
+      name = "mu",
+      id = id,
+      estimate = estimate,
+      value = value
+    )
+  )
+}
+
+#' Create a parameter called scale
+#' @inheritParams create_parameter
+#' @param estimate TRUE if this parameter scale be estimated by BEAST2,
+#'   FALSE otherwise
+#' @param value value of the parameter
+#' @return a parameter called scale
+#' @seealso the function \code{\link{create_parameter}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_scale_parameter <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  return(
+    beautier::create_parameter(
+      name = "scale",
       id = id,
       estimate = estimate,
       value = value

@@ -16,6 +16,10 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_alpha(parameter))
   } else if (is_beta_parameter(parameter)) {
     text <- c(text, parameter_to_xml_beta(parameter))
+  } else if (is_mu_parameter(parameter)) {
+    text <- c(text, parameter_to_xml_mu(parameter))
+  } else if (is_scale_parameter(parameter)) {
+    text <- c(text, parameter_to_xml_scale(parameter))
   }
   text
 }
@@ -67,6 +71,58 @@ parameter_to_xml_beta <- function(
       "id=\"RealParameter.", id, "\" ",
       "estimate=\"", estimate, "\" ",
       "name=\"beta\">", value,
+      "</parameter>"
+    )
+  )
+  text
+}
+
+#' Converts a mu parameter to XML
+#' @param parameter a mu parameter,
+#'   as created by \code{\link{create_mu_parameter}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_mu <- function(
+  parameter
+) {
+  testit::assert(is_mu_parameter(parameter))
+  id <- beautier::get_parameter_id(parameter)
+  testit::assert(!is.na(id))
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
+  text <- NULL
+  text <- c(text,
+    paste0(
+      "<parameter ",
+      "id=\"RealParameter.", id, "\" ",
+      "estimate=\"", estimate, "\" ",
+      "name=\"mu\">", value,
+      "</parameter>"
+    )
+  )
+  text
+}
+
+#' Converts a scale parameter to XML
+#' @param parameter a scale parameter,
+#'   as created by \code{\link{create_scale_parameter}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_scale <- function(
+  parameter
+) {
+  testit::assert(is_scale_parameter(parameter))
+  id <- beautier::get_parameter_id(parameter)
+  testit::assert(!is.na(id))
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
+  text <- NULL
+  text <- c(text,
+    paste0(
+      "<parameter ",
+      "id=\"RealParameter.", id, "\" ",
+      "estimate=\"", estimate, "\" ",
+      "name=\"scale\">", value,
       "</parameter>"
     )
   )

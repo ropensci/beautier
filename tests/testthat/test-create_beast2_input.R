@@ -833,12 +833,14 @@ test_that("Reproduce coalescent_constant_population_2_4.xml", {
 
 test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
 
-  skip("WIP")
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_ccp_tree_prior(
-      pop_size_distribution = beautier::create_gamma_distr(id = 2)
+      pop_size_distribution = beautier::create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_parameter(id = 9, value = "2.0"),
+        beta = create_beta_parameter(id = 10, value = "2.0")
+      )
     )
   )
 
@@ -865,13 +867,15 @@ test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
 
 test_that("Reproduce coalescent_exponential_population_2_4.xml", {
 
-  skip("All OK, except RealParameter")
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior(
       pop_size_distribution = create_one_div_x_distr(id = 1),
-      growth_rate_distribution = create_laplace_distr(id = 0)
+      growth_rate_distribution = create_laplace_distr(
+        id = 0,
+        mu = create_mu_parameter(id = 1, value = "0.001"),
+        scale = create_scale_parameter(id = 2, value = "30.701135")
+      )
     )
   )
 
@@ -1121,13 +1125,16 @@ test_that("Reproduce birth_rate_laplace_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_laplace_distr(id = 0)
+      birth_rate_distribution = create_laplace_distr(
+        id = 0,
+        mu = create_mu_parameter(id = 10, value = "0.0"),
+        scale = create_scale_parameter(id = 11, value = "1.0")
+      )
     )
   )
 
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_laplace_2_4.xml", package = "beautier"))
-
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -1436,12 +1443,21 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    clock_models = list(create_strict_clock_model(), create_rln_clock_model()),
+    clock_models = list(
+      create_strict_clock_model(),
+      create_rln_clock_model(
+        uclstdev_distribution = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_parameter(id = 3, value = "0.5396"),
+          beta = create_beta_parameter(id = 4, value = "0.3819")
+        )
+      )
+    ),
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distribution = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 2))
+        birth_rate_distribution = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
