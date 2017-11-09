@@ -1058,7 +1058,11 @@ test_that("Reproduce birth_rate_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_yule_tree_prior(
-      birth_rate_distribution = beautier::create_gamma_distr(id = 0)
+      birth_rate_distribution = beautier::create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_parameter(id = 6, value = "2.0"),
+        beta = create_beta_parameter(id = 7, value = "2.0")
+      )
     )
   )
 

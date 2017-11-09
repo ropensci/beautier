@@ -98,12 +98,18 @@ distribution_to_xml_gamma <- function(
   text <- NULL
   text <- c(text, paste0("<Gamma ",
     "id=\"Gamma.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.6\" estimate=\"false\" ",
-    "name=\"alpha\">2.0</parameter>"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.7\" estimate=\"false\" ",
-    "name=\"beta\">2.0</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distribution$alpha),
+      n_spaces = 4
+    )
+  )
+  text <- c(text,
+    indent(
+      parameter_to_xml(distribution$beta),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</Gamma>"))
   text
 }
