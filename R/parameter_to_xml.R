@@ -31,8 +31,19 @@ parameter_to_xml_alpha <- function(
   testit::assert(is_alpha_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
   testit::assert(!is.na(id))
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
 
   text <- NULL
+  text <- c(text,
+    paste0(
+      "<parameter ",
+      "id=\"RealParameter.", id, "\" ",
+      "estimate=\"", estimate, "\" ",
+      "name=\"alpha\">", value,
+      "</parameter>"
+    )
+  )
   text
 }
 
@@ -47,7 +58,17 @@ parameter_to_xml_beta <- function(
   testit::assert(is_beta_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
   testit::assert(!is.na(id))
-
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
   text <- NULL
+  text <- c(text,
+    paste0(
+      "<parameter ",
+      "id=\"RealParameter.", id, "\" ",
+      "estimate=\"", estimate, "\" ",
+      "name=\"beta\">", value,
+      "</parameter>"
+    )
+  )
   text
 }
