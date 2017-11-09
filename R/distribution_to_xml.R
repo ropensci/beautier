@@ -38,7 +38,7 @@ distribution_to_xml <- function(
 
 #' Converts a beta distribution to XML
 #' @param distribution a beta distibution,
-#'   as created by \code{\link{create_beta_distribution}})
+#'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_beta <- function(
@@ -63,7 +63,7 @@ distribution_to_xml_beta <- function(
 
 #' Converts an exponential distribution to XML
 #' @param distribution an exponential distibution,
-#'   as created by \code{\link{create_exponential_distribution}})
+#'   as created by \code{\link{create_exponential_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_exponential <- function(
@@ -85,7 +85,7 @@ distribution_to_xml_exponential <- function(
 
 #' Converts a gamma distribution to XML
 #' @param distribution a gamma distibution,
-#'   as created by \code{\link{create_gamma_distribution}})
+#'   as created by \code{\link{create_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_gamma <- function(
@@ -110,7 +110,7 @@ distribution_to_xml_gamma <- function(
 
 #' Converts a inv_gamma distribution to XML
 #' @param distribution a inv_gamma distibution,
-#'   as created by \code{\link{create_inv_gamma_distribution}})
+#'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_inv_gamma <- function(
@@ -135,7 +135,7 @@ distribution_to_xml_inv_gamma <- function(
 
 #' Converts a laplace distribution to XML
 #' @param distribution a laplace distibution,
-#'   as created by \code{\link{create_laplace_distribution}})
+#'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_laplace <- function(
@@ -159,7 +159,7 @@ distribution_to_xml_laplace <- function(
 }
 #' Converts a log-normal distribution to XML
 #' @param distribution a log-normal distibution,
-#'   as created by \code{\link{create_log_normal_distribution}})
+#'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_log_normal <- function(
@@ -184,7 +184,7 @@ distribution_to_xml_log_normal <- function(
 
 #' Converts a normal distribution to XML
 #' @param distribution a normal distibution,
-#'   as created by \code{\link{create_normal_distribution}})
+#'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_normal <- function(
@@ -209,7 +209,7 @@ distribution_to_xml_normal <- function(
 
 #' Converts a 1/x distribution to XML
 #' @param distribution a 1/x distibution,
-#'   as created by \code{\link{create_one_div_x_distribution}})
+#'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_one_div_x <- function(
@@ -227,7 +227,7 @@ distribution_to_xml_one_div_x <- function(
 
 #' Converts a poisson distribution to XML
 #' @param distribution a poisson distibution,
-#'   as created by \code{\link{create_poisson_distribution}})
+#'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_poisson <- function(
@@ -249,7 +249,7 @@ distribution_to_xml_poisson <- function(
 
 #' Converts a uniform distribution to XML
 #' @param distribution a uniform distibution,
-#'   as created by \code{\link{create_uniform_distribution}})
+#'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distribution_to_xml_uniform <- function(

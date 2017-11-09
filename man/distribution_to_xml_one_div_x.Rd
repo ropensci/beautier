@@ -8,7 +8,7 @@ distribution_to_xml_one_div_x(distribution)
 }
 \arguments{
 \item{distribution}{a 1/x distibution,
-as created by \code{\link{create_one_div_x_distribution}})}
+as created by \code{\link{create_one_div_x_distr}})}
 }
 \value{
 the distribution as XML text

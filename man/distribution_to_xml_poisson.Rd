@@ -8,7 +8,7 @@ distribution_to_xml_poisson(distribution)
 }
 \arguments{
 \item{distribution}{a poisson distibution,
-as created by \code{\link{create_poisson_distribution}})}
+as created by \code{\link{create_poisson_distr}})}
 }
 \value{
 the distribution as XML text

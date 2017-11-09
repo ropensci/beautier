@@ -5,7 +5,7 @@
 \title{Create a Coalescent Constant Population tree prior}
 \usage{
 
-  create_ccp_tree_prior(pop_size_distribution = beautier::create_one_div_x_distribution())
+  create_ccp_tree_prior(pop_size_distribution = beautier::create_one_div_x_distr())
 }
 \arguments{
 \item{pop_size_distribution}{the population distribution,

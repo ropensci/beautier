@@ -23,8 +23,8 @@ General function to create a parameter.
 \note{
 Prefer using the
   named functions
-  \code{\link{create_parameter_alpha}},
-  and \code{\link{create_parameter_beta}}
+  \code{\link{create_alpha_parameter}},
+  and \code{\link{create_beta_parameter}}
 }
 \author{
 Richel J.C. Bilderbeek

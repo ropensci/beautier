@@ -8,7 +8,7 @@ distribution_to_xml_log_normal(distribution)
 }
 \arguments{
 \item{distribution}{a log-normal distibution,
-as created by \code{\link{create_log_normal_distribution}})}
+as created by \code{\link{create_log_normal_distr}})}
 }
 \value{
 the distribution as XML text

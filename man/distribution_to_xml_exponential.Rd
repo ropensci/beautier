@@ -8,7 +8,7 @@ distribution_to_xml_exponential(distribution)
 }
 \arguments{
 \item{distribution}{an exponential distibution,
-as created by \code{\link{create_exponential_distribution}})}
+as created by \code{\link{create_exponential_distr}})}
 }
 \value{
 the distribution as XML text

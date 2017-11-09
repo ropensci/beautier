@@ -5,8 +5,8 @@
 #' @param ... specific parameter parameters
 #' @note Prefer using the
 #'   named functions
-#'   \code{\link{create_parameter_alpha}},
-#'   and \code{\link{create_parameter_beta}}
+#'   \code{\link{create_alpha_parameter}},
+#'   and \code{\link{create_beta_parameter}}
 #' @return a parameter
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -43,11 +43,11 @@ create_parameter <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called alpha
-#' @seealso the function \code{\link{create_parameter_alpha}} contains a list
+#' @seealso the function \code{\link{create_parameter}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_parameter_alpha <- function(
+create_alpha_parameter <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -68,11 +68,11 @@ create_parameter_alpha <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called beta
-#' @seealso the function \code{\link{create_parameter_alpha}} contains a list
+#' @seealso the function \code{\link{create_parameter}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_parameter_beta <- function(
+create_beta_parameter <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0

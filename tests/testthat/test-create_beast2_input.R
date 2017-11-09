@@ -639,8 +639,8 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
     clock_models = create_rln_clock_model(
       uclstdev_distribution = create_gamma_distr(
         id = 0,
-        alpha = create_parameter_alpha(id = 2, value = "0.5396"),
-        beta = create_parameter_beta(id = 3, value = "0.3819")
+        alpha = create_alpha_parameter(id = 2, value = "0.5396"),
+        beta = create_beta_parameter(id = 3, value = "0.3819")
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -674,7 +674,7 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model(
-      uclstdev_distribution = create_beta_distribution()
+      uclstdev_distribution = create_beta_distr()
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distribution = create_uniform_distr(id = 1))
@@ -822,7 +822,7 @@ test_that("Reproduce coalescent_constant_population_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_ccp_tree_prior(
-      pop_size_distribution = create_one_div_x_distribution(id = 1)
+      pop_size_distribution = create_one_div_x_distr(id = 1)
     )
   )
 
@@ -871,8 +871,8 @@ test_that("Reproduce coalescent_exponential_population_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior(
-      pop_size_distribution = create_one_div_x_distribution(id = 1),
-      growth_rate_distribution = create_laplace_distribution(id = 0)
+      pop_size_distribution = create_one_div_x_distr(id = 1),
+      growth_rate_distribution = create_laplace_distr(id = 0)
     )
   )
 
@@ -973,7 +973,7 @@ test_that("Reproduce birth_rate_one_div_x_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_one_div_x_distribution(id = 1)
+      birth_rate_distribution = create_one_div_x_distr(id = 1)
     )
   )
 
@@ -1001,7 +1001,7 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_log_normal_distribution(id = 0)
+      birth_rate_distribution = create_log_normal_distr(id = 0)
     )
   )
 
@@ -1086,7 +1086,7 @@ test_that("Reproduce birth_rate_beta_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_beta_distribution(id = 0)
+      birth_rate_distribution = create_beta_distr(id = 0)
     )
   )
 
@@ -1114,7 +1114,7 @@ test_that("Reproduce birth_rate_laplace_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_laplace_distribution(id = 0)
+      birth_rate_distribution = create_laplace_distr(id = 0)
     )
   )
 
@@ -1142,7 +1142,7 @@ test_that("Reproduce birth_rate_inv_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_inv_gamma_distribution(id = 0)
+      birth_rate_distribution = create_inv_gamma_distr(id = 0)
     )
   )
 
@@ -1170,7 +1170,7 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_poisson_distribution(id = 0)
+      birth_rate_distribution = create_poisson_distr(id = 0)
     )
   )
 

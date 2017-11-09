@@ -8,7 +8,7 @@ distribution_to_xml_uniform(distribution)
 }
 \arguments{
 \item{distribution}{a uniform distibution,
-as created by \code{\link{create_uniform_distribution}})}
+as created by \code{\link{create_uniform_distr}})}
 }
 \value{
 the distribution as XML text

@@ -7,13 +7,14 @@
 #'   named functions
 #'   \code{\link{create_uniform_distr}},
 #'   \code{\link{create_normal_distr}},
-#'   \code{\link{create_one_div_x_distribution}},
+#'   \code{\link{create_log_normal_distr}},
+#'   \code{\link{create_one_div_x_distr}},
 #'   \code{\link{create_exponential_distr}},
 #'   \code{\link{create_gamma_distr}},
-#'   \code{\link{create_beta_distribution}},
-#'   \code{\link{create_laplace_distribution}},
-#'   \code{\link{create_inv_gamma_distribution}},
-#'   and \code{\link{create_poisson_distribution}}
+#'   \code{\link{create_beta_distr}},
+#'   \code{\link{create_laplace_distr}},
+#'   \code{\link{create_inv_gamma_distr}},
+#'   and \code{\link{create_poisson_distr}}
 #' @return a distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -48,6 +49,8 @@ create_distribution <- function(
 #' @inheritParams create_distribution
 #' @param upper an upper limit of the uniform distribution
 #' @return a uniform distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_uniform_distr <- function(
@@ -66,6 +69,8 @@ create_uniform_distr <- function(
 #' Create an normal distribution
 #' @inheritParams create_distribution
 #' @return a normal distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_normal_distr <- function(
@@ -82,9 +87,11 @@ create_normal_distr <- function(
 #' Create a 1/x distribution
 #' @inheritParams create_distribution
 #' @return a 1/x distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_one_div_x_distribution <- function(
+create_one_div_x_distr <- function(
   id = NA
 ) {
   return(
@@ -98,9 +105,11 @@ create_one_div_x_distribution <- function(
 #' Create a log-normal distribution
 #' @inheritParams create_distribution
 #' @return a log-normal distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_log_normal_distribution <- function(
+create_log_normal_distr <- function(
   id = NA
 ) {
   return(
@@ -114,6 +123,8 @@ create_log_normal_distribution <- function(
 #' Create an exponential distribution
 #' @inheritParams create_distribution
 #' @return an exponential distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_exponential_distr <- function(
@@ -132,12 +143,14 @@ create_exponential_distr <- function(
 #' @param alpha the alpha shape parameter
 #' @param beta the beta shape parameter
 #' @return a gamma distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_gamma_distr <- function(
   id = NA,
-  alpha = create_parameter_alpha(id = NA, estimate = FALSE, value = "0.5396"),
-  beta = create_parameter_beta(id = NA, estimate = FALSE, value = "0.3819")
+  alpha = create_alpha_parameter(id = NA, estimate = FALSE, value = "0.5396"),
+  beta = create_beta_parameter(id = NA, estimate = FALSE, value = "0.3819")
 ) {
   return(
     beautier::create_distribution(
@@ -152,9 +165,11 @@ create_gamma_distr <- function(
 #' Create a beta distribution
 #' @inheritParams create_distribution
 #' @return a beta distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beta_distribution <- function(
+create_beta_distr <- function(
   id = NA
 ) {
   return(
@@ -168,9 +183,11 @@ create_beta_distribution <- function(
 #' Create a Laplace distribution
 #' @inheritParams create_distribution
 #' @return a Laplace distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_laplace_distribution <- function(
+create_laplace_distr <- function(
   id = NA
 ) {
   return(
@@ -184,9 +201,11 @@ create_laplace_distribution <- function(
 #' Create an inverse gamma distribution
 #' @inheritParams create_distribution
 #' @return an inverse gamma distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_inv_gamma_distribution <- function(
+create_inv_gamma_distr <- function(
   id = NA
 ) {
   return(
@@ -200,9 +219,11 @@ create_inv_gamma_distribution <- function(
 #' Create a Poisson distribution
 #' @inheritParams create_distribution
 #' @return a Poisson distribution
+#' @seealso the function \code{\link{create_distribution}} shows an overview
+#'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_poisson_distribution <- function(
+create_poisson_distr <- function(
   id = NA
 ) {
   return(

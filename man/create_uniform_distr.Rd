@@ -17,6 +17,10 @@ a uniform distribution
 \description{
 Create a uniform distribution
 }
+\seealso{
+the function \code{\link{create_distribution}} shows an overview
+  of all supported distributions
+}
 \author{
 Richel J.C. Bilderbeek
 }

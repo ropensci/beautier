@@ -8,7 +8,7 @@ distribution_to_xml_normal(distribution)
 }
 \arguments{
 \item{distribution}{a normal distibution,
-as created by \code{\link{create_normal_distribution}})}
+as created by \code{\link{create_normal_distr}})}
 }
 \value{
 the distribution as XML text

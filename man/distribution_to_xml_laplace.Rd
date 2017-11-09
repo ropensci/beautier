@@ -8,7 +8,7 @@ distribution_to_xml_laplace(distribution)
 }
 \arguments{
 \item{distribution}{a laplace distibution,
-as created by \code{\link{create_laplace_distribution}})}
+as created by \code{\link{create_laplace_distr}})}
 }
 \value{
 the distribution as XML text

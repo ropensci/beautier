@@ -4,8 +4,8 @@
 \alias{create_gamma_distr}
 \title{Create a gamma distribution}
 \usage{
-create_gamma_distr(id = NA, alpha = create_parameter_alpha(id = NA, estimate
-  = FALSE, value = "0.5396"), beta = create_parameter_beta(id = NA, estimate =
+create_gamma_distr(id = NA, alpha = create_alpha_parameter(id = NA, estimate
+  = FALSE, value = "0.5396"), beta = create_beta_parameter(id = NA, estimate =
   FALSE, value = "0.3819"))
 }
 \arguments{
@@ -20,6 +20,10 @@ a gamma distribution
 }
 \description{
 Create a gamma distribution
+}
+\seealso{
+the function \code{\link{create_distribution}} shows an overview
+  of all supported distributions
 }
 \author{
 Richel J.C. Bilderbeek

@@ -8,7 +8,7 @@ distribution_to_xml_beta(distribution)
 }
 \arguments{
 \item{distribution}{a beta distibution,
-as created by \code{\link{create_beta_distribution}})}
+as created by \code{\link{create_beta_distr}})}
 }
 \value{
 the distribution as XML text

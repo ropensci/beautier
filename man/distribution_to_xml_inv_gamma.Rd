@@ -8,7 +8,7 @@ distribution_to_xml_inv_gamma(distribution)
 }
 \arguments{
 \item{distribution}{a inv_gamma distibution,
-as created by \code{\link{create_inv_gamma_distribution}})}
+as created by \code{\link{create_inv_gamma_distr}})}
 }
 \value{
 the distribution as XML text
