@@ -283,8 +283,21 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
     tree_prior <- tree_priors[[i]]
     testit::assert(beautier::is_clock_model(clock_model))
 
+    # Irregularity: WIP, TODO, to be moved to someplace else
+    if (is_yule_tree_prior(tree_prior)) {
+
+      if (i == 2) {
+        text <- c(text, paste0("            <prior ",
+          "id=\"ClockPrior.c:", id, "\" name=\"distribution\" ",
+          "x=\"@clockRate.c:", id, "\">"))
+        text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
+          "name=\"distr\" upper=\"Infinity\"/>"))
+        text <- c(text, paste0("            </prior>"))
+      }
+    }
+
     # No beautier:: before create_beast2_input_distribution_prior_prior_tree_prior, as it is private # nolint
-    tree_priors_text <- create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior, i = i) # nolint
+    tree_priors_text <- create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior) # nolint
     site_models_text <- create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
     gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
     clock_models_text <- create_beast2_input_distribution_clock_models(id = id, clock_model = clock_model) # nolint
@@ -309,30 +322,15 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 #' of a BEAST2 XML parameter file
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
-#' @param i the ith tree prior
 #' @param tree_prior a tree_prior, as created by \code{\link{create_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  tree_prior,
-  i
+  tree_prior
 ) {
   text <- NULL
-
-  # Irregularity: WIP, TODO, to be moved to someplace else
-  if (is_yule_tree_prior(tree_prior)) {
-
-    if (i == 2) {
-      text <- c(text, paste0("            <prior ",
-        "id=\"ClockPrior.c:", id, "\" name=\"distribution\" ",
-        "x=\"@clockRate.c:", id, "\">"))
-      text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
-        "name=\"distr\" upper=\"Infinity\"/>"))
-      text <- c(text, paste0("            </prior>"))
-    }
-  }
 
   if (is_yule_tree_prior(tree_prior)) {
 
