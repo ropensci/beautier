@@ -12,26 +12,26 @@ distribution_to_xml <- function(
   if (is.na(id)) {
     stop("distribution must have an ID")
   }
-  if (is_uniform_distribution(distribution)) {
-    text <- c(text, distribution_to_xml_uniform(distribution))
-  } else if (is_normal_distribution(distribution)) {
-    text <- c(text, distribution_to_xml_normal(distribution))
-  } else if (is_one_div_x_distribution(distribution)) {
-    text <- c(text, distribution_to_xml_one_div_x(distribution))
-  } else if (is_log_normal_distribution(distribution)) {
-    text <- c(text, distribution_to_xml_log_normal(distribution))
+  if (is_beta_distribution(distribution)) {
+    text <- c(text, distribution_to_xml_beta(distribution))
   } else if (is_exponential_distribution(distribution)) {
     text <- c(text, distribution_to_xml_exponential(distribution))
   } else if (is_gamma_distribution(distribution)) {
     text <- c(text, distribution_to_xml_gamma(distribution))
-  } else if (is_beta_distribution(distribution)) {
-    text <- c(text, distribution_to_xml_beta(distribution))
-  } else if (is_laplace_distribution(distribution)) {
-    text <- c(text, distribution_to_xml_laplace(distribution))
   } else if (is_inv_gamma_distribution(distribution)) {
     text <- c(text, distribution_to_xml_inv_gamma(distribution))
+  } else if (is_laplace_distribution(distribution)) {
+    text <- c(text, distribution_to_xml_laplace(distribution))
+  } else if (is_log_normal_distribution(distribution)) {
+    text <- c(text, distribution_to_xml_log_normal(distribution))
+  } else if (is_normal_distribution(distribution)) {
+    text <- c(text, distribution_to_xml_normal(distribution))
+  } else if (is_one_div_x_distribution(distribution)) {
+    text <- c(text, distribution_to_xml_one_div_x(distribution))
   } else if (is_poisson_distribution(distribution)) {
     text <- c(text, distribution_to_xml_poisson(distribution))
+  } else if (is_uniform_distribution(distribution)) {
+    text <- c(text, distribution_to_xml_uniform(distribution))
   }
   text
 }
@@ -49,14 +49,19 @@ distribution_to_xml_beta <- function(
   testit::assert(!is.na(id))
 
   text <- NULL
-  text <- c(text, paste0("<Beta ",
-    "id=\"Beta.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.8\" estimate=\"false\" ",
-    "name=\"alpha\">2.0</parameter>"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.9\" estimate=\"false\" ",
-    "name=\"beta\">2.0</parameter>"))
+  text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distribution$alpha),
+      n_spaces = 4
+    )
+  )
+  text <- c(text,
+    indent(
+      parameter_to_xml(distribution$beta),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</Beta>"))
   text
 }

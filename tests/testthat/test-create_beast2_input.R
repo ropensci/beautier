@@ -673,7 +673,7 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model(
       uclstdev_distribution = create_beta_distr(
-        d = 0,
+        id = 0,
         alpha = create_alpha_parameter(id = 4, value = "2.0"),
         beta = create_beta_parameter(id = 5, value = "2.0")
       )
@@ -1092,7 +1092,11 @@ test_that("Reproduce birth_rate_beta_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_beta_distr(id = 0)
+      birth_rate_distribution = create_beta_distr(
+        id = 0,
+        alpha = create_alpha_parameter(id = 8, value = "2.0"),
+        beta = create_beta_parameter(id = 9, value = "2.0")
+      )
     )
   )
 
