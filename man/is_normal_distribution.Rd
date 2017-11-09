@@ -3,7 +3,8 @@
 \name{is_normal_distribution}
 \alias{is_normal_distribution}
 \title{Determine if the object is a valid
-normal distribution}
+normal distribution
+as created by \code{\link{create_normal_distr}}}
 \usage{
 is_normal_distribution(x)
 }
@@ -18,6 +19,7 @@ TRUE if x is a valid normal distribution,
 \description{
 Determine if the object is a valid
 normal distribution
+as created by \code{\link{create_normal_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

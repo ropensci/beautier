@@ -3,7 +3,8 @@
 \name{is_exponential_distribution}
 \alias{is_exponential_distribution}
 \title{Determine if the object is a valid
-exponential distribution}
+exponential distribution
+as created by \code{\link{create_exponential_distr}}}
 \usage{
 is_exponential_distribution(x)
 }
@@ -18,6 +19,7 @@ TRUE if x is a valid exponential distribution,
 \description{
 Determine if the object is a valid
 exponential distribution
+as created by \code{\link{create_exponential_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

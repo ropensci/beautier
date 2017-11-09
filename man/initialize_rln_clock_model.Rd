@@ -4,13 +4,15 @@
 \alias{initialize_rln_clock_model}
 \title{Initializes a Birth-Death clock model}
 \usage{
-initialize_rln_clock_model(rln_clock_model, id)
+initialize_rln_clock_model(rln_clock_model, distr_id, param_id)
 }
 \arguments{
 \item{rln_clock_model}{a Birth-Death clock model,
 as returned by \code{\link{create_rln_clock_model}}}
 
-\item{id}{the index of the first distribution}
+\item{distr_id}{the first distributions' ID}
+
+\item{param_id}{the first parameter's ID}
 }
 \value{
 an initialized Birth-Death clock model

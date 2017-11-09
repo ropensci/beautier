@@ -3,7 +3,8 @@
 \name{is_uniform_distribution}
 \alias{is_uniform_distribution}
 \title{Determine if the object is a valid
-uniform distribution}
+uniform distribution
+as created by \code{\link{create_uniform_distr}}}
 \usage{
 is_uniform_distribution(x)
 }
@@ -18,6 +19,7 @@ TRUE if x is a valid uniform distribution,
 \description{
 Determine if the object is a valid
 uniform distribution
+as created by \code{\link{create_uniform_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

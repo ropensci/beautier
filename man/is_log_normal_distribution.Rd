@@ -3,7 +3,8 @@
 \name{is_log_normal_distribution}
 \alias{is_log_normal_distribution}
 \title{Determine if the object is a valid
-log-normal distribution}
+log-normal distribution,
+as created by \code{\link{create_log_normal_distr}}}
 \usage{
 is_log_normal_distribution(x)
 }
@@ -17,7 +18,8 @@ TRUE if x is a valid log-normal distribution,
 }
 \description{
 Determine if the object is a valid
-log-normal distribution
+log-normal distribution,
+as created by \code{\link{create_log_normal_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

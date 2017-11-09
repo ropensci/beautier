@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
-#' laplace distribution
+#' laplace distribution,
+#' as created by \code{\link{create_laplace_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   laplace distribution
 #' @return TRUE if x is a valid laplace distribution,

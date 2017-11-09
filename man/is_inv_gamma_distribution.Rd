@@ -3,7 +3,8 @@
 \name{is_inv_gamma_distribution}
 \alias{is_inv_gamma_distribution}
 \title{Determine if the object is a valid
-inv_gamma distribution}
+inv_gamma distribution,
+as created by \code{\link{create_inv_gamma_distr}}}
 \usage{
 is_inv_gamma_distribution(x)
 }
@@ -17,7 +18,8 @@ TRUE if x is a valid inv_gamma distribution,
 }
 \description{
 Determine if the object is a valid
-inv_gamma distribution
+inv_gamma distribution,
+as created by \code{\link{create_inv_gamma_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

@@ -1,4 +1,5 @@
-#' Determine if x is an initialized clock_model objects
+#' Determine if x is an initialized clock_model object,
+#' as created by \code{\link{create_clock_model}}
 #' @param x the object to check if it is an
 #'   initialized clock_models object
 #' @return TRUE if x is an initialized clock_model object
@@ -15,7 +16,8 @@ is_initialized_clock_model <- function(
   }
 }
 
-#' Determine if x is an initialized relaxed log-normal clock_model object
+#' Determine if x is an initialized relaxed log-normal clock_model object,
+#' as created by \code{\link{create_rln_clock_model}}
 #' @param x the object to check if it is an
 #'   initialized relaxed log-normal clock_model object
 #' @return TRUE if x is an initialized relaxed log-normal clock_model object
@@ -27,8 +29,8 @@ is_initialized_rln_clock_model <- function(
   is_initialized_distribution(x$uclstdev_distribution)
 }
 
-#' Determine if x is an initialized strict
-#'   clock_model object
+#' Determine if x is an initialized strict clock_model object
+#' as created by \code{\link{create_strict_clock_model}}
 #' @param x the object to check if it is an
 #'   initialized strict clock model object
 #' @return TRUE if x is an initializedstrict clock_model object

@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
 #' normal distribution
+#' as created by \code{\link{create_normal_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   normal distribution
 #' @return TRUE if x is a valid normal distribution,

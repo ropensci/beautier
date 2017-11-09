@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
-#' log-normal distribution
+#' log-normal distribution,
+#' as created by \code{\link{create_log_normal_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   log-normal distribution
 #' @return TRUE if x is a valid log-normal distribution,

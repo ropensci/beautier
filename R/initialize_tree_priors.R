@@ -1,14 +1,16 @@
 #' Initializes all tree priors
 #' @param tree_priors a list of one or more tree priors to be initialized.
 #'   Tree priors can be created using \code{\link{create_tree_prior}}
-#' @param id the first distributions' ID
+#' @param distr_id the first distributions' ID
 #' @return a list of initialized tree priors
 #' @author Richel J.C. Bilderbeek
 initialize_tree_priors <- function(
   tree_priors,
-  id = 0
+  distr_id = 0
 ) {
   testit::assert(beautier::are_tree_priors(tree_priors))
+
+  id <- distr_id # Notational convenience
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]

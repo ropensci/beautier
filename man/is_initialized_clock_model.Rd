@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_initialized_clock_model.R
 \name{is_initialized_clock_model}
 \alias{is_initialized_clock_model}
-\title{Determine if x is an initialized clock_model objects}
+\title{Determine if x is an initialized clock_model object,
+as created by \code{\link{create_clock_model}}}
 \usage{
 is_initialized_clock_model(x)
 }
@@ -14,7 +15,8 @@ initialized clock_models object}
 TRUE if x is an initialized clock_model object
 }
 \description{
-Determine if x is an initialized clock_model objects
+Determine if x is an initialized clock_model object,
+as created by \code{\link{create_clock_model}}
 }
 \author{
 Richel J.C. Bilderbeek

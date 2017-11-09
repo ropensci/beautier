@@ -1,7 +1,8 @@
 #' Determine if the object is a valid
 #' beta distribution
+#' as created by \code{\link{create_beta_distr}}
 #' @param x an object, to be determined if it is a valid
-#'   beta distribution
+#'   beta distribution,
 #' @return TRUE if x is a valid beta distribution,
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distribution}} to see if x is any

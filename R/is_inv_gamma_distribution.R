@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
-#' inv_gamma distribution
+#' inv_gamma distribution,
+#' as created by \code{\link{create_inv_gamma_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   inv_gamma distribution
 #' @return TRUE if x is a valid inv_gamma distribution,

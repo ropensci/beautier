@@ -3,7 +3,8 @@
 \name{is_poisson_distribution}
 \alias{is_poisson_distribution}
 \title{Determine if the object is a valid
-poisson distribution}
+poisson distribution
+as created by \code{\link{create_poisson_distr}}}
 \usage{
 is_poisson_distribution(x)
 }
@@ -18,6 +19,7 @@ TRUE if x is a valid poisson distribution,
 \description{
 Determine if the object is a valid
 poisson distribution
+as created by \code{\link{create_poisson_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

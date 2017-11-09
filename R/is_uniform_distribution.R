@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
 #' uniform distribution
+#' as created by \code{\link{create_uniform_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   uniform distribution
 #' @return TRUE if x is a valid uniform distribution,

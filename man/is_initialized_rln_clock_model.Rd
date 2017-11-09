@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_initialized_clock_model.R
 \name{is_initialized_rln_clock_model}
 \alias{is_initialized_rln_clock_model}
-\title{Determine if x is an initialized relaxed log-normal clock_model object}
+\title{Determine if x is an initialized relaxed log-normal clock_model object,
+as created by \code{\link{create_rln_clock_model}}}
 \usage{
 is_initialized_rln_clock_model(x)
 }
@@ -14,7 +15,8 @@ initialized relaxed log-normal clock_model object}
 TRUE if x is an initialized relaxed log-normal clock_model object
 }
 \description{
-Determine if x is an initialized relaxed log-normal clock_model object
+Determine if x is an initialized relaxed log-normal clock_model object,
+as created by \code{\link{create_rln_clock_model}}
 }
 \author{
 Richel J.C. Bilderbeek

@@ -3,7 +3,8 @@
 \name{is_one_div_x_distribution}
 \alias{is_one_div_x_distribution}
 \title{Determine if the object is a valid
-1/x distribution}
+1/x distribution,
+as created by \code{\link{create_one_div_x_distr}}}
 \usage{
 is_one_div_x_distribution(x)
 }
@@ -17,7 +18,8 @@ TRUE if x is a valid 1/x distribution,
 }
 \description{
 Determine if the object is a valid
-1/x distribution
+1/x distribution,
+as created by \code{\link{create_one_div_x_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any

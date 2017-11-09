@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
-#' 1/x distribution
+#' 1/x distribution,
+#' as created by \code{\link{create_one_div_x_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   1/x distribution
 #' @return TRUE if x is a valid 1/x distribution,

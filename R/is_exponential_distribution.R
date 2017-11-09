@@ -1,5 +1,6 @@
 #' Determine if the object is a valid
 #' exponential distribution
+#' as created by \code{\link{create_exponential_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   exponential distribution
 #' @return TRUE if x is a valid exponential distribution,

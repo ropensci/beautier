@@ -4,13 +4,15 @@
 \alias{initialize_clock_models}
 \title{Initializes all clock models}
 \usage{
-initialize_clock_models(clock_models, id = 0)
+initialize_clock_models(clock_models, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{clock_models}{a list of one or more clock models to be initialized.
 Clock priors can be created using \code{\link{create_clock_model}}}
 
-\item{id}{the first distributions' ID}
+\item{distr_id}{the first distributions' ID}
+
+\item{param_id}{the first parameter's ID}
 }
 \value{
 a list of initialized clock models

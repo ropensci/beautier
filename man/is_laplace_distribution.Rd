@@ -3,7 +3,8 @@
 \name{is_laplace_distribution}
 \alias{is_laplace_distribution}
 \title{Determine if the object is a valid
-laplace distribution}
+laplace distribution,
+as created by \code{\link{create_laplace_distr}}}
 \usage{
 is_laplace_distribution(x)
 }
@@ -17,7 +18,8 @@ TRUE if x is a valid laplace distribution,
 }
 \description{
 Determine if the object is a valid
-laplace distribution
+laplace distribution,
+as created by \code{\link{create_laplace_distr}}
 }
 \seealso{
 use \code{\link{is_distribution}} to see if x is any
