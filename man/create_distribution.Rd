@@ -34,6 +34,10 @@ Prefer using the
   \code{\link{create_inv_gamma_distr}},
   and \code{\link{create_poisson_distr}}
 }
+\seealso{
+use \code{\link{is_distribution}} to check if a
+  distribution is valid
+}
 \author{
 Richel J.C. Bilderbeek
 }

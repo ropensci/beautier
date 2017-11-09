@@ -53,11 +53,12 @@ initialize_rln_clock_model <- function(
   testit::assert(is_rln_clock_model(rln_clock_model)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
   # uclstdev_distribution
-  uclstdev_distribution <- rln_clock_model$uclstdev_distribution
-  uclstdev_distribution$id <- id
-
   result <- create_rln_clock_model(
-    uclstdev_distribution = uclstdev_distribution
+    uclstdev_distribution = initialize_distribution(
+      rln_clock_model$uclstdev_distribution,
+      distr_id,
+      param_id
+    )
   )
 
   result
