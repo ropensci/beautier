@@ -762,20 +762,21 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       param_ids <- c(4, 5)
     }
 
-    text <- c(text, paste0("            <prior ",
+    text <- c(text, paste0("<prior ",
       "id=\"KappaPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
-    text <- c(text, paste0("                <LogNormal ",
+    text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.", distr_id, "\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
       "name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
       "name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("                </LogNormal>"))
-    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text, paste0("</prior>"))
+    text <- indent(text, n_spaces = 12)
   } else if (is_tn93_site_model(site_model)) {
     distr_ids <- NULL
     param_ids <- NULL
@@ -786,32 +787,33 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       distr_ids <- seq(0, 1)
       param_ids <- seq(1, 4)
     }
-    text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", id, "\" ",
+    text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
-    text <- c(text, paste0("                <LogNormal ",
+    text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.", distr_ids[1], "\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
       "name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
       "name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("                </LogNormal>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", id, "\" ",
+    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text, paste0("</prior>"))
+    text <- c(text, paste0("<prior id=\"kappa2Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
-    text <- c(text, paste0("                <LogNormal ",
+    text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.", distr_ids[2], "\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
       "name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" ",
       "name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("                </LogNormal>"))
-    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text, paste0("</prior>"))
+    text <- indent(text, n_spaces = 12)
   } else if (is_gtr_site_model(site_model)) {
     first_param_id <- ifelse(
       get_gamma_cat_count(get_gamma_site_model(site_model)) == 0, 7, 1)
@@ -821,68 +823,69 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       seq(first_param_id + 10, first_param_id + 11)
     )
 
-    text <- c(text, paste0("            <prior ",
+    text <- c(text, paste0("<prior ",
       "id=\"RateACPrior.s:", id, "\" name=\"distribution\" ",
       "x=\"@rateAC.s:", id, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.0\" ",
+    text <- c(text, paste0("    <Gamma id=\"Gamma.0\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[1], "\" ",
       "estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateAGPrior.s:", id, "\" ",
+    text <- c(text, paste0("    </Gamma>"))
+    text <- c(text, paste0("</prior>"))
+    text <- c(text, paste0("<prior id=\"RateAGPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.1\" ",
+    text <- c(text, paste0("    <Gamma id=\"Gamma.1\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" ",
       "name=\"beta\">20.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateATPrior.s:", id, "\" ",
+    text <- c(text, paste0("    </Gamma>"))
+    text <- c(text, paste0("</prior>"))
+    text <- c(text, paste0("<prior id=\"RateATPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.2\" ",
+    text <- c(text, paste0("    <Gamma id=\"Gamma.2\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[5], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[6], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateCGPrior.s:", id, "\" ",
+    text <- c(text, paste0("    </Gamma>"))
+    text <- c(text, paste0("</prior>"))
+    text <- c(text, paste0("<prior id=\"RateCGPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.3\" ",
+    text <- c(text, paste0("    <Gamma id=\"Gamma.3\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[7], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[8], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
-    text <- c(text, paste0("            <prior id=\"RateGTPrior.s:", id, "\" ",
+    text <- c(text, paste0("    </Gamma>"))
+    text <- c(text, paste0("</prior>"))
+    text <- c(text, paste0("<prior id=\"RateGTPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateGT.s:", id, "\">"))
-    text <- c(text, paste0("                <Gamma id=\"Gamma.5\" ",
+    text <- c(text, paste0("    <Gamma id=\"Gamma.5\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[9], "\" estimate=\"false\" ",
       "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.", param_ids[10], "\" estimate=\"false\" ",
       "name=\"beta\">10.0</parameter>"))
-    text <- c(text, paste0("                </Gamma>"))
-    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("    </Gamma>"))
+    text <- c(text, paste0("</prior>"))
+    text <- indent(text, n_spaces = 12)
   }
   text
 }
@@ -965,35 +968,39 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
 ) {
   text <- NULL
   if (beautier::is_jc69_site_model(site_model)) {
-    text <- c(text, paste0("                    <substModel ",
+    text <- c(text, paste0("<substModel ",
       "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
+    text <- indent(text, n_spaces = 20)
   } else if (is_hky_site_model(site_model)) {
-    text <- c(text, paste0("                    <substModel ",
+    text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
-    text <- c(text, paste0("                        <frequencies ",
+    text <- c(text, paste0("    <frequencies ",
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("                    </substModel>"))
+    text <- c(text, paste0("</substModel>"))
+    text <- indent(text, n_spaces = 20)
   } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("                    <substModel ",
+    text <- c(text, paste0("<substModel ",
       "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
       "kappa2=\"@kappa2.s:", id, "\">"))
-    text <- c(text, paste0("                        <frequencies ",
+    text <- c(text, paste0("    <frequencies ",
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("                    </substModel>"))
+    text <- c(text, paste0("</substModel>"))
+    text <- indent(text, n_spaces = 20)
   } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("                    <substModel ",
+    text <- c(text, paste0("<substModel ",
       "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
       "rateAG=\"@rateAG.s:", id, "\" rateAT=\"@rateAT.s:", id, "\" ",
       "rateCG=\"@rateCG.s:", id, "\" rateGT=\"@rateGT.s:", id, "\">"))
-    text <- c(text, paste0("                        <parameter ",
+    text <- c(text, paste0("    <parameter ",
       "id=\"rateCT.s:", id, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"rateCT\">1.0</parameter>"))
-    text <- c(text, paste0("                        <frequencies ",
+    text <- c(text, paste0("    <frequencies ",
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("                    </substModel>"))
+    text <- c(text, paste0("</substModel>"))
+    text <- indent(text, n_spaces = 20)
   }
   text
 }
