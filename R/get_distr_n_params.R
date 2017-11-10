@@ -29,7 +29,7 @@ get_distr_n_params <- function(
   } else if (is_one_div_x_distr(distr)) {
     return(0) # none
   } else  if (is_poisson_distr(distr)) {
-    return(2) # m and s
+    return(1) # lambda
   } else {
     testit::assert(is_uniform_distr(distr))
     return(0) # none

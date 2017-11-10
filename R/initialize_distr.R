@@ -89,12 +89,8 @@ initialize_distr <- function(
 
   } else  if (is_poisson_distr(distr)) {
 
-    if (is.na(distr$m$id)) {
-      distr$m$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (is.na(distr$s$id)) {
-      distr$s$id <- param_id
+    if (is.na(distr$lambda$id)) {
+      distr$lambda$id <- param_id
     }
 
   } else {

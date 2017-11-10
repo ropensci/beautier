@@ -4,8 +4,7 @@
 \alias{create_poisson_distr}
 \title{Create a Poisson distribution}
 \usage{
-create_poisson_distr(id = NA, m = create_m_parameter(),
-  s = create_s_parameter())
+create_poisson_distr(id = NA, lambda = create_lambda_parameter())
 }
 \arguments{
 \item{id}{the distribution's ID}

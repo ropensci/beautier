@@ -93,6 +93,29 @@ create_beta_parameter <- function(
   )
 }
 
+#' Create a parameter called lambda
+#' @inheritParams create_parameter
+#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
+#'   FALSE otherwise
+#' @param value value of the parameter
+#' @return a parameter called lambda
+#' @seealso the function \code{\link{create_parameter}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_lambda_parameter <- function(
+  id = NA,
+  value = 0.0
+) {
+  return(
+    beautier::create_parameter(
+      name = "lambda",
+      id = id,
+      value = value
+    )
+  )
+}
+
 #' Create a parameter called m
 #' @inheritParams create_parameter
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
@@ -180,14 +203,18 @@ create_mu_parameter <- function(
 create_s_parameter <- function(
   id = NA,
   estimate = FALSE,
-  value = 0.0
+  value = 0.0,
+  lower = 0.0,
+  upper = 0.0
 ) {
   return(
     beautier::create_parameter(
       name = "s",
       id = id,
       estimate = estimate,
-      value = value
+      value = value,
+      lower = lower,
+      upper = upper
     )
   )
 }

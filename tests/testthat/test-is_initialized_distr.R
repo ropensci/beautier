@@ -288,17 +288,7 @@ test_that("use poisson", {
     beautier:::is_initialized_distr(
       create_poisson_distr(
         id = 1,
-        m = create_m_parameter(id = NA),
-        s = create_s_parameter(id = 3)
-      )
-    )
-  )
-  testthat::expect_false(
-    beautier:::is_initialized_distr(
-      create_poisson_distr(
-        id = 1,
-        m = create_m_parameter(id = 2),
-        s = create_s_parameter(id = NA)
+        lambda = create_lambda_parameter(id = NA)
       )
     )
   )

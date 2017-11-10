@@ -960,7 +960,11 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_normal_distr(id = 0)
+      birth_rate_distr = create_normal_distr(
+        id = 0,
+        mean = create_mean_parameter(id = 1, estimate = FALSE, value = "0.0"),
+        sigma = create_sigma_parameter(id = 2, estimate = FALSE, value = "1.0")
+      )
     )
   )
 
@@ -1016,7 +1020,11 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_log_normal_distr(id = 0)
+      birth_rate_distr = create_log_normal_distr(
+        id = 0,
+        m = create_m_parameter(id = 3, estimate = FALSE, value = "1.0"),
+        s = create_s_parameter(id = 4, estimate = FALSE, value = "1.25", lower = "0.0", upper = "5.0")
+      )
     )
   )
 
@@ -1171,7 +1179,11 @@ test_that("Reproduce birth_rate_inv_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_inv_gamma_distr(id = 0)
+      birth_rate_distr = create_inv_gamma_distr(
+        id = 0,
+        alpha = create_alpha_parameter(id = 12, estimate = FALSE, value = "2.0"),
+        beta = create_beta_parameter(id = 13, estimate = FALSE, value = "2.0")
+      )
     )
   )
 
@@ -1199,7 +1211,10 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_poisson_distr(id = 0)
+      birth_rate_distr = create_poisson_distr(
+        id = 0,
+        lambda = create_lambda_parameter(id = 14, value = "0.693")
+      )
     )
   )
 

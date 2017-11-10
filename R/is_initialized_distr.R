@@ -149,7 +149,7 @@ is_initialized_poisson_distr <- function(
   x
 ) {
   testit::assert(beautier::is_poisson_distr(x))
-  return(!is.na(x$m$id) && !is.na(x$s$id))
+  !is.na(x$lambda$id)
 }
 
 #' Determine if x is an initialized uniform distribution object

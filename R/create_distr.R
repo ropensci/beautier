@@ -234,15 +234,13 @@ create_one_div_x_distr <- function(
 #' @export
 create_poisson_distr <- function(
   id = NA,
-  m = create_m_parameter(),
-  s = create_s_parameter()
+  lambda = create_lambda_parameter()
 ) {
   return(
     beautier::create_distr(
       name = "poisson",
       id = id,
-      m = m,
-      s = s
+      lambda = lambda
     )
   )
 }

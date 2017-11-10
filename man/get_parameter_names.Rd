@@ -16,6 +16,7 @@ Get the parameter names
   names <- get_parameter_names()
   testthat::expect_true("alpha" \%in\% names)
   testthat::expect_true("beta" \%in\% names)
+  testthat::expect_true("lambda" \%in\% names)
   testthat::expect_true("m" \%in\% names)
   testthat::expect_true("mean" \%in\% names)
   testthat::expect_true("mu" \%in\% names)
