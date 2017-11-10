@@ -22,7 +22,7 @@ a gamma distribution
 Create a gamma distribution
 }
 \seealso{
-the function \code{\link{create_distribution}} shows an overview
+the function \code{\link{create_distr}} shows an overview
   of all supported distributions
 }
 \author{

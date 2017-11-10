@@ -9,7 +9,7 @@
 #'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_laplace_distribution <- function(
+is_laplace_distr <- function(
   x
 ) {
   if (!beautier::is_distribution(x)) return(FALSE)

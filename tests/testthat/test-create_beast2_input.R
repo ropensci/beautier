@@ -635,7 +635,7 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model(
-      uclstdev_distribution = create_gamma_distr(
+      uclstdev_distr = create_gamma_distr(
         id = 0,
         alpha = create_alpha_parameter(id = 2, value = "0.5396"),
         beta = create_beta_parameter(id = 3, value = "0.3819")
@@ -670,7 +670,7 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model(
-      uclstdev_distribution = create_beta_distr(
+      uclstdev_distr = create_beta_distr(
         id = 0,
         alpha = create_alpha_parameter(id = 4, value = "2.0"),
         beta = create_beta_parameter(id = 5, value = "2.0")
@@ -1459,7 +1459,7 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
     clock_models = list(
       create_strict_clock_model(),
       create_rln_clock_model(
-        uclstdev_distribution = create_gamma_distr(
+        uclstdev_distr = create_gamma_distr(
           id = 0,
           alpha = create_alpha_parameter(id = 3, value = "0.5396"),
           beta = create_beta_parameter(id = 4, value = "0.3819")

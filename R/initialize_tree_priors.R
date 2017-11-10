@@ -67,18 +67,18 @@ initialize_bd_tree_prior <- function(
   testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
   # birth-rate
-  birth_rate_distribution <- get_bd_birth_rate_distr(
+  birth_rate_distr <- get_bd_birth_rate_distr(
     bd_tree_prior)
-  birth_rate_distribution$id <- id
+  birth_rate_distr$id <- id
 
   # death rate
-  death_rate_distribution <- get_bd_death_rate_distr(
+  death_rate_distr <- get_bd_death_rate_distr(
     bd_tree_prior)
-  death_rate_distribution$id <- id + 1
+  death_rate_distr$id <- id + 1
 
   result <- create_bd_tree_prior(
-    birth_rate_distribution = birth_rate_distribution,
-    death_rate_distribution = death_rate_distribution
+    birth_rate_distr = birth_rate_distr,
+    death_rate_distr = death_rate_distr
   )
 
   result
@@ -97,11 +97,11 @@ initialize_ccp_tree_prior <- function(
 ) {
   testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
-  pop_size_distribution <- get_ccp_pop_size_distr(
+  pop_size_distr <- get_ccp_pop_size_distr(
     ccp_tree_prior)
-  pop_size_distribution$id <- id
+  pop_size_distr$id <- id
   result <- create_ccp_tree_prior(
-    pop_size_distribution =  pop_size_distribution
+    pop_size_distr =  pop_size_distr
   )
   result
 }
@@ -119,17 +119,17 @@ initialize_cep_tree_prior <- function(
   testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
   # pop_size
-  pop_size_distribution <- get_cep_pop_size_distr(cep_tree_prior)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  pop_size_distribution$id <- id
+  pop_size_distr <- get_cep_pop_size_distr(cep_tree_prior)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  pop_size_distr$id <- id
 
   # growth rate
-  growth_rate_distribution <- get_cep_growth_rate_distr(
+  growth_rate_distr <- get_cep_growth_rate_distr(
     cep_tree_prior)
-  growth_rate_distribution$id <- id + 1
+  growth_rate_distr$id <- id + 1
 
   result <- create_cep_tree_prior(
-    pop_size_distribution =  pop_size_distribution,
-    growth_rate_distribution = growth_rate_distribution
+    pop_size_distr =  pop_size_distr,
+    growth_rate_distr = growth_rate_distr
   )
 
   result
@@ -147,11 +147,11 @@ initialize_yule_tree_prior <- function(
 ) {
   testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
-  birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
+  birth_rate_distr <- beautier::get_yule_birth_rate_distr(
     yule_tree_prior)
-  birth_rate_distribution$id <- id
+  birth_rate_distr$id <- id
   result <- create_yule_tree_prior(
-    birth_rate_distribution =  birth_rate_distribution
+    birth_rate_distr =  birth_rate_distr
   )
 
   result

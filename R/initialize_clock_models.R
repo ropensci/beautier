@@ -27,7 +27,7 @@ initialize_clock_models <- function(
           param_id = param_id
         )
         distr_id <- distr_id + 1 # Has one distributions
-        param_id <- param_id + get_distr_n_params(clock_model$uclstdev_distribution)
+        param_id <- param_id + get_distr_n_params(clock_model$uclstdev_distr)
       }
     } else if (is_strict_clock_model(clock_model)) {
 
@@ -52,10 +52,9 @@ initialize_rln_clock_model <- function(
 ) {
   testit::assert(is_rln_clock_model(rln_clock_model)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
-  # uclstdev_distribution
   result <- create_rln_clock_model(
-    uclstdev_distribution = initialize_distribution(
-      rln_clock_model$uclstdev_distribution,
+    uclstdev_distr = initialize_distr(
+      rln_clock_model$uclstdev_distr,
       distr_id,
       param_id
     )

@@ -4,7 +4,7 @@ test_that("detect initialized Yule priors", {
 
   init_yule_priors <- list(
     create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1)
+      birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
   testthat::expect_true(
@@ -17,7 +17,7 @@ test_that("detect uninitialized Yule priors", {
 
   uninit_yule_priors <- list(
     create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = NA)
+      birth_rate_distr = create_uniform_distr(id = NA)
     )
   )
 
@@ -31,8 +31,8 @@ test_that("detect initialized BD priors", {
 
   init_bd_priors <- list(
     create_bd_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1),
-      death_rate_distribution = create_uniform_distr(id = 2)
+      birth_rate_distr = create_uniform_distr(id = 1),
+      death_rate_distr = create_uniform_distr(id = 2)
     )
   )
   testthat::expect_true(
@@ -44,8 +44,8 @@ test_that("detect uninitialized BD priors", {
 
   uninit_bd_priors <- list(
     create_bd_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = NA),
-      death_rate_distribution = create_uniform_distr(id = NA)
+      birth_rate_distr = create_uniform_distr(id = NA),
+      death_rate_distr = create_uniform_distr(id = NA)
     )
   )
   testthat::expect_false(

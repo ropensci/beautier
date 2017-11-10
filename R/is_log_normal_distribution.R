@@ -5,13 +5,13 @@
 #'   log-normal distribution
 #' @return TRUE if x is a valid log-normal distribution,
 #'   FALSE otherwise
-#' @seealso use \code{\link{is_distribution}} to see if x is any
+#' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_log_normal_distribution <- function(
+is_log_normal_distr <- function(
   x
 ) {
-  if (!beautier::is_distribution(x)) return(FALSE)
+  if (!beautier::is_distr(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "log_normal")
 }

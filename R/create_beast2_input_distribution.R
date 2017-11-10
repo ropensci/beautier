@@ -400,22 +400,22 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint
   text <- NULL
 
   # BDBirthRate
-  bd_birth_rate_distribution <- beautier::get_bd_birth_rate_distr(
+  bd_birth_rate_distr <- beautier::get_bd_birth_rate_distr(
     bd_tree_prior = bd_tree_prior)
 
   text <- c(text,
     create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
-      bd_birth_rate_distribution = bd_birth_rate_distribution,
+      bd_birth_rate_distr = bd_birth_rate_distr,
       id = id
     )
   )
   # BDDeathRate
-  bd_death_rate_distribution <- beautier::get_bd_death_rate_distr(
+  bd_death_rate_distr <- beautier::get_bd_death_rate_distr(
     bd_tree_prior = bd_tree_prior)
 
   text <- c(text,
     create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
-      bd_death_rate_distribution = bd_death_rate_distribution,
+      bd_death_rate_distr = bd_death_rate_distr,
       id = id
     )
   )
@@ -502,13 +502,13 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # noli
   text <- NULL
 
   # birth rate
-  yule_birth_rate_distribution <- beautier::get_yule_birth_rate_distr(
+  yule_birth_rate_distr <- beautier::get_yule_birth_rate_distr(
     yule_tree_prior = yule_tree_prior)
 
   text <- c(
     text,
     create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
-      yule_birth_rate_distribution = yule_birth_rate_distribution,
+      yule_birth_rate_distr = yule_birth_rate_distr,
       id = id
     )
   )
@@ -519,7 +519,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # noli
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Birth-Death tree prior
-#' @param bd_birth_rate_distribution a Birth-Death birth rate distribution,
+#' @param bd_birth_rate_distr a Birth-Death birth rate distribution,
 #'   as created by \code{\link{create_distribution}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
@@ -527,12 +527,12 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # noli
 #'   long name length is accepted
 #' @usage
 #' create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
-#'   bd_birth_rate_distribution,
+#'   bd_birth_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  bd_birth_rate_distribution,
+  bd_birth_rate_distr,
   id
 ) {
   text <- NULL
@@ -541,7 +541,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- functio
   text <- c(text,
     indent(
       distribution_to_xml(
-        distribution = bd_birth_rate_distribution
+        distribution = bd_birth_rate_distr
       ),
       n_spaces = 4
     )
@@ -554,7 +554,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- functio
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Birth-Death tree prior
-#' @param bd_death_rate_distribution a Birth-Death death rate distribution,
+#' @param bd_death_rate_distr a Birth-Death death rate distribution,
 #'   as created by \code{\link{create_distribution}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
@@ -562,12 +562,12 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- functio
 #'   long name length is accepted
 #' @usage
 #' create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
-#'   bd_death_rate_distribution,
+#'   bd_death_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  bd_death_rate_distribution,
+  bd_death_rate_distr,
   id
 ) {
   text <- NULL
@@ -576,7 +576,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- functio
   text <- c(text,
     indent(
       distribution_to_xml(
-        distribution = bd_death_rate_distribution
+        distribution = bd_death_rate_distr
       ),
       n_spaces = 4
     )
@@ -702,7 +702,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate <- funct
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Yule tree prior
-#' @param yule_birth_rate_distribution a Yule birth rate distribution,
+#' @param yule_birth_rate_distr a Yule birth rate distribution,
 #'   as created by \code{\link{create_distribution}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
@@ -710,12 +710,12 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate <- funct
 #'   long name length is accepted
 #' @usage
 #' create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
-#'   yule_birth_rate_distribution,
+#'   yule_birth_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  yule_birth_rate_distribution,
+  yule_birth_rate_distr,
   id
 ) {
   text <- NULL
@@ -724,7 +724,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- funct
   text <- c(text,
     indent(
       distribution_to_xml(
-        distribution = yule_birth_rate_distribution
+        distribution = yule_birth_rate_distr
       ),
       n_spaces = 4
     )
@@ -937,7 +937,7 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
     text <- c(text,
       indent(
         distribution_to_xml(
-          distribution = get_rln_ucldstdev_distribution(clock_model)
+          distribution = get_rln_ucldstdev_distr(clock_model)
         ),
         n_spaces = 4
       )

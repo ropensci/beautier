@@ -4,33 +4,33 @@
 #'   initialized distribution object
 #' @return TRUE if x is an initialized distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_distribution <- function(
+is_initialized_distr <- function(
   x
 ) {
-  if (!beautier::is_distribution(x)) return(FALSE)
+  if (!beautier::is_distr(x)) return(FALSE)
   if (is.na(x$id)) return(FALSE)
 
-  if (beautier::is_beta_distribution(x)) {
-    return(is_initialized_beta_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_exponential_distribution(x)) {
-    return(is_initialized_exponential_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_gamma_distribution(x)) {
-    return(is_initialized_gamma_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_inv_gamma_distribution(x)) {
-    return(is_initialized_inv_gamma_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_laplace_distribution(x)) {
-    return(is_initialized_laplace_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_log_normal_distribution(x)) {
-    return(is_initialized_log_normal_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_normal_distribution(x)) {
-    return(is_initialized_normal_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_one_div_x_distribution(x)) {
-    return(is_initialized_one_div_x_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  } else if (beautier::is_poisson_distribution(x)) {
-    return(is_initialized_poisson_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  if (beautier::is_beta_distr(x)) {
+    return(is_initialized_beta_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_exponential_distr(x)) {
+    return(is_initialized_exponential_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_gamma_distr(x)) {
+    return(is_initialized_gamma_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_inv_gamma_distr(x)) {
+    return(is_initialized_inv_gamma_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_laplace_distr(x)) {
+    return(is_initialized_laplace_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_log_normal_distr(x)) {
+    return(is_initialized_log_normal_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_normal_distr(x)) {
+    return(is_initialized_normal_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_one_div_x_distr(x)) {
+    return(is_initialized_one_div_x_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  } else if (beautier::is_poisson_distr(x)) {
+    return(is_initialized_poisson_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   } else {
-    testit::assert(beautier::is_uniform_distribution(x))
-    return(is_initialized_uniform_distribution(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    testit::assert(beautier::is_uniform_distr(x))
+    return(is_initialized_uniform_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   }
 }
 
@@ -40,10 +40,10 @@ is_initialized_distribution <- function(
 #'   initialized beta distribution object
 #' @return TRUE if x is an initialized beta distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_beta_distribution <- function(
+is_initialized_beta_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_beta_distribution(x))
+  testit::assert(beautier::is_beta_distr(x))
   return(!is.na(x$alpha$id) && !is.na(x$beta$id))
 }
 
@@ -53,10 +53,10 @@ is_initialized_beta_distribution <- function(
 #'   initialized exponential distribution object
 #' @return TRUE if x is an initialized exponential distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_exponential_distribution <- function(
+is_initialized_exponential_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_exponential_distribution(x))
+  testit::assert(beautier::is_exponential_distr(x))
   TRUE
 }
 
@@ -66,10 +66,10 @@ is_initialized_exponential_distribution <- function(
 #'   initialized gamma distribution object
 #' @return TRUE if x is an initialized gamma distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_gamma_distribution <- function(
+is_initialized_gamma_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_gamma_distribution(x))
+  testit::assert(beautier::is_gamma_distr(x))
   return(!is.na(x$alpha$id) && !is.na(x$beta$id))
 }
 
@@ -79,10 +79,10 @@ is_initialized_gamma_distribution <- function(
 #'   initialized inv_gamma distribution object
 #' @return TRUE if x is an initialized inv_gamma distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_inv_gamma_distribution <- function(
+is_initialized_inv_gamma_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_inv_gamma_distribution(x))
+  testit::assert(beautier::is_inv_gamma_distr(x))
   TRUE
 }
 
@@ -92,10 +92,10 @@ is_initialized_inv_gamma_distribution <- function(
 #'   initialized laplace distribution object
 #' @return TRUE if x is an initialized laplace distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_laplace_distribution <- function(
+is_initialized_laplace_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_laplace_distribution(x))
+  testit::assert(beautier::is_laplace_distr(x))
   return(!is.na(x$mu$id) && !is.na(x$scale$id))
 }
 
@@ -105,10 +105,10 @@ is_initialized_laplace_distribution <- function(
 #'   initialized log_normal distribution object
 #' @return TRUE if x is an initialized log_normal distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_log_normal_distribution <- function(
+is_initialized_log_normal_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_log_normal_distribution(x))
+  testit::assert(beautier::is_log_normal_distr(x))
   TRUE
 }
 
@@ -118,10 +118,10 @@ is_initialized_log_normal_distribution <- function(
 #'   initialized normal distribution object
 #' @return TRUE if x is an initialized normal distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_normal_distribution <- function(
+is_initialized_normal_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_normal_distribution(x))
+  testit::assert(beautier::is_normal_distr(x))
   TRUE
 }
 
@@ -131,10 +131,10 @@ is_initialized_normal_distribution <- function(
 #'   initialized one_div_x distribution object
 #' @return TRUE if x is an initialized one_div_x distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_one_div_x_distribution <- function(
+is_initialized_one_div_x_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_one_div_x_distribution(x))
+  testit::assert(beautier::is_one_div_x_distr(x))
   TRUE
 }
 
@@ -144,10 +144,10 @@ is_initialized_one_div_x_distribution <- function(
 #'   initialized poisson distribution object
 #' @return TRUE if x is an initialized poisson distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_poisson_distribution <- function(
+is_initialized_poisson_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_poisson_distribution(x))
+  testit::assert(beautier::is_poisson_distr(x))
   TRUE
 }
 
@@ -157,9 +157,9 @@ is_initialized_poisson_distribution <- function(
 #'   initialized uniform distribution object
 #' @return TRUE if x is an initialized uniform distribution object
 #' @author Richel J.C. Bilderbeek
-is_initialized_uniform_distribution <- function(
+is_initialized_uniform_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_uniform_distribution(x))
+  testit::assert(beautier::is_uniform_distr(x))
   TRUE
 }

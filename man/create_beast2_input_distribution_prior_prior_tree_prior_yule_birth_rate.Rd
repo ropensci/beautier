@@ -8,12 +8,12 @@ of a BEAST2 XML parameter file
 for a Yule tree prior}
 \usage{
 create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
-  yule_birth_rate_distribution,
+  yule_birth_rate_distr,
   id
 )
 }
 \arguments{
-\item{yule_birth_rate_distribution}{a Yule birth rate distribution,
+\item{yule_birth_rate_distr}{a Yule birth rate distribution,
 as created by \code{\link{create_distribution}}}
 
 \item{id}{the ID of the alignment (can be extracted from

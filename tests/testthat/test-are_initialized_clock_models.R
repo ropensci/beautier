@@ -4,7 +4,7 @@ test_that("detect initialized RLN models", {
 
   init_rln_models <- list(
     create_rln_clock_model(
-      uclstdev_distribution = create_uniform_distr(id = 1)
+      uclstdev_distr = create_uniform_distr(id = 1)
     )
   )
   testthat::expect_true(
@@ -17,7 +17,7 @@ test_that("detect uninitialized rln models", {
 
   uninit_rln_models <- list(
     create_rln_clock_model(
-      uclstdev_distribution = create_uniform_distr(id = NA)
+      uclstdev_distr = create_uniform_distr(id = NA)
     )
   )
 

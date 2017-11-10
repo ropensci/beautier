@@ -9,7 +9,7 @@
 #'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_inv_gamma_distribution <- function(
+is_inv_gamma_distr <- function(
   x
 ) {
   if (!beautier::is_distribution(x)) return(FALSE)
