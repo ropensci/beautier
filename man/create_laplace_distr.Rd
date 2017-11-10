@@ -10,6 +10,10 @@ create_laplace_distr(id = NA, mu = create_mu_parameter(id = NA, estimate =
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{mu}{the mu parameter}
+
+\item{scale}{the scale parameter}
 }
 \value{
 a Laplace distribution

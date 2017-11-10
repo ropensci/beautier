@@ -1,5 +1,5 @@
 #' Initializes a distribution
-#' @param distribution a distribution,
+#' @param distr a distribution,
 #' using \code{\link{create_distr}}
 #' @param distr_id the first distribution's ID
 #' @param param_id the first parameter's ID

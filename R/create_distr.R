@@ -134,6 +134,8 @@ create_inv_gamma_distr <- function(
 
 #' Create a Laplace distribution
 #' @inheritParams create_distr
+#' @param mu the mu parameter
+#' @param scale the scale parameter
 #' @return a Laplace distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
