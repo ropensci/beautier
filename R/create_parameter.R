@@ -95,8 +95,6 @@ create_beta_parameter <- function(
 
 #' Create a parameter called lambda
 #' @inheritParams create_parameter
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called lambda
 #' @seealso the function \code{\link{create_parameter}} contains a list

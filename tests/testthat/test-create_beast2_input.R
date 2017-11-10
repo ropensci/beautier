@@ -706,6 +706,7 @@ test_that("Use of an RLN clock", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model()
   )
+  save_text("~/fix.txt", lines)
   testthat::expect_true(has_unique_ids(lines))
 
 })

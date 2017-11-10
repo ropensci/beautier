@@ -10,9 +10,6 @@ create_lambda_parameter(id = NA, value = 0)
 \item{id}{the parameter's ID}
 
 \item{value}{value of the parameter}
-
-\item{estimate}{TRUE if this parameter alpha be estimated by BEAST2,
-FALSE otherwise}
 }
 \value{
 a parameter called lambda

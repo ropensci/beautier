@@ -18,6 +18,7 @@ Imports:
     phangorn,
     RBeast, 
     ribir,
+    stringr,
     testit
 Suggests:
     devtools,
