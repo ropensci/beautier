@@ -64,7 +64,7 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
   # Lines starting with '<distribution id ='
-  distribution_text <- create_beast2_input_distr_prior_distr(
+  distr_text <- create_beast2_input_distr_prior_distr(
     ids = ids,
     tree_priors = tree_priors
   )
@@ -78,7 +78,7 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
   )
 
   # Lines must be mixed sometimes ...
-  text <- c(text, distribution_text)
+  text <- c(text, distr_text)
   text <- c(text, prior_text)
 
   text <- c(text, "        </distribution>")
@@ -540,7 +540,7 @@ create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate <- function( # no
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
     indent(
-      distribution_to_xml(
+      distr_to_xml(
         distribution = bd_birth_rate_distr
       ),
       n_spaces = 4
@@ -575,7 +575,7 @@ create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate <- function( # no
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
     indent(
-      distribution_to_xml(
+      distr_to_xml(
         distribution = bd_death_rate_distr
       ),
       n_spaces = 4
@@ -613,7 +613,7 @@ create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size <- function( # nol
     id, "\">"))
   text <- c(text,
     indent(
-      distribution_to_xml(
+      distr_to_xml(
         distribution = ccp_pop_size_distr
       ),
       n_spaces = 4
@@ -650,7 +650,7 @@ create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size <- function( # nol
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
     indent(
-      distribution_to_xml(
+      distr_to_xml(
         distribution = cep_pop_size_distr
       ),
       n_spaces = 4
@@ -687,7 +687,7 @@ create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate <- function( # 
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
     indent(
-      distribution_to_xml(
+      distr_to_xml(
         distribution = cep_growth_rate_distr
       ),
       n_spaces = 4
@@ -723,7 +723,7 @@ create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate <- function( # 
     id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
   text <- c(text,
     indent(
-      distribution_to_xml(
+      distr_to_xml(
         distribution = yule_birth_rate_distr
       ),
       n_spaces = 4
@@ -751,13 +751,13 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
 ) {
   text <- NULL
   if (is_hky_site_model(site_model)) {
-    distribution_id <- NULL
+    distr_id <- NULL
     param_ids <- NULL
     if (i == 1) {
-      distribution_id <- 0
+      distr_id <- 0
       param_ids <- c(1, 2)
     } else {
-      distribution_id <- 1
+      distr_id <- 1
       param_ids <- c(4, 5)
     }
 
@@ -765,7 +765,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       "id=\"KappaPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.", distribution_id, "\" ",
+      "id=\"LogNormalDistributionModel.", distr_id, "\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
       "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
@@ -776,19 +776,19 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
     text <- c(text, paste0("                </LogNormal>"))
     text <- c(text, paste0("            </prior>"))
   } else if (is_tn93_site_model(site_model)) {
-    distribution_ids <- NULL
+    distr_ids <- NULL
     param_ids <- NULL
     if (get_gamma_cat_count(get_gamma_site_model(site_model)) == 0) {
-      distribution_ids <- seq(1, 2)
+      distr_ids <- seq(1, 2)
       param_ids <- seq(3, 6)
     } else {
-      distribution_ids <- seq(0, 1)
+      distr_ids <- seq(0, 1)
       param_ids <- seq(1, 4)
     }
     text <- c(text, paste0("            <prior id=\"kappa1Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.", distribution_ids[1], "\" ",
+      "id=\"LogNormalDistributionModel.", distr_ids[1], "\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
       "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
@@ -801,7 +801,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
     text <- c(text, paste0("            <prior id=\"kappa2Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
     text <- c(text, paste0("                <LogNormal ",
-      "id=\"LogNormalDistributionModel.", distribution_ids[2], "\" ",
+      "id=\"LogNormalDistributionModel.", distr_ids[2], "\" ",
       "name=\"distr\">"))
     text <- c(text, paste0("                    <parameter ",
       "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
@@ -936,7 +936,7 @@ create_beast2_input_distr_clock_models <- function( # nolint long function name 
       "x=\"@ucldStdev.c:", id, "\">"))
     text <- c(text,
       indent(
-        distribution_to_xml(
+        distr_to_xml(
           distribution = get_rln_ucldstdev_distr(clock_model)
         ),
         n_spaces = 4

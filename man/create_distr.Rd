@@ -8,7 +8,7 @@ create_distr(name, id, ...)
 }
 \arguments{
 \item{name}{the distribution name. Valid
-names can be found in \code{\link{get_distribution_names}}}
+names can be found in \code{\link{get_distr_names}}}
 
 \item{id}{the distribution's ID}
 
@@ -35,7 +35,7 @@ Prefer using the
   and \code{\link{create_poisson_distr}}
 }
 \seealso{
-use \code{\link{is_distribution}} to check if a
+use \code{\link{is_distr}} to check if a
   distribution is valid
 }
 \author{

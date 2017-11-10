@@ -8,7 +8,7 @@ create_rln_clock_model(uclstdev_distr = create_gamma_distr())
 }
 \arguments{
 \item{uclstdev_distr}{the uclstdev distribution,
-as created by a \code{\link{create_distribution}} function}
+as created by a \code{\link{create_distr}} function}
 }
 \value{
 a relaxed log-normal clock_model

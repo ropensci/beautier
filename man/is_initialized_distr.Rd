@@ -3,7 +3,7 @@
 \name{is_initialized_distr}
 \alias{is_initialized_distr}
 \title{Determine if x is an initialized distribution object
-  as created by \code{\link{create_distribution}}}
+  as created by \code{\link{create_distr}}}
 \usage{
 is_initialized_distr(x)
 }
@@ -16,7 +16,7 @@ TRUE if x is an initialized distribution object
 }
 \description{
 Determine if x is an initialized distribution object
-  as created by \code{\link{create_distribution}}
+  as created by \code{\link{create_distr}}
 }
 \author{
 Richel J.C. Bilderbeek

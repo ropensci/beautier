@@ -5,16 +5,16 @@
 \title{Create a Birth-Death tree prior}
 \usage{
 create_bd_tree_prior(
-  birth_rate_distribution = beautier::create_uniform_distr(),
-  death_rate_distribution = beautier::create_uniform_distr()
+  birth_rate_distr = beautier::create_uniform_distr(),
+  death_rate_distr = beautier::create_uniform_distr()
 )
 }
 \arguments{
-\item{birth_rate_distribution}{the birth rate distribution,
-as created by a \code{\link{create_distribution}} function}
+\item{birth_rate_distr}{the birth rate distribution,
+as created by a \code{\link{create_distr}} function}
 
-\item{death_rate_distribution}{the death rate distribution,
-as created by a \code{\link{create_distribution}} function}
+\item{death_rate_distr}{the death rate distribution,
+as created by a \code{\link{create_distr}} function}
 }
 \value{
 a Birth-Death tree_prior

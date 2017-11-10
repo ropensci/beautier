@@ -5,12 +5,12 @@
 \title{Create a Yule tree prior}
 \usage{
 create_yule_tree_prior(
-  birth_rate_distribution = beautier::create_uniform_distr()
+  birth_rate_distr = beautier::create_uniform_distr()
 )
 }
 \arguments{
-\item{birth_rate_distribution}{the birth rate distribution,
-as created by a \code{\link{create_distribution}} function}
+\item{birth_rate_distr}{the birth rate distribution,
+as created by a \code{\link{create_distr}} function}
 }
 \value{
 a Yule tree_prior

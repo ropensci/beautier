@@ -22,7 +22,7 @@ inv_gamma distribution,
 as created by \code{\link{create_inv_gamma_distr}}
 }
 \seealso{
-use \code{\link{is_distribution}} to see if x is any
+use \code{\link{is_distr}} to see if x is any
   distribution
 }
 \author{

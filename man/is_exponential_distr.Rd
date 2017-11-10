@@ -22,7 +22,7 @@ exponential distribution
 as created by \code{\link{create_exponential_distr}}
 }
 \seealso{
-use \code{\link{is_distribution}} to see if x is any
+use \code{\link{is_distr}} to see if x is any
   distribution
 }
 \author{

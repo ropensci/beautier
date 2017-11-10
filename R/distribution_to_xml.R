@@ -4,7 +4,7 @@
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
-distribution_to_xml <- function(
+distr_to_xml <- function(
   distribution
 ) {
   text <- NULL
@@ -13,25 +13,25 @@ distribution_to_xml <- function(
     stop("distribution must have an ID")
   }
   if (is_beta_distr(distribution)) {
-    text <- c(text, distribution_to_xml_beta(distribution))
+    text <- c(text, distr_to_xml_beta(distribution))
   } else if (is_exponential_distr(distribution)) {
-    text <- c(text, distribution_to_xml_exponential(distribution))
+    text <- c(text, distr_to_xml_exponential(distribution))
   } else if (is_gamma_distr(distribution)) {
-    text <- c(text, distribution_to_xml_gamma(distribution))
+    text <- c(text, distr_to_xml_gamma(distribution))
   } else if (is_inv_gamma_distr(distribution)) {
-    text <- c(text, distribution_to_xml_inv_gamma(distribution))
+    text <- c(text, distr_to_xml_inv_gamma(distribution))
   } else if (is_laplace_distr(distribution)) {
-    text <- c(text, distribution_to_xml_laplace(distribution))
+    text <- c(text, distr_to_xml_laplace(distribution))
   } else if (is_log_normal_distr(distribution)) {
-    text <- c(text, distribution_to_xml_log_normal(distribution))
+    text <- c(text, distr_to_xml_log_normal(distribution))
   } else if (is_normal_distr(distribution)) {
-    text <- c(text, distribution_to_xml_normal(distribution))
+    text <- c(text, distr_to_xml_normal(distribution))
   } else if (is_one_div_x_distr(distribution)) {
-    text <- c(text, distribution_to_xml_one_div_x(distribution))
+    text <- c(text, distr_to_xml_one_div_x(distribution))
   } else if (is_poisson_distr(distribution)) {
-    text <- c(text, distribution_to_xml_poisson(distribution))
+    text <- c(text, distr_to_xml_poisson(distribution))
   } else if (is_uniform_distr(distribution)) {
-    text <- c(text, distribution_to_xml_uniform(distribution))
+    text <- c(text, distr_to_xml_uniform(distribution))
   }
   text
 }
@@ -41,7 +41,7 @@ distribution_to_xml <- function(
 #'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_beta <- function(
+distr_to_xml_beta <- function(
   distribution
 ) {
   testit::assert(is_beta_distr(distribution))
@@ -71,7 +71,7 @@ distribution_to_xml_beta <- function(
 #'   as created by \code{\link{create_exponential_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_exponential <- function(
+distr_to_xml_exponential <- function(
   distribution
 ) {
   testit::assert(is_exponential_distr(distribution))
@@ -93,7 +93,7 @@ distribution_to_xml_exponential <- function(
 #'   as created by \code{\link{create_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_gamma <- function(
+distr_to_xml_gamma <- function(
   distribution
 ) {
   testit::assert(is_gamma_distr(distribution))
@@ -124,7 +124,7 @@ distribution_to_xml_gamma <- function(
 #'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_inv_gamma <- function(
+distr_to_xml_inv_gamma <- function(
   distribution
 ) {
   testit::assert(is_inv_gamma_distr(distribution))
@@ -149,7 +149,7 @@ distribution_to_xml_inv_gamma <- function(
 #'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_laplace <- function(
+distr_to_xml_laplace <- function(
   distribution
 ) {
   testit::assert(is_laplace_distr(distribution))
@@ -179,7 +179,7 @@ distribution_to_xml_laplace <- function(
 #'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_log_normal <- function(
+distr_to_xml_log_normal <- function(
   distribution
 ) {
   testit::assert(is_log_normal_distr(distribution))
@@ -204,7 +204,7 @@ distribution_to_xml_log_normal <- function(
 #'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_normal <- function(
+distr_to_xml_normal <- function(
   distribution
 ) {
   testit::assert(is_normal_distr(distribution))
@@ -229,7 +229,7 @@ distribution_to_xml_normal <- function(
 #'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_one_div_x <- function(
+distr_to_xml_one_div_x <- function(
   distribution
 ) {
   testit::assert(is_one_div_x_distr(distribution))
@@ -247,7 +247,7 @@ distribution_to_xml_one_div_x <- function(
 #'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_poisson <- function(
+distr_to_xml_poisson <- function(
   distribution
 ) {
   testit::assert(is_poisson_distr(distribution))
@@ -269,7 +269,7 @@ distribution_to_xml_poisson <- function(
 #'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distribution_to_xml_uniform <- function(
+distr_to_xml_uniform <- function(
   distribution
 ) {
   testit::assert(is_uniform_distr(distribution))

@@ -8,7 +8,7 @@ initialize_distr(distribution, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{distribution}{a distribution,
-using \code{\link{create_distribution}}}
+using \code{\link{create_distr}}}
 
 \item{distr_id}{the first distribution's ID}
 

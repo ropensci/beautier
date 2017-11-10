@@ -8,7 +8,7 @@ get_distr_n_params(distribution)
 }
 \arguments{
 \item{distribution}{a distribution,
-as created by \code{\link{create_distribution}} or (preferable)
+as created by \code{\link{create_distr}} or (preferable)
 its named functions}
 }
 \value{

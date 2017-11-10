@@ -8,7 +8,7 @@ distribution_to_xml(distribution)
 }
 \arguments{
 \item{distribution}{a distibution,
-as created by \code{\link{create_distribution}})}
+as created by \code{\link{create_distr}})}
 }
 \value{
 the distribution as XML text
