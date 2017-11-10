@@ -297,9 +297,11 @@ test_that("All tree priors produce a valid BEAST2 input file", {
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename
     )
-    testthat::expect_true(
-      beautier::is_beast2_input_file(output_xml_filename)
-    )
+    is_ok <- beautier::is_beast2_input_file(output_xml_filename)
+    if (!is_ok) {
+      print(tree_prior)
+    }
+    testthat::expect_true(is_ok)
   }
 })
 

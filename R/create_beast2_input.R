@@ -85,9 +85,16 @@ create_beast2_input <- function(
       "or of type 'phylo' or 'multiPhylo'")
   }
 
-
-  clock_models <- initialize_clock_models(clock_models, distr_id = 0)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  tree_priors <- initialize_tree_priors(tree_priors, distr_id = length(input_fasta_filenames))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  clock_models <- initialize_clock_models(
+    clock_models,
+    distr_id = 0,
+    param_id = 0
+  )  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  tree_priors <- initialize_tree_priors( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    tree_priors,
+    distr_id = length(input_fasta_filenames),
+    param_id = length(input_fasta_filenames) * 2
+  )
   testit::assert(are_initialized_clock_models(clock_models))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
   testit::assert(are_initialized_tree_priors(tree_priors))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
