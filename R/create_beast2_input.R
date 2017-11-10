@@ -105,5 +105,8 @@ create_beast2_input <- function(
       initial_phylogenies = initial_phylogenies
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+
+  testit::assert(has_unique_ids(text))
+
   text
 }
