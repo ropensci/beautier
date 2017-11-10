@@ -702,12 +702,11 @@ test_that("Use of an RLN clock", {
 
   skip("WIP")
 
-  testthat::expect_silent(
-    beautier::create_beast2_input(
-      input_fasta_filenames = beautier::get_input_fasta_filename(),
-      clock_models = create_rln_clock_model()
-    )
+  lines <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    clock_models = create_rln_clock_model()
   )
+  testthat::expect_true(has_unique_ids(lines))
 
 })
 
