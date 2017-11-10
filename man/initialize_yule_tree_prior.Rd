@@ -4,13 +4,15 @@
 \alias{initialize_yule_tree_prior}
 \title{Initializes a Yule tree prior}
 \usage{
-initialize_yule_tree_prior(yule_tree_prior, id)
+initialize_yule_tree_prior(yule_tree_prior, distr_id, param_id)
 }
 \arguments{
 \item{yule_tree_prior}{a Yule tree prior,
 as returned by \code{\link{create_yule_tree_prior}}}
 
-\item{id}{the index of the first distribution}
+\item{distr_id}{the first distributions' ID}
+
+\item{param_id}{the first parameter's ID}
 }
 \value{
 an initialized Yule tree prior

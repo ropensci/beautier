@@ -4,7 +4,8 @@
 \alias{create_log_normal_distr}
 \title{Create a log-normal distribution}
 \usage{
-create_log_normal_distr(id = NA)
+create_log_normal_distr(id = NA, m = create_m_parameter(),
+  s = create_s_parameter())
 }
 \arguments{
 \item{id}{the distribution's ID}

@@ -13,5 +13,9 @@ is_poisson_distr <- function(
   x
 ) {
   if (!beautier::is_distr(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "poisson")
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "poisson") return(FALSE)
+  if (!"m" %in% names(x)) return(FALSE)
+  if (!"s" %in% names(x)) return(FALSE)
+  TRUE
 }

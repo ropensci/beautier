@@ -4,13 +4,15 @@
 \alias{initialize_tree_priors}
 \title{Initializes all tree priors}
 \usage{
-initialize_tree_priors(tree_priors, distr_id = 0)
+initialize_tree_priors(tree_priors, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{tree_priors}{a list of one or more tree priors to be initialized.
 Tree priors can be created using \code{\link{create_tree_prior}}}
 
 \item{distr_id}{the first distributions' ID}
+
+\item{param_id}{the first parameter's ID}
 }
 \value{
 a list of initialized tree priors

@@ -4,7 +4,8 @@
 \alias{create_normal_distr}
 \title{Create an normal distribution}
 \usage{
-create_normal_distr(id = NA)
+create_normal_distr(id = NA, mean = create_mean_parameter(),
+  sigma = create_sigma_parameter())
 }
 \arguments{
 \item{id}{the distribution's ID}

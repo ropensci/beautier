@@ -30,7 +30,8 @@ distr_to_xml <- function(
     text <- c(text, distr_to_xml_one_div_x(distr))
   } else if (is_poisson_distr(distr)) {
     text <- c(text, distr_to_xml_poisson(distr))
-  } else if (is_uniform_distr(distr)) {
+  } else {
+    testit::assert(is_uniform_distr(distr))
     text <- c(text, distr_to_xml_uniform(distr))
   }
   text
@@ -81,9 +82,12 @@ distr_to_xml_exponential <- function(
   text <- NULL
   text <- c(text, paste0("<Exponential ",
     "id=\"Exponential.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.5\" estimate=\"false\" ",
-    "name=\"mean\">1.0</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$mean),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</Exponential>"))
   text
 }
@@ -134,12 +138,18 @@ distr_to_xml_inv_gamma <- function(
   text <- NULL
   text <- c(text, paste0("<InverseGamma ",
     "id=\"InverseGamma.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.12\" estimate=\"false\" ",
-    "name=\"alpha\">2.0</parameter>"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.13\" estimate=\"false\" ",
-    "name=\"beta\">2.0</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$alpha),
+      n_spaces = 4
+    )
+  )
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$beta),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</InverseGamma>"))
   text
 }
@@ -189,11 +199,18 @@ distr_to_xml_log_normal <- function(
   text <- NULL
   text <- c(text, paste0("<LogNormal ",
     "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.3\" estimate=\"false\" name=\"M\">1.0</parameter>"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.4\" estimate=\"false\" lower=\"0.0\" ",
-    "name=\"S\" upper=\"5.0\">1.25</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$m),
+      n_spaces = 4
+    )
+  )
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$s),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</LogNormal>"))
   text
 }
@@ -214,12 +231,18 @@ distr_to_xml_normal <- function(
   text <- NULL
   text <- c(text, paste0("<Normal ",
     "id=\"Normal.", id, "\" name=\"distr\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.1\" estimate=\"false\" ",
-    "name=\"mean\">0.0</parameter>"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.2\" estimate=\"false\" ",
-    "name=\"sigma\">1.0</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$mean),
+      n_spaces = 4
+    )
+  )
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$sigma),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</Normal>"))
   text
 }
@@ -258,8 +281,12 @@ distr_to_xml_poisson <- function(
   text <- c(text, paste0("<distr ",
     "id=\"Poisson.", id, "\" ",
     "spec=\"beast.math.distributions.Poisson\">"))
-  text <- c(text, paste0("    <parameter ",
-    "id=\"RealParameter.14\" name=\"lambda\">0.693</parameter>"))
+  text <- c(text,
+    indent(
+      parameter_to_xml(distr$lambda),
+      n_spaces = 4
+    )
+  )
   text <- c(text, paste0("</distr>"))
   text
 }

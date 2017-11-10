@@ -44,17 +44,23 @@ test_that("initialize CCP prior", {
 test_that("initialize CEP prior", {
 
   before <- list(create_cep_tree_prior())
-  testit::assert(!are_initialized_tree_priors(before))
-  after <- initialize_tree_priors(before)
-  testthat::expect_true(are_initialized_tree_priors(after))
+  testit::assert(!beautier:::are_initialized_tree_priors(before))
+  after <- beautier:::initialize_tree_priors(before)
+  testthat::expect_true(beautier:::are_initialized_tree_priors(after))
 
 })
 
 test_that("initialize Yule prior", {
 
   before <- list(create_yule_tree_prior())
-  testit::assert(!are_initialized_tree_priors(before))
-  after <- initialize_tree_priors(before)
-  testit::assert(are_initialized_tree_priors(after))
+  testit::assert(!beautier:::are_initialized_tree_priors(before))
+  after <- beautier:::initialize_tree_priors(before)
+  testthat::expect_true(beautier:::are_initialized_tree_priors(after))
+
+  before <- list(create_yule_tree_prior(
+  birth_rate_distr = create_exponential_distr(id = 1)))
+  testit::assert(!beautier:::are_initialized_tree_priors(before))
+  after <- beautier:::initialize_tree_priors(before)
+  testthat::expect_true(beautier:::are_initialized_tree_priors(after))
 
 })

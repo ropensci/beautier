@@ -28,7 +28,10 @@ initialize_distr <- function(
 
   } else if (is_exponential_distr(distr)) {
 
-    # TODO
+    if (is.na(distr$mean$id)) {
+      distr$mean$id <- param_id
+      param_id <- param_id + 1
+    }
 
   } else if (is_gamma_distr(distr)) {
 
@@ -42,7 +45,13 @@ initialize_distr <- function(
 
   } else if (is_inv_gamma_distr(distr)) {
 
-    # TODO
+    if (is.na(distr$alpha$id)) {
+      distr$alpha$id <- param_id
+      param_id <- param_id + 1
+    }
+    if (is.na(distr$beta$id)) {
+      distr$beta$id <- param_id
+    }
 
   } else if (is_laplace_distr(distr)) {
 
@@ -56,24 +65,42 @@ initialize_distr <- function(
 
   } else if (is_log_normal_distr(distr)) {
 
-    # TODO
+    if (is.na(distr$m$id)) {
+      distr$m$id <- param_id
+      param_id <- param_id + 1
+    }
+    if (is.na(distr$s$id)) {
+      distr$s$id <- param_id
+    }
 
   } else if (is_normal_distr(distr)) {
 
-    # TODO
+    if (is.na(distr$mean$id)) {
+      distr$mean$id <- param_id
+      param_id <- param_id + 1
+    }
+    if (is.na(distr$sigma$id)) {
+      distr$sigma$id <- param_id
+    }
 
   } else if (is_one_div_x_distr(distr)) {
 
-    # TODO
+    # Always initialized
 
   } else  if (is_poisson_distr(distr)) {
 
-    # TODO
+    if (is.na(distr$m$id)) {
+      distr$m$id <- param_id
+      param_id <- param_id + 1
+    }
+    if (is.na(distr$s$id)) {
+      distr$s$id <- param_id
+    }
 
   } else {
     testit::assert(is_uniform_distr(distr))
 
-    # TODO
+    # Always initialized
 
   }
   distr

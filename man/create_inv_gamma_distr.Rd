@@ -4,7 +4,8 @@
 \alias{create_inv_gamma_distr}
 \title{Create an inverse gamma distribution}
 \usage{
-create_inv_gamma_distr(id = NA)
+create_inv_gamma_distr(id = NA, alpha = create_alpha_parameter(),
+  beta = create_beta_parameter())
 }
 \arguments{
 \item{id}{the distribution's ID}

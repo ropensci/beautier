@@ -13,5 +13,9 @@ is_beta_distr <- function(
   x
 ) {
   if (!beautier::is_distr(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "beta")
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "beta") return(FALSE)
+  if (!"alpha" %in% names(x)) return(FALSE)
+  if (!"beta" %in% names(x)) return(FALSE)
+  TRUE
 }

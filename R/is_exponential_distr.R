@@ -13,5 +13,8 @@ is_exponential_distr <- function(
   x
 ) {
   if (!beautier::is_distr(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "exponential")
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "exponential") return (FALSE)
+  if (!"mean" %in% names(x)) return(FALSE)
+  TRUE
 }

@@ -4,13 +4,11 @@
 \alias{initialize_cep_tree_prior}
 \title{Initializes a Coalescent Exponential Population tree prior}
 \usage{
-initialize_cep_tree_prior(cep_tree_prior, id)
+initialize_cep_tree_prior(cep_tree_prior, distr_id, param_id)
 }
 \arguments{
 \item{cep_tree_prior}{a Coalescent Exponential Population tree prior,
 as returned by \code{\link{create_cep_tree_prior}}}
-
-\item{id}{the index of the first distribution}
 }
 \value{
 an initialized Coalescent Exponential Population tree prior

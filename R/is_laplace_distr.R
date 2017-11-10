@@ -13,5 +13,9 @@ is_laplace_distr <- function(
   x
 ) {
   if (!beautier::is_distr(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "laplace")
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "laplace") return(FALSE)
+  if (!"mu" %in% names(x)) return(FALSE)
+  if (!"scale" %in% names(x)) return(FALSE)
+  TRUE
 }

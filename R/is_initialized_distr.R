@@ -44,7 +44,7 @@ is_initialized_beta_distr <- function(
   x
 ) {
   testit::assert(beautier::is_beta_distr(x))
-  return(!is.na(x$alpha$id) && !is.na(x$beta$id))
+  !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
 #' Determine if x is an initialized exponential distribution object
@@ -57,7 +57,7 @@ is_initialized_exponential_distr <- function(
   x
 ) {
   testit::assert(beautier::is_exponential_distr(x))
-  TRUE
+  !is.na(x$mean$id)
 }
 
 
@@ -83,6 +83,7 @@ is_initialized_inv_gamma_distr <- function(
   x
 ) {
   testit::assert(beautier::is_inv_gamma_distr(x))
+  return(!is.na(x$alpha$id) && !is.na(x$beta$id))
   TRUE
 }
 
@@ -109,7 +110,7 @@ is_initialized_log_normal_distr <- function(
   x
 ) {
   testit::assert(beautier::is_log_normal_distr(x))
-  TRUE
+  return(!is.na(x$m$id) && !is.na(x$s$id))
 }
 
 #' Determine if x is an initialized normal distribution object
@@ -122,7 +123,7 @@ is_initialized_normal_distr <- function(
   x
 ) {
   testit::assert(beautier::is_normal_distr(x))
-  TRUE
+  return(!is.na(x$mean$id) && !is.na(x$sigma$id))
 }
 
 #' Determine if x is an initialized one_div_x distribution object
@@ -148,7 +149,7 @@ is_initialized_poisson_distr <- function(
   x
 ) {
   testit::assert(beautier::is_poisson_distr(x))
-  TRUE
+  return(!is.na(x$m$id) && !is.na(x$s$id))
 }
 
 #' Determine if x is an initialized uniform distribution object

@@ -25,8 +25,12 @@ Prefer using the
   named functions
   \code{\link{create_alpha_parameter}},
   \code{\link{create_beta_parameter}},
+  \code{\link{create_m_parameter}},
+  \code{\link{create_mean_parameter}},
   \code{\link{create_mu_parameter}},
-  and \code{\link{create_scale_parameter}}
+  \code{\link{create_s_parameter}},
+  \code{\link{create_scale_parameter}},
+  and \code{\link{create_sigma_parameter}}
 }
 \author{
 Richel J.C. Bilderbeek

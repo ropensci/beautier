@@ -4,10 +4,13 @@
 \alias{create_exponential_distr}
 \title{Create an exponential distribution}
 \usage{
-create_exponential_distr(id = NA)
+create_exponential_distr(id = NA, mean = create_mean_parameter(id = NA,
+  estimate = NA, value = NA))
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{mean}{the mean parameter}
 }
 \value{
 an exponential distribution

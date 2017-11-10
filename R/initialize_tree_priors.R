@@ -2,11 +2,13 @@
 #' @param tree_priors a list of one or more tree priors to be initialized.
 #'   Tree priors can be created using \code{\link{create_tree_prior}}
 #' @param distr_id the first distributions' ID
+#' @param param_id the first parameter's ID
 #' @return a list of initialized tree priors
 #' @author Richel J.C. Bilderbeek
 initialize_tree_priors <- function(
   tree_priors,
-  distr_id = 0
+  distr_id = 0,
+  param_id = 0
 ) {
   testit::assert(beautier::are_tree_priors(tree_priors))
 
@@ -21,31 +23,31 @@ initialize_tree_priors <- function(
       if (!is_initialized_bd_tree_prior(tree_prior)) {
 
         tree_prior <- initialize_bd_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-        testit::assert(is_initialized_bd_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 2 # Has two distributions
+
       }
     } else if (is_ccp_tree_prior(tree_prior)) {
 
       if (!is_initialized_ccp_tree_prior(tree_prior)) {
 
         tree_prior <- initialize_ccp_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-        testit::assert(is_initialized_ccp_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 1 # Has one distribution
+
       }
     } else if (is_cep_tree_prior(tree_prior)) {
       if (!is_initialized_cep_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_cep_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-        testit::assert(is_initialized_cep_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        tree_prior <- initialize_cep_tree_prior(tree_prior, distr_id = distr_id, param_id = param_id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 2 # Has two distribution
+
       }
     } else if (is_yule_tree_prior(tree_prior)) {
 
       if (!is_initialized_yule_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_yule_tree_prior(tree_prior, id = id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-        testit::assert(is_initialized_yule_tree_prior(tree_prior))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        tree_prior <- initialize_yule_tree_prior(tree_prior, distr_id = distr_id, param_id = param_id)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
         id <- id + 1 # Has one distribution
+
       }
     }
 
@@ -109,27 +111,29 @@ initialize_ccp_tree_prior <- function(
 #' Initializes a Coalescent Exponential Population tree prior
 #' @param cep_tree_prior a Coalescent Exponential Population tree prior,
 #'   as returned by \code{\link{create_cep_tree_prior}}
-#' @param id the index of the first distribution
 #' @return an initialized Coalescent Exponential Population tree prior
 #' @author Richel J.C. Bilderbeek
 initialize_cep_tree_prior <- function(
   cep_tree_prior,
-  id
+  distr_id,
+  param_id
 ) {
   testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-
-  # pop_size
-  pop_size_distr <- get_cep_pop_size_distr(cep_tree_prior)  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  pop_size_distr$id <- id
-
-  # growth rate
-  growth_rate_distr <- get_cep_growth_rate_distr(
-    cep_tree_prior)
-  growth_rate_distr$id <- id + 1
+  testit::assert(!is.na(distr_id))
+  testit::assert(!is.na(param_id))
+  testit::assert(!is.na(get_distr_n_params(cep_tree_prior$pop_size_distr)))
 
   result <- create_cep_tree_prior(
-    pop_size_distr =  pop_size_distr,
-    growth_rate_distr = growth_rate_distr
+    pop_size_distr = initialize_distr(
+      cep_tree_prior$pop_size_distr,
+      distr_id,
+      param_id
+    ),
+    growth_rate_distr = initialize_distr(
+      cep_tree_prior$growth_rate_distr,
+      distr_id + 1,
+      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr)
+    )
   )
 
   result
@@ -138,20 +142,23 @@ initialize_cep_tree_prior <- function(
 #' Initializes a Yule tree prior
 #' @param yule_tree_prior a Yule tree prior,
 #'   as returned by \code{\link{create_yule_tree_prior}}
-#' @param id the index of the first distribution
+#' @param distr_id the first distributions' ID
+#' @param param_id the first parameter's ID
 #' @return an initialized Yule tree prior
 #' @author Richel J.C. Bilderbeek
 initialize_yule_tree_prior <- function(
   yule_tree_prior,
-  id
+  distr_id,
+  param_id
 ) {
   testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
 
-  birth_rate_distr <- beautier::get_yule_birth_rate_distr(
-    yule_tree_prior)
-  birth_rate_distr$id <- id
   result <- create_yule_tree_prior(
-    birth_rate_distr =  birth_rate_distr
+    birth_rate_distr = initialize_distr(
+      yule_tree_prior$birth_rate_distr,
+      distr_id,
+      param_id
+    )
   )
 
   result

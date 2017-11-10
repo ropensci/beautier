@@ -16,9 +16,12 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_alpha(parameter))
   } else if (is_beta_parameter(parameter)) {
     text <- c(text, parameter_to_xml_beta(parameter))
+  } else if (is_mean_parameter(parameter)) {
+    text <- c(text, parameter_to_xml_mean(parameter))
   } else if (is_mu_parameter(parameter)) {
     text <- c(text, parameter_to_xml_mu(parameter))
-  } else if (is_scale_parameter(parameter)) {
+  } else {
+    testit::assert(is_scale_parameter(parameter))
     text <- c(text, parameter_to_xml_scale(parameter))
   }
   text
@@ -71,6 +74,32 @@ parameter_to_xml_beta <- function(
       "id=\"RealParameter.", id, "\" ",
       "estimate=\"", estimate, "\" ",
       "name=\"beta\">", value,
+      "</parameter>"
+    )
+  )
+  text
+}
+
+#' Converts a mean parameter to XML
+#' @param parameter a mean parameter,
+#'   as created by \code{\link{create_mean_parameter}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_mean <- function(
+  parameter
+) {
+  testit::assert(is_mean_parameter(parameter))
+  id <- beautier::get_parameter_id(parameter)
+  testit::assert(!is.na(id))
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
+  text <- NULL
+  text <- c(text,
+    paste0(
+      "<parameter ",
+      "id=\"RealParameter.", id, "\" ",
+      "estimate=\"", estimate, "\" ",
+      "name=\"mean\">", value,
       "</parameter>"
     )
   )

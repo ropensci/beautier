@@ -23,16 +23,16 @@ General function to create a distribution.
 \note{
 Prefer using the
   named functions
-  \code{\link{create_uniform_distr}},
-  \code{\link{create_normal_distr}},
-  \code{\link{create_log_normal_distr}},
-  \code{\link{create_one_div_x_distr}},
+  \code{\link{create_beta_distr}},
   \code{\link{create_exponential_distr}},
   \code{\link{create_gamma_distr}},
-  \code{\link{create_beta_distr}},
-  \code{\link{create_laplace_distr}},
   \code{\link{create_inv_gamma_distr}},
-  and \code{\link{create_poisson_distr}}
+  \code{\link{create_laplace_distr}},
+  \code{\link{create_log_normal_distr}},
+  \code{\link{create_normal_distr}},
+  \code{\link{create_one_div_x_distr}},
+  \code{\link{create_poisson_distr}}
+  and \code{\link{create_uniform_distr}}
 }
 \seealso{
 use \code{\link{is_distr}} to check if a

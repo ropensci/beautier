@@ -15,23 +15,23 @@ get_distr_n_params <- function(
   if (is_beta_distr(distr)) {
     return(2) # alpha and beta
   } else if (is_exponential_distr(distr)) {
-    return(NA)
+    return(1) # mean
   } else if (is_gamma_distr(distr)) {
     return(2) # alpha and beta
   } else if (is_inv_gamma_distr(distr)) {
-    return(NA)
+    return(2) # alpha and beta
   } else if (is_laplace_distr(distr)) {
     return(2) # mu and scale
   } else if (is_log_normal_distr(distr)) {
-    return(NA)
+    return(2) # m and s
   } else if (is_normal_distr(distr)) {
-    return(NA)
+    return(2) # mean and sigma
   } else if (is_one_div_x_distr(distr)) {
-    return(NA)
+    return(0) # none
   } else  if (is_poisson_distr(distr)) {
-    return(NA)
+    return(2) # m and s
   } else {
     testit::assert(is_uniform_distr(distr))
-    return(NA)
+    return(0) # none
   }
 }

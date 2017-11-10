@@ -1044,7 +1044,10 @@ test_that("Reproduce birth_rate_exponential_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_exponential_distr(id = 1)
+      birth_rate_distr = create_exponential_distr(
+        id = 1,
+        mean = create_mean_parameter(id = 5, estimate = FALSE, value = "1.0")
+      )
     )
   )
 

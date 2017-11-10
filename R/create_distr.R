@@ -5,16 +5,16 @@
 #' @param ... specific distribution parameters
 #' @note Prefer using the
 #'   named functions
-#'   \code{\link{create_uniform_distr}},
-#'   \code{\link{create_normal_distr}},
-#'   \code{\link{create_log_normal_distr}},
-#'   \code{\link{create_one_div_x_distr}},
+#'   \code{\link{create_beta_distr}},
 #'   \code{\link{create_exponential_distr}},
 #'   \code{\link{create_gamma_distr}},
-#'   \code{\link{create_beta_distr}},
-#'   \code{\link{create_laplace_distr}},
 #'   \code{\link{create_inv_gamma_distr}},
-#'   and \code{\link{create_poisson_distr}}
+#'   \code{\link{create_laplace_distr}},
+#'   \code{\link{create_log_normal_distr}},
+#'   \code{\link{create_normal_distr}},
+#'   \code{\link{create_one_div_x_distr}},
+#'   \code{\link{create_poisson_distr}}
+#'   and \code{\link{create_uniform_distr}}
 #' @return a distribution
 #' @seealso use \code{\link{is_distr}} to check if a
 #'   distribution is valid
@@ -74,18 +74,21 @@ create_beta_distr <- function(
 
 #' Create an exponential distribution
 #' @inheritParams create_distr
+#' @param mean the mean parameter
 #' @return an exponential distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_exponential_distr <- function(
-  id = NA
+  id = NA,
+  mean = create_mean_parameter(id = NA, estimate = NA, value = NA)
 ) {
   return(
     beautier::create_distr(
       name = "exponential",
-      id = id
+      id = id,
+      mean = mean
     )
   )
 }
@@ -122,12 +125,16 @@ create_gamma_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_inv_gamma_distr <- function(
-  id = NA
+  id = NA,
+  alpha = create_alpha_parameter(),
+  beta = create_beta_parameter()
 ) {
   return(
     beautier::create_distr(
       name = "inv_gamma",
-      id = id
+      id = id,
+      alpha = alpha,
+      beta = beta
     )
   )
 }
@@ -164,12 +171,16 @@ create_laplace_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_log_normal_distr <- function(
-  id = NA
+  id = NA,
+  m = create_m_parameter(),
+  s = create_s_parameter()
 ) {
   return(
     beautier::create_distr(
       name = "log_normal",
-      id = id
+      id = id,
+      m = m,
+      s = s
     )
   )
 }
@@ -182,12 +193,16 @@ create_log_normal_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_normal_distr <- function(
-  id = NA
+  id = NA,
+  mean = create_mean_parameter(),
+  sigma = create_sigma_parameter()
 ) {
   return(
     beautier::create_distr(
       name = "normal",
-      id = id
+      id = id,
+      mean = mean,
+      sigma = sigma
     )
   )
 }
@@ -218,12 +233,16 @@ create_one_div_x_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_poisson_distr <- function(
-  id = NA
+  id = NA,
+  m = create_m_parameter(),
+  s = create_s_parameter()
 ) {
   return(
     beautier::create_distr(
       name = "poisson",
-      id = id
+      id = id,
+      m = m,
+      s = s
     )
   )
 }
