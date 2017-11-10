@@ -120,7 +120,7 @@ test_that("Reproduce 2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -167,7 +167,7 @@ test_that("Reproduce gtr_2_4.xml", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -209,7 +209,7 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_1_2_4.xml", package = "beautier"))
@@ -238,7 +238,7 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_2_4.xml", package = "beautier"))
@@ -267,7 +267,7 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_shape_1_5_2_4.xml", package = "beautier"))
@@ -298,7 +298,7 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"), {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", package = "beautier"))
@@ -327,7 +327,7 @@ test_that("Check that hky_2_4.xml is reproduced", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_site_model(name = "HKY"),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -343,7 +343,7 @@ test_that("Check that hky_kappa_2_4.xml is reproduced", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(kappa = 3.4),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_kappa_2_4.xml", package = "beautier"))
@@ -361,7 +361,7 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_prop_invariant_0_5_2_4.xml", package = "beautier"))
@@ -379,7 +379,7 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_1_2_4.xml", package = "beautier"))
@@ -408,7 +408,7 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_2_2_4.xml", package = "beautier"))
@@ -437,7 +437,7 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_4_2_4.xml", package = "beautier"))
@@ -455,7 +455,7 @@ test_that("Check that jc69_2_4.xml is reproduced", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_site_model(name = "JC69"),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -473,7 +473,7 @@ test_that("Reproduce jc69_gcc_2_2_4.xml", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_2_4.xml", package = "beautier"))
@@ -504,7 +504,7 @@ test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_shape_1_5_2_4.xml", package = "beautier"))
@@ -525,7 +525,7 @@ test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
 
   )
   expected_lines <- readLines(system.file("extdata",
@@ -546,7 +546,7 @@ test_that("Reproduce tn93_2_4.xml", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_tn93_site_model(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -574,7 +574,7 @@ test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1)
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -602,7 +602,7 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2)
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -642,7 +642,7 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1)
+      birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
   expected_lines <- readLines(system.file("extdata",
@@ -677,7 +677,7 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
     "relaxed_clock_log_normal_uclstdev_beta_2_4.xml", package = "beautier"))
@@ -721,7 +721,7 @@ test_that("Check that strict_clock_2_4.xml is reproduced", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_clock_model(name = "strict"),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -737,7 +737,7 @@ test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
       rate = 0.5
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -760,9 +760,9 @@ test_that("Reproduce birth_death_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_bd_tree_prior(
-      birth_rate_distribution = beautier::create_uniform_distr(
+      birth_rate_distr = beautier::create_uniform_distr(
         id = 3, upper = "1000.0"),
-      death_rate_distribution = beautier::create_uniform_distr(
+      death_rate_distr = beautier::create_uniform_distr(
         id = 4, upper = NA)
     )
   )
@@ -834,7 +834,7 @@ test_that("Reproduce coalescent_constant_population_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_ccp_tree_prior(
-      pop_size_distribution = create_one_div_x_distr(id = 1)
+      pop_size_distr = create_one_div_x_distr(id = 1)
     )
   )
 
@@ -849,7 +849,7 @@ test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_ccp_tree_prior(
-      pop_size_distribution = beautier::create_gamma_distr(
+      pop_size_distr = beautier::create_gamma_distr(
         id = 2,
         alpha = create_alpha_parameter(id = 9, value = "2.0"),
         beta = create_beta_parameter(id = 10, value = "2.0")
@@ -883,8 +883,8 @@ test_that("Reproduce coalescent_exponential_population_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior(
-      pop_size_distribution = create_one_div_x_distr(id = 1),
-      growth_rate_distribution = create_laplace_distr(
+      pop_size_distr = create_one_div_x_distr(id = 1),
+      growth_rate_distr = create_laplace_distr(
         id = 0,
         mu = create_mu_parameter(id = 1, value = "0.001"),
         scale = create_scale_parameter(id = 2, value = "30.701135")
@@ -918,7 +918,7 @@ test_that("Reproduce yule_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -935,7 +935,7 @@ test_that("Reproduce birth_rate_uniform_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1))
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -961,7 +961,7 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_normal_distr(id = 0)
+      birth_rate_distr = create_normal_distr(id = 0)
     )
   )
 
@@ -989,7 +989,7 @@ test_that("Reproduce birth_rate_one_div_x_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_one_div_x_distr(id = 1)
+      birth_rate_distr = create_one_div_x_distr(id = 1)
     )
   )
 
@@ -1017,7 +1017,7 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_log_normal_distr(id = 0)
+      birth_rate_distr = create_log_normal_distr(id = 0)
     )
   )
 
@@ -1045,7 +1045,7 @@ test_that("Reproduce birth_rate_exponential_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_exponential_distr(id = 1)
+      birth_rate_distr = create_exponential_distr(id = 1)
     )
   )
 
@@ -1074,7 +1074,7 @@ test_that("Reproduce birth_rate_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_yule_tree_prior(
-      birth_rate_distribution = beautier::create_gamma_distr(
+      birth_rate_distr = beautier::create_gamma_distr(
         id = 0,
         alpha = create_alpha_parameter(id = 6, value = "2.0"),
         beta = create_beta_parameter(id = 7, value = "2.0")
@@ -1106,7 +1106,7 @@ test_that("Reproduce birth_rate_beta_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_beta_distr(
+      birth_rate_distr = create_beta_distr(
         id = 0,
         alpha = create_alpha_parameter(id = 8, value = "2.0"),
         beta = create_beta_parameter(id = 9, value = "2.0")
@@ -1138,7 +1138,7 @@ test_that("Reproduce birth_rate_laplace_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_laplace_distr(
+      birth_rate_distr = create_laplace_distr(
         id = 0,
         mu = create_mu_parameter(id = 10, value = "0.0"),
         scale = create_scale_parameter(id = 11, value = "1.0")
@@ -1169,7 +1169,7 @@ test_that("Reproduce birth_rate_inv_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_inv_gamma_distr(id = 0)
+      birth_rate_distr = create_inv_gamma_distr(id = 0)
     )
   )
 
@@ -1197,7 +1197,7 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distribution = create_poisson_distr(id = 0)
+      birth_rate_distr = create_poisson_distr(id = 0)
     )
   )
 
@@ -1235,9 +1235,9 @@ test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 2))
+        birth_rate_distr = create_uniform_distr(id = 2))
     ),
     misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1278,9 +1278,9 @@ test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 2))
+        birth_rate_distr = create_uniform_distr(id = 2))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1328,9 +1328,9 @@ test_that("Reproduce aco_hky_nd2.xml", {
     site_models = site_models,
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 2))
+        birth_rate_distr = create_uniform_distr(id = 2))
     ),
     misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1373,9 +1373,9 @@ test_that("Reproduce aco_nd2_hky.xml", {
     site_models = list(create_jc69_site_model(), create_hky_site_model()),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 4))
+        birth_rate_distr = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1411,10 +1411,10 @@ test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
     site_models = list(create_hky_site_model(), create_tn93_site_model()),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)
+        birth_rate_distr = create_uniform_distr(id = 1)
       ),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 2)
+        birth_rate_distr = create_uniform_distr(id = 2)
       )
     ),
     misc_options = create_misc_options(
@@ -1468,9 +1468,9 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
     ),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 1)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distribution = create_uniform_distr(id = 4))
+        birth_rate_distr = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1513,8 +1513,8 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = fasta_filename,
     tree_priors = create_bd_tree_prior(
-        birth_rate_distribution = create_normal_distr(id = 0),
-        death_rate_distribution = create_gamma_distr(id = 1)
+        birth_rate_distr = create_normal_distr(id = 0),
+        death_rate_distr = create_gamma_distr(id = 1)
     )
   )
   expected_lines <- readLines(system.file("extdata",

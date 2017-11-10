@@ -1,6 +1,6 @@
 #' Converts a distribution to XML
 #' @param distribution a distibution,
-#'   as created by \code{\link{create_distribution}})
+#'   as created by \code{\link{create_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -8,29 +8,29 @@ distribution_to_xml <- function(
   distribution
 ) {
   text <- NULL
-  id <- beautier::get_distribution_id(distribution)
+  id <- beautier::get_distr_id(distribution)
   if (is.na(id)) {
     stop("distribution must have an ID")
   }
-  if (is_beta_distribution(distribution)) {
+  if (is_beta_distr(distribution)) {
     text <- c(text, distribution_to_xml_beta(distribution))
-  } else if (is_exponential_distribution(distribution)) {
+  } else if (is_exponential_distr(distribution)) {
     text <- c(text, distribution_to_xml_exponential(distribution))
-  } else if (is_gamma_distribution(distribution)) {
+  } else if (is_gamma_distr(distribution)) {
     text <- c(text, distribution_to_xml_gamma(distribution))
-  } else if (is_inv_gamma_distribution(distribution)) {
+  } else if (is_inv_gamma_distr(distribution)) {
     text <- c(text, distribution_to_xml_inv_gamma(distribution))
-  } else if (is_laplace_distribution(distribution)) {
+  } else if (is_laplace_distr(distribution)) {
     text <- c(text, distribution_to_xml_laplace(distribution))
-  } else if (is_log_normal_distribution(distribution)) {
+  } else if (is_log_normal_distr(distribution)) {
     text <- c(text, distribution_to_xml_log_normal(distribution))
-  } else if (is_normal_distribution(distribution)) {
+  } else if (is_normal_distr(distribution)) {
     text <- c(text, distribution_to_xml_normal(distribution))
-  } else if (is_one_div_x_distribution(distribution)) {
+  } else if (is_one_div_x_distr(distribution)) {
     text <- c(text, distribution_to_xml_one_div_x(distribution))
-  } else if (is_poisson_distribution(distribution)) {
+  } else if (is_poisson_distr(distribution)) {
     text <- c(text, distribution_to_xml_poisson(distribution))
-  } else if (is_uniform_distribution(distribution)) {
+  } else if (is_uniform_distr(distribution)) {
     text <- c(text, distribution_to_xml_uniform(distribution))
   }
   text
@@ -44,8 +44,8 @@ distribution_to_xml <- function(
 distribution_to_xml_beta <- function(
   distribution
 ) {
-  testit::assert(is_beta_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_beta_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -74,8 +74,8 @@ distribution_to_xml_beta <- function(
 distribution_to_xml_exponential <- function(
   distribution
 ) {
-  testit::assert(is_exponential_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_exponential_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -96,8 +96,8 @@ distribution_to_xml_exponential <- function(
 distribution_to_xml_gamma <- function(
   distribution
 ) {
-  testit::assert(is_gamma_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_gamma_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -127,8 +127,8 @@ distribution_to_xml_gamma <- function(
 distribution_to_xml_inv_gamma <- function(
   distribution
 ) {
-  testit::assert(is_inv_gamma_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_inv_gamma_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -152,8 +152,8 @@ distribution_to_xml_inv_gamma <- function(
 distribution_to_xml_laplace <- function(
   distribution
 ) {
-  testit::assert(is_laplace_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_laplace_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -182,8 +182,8 @@ distribution_to_xml_laplace <- function(
 distribution_to_xml_log_normal <- function(
   distribution
 ) {
-  testit::assert(is_log_normal_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_log_normal_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -207,8 +207,8 @@ distribution_to_xml_log_normal <- function(
 distribution_to_xml_normal <- function(
   distribution
 ) {
-  testit::assert(is_normal_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_normal_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -232,8 +232,8 @@ distribution_to_xml_normal <- function(
 distribution_to_xml_one_div_x <- function(
   distribution
 ) {
-  testit::assert(is_one_div_x_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_one_div_x_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -250,8 +250,8 @@ distribution_to_xml_one_div_x <- function(
 distribution_to_xml_poisson <- function(
   distribution
 ) {
-  testit::assert(is_poisson_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_poisson_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -272,8 +272,8 @@ distribution_to_xml_poisson <- function(
 distribution_to_xml_uniform <- function(
   distribution
 ) {
-  testit::assert(is_uniform_distribution(distribution))
-  id <- beautier::get_distribution_id(distribution)
+  testit::assert(is_uniform_distr(distribution))
+  id <- beautier::get_distr_id(distribution)
   testit::assert(!is.na(id))
 
   text <- NULL

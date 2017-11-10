@@ -9,6 +9,6 @@ get_bd_death_rate_distr <- function(bd_tree_prior) {
   if (!is_bd_tree_prior(bd_tree_prior)) {
     stop("bd_tree_prior must be a bd_tree_prior")
   }
-  testit::assert("death_rate_distribution" %in% names(bd_tree_prior))
-  bd_tree_prior$death_rate_distribution
+  testit::assert("death_rate_distr" %in% names(bd_tree_prior))
+  bd_tree_prior$death_rate_distr
 }

@@ -1,5 +1,5 @@
 #' Determine if x is an initialized distribution object
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param x the object to check if it is an
 #'   initialized distribution object
 #' @return TRUE if x is an initialized distribution object

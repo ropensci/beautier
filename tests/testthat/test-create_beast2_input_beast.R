@@ -8,7 +8,7 @@ test_that("use", {
       input_fasta_filenames = fasta_filename,
       tree_priors = list(
         create_yule_tree_prior(
-          birth_rate_distribution = create_uniform_distr(id = 1)
+          birth_rate_distr = create_uniform_distr(id = 1)
         )
       )
     )

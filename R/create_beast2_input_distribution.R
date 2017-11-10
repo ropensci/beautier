@@ -5,7 +5,7 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
   clock_models,
@@ -25,7 +25,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
     "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
 
   # prior
-  text <- c(text, create_beast2_input_distribution_prior(
+  text <- c(text, create_beast2_input_distr_prior(
       ids = ids,
       site_models = site_models,
       clock_models = clock_models,
@@ -34,7 +34,7 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
   )
 
   # likelihood
-  text <- c(text, create_beast2_input_distribution_likelihood(
+  text <- c(text, create_beast2_input_distr_likelihood(
       ids = ids,
       site_models = site_models,
       clock_models = clock_models,
@@ -49,11 +49,11 @@ create_beast2_input_distribution <- function( # nolint long function name is fin
 
 #' Creates the prior section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distribution
+#' @inheritParams create_beast2_input_distr
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
   clock_models,
@@ -64,13 +64,13 @@ create_beast2_input_distribution_prior <- function( # nolint long function name 
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
   # Lines starting with '<distribution id ='
-  distribution_text <- create_beast2_input_distribution_prior_distribution(
+  distribution_text <- create_beast2_input_distr_prior_distr(
     ids = ids,
     tree_priors = tree_priors
   )
 
   # Lines starting with '<prior id ='
-  prior_text <- create_beast2_input_distribution_prior_prior(
+  prior_text <- create_beast2_input_distr_prior_prior(
     ids = ids,
     site_models = site_models,
     clock_models = clock_models,
@@ -88,11 +88,11 @@ create_beast2_input_distribution_prior <- function( # nolint long function name 
 
 #' Creates the likelihood section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distribution
+#' @inheritParams create_beast2_input_distr
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
   clock_models,
@@ -158,7 +158,7 @@ create_beast2_input_distribution_likelihood <- function( # nolint long function 
       "</parameter>"))
 
     text <- c(text,
-      create_beast2_input_distribution_subst_model(
+      create_beast2_input_distr_subst_model(
         id = id,
         site_model = site_model
       )
@@ -169,13 +169,13 @@ create_beast2_input_distribution_likelihood <- function( # nolint long function 
     # Clock models
     if (i == 1) {
       text <- c(text,
-        create_beast2_input_distribution_clock_model_first(
+        create_beast2_input_distr_clock_model_first(
           id = id, clock_model = clock_model
         )
       )
     } else {
       text <- c(text,
-        create_beast2_input_distribution_clock_model_other(
+        create_beast2_input_distr_clock_model_other(
           id = id,
           clock_model = clock_model
         )
@@ -193,11 +193,11 @@ create_beast2_input_distribution_likelihood <- function( # nolint long function 
 #' Creates the distribution section in the prior section of the
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<distribution id='
-#' @inheritParams create_beast2_input_distribution
+#' @inheritParams create_beast2_input_distr
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_distribution <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   tree_priors = create_yule_tree_priors(n = length(ids))
 ) {
@@ -264,11 +264,11 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 #' Creates the prior section in the prior section of the
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<prior id='
-#' @inheritParams create_beast2_input_distribution
+#' @inheritParams create_beast2_input_distr
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
- create_beast2_input_distribution_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+ create_beast2_input_distr_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
   site_models,
   clock_models,
@@ -296,11 +296,11 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
       }
     }
 
-    # No beautier:: before create_beast2_input_distribution_prior_prior_tree_prior, as it is private # nolint
-    tree_priors_text <- create_beast2_input_distribution_prior_prior_tree_prior(id = id, tree_prior = tree_prior) # nolint
-    site_models_text <- create_beast2_input_distribution_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
-    gamma_site_models_text <- create_beast2_input_distribution_gamma_site_models(id = id, site_model = site_model) # nolint
-    clock_models_text <- create_beast2_input_distribution_clock_models(id = id, clock_model = clock_model) # nolint
+    # No beautier:: before create_beast2_input_distr_prior_prior_tree_prior, as it is private # nolint
+    tree_priors_text <- create_beast2_input_distr_prior_prior_tree_prior(id = id, tree_prior = tree_prior) # nolint
+    site_models_text <- create_beast2_input_distr_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
+    gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(id = id, site_model = site_model) # nolint
+    clock_models_text <- create_beast2_input_distr_clock_models(id = id, clock_model = clock_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
     # Mix text
@@ -326,7 +326,7 @@ create_beast2_input_distribution_prior_distribution <- function( # nolint long f
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   tree_prior
 ) {
@@ -336,7 +336,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 
     text <- c(text,
       indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_yule(
+        create_beast2_input_distr_prior_prior_tree_prior_yule(
           yule_tree_prior = tree_prior,
           id = id
         ),
@@ -348,7 +348,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 
     text <- c(text,
       indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_bd(
+        create_beast2_input_distr_prior_prior_tree_prior_bd(
           bd_tree_prior = tree_prior,
           id = id
         ),
@@ -360,7 +360,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 
     text <- c(text,
       indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_ccp(
+        create_beast2_input_distr_prior_prior_tree_prior_ccp(
           ccp_tree_prior = tree_prior,
           id = id
         ),
@@ -372,7 +372,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 
     text <- c(text,
       indent(
-        create_beast2_input_distribution_prior_prior_tree_prior_cep(
+        create_beast2_input_distr_prior_prior_tree_prior_cep(
           cep_tree_prior = tree_prior,
           id = id
         ),
@@ -393,7 +393,7 @@ create_beast2_input_distribution_prior_prior_tree_prior <- function( # nolint lo
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_bd <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   bd_tree_prior
 ) {
@@ -404,7 +404,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint
     bd_tree_prior = bd_tree_prior)
 
   text <- c(text,
-    create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
+    create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate(
       bd_birth_rate_distr = bd_birth_rate_distr,
       id = id
     )
@@ -414,7 +414,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint
     bd_tree_prior = bd_tree_prior)
 
   text <- c(text,
-    create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
+    create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate(
       bd_death_rate_distr = bd_death_rate_distr,
       id = id
     )
@@ -434,13 +434,13 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd <- function( # nolint
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_ccp <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   ccp_tree_prior
 ) {
   # pop size
-  create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size(
-    ccp_pop_size_distribution = get_ccp_pop_size_distr(
+  create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size(
+    ccp_pop_size_distr = get_ccp_pop_size_distr(
       ccp_tree_prior = ccp_tree_prior
     ),
     id = id
@@ -458,15 +458,15 @@ create_beast2_input_distribution_prior_prior_tree_prior_ccp <- function( # nolin
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_cep <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_cep <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   cep_tree_prior
 ) {
   text <- NULL
   text <- c(
     text,
-    create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size(
-      cep_pop_size_distribution = get_cep_pop_size_distr(
+    create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size(
+      cep_pop_size_distr = get_cep_pop_size_distr(
         cep_tree_prior = cep_tree_prior
       ),
       id = id
@@ -474,8 +474,8 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep <- function( # nolin
   )
   text <- c(
     text,
-    create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate(
-      cep_growth_rate_distribution = get_cep_growth_rate_distr(
+    create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate(
+      cep_growth_rate_distr = get_cep_growth_rate_distr(
         cep_tree_prior = cep_tree_prior
       ),
       id = id
@@ -494,7 +494,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep <- function( # nolin
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_yule <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   yule_tree_prior
 ) {
@@ -507,7 +507,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # noli
 
   text <- c(
     text,
-    create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
+    create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate(
       yule_birth_rate_distr = yule_birth_rate_distr,
       id = id
     )
@@ -520,18 +520,18 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule <- function( # noli
 #' of a BEAST2 XML parameter file
 #' for a Birth-Death tree prior
 #' @param bd_birth_rate_distr a Birth-Death birth rate distribution,
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @usage
-#' create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate(
+#' create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate(
 #'   bd_birth_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   bd_birth_rate_distr,
   id
 ) {
@@ -555,18 +555,18 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_birth_rate <- functio
 #' of a BEAST2 XML parameter file
 #' for a Birth-Death tree prior
 #' @param bd_death_rate_distr a Birth-Death death rate distribution,
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @usage
-#' create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate(
+#' create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate(
 #'   bd_death_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   bd_death_rate_distr,
   id
 ) {
@@ -589,21 +589,21 @@ create_beast2_input_distribution_prior_prior_tree_prior_bd_death_rate <- functio
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Coalescent Constant Population tree prior
-#' @param ccp_pop_size_distribution a Coalescent Constant Population
+#' @param ccp_pop_size_distr a Coalescent Constant Population
 #'   population size distribution,
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @usage
-#' create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size(
-#'   ccp_pop_size_distribution,
+#' create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size(
+#'   ccp_pop_size_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ccp_pop_size_distribution,
+create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  ccp_pop_size_distr,
   id
 ) {
   text <- NULL
@@ -614,7 +614,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size <- function
   text <- c(text,
     indent(
       distribution_to_xml(
-        distribution = ccp_pop_size_distribution
+        distribution = ccp_pop_size_distr
       ),
       n_spaces = 4
     )
@@ -627,21 +627,21 @@ create_beast2_input_distribution_prior_prior_tree_prior_ccp_pop_size <- function
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Coalescent Exponential Population tree prior
-#' @param cep_pop_size_distribution a Coalescent Exponential Population
+#' @param cep_pop_size_distr a Coalescent Exponential Population
 #'   population size distribution,
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @usage
-#' create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size(
-#'   cep_pop_size_distribution,
+#' create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size(
+#'   cep_pop_size_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  cep_pop_size_distribution,
+create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  cep_pop_size_distr,
   id
 ) {
   text <- NULL
@@ -651,7 +651,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size <- function
   text <- c(text,
     indent(
       distribution_to_xml(
-        distribution = cep_pop_size_distribution
+        distribution = cep_pop_size_distr
       ),
       n_spaces = 4
     )
@@ -664,21 +664,21 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep_pop_size <- function
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
 #' for a Coalescent Exponential Population tree prior
-#' @param cep_growth_rate_distribution a Coalescent Exponential Population
+#' @param cep_growth_rate_distr a Coalescent Exponential Population
 #'   growth rate distribution,
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @usage
-#' create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate(
-#'   cep_growth_rate_distribution,
+#' create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate(
+#'   cep_growth_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  cep_growth_rate_distribution,
+create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+  cep_growth_rate_distr,
   id
 ) {
   text <- NULL
@@ -688,7 +688,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate <- funct
   text <- c(text,
     indent(
       distribution_to_xml(
-        distribution = cep_growth_rate_distribution
+        distribution = cep_growth_rate_distr
       ),
       n_spaces = 4
     )
@@ -703,18 +703,18 @@ create_beast2_input_distribution_prior_prior_tree_prior_cep_growth_rate <- funct
 #' of a BEAST2 XML parameter file
 #' for a Yule tree prior
 #' @param yule_birth_rate_distr a Yule birth rate distribution,
-#'   as created by \code{\link{create_distribution}}
+#'   as created by \code{\link{create_distr}}
 #' @param id the ID of the alignment (can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @usage
-#' create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate(
+#' create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate(
 #'   yule_birth_rate_distr,
 #'   id
 #' )
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   yule_birth_rate_distr,
   id
 ) {
@@ -744,7 +744,7 @@ create_beast2_input_distribution_prior_prior_tree_prior_yule_birth_rate <- funct
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_prior_prior_site_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior_prior_site_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model,
   i
@@ -893,7 +893,7 @@ create_beast2_input_distribution_prior_prior_site_model <- function( # nolint lo
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
 ) {
@@ -923,7 +923,7 @@ create_beast2_input_distribution_gamma_site_models <- function( # nolint long fu
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
 ) {
@@ -950,13 +950,13 @@ create_beast2_input_distribution_clock_models <- function( # nolint long functio
 
 #' Creates the substModel section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distribution
+#' @inheritParams create_beast2_input_distr
 #' @param id alignment ID
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
 ) {
@@ -1004,7 +1004,7 @@ create_beast2_input_distribution_subst_model <- function( # nolint long function
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_clock_model_first <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_clock_model_first <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
 ) {
@@ -1048,7 +1048,7 @@ create_beast2_input_distribution_clock_model_first <- function( # nolint long fu
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distribution_clock_model_other <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_clock_model_other <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   clock_model
 ) {

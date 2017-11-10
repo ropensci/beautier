@@ -5,13 +5,13 @@
 #'   laplace distribution
 #' @return TRUE if x is a valid laplace distribution,
 #'   FALSE otherwise
-#' @seealso use \code{\link{is_distribution}} to see if x is any
+#' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_laplace_distr <- function(
   x
 ) {
-  if (!beautier::is_distribution(x)) return(FALSE)
+  if (!beautier::is_distr(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "laplace")
 }

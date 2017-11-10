@@ -12,6 +12,6 @@
 is_normal_distr <- function(
   x
 ) {
-  if (!beautier::is_distribution(x)) return(FALSE)
+  if (!beautier::is_distr(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "normal")
 }

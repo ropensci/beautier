@@ -36,49 +36,49 @@ create_tree_prior <- function(
 
 
 #' Create a Yule tree prior
-#' @param birth_rate_distribution the birth rate distribution,
-#'   as created by a \code{\link{create_distribution}} function
+#' @param birth_rate_distr the birth rate distribution,
+#'   as created by a \code{\link{create_distr}} function
 #' @return a Yule tree_prior
 #' @usage
 #' create_yule_tree_prior(
-#'   birth_rate_distribution = beautier::create_uniform_distr()
+#'   birth_rate_distr = beautier::create_uniform_distr()
 #' )
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_yule_tree_prior <- function(
-  birth_rate_distribution = beautier::create_uniform_distr()
+  birth_rate_distr = beautier::create_uniform_distr()
 ) {
   return(
     beautier::create_tree_prior(
       name = "yule",
-      birth_rate_distribution = birth_rate_distribution
+      birth_rate_distr = birth_rate_distr
     )
   )
 }
 
 #' Create a Birth-Death tree prior
 #' @return a Birth-Death tree_prior
-#' @param birth_rate_distribution the birth rate distribution,
-#'   as created by a \code{\link{create_distribution}} function
-#' @param death_rate_distribution the death rate distribution,
-#'   as created by a \code{\link{create_distribution}} function
+#' @param birth_rate_distr the birth rate distribution,
+#'   as created by a \code{\link{create_distr}} function
+#' @param death_rate_distr the death rate distribution,
+#'   as created by a \code{\link{create_distr}} function
 #' @return a Birth-Death tree_prior
 #' @usage
 #' create_bd_tree_prior(
-#'   birth_rate_distribution = beautier::create_uniform_distr(),
-#'   death_rate_distribution = beautier::create_uniform_distr()
+#'   birth_rate_distr = beautier::create_uniform_distr(),
+#'   death_rate_distr = beautier::create_uniform_distr()
 #' )
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_bd_tree_prior <- function(
-  birth_rate_distribution = beautier::create_uniform_distr(),
-  death_rate_distribution = beautier::create_uniform_distr()
+  birth_rate_distr = beautier::create_uniform_distr(),
+  death_rate_distr = beautier::create_uniform_distr()
   ) {
   return(
     beautier::create_tree_prior(
       name = "birth_death",
-      birth_rate_distribution = birth_rate_distribution,
-      death_rate_distribution = death_rate_distribution
+      birth_rate_distr = birth_rate_distr,
+      death_rate_distr = death_rate_distr
     )
   )
 }
@@ -91,37 +91,37 @@ create_cbs_tree_prior <- function() {
 }
 
 #' Create a Coalescent Constant Population tree prior
-#' @param pop_size_distribution the population distribution,
-#'   as created by a \code{\link{create_distribution}} function
+#' @param pop_size_distr the population distribution,
+#'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Constant Population tree_prior
 #' @export
 create_ccp_tree_prior <- function(
-  pop_size_distribution = beautier::create_one_div_x_distr()
+  pop_size_distr = beautier::create_one_div_x_distr()
 ) {
   return(
     beautier::create_tree_prior(
       name = "coalescent_constant_population",
-      pop_size_distribution = pop_size_distribution
+      pop_size_distr = pop_size_distr
     )
   )
 }
 
 #' Create a Coalescent Exponential Population tree prior
-#' @param pop_size_distribution the population distribution,
-#'   as created by a \code{\link{create_distribution}} function
-#' @param growth_rate_distribution the growth rate distribution,
-#'   as created by a \code{\link{create_distribution}} function
+#' @param pop_size_distr the population distribution,
+#'   as created by a \code{\link{create_distr}} function
+#' @param growth_rate_distr the growth rate distribution,
+#'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Exponential Population tree_prior
 #' @export
 create_cep_tree_prior <- function(
-  pop_size_distribution = create_one_div_x_distr(),
-  growth_rate_distribution = create_laplace_distr()
+  pop_size_distr = create_one_div_x_distr(),
+  growth_rate_distr = create_laplace_distr()
 ) {
   return(
     beautier::create_tree_prior(
       name = "coalescent_exponential_population",
-      pop_size_distribution = pop_size_distribution,
-      growth_rate_distribution = growth_rate_distribution
+      pop_size_distr = pop_size_distr,
+      growth_rate_distr = growth_rate_distr
     )
   )
 }

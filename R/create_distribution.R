@@ -1,6 +1,6 @@
 #' General function to create a distribution.
 #' @param name the distribution name. Valid
-#'   names can be found in \code{\link{get_distribution_names}}
+#'   names can be found in \code{\link{get_distr_names}}
 #' @param id the distribution's ID
 #' @param ... specific distribution parameters
 #' @note Prefer using the
@@ -16,7 +16,7 @@
 #'   \code{\link{create_inv_gamma_distr}},
 #'   and \code{\link{create_poisson_distr}}
 #' @return a distribution
-#' @seealso use \code{\link{is_distribution}} to check if a
+#' @seealso use \code{\link{is_distr}} to check if a
 #'   distribution is valid
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -25,10 +25,10 @@ create_distr <- function(
   id,
   ...
 ) {
-  if (!is_distribution_name(name)) {
+  if (!is_distr_name(name)) {
     distributions_as_string <- function() {
       s <- NULL
-      for (p in get_distribution_names()) {
+      for (p in get_distr_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))

@@ -32,7 +32,7 @@ create_clock_model <- function(
 
 #' Create a relaxed log-normal clock model
 #' @param uclstdev_distr the uclstdev distribution,
-#'   as created by a \code{\link{create_distribution}} function
+#'   as created by a \code{\link{create_distr}} function
 #' @return a relaxed log-normal clock_model
 #' @export
 create_rln_clock_model <- function(

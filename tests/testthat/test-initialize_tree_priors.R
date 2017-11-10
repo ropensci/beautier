@@ -4,7 +4,7 @@ test_that("re-initialize", {
 
   tree_priors_before <- list(
     create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1)
+      birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
   testit::assert(are_initialized_tree_priors(tree_priors_before))

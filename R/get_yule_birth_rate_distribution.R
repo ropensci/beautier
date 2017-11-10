@@ -9,6 +9,6 @@ get_yule_birth_rate_distr <- function(yule_tree_prior) {
   if (!is_yule_tree_prior(yule_tree_prior)) {
     stop("yule_tree_prior must be a yule_tree_prior")
   }
-  testit::assert("birth_rate_distribution" %in% names(yule_tree_prior))
-  yule_tree_prior$birth_rate_distribution
+  testit::assert("birth_rate_distr" %in% names(yule_tree_prior))
+  yule_tree_prior$birth_rate_distr
 }

@@ -10,6 +10,6 @@ get_cep_growth_rate_distr <- function(cep_tree_prior) {
   if (!is_cep_tree_prior(cep_tree_prior)) {
     stop("cep_tree_prior must be a cep_tree_prior")
   }
-  testit::assert("growth_rate_distribution" %in% names(cep_tree_prior))
-  cep_tree_prior$growth_rate_distribution
+  testit::assert("growth_rate_distr" %in% names(cep_tree_prior))
+  cep_tree_prior$growth_rate_distr
 }

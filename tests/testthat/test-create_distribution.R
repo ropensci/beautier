@@ -1,8 +1,8 @@
-context("create_distribution")
+context("create_distr")
 
 test_that("use", {
 
-  testthat::expect_silent(create_distribution(name = "uniform", id = 1))
+  testthat::expect_silent(create_distr(name = "uniform", id = 1))
 
   testthat::expect_silent(create_uniform_distr(id = 1))
 
@@ -11,6 +11,6 @@ test_that("use", {
 
 test_that("abuse", {
 
-  testthat::expect_error(create_distribution(name = "nonsense"))
+  testthat::expect_error(create_distr(name = "nonsense"))
 
 })

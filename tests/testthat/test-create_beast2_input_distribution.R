@@ -1,9 +1,9 @@
-context("create_beast2_input_distribution")
+context("create_beast2_input_distr")
 
 test_that("use with one ID", {
 
   testthat::expect_silent(
-    beautier:::create_beast2_input_distribution(
+    beautier:::create_beast2_input_distr(
       ids = "test_output_0",
       site_models = create_jc69_site_models(n = 1),
       clock_models = beautier:::initialize_clock_models(
@@ -28,16 +28,16 @@ test_that("use with one ID", {
   )
   tree_priors <- list(
     create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 1)
+      birth_rate_distr = create_uniform_distr(id = 1)
     ),
     create_yule_tree_prior(
-      birth_rate_distribution = create_uniform_distr(id = 2)
+      birth_rate_distr = create_uniform_distr(id = 2)
     )
   )
   testit::assert(are_initialized_tree_priors(tree_priors))
 
   testthat::expect_silent(
-    beautier:::create_beast2_input_distribution(
+    beautier:::create_beast2_input_distr(
       ids = c("a", "b"),
       site_models = site_models,
       clock_models = clock_models,
@@ -51,7 +51,7 @@ test_that("abuse", {
 
   # Two IDs, one site model
   testthat::expect_error(
-    beautier:::create_beast2_input_distribution(
+    beautier:::create_beast2_input_distr(
       ids = c("a", "b"),
       site_models = create_jc69_site_model()
     )
@@ -59,7 +59,7 @@ test_that("abuse", {
 
   # Two IDs, one clock model
   testthat::expect_error(
-    beautier:::create_beast2_input_distribution(
+    beautier:::create_beast2_input_distr(
       ids = c("a", "b"),
       clock_models = create_strict_clock_model()
     )
@@ -67,7 +67,7 @@ test_that("abuse", {
 
   # Two IDs, one tree prior
   testthat::expect_error(
-    beautier:::create_beast2_input_distribution(
+    beautier:::create_beast2_input_distr(
       ids = c("a", "b"),
       clock_models = create_yule_tree_prior()
     )

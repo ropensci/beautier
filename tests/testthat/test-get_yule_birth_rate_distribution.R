@@ -3,7 +3,7 @@ context("get_yule_birth_rate_distr")
 test_that("use", {
 
   testthat::expect_true(
-    is_uniform_distribution(
+    is_uniform_distr(
       get_yule_birth_rate_distr(
         create_yule_tree_prior()
       )

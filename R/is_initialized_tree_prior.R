@@ -33,12 +33,12 @@ is_initialized_bd_tree_prior <- function(
 
   return(
     !is.na(
-      get_distribution_id(
+      get_distr_id(
         get_bd_birth_rate_distr(x)
       )
     ) &&
     !is.na(
-      get_distribution_id(
+      get_distr_id(
         get_bd_birth_rate_distr(x)
       )
     )
@@ -77,7 +77,7 @@ is_initialized_ccp_tree_prior <- function(
 
   return(
     !is.na(
-      get_distribution_id(
+      get_distr_id(
         get_ccp_pop_size_distr(x)
       )
     )
@@ -99,13 +99,13 @@ is_initialized_cep_tree_prior <- function(
 
   return(
     !is.na(
-      get_distribution_id(
+      get_distr_id(
         get_cep_pop_size_distr(x)
       )
     )
     &&
     !is.na(
-      get_distribution_id(
+      get_distr_id(
         get_cep_growth_rate_distr(x)
       )
     )
@@ -125,7 +125,7 @@ is_initialized_yule_tree_prior <- function(
 
   return(
     !is.na(
-      get_distribution_id(
+      get_distr_id(
         get_yule_birth_rate_distr(x)
       )
     )

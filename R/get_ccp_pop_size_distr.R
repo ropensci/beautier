@@ -10,6 +10,6 @@ get_ccp_pop_size_distr <- function(ccp_tree_prior) {
   if (!is_ccp_tree_prior(ccp_tree_prior)) {
     stop("ccp_tree_prior must be a ccp_tree_prior")
   }
-  testit::assert("pop_size_distribution" %in% names(ccp_tree_prior))
-  ccp_tree_prior$pop_size_distribution
+  testit::assert("pop_size_distr" %in% names(ccp_tree_prior))
+  ccp_tree_prior$pop_size_distr
 }

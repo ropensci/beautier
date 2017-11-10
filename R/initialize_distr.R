@@ -1,6 +1,6 @@
 #' Initializes a distribution
 #' @param distribution a distribution,
-#' using \code{\link{create_distribution}}
+#' using \code{\link{create_distr}}
 #' @param distr_id the first distribution's ID
 #' @param param_id the first parameter's ID
 #' @return an initialized distribution
@@ -10,13 +10,13 @@ initialize_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_distribution(distribution))
+  testit::assert(beautier::is_distr(distribution))
 
   if (is.na(distribution$id)) {
     distribution$id <- distr_id
   }
 
-  if (is_beta_distribution(distribution)) {
+  if (is_beta_distr(distribution)) {
 
     if (is.na(distribution$alpha$id)) {
       distribution$alpha$id <- param_id
@@ -26,11 +26,11 @@ initialize_distr <- function(
       distribution$beta$id <- param_id
     }
 
-  } else if (is_exponential_distribution(distribution)) {
+  } else if (is_exponential_distr(distribution)) {
 
     # TODO
 
-  } else if (is_gamma_distribution(distribution)) {
+  } else if (is_gamma_distr(distribution)) {
 
     if (is.na(distribution$alpha$id)) {
       distribution$alpha$id <- param_id
@@ -40,11 +40,11 @@ initialize_distr <- function(
       distribution$beta$id <- param_id
     }
 
-  } else if (is_inv_gamma_distribution(distribution)) {
+  } else if (is_inv_gamma_distr(distribution)) {
 
     # TODO
 
-  } else if (is_laplace_distribution(distribution)) {
+  } else if (is_laplace_distr(distribution)) {
 
     if (is.na(distribution$mu$id)) {
       distribution$mu$id <- param_id
@@ -54,24 +54,24 @@ initialize_distr <- function(
       distribution$scale$id <- param_id
     }
 
-  } else if (is_log_normal_distribution(distribution)) {
+  } else if (is_log_normal_distr(distribution)) {
 
     # TODO
 
-  } else if (is_normal_distribution(distribution)) {
+  } else if (is_normal_distr(distribution)) {
 
     # TODO
 
-  } else if (is_one_div_x_distribution(distribution)) {
+  } else if (is_one_div_x_distr(distribution)) {
 
     # TODO
 
-  } else  if (is_poisson_distribution(distribution)) {
+  } else  if (is_poisson_distr(distribution)) {
 
     # TODO
 
   } else {
-    testit::assert(is_uniform_distribution(distribution))
+    testit::assert(is_uniform_distr(distribution))
 
     # TODO
 

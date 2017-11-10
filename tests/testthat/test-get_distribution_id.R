@@ -1,17 +1,17 @@
-context("get_distribution_id")
+context("get_distr_id")
 
 test_that("use", {
 
   testthat::expect_silent(
-    get_distribution_id(create_uniform_distr())
+    get_distr_id(create_uniform_distr())
   )
 
 })
 
 test_that("abuse", {
 
-  testthat::expect_error(get_distribution_id("nonsense"))
-  testthat::expect_error(get_distribution_id(NULL))
-  testthat::expect_error(get_distribution_id(NA))
+  testthat::expect_error(get_distr_id("nonsense"))
+  testthat::expect_error(get_distr_id(NULL))
+  testthat::expect_error(get_distr_id(NA))
 
 })
