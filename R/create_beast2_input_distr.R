@@ -1020,31 +1020,33 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
 ) {
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
-    text <- c(text, paste0("                <branchRateModel ",
+    text <- c(text, paste0("<branchRateModel ",
       "id=\"StrictClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    text <- c(text, paste0("                    <parameter id=\"clockRate.c:",
+    text <- c(text, paste0("    <parameter id=\"clockRate.c:",
       id, "\" estimate=\"false\" name=\"clock.rate\">",
       get_clock_model_rate(clock_model),
       "</parameter>"))
-    text <- c(text, "                </branchRateModel>")
+    text <- c(text, "</branchRateModel>")
+    text <- indent(text, n_spaces = 16)
   } else if (is_rln_clock_model(clock_model)) {
-    text <- c(text, paste0("                <branchRateModel ",
+    text <- c(text, paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"))
-    text <- c(text, paste0("                    <LogNormal ",
+    text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.c:", id, "\" ",
       "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
-    text <- c(text, paste0("                        <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
-    text <- c(text, paste0("                    </LogNormal>"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text, paste0("    <parameter ",
       "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
       "name=\"clock.rate\">1.0</parameter>"))
-    text <- c(text, paste0("                </branchRateModel>"))
+    text <- c(text, paste0("</branchRateModel>"))
+    text <- indent(text, n_spaces = 16)
   }
   text
 }
@@ -1064,10 +1066,11 @@ create_beast2_input_distr_clock_model_other <- function( # nolint long function 
 ) {
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
-    text <- c(text, paste0("                <branchRateModel ",
+    text <- c(text, paste0("<branchRateModel ",
       "id=\"StrictClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
       "clock.rate=\"@clockRate.c:", id, "\"/>"))
+    text <- indent(text, n_spaces = 16)
   }
   text
 }
