@@ -1,64 +1,64 @@
 #' Converts a distribution to XML
-#' @param distribution a distibution,
+#' @param distr a distibution,
 #'   as created by \code{\link{create_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
 distr_to_xml <- function(
-  distribution
+  distr
 ) {
   text <- NULL
-  id <- beautier::get_distr_id(distribution)
+  id <- beautier::get_distr_id(distr)
   if (is.na(id)) {
     stop("distribution must have an ID")
   }
-  if (is_beta_distr(distribution)) {
-    text <- c(text, distr_to_xml_beta(distribution))
-  } else if (is_exponential_distr(distribution)) {
-    text <- c(text, distr_to_xml_exponential(distribution))
-  } else if (is_gamma_distr(distribution)) {
-    text <- c(text, distr_to_xml_gamma(distribution))
-  } else if (is_inv_gamma_distr(distribution)) {
-    text <- c(text, distr_to_xml_inv_gamma(distribution))
-  } else if (is_laplace_distr(distribution)) {
-    text <- c(text, distr_to_xml_laplace(distribution))
-  } else if (is_log_normal_distr(distribution)) {
-    text <- c(text, distr_to_xml_log_normal(distribution))
-  } else if (is_normal_distr(distribution)) {
-    text <- c(text, distr_to_xml_normal(distribution))
-  } else if (is_one_div_x_distr(distribution)) {
-    text <- c(text, distr_to_xml_one_div_x(distribution))
-  } else if (is_poisson_distr(distribution)) {
-    text <- c(text, distr_to_xml_poisson(distribution))
-  } else if (is_uniform_distr(distribution)) {
-    text <- c(text, distr_to_xml_uniform(distribution))
+  if (is_beta_distr(distr)) {
+    text <- c(text, distr_to_xml_beta(distr))
+  } else if (is_exponential_distr(distr)) {
+    text <- c(text, distr_to_xml_exponential(distr))
+  } else if (is_gamma_distr(distr)) {
+    text <- c(text, distr_to_xml_gamma(distr))
+  } else if (is_inv_gamma_distr(distr)) {
+    text <- c(text, distr_to_xml_inv_gamma(distr))
+  } else if (is_laplace_distr(distr)) {
+    text <- c(text, distr_to_xml_laplace(distr))
+  } else if (is_log_normal_distr(distr)) {
+    text <- c(text, distr_to_xml_log_normal(distr))
+  } else if (is_normal_distr(distr)) {
+    text <- c(text, distr_to_xml_normal(distr))
+  } else if (is_one_div_x_distr(distr)) {
+    text <- c(text, distr_to_xml_one_div_x(distr))
+  } else if (is_poisson_distr(distr)) {
+    text <- c(text, distr_to_xml_poisson(distr))
+  } else if (is_uniform_distr(distr)) {
+    text <- c(text, distr_to_xml_uniform(distr))
   }
   text
 }
 
 #' Converts a beta distribution to XML
-#' @param distribution a beta distibution,
+#' @param distr a beta distibution,
 #'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_beta <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_beta_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_beta_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
     indent(
-      parameter_to_xml(distribution$alpha),
+      parameter_to_xml(distr$alpha),
       n_spaces = 4
     )
   )
   text <- c(text,
     indent(
-      parameter_to_xml(distribution$beta),
+      parameter_to_xml(distr$beta),
       n_spaces = 4
     )
   )
@@ -67,15 +67,15 @@ distr_to_xml_beta <- function(
 }
 
 #' Converts an exponential distribution to XML
-#' @param distribution an exponential distibution,
+#' @param distr an exponential distibution,
 #'   as created by \code{\link{create_exponential_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_exponential <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_exponential_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_exponential_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -89,15 +89,15 @@ distr_to_xml_exponential <- function(
 }
 
 #' Converts a gamma distribution to XML
-#' @param distribution a gamma distibution,
+#' @param distr a gamma distibution,
 #'   as created by \code{\link{create_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_gamma <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_gamma_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_gamma_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -105,13 +105,13 @@ distr_to_xml_gamma <- function(
     "id=\"Gamma.", id, "\" name=\"distr\">"))
   text <- c(text,
     indent(
-      parameter_to_xml(distribution$alpha),
+      parameter_to_xml(distr$alpha),
       n_spaces = 4
     )
   )
   text <- c(text,
     indent(
-      parameter_to_xml(distribution$beta),
+      parameter_to_xml(distr$beta),
       n_spaces = 4
     )
   )
@@ -120,15 +120,15 @@ distr_to_xml_gamma <- function(
 }
 
 #' Converts a inv_gamma distribution to XML
-#' @param distribution a inv_gamma distibution,
+#' @param distr a inv_gamma distibution,
 #'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_inv_gamma <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_inv_gamma_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_inv_gamma_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -144,16 +144,16 @@ distr_to_xml_inv_gamma <- function(
   text
 }
 
-#' Converts a laplace distribution to XML
-#' @param distribution a laplace distibution,
+#' Converts a laplace distibution to XML
+#' @param distr a laplace distibution,
 #'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_laplace <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_laplace_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_laplace_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -161,13 +161,13 @@ distr_to_xml_laplace <- function(
     "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"))
   text <- c(text,
     indent(
-      parameter_to_xml(distribution$mu),
+      parameter_to_xml(distr$mu),
       n_spaces = 4
     )
   )
   text <- c(text,
     indent(
-      parameter_to_xml(distribution$scale),
+      parameter_to_xml(distr$scale),
       n_spaces = 4
     )
   )
@@ -175,15 +175,15 @@ distr_to_xml_laplace <- function(
   text
 }
 #' Converts a log-normal distribution to XML
-#' @param distribution a log-normal distibution,
+#' @param distr a log-normal distibution,
 #'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_log_normal <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_log_normal_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_log_normal_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -200,15 +200,15 @@ distr_to_xml_log_normal <- function(
 
 
 #' Converts a normal distribution to XML
-#' @param distribution a normal distibution,
+#' @param distr a normal distibution,
 #'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_normal <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_normal_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_normal_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -225,15 +225,15 @@ distr_to_xml_normal <- function(
 }
 
 #' Converts a 1/x distribution to XML
-#' @param distribution a 1/x distibution,
+#' @param distr a 1/x distibution,
 #'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_one_div_x <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_one_div_x_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_one_div_x_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -243,15 +243,15 @@ distr_to_xml_one_div_x <- function(
 }
 
 #' Converts a poisson distribution to XML
-#' @param distribution a poisson distibution,
+#' @param distr a poisson distibution,
 #'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_poisson <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_poisson_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_poisson_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
@@ -265,21 +265,21 @@ distr_to_xml_poisson <- function(
 }
 
 #' Converts a uniform distribution to XML
-#' @param distribution a uniform distibution,
+#' @param distr a uniform distibution,
 #'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
 distr_to_xml_uniform <- function(
-  distribution
+  distr
 ) {
-  testit::assert(is_uniform_distr(distribution))
-  id <- beautier::get_distr_id(distribution)
+  testit::assert(is_uniform_distr(distr))
+  id <- beautier::get_distr_id(distr)
   testit::assert(!is.na(id))
 
   text <- NULL
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")
   line_end <- "/>"
-  upper <- distribution$upper
+  upper <- distr$upper
   if (is.na(upper)) {
     text <- c(text, paste0(line_begin, line_end))
   } else if (is.infinite(upper)) {

@@ -26,7 +26,7 @@ create_distr <- function(
   ...
 ) {
   if (!is_distr_name(name)) {
-    distributions_as_string <- function() {
+    distr_as_string <- function() {
       s <- NULL
       for (p in get_distr_names()) {
         s <- paste0(s, ", ", p)
@@ -36,15 +36,15 @@ create_distr <- function(
     }
     stop(
       "invalid distribution name, must be one these: ",
-      distributions_as_string()
+      distr_as_string()
     )
   }
-  distribution <- list(
+  distr <- list(
     name = name,
     id = id,
     ...
   )
-  distribution
+  distr
 }
 
 

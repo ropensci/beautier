@@ -4,15 +4,15 @@
 \alias{initialize_distr}
 \title{Initializes a distribution}
 \usage{
-initialize_distr(distribution, distr_id = 0, param_id = 0)
+initialize_distr(distr, distr_id = 0, param_id = 0)
 }
 \arguments{
-\item{distribution}{a distribution,
-using \code{\link{create_distr}}}
-
 \item{distr_id}{the first distribution's ID}
 
 \item{param_id}{the first parameter's ID}
+
+\item{distribution}{a distribution,
+using \code{\link{create_distr}}}
 }
 \value{
 an initialized distribution

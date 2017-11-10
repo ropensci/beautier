@@ -4,10 +4,10 @@
 \alias{get_distr_n_params}
 \title{Get the number of parameters a distribution uses}
 \usage{
-get_distr_n_params(distribution)
+get_distr_n_params(distr)
 }
 \arguments{
-\item{distribution}{a distribution,
+\item{distr}{a distribution,
 as created by \code{\link{create_distr}} or (preferable)
 its named functions}
 }

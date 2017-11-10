@@ -6,75 +6,75 @@
 #' @return an initialized distribution
 #' @author Richel J.C. Bilderbeek
 initialize_distr <- function(
-  distribution,
+  distr,
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_distr(distribution))
+  testit::assert(beautier::is_distr(distr))
 
-  if (is.na(distribution$id)) {
-    distribution$id <- distr_id
+  if (is.na(distr$id)) {
+    distr$id <- distr_id
   }
 
-  if (is_beta_distr(distribution)) {
+  if (is_beta_distr(distr)) {
 
-    if (is.na(distribution$alpha$id)) {
-      distribution$alpha$id <- param_id
+    if (is.na(distr$alpha$id)) {
+      distr$alpha$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distribution$beta$id)) {
-      distribution$beta$id <- param_id
+    if (is.na(distr$beta$id)) {
+      distr$beta$id <- param_id
     }
 
-  } else if (is_exponential_distr(distribution)) {
+  } else if (is_exponential_distr(distr)) {
 
     # TODO
 
-  } else if (is_gamma_distr(distribution)) {
+  } else if (is_gamma_distr(distr)) {
 
-    if (is.na(distribution$alpha$id)) {
-      distribution$alpha$id <- param_id
+    if (is.na(distr$alpha$id)) {
+      distr$alpha$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distribution$beta$id)) {
-      distribution$beta$id <- param_id
+    if (is.na(distr$beta$id)) {
+      distr$beta$id <- param_id
     }
 
-  } else if (is_inv_gamma_distr(distribution)) {
+  } else if (is_inv_gamma_distr(distr)) {
 
     # TODO
 
-  } else if (is_laplace_distr(distribution)) {
+  } else if (is_laplace_distr(distr)) {
 
-    if (is.na(distribution$mu$id)) {
-      distribution$mu$id <- param_id
+    if (is.na(distr$mu$id)) {
+      distr$mu$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distribution$scale$id)) {
-      distribution$scale$id <- param_id
+    if (is.na(distr$scale$id)) {
+      distr$scale$id <- param_id
     }
 
-  } else if (is_log_normal_distr(distribution)) {
+  } else if (is_log_normal_distr(distr)) {
 
     # TODO
 
-  } else if (is_normal_distr(distribution)) {
+  } else if (is_normal_distr(distr)) {
 
     # TODO
 
-  } else if (is_one_div_x_distr(distribution)) {
+  } else if (is_one_div_x_distr(distr)) {
 
     # TODO
 
-  } else  if (is_poisson_distr(distribution)) {
+  } else  if (is_poisson_distr(distr)) {
 
     # TODO
 
   } else {
-    testit::assert(is_uniform_distr(distribution))
+    testit::assert(is_uniform_distr(distr))
 
     # TODO
 
   }
-  distribution
+  distr
 }

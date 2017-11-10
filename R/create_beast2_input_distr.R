@@ -541,7 +541,7 @@ create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate <- function( # no
   text <- c(text,
     indent(
       distr_to_xml(
-        distribution = bd_birth_rate_distr
+        distr = bd_birth_rate_distr
       ),
       n_spaces = 4
     )
@@ -576,7 +576,7 @@ create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate <- function( # no
   text <- c(text,
     indent(
       distr_to_xml(
-        distribution = bd_death_rate_distr
+        distr = bd_death_rate_distr
       ),
       n_spaces = 4
     )
@@ -614,7 +614,7 @@ create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size <- function( # nol
   text <- c(text,
     indent(
       distr_to_xml(
-        distribution = ccp_pop_size_distr
+        distr = ccp_pop_size_distr
       ),
       n_spaces = 4
     )
@@ -651,7 +651,7 @@ create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size <- function( # nol
   text <- c(text,
     indent(
       distr_to_xml(
-        distribution = cep_pop_size_distr
+        distr = cep_pop_size_distr
       ),
       n_spaces = 4
     )
@@ -688,7 +688,7 @@ create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate <- function( # 
   text <- c(text,
     indent(
       distr_to_xml(
-        distribution = cep_growth_rate_distr
+        distr = cep_growth_rate_distr
       ),
       n_spaces = 4
     )
@@ -724,7 +724,7 @@ create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate <- function( # 
   text <- c(text,
     indent(
       distr_to_xml(
-        distribution = yule_birth_rate_distr
+        distr = yule_birth_rate_distr
       ),
       n_spaces = 4
     )
@@ -937,7 +937,7 @@ create_beast2_input_distr_clock_models <- function( # nolint long function name 
     text <- c(text,
       indent(
         distr_to_xml(
-          distribution = get_rln_ucldstdev_distr(clock_model)
+          distr = get_rln_ucldstdev_distr(clock_model)
         ),
         n_spaces = 4
       )
