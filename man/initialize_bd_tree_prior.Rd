@@ -4,7 +4,7 @@
 \alias{initialize_bd_tree_prior}
 \title{Initializes a Birth-Death tree prior}
 \usage{
-initialize_bd_tree_prior(bd_tree_prior, id)
+initialize_bd_tree_prior(bd_tree_prior, distr_id, param_id)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior,

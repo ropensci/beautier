@@ -10,7 +10,6 @@ initialize_clock_models <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  id <- distr_id # Notational convenience
   testit::assert(beautier::are_clock_models(clock_models))
 
   for (i in seq_along(clock_models)) {

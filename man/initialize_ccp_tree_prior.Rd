@@ -4,7 +4,7 @@
 \alias{initialize_ccp_tree_prior}
 \title{Initializes a Coalescent Constant Population tree prior}
 \usage{
-initialize_ccp_tree_prior(ccp_tree_prior, id)
+initialize_ccp_tree_prior(ccp_tree_prior, distr_id, param_id)
 }
 \arguments{
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_beast2_input_distr.R
 \name{create_beast2_input_distr}
 \alias{create_beast2_input_distr}
-\title{Creates the distribution section of a BEAST2 XML parameter file}
+\title{Creates the distribution section of a BEAST2 XML parameter file.}
 \usage{
 create_beast2_input_distr(ids, site_models, clock_models, tree_priors)
 }
@@ -20,11 +20,14 @@ as returned by \code{\link{create_clock_model}}}
 as returned by \code{\link{create_tree_prior}}}
 }
 \description{
-Creates the distribution section of a BEAST2 XML parameter file
+Creates the distribution section of a BEAST2 XML parameter file.
 }
 \note{
 this function is not intended for regular use, thus its
   long name length is accepted
+}
+\seealso{
+\code{\link{create_beast2_input}}
 }
 \author{
 Richel J.C. Bilderbeek

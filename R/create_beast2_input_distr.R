@@ -1,9 +1,10 @@
-#' Creates the distribution section of a BEAST2 XML parameter file
+#' Creates the distribution section of a BEAST2 XML parameter file.
 #' @param ids the IDs of the alignments (can be extracted from
 #'   their FASTA filesnames using \code{\link{get_id}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
+#' @seealso \code{\link{create_beast2_input}}
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
@@ -901,18 +902,20 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
   gamma_site_model <- beautier::get_gamma_site_model(
     site_model = site_model)
   if (get_gamma_cat_count(gamma_site_model) >= 2) {
-    text <- c(text, paste0("            <prior ",
+    text <- c(text, paste0("<prior ",
       "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
       "x=\"@gammaShape.s:", id, "\">"))
-    text <- c(text, paste0("                <Exponential id=\"Exponential.0\" ",
+    text <- c(text, paste0("    <Exponential id=\"Exponential.0\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("        <parameter ",
       "id=\"RealParameter.0\" estimate=\"false\" ",
       "name=\"mean\">1.0</parameter>"))
-    text <- c(text, paste0("                </Exponential>"))
-    text <- c(text, paste0("            </prior>"))
+    text <- c(text, paste0("    </Exponential>"))
+    text <- c(text, paste0("</prior>"))
+    text <- indent(text, n_spaces = 12)
   }
   text
+
 }
 
 #' Creates the clock models section in the distribution section
