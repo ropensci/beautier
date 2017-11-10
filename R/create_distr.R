@@ -119,6 +119,8 @@ create_gamma_distr <- function(
 
 #' Create an inverse gamma distribution
 #' @inheritParams create_distr
+#' @param alpha the alpha shape parameter
+#' @param beta the beta shape parameter
 #' @return an inverse gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -165,6 +167,8 @@ create_laplace_distr <- function(
 
 #' Create a log-normal distribution
 #' @inheritParams create_distr
+#' @param m the m parameter
+#' @param s the s parameter
 #' @return a log-normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -187,6 +191,8 @@ create_log_normal_distr <- function(
 
 #' Create an normal distribution
 #' @inheritParams create_distr
+#' @param mean the mean parameter
+#' @param sigma the sigma parameter
 #' @return a normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -227,6 +233,7 @@ create_one_div_x_distr <- function(
 
 #' Create a Poisson distribution
 #' @inheritParams create_distr
+#' @param lambda the lambda parameter
 #' @return a Poisson distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions

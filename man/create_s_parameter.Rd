@@ -14,6 +14,10 @@ create_s_parameter(id = NA, estimate = FALSE, value = 0, lower = 0,
 FALSE otherwise}
 
 \item{value}{value of the parameter}
+
+\item{lower}{lower value of the parameter}
+
+\item{upper}{upper value of the parameter}
 }
 \value{
 a parameter called s

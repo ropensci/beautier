@@ -9,6 +9,10 @@ create_inv_gamma_distr(id = NA, alpha = create_alpha_parameter(),
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{alpha}{the alpha shape parameter}
+
+\item{beta}{the beta shape parameter}
 }
 \value{
 an inverse gamma distribution

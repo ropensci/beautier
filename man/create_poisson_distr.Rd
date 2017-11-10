@@ -8,6 +8,8 @@ create_poisson_distr(id = NA, lambda = create_lambda_parameter())
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{lambda}{the lambda parameter}
 }
 \value{
 a Poisson distribution

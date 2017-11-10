@@ -109,6 +109,7 @@ initialize_ccp_tree_prior <- function(
 }
 
 #' Initializes a Coalescent Exponential Population tree prior
+#' @inheritParams initialize_tree_priors
 #' @param cep_tree_prior a Coalescent Exponential Population tree prior,
 #'   as returned by \code{\link{create_cep_tree_prior}}
 #' @return an initialized Coalescent Exponential Population tree prior
@@ -140,10 +141,9 @@ initialize_cep_tree_prior <- function(
 }
 
 #' Initializes a Yule tree prior
+#' @inheritParams initialize_tree_priors
 #' @param yule_tree_prior a Yule tree prior,
 #'   as returned by \code{\link{create_yule_tree_prior}}
-#' @param distr_id the first distributions' ID
-#' @param param_id the first parameter's ID
 #' @return an initialized Yule tree prior
 #' @author Richel J.C. Bilderbeek
 initialize_yule_tree_prior <- function(

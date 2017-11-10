@@ -9,6 +9,10 @@ create_log_normal_distr(id = NA, m = create_m_parameter(),
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{m}{the m parameter}
+
+\item{s}{the s parameter}
 }
 \value{
 a log-normal distribution

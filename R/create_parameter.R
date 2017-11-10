@@ -195,6 +195,8 @@ create_mu_parameter <- function(
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
+#' @param lower lower value of the parameter
+#' @param upper upper value of the parameter
 #' @return a parameter called s
 #' @seealso the function \code{\link{create_parameter}} contains a list
 #'   of all parameters that can be created
