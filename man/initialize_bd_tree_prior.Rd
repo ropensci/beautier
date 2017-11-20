@@ -10,7 +10,9 @@ initialize_bd_tree_prior(bd_tree_prior, distr_id, param_id)
 \item{bd_tree_prior}{a Birth-Death tree prior,
 as returned by \code{\link{create_bd_tree_prior}}}
 
-\item{id}{the index of the first distribution}
+\item{distr_id}{the first distributions' ID}
+
+\item{param_id}{the first parameter's ID}
 }
 \value{
 an initialized Birth-Death tree prior

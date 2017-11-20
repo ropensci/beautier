@@ -10,7 +10,9 @@ initialize_ccp_tree_prior(ccp_tree_prior, distr_id, param_id)
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as returned by \code{\link{create_ccp_tree_prior}}}
 
-\item{id}{the index of the first distribution}
+\item{distr_id}{the first distributions' ID}
+
+\item{param_id}{the first parameter's ID}
 }
 \value{
 an initialized Coalescent Constant Population tree prior
