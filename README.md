@@ -73,6 +73,14 @@ See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs'
 
 Sure, just add an Issue. Or send an email.
 
+## Build status of builds that `beautier` relies on
+
+master|develop|project
+---|---|---
+[![Build Status](https://travis-ci.org/rsetienne/PBD.svg?branch=master)](https://travis-ci.org/rsetienne/PBD) [![codecov.io](https://codecov.io/github/rsetienne/PBD/coverage.svg?branch=master)](https://codecov.io/github/rsetienne/PBD?branch=master) | [![Build Status](https://travis-ci.org/rsetienne/PBD.svg?branch=develop)](https://travis-ci.org/rsetienne/PBD) [![codecov.io](https://codecov.io/github/rsetienne/PBD/coverage.svg?branch=master)](https://codecov.io/github/rsetienne/PBD?branch=master) | [PBD](https://github.com/rsetienne/PBD)
+[![Build Status](https://travis-ci.org/beast-dev/RBeast.svg?branch=master)](https://travis-ci.org/beast-dev/RBeast) [![codecov.io](https://codecov.io/github/beast-dev/RBeast/coverage.svg?branch=master)](https://codecov.io/github/beast-dev/RBeast?branch=master) | [![Build Status](https://travis-ci.org/beast-dev/RBeast.svg?branch=develop)](https://travis-ci.org/beast-dev/RBeast) [![codecov.io](https://codecov.io/github/beast-dev/RBeast/coverage.svg?branch=master)](https://codecov.io/github/beast-dev/RBeast?branch=master) | [RBeast](https://github.com/beast-dev/RBeast)
+[![Build Status](https://travis-ci.org/richelbilderbeek/ribir.svg?branch=master)](https://travis-ci.org/richelbilderbeek/ribir) [![codecov.io](https://codecov.io/github/richelbilderbeek/ribir/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/ribir?branch=master) | [![Build Status](https://travis-ci.org/richelbilderbeek/ribir.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/ribir) [![codecov.io](https://codecov.io/github/richelbilderbeek/ribir/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/ribir?branch=master) | [ribir](https://github.com/richelbilderbeek/ribir)
+
 ## References
 
 Article about `beautier`:
