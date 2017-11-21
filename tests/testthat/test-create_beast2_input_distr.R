@@ -7,7 +7,7 @@ test_that("use with one ID", {
       ids = "test_output_0",
       site_models = create_jc69_site_models(n = 1),
       clock_models = beautier:::initialize_clock_models(
-        create_strict_clock_models(n = 1)),
+        create_strict_clock_models(ids = "test_output_0")),
       tree_priors = beautier:::initialize_tree_priors(
         create_yule_tree_priors(n = 1),
         distr_id = 1
@@ -22,10 +22,7 @@ test_that("use with one ID", {
     create_jc69_site_model(),
     create_jc69_site_model()
   )
-  clock_models <- list(
-    create_strict_clock_model(),
-    create_strict_clock_model()
-  )
+  clock_models <- create_strict_clock_models(ids = c("a", "b"))
   tree_priors <- list(
     create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
@@ -34,7 +31,7 @@ test_that("use with one ID", {
       birth_rate_distr = create_uniform_distr(id = 2)
     )
   )
-  testit::assert(are_initialized_tree_priors(tree_priors))
+  testit::assert(beautier:::are_initialized_tree_priors(tree_priors))
 
   testthat::expect_silent(
     beautier:::create_beast2_input_distr(
@@ -61,7 +58,7 @@ test_that("abuse", {
   testthat::expect_error(
     beautier:::create_beast2_input_distr(
       ids = c("a", "b"),
-      clock_models = create_strict_clock_model()
+      clock_models = create_strict_clock_model(ids = "a")
     )
   )
 

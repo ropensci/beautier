@@ -5,10 +5,13 @@
 \title{Would these lines of text, when written to a file,
   result in a valid BEAST2 input file?}
 \usage{
-are_beast2_input_lines(text)
+are_beast2_input_lines(text, verbose = FALSE)
 }
 \arguments{
 \item{text}{lines of text}
+
+\item{verbose}{if TRUE, BEAST2 output is shown,
+no output otherwise}
 }
 \value{
 TRUE if the text is valid, FALSE if not

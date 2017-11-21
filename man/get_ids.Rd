@@ -12,13 +12,20 @@ get_ids(fasta_filenames, capitalize_first_char_id = FALSE)
 \item{capitalize_first_char_id}{capitalize the first character of the IDs}
 }
 \value{
-the ID
+the IDs
 }
 \description{
 Conclude the IDs from one or more FASTA filenames
 }
 \seealso{
 Use \code{\link{get_id}} for one filename
+testit::assert(get_ids("a.fas", "b.fas") == c("a", "b"))
+testit::assert(
+  get_ids(
+    c("a.fas", "b.fas"),
+    capitalize_first_char_id = TRUE
+  ) == c("A", "B")
+)
 }
 \author{
 Richel J.C. Bilderbeek

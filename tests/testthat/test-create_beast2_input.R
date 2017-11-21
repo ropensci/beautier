@@ -14,20 +14,23 @@ test_that("input is checked", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = "nonexisting" # Error
-    )
+    ),
+    "input_fasta_filenames not found"
   )
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_input_fasta_filename(),
-      mcmc = create_mcmc(chain_length = 0) # Error
-    )
+      mcmc = "nonsense"
+    ),
+    "mcmc must be a valid mcmc object, as returned by 'create_mcmc'"
   )
 
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_input_fasta_filename(),
-      tree_priors = create_tree_prior(name = "nonsense")
-    )
+      tree_priors = "nonsense"
+    ),
+    "tree_priors must be valid, as returned by 'create_tree_priors'"
   )
 
   testthat::expect_error(
@@ -89,7 +92,7 @@ test_that("input is checked", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      clock_models = create_strict_clock_models(n = 1)
+      clock_models = create_strict_clock_models(ids = "only_one")
     )
   )
 
@@ -698,6 +701,24 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
 
 })
 
+test_that("Use of a strict clock", {
+
+  input_fasta_filename <- beautier::get_input_fasta_filename()
+  id = get_id(input_fasta_filename)
+  lines <- beautier::create_beast2_input(
+    input_fasta_filenames = input_fasta_filename,
+    clock_models = create_strict_clock_model(
+      clock_rate_parameter = create_clock_rate_parameter(id = id)
+    )
+  )
+  testthat::expect_true(has_unique_ids(lines))
+
+  if (is_on_travis()) {
+    testthat::expect_true(are_beast2_input_lines(lines))
+  }
+
+})
+
 test_that("Use of an RLN clock", {
 
   skip("WIP")
@@ -719,7 +740,6 @@ test_that("Check that strict_clock_2_4.xml is reproduced", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    clock_models = create_clock_model(name = "strict"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -729,12 +749,17 @@ test_that("Check that strict_clock_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Check that strict_clock_rate_0_5_2_4.xml is reproduced", {
+test_that("Reproduce strict_clock_rate_0_5_2_4.xml", {
 
+  input_fasta_filename <- beautier::get_input_fasta_filename()
+  id <- get_id(input_fasta_filename)
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
-      rate = 0.5
+      clock_rate_parameter = create_clock_rate_parameter(
+        id = id,
+        value = "0.5"
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))

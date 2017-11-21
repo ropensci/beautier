@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_cbs_tree_prior.R
 \name{is_cbs_tree_prior}
 \alias{is_cbs_tree_prior}
-\title{Determine if the object is a valid constant coalescent Bayesian skyline prior}
+\title{Determine if the object is a valid constant coalescent Bayesian skyline prior
+  as returned by \code{\link{create_cbs_tree_prior}}}
 \usage{
 is_cbs_tree_prior(x)
 }
@@ -16,6 +17,7 @@ TRUE if x is a valid constant coalescent Bayesian skyline prior,
 }
 \description{
 Determine if the object is a valid constant coalescent Bayesian skyline prior
+  as returned by \code{\link{create_cbs_tree_prior}}
 }
 \author{
 Richel J.C. Bilderbeek

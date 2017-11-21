@@ -38,20 +38,26 @@ create_clock_model <- function(
 create_rln_clock_model <- function(
   uclstdev_distr = create_gamma_distr()
 ) {
-  return(
-    beautier::create_clock_model(
-      name = "relaxed_log_normal",
-      uclstdev_distr = uclstdev_distr
-    )
+  rln_clock_model <- beautier::create_clock_model(
+    name = "relaxed_log_normal",
+    uclstdev_distr = uclstdev_distr
   )
+  testit::assert(is_rln_clock_model(rln_clock_model))
+  rln_clock_model
 }
 
 #' Create a strict clock model
-#' @param rate a known clock rate
+#' @param clock_rate_parameter a clock_rate parameter,
+#'   as created by a \code{\link{create_clock_rate_parameter}} function
 #' @return a strict clock_model
 #' @export
 create_strict_clock_model <- function(
-  rate = get_default_clock_model_rate()
+  clock_rate_parameter = create_clock_rate_parameter()
 ) {
-  return(beautier::create_clock_model(name = "strict", rate = rate))
+  strict_clock_model <- beautier::create_clock_model(
+    name = "strict",
+    clock_rate_parameter = clock_rate_parameter
+  )
+  testit::assert(is_strict_clock_model(strict_clock_model))
+  strict_clock_model
 }

@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_yule_tree_prior.R
 \name{is_yule_tree_prior}
 \alias{is_yule_tree_prior}
-\title{Determine if the object is a valid Yule tree prior}
+\title{Determine if the object is a valid Yule tree prior,
+  as returned by \code{\link{create_yule_tree_prior}}}
 \usage{
 is_yule_tree_prior(x)
 }
@@ -13,7 +14,8 @@ is_yule_tree_prior(x)
 TRUE if x is a valid Yule tree prior, FALSE otherwise
 }
 \description{
-Determine if the object is a valid Yule tree prior
+Determine if the object is a valid Yule tree prior,
+  as returned by \code{\link{create_yule_tree_prior}}
 }
 \author{
 Richel J.C. Bilderbeek

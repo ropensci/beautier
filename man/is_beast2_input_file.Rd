@@ -4,10 +4,13 @@
 \alias{is_beast2_input_file}
 \title{Is a file a valid BEAST2 input file?}
 \usage{
-is_beast2_input_file(filename)
+is_beast2_input_file(filename, verbose = FALSE)
 }
 \arguments{
 \item{filename}{name of the BEAST2 XML input file}
+
+\item{verbose}{if TRUE, BEAST2 output is shown,
+no output otherwise}
 }
 \value{
 TRUE if the file is valid, FALSE if not

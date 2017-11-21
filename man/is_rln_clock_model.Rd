@@ -18,4 +18,9 @@ Determine if the object is a valid relaxed log normal clock model
 }
 \author{
 Richel J.C. Bilderbeek
+  rln_clock_model <- create_rln_clock_model()
+  testit::assert(is_rln_clock_model(rln_clock_model))
+
+  strict_clock_model <- create_strict_clock_model()
+  testit::assert(!is_rln_clock_model(strict_clock_model))
 }

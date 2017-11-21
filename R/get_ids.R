@@ -1,9 +1,16 @@
 #' Conclude the IDs from one or more FASTA filenames
 #' @param fasta_filenames one or more FASTA filenames
 #' @param capitalize_first_char_id capitalize the first character of the IDs
-#' @return the ID
+#' @return the IDs
 #' @author Richel J.C. Bilderbeek
 #' @seealso Use \code{\link{get_id}} for one filename
+#' testit::assert(get_ids("a.fas", "b.fas") == c("a", "b"))
+#' testit::assert(
+#'   get_ids(
+#'     c("a.fas", "b.fas"),
+#'     capitalize_first_char_id = TRUE
+#'   ) == c("A", "B")
+#' )
 #' @export
 get_ids <- function(
   fasta_filenames,

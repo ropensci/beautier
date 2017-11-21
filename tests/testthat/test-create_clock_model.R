@@ -23,12 +23,3 @@ test_that("abuse", {
   )
 })
 
-test_that("create strict clock with rate", {
-
-  clock_model <- beautier::create_clock_model(name = "strict", rate = 0.5)
-  testthat::expect_equal(get_clock_model_rate(clock_model), 0.5)
-
-  clock_model <- beautier::create_strict_clock_model(rate = 0.5)
-  testthat::expect_equal(get_clock_model_rate(clock_model), 0.5)
-
-})

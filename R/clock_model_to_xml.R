@@ -47,10 +47,7 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
     text <- c(text, paste0("<branchRateModel ",
       "id=\"StrictClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    text <- c(text, paste0("    <parameter id=\"clockRate.c:",
-      id, "\" estimate=\"false\" name=\"clock.rate\">",
-      get_clock_model_rate(clock_model),
-      "</parameter>"))
+    text <- c(text, indent(parameter_to_xml(clock_model$clock_rate_parameter), n_spaces = 4))
     text <- c(text, "</branchRateModel>")
   } else if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("<branchRateModel ",

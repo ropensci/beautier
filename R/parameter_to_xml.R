@@ -16,6 +16,8 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_alpha(parameter))
   } else if (is_beta_parameter(parameter)) {
     text <- c(text, parameter_to_xml_beta(parameter))
+  } else if (is_clock_rate_parameter(parameter)) {
+    text <- c(text, parameter_to_xml_clock_rate(parameter))
   } else if (is_lambda_parameter(parameter)) {
     text <- c(text, parameter_to_xml_lambda(parameter))
   } else if (is_m_parameter(parameter)) {
@@ -82,6 +84,35 @@ parameter_to_xml_beta <- function(
       "id=\"RealParameter.", id, "\" ",
       "estimate=\"", estimate, "\" ",
       "name=\"beta\">", value,
+      "</parameter>"
+    )
+  )
+  text
+}
+
+#' Converts a \code{clockRate} parameter to XML
+#' @param parameter a \code{clockRate} parameter,
+#'   as created by \code{\link{create_clock_rate_parameter}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_clock_rate <- function(
+  parameter
+) {
+  testit::assert(is_clock_rate_parameter(parameter))
+  id <- beautier::get_parameter_id(parameter)
+  testit::assert(!is.na(id))
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
+  rate <- parameter$rate
+  text <- NULL
+  text <- c(
+    text,
+    paste0(
+      "<parameter ",
+      "id=\"clockRate.c:", id, "\" ",
+      "estimate=\"", estimate, "\" ",
+      "name=\"clock.rate\">",
+      value,
       "</parameter>"
     )
   )

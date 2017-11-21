@@ -25,6 +25,7 @@ Prefer using the
   named functions
   \code{\link{create_alpha_parameter}},
   \code{\link{create_beta_parameter}},
+  \code{\link{create_clock_rate_parameter}},
   \code{\link{create_m_parameter}},
   \code{\link{create_mean_parameter}},
   \code{\link{create_mu_parameter}},

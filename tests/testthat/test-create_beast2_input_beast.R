@@ -4,7 +4,7 @@ test_that("use", {
 
   fasta_filename <- get_input_fasta_filename()
   testthat::expect_silent(
-    create_beast2_input_beast(
+    beautier:::create_beast2_input_beast(
       input_fasta_filenames = fasta_filename,
       tree_priors = list(
         create_yule_tree_prior(

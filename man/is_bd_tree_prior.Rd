@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_bd_tree_prior.R
 \name{is_bd_tree_prior}
 \alias{is_bd_tree_prior}
-\title{Determine if the object is a valid Birth Death tree prior}
+\title{Determine if the object is a valid Birth Death tree prior
+  as returned by \code{\link{create_bd_tree_prior}}}
 \usage{
 is_bd_tree_prior(x)
 }
@@ -14,6 +15,7 @@ TRUE if x is a valid birth death tree prior, FALSE otherwise
 }
 \description{
 Determine if the object is a valid Birth Death tree prior
+  as returned by \code{\link{create_bd_tree_prior}}
 }
 \author{
 Richel J.C. Bilderbeek

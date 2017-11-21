@@ -4,10 +4,11 @@
 \alias{create_strict_clock_models}
 \title{Creates n strict clock_models}
 \usage{
-create_strict_clock_models(n)
+create_strict_clock_models(ids)
 }
 \arguments{
-\item{n}{the number of strict_clock_models}
+\item{ids}{the alignment ids,
+as returned by \code{\link{get_ids}}}
 }
 \value{
 a list of strict_clock objects
@@ -16,11 +17,11 @@ a list of strict_clock objects
 Creates n strict clock_models
 }
 \examples{
-  m <- create_strict_clock_models(1)
+  m <- create_strict_clock_models(ids = c("a"))
   testthat::expect_equal(length(m), 1)
   testthat::expect_true(is_strict_clock_model(m[[1]]))
 
-  m <- create_strict_clock_models(2)
+  m <- create_strict_clock_models(ids = c("a", "b"))
   testthat::expect_equal(length(m), 2)
   testthat::expect_true(is_strict_clock_model(m[[1]]))
   testthat::expect_true(is_strict_clock_model(m[[2]]))

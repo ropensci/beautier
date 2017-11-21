@@ -5,7 +5,7 @@
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_run(ids, site_models = create_jc69_site_models(n =
-  length(ids)), clock_models = create_strict_clock_models(n = length(ids)),
+  length(ids)), clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(n = length(ids)),
   mcmc = create_mcmc(), fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(ids)))

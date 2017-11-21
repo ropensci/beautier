@@ -11,22 +11,28 @@ create_clock_models <- function() {
 }
 
 #' Creates n strict clock_models
-#' @param n the number of strict_clock_models
+#' @param ids the alignment ids,
+#'   as returned by \code{\link{get_ids}}
 #' @return a list of strict_clock objects
 #' @examples
-#'   m <- create_strict_clock_models(1)
+#'   m <- create_strict_clock_models(ids = c("a"))
 #'   testthat::expect_equal(length(m), 1)
 #'   testthat::expect_true(is_strict_clock_model(m[[1]]))
 #'
-#'   m <- create_strict_clock_models(2)
+#'   m <- create_strict_clock_models(ids = c("a", "b"))
 #'   testthat::expect_equal(length(m), 2)
 #'   testthat::expect_true(is_strict_clock_model(m[[1]]))
 #'   testthat::expect_true(is_strict_clock_model(m[[2]]))
 #' @export
-create_strict_clock_models <- function(n) {
+create_strict_clock_models <- function(ids) {
+  n <- length(ids)
   ms <- list()
   for (i in seq(1, n)) {
-    ms[[i]] <- beautier::create_strict_clock_model()
+    ms[[i]] <- beautier::create_strict_clock_model(
+      clock_rate_parameter = create_clock_rate_parameter(
+        id = ids[i]
+      )
+    )
   }
   ms
 }

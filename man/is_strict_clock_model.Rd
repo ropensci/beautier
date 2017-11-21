@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_strict_clock_model.R
 \name{is_strict_clock_model}
 \alias{is_strict_clock_model}
-\title{Determine if the object is a valid strict clock model}
+\title{Determine if the object is a valid strict clock model,
+  as returned by \code{\link{create_strict_clock_model}}}
 \usage{
 is_strict_clock_model(x)
 }
@@ -13,7 +14,16 @@ is_strict_clock_model(x)
 TRUE if x is a valid strict clock model, FALSE otherwise
 }
 \description{
-Determine if the object is a valid strict clock model
+Determine if the object is a valid strict clock model,
+  as returned by \code{\link{create_strict_clock_model}}
+}
+\examples{
+  strict_clock_model <- create_strict_clock_model()
+  testit::assert(is_strict_clock_model(strict_clock_model))
+
+  # rln: Relaxed Log-Normal
+  rln_clock_model <- create_rln_clock_model()
+  testit::assert(!is_strict_clock_model(rln_clock_model))
 }
 \author{
 Richel J.C. Bilderbeek

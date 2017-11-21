@@ -1,4 +1,5 @@
-#' Determine if the object is a valid Yule tree prior
+#' Determine if the object is a valid Yule tree prior,
+#'   as returned by \code{\link{create_yule_tree_prior}}
 #' @param x an object, to be determined if it is a valid Yule tree prior
 #' @return TRUE if x is a valid Yule tree prior, FALSE otherwise
 #' @author Richel J.C. Bilderbeek

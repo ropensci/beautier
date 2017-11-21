@@ -5,8 +5,8 @@
 \title{Creates the tracelog section of the logger section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_treelogs(ids, clock_models = create_strict_clock_models(n
-  = length(ids)))
+create_beast2_input_treelogs(ids,
+  clock_models = create_strict_clock_models(ids = ids))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

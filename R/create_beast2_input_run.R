@@ -10,7 +10,7 @@
 create_beast2_input_run <- function(
   ids,
   site_models = create_jc69_site_models(n = length(ids)),
-  clock_models = create_strict_clock_models(n = length(ids)),
+  clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(n = length(ids)),
   mcmc = create_mcmc(),
   fixed_crown_age = FALSE,
