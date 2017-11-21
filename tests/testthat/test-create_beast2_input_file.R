@@ -241,6 +241,8 @@ test_that("RLN clock model produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
+  skip("WIP")
+
   #output_xml_filename <- tempfile()
   output_xml_filename <- "~/fix.xml"
   create_beast2_input_file(
@@ -256,6 +258,8 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
   if (!beautier::is_on_travis()) return()
+
+  skip("WIP")
 
   clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
