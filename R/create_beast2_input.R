@@ -86,7 +86,8 @@ create_beast2_input <- function(
   }
 
   clock_models <- initialize_clock_models(
-    clock_models,
+    clock_models = clock_models,
+    ids = get_ids(input_fasta_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is

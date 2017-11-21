@@ -2,12 +2,12 @@
 % Please edit documentation in R/initialize_clock_models.R
 \name{initialize_rln_clock_model}
 \alias{initialize_rln_clock_model}
-\title{Initializes a Birth-Death clock model}
+\title{Initializes a Relaxed Log-Normal clock model}
 \usage{
 initialize_rln_clock_model(rln_clock_model, distr_id, param_id)
 }
 \arguments{
-\item{rln_clock_model}{a Birth-Death clock model,
+\item{rln_clock_model}{a Relaxed Log-Normal clock model,
 as returned by \code{\link{create_rln_clock_model}}}
 
 \item{distr_id}{the first distributions' ID}
@@ -15,10 +15,10 @@ as returned by \code{\link{create_rln_clock_model}}}
 \item{param_id}{the first parameter's ID}
 }
 \value{
-an initialized Birth-Death clock model
+an initialized Relaxed Log-Normal clock model
 }
 \description{
-Initializes a Birth-Death clock model
+Initializes a Relaxed Log-Normal clock model
 }
 \author{
 Richel J.C. Bilderbeek

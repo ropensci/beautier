@@ -1,6 +1,7 @@
 context("are_initialized_clock_models")
 
-test_that("detect initialized RLN models", {
+
+test_that("detect initialized RLN clock models", {
 
   init_rln_models <- list(
     create_rln_clock_model(
@@ -13,7 +14,7 @@ test_that("detect initialized RLN models", {
 })
 
 
-test_that("detect uninitialized rln models", {
+test_that("detect uninitialized RLN clock models", {
 
   uninit_rln_models <- list(
     create_rln_clock_model(

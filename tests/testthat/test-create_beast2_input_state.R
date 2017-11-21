@@ -2,12 +2,13 @@ context("create_beast2_input_state")
 
 test_that("birth_death", {
 
+  ids <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = "test_output_0",
+      ids = ids,
       site_models = list(create_jc69_site_model()),
       clock_models = beautier:::initialize_clock_models(
-        list(create_strict_clock_model()), distr_id = 0),
+        list(create_strict_clock_model()), ids = ids, distr_id = 0),
       tree_priors = beautier:::initialize_tree_priors(
         list(create_yule_tree_prior()), distr_id = 1),
       initial_phylogenies = NA

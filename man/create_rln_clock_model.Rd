@@ -16,3 +16,15 @@ a relaxed log-normal clock_model
 \description{
 Create a relaxed log-normal clock model
 }
+\examples{
+  rln_clock_model <- create_rln_clock_model()
+  testit::assert(is_rln_clock_model(rln_clock_model))
+
+  input_fasta_filenames <- system.file(
+    "extdata", "test_output_0.fas", package = "beautier"
+  )
+  create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    clock_models = rln_clock_model
+  )
+}

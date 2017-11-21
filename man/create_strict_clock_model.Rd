@@ -17,3 +17,15 @@ a strict clock_model
 \description{
 Create a strict clock model
 }
+\examples{
+  strict_clock_model <- create_strict_clock_model()
+  testit::assert(is_strict_clock_model(strict_clock_model))
+
+  input_fasta_filenames <- system.file(
+    "extdata", "test_output_0.fas", package = "beautier"
+  )
+  create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    clock_models = strict_clock_model
+  )
+}

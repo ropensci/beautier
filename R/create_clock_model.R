@@ -34,6 +34,17 @@ create_clock_model <- function(
 #' @param uclstdev_distr the uclstdev distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a relaxed log-normal clock_model
+#' @examples
+#'   rln_clock_model <- create_rln_clock_model()
+#'   testit::assert(is_rln_clock_model(rln_clock_model))
+#'
+#'   input_fasta_filenames <- system.file(
+#'     "extdata", "test_output_0.fas", package = "beautier"
+#'   )
+#'   create_beast2_input(
+#'     input_fasta_filenames = input_fasta_filenames,
+#'     clock_models = rln_clock_model
+#'   )
 #' @export
 create_rln_clock_model <- function(
   uclstdev_distr = create_gamma_distr()
@@ -50,6 +61,17 @@ create_rln_clock_model <- function(
 #' @param clock_rate_parameter a clock_rate parameter,
 #'   as created by a \code{\link{create_clock_rate_parameter}} function
 #' @return a strict clock_model
+#' @examples
+#'   strict_clock_model <- create_strict_clock_model()
+#'   testit::assert(is_strict_clock_model(strict_clock_model))
+#'
+#'   input_fasta_filenames <- system.file(
+#'     "extdata", "test_output_0.fas", package = "beautier"
+#'   )
+#'   create_beast2_input(
+#'     input_fasta_filenames = input_fasta_filenames,
+#'     clock_models = strict_clock_model
+#'   )
 #' @export
 create_strict_clock_model <- function(
   clock_rate_parameter = create_clock_rate_parameter()

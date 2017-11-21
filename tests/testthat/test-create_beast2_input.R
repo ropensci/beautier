@@ -712,11 +712,6 @@ test_that("Use of a strict clock", {
     )
   )
   testthat::expect_true(has_unique_ids(lines))
-
-  if (is_on_travis()) {
-    testthat::expect_true(are_beast2_input_lines(lines))
-  }
-
 })
 
 test_that("Use of an RLN clock", {

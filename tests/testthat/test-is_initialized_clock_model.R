@@ -2,6 +2,24 @@ context("is_initialized_clock_model")
 
 test_that("use", {
 
+
+  testthat::expect_true(
+    beautier:::is_initialized_clock_model(
+      create_strict_clock_model(
+        clock_rate_parameter = create_clock_rate_parameter(id = "OK")
+      )
+    )
+  )
+
+  testthat::expect_false(
+    beautier:::is_initialized_clock_model(
+      create_strict_clock_model(
+        clock_rate_parameter = create_clock_rate_parameter(id = NA)
+      )
+    )
+  )
+
+
   testthat::expect_true(
     beautier:::is_initialized_clock_model(
       create_rln_clock_model(

@@ -41,6 +41,5 @@ is_initialized_strict_clock_model <- function(
 ) {
   testit::assert(beautier::is_strict_clock_model(x))
 
-  # Yup, is always initialized
-  TRUE
+  !is.na(x$clock_rate_parameter$id)
 }

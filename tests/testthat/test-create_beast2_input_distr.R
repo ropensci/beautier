@@ -2,12 +2,14 @@ context("create_beast2_input_distr")
 
 test_that("use with one ID", {
 
+  ids <- "test_output_0"
+
   testthat::expect_silent(
     beautier:::create_beast2_input_distr(
-      ids = "test_output_0",
+      ids = ids,
       site_models = create_jc69_site_models(n = 1),
       clock_models = beautier:::initialize_clock_models(
-        create_strict_clock_models(ids = "test_output_0")),
+        create_strict_clock_models(ids = NA), ids = ids),
       tree_priors = beautier:::initialize_tree_priors(
         create_yule_tree_priors(n = 1),
         distr_id = 1
