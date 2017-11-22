@@ -1,50 +1,10 @@
----
-title: "Examples"
-author: "Richel Bilderbeek"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Examples}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
+# Examples
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
-```{r create_test_files, include = FALSE}
-lines_test <- readLines(
-  system.file(
-    "extdata", "test_output_0.fas", package = "beautier"
-  )
-)
-lines_anthus_aco <- readLines(
-  system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
-)
-lines_anthus_nd2 <- readLines(
-  system.file(
-    "extdata", "anthus_nd2.fas", package = "beautier"
-  )
-)
-
-beautier::save_text(text = lines_test, filename = "my_fasta.fas")
-beautier::save_text(text = lines_test, filename = "test_output_0.fas")
-beautier::save_text(text = lines_test, filename = "my_alignment.fas")
-beautier::save_text(text = lines_anthus_aco, filename = "anthus_aco.fas")
-beautier::save_text(text = lines_anthus_nd2, filename = "anthus_nd2.fas")
-```
-
-![beautier logo](../pics/beautier_logo.png)
+![beautier logo](pics/beautier_logo.png)
 
 For all examples, do load `beautier`:
 
-```{r load_library}
+```
 library(beautier)
 ```
 
@@ -55,9 +15,9 @@ and create a BEAST2 input file called `my_beast.xml`.
 
 Using all default settings, only specify a DNA alignment.
 
-![Example #1: all default](../pics/all_default.png)
+![Example #1: all default](pics/all_default.png)
 
-```{r example_1}
+```
 create_beast2_input_file(
   "test_output_0.fas",
   "my_beast.xml"
@@ -74,7 +34,7 @@ Using all default settings, only specify a DNA alignment.
 [No screenshot, as this cannot be done in BEAUti yet]
 ```
 
-```{r example_2}
+```
 create_beast2_input_file(
   "my_fasta.fas",
   "my_beast.xml",
@@ -90,9 +50,9 @@ a FASTA file of a certain crown age.
 
 ## Example #3: JC69 site model
 
-![Example #3: JC69 site model](../pics/jc69_2_4.png)
+![Example #3: JC69 site model](pics/jc69_2_4.png)
 
-```{r example_3}
+```
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
@@ -102,7 +62,7 @@ create_beast2_input_file(
 
 ## Example #4: Relaxed clock log normal
 
-![Example #4: Relaxed clock log normal](../pics/relaxed_clock_log_normal_2_4.png)
+![Example #4: Relaxed clock log normal](pics/relaxed_clock_log_normal_2_4.png)
 
 ```{r example_4}
 create_beast2_input_file(
@@ -114,7 +74,7 @@ create_beast2_input_file(
 
 ## Example #5: Birth-Death tree prior
 
-![Example #5: Birth-Death tree prior](../pics/birth_death_2_4.png)
+![Example #5: Birth-Death tree prior](pics/birth_death_2_4.png)
 
 ```{r example_5}
 create_beast2_input_file(
@@ -126,7 +86,7 @@ create_beast2_input_file(
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
-![Example #6: Yule tree prior with a normally distributed birth rate](../pics/birth_rate_normal_2_4.png)
+![Example #6: Yule tree prior with a normally distributed birth rate](pics/birth_rate_normal_2_4.png)
 
 ```{r example_6}
 create_beast2_input_file(
@@ -142,7 +102,7 @@ Thanks to Yacine Ben Chehida for this use case
 
 ## Example #7: HKY site model with a non-zero proportion of invariants
 
-![Example #7: HKY site model with a non-zero proportion of invariants](../pics/hky_prop_invariant_0_5_2_4.png)
+![Example #7: HKY site model with a non-zero proportion of invariants](pics/hky_prop_invariant_0_5_2_4.png)
 
 ```{r example_7}
 create_beast2_input_file(
@@ -158,7 +118,7 @@ Thanks to Yacine Ben Chehida for this use case
 
 ## Example #8: Strict clock with a known clock rate
 
-![Example #8: Strict clock with a known clock rate](../pics/strict_clock_rate_0_5_2_4.png)
+![Example #8: Strict clock with a known clock rate](pics/strict_clock_rate_0_5_2_4.png)
 
 ```{r example_8}
 create_beast2_input_file(
@@ -173,7 +133,7 @@ Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
 ## Example #9: Two alignments
 
-![Example 9: Two alignments](../pics/anthus_2_4.png)
+![Example 9: Two alignments](pics/anthus_2_4.png)
 
 ```{r example_9}
 create_beast2_input_file(
@@ -186,7 +146,7 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 
 ## Example #10: Two alignments, different site models
 
-![Example 10: Two alignments, different site models](../pics/aco_hky_nd2_tn93.png)
+![Example 10: Two alignments, different site models](pics/aco_hky_nd2_tn93.png)
 
 ```{r example_10}
 beautier::create_beast2_input_file(
