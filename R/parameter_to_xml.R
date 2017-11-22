@@ -13,26 +13,26 @@ parameter_to_xml <- function(
     stop("parameter must have an ID")
   }
   if (beautier::is_alpha_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_alpha(parameter))
+    text <- c(text, parameter_to_xml_alpha(parameter)) # nolint internal function
   } else if (beautier::is_beta_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_beta(parameter))
+    text <- c(text, parameter_to_xml_beta(parameter)) # nolint internal function
   } else if (beautier::is_clock_rate_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_clock_rate(parameter))
+    text <- c(text, parameter_to_xml_clock_rate(parameter)) # nolint internal function
   } else if (beautier::is_lambda_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_lambda(parameter))
+    text <- c(text, parameter_to_xml_lambda(parameter)) # nolint internal function
   } else if (beautier::is_m_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_m(parameter))
+    text <- c(text, parameter_to_xml_m(parameter)) # nolint internal function
   } else if (beautier::is_mean_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_mean(parameter))
+    text <- c(text, parameter_to_xml_mean(parameter)) # nolint internal function
   } else if (beautier::is_mu_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_mu(parameter))
+    text <- c(text, parameter_to_xml_mu(parameter)) # nolint internal function
   } else if (beautier::is_s_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_s(parameter))
+    text <- c(text, parameter_to_xml_s(parameter)) # nolint internal function
   } else if (beautier::is_scale_parameter(parameter)) {
-    text <- c(text, parameter_to_xml_scale(parameter))
+    text <- c(text, parameter_to_xml_scale(parameter)) # nolint internal function
   } else {
     testit::assert(beautier::is_sigma_parameter(parameter))
-    text <- c(text, parameter_to_xml_sigma(parameter))
+    text <- c(text, parameter_to_xml_sigma(parameter)) # nolint internal function
   }
   text
 }
@@ -47,7 +47,7 @@ parameter_to_xml_alpha <- function(
 ) {
   testit::assert(is_alpha_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
 
@@ -74,7 +74,7 @@ parameter_to_xml_beta <- function(
 ) {
   testit::assert(is_beta_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -100,10 +100,9 @@ parameter_to_xml_clock_rate <- function(
 ) {
   testit::assert(is_clock_rate_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
-  rate <- parameter$rate
   text <- NULL
   text <- c(
     text,
@@ -127,9 +126,9 @@ parameter_to_xml_clock_rate <- function(
 parameter_to_xml_lambda <- function(
   parameter
 ) {
-  testit::assert(is_lambda_parameter(parameter))
+  testit::assert(beautier::is_lambda_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   value <- parameter$value
   text <- NULL
   text <- c(text,
@@ -151,9 +150,9 @@ parameter_to_xml_lambda <- function(
 parameter_to_xml_m <- function(
   parameter
 ) {
-  testit::assert(is_m_parameter(parameter))
+  testit::assert(beautier::is_m_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -177,9 +176,9 @@ parameter_to_xml_m <- function(
 parameter_to_xml_mean <- function(
   parameter
 ) {
-  testit::assert(is_mean_parameter(parameter))
+  testit::assert(beautier::is_mean_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -203,9 +202,9 @@ parameter_to_xml_mean <- function(
 parameter_to_xml_mu <- function(
   parameter
 ) {
-  testit::assert(is_mu_parameter(parameter))
+  testit::assert(beautier::is_mu_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -229,9 +228,9 @@ parameter_to_xml_mu <- function(
 parameter_to_xml_s <- function(
   parameter
 ) {
-  testit::assert(is_s_parameter(parameter))
+  testit::assert(beautier::is_s_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   lower <- parameter$lower
@@ -259,9 +258,9 @@ parameter_to_xml_s <- function(
 parameter_to_xml_scale <- function(
   parameter
 ) {
-  testit::assert(is_scale_parameter(parameter))
+  testit::assert(beautier::is_scale_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -285,9 +284,9 @@ parameter_to_xml_scale <- function(
 parameter_to_xml_sigma <- function(
   parameter
 ) {
-  testit::assert(is_sigma_parameter(parameter))
+  testit::assert(beautier::is_sigma_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL

@@ -9,30 +9,30 @@ distr_to_xml <- function(
 ) {
   text <- NULL
   id <- beautier::get_distr_id(distr)
-  if (is.na(id)) {
+  if (!beautier::is_id(id)) {
     stop("distribution must have an ID")
   }
   if (is_beta_distr(distr)) {
-    text <- c(text, distr_to_xml_beta(distr))
+    text <- c(text, distr_to_xml_beta(distr)) # nolint internal function
   } else if (is_exponential_distr(distr)) {
-    text <- c(text, distr_to_xml_exponential(distr))
+    text <- c(text, distr_to_xml_exponential(distr)) # nolint internal function
   } else if (is_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_gamma(distr))
+    text <- c(text, distr_to_xml_gamma(distr)) # nolint internal function
   } else if (is_inv_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_inv_gamma(distr))
+    text <- c(text, distr_to_xml_inv_gamma(distr)) # nolint internal function
   } else if (is_laplace_distr(distr)) {
-    text <- c(text, distr_to_xml_laplace(distr))
+    text <- c(text, distr_to_xml_laplace(distr)) # nolint internal function
   } else if (is_log_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_log_normal(distr))
+    text <- c(text, distr_to_xml_log_normal(distr)) # nolint internal function
   } else if (is_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_normal(distr))
+    text <- c(text, distr_to_xml_normal(distr)) # nolint internal function
   } else if (is_one_div_x_distr(distr)) {
-    text <- c(text, distr_to_xml_one_div_x(distr))
+    text <- c(text, distr_to_xml_one_div_x(distr)) # nolint internal function
   } else if (is_poisson_distr(distr)) {
-    text <- c(text, distr_to_xml_poisson(distr))
+    text <- c(text, distr_to_xml_poisson(distr)) # nolint internal function
   } else {
     testit::assert(beautier::is_uniform_distr(distr))
-    text <- c(text, distr_to_xml_uniform(distr))
+    text <- c(text, distr_to_xml_uniform(distr)) # nolint internal function
   }
   text
 }
@@ -45,9 +45,9 @@ distr_to_xml <- function(
 distr_to_xml_beta <- function(
   distr
 ) {
-  testit::assert(is_beta_distr(distr))
+  testit::assert(beautier::is_beta_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
@@ -75,9 +75,9 @@ distr_to_xml_beta <- function(
 distr_to_xml_exponential <- function(
   distr
 ) {
-  testit::assert(is_exponential_distr(distr))
+  testit::assert(beautier::is_exponential_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Exponential ",
@@ -100,9 +100,9 @@ distr_to_xml_exponential <- function(
 distr_to_xml_gamma <- function(
   distr
 ) {
-  testit::assert(is_gamma_distr(distr))
+  testit::assert(beautier::is_gamma_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Gamma ",
@@ -131,9 +131,9 @@ distr_to_xml_gamma <- function(
 distr_to_xml_inv_gamma <- function(
   distr
 ) {
-  testit::assert(is_inv_gamma_distr(distr))
+  testit::assert(beautier::is_inv_gamma_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<InverseGamma ",
@@ -162,9 +162,9 @@ distr_to_xml_inv_gamma <- function(
 distr_to_xml_laplace <- function(
   distr
 ) {
-  testit::assert(is_laplace_distr(distr))
+  testit::assert(beautier::is_laplace_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<LaplaceDistribution ",
@@ -192,9 +192,9 @@ distr_to_xml_laplace <- function(
 distr_to_xml_log_normal <- function(
   distr
 ) {
-  testit::assert(is_log_normal_distr(distr))
+  testit::assert(beautier::is_log_normal_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<LogNormal ",
@@ -224,9 +224,9 @@ distr_to_xml_log_normal <- function(
 distr_to_xml_normal <- function(
   distr
 ) {
-  testit::assert(is_normal_distr(distr))
+  testit::assert(beautier::is_normal_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Normal ",
@@ -255,9 +255,9 @@ distr_to_xml_normal <- function(
 distr_to_xml_one_div_x <- function(
   distr
 ) {
-  testit::assert(is_one_div_x_distr(distr))
+  testit::assert(beautier::is_one_div_x_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<OneOnX ",
@@ -273,9 +273,9 @@ distr_to_xml_one_div_x <- function(
 distr_to_xml_poisson <- function(
   distr
 ) {
-  testit::assert(is_poisson_distr(distr))
+  testit::assert(beautier::is_poisson_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<distr ",

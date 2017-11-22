@@ -31,11 +31,12 @@ initialize_clock_models <- function(
           param_id = param_id
         )
         distr_id <- distr_id + 1 # Has one distributions
-        param_id <- param_id + get_distr_n_params(clock_model$uclstdev_distr)
+        param_id <- param_id + beautier::get_distr_n_params(
+          clock_model$uclstdev_distr)
       }
 
     } else {
-      testit::assert(is_strict_clock_model(clock_model))
+      testit::assert(beautier::is_strict_clock_model(clock_model))
 
       if (!is_initialized_strict_clock_model(clock_model)) {
 
@@ -46,7 +47,7 @@ initialize_clock_models <- function(
         # Does not touch 'distr_id', nor 'param_id'
       }
 
-      testit::assert(beautier::is_initialized_strict_clock_model(clock_model))
+      testit::assert(is_initialized_strict_clock_model(clock_model)) # nolint internal function call
     }
 
     clock_models[[i]] <- clock_model

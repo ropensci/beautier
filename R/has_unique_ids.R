@@ -9,8 +9,10 @@ has_unique_ids <- function(
 ) {
   matches <- text
   for (i in seq_along(matches)) {
-    matches[i] <- stringr::str_extract(str = text[i], pattern = "RealParameter\\.[[:digit:]]+")
+    matches[i] <- stringr::str_extract(
+      str = text[i],
+      pattern = "RealParameter\\.[[:digit:]]+")
   }
-  matches <- matches[ !is.na(matches) ]
+  matches <- matches[!is.na(matches)]
   length(matches) == length(unique(matches))
 }

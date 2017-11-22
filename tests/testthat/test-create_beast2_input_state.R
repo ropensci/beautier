@@ -47,7 +47,8 @@ test_that("abuse", {
     beautier:::create_beast2_input_state(
       ids = ids,
       site_models = create_jc69_site_models(n = 2),
-      clock_models = create_strict_clock_models(ids = "only_one"), # One too little
+      clock_models = create_strict_clock_models(
+        ids = "only_one"), # One too little
       tree_priors = initialize_tree_priors(create_yule_tree_priors(n = 2)),
       initial_phylogenies = rep(NA, 2)
     )

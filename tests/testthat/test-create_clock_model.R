@@ -22,4 +22,3 @@ test_that("abuse", {
     beautier::create_clock_model(name = "nonsense")
   )
 })
-

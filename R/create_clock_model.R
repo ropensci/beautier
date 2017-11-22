@@ -80,6 +80,6 @@ create_strict_clock_model <- function(
     name = "strict",
     clock_rate_parameter = clock_rate_parameter
   )
-  testit::assert(is_strict_clock_model(strict_clock_model))
+  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
   strict_clock_model
 }

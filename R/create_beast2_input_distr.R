@@ -934,7 +934,7 @@ create_beast2_input_distr_clock_models <- function( # nolint long function name 
   clock_model
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
-  text <- clock_model_to_prior_xml(id = id, clock_model = clock_model)
+  text <- clock_model_to_prior_xml(id = id, clock_model = clock_model) # nolint internal function call
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 12)
   }
@@ -1005,7 +1005,7 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
   id,
   clock_model
 ) {
-  text <- clock_model_to_brm_xml(id = id, clock_model = clock_model)
+  text <- clock_model_to_brm_xml(id = id, clock_model = clock_model) # nolint internal function call
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 16)
   }
@@ -1025,7 +1025,7 @@ create_beast2_input_distr_clock_model_other <- function( # nolint long function 
   id,
   clock_model
 ) {
-  text <- clock_model_to_other_brm_xml(id = id, clock_model = clock_model)
+  text <- clock_model_to_other_brm_xml(id = id, clock_model = clock_model) # nolint internal function call
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 16)
   }
