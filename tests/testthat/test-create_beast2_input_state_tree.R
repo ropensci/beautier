@@ -2,7 +2,7 @@ context("create_beast2_input_state_tree")
 
 test_that("two alignments with two initial trees", {
 
-  tree_priors <- initialize_tree_priors(
+  tree_priors <- init_tree_priors(
     list(create_yule_tree_prior(), create_yule_tree_prior()))
 
   fasta_filename_1 <- system.file("extdata",
@@ -24,7 +24,7 @@ test_that("two alignments with two initial trees", {
 
 test_that("abuse: two files, one phylogeny", {
 
-  tree_priors <- initialize_tree_priors(
+  tree_priors <- init_tree_priors(
     list(create_yule_tree_prior(), create_yule_tree_prior()))
 
   fasta_filename_1 <- system.file("extdata",

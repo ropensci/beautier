@@ -86,19 +86,19 @@ create_beast2_input <- function(
       "or of type 'phylo' or 'multiPhylo'")
   }
 
-  clock_models <- initialize_clock_models(
+  clock_models <- init_clock_models(
     clock_models = clock_models,
     ids = get_ids(input_fasta_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint internal function call
-  tree_priors <- initialize_tree_priors( # nolint internal function call
+  tree_priors <- init_tree_priors( # nolint internal function call
     tree_priors,
     distr_id = 100,
     param_id = 200
   )
-  testit::assert(are_initialized_clock_models(clock_models))  # nolint internal function call
-  testit::assert(are_initialized_tree_priors(tree_priors))  # nolint internal function call
+  testit::assert(are_init_clock_models(clock_models))  # nolint internal function call
+  testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function call
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)

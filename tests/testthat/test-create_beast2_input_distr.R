@@ -8,9 +8,9 @@ test_that("use with one ID", {
     beautier:::create_beast2_input_distr(
       ids = ids,
       site_models = create_jc69_site_models(n = 1),
-      clock_models = beautier:::initialize_clock_models(
+      clock_models = beautier:::init_clock_models(
         create_strict_clock_models(ids = NA), ids = ids),
-      tree_priors = beautier:::initialize_tree_priors(
+      tree_priors = beautier:::init_tree_priors(
         create_yule_tree_priors(n = 1),
         distr_id = 1
       )
@@ -33,7 +33,7 @@ test_that("use with one ID", {
       birth_rate_distr = create_uniform_distr(id = 2)
     )
   )
-  testit::assert(beautier:::are_initialized_tree_priors(tree_priors))
+  testit::assert(beautier:::are_init_tree_priors(tree_priors))
 
   testthat::expect_silent(
     beautier:::create_beast2_input_distr(

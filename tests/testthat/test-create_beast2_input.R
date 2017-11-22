@@ -642,7 +642,8 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
         id = 0,
         alpha = create_alpha_parameter(id = 2, value = "0.5396"),
         beta = create_beta_parameter(id = 3, value = "0.3819")
-      )
+      ),
+      m_parameter_id = 1
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
@@ -677,7 +678,8 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
         id = 0,
         alpha = create_alpha_parameter(id = 4, value = "2.0"),
         beta = create_beta_parameter(id = 5, value = "2.0")
-      )
+      ),
+      m_parameter_id = 1
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
