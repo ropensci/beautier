@@ -23,5 +23,5 @@ beautier::create_beast2_input_file(
 )
 
 ## ------------------------------------------------------------------------
-print(readLines(output_xml_filename))
+cat(readLines(output_xml_filename), quote = FALSE, sep = '\n')
 

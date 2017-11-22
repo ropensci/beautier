@@ -13,3 +13,5 @@ output.xml
 example_bd.xml
 example_bd_fixed.xml
 tmp_*
+vignettes/*.fas
+vignettes/my_beast.xml
