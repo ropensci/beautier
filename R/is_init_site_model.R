@@ -32,5 +32,5 @@ is_init_hky_site_model <- function(
   x
 ) {
   testit::assert(beautier::is_hky_site_model(x))
-  is_init_distr(x$kappa_prior)
+  is_init_distr(x$kappa_prior) # nolint internal function
 }

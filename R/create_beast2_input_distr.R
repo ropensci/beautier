@@ -752,13 +752,10 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
 ) {
   text <- NULL
   if (is_hky_site_model(site_model)) {
-    distr_id <- NULL
     param_ids <- NULL
     if (i == 1) {
-      distr_id <- 0
       param_ids <- c(1, 2)
     } else {
-      distr_id <- 1
       param_ids <- c(4, 5)
     }
 
