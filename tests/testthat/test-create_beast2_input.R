@@ -937,8 +937,8 @@ test_that("Run CEP", {
     tree_priors = beautier::create_cep_tree_prior()
   )
   testthat::expect_true(has_unique_ids(lines))
-
   # fails
+  save_text("~/fix.xml", lines)
   testthat::expect_true(are_beast2_input_lines(lines, verbose = TRUE))
 
 })

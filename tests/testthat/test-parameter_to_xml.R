@@ -13,7 +13,22 @@ test_that("use", {
 
 })
 
+test_that("must have IDs", {
+
+  testthat::expect_error(
+    parameter_to_xml(parameter = create_scale_parameter(id = NA)),
+    "parameter must have an ID"
+  )
+
+  testthat::expect_error(
+    parameter_to_xml(parameter = create_scale_parameter(id = 1, value = NA)),
+    "parameter must have a value"
+  )
+
+})
+
 test_that("abuse", {
+
 
   testthat::expect_error(parameter_to_xml(parameter = "nonsense"))
   testthat::expect_error(parameter_to_xml(parameter = NA))

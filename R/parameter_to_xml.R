@@ -12,6 +12,10 @@ parameter_to_xml <- function(
   if (!beautier::is_id(id)) {
     stop("parameter must have an ID")
   }
+  testit::assert(!is.na(id))
+  if (is.na(parameter$value)) {
+    stop("parameter must have a value")
+  }
   if (beautier::is_alpha_parameter(parameter)) {
     text <- c(text, parameter_to_xml_alpha(parameter)) # nolint internal function
   } else if (beautier::is_beta_parameter(parameter)) {

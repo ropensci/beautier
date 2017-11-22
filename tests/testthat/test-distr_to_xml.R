@@ -27,7 +27,20 @@ test_that("abuse", {
   testthat::expect_error(distr_to_xml(distr = "nonsense"))
   testthat::expect_error(distr_to_xml(distr = NA))
   testthat::expect_error(distr_to_xml(distr = NULL))
-  testthat::expect_error(distr_to_xml(
-    distr = create_uniform_distr()))
+
+  testthat::expect_error(
+    distr_to_xml(distr = create_uniform_distr(id = NA)),
+    "distribution must have an ID"
+  )
+
+  testthat::expect_error(
+    distr_to_xml(distr = create_laplace_distr(id = NA)),
+    "distribution must have an ID"
+  )
+
+  testthat::expect_error(
+    distr_to_xml(distr = create_laplace_distr(id = 1)),
+    "parameter must have an ID"
+  )
 
 })
