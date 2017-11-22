@@ -40,7 +40,7 @@ beautier::save_text(text = lines_anthus_aco, filename = "anthus_aco.fas")
 beautier::save_text(text = lines_anthus_nd2, filename = "anthus_nd2.fas")
 ```
 
-![beautier logo](../pics/../pics/beautier_logo.png)
+![beautier logo](../pics/beautier_logo.png)
 
 For all examples, do load `beautier`:
 
