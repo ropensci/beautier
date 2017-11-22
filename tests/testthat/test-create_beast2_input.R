@@ -1566,38 +1566,27 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
 
 test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
-  skip("WIP")
-
   fasta_filename <- system.file("extdata",
     "test_output_0.fas", package = "beautier")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = fasta_filename,
     tree_priors = create_bd_tree_prior(
-        birth_rate_distr = create_normal_distr(id = 0),
-        death_rate_distr = create_gamma_distr(id = 1)
+        birth_rate_distr = create_normal_distr(
+          id = 0,
+          mean = create_mean_parameter(id = 3, value = "0.0"),
+          sigma = create_sigma_parameter(id = 4, value = "1.0")
+        ),
+        death_rate_distr = create_gamma_distr(
+          id = 1,
+          alpha = create_alpha_parameter(id = 7, value = "2.0"),
+          beta = create_beta_parameter(id = 8, value = "2.0")
+        )
     )
   )
   expected_lines <- readLines(system.file("extdata",
     "birth_death_birth_rate_normal_death_rate_gamma_2_4.xml",
     package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
-  if (is_on_travis()) {
-    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
-  } else {
-    if (1 == 2) {
-      testthat::expect_identical(created_lines, expected_lines)
-    }
-  }
+  testthat::expect_identical(created_lines, expected_lines)
 })
