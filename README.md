@@ -41,6 +41,10 @@ Unlike BEAUti, `beautier` *does* allow for a fixed crown age.
 
 See the 'examples' vignette.
 
+```
+library(beautier)
+vignette("examples")
+```
 ## Installation
 
 If you use the `devtools` R package, this is easy:

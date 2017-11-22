@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-inst/doc
 *.xml.state
 tests/testthat/created.txt
 tests/testthat/expected.txt
