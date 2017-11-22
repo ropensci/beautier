@@ -19,7 +19,7 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(are_initialized_tree_priors(tree_priors)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(are_initialized_tree_priors(tree_priors)) # nolint internal function call
 
   text <- NULL
   text <- c(text,
@@ -776,7 +776,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       "name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
     text <- c(text, paste0("</prior>"))
-    text <- indent(text, n_spaces = 12)
+    text <- beautier::indent(text, n_spaces = 12)
   } else if (is_tn93_site_model(site_model)) {
     distr_ids <- NULL
     param_ids <- NULL
@@ -813,7 +813,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       "name=\"S\">1.25</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
     text <- c(text, paste0("</prior>"))
-    text <- indent(text, n_spaces = 12)
+    text <- beautier::indent(text, n_spaces = 12)
   } else if (is_gtr_site_model(site_model)) {
     first_param_id <- ifelse(
       get_gamma_cat_count(get_gamma_site_model(site_model)) == 0, 7, 1)
@@ -885,7 +885,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
       "name=\"beta\">10.0</parameter>"))
     text <- c(text, paste0("    </Gamma>"))
     text <- c(text, paste0("</prior>"))
-    text <- indent(text, n_spaces = 12)
+    text <- beautier::indent(text, n_spaces = 12)
   }
   text
 }
@@ -915,7 +915,7 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
       "name=\"mean\">1.0</parameter>"))
     text <- c(text, paste0("    </Exponential>"))
     text <- c(text, paste0("</prior>"))
-    text <- indent(text, n_spaces = 12)
+    text <- beautier::indent(text, n_spaces = 12)
   }
   text
 
@@ -936,7 +936,7 @@ create_beast2_input_distr_clock_models <- function( # nolint long function name 
   testit::assert(beautier::is_clock_model(clock_model))
   text <- clock_model_to_prior_xml(id = id, clock_model = clock_model)
   if (!is.null(text)) {
-    text <- indent(text, n_spaces = 12)
+    text <- beautier::indent(text, n_spaces = 12)
   }
   text
 }
@@ -957,7 +957,7 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
   if (beautier::is_jc69_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
-    text <- indent(text, n_spaces = 20)
+    text <- beautier::indent(text, n_spaces = 20)
   } else if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
@@ -965,7 +965,7 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("</substModel>"))
-    text <- indent(text, n_spaces = 20)
+    text <- beautier::indent(text, n_spaces = 20)
   } else if (is_tn93_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
@@ -974,7 +974,7 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("</substModel>"))
-    text <- indent(text, n_spaces = 20)
+    text <- beautier::indent(text, n_spaces = 20)
   } else if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
@@ -987,7 +987,7 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("</substModel>"))
-    text <- indent(text, n_spaces = 20)
+    text <- beautier::indent(text, n_spaces = 20)
   }
   text
 }
@@ -1007,7 +1007,7 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
 ) {
   text <- clock_model_to_brm_xml(id = id, clock_model = clock_model)
   if (!is.null(text)) {
-    text <- indent(text, n_spaces = 16)
+    text <- beautier::indent(text, n_spaces = 16)
   }
   text
 }
@@ -1027,7 +1027,7 @@ create_beast2_input_distr_clock_model_other <- function( # nolint long function 
 ) {
   text <- clock_model_to_other_brm_xml(id = id, clock_model = clock_model)
   if (!is.null(text)) {
-    text <- indent(text, n_spaces = 16)
+    text <- beautier::indent(text, n_spaces = 16)
   }
   text
 }

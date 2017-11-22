@@ -11,26 +11,26 @@ is_initialized_distr <- function(
   if (is.na(x$id)) return(FALSE)
 
   if (beautier::is_beta_distr(x)) {
-    return(is_initialized_beta_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_beta_distr(x))  # nolint internal function call
   } else if (beautier::is_exponential_distr(x)) {
-    return(is_initialized_exponential_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_exponential_distr(x))  # nolint internal function call
   } else if (beautier::is_gamma_distr(x)) {
-    return(is_initialized_gamma_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_gamma_distr(x))  # nolint internal function call
   } else if (beautier::is_inv_gamma_distr(x)) {
-    return(is_initialized_inv_gamma_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_inv_gamma_distr(x))  # nolint internal function call
   } else if (beautier::is_laplace_distr(x)) {
-    return(is_initialized_laplace_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_laplace_distr(x))  # nolint internal function call
   } else if (beautier::is_log_normal_distr(x)) {
-    return(is_initialized_log_normal_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_log_normal_distr(x))  # nolint internal function call
   } else if (beautier::is_normal_distr(x)) {
-    return(is_initialized_normal_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_normal_distr(x))  # nolint internal function call
   } else if (beautier::is_one_div_x_distr(x)) {
-    return(is_initialized_one_div_x_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_one_div_x_distr(x))  # nolint internal function call
   } else if (beautier::is_poisson_distr(x)) {
-    return(is_initialized_poisson_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_poisson_distr(x))  # nolint internal function call
   } else {
     testit::assert(beautier::is_uniform_distr(x))
-    return(is_initialized_uniform_distr(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_uniform_distr(x))  # nolint internal function call
   }
 }
 

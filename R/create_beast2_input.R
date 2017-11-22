@@ -27,7 +27,8 @@
 create_beast2_input <- function(
   input_fasta_filenames,
   site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
-  clock_models = create_strict_clock_models(ids = get_ids(input_fasta_filenames)),
+  clock_models = create_strict_clock_models(
+    ids = get_ids(input_fasta_filenames)),
   tree_priors = create_yule_tree_priors(n = length(input_fasta_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
@@ -90,14 +91,14 @@ create_beast2_input <- function(
     ids = get_ids(input_fasta_filenames),
     distr_id = 0,
     param_id = 0
-  )  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  tree_priors <- initialize_tree_priors( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  )  # nolint internal function call
+  tree_priors <- initialize_tree_priors( # nolint internal function call
     tree_priors,
     distr_id = 100,
     param_id = 200
   )
-  testit::assert(are_initialized_clock_models(clock_models))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
-  testit::assert(are_initialized_tree_priors(tree_priors))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(are_initialized_clock_models(clock_models))  # nolint internal function call
+  testit::assert(are_initialized_tree_priors(tree_priors))  # nolint internal function call
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
@@ -112,7 +113,7 @@ create_beast2_input <- function(
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies
   )
-  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function call
 
   text
 }

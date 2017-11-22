@@ -8,7 +8,7 @@ are_initialized_clock_models <- function(
 ) {
   if (!beautier::are_clock_models(x)) return(FALSE)
   for (i in x) {
-    if (!is_initialized_clock_model(i)) return(FALSE)   # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    if (!is_initialized_clock_model(i)) return(FALSE) # nolint internal function call
   }
   return(TRUE)
 }

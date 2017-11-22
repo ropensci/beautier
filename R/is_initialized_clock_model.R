@@ -9,10 +9,10 @@ is_initialized_clock_model <- function(
 ) {
   if (!beautier::is_clock_model(x)) return(FALSE)
   if (beautier::is_strict_clock_model(x)) {
-    return(is_initialized_strict_clock_model(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_strict_clock_model(x)) # nolint internal function call
   } else {
     testit::assert(beautier::is_rln_clock_model(x))
-    return(is_initialized_rln_clock_model(x))  # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+    return(is_initialized_rln_clock_model(x)) # nolint internal function call
   }
 }
 

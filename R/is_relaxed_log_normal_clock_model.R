@@ -14,4 +14,3 @@ is_rln_clock_model <- function(
 ) {
   return("name" %in% names(x) && x$name == "relaxed_log_normal")
 }
-

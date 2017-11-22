@@ -53,7 +53,7 @@ create_rln_clock_model <- function(
     name = "relaxed_log_normal",
     uclstdev_distr = uclstdev_distr
   )
-  testit::assert(is_rln_clock_model(rln_clock_model))
+  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   rln_clock_model
 }
 

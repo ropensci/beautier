@@ -25,7 +25,7 @@ initialize_clock_models <- function(
 
       if (!is_initialized_rln_clock_model(clock_model)) {
 
-        clock_model <- initialize_rln_clock_model( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        clock_model <- initialize_rln_clock_model( # nolint internal function call
           clock_model,
           distr_id = distr_id,
           param_id = param_id
@@ -39,14 +39,14 @@ initialize_clock_models <- function(
 
       if (!is_initialized_strict_clock_model(clock_model)) {
 
-        clock_model <- initialize_strict_clock_model( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        clock_model <- initialize_strict_clock_model( # nolint internal function call
           clock_model,
           id = ids[i]
         )
         # Does not touch 'distr_id', nor 'param_id'
       }
 
-      testit::assert(is_initialized_strict_clock_model(clock_model))
+      testit::assert(beautier::is_initialized_strict_clock_model(clock_model))
     }
 
     clock_models[[i]] <- clock_model
@@ -65,7 +65,7 @@ initialize_rln_clock_model <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_rln_clock_model(rln_clock_model)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
 
   result <- create_rln_clock_model(
     uclstdev_distr = initialize_distr(
@@ -90,8 +90,8 @@ initialize_strict_clock_model <- function(
   strict_clock_model,
   id
 ) {
-  testit::assert(!is.na(id))
-  testit::assert(is_strict_clock_model(strict_clock_model)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(beautier::is_id(id))
+  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
 
   result <- strict_clock_model
 

@@ -20,7 +20,7 @@ initialize_tree_priors <- function(
 
       if (!is_initialized_bd_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_bd_tree_prior( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        tree_prior <- initialize_bd_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
         distr_id <- distr_id + 2 # Has two distributions
@@ -30,7 +30,7 @@ initialize_tree_priors <- function(
 
       if (!is_initialized_ccp_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_ccp_tree_prior( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        tree_prior <- initialize_ccp_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
         distr_id <- distr_id + 1 # Has one distribution
@@ -39,7 +39,7 @@ initialize_tree_priors <- function(
     } else if (is_cep_tree_prior(tree_prior)) {
       if (!is_initialized_cep_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_cep_tree_prior( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        tree_prior <- initialize_cep_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
         distr_id <- distr_id + 2 # Has two distribution
@@ -49,7 +49,7 @@ initialize_tree_priors <- function(
 
       if (!is_initialized_yule_tree_prior(tree_prior)) {
 
-        tree_prior <- initialize_yule_tree_prior( # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+        tree_prior <- initialize_yule_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
         distr_id <- distr_id + 1 # Has one distribution
@@ -73,7 +73,7 @@ initialize_bd_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint internal function call
 
   result <- create_bd_tree_prior(
     birth_rate_distr = initialize_distr(
@@ -103,7 +103,7 @@ initialize_ccp_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint internal function call
 
   result <- create_yule_tree_prior(
     birth_rate_distr = initialize_distr(
@@ -126,7 +126,7 @@ initialize_cep_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint internal function call
   testit::assert(!is.na(distr_id))
   testit::assert(!is.na(param_id))
   testit::assert(!is.na(get_distr_n_params(cep_tree_prior$pop_size_distr)))
@@ -158,7 +158,7 @@ initialize_yule_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint internal function call
 
   result <- create_yule_tree_prior(
     birth_rate_distr = initialize_distr(

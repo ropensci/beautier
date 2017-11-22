@@ -31,7 +31,7 @@ distr_to_xml <- function(
   } else if (is_poisson_distr(distr)) {
     text <- c(text, distr_to_xml_poisson(distr))
   } else {
-    testit::assert(is_uniform_distr(distr))
+    testit::assert(beautier::is_uniform_distr(distr))
     text <- c(text, distr_to_xml_uniform(distr))
   }
   text
@@ -299,9 +299,9 @@ distr_to_xml_poisson <- function(
 distr_to_xml_uniform <- function(
   distr
 ) {
-  testit::assert(is_uniform_distr(distr))
+  testit::assert(beautier::is_uniform_distr(distr))
   id <- beautier::get_distr_id(distr)
-  testit::assert(!is.na(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")

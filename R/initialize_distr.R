@@ -94,7 +94,7 @@ initialize_distr <- function(
     }
 
   } else {
-    testit::assert(is_uniform_distr(distr))
+    testit::assert(beautier::is_uniform_distr(distr))
 
     # Always initialized
 

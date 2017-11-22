@@ -4,7 +4,8 @@
 create_beast2_input_beast <- function(
   input_fasta_filenames,
   site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
-  clock_models = create_strict_clock_models(ids = get_ids(input_fasta_filenames)),
+  clock_models = create_strict_clock_models(
+    ids = get_ids(input_fasta_filenames)),
   tree_priors = create_yule_tree_priors(n = length(input_fasta_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
@@ -57,7 +58,7 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, create_beast2_input_map()) # nolint one day I will find out why 'create_beast2_input_data' is no problem, and this internal function call is
+  text <- c(text, create_beast2_input_map()) # nolint internal function call
 
   text <- c(text, "")
   text <- c(text, "")
