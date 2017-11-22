@@ -765,16 +765,12 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
     text <- c(text, paste0("<prior ",
       "id=\"KappaPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
-    text <- c(text, paste0("    <LogNormal ",
-      "id=\"LogNormalDistributionModel.", distr_id, "\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
-      "name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
-      "name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text,
+      beautier::indent(
+        beautier::distr_to_xml(site_model$kappa_prior),
+        n_spaces = 4
+      )
+    )
     text <- c(text, paste0("</prior>"))
     text <- beautier::indent(text, n_spaces = 12)
   } else if (is_tn93_site_model(site_model)) {

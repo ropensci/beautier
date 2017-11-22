@@ -64,13 +64,18 @@ create_jc69_site_model <- function(
 #' @export
 create_hky_site_model <- function(
   kappa = get_default_kappa(),
-  gamma_site_model = get_default_gamma_site_model()
+  gamma_site_model = get_default_gamma_site_model(),
+  kappa_prior = create_log_normal_distr(
+    m = create_m_parameter(value = "1.0"),
+    s = create_s_parameter(value = "1.25")
+  )
 ) {
   return(
     beautier::create_site_model(
       name = "HKY",
       gamma_site_model = gamma_site_model,
-      kappa = kappa
+      kappa = kappa,
+      kappa_prior = kappa_prior
     )
   )
 }

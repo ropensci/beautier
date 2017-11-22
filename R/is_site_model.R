@@ -1,6 +1,17 @@
 #' Determine if the object is a valid site_model
 #' @param x an object, to be determined if it is a site_model
 #' @return TRUE if the site_model is a valid site_model, FALSE otherwise
+#' @examples
+#'   # site models
+#'   testit::assert(is_site_model(create_gtr_site_model()))
+#'   testit::assert(is_site_model(create_hky_site_model()))
+#'   testit::assert(is_site_model(create_jc69_site_model()))
+#'   testit::assert(is_site_model(create_tn93_site_model()))
+#'
+#'   # other models
+#'   testit::assert(!is_site_model(create_strict_clock_model()))
+#'   testit::assert(!is_site_model(create_bd_tree_prior()))
+#'   testit::assert(!is_site_model(create_mcmc()))
 #' @export
 is_site_model <- function(
   x

@@ -3,7 +3,7 @@
 \name{is_beta_distr}
 \alias{is_beta_distr}
 \title{Determine if the object is a valid
-beta distribution
+beta distribution,
 as created by \code{\link{create_beta_distr}}}
 \usage{
 is_beta_distr(x)
@@ -18,7 +18,7 @@ TRUE if x is a valid beta distribution,
 }
 \description{
 Determine if the object is a valid
-beta distribution
+beta distribution,
 as created by \code{\link{create_beta_distr}}
 }
 \seealso{

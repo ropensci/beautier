@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_gtr_site_model.R
 \name{is_gtr_site_model}
 \alias{is_gtr_site_model}
-\title{Determine if the object is a valid GTR site model}
+\title{Determine if the object is a valid GTR site model,
+as created by \code{\link{create_gtr_site_model}}}
 \usage{
 is_gtr_site_model(x)
 }
@@ -13,7 +14,8 @@ is_gtr_site_model(x)
 TRUE if x is a valid GTR site model, FALSE otherwise
 }
 \description{
-Determine if the object is a valid GTR site model
+Determine if the object is a valid GTR site model,
+as created by \code{\link{create_gtr_site_model}}
 }
 \author{
 Richel J.C. Bilderbeek

@@ -1,5 +1,5 @@
 #' Determine if the object is a valid
-#' beta distribution
+#' beta distribution,
 #' as created by \code{\link{create_beta_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   beta distribution,

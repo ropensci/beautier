@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_hky_site_model.R
 \name{is_hky_site_model}
 \alias{is_hky_site_model}
-\title{Determine if the object is a valid HKY site model}
+\title{Determine if the object is a valid HKY site model,
+as created by \code{\link{create_hky_site_model}}}
 \usage{
 is_hky_site_model(x)
 }
@@ -13,7 +14,8 @@ is_hky_site_model(x)
 TRUE if x is a valid HKY site model, FALSE otherwise
 }
 \description{
-Determine if the object is a valid HKY site model
+Determine if the object is a valid HKY site model,
+as created by \code{\link{create_hky_site_model}}
 }
 \author{
 Richel J.C. Bilderbeek

@@ -239,18 +239,19 @@ parameter_to_xml_s <- function(
   value <- parameter$value
   lower <- parameter$lower
   upper <- parameter$upper
-  text <- NULL
-  text <- c(text,
-    paste0(
+  text <- paste0(
       "<parameter ",
       "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "lower=\"", lower, "\" ",
-      "name=\"S\" ",
-      "upper=\"", upper, "\">", value,
-      "</parameter>"
+      "estimate=\"", estimate, "\""
     )
-  )
+  if (!is.na(lower)) {
+    text <- paste0(text, " lower=\"", lower, "\"")
+  }
+  text <- paste0(text, " name=\"S\"")
+  if (!is.na(upper)) {
+    text <- paste0(text, " upper=\"", upper, "\"")
+  }
+  text <- paste0(text, ">", value, "</parameter>")
   text
 }
 
