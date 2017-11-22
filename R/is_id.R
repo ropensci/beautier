@@ -6,5 +6,5 @@
 is_id <- function(
   x
 ) {
-  is.character(x)
+  is.character(x) || is.numeric(x)
 }
