@@ -243,7 +243,7 @@ test_that("RLN clock model produce a valid BEAST2 input file", {
 
   skip("WIP")
 
-  #output_xml_filename <- tempfile()
+  #output_xml_filename <- tempfile() # nolint
   output_xml_filename <- "~/fix.xml"
   create_beast2_input_file(
     input_fasta_filenames = get_input_fasta_filename(),

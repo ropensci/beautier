@@ -98,7 +98,7 @@ parameter_to_xml_beta <- function(
 parameter_to_xml_clock_rate <- function(
   parameter
 ) {
-  testit::assert(is_clock_rate_parameter(parameter))
+  testit::assert(beautier::is_clock_rate_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")

@@ -14,8 +14,8 @@
 is_strict_clock_model <- function(
   x
 ) {
-  if(!"name" %in% names(x)) return(FALSE)
+  if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "strict") return(FALSE)
-  if(!"clock_rate_parameter" %in% names(x)) return(FALSE)
+  if (!"clock_rate_parameter" %in% names(x)) return(FALSE)
   TRUE
 }
