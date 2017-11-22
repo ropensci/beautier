@@ -10,5 +10,7 @@ test_that("use", {
   testthat::expect_false(are_ids(NULL))
   testthat::expect_false(are_ids(NA))
   testthat::expect_false(are_ids(c()))
+  testthat::expect_false(are_ids(ape::rcoal(3)))
+  testthat::expect_false(are_ids(c(ape::rcoal(3), ape::rcoal(4))))
 
 })

@@ -3,28 +3,28 @@ context("create_beast2_input_operators")
 test_that("abuse", {
 
   testthat::expect_silent(
-    create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = "test_output_0",
       fixed_crown_age = FALSE
     )
   )
 
   testthat::expect_error(
-    create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = ape::rcoal(5),
       fixed_crown_age = FALSE
     )
   )
 
   testthat::expect_error(
-    create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = "test_output_0",
       fixed_crown_age = "Nonsense"
     )
   )
 
 testthat::expect_error(
-    create_beast2_input_operators(
+    beautier:::create_beast2_input_operators(
       ids = "test_output_0",
       tree_priors = "Nonsense"
     )
