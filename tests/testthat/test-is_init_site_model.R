@@ -47,4 +47,3 @@ test_that("hky site model", {
   )
 
 })
-
