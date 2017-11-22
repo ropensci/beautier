@@ -39,7 +39,7 @@ Unlike BEAUti, `beautier` *does* allow for a fixed crown age.
 
 ## Examples
 
-See [Examples](Examples.md)
+See the 'examples' vignette.
 
 ## Installation
 
