@@ -718,13 +718,10 @@ test_that("Use of a strict clock", {
 
 test_that("Use of a RLN clock", {
 
-  skip("WIP")
-
   lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model()
   )
-  save_text("~/fix.txt", lines)
   testthat::expect_true(has_unique_ids(lines))
 
 })
