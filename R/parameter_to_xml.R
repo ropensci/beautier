@@ -45,7 +45,7 @@ parameter_to_xml <- function(
 parameter_to_xml_alpha <- function(
   parameter
 ) {
-  testit::assert(is_alpha_parameter(parameter))
+  testit::assert(beautier::is_alpha_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -72,7 +72,7 @@ parameter_to_xml_alpha <- function(
 parameter_to_xml_beta <- function(
   parameter
 ) {
-  testit::assert(is_beta_parameter(parameter))
+  testit::assert(beautier::is_beta_parameter(parameter))
   id <- beautier::get_parameter_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")

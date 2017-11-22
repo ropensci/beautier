@@ -69,7 +69,8 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
       "id=\"LogNormalDistributionModel.c:", id, "\" ",
       "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
     text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", m_parameter_id, "\" estimate=\"false\" lower=\"0.0\" name=\"M\" ",
+      "id=\"RealParameter.", m_parameter_id, "\" ",
+      "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
     text <- c(text, paste0("    <parameter ",

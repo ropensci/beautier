@@ -64,7 +64,7 @@ is_init_ccp_tree_prior <- function(
   x
 ) {
   testit::assert(beautier::is_ccp_tree_prior(x))
-  is_init_distr(get_ccp_pop_size_distr(x))
+  is_init_distr(get_ccp_pop_size_distr(x)) # nolint internal function
 }
 
 #' Determine if x is an initialized Coalescent Exponential Population
@@ -80,10 +80,8 @@ is_init_cep_tree_prior <- function(
 ) {
   testit::assert(beautier::is_cep_tree_prior(x))
 
-  return(
-    is_init_distr(get_cep_pop_size_distr(x)) &&
-    is_init_distr(get_cep_growth_rate_distr(x))
-  )
+  is_init_distr(get_cep_pop_size_distr(x)) &&  # nolint internal function
+  is_init_distr(get_cep_growth_rate_distr(x))  # nolint internal function
 }
 
 #' Determine if x is an initialized Yule tree_prior object
@@ -96,5 +94,5 @@ is_init_yule_tree_prior <- function(
   x
 ) {
   testit::assert(beautier::is_yule_tree_prior(x))
-  is_init_distr(get_yule_birth_rate_distr(x))
+  is_init_distr(get_yule_birth_rate_distr(x)) # nolint internal function
 }

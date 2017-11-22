@@ -939,7 +939,7 @@ test_that("Run CEP", {
   testthat::expect_true(has_unique_ids(lines))
 
   # fails
-  testthat::expect_true(are_beast2_input_lines(lines))
+  testthat::expect_true(are_beast2_input_lines(lines, verbose = TRUE))
 
 })
 
