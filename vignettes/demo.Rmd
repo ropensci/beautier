@@ -61,7 +61,7 @@ beautier::create_beast2_input_file(
 The file indeed is a BEAST2 input file:
 
 ```{r}
-print(readLines(output_xml_filename))
+cat(readLines(output_xml_filename), quote = FALSE, sep = '\n')
 ```
 
 This XML input file can be read by BEAST2.
