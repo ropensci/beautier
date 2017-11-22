@@ -26,7 +26,8 @@ is_initialized_rln_clock_model <- function(
   x
 ) {
   testit::assert(beautier::is_rln_clock_model(x))
-  is_initialized_distr(x$uclstdev_distr) # nolint internal function call
+  if (!is_initialized_distr(x$uclstdev_distr)) return(FALSE) # nolint internal function call
+  !is.na(x$m_parameter_id)
 }
 
 #' Determine if x is an initialized strict clock_model object

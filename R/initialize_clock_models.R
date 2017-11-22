@@ -30,9 +30,10 @@ initialize_clock_models <- function(
           distr_id = distr_id,
           param_id = param_id
         )
-        distr_id <- distr_id + 1 # Has one distributions
+        distr_id <- distr_id  # Has one distributions
         param_id <- param_id + beautier::get_distr_n_params(
-          clock_model$uclstdev_distr)
+          clock_model$uclstdev_distr) +
+          1 # m_parameter
       }
 
     } else {
@@ -75,6 +76,11 @@ initialize_rln_clock_model <- function(
       param_id
     )
   )
+
+  if (!is.na(result$m_parameter_id)) {
+    result$m_parameter_id <- param_id +
+      get_distr_n_params(rln_clock_model$uclstdev_distr)
+  }
 
   result
 }

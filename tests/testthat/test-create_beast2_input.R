@@ -714,7 +714,7 @@ test_that("Use of a strict clock", {
   testthat::expect_true(has_unique_ids(lines))
 })
 
-test_that("Use of an RLN clock", {
+test_that("Use of a RLN clock", {
 
   skip("WIP")
 

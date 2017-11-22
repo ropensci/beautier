@@ -4,11 +4,15 @@
 \alias{create_rln_clock_model}
 \title{Create a relaxed log-normal clock model}
 \usage{
-create_rln_clock_model(uclstdev_distr = create_gamma_distr())
+create_rln_clock_model(uclstdev_distr = create_gamma_distr(),
+  m_parameter_id = NA)
 }
 \arguments{
 \item{uclstdev_distr}{the uclstdev distribution,
 as created by a \code{\link{create_distr}} function}
+
+\item{m_parameter_id}{the ID of the M paramater in the branchRateModel,
+set to NA to have it initialized}
 }
 \value{
 a relaxed log-normal clock_model

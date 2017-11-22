@@ -58,16 +58,18 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
     )
     text <- c(text, "</branchRateModel>")
   } else if (is_rln_clock_model(clock_model)) {
+    m_parameter_id <- clock_model$m_parameter_id
     text <- c(text, paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"))
+
     text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.c:", id, "\" ",
       "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
     text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" ",
+      "id=\"RealParameter.", m_parameter_id, "\" estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
     text <- c(text, paste0("    <parameter ",

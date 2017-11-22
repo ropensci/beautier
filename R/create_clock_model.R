@@ -33,6 +33,8 @@ create_clock_model <- function(
 #' Create a relaxed log-normal clock model
 #' @param uclstdev_distr the uclstdev distribution,
 #'   as created by a \code{\link{create_distr}} function
+#' @param m_parameter_id the ID of the M paramater in the branchRateModel,
+#'   set to NA to have it initialized
 #' @return a relaxed log-normal clock_model
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
@@ -47,11 +49,13 @@ create_clock_model <- function(
 #'   )
 #' @export
 create_rln_clock_model <- function(
-  uclstdev_distr = create_gamma_distr()
+  uclstdev_distr = create_gamma_distr(),
+  m_parameter_id = NA
 ) {
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
-    uclstdev_distr = uclstdev_distr
+    uclstdev_distr = uclstdev_distr,
+    m_parameter_id = m_parameter_id
   )
   testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   rln_clock_model
