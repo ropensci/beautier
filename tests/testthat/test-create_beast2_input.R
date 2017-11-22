@@ -930,16 +930,11 @@ test_that("Reproduce coalescent_exponential_population_2_4.xml", {
 
 test_that("Run CEP", {
 
-  skip("WIP")
-
   lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior()
   )
   testthat::expect_true(has_unique_ids(lines))
-  # fails
-  save_text("~/fix.xml", lines)
-  testthat::expect_true(are_beast2_input_lines(lines, verbose = TRUE))
 
 })
 

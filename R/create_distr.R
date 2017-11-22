@@ -152,8 +152,8 @@ create_inv_gamma_distr <- function(
 #' @export
 create_laplace_distr <- function(
   id = NA,
-  mu = create_mu_parameter(id = NA, estimate = FALSE, value = NA),
-  scale = create_scale_parameter(id = NA, estimate = FALSE, value = NA)
+  mu = create_mu_parameter(id = NA, estimate = FALSE, value = 0.0),
+  scale = create_scale_parameter(id = NA, estimate = FALSE, value = 1.0)
 ) {
   return(
     beautier::create_distr(

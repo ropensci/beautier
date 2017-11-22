@@ -241,10 +241,7 @@ test_that("RLN clock model produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
-  #output_xml_filename <- tempfile() # nolint
-  output_xml_filename <- "~/fix.xml"
+  output_xml_filename <- tempfile() # nolint
   create_beast2_input_file(
     input_fasta_filenames = get_input_fasta_filename(),
     clock_models = create_rln_clock_model(),
@@ -258,8 +255,6 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
@@ -284,8 +279,6 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
 test_that("All tree priors produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
@@ -316,8 +309,6 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
