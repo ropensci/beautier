@@ -73,25 +73,3 @@ init_hky_site_model <- function(
 
   result
 }
-
-#' Initializes a strict site model
-#' @param strict_site_model a strict site model,
-#'   as returned by \code{\link{create_strict_site_model}}
-#' @param id the ID of the alignments this site model is associated with,
-#'   as can be extracted from its FASTA filesnames using \code{\link{get_id}})
-#' @inheritParams init_site_models
-#' @return an initialized strict site model
-#' @author Richel J.C. Bilderbeek
-init_strict_site_model <- function(
-  strict_site_model,
-  id
-) {
-  testit::assert(beautier::is_id(id))
-  testit::assert(beautier::is_strict_site_model(strict_site_model))
-
-  result <- strict_site_model
-
-  result$site_rate_parameter$id <- id
-
-  result
-}

@@ -60,6 +60,9 @@ create_jc69_site_model <- function(
 #' Create an HKY site model
 #' @inheritParams create_site_model
 #' @param kappa the kappa
+#' @param kappa_prior the kappa prior, which is a log-normal
+#'   distribution (as created by \code{\link{create_log_normal_distr}})
+#'   by default
 #' @return an HKY site_model
 #' @export
 create_hky_site_model <- function(

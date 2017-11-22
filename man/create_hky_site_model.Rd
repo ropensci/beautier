@@ -14,6 +14,10 @@ create_hky_site_model(kappa = get_default_kappa(),
 
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
+
+\item{kappa_prior}{the kappa prior, which is a log-normal
+distribution (as created by \code{\link{create_log_normal_distr}})
+by default}
 }
 \value{
 an HKY site_model
