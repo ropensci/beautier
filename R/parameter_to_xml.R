@@ -13,26 +13,26 @@ parameter_to_xml <- function(
     stop("parameter must have an ID")
   }
   if (beautier::is_alpha_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_alpha(parameter))
+    text <- c(text, parameter_to_xml_alpha(parameter))
   } else if (beautier::is_beta_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_beta(parameter))
+    text <- c(text, parameter_to_xml_beta(parameter))
   } else if (beautier::is_clock_rate_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_clock_rate(parameter))
+    text <- c(text, parameter_to_xml_clock_rate(parameter))
   } else if (beautier::is_lambda_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_lambda(parameter))
+    text <- c(text, parameter_to_xml_lambda(parameter))
   } else if (beautier::is_m_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_m(parameter))
+    text <- c(text, parameter_to_xml_m(parameter))
   } else if (beautier::is_mean_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_mean(parameter))
+    text <- c(text, parameter_to_xml_mean(parameter))
   } else if (beautier::is_mu_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_mu(parameter))
+    text <- c(text, parameter_to_xml_mu(parameter))
   } else if (beautier::is_s_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_s(parameter))
+    text <- c(text, parameter_to_xml_s(parameter))
   } else if (beautier::is_scale_parameter(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_scale(parameter))
+    text <- c(text, parameter_to_xml_scale(parameter))
   } else {
     testit::assert(beautier::is_sigma_parameter(parameter))
-    text <- c(text, beautier::parameter_to_xml_sigma(parameter))
+    text <- c(text, parameter_to_xml_sigma(parameter))
   }
   text
 }
