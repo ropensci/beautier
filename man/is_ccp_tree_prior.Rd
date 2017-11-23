@@ -2,7 +2,9 @@
 % Please edit documentation in R/is_ccp_tree_prior.R
 \name{is_ccp_tree_prior}
 \alias{is_ccp_tree_prior}
-\title{Determine if the object is a valid constant coalescence population tree prior}
+\title{Determine if the object is a valid
+  constant coalescence population tree prior,
+  as returned by \code{\link{create_ccp_tree_prior}}}
 \usage{
 is_ccp_tree_prior(x)
 }
@@ -15,7 +17,9 @@ TRUE if x is a valid constant coalescence population tree prior,
   FALSE otherwise
 }
 \description{
-Determine if the object is a valid constant coalescence population tree prior
+Determine if the object is a valid
+  constant coalescence population tree prior,
+  as returned by \code{\link{create_ccp_tree_prior}}
 }
 \author{
 Richel J.C. Bilderbeek

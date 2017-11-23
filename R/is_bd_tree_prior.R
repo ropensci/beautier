@@ -7,5 +7,9 @@
 is_bd_tree_prior <- function(
   x
 ) {
-  return("name" %in% names(x) && x$name == "birth_death")
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "birth_death") return(FALSE)
+  if (!"birth_rate_distr" %in% names(x)) return(FALSE)
+  if (!"death_rate_distr" %in% names(x)) return(FALSE)
+  TRUE
 }

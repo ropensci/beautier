@@ -3,7 +3,8 @@
 \name{is_cep_tree_prior}
 \alias{is_cep_tree_prior}
 \title{Determine if the object is a valid
-coalescent exponential population tree prior}
+coalescent exponential population tree prior
+  as returned by \code{\link{create_cep_tree_prior}}}
 \usage{
 is_cep_tree_prior(x)
 }
@@ -18,6 +19,7 @@ TRUE if x is a valid coalescent exponentialpopulation tree prior,
 \description{
 Determine if the object is a valid
 coalescent exponential population tree prior
+  as returned by \code{\link{create_cep_tree_prior}}
 }
 \author{
 Richel J.C. Bilderbeek

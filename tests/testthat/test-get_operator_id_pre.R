@@ -25,7 +25,7 @@ test_that("use", {
 
   testthat::expect_equal(
     get_operator_id_pre(
-      tree_prior = create_tree_prior(name = "coalescent_constant_population")
+      tree_prior = create_ccp_tree_prior()
     ),
     "CoalescentConstant"
   )

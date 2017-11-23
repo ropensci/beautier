@@ -37,14 +37,15 @@ init_tree_priors <- function(
         )
       }
     } else {
-      testit::assert(is_yule_tree_prior(tree_prior))
+      testit::assert(beautier::is_yule_tree_prior(tree_prior))
       if (!is_init_yule_tree_prior(tree_prior)) {
         tree_prior <- init_yule_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     }
-    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior)
+    distr_id <- distr_id + beautier::get_tree_prior_n_distrs(tree_prior)
+    param_id <- param_id + beautier::get_tree_prior_n_params(tree_prior)
     tree_priors[[i]] <- tree_prior
   }
   tree_priors
@@ -147,7 +148,7 @@ init_yule_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint internal function call
+  testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
 
   result <- create_yule_tree_prior(
     birth_rate_distr = init_distr(

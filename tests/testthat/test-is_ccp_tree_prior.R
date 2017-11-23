@@ -3,7 +3,7 @@ context("is_ccp_tree_prior")
 test_that("usage", {
   testthat::expect_true(
     is_ccp_tree_prior(
-      create_tree_prior(name = "coalescent_constant_population")
+      create_ccp_tree_prior()
     )
   )
 
