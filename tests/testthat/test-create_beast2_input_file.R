@@ -442,7 +442,7 @@ test_that("All site models, clock models and tree priors, crown age est", {
                 verbose = TRUE)
               n_fail <- n_fail + 1
             }
-            # testthat::expect_true(is_ok)
+            # testthat::expect_true(is_ok) # nolint one day will be OK
           }
         }
       }

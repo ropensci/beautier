@@ -17,46 +17,34 @@ init_tree_priors <- function(
     testit::assert(beautier::is_tree_prior(tree_prior))
 
     if (is_bd_tree_prior(tree_prior)) {
-
       if (!is_init_bd_tree_prior(tree_prior)) {
-
         tree_prior <- init_bd_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
-        distr_id <- distr_id + 2 # Has two distributions
-
       }
+    } else if (is_cbs_tree_prior(tree_prior)) {
+      # Nothing to do
     } else if (is_ccp_tree_prior(tree_prior)) {
-
       if (!is_init_ccp_tree_prior(tree_prior)) {
-
         tree_prior <- init_ccp_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
-        distr_id <- distr_id + 1 # Has one distribution
-
       }
     } else if (is_cep_tree_prior(tree_prior)) {
       if (!is_init_cep_tree_prior(tree_prior)) {
-
         tree_prior <- init_cep_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
-        distr_id <- distr_id + 2 # Has two distribution
-
       }
-    } else if (is_yule_tree_prior(tree_prior)) {
-
+    } else {
+      testit::assert(is_yule_tree_prior(tree_prior))
       if (!is_init_yule_tree_prior(tree_prior)) {
-
         tree_prior <- init_yule_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
-        distr_id <- distr_id + 1 # Has one distribution
-
       }
     }
-
+    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior)
     tree_priors[[i]] <- tree_prior
   }
   tree_priors
