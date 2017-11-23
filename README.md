@@ -53,9 +53,21 @@ devtools::install_github("richelbilderbeek/beautier")
 
 See [FAQ](Faq.md)
 
-## Future use cases
+## Missing features/unsupported
 
-See [Future](Future.md)
+`beautier` cannot do everything `BEAUti` can. 
+
+Here are some missing or unsupported features:
+
+ * Support for three or more alignments with a mix of linked site models, clock models and tree priors
+ * Specify a prior that allows a sub-clade to be monophyletic 
+ * Clock models
+   * Relaxed exponential
+   * Random local
+ * Tree priors
+   * Calibrated Yule model
+   * Coalescent Extended Bayesian Skyline
+ * Initialization (this is tab in `BEAUti`)
 
 ## There is a feature I miss
 
