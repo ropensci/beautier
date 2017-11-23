@@ -1644,3 +1644,80 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
   testthat::expect_identical(created_lines, expected_lines)
 })
+
+
+
+
+test_that("JC69 JC69 strict strict coalescent_exponential_population", {
+
+  skip("WIP, Issue #8")
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  site_model_1 <- create_jc69_site_model()
+  site_model_2 <- create_jc69_site_model()
+  clock_model_1 <- create_strict_clock_model()
+  clock_model_2 <- create_strict_clock_model()
+  tree_prior <- create_cep_tree_prior()
+  lines <- create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = list(site_model_1, site_model_2),
+    clock_models = list(clock_model_1, clock_model_2),
+    tree_priors = list(tree_prior, tree_prior)
+  )
+  save_text("~/fix.txt", text = lines)
+
+  testthat::expect_true(has_unique_ids(lines))
+})
+
+#-------------------------------------------------------------------------------
+# Brute force tests, two alignments
+#-------------------------------------------------------------------------------
+test_that("All site models, clock models and tree priors, crown age est", {
+
+  skip("WIP, Issue #8")
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  n_fail <- 0
+  n_site_models <- length(beautier::create_site_models())
+  n_clock_models <- length(beautier::create_clock_models())
+  n_tree_priors <- length(beautier::create_tree_priors())
+  n_combinations <- n_site_models * n_site_models *
+    n_clock_models * n_clock_models * n_tree_priors
+
+  for (site_model_1 in beautier::create_site_models()) {
+    for (site_model_2 in beautier::create_site_models()) {
+      for (clock_model_1 in beautier::create_clock_models()) {
+        for (clock_model_2 in beautier::create_clock_models()) {
+          for (tree_prior in beautier::create_tree_priors()) {
+
+            lines <- create_beast2_input(
+              input_fasta_filenames = input_fasta_filenames,
+              site_models = list(site_model_1, site_model_2),
+              clock_models = list(clock_model_1, clock_model_2),
+              tree_priors = list(tree_prior, tree_prior)
+            )
+            is_ok <- has_unique_ids(lines)
+            if (!is_ok) {
+              n_fail <- n_fail + 1
+              print(paste(site_model_1$name, site_model_2$name,
+                clock_model_1$name, clock_model_2$name, tree_prior$name))
+            }
+          }
+        }
+      }
+    }
+  }
+  print(paste("Success:", n_combinations - n_fail, "/", n_combinations))
+  testthat::expect_equal(n_fail, 0)
+
+})

@@ -418,15 +418,13 @@ test_that("All site models, clock models and tree priors, crown age est", {
     "extdata", "anthus_nd2.fas", package = "beautier"
   )
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  n_fail <- 0
 
   for (site_model_1 in beautier::create_site_models()) {
     for (site_model_2 in beautier::create_site_models()) {
       for (clock_model_1 in beautier::create_clock_models()) {
         for (clock_model_2 in beautier::create_clock_models()) {
           for (tree_prior in beautier::create_tree_priors()) {
-
-            print(paste(site_model_1$name, site_model_2$name,
-              clock_model_1$name, clock_model_2$name, tree_prior$name))
 
             output_xml_filename <- "~/invalid.xml"
             create_beast2_input_file(
@@ -438,13 +436,18 @@ test_that("All site models, clock models and tree priors, crown age est", {
             )
             is_ok <- beautier::is_beast2_input_file(output_xml_filename)
             if (!is_ok) {
-              beautier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+              print(paste(site_model_1$name, site_model_2$name,
+                clock_model_1$name, clock_model_2$name, tree_prior$name))
+              beautier::is_beast2_input_file(output_xml_filename,
+                verbose = TRUE)
+              n_fail <- n_fail + 1
             }
-            testthat::expect_true(is_ok)
+            # testthat::expect_true(is_ok)
           }
         }
       }
     }
   }
+  testthat::expect_equal(n_fail, 0)
 
 })
