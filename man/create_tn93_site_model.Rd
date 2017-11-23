@@ -4,7 +4,9 @@
 \alias{create_tn93_site_model}
 \title{Create a TN93 site model}
 \usage{
-create_tn93_site_model(gamma_site_model = get_default_gamma_site_model())
+create_tn93_site_model(gamma_site_model = get_default_gamma_site_model(),
+  kappa_1_prior_distr = create_log_normal_distr(m = "1.0", s = "1.25"),
+  kappa_2_prior_distr = create_log_normal_distr(m = "1.0", s = "1.25"))
 }
 \arguments{
 \item{gamma_site_model}{a gamma site model, as created
@@ -15,4 +17,17 @@ a TN93 site_model
 }
 \description{
 Create a TN93 site model
+}
+\examples{
+ tn93_site_model <- create_tn93_site_model()
+ testit::assert(is_tn93_site_model(tn93_site_model))
+
+ create_beast2_input_file(
+   input_fasta_filenames = get_input_fasta_filename(),
+   "beast.xml",
+   site_models = tn93_site_model
+ )
+}
+\author{
+Richel J.C. Bilderbeek
 }

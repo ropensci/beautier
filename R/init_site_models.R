@@ -32,27 +32,32 @@ init_site_models <- function(
           distr_id = distr_id,
           param_id = param_id
         )
-        distr_id <- distr_id  # Has one distributions
-        param_id <- param_id + beautier::get_distr_n_params(
-          site_model$kappa_prior)
       }
 
     } else if (beautier::is_jc69_site_model(site_model)) {
       # Nothing to initialize (for now)
     } else {
       testit::assert(beautier::is_tn93_site_model(site_model))
-      # Nothing to initialize (for now)
+      site_model <- init_tn93_site_model( # nolint internal function call
+        site_model,
+        distr_id = distr_id,
+        param_id = param_id
+      )
     }
+
+    distr_id <- distr_id + beautier::get_site_model_n_distrs(site_model)
+    param_id <- param_id + beautier::get_site_model_n_params(site_model)
+
     site_models[[i]] <- site_model
   }
   site_models
 }
 
-#' Initializes a Relaxed Log-Normal site model
-#' @param hky_site_model a Relaxed Log-Normal site model,
+#' Initializes an HKY site model
+#' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
 #' @inheritParams init_site_models
-#' @return an initialized Relaxed Log-Normal site model
+#' @return an initialized HKY site model
 #' @author Richel J.C. Bilderbeek
 init_hky_site_model <- function(
   hky_site_model,
@@ -64,7 +69,7 @@ init_hky_site_model <- function(
   result <- create_hky_site_model(
     kappa = hky_site_model$kappa,
     gamma_site_model = hky_site_model$gamma_site_model,
-    kappa_prior = init_distr(
+    kappa_prior_distr = init_distr(
       hky_site_model$kappa_prior,
       distr_id,
       param_id
@@ -72,4 +77,32 @@ init_hky_site_model <- function(
   )
 
   result
+}
+
+#' Initializes a TN93 site model
+#' @param tn93_site_model a TN93 site model,
+#'   as returned by \code{\link{create_tn93_site_model}}
+#' @inheritParams init_site_models
+#' @return an initialized TN93 site model
+#' @author Richel J.C. Bilderbeek
+init_tn93_site_model <- function(
+  tn93_site_model,
+  distr_id,
+  param_id
+) {
+  testit::assert(beautier::is_tn93_site_model(tn93_site_model))
+
+  create_tn93_site_model(
+    gamma_site_model = tn93_site_model$gamma_site_model,
+    kappa_1_prior_distr = init_distr(
+      tn93_site_model$kappa_1_prior_distr,
+      distr_id,
+      param_id
+    ),
+    kappa_2_prior_distr = init_distr(
+      tn93_site_model$kappa_2_prior_distr,
+      distr_id + 1,
+      param_id + get_distr_n_params(tn93_site_model$kappa_1_prior_distr)
+    )
+  )
 }

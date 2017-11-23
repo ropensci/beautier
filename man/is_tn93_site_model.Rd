@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_tn93_site_model.R
 \name{is_tn93_site_model}
 \alias{is_tn93_site_model}
-\title{Determine if the object is a valid TN93 site model}
+\title{Determine if the object is a valid TN93 site model,
+  as created by \code{\link{create_tn93_site_model}}}
 \usage{
 is_tn93_site_model(x)
 }
@@ -13,7 +14,8 @@ is_tn93_site_model(x)
 TRUE if x is a valid TN93 site model, FALSE otherwise
 }
 \description{
-Determine if the object is a valid TN93 site model
+Determine if the object is a valid TN93 site model,
+  as created by \code{\link{create_tn93_site_model}}
 }
 \author{
 Richel J.C. Bilderbeek

@@ -9,6 +9,6 @@ is_hky_site_model <- function(
 ) {
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "HKY") return(FALSE)
-  if (!"kappa_prior" %in% names(x)) return(FALSE)
+  if (!"kappa_prior_distr" %in% names(x)) return(FALSE)
   TRUE
 }

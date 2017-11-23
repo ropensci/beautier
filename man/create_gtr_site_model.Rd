@@ -16,3 +16,16 @@ a GTR site_model
 \description{
 Create a GTR site model
 }
+\examples{
+ gtr_site_model <- create_gtr_site_model()
+ testit::assert(is_gtr_site_model(gtr_site_model))
+
+ create_beast2_input_file(
+   input_fasta_filenames = get_input_fasta_filename(),
+   "beast.xml",
+   site_models = gtr_site_model
+ )
+}
+\author{
+Richel J.C. Bilderbeek
+}

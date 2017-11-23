@@ -2,12 +2,12 @@
 % Please edit documentation in R/init_site_models.R
 \name{init_hky_site_model}
 \alias{init_hky_site_model}
-\title{Initializes a Relaxed Log-Normal site model}
+\title{Initializes an HKY site model}
 \usage{
 init_hky_site_model(hky_site_model, distr_id, param_id)
 }
 \arguments{
-\item{hky_site_model}{a Relaxed Log-Normal site model,
+\item{hky_site_model}{an HKY site model,
 as returned by \code{\link{create_hky_site_model}}}
 
 \item{distr_id}{the first distributions' ID}
@@ -15,10 +15,10 @@ as returned by \code{\link{create_hky_site_model}}}
 \item{param_id}{the first parameter's ID}
 }
 \value{
-an initialized Relaxed Log-Normal site model
+an initialized HKY site model
 }
 \description{
-Initializes a Relaxed Log-Normal site model
+Initializes an HKY site model
 }
 \author{
 Richel J.C. Bilderbeek

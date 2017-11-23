@@ -9,10 +9,10 @@ is_init_hky_site_model(x)
 }
 \arguments{
 \item{x}{the object to check if it is an
-initialized hky site model object}
+initialized HKY site model object}
 }
 \value{
-TRUE if x is an initializedhky site_model object
+TRUE if x is an initialized HKY site_model object
 }
 \description{
 Determine if x is an initialized hky site_model object

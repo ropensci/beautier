@@ -6,8 +6,8 @@
 \usage{
 create_hky_site_model(kappa = get_default_kappa(),
   gamma_site_model = get_default_gamma_site_model(),
-  kappa_prior = create_log_normal_distr(m = create_m_parameter(value = "1.0"),
-  s = create_s_parameter(value = "1.25")))
+  kappa_prior_distr = create_log_normal_distr(m = create_m_parameter(value =
+  "1.0"), s = create_s_parameter(value = "1.25")))
 }
 \arguments{
 \item{kappa}{the kappa}
@@ -15,8 +15,9 @@ create_hky_site_model(kappa = get_default_kappa(),
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
 
-\item{kappa_prior}{the kappa prior, which is a log-normal
-distribution (as created by \code{\link{create_log_normal_distr}})
+\item{kappa_prior_distr}{the distribution of the kappa prior,
+which is a log-normal distribution
+(as created by \code{\link{create_log_normal_distr}})
 by default}
 }
 \value{
@@ -24,4 +25,17 @@ an HKY site_model
 }
 \description{
 Create an HKY site model
+}
+\examples{
+ hky_site_model <- create_hky_site_model()
+ testit::assert(is_hky_site_model(hky_site_model))
+
+ create_beast2_input_file(
+   input_fasta_filenames = get_input_fasta_filename(),
+   "beast.xml",
+   site_models = hky_site_model
+ )
+}
+\author{
+Richel J.C. Bilderbeek
 }

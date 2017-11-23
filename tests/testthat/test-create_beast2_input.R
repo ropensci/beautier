@@ -329,7 +329,7 @@ test_that("Reproduce hky_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
-      kappa_prior = create_log_normal_distr(
+      kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_parameter(id = 1, value = "1.0"),
         s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
@@ -364,7 +364,7 @@ test_that("Reproduce hky_kappa_2_4.xml", {
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
       kappa = 3.4,
-      kappa_prior = create_log_normal_distr(
+      kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_parameter(id = 1, value = "1.0"),
         s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
@@ -387,7 +387,7 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         prop_invariant = 0.5
       ),
-      kappa_prior = create_log_normal_distr(
+      kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_parameter(id = 1, value = "1.0"),
         s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
@@ -410,7 +410,7 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
       ),
-      kappa_prior = create_log_normal_distr(
+      kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_parameter(id = 1, value = "1.0"),
         s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
@@ -444,7 +444,7 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       ),
-      kappa_prior = create_log_normal_distr(
+      kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_parameter(id = 1, value = "1.0"),
         s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
@@ -478,7 +478,7 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 4
       ),
-      kappa_prior = create_log_normal_distr(
+      kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_parameter(id = 1, value = "1.0"),
         s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
@@ -1479,7 +1479,7 @@ test_that("Reproduce aco_nd2_hky.xml", {
     site_models = list(
       create_jc69_site_model(),
       create_hky_site_model(
-        kappa_prior = create_log_normal_distr(
+        kappa_prior_distr = create_log_normal_distr(
           id = 1,
           m = create_m_parameter(id = 4, value = "1.0"),
           s = create_s_parameter(id = 5, value = "1.25", lower = NA, upper = NA)
@@ -1668,6 +1668,31 @@ test_that("JC69 JC69 strict strict coalescent_exponential_population", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
+  testthat::expect_true(has_unique_ids(lines))
+})
+
+test_that("TN93 TN93 strict strict yule", {
+
+  skip("WIP, issue 8")
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  site_model_1 <- create_tn93_site_model()
+  site_model_2 <- create_tn93_site_model()
+  clock_model_1 <- create_strict_clock_model()
+  clock_model_2 <- create_strict_clock_model()
+  tree_prior <- create_yule_tree_prior()
+  lines <- create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = list(site_model_1, site_model_2),
+    clock_models = list(clock_model_1, clock_model_2),
+    tree_priors = list(tree_prior, tree_prior)
+  )
+  save_text(filename = "~/fix.txt", text = lines)
   testthat::expect_true(has_unique_ids(lines))
 })
 

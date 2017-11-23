@@ -782,29 +782,41 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
     }
     text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
-    text <- c(text, paste0("    <LogNormal ",
-      "id=\"LogNormalDistributionModel.", distr_ids[1], "\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
-      "name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
-      "name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text,
+      beautier::indent(
+        beautier::distr_to_xml(site_model$kappa_1_prior),
+        n_spaces = 4
+      )
+    )
+    # text <- c(text, paste0("    <LogNormal ",
+    #   "id=\"LogNormalDistributionModel.", distr_ids[1], "\" ",
+    #   "name=\"distr\">"))
+    # text <- c(text, paste0("        <parameter ",
+    #   "id=\"RealParameter.", param_ids[1], "\" estimate=\"false\" ",
+    #   "name=\"M\">1.0</parameter>"))
+    # text <- c(text, paste0("        <parameter ",
+    #   "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
+    #   "name=\"S\">1.25</parameter>"))
+    # text <- c(text, paste0("    </LogNormal>"))
     text <- c(text, paste0("</prior>"))
     text <- c(text, paste0("<prior id=\"kappa2Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
-    text <- c(text, paste0("    <LogNormal ",
-      "id=\"LogNormalDistributionModel.", distr_ids[2], "\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
-      "name=\"M\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" ",
-      "name=\"S\">1.25</parameter>"))
-    text <- c(text, paste0("    </LogNormal>"))
+    text <- c(text,
+      beautier::indent(
+        beautier::distr_to_xml(site_model$kappa_2_prior),
+        n_spaces = 4
+      )
+    )
+    # text <- c(text, paste0("    <LogNormal ",
+    #   "id=\"LogNormalDistributionModel.", distr_ids[2], "\" ",
+    #   "name=\"distr\">"))
+    # text <- c(text, paste0("        <parameter ",
+    #   "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
+    #   "name=\"M\">1.0</parameter>"))
+    # text <- c(text, paste0("        <parameter ",
+    #   "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" ",
+    #   "name=\"S\">1.25</parameter>"))
+    # text <- c(text, paste0("    </LogNormal>"))
     text <- c(text, paste0("</prior>"))
     text <- beautier::indent(text, n_spaces = 12)
   } else if (is_gtr_site_model(site_model)) {
