@@ -1,5 +1,13 @@
-#' Creates all supported clock models
-#' @return a list of clock_models
+#' Creates all supported clock models,
+#'   which is just a list of the types returned by
+#'   \code{\link{create_rln_clock_model}},
+#'   and \code{\link{create_strict_clock_model}}
+#' @return a list of site_models
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'  clock_models <- create_clock_models()
+#'  testit::assert(is_rln_clock_model(clock_models[[1]]))
+#'  testit::assert(is_strict_clock_model(clock_models[[2]]))
 #' @export
 create_clock_models <- function() {
   return(

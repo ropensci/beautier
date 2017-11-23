@@ -332,3 +332,38 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
     testthat::expect_true(ok)
   }
 })
+
+
+
+
+test_that("All site models and tree priors, estimated crown age", {
+
+  if (!beautier::is_on_travis()) return()
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+
+  for (site_model in beautier::create_site_models()) {
+    for (clock_model in beautier::create_clock_models()) {
+      for (tree_prior in beautier::create_tree_priors()) {
+
+        print(paste(site_model$name, clock_model$name, tree_prior$name))
+
+        output_xml_filename <- tempfile()
+        create_beast2_input_file(
+          input_fasta_filenames = input_fasta_filename,
+          site_models = site_model,
+          clock_models = clock_model,
+          tree_priors = tree_prior,
+          output_xml_filename = output_xml_filename
+        )
+        is_ok <- beautier::is_beast2_input_file(output_xml_filename)
+        testthat::expect_true(is_ok)
+        if (!is_ok) {
+          beautier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+        }
+      }
+    }
+  }
+})

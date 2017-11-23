@@ -2,13 +2,27 @@
 % Please edit documentation in R/create_clock_models.R
 \name{create_clock_models}
 \alias{create_clock_models}
-\title{Creates all supported clock models}
+\title{Creates all supported clock models
+  which is just a list of the types returned by
+  \code{\link{create_rln_clock_model}},
+  and \code{\link{create_strict_clock_model}}}
 \usage{
 create_clock_models()
 }
 \value{
-a list of clock_models
+a list of site_models
 }
 \description{
 Creates all supported clock models
+  which is just a list of the types returned by
+  \code{\link{create_rln_clock_model}},
+  and \code{\link{create_strict_clock_model}}
+}
+\examples{
+ clock_models <- create_clock_models()
+ testit::assert(is_rln_clock_model(clock_models[[1]]))
+ testit::assert(is_strict_clock_model(clock_models[[2]]))
+}
+\author{
+Richel J.C. Bilderbeek
 }

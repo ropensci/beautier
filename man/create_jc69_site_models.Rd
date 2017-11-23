@@ -25,3 +25,6 @@ Creates n jc69_site_models
   testthat::expect_true(is_jc69_site_model(m[[1]]))
   testthat::expect_true(is_jc69_site_model(m[[2]]))
 }
+\author{
+Richel J.C. Bilderbeek
+}

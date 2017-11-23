@@ -2,7 +2,12 @@
 % Please edit documentation in R/create_site_models.R
 \name{create_site_models}
 \alias{create_site_models}
-\title{Creates all supported site models}
+\title{Creates all supported site models
+  which is just a list of the types returned by
+  \code{\link{create_gtr_site_model}},
+  \code{\link{create_hky_site_model}},
+  \code{\link{create_jc69_site_model}}
+  and \code{\link{create_tn93_site_model}}}
 \usage{
 create_site_models()
 }
@@ -11,4 +16,19 @@ a list of site_models
 }
 \description{
 Creates all supported site models
+  which is just a list of the types returned by
+  \code{\link{create_gtr_site_model}},
+  \code{\link{create_hky_site_model}},
+  \code{\link{create_jc69_site_model}}
+  and \code{\link{create_tn93_site_model}}
+}
+\examples{
+ site_models <- create_site_models()
+ testit::assert(is_gtr_site_model(site_models[[1]]))
+ testit::assert(is_hky_site_model(site_models[[2]]))
+ testit::assert(is_jc69_site_model(site_models[[3]]))
+ testit::assert(is_tn93_site_model(site_models[[4]]))
+}
+\author{
+Richel J.C. Bilderbeek
 }

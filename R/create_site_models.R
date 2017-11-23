@@ -1,5 +1,17 @@
 #' Creates all supported site models
+#'   which is just a list of the types returned by
+#'   \code{\link{create_gtr_site_model}},
+#'   \code{\link{create_hky_site_model}},
+#'   \code{\link{create_jc69_site_model}}
+#'   and \code{\link{create_tn93_site_model}}
 #' @return a list of site_models
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'  site_models <- create_site_models()
+#'  testit::assert(is_gtr_site_model(site_models[[1]]))
+#'  testit::assert(is_hky_site_model(site_models[[2]]))
+#'  testit::assert(is_jc69_site_model(site_models[[3]]))
+#'  testit::assert(is_tn93_site_model(site_models[[4]]))
 #' @export
 create_site_models <- function() {
   return(
@@ -15,6 +27,7 @@ create_site_models <- function() {
 #' Creates n jc69_site_models
 #' @param n the number of jc69_site_models
 #' @return a list of site_models
+#' @author Richel J.C. Bilderbeek
 #' @examples
 #'   m <- create_jc69_site_models(1)
 #'   testthat::expect_equal(length(m), 1)
