@@ -22,9 +22,6 @@ is_beast2_input_file <- function(filename, verbose = FALSE) {
 
   # Invalid files are not valid BEAST2 input files
   if (status_code != 0) {
-    if (verbose) {
-      print(paste("status code:", status_code))
-    }
     return(FALSE)
   }
 

@@ -33,3 +33,11 @@ test_that("use", {
   testthat::expect_equal(get_distr_n_params(create_uniform_distr()), 0)
 
 })
+
+test_that("use", {
+
+  testthat::expect_error(
+    get_distr_n_params(distr = "nonsense"),
+    "'distr' must be a distribution"
+  )
+})
