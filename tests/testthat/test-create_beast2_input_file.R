@@ -282,17 +282,15 @@ test_that("All tree priors produce a valid BEAST2 input file", {
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
 
   for (tree_prior in tree_priors) {
-    if (is_cbs_tree_prior(tree_prior)) {
-      # CBS fails, because the groupSize's dimension is 5 by default,
-      # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
-      # groupSize cannot be more than 4
-      next
-    }
+
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = input_fasta_filename,
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename
     )
@@ -312,15 +310,11 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
 
   for (tree_prior in tree_priors) {
-    if (is_cbs_tree_prior(tree_prior)) {
-      # CBS fails, because the groupSize's dimension is 5 by default,
-      # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
-      # groupSize cannot be more than 4
-      next
-    }
-    input_fasta_filename <- get_input_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
       input_fasta_filenames = input_fasta_filename,
