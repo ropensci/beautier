@@ -12,7 +12,7 @@ develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beautier.svg?bra
 The purpose of `beautier` is to create 
 [a valid BEAST2 XML input file](inst/extdata/2_4.xml)
 from its function arguments. In this way, a scientific pipeline using 
-`BEAST2` can be fully scripted, instead of using `BEAUti` its GUI.
+`BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
 For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev/RBeast).
 

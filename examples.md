@@ -1,7 +1,5 @@
 # Examples
 
-![beautier logo](pics/beautier_logo.png)
-
 For all examples, do load `beautier`:
 
 ```
