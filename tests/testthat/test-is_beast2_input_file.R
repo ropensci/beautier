@@ -1,10 +1,29 @@
 context("is_beast2_input_file")
 
-test_that("testing FASTA file is not a valid BEAST2 input file", {
+test_that("FASTA file is not a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
   filename <- beautier::get_input_fasta_filename()
+  is_ok <- NULL
+
+  testthat::expect_output(
+    is_ok <- is_beast2_input_file(filename, verbose = TRUE)
+  )
+
+  testthat::expect_false(is_ok)
+
+})
+
+test_that("invalid.xml is not a valid BEAST2 input file", {
+
+  # Gives a status error
+  if (!beautier::is_on_travis()) return()
+
+  filename <- system.file(
+    "extdata", "invalid.xml", package = "beautier"
+  )
+
   is_ok <- NULL
 
   testthat::expect_output(
