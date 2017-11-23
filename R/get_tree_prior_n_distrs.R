@@ -1,4 +1,7 @@
 #' Get the number of distributions a tree prior has
+#' @param tree_prior a tree_prior,
+#'   as created by \code{\link{create_tree_prior}}
+#' @return the number of distributions a tree prior has
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # birth_rate_distr and death_rate_distr

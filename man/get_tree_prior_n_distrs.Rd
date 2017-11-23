@@ -6,12 +6,22 @@
 \usage{
 get_tree_prior_n_distrs(tree_prior)
 }
+\arguments{
+\item{tree_prior}{a tree_prior,
+as created by \code{\link{create_tree_prior}}}
+}
+\value{
+the number of distributions a tree prior has
+}
 \description{
 Get the number of distributions a tree prior has
 }
 \examples{
  # birth_rate_distr and death_rate_distr
  testit::assert(get_tree_prior_n_distrs(create_bd_tree_prior()) == 2)
+
+ # none
+ testit::assert(get_tree_prior_n_distrs(create_cbs_tree_prior()) == 0)
 
  # pop_size_distr
  testit::assert(get_tree_prior_n_distrs(create_ccp_tree_prior()) == 1)
