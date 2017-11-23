@@ -1650,7 +1650,6 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
 test_that("JC69 JC69 strict strict coalescent_exponential_population", {
 
-  skip("WIP, Issue #8")
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )
@@ -1669,8 +1668,6 @@ test_that("JC69 JC69 strict strict coalescent_exponential_population", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  save_text("~/fix.txt", text = lines)
-
   testthat::expect_true(has_unique_ids(lines))
 })
 
