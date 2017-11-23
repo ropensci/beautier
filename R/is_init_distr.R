@@ -70,7 +70,7 @@ is_init_gamma_distr <- function(
   x
 ) {
   testit::assert(beautier::is_gamma_distr(x))
-  return(!is.na(x$alpha$id) && !is.na(x$beta$id))
+  !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
 #' Determine if x is an initialized inv_gamma distribution object
@@ -83,8 +83,7 @@ is_init_inv_gamma_distr <- function(
   x
 ) {
   testit::assert(beautier::is_inv_gamma_distr(x))
-  return(!is.na(x$alpha$id) && !is.na(x$beta$id))
-  TRUE
+  !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
 #' Determine if x is an initialized laplace distribution object
@@ -97,7 +96,7 @@ is_init_laplace_distr <- function(
   x
 ) {
   testit::assert(beautier::is_laplace_distr(x))
-  return(!is.na(x$mu$id) && !is.na(x$scale$id))
+  !is.na(x$mu$id) && !is.na(x$scale$id)
 }
 
 #' Determine if x is an initialized log_normal distribution object
@@ -110,7 +109,7 @@ is_init_log_normal_distr <- function(
   x
 ) {
   testit::assert(beautier::is_log_normal_distr(x))
-  return(!is.na(x$m$id) && !is.na(x$s$id))
+  !is.na(x$m$id) && !is.na(x$s$id)
 }
 
 #' Determine if x is an initialized normal distribution object
@@ -123,7 +122,7 @@ is_init_normal_distr <- function(
   x
 ) {
   testit::assert(beautier::is_normal_distr(x))
-  return(!is.na(x$mean$id) && !is.na(x$sigma$id))
+  !is.na(x$mean$id) && !is.na(x$sigma$id)
 }
 
 #' Determine if x is an initialized one_div_x distribution object
