@@ -23,15 +23,15 @@ General function to create a parameter.
 \note{
 Prefer using the
   named functions
-  \code{\link{create_alphaparam}},
-  \code{\link{create_betaparam}},
-  \code{\link{create_clock_rateparam}},
-  \code{\link{create_mparam}},
-  \code{\link{create_meanparam}},
-  \code{\link{create_muparam}},
-  \code{\link{create_sparam}},
-  \code{\link{create_scaleparam}},
-  and \code{\link{create_sigmaparam}}
+  \code{\link{create_alpha_param}},
+  \code{\link{create_beta_param}},
+  \code{\link{create_clock_rate_param}},
+  \code{\link{create_m_param}},
+  \code{\link{create_mean_param}},
+  \code{\link{create_mu_param}},
+  \code{\link{create_s_param}},
+  \code{\link{create_scale_param}},
+  and \code{\link{create_sigma_param}}
 }
 \author{
 Richel J.C. Bilderbeek

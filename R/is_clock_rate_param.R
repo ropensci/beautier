@@ -6,7 +6,7 @@
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_clock_rateparam <- function(
+is_clock_rate_param <- function(
   x
 ) {
   if (!beautier::is_param(x)) return(FALSE)

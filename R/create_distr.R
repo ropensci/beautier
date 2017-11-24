@@ -51,9 +51,9 @@ create_distr <- function(
 #' Create a beta distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
-#'   as returned by \code{\link{create_alphaparam}}
+#'   as returned by \code{\link{create_alpha_param}}
 #' @param beta the beta shape parameter,
-#'   as returned by \code{\link{create_betaparam}}
+#'   as returned by \code{\link{create_beta_param}}
 #' @return a beta distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -61,16 +61,16 @@ create_distr <- function(
 #' @export
 create_beta_distr <- function(
   id = NA,
-  alpha = create_alphaparam(id = NA, estimate = NA, value = NA),
-  beta = create_betaparam(id = NA, estimate = NA, value = NA)
+  alpha = create_alpha_param(id = NA, estimate = NA, value = NA),
+  beta = create_beta_param(id = NA, estimate = NA, value = NA)
 ) {
-  if (!is_alphaparam(alpha)) {
+  if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
-      "as returned by 'create_alphaparam'")
+      "as returned by 'create_alpha_param'")
   }
-  if (!is_betaparam(beta)) {
+  if (!is_beta_param(beta)) {
     stop("'beta' must be a beta parameter, ",
-      "as returned by 'create_betaparam'")
+      "as returned by 'create_beta_param'")
   }
   return(
     beautier::create_distr(
@@ -85,7 +85,7 @@ create_beta_distr <- function(
 #' Create an exponential distribution
 #' @inheritParams create_distr
 #' @param mean the mean parameter,
-#'   as returned by \code{\link{create_meanparam}}
+#'   as returned by \code{\link{create_mean_param}}
 #' @return an exponential distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -93,11 +93,11 @@ create_beta_distr <- function(
 #' @export
 create_exponential_distr <- function(
   id = NA,
-  mean = create_meanparam(id = NA, estimate = NA, value = NA)
+  mean = create_mean_param(id = NA, estimate = NA, value = NA)
 ) {
-  if (!is_meanparam(mean)) {
+  if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
-      "as returned by 'create_meanparam'")
+      "as returned by 'create_mean_param'")
   }
   return(
     beautier::create_distr(
@@ -111,9 +111,9 @@ create_exponential_distr <- function(
 #' Create a gamma distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
-#'   as returned by \code{\link{create_alphaparam}}
+#'   as returned by \code{\link{create_alpha_param}}
 #' @param beta the beta shape parameter,
-#'   as returned by \code{\link{create_betaparam}}
+#'   as returned by \code{\link{create_beta_param}}
 #' @return a gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -121,16 +121,16 @@ create_exponential_distr <- function(
 #' @export
 create_gamma_distr <- function(
   id = NA,
-  alpha = create_alphaparam(id = NA, estimate = FALSE, value = "0.5396"),
-  beta = create_betaparam(id = NA, estimate = FALSE, value = "0.3819")
+  alpha = create_alpha_param(id = NA, estimate = FALSE, value = "0.5396"),
+  beta = create_beta_param(id = NA, estimate = FALSE, value = "0.3819")
 ) {
-  if (!is_alphaparam(alpha)) {
+  if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
-      "as returned by 'create_alphaparam'")
+      "as returned by 'create_alpha_param'")
   }
-  if (!is_betaparam(beta)) {
+  if (!is_beta_param(beta)) {
     stop("'beta' must be a beta parameter, ",
-      "as returned by 'create_betaparam'")
+      "as returned by 'create_beta_param'")
   }
   return(
     beautier::create_distr(
@@ -145,9 +145,9 @@ create_gamma_distr <- function(
 #' Create an inverse gamma distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
-#'   as returned by \code{\link{create_alphaparam}}
+#'   as returned by \code{\link{create_alpha_param}}
 #' @param beta the beta shape parameter,
-#'   as returned by \code{\link{create_betaparam}}
+#'   as returned by \code{\link{create_beta_param}}
 #' @return an inverse gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -155,16 +155,16 @@ create_gamma_distr <- function(
 #' @export
 create_inv_gamma_distr <- function(
   id = NA,
-  alpha = create_alphaparam(),
-  beta = create_betaparam()
+  alpha = create_alpha_param(),
+  beta = create_beta_param()
 ) {
-  if (!is_alphaparam(alpha)) {
+  if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
-      "as returned by 'create_alphaparam'")
+      "as returned by 'create_alpha_param'")
   }
-  if (!is_betaparam(beta)) {
+  if (!is_beta_param(beta)) {
     stop("'beta' must be a beta parameter, ",
-      "as returned by 'create_betaparam'")
+      "as returned by 'create_beta_param'")
   }
   return(
     beautier::create_distr(
@@ -179,9 +179,9 @@ create_inv_gamma_distr <- function(
 #' Create a Laplace distribution
 #' @inheritParams create_distr
 #' @param mu the mu parameter,
-#'   as returned by \code{\link{create_muparam}}
+#'   as returned by \code{\link{create_mu_param}}
 #' @param scale the scale parameter,
-#'   as returned by \code{\link{create_scaleparam}}
+#'   as returned by \code{\link{create_scale_param}}
 #' @return a Laplace distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -192,16 +192,16 @@ create_inv_gamma_distr <- function(
 #' @export
 create_laplace_distr <- function(
   id = NA,
-  mu = create_muparam(id = NA, estimate = FALSE, value = 0.0),
-  scale = create_scaleparam(id = NA, estimate = FALSE, value = 1.0)
+  mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
+  scale = create_scale_param(id = NA, estimate = FALSE, value = 1.0)
 ) {
-  if (!is_muparam(mu)) {
+  if (!beautier::is_mu_param(mu)) {
     stop("'mu' must be a mu parameter, ",
-      "as returned by 'create_muparam'")
+      "as returned by 'create_mu_param'")
   }
-  if (!is_scaleparam(scale)) {
+  if (!beautier::is_scale_param(scale)) {
     stop("'scale' must be an scale parameter, ",
-      "as returned by 'create_scaleparam'")
+      "as returned by 'create_scale_param'")
   }
   return(
     beautier::create_distr(
@@ -216,9 +216,9 @@ create_laplace_distr <- function(
 #' Create a log-normal distribution
 #' @inheritParams create_distr
 #' @param m the m parameter,
-#'   as returned by \code{\link{create_mparam}}
+#'   as returned by \code{\link{create_m_param}}
 #' @param s the s parameter,
-#'   as returned by \code{\link{create_sparam}}
+#'   as returned by \code{\link{create_s_param}}
 #' @return a log-normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -226,14 +226,14 @@ create_laplace_distr <- function(
 #' @export
 create_log_normal_distr <- function(
   id = NA,
-  m = create_mparam(),
-  s = create_sparam()
+  m = create_m_param(),
+  s = create_s_param()
 ) {
-  if (!is_mparam(m)) {
-    stop("'m' must be an m parameter, as returned by 'create_mparam'")
+  if (!is_m_param(m)) {
+    stop("'m' must be an m parameter, as returned by 'create_m_param'")
   }
-  if (!is_sparam(s)) {
-    stop("'s' must be an s parameter, as returned by 'create_sparam'")
+  if (!is_s_param(s)) {
+    stop("'s' must be an s parameter, as returned by 'create_s_param'")
   }
   return(
     beautier::create_distr(
@@ -248,9 +248,9 @@ create_log_normal_distr <- function(
 #' Create an normal distribution
 #' @inheritParams create_distr
 #' @param mean the mean parameter
-#'   as returned by \code{\link{create_meanparam}}
+#'   as returned by \code{\link{create_mean_param}}
 #' @param sigma the sigma parameter
-#'   as returned by \code{\link{create_sigmaparam}}
+#'   as returned by \code{\link{create_sigma_param}}
 #' @return a normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -258,16 +258,16 @@ create_log_normal_distr <- function(
 #' @export
 create_normal_distr <- function(
   id = NA,
-  mean = create_meanparam(),
-  sigma = create_sigmaparam()
+  mean = create_mean_param(),
+  sigma = create_sigma_param()
 ) {
-  if (!is_meanparam(mean)) {
+  if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
-      "as returned by 'create_meanparam'")
+      "as returned by 'create_mean_param'")
   }
-  if (!is_sigmaparam(sigma)) {
+  if (!is_sigma_param(sigma)) {
     stop("'sigma' must be a sigma parameter, ",
-      "as returned by 'create_sigmaparam'")
+      "as returned by 'create_sigma_param'")
   }
   return(
     beautier::create_distr(

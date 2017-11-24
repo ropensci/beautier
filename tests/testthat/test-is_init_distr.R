@@ -16,8 +16,8 @@ test_that("use beta", {
     beautier:::is_init_distr(
       create_beta_distr(
         id = 1,
-        alpha = create_alphaparam(id = 2),
-        beta = create_betaparam(id = NA)
+        alpha = create_alpha_param(id = 2),
+        beta = create_beta_param(id = NA)
       )
     )
   )
@@ -25,8 +25,8 @@ test_that("use beta", {
     beautier:::is_init_distr(
       create_beta_distr(
         id = 1,
-        alpha = create_alphaparam(id = NA),
-        beta = create_betaparam(id = 3)
+        alpha = create_alpha_param(id = NA),
+        beta = create_beta_param(id = 3)
       )
     )
   )
@@ -54,7 +54,7 @@ test_that("use exponential", {
     beautier:::is_init_distr(
       create_exponential_distr(
         id = 1,
-        mean = create_meanparam(id = NA)
+        mean = create_mean_param(id = NA)
       )
     )
   )
@@ -82,8 +82,8 @@ test_that("use gamma", {
     beautier:::is_init_distr(
       create_gamma_distr(
         id = 1,
-        alpha = create_alphaparam(id = NA),
-        beta = create_betaparam(id = 3)
+        alpha = create_alpha_param(id = NA),
+        beta = create_beta_param(id = 3)
       )
     )
   )
@@ -91,8 +91,8 @@ test_that("use gamma", {
     beautier:::is_init_distr(
       create_gamma_distr(
         id = 1,
-        alpha = create_alphaparam(id = 2),
-        beta = create_betaparam(id = NA)
+        alpha = create_alpha_param(id = 2),
+        beta = create_beta_param(id = NA)
       )
     )
   )
@@ -120,8 +120,8 @@ test_that("use inv_gamma", {
     beautier:::is_init_distr(
       create_inv_gamma_distr(
         id = 1,
-        alpha = create_alphaparam(id = NA),
-        beta = create_betaparam(id = 3)
+        alpha = create_alpha_param(id = NA),
+        beta = create_beta_param(id = 3)
       )
     )
   )
@@ -129,8 +129,8 @@ test_that("use inv_gamma", {
     beautier:::is_init_distr(
       create_inv_gamma_distr(
         id = 1,
-        alpha = create_alphaparam(id = 2),
-        beta = create_betaparam(id = NA)
+        alpha = create_alpha_param(id = 2),
+        beta = create_beta_param(id = NA)
       )
     )
   )
@@ -159,8 +159,8 @@ test_that("use laplace", {
     beautier:::is_init_distr(
       create_laplace_distr(
         id = 1,
-        mu = create_muparam(id = NA),
-        scale = create_scaleparam(id = 3)
+        mu = create_mu_param(id = NA),
+        scale = create_scale_param(id = 3)
       )
     )
   )
@@ -168,8 +168,8 @@ test_that("use laplace", {
     beautier:::is_init_distr(
       create_laplace_distr(
         id = 1,
-        mu = create_muparam(id = 2),
-        scale = create_scaleparam(id = NA)
+        mu = create_mu_param(id = 2),
+        scale = create_scale_param(id = NA)
       )
     )
   )
@@ -197,8 +197,8 @@ test_that("use log_normal", {
     beautier:::is_init_distr(
       create_log_normal_distr(
         id = 1,
-        m = create_mparam(id = NA),
-        s = create_sparam(id = 3)
+        m = create_m_param(id = NA),
+        s = create_s_param(id = 3)
       )
     )
   )
@@ -206,8 +206,8 @@ test_that("use log_normal", {
     beautier:::is_init_distr(
       create_log_normal_distr(
         id = 1,
-        m = create_mparam(id = 2),
-        s = create_sparam(id = NA)
+        m = create_m_param(id = 2),
+        s = create_s_param(id = NA)
       )
     )
   )
@@ -235,8 +235,8 @@ test_that("use normal", {
     beautier:::is_init_distr(
       create_normal_distr(
         id = 1,
-        mean = create_meanparam(id = NA),
-        sigma = create_sigmaparam(id = 3)
+        mean = create_mean_param(id = NA),
+        sigma = create_sigma_param(id = 3)
       )
     )
   )
@@ -244,8 +244,8 @@ test_that("use normal", {
     beautier:::is_init_distr(
       create_normal_distr(
         id = 1,
-        mean = create_meanparam(id = 2),
-        sigma = create_sigmaparam(id = NA)
+        mean = create_mean_param(id = 2),
+        sigma = create_sigma_param(id = NA)
       )
     )
   )

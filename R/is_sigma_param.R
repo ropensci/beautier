@@ -6,7 +6,7 @@
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_sigmaparam <- function(
+is_sigma_param <- function(
   x
 ) {
   if (!beautier::is_param(x)) return(FALSE)

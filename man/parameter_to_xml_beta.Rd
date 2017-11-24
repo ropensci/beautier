@@ -8,7 +8,7 @@ parameter_to_xml_beta(parameter)
 }
 \arguments{
 \item{parameter}{a beta parameter,
-as created by \code{\link{create_betaparam}})}
+as created by \code{\link{create_beta_param}})}
 }
 \value{
 the parameter as XML text

@@ -8,7 +8,7 @@ parameter_to_xml_s(parameter)
 }
 \arguments{
 \item{parameter}{a s parameter,
-as created by \code{\link{create_sparam}})}
+as created by \code{\link{create_s_param}})}
 }
 \value{
 the parameter as XML text

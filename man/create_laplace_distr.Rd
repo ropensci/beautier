@@ -4,17 +4,18 @@
 \alias{create_laplace_distr}
 \title{Create a Laplace distribution}
 \usage{
-create_laplace_distr(id = NA, mu = create_muparam(id = NA, estimate = FALSE,
-  value = 0), scale = create_scaleparam(id = NA, estimate = FALSE, value = 1))
+create_laplace_distr(id = NA, mu = create_mu_param(id = NA, estimate =
+  FALSE, value = 0), scale = create_scale_param(id = NA, estimate = FALSE,
+  value = 1))
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{mu}{the mu parameter,
-as returned by \code{\link{create_muparam}}}
+as returned by \code{\link{create_mu_param}}}
 
 \item{scale}{the scale parameter,
-as returned by \code{\link{create_scaleparam}}}
+as returned by \code{\link{create_scale_param}}}
 }
 \value{
 a Laplace distribution

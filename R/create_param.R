@@ -5,15 +5,15 @@
 #' @param ... specific parameter parameters
 #' @note Prefer using the
 #'   named functions
-#'   \code{\link{create_alphaparam}},
-#'   \code{\link{create_betaparam}},
-#'   \code{\link{create_clock_rateparam}},
-#'   \code{\link{create_mparam}},
-#'   \code{\link{create_meanparam}},
-#'   \code{\link{create_muparam}},
-#'   \code{\link{create_sparam}},
-#'   \code{\link{create_scaleparam}},
-#'   and \code{\link{create_sigmaparam}}
+#'   \code{\link{create_alpha_param}},
+#'   \code{\link{create_beta_param}},
+#'   \code{\link{create_clock_rate_param}},
+#'   \code{\link{create_m_param}},
+#'   \code{\link{create_mean_param}},
+#'   \code{\link{create_mu_param}},
+#'   \code{\link{create_s_param}},
+#'   \code{\link{create_scale_param}},
+#'   and \code{\link{create_sigma_param}}
 #' @return a parameter
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -54,7 +54,7 @@ create_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_alphaparam <- function(
+create_alpha_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -79,7 +79,7 @@ create_alphaparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_betaparam <- function(
+create_beta_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -125,7 +125,7 @@ create_lambdaparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_mparam <- function(
+create_m_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -150,7 +150,7 @@ create_mparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_meanparam <- function(
+create_mean_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -175,10 +175,10 @@ create_meanparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   muparam <- create_muparam()
-#'   testit::assert(is_muparam(muparam))
+#'   muparam <- create_mu_param()
+#'   testit::assert(is_mu_param(muparam))
 #' @export
-create_muparam <- function(
+create_mu_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -204,12 +204,12 @@ create_muparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   clock_rateparam <- create_clock_rateparam(
+#'   clock_rateparam <- create_clock_rate_param(
 #'     id = "anthus_aco", estimate = FALSE, value = 1.0
 #'   )
-#'   testit::assert(is_clock_rateparam(clock_rateparam))
+#'   testit::assert(is_clock_rate_param(clock_rateparam))
 #' @export
-create_clock_rateparam <- function(
+create_clock_rate_param <- function(
   id = NA,
   estimate = FALSE,
   value = "1.0"
@@ -236,7 +236,7 @@ create_clock_rateparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_sparam <- function(
+create_s_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0,
@@ -265,10 +265,10 @@ create_sparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   scaleparam <- create_scaleparam()
-#'   testit::assert(is_scaleparam(scaleparam))
+#'   scaleparam <- create_scale_param()
+#'   testit::assert(is_scale_param(scaleparam))
 #' @export
-create_scaleparam <- function(
+create_scale_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -293,7 +293,7 @@ create_scaleparam <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_sigmaparam <- function(
+create_sigma_param <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0

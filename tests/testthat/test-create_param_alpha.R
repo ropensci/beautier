@@ -1,9 +1,9 @@
-context("create_alphaparam")
+context("create_alpha_param")
 
 test_that("use", {
 
   testthat::expect_silent(
-    create_alphaparam()
+    create_alpha_param()
   )
 
 })

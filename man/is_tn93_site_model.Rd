@@ -2,20 +2,29 @@
 % Please edit documentation in R/is_tn93_site_model.R
 \name{is_tn93_site_model}
 \alias{is_tn93_site_model}
-\title{Determine if the object is a valid TN93 site model,
-  as created by \code{\link{create_tn93_site_model}}}
+\title{Determine if the object is a valid TN93 site model,}
 \usage{
 is_tn93_site_model(x)
 }
 \arguments{
-\item{x}{an object, to be determined if it is a valid TN93 site model}
+\item{x}{an object, to be determined if it is a valid TN93 site model,
+as created by \code{\link{create_tn93_site_model}}}
 }
 \value{
 TRUE if x is a valid TN93 site model, FALSE otherwise
 }
 \description{
 Determine if the object is a valid TN93 site model,
-  as created by \code{\link{create_tn93_site_model}}
+}
+\examples{
+  tn93_site_model <- create_tn93_site_model()
+  testit::assert(is_tn93_site_model(tn93_site_model))
+
+ create_beast2_input_file(
+   input_fasta_filenames = get_input_fasta_filename(),
+   "beast.xml",
+   site_models = tn93_site_model
+ )
 }
 \author{
 Richel J.C. Bilderbeek

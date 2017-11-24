@@ -36,14 +36,14 @@ get_tree_prior_n_params <- function(
   } else if (is_cbs_tree_prior(tree_prior)) {
     return(0)
   } else if (is_ccp_tree_prior(tree_prior)) {
-    return(get_distr_n_params(tree_prior$pop_size_distr))
+    return(beautier::get_distr_n_params(tree_prior$pop_size_distr))
   } else if (is_cep_tree_prior(tree_prior)) {
     return(
       get_distr_n_params(tree_prior$pop_size_distr) +
       get_distr_n_params(tree_prior$growth_rate_distr)
     )
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior))
+    testit::assert(beautier::is_yule_tree_prior(tree_prior))
     return(
       get_distr_n_params(tree_prior$birth_rate_distr)
     )

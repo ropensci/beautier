@@ -8,7 +8,7 @@ parameter_to_xml_sigma(parameter)
 }
 \arguments{
 \item{parameter}{a sigma parameter,
-as created by \code{\link{create_sigmaparam}})}
+as created by \code{\link{create_sigma_param}})}
 }
 \value{
 the parameter as XML text

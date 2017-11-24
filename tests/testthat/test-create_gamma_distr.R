@@ -13,8 +13,8 @@ test_that("use", {
   testthat::expect_silent(
     create_gamma_distr(
       id = 1,
-      alpha = create_alphaparam(),
-      beta = create_betaparam()
+      alpha = create_alpha_param(),
+      beta = create_beta_param()
     )
   )
 

@@ -4,16 +4,17 @@
 \alias{create_log_normal_distr}
 \title{Create a log-normal distribution}
 \usage{
-create_log_normal_distr(id = NA, m = create_mparam(), s = create_sparam())
+create_log_normal_distr(id = NA, m = create_m_param(),
+  s = create_s_param())
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{m}{the m parameter,
-as returned by \code{\link{create_mparam}}}
+as returned by \code{\link{create_m_param}}}
 
 \item{s}{the s parameter,
-as returned by \code{\link{create_sparam}}}
+as returned by \code{\link{create_s_param}}}
 }
 \value{
 a log-normal distribution

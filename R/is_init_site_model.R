@@ -16,7 +16,7 @@ is_init_site_model <- function(
     return(TRUE)
   } else {
     testit::assert(beautier::is_tn93_site_model(x))
-    return(is_init_tn93_site_model(x))
+    return(is_init_tn93_site_model(x)) # nolint internal function call
   }
 }
 

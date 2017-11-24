@@ -6,7 +6,7 @@
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_sparam <- function(
+is_s_param <- function(
   x
 ) {
   if (!beautier::is_param(x)) return(FALSE)

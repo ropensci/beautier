@@ -16,6 +16,19 @@ the number of distributions a site model has
 \description{
 Get the number of distributions a site model has
 }
+\examples{
+  # no distributions
+  testit::assert(get_site_model_n_distrs(create_gtr_site_model) == 0)
+
+  # kappa
+  testit::assert(get_site_model_n_distrs(create_hky_site_model) == 1)
+
+  # no distributions
+  testit::assert(get_site_model_n_distrs(create_jc69_site_model) == 0)
+
+  # kappa 1 and kappa 2
+  testit::assert(get_site_model_n_distrs(create_tn93_site_model) == 2)
+}
 \author{
 Richel J.C. Bilderbeek
 }
