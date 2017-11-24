@@ -58,6 +58,21 @@ create_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   beta_distr <- create_beta_distr()
+#'   testit::assert(is_beta_distr(beta_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = beta_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_beta_distr <- function(
   id = NA,
@@ -90,6 +105,22 @@ create_beta_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   exp_distr <- create_exp_distr()
+#'   testit::assert(is_exp_distr(exp_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = exp_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_exp_distr <- function(
   id = NA,
@@ -118,6 +149,21 @@ create_exp_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   gamma_distr <- create_gamma_distr()
+#'   testit::assert(is_gamma_distr(gamma_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = gamma_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_gamma_distr <- function(
   id = NA,
@@ -152,6 +198,21 @@ create_gamma_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   inv_gamma_distr <- create_inv_gamma_distr()
+#'   testit::assert(is_inv_gamma_distr(inv_gamma_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = inv_gamma_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_inv_gamma_distr <- function(
   id = NA,
@@ -187,8 +248,21 @@ create_inv_gamma_distr <- function(
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @examples
+#' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'   testit::assert(is_laplace_distr(laplace_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = laplace_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_laplace_distr <- function(
   id = NA,
@@ -223,6 +297,21 @@ create_laplace_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   log_normal_distr <- create_log_normal_distr()
+#'   testit::assert(is_log_normal_distr(log_normal_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_log_normal_distr <- function(
   id = NA,
@@ -255,6 +344,21 @@ create_log_normal_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   normal_distr <- create_normal_distr()
+#'   testit::assert(is_normal_distr(normal_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_normal_distr <- function(
   id = NA,
@@ -285,6 +389,21 @@ create_normal_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   one_div_x_distr <- create_one_div_x_distr()
+#'   testit::assert(is_one_div_x_distr(one_div_x_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = one_div_x_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_one_div_x_distr <- function(
   id = NA

@@ -15,6 +15,22 @@ a 1/x distribution
 \description{
 Create a 1/x distribution
 }
+\examples{
+  one_div_x_distr <- create_one_div_x_distr()
+  testit::assert(is_one_div_x_distr(one_div_x_distr))
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = one_div_x_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \seealso{
 the function \code{\link{create_distr}} shows an overview
   of all supported distributions
