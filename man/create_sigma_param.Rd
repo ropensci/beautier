@@ -24,6 +24,30 @@ Create a parameter called sigma
 this parameter is used in a normal distribution
   (as returned by \code{\link{create_normal_distr}})
 }
+\examples{
+  # Create the parameter
+  sigma_param <- create_sigma_param()
+  testit::assert(is_sigma_param(sigma_param))
+
+  # Use the parameter in a distribution
+  normal_distr <- create_normal_distr(
+    sigma = sigma_param
+  )
+  testit::assert(is_normal_distr(normal_distr))
+
+  # Use the distribution to create a BEAST2 input file
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = normal_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

@@ -29,6 +29,30 @@ Create a parameter called s
 this parameter is used in a log-normal distribution
   (as returned by \code{\link{create_log_normal_distr}})
 }
+\examples{
+  # Create the parameter
+  s_param <- create_s_param()
+  testit::assert(is_s_param(s_param))
+
+  # Use the parameter in a distribution
+  log_normal_distr <- create_log_normal_distr(
+    s = s_param
+  )
+  testit::assert(is_log_normal_distr(log_normal_distr))
+
+  # Use the distribution to create a BEAST2 input file
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = log_normal_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

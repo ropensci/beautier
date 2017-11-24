@@ -48,11 +48,11 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
       "id=\"StrictClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
     # initialization may happen here
-    clock_model$clock_rateparam$id <- id
+    clock_model$clock_rate_param$id <- id
     text <- c(
       text,
       beautier::indent(
-        beautier::parameter_to_xml(clock_model$clock_rateparam),
+        beautier::parameter_to_xml(clock_model$clock_rate_param),
         n_spaces = 4
       )
     )

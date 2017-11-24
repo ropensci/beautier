@@ -152,6 +152,54 @@ create_beta_param <- function(
   )
 }
 
+#' Create a parameter called \code{clock_rate},
+#'   as needed by \code{\link{create_strict_clock_model}}
+#' @param id the alignment id
+#' @param estimate TRUE if this parameter is estimated by BEAST2,
+#'   FALSE otherwise
+#' @param value value of the parameter
+#' @return a parameter called rate
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   clock_rate_param <- create_clock_rate_param(
+#'     id = "anthus_aco", estimate = FALSE, value = 1.0
+#'   )
+#'   testit::assert(is_clock_rate_param(clock_rate_param))
+#'
+#'   # Use the parameter in a clock model
+#'   strict_clock_model <- create_strict_clock_model(
+#'     clock_rate_param = clock_rate_param
+#'   )
+#'   testit::assert(is_strict_clock_model(strict_clock_model))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     clock_models = strict_clock_model
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
+#' @export
+create_clock_rate_param <- function(
+  id = NA,
+  estimate = FALSE,
+  value = "1.0"
+) {
+  return(
+    beautier::create_param(
+      name = "clock_rate",
+      id = id,
+      estimate = estimate,
+      value = value
+    )
+  )
+}
+
 #' Create a parameter called lambda
 #' @inheritParams create_param
 #' @param value value of the parameter
@@ -161,6 +209,29 @@ create_beta_param <- function(
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create the parameter
+#'   lambda_param <- create_lambda_param()
+#'   testit::assert(is_lambda_param(lambda_param))
+#'
+#'   # Use the parameter in a distribution
+#'   poisson_distr <- create_poisson_distr(
+#'     lambda = lambda_param
+#'   )
+#'   testit::assert(is_poisson_distr(poisson_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = poisson_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_lambda_param <- function(
   id = NA,
@@ -186,6 +257,29 @@ create_lambda_param <- function(
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create the parameter
+#'   m_param <- create_m_param()
+#'   testit::assert(is_m_param(m_param))
+#'
+#'   # Use the parameter in a distribution
+#'   log_normal_distr <- create_log_normal_distr(
+#'     m = m_param
+#'   )
+#'   testit::assert(is_log_normal_distr(log_normal_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_m_param <- function(
   id = NA,
@@ -215,6 +309,29 @@ create_m_param <- function(
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create the parameter
+#'   mean_param <- create_mean_param()
+#'   testit::assert(is_mean_param(mean_param))
+#'
+#'   # Use the parameter in a distribution
+#'   exp_distr <- create_exp_distr(
+#'     mean = mean_param
+#'   )
+#'   testit::assert(is_exp_distr(exp_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = exp_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_mean_param <- function(
   id = NA,
@@ -243,8 +360,28 @@ create_mean_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   muparam <- create_mu_param()
-#'   testit::assert(is_mu_param(muparam))
+#'   # Create the parameter
+#'   mu_param <- create_mu_param()
+#'   testit::assert(is_mu_param(mu_param))
+#'
+#'   # Use the parameter in a distribution
+#'   laplace_distr <- create_laplace_distr(
+#'     mu = mu_param
+#'   )
+#'   testit::assert(is_laplace_distr(laplace_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = laplace_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_mu_param <- function(
   id = NA,
@@ -254,37 +391,6 @@ create_mu_param <- function(
   return(
     beautier::create_param(
       name = "mu",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
-  )
-}
-
-#' Create a parameter called \code{clock_rate},
-#'   as needed by \code{\link{create_strict_clock_model}}
-#' @param id the alignment id
-#' @param estimate TRUE if this parameter is estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @return a parameter called rate
-#' @seealso the function \code{\link{create_param}} contains a list
-#'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
-#' @examples
-#'   clock_rateparam <- create_clock_rate_param(
-#'     id = "anthus_aco", estimate = FALSE, value = 1.0
-#'   )
-#'   testit::assert(is_clock_rate_param(clock_rateparam))
-#' @export
-create_clock_rate_param <- function(
-  id = NA,
-  estimate = FALSE,
-  value = "1.0"
-) {
-  return(
-    beautier::create_param(
-      name = "clock_rate",
       id = id,
       estimate = estimate,
       value = value
@@ -305,6 +411,29 @@ create_clock_rate_param <- function(
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create the parameter
+#'   s_param <- create_s_param()
+#'   testit::assert(is_s_param(s_param))
+#'
+#'   # Use the parameter in a distribution
+#'   log_normal_distr <- create_log_normal_distr(
+#'     s = s_param
+#'   )
+#'   testit::assert(is_log_normal_distr(log_normal_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_s_param <- function(
   id = NA,
@@ -337,8 +466,28 @@ create_s_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   scaleparam <- create_scale_param()
-#'   testit::assert(is_scale_param(scaleparam))
+#'   # Create the parameter
+#'   scale_param <- create_scale_param()
+#'   testit::assert(is_scale_param(scale_param))
+#'
+#'   # Use the parameter in a distribution
+#'   laplace_distr <- create_laplace_distr(
+#'     scale = scale_param
+#'   )
+#'   testit::assert(is_laplace_distr(laplace_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = laplace_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_scale_param <- function(
   id = NA,
@@ -366,6 +515,29 @@ create_scale_param <- function(
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create the parameter
+#'   sigma_param <- create_sigma_param()
+#'   testit::assert(is_sigma_param(sigma_param))
+#'
+#'   # Use the parameter in a distribution
+#'   normal_distr <- create_normal_distr(
+#'     sigma = sigma_param
+#'   )
+#'   testit::assert(is_normal_distr(normal_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_sigma_param <- function(
   id = NA,

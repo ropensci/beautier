@@ -25,8 +25,28 @@ this parameter is used in a Laplace distribution
   (as returned by \code{\link{create_laplace_distr}})
 }
 \examples{
-  muparam <- create_mu_param()
-  testit::assert(is_mu_param(muparam))
+  # Create the parameter
+  mu_param <- create_mu_param()
+  testit::assert(is_mu_param(mu_param))
+
+  # Use the parameter in a distribution
+  laplace_distr <- create_laplace_distr(
+    mu = mu_param
+  )
+  testit::assert(is_laplace_distr(laplace_distr))
+
+  # Use the distribution to create a BEAST2 input file
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = laplace_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

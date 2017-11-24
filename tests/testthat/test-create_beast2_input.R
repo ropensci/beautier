@@ -786,7 +786,7 @@ test_that("Use of a strict clock", {
   lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
-      clock_rateparam = create_clock_rate_param(id = id)
+      clock_rate_param = create_clock_rate_param(id = id)
     )
   )
   testthat::expect_true(has_unique_ids(lines))
@@ -826,7 +826,7 @@ test_that("Reproduce strict_clock_rate_0_5_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
-      clock_rateparam = create_clock_rate_param(
+      clock_rate_param = create_clock_rate_param(
         id = id,
         value = "0.5"
       )

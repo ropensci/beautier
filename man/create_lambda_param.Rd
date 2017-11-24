@@ -21,6 +21,30 @@ Create a parameter called lambda
 this parameter is used in a Poisson distribution
   (as returned by \code{\link{create_poisson_distr}})
 }
+\examples{
+  # Create the parameter
+  lambda_param <- create_lambda_param()
+  testit::assert(is_lambda_param(lambda_param))
+
+  # Use the parameter in a distribution
+  poisson_distr <- create_poisson_distr(
+    lambda = lambda_param
+  )
+  testit::assert(is_poisson_distr(poisson_distr))
+
+  # Use the distribution to create a BEAST2 input file
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = poisson_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

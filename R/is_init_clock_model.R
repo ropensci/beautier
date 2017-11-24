@@ -42,5 +42,5 @@ is_init_strict_clock_model <- function(
 ) {
   testit::assert(beautier::is_strict_clock_model(x))
 
-  !is.na(x$clock_rateparam$id)
+  !is.na(x$clock_rate_param$id)
 }

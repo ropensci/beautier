@@ -23,10 +23,27 @@ Create a parameter called \code{clock_rate},
   as needed by \code{\link{create_strict_clock_model}}
 }
 \examples{
-  clock_rateparam <- create_clock_rate_param(
+  clock_rate_param <- create_clock_rate_param(
     id = "anthus_aco", estimate = FALSE, value = 1.0
   )
-  testit::assert(is_clock_rate_param(clock_rateparam))
+  testit::assert(is_clock_rate_param(clock_rate_param))
+
+  # Use the parameter in a clock model
+  strict_clock_model <- create_strict_clock_model(
+    clock_rate_param = clock_rate_param
+  )
+  testit::assert(is_strict_clock_model(strict_clock_model))
+
+  # Use the distribution to create a BEAST2 input file
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    clock_models = strict_clock_model
+  )
+  testit::assert(file.exists("my_beast.xml"))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

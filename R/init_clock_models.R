@@ -102,7 +102,7 @@ init_strict_clock_model <- function(
 
   result <- strict_clock_model
 
-  result$clock_rateparam$id <- id
+  result$clock_rate_param$id <- id
 
   result
 }

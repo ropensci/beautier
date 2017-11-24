@@ -64,7 +64,7 @@ create_rln_clock_model <- function(
 }
 
 #' Create a strict clock model
-#' @param clock_rateparam a clock_rate parameter,
+#' @param clock_rate_param a clock_rate parameter,
 #'   as created by a \code{\link{create_clock_rate_param}} function
 #' @return a strict clock_model
 #' @author Richel J.C. Bilderbeek
@@ -82,11 +82,11 @@ create_rln_clock_model <- function(
 #'   )
 #' @export
 create_strict_clock_model <- function(
-  clock_rateparam = create_clock_rate_param()
+  clock_rate_param = create_clock_rate_param()
 ) {
   strict_clock_model <- beautier::create_clock_model(
     name = "strict",
-    clock_rateparam = clock_rateparam
+    clock_rate_param = clock_rate_param
   )
   testit::assert(beautier::is_strict_clock_model(strict_clock_model))
   strict_clock_model

@@ -5,7 +5,7 @@ test_that("strict clock model", {
   testthat::expect_true(
     beautier:::is_init_clock_model(
       create_strict_clock_model(
-        clock_rateparam = create_clock_rate_param(id = "OK")
+        clock_rate_param = create_clock_rate_param(id = "OK")
       )
     )
   )
@@ -13,7 +13,7 @@ test_that("strict clock model", {
   testthat::expect_false(
     beautier:::is_init_clock_model(
       create_strict_clock_model(
-        clock_rateparam = create_clock_rate_param(id = NA)
+        clock_rate_param = create_clock_rate_param(id = NA)
       )
     )
   )
