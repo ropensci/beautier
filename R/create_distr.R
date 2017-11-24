@@ -35,7 +35,7 @@ create_distr <- function(
       s
     }
     stop(
-      "invalid distribution name, must be one these: ",
+      "'name' must be a distribution name: ",
       distr_as_string()
     )
   }
@@ -273,7 +273,7 @@ create_laplace_distr <- function(
       "as returned by 'create_mu_param'")
   }
   if (!beautier::is_scale_param(scale)) {
-    stop("'scale' must be an scale parameter, ",
+    stop("'scale' must be a scale parameter, ",
       "as returned by 'create_scale_param'")
   }
   return(
