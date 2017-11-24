@@ -20,6 +20,12 @@ a parameter called mean
 \description{
 Create a parameter called mean
 }
+\note{
+this parameter is used in an exponential distribution
+  (as returned by \code{\link{create_exp_distr}})
+and normal distribution
+  (as returned by \code{\link{create_normal_distr}})
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

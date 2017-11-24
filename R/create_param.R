@@ -50,18 +50,27 @@ create_param <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called alpha
+#' @note this parameter is used in a beta distribution
+#'   (as returned by \code{\link{create_beta_distr}})
+#' and gamma distribution
+#'   (as returned by \code{\link{create_gamma_distr}})
+#' and inverse gamma distribution
+#'   (as returned by \code{\link{create_inv_gamma_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
+#'   # Create the parameter
 #'   alpha_param <- create_alpha_param()
 #'   testit::assert(is_alpha_param(alpha_param))
 #'
+#'   # Use the parameter in a distribution
 #'   beta_distr <- create_beta_distr(
 #'     alpha = alpha_param
 #'   )
 #'   testit::assert(is_beta_distr(beta_distr))
 #'
+#'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- system.file(
 #'     "extdata", "anthus_aco.fas", package = "beautier"
 #'   )
@@ -95,9 +104,38 @@ create_alpha_param <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called beta
+#' @note this parameter is used in a beta distribution
+#'   (as returned by \code{\link{create_beta_distr}})
+#' and gamma distribution
+#'   (as returned by \code{\link{create_gamma_distr}})
+#' and inverse gamma distribution
+#'   (as returned by \code{\link{create_inv_gamma_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create the parameter
+#'   beta_param <- create_beta_param()
+#'   testit::assert(is_beta_param(beta_param))
+#'
+#'   # Use the parameter in a distribution
+#'   gamma_distr <- create_gamma_distr(
+#'     beta = beta_param
+#'   )
+#'   testit::assert(is_gamma_distr(gamma_distr))
+#'
+#'   # Use the distribution to create a BEAST2 input file
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = gamma_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_beta_param <- function(
   id = NA,
@@ -118,6 +156,8 @@ create_beta_param <- function(
 #' @inheritParams create_param
 #' @param value value of the parameter
 #' @return a parameter called lambda
+#' @note this parameter is used in a Poisson distribution
+#'   (as returned by \code{\link{create_poisson_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -141,6 +181,8 @@ create_lambdaparam <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called m
+#' @note this parameter is used in a log-normal distribution
+#'   (as returned by \code{\link{create_log_normal_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -166,6 +208,10 @@ create_m_param <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called mean
+#' @note this parameter is used in an exponential distribution
+#'   (as returned by \code{\link{create_exp_distr}})
+#' and normal distribution
+#'   (as returned by \code{\link{create_normal_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -191,6 +237,8 @@ create_mean_param <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called mu
+#' @note this parameter is used in a Laplace distribution
+#'   (as returned by \code{\link{create_laplace_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -252,6 +300,8 @@ create_clock_rate_param <- function(
 #' @param lower lower value of the parameter
 #' @param upper upper value of the parameter
 #' @return a parameter called s
+#' @note this parameter is used in a log-normal distribution
+#'   (as returned by \code{\link{create_log_normal_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -281,6 +331,8 @@ create_s_param <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called scale
+#' @note this parameter is used in a Laplace distribution
+#'   (as returned by \code{\link{create_laplace_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -309,6 +361,8 @@ create_scale_param <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called sigma
+#' @note this parameter is used in a normal distribution
+#'   (as returned by \code{\link{create_normal_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek

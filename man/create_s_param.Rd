@@ -25,6 +25,10 @@ a parameter called s
 \description{
 Create a parameter called s
 }
+\note{
+this parameter is used in a log-normal distribution
+  (as returned by \code{\link{create_log_normal_distr}})
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

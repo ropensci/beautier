@@ -20,6 +20,38 @@ a parameter called beta
 \description{
 Create a parameter called beta
 }
+\note{
+this parameter is used in a beta distribution
+  (as returned by \code{\link{create_beta_distr}})
+and gamma distribution
+  (as returned by \code{\link{create_gamma_distr}})
+and inverse gamma distribution
+  (as returned by \code{\link{create_inv_gamma_distr}})
+}
+\examples{
+  # Create the parameter
+  beta_param <- create_beta_param()
+  testit::assert(is_beta_param(beta_param))
+
+  # Use the parameter in a distribution
+  gamma_distr <- create_gamma_distr(
+    beta = beta_param
+  )
+  testit::assert(is_gamma_distr(gamma_distr))
+
+  # Use the distribution to create a BEAST2 input file
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = gamma_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

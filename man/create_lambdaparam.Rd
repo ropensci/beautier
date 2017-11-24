@@ -17,6 +17,10 @@ a parameter called lambda
 \description{
 Create a parameter called lambda
 }
+\note{
+this parameter is used in a Poisson distribution
+  (as returned by \code{\link{create_poisson_distr}})
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created

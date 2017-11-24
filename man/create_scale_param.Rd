@@ -20,6 +20,10 @@ a parameter called scale
 \description{
 Create a parameter called scale
 }
+\note{
+this parameter is used in a Laplace distribution
+  (as returned by \code{\link{create_laplace_distr}})
+}
 \examples{
   scaleparam <- create_scale_param()
   testit::assert(is_scale_param(scaleparam))

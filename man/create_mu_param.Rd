@@ -20,6 +20,10 @@ a parameter called mu
 \description{
 Create a parameter called mu
 }
+\note{
+this parameter is used in a Laplace distribution
+  (as returned by \code{\link{create_laplace_distr}})
+}
 \examples{
   muparam <- create_mu_param()
   testit::assert(is_mu_param(muparam))

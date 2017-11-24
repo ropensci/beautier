@@ -20,15 +20,26 @@ a parameter called alpha
 \description{
 Create a parameter called alpha
 }
+\note{
+this parameter is used in a beta distribution
+  (as returned by \code{\link{create_beta_distr}})
+and gamma distribution
+  (as returned by \code{\link{create_gamma_distr}})
+and inverse gamma distribution
+  (as returned by \code{\link{create_inv_gamma_distr}})
+}
 \examples{
+  # Create the parameter
   alpha_param <- create_alpha_param()
   testit::assert(is_alpha_param(alpha_param))
 
+  # Use the parameter in a distribution
   beta_distr <- create_beta_distr(
     alpha = alpha_param
   )
   testit::assert(is_beta_distr(beta_distr))
 
+  # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )

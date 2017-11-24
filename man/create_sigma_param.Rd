@@ -20,6 +20,10 @@ a parameter called sigma
 \description{
 Create a parameter called sigma
 }
+\note{
+this parameter is used in a normal distribution
+  (as returned by \code{\link{create_normal_distr}})
+}
 \seealso{
 the function \code{\link{create_param}} contains a list
   of all parameters that can be created
