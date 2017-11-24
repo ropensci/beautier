@@ -29,7 +29,7 @@ Create a parameter called \code{clock_rate},
   testit::assert(is_clock_rateparam(clock_rateparam))
 }
 \seealso{
-the function \code{\link{createparam}} contains a list
+the function \code{\link{create_param}} contains a list
   of all parameters that can be created
 }
 \author{

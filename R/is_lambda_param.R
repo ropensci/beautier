@@ -9,6 +9,6 @@
 is_lambdaparam <- function(
   x
 ) {
-  if (!beautier::isparam(x)) return(FALSE)
+  if (!beautier::is_param(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "lambda")
 }

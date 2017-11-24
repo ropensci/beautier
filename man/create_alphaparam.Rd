@@ -21,7 +21,7 @@ a parameter called alpha
 Create a parameter called alpha
 }
 \seealso{
-the function \code{\link{createparam}} contains a list
+the function \code{\link{create_param}} contains a list
   of all parameters that can be created
 }
 \author{

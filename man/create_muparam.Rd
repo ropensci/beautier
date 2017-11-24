@@ -25,7 +25,7 @@ Create a parameter called mu
   testit::assert(is_muparam(muparam))
 }
 \seealso{
-the function \code{\link{createparam}} contains a list
+the function \code{\link{create_param}} contains a list
   of all parameters that can be created
 }
 \author{

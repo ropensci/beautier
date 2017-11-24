@@ -1,6 +1,6 @@
 #' Converts a parameter to XML
 #' @param parameter a distibution,
-#'   as created by \code{\link{createparam}})
+#'   as created by \code{\link{create_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -8,7 +8,7 @@ parameter_to_xml <- function(
   parameter
 ) {
   text <- NULL
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   if (!beautier::is_id(id)) {
     stop("parameter must have an ID")
   }
@@ -50,7 +50,7 @@ parameter_to_xml_alpha <- function(
   parameter
 ) {
   testit::assert(beautier::is_alphaparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -77,7 +77,7 @@ parameter_to_xml_beta <- function(
   parameter
 ) {
   testit::assert(beautier::is_betaparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -103,7 +103,7 @@ parameter_to_xml_clock_rate <- function(
   parameter
 ) {
   testit::assert(beautier::is_clock_rateparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -131,7 +131,7 @@ parameter_to_xml_lambda <- function(
   parameter
 ) {
   testit::assert(beautier::is_lambdaparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   value <- parameter$value
   text <- NULL
@@ -155,7 +155,7 @@ parameter_to_xml_m <- function(
   parameter
 ) {
   testit::assert(beautier::is_mparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -181,7 +181,7 @@ parameter_to_xml_mean <- function(
   parameter
 ) {
   testit::assert(beautier::is_meanparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -207,7 +207,7 @@ parameter_to_xml_mu <- function(
   parameter
 ) {
   testit::assert(beautier::is_muparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -233,7 +233,7 @@ parameter_to_xml_s <- function(
   parameter
 ) {
   testit::assert(beautier::is_sparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -264,7 +264,7 @@ parameter_to_xml_scale <- function(
   parameter
 ) {
   testit::assert(beautier::is_scaleparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -290,7 +290,7 @@ parameter_to_xml_sigma <- function(
   parameter
 ) {
   testit::assert(beautier::is_sigmaparam(parameter))
-  id <- beautier::getparam_id(parameter)
+  id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value

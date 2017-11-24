@@ -2,7 +2,7 @@
 #' @return the parameter names
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   names <- getparam_names()
+#'   names <- get_param_names()
 #'   testthat::expect_true("alpha" %in% names)
 #'   testthat::expect_true("beta" %in% names)
 #'   testthat::expect_true("clock_rate" %in% names)
@@ -14,7 +14,7 @@
 #'   testthat::expect_true("scale" %in% names)
 #'   testthat::expect_true("sigma" %in% names)
 #' @export
-getparam_names <- function() {
+get_param_names <- function() {
   return(
     c(
       "alpha",

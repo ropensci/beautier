@@ -1,9 +1,9 @@
-context("createparam")
+context("create_param")
 
 test_that("abuse", {
 
   testthat::expect_error(
-    createparam(name = "nonsense"),
+    create_param(name = "nonsense"),
     "invalid parameter name, must be one these:"
   )
 })

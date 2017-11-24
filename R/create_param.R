@@ -1,6 +1,6 @@
 #' General function to create a parameter.
 #' @param name the parameters' name. Valid
-#'   names can be found in \code{\link{getparam_names}}
+#'   names can be found in \code{\link{get_param_names}}
 #' @param id the parameter's ID
 #' @param ... specific parameter parameters
 #' @note Prefer using the
@@ -17,15 +17,15 @@
 #' @return a parameter
 #' @author Richel J.C. Bilderbeek
 #' @export
-createparam <- function(
+create_param <- function(
   name,
   id,
   ...
 ) {
-  if (!isparam_name(name)) {
+  if (!is_param_name(name)) {
     parameters_as_string <- function() {
       s <- NULL
-      for (p in getparam_names()) {
+      for (p in get_param_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))
@@ -45,12 +45,12 @@ createparam <- function(
 }
 
 #' Create a parameter called alpha
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called alpha
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -60,7 +60,7 @@ create_alphaparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "alpha",
       id = id,
       estimate = estimate,
@@ -70,12 +70,12 @@ create_alphaparam <- function(
 }
 
 #' Create a parameter called beta
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called beta
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -85,7 +85,7 @@ create_betaparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "beta",
       id = id,
       estimate = estimate,
@@ -95,10 +95,10 @@ create_betaparam <- function(
 }
 
 #' Create a parameter called lambda
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param value value of the parameter
 #' @return a parameter called lambda
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -107,7 +107,7 @@ create_lambdaparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "lambda",
       id = id,
       value = value
@@ -116,12 +116,12 @@ create_lambdaparam <- function(
 }
 
 #' Create a parameter called m
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called m
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -131,7 +131,7 @@ create_mparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "m",
       id = id,
       estimate = estimate,
@@ -141,12 +141,12 @@ create_mparam <- function(
 }
 
 #' Create a parameter called mean
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called mean
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -156,7 +156,7 @@ create_meanparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "mean",
       id = id,
       estimate = estimate,
@@ -166,12 +166,12 @@ create_meanparam <- function(
 }
 
 #' Create a parameter called mu
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called mu
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -184,7 +184,7 @@ create_muparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "mu",
       id = id,
       estimate = estimate,
@@ -200,7 +200,7 @@ create_muparam <- function(
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called rate
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -215,7 +215,7 @@ create_clock_rateparam <- function(
   value = "1.0"
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "clock_rate",
       id = id,
       estimate = estimate,
@@ -225,14 +225,14 @@ create_clock_rateparam <- function(
 }
 
 #' Create a parameter called s
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lower value of the parameter
 #' @param upper upper value of the parameter
 #' @return a parameter called s
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -244,7 +244,7 @@ create_sparam <- function(
   upper = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "s",
       id = id,
       estimate = estimate,
@@ -256,12 +256,12 @@ create_sparam <- function(
 }
 
 #' Create a parameter called scale
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter scale be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called scale
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -274,7 +274,7 @@ create_scaleparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "scale",
       id = id,
       estimate = estimate,
@@ -284,12 +284,12 @@ create_scaleparam <- function(
 }
 
 #' Create a parameter called sigma
-#' @inheritParams createparam
+#' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called sigma
-#' @seealso the function \code{\link{createparam}} contains a list
+#' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -299,7 +299,7 @@ create_sigmaparam <- function(
   value = 0.0
 ) {
   return(
-    beautier::createparam(
+    beautier::create_param(
       name = "sigma",
       id = id,
       estimate = estimate,

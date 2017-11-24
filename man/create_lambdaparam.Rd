@@ -18,7 +18,7 @@ a parameter called lambda
 Create a parameter called lambda
 }
 \seealso{
-the function \code{\link{createparam}} contains a list
+the function \code{\link{create_param}} contains a list
   of all parameters that can be created
 }
 \author{

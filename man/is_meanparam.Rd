@@ -2,22 +2,20 @@
 % Please edit documentation in R/is_mean_param.R
 \name{is_meanparam}
 \alias{is_meanparam}
-\title{Determine if the object is a valid
-mean parameter}
+\title{Determine if the object is a valid mean parameter}
 \usage{
 is_meanparam(x)
 }
 \arguments{
-\item{x}{an object, to be determined if it is a valid
-mean parameter}
+\item{x}{an object, to be determined if it is a valid mean parameter,
+as created by \code{\link{create_mean_param}})}
 }
 \value{
 TRUE if x is a valid mean parameter,
   FALSE otherwise
 }
 \description{
-Determine if the object is a valid
-mean parameter
+Determine if the object is a valid mean parameter
 }
 \author{
 Richel J.C. Bilderbeek
