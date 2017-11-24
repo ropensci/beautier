@@ -76,8 +76,8 @@ create_distr <- function(
 #' @export
 create_beta_distr <- function(
   id = NA,
-  alpha = create_alpha_param(id = NA, estimate = NA, value = NA),
-  beta = create_beta_param(id = NA, estimate = NA, value = NA)
+  alpha = create_alpha_param(),
+  beta = create_beta_param()
 ) {
   if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",

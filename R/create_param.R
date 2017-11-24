@@ -53,6 +53,26 @@ create_param <- function(
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   alpha_param <- create_alpha_param()
+#'   testit::assert(is_alpha_param(alpha_param))
+#'
+#'   beta_distr <- create_beta_distr(
+#'     alpha = alpha_param
+#'   )
+#'   testit::assert(is_beta_distr(beta_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = beta_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_alpha_param <- function(
   id = NA,

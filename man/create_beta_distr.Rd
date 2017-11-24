@@ -4,9 +4,8 @@
 \alias{create_beta_distr}
 \title{Create a beta distribution}
 \usage{
-create_beta_distr(id = NA, alpha = create_alpha_param(id = NA, estimate =
-  NA, value = NA), beta = create_beta_param(id = NA, estimate = NA, value =
-  NA))
+create_beta_distr(id = NA, alpha = create_alpha_param(),
+  beta = create_beta_param())
 }
 \arguments{
 \item{id}{the distribution's ID}

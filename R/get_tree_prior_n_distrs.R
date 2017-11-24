@@ -34,7 +34,7 @@ get_tree_prior_n_distrs <- function(
   } else if (is_cep_tree_prior(tree_prior)) {
     return(2)
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior)) # nolint internal function
+    testit::assert(beautier::is_yule_tree_prior(tree_prior))
     return(1)
   }
 }
