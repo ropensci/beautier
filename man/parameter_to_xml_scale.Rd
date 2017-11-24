@@ -8,7 +8,7 @@ parameter_to_xml_scale(parameter)
 }
 \arguments{
 \item{parameter}{a scale parameter,
-as created by \code{\link{create_scale_parameter}})}
+as created by \code{\link{create_scaleparam}})}
 }
 \value{
 the parameter as XML text

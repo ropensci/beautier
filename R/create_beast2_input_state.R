@@ -50,36 +50,36 @@ create_beast2_input_state <- function(
     # 3) gamma shape
     # Order is determined by site model and Gamma Category Count :-(
     rates <- create_beast2_input_state_site_models_rates(id = id, site_model = site_model) # nolint
-    freq_parameters <- create_beast2_input_state_gamma_site_models_freq_parameters(id = id, site_model = site_model) # nolint
+    freqparams <- create_beast2_input_state_gamma_site_models_freqparams(id = id, site_model = site_model) # nolint
     gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(id = id, site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
     if (gcc == 0) {
       text <- c(text, rates)
-      text <- c(text, freq_parameters)
+      text <- c(text, freqparams)
     } else if (gcc == 1) {
       if (is_gtr_site_model(site_model)) {
-        text <- c(text, freq_parameters)
+        text <- c(text, freqparams)
         text <- c(text, rates)
       } else {
         text <- c(text, rates)
-        text <- c(text, freq_parameters)
+        text <- c(text, freqparams)
       }
     } else {
       if (is_gtr_site_model(site_model)) {
         if (prop_invariant == get_default_prop_invariant()) {
-          text <- c(text, freq_parameters)
+          text <- c(text, freqparams)
           text <- c(text, rates)
           text <- c(text, gamma_shape)
         } else {
           text <- c(text, gamma_shape)
-          text <- c(text, freq_parameters)
+          text <- c(text, freqparams)
           text <- c(text, rates)
         }
       } else {
         text <- c(text, rates)
         text <- c(text, gamma_shape)
-        text <- c(text, freq_parameters)
+        text <- c(text, freqparams)
       }
     }
 
@@ -252,7 +252,7 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_state_gamma_site_models_freq_parameters <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
 ) {

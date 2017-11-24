@@ -8,7 +8,7 @@ parameter_to_xml_mean(parameter)
 }
 \arguments{
 \item{parameter}{a mean parameter,
-as created by \code{\link{create_mean_parameter}})}
+as created by \code{\link{create_meanparam}})}
 }
 \value{
 the parameter as XML text

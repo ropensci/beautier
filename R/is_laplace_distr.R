@@ -19,8 +19,8 @@ is_laplace_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "laplace") return(FALSE)
   if (!"mu" %in% names(x)) return(FALSE)
-  if (!is_mu_parameter(x$mu)) return(FALSE)
+  if (!is_muparam(x$mu)) return(FALSE)
   if (!"scale" %in% names(x)) return(FALSE)
-  if (!is_scale_parameter(x$scale)) return(FALSE)
+  if (!is_scaleparam(x$scale)) return(FALSE)
   TRUE
 }

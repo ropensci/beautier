@@ -3,8 +3,8 @@ context("has_unique_ids")
 test_that("use for unique IDs", {
 
   text <- c(
-    parameter_to_xml(create_alpha_parameter(id = 0)),
-    parameter_to_xml(create_alpha_parameter(id = 1)),
+    parameter_to_xml(create_alphaparam(id = 0)),
+    parameter_to_xml(create_alphaparam(id = 1)),
     "nothing"
   )
 
@@ -15,8 +15,8 @@ test_that("use for unique IDs", {
 test_that("use for dupliucate IDs", {
 
   text <- c(
-    parameter_to_xml(create_alpha_parameter(id = 0)),
-    parameter_to_xml(create_alpha_parameter(id = 0))
+    parameter_to_xml(create_alphaparam(id = 0)),
+    parameter_to_xml(create_alphaparam(id = 0))
   )
 
   testthat::expect_false(has_unique_ids(text))

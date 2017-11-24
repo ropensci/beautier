@@ -27,7 +27,7 @@ is_init_rln_clock_model <- function(
 ) {
   testit::assert(beautier::is_rln_clock_model(x))
   if (!is_init_distr(x$uclstdev_distr)) return(FALSE) # nolint internal function call
-  !is.na(x$m_parameter_id)
+  !is.na(x$mparam_id)
 }
 
 #' Determine if x is an initialized strict clock_model object
@@ -42,5 +42,5 @@ is_init_strict_clock_model <- function(
 ) {
   testit::assert(beautier::is_strict_clock_model(x))
 
-  !is.na(x$clock_rate_parameter$id)
+  !is.na(x$clock_rateparam$id)
 }

@@ -91,8 +91,8 @@ create_hky_site_model <- function(
   kappa = get_default_kappa(),
   gamma_site_model = get_default_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
-    m = create_m_parameter(value = "1.0"),
-    s = create_s_parameter(value = "1.25")
+    m = create_mparam(value = "1.0"),
+    s = create_sparam(value = "1.25")
   )
 ) {
   return(
@@ -130,12 +130,12 @@ create_hky_site_model <- function(
 create_tn93_site_model <- function(
   gamma_site_model = get_default_gamma_site_model(),
   kappa_1_prior_distr = create_log_normal_distr(
-    m = create_m_parameter(id = NA, estimate = FALSE, value = "1.0"),
-    s = create_s_parameter(id = NA, estimate = FALSE, value = "1.25")
+    m = create_mparam(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_sparam(id = NA, estimate = FALSE, value = "1.25")
   ),
   kappa_2_prior_distr = create_log_normal_distr(
-    m = create_m_parameter(id = NA, estimate = FALSE, value = "1.0"),
-    s = create_s_parameter(id = NA, estimate = FALSE, value = "1.25")
+    m = create_mparam(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_sparam(id = NA, estimate = FALSE, value = "1.25")
   )
 ) {
   return(

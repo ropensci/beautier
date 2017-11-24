@@ -8,7 +8,7 @@ parameter_to_xml_alpha(parameter)
 }
 \arguments{
 \item{parameter}{an alpha parameter,
-as created by \code{\link{create_alpha_parameter}})}
+as created by \code{\link{create_alphaparam}})}
 }
 \value{
 the parameter as XML text

@@ -8,7 +8,7 @@ parameter_to_xml(parameter)
 }
 \arguments{
 \item{parameter}{a distibution,
-as created by \code{\link{create_parameter}})}
+as created by \code{\link{createparam}})}
 }
 \value{
 the parameter as XML text

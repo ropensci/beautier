@@ -16,6 +16,6 @@ is_rln_clock_model <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "relaxed_log_normal") return(FALSE)
   if (!"uclstdev_distr" %in% names(x)) return(FALSE)
-  if (!"m_parameter_id" %in% names(x)) return(FALSE)
+  if (!"mparam_id" %in% names(x)) return(FALSE)
   TRUE
 }

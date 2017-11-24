@@ -109,7 +109,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 
     # Now three things
     rates <- create_beast2_input_loggers_rates(id = id, site_model = site_model) # nolint
-    freq_parameters <- create_beast2_input_loggers_freq_parameter(id = id, site_model = site_model) # nolint
+    freqparams <- create_beast2_input_loggers_freqparam(id = id, site_model = site_model) # nolint
     gamma_shape <- create_beast2_input_loggers_gamma_shape(id = id, site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
@@ -117,26 +117,26 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     if (is_gtr_site_model(site_model)) {
       if (gcc == 0) {
         text <- c(text, rates)
-        text <- c(text, freq_parameters)
+        text <- c(text, freqparams)
       } else if (gcc == 1) {
-        text <- c(text, freq_parameters)
+        text <- c(text, freqparams)
         text <- c(text, rates)
       } else {
         testit::assert(gcc >= 2)
         if (prop_invariant == get_default_prop_invariant()) {
-          text <- c(text, freq_parameters)
+          text <- c(text, freqparams)
           text <- c(text, rates)
           text <- c(text, gamma_shape)
         } else {
           text <- c(text, gamma_shape)
-          text <- c(text, freq_parameters)
+          text <- c(text, freqparams)
           text <- c(text, rates)
         }
       }
     } else {
       text <- c(text, rates)
       text <- c(text, gamma_shape)
-      text <- c(text, freq_parameters)
+      text <- c(text, freqparams)
     }
 
 
@@ -281,7 +281,7 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_loggers_freq_parameter <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_loggers_freqparam <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   site_model
 ) {

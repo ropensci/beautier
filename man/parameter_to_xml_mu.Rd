@@ -8,7 +8,7 @@ parameter_to_xml_mu(parameter)
 }
 \arguments{
 \item{parameter}{a mu parameter,
-as created by \code{\link{create_mu_parameter}})}
+as created by \code{\link{create_muparam}})}
 }
 \value{
 the parameter as XML text

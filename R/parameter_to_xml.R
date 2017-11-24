@@ -1,6 +1,6 @@
 #' Converts a parameter to XML
 #' @param parameter a distibution,
-#'   as created by \code{\link{create_parameter}})
+#'   as created by \code{\link{createparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -8,7 +8,7 @@ parameter_to_xml <- function(
   parameter
 ) {
   text <- NULL
-  id <- beautier::get_parameter_id(parameter)
+  id <- beautier::getparam_id(parameter)
   if (!beautier::is_id(id)) {
     stop("parameter must have an ID")
   }
@@ -16,26 +16,26 @@ parameter_to_xml <- function(
   if (is.na(parameter$value)) {
     stop("parameter must have a value")
   }
-  if (beautier::is_alpha_parameter(parameter)) {
+  if (beautier::is_alphaparam(parameter)) {
     text <- c(text, parameter_to_xml_alpha(parameter)) # nolint internal function
-  } else if (beautier::is_beta_parameter(parameter)) {
+  } else if (beautier::is_betaparam(parameter)) {
     text <- c(text, parameter_to_xml_beta(parameter)) # nolint internal function
-  } else if (beautier::is_clock_rate_parameter(parameter)) {
+  } else if (beautier::is_clock_rateparam(parameter)) {
     text <- c(text, parameter_to_xml_clock_rate(parameter)) # nolint internal function
-  } else if (beautier::is_lambda_parameter(parameter)) {
+  } else if (beautier::is_lambdaparam(parameter)) {
     text <- c(text, parameter_to_xml_lambda(parameter)) # nolint internal function
-  } else if (beautier::is_m_parameter(parameter)) {
+  } else if (beautier::is_mparam(parameter)) {
     text <- c(text, parameter_to_xml_m(parameter)) # nolint internal function
-  } else if (beautier::is_mean_parameter(parameter)) {
+  } else if (beautier::is_meanparam(parameter)) {
     text <- c(text, parameter_to_xml_mean(parameter)) # nolint internal function
-  } else if (beautier::is_mu_parameter(parameter)) {
+  } else if (beautier::is_muparam(parameter)) {
     text <- c(text, parameter_to_xml_mu(parameter)) # nolint internal function
-  } else if (beautier::is_s_parameter(parameter)) {
+  } else if (beautier::is_sparam(parameter)) {
     text <- c(text, parameter_to_xml_s(parameter)) # nolint internal function
-  } else if (beautier::is_scale_parameter(parameter)) {
+  } else if (beautier::is_scaleparam(parameter)) {
     text <- c(text, parameter_to_xml_scale(parameter)) # nolint internal function
   } else {
-    testit::assert(beautier::is_sigma_parameter(parameter))
+    testit::assert(beautier::is_sigmaparam(parameter))
     text <- c(text, parameter_to_xml_sigma(parameter)) # nolint internal function
   }
   text
@@ -43,14 +43,14 @@ parameter_to_xml <- function(
 
 #' Converts an alpha parameter to XML
 #' @param parameter an alpha parameter,
-#'   as created by \code{\link{create_alpha_parameter}})
+#'   as created by \code{\link{create_alphaparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_alpha <- function(
   parameter
 ) {
-  testit::assert(beautier::is_alpha_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_alphaparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -70,14 +70,14 @@ parameter_to_xml_alpha <- function(
 
 #' Converts a beta parameter to XML
 #' @param parameter a beta parameter,
-#'   as created by \code{\link{create_beta_parameter}})
+#'   as created by \code{\link{create_betaparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_beta <- function(
   parameter
 ) {
-  testit::assert(beautier::is_beta_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_betaparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -96,14 +96,14 @@ parameter_to_xml_beta <- function(
 
 #' Converts a \code{clockRate} parameter to XML
 #' @param parameter a \code{clockRate} parameter,
-#'   as created by \code{\link{create_clock_rate_parameter}})
+#'   as created by \code{\link{create_clock_rateparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_clock_rate <- function(
   parameter
 ) {
-  testit::assert(beautier::is_clock_rate_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_clock_rateparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -124,14 +124,14 @@ parameter_to_xml_clock_rate <- function(
 
 #' Converts a lambda parameter to XML
 #' @param parameter a lambda parameter,
-#'   as created by \code{\link{create_lambda_parameter}})
+#'   as created by \code{\link{create_lambdaparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_lambda <- function(
   parameter
 ) {
-  testit::assert(beautier::is_lambda_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_lambdaparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   value <- parameter$value
   text <- NULL
@@ -148,14 +148,14 @@ parameter_to_xml_lambda <- function(
 
 #' Converts a m parameter to XML
 #' @param parameter a m parameter,
-#'   as created by \code{\link{create_m_parameter}})
+#'   as created by \code{\link{create_mparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_m <- function(
   parameter
 ) {
-  testit::assert(beautier::is_m_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_mparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -174,14 +174,14 @@ parameter_to_xml_m <- function(
 
 #' Converts a mean parameter to XML
 #' @param parameter a mean parameter,
-#'   as created by \code{\link{create_mean_parameter}})
+#'   as created by \code{\link{create_meanparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_mean <- function(
   parameter
 ) {
-  testit::assert(beautier::is_mean_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_meanparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -200,14 +200,14 @@ parameter_to_xml_mean <- function(
 
 #' Converts a mu parameter to XML
 #' @param parameter a mu parameter,
-#'   as created by \code{\link{create_mu_parameter}})
+#'   as created by \code{\link{create_muparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_mu <- function(
   parameter
 ) {
-  testit::assert(beautier::is_mu_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_muparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -226,14 +226,14 @@ parameter_to_xml_mu <- function(
 
 #' Converts a s parameter to XML
 #' @param parameter a s parameter,
-#'   as created by \code{\link{create_s_parameter}})
+#'   as created by \code{\link{create_sparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_s <- function(
   parameter
 ) {
-  testit::assert(beautier::is_s_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_sparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -257,14 +257,14 @@ parameter_to_xml_s <- function(
 
 #' Converts a scale parameter to XML
 #' @param parameter a scale parameter,
-#'   as created by \code{\link{create_scale_parameter}})
+#'   as created by \code{\link{create_scaleparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_scale <- function(
   parameter
 ) {
-  testit::assert(beautier::is_scale_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_scaleparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -283,14 +283,14 @@ parameter_to_xml_scale <- function(
 
 #' Converts a sigma parameter to XML
 #' @param parameter a sigma parameter,
-#'   as created by \code{\link{create_sigma_parameter}})
+#'   as created by \code{\link{create_sigmaparam}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_sigma <- function(
   parameter
 ) {
-  testit::assert(beautier::is_sigma_parameter(parameter))
-  id <- beautier::get_parameter_id(parameter)
+  testit::assert(beautier::is_sigmaparam(parameter))
+  id <- beautier::getparam_id(parameter)
   testit::assert(beautier::is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value

@@ -8,7 +8,7 @@ parameter_to_xml_lambda(parameter)
 }
 \arguments{
 \item{parameter}{a lambda parameter,
-as created by \code{\link{create_lambda_parameter}})}
+as created by \code{\link{create_lambdaparam}})}
 }
 \value{
 the parameter as XML text

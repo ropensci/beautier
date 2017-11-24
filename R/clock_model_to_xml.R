@@ -48,17 +48,17 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
       "id=\"StrictClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
     # initialization may happen here
-    clock_model$clock_rate_parameter$id <- id
+    clock_model$clock_rateparam$id <- id
     text <- c(
       text,
       beautier::indent(
-        beautier::parameter_to_xml(clock_model$clock_rate_parameter),
+        beautier::parameter_to_xml(clock_model$clock_rateparam),
         n_spaces = 4
       )
     )
     text <- c(text, "</branchRateModel>")
   } else if (is_rln_clock_model(clock_model)) {
-    m_parameter_id <- clock_model$m_parameter_id
+    mparam_id <- clock_model$mparam_id
     text <- c(text, paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
@@ -69,7 +69,7 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
       "id=\"LogNormalDistributionModel.c:", id, "\" ",
       "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
     text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", m_parameter_id, "\" ",
+      "id=\"RealParameter.", mparam_id, "\" ",
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))

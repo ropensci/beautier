@@ -4,13 +4,13 @@
 \alias{create_poisson_distr}
 \title{Create a Poisson distribution}
 \usage{
-create_poisson_distr(id = NA, lambda = create_lambda_parameter())
+create_poisson_distr(id = NA, lambda = create_lambdaparam())
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{lambda}{the lambda parameter
-as returned by \code{\link{create_lambda_parameter}}}
+as returned by \code{\link{create_lambdaparam}}}
 }
 \value{
 a Poisson distribution

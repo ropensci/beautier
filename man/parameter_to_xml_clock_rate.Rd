@@ -8,7 +8,7 @@ parameter_to_xml_clock_rate(parameter)
 }
 \arguments{
 \item{parameter}{a \code{clockRate} parameter,
-as created by \code{\link{create_clock_rate_parameter}})}
+as created by \code{\link{create_clock_rateparam}})}
 }
 \value{
 the parameter as XML text

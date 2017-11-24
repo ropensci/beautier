@@ -37,7 +37,7 @@ create_strict_clock_models <- function(ids) {
   ms <- list()
   for (i in seq(1, n)) {
     ms[[i]] <- beautier::create_strict_clock_model(
-      clock_rate_parameter = create_clock_rate_parameter(
+      clock_rateparam = create_clock_rateparam(
         id = ids[i]
       )
     )

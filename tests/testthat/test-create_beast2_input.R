@@ -331,8 +331,8 @@ test_that("Reproduce hky_2_4.xml", {
     site_models = create_hky_site_model(
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -366,8 +366,8 @@ test_that("Reproduce hky_kappa_2_4.xml", {
       kappa = 3.4,
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -389,8 +389,8 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
       ),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -412,8 +412,8 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
       ),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -446,8 +446,8 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
       ),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -480,8 +480,8 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
       ),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -595,13 +595,13 @@ test_that("Reproduce tn93_2_4.xml", {
     site_models = create_tn93_site_model(
       kappa_1_prior_distr = create_log_normal_distr(
         id = 1,
-        m = create_m_parameter(id = 3, value = "1.0"),
-        s = create_s_parameter(id = 4, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 3, value = "1.0"),
+        s = create_sparam(id = 4, value = "1.25", lower = NA, upper = NA)
       ),
       kappa_2_prior_distr = create_log_normal_distr(
         id = 2,
-        m = create_m_parameter(id = 5, value = "1.0"),
-        s = create_s_parameter(id = 6, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 5, value = "1.0"),
+        s = create_sparam(id = 6, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -633,13 +633,13 @@ test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       ),
       kappa_2_prior_distr = create_log_normal_distr(
         id = 1,
-        m = create_m_parameter(id = 3, value = "1.0"),
-        s = create_s_parameter(id = 4, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 3, value = "1.0"),
+        s = create_sparam(id = 4, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -671,13 +671,13 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 1, value = "1.0"),
-        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 1, value = "1.0"),
+        s = create_sparam(id = 2, value = "1.25", lower = NA, upper = NA)
       ),
       kappa_2_prior_distr = create_log_normal_distr(
         id = 1,
-        m = create_m_parameter(id = 3, value = "1.0"),
-        s = create_s_parameter(id = 4, value = "1.25", lower = NA, upper = NA)
+        m = create_mparam(id = 3, value = "1.0"),
+        s = create_sparam(id = 4, value = "1.25", lower = NA, upper = NA)
       )
     ),
     tree_priors = create_yule_tree_prior(
@@ -716,10 +716,10 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
     clock_models = create_rln_clock_model(
       uclstdev_distr = create_gamma_distr(
         id = 0,
-        alpha = create_alpha_parameter(id = 2, value = "0.5396"),
-        beta = create_beta_parameter(id = 3, value = "0.3819")
+        alpha = create_alphaparam(id = 2, value = "0.5396"),
+        beta = create_betaparam(id = 3, value = "0.3819")
       ),
-      m_parameter_id = 1
+      mparam_id = 1
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
@@ -752,10 +752,10 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
     clock_models = create_rln_clock_model(
       uclstdev_distr = create_beta_distr(
         id = 0,
-        alpha = create_alpha_parameter(id = 4, value = "2.0"),
-        beta = create_beta_parameter(id = 5, value = "2.0")
+        alpha = create_alphaparam(id = 4, value = "2.0"),
+        beta = create_betaparam(id = 5, value = "2.0")
       ),
-      m_parameter_id = 1
+      mparam_id = 1
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -786,7 +786,7 @@ test_that("Use of a strict clock", {
   lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
-      clock_rate_parameter = create_clock_rate_parameter(id = id)
+      clock_rateparam = create_clock_rateparam(id = id)
     )
   )
   testthat::expect_true(has_unique_ids(lines))
@@ -826,7 +826,7 @@ test_that("Reproduce strict_clock_rate_0_5_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
-      clock_rate_parameter = create_clock_rate_parameter(
+      clock_rateparam = create_clock_rateparam(
         id = id,
         value = "0.5"
       )
@@ -946,8 +946,8 @@ test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = beautier::create_gamma_distr(
         id = 2,
-        alpha = create_alpha_parameter(id = 9, value = "2.0"),
-        beta = create_beta_parameter(id = 10, value = "2.0")
+        alpha = create_alphaparam(id = 9, value = "2.0"),
+        beta = create_betaparam(id = 10, value = "2.0")
       )
     )
   )
@@ -981,8 +981,8 @@ test_that("Reproduce coalescent_exponential_population_2_4.xml", {
       pop_size_distr = create_one_div_x_distr(id = 1),
       growth_rate_distr = create_laplace_distr(
         id = 0,
-        mu = create_mu_parameter(id = 1, value = "0.001"),
-        scale = create_scale_parameter(id = 2, value = "30.701135")
+        mu = create_muparam(id = 1, value = "0.001"),
+        scale = create_scaleparam(id = 2, value = "30.701135")
       )
     )
   )
@@ -1068,8 +1068,8 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         id = 0,
-        mean = create_mean_parameter(id = 1, estimate = FALSE, value = "0.0"),
-        sigma = create_sigma_parameter(id = 2, estimate = FALSE, value = "1.0")
+        mean = create_meanparam(id = 1, estimate = FALSE, value = "0.0"),
+        sigma = create_sigmaparam(id = 2, estimate = FALSE, value = "1.0")
       )
     )
   )
@@ -1128,8 +1128,8 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_parameter(id = 3, estimate = FALSE, value = "1.0"),
-        s = create_s_parameter(
+        m = create_mparam(id = 3, estimate = FALSE, value = "1.0"),
+        s = create_sparam(
           id = 4,
           estimate = FALSE,
           value = "1.25",
@@ -1166,7 +1166,7 @@ test_that("Reproduce birth_rate_exponential_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_exponential_distr(
         id = 1,
-        mean = create_mean_parameter(id = 5, estimate = FALSE, value = "1.0")
+        mean = create_meanparam(id = 5, estimate = FALSE, value = "1.0")
       )
     )
   )
@@ -1198,8 +1198,8 @@ test_that("Reproduce birth_rate_gamma_2_4.xml", {
     tree_priors = beautier::create_yule_tree_prior(
       birth_rate_distr = beautier::create_gamma_distr(
         id = 0,
-        alpha = create_alpha_parameter(id = 6, value = "2.0"),
-        beta = create_beta_parameter(id = 7, value = "2.0")
+        alpha = create_alphaparam(id = 6, value = "2.0"),
+        beta = create_betaparam(id = 7, value = "2.0")
       )
     )
   )
@@ -1230,8 +1230,8 @@ test_that("Reproduce birth_rate_beta_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_beta_distr(
         id = 0,
-        alpha = create_alpha_parameter(id = 8, value = "2.0"),
-        beta = create_beta_parameter(id = 9, value = "2.0")
+        alpha = create_alphaparam(id = 8, value = "2.0"),
+        beta = create_betaparam(id = 9, value = "2.0")
       )
     )
   )
@@ -1262,8 +1262,8 @@ test_that("Reproduce birth_rate_laplace_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_laplace_distr(
         id = 0,
-        mu = create_mu_parameter(id = 10, value = "0.0"),
-        scale = create_scale_parameter(id = 11, value = "1.0")
+        mu = create_muparam(id = 10, value = "0.0"),
+        scale = create_scaleparam(id = 11, value = "1.0")
       )
     )
   )
@@ -1293,12 +1293,12 @@ test_that("Reproduce birth_rate_inv_gamma_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_inv_gamma_distr(
         id = 0,
-        alpha = create_alpha_parameter(
+        alpha = create_alphaparam(
           id = 12,
           estimate = FALSE,
           value = "2.0"
         ),
-        beta = create_beta_parameter(
+        beta = create_betaparam(
           id = 13,
           estimate = FALSE,
           value = "2.0"
@@ -1333,7 +1333,7 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_poisson_distr(
         id = 0,
-        lambda = create_lambda_parameter(id = 14, value = "0.693")
+        lambda = create_lambdaparam(id = 14, value = "0.693")
       )
     )
   )
@@ -1512,8 +1512,8 @@ test_that("Reproduce aco_nd2_hky.xml", {
       create_hky_site_model(
         kappa_prior_distr = create_log_normal_distr(
           id = 1,
-          m = create_m_parameter(id = 4, value = "1.0"),
-          s = create_s_parameter(id = 5, value = "1.25", lower = NA, upper = NA)
+          m = create_mparam(id = 4, value = "1.0"),
+          s = create_sparam(id = 5, value = "1.25", lower = NA, upper = NA)
         )
         )
       ),
@@ -1607,8 +1607,8 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
       create_rln_clock_model(
         uclstdev_distr = create_gamma_distr(
           id = 0,
-          alpha = create_alpha_parameter(id = 3, value = "0.5396"),
-          beta = create_beta_parameter(id = 4, value = "0.3819")
+          alpha = create_alphaparam(id = 3, value = "0.5396"),
+          beta = create_betaparam(id = 4, value = "0.3819")
         )
       )
     ),
@@ -1659,13 +1659,13 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
     tree_priors = create_bd_tree_prior(
         birth_rate_distr = create_normal_distr(
           id = 0,
-          mean = create_mean_parameter(id = 3, value = "0.0"),
-          sigma = create_sigma_parameter(id = 4, value = "1.0")
+          mean = create_meanparam(id = 3, value = "0.0"),
+          sigma = create_sigmaparam(id = 4, value = "1.0")
         ),
         death_rate_distr = create_gamma_distr(
           id = 1,
-          alpha = create_alpha_parameter(id = 7, value = "2.0"),
-          beta = create_beta_parameter(id = 8, value = "2.0")
+          alpha = create_alphaparam(id = 7, value = "2.0"),
+          beta = create_betaparam(id = 8, value = "2.0")
         )
     )
   )

@@ -4,18 +4,18 @@
 \alias{create_gamma_distr}
 \title{Create a gamma distribution}
 \usage{
-create_gamma_distr(id = NA, alpha = create_alpha_parameter(id = NA, estimate
-  = FALSE, value = "0.5396"), beta = create_beta_parameter(id = NA, estimate =
-  FALSE, value = "0.3819"))
+create_gamma_distr(id = NA, alpha = create_alphaparam(id = NA, estimate =
+  FALSE, value = "0.5396"), beta = create_betaparam(id = NA, estimate = FALSE,
+  value = "0.3819"))
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
-as returned by \code{\link{create_alpha_parameter}}}
+as returned by \code{\link{create_alphaparam}}}
 
 \item{beta}{the beta shape parameter,
-as returned by \code{\link{create_beta_parameter}}}
+as returned by \code{\link{create_betaparam}}}
 }
 \value{
 a gamma distribution

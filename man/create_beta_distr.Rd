@@ -4,18 +4,17 @@
 \alias{create_beta_distr}
 \title{Create a beta distribution}
 \usage{
-create_beta_distr(id = NA, alpha = create_alpha_parameter(id = NA, estimate
-  = NA, value = NA), beta = create_beta_parameter(id = NA, estimate = NA,
-  value = NA))
+create_beta_distr(id = NA, alpha = create_alphaparam(id = NA, estimate = NA,
+  value = NA), beta = create_betaparam(id = NA, estimate = NA, value = NA))
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
-as returned by \code{\link{create_alpha_parameter}}}
+as returned by \code{\link{create_alphaparam}}}
 
 \item{beta}{the beta shape parameter,
-as returned by \code{\link{create_beta_parameter}}}
+as returned by \code{\link{create_betaparam}}}
 }
 \value{
 a beta distribution

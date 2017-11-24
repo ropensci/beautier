@@ -4,12 +4,11 @@
 \alias{create_strict_clock_model}
 \title{Create a strict clock model}
 \usage{
-
-  create_strict_clock_model(clock_rate_parameter = create_clock_rate_parameter())
+create_strict_clock_model(clock_rateparam = create_clock_rateparam())
 }
 \arguments{
-\item{clock_rate_parameter}{a clock_rate parameter,
-as created by a \code{\link{create_clock_rate_parameter}} function}
+\item{clock_rateparam}{a clock_rate parameter,
+as created by a \code{\link{create_clock_rateparam}} function}
 }
 \value{
 a strict clock_model

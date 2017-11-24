@@ -6,8 +6,8 @@ test_that("hky site model", {
     beautier:::is_init_site_model(
       create_hky_site_model(
         kappa_prior_distr = create_log_normal_distr(id = 1,
-          m = create_m_parameter(id = 1),
-          s = create_s_parameter(id = 2)
+          m = create_mparam(id = 1),
+          s = create_sparam(id = 2)
         )
       )
     )
@@ -17,8 +17,8 @@ test_that("hky site model", {
     beautier:::is_init_site_model(
       create_hky_site_model(
         kappa_prior_distr = create_log_normal_distr(id = NA,
-            m = create_m_parameter(id = 1),
-            s = create_s_parameter(id = 2)
+            m = create_mparam(id = 1),
+            s = create_sparam(id = 2)
         )
       )
     )
@@ -28,8 +28,8 @@ test_that("hky site model", {
     beautier:::is_init_site_model(
       create_hky_site_model(
         kappa_prior_distr = create_log_normal_distr(id = 1,
-            m = create_m_parameter(id = NA),
-            s = create_s_parameter(id = 2)
+            m = create_mparam(id = NA),
+            s = create_sparam(id = 2)
         )
       )
     )
@@ -39,8 +39,8 @@ test_that("hky site model", {
     beautier:::is_init_site_model(
       create_hky_site_model(
         kappa_prior_distr = create_log_normal_distr(id = 1,
-            m = create_m_parameter(id = 1),
-            s = create_s_parameter(id = NA)
+            m = create_mparam(id = 1),
+            s = create_sparam(id = NA)
         )
       )
     )

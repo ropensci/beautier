@@ -4,17 +4,17 @@
 \alias{create_inv_gamma_distr}
 \title{Create an inverse gamma distribution}
 \usage{
-create_inv_gamma_distr(id = NA, alpha = create_alpha_parameter(),
-  beta = create_beta_parameter())
+create_inv_gamma_distr(id = NA, alpha = create_alphaparam(),
+  beta = create_betaparam())
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
-as returned by \code{\link{create_alpha_parameter}}}
+as returned by \code{\link{create_alphaparam}}}
 
 \item{beta}{the beta shape parameter,
-as returned by \code{\link{create_beta_parameter}}}
+as returned by \code{\link{create_betaparam}}}
 }
 \value{
 an inverse gamma distribution

@@ -33,7 +33,7 @@ create_clock_model <- function(
 #' Create a relaxed log-normal clock model
 #' @param uclstdev_distr the uclstdev distribution,
 #'   as created by a \code{\link{create_distr}} function
-#' @param m_parameter_id the ID of the M paramater in the branchRateModel,
+#' @param mparam_id the ID of the M paramater in the branchRateModel,
 #'   set to NA to have it initialized
 #' @return a relaxed log-normal clock_model
 #' @author Richel J.C. Bilderbeek
@@ -52,20 +52,20 @@ create_clock_model <- function(
 #' @export
 create_rln_clock_model <- function(
   uclstdev_distr = create_gamma_distr(),
-  m_parameter_id = NA
+  mparam_id = NA
 ) {
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
     uclstdev_distr = uclstdev_distr,
-    m_parameter_id = m_parameter_id
+    mparam_id = mparam_id
   )
   testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   rln_clock_model
 }
 
 #' Create a strict clock model
-#' @param clock_rate_parameter a clock_rate parameter,
-#'   as created by a \code{\link{create_clock_rate_parameter}} function
+#' @param clock_rateparam a clock_rate parameter,
+#'   as created by a \code{\link{create_clock_rateparam}} function
 #' @return a strict clock_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -82,11 +82,11 @@ create_rln_clock_model <- function(
 #'   )
 #' @export
 create_strict_clock_model <- function(
-  clock_rate_parameter = create_clock_rate_parameter()
+  clock_rateparam = create_clock_rateparam()
 ) {
   strict_clock_model <- beautier::create_clock_model(
     name = "strict",
-    clock_rate_parameter = clock_rate_parameter
+    clock_rateparam = clock_rateparam
   )
   testit::assert(beautier::is_strict_clock_model(strict_clock_model))
   strict_clock_model
