@@ -12,8 +12,8 @@ is_init_distr <- function(
 
   if (beautier::is_beta_distr(x)) {
     return(is_init_beta_distr(x))  # nolint internal function call
-  } else if (beautier::is_exponential_distr(x)) {
-    return(is_init_exponential_distr(x))  # nolint internal function call
+  } else if (beautier::is_exp_distr(x)) {
+    return(is_init_exp_distr(x))  # nolint internal function call
   } else if (beautier::is_gamma_distr(x)) {
     return(is_init_gamma_distr(x))  # nolint internal function call
   } else if (beautier::is_inv_gamma_distr(x)) {
@@ -48,15 +48,15 @@ is_init_beta_distr <- function(
 }
 
 #' Determine if x is an initialized exponential distribution object
-#'   as created by \code{\link{create_exponential_distr}}
+#'   as created by \code{\link{create_exp_distr}}
 #' @param x the object to check if it is an
 #'   initialized exponential distribution object
 #' @return TRUE if x is an initialized exponential distribution object
 #' @author Richel J.C. Bilderbeek
-is_init_exponential_distr <- function(
+is_init_exp_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_exponential_distr(x))
+  testit::assert(beautier::is_exp_distr(x))
   !is.na(x$mean$id)
 }
 

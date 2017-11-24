@@ -6,7 +6,7 @@
 #' @note Prefer using the
 #'   named functions
 #'   \code{\link{create_beta_distr}},
-#'   \code{\link{create_exponential_distr}},
+#'   \code{\link{create_exp_distr}},
 #'   \code{\link{create_gamma_distr}},
 #'   \code{\link{create_inv_gamma_distr}},
 #'   \code{\link{create_laplace_distr}},
@@ -91,7 +91,7 @@ create_beta_distr <- function(
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_exponential_distr <- function(
+create_exp_distr <- function(
   id = NA,
   mean = create_mean_param(id = NA, estimate = NA, value = NA)
 ) {

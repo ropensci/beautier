@@ -24,7 +24,7 @@ General function to create a distribution.
 Prefer using the
   named functions
   \code{\link{create_beta_distr}},
-  \code{\link{create_exponential_distr}},
+  \code{\link{create_exp_distr}},
   \code{\link{create_gamma_distr}},
   \code{\link{create_inv_gamma_distr}},
   \code{\link{create_laplace_distr}},

@@ -42,17 +42,17 @@ test_that("use exponential", {
 
   testthat::expect_false(
     beautier:::is_init_distr(
-      create_exponential_distr()
+      create_exp_distr()
     )
   )
   testthat::expect_false(
     beautier:::is_init_distr(
-      create_exponential_distr(id = 1)
+      create_exp_distr(id = 1)
     )
   )
   testthat::expect_false(
     beautier:::is_init_distr(
-      create_exponential_distr(
+      create_exp_distr(
         id = 1,
         mean = create_mean_param(id = NA)
       )
@@ -60,7 +60,7 @@ test_that("use exponential", {
   )
   testthat::expect_true(
     beautier:::is_init_distr(
-      beautier:::init_distr(create_exponential_distr())
+      beautier:::init_distr(create_exp_distr())
     )
   )
 

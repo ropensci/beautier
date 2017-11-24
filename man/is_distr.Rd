@@ -20,7 +20,7 @@ Determine if the object is a valid distribution
 \seealso{
 use
  \code{\link{is_beta_distr}},
- \code{\link{is_exponential_distr}},
+ \code{\link{is_exp_distr}},
  \code{\link{is_gamma_distr}},
  \code{\link{is_inv_gamma_distr}},
  \code{\link{is_laplace_distr}},

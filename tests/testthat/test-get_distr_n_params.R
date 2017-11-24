@@ -6,7 +6,7 @@ test_that("use", {
   testthat::expect_equal(get_distr_n_params(create_beta_distr()), 2)
 
   # mean
-  testthat::expect_equal(get_distr_n_params(create_exponential_distr()), 1)
+  testthat::expect_equal(get_distr_n_params(create_exp_distr()), 1)
 
   # alpha and beta
   testthat::expect_equal(get_distr_n_params(create_gamma_distr()), 2)

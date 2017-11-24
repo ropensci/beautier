@@ -1,6 +1,6 @@
 #' Determine if the object is a valid
 #' exponential distribution
-#' as created by \code{\link{create_exponential_distr}}
+#' as created by \code{\link{create_exp_distr}}
 #' @param x an object, to be determined if it is a valid
 #'   exponential distribution
 #' @return TRUE if x is a valid exponential distribution,
@@ -9,7 +9,7 @@
 #'   distribution
 #' @author Richel J.C. Bilderbeek
 #' @export
-is_exponential_distr <- function(
+is_exp_distr <- function(
   x
 ) {
   if (!beautier::is_distr(x)) return(FALSE)

@@ -14,7 +14,7 @@ get_distr_n_params <- function(
 
   if (beautier::is_beta_distr(distr)) {
     return(2) # alpha and beta
-  } else if (beautier::is_exponential_distr(distr)) {
+  } else if (beautier::is_exp_distr(distr)) {
     return(1) # mean
   } else if (beautier::is_gamma_distr(distr)) {
     return(2) # alpha and beta

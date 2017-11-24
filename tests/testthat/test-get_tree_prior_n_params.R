@@ -8,7 +8,7 @@ test_that("use, BD", {
 
   testthat::expect_equal(get_tree_prior_n_params(
     create_bd_tree_prior(
-      birth_rate_distr = create_exponential_distr(), # 1
+      birth_rate_distr = create_exp_distr(), # 1
       death_rate_distr = create_laplace_distr() #2
       )
     ),
@@ -31,7 +31,7 @@ test_that("use, CCP", {
 
   testthat::expect_equal(get_tree_prior_n_params(
     create_ccp_tree_prior(
-      pop_size_distr = create_exponential_distr() # 1
+      pop_size_distr = create_exp_distr() # 1
       )
     ),
     1
@@ -46,7 +46,7 @@ test_that("use, CEP", {
 
   testthat::expect_equal(get_tree_prior_n_params(
     create_cep_tree_prior(
-      pop_size_distr = create_exponential_distr(), # 1
+      pop_size_distr = create_exp_distr(), # 1
       growth_rate_distr = create_laplace_distr() #2
       )
     ),

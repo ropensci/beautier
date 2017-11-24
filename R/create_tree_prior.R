@@ -152,7 +152,7 @@ create_cep_tree_prior <- function(
 ) {
   return(
     beautier::create_tree_prior(
-      name = "coalescent_exponential_population",
+      name = "coalescent_exp_population",
       pop_size_distr = pop_size_distr,
       growth_rate_distr = growth_rate_distr
     )

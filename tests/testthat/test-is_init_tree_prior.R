@@ -5,7 +5,7 @@ test_that("use", {
   testthat::expect_false(
     beautier:::is_init_tree_prior(
       create_yule_tree_prior(
-        birth_rate_distr = create_exponential_distr(id = 1)
+        birth_rate_distr = create_exp_distr(id = 1)
       )
     )
   )

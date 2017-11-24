@@ -973,7 +973,7 @@ test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
 # Tree prior: CEP
 ################################################################################
 
-test_that("Reproduce coalescent_exponential_population_2_4.xml", {
+test_that("Reproduce coalescent_exp_population_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -988,7 +988,7 @@ test_that("Reproduce coalescent_exponential_population_2_4.xml", {
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "coalescent_exponential_population_2_4.xml", package = "beautier"))
+    "coalescent_exp_population_2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -1159,12 +1159,12 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
 
 })
 
-test_that("Reproduce birth_rate_exponential_2_4.xml", {
+test_that("Reproduce birth_rate_exp_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_exponential_distr(
+      birth_rate_distr = create_exp_distr(
         id = 1,
         mean = create_mean_param(id = 5, estimate = FALSE, value = "1.0")
       )
@@ -1172,7 +1172,7 @@ test_that("Reproduce birth_rate_exponential_2_4.xml", {
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "birth_rate_exponential_2_4.xml", package = "beautier"))
+    "birth_rate_exp_2_4.xml", package = "beautier"))
 
 
   if (1 == 2) { # nolint keep this to help fixing future tests
@@ -1679,7 +1679,7 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
 
 
-test_that("JC69 JC69 strict strict coalescent_exponential_population", {
+test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"

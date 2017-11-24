@@ -14,8 +14,8 @@ distr_to_xml <- function(
   }
   if (is_beta_distr(distr)) {
     text <- c(text, distr_to_xml_beta(distr)) # nolint internal function
-  } else if (is_exponential_distr(distr)) {
-    text <- c(text, distr_to_xml_exponential(distr)) # nolint internal function
+  } else if (is_exp_distr(distr)) {
+    text <- c(text, distr_to_xml_exp(distr)) # nolint internal function
   } else if (is_gamma_distr(distr)) {
     text <- c(text, distr_to_xml_gamma(distr)) # nolint internal function
   } else if (is_inv_gamma_distr(distr)) {
@@ -69,13 +69,13 @@ distr_to_xml_beta <- function(
 
 #' Converts an exponential distribution to XML
 #' @param distr an exponential distibution,
-#'   as created by \code{\link{create_exponential_distr}})
+#'   as created by \code{\link{create_exp_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-distr_to_xml_exponential <- function(
+distr_to_xml_exp <- function(
   distr
 ) {
-  testit::assert(beautier::is_exponential_distr(distr))
+  testit::assert(beautier::is_exp_distr(distr))
   id <- beautier::get_distr_id(distr)
   testit::assert(beautier::is_id(id))
 

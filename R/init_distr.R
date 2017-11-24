@@ -26,7 +26,7 @@ init_distr <- function(
       distr$beta$id <- param_id
     }
 
-  } else if (is_exponential_distr(distr)) {
+  } else if (is_exp_distr(distr)) {
 
     if (is.na(distr$mean$id)) {
       distr$mean$id <- param_id

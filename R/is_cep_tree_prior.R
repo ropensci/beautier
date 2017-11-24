@@ -11,7 +11,7 @@ is_cep_tree_prior <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (x$name != "coalescent_exponential_population") return(FALSE)
+  if (x$name != "coalescent_exp_population") return(FALSE)
   if (!"pop_size_distr" %in% names(x)) return(FALSE)
   if (!"growth_rate_distr" %in% names(x)) return(FALSE)
   TRUE

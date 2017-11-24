@@ -58,7 +58,7 @@ test_that("initialize Yule prior", {
   testthat::expect_true(beautier:::are_init_tree_priors(after))
 
   before <- list(create_yule_tree_prior(
-  birth_rate_distr = create_exponential_distr(id = 1)))
+  birth_rate_distr = create_exp_distr(id = 1)))
   testit::assert(!beautier:::are_init_tree_priors(before))
   after <- beautier:::init_tree_priors(before)
   testthat::expect_true(beautier:::are_init_tree_priors(after))
