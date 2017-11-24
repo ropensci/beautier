@@ -248,7 +248,6 @@ create_inv_gamma_distr <- function(
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'   testit::assert(is_laplace_distr(laplace_distr))
 #'
