@@ -8,6 +8,21 @@
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   log_normal_distr <- create_log_normal_distr()
+#'   testit::assert(is_log_normal_distr(log_normal_distr))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 is_log_normal_distr <- function(
   x
@@ -16,8 +31,8 @@ is_log_normal_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "log_normal") return(FALSE)
   if (!"m" %in% names(x)) return(FALSE)
-  if (!is_m_param(x$m)) return(FALSE)
+  if (!beautier::is_m_param(x$m)) return(FALSE)
   if (!"s" %in% names(x)) return(FALSE)
-  if (!is_s_param(x$s)) return(FALSE)
+  if (!beautier::is_s_param(x$s)) return(FALSE)
   TRUE
 }

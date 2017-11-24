@@ -771,15 +771,6 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
     text <- c(text, paste0("</prior>"))
     text <- beautier::indent(text, n_spaces = 12)
   } else if (is_tn93_site_model(site_model)) {
-    distr_ids <- NULL
-    param_ids <- NULL
-    if (get_gamma_cat_count(get_gamma_site_model(site_model)) == 0) {
-      distr_ids <- seq(1, 2)
-      param_ids <- seq(3, 6)
-    } else {
-      distr_ids <- seq(0, 1)
-      param_ids <- seq(1, 4)
-    }
     text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
     text <- c(text,

@@ -21,6 +21,22 @@ Determine if the object is a valid
 log-normal distribution,
 as created by \code{\link{create_log_normal_distr}}
 }
+\examples{
+  log_normal_distr <- create_log_normal_distr()
+  testit::assert(is_log_normal_distr(log_normal_distr))
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = log_normal_distr
+    )
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \seealso{
 use \code{\link{is_distr}} to see if x is any
   distribution
