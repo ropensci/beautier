@@ -1333,7 +1333,7 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_poisson_distr(
         id = 0,
-        lambda = create_lambdaparam(id = 14, value = "0.693")
+        lambda = create_lambda_param(id = 14, value = "0.693")
       )
     )
   )

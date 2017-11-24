@@ -418,7 +418,7 @@ create_one_div_x_distr <- function(
 #' Create a Poisson distribution
 #' @inheritParams create_distr
 #' @param lambda the lambda parameter
-#'   as returned by \code{\link{create_lambdaparam}}
+#'   as returned by \code{\link{create_lambda_param}}
 #' @return a Poisson distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -426,11 +426,11 @@ create_one_div_x_distr <- function(
 #' @export
 create_poisson_distr <- function(
   id = NA,
-  lambda = create_lambdaparam()
+  lambda = create_lambda_param()
 ) {
-  if (!is_lambdaparam(lambda)) {
+  if (!is_lambda_param(lambda)) {
     stop("'lambda' must be a lambda parameter, ",
-      "as returned by 'create_lambdaparam'")
+      "as returned by 'create_lambda_param'")
   }
   return(
     beautier::create_distr(

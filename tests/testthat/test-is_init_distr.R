@@ -288,7 +288,7 @@ test_that("use poisson", {
     beautier:::is_init_distr(
       create_poisson_distr(
         id = 1,
-        lambda = create_lambdaparam(id = NA)
+        lambda = create_lambda_param(id = NA)
       )
     )
   )

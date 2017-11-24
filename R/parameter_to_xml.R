@@ -22,7 +22,7 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_beta(parameter)) # nolint internal function
   } else if (beautier::is_clock_rate_param(parameter)) {
     text <- c(text, parameter_to_xml_clock_rate(parameter)) # nolint internal function
-  } else if (beautier::is_lambdaparam(parameter)) {
+  } else if (beautier::is_lambda_param(parameter)) {
     text <- c(text, parameter_to_xml_lambda(parameter)) # nolint internal function
   } else if (beautier::is_m_param(parameter)) {
     text <- c(text, parameter_to_xml_m(parameter)) # nolint internal function
@@ -124,13 +124,13 @@ parameter_to_xml_clock_rate <- function(
 
 #' Converts a lambda parameter to XML
 #' @param parameter a lambda parameter,
-#'   as created by \code{\link{create_lambdaparam}})
+#'   as created by \code{\link{create_lambda_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_lambda <- function(
   parameter
 ) {
-  testit::assert(beautier::is_lambdaparam(parameter))
+  testit::assert(beautier::is_lambda_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   value <- parameter$value

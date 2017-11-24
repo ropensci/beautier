@@ -162,7 +162,7 @@ create_beta_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_lambdaparam <- function(
+create_lambda_param <- function(
   id = NA,
   value = 0.0
 ) {
