@@ -107,6 +107,14 @@ create_hky_site_model <- function(
 
 #' Create a TN93 site model
 #' @inheritParams create_site_model
+#' @param kappa_1_prior_distr the distribution of the kappa 1 prior,
+#'   which is a log-normal distribution
+#'   (as created by \code{\link{create_log_normal_distr}})
+#'   by default
+#' @param kappa_2_prior_distr the distribution of the kappa 2 prior,
+#'   which is a log-normal distribution
+#'   (as created by \code{\link{create_log_normal_distr}})
+#'   by default
 #' @return a TN93 site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples

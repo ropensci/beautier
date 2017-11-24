@@ -14,6 +14,16 @@ create_tn93_site_model(gamma_site_model = get_default_gamma_site_model(),
 \arguments{
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
+
+\item{kappa_1_prior_distr}{the distribution of the kappa 1 prior,
+which is a log-normal distribution
+(as created by \code{\link{create_log_normal_distr}})
+by default}
+
+\item{kappa_2_prior_distr}{the distribution of the kappa 2 prior,
+which is a log-normal distribution
+(as created by \code{\link{create_log_normal_distr}})
+by default}
 }
 \value{
 a TN93 site_model
