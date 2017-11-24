@@ -20,3 +20,20 @@ a Coalescent Exponential Population tree_prior
 \description{
 Create a Coalescent Exponential Population tree prior
 }
+\examples{
+  cep_tree_prior <- create_cep_tree_prior()
+  testit::assert(is_cep_tree_prior(cep_tree_prior))
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = cep_tree_prior
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
+\author{
+Richel J.C. Bilderbeek
+}

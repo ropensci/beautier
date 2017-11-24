@@ -14,3 +14,4 @@ example_bd_fixed.xml
 tmp_*
 vignettes/*.fas
 vignettes/my_beast.xml
+my_beast.xml

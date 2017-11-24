@@ -24,8 +24,12 @@ Create a strict clock model
   input_fasta_filenames <- system.file(
     "extdata", "test_output_0.fas", package = "beautier"
   )
-  create_beast2_input(
+  create_beast2_input_file(
     input_fasta_filenames = input_fasta_filenames,
+    "my_beast.xml",
     clock_models = strict_clock_model
   )
+}
+\author{
+Richel J.C. Bilderbeek
 }

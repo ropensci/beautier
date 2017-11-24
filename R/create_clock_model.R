@@ -36,6 +36,7 @@ create_clock_model <- function(
 #' @param m_parameter_id the ID of the M paramater in the branchRateModel,
 #'   set to NA to have it initialized
 #' @return a relaxed log-normal clock_model
+#' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
 #'   testit::assert(is_rln_clock_model(rln_clock_model))
@@ -43,8 +44,9 @@ create_clock_model <- function(
 #'   input_fasta_filenames <- system.file(
 #'     "extdata", "test_output_0.fas", package = "beautier"
 #'   )
-#'   create_beast2_input(
+#'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filenames,
+#'     "my_beast.xml",
 #'     clock_models = rln_clock_model
 #'   )
 #' @export
@@ -65,6 +67,7 @@ create_rln_clock_model <- function(
 #' @param clock_rate_parameter a clock_rate parameter,
 #'   as created by a \code{\link{create_clock_rate_parameter}} function
 #' @return a strict clock_model
+#' @author Richel J.C. Bilderbeek
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model()
 #'   testit::assert(is_strict_clock_model(strict_clock_model))
@@ -72,8 +75,9 @@ create_rln_clock_model <- function(
 #'   input_fasta_filenames <- system.file(
 #'     "extdata", "test_output_0.fas", package = "beautier"
 #'   )
-#'   create_beast2_input(
+#'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filenames,
+#'     "my_beast.xml",
 #'     clock_models = strict_clock_model
 #'   )
 #' @export

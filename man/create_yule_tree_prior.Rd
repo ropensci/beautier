@@ -18,6 +18,20 @@ a Yule tree_prior
 \description{
 Create a Yule tree prior
 }
+\examples{
+  yule_tree_prior <- create_yule_tree_prior()
+  testit::assert(is_yule_tree_prior(yule_tree_prior))
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = yule_tree_prior
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
 \author{
 Richel J.C. Bilderbeek
 }

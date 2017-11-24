@@ -12,3 +12,20 @@ a Coalescent Bayesian Skyline tree_prior
 \description{
 Create a Coalescent Bayesian Skyline tree prior
 }
+\examples{
+  cbs_tree_prior <- create_cbs_tree_prior()
+  testit::assert(is_cbs_tree_prior(cbs_tree_prior))
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = cbs_tree_prior
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
+\author{
+Richel J.C. Bilderbeek
+}

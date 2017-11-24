@@ -16,3 +16,20 @@ a Coalescent Constant Population tree_prior
 \description{
 Create a Coalescent Constant Population tree prior
 }
+\examples{
+  ccp_tree_prior <- create_ccp_tree_prior()
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+
+  input_fasta_filename <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filename,
+    "my_beast.xml",
+    tree_priors = ccp_tree_prior
+  )
+  testit::assert(file.exists("my_beast.xml"))
+}
+\author{
+Richel J.C. Bilderbeek
+}

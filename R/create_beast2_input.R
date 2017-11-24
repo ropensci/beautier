@@ -22,6 +22,7 @@
 #'   xml <- create_beast2_input(
 #'     input_fasta_filenames = get_input_fasta_filename()
 #'   )
+#' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input <- function(

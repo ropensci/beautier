@@ -34,28 +34,6 @@ create_tree_prior <- function(
   tree_prior
 }
 
-
-#' Create a Yule tree prior
-#' @param birth_rate_distr the birth rate distribution,
-#'   as created by a \code{\link{create_distr}} function
-#' @return a Yule tree_prior
-#' @usage
-#' create_yule_tree_prior(
-#'   birth_rate_distr = beautier::create_uniform_distr()
-#' )
-#' @author Richel J.C. Bilderbeek
-#' @export
-create_yule_tree_prior <- function(
-  birth_rate_distr = beautier::create_uniform_distr()
-) {
-  return(
-    beautier::create_tree_prior(
-      name = "yule",
-      birth_rate_distr = birth_rate_distr
-    )
-  )
-}
-
 #' Create a Birth-Death tree prior
 #' @return a Birth-Death tree_prior
 #' @param birth_rate_distr the birth rate distribution,
@@ -69,6 +47,19 @@ create_yule_tree_prior <- function(
 #'   death_rate_distr = beautier::create_uniform_distr()
 #' )
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   bd_tree_prior <- create_bd_tree_prior()
+#'   testit::assert(is_bd_tree_prior(bd_tree_prior))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = bd_tree_prior
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_bd_tree_prior <- function(
   birth_rate_distr = beautier::create_uniform_distr(),
@@ -85,6 +76,20 @@ create_bd_tree_prior <- function(
 
 #' Create a Coalescent Bayesian Skyline tree prior
 #' @return a Coalescent Bayesian Skyline tree_prior
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   cbs_tree_prior <- create_cbs_tree_prior()
+#'   testit::assert(is_cbs_tree_prior(cbs_tree_prior))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = cbs_tree_prior
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_cbs_tree_prior <- function() {
   return(beautier::create_tree_prior(name = "coalescent_bayesian_skyline"))
@@ -94,6 +99,20 @@ create_cbs_tree_prior <- function() {
 #' @param pop_size_distr the population distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Constant Population tree_prior
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   ccp_tree_prior <- create_ccp_tree_prior()
+#'   testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = ccp_tree_prior
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_ccp_tree_prior <- function(
   pop_size_distr = beautier::create_one_div_x_distr()
@@ -112,6 +131,20 @@ create_ccp_tree_prior <- function(
 #' @param growth_rate_distr the growth rate distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Exponential Population tree_prior
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   cep_tree_prior <- create_cep_tree_prior()
+#'   testit::assert(is_cep_tree_prior(cep_tree_prior))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = cep_tree_prior
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_cep_tree_prior <- function(
   pop_size_distr = create_one_div_x_distr(),
@@ -122,6 +155,40 @@ create_cep_tree_prior <- function(
       name = "coalescent_exponential_population",
       pop_size_distr = pop_size_distr,
       growth_rate_distr = growth_rate_distr
+    )
+  )
+}
+
+#' Create a Yule tree prior
+#' @param birth_rate_distr the birth rate distribution,
+#'   as created by a \code{\link{create_distr}} function
+#' @return a Yule tree_prior
+#' @usage
+#' create_yule_tree_prior(
+#'   birth_rate_distr = beautier::create_uniform_distr()
+#' )
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   yule_tree_prior <- create_yule_tree_prior()
+#'   testit::assert(is_yule_tree_prior(yule_tree_prior))
+#'
+#'   input_fasta_filename <- system.file(
+#'     "extdata", "anthus_aco.fas", package = "beautier"
+#'   )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = yule_tree_prior
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
+#' @export
+create_yule_tree_prior <- function(
+  birth_rate_distr = beautier::create_uniform_distr()
+) {
+  return(
+    beautier::create_tree_prior(
+      name = "yule",
+      birth_rate_distr = birth_rate_distr
     )
   )
 }

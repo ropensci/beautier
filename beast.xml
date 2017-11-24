@@ -57,15 +57,15 @@ name="alignment">
                 <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
             </prior>
             <prior id="kappa1Prior.s:test_output_0" name="distribution" x="@kappa1.s:test_output_0">
-                <LogNormal id="LogNormalDistributionModel.1" name="distr">
-                    <parameter id="RealParameter.3" estimate="false" name="M">1.0</parameter>
-                    <parameter id="RealParameter.4" estimate="false" name="S">1.25</parameter>
+                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="false" name="M">1.0</parameter>
+                    <parameter id="RealParameter.1" estimate="false" lower="0" name="S" upper="0">1.25</parameter>
                 </LogNormal>
             </prior>
             <prior id="kappa2Prior.s:test_output_0" name="distribution" x="@kappa2.s:test_output_0">
-                <LogNormal id="LogNormalDistributionModel.2" name="distr">
-                    <parameter id="RealParameter.5" estimate="false" name="M">1.0</parameter>
-                    <parameter id="RealParameter.6" estimate="false" name="S">1.25</parameter>
+                <LogNormal id="LogNormalDistributionModel.1" name="distr">
+                    <parameter id="RealParameter.2" estimate="false" name="M">1.0</parameter>
+                    <parameter id="RealParameter.3" estimate="false" lower="0" name="S" upper="0">1.25</parameter>
                 </LogNormal>
             </prior>
         </distribution>
