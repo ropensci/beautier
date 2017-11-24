@@ -592,7 +592,18 @@ test_that("Reproduce tn93_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_tn93_site_model(),
+    site_models = create_tn93_site_model(
+      kappa_1_prior_distr = create_log_normal_distr(
+        id = 1,
+        m = create_m_parameter(id = 3, value = "1.0"),
+        s = create_s_parameter(id = 4, value = "1.25", lower = NA, upper = NA)
+      ),
+      kappa_2_prior_distr = create_log_normal_distr(
+        id = 2,
+        m = create_m_parameter(id = 5, value = "1.0"),
+        s = create_s_parameter(id = 6, value = "1.25", lower = NA, upper = NA)
+      )
+    ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -619,7 +630,17 @@ test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_tn93_site_model(
-      gamma_site_model = create_gamma_site_model(gamma_cat_count = 1)
+      gamma_site_model = create_gamma_site_model(gamma_cat_count = 1),
+      kappa_1_prior_distr = create_log_normal_distr(
+        id = 0,
+        m = create_m_parameter(id = 1, value = "1.0"),
+        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+      ),
+      kappa_2_prior_distr = create_log_normal_distr(
+        id = 1,
+        m = create_m_parameter(id = 3, value = "1.0"),
+        s = create_s_parameter(id = 4, value = "1.25", lower = NA, upper = NA)
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -647,7 +668,17 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_tn93_site_model(
-      gamma_site_model = create_gamma_site_model(gamma_cat_count = 2)
+      gamma_site_model = create_gamma_site_model(gamma_cat_count = 2),
+      kappa_1_prior_distr = create_log_normal_distr(
+        id = 0,
+        m = create_m_parameter(id = 1, value = "1.0"),
+        s = create_s_parameter(id = 2, value = "1.25", lower = NA, upper = NA)
+      ),
+      kappa_2_prior_distr = create_log_normal_distr(
+        id = 1,
+        m = create_m_parameter(id = 3, value = "1.0"),
+        s = create_s_parameter(id = 4, value = "1.25", lower = NA, upper = NA)
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -1673,7 +1704,6 @@ test_that("JC69 JC69 strict strict coalescent_exponential_population", {
 
 test_that("TN93 TN93 strict strict yule", {
 
-  skip("WIP, issue 8")
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )
@@ -1692,7 +1722,6 @@ test_that("TN93 TN93 strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  save_text(filename = "~/fix.txt", text = lines)
   testthat::expect_true(has_unique_ids(lines))
 })
 

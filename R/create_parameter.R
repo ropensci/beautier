@@ -174,6 +174,9 @@ create_mean_parameter <- function(
 #' @seealso the function \code{\link{create_parameter}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   mu_parameter <- create_mu_parameter()
+#'   testit::assert(is_mu_parameter(mu_parameter))
 #' @export
 create_mu_parameter <- function(
   id = NA,
@@ -261,6 +264,9 @@ create_s_parameter <- function(
 #' @seealso the function \code{\link{create_parameter}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   scale_parameter <- create_scale_parameter()
+#'   testit::assert(is_scale_parameter(scale_parameter))
 #' @export
 create_scale_parameter <- function(
   id = NA,

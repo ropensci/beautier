@@ -121,8 +121,14 @@ create_hky_site_model <- function(
 #' @export
 create_tn93_site_model <- function(
   gamma_site_model = get_default_gamma_site_model(),
-  kappa_1_prior_distr = create_log_normal_distr(m = "1.0", s = "1.25"),
-  kappa_2_prior_distr = create_log_normal_distr(m = "1.0", s = "1.25")
+  kappa_1_prior_distr = create_log_normal_distr(
+    m = create_m_parameter(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_s_parameter(id = NA, estimate = FALSE, value = "1.25")
+  ),
+  kappa_2_prior_distr = create_log_normal_distr(
+    m = create_m_parameter(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_s_parameter(id = NA, estimate = FALSE, value = "1.25")
+  )
 ) {
   return(
     beautier::create_site_model(

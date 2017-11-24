@@ -8,6 +8,9 @@
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   laplace_distr <- create_laplace_distr()
+#'   testit::assert(is_laplace_distr(laplace_distr))
 #' @export
 is_laplace_distr <- function(
   x
@@ -16,6 +19,8 @@ is_laplace_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "laplace") return(FALSE)
   if (!"mu" %in% names(x)) return(FALSE)
+  if (!is_mu_parameter(x$mu)) return(FALSE)
   if (!"scale" %in% names(x)) return(FALSE)
+  if (!is_scale_parameter(x$scale)) return(FALSE)
   TRUE
 }

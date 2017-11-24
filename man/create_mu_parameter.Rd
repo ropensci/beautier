@@ -20,6 +20,10 @@ a parameter called mu
 \description{
 Create a parameter called mu
 }
+\examples{
+  mu_parameter <- create_mu_parameter()
+  testit::assert(is_mu_parameter(mu_parameter))
+}
 \seealso{
 the function \code{\link{create_parameter}} contains a list
   of all parameters that can be created

@@ -21,6 +21,10 @@ Determine if the object is a valid
 laplace distribution,
 as created by \code{\link{create_laplace_distr}}
 }
+\examples{
+  laplace_distr <- create_laplace_distr()
+  testit::assert(is_laplace_distr(laplace_distr))
+}
 \seealso{
 use \code{\link{is_distr}} to see if x is any
   distribution

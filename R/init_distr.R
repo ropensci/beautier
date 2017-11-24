@@ -65,6 +65,8 @@ init_distr <- function(
 
   } else if (is_log_normal_distr(distr)) {
 
+    testit::assert("m" %in% names(distr))
+    testit::assert("id" %in% names(distr$m))
     if (is.na(distr$m$id)) {
       distr$m$id <- param_id
       param_id <- param_id + 1

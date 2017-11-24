@@ -10,9 +10,11 @@ create_normal_distr(id = NA, mean = create_mean_parameter(),
 \arguments{
 \item{id}{the distribution's ID}
 
-\item{mean}{the mean parameter}
+\item{mean}{the mean parameter
+as returned by \code{\link{create_mean_parameter}}}
 
-\item{sigma}{the sigma parameter}
+\item{sigma}{the sigma parameter
+as returned by \code{\link{create_sigma_parameter}}}
 }
 \value{
 a normal distribution

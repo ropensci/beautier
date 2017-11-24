@@ -11,15 +11,21 @@ create_laplace_distr(id = NA, mu = create_mu_parameter(id = NA, estimate =
 \arguments{
 \item{id}{the distribution's ID}
 
-\item{mu}{the mu parameter}
+\item{mu}{the mu parameter,
+as returned by \code{\link{create_mu_parameter}}}
 
-\item{scale}{the scale parameter}
+\item{scale}{the scale parameter,
+as returned by \code{\link{create_scale_parameter}}}
 }
 \value{
 a Laplace distribution
 }
 \description{
 Create a Laplace distribution
+}
+\examples{
+  laplace_distr <- create_laplace_distr()
+  testit::assert(is_laplace_distr(laplace_distr))
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

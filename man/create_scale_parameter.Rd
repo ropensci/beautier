@@ -20,6 +20,10 @@ a parameter called scale
 \description{
 Create a parameter called scale
 }
+\examples{
+  scale_parameter <- create_scale_parameter()
+  testit::assert(is_scale_parameter(scale_parameter))
+}
 \seealso{
 the function \code{\link{create_parameter}} contains a list
   of all parameters that can be created
