@@ -1801,6 +1801,31 @@ test_that("GTR GTR strict strict yule", {
   testthat::expect_true(has_unique_ids(lines))
 })
 
+
+test_that("GTR TN93 strict strict yule", {
+
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  site_model_1 <- create_gtr_site_model()
+  site_model_2 <- create_tn93_site_model()
+  clock_model_1 <- create_strict_clock_model()
+  clock_model_2 <- create_strict_clock_model()
+  tree_prior <- create_yule_tree_prior()
+  lines <- create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = list(site_model_1, site_model_2),
+    clock_models = list(clock_model_1, clock_model_2),
+    tree_priors = list(tree_prior, tree_prior)
+  )
+  save_text("~/fix.txt", lines)
+  testthat::expect_true(has_unique_ids(lines))
+})
+
 #-------------------------------------------------------------------------------
 # Brute force tests, two alignments
 #-------------------------------------------------------------------------------

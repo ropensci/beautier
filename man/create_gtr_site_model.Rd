@@ -43,6 +43,12 @@ as returned by \code{\link{create_alpha_param}})}
 
 \item{gamma_3_beta}{the gamma 3 beta parameter,
 as returned by \code{\link{create_beta_param}})}
+
+\item{gamma_5_alpha}{the gamma 5 alpha parameter,
+as returned by \code{\link{create_alpha_param}})}
+
+\item{gamma_5_beta}{the gamma 5 beta parameter,
+as returned by \code{\link{create_beta_param}})}
 }
 \value{
 a GTR site_model

@@ -166,6 +166,10 @@ create_tn93_site_model <- function(
 #'   as returned by \code{\link{create_alpha_param}})
 #' @param gamma_3_beta the gamma 3 beta parameter,
 #'   as returned by \code{\link{create_beta_param}})
+#' @param gamma_5_alpha the gamma 5 alpha parameter,
+#'   as returned by \code{\link{create_alpha_param}})
+#' @param gamma_5_beta the gamma 5 beta parameter,
+#'   as returned by \code{\link{create_beta_param}})
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples

@@ -63,7 +63,7 @@ init_site_models <- function(
 }
 
 #' Initializes a GTR site model
-#' @param hky_site_model a GTR site model,
+#' @param gtr_site_model a GTR site model,
 #'   as returned by \code{\link{create_gtr_site_model}}
 #' @inheritParams init_site_models
 #' @return an initialized GTR site model

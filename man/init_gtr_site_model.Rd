@@ -7,12 +7,12 @@
 init_gtr_site_model(gtr_site_model, distr_id, param_id)
 }
 \arguments{
+\item{gtr_site_model}{a GTR site model,
+as returned by \code{\link{create_gtr_site_model}}}
+
 \item{distr_id}{the first distributions' ID}
 
 \item{param_id}{the first parameter's ID}
-
-\item{hky_site_model}{a GTR site model,
-as returned by \code{\link{create_gtr_site_model}}}
 }
 \value{
 an initialized GTR site model
