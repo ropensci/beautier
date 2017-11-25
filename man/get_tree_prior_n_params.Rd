@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_tree_prior_n_params.R
 \name{get_tree_prior_n_params}
 \alias{get_tree_prior_n_params}
-\title{Get the number of distributions a tree prior has}
+\title{Get the number of parameters a tree prior has}
 \usage{
 get_tree_prior_n_params(tree_prior)
 }
@@ -11,10 +11,10 @@ get_tree_prior_n_params(tree_prior)
 as created by \code{\link{create_tree_prior}}}
 }
 \value{
-the number of distributions a tree prior has
+the number of parameters a tree prior has
 }
 \description{
-Get the number of distributions a tree prior has
+Get the number of parameters a tree prior has
 }
 \examples{
  # birth_rate_distr is uniform, which has zero parameters
