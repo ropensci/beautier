@@ -7,14 +7,13 @@
 get_site_models_n_params <- function(
   site_models
 ) {
-  if (!are_site_models(site_models)) {
+  if (!beautier::are_site_models(site_models)) {
     stop("'site_models' must be a list of site models")
   }
   n <- 0
   for (site_model in site_models) {
-    testit::assert(is_site_model(site_model))
-    n <- n + get_site_model_n_params(site_model)
+    testit::assert(beautier::is_site_model(site_model))
+    n <- n + beautier::get_site_model_n_params(site_model)
   }
   n
 }
-
