@@ -5,7 +5,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  testit::assert(
-#'    get_tree_prior_n_distrs(
+#'    get_tree_priors_n_distrs(
 #'      list(
 #'        create_bd_tree_prior(), # has two distributions
 #'        create_ccp_tree_prior() # has one distribution
