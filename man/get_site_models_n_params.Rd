@@ -2,19 +2,19 @@
 % Please edit documentation in R/get_site_models_n_params.R
 \name{get_site_models_n_params}
 \alias{get_site_models_n_params}
-\title{Get the number of distributions a site model has}
+\title{Get the number of distributions one or more site models have}
 \usage{
-get_site_models_n_params(site_model)
+get_site_models_n_params(site_models)
 }
 \arguments{
-\item{site_model}{a site_model,
+\item{site_models}{a list of site_models,
 as created by \code{\link{create_site_model}}}
 }
 \value{
-the number of distributions a site model has
+the number of parameters the site models have
 }
 \description{
-Get the number of distributions a site model has
+Get the number of distributions one or more site models have
 }
 \author{
 Richel J.C. Bilderbeek

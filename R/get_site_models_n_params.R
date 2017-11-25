@@ -1,28 +1,20 @@
-#' Get the number of distributions a site model has
-#' @param site_model a site_model,
+#' Get the number of distributions one or more site models have
+#' @param site_models a list of site_models,
 #'   as created by \code{\link{create_site_model}}
-#' @return the number of distributions a site model has
+#' @return the number of parameters the site models have
 #' @author Richel J.C. Bilderbeek
 #' @export
 get_site_models_n_params <- function(
-  site_model
+  site_models
 ) {
-  if (!is_site_model(site_model)) {
-    stop("'site_model' must be a site model")
+  if (!are_site_models(site_models)) {
+    stop("'site_models' must be a list of site models")
   }
-  if (is_gtr_site_model(site_model)) {
-    return(10)
-  } else if (is_hky_site_model(site_model)) {
-    return(
-      get_distr_n_params(site_model$kappa_prior_distr)
-    )
-  } else if (is_jc69_site_model(site_model)) {
-    return(0)
-  } else {
-    testit::assert(beautier::is_tn93_site_model(site_model))
-    return(
-      get_distr_n_params(site_model$kappa_1_prior_distr) +
-      get_distr_n_params(site_model$kappa_2_prior_distr)
-    )
+  n <- 0
+  for (site_model in site_models) {
+    testit::assert(is_site_model(site_model))
+    n <- n + get_site_model_n_params(site_model)
   }
+  n
 }
+
