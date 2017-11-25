@@ -8,7 +8,7 @@ init_param(param, id)
 }
 \arguments{
 \item{param}{a parameter,
-using \code{\link{create_parameter}}}
+using \code{\link{create_param}}}
 
 \item{id}{the parameter's ID. Will be ignored if the parameter already
 has an ID}

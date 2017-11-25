@@ -1804,6 +1804,8 @@ test_that("GTR GTR strict strict yule", {
 
 test_that("GTR TN93 strict strict yule", {
 
+  skip("WIP")
+
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )
