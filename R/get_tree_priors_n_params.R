@@ -5,7 +5,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  testit::assert(
-#'    get_tree_prior_n_params(
+#'    get_tree_priors_n_params(
 #'      list(
 #'        create_bd_tree_prior(), # zero
 #'        create_cep_tree_prior() # two
