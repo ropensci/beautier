@@ -2,20 +2,20 @@
 % Please edit documentation in R/is_init_site_model.R
 \name{is_init_tn93_site_model}
 \alias{is_init_tn93_site_model}
-\title{Determine if x is an initialized tn93 site_model object
+\title{Determine if x is an initialized tn93 site model
 as created by \code{\link{create_tn93_site_model}}}
 \usage{
 is_init_tn93_site_model(x)
 }
 \arguments{
 \item{x}{the object to check if it is an
-initialized TN93 site model object}
+initialized TN93 site model}
 }
 \value{
-TRUE if x is an initialized TN93 site model object
+TRUE if x is an initialized TN93 site model
 }
 \description{
-Determine if x is an initialized tn93 site_model object
+Determine if x is an initialized tn93 site model
 as created by \code{\link{create_tn93_site_model}}
 }
 \author{

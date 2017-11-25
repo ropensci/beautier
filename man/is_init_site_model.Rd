@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_init_site_model.R
 \name{is_init_site_model}
 \alias{is_init_site_model}
-\title{Determine if x is an initialized site_model object,
+\title{Determine if x is an initialized site model,
 as created by \code{\link{create_site_model}}}
 \usage{
 is_init_site_model(x)
@@ -12,10 +12,10 @@ is_init_site_model(x)
 initialized site_models object}
 }
 \value{
-TRUE if x is an initialized site_model object
+TRUE if x is an initialized site model
 }
 \description{
-Determine if x is an initialized site_model object,
+Determine if x is an initialized site model,
 as created by \code{\link{create_site_model}}
 }
 \author{

@@ -11,7 +11,7 @@ get_site_model_n_params <- function(
     stop("'site_model' must be a site model")
   }
   if (is_gtr_site_model(site_model)) {
-    return(0)
+    return(10)
   } else if (is_hky_site_model(site_model)) {
     return(
       get_distr_n_params(site_model$kappa_prior_distr)

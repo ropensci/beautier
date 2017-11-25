@@ -2,20 +2,20 @@
 % Please edit documentation in R/is_init_site_model.R
 \name{is_init_hky_site_model}
 \alias{is_init_hky_site_model}
-\title{Determine if x is an initialized hky site_model object
+\title{Determine if x is an initialized hky site model
 as created by \code{\link{create_hky_site_model}}}
 \usage{
 is_init_hky_site_model(x)
 }
 \arguments{
 \item{x}{the object to check if it is an
-initialized HKY site model object}
+initialized HKY site model}
 }
 \value{
-TRUE if x is an initialized HKY site_model object
+TRUE if x is an initialized HKY site model
 }
 \description{
-Determine if x is an initialized hky site_model object
+Determine if x is an initialized hky site model
 as created by \code{\link{create_hky_site_model}}
 }
 \author{

@@ -168,7 +168,18 @@ test_that("Reproduce gtr_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_gtr_site_model(),
+    site_models = create_gtr_site_model(
+      gamma_0_alpha = create_alpha_param(id = 7, value = "0.05"),
+      gamma_0_beta = create_beta_param(id = 8, value = "10.0"),
+      gamma_1_alpha = create_alpha_param(id = 9, value = "0.05"),
+      gamma_1_beta = create_beta_param(id = 10, value = "20.0"),
+      gamma_2_alpha = create_alpha_param(id = 11, value = "0.05"),
+      gamma_2_beta = create_beta_param(id = 12, value = "10.0"),
+      gamma_3_alpha = create_alpha_param(id = 13, value = "0.05"),
+      gamma_3_beta = create_beta_param(id = 14, value = "10.0"),
+      gamma_5_alpha = create_alpha_param(id = 17, value = "0.05"),
+      gamma_5_beta = create_beta_param(id = 18, value = "10.0")
+    ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -209,7 +220,17 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
     site_models = create_gtr_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
-      )
+      ),
+      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
+      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
+      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
+      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
+      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
+      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
+      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
+      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
+      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
+      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -238,7 +259,17 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
     site_models = create_gtr_site_model(
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
-      )
+      ),
+      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
+      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
+      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
+      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
+      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
+      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
+      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
+      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
+      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
+      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -267,7 +298,17 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
         gamma_shape = 1.5
-      )
+      ),
+      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
+      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
+      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
+      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
+      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
+      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
+      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
+      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
+      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
+      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -298,7 +339,17 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"), {
         gamma_cat_count = 2,
         gamma_shape = 1.5,
         prop_invariant = 0.5
-      )
+      ),
+      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
+      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
+      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
+      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
+      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
+      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
+      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
+      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
+      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
+      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -1713,6 +1764,31 @@ test_that("TN93 TN93 strict strict yule", {
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_tn93_site_model()
   site_model_2 <- create_tn93_site_model()
+  clock_model_1 <- create_strict_clock_model()
+  clock_model_2 <- create_strict_clock_model()
+  tree_prior <- create_yule_tree_prior()
+  lines <- create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = list(site_model_1, site_model_2),
+    clock_models = list(clock_model_1, clock_model_2),
+    tree_priors = list(tree_prior, tree_prior)
+  )
+  testthat::expect_true(has_unique_ids(lines))
+})
+
+
+
+test_that("GTR GTR strict strict yule", {
+
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  site_model_1 <- create_gtr_site_model()
+  site_model_2 <- create_gtr_site_model()
   clock_model_1 <- create_strict_clock_model()
   clock_model_2 <- create_strict_clock_model()
   tree_prior <- create_yule_tree_prior()

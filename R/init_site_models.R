@@ -21,7 +21,16 @@ init_site_models <- function(
     testit::assert(beautier::is_site_model(site_model))
 
     if (beautier::is_gtr_site_model(site_model)) {
-      # Nothing to initialize (for now)
+
+      # GTR
+      if (!is_init_gtr_site_model(site_model)) {
+        site_model <- init_gtr_site_model( # nolint internal function call
+          site_model,
+          distr_id = distr_id,
+          param_id = param_id
+        )
+      }
+
     } else if (beautier::is_hky_site_model(site_model)) {
 
       # HKY
@@ -51,6 +60,37 @@ init_site_models <- function(
     site_models[[i]] <- site_model
   }
   site_models
+}
+
+#' Initializes a GTR site model
+#' @param hky_site_model a GTR site model,
+#'   as returned by \code{\link{create_gtr_site_model}}
+#' @inheritParams init_site_models
+#' @return an initialized GTR site model
+#' @author Richel J.C. Bilderbeek
+init_gtr_site_model <- function(
+  gtr_site_model,
+  distr_id,
+  param_id
+) {
+  testit::assert(beautier::is_gtr_site_model(gtr_site_model))
+
+  result <- create_gtr_site_model(
+    gamma_site_model = gtr_site_model$gamma_site_model,
+    gamma_0_alpha = init_param(gtr_site_model$gamma_0_alpha, id = param_id + 1),
+    gamma_0_beta = init_param(gtr_site_model$gamma_0_beta, id = param_id + 2),
+    gamma_1_alpha = init_param(gtr_site_model$gamma_1_alpha, id = param_id + 3),
+    gamma_1_beta = init_param(gtr_site_model$gamma_1_beta, id = param_id + 4),
+    gamma_2_alpha = init_param(gtr_site_model$gamma_2_alpha, id = param_id + 5),
+    gamma_2_beta = init_param(gtr_site_model$gamma_2_beta, id = param_id + 6),
+    gamma_3_alpha = init_param(gtr_site_model$gamma_3_alpha, id = param_id + 7),
+    gamma_3_beta = init_param(gtr_site_model$gamma_3_beta, id = param_id + 8),
+    gamma_5_alpha = init_param(gtr_site_model$gamma_5_alpha, id = param_id + 9),
+    gamma_5_beta = init_param(gtr_site_model$gamma_5_beta, id = param_id + 10)
+  )
+
+  testit::assert(beautier::is_gtr_site_model(result))
+  result
 }
 
 #' Initializes an HKY site model

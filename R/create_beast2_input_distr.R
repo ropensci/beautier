@@ -752,13 +752,6 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
 ) {
   text <- NULL
   if (is_hky_site_model(site_model)) {
-    param_ids <- NULL
-    if (i == 1) {
-      param_ids <- c(1, 2)
-    } else {
-      param_ids <- c(4, 5)
-    }
-
     text <- c(text, paste0("<prior ",
       "id=\"KappaPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
@@ -791,74 +784,55 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
     text <- c(text, paste0("</prior>"))
     text <- beautier::indent(text, n_spaces = 12)
   } else if (is_gtr_site_model(site_model)) {
-    first_param_id <- ifelse(
-      get_gamma_cat_count(get_gamma_site_model(site_model)) == 0, 7, 1)
-
-    param_ids <- c(
-      seq(first_param_id, first_param_id + 7),
-      seq(first_param_id + 10, first_param_id + 11)
-    )
-
     text <- c(text, paste0("<prior ",
       "id=\"RateACPrior.s:", id, "\" name=\"distribution\" ",
       "x=\"@rateAC.s:", id, "\">"))
     text <- c(text, paste0("    <Gamma id=\"Gamma.0\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[1], "\" ",
-      "estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[2], "\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_0_alpha), n_spaces = 8))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_0_beta), n_spaces = 8))
     text <- c(text, paste0("    </Gamma>"))
     text <- c(text, paste0("</prior>"))
     text <- c(text, paste0("<prior id=\"RateAGPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
     text <- c(text, paste0("    <Gamma id=\"Gamma.1\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[3], "\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[4], "\" estimate=\"false\" ",
-      "name=\"beta\">20.0</parameter>"))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_1_alpha), n_spaces = 8))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_1_beta), n_spaces = 8))
     text <- c(text, paste0("    </Gamma>"))
     text <- c(text, paste0("</prior>"))
     text <- c(text, paste0("<prior id=\"RateATPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
     text <- c(text, paste0("    <Gamma id=\"Gamma.2\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[5], "\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[6], "\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_2_alpha), n_spaces = 8))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_2_beta), n_spaces = 8))
     text <- c(text, paste0("    </Gamma>"))
     text <- c(text, paste0("</prior>"))
     text <- c(text, paste0("<prior id=\"RateCGPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
     text <- c(text, paste0("    <Gamma id=\"Gamma.3\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[7], "\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[8], "\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_3_alpha), n_spaces = 8))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_3_beta), n_spaces = 8))
     text <- c(text, paste0("    </Gamma>"))
     text <- c(text, paste0("</prior>"))
     text <- c(text, paste0("<prior id=\"RateGTPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@rateGT.s:", id, "\">"))
     text <- c(text, paste0("    <Gamma id=\"Gamma.5\" ",
       "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[9], "\" estimate=\"false\" ",
-      "name=\"alpha\">0.05</parameter>"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.", param_ids[10], "\" estimate=\"false\" ",
-      "name=\"beta\">10.0</parameter>"))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_5_alpha), n_spaces = 8))
+    text <- c(text, beautier::indent(beautier::parameter_to_xml(
+      site_model$gamma_5_beta), n_spaces = 8))
     text <- c(text, paste0("    </Gamma>"))
     text <- c(text, paste0("</prior>"))
     text <- beautier::indent(text, n_spaces = 12)

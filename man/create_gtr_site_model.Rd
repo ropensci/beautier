@@ -4,11 +4,45 @@
 \alias{create_gtr_site_model}
 \title{Create a GTR site model}
 \usage{
-create_gtr_site_model(gamma_site_model = get_default_gamma_site_model())
+create_gtr_site_model(gamma_site_model = get_default_gamma_site_model(),
+  gamma_0_alpha = create_alpha_param(value = "0.05"),
+  gamma_0_beta = create_beta_param(value = "10.0"),
+  gamma_1_alpha = create_alpha_param(value = "0.05"),
+  gamma_1_beta = create_beta_param(value = "20.0"),
+  gamma_2_alpha = create_alpha_param(value = "0.05"),
+  gamma_2_beta = create_beta_param(value = "10.0"),
+  gamma_3_alpha = create_alpha_param(value = "0.05"),
+  gamma_3_beta = create_beta_param(value = "10.0"),
+  gamma_5_alpha = create_alpha_param(value = "0.05"),
+  gamma_5_beta = create_beta_param(value = "10.0"))
 }
 \arguments{
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
+
+\item{gamma_0_alpha}{the gamma 0 alpha parameter,
+as returned by \code{\link{create_alpha_param}})}
+
+\item{gamma_0_beta}{the gamma 0 beta parameter,
+as returned by \code{\link{create_beta_param}})}
+
+\item{gamma_1_alpha}{the gamma 1 alpha parameter,
+as returned by \code{\link{create_alpha_param}})}
+
+\item{gamma_1_beta}{the gamma 1 beta parameter,
+as returned by \code{\link{create_beta_param}})}
+
+\item{gamma_2_alpha}{the gamma 2 alpha parameter,
+as returned by \code{\link{create_alpha_param}})}
+
+\item{gamma_2_beta}{the gamma 2 beta parameter,
+as returned by \code{\link{create_beta_param}})}
+
+\item{gamma_3_alpha}{the gamma 3 alpha parameter,
+as returned by \code{\link{create_alpha_param}})}
+
+\item{gamma_3_beta}{the gamma 3 beta parameter,
+as returned by \code{\link{create_beta_param}})}
 }
 \value{
 a GTR site_model

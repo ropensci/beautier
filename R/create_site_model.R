@@ -150,6 +150,22 @@ create_tn93_site_model <- function(
 
 #' Create a GTR site model
 #' @inheritParams create_site_model
+#' @param gamma_0_alpha the gamma 0 alpha parameter,
+#'   as returned by \code{\link{create_alpha_param}})
+#' @param gamma_0_beta the gamma 0 beta parameter,
+#'   as returned by \code{\link{create_beta_param}})
+#' @param gamma_1_alpha the gamma 1 alpha parameter,
+#'   as returned by \code{\link{create_alpha_param}})
+#' @param gamma_1_beta the gamma 1 beta parameter,
+#'   as returned by \code{\link{create_beta_param}})
+#' @param gamma_2_alpha the gamma 2 alpha parameter,
+#'   as returned by \code{\link{create_alpha_param}})
+#' @param gamma_2_beta the gamma 2 beta parameter,
+#'   as returned by \code{\link{create_beta_param}})
+#' @param gamma_3_alpha the gamma 3 alpha parameter,
+#'   as returned by \code{\link{create_alpha_param}})
+#' @param gamma_3_beta the gamma 3 beta parameter,
+#'   as returned by \code{\link{create_beta_param}})
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -163,12 +179,32 @@ create_tn93_site_model <- function(
 #'  )
 #' @export
 create_gtr_site_model <- function(
-  gamma_site_model = get_default_gamma_site_model()
+  gamma_site_model = get_default_gamma_site_model(),
+  gamma_0_alpha = create_alpha_param(value = "0.05"),
+  gamma_0_beta = create_beta_param(value = "10.0"),
+  gamma_1_alpha = create_alpha_param(value = "0.05"),
+  gamma_1_beta = create_beta_param(value = "20.0"),
+  gamma_2_alpha = create_alpha_param(value = "0.05"),
+  gamma_2_beta = create_beta_param(value = "10.0"),
+  gamma_3_alpha = create_alpha_param(value = "0.05"),
+  gamma_3_beta = create_beta_param(value = "10.0"),
+  gamma_5_alpha = create_alpha_param(value = "0.05"),
+  gamma_5_beta = create_beta_param(value = "10.0")
 ) {
   return(
     beautier::create_site_model(
       name = "GTR",
-      gamma_site_model = gamma_site_model
+      gamma_site_model = gamma_site_model,
+      gamma_0_alpha = gamma_0_alpha,
+      gamma_0_beta = gamma_0_beta,
+      gamma_1_alpha = gamma_1_alpha,
+      gamma_1_beta = gamma_1_beta,
+      gamma_2_alpha = gamma_2_alpha,
+      gamma_2_beta = gamma_2_beta,
+      gamma_3_alpha = gamma_3_alpha,
+      gamma_3_beta = gamma_3_beta,
+      gamma_5_alpha = gamma_5_alpha,
+      gamma_5_beta = gamma_5_beta
     )
   )
 }
