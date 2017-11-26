@@ -82,29 +82,34 @@ init_gtr_site_model <- function(
   rate_gt_prior_distr <- gtr_site_model$rate_gt_prior_distr
 
   if (!is_init_distr(rate_ac_prior_distr)) {
-    rate_ac_prior_distr <- init_distr(rate_ac_prior_distr, distr_id = distr_id, param_id = param_id)
+    rate_ac_prior_distr <- init_distr(
+      rate_ac_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(rate_ac_prior_distr)
+    param_id <- param_id + beautier::get_distr_n_params(rate_ac_prior_distr)
   }
   if (!is_init_distr(rate_ag_prior_distr)) {
-    rate_ag_prior_distr <- init_distr(rate_ag_prior_distr, distr_id = distr_id, param_id = param_id)
+    rate_ag_prior_distr <- init_distr(
+      rate_ag_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(rate_ag_prior_distr)
+    param_id <- param_id + beautier::get_distr_n_params(rate_ag_prior_distr)
   }
   if (!is_init_distr(rate_at_prior_distr)) {
-    rate_at_prior_distr <- init_distr(rate_at_prior_distr, distr_id = distr_id, param_id = param_id)
+    rate_at_prior_distr <- init_distr(
+      rate_at_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
     param_id <- param_id + get_distr_n_params(rate_at_prior_distr)
   }
   if (!is_init_distr(rate_cg_prior_distr)) {
-    rate_cg_prior_distr <- init_distr(rate_cg_prior_distr, distr_id = distr_id, param_id = param_id)
+    rate_cg_prior_distr <- init_distr(
+      rate_cg_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(rate_cg_prior_distr)
+    param_id <- param_id + beautier::get_distr_n_params(rate_cg_prior_distr)
   }
   if (!is_init_distr(rate_gt_prior_distr)) {
-    rate_gt_prior_distr <- init_distr(rate_gt_prior_distr, distr_id = distr_id, param_id = param_id)
+    rate_gt_prior_distr <- init_distr(
+      rate_gt_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(rate_gt_prior_distr)
+    param_id <- param_id + beautier::get_distr_n_params(rate_gt_prior_distr)
   }
   result <- create_gtr_site_model(
     gamma_site_model = gtr_site_model$gamma_site_model,

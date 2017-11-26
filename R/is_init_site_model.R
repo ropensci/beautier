@@ -30,11 +30,11 @@ is_init_gtr_site_model <- function(
   x
 ) {
   testit::assert(beautier::is_gtr_site_model(x))
-  if (!is_init_distr(x$rate_ac_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_ag_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_cg_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_gt_prior_distr)) return(FALSE)
+  if (!is_init_distr(x$rate_ac_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_init_distr(x$rate_ag_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_init_distr(x$rate_cg_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_init_distr(x$rate_gt_prior_distr)) return(FALSE) # nolint internal function
   TRUE
 }
 
