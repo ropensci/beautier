@@ -17,5 +17,5 @@ get_duplicate_ids <- function(
       pattern = "RealParameter\\.[[:digit:]]+")
   }
   matches <- matches[!is.na(matches)]
-  matches[ duplicated(matches) ]
+  matches[duplicated(matches)]
 }

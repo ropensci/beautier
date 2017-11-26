@@ -1726,9 +1726,6 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-
-
-
 test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
   input_fasta_filename_1 <- system.file(
@@ -1750,6 +1747,7 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
     tree_priors = list(tree_prior, tree_prior)
   )
   testthat::expect_true(has_unique_ids(lines))
+  testthat::expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("TN93 TN93 strict strict yule", {
