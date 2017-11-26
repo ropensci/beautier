@@ -20,35 +20,20 @@ create_gtr_site_model(gamma_site_model = get_default_gamma_site_model(),
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
 
-\item{gamma_0_alpha}{the gamma 0 alpha parameter,
-as returned by \code{\link{create_alpha_param}})}
+\item{rate_ac_prior_distr}{the AC rate prior distribution,
+as returned by \code{\link{create_distr}})}
 
-\item{gamma_0_beta}{the gamma 0 beta parameter,
-as returned by \code{\link{create_beta_param}})}
+\item{rate_ag_prior_distr}{the AG rate prior distribution,
+as returned by \code{\link{create_distr}})}
 
-\item{gamma_1_alpha}{the gamma 1 alpha parameter,
-as returned by \code{\link{create_alpha_param}})}
+\item{rate_at_prior_distr}{the AT rate prior distribution,
+as returned by \code{\link{create_distr}})}
 
-\item{gamma_1_beta}{the gamma 1 beta parameter,
-as returned by \code{\link{create_beta_param}})}
+\item{rate_cg_prior_distr}{the CG rate prior distribution,
+as returned by \code{\link{create_distr}})}
 
-\item{gamma_2_alpha}{the gamma 2 alpha parameter,
-as returned by \code{\link{create_alpha_param}})}
-
-\item{gamma_2_beta}{the gamma 2 beta parameter,
-as returned by \code{\link{create_beta_param}})}
-
-\item{gamma_3_alpha}{the gamma 3 alpha parameter,
-as returned by \code{\link{create_alpha_param}})}
-
-\item{gamma_3_beta}{the gamma 3 beta parameter,
-as returned by \code{\link{create_beta_param}})}
-
-\item{gamma_5_alpha}{the gamma 5 alpha parameter,
-as returned by \code{\link{create_alpha_param}})}
-
-\item{gamma_5_beta}{the gamma 5 beta parameter,
-as returned by \code{\link{create_beta_param}})}
+\item{rate_gt_prior_distr}{the GT rate prior distribution,
+as returned by \code{\link{create_distr}})}
 }
 \value{
 a GTR site_model
