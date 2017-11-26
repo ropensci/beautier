@@ -97,7 +97,7 @@ init_gtr_site_model <- function(
     rate_at_prior_distr <- init_distr(
       rate_at_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(rate_at_prior_distr)
+    param_id <- param_id + beautier::get_distr_n_params(rate_at_prior_distr)
   }
   if (!is_init_distr(rate_cg_prior_distr)) {
     rate_cg_prior_distr <- init_distr(
