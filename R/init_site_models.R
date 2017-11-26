@@ -77,16 +77,16 @@ init_gtr_site_model <- function(
 
   result <- create_gtr_site_model(
     gamma_site_model = gtr_site_model$gamma_site_model,
-    gamma_0_alpha = init_param(gtr_site_model$gamma_0_alpha, id = param_id + 1),
-    gamma_0_beta = init_param(gtr_site_model$gamma_0_beta, id = param_id + 2),
-    gamma_1_alpha = init_param(gtr_site_model$gamma_1_alpha, id = param_id + 3),
-    gamma_1_beta = init_param(gtr_site_model$gamma_1_beta, id = param_id + 4),
-    gamma_2_alpha = init_param(gtr_site_model$gamma_2_alpha, id = param_id + 5),
-    gamma_2_beta = init_param(gtr_site_model$gamma_2_beta, id = param_id + 6),
-    gamma_3_alpha = init_param(gtr_site_model$gamma_3_alpha, id = param_id + 7),
-    gamma_3_beta = init_param(gtr_site_model$gamma_3_beta, id = param_id + 8),
-    gamma_5_alpha = init_param(gtr_site_model$gamma_5_alpha, id = param_id + 9),
-    gamma_5_beta = init_param(gtr_site_model$gamma_5_beta, id = param_id + 10)
+    gamma_0_alpha = init_param(gtr_site_model$gamma_0_alpha, id = param_id + 0),
+    gamma_0_beta = init_param(gtr_site_model$gamma_0_beta, id = param_id + 1),
+    gamma_1_alpha = init_param(gtr_site_model$gamma_1_alpha, id = param_id + 2),
+    gamma_1_beta = init_param(gtr_site_model$gamma_1_beta, id = param_id + 3),
+    gamma_2_alpha = init_param(gtr_site_model$gamma_2_alpha, id = param_id + 4),
+    gamma_2_beta = init_param(gtr_site_model$gamma_2_beta, id = param_id + 5),
+    gamma_3_alpha = init_param(gtr_site_model$gamma_3_alpha, id = param_id + 6),
+    gamma_3_beta = init_param(gtr_site_model$gamma_3_beta, id = param_id + 7),
+    gamma_5_alpha = init_param(gtr_site_model$gamma_5_alpha, id = param_id + 8),
+    gamma_5_beta = init_param(gtr_site_model$gamma_5_beta, id = param_id + 9)
   )
 
   testit::assert(beautier::is_gtr_site_model(result))

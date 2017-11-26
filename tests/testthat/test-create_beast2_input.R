@@ -1803,8 +1803,6 @@ test_that("GTR GTR strict strict yule", {
 
 test_that("GTR TN93 strict strict yule", {
 
-  skip("WIP")
-
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )
@@ -1823,7 +1821,6 @@ test_that("GTR TN93 strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  save_text("~/fix.txt", lines)
   testthat::expect_true(has_unique_ids(lines))
 })
 
@@ -1832,7 +1829,6 @@ test_that("GTR TN93 strict strict yule", {
 #-------------------------------------------------------------------------------
 test_that("All site models, clock models and tree priors, crown age est", {
 
-  skip("WIP, Issue #8")
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )
@@ -1840,12 +1836,6 @@ test_that("All site models, clock models and tree priors, crown age est", {
     "extdata", "anthus_nd2.fas", package = "beautier"
   )
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
-  n_fail <- 0
-  n_site_models <- length(beautier::create_site_models())
-  n_clock_models <- length(beautier::create_clock_models())
-  n_tree_priors <- length(beautier::create_tree_priors())
-  n_combinations <- n_site_models * n_site_models *
-    n_clock_models * n_clock_models * n_tree_priors
 
   for (site_model_1 in beautier::create_site_models()) {
     for (site_model_2 in beautier::create_site_models()) {
@@ -1859,18 +1849,11 @@ test_that("All site models, clock models and tree priors, crown age est", {
               clock_models = list(clock_model_1, clock_model_2),
               tree_priors = list(tree_prior, tree_prior)
             )
-            is_ok <- has_unique_ids(lines)
-            if (!is_ok) {
-              n_fail <- n_fail + 1
-              print(paste(site_model_1$name, site_model_2$name,
-                clock_model_1$name, clock_model_2$name, tree_prior$name))
-            }
+            testthat::expect_true(has_unique_ids(lines))
           }
         }
       }
     }
   }
-  print(paste("Success:", n_combinations - n_fail, "/", n_combinations))
-  testthat::expect_equal(n_fail, 0)
 
 })
