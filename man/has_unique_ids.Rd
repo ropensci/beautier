@@ -17,6 +17,9 @@ TRUE if all IDs are unique, FALSE otherwise
 Determine if the XML text has unique distribution IDs and unique
   parameter IDs
 }
+\seealso{
+to obtain the duplicate IDs, use \code{\link{get_duplicate_ids}}
+}
 \author{
 Richel J.C. Bilderbeek
 }

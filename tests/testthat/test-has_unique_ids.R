@@ -7,7 +7,6 @@ test_that("use for unique IDs", {
     parameter_to_xml(create_alpha_param(id = 1)),
     "nothing"
   )
-
   testthat::expect_true(has_unique_ids(text))
 
 })

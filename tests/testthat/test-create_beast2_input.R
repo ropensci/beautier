@@ -825,7 +825,6 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
       print(paste0(i, " / ", length(expected_lines)))
     }
   }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
