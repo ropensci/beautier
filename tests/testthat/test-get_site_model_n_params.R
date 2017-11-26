@@ -2,12 +2,25 @@ context("get_site_model_n_params")
 
 test_that("use, GTR", {
 
-  # gamma_0_alpha, gamma_0_beta,
-  # gamma_1_alpha, gamma_1_beta,
-  # gamma_2_alpha, gamma_2_beta,
-  # gamma_3_alpha, gamma_3_beta
-  # gamma_5_alpha, gamma_5_beta
+  # rate_ac_prior_distr: gamma distribution: 2
+  # rate_ag_prior_distr: gamma distribution: 2
+  # rate_at_prior_distr: gamma distribution: 2
+  # rate_cg_prior_distr: gamma distribution: 2
+  # rate_gt_prior_distr: gamma distribution: 2
   testthat::expect_equal(get_site_model_n_params(create_gtr_site_model()), 10)
+
+  testthat::expect_equal(
+    get_site_model_n_params(
+      create_gtr_site_model(
+        rate_ac_prior_distr = create_poisson_distr(),
+        rate_ag_prior_distr = create_poisson_distr(),
+        rate_at_prior_distr = create_poisson_distr(),
+        rate_cg_prior_distr = create_poisson_distr(),
+        rate_gt_prior_distr = create_poisson_distr()
+      )
+    ),
+    5
+  )
 
 })
 

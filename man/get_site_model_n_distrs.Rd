@@ -17,8 +17,8 @@ the number of distributions a site model has
 Get the number of distributions a site model has
 }
 \examples{
-  # no distributions
-  testit::assert(get_site_model_n_distrs(create_gtr_site_model()) == 0)
+  # rates AC, AG, AT, CG and GT
+  testit::assert(get_site_model_n_distrs(create_gtr_site_model()) == 5)
 
   # kappa
   testit::assert(get_site_model_n_distrs(create_hky_site_model()) == 1)

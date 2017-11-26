@@ -2,8 +2,12 @@ context("get_site_model_n_distrs")
 
 test_that("use", {
 
-  # no distributions
-  testthat::expect_equal(get_site_model_n_distrs(create_gtr_site_model()), 0)
+  # rate_ac_prior_distr
+  # rate_ag_prior_distr
+  # rate_at_prior_distr
+  # rate_cg_prior_distr
+  # rate_gt_prior_distr
+  testthat::expect_equal(get_site_model_n_distrs(create_gtr_site_model()), 5)
 
   # kappa_prior_distr
   testthat::expect_equal(get_site_model_n_distrs(create_hky_site_model()), 1)

@@ -11,12 +11,13 @@ get_site_model_n_params <- function(
     stop("'site_model' must be a site model")
   }
   if (is_gtr_site_model(site_model)) {
-    # gamma 0 alpha, gamma 0 beta
-    # gamma 1 alpha, gamma 1 beta
-    # gamma 2 alpha, gamma 2 beta
-    # gamma 3 alpha, gamma 3 beta
-    # gamma 5 alpha, gamma 5 beta
-    return(10)
+    return(
+      get_distr_n_params(site_model$rate_ac_prior_distr) +
+      get_distr_n_params(site_model$rate_ag_prior_distr) +
+      get_distr_n_params(site_model$rate_at_prior_distr) +
+      get_distr_n_params(site_model$rate_cg_prior_distr) +
+      get_distr_n_params(site_model$rate_gt_prior_distr)
+    )
   } else if (is_hky_site_model(site_model)) {
     return(
       get_distr_n_params(site_model$kappa_prior_distr)

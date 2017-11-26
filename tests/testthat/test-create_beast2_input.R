@@ -169,16 +169,31 @@ test_that("Reproduce gtr_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_gtr_site_model(
-      gamma_0_alpha = create_alpha_param(id = 7, value = "0.05"),
-      gamma_0_beta = create_beta_param(id = 8, value = "10.0"),
-      gamma_1_alpha = create_alpha_param(id = 9, value = "0.05"),
-      gamma_1_beta = create_beta_param(id = 10, value = "20.0"),
-      gamma_2_alpha = create_alpha_param(id = 11, value = "0.05"),
-      gamma_2_beta = create_beta_param(id = 12, value = "10.0"),
-      gamma_3_alpha = create_alpha_param(id = 13, value = "0.05"),
-      gamma_3_beta = create_beta_param(id = 14, value = "10.0"),
-      gamma_5_alpha = create_alpha_param(id = 17, value = "0.05"),
-      gamma_5_beta = create_beta_param(id = 18, value = "10.0")
+      rate_ac_prior_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 7, value = "0.05"),
+        beta = create_beta_param(id = 8, value = "10.0")
+      ),
+      rate_ag_prior_distr = create_gamma_distr(
+        id = 1,
+        alpha = create_alpha_param(id = 9, value = "0.05"),
+        beta = create_beta_param(id = 10, value = "20.0")
+      ),
+      rate_at_prior_distr = create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_param(id = 11, value = "0.05"),
+        beta = create_beta_param(id = 12, value = "10.0")
+      ),
+      rate_cg_prior_distr = create_gamma_distr(
+        id = 3,
+        alpha = create_alpha_param(id = 13, value = "0.05"),
+        beta = create_beta_param(id = 14, value = "10.0")
+      ),
+      rate_gt_prior_distr = create_gamma_distr(
+        id = 5,
+        alpha = create_alpha_param(id = 17, value = "0.05"),
+        beta = create_beta_param(id = 18, value = "10.0")
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -221,16 +236,31 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
       ),
-      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
-      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
-      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
-      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
-      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
-      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
-      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
-      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
-      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
-      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
+      rate_ac_prior_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 1, value = "0.05"),
+        beta = create_beta_param(id = 2, value = "10.0")
+      ),
+      rate_ag_prior_distr = create_gamma_distr(
+        id = 1,
+        alpha = create_alpha_param(id = 3, value = "0.05"),
+        beta = create_beta_param(id = 4, value = "20.0")
+      ),
+      rate_at_prior_distr = create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_param(id = 5, value = "0.05"),
+        beta = create_beta_param(id = 6, value = "10.0")
+      ),
+      rate_cg_prior_distr = create_gamma_distr(
+        id = 3,
+        alpha = create_alpha_param(id = 7, value = "0.05"),
+        beta = create_beta_param(id = 8, value = "10.0")
+      ),
+      rate_gt_prior_distr = create_gamma_distr(
+        id = 5,
+        alpha = create_alpha_param(id = 11, value = "0.05"),
+        beta = create_beta_param(id = 12, value = "10.0")
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -260,16 +290,31 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       ),
-      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
-      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
-      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
-      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
-      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
-      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
-      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
-      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
-      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
-      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
+      rate_ac_prior_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 1, value = "0.05"),
+        beta = create_beta_param(id = 2, value = "10.0")
+      ),
+      rate_ag_prior_distr = create_gamma_distr(
+        id = 1,
+        alpha = create_alpha_param(id = 3, value = "0.05"),
+        beta = create_beta_param(id = 4, value = "20.0")
+      ),
+      rate_at_prior_distr = create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_param(id = 5, value = "0.05"),
+        beta = create_beta_param(id = 6, value = "10.0")
+      ),
+      rate_cg_prior_distr = create_gamma_distr(
+        id = 3,
+        alpha = create_alpha_param(id = 7, value = "0.05"),
+        beta = create_beta_param(id = 8, value = "10.0")
+      ),
+      rate_gt_prior_distr = create_gamma_distr(
+        id = 5,
+        alpha = create_alpha_param(id = 11, value = "0.05"),
+        beta = create_beta_param(id = 12, value = "10.0")
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -299,16 +344,31 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
         gamma_cat_count = 2,
         gamma_shape = 1.5
       ),
-      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
-      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
-      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
-      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
-      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
-      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
-      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
-      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
-      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
-      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
+      rate_ac_prior_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 1, value = "0.05"),
+        beta = create_beta_param(id = 2, value = "10.0")
+      ),
+      rate_ag_prior_distr = create_gamma_distr(
+        id = 1,
+        alpha = create_alpha_param(id = 3, value = "0.05"),
+        beta = create_beta_param(id = 4, value = "20.0")
+      ),
+      rate_at_prior_distr = create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_param(id = 5, value = "0.05"),
+        beta = create_beta_param(id = 6, value = "10.0")
+      ),
+      rate_cg_prior_distr = create_gamma_distr(
+        id = 3,
+        alpha = create_alpha_param(id = 7, value = "0.05"),
+        beta = create_beta_param(id = 8, value = "10.0")
+      ),
+      rate_gt_prior_distr = create_gamma_distr(
+        id = 5,
+        alpha = create_alpha_param(id = 11, value = "0.05"),
+        beta = create_beta_param(id = 12, value = "10.0")
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -340,16 +400,31 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"), {
         gamma_shape = 1.5,
         prop_invariant = 0.5
       ),
-      gamma_0_alpha = create_alpha_param(id = 1, value = "0.05"),
-      gamma_0_beta = create_beta_param(id = 2, value = "10.0"),
-      gamma_1_alpha = create_alpha_param(id = 3, value = "0.05"),
-      gamma_1_beta = create_beta_param(id = 4, value = "20.0"),
-      gamma_2_alpha = create_alpha_param(id = 5, value = "0.05"),
-      gamma_2_beta = create_beta_param(id = 6, value = "10.0"),
-      gamma_3_alpha = create_alpha_param(id = 7, value = "0.05"),
-      gamma_3_beta = create_beta_param(id = 8, value = "10.0"),
-      gamma_5_alpha = create_alpha_param(id = 11, value = "0.05"),
-      gamma_5_beta = create_beta_param(id = 12, value = "10.0")
+      rate_ac_prior_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 1, value = "0.05"),
+        beta = create_beta_param(id = 2, value = "10.0")
+      ),
+      rate_ag_prior_distr = create_gamma_distr(
+        id = 1,
+        alpha = create_alpha_param(id = 3, value = "0.05"),
+        beta = create_beta_param(id = 4, value = "20.0")
+      ),
+      rate_at_prior_distr = create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_param(id = 5, value = "0.05"),
+        beta = create_beta_param(id = 6, value = "10.0")
+      ),
+      rate_cg_prior_distr = create_gamma_distr(
+        id = 3,
+        alpha = create_alpha_param(id = 7, value = "0.05"),
+        beta = create_beta_param(id = 8, value = "10.0")
+      ),
+      rate_gt_prior_distr = create_gamma_distr(
+        id = 5,
+        alpha = create_alpha_param(id = 11, value = "0.05"),
+        beta = create_beta_param(id = 12, value = "10.0")
+      )
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -1747,7 +1822,6 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
     tree_priors = list(tree_prior, tree_prior)
   )
   testthat::expect_true(has_unique_ids(lines))
-  testthat::expect_true(are_beast2_input_lines(lines))
 })
 
 test_that("TN93 TN93 strict strict yule", {
@@ -1853,5 +1927,4 @@ test_that("All site models, clock models and tree priors, crown age est", {
       }
     }
   }
-
 })

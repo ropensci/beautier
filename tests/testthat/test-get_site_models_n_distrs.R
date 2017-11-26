@@ -2,7 +2,7 @@ context("get_site_models_n_distrs")
 
 test_that("use", {
 
-  site_model_0_distrs <- create_gtr_site_model()
+  site_model_0_distrs <- create_jc69_site_model()
   site_model_1_distrs <- create_hky_site_model()
   site_model_2_distrs <- create_tn93_site_model()
 
