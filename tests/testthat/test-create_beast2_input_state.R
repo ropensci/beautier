@@ -14,6 +14,18 @@ test_that("birth_death", {
       initial_phylogenies = NA
     )
   )
+
+  testthat::expect_silent(
+    beautier:::create_beast2_input_state(
+      ids = ids,
+      site_models = list(create_gtr_site_model()),
+      clock_models = beautier:::init_clock_models(
+        list(create_strict_clock_model()), ids = ids, distr_id = 0),
+      tree_priors = beautier:::init_tree_priors(
+        list(create_yule_tree_prior()), distr_id = 1),
+      initial_phylogenies = NA
+    )
+  )
 })
 
 test_that("abuse", {

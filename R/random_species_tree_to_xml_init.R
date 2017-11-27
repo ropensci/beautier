@@ -5,10 +5,10 @@
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
-random_species_tree_to_xml <- function(
+random_species_tree_to_xml_init <- function(
   id
 ) {
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
   text <- NULL
   text <- c(text, paste0("<init id=\"RandomTree.t:", id,
     "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",

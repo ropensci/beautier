@@ -24,7 +24,7 @@ create_beast2_input_state <- function(
   testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
-  text <- c(text, "    <state id=\"state\" storeEvery=\"5000\">")
+  text <- c(text, "<state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
     ids = ids,
     tree_priors = tree_priors,
@@ -82,14 +82,12 @@ create_beast2_input_state <- function(
         text <- c(text, freqparams)
       }
     }
-
     text <- c(text, create_beast2_input_state_clock_model(
       id = id, clock_model = clock_model))
-
   }
 
-  text <- c(text, "    </state>")
-  text
+  text <- c(text, "</state>")
+  beautier::indent(text, n_spaces = 4)
 }
 
 #' Creates the tree part of the state section of a BEAST2 XML parameter file
@@ -116,18 +114,14 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     tree_prior <- tree_priors[[i]]
 
     if (!ribir::is_phylogeny(initial_phylogeny)) {
-      text <- c(text, paste0("        <tree id=\"Tree.t:",
-        id, "\" name=\"stateNode\">"))
-      text <- c(text, paste0("            <taxonset id=\"TaxonSet.",
-        id, "\" spec=\"TaxonSet\">"))
-      text <- c(text, paste0("                <alignment idref=\"",
-        id, "\"/>"))
-      text <- c(text, "            </taxonset>")
-      text <- c(text, "        </tree>")
+      text <- c(
+        text,
+        beautier::indent(random_species_tree_to_xml_state(id), n_spaces = 4)
+      )
 
       testit::assert(length(id) == 1)
       if (n > 1 && i == 2) {
-        text <- c(text, paste0("        <parameter ",
+        text <- c(text, paste0("    <parameter ",
           "id=\"clockRate.c:", id, "\" ",
           "name=\"stateNode\">1.0</parameter>"))
       }
@@ -139,7 +133,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
       text <- c(text, paste0("    </stateNode>"))
     }
     if (is_yule_tree_prior(tree_prior)) {
-      text <- c(text, paste0("        <parameter ",
+      text <- c(text, paste0("    <parameter ",
         "id=\"birthRate.t:", id, "\" ",
         "name=\"stateNode\">1.0</parameter>"))
     }
@@ -162,24 +156,27 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 ) {
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <parameter id=\"BDBirthRate.t:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"BDBirthRate.t:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"BDDeathRate.t:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"BDDeathRate.t:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
   } else if (is_ccp_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <parameter id=\"popSize.t:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"popSize.t:", id, "\" ",
       "name=\"stateNode\">0.3</parameter>"))
   } else if (is_cbs_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <parameter id=\"bPopSizes.t:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"bPopSizes.t:", id, "\" ",
       "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
       "upper=\"380000.0\">380.0</parameter>"))
-    text <- c(text, paste0("        <stateNode id=\"bGroupSizes.t:", id, "\" ",
+    text <- c(text, paste0("<stateNode id=\"bGroupSizes.t:", id, "\" ",
       "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
   } else if (is_cep_tree_prior(tree_prior)) {
-    text <- c(text, paste0("        <parameter id=\"ePopSize.t:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"ePopSize.t:", id, "\" ",
       "name=\"stateNode\">0.3</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"growthRate.t:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"growthRate.t:", id, "\" ",
       "name=\"stateNode\">3.0E-4</parameter>"))
+  }
+  if (!is.null(text)) {
+    text <- indent(text, n_spaces = 4)
   }
   text
 }
@@ -197,27 +194,9 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
   id,
   site_model
 ) {
-  text <- NULL
-  if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("        <parameter id=\"rateAC.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateAG.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateAT.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateCG.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"rateGT.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-  } else if (is_hky_site_model(site_model)) {
-    text <- c(text, paste0("        <parameter id=\"kappa.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">",
-      beautier::get_kappa(site_model), "</parameter>"))
-  } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("        <parameter id=\"kappa1.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
-    text <- c(text, paste0("        <parameter id=\"kappa2.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+  text <- site_model_to_xml(id = id, site_model = site_model)
+  if (!is.null(text)) {
+    text <- indent(text, n_spaces = 4)
   }
   text
 }
@@ -235,7 +214,7 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
   site_model
 ) {
   text <- NULL
-  text <- c(text, paste0("        <parameter ",
+  text <- c(text, paste0("    <parameter ",
     "id=\"gammaShape.s:", id, "\" ",
     "name=\"stateNode\">",
     beautier::get_gamma_shape(get_gamma_site_model(site_model)),
@@ -258,7 +237,7 @@ create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint lon
 ) {
   text <- NULL
   if (!is_jc69_site_model(site_model)) {
-    text <- c(text, paste0("        <parameter ",
+    text <- c(text, paste0("    <parameter ",
       "id=\"freqParameter.s:", id, "\" dimension=\"4\" lower=\"0.0\" ",
       "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
   }
@@ -280,11 +259,12 @@ create_beast2_input_state_clock_model <- function( # nolint long function name i
 ) {
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
-    text <- c(text, paste0("        <parameter id=\"ucldStdev.c:", id, "\" ",
+    text <- c(text, paste0("<parameter id=\"ucldStdev.c:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-    text <- c(text, paste0("        <stateNode ",
+    text <- c(text, paste0("<stateNode ",
       "id=\"rateCategories.c:", id, "\" ",
       "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
+    text <- beautier::indent(text, n_spaces = 4)
   }
   text
 }
