@@ -2,23 +2,35 @@ context("create_site_model")
 
 test_that("JC69 is accepted", {
 
-  site_model <- beautier::create_site_model(name = "JC69")
-  testthat::expect_true(beautier::is_site_model(site_model))
+  testthat::expect_true(is_site_model(create_jc69_site_model()))
 
 })
 
 test_that("abuse", {
 
   testthat::expect_error(
-    beautier::create_site_model(name = "nonsense")
+    beautier::create_site_model(
+      name = "nonsense",
+      id = "OK"
+    ),
+    "'site model' must be a site model name, which is one of these: "
   )
 
   testthat::expect_error(
     beautier::create_site_model(
       name = "JC69",
-      gamma_site_model = "nonsense"
-    )
+      id = ape::rcoal(3)
+    ),
+    "'id' must be a valid ID"
+  )
 
+  testthat::expect_error(
+    create_site_model(
+      name = "JC69",
+      id = "OK",
+      gamma_site_model = "nonsense"
+    ),
+    "'gamma_site_model' must be a valid gamma site model"
   )
 
 })

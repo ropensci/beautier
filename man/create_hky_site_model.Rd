@@ -4,12 +4,16 @@
 \alias{create_hky_site_model}
 \title{Create an HKY site model}
 \usage{
-create_hky_site_model(kappa = get_default_kappa(),
+create_hky_site_model(id = get_site_model_default_id(),
+  kappa = get_default_kappa(),
   gamma_site_model = get_default_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(m = create_m_param(value =
   "1.0"), s = create_s_param(value = "1.25")))
 }
 \arguments{
+\item{id}{the IDs of the alignment (can be extracted from
+the FASTA filesname using \code{\link{get_id}})}
+
 \item{kappa}{the kappa}
 
 \item{gamma_site_model}{a gamma site model, as created

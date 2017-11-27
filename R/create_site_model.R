@@ -1,6 +1,8 @@
 #' General function to create a site model.
 #' @param name the site model name. Valid
 #'   names can be found in \code{\link{get_site_model_names}}
+#' @param id the IDs of the alignment (can be extracted from
+#'   the FASTA filesname using \code{\link{get_id}})
 #' @param gamma_site_model a gamma site model, as created
 #'   by \code{\link{create_gamma_site_model}}
 #' @param ... specific site model parameters
@@ -15,6 +17,7 @@
 #' @export
 create_site_model <- function(
   name,
+  id,
   gamma_site_model = get_default_gamma_site_model(),
   ...
 ) {
@@ -28,15 +31,19 @@ create_site_model <- function(
       s
     }
     stop(
-      "invalid site model name, must be one these: ",
+      "'site model' must be a site model name, which is one of these: ",
       site_models_as_string()
     )
   }
+  if (!is_id(id)) {
+    stop("'id' must be a valid ID")
+  }
   if (!is_gamma_site_model(gamma_site_model)) {
-    stop("invalid gamma_site_model")
+    stop("'gamma_site_model' must be a valid gamma site model")
   }
   site_model <- list(
     name = name,
+    id = id,
     gamma_site_model = gamma_site_model,
     ...
   )
@@ -58,11 +65,13 @@ create_site_model <- function(
 #'  )
 #' @export
 create_jc69_site_model <- function(
+  id = get_site_model_default_id(),
   gamma_site_model = get_default_gamma_site_model()
 ) {
   return(
     beautier::create_site_model(
       name = "JC69",
+      id = id,
       gamma_site_model = gamma_site_model
     )
   )
@@ -88,6 +97,7 @@ create_jc69_site_model <- function(
 #'  )
 #' @export
 create_hky_site_model <- function(
+  id = get_site_model_default_id(),
   kappa = get_default_kappa(),
   gamma_site_model = get_default_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
@@ -98,6 +108,7 @@ create_hky_site_model <- function(
   return(
     beautier::create_site_model(
       name = "HKY",
+      id = id,
       gamma_site_model = gamma_site_model,
       kappa = kappa,
       kappa_prior_distr = kappa_prior_distr
@@ -128,6 +139,7 @@ create_hky_site_model <- function(
 #'  )
 #' @export
 create_tn93_site_model <- function(
+  id = get_site_model_default_id(),
   gamma_site_model = get_default_gamma_site_model(),
   kappa_1_prior_distr = create_log_normal_distr(
     m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
@@ -141,6 +153,7 @@ create_tn93_site_model <- function(
   return(
     beautier::create_site_model(
       name = "TN93",
+      id = id,
       gamma_site_model = gamma_site_model,
       kappa_1_prior_distr = kappa_1_prior_distr,
       kappa_2_prior_distr = kappa_2_prior_distr
@@ -173,6 +186,7 @@ create_tn93_site_model <- function(
 #'  )
 #' @export
 create_gtr_site_model <- function(
+  id = get_site_model_default_id(),
   gamma_site_model = get_default_gamma_site_model(),
   rate_ac_prior_distr = create_gamma_distr(
     alpha = create_alpha_param(value = "0.05"),
@@ -198,6 +212,7 @@ create_gtr_site_model <- function(
   return(
     beautier::create_site_model(
       name = "GTR",
+      id = id,
       gamma_site_model = gamma_site_model,
       rate_ac_prior_distr = rate_ac_prior_distr,
       rate_ag_prior_distr = rate_ag_prior_distr,

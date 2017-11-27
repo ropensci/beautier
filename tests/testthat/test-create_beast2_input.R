@@ -623,11 +623,11 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
 # Site model: JC69
 ################################################################################
 
-test_that("Check that jc69_2_4.xml is reproduced", {
+test_that("Reproduce jc69_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_site_model(name = "JC69"),
+    site_models = create_jc69_site_model(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -1697,7 +1697,7 @@ test_that("Reproduce aco_nd2_shared_site_model_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    site_models = create_jc69_site_model(), # 1, will need ID of fasta_filename_1
+    site_models = create_jc69_site_model(id = get_id(fasta_filename_1)), # 1, will need ID of fasta_filename_1
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)),

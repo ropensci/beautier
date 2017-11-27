@@ -4,7 +4,8 @@
 \alias{create_gtr_site_model}
 \title{Create a GTR site model}
 \usage{
-create_gtr_site_model(gamma_site_model = get_default_gamma_site_model(),
+create_gtr_site_model(id = get_site_model_default_id(),
+  gamma_site_model = get_default_gamma_site_model(),
   rate_ac_prior_distr = create_gamma_distr(alpha = create_alpha_param(value =
   "0.05"), beta = create_beta_param(value = "10.0")),
   rate_ag_prior_distr = create_gamma_distr(alpha = create_alpha_param(value =
@@ -17,6 +18,9 @@ create_gtr_site_model(gamma_site_model = get_default_gamma_site_model(),
   "0.05"), beta = create_beta_param(value = "10.0")))
 }
 \arguments{
+\item{id}{the IDs of the alignment (can be extracted from
+the FASTA filesname using \code{\link{get_id}})}
+
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
 

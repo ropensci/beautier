@@ -4,9 +4,13 @@
 \alias{create_jc69_site_model}
 \title{Create a JC69 site model}
 \usage{
-create_jc69_site_model(gamma_site_model = get_default_gamma_site_model())
+create_jc69_site_model(id = get_site_model_default_id(),
+  gamma_site_model = get_default_gamma_site_model())
 }
 \arguments{
+\item{id}{the IDs of the alignment (can be extracted from
+the FASTA filesname using \code{\link{get_id}})}
+
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
 }

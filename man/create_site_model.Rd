@@ -4,12 +4,15 @@
 \alias{create_site_model}
 \title{General function to create a site model.}
 \usage{
-create_site_model(name, gamma_site_model = get_default_gamma_site_model(),
+create_site_model(name, id, gamma_site_model = get_default_gamma_site_model(),
   ...)
 }
 \arguments{
 \item{name}{the site model name. Valid
 names can be found in \code{\link{get_site_model_names}}}
+
+\item{id}{the IDs of the alignment (can be extracted from
+the FASTA filesname using \code{\link{get_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}

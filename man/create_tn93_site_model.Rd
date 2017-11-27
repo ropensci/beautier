@@ -4,7 +4,8 @@
 \alias{create_tn93_site_model}
 \title{Create a TN93 site model}
 \usage{
-create_tn93_site_model(gamma_site_model = get_default_gamma_site_model(),
+create_tn93_site_model(id = get_site_model_default_id(),
+  gamma_site_model = get_default_gamma_site_model(),
   kappa_1_prior_distr = create_log_normal_distr(m = create_m_param(id = NA,
   estimate = FALSE, value = "1.0"), s = create_s_param(id = NA, estimate =
   FALSE, value = "1.25")), kappa_2_prior_distr = create_log_normal_distr(m =
@@ -12,6 +13,9 @@ create_tn93_site_model(gamma_site_model = get_default_gamma_site_model(),
   create_s_param(id = NA, estimate = FALSE, value = "1.25")))
 }
 \arguments{
+\item{id}{the IDs of the alignment (can be extracted from
+the FASTA filesname using \code{\link{get_id}})}
+
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
 
