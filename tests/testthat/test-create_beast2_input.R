@@ -1896,6 +1896,74 @@ test_that("GTR TN93 strict strict yule", {
   testthat::expect_true(has_unique_ids(lines))
 })
 
+
+
+test_that("Reproduce aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4", {
+
+  skip("WIP")
+
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = c(input_fasta_filename_1, input_fasta_filename_2),
+    site_models = list(create_jc69_site_model(), create_jc69_site_model()),
+    clock_models = list(create_strict_clock_model(), create_rln_clock_model()),
+    tree_priors = list(create_yule_tree_prior(), create_yule_tree_prior())
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+
+test_that("JC69 JC69 strict relaxed_log_normal yule", {
+
+  skip("WIP")
+
+  input_fasta_filename_1 <- system.file(
+    "extdata", "anthus_aco.fas", package = "beautier"
+  )
+  input_fasta_filename_2 <- system.file(
+    "extdata", "anthus_nd2.fas", package = "beautier"
+  )
+  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  site_model_1 <- create_jc69_site_model()
+  site_model_2 <- create_jc69_site_model()
+  clock_model_1 <- create_strict_clock_model()
+  clock_model_2 <- create_rln_clock_model()
+  tree_prior <- create_yule_tree_prior()
+  lines <- create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = list(site_model_1, site_model_2),
+    clock_models = list(clock_model_1, clock_model_2),
+    tree_priors = list(tree_prior, tree_prior)
+  )
+  testthat::expect_true(has_unique_ids(lines))
+
+  if (!is_on_travis()) return()
+  save_text("~/fix.xml", lines)
+  are_beast2_input_lines(lines)
+})
+
+
+
 #-------------------------------------------------------------------------------
 # Brute force tests, two alignments
 #-------------------------------------------------------------------------------
