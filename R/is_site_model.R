@@ -1,6 +1,7 @@
 #' Determine if the object is a valid site_model
 #' @param x an object, to be determined if it is a site_model
 #' @return TRUE if the site_model is a valid site_model, FALSE otherwise
+#' @seealso  A site model can be created using \code{\link{create_site_model}}
 #' @examples
 #'   # site models
 #'   testit::assert(is_site_model(create_gtr_site_model()))
@@ -20,6 +21,9 @@ is_site_model <- function(
     return(FALSE)
   }
   if (!is_site_model_name(x$name)) {
+    return(FALSE)
+  }
+  if (!"id" %in% names(x)) {
     return(FALSE)
   }
   if (!"gamma_site_model" %in% names(x)) {

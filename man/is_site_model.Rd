@@ -27,3 +27,6 @@ Determine if the object is a valid site_model
   testit::assert(!is_site_model(create_bd_tree_prior()))
   testit::assert(!is_site_model(create_mcmc()))
 }
+\seealso{
+A site model can be created using \code{\link{create_site_model}}
+}
