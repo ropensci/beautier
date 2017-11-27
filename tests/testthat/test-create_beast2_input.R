@@ -1649,7 +1649,7 @@ test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
   }
 })
 
-test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
+test_that("Reproduce aco_nd2_2_4.xml", {
 
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
@@ -1662,7 +1662,7 @@ test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 2))
+        birth_rate_distr = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1670,7 +1670,7 @@ test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "anthus_aco_anthus_nd2_2_4.xml", package = "beautier"))
+    "aco_nd2_2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -1683,15 +1683,47 @@ test_that("Reproduce anthus_aco_anthus_nd2_2_4.xml", {
     }
   }
 
-  if (is_on_travis()) {
-    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
-  } else {
-    if (1 == 2) {
-      testthat::expect_identical(created_lines, expected_lines)
-    }
-  }
+  testthat::expect_identical(created_lines, expected_lines)
 })
 
+test_that("Reproduce aco_nd2_shared_site_model_2_4.xml", {
+
+  skip("WIP")
+
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beautier")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    tree_priors = list(
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 1)),
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 4))
+    ),
+    misc_options = create_misc_options(
+      capitalize_first_char_id = FALSE,
+      nucleotides_uppercase = TRUE
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "aco_nd2_shared_site_model_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
 
 test_that("Reproduce aco_hky_nd2.xml", {
 
@@ -1760,8 +1792,8 @@ test_that("Reproduce aco_nd2_hky.xml", {
           m = create_m_param(id = 4, value = "1.0"),
           s = create_s_param(id = 5, value = "1.25", lower = NA, upper = NA)
         )
-        )
-      ),
+      )
+    ),
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)),
@@ -1789,6 +1821,7 @@ test_that("Reproduce aco_nd2_hky.xml", {
 
   testthat::expect_identical(created_lines, expected_lines)
 })
+
 
 test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
 
