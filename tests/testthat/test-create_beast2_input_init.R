@@ -3,11 +3,26 @@ context("create_beast2_input_init")
 test_that("use", {
 
   testthat::expect_silent(
-    create_beast2_input_init(
+    beautier:::create_beast2_input_init(
       ids = "test_output_0",
       initial_phylogenies = NA
     )
   )
+
+  testthat::expect_silent(
+    beautier:::create_beast2_input_init(
+      ids = c("a", "b"),
+      initial_phylogenies = rep(NA, 2)
+    )
+  )
+
+  testthat::expect_silent(
+    beautier:::create_beast2_input_init(
+      ids = c("a", "b"),
+      initial_phylogenies = c(ape::rcoal(3), ape::rcoal(3))
+    )
+  )
+
 })
 
 test_that("abuse", {

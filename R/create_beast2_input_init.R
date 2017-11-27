@@ -32,17 +32,10 @@ create_beast2_input_init <- function(
     id <- ids[i]
     if (!ribir::is_phylogeny(phylogeny)) {
       text <- c(text, "")
-      text <- c(text, paste0("    <init id=\"RandomTree.t:", id,
-        "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
-        " initial=\"@Tree.t:", id, "\" taxa=\"@", id, "\">"
-      ))
-      text <- c(text, paste0(
-        "        <populationModel id=\"ConstantPopulation0.t:",
-        id, "\" spec=\"ConstantPopulation\">"))
-      text <- c(text, paste0("            <parameter id=\"randomPopSize.t:",
-        id, "\" name=\"popSize\">1.0</parameter>"))
-      text <- c(text, "        </populationModel>")
-      text <- c(text, "    </init>")
+      text <- c(
+        text,
+        beautier::indent(random_species_tree_to_xml(id), n_spaces = 4)
+      )
     }
   }
   text
