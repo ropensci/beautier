@@ -116,7 +116,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     if (!ribir::is_phylogeny(initial_phylogeny)) {
       text <- c(
         text,
-        beautier::indent(random_species_tree_to_xml_state(id), n_spaces = 4)
+        beautier::indent(rnd_species_tree_to_xml_state(id), n_spaces = 4)
       )
 
       testit::assert(length(id) == 1)
@@ -176,7 +176,7 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
       "name=\"stateNode\">3.0E-4</parameter>"))
   }
   if (!is.null(text)) {
-    text <- indent(text, n_spaces = 4)
+    text <- beautier::indent(text, n_spaces = 4)
   }
   text
 }
@@ -194,9 +194,9 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
   id,
   site_model
 ) {
-  text <- site_model_to_xml(id = id, site_model = site_model)
+  text <- beautier::site_model_to_xml(id = id, site_model = site_model)
   if (!is.null(text)) {
-    text <- indent(text, n_spaces = 4)
+    text <- beautier::indent(text, n_spaces = 4)
   }
   text
 }

@@ -5,7 +5,7 @@
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
-random_species_tree_to_xml_init <- function(
+rnd_species_tree_to_xml_init <- function(
   id
 ) {
   testit::assert(beautier::is_id(id))
