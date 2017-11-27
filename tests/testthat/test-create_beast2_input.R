@@ -978,7 +978,9 @@ test_that("Reproduce strict_clock_rate_0_5_2_4.xml", {
 test_that("Reproduce birth_death_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = system.file(
+      "extdata", "test_output_0.fas", package = "beautier"
+    ),
     tree_priors = beautier::create_bd_tree_prior(
       birth_rate_distr = beautier::create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -989,6 +991,124 @@ test_that("Reproduce birth_death_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_death_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Reproduce bd_6_taxa_2_4.xml", {
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = system.file(
+      "extdata", "test_output_6.fas", package = "beautier"
+    ),
+    tree_priors = beautier::create_bd_tree_prior(
+      birth_rate_distr = beautier::create_uniform_distr(
+        id = 3, upper = "1000.0"),
+      death_rate_distr = beautier::create_uniform_distr(
+        id = 4, upper = NA)
+    )
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "bd_6_taxa_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Reproduce cbs_6_taxa_2_4.xml", {
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = system.file(
+      "extdata", "test_output_6.fas", package = "beautier"
+    ),
+    tree_priors = beautier::create_cbs_tree_prior()
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "cbs_6_taxa_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Reproduce ccp_6_taxa_2_4.xml", {
+
+  skip("WIP")
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = system.file(
+      "extdata", "test_output_6.fas", package = "beautier"
+    ),
+    tree_priors = beautier::create_ccp_tree_prior()
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "ccp_6_taxa_2_4.xml", package = "beautier"))
+
+  if (1 == 2) { # nolint keep this to help fixing future tests
+    write.csv(created_lines, "~/created.csv")
+    write.csv(expected_lines, "~/expected.csv")
+    for (i in 1:min(length(expected_lines), length(created_lines))) {
+      testthat::expect_equal(
+        expected_lines[i], created_lines[i]
+      )
+      print(paste0(i, " / ", length(expected_lines)))
+    }
+  }
+
+  testthat::expect_identical(created_lines, expected_lines)
+})
+
+test_that("Reproduce cep_6_taxa_2_4.xml", {
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = system.file(
+      "extdata", "test_output_6.fas", package = "beautier"
+    ),
+    tree_priors = beautier::create_cep_tree_prior(
+      pop_size_distr = create_one_div_x_distr(id = 2),
+      growth_rate_distr = create_laplace_distr(
+        id = 0,
+        mu = create_mu_param(id = 1, value = "0.001"),
+        scale = create_scale_param(id = 2, value = "30.701135")
+      )
+    )
+  )
+
+  expected_lines <- readLines(system.file("extdata",
+    "cep_6_taxa_2_4.xml", package = "beautier"))
 
   if (1 == 2) { # nolint keep this to help fixing future tests
     write.csv(created_lines, "~/created.csv")
@@ -1910,9 +2030,32 @@ test_that("Reproduce aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4", {
   )
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(input_fasta_filename_1, input_fasta_filename_2),
-    site_models = list(create_jc69_site_model(), create_jc69_site_model()),
-    clock_models = list(create_strict_clock_model(), create_rln_clock_model()),
-    tree_priors = list(create_yule_tree_prior(), create_yule_tree_prior())
+    site_models = list(
+      create_jc69_site_model(
+
+      ),
+      create_jc69_site_model(
+      )
+    ),
+    clock_models = list(
+      create_strict_clock_model(),
+      create_rln_clock_model(
+        uclstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 3, value = "0.5396"),
+          beta = create_beta_param(id = 4, value = "0.3819")
+        )
+      )
+    ),
+    tree_priors = list(
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 1)
+      ),
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 4)
+      )
+    ),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
 
   expected_lines <- readLines(system.file("extdata",
@@ -1928,7 +2071,7 @@ test_that("Reproduce aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4", {
       print(paste0(i, " / ", length(expected_lines)))
     }
   }
-
+  are_equivalent_xml_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1968,6 +2111,8 @@ test_that("JC69 JC69 strict relaxed_log_normal yule", {
 # Brute force tests, two alignments
 #-------------------------------------------------------------------------------
 test_that("All site models, clock models and tree priors, crown age est", {
+
+  if (!is_on_travis()) return()
 
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
