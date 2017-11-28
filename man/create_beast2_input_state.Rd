@@ -19,9 +19,6 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{initial_phylogenies}{initial phylogenies, can be NAs if random
 phylogenies are desired}
-
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_ids}})}
 }
 \description{
 Creates the state section of a BEAST2 XML parameter file
