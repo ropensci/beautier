@@ -7,12 +7,9 @@ the prior section of the distribution section
 of a BEAST2 XML parameter file for a
 Coalescent Exponential Population tree prior}
 \usage{
-create_beast2_input_distr_prior_prior_tree_prior_cep(id, cep_tree_prior)
+create_beast2_input_distr_prior_prior_tree_prior_cep(cep_tree_prior)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{cep_tree_prior}{a Coalescent Exponential Population tree prior,
 as created by \code{\link{create_cep_tree_prior}}}
 }

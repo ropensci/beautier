@@ -8,8 +8,6 @@ tree_prior_to_xml_prior <- function(
   tree_prior
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
-  id <- tree_prior$id
-  testit::assert(beautier::is_id(id))
   text <- NULL
   if (is_yule_tree_prior(tree_prior)) {
 
@@ -24,8 +22,7 @@ tree_prior_to_xml_prior <- function(
     text <- c(
       text,
       create_beast2_input_distr_prior_prior_tree_prior_bd(
-        bd_tree_prior = tree_prior,
-        id = id
+        bd_tree_prior = tree_prior
       )
     )
 
@@ -34,8 +31,7 @@ tree_prior_to_xml_prior <- function(
     text <- c(
       text,
       create_beast2_input_distr_prior_prior_tree_prior_ccp(
-        ccp_tree_prior = tree_prior,
-        id = id
+        ccp_tree_prior = tree_prior
       )
     )
 
@@ -44,8 +40,7 @@ tree_prior_to_xml_prior <- function(
     text <- c(
       text,
       create_beast2_input_distr_prior_prior_tree_prior_cep(
-        cep_tree_prior = tree_prior,
-        id = id
+        cep_tree_prior = tree_prior
       )
     )
   }

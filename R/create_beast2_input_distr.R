@@ -351,6 +351,10 @@ create_beast2_input_distr_prior_prior_tree_prior_bd <- function( # nolint long f
   id,
   bd_tree_prior
 ) {
+  testit::assert(is_bd_tree_prior(bd_tree_prior))
+  id <- bd_tree_prior$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
 
   # BDBirthRate
@@ -389,9 +393,12 @@ create_beast2_input_distr_prior_prior_tree_prior_bd <- function( # nolint long f
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   ccp_tree_prior
 ) {
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+  id <- ccp_tree_prior$id
+  testit::assert(beautier::is_id(id))
+
   # pop size
   create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size(
     ccp_pop_size_distr = get_ccp_pop_size_distr(
@@ -405,17 +412,18 @@ create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long 
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Exponential Population tree prior
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param cep_tree_prior a Coalescent Exponential Population tree prior,
 #'   as created by \code{\link{create_cep_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_prior_prior_tree_prior_cep <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   cep_tree_prior
 ) {
+  testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
+  id <- cep_tree_prior$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   text <- c(
     text,
@@ -449,6 +457,8 @@ yule_tree_prior_to_xml_prior <- function(
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   text <- c(text, paste0(
       "<prior id=\"YuleBirthRatePrior.t:", id, "\" ",

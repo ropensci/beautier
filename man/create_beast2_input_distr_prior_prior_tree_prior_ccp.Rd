@@ -7,14 +7,14 @@ the prior section of the distribution section
 of a BEAST2 XML parameter file for a
 Coalescent Constant Population tree prior}
 \usage{
-create_beast2_input_distr_prior_prior_tree_prior_ccp(id, ccp_tree_prior)
+create_beast2_input_distr_prior_prior_tree_prior_ccp(ccp_tree_prior)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as created by \code{\link{create_ccp_tree_prior}}}
+
+\item{id}{the ID of the alignment (can be extracted from
+its FASTA filesname using \code{\link{get_id}})}
 }
 \description{
 Creates the tree prior section in the prior section of
