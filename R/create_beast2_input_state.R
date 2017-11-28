@@ -124,25 +124,18 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     tree_prior <- tree_priors[[i]]
     id <- tree_prior$id
 
-    if (!is_phylo(initial_phylo)) {
-      text <- c(
-        text,
-        beautier::indent(rnd_phylo_to_xml_state(id), n_spaces = 4)
+    text <- c(
+      text,
+      beautier::indent(
+        phylo_to_xml_state(id = id, phylo = initial_phylo),
+        n_spaces = 4
       )
-      # Each tree, except the first, have a clockRate
-      if (i > 1) {
-        text <- c(text, paste0("    <parameter ",
-          "id=\"clockRate.c:", id, "\" ",
-          "name=\"stateNode\">1.0</parameter>"))
-      }
-    } else {
-      text <- c(
-        text,
-        beautier::indent(
-          phylo_to_xml_state(id = id, phylo = initial_phylo),
-          n_spaces = 4
-        )
-      )
+    )
+    # Each tree, except the first, have a clockRate
+    if (i > 1) {
+      text <- c(text, paste0("    <parameter ",
+        "id=\"clockRate.c:", id, "\" ",
+        "name=\"stateNode\">1.0</parameter>"))
     }
     tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior) # nolint internal function
     if (!is.null(tree_prior_text)) {
