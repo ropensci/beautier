@@ -1,6 +1,4 @@
 #' Creates the state section of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_ids}})
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
 #' @inheritParams create_beast2_input
@@ -8,7 +6,6 @@
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state <- function(
-  ids,
   site_models,
   clock_models,
   tree_priors,
@@ -16,11 +13,6 @@ create_beast2_input_state <- function(
 ) {
   testit::assert(class(initial_phylogenies) == "multiPhylo" ||
       is.na(initial_phylogenies))
-  testit::assert(beautier::are_ids(ids))
-  testit::assert(length(ids) == length(initial_phylogenies))
-  testit::assert(length(ids) >= length(site_models))
-  testit::assert(length(ids) >= length(clock_models))
-  testit::assert(length(ids) == length(tree_priors))
   testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL

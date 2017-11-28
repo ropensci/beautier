@@ -5,7 +5,6 @@ test_that("birth_death", {
   id <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = id,
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = beautier:::init_clock_models(
         list(create_strict_clock_model()), ids = id, distr_id = 0),
@@ -17,7 +16,6 @@ test_that("birth_death", {
 
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = id,
       site_models = list(create_gtr_site_model(id = id)),
       clock_models = beautier:::init_clock_models(
         list(create_strict_clock_model()), ids = id, distr_id = 0),
@@ -35,7 +33,6 @@ test_that("abuse", {
   # Two ids OK
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = beautier:::init_tree_priors(
@@ -47,7 +44,6 @@ test_that("abuse", {
   # Two ids, one site model
   testthat::expect_error(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = "only_one"),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = init_tree_priors(create_yule_tree_priors(ids = ids)),
@@ -58,7 +54,6 @@ test_that("abuse", {
   # Two ids, one clock model
   testthat::expect_error(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(
         ids = "only_one"), # One too little
@@ -70,7 +65,6 @@ test_that("abuse", {
   # Two ids, one tree prior
   testthat::expect_error(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = init_tree_priors(create_yule_tree_priors(ids = "only_one")),
@@ -81,7 +75,6 @@ test_that("abuse", {
   # Two ids, one phylogeny
   testthat::expect_error(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = init_tree_priors(create_yule_tree_priors(ids = ids)),
@@ -96,7 +89,6 @@ test_that("use without initial phylogeny", {
   id <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = id,
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model(id = id)),
       tree_priors = beautier:::init_tree_priors(
@@ -121,7 +113,6 @@ test_that("use one with initial phylogeny", {
   id <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = id,
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model(id = id)),
       tree_priors = beautier:::init_tree_priors(
@@ -139,7 +130,6 @@ test_that("two phylogenies", {
   ids <- c("Anthus_nd2", "Anthus_aco")
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = create_yule_tree_priors(ids = ids),
@@ -154,7 +144,6 @@ test_that("three phylogenies", {
   ids <- c("aco", "nd2", "nd3")
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = create_yule_tree_priors(ids = ids),
@@ -169,7 +158,6 @@ test_that("four phylogenies", {
   ids <- c("aco", "nd2", "nd3", "nd4")
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = create_yule_tree_priors(ids = ids),
@@ -184,7 +172,6 @@ test_that("four phylogenies, shared clock", {
   ids <- c("aco", "nd2", "nd3", "nd4")
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids[1]),
       tree_priors = create_yule_tree_priors(ids = ids),
@@ -207,7 +194,6 @@ test_that("two alignments, two initial phylogenies", {
 
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
       tree_priors = beautier:::init_tree_priors(
