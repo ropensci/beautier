@@ -30,7 +30,7 @@ create_beast2_input_init <- function(
   for (i in seq(1, n)) {
     phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
-    if (!ribir::is_phylogeny(phylogeny)) {
+    if (!is_phylogeny(phylogeny)) {
       text <- c(text, "")
       text <- c(
         text,

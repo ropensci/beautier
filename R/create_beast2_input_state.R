@@ -125,7 +125,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     id <- ids[i]
     tree_prior <- tree_priors[[i]]
 
-    if (!ribir::is_phylogeny(initial_phylogeny)) {
+    if (!is_phylogeny(initial_phylogeny)) {
       text <- c(
         text,
         beautier::indent(rnd_phylogeny_to_xml_state(id), n_spaces = 4)
