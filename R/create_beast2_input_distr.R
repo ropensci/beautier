@@ -298,7 +298,11 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
     }
 
     # No beautier:: before create_beast2_input_distr_prior_prior_tree_prior, as it is private # nolint
-    tree_priors_text <- create_beast2_input_distr_prior_prior_tree_prior(id = id, tree_prior = tree_prior) # nolint
+    tree_priors_text <- tree_prior_to_xml_prior(tree_prior)
+    if (!is.null(tree_priors_text)) {
+      tree_priors_text <- beautier::indent(tree_priors_text, n_spaces = 12)
+    }
+
     site_models_text <- create_beast2_input_distr_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(id = id, site_model = site_model) # nolint
     clock_models_text <- create_beast2_input_distr_clock_models(id = id, clock_model = clock_model) # nolint
@@ -315,25 +319,6 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
     }
     text <- c(text, clock_models_text)
   }
-  text
-}
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @param tree_prior a tree_prior, as created by \code{\link{create_tree_prior}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  tree_prior
-) {
-  text <- tree_prior_to_xml_prior(tree_prior)
-  if (!is.null(text)) text <- beautier::indent(text, n_spaces = 12)
-
   text
 }
 
