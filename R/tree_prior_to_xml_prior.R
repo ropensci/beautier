@@ -15,8 +15,7 @@ tree_prior_to_xml_prior <- function(
 
     text <- c(text,
       yule_tree_prior_to_xml_prior(
-        yule_tree_prior = tree_prior,
-        id = id
+        yule_tree_prior = tree_prior
       )
     )
 

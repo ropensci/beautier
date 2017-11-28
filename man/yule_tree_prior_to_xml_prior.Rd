@@ -2,27 +2,20 @@
 % Please edit documentation in R/create_beast2_input_distr.R
 \name{yule_tree_prior_to_xml_prior}
 \alias{yule_tree_prior_to_xml_prior}
-\title{Creates the tree prior section in the prior section of
+\title{Creates the \code{prior} section in the prior section of
 the prior section of the distribution section
 of a BEAST2 XML parameter file for a Yule tree prior}
 \usage{
-yule_tree_prior_to_xml_prior(id, yule_tree_prior)
+yule_tree_prior_to_xml_prior(yule_tree_prior)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
 }
 \description{
-Creates the tree prior section in the prior section of
+Creates the \code{prior} section in the prior section of
 the prior section of the distribution section
 of a BEAST2 XML parameter file for a Yule tree prior
-}
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
 }
 \author{
 Richel J.C. Bilderbeek

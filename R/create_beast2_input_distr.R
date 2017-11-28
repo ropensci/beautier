@@ -438,24 +438,23 @@ create_beast2_input_distr_prior_prior_tree_prior_cep <- function( # nolint long 
   text
 }
 
-#' Creates the tree prior section in the prior section of
+#' Creates the \code{prior} section in the prior section of
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Yule tree prior
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param yule_tree_prior a Yule tree_prior,
 #'   as created by \code{\link{create_yule_tree_prior}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-yule_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
+yule_tree_prior_to_xml_prior <- function(
   yule_tree_prior
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
+  id <- yule_tree_prior$id
   text <- NULL
-  text <- c(text, paste0("<prior id=\"YuleBirthRatePrior.t:",
-    id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
+  text <- c(text, paste0(
+      "<prior id=\"YuleBirthRatePrior.t:", id, "\" ",
+      "name=\"distribution\" x=\"@birthRate.t:", id, "\">"
+    )
+  )
   text <- c(text,
     indent(
       distr_to_xml(
