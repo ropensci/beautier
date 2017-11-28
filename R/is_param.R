@@ -8,5 +8,8 @@
 is_param <- function(
   x
 ) {
-  return("name" %in% names(x))
+  if(!"name" %in% names(x)) return(FALSE)
+  if(!x$name %in% get_param_names()) return(FALSE)
+  if(!"id" %in% names(x)) return(FALSE)
+  TRUE
 }

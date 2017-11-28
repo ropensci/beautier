@@ -2,12 +2,6 @@ context("create_clock_model")
 
 test_that("use", {
 
-  clock_model <- beautier::create_clock_model(name = "relaxed_log_normal")
-  testthat::expect_true(beautier::is_clock_model(clock_model))
-
-  clock_model <- beautier::create_clock_model(name = "strict")
-  testthat::expect_true(beautier::is_clock_model(clock_model))
-
   clock_model <- beautier::create_rln_clock_model()
   testthat::expect_true(beautier::is_clock_model(clock_model))
 

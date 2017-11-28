@@ -4,7 +4,7 @@
 \alias{create_clock_model}
 \title{General function to create a clock model}
 \usage{
-create_clock_model(name, ...)
+create_clock_model(name, id, ...)
 }
 \arguments{
 \item{name}{the clock model name. Valid

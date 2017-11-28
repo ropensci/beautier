@@ -338,13 +338,11 @@ create_mean_param <- function(
   estimate = FALSE,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "mean",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "mean",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
 
@@ -388,13 +386,11 @@ create_mu_param <- function(
   estimate = FALSE,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "mu",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "mu",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
 

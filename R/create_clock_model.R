@@ -10,6 +10,7 @@
 #' @export
 create_clock_model <- function(
   name,
+  id,
   ...
 ) {
   if (!is_clock_model_name(name)) {
@@ -26,7 +27,7 @@ create_clock_model <- function(
       clock_models_as_string()
     )
   }
-  clock_model <- list(name = name, ...)
+  clock_model <- list(name = name, id = id, ...)
   clock_model
 }
 
@@ -51,15 +52,16 @@ create_clock_model <- function(
 #'   )
 #' @export
 create_rln_clock_model <- function(
+  id = get_clock_model_default_id(),
   uclstdev_distr = create_gamma_distr(),
   mparam_id = NA
 ) {
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
+    id = id,
     uclstdev_distr = uclstdev_distr,
     mparam_id = mparam_id
   )
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   rln_clock_model
 }
 
@@ -82,12 +84,13 @@ create_rln_clock_model <- function(
 #'   )
 #' @export
 create_strict_clock_model <- function(
+  id = get_clock_model_default_id(),
   clock_rate_param = create_clock_rate_param()
 ) {
   strict_clock_model <- beautier::create_clock_model(
     name = "strict",
+    id = id,
     clock_rate_param = clock_rate_param
   )
-  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
   strict_clock_model
 }
