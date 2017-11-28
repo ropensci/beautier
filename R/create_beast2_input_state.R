@@ -18,8 +18,8 @@ create_beast2_input_state <- function(
       is.na(initial_phylogenies))
   testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(initial_phylogenies))
-  testit::assert(length(ids) == length(site_models))
-  testit::assert(length(ids) == length(clock_models))
+  testit::assert(length(ids) >= length(site_models))
+  testit::assert(length(ids) >= length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(beautier::are_tree_priors(tree_priors))
 

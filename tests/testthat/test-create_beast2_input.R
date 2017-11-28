@@ -3,7 +3,7 @@ context("create_beast2_input")
 ################################################################################
 # General
 ################################################################################
-test_that("input is checked", {
+test_that("input is checked, one alignment", {
 
   testthat::expect_silent(
     create_beast2_input(
@@ -74,6 +74,9 @@ test_that("input is checked", {
       initial_phylogenies = "nonsense"
     )
   )
+})
+
+test_that("input is checked, two alignments", {
 
   fasta_filename_1 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
@@ -91,15 +94,17 @@ test_that("input is checked", {
   )
 
   # Two filesnames, one clock model
-  testthat::expect_silent(
-    create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
-      clock_models = create_strict_clock_models(ids = ids[1])
+  if (1 == 2) {
+    testthat::expect_silent(
+      create_beast2_input(
+        input_fasta_filenames = input_fasta_filenames,
+        clock_models = create_strict_clock_models(ids = ids[1])
+      )
     )
-  )
+  }
 
   # Two filesnames, one tree prior
-  testthat::expect_silent(
+  testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = input_fasta_filenames,
       tree_priors = create_yule_tree_priors(ids = ids[1])
