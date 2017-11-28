@@ -6,6 +6,9 @@
 \usage{
 create_cbs_tree_prior(id = get_tree_prior_default_id())
 }
+\arguments{
+\item{id}{the ID of the alignment}
+}
 \value{
 a Coalescent Bayesian Skyline tree_prior
 }
@@ -25,6 +28,10 @@ Create a Coalescent Bayesian Skyline tree prior
     tree_priors = cbs_tree_prior
   )
   testit::assert(file.exists("my_beast.xml"))
+}
+\seealso{
+An alignment ID can be extracted from
+  its FASTA filesname using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek

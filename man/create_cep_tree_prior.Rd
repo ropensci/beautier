@@ -9,6 +9,8 @@ create_cep_tree_prior(id = get_tree_prior_default_id(),
   growth_rate_distr = create_laplace_distr())
 }
 \arguments{
+\item{id}{the ID of the alignment}
+
 \item{pop_size_distr}{the population distribution,
 as created by a \code{\link{create_distr}} function}
 
@@ -34,6 +36,10 @@ Create a Coalescent Exponential Population tree prior
     tree_priors = cep_tree_prior
   )
   testit::assert(file.exists("my_beast.xml"))
+}
+\seealso{
+An alignment ID can be extracted from
+  its FASTA filesname using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek

@@ -8,6 +8,8 @@ create_ccp_tree_prior(id = get_tree_prior_default_id(),
   pop_size_distr = beautier::create_one_div_x_distr())
 }
 \arguments{
+\item{id}{the ID of the alignment}
+
 \item{pop_size_distr}{the population distribution,
 as created by a \code{\link{create_distr}} function}
 }
@@ -30,6 +32,10 @@ Create a Coalescent Constant Population tree prior
     tree_priors = ccp_tree_prior
   )
   testit::assert(file.exists("my_beast.xml"))
+}
+\seealso{
+An alignment ID can be extracted from
+  its FASTA filesname using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek

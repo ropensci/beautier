@@ -39,7 +39,7 @@ create_tree_prior <- function(
 }
 
 #' Create a Birth-Death tree prior
-#' @return a Birth-Death tree_prior
+#' @param id the ID of the alignment
 #' @param birth_rate_distr the birth rate distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @param death_rate_distr the death rate distribution,
@@ -50,6 +50,8 @@ create_tree_prior <- function(
 #'   birth_rate_distr = beautier::create_uniform_distr(),
 #'   death_rate_distr = beautier::create_uniform_distr()
 #' )
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   bd_tree_prior <- create_bd_tree_prior()
@@ -79,7 +81,10 @@ create_bd_tree_prior <- function(
 }
 
 #' Create a Coalescent Bayesian Skyline tree prior
+#' @param id the ID of the alignment
 #' @return a Coalescent Bayesian Skyline tree_prior
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   cbs_tree_prior <- create_cbs_tree_prior()
@@ -105,9 +110,12 @@ create_cbs_tree_prior <- function(
 }
 
 #' Create a Coalescent Constant Population tree prior
+#' @param id the ID of the alignment
 #' @param pop_size_distr the population distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Constant Population tree_prior
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   ccp_tree_prior <- create_ccp_tree_prior()
@@ -135,11 +143,14 @@ create_ccp_tree_prior <- function(
 }
 
 #' Create a Coalescent Exponential Population tree prior
+#' @param id the ID of the alignment
 #' @param pop_size_distr the population distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @param growth_rate_distr the growth rate distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Exponential Population tree_prior
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   cep_tree_prior <- create_cep_tree_prior()
@@ -171,9 +182,12 @@ create_cep_tree_prior <- function(
 }
 
 #' Create a Yule tree prior
+#' @param id the ID of the alignment
 #' @param birth_rate_distr the birth rate distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Yule tree_prior
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @usage
 #' create_yule_tree_prior(
 #'   birth_rate_distr = beautier::create_uniform_distr()

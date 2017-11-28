@@ -10,6 +10,8 @@ create_bd_tree_prior(
 )
 }
 \arguments{
+\item{id}{the ID of the alignment}
+
 \item{birth_rate_distr}{the birth rate distribution,
 as created by a \code{\link{create_distr}} function}
 
@@ -17,8 +19,6 @@ as created by a \code{\link{create_distr}} function}
 as created by a \code{\link{create_distr}} function}
 }
 \value{
-a Birth-Death tree_prior
-
 a Birth-Death tree_prior
 }
 \description{
@@ -37,6 +37,10 @@ Create a Birth-Death tree prior
     tree_priors = bd_tree_prior
   )
   testit::assert(file.exists("my_beast.xml"))
+}
+\seealso{
+An alignment ID can be extracted from
+  its FASTA filesname using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek
