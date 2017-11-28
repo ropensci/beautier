@@ -866,19 +866,18 @@ test_that("Reproduce cbs_6_taxa_2_4.xml", {
 
 test_that("Reproduce ccp_6_taxa_2_4.xml", {
 
-  skip("WIP")
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = system.file(
       "extdata", "test_output_6.fas", package = "beautier"
     ),
-    tree_priors = beautier::create_ccp_tree_prior()
+    tree_priors = beautier::create_ccp_tree_prior(
+      pop_size_distr = create_one_div_x_distr(id = 1)
+    )
   )
 
   expected_lines <- readLines(system.file("extdata",
     "ccp_6_taxa_2_4.xml", package = "beautier"))
 
-  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
