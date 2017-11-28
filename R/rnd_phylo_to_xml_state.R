@@ -5,7 +5,7 @@
 #' @return the random species tree as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
-rnd_phylogeny_to_xml_state <- function(
+rnd_phylo_to_xml_state <- function(
   id
 ) {
   testit::assert(beautier::is_id(id))

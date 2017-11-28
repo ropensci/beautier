@@ -3,6 +3,6 @@
 #' @return TRUE or FALSE
 #' @author Richel Bilderbeek
 #' @export
-is_phylogeny <- function(x) {
+is_phylo <- function(x) {
   return(class(x) == "phylo")
 }

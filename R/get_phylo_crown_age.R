@@ -9,11 +9,11 @@
 #'   )$tree
 #'   n_taxa <- length(phylogeny$tip.label)
 #'   testit::assert(n_taxa > 0)
-#'   crown_age <- get_phylogeny_crown_age(phylogeny)
+#'   crown_age <- get_phylo_crown_age(phylogeny)
 #'   testit::assert(all.equal(age, crown_age, tolerance = 0.001))
 #' @author Richel J.C. Bilderbeek
 #' @export
-get_phylogeny_crown_age <- function(
+get_phylo_crown_age <- function(
   phylogeny
 ) {
   if (class(phylogeny) != "phylo" && class(phylogeny) != "multiPhylo") {

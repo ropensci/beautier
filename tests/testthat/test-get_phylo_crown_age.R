@@ -1,6 +1,6 @@
-context("get_phylogeny_crown_age")
+context("get_phylo_crown_age")
 
-test_that("get_phylogeny_crown_age: basic use", {
+test_that("get_phylo_crown_age: basic use", {
    age <- 15
    set.seed(42)
    phylogeny <- PBD::pbd_sim(
@@ -8,13 +8,13 @@ test_that("get_phylogeny_crown_age: basic use", {
    )$tree
    n_taxa <- length(phylogeny$tip.label)
    testit::assert(n_taxa > 0)
-   crown_age <- get_phylogeny_crown_age(phylogeny = phylogeny)
+   crown_age <- get_phylo_crown_age(phylogeny = phylogeny)
    testthat::expect_true(all.equal(age, crown_age, tolerance = 0.001))
 })
 
-test_that("get_phylogeny_crown_age: abuse", {
+test_that("get_phylo_crown_age: abuse", {
 
-    testthat::expect_error(get_phylogeny_crown_age(
+    testthat::expect_error(get_phylo_crown_age(
       phylogeny = c(1, 2, 3)),
       "phylogeny must be of class 'phylo'"
     )

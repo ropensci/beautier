@@ -121,14 +121,14 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
   n <- length(ids)
   for (i in seq(1, n)) {
-    initial_phylogeny <- initial_phylogenies[[i]]
+    initial_phylo <- initial_phylogenies[[i]]
     id <- ids[i]
     tree_prior <- tree_priors[[i]]
 
-    if (!is_phylogeny(initial_phylogeny)) {
+    if (!is_phylo(initial_phylo)) {
       text <- c(
         text,
-        beautier::indent(rnd_phylogeny_to_xml_state(id), n_spaces = 4)
+        beautier::indent(rnd_phylo_to_xml_state(id), n_spaces = 4)
       )
 
       testit::assert(length(id) == 1)
@@ -141,7 +141,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
       text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
           "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",
           "adjustTipHeights=\"false\" taxa=\"@", id, "\" ",
-          "newick=\"", ape::write.tree(initial_phylogeny), "\">"))
+          "newick=\"", ape::write.tree(initial_phylo), "\">"))
       text <- c(text, paste0("    </stateNode>"))
     }
     if (is_yule_tree_prior(tree_prior)) {
