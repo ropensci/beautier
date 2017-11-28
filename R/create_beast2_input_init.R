@@ -34,7 +34,7 @@ create_beast2_input_init <- function(
       text <- c(text, "")
       text <- c(
         text,
-        beautier::indent(rnd_species_tree_to_xml_init(id), n_spaces = 4)
+        beautier::indent(rnd_phylogeny_to_xml_init(id), n_spaces = 4)
       )
     }
   }

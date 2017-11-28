@@ -102,8 +102,20 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   tree_priors,
   initial_phylogenies
 ) {
+
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(length(ids) == length(initial_phylogenies))
+  # Each tree looks like this:
+  #
+  # <tree id="Tree.t:anthus_nd4" name="stateNode">
+  #     <taxonset id="TaxonSet.anthus_nd4" spec="TaxonSet">
+  #         <alignment idref="anthus_nd4"/>
+  #     </taxonset>
+  # </tree>
+  # <parameter id="clockRate.c:anthus_nd4" name="stateNode">1.0</parameter>
+  # <parameter id="birthRate.t:anthus_nd4" name="stateNode">1.0</parameter>
+  #
+  # Except that the first tree does not have a clockRate
 
   text <- NULL
 
@@ -116,7 +128,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     if (!ribir::is_phylogeny(initial_phylogeny)) {
       text <- c(
         text,
-        beautier::indent(rnd_species_tree_to_xml_state(id), n_spaces = 4)
+        beautier::indent(rnd_phylogeny_to_xml_state(id), n_spaces = 4)
       )
 
       testit::assert(length(id) == 1)
