@@ -7,7 +7,7 @@ distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='}
 \usage{
 create_beast2_input_distr_prior_distr(ids,
-  tree_priors = create_yule_tree_priors(n = length(ids)))
+  tree_priors = create_yule_tree_priors(ids = ids))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from

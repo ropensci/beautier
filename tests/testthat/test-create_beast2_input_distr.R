@@ -11,7 +11,7 @@ test_that("use with one ID", {
       clock_models = beautier:::init_clock_models(
         create_strict_clock_models(ids = NA), ids = ids),
       tree_priors = beautier:::init_tree_priors(
-        create_yule_tree_priors(n = 1),
+        create_yule_tree_priors(ids = ids),
         distr_id = 1
       )
     )

@@ -30,7 +30,7 @@ create_beast2_input <- function(
   site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
   clock_models = create_strict_clock_models(
     ids = get_ids(input_fasta_filenames)),
-  tree_priors = create_yule_tree_priors(n = length(input_fasta_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
   fixed_crown_age = FALSE,
@@ -69,8 +69,8 @@ create_beast2_input <- function(
   if (!is.logical(fixed_crown_age)) {
     stop("fixed_crown_age must be either TRUE or FALSE")
   }
-  if (length(input_fasta_filenames) != length(clock_models)) {
-    stop("Must supply as much input_fasta_filenames as clock_models")
+  if (length(input_fasta_filenames) < length(clock_models)) {
+    stop("Must supply at least as much input_fasta_filenames as clock_models")
   }
   if (length(input_fasta_filenames) != length(tree_priors)) {
     stop("Must supply as much input_fasta_filenames as tree priors")

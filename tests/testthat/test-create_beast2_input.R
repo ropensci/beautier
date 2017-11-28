@@ -79,35 +79,37 @@ test_that("input is checked", {
     "anthus_nd2.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
+  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+  ids <- get_ids(input_fasta_filenames)
 
   # Two filesnames, one site model
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      input_fasta_filenames = input_fasta_filenames,
       site_models = create_jc69_site_models(ids = "only_one")
     )
   )
 
   # Two filesnames, one clock model
-  testthat::expect_error(
+  testthat::expect_silent(
     create_beast2_input(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      clock_models = create_strict_clock_models(ids = "only_one")
+      input_fasta_filenames = input_fasta_filenames,
+      clock_models = create_strict_clock_models(ids = ids[1])
     )
   )
 
   # Two filesnames, one tree prior
-  testthat::expect_error(
+  testthat::expect_silent(
     create_beast2_input(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      tree_priors = create_yule_tree_priors(n = 1)
+      input_fasta_filenames = input_fasta_filenames,
+      tree_priors = create_yule_tree_priors(ids = ids[1])
     )
   )
 
   # Two filesnames, one phylogeny
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      input_fasta_filenames = input_fasta_filenames,
       initial_phylogenies = c(ape::rcoal(4))
     )
   )

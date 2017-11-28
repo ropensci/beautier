@@ -10,19 +10,19 @@ test_that("use", {
 
   testthat::expect_true(
     is_yule_tree_prior(
-      create_yule_tree_priors(n = 1)
+      create_yule_tree_priors(ids = "some_id")
     )
   )
 
   testthat::expect_true(
     is_yule_tree_prior(
-      create_yule_tree_priors(n = 2)[[1]]
+      create_yule_tree_priors(ids = c("a", "b"))[[1]]
     )
   )
 
   testthat::expect_true(
     is_yule_tree_prior(
-      create_yule_tree_priors(n = 2)[[2]]
+      create_yule_tree_priors(ids = c("a", "b"))[[2]]
     )
   )
 

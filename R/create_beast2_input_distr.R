@@ -200,7 +200,7 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  tree_priors = create_yule_tree_priors(n = length(ids))
+  tree_priors = create_yule_tree_priors(ids = ids)
 ) {
   testit::assert(length(ids) == length(tree_priors))
 

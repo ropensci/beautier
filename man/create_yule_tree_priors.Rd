@@ -4,7 +4,7 @@
 \alias{create_yule_tree_priors}
 \title{Creates n Yule tree priors}
 \usage{
-create_yule_tree_priors(n)
+create_yule_tree_priors(ids)
 }
 \arguments{
 \item{n}{the number of Yule tree_prior objects}

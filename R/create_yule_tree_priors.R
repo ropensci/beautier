@@ -11,10 +11,11 @@
 #'   testthat::expect_true(is_yule_tree_prior(m[[1]]))
 #'   testthat::expect_true(is_yule_tree_prior(m[[2]]))
 #' @export
-create_yule_tree_priors <- function(n) {
+create_yule_tree_priors <- function(ids) {
+  n <- length(ids)
   ms <- list()
   for (i in seq(1, n)) {
-    ms[[i]] <- beautier::create_yule_tree_prior()
+    ms[[i]] <- beautier::create_yule_tree_prior(id = ids[i])
   }
   ms
 }

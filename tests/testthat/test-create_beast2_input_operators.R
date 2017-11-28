@@ -59,17 +59,18 @@ testthat::expect_error(
 
 test_that("Operators that change crown age are absent at fixed crown age", {
   input_fasta_filename <- beautier::get_input_fasta_filename()
+  id <- get_id(input_fasta_filename)
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
   created_lines_fixed <- beautier:::create_beast2_input_operators(
-    ids = "test_output_0",
-    tree_priors = create_yule_tree_priors(n = 1),
+    ids = id,
+    tree_priors = create_yule_tree_priors(ids = id),
     fixed_crown_age = TRUE
   )
 
   created_lines_nonfixed <- beautier:::create_beast2_input_operators(
-    ids = "test_output_0",
-    tree_priors = create_yule_tree_priors(n = 1),
+    ids = id,
+    tree_priors = create_yule_tree_priors(ids = id),
     fixed_crown_age = FALSE
   )
 

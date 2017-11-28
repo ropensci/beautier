@@ -13,7 +13,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   ids,
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(n = length(ids))
+  tree_priors = create_yule_tree_priors(ids = ids)
 ) {
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
@@ -62,7 +62,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   ids,
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(n = length(ids))
+  tree_priors = create_yule_tree_priors(ids = ids)
 ) {
   testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(site_models))

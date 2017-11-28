@@ -14,7 +14,7 @@ init_clock_models <- function(
   param_id = 0
 ) {
   testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(length(clock_models) == length(ids))
+  testit::assert(length(clock_models) <= length(ids))
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]

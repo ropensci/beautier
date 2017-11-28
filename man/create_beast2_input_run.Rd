@@ -6,9 +6,8 @@
 \usage{
 create_beast2_input_run(ids, site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(n = length(ids)),
-  mcmc = create_mcmc(), fixed_crown_age = FALSE,
-  initial_phylogenies = rep(NA, length(ids)))
+  tree_priors = create_yule_tree_priors(ids = ids), mcmc = create_mcmc(),
+  fixed_crown_age = FALSE, initial_phylogenies = rep(NA, length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
