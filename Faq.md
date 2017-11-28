@@ -2,7 +2,7 @@
 
 ## Which version of BEAUti do you use as a guideline?
 
-Version 2.4.
+Version 2.4.7.
 
 ## What's the roadmap?
 
@@ -33,3 +33,15 @@ Submit an Issue. Or send an email to Richel Bilderbeek.
 ## How do I reference to this work?
 
 Article is still in preperation.
+
+## What are the FASTA files?
+
+FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
+ 
+ * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
+
+Thanks to Paul van Els.
+
+FASTA files `test_output_0.fas`, `anthus_nd3.fas` and `anthus_nd4.fas`
+are artificially made FASTA files. 
+

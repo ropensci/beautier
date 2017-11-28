@@ -99,6 +99,6 @@ Article about `beautier`:
 
  * Bilderbeek, Richel J.C., Etienne, Rampal S., "beautier: BEAUti from R" *In preparation*.
 
-FASTA files `Anthus_aco.fas` and `Anthus_nd2.fas` from:
+FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  
  * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
