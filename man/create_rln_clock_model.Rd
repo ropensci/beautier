@@ -8,6 +8,8 @@ create_rln_clock_model(id = get_clock_model_default_id(),
   uclstdev_distr = create_gamma_distr(), mparam_id = NA)
 }
 \arguments{
+\item{id}{a clock model's ID}
+
 \item{uclstdev_distr}{the uclstdev distribution,
 as created by a \code{\link{create_distr}} function}
 

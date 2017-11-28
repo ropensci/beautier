@@ -49,7 +49,7 @@ create_beast2_input_state <- function(
     # 2) freq
     # 3) gamma shape
     # Order is determined by site model and Gamma Category Count :-(
-    rates <- create_beast2_input_state_site_models_rates(id = id, site_model = site_model) # nolint
+    rates <- create_beast2_input_state_site_models_rates(site_model = site_model) # nolint
     freqparams <- create_beast2_input_state_gamma_site_models_freqparams(id = id, site_model = site_model) # nolint
     gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(id = id, site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
@@ -201,10 +201,9 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_site_models_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
-  text <- beautier::site_model_to_xml_rates(id = id, site_model = site_model)
+  text <- site_model_to_xml_rates(site_model = site_model)
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 4)
   }

@@ -5,13 +5,13 @@
 \title{Converts a site model to XML,
   used in the \code{rates} section}
 \usage{
-site_model_to_xml_rates(id, site_model)
+site_model_to_xml_rates(site_model)
 }
 \arguments{
-\item{id}{a site model's ID}
-
 \item{site_model}{a site model,
 as created by \code{\link{create_site_model}})}
+
+\item{id}{a site model's ID}
 }
 \value{
 the site model as XML text

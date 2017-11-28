@@ -8,6 +8,8 @@ create_strict_clock_model(id = get_clock_model_default_id(),
   clock_rate_param = create_clock_rate_param())
 }
 \arguments{
+\item{id}{a clock model's ID}
+
 \item{clock_rate_param}{a clock_rate parameter,
 as created by a \code{\link{create_clock_rate_param}} function}
 }

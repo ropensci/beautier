@@ -7,7 +7,7 @@
 create_yule_tree_priors(ids)
 }
 \arguments{
-\item{n}{the number of Yule tree_prior objects}
+\item{ids}{the alignment IDs}
 }
 \value{
 a list of Yule tree_prior objects

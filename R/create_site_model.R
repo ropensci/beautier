@@ -68,12 +68,10 @@ create_jc69_site_model <- function(
   id = get_site_model_default_id(),
   gamma_site_model = get_default_gamma_site_model()
 ) {
-  return(
-    beautier::create_site_model(
-      name = "JC69",
-      id = id,
-      gamma_site_model = gamma_site_model
-    )
+  beautier::create_site_model(
+    name = "JC69",
+    id = id,
+    gamma_site_model = gamma_site_model
   )
 }
 
@@ -105,14 +103,12 @@ create_hky_site_model <- function(
     s = create_s_param(value = "1.25")
   )
 ) {
-  return(
-    beautier::create_site_model(
-      name = "HKY",
-      id = id,
-      gamma_site_model = gamma_site_model,
-      kappa = kappa,
-      kappa_prior_distr = kappa_prior_distr
-    )
+  beautier::create_site_model(
+    name = "HKY",
+    id = id,
+    gamma_site_model = gamma_site_model,
+    kappa = kappa,
+    kappa_prior_distr = kappa_prior_distr
   )
 }
 
@@ -150,14 +146,12 @@ create_tn93_site_model <- function(
     s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
   )
 ) {
-  return(
-    beautier::create_site_model(
-      name = "TN93",
-      id = id,
-      gamma_site_model = gamma_site_model,
-      kappa_1_prior_distr = kappa_1_prior_distr,
-      kappa_2_prior_distr = kappa_2_prior_distr
-    )
+  beautier::create_site_model(
+    name = "TN93",
+    id = id,
+    gamma_site_model = gamma_site_model,
+    kappa_1_prior_distr = kappa_1_prior_distr,
+    kappa_2_prior_distr = kappa_2_prior_distr
   )
 }
 
@@ -209,16 +203,14 @@ create_gtr_site_model <- function(
     beta = create_beta_param(value = "10.0")
   )
 ) {
-  return(
-    beautier::create_site_model(
-      name = "GTR",
-      id = id,
-      gamma_site_model = gamma_site_model,
-      rate_ac_prior_distr = rate_ac_prior_distr,
-      rate_ag_prior_distr = rate_ag_prior_distr,
-      rate_at_prior_distr = rate_at_prior_distr,
-      rate_cg_prior_distr = rate_cg_prior_distr,
-      rate_gt_prior_distr = rate_gt_prior_distr
-    )
+  beautier::create_site_model(
+    name = "GTR",
+    id = id,
+    gamma_site_model = gamma_site_model,
+    rate_ac_prior_distr = rate_ac_prior_distr,
+    rate_ag_prior_distr = rate_ag_prior_distr,
+    rate_at_prior_distr = rate_at_prior_distr,
+    rate_cg_prior_distr = rate_cg_prior_distr,
+    rate_gt_prior_distr = rate_gt_prior_distr
   )
 }

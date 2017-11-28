@@ -7,6 +7,11 @@ lines to expected lines.}
 \usage{
 compare_lines(lines, expected)
 }
+\arguments{
+\item{lines}{the created lines}
+
+\item{expected}{the expected/goal/target lines}
+}
 \description{
 Internal debug function to compare the actually created
 lines to expected lines.

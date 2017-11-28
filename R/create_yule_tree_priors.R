@@ -1,5 +1,5 @@
 #' Creates n Yule tree priors
-#' @param n the number of Yule tree_prior objects
+#' @param ids the alignment IDs
 #' @return a list of Yule tree_prior objects
 #' @examples
 #'   m <- create_yule_tree_priors(ids = "some_id")

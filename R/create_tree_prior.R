@@ -191,7 +191,8 @@ create_cep_tree_prior <- function(
 #'   its FASTA filesname using \code{\link{get_id}}
 #' @usage
 #' create_yule_tree_prior(
-#'   birth_rate_distr = beautier::create_uniform_distr()
+#'   id = get_tree_prior_default_id(),
+#'   birth_rate_distr = create_uniform_distr()
 #' )
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -210,7 +211,7 @@ create_cep_tree_prior <- function(
 #' @export
 create_yule_tree_prior <- function(
   id = get_tree_prior_default_id(),
-  birth_rate_distr = beautier::create_uniform_distr()
+  birth_rate_distr = create_uniform_distr()
 ) {
   return(
     beautier::create_tree_prior(

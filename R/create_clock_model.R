@@ -4,8 +4,11 @@
 #'   and \code{\link{create_strict_clock_model}}
 #' @param name the clock model name. Valid
 #'   names can be found in \code{\link{get_clock_model_names}}
+#' @param id a clock model's ID
 #' @param ... specific clock model parameters
 #' @return a clock_model
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_clock_model <- function(
@@ -32,6 +35,7 @@ create_clock_model <- function(
 }
 
 #' Create a relaxed log-normal clock model
+#' @inheritParams create_clock_model
 #' @param uclstdev_distr the uclstdev distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @param mparam_id the ID of the M paramater in the branchRateModel,
@@ -66,6 +70,7 @@ create_rln_clock_model <- function(
 }
 
 #' Create a strict clock model
+#' @inheritParams create_clock_model
 #' @param clock_rate_param a clock_rate parameter,
 #'   as created by a \code{\link{create_clock_rate_param}} function
 #' @return a strict clock_model

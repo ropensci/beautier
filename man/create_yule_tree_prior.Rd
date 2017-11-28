@@ -5,7 +5,8 @@
 \title{Create a Yule tree prior}
 \usage{
 create_yule_tree_prior(
-  birth_rate_distr = beautier::create_uniform_distr()
+  id = get_tree_prior_default_id(),
+  birth_rate_distr = create_uniform_distr()
 )
 }
 \arguments{

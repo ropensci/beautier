@@ -1,5 +1,7 @@
 #' Internal debug function to compare the actually created
 #' lines to expected lines.
+#' @param lines the created lines
+#' @param expected the expected/goal/target lines
 compare_lines <- function(lines, expected) {
 
   utils::write.csv(lines, "~/created.csv")

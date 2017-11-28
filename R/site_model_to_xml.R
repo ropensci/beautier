@@ -5,11 +5,11 @@
 #'   as created by \code{\link{create_site_model}})
 #' @return the site model as XML text
 #' @author Richel J.C. Bilderbeek
-#' @export
 site_model_to_xml_rates <- function(
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
   text <- NULL
   if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("<parameter id=\"rateAC.s:", id, "\" ",

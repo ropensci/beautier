@@ -10,6 +10,8 @@ create_clock_model(name, id, ...)
 \item{name}{the clock model name. Valid
 names can be found in \code{\link{get_clock_model_names}}}
 
+\item{id}{a clock model's ID}
+
 \item{...}{specific clock model parameters}
 }
 \value{
@@ -22,6 +24,10 @@ General function to create a clock model
 Prefer using the named function
   \code{\link{create_rln_clock_model}}
   and \code{\link{create_strict_clock_model}}
+}
+\seealso{
+An alignment ID can be extracted from
+  its FASTA filesname using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek
