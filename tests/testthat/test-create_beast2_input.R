@@ -1299,7 +1299,40 @@ test_that("Reproduce aco_nd2_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_2_4.xml", package = "beautier"))
+  testthat::expect_identical(created_lines, expected_lines)
+})
 
+test_that("Reproduce aco_nd2_nd3_2_4.xml", {
+
+  skip("WIP")
+  fasta_filename_1 <- system.file("extdata",
+    "anthus_aco.fas", package = "beautier")
+  fasta_filename_2 <- system.file("extdata",
+    "anthus_nd2.fas", package = "beautier")
+  fasta_filename_3 <- system.file("extdata",
+    "anthus_nd3.fas", package = "beautier")
+  input_fasta_filenames <- c(
+    fasta_filename_1, fasta_filename_2, fasta_filename_3
+  )
+
+  created_lines <- beautier::create_beast2_input(
+    input_fasta_filenames = input_fasta_filenames,
+    tree_priors = list(
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 111)),
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 222)),
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 333))
+    ),
+    misc_options = create_misc_options(
+      capitalize_first_char_id = FALSE,
+      nucleotides_uppercase = TRUE
+    )
+  )
+  expected_lines <- readLines(system.file("extdata",
+    "aco_nd2_nd3_2_4.xml", package = "beautier"))
+  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1328,6 +1361,8 @@ test_that("Reproduce aco_nd2_shared_site_model_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_shared_site_model_2_4.xml", package = "beautier"))
+
+  beautier:::compare_lines(created_lines, expected_lines)
 
   testthat::expect_identical(created_lines, expected_lines)
 })
