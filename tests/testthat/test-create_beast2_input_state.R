@@ -181,8 +181,6 @@ test_that("four phylogenies", {
 
 test_that("four phylogenies, shared clock", {
 
-  skip("WIP")
-
   ids <- c("aco", "nd2", "nd3", "nd4")
   testthat::expect_silent(
     beautier:::create_beast2_input_state(

@@ -443,7 +443,7 @@ test_that("Reproduce hky_kappa_2_4.xml", {
 
 })
 
-test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
+test_that("Reproduce hky_prop_invariant_0_5_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -467,7 +467,7 @@ test_that("Check that hky_prop_invariant_0_5_2_4.xml is reproduced", {
 
 })
 
-test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
+test_that("Reproduce hky_gcc_1_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -491,7 +491,7 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
+test_that("Reproduce hky_gcc_2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -515,7 +515,7 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
   testthat::expect_identical(created_lines, expected_lines)
 })
 
-test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
+test_that("Reproduce hky_gcc_4_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),

@@ -34,9 +34,7 @@ create_beast2_input_state <- function(
   for (i in seq(1, n)) {
     id <- ids[i]
     site_model <- site_models[[i]]
-    clock_model <- clock_models[[i]]
     tree_prior <- tree_priors[[i]]
-    testit::assert(beautier::is_clock_model(clock_model))
     testit::assert(beautier::is_tree_prior(tree_prior))
 
     # Birth: always first
@@ -85,8 +83,11 @@ create_beast2_input_state <- function(
         text <- c(text, freqparams)
       }
     }
+  }
+  for (clock_model in clock_models) {
     text <- c(text, create_beast2_input_state_clock_model(
-      clock_model = clock_model))
+      clock_model = clock_model)
+    )
   }
 
   text <- c(text, "</state>")
