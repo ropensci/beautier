@@ -809,7 +809,7 @@ test_that("Reproduce strict_clock_rate_0_5_2_4.xml", {
 # Tree prior: BD
 ################################################################################
 
-test_that("Reproduce birth_death_2_4.xml", {
+test_that("Reproduce bd_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = system.file(
@@ -824,8 +824,7 @@ test_that("Reproduce birth_death_2_4.xml", {
   )
 
   expected_lines <- readLines(system.file("extdata",
-    "birth_death_2_4.xml", package = "beautier"))
-  beautier:::compare_lines(created_lines, expected_lines)
+    "bd_2_4.xml", package = "beautier"))
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1563,7 +1562,7 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
 
 
 
-test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
+test_that("Reproduce bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
   fasta_filename <- system.file("extdata",
     "test_output_0.fas", package = "beautier")
@@ -1584,7 +1583,7 @@ test_that("Reproduce birth_death_birth_rate_normal_death_rate_gamma_2_4.xml", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "birth_death_birth_rate_normal_death_rate_gamma_2_4.xml",
+    "bd_birth_rate_normal_death_rate_gamma_2_4.xml",
     package = "beautier"))
 
   testthat::expect_identical(created_lines, expected_lines)

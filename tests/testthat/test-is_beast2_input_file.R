@@ -34,12 +34,12 @@ test_that("invalid.xml is not a valid BEAST2 input file", {
 
 })
 
-test_that("birth_death_2_4.xml is valid", {
+test_that("bd_2_4.xml is valid", {
 
   if (!beautier::is_on_travis()) return()
 
   filename <- system.file(
-    "extdata", "birth_death_2_4.xml", package = "beautier"
+    "extdata", "bd_2_4.xml", package = "beautier"
   )
   testthat::expect_true(file.exists(filename))
   testthat::expect_true(is_beast2_input_file(filename))

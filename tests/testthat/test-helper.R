@@ -6,9 +6,9 @@ test_that("locate test_output_0.fas", {
   expect_equal(file.exists(get_input_fasta_filename()), TRUE)
 })
 
-test_that("locate birth_death_2_4.xml", {
+test_that("locate bdh_2_4.xml", {
   filename <- system.file(
-    "extdata", "birth_death_2_4.xml", package = "beautier"
+    "extdata", "bd_2_4.xml", package = "beautier"
   )
   testthat::expect_true(file.exists(filename))
 })
