@@ -4,8 +4,8 @@
 \alias{create_rln_clock_model}
 \title{Create a relaxed log-normal clock model}
 \usage{
-create_rln_clock_model(id = get_clock_model_default_id(),
-  uclstdev_distr = create_gamma_distr(), mparam_id = NA)
+create_rln_clock_model(id = NA, uclstdev_distr = create_gamma_distr(),
+  mparam_id = NA)
 }
 \arguments{
 \item{id}{a clock model's ID}

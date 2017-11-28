@@ -56,7 +56,7 @@ create_clock_model <- function(
 #'   )
 #' @export
 create_rln_clock_model <- function(
-  id = get_clock_model_default_id(),
+  id = NA,
   uclstdev_distr = create_gamma_distr(),
   mparam_id = NA
 ) {
@@ -89,7 +89,7 @@ create_rln_clock_model <- function(
 #'   )
 #' @export
 create_strict_clock_model <- function(
-  id = get_clock_model_default_id(),
+  id = NA,
   clock_rate_param = create_clock_rate_param()
 ) {
   strict_clock_model <- beautier::create_clock_model(

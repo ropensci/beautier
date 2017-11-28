@@ -8,8 +8,8 @@
 is_param <- function(
   x
 ) {
-  if(!"name" %in% names(x)) return(FALSE)
-  if(!x$name %in% get_param_names()) return(FALSE)
-  if(!"id" %in% names(x)) return(FALSE)
+  if (!"name" %in% names(x)) return(FALSE)
+  if (!x$name %in% beautier::get_param_names()) return(FALSE)
+  if (!"id" %in% names(x)) return(FALSE)
   TRUE
 }

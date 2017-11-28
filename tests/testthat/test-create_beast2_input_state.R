@@ -38,7 +38,8 @@ test_that("abuse", {
       ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
-      tree_priors = beautier:::init_tree_priors(create_yule_tree_priors(ids = ids), ids = ids),
+      tree_priors = beautier:::init_tree_priors(
+        create_yule_tree_priors(ids = ids), ids = ids),
       initial_phylogenies = rep(NA, 2)
     )
   )

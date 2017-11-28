@@ -18,4 +18,3 @@ tree_prior_to_xml_state <- function(
   }
   text
 }
-

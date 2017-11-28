@@ -7,9 +7,9 @@
 site_model_to_xml_rates <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
   text <- NULL
   if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("<parameter id=\"rateAC.s:", id, "\" ",

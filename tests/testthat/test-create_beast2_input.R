@@ -1465,7 +1465,7 @@ test_that("Reproduce aco_nd2_shared_site_model_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    site_models = create_jc69_site_model(id = get_id(fasta_filename_1)), # 1, will need ID of fasta_filename_1
+    site_models = create_jc69_site_model(id = get_id(fasta_filename_1)),
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)),

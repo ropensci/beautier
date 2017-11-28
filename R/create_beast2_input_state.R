@@ -138,7 +138,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
           "newick=\"", ape::write.tree(initial_phylo), "\">"))
       text <- c(text, paste0("    </stateNode>"))
     }
-    tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior)
+    tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior) # nolint internal function
     if (!is.null(tree_prior_text)) {
       text <- c(text, beautier::indent(tree_prior_text, n_spaces = 4))
     }
@@ -196,7 +196,7 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 create_beast2_input_state_site_models_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  text <- site_model_to_xml_rates(site_model = site_model)
+  text <- site_model_to_xml_rates(site_model = site_model) # nolint internal function
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 4)
   }

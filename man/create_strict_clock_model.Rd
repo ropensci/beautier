@@ -4,7 +4,7 @@
 \alias{create_strict_clock_model}
 \title{Create a strict clock model}
 \usage{
-create_strict_clock_model(id = get_clock_model_default_id(),
+create_strict_clock_model(id = NA,
   clock_rate_param = create_clock_rate_param())
 }
 \arguments{
