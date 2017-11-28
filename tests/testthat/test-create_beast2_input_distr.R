@@ -7,7 +7,7 @@ test_that("use with one ID", {
   testthat::expect_silent(
     beautier:::create_beast2_input_distr(
       ids = ids,
-      site_models = create_jc69_site_models(n = 1),
+      site_models = create_jc69_site_models(ids = ids),
       clock_models = beautier:::init_clock_models(
         create_strict_clock_models(ids = NA), ids = ids),
       tree_priors = beautier:::init_tree_priors(

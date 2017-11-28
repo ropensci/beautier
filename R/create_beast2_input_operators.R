@@ -7,7 +7,7 @@
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_operators <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ids,
-  site_models = create_jc69_site_models(n = length(ids)),
+  site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(n = length(ids)),
   fixed_crown_age

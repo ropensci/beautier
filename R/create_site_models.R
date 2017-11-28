@@ -24,24 +24,27 @@ create_site_models <- function() {
   )
 }
 
-#' Creates n jc69_site_models
-#' @param n the number of jc69_site_models
+#' Creates a JC69_site_model for each ID
+#' @param ids the alignment IDs
 #' @return a list of site_models
+#' @seealso The alignment IDs can be deduced from the FASTA filenames,
+#'   using \code{\link{get_ids}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   m <- create_jc69_site_models(1)
+#'   m <- create_jc69_site_models("a")
 #'   testthat::expect_equal(length(m), 1)
 #'   testthat::expect_true(is_jc69_site_model(m[[1]]))
 #'
-#'   m <- create_jc69_site_models(2)
+#'   m <- create_jc69_site_models(c("a", "b"))
 #'   testthat::expect_equal(length(m), 2)
 #'   testthat::expect_true(is_jc69_site_model(m[[1]]))
 #'   testthat::expect_true(is_jc69_site_model(m[[2]]))
 #' @export
-create_jc69_site_models <- function(n) {
+create_jc69_site_models <- function(ids) {
+  n <- length(ids)
   ms <- list()
   for (i in seq(1, n)) {
-    ms[[i]] <- beautier::create_jc69_site_model()
+    ms[[i]] <- beautier::create_jc69_site_model(id = ids[i])
   }
   ms
 }

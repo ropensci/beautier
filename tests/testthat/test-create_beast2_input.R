@@ -84,7 +84,7 @@ test_that("input is checked", {
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      site_models = create_jc69_site_models(n = 1)
+      site_models = create_jc69_site_models(ids = "only_one")
     )
   )
 

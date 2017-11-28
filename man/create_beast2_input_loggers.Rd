@@ -4,8 +4,8 @@
 \alias{create_beast2_input_loggers}
 \title{Creates the two logger sections of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers(ids, site_models = create_jc69_site_models(n =
-  length(ids)), clock_models = create_strict_clock_models(ids = ids),
+create_beast2_input_loggers(ids, site_models = create_jc69_site_models(ids =
+  ids), clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(n = length(ids)))
 }
 \arguments{

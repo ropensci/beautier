@@ -7,8 +7,7 @@
 create_strict_clock_models(ids)
 }
 \arguments{
-\item{ids}{the alignment ids,
-as returned by \code{\link{get_ids}}}
+\item{ids}{the alignment IDs}
 }
 \value{
 a list of strict_clock objects
@@ -25,4 +24,8 @@ Creates n strict clock_models
   testthat::expect_equal(length(m), 2)
   testthat::expect_true(is_strict_clock_model(m[[1]]))
   testthat::expect_true(is_strict_clock_model(m[[2]]))
+}
+\seealso{
+The alignment IDs can be deduced from the FASTA filenames,
+  using \code{\link{get_ids}}
 }

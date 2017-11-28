@@ -19,9 +19,10 @@ create_clock_models <- function() {
 }
 
 #' Creates n strict clock_models
-#' @param ids the alignment ids,
-#'   as returned by \code{\link{get_ids}}
+#' @param ids the alignment IDs
 #' @return a list of strict_clock objects
+#' @seealso The alignment IDs can be deduced from the FASTA filenames,
+#'   using \code{\link{get_ids}}
 #' @examples
 #'   m <- create_strict_clock_models(ids = c("a"))
 #'   testthat::expect_equal(length(m), 1)

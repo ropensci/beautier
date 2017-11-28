@@ -2,28 +2,32 @@
 % Please edit documentation in R/create_site_models.R
 \name{create_jc69_site_models}
 \alias{create_jc69_site_models}
-\title{Creates n jc69_site_models}
+\title{Creates a JC69_site_model for each ID}
 \usage{
-create_jc69_site_models(n)
+create_jc69_site_models(ids)
 }
 \arguments{
-\item{n}{the number of jc69_site_models}
+\item{ids}{the alignment IDs}
 }
 \value{
 a list of site_models
 }
 \description{
-Creates n jc69_site_models
+Creates a JC69_site_model for each ID
 }
 \examples{
-  m <- create_jc69_site_models(1)
+  m <- create_jc69_site_models("a")
   testthat::expect_equal(length(m), 1)
   testthat::expect_true(is_jc69_site_model(m[[1]]))
 
-  m <- create_jc69_site_models(2)
+  m <- create_jc69_site_models(c("a", "b"))
   testthat::expect_equal(length(m), 2)
   testthat::expect_true(is_jc69_site_model(m[[1]]))
   testthat::expect_true(is_jc69_site_model(m[[2]]))
+}
+\seealso{
+The alignment IDs can be deduced from the FASTA filenames,
+  using \code{\link{get_ids}}
 }
 \author{
 Richel J.C. Bilderbeek

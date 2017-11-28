@@ -5,7 +5,7 @@
 \title{Creates the beast section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_beast(input_fasta_filenames,
-  site_models = create_jc69_site_models(n = length(input_fasta_filenames)),
+  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
   clock_models = create_strict_clock_models(ids =
   get_ids(input_fasta_filenames)), tree_priors = create_yule_tree_priors(n =
   length(input_fasta_filenames)), mcmc = create_mcmc(),
