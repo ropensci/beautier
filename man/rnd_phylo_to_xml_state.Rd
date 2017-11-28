@@ -2,7 +2,7 @@
 % Please edit documentation in R/rnd_phylo_to_xml_state.R
 \name{rnd_phylo_to_xml_state}
 \alias{rnd_phylo_to_xml_state}
-\title{Creates the XML of a random species tree,
+\title{Creates the XML of a random phylogeny,
   as used in the \code{state} section}
 \usage{
 rnd_phylo_to_xml_state(id)
@@ -12,10 +12,10 @@ rnd_phylo_to_xml_state(id)
 its FASTA filesname using \code{\link{get_id}})}
 }
 \value{
-the random species tree as XML text
+the random phylogeny as XML text
 }
 \description{
-Creates the XML of a random species tree,
+Creates the XML of a random phylogeny,
   as used in the \code{state} section
 }
 \author{

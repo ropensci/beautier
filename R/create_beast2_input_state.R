@@ -130,9 +130,8 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
         text,
         beautier::indent(rnd_phylo_to_xml_state(id), n_spaces = 4)
       )
-
-      testit::assert(length(id) == 1)
-      if (n > 1 && i == 2) {
+      # Each tree, except the first, have a clockRate
+      if (i > 1) {
         text <- c(text, paste0("    <parameter ",
           "id=\"clockRate.c:", id, "\" ",
           "name=\"stateNode\">1.0</parameter>"))
@@ -144,10 +143,9 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
           "newick=\"", ape::write.tree(initial_phylo), "\">"))
       text <- c(text, paste0("    </stateNode>"))
     }
-    if (is_yule_tree_prior(tree_prior)) {
-      text <- c(text, paste0("    <parameter ",
-        "id=\"birthRate.t:", id, "\" ",
-        "name=\"stateNode\">1.0</parameter>"))
+    tree_prior_text <- tree_prior_to_xml_state(id = id, tree_prior = tree_prior)
+    if (!is.null(tree_prior_text)) {
+      text <- c(text, beautier::indent(tree_prior_text, n_spaces = 4))
     }
   } # next i
   text

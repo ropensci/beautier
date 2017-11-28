@@ -2,7 +2,7 @@
 % Please edit documentation in R/rnd_phylo_xml_init.R
 \name{rnd_phylo_to_xml_init}
 \alias{rnd_phylo_to_xml_init}
-\title{Creates the XML of a random species tree,
+\title{Creates the XML of a random phylogeny,
   as used in the \code{init} section}
 \usage{
 rnd_phylo_to_xml_init(id)
@@ -12,10 +12,10 @@ rnd_phylo_to_xml_init(id)
 its FASTA filesname using \code{\link{get_id}})}
 }
 \value{
-the parameter as XML text
+the phylogeny as XML text
 }
 \description{
-Creates the XML of a random species tree,
+Creates the XML of a random phylogeny,
   as used in the \code{init} section
 }
 \author{

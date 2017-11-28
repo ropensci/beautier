@@ -825,7 +825,7 @@ test_that("Reproduce birth_death_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_death_2_4.xml", package = "beautier"))
-
+  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
