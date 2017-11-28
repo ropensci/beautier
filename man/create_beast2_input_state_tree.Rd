@@ -4,12 +4,9 @@
 \alias{create_beast2_input_state_tree}
 \title{Creates the tree part of the state section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_state_tree(ids, tree_priors, initial_phylogenies)
+create_beast2_input_state_tree(tree_priors, initial_phylogenies)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_id}})}
-
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 

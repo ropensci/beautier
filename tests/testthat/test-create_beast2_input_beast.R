@@ -3,11 +3,14 @@ context("create_beast2_input_beast")
 test_that("use", {
 
   fasta_filename <- get_input_fasta_filename()
+  id <- get_id(fasta_filename)
+
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
       input_fasta_filenames = fasta_filename,
       tree_priors = list(
         create_yule_tree_prior(
+          id = id,
           birth_rate_distr = create_uniform_distr(id = 1)
         )
       )

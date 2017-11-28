@@ -5,11 +5,9 @@
 \title{Creates the XML of a tree prior,
   as used in the \code{state} section}
 \usage{
-tree_prior_to_xml_state(id, tree_prior)
+tree_prior_to_xml_state(tree_prior)
 }
 \arguments{
-\item{id}{an alignmengt ID,}
-
 \item{tree_prior}{a tree prior,
 as returned by \code{\link{create_tree_prior}})}
 }

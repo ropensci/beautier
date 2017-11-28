@@ -2,11 +2,13 @@ context("create_beast2_input_run")
 
 test_that("usage", {
 
+  id <- "test_output_0"
   testthat::expect_silent(
-    create_beast2_input_run(
-      ids = "test_output_0",
+    beautier:::create_beast2_input_run(
+      ids = id,
       tree_priors = list(
         create_yule_tree_prior(
+          id = id,
           birth_rate_distr = create_uniform_distr(id = 1)
         )
       )

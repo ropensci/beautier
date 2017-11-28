@@ -10,7 +10,7 @@ test_that("birth_death", {
       clock_models = beautier:::init_clock_models(
         list(create_strict_clock_model()), ids = id, distr_id = 0),
       tree_priors = beautier:::init_tree_priors(
-        list(create_yule_tree_prior()), distr_id = 1),
+        list(create_yule_tree_prior()), ids = id, distr_id = 1),
       initial_phylogenies = NA
     )
   )
@@ -22,7 +22,7 @@ test_that("birth_death", {
       clock_models = beautier:::init_clock_models(
         list(create_strict_clock_model()), ids = id, distr_id = 0),
       tree_priors = beautier:::init_tree_priors(
-        list(create_yule_tree_prior()), distr_id = 1),
+        list(create_yule_tree_prior()), ids = id, distr_id = 1),
       initial_phylogenies = NA
     )
   )
@@ -38,7 +38,7 @@ test_that("abuse", {
       ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
-      tree_priors = init_tree_priors(create_yule_tree_priors(ids = ids)),
+      tree_priors = beautier:::init_tree_priors(create_yule_tree_priors(ids = ids), ids = ids),
       initial_phylogenies = rep(NA, 2)
     )
   )
@@ -99,7 +99,8 @@ test_that("use without initial phylogeny", {
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model()),
       tree_priors = beautier:::init_tree_priors(
-        list(create_yule_tree_prior())
+        list(create_yule_tree_prior()),
+        ids = id
       ),
       initial_phylogenies = NA
     )
@@ -122,8 +123,9 @@ test_that("use one with initial phylogeny", {
       ids = id,
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model()),
-      tree_priors = beautier:::init_tree_priors(list(
-        create_yule_tree_prior())
+      tree_priors = beautier:::init_tree_priors(
+        list(create_yule_tree_prior()),
+        ids = id
       ),
       initial_phylogenies = phylos
     )
@@ -209,7 +211,9 @@ test_that("two alignments, two initial phylogenies", {
       ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
-      tree_priors = init_tree_priors(create_yule_tree_priors(ids = ids)),
+      tree_priors = beautier:::init_tree_priors(
+        create_yule_tree_priors(ids = ids), ids = ids
+      ),
       initial_phylogenies = initial_phylogenies
     )
   )

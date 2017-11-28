@@ -98,6 +98,7 @@ create_beast2_input <- function(
   )  # nolint internal function call
   tree_priors <- init_tree_priors( # nolint internal function call
     tree_priors,
+    ids = get_ids(input_fasta_filenames),
     distr_id = 100,
     param_id = 200
   )

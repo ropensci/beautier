@@ -4,11 +4,14 @@
 \alias{init_tree_priors}
 \title{Initializes all tree priors}
 \usage{
-init_tree_priors(tree_priors, distr_id = 0, param_id = 0)
+init_tree_priors(tree_priors, ids, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{tree_priors}{a list of one or more tree priors to be initialized.
 Tree priors can be created using \code{\link{create_tree_prior}}}
+
+\item{ids}{the IDs of the alignments (can be extracted from
+their FASTA filesnames using \code{\link{get_ids}})}
 
 \item{distr_id}{the first distributions' ID}
 

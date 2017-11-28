@@ -1,12 +1,15 @@
 #' Initializes all tree priors
 #' @param tree_priors a list of one or more tree priors to be initialized.
 #'   Tree priors can be created using \code{\link{create_tree_prior}}
+#' @param ids the IDs of the alignments (can be extracted from
+#'   their FASTA filesnames using \code{\link{get_ids}})
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized tree priors
 #' @author Richel J.C. Bilderbeek
 init_tree_priors <- function(
   tree_priors,
+  ids,
   distr_id = 0,
   param_id = 0
 ) {
@@ -46,6 +49,8 @@ init_tree_priors <- function(
     }
     distr_id <- distr_id + beautier::get_tree_prior_n_distrs(tree_prior)
     param_id <- param_id + beautier::get_tree_prior_n_params(tree_prior)
+
+    if (is.na(tree_prior$id)) tree_prior$id <- ids[i]
     tree_priors[[i]] <- tree_prior
   }
   tree_priors

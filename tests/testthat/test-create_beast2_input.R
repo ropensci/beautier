@@ -128,7 +128,7 @@ test_that("input is checked, two alignments", {
 test_that("Reproduce 2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -553,6 +553,7 @@ test_that("Reproduce jc69_2_4.xml", {
       id = id
     ),
     tree_priors = create_yule_tree_prior(
+      id = id,
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
@@ -1319,13 +1320,17 @@ test_that("Reproduce aco_nd2_2_4.xml", {
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
+  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+  ids <- get_ids(input_fasta_filenames)
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    input_fasta_filenames = input_fasta_filenames,
     tree_priors = list(
       create_yule_tree_prior(
+        id = ids[1],
         birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
+        id = ids[2],
         birth_rate_distr = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(
@@ -1546,8 +1551,10 @@ test_that("Reproduce aco_nd2_hky.xml", {
     ),
     tree_priors = list(
       create_yule_tree_prior(
+        id = ids[1],
         birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
+        id = ids[2],
         birth_rate_distr = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(

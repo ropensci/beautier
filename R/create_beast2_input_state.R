@@ -26,7 +26,6 @@ create_beast2_input_state <- function(
   text <- NULL
   text <- c(text, "<state id=\"state\" storeEvery=\"5000\">")
   text <- c(text, create_beast2_input_state_tree(
-    ids = ids,
     tree_priors = tree_priors,
     initial_phylogenies = initial_phylogenies)
   )
@@ -91,20 +90,16 @@ create_beast2_input_state <- function(
 }
 
 #' Creates the tree part of the state section of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_id}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_tree <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
   tree_priors,
   initial_phylogenies
 ) {
 
-  testit::assert(length(ids) == length(tree_priors))
-  testit::assert(length(ids) == length(initial_phylogenies))
+  testit::assert(length(tree_priors) == length(initial_phylogenies))
   # Each tree looks like this:
   #
   # <tree id="Tree.t:anthus_nd4" name="stateNode">
@@ -119,11 +114,11 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
   text <- NULL
 
-  n <- length(ids)
+  n <- length(tree_priors)
   for (i in seq(1, n)) {
     initial_phylo <- initial_phylogenies[[i]]
-    id <- ids[i]
     tree_prior <- tree_priors[[i]]
+    id <- tree_prior$id
 
     if (!is_phylo(initial_phylo)) {
       text <- c(
@@ -143,7 +138,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
           "newick=\"", ape::write.tree(initial_phylo), "\">"))
       text <- c(text, paste0("    </stateNode>"))
     }
-    tree_prior_text <- tree_prior_to_xml_state(id = id, tree_prior = tree_prior)
+    tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior)
     if (!is.null(tree_prior_text)) {
       text <- c(text, beautier::indent(tree_prior_text, n_spaces = 4))
     }

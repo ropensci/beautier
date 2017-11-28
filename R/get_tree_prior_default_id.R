@@ -2,5 +2,5 @@
 #' @export
 get_tree_prior_default_id <- function()
 {
-  "default_id"
+  NA
 }

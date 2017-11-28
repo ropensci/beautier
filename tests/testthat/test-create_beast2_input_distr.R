@@ -9,9 +9,12 @@ test_that("use with one ID", {
       ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = beautier:::init_clock_models(
-        create_strict_clock_models(ids = NA), ids = ids),
+        create_strict_clock_models(ids = NA),
+        ids = ids
+      ),
       tree_priors = beautier:::init_tree_priors(
         create_yule_tree_priors(ids = ids),
+        ids = ids,
         distr_id = 1
       )
     )
