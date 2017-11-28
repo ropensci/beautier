@@ -2,13 +2,13 @@ context("create_beast2_input_state")
 
 test_that("birth_death", {
 
-  ids <- "test_output_0"
+  id <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
-      site_models = list(create_jc69_site_model()),
+      ids = id,
+      site_models = list(create_jc69_site_model(id = id)),
       clock_models = beautier:::init_clock_models(
-        list(create_strict_clock_model()), ids = ids, distr_id = 0),
+        list(create_strict_clock_model()), ids = id, distr_id = 0),
       tree_priors = beautier:::init_tree_priors(
         list(create_yule_tree_prior()), distr_id = 1),
       initial_phylogenies = NA
@@ -17,10 +17,10 @@ test_that("birth_death", {
 
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = ids,
-      site_models = list(create_gtr_site_model()),
+      ids = id,
+      site_models = list(create_gtr_site_model(id = id)),
       clock_models = beautier:::init_clock_models(
-        list(create_strict_clock_model()), ids = ids, distr_id = 0),
+        list(create_strict_clock_model()), ids = id, distr_id = 0),
       tree_priors = beautier:::init_tree_priors(
         list(create_yule_tree_prior()), distr_id = 1),
       initial_phylogenies = NA
@@ -92,12 +92,15 @@ test_that("abuse", {
 
 test_that("use without initial phylogeny", {
 
+  id <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = "test_output_0",
-      site_models = list(create_jc69_site_model()),
+      ids = id,
+      site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model()),
-      tree_priors = init_tree_priors(list(create_yule_tree_prior())),
+      tree_priors = beautier:::init_tree_priors(
+        list(create_yule_tree_prior())
+      ),
       initial_phylogenies = NA
     )
   )
@@ -113,12 +116,15 @@ test_that("use one with initial phylogeny", {
       crown_age = 42
     )
   )
+  id <- "test_output_0"
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
-      ids = "test_output_0",
-      site_models = list(create_jc69_site_model()),
+      ids = id,
+      site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model()),
-      tree_priors = init_tree_priors(list(create_yule_tree_prior())),
+      tree_priors = beautier:::init_tree_priors(list(
+        create_yule_tree_prior())
+      ),
       initial_phylogenies = phylos
     )
   )

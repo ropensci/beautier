@@ -20,11 +20,12 @@ test_that("use with one ID", {
 
 test_that("use with one ID", {
 
+  ids <- c("a", "b")
   site_models <- list(
-    create_jc69_site_model(),
-    create_jc69_site_model()
+    create_jc69_site_model(ids[1]),
+    create_jc69_site_model(ids[2])
   )
-  clock_models <- create_strict_clock_models(ids = c("a", "b"))
+  clock_models <- create_strict_clock_models(ids = ids)
   tree_priors <- list(
     create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)

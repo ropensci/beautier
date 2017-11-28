@@ -16,8 +16,7 @@
 is_tn93_site_model <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
-  if (x$name != "TN93") return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   if (!"kappa_1_prior_distr" %in% names(x)) return(FALSE)
   if (!"kappa_2_prior_distr" %in% names(x)) return(FALSE)
   TRUE

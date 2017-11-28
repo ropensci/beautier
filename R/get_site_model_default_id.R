@@ -2,5 +2,5 @@
 #' @export
 get_site_model_default_id <- function()
 {
-  "default_id"
+  NA
 }

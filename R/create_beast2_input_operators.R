@@ -251,7 +251,7 @@ create_beast2_input_operators_tree_priors_3 <- function( # nolint long function 
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_operators_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
-  site_model = create_site_model(name = "JC69")
+  site_model = create_jc69_site_model()
 ) {
   text <- NULL
 

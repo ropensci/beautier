@@ -3,7 +3,7 @@ context("are_site_models")
 test_that("use", {
 
 
-  testthat::expect_true(are_site_models(create_jc69_site_model()))
+  testthat::expect_true(are_site_models(create_jc69_site_model(id = "a")))
 
 
   testthat::expect_true(are_site_models(create_jc69_site_models(1)))

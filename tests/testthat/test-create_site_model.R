@@ -17,14 +17,6 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    beautier::create_site_model(
-      name = "JC69",
-      id = ape::rcoal(3)
-    ),
-    "'id' must be a valid ID"
-  )
-
-  testthat::expect_error(
     create_site_model(
       name = "JC69",
       id = "OK",

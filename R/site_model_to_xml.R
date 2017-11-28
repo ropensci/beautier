@@ -1,6 +1,5 @@
 #' Converts a site model to XML,
 #'   used in the \code{rates} section
-#' @param id a site model's ID
 #' @param site_model a site model,
 #'   as created by \code{\link{create_site_model}})
 #' @return the site model as XML text
@@ -10,6 +9,7 @@ site_model_to_xml_rates <- function(
 ) {
   testit::assert(is_site_model(site_model))
   id <- site_model$id
+  testit::assert(is_id(id))
   text <- NULL
   if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("<parameter id=\"rateAC.s:", id, "\" ",

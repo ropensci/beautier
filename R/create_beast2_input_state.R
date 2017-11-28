@@ -193,8 +193,6 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 
 #' Creates the reates of the site_models part of the state section of a BEAST2
 #' XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its

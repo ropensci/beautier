@@ -545,9 +545,13 @@ test_that("Check that hky_gcc_4_2_4.xml is reproduced", {
 
 test_that("Reproduce jc69_2_4.xml", {
 
+  input_fasta_filename <- beautier::get_input_fasta_filename()
+  id <- get_id(input_fasta_filename)
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
-    site_models = create_jc69_site_model(),
+    input_fasta_filenames = input_fasta_filename,
+    site_models = create_jc69_site_model(
+      id = id
+    ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -559,9 +563,13 @@ test_that("Reproduce jc69_2_4.xml", {
 
 test_that("Reproduce jc69_gcc_2_2_4.xml", {
 
+  input_fasta_filename <- beautier::get_input_fasta_filename()
+  id <- get_id(input_fasta_filename)
+
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = input_fasta_filename,
     site_models = create_jc69_site_model(
+      id = id,
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       )
@@ -578,9 +586,13 @@ test_that("Reproduce jc69_gcc_2_2_4.xml", {
 
 test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
 
+  input_fasta_filename <- beautier::get_input_fasta_filename()
+  id <- get_id(input_fasta_filename)
+
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = input_fasta_filename,
     site_models = create_jc69_site_model(
+      id = id,
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
         gamma_shape = 1.5
@@ -598,9 +610,13 @@ test_that("Check that jc69_gcc_2_shape_1_5_2_4.xml is reproduced", {
 test_that(paste0("Check that jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml",
   " is reproduced"), {
 
+  input_fasta_filename <- beautier::get_input_fasta_filename()
+  id <- get_id(input_fasta_filename)
+
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = input_fasta_filename,
     site_models = create_jc69_site_model(
+      id = id,
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
         gamma_shape = 1.5,
@@ -1470,14 +1486,15 @@ test_that("Reproduce aco_hky_nd2.xml", {
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
-
+  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+  ids <- get_ids(input_fasta_filenames)
   site_models <- list(
-    beautier::create_hky_site_model(),
-    beautier::create_jc69_site_model()
+    beautier::create_hky_site_model(ids[1]),
+    beautier::create_jc69_site_model(ids[2])
   )
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    input_fasta_filenames = input_fasta_filenames,
     site_models = site_models,
     tree_priors = list(
       create_yule_tree_prior(
@@ -1509,13 +1526,17 @@ test_that("Reproduce aco_nd2_hky.xml", {
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
+  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+  ids <- get_ids(input_fasta_filenames)
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    input_fasta_filenames = input_fasta_filenames,
     site_models = list(
-      create_jc69_site_model(),
+      create_jc69_site_model(
+        id = ids[1]
+      ),
       create_hky_site_model(
-        id = get_id(fasta_filename_2),
+        id = ids[2],
         kappa_prior_distr = create_log_normal_distr(
           id = 1,
           m = create_m_param(id = 4, value = "1.0"),
@@ -1547,10 +1568,15 @@ test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
+  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+  ids <- get_ids(input_fasta_filenames)
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    site_models = list(create_hky_site_model(), create_tn93_site_model()),
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = list(
+      create_hky_site_model(ids[1]),
+      create_tn93_site_model(ids[2])
+    ),
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)
@@ -1584,9 +1610,11 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
     "anthus_nd2.fas", package = "beautier")
+  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+  ids <- get_ids(input_fasta_filenames)
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    input_fasta_filenames = input_fasta_filenames,
     clock_models = list(
       create_strict_clock_model(),
       create_rln_clock_model(

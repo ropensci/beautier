@@ -10,8 +10,6 @@ site_model_to_xml_rates(site_model)
 \arguments{
 \item{site_model}{a site model,
 as created by \code{\link{create_site_model}})}
-
-\item{id}{a site model's ID}
 }
 \value{
 the site model as XML text

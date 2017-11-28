@@ -9,9 +9,6 @@ create_beast2_input_state_site_models_rates(site_model)
 }
 \arguments{
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
-
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
 }
 \description{
 Creates the reates of the site_models part of the state section of a BEAST2

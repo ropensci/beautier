@@ -35,9 +35,6 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  if (!is_id(id)) {
-    stop("'id' must be a valid ID")
-  }
   if (!is_gamma_site_model(gamma_site_model)) {
     stop("'gamma_site_model' must be a valid gamma site model")
   }

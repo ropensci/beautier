@@ -5,8 +5,7 @@
 \title{Creates the site_models section in the operators section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators_rates(id, site_model = create_site_model(name =
-  "JC69"))
+create_beast2_input_operators_rates(id, site_model = create_jc69_site_model())
 }
 \arguments{
 \item{id}{the ID of the alignment (can be extracted from

@@ -57,6 +57,7 @@ init_site_models <- function(
     distr_id <- distr_id + beautier::get_site_model_n_distrs(site_model)
     param_id <- param_id + beautier::get_site_model_n_params(site_model)
 
+    if (is.na(site_model$id)) site_model$id <- ids[i]
     site_models[[i]] <- site_model
   }
   site_models
@@ -112,6 +113,7 @@ init_gtr_site_model <- function(
     param_id <- param_id + beautier::get_distr_n_params(rate_gt_prior_distr)
   }
   result <- create_gtr_site_model(
+    id = gtr_site_model$id,
     gamma_site_model = gtr_site_model$gamma_site_model,
     rate_ac_prior_distr = rate_ac_prior_distr,
     rate_ag_prior_distr = rate_ag_prior_distr,
@@ -138,6 +140,7 @@ init_hky_site_model <- function(
   testit::assert(beautier::is_hky_site_model(hky_site_model))
 
   result <- create_hky_site_model(
+    id = hky_site_model$id,
     kappa = hky_site_model$kappa,
     gamma_site_model = hky_site_model$gamma_site_model,
     kappa_prior_distr = init_distr(
@@ -164,6 +167,7 @@ init_tn93_site_model <- function(
   testit::assert(beautier::is_tn93_site_model(tn93_site_model))
 
   create_tn93_site_model(
+    id = tn93_site_model$id,
     gamma_site_model = tn93_site_model$gamma_site_model,
     kappa_1_prior_distr = init_distr(
       tn93_site_model$kappa_1_prior_distr,
