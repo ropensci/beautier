@@ -11,6 +11,7 @@ indent <- function(
   if (n_spaces < 0) {
     stop("n_spaces must be positive")
   }
+  if (is.null(text)) return(NULL)
   spaces <- paste(rep(" ", n_spaces), collapse = "")
   paste0(spaces, text)
 }

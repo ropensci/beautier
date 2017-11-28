@@ -292,9 +292,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
 
     # No beautier:: before create_beast2_input_distr_prior_prior_tree_prior, as it is private # nolint
     tree_priors_text <- tree_prior_to_xml_prior(tree_prior) # nolint internal function
-    if (!is.null(tree_priors_text)) {
-      tree_priors_text <- beautier::indent(tree_priors_text, n_spaces = 12)
-    }
+    tree_priors_text <- beautier::indent(tree_priors_text, n_spaces = 12)
 
     site_models_text <- create_beast2_input_distr_prior_prior_site_model(site_model = site_model, i = i) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
@@ -601,10 +599,7 @@ create_beast2_input_distr_clock_models <- function( # nolint long function name 
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   text <- clock_model_to_prior_xml(clock_model) # nolint internal function call
-  if (!is.null(text)) {
-    text <- beautier::indent(text, n_spaces = 12)
-  }
-  text
+  beautier::indent(text, n_spaces = 12)
 }
 
 #' Creates the substModel section in the distribution section
@@ -672,10 +667,7 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
   clock_model
 ) {
   text <- clock_model_to_brm_xml(clock_model = clock_model) # nolint internal function call
-  if (!is.null(text)) {
-    text <- beautier::indent(text, n_spaces = 16)
-  }
-  text
+  beautier::indent(text, n_spaces = 16)
 }
 
 #' Creates the second or later clock models' section in the distribution section
@@ -692,8 +684,5 @@ create_beast2_input_distr_clock_model_other <- function( # nolint long function 
   testit::assert(is_clock_model(clock_model))
 
   text <- clock_model_to_other_brm_xml(clock_model) # nolint internal function call
-  if (!is.null(text)) {
-    text <- beautier::indent(text, n_spaces = 16)
-  }
-  text
+  beautier::indent(text, n_spaces = 16)
 }

@@ -32,7 +32,7 @@ site_model_to_xml_rates <- function(
     rates <- c(rates, paste0("<parameter id=\"kappa2.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
   }
-  if (!is.null(rates)) rates <- beautier::indent(rates, n_spaces = 4)
+  rates <- beautier::indent(rates, n_spaces = 4)
   # There are three parts:
   # 1) rates
   # 2) freq

@@ -87,9 +87,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
         "name=\"stateNode\">1.0</parameter>"))
     }
     tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior) # nolint internal function
-    if (!is.null(tree_prior_text)) {
-      text <- c(text, beautier::indent(tree_prior_text, n_spaces = 4))
-    }
+    text <- c(text, beautier::indent(tree_prior_text, n_spaces = 4))
   } # next i
   text
 }
@@ -129,9 +127,7 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
     text <- c(text, paste0("<parameter id=\"growthRate.t:", id, "\" ",
       "name=\"stateNode\">3.0E-4</parameter>"))
   }
-  if (!is.null(text)) {
-    text <- beautier::indent(text, n_spaces = 4)
-  }
+  text <- beautier::indent(text, n_spaces = 4)
   text
 }
 
