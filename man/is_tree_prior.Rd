@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_tree_prior.R
 \name{is_tree_prior}
 \alias{is_tree_prior}
-\title{Determine if an object is a valid tree_prior}
+\title{Determine if an object is a valid tree prior}
 \usage{
 is_tree_prior(x)
 }
@@ -13,5 +13,11 @@ is_tree_prior(x)
 TRUE if x is a valid tree_prior, FALSE otherwise
 }
 \description{
-Determine if an object is a valid tree_prior
+Determine if an object is a valid tree prior
+}
+\seealso{
+tree priors can be created by \code{\link{create_tree_prior}})
+}
+\author{
+Richel J.C. Bilderbeek
 }

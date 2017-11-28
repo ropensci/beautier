@@ -8,12 +8,16 @@
 #'   instead
 #' @param name the tree prior name. Can be any name
 #'   in \code{\link{get_tree_prior_names}}
+#' @param id the ID of the alignment
 #' @param ... specific tree prior parameters
 #' @return a tree_prior
+#' @seealso An alignment ID can be extracted from
+#'   its FASTA filesname using \code{\link{get_id}}
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_tree_prior <- function(
   name,
+  id,
   ...
 ) {
   if (!is_tree_prior_name(name)) {
@@ -30,7 +34,7 @@ create_tree_prior <- function(
       tree_priors_as_string()
     )
   }
-  tree_prior <- list(name = name, ...)
+  tree_prior <- list(name = name, id = id, ...)
   tree_prior
 }
 
@@ -62,15 +66,15 @@ create_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_bd_tree_prior <- function(
+  id = get_tree_prior_default_id(),
   birth_rate_distr = beautier::create_uniform_distr(),
   death_rate_distr = beautier::create_uniform_distr()
   ) {
-  return(
-    beautier::create_tree_prior(
-      name = "birth_death",
-      birth_rate_distr = birth_rate_distr,
-      death_rate_distr = death_rate_distr
-    )
+  beautier::create_tree_prior(
+    name = "birth_death",
+    id = id,
+    birth_rate_distr = birth_rate_distr,
+    death_rate_distr = death_rate_distr
   )
 }
 
@@ -91,8 +95,13 @@ create_bd_tree_prior <- function(
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
-create_cbs_tree_prior <- function() {
-  return(beautier::create_tree_prior(name = "coalescent_bayesian_skyline"))
+create_cbs_tree_prior <- function(
+  id = get_tree_prior_default_id()
+  ) {
+  beautier::create_tree_prior(
+    name = "coalescent_bayesian_skyline",
+    id = id
+  )
 }
 
 #' Create a Coalescent Constant Population tree prior
@@ -115,13 +124,13 @@ create_cbs_tree_prior <- function() {
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_ccp_tree_prior <- function(
+  id = get_tree_prior_default_id(),
   pop_size_distr = beautier::create_one_div_x_distr()
 ) {
-  return(
-    beautier::create_tree_prior(
-      name = "coalescent_constant_population",
-      pop_size_distr = pop_size_distr
-    )
+  beautier::create_tree_prior(
+    name = "coalescent_constant_population",
+    id = id,
+    pop_size_distr = pop_size_distr
   )
 }
 
@@ -147,12 +156,14 @@ create_ccp_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_cep_tree_prior <- function(
+  id = get_tree_prior_default_id(),
   pop_size_distr = create_one_div_x_distr(),
   growth_rate_distr = create_laplace_distr()
 ) {
   return(
     beautier::create_tree_prior(
       name = "coalescent_exp_population",
+      id = id,
       pop_size_distr = pop_size_distr,
       growth_rate_distr = growth_rate_distr
     )
@@ -183,11 +194,13 @@ create_cep_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_yule_tree_prior <- function(
+  id = get_tree_prior_default_id(),
   birth_rate_distr = beautier::create_uniform_distr()
 ) {
   return(
     beautier::create_tree_prior(
       name = "yule",
+      id = id,
       birth_rate_distr = birth_rate_distr
     )
   )

@@ -4,11 +4,13 @@
 \alias{create_tree_prior}
 \title{Internal function to create a tree prior}
 \usage{
-create_tree_prior(name, ...)
+create_tree_prior(name, id, ...)
 }
 \arguments{
 \item{name}{the tree prior name. Can be any name
 in \code{\link{get_tree_prior_names}}}
+
+\item{id}{the ID of the alignment}
 
 \item{...}{specific tree prior parameters}
 }
@@ -26,6 +28,10 @@ Prefer the use the named functions
   \code{\link{create_cep_tree_prior}}
   and \code{\link{create_yule_tree_prior}}
   instead
+}
+\seealso{
+An alignment ID can be extracted from
+  its FASTA filesname using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek

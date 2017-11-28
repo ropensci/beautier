@@ -4,7 +4,7 @@
 \alias{create_cbs_tree_prior}
 \title{Create a Coalescent Bayesian Skyline tree prior}
 \usage{
-create_cbs_tree_prior()
+create_cbs_tree_prior(id = get_tree_prior_default_id())
 }
 \value{
 a Coalescent Bayesian Skyline tree_prior
