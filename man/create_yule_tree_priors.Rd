@@ -16,11 +16,11 @@ a list of Yule tree_prior objects
 Creates n Yule tree priors
 }
 \examples{
-  m <- create_yule_tree_priors(1)
+  m <- create_yule_tree_priors(ids = "some_id")
   testthat::expect_equal(length(m), 1)
   testthat::expect_true(is_yule_tree_prior(m[[1]]))
 
-  m <- create_yule_tree_priors(2)
+  m <- create_yule_tree_priors(ids = c("a", "b"))
   testthat::expect_equal(length(m), 2)
   testthat::expect_true(is_yule_tree_prior(m[[1]]))
   testthat::expect_true(is_yule_tree_prior(m[[2]]))
