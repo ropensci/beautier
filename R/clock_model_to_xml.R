@@ -6,10 +6,10 @@
 #'   as created by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
 clock_model_to_prior_xml <- function(
-  id,
   clock_model
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
+  id <- clock_model$id
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
@@ -39,9 +39,10 @@ clock_model_to_prior_xml <- function(
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
+  id <- clock_model$id
+
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
     text <- c(text, paste0("<branchRateModel ",
@@ -91,9 +92,9 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 clock_model_to_other_brm_xml <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
+  id <- clock_model$id
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
     text <- c(text, paste0("<branchRateModel ",

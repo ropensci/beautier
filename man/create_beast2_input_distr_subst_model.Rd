@@ -5,11 +5,9 @@
 \title{Creates the substModel section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distr_subst_model(id, site_model)
+create_beast2_input_distr_subst_model(site_model)
 }
 \arguments{
-\item{id}{alignment ID}
-
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{

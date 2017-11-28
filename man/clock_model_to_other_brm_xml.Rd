@@ -5,14 +5,14 @@
 \title{Creates the second or later clock models' section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-clock_model_to_other_brm_xml(id, clock_model)
+clock_model_to_other_brm_xml(clock_model)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{clock_model}{a clock_model,
 as created by \code{\link{create_clock_model}}}
+
+\item{id}{the ID of the alignment (can be extracted from
+its FASTA filesname using \code{\link{get_id}})}
 }
 \description{
 Creates the second or later clock models' section in the distribution section

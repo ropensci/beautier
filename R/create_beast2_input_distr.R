@@ -66,7 +66,6 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 
   # Lines starting with '<distribution id ='
   distr_text <- create_beast2_input_distr_prior_distr(
-    ids = ids,
     tree_priors = tree_priors
   )
 
@@ -160,7 +159,6 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
 
     text <- c(text,
       create_beast2_input_distr_subst_model(
-        id = id,
         site_model = site_model
       )
     )
@@ -171,13 +169,12 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     if (i == 1) {
       text <- c(text,
         create_beast2_input_distr_clock_model_first(
-          id = id, clock_model = clock_model
+          clock_model = clock_model
         )
       )
     } else {
       text <- c(text,
         create_beast2_input_distr_clock_model_other(
-          id = id,
           clock_model = clock_model
         )
       )
@@ -199,16 +196,12 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
-  tree_priors = create_yule_tree_priors(ids = ids)
+  tree_priors
 ) {
-  testit::assert(length(ids) == length(tree_priors))
 
   text <- NULL
-  n <- length(ids)
-  for (i in seq(n)) {
-    id <- ids[i]
-    tree_prior <- tree_priors[[i]]
+  for (tree_prior in tree_priors) {
+    id <- tree_prior$id
     if (is_yule_tree_prior(tree_prior)) {
       text <- c(text, paste0("            <distribution id=\"YuleModel.t:", id,
         "\" spec=\"beast.evolution.speciation.YuleModel\" ",
@@ -303,9 +296,9 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
       tree_priors_text <- beautier::indent(tree_priors_text, n_spaces = 12)
     }
 
-    site_models_text <- create_beast2_input_distr_prior_prior_site_model(id = id, site_model = site_model, i = i) # nolint
-    gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(id = id, site_model = site_model) # nolint
-    clock_models_text <- create_beast2_input_distr_clock_models(id = id, clock_model = clock_model) # nolint
+    site_models_text <- create_beast2_input_distr_prior_prior_site_model(site_model = site_model, i = i) # nolint
+    gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
+    clock_models_text <- create_beast2_input_distr_clock_models(clock_model = clock_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
     # Mix text
@@ -343,22 +336,33 @@ bd_tree_prior_to_xml_prior <- function(
   bd_birth_rate_distr <- beautier::get_bd_birth_rate_distr(
     bd_tree_prior = bd_tree_prior)
 
+  text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
+    "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
-    create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate(
-      bd_birth_rate_distr = bd_birth_rate_distr,
-      id = id
+    indent(
+      distr_to_xml(
+        distr = bd_birth_rate_distr
+      ),
+      n_spaces = 4
     )
   )
+  text <- c(text, paste0("</prior>"))
+
   # BDDeathRate
   bd_death_rate_distr <- beautier::get_bd_death_rate_distr(
     bd_tree_prior = bd_tree_prior)
 
+  text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
+    "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
-    create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate(
-      bd_death_rate_distr = bd_death_rate_distr,
-      id = id
+    indent(
+      distr_to_xml(
+        distr = bd_death_rate_distr
+      ),
+      n_spaces = 4
     )
   )
+  text <- c(text, paste0("</prior>"))
 
   text
 }
@@ -367,8 +371,6 @@ bd_tree_prior_to_xml_prior <- function(
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Constant Population tree prior
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param ccp_tree_prior a Coalescent Constant Population tree prior,
 #'   as created by \code{\link{create_ccp_tree_prior}}
 #' @note this function is not intended for regular use, thus its
@@ -382,12 +384,20 @@ create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long 
   testit::assert(beautier::is_id(id))
 
   # pop size
-  create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size(
-    ccp_pop_size_distr = get_ccp_pop_size_distr(
-      ccp_tree_prior = ccp_tree_prior
-    ),
-    id = id
+  text <- NULL
+  text <- c(text, paste0(
+    "<prior id=\"PopSizePrior.t:", id,
+    "\" name=\"distribution\" x=\"@popSize.t:",
+    id, "\">"))
+  text <- c(text,
+    indent(
+      distr_to_xml(
+        distr = ccp_tree_prior$pop_size_distr
+      ),
+      n_spaces = 4
+    )
   )
+  text <- c(text, paste0("</prior>"))
 }
 
 #' Creates the tree prior section in the prior section of
@@ -407,24 +417,31 @@ create_beast2_input_distr_prior_prior_tree_prior_cep <- function( # nolint long 
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(
-    text,
-    create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size(
-      cep_pop_size_distr = get_cep_pop_size_distr(
-        cep_tree_prior = cep_tree_prior
+  text <- c(text, paste0("<prior ",
+    "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
+    "x=\"@ePopSize.t:", id, "\">"))
+  text <- c(text,
+    indent(
+      distr_to_xml(
+        distr = cep_tree_prior$pop_size_distr
       ),
-      id = id
+      n_spaces = 4
     )
   )
-  text <- c(
-    text,
-    create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate(
-      cep_growth_rate_distr = get_cep_growth_rate_distr(
-        cep_tree_prior = cep_tree_prior
+  text <- c(text, paste0("</prior>"))
+
+  text <- c(text, paste0("<prior ",
+    "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
+    "x=\"@growthRate.t:", id, "\">"))
+  text <- c(text,
+    indent(
+      distr_to_xml(
+        distr = cep_tree_prior$growth_rate_distr
       ),
-      id = id
+      n_spaces = 4
     )
   )
+  text <- c(text, paste0("</prior>"))
   text
 }
 
@@ -459,203 +476,22 @@ yule_tree_prior_to_xml_prior <- function(
   text
 }
 
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' for a Birth-Death tree prior
-#' @param bd_birth_rate_distr a Birth-Death birth rate distribution,
-#'   as created by \code{\link{create_distr}}
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @usage
-#' create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate(
-#'   bd_birth_rate_distr,
-#'   id
-#' )
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_bd_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  bd_birth_rate_distr,
-  id
-) {
-  text <- NULL
-  text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
-    "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
-  text <- c(text,
-    indent(
-      distr_to_xml(
-        distr = bd_birth_rate_distr
-      ),
-      n_spaces = 4
-    )
-  )
-  text <- c(text, paste0("</prior>"))
-  text
-}
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' for a Birth-Death tree prior
-#' @param bd_death_rate_distr a Birth-Death death rate distribution,
-#'   as created by \code{\link{create_distr}}
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @usage
-#' create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate(
-#'   bd_death_rate_distr,
-#'   id
-#' )
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_bd_death_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  bd_death_rate_distr,
-  id
-) {
-  text <- NULL
-  text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
-    "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
-  text <- c(text,
-    indent(
-      distr_to_xml(
-        distr = bd_death_rate_distr
-      ),
-      n_spaces = 4
-    )
-  )
-  text <- c(text, paste0("</prior>"))
-  text
-}
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' for a Coalescent Constant Population tree prior
-#' @param ccp_pop_size_distr a Coalescent Constant Population
-#'   population size distribution,
-#'   as created by \code{\link{create_distr}}
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @usage
-#' create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size(
-#'   ccp_pop_size_distr,
-#'   id
-#' )
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_ccp_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ccp_pop_size_distr,
-  id
-) {
-  text <- NULL
-  text <- c(text, paste0(
-    "<prior id=\"PopSizePrior.t:", id,
-    "\" name=\"distribution\" x=\"@popSize.t:",
-    id, "\">"))
-  text <- c(text,
-    indent(
-      distr_to_xml(
-        distr = ccp_pop_size_distr
-      ),
-      n_spaces = 4
-    )
-  )
-  text <- c(text, paste0("</prior>"))
-  text
-}
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' for a Coalescent Exponential Population tree prior
-#' @param cep_pop_size_distr a Coalescent Exponential Population
-#'   population size distribution,
-#'   as created by \code{\link{create_distr}}
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @usage
-#' create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size(
-#'   cep_pop_size_distr,
-#'   id
-#' )
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_cep_pop_size <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  cep_pop_size_distr,
-  id
-) {
-  text <- NULL
-  text <- c(text, paste0("<prior ",
-    "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
-    "x=\"@ePopSize.t:", id, "\">"))
-  text <- c(text,
-    indent(
-      distr_to_xml(
-        distr = cep_pop_size_distr
-      ),
-      n_spaces = 4
-    )
-  )
-  text <- c(text, paste0("</prior>"))
-  text
-}
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' for a Coalescent Exponential Population tree prior
-#' @param cep_growth_rate_distr a Coalescent Exponential Population
-#'   growth rate distribution,
-#'   as created by \code{\link{create_distr}}
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @usage
-#' create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate(
-#'   cep_growth_rate_distr,
-#'   id
-#' )
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  cep_growth_rate_distr,
-  id
-) {
-  text <- NULL
-  text <- c(text, paste0("<prior ",
-    "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
-    "x=\"@growthRate.t:", id, "\">"))
-  text <- c(text,
-    indent(
-      distr_to_xml(
-        distr = cep_growth_rate_distr
-      ),
-      n_spaces = 4
-    )
-  )
-  text <- c(text, paste0("</prior>"))
-  text
-}
-
 #' Creates the site models section in the priotr section of
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @param i the ith tree prior
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_prior_prior_site_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model,
   i
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<prior ",
@@ -722,15 +558,17 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
 
 #' Creates the gamma site models section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id alignment ID
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   gamma_site_model <- beautier::get_gamma_site_model(
     site_model = site_model)
@@ -753,18 +591,16 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
 
 #' Creates the clock models section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id alignment ID
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
-  text <- clock_model_to_prior_xml(id = id, clock_model = clock_model) # nolint internal function call
+  text <- clock_model_to_prior_xml(clock_model) # nolint internal function call
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 12)
   }
@@ -774,15 +610,17 @@ create_beast2_input_distr_clock_models <- function( # nolint long function name 
 #' Creates the substModel section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distr
-#' @param id alignment ID
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   if (beautier::is_jc69_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
@@ -824,8 +662,6 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
 
 #' Creates the first clock models' section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
@@ -835,7 +671,7 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
   id,
   clock_model
 ) {
-  text <- clock_model_to_brm_xml(id = id, clock_model = clock_model) # nolint internal function call
+  text <- clock_model_to_brm_xml(clock_model = clock_model) # nolint internal function call
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 16)
   }
@@ -844,8 +680,6 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
 
 #' Creates the second or later clock models' section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
@@ -855,7 +689,9 @@ create_beast2_input_distr_clock_model_other <- function( # nolint long function 
   id,
   clock_model
 ) {
-  text <- clock_model_to_other_brm_xml(id = id, clock_model = clock_model) # nolint internal function call
+  testit::assert(is_clock_model(clock_model))
+
+  text <- clock_model_to_other_brm_xml(clock_model) # nolint internal function call
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 16)
   }

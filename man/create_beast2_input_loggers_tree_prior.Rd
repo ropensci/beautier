@@ -5,12 +5,9 @@
 \title{Creates the tree priors part of the two logger sections
   of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers_tree_prior(id, tree_prior)
+create_beast2_input_loggers_tree_prior(tree_prior)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{tree_prior}{a tree prior,
 as created by \code{\link{create_tree_prior}}}
 }

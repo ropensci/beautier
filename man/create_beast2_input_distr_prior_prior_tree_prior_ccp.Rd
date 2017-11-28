@@ -12,9 +12,6 @@ create_beast2_input_distr_prior_prior_tree_prior_ccp(ccp_tree_prior)
 \arguments{
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as created by \code{\link{create_ccp_tree_prior}}}
-
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
 }
 \description{
 Creates the tree prior section in the prior section of

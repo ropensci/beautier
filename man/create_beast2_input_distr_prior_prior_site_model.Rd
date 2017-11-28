@@ -6,12 +6,9 @@
 the prior section of the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distr_prior_prior_site_model(id, site_model, i)
+create_beast2_input_distr_prior_prior_site_model(site_model, i)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 
 \item{i}{the ith tree prior}

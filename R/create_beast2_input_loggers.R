@@ -101,16 +101,16 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     text <- c(text,
       indent(
         create_beast2_input_loggers_tree_prior(
-          id = id, tree_prior = tree_prior
+          tree_prior = tree_prior
         ),
         n_spaces = 8
       )
     )
 
     # Now three things
-    rates <- create_beast2_input_loggers_rates(id = id, site_model = site_model) # nolint
-    freqparams <- create_beast2_input_loggers_freqparam(id = id, site_model = site_model) # nolint
-    gamma_shape <- create_beast2_input_loggers_gamma_shape(id = id, site_model = site_model) # nolint
+    rates <- create_beast2_input_loggers_rates(site_model = site_model) # nolint
+    freqparams <- create_beast2_input_loggers_freqparam(site_model = site_model) # nolint
+    gamma_shape <- create_beast2_input_loggers_gamma_shape(site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
 
@@ -141,8 +141,11 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 
 
 
-    text <- c(text, create_beast2_input_loggers_clock_models(
-      id = id, clock_model = clock_model))
+    text <- c(text,
+      create_beast2_input_loggers_clock_models(
+        clock_model = clock_model
+      )
+    )
 
   }
   text <- c(text, "    </logger>")
@@ -207,17 +210,18 @@ create_beast2_input_treelogs <- function( # nolint keep long function name, as i
 
 #' Creates the tree priors part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param tree_prior a tree prior,
 #'   as created by \code{\link{create_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   tree_prior
 ) {
+  testit::assert(beautier::is_tree_prior(tree_prior))
+  id <- tree_prior$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   if (is_yule_tree_prior(tree_prior)) {
     text <- c(text, paste0("<log idref=\"YuleModel.t:", id, "\"/>"))
@@ -243,17 +247,18 @@ create_beast2_input_loggers_tree_prior <- function( # nolint long function name 
 
 #' Creates the first site models part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
 
   if (is_hky_site_model(site_model)) {
@@ -274,17 +279,18 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
 
 #' Creates the freqParameter part of the log sections
 #'   of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @inheritParams create_beast2_input_loggers
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_freqparam <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0("        <log ",
@@ -295,16 +301,17 @@ create_beast2_input_loggers_freqparam <- function( # nolint long function name i
 
 #' Creates the gammaShape part of the log sections
 #'   of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
     text <- c(text, paste0("        <log idref=\"gammaShape.s:", id, "\"/>"))
@@ -314,17 +321,18 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 
 #' Creates the clock models part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
+  testit::assert(is_clock_model(clock_model))
+  id <- clock_model$id
+  testit::assert(beautier::is_id(id))
+
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("        <log idref=\"ucldStdev.c:", id, "\"/>"))

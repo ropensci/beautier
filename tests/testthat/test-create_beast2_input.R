@@ -914,7 +914,6 @@ test_that("Reproduce ccp_6_taxa_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "ccp_6_taxa_2_4.xml", package = "beautier"))
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 

@@ -5,14 +5,14 @@
 \title{Converts a clock model to the \code{<branchRateModel>} section of the
 XML as text}
 \usage{
-clock_model_to_brm_xml(id, clock_model)
+clock_model_to_brm_xml(clock_model)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{clock_model}{a clock_model,
 as created by \code{\link{create_clock_model}}}
+
+\item{id}{the ID of the alignment (can be extracted from
+its FASTA filesname using \code{\link{get_id}})}
 }
 \description{
 Converts a clock model to the \code{<branchRateModel>} section of the
