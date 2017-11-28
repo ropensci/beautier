@@ -331,56 +331,9 @@ create_beast2_input_distr_prior_prior_tree_prior <- function( # nolint long func
   id,
   tree_prior
 ) {
-  text <- NULL
+  text <- tree_prior_to_xml_prior(tree_prior)
+  if (!is.null(text)) text <- beautier::indent(text, n_spaces = 12)
 
-  if (is_yule_tree_prior(tree_prior)) {
-
-    text <- c(text,
-      indent(
-        create_beast2_input_distr_prior_prior_tree_prior_yule(
-          yule_tree_prior = tree_prior,
-          id = id
-        ),
-        n_spaces = 12
-      )
-    )
-
-  } else if (is_bd_tree_prior(tree_prior)) {
-
-    text <- c(text,
-      indent(
-        create_beast2_input_distr_prior_prior_tree_prior_bd(
-          bd_tree_prior = tree_prior,
-          id = id
-        ),
-        n_spaces = 12
-      )
-    )
-
-  } else if (is_ccp_tree_prior(tree_prior)) {
-
-    text <- c(text,
-      indent(
-        create_beast2_input_distr_prior_prior_tree_prior_ccp(
-          ccp_tree_prior = tree_prior,
-          id = id
-        ),
-        n_spaces = 12
-      )
-    )
-
-  } else if (is_cep_tree_prior(tree_prior)) {
-
-    text <- c(text,
-      indent(
-        create_beast2_input_distr_prior_prior_tree_prior_cep(
-          cep_tree_prior = tree_prior,
-          id = id
-        ),
-        n_spaces = 12
-      )
-    )
-  }
   text
 }
 
@@ -495,24 +448,23 @@ create_beast2_input_distr_prior_prior_tree_prior_cep <- function( # nolint long 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_yule <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+yule_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   id,
   yule_tree_prior
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
   text <- NULL
-
-  # birth rate
-  yule_birth_rate_distr <- beautier::get_yule_birth_rate_distr(
-    yule_tree_prior = yule_tree_prior)
-
-  text <- c(
-    text,
-    create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate(
-      yule_birth_rate_distr = yule_birth_rate_distr,
-      id = id
+  text <- c(text, paste0("<prior id=\"YuleBirthRatePrior.t:",
+    id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
+  text <- c(text,
+    indent(
+      distr_to_xml(
+        distr = yule_tree_prior$birth_rate_distr
+      ),
+      n_spaces = 4
     )
   )
+  text <- c(text, paste0("</prior>"))
   text
 }
 
@@ -697,43 +649,6 @@ create_beast2_input_distr_prior_prior_tree_prior_cep_growth_rate <- function( # 
   text <- c(text, paste0("</prior>"))
   text
 }
-
-
-#' Creates the tree prior section in the prior section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' for a Yule tree prior
-#' @param yule_birth_rate_distr a Yule birth rate distribution,
-#'   as created by \code{\link{create_distr}}
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @usage
-#' create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate(
-#'   yule_birth_rate_distr,
-#'   id
-#' )
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_yule_birth_rate <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  yule_birth_rate_distr,
-  id
-) {
-  text <- NULL
-  text <- c(text, paste0("<prior id=\"YuleBirthRatePrior.t:",
-    id, "\" name=\"distribution\" x=\"@birthRate.t:", id, "\">"))
-  text <- c(text,
-    indent(
-      distr_to_xml(
-        distr = yule_birth_rate_distr
-      ),
-      n_spaces = 4
-    )
-  )
-  text <- c(text, paste0("</prior>"))
-  text
-}
-
 
 #' Creates the site models section in the priotr section of
 #' the prior section of the distribution section

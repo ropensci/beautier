@@ -31,9 +31,11 @@ test_that("use with one ID", {
   clock_models <- create_strict_clock_models(ids = ids)
   tree_priors <- list(
     create_yule_tree_prior(
+      id = ids[1],
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     create_yule_tree_prior(
+      id = ids[2],
       birth_rate_distr = create_uniform_distr(id = 2)
     )
   )
