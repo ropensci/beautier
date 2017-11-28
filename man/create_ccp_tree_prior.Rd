@@ -4,7 +4,7 @@
 \alias{create_ccp_tree_prior}
 \title{Create a Coalescent Constant Population tree prior}
 \usage{
-create_ccp_tree_prior(id = get_tree_prior_default_id(),
+create_ccp_tree_prior(id = NA,
   pop_size_distr = beautier::create_one_div_x_distr())
 }
 \arguments{

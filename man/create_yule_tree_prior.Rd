@@ -5,7 +5,7 @@
 \title{Create a Yule tree prior}
 \usage{
 create_yule_tree_prior(
-  id = get_tree_prior_default_id(),
+  id = NA,
   birth_rate_distr = create_uniform_distr()
 )
 }

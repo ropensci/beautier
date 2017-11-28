@@ -41,7 +41,7 @@ test_that("use general function with get_tree_prior_names", {
   for (name in names) {
     tree_prior <- beautier::create_tree_prior(
       name = name,
-      id = get_tree_prior_default_id()
+      id = NA
     )
     testthat::expect_true(beautier::is_tree_prior(tree_prior))
   }

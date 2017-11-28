@@ -5,7 +5,7 @@
 \title{Create a Birth-Death tree prior}
 \usage{
 create_bd_tree_prior(
-  id = get_tree_prior_default_id(),
+  id = NA,
   birth_rate_distr = create_uniform_distr(),
   death_rate_distr = create_uniform_distr()
 )

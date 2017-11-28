@@ -4,7 +4,7 @@
 \alias{create_jc69_site_model}
 \title{Create a JC69 site model}
 \usage{
-create_jc69_site_model(id = get_site_model_default_id(),
+create_jc69_site_model(id = NA,
   gamma_site_model = get_default_gamma_site_model())
 }
 \arguments{

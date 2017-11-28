@@ -4,8 +4,7 @@
 \alias{create_cep_tree_prior}
 \title{Create a Coalescent Exponential Population tree prior}
 \usage{
-create_cep_tree_prior(id = get_tree_prior_default_id(),
-  pop_size_distr = create_one_div_x_distr(),
+create_cep_tree_prior(id = NA, pop_size_distr = create_one_div_x_distr(),
   growth_rate_distr = create_laplace_distr())
 }
 \arguments{

@@ -47,7 +47,7 @@ create_tree_prior <- function(
 #' @return a Birth-Death tree_prior
 #' @usage
 #' create_bd_tree_prior(
-#'   id = get_tree_prior_default_id(),
+#'   id = NA,
 #'   birth_rate_distr = create_uniform_distr(),
 #'   death_rate_distr = create_uniform_distr()
 #' )
@@ -69,7 +69,7 @@ create_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_bd_tree_prior <- function(
-  id = get_tree_prior_default_id(),
+  id = NA,
   birth_rate_distr = create_uniform_distr(),
   death_rate_distr = create_uniform_distr()
   ) {
@@ -102,7 +102,7 @@ create_bd_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_cbs_tree_prior <- function(
-  id = get_tree_prior_default_id()
+  id = NA
   ) {
   beautier::create_tree_prior(
     name = "coalescent_bayesian_skyline",
@@ -133,7 +133,7 @@ create_cbs_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_ccp_tree_prior <- function(
-  id = get_tree_prior_default_id(),
+  id = NA,
   pop_size_distr = beautier::create_one_div_x_distr()
 ) {
   beautier::create_tree_prior(
@@ -168,7 +168,7 @@ create_ccp_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_cep_tree_prior <- function(
-  id = get_tree_prior_default_id(),
+  id = NA,
   pop_size_distr = create_one_div_x_distr(),
   growth_rate_distr = create_laplace_distr()
 ) {
@@ -191,7 +191,7 @@ create_cep_tree_prior <- function(
 #'   its FASTA filesname using \code{\link{get_id}}
 #' @usage
 #' create_yule_tree_prior(
-#'   id = get_tree_prior_default_id(),
+#'   id = NA,
 #'   birth_rate_distr = create_uniform_distr()
 #' )
 #' @author Richel J.C. Bilderbeek
@@ -210,7 +210,7 @@ create_cep_tree_prior <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_yule_tree_prior <- function(
-  id = get_tree_prior_default_id(),
+  id = NA,
   birth_rate_distr = create_uniform_distr()
 ) {
   return(

@@ -62,7 +62,7 @@ create_site_model <- function(
 #'  )
 #' @export
 create_jc69_site_model <- function(
-  id = get_site_model_default_id(),
+  id = NA,
   gamma_site_model = get_default_gamma_site_model()
 ) {
   beautier::create_site_model(
@@ -92,7 +92,7 @@ create_jc69_site_model <- function(
 #'  )
 #' @export
 create_hky_site_model <- function(
-  id = get_site_model_default_id(),
+  id = NA,
   kappa = get_default_kappa(),
   gamma_site_model = get_default_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
@@ -132,7 +132,7 @@ create_hky_site_model <- function(
 #'  )
 #' @export
 create_tn93_site_model <- function(
-  id = get_site_model_default_id(),
+  id = NA,
   gamma_site_model = get_default_gamma_site_model(),
   kappa_1_prior_distr = create_log_normal_distr(
     m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
@@ -177,7 +177,7 @@ create_tn93_site_model <- function(
 #'  )
 #' @export
 create_gtr_site_model <- function(
-  id = get_site_model_default_id(),
+  id = NA,
   gamma_site_model = get_default_gamma_site_model(),
   rate_ac_prior_distr = create_gamma_distr(
     alpha = create_alpha_param(value = "0.05"),
