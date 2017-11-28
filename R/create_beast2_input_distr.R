@@ -291,7 +291,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
     }
 
     # No beautier:: before create_beast2_input_distr_prior_prior_tree_prior, as it is private # nolint
-    tree_priors_text <- tree_prior_to_xml_prior(tree_prior)
+    tree_priors_text <- tree_prior_to_xml_prior(tree_prior) # nolint internal function
     if (!is.null(tree_priors_text)) {
       tree_priors_text <- beautier::indent(tree_priors_text, n_spaces = 12)
     }
