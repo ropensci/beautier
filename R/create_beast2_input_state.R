@@ -204,7 +204,7 @@ create_beast2_input_state_site_models_rates <- function( # nolint long function 
   id,
   site_model
 ) {
-  text <- beautier::site_model_to_xml(id = id, site_model = site_model)
+  text <- beautier::site_model_to_xml_rates(id = id, site_model = site_model)
   if (!is.null(text)) {
     text <- beautier::indent(text, n_spaces = 4)
   }

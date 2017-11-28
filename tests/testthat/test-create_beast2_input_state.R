@@ -133,12 +133,57 @@ test_that("two phylogenies", {
       ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = create_strict_clock_models(ids = ids),
-      tree_priors = beautier:::init_tree_priors(
-        create_yule_tree_priors(ids = ids)),
+      tree_priors = create_yule_tree_priors(ids = ids),
       initial_phylogenies = c(NA, NA)
     )
   )
 
+})
+
+test_that("three phylogenies", {
+
+  ids <- c("aco", "nd2", "nd3")
+  testthat::expect_silent(
+    beautier:::create_beast2_input_state(
+      ids = ids,
+      site_models = create_jc69_site_models(ids = ids),
+      clock_models = create_strict_clock_models(ids = ids),
+      tree_priors = create_yule_tree_priors(ids = ids),
+      initial_phylogenies = rep(NA, length(ids))
+    )
+  )
+
+})
+
+test_that("four phylogenies", {
+
+  ids <- c("aco", "nd2", "nd3", "nd4")
+  testthat::expect_silent(
+    beautier:::create_beast2_input_state(
+      ids = ids,
+      site_models = create_jc69_site_models(ids = ids),
+      clock_models = create_strict_clock_models(ids = ids),
+      tree_priors = create_yule_tree_priors(ids = ids),
+      initial_phylogenies = rep(NA, length(ids))
+    )
+  )
+
+})
+
+test_that("four phylogenies, shared clock", {
+
+  skip("WIP")
+
+  ids <- c("aco", "nd2", "nd3", "nd4")
+  testthat::expect_silent(
+    beautier:::create_beast2_input_state(
+      ids = ids,
+      site_models = create_jc69_site_models(ids = ids),
+      clock_models = create_strict_clock_models(ids = ids[1]),
+      tree_priors = create_yule_tree_priors(ids = ids),
+      initial_phylogenies = rep(NA, length(ids))
+    )
+  )
 
 })
 

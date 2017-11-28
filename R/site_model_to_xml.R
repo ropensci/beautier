@@ -6,7 +6,7 @@
 #' @return the site model as XML text
 #' @author Richel J.C. Bilderbeek
 #' @export
-site_model_to_xml <- function(
+site_model_to_xml_rates <- function(
   id,
   site_model
 ) {
