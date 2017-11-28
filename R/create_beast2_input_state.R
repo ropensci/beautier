@@ -136,11 +136,13 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
           "name=\"stateNode\">1.0</parameter>"))
       }
     } else {
-      text <- c(text, paste0("    <stateNode spec=\"beast.util.TreeParser\" ",
-          "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",
-          "adjustTipHeights=\"false\" taxa=\"@", id, "\" ",
-          "newick=\"", ape::write.tree(initial_phylo), "\">"))
-      text <- c(text, paste0("    </stateNode>"))
+      text <- c(
+        text,
+        beautier::indent(
+          phylo_to_xml_state(id = id, phylo = initial_phylo),
+          n_spaces = 4
+        )
+      )
     }
     tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior) # nolint internal function
     if (!is.null(tree_prior_text)) {
