@@ -155,8 +155,6 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 
 #' Creates the tree priors part of the state section of a BEAST2
 #' XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -219,8 +217,6 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 
 #' Creates the freqParameters gamma_site_models part of the state section of
 #' a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -242,8 +238,6 @@ create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint lon
 
 #' Creates the clock models' part of the state section of
 #' a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
