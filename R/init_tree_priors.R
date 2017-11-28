@@ -94,8 +94,8 @@ init_ccp_tree_prior <- function(
 ) {
   testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint internal function call
 
-  result <- create_yule_tree_prior(
-    birth_rate_distr = init_distr(
+  result <- create_ccp_tree_prior(
+    pop_size_distr = init_distr(
       ccp_tree_prior$pop_size_distr,
       distr_id,
       param_id
