@@ -51,6 +51,8 @@ init_clock_models <- function(
       testit::assert(is_init_strict_clock_model(clock_model)) # nolint internal function call
     }
 
+    if (is.na(clock_model$id)) clock_model$id <- ids[i]
+
     clock_models[[i]] <- clock_model
   }
   clock_models

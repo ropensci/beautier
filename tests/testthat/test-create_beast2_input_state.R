@@ -98,7 +98,7 @@ test_that("use without initial phylogeny", {
     beautier:::create_beast2_input_state(
       ids = id,
       site_models = list(create_jc69_site_model(id = id)),
-      clock_models = list(create_strict_clock_model()),
+      clock_models = list(create_strict_clock_model(id = id)),
       tree_priors = beautier:::init_tree_priors(
         list(create_yule_tree_prior()),
         ids = id
@@ -123,7 +123,7 @@ test_that("use one with initial phylogeny", {
     beautier:::create_beast2_input_state(
       ids = id,
       site_models = list(create_jc69_site_model(id = id)),
-      clock_models = list(create_strict_clock_model()),
+      clock_models = list(create_strict_clock_model(id = id)),
       tree_priors = beautier:::init_tree_priors(
         list(create_yule_tree_prior()),
         ids = id

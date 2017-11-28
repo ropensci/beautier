@@ -41,7 +41,7 @@ create_beast2_input_state <- function(
 
     # Birth: always first
     text <- c(text, create_beast2_input_state_tree_prior(
-      id = id, tree_prior = tree_prior))
+      tree_prior = tree_prior))
 
     # There are three parts:
     # 1) rates
@@ -53,8 +53,8 @@ create_beast2_input_state <- function(
       rates <- beautier::indent(rates, n_spaces = 4)
     }
 
-    freqparams <- create_beast2_input_state_gamma_site_models_freqparams(id = id, site_model = site_model) # nolint
-    gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(id = id, site_model = site_model) # nolint
+    freqparams <- create_beast2_input_state_gamma_site_models_freqparams(site_model = site_model) # nolint
+    gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(site_model = site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
     if (gcc == 0) {
@@ -86,7 +86,7 @@ create_beast2_input_state <- function(
       }
     }
     text <- c(text, create_beast2_input_state_clock_model(
-      id = id, clock_model = clock_model))
+      clock_model = clock_model))
   }
 
   text <- c(text, "</state>")
@@ -160,9 +160,12 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   tree_prior
 ) {
+  testit::assert(beautier::is_tree_prior(tree_prior))
+  id <- tree_prior$id
+  testit::assert(is_id(id))
+
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {
     text <- c(text, paste0("<parameter id=\"BDBirthRate.t:", id, "\" ",
@@ -192,16 +195,16 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 
 #' Creates the gamma_site_models part of the state section of a BEAST2
 #' XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param site_model a site_model, as created by \code{\link{create_site_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(beautier::is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(is_id(id))
   text <- NULL
   text <- c(text, paste0("    <parameter ",
     "id=\"gammaShape.s:", id, "\" ",
@@ -221,9 +224,11 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+  testit::assert(is_id(id))
   text <- NULL
   if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0("    <parameter ",
@@ -243,9 +248,12 @@ create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint lon
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_state_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
+  testit::assert(beautier::is_clock_model(clock_model))
+  id <- clock_model$id
+  testit::assert(is_id(id))
+
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("<parameter id=\"ucldStdev.c:", id, "\" ",

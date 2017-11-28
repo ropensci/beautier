@@ -6,7 +6,7 @@
 #' @export
 get_gamma_site_model <- function(site_model) {
 
-  if (!is_site_model(site_model)) {
+  if (!beautier::is_site_model(site_model)) {
     stop("site_models must be a site_model")
   }
   testit::assert("gamma_site_model" %in% names(site_model))

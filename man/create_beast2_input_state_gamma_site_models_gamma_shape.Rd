@@ -5,12 +5,9 @@
 \title{Creates the gamma_site_models part of the state section of a BEAST2
 XML parameter file}
 \usage{
-create_beast2_input_state_gamma_site_models_gamma_shape(id, site_model)
+create_beast2_input_state_gamma_site_models_gamma_shape(site_model)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
-
 \item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
 }
 \description{
