@@ -5,8 +5,9 @@
 \title{Create a Birth-Death tree prior}
 \usage{
 create_bd_tree_prior(
-  birth_rate_distr = beautier::create_uniform_distr(),
-  death_rate_distr = beautier::create_uniform_distr()
+  id = get_tree_prior_default_id(),
+  birth_rate_distr = create_uniform_distr(),
+  death_rate_distr = create_uniform_distr()
 )
 }
 \arguments{
