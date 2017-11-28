@@ -10,27 +10,66 @@ site_model_to_xml_rates <- function(
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
-  text <- NULL
+  rates <- NULL
   if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("<parameter id=\"rateAC.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"rateAC.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("<parameter id=\"rateAG.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"rateAG.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("<parameter id=\"rateAT.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"rateAT.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("<parameter id=\"rateCG.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"rateCG.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    text <- c(text, paste0("<parameter id=\"rateGT.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"rateGT.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
   } else if (is_hky_site_model(site_model)) {
-    text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"kappa.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">",
       beautier::get_kappa(site_model), "</parameter>"))
   } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("<parameter id=\"kappa1.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"kappa1.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
-    text <- c(text, paste0("<parameter id=\"kappa2.s:", id, "\" ",
+    rates <- c(rates, paste0("<parameter id=\"kappa2.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">2.0</parameter>"))
+  }
+  if (!is.null(rates)) rates <- beautier::indent(rates, n_spaces = 4)
+  # There are three parts:
+  # 1) rates
+  # 2) freq
+  # 3) gamma shape
+  # Order is determined by site model and Gamma Category Count :-(
+  freqparams <- create_beast2_input_state_gamma_site_models_freqparams(site_model = site_model) # nolint
+  gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(site_model = site_model) # nolint
+  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
+  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
+  text <- NULL
+  if (gcc == 0) {
+    text <- c(text, rates)
+    text <- c(text, freqparams)
+  } else if (gcc == 1) {
+    if (is_gtr_site_model(site_model)) {
+      text <- c(text, freqparams)
+      text <- c(text, rates)
+    } else {
+      text <- c(text, rates)
+      text <- c(text, freqparams)
+    }
+  } else {
+    if (is_gtr_site_model(site_model)) {
+      if (prop_invariant == get_default_prop_invariant()) {
+        text <- c(text, freqparams)
+        text <- c(text, rates)
+        text <- c(text, gamma_shape)
+      } else {
+        text <- c(text, gamma_shape)
+        text <- c(text, freqparams)
+        text <- c(text, rates)
+      }
+    } else {
+      text <- c(text, rates)
+      text <- c(text, gamma_shape)
+      text <- c(text, freqparams)
+    }
   }
   text
 }

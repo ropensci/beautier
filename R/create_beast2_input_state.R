@@ -28,50 +28,10 @@ create_beast2_input_state <- function(
   }
 
   for (site_model in site_models) {
-
-    # There are three parts:
-    # 1) rates
-    # 2) freq
-    # 3) gamma shape
-    # Order is determined by site model and Gamma Category Count :-(
-    rates <- site_model_to_xml_rates(site_model = site_model) # nolint internal function
-    if (!is.null(rates)) {
-      rates <- beautier::indent(rates, n_spaces = 4)
-    }
-
-    freqparams <- create_beast2_input_state_gamma_site_models_freqparams(site_model = site_model) # nolint
-    gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(site_model = site_model) # nolint
-    gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
-    prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
-    if (gcc == 0) {
-      text <- c(text, rates)
-      text <- c(text, freqparams)
-    } else if (gcc == 1) {
-      if (is_gtr_site_model(site_model)) {
-        text <- c(text, freqparams)
-        text <- c(text, rates)
-      } else {
-        text <- c(text, rates)
-        text <- c(text, freqparams)
-      }
-    } else {
-      if (is_gtr_site_model(site_model)) {
-        if (prop_invariant == get_default_prop_invariant()) {
-          text <- c(text, freqparams)
-          text <- c(text, rates)
-          text <- c(text, gamma_shape)
-        } else {
-          text <- c(text, gamma_shape)
-          text <- c(text, freqparams)
-          text <- c(text, rates)
-        }
-      } else {
-        text <- c(text, rates)
-        text <- c(text, gamma_shape)
-        text <- c(text, freqparams)
-      }
-    }
+    new_text <- site_model_to_xml_rates(site_model = site_model) # nolint internal function
+    if (!is.null(new_text)) text <- c(text, new_text)
   }
+
   for (clock_model in clock_models) {
     text <- c(text, create_beast2_input_state_clock_model(
       clock_model = clock_model)
