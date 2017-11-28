@@ -20,7 +20,7 @@ create_beast2_input_beast <- function(
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(are_init_clock_models(clock_models))
+  testit::assert(are_init_clock_models(clock_models)) # nolint internal function
 
   # Alignment IDs
   ids <- beautier::get_id(

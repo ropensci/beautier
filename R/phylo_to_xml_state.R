@@ -4,7 +4,6 @@
 #' @param id the ID of the alignment
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
-#' @export
 phylo_to_xml_state <- function(
   phylo,
   id

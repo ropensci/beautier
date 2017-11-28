@@ -89,22 +89,22 @@ create_beast2_input <- function(
     ids = get_ids(input_fasta_filenames),
     distr_id = 0,
     param_id = 0
-  )  # nolint internal function call
+  )  # nolint internal function
   clock_models <- init_clock_models(
     clock_models = clock_models,
     ids = get_ids(input_fasta_filenames),
     distr_id = 0 + get_site_models_n_distrs(site_models),
     param_id = 0 + get_site_models_n_params(site_models)
-  )  # nolint internal function call
-  tree_priors <- init_tree_priors( # nolint internal function call
+  )  # nolint internal function
+  tree_priors <- init_tree_priors( # nolint internal function
     tree_priors,
     ids = get_ids(input_fasta_filenames),
     distr_id = 100,
     param_id = 200
   )
-  testit::assert(are_init_site_models(site_models))  # nolint internal function call
-  testit::assert(are_init_clock_models(clock_models))  # nolint internal function call
-  testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function call
+  testit::assert(are_init_site_models(site_models))  # nolint internal function
+  testit::assert(are_init_clock_models(clock_models))  # nolint internal function
+  testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
@@ -119,7 +119,7 @@ create_beast2_input <- function(
       fixed_crown_age = fixed_crown_age,
       initial_phylogenies = initial_phylogenies
   )
-  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function call
+  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function
 
   text
 }

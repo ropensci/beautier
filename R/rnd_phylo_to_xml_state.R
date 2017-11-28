@@ -4,7 +4,6 @@
 #'   its FASTA filesname using \code{\link{get_id}})
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
-#' @export
 rnd_phylo_to_xml_state <- function(
   id
 ) {

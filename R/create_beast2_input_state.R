@@ -25,21 +25,17 @@ create_beast2_input_state <- function(
 
   text <- NULL
   text <- c(text, "<state id=\"state\" storeEvery=\"5000\">")
+
   text <- c(text, create_beast2_input_state_tree(
     tree_priors = tree_priors,
     initial_phylogenies = initial_phylogenies)
   )
-
-  n <- length(ids)
-  for (i in seq(1, n)) {
-    id <- ids[i]
-    site_model <- site_models[[i]]
-    tree_prior <- tree_priors[[i]]
-    testit::assert(beautier::is_tree_prior(tree_prior))
-
-    # Birth: always first
+  for (tree_prior in tree_priors) {
     text <- c(text, create_beast2_input_state_tree_prior(
       tree_prior = tree_prior))
+  }
+
+  for (site_model in site_models) {
 
     # There are three parts:
     # 1) rates
@@ -158,7 +154,7 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {
@@ -198,7 +194,7 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
   text <- NULL
   text <- c(text, paste0("    <parameter ",
     "id=\"gammaShape.s:", id, "\" ",
@@ -218,9 +214,9 @@ create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint lo
 create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
   text <- NULL
   if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0("    <parameter ",
@@ -242,7 +238,7 @@ create_beast2_input_state_clock_model <- function( # nolint long function name i
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
