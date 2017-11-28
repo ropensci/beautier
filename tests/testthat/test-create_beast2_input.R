@@ -129,17 +129,6 @@ test_that("Reproduce 2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -202,17 +191,6 @@ test_that("Reproduce gtr_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "gtr_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -268,17 +246,6 @@ test_that(paste0("Reproduce gtr_gcc_1_2_4.xml"), {
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_1_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -322,16 +289,6 @@ test_that(paste0("Reproduce gtr_gcc_2_2_4.xml"), {
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -375,17 +332,6 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_2_4.xml"), {
   )
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_shape_1_5_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -432,17 +378,6 @@ test_that(paste0("Reproduce gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"), {
   expected_lines <- readLines(system.file("extdata",
     "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -467,17 +402,6 @@ test_that("Reproduce hky_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "hky_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -548,17 +472,6 @@ test_that("Check that hky_gcc_1_2_4.xml is reproduced", {
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_1_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -581,17 +494,6 @@ test_that("Check that hky_gcc_2_2_4.xml is reproduced", {
   )
   expected_lines <- readLines(system.file("extdata",
     "hky_gcc_2_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -651,17 +553,6 @@ test_that("Reproduce jc69_gcc_2_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "jc69_gcc_2_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -737,17 +628,6 @@ test_that("Reproduce tn93_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "tn93_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -775,17 +655,6 @@ test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
   expected_lines <- readLines(system.file("extdata",
     "tn93_gcc_1_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -812,17 +681,6 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "tn93_gcc_2_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -854,19 +712,6 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "relaxed_clock_log_normal_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -889,17 +734,6 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "relaxed_clock_log_normal_uclstdev_beta_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -992,17 +826,6 @@ test_that("Reproduce birth_death_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_death_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1023,17 +846,6 @@ test_that("Reproduce bd_6_taxa_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "bd_6_taxa_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1048,17 +860,6 @@ test_that("Reproduce cbs_6_taxa_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "cbs_6_taxa_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -1077,17 +878,7 @@ test_that("Reproduce ccp_6_taxa_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "ccp_6_taxa_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
+  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1109,17 +900,6 @@ test_that("Reproduce cep_6_taxa_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "cep_6_taxa_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -1200,17 +980,6 @@ test_that("Reproduce ccp_pop_size_gamma_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "ccp_pop_size_gamma_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1234,17 +1003,6 @@ test_that("Reproduce coalescent_exp_population_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "coalescent_exp_population_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -1291,17 +1049,6 @@ test_that("Reproduce birth_rate_uniform_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_uniform_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1322,18 +1069,6 @@ test_that("Reproduce birth_rate_normal_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_normal_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1349,18 +1084,6 @@ test_that("Reproduce birth_rate_one_div_x_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_one_div_x_2_4.xml", package = "beautier"))
-
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -1388,18 +1111,6 @@ test_that("Reproduce birth_rate_log_normal_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_log_normal_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1418,18 +1129,6 @@ test_that("Reproduce birth_rate_exp_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_exp_2_4.xml", package = "beautier"))
-
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -1452,18 +1151,6 @@ test_that("Reproduce birth_rate_gamma_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_gamma_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1484,18 +1171,6 @@ test_that("Reproduce birth_rate_beta_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_beta_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1515,17 +1190,6 @@ test_that("Reproduce birth_rate_laplace_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_laplace_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -1555,18 +1219,6 @@ test_that("Reproduce birth_rate_inv_gamma_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_inv_gamma_2_4.xml", package = "beautier"))
 
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1585,18 +1237,6 @@ test_that("Reproduce birth_rate_poisson_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "birth_rate_poisson_2_4.xml", package = "beautier"))
-
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 
@@ -1628,17 +1268,6 @@ test_that("Reproduce anthus_nd2_anthus_aco_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "anthus_nd2_anthus_aco_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   if (is_on_travis()) {
     testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
@@ -1672,17 +1301,6 @@ test_that("Reproduce aco_nd2_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1711,17 +1329,6 @@ test_that("Reproduce aco_nd2_shared_site_model_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_shared_site_model_2_4.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -1755,17 +1362,6 @@ test_that("Reproduce aco_hky_nd2.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "aco_hky_nd2.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   if (is_on_travis()) {
     testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
@@ -1809,17 +1405,6 @@ test_that("Reproduce aco_nd2_hky.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_hky.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1849,17 +1434,6 @@ test_that("Reproduce aco_hky_nd2_tn93.xml, example 9", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_hky_nd2_tn93.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   if (is_on_travis()) {
     testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
@@ -1904,17 +1478,6 @@ test_that("Reproduce aco_strict_nd2_rln.xml, example 10", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_strict_nd2_rln.xml", package = "beautier"))
-
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
 
   if (is_on_travis()) {
     testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
@@ -2095,17 +1658,6 @@ test_that("Reproduce aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4.xml", package = "beautier"))
 
-  if (1 == 2) { # nolint keep this to help fixing future tests
-    write.csv(created_lines, "~/created.csv")
-    write.csv(expected_lines, "~/expected.csv")
-    for (i in 1:min(length(expected_lines), length(created_lines))) {
-      testthat::expect_equal(
-        expected_lines[i], created_lines[i]
-      )
-      print(paste0(i, " / ", length(expected_lines)))
-    }
-  }
-  are_equivalent_xml_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
