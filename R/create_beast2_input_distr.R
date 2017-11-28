@@ -340,15 +340,12 @@ create_beast2_input_distr_prior_prior_tree_prior <- function( # nolint long func
 #' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param bd_tree_prior a Birth-Death tree_prior,
 #'   as created by \code{\link{create_bd_tree_prior}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_bd <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
+bd_tree_prior_to_xml_prior <- function(
   bd_tree_prior
 ) {
   testit::assert(is_bd_tree_prior(bd_tree_prior))

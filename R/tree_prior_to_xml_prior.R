@@ -21,7 +21,7 @@ tree_prior_to_xml_prior <- function(
 
     text <- c(
       text,
-      create_beast2_input_distr_prior_prior_tree_prior_bd(
+      bd_tree_prior_to_xml_prior(
         bd_tree_prior = tree_prior
       )
     )
