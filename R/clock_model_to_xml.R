@@ -1,9 +1,9 @@
-#' Converts a clock model to the \code{<prior>} section of the
+#' Converts a clock model to the \code{prior} section of the
 #' XML as text
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
-clock_model_to_prior_xml <- function(
+clock_model_to_xml_prior <- function(
   clock_model
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
@@ -28,14 +28,14 @@ clock_model_to_prior_xml <- function(
   text
 }
 
-#' Converts a clock model to the \code{<branchRateModel>} section of the
+#' Converts a clock model to the \code{branchRateModel} section of the
 #' XML as text
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-clock_model_to_brm_xml <- function(
+clock_model_to_xml_brm <- function(
   clock_model
 ) {
   id <- clock_model$id
@@ -79,14 +79,14 @@ clock_model_to_brm_xml <- function(
   text
 }
 
-#' Creates the second or later clock models' section in the distribution section
-#' of a BEAST2 XML parameter file
+#' Converts a non-first clock model to the \code{branchRateModel}
+#' section of the XML as text
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-clock_model_to_other_brm_xml <- function(
+clock_model_to_xml_brm_nonfirst <- function(
   clock_model
 ) {
   id <- clock_model$id

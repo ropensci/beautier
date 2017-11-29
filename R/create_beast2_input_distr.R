@@ -102,7 +102,7 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
   text <- c(
       text,
       paste0(
-        "        <distribution id=\"likelihood\" ",
+        "<distribution id=\"likelihood\" ",
         "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
       )
     )
@@ -115,41 +115,41 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     testit::assert(beautier::is_clock_model(clock_model))
     testit::assert(beautier::is_site_model(site_model))
 
-    text <- c(text, paste0("            <distribution id=\"treeLikelihood.",
+    text <- c(text, paste0("    <distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     # gamma category count
     gamma_category_count <- beautier::get_gamma_cat_count(
       beautier::get_gamma_site_model(site_model))
     if (gamma_category_count == 0) {
-      text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+      text <- c(text, paste0("        <siteModel id=\"SiteModel.s:",
         id, "\" spec=\"SiteModel\">")
       )
     } else if (gamma_category_count == 1) {
-      text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+      text <- c(text, paste0("        <siteModel id=\"SiteModel.s:",
         id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
         "\">")
       )
     } else {
-      text <- c(text, paste0("                <siteModel id=\"SiteModel.s:",
+      text <- c(text, paste0("        <siteModel id=\"SiteModel.s:",
         id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
         "\" shape=\"@gammaShape.s:", id, "\">")
       )
     }
 
 
-    text <- c(text, paste0("                    <parameter ",
+    text <- c(text, paste0("            <parameter ",
       "id=\"mutationRate.s:", id,
       "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
     if (gamma_category_count < 2) {
-      text <- c(text, paste0("                    <parameter ",
+      text <- c(text, paste0("            <parameter ",
         "id=\"gammaShape.s:", id,
         "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
     }
 
     # proportionInvariant
     text <- c(text, paste0(
-      "                    <parameter id=\"proportionInvariant.s:",
+      "            <parameter id=\"proportionInvariant.s:",
       id, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"proportionInvariant\" upper=\"1.0\">",
       beautier::get_prop_invariant(
@@ -160,34 +160,34 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     text <- c(text,
       beautier::indent(
         site_model_to_xml_subst_model(site_model),
-        n_spaces = 20
+        n_spaces = 12
       )
     )
 
-    text <- c(text, "                </siteModel>")
+    text <- c(text, "        </siteModel>")
 
     # Clock models
     if (i == 1) {
       text <- c(text,
         beautier::indent(
-          clock_model_to_brm_xml(clock_model),
-          n_spaces = 16
+          clock_model_to_xml_brm(clock_model),
+          n_spaces = 8
         )
       )
     } else {
       text <- c(text,
         beautier::indent(
-          clock_model_to_other_brm_xml(clock_model),
-          n_spaces = 16
+          clock_model_to_xml_brm_nonfirst(clock_model),
+          n_spaces = 8
         )
       )
     }
 
-    text <- c(text, "            </distribution>")
+    text <- c(text, "    </distribution>")
   }
-  text <- c(text, "        </distribution>")
+  text <- c(text, "</distribution>")
 
-  text
+  beautier::indent(text, n_spaces = 8)
 }
 
 
@@ -302,7 +302,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
     id <- ids[i]
     site_model <- site_models[[i]]
 
-    site_models_text <- create_beast2_input_distr_prior_prior_site_model(site_model = site_model, i = i) # nolint
+    site_models_text <- beautier::indent(site_model_to_xml_prior(site_model), n_spaces = 12) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
@@ -320,7 +320,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
     text <- c(
       text,
       beautier::indent(
-        clock_model_to_prior_xml(clock_model),
+        clock_model_to_xml_prior(clock_model),
         n_spaces = 12
       )
     )
@@ -486,86 +486,6 @@ yule_tree_prior_to_xml_prior <- function(
     )
   )
   text <- c(text, paste0("</prior>"))
-  text
-}
-
-#' Creates the site models section in the priotr section of
-#' the prior section of the distribution section
-#' of a BEAST2 XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @param i the ith tree prior
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_site_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  site_model,
-  i
-) {
-  testit::assert(beautier::is_site_model(site_model))
-  id <- site_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  if (is_hky_site_model(site_model)) {
-    text <- c(text, paste0("<prior ",
-      "id=\"KappaPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
-    text <- c(text,
-      beautier::indent(
-        beautier::distr_to_xml(site_model$kappa_prior),
-        n_spaces = 4
-      )
-    )
-    text <- c(text, paste0("</prior>"))
-    text <- beautier::indent(text, n_spaces = 12)
-  } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
-    text <- c(text,
-      beautier::indent(
-        beautier::distr_to_xml(site_model$kappa_1_prior),
-        n_spaces = 4
-      )
-    )
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"kappa2Prior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
-    text <- c(text,
-      beautier::indent(
-        beautier::distr_to_xml(site_model$kappa_2_prior),
-        n_spaces = 4
-      )
-    )
-    text <- c(text, paste0("</prior>"))
-    text <- beautier::indent(text, n_spaces = 12)
-  } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("<prior id=\"RateACPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAC.s:", id, "\">"))
-    text <- c(text, beautier::indent(
-      beautier::distr_to_xml(site_model$rate_ac_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateAGPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
-    text <- c(text, beautier::indent(
-      beautier::distr_to_xml(site_model$rate_ag_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateATPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
-    text <- c(text, beautier::indent(
-      beautier::distr_to_xml(site_model$rate_at_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateCGPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
-    text <- c(text, beautier::indent(
-      beautier::distr_to_xml(site_model$rate_cg_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateGTPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateGT.s:", id, "\">"))
-    text <- c(text, beautier::indent(
-      beautier::distr_to_xml(site_model$rate_gt_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- beautier::indent(text, n_spaces = 12)
-  }
   text
 }
 
