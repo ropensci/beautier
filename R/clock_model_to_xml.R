@@ -86,7 +86,7 @@ clock_model_to_xml_brm <- function(
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-clock_model_to_xml_brm_nonfirst <- function(
+clock_model_to_xml_brm_nonfirst <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   clock_model
 ) {
   id <- clock_model$id

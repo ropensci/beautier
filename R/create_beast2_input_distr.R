@@ -27,7 +27,6 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 
   # prior
   text <- c(text, create_beast2_input_distr_prior(
-      ids = ids,
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors
@@ -55,7 +54,6 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
   site_models,
   clock_models,
   tree_priors
@@ -65,21 +63,22 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
     "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
   # Lines starting with '<distribution id ='
-  distr_text <- create_beast2_input_distr_prior_distr(
-    tree_priors = tree_priors
+  text <- c(
+    text,
+    create_beast2_input_distr_prior_distr(
+      tree_priors = tree_priors
+    )
   )
 
   # Lines starting with '<prior id ='
-  prior_text <- create_beast2_input_distr_prior_prior(
-    ids = ids,
-    site_models = site_models,
-    clock_models = clock_models,
-    tree_priors = tree_priors
+  text <- c(
+    text,
+    create_beast2_input_distr_prior_prior(
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors
+    )
   )
-
-  # Lines must be mixed sometimes ...
-  text <- c(text, distr_text)
-  text <- c(text, prior_text)
 
   text <- c(text, "        </distribution>")
   text
@@ -265,8 +264,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
- create_beast2_input_distr_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
+create_beast2_input_distr_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_models,
   clock_models,
   tree_priors
@@ -299,8 +297,8 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
   }
 
   for (i in seq_along(site_models)) {
-    id <- ids[i]
     site_model <- site_models[[i]]
+    id <- site_model$id
 
     site_models_text <- beautier::indent(site_model_to_xml_prior(site_model), n_spaces = 12) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
@@ -516,8 +514,8 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
       "name=\"mean\">1.0</parameter>"))
     text <- c(text, paste0("    </Exponential>"))
     text <- c(text, paste0("</prior>"))
-    text <- beautier::indent(text, n_spaces = 12)
   }
+  text <- beautier::indent(text, n_spaces = 12)
   text
 
 }
