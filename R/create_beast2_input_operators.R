@@ -29,7 +29,8 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
     id <- tree_prior$id
 
     # Extra trees' clock models
-    clock_model <- find_clock_model(clock_models = clock_models, id = id)
+    clock_model <- beautier::find_clock_model(
+      clock_models = clock_models, id = id)
     if (!is.null(clock_model)) {
       if (i > 1) {
         text <- c(text, "")
@@ -62,7 +63,8 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
       tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
 
     # Clock models with same ID
-    clock_model <- find_clock_model(clock_models = clock_models, id = id)
+    clock_model <- beautier::find_clock_model(
+      clock_models = clock_models, id = id)
     if (!is.null(clock_model)) {
       testit::assert(beautier::is_clock_model(clock_model))
       text <- c(text, create_beast2_input_operators_clock_model(
@@ -70,9 +72,9 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
     }
 
     # Site models with same ID
-    site_model <- find_site_model(site_models = site_models, id = id)
+    site_model <- beautier::find_site_model(site_models = site_models, id = id)
     if (!is.null(site_model)) {
-      text <- c(text, site_model_to_xml_operators(site_model))
+      text <- c(text, site_model_to_xml_operators(site_model)) # nolint internal function
     }
   }
 
