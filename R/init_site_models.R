@@ -81,6 +81,11 @@ init_gtr_site_model <- function(
   rate_at_prior_distr <- gtr_site_model$rate_at_prior_distr
   rate_cg_prior_distr <- gtr_site_model$rate_cg_prior_distr
   rate_gt_prior_distr <- gtr_site_model$rate_gt_prior_distr
+  rate_ac_param <- gtr_site_model$rate_ac_param
+  rate_ag_param <- gtr_site_model$rate_ag_param
+  rate_at_param <- gtr_site_model$rate_at_param
+  rate_cg_param <- gtr_site_model$rate_cg_param
+  rate_gt_param <- gtr_site_model$rate_gt_param
 
   if (!is_init_distr(rate_ac_prior_distr)) {
     rate_ac_prior_distr <- init_distr(
@@ -112,6 +117,27 @@ init_gtr_site_model <- function(
     distr_id <- distr_id + 1
     param_id <- param_id + beautier::get_distr_n_params(rate_gt_prior_distr)
   }
+  if (!is_init_param(rate_ac_param)) {
+    rate_ac_param <- init_param(rate_ac_param, id = param_id)
+    param_id <- param_id + 1
+  }
+  if (!is_init_param(rate_ag_param)) {
+    rate_ag_param <- init_param(rate_ag_param, id = param_id)
+    param_id <- param_id + 1
+  }
+  if (!is_init_param(rate_at_param)) {
+    rate_at_param <- init_param(rate_at_param, id = param_id)
+    param_id <- param_id + 1
+  }
+  if (!is_init_param(rate_cg_param)) {
+    rate_cg_param <- init_param(rate_cg_param, id = param_id)
+    param_id <- param_id + 1
+  }
+  if (!is_init_param(rate_gt_param)) {
+    rate_gt_param <- init_param(rate_gt_param, id = param_id)
+    param_id <- param_id + 1
+  }
+
   result <- create_gtr_site_model(
     id = gtr_site_model$id,
     gamma_site_model = gtr_site_model$gamma_site_model,
@@ -119,7 +145,12 @@ init_gtr_site_model <- function(
     rate_ag_prior_distr = rate_ag_prior_distr,
     rate_at_prior_distr = rate_at_prior_distr,
     rate_cg_prior_distr = rate_cg_prior_distr,
-    rate_gt_prior_distr = rate_gt_prior_distr
+    rate_gt_prior_distr = rate_gt_prior_distr,
+    rate_ac_param = rate_ac_param,
+    rate_ag_param = rate_ag_param,
+    rate_at_param = rate_at_param,
+    rate_cg_param = rate_cg_param,
+    rate_gt_param = rate_gt_param
   )
 
   testit::assert(beautier::is_gtr_site_model(result))

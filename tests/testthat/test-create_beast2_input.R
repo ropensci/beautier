@@ -1505,7 +1505,13 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         kappa_1_param = create_kappa_1_param(value = "2.2"),
         kappa_2_param = create_kappa_2_param(value = "2.3")
       ),
-      create_gtr_site_model()
+      create_gtr_site_model(
+        rate_ac_param = create_rate_ac_param(value = "1.1"),
+        rate_ag_param = create_rate_ag_param(value = "1.2"),
+        rate_at_param = create_rate_at_param(value = "1.3"),
+        rate_cg_param = create_rate_cg_param(value = "1.4"),
+        rate_gt_param = create_rate_gt_param(value = "1.6")
+      )
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
