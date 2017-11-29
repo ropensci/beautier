@@ -272,14 +272,10 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
   tree_priors
 ) {
   text <- NULL
-  n <- length(ids)
-  for (i in seq(1, n)) {
-    id <- ids[i]
-    site_model <- site_models[[i]]
-    clock_model <- clock_models[[i]]
-    tree_prior <- tree_priors[[i]]
-    testit::assert(beautier::is_clock_model(clock_model))
 
+  for (i in seq_along(tree_priors)) {
+    tree_prior <- tree_priors[[i]]
+    id <- tree_prior$id
     # Irregularity: WIP, TODO, to be moved to someplace else
     if (is_yule_tree_prior(tree_prior)) {
 
@@ -293,16 +289,24 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
       }
     }
 
-    # No beautier:: before create_beast2_input_distr_prior_prior_tree_prior, as it is private # nolint
-    tree_priors_text <- beautier::indent(tree_prior_to_xml_prior(tree_prior), n_spaces = 12)  # nolint internal function
+    text <- c(
+      text,
+      beautier::indent(
+        tree_prior_to_xml_prior(tree_prior),
+        n_spaces = 12
+      )
+    )
+  }
+
+  for (i in seq_along(site_models)) {
+    id <- ids[i]
+    site_model <- site_models[[i]]
 
     site_models_text <- create_beast2_input_distr_prior_prior_site_model(site_model = site_model, i = i) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
-    clock_models_text <- beautier::indent(clock_model_to_prior_xml(clock_model), n_spaces = 12)
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
     # Mix text
-    text <- c(text, tree_priors_text)
     if (prop_invariant == get_default_prop_invariant()) {
       text <- c(text, site_models_text)
       text <- c(text, gamma_site_models_text)
@@ -310,7 +314,16 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
       text <- c(text, gamma_site_models_text)
       text <- c(text, site_models_text)
     }
-    text <- c(text, clock_models_text)
+  }
+
+  for (clock_model in clock_models) {
+    text <- c(
+      text,
+      beautier::indent(
+        clock_model_to_prior_xml(clock_model),
+        n_spaces = 12
+      )
+    )
   }
   text
 }
