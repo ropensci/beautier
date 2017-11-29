@@ -4,8 +4,7 @@
 \alias{create_gtr_site_model}
 \title{Create a GTR site model}
 \usage{
-create_gtr_site_model(id = NA,
-  gamma_site_model = get_default_gamma_site_model(),
+create_gtr_site_model(id = NA, gamma_site_model = create_gamma_site_model(),
   rate_ac_prior_distr = create_gamma_distr(alpha = create_alpha_param(value =
   "0.05"), beta = create_beta_param(value = "10.0")),
   rate_ag_prior_distr = create_gamma_distr(alpha = create_alpha_param(value =

@@ -9,7 +9,7 @@ test_that("use", {
 
   testthat::expect_equal(
     get_gamma_shape(
-      get_default_gamma_site_model()
+      create_gamma_site_model()
     ),
     get_default_gamma_shape()
   )

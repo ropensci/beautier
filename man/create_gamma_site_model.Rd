@@ -6,7 +6,9 @@
 \usage{
 create_gamma_site_model(gamma_cat_count = get_default_gamma_cat_count(),
   gamma_shape = get_default_gamma_shape(),
-  prop_invariant = get_default_prop_invariant())
+  prop_invariant = get_default_prop_invariant(),
+  gamma_shape_prior_distr = create_exp_distr(id = 0, mean =
+  create_mean_param(id = 0, value = "1.0")))
 }
 \arguments{
 \item{gamma_cat_count}{the number of gamma categories, must
@@ -16,6 +18,8 @@ be an integer with value zero or more}
 
 \item{prop_invariant}{the proportion invariant, must be a value
 from 0.0 to 1.0}
+
+\item{gamma_shape_prior_distr}{the distribution of the gamma shape prior}
 }
 \value{
 a gamma site model
@@ -26,4 +30,11 @@ Create a gamma site model, part of a site model
 \note{
 Use \code{\link{create_site_model}} to create a site model
   that has both a gamma site model and substitution model
+}
+\examples{
+  gamma_site_model <- create_gamma_site_model()
+  testit::assert(is_gamma_site_model(gamma_site_model))
+}
+\author{
+Richel J.C. Bilderbeek
 }

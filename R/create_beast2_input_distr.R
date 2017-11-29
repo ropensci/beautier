@@ -255,7 +255,7 @@ create_beast2_input_distr_prior_prior <- function( # nolint long function name i
     id <- site_model$id
 
     site_models_text <- beautier::indent(site_model_to_xml_prior(site_model), n_spaces = 12) # nolint
-    gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
+    gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model) # nolint
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
     # Mix text
@@ -461,12 +461,15 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
     text <- c(text, paste0("<prior ",
       "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
       "x=\"@gammaShape.s:", id, "\">"))
-    text <- c(text, paste0("    <Exponential id=\"Exponential.0\" ",
-      "name=\"distr\">"))
-    text <- c(text, paste0("        <parameter ",
-      "id=\"RealParameter.0\" estimate=\"false\" ",
-      "name=\"mean\">1.0</parameter>"))
-    text <- c(text, paste0("    </Exponential>"))
+    text <- c(
+      text,
+      beautier::indent(
+        distr_to_xml(
+          gamma_site_model$gamma_shape_prior_distr
+        ),
+        n_spaces = 4
+      )
+    )
     text <- c(text, paste0("</prior>"))
   }
   text <- beautier::indent(text, n_spaces = 12)

@@ -5,7 +5,7 @@
 \title{Create an HKY site model}
 \usage{
 create_hky_site_model(id = NA, kappa = get_default_kappa(),
-  gamma_site_model = get_default_gamma_site_model(),
+  gamma_site_model = create_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(m = create_m_param(value =
   "1.0"), s = create_s_param(value = "1.25")))
 }
