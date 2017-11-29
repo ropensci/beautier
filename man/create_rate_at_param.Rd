@@ -19,7 +19,7 @@ Create a parameter called 'rate AT'
 }
 \examples{
   rate_at_param <- create_rate_at_param()
-  testit::assert(is_rate_at_param())
+  testit::assert(is_rate_at_param(rate_at_param))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

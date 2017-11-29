@@ -499,20 +499,18 @@ create_rate_ag_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_at_param <- create_rate_at_param()
-#'   testit::assert(is_rate_at_param())
+#'   testit::assert(is_rate_at_param(rate_at_param))
 #' @export
 create_rate_at_param <- function(
   id = NA,
   lower = "0.0",
   value = "1.0"
 ) {
-  return(
-    beautier::create_param(
-      name = "rate_at",
-      id = id,
-      lower = lower,
-      value = value
-    )
+  beautier::create_param(
+    name = "rate_at",
+    id = id,
+    lower = lower,
+    value = value
   )
 }
 
@@ -525,7 +523,7 @@ create_rate_at_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_cg_param <- create_rate_cg_param()
-#'   testit::assert(is_rate_cg_param())
+#'   testit::assert(is_rate_cg_param(rate_cg_param))
 #' @export
 create_rate_cg_param <- function(
   id = NA,
@@ -551,7 +549,7 @@ create_rate_cg_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_gt_param <- create_rate_gt_param()
-#'   testit::assert(is_rate_gt_param())
+#'   testit::assert(is_rate_gt_param(rate_gt_param))
 #' @export
 create_rate_gt_param <- function(
   id = NA,
