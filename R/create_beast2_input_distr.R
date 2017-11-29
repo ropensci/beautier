@@ -104,7 +104,7 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     id <- site_model$id
 
     # Not all site models have their own clock
-    clock_model <- find_clock_model(clock_models, id = id)
+    clock_model <- beautier::find_clock_model(clock_models, id = id)
     testit::assert(beautier::is_site_model(site_model))
 
     text <- c(text, paste0("    <distribution id=\"treeLikelihood.",
