@@ -42,6 +42,21 @@ as returned by \code{\link{create_distr}})}
 
 \item{rate_gt_prior_distr}{the GT rate prior distribution,
 as returned by \code{\link{create_distr}})}
+
+\item{rate_ac_param}{the 'rate AC' parameter,
+as returned by \code{\link{create_rate_ac_param}})}
+
+\item{rate_ag_param}{the 'rate AG' parameter,
+as returned by \code{\link{create_rate_ag_param}})}
+
+\item{rate_at_param}{the 'rate AT' parameter,
+as returned by \code{\link{create_rate_at_param}})}
+
+\item{rate_cg_param}{the 'rate CG' parameter,
+as returned by \code{\link{create_rate_cg_param}})}
+
+\item{rate_gt_param}{the 'rate GT' parameter,
+as returned by \code{\link{create_rate_gt_param}})}
 }
 \value{
 a GTR site_model

@@ -9,6 +9,8 @@ create_rate_ag_param(id = NA, lower = "0.0", value = "1.0")
 \arguments{
 \item{id}{the parameter's ID}
 
+\item{lower}{lowest possible value of the parameter}
+
 \item{value}{value of the parameter}
 }
 \value{

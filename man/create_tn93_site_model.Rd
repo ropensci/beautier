@@ -21,6 +21,12 @@ the FASTA filesname using \code{\link{get_id}})}
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}
 
+\item{kappa_1_param}{the 'kappa 1' parameter,
+as returned by \code{\link{create_kappa_1_param}}}
+
+\item{kappa_2_param}{the 'kappa 2' parameter,
+as returned by \code{\link{create_kappa_2_param}}}
+
 \item{kappa_1_prior_distr}{the distribution of the kappa 1 prior,
 which is a log-normal distribution
 (as created by \code{\link{create_log_normal_distr}})

@@ -119,6 +119,10 @@ create_hky_site_model <- function(
 #'   which is a log-normal distribution
 #'   (as created by \code{\link{create_log_normal_distr}})
 #'   by default
+#' @param kappa_1_param the 'kappa 1' parameter,
+#'   as returned by \code{\link{create_kappa_1_param}}
+#' @param kappa_2_param the 'kappa 2' parameter,
+#'   as returned by \code{\link{create_kappa_2_param}}
 #' @return a TN93 site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -168,6 +172,16 @@ create_tn93_site_model <- function(
 #'   as returned by \code{\link{create_distr}})
 #' @param rate_gt_prior_distr the GT rate prior distribution,
 #'   as returned by \code{\link{create_distr}})
+#' @param rate_ac_param the 'rate AC' parameter,
+#'   as returned by \code{\link{create_rate_ac_param}})
+#' @param rate_ag_param the 'rate AG' parameter,
+#'   as returned by \code{\link{create_rate_ag_param}})
+#' @param rate_at_param the 'rate AT' parameter,
+#'   as returned by \code{\link{create_rate_at_param}})
+#' @param rate_cg_param the 'rate CG' parameter,
+#'   as returned by \code{\link{create_rate_cg_param}})
+#' @param rate_gt_param the 'rate GT' parameter,
+#'   as returned by \code{\link{create_rate_gt_param}})
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
