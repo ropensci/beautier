@@ -4,12 +4,9 @@
 \alias{create_beast2_input_distr}
 \title{Creates the distribution section of a BEAST2 XML parameter file.}
 \usage{
-create_beast2_input_distr(ids, site_models, clock_models, tree_priors)
+create_beast2_input_distr(site_models, clock_models, tree_priors)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_id}})}
-
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 

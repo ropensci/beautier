@@ -6,7 +6,6 @@ test_that("use with one ID", {
 
   testthat::expect_silent(
     beautier:::create_beast2_input_distr(
-      ids = ids,
       site_models = create_jc69_site_models(ids = ids),
       clock_models = beautier:::init_clock_models(
         create_strict_clock_models(ids = NA),
@@ -43,38 +42,9 @@ test_that("use with one ID", {
 
   testthat::expect_silent(
     beautier:::create_beast2_input_distr(
-      ids = c("a", "b"),
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors
-    )
-  )
-
-})
-
-test_that("abuse", {
-
-  # Two IDs, one site model
-  testthat::expect_error(
-    beautier:::create_beast2_input_distr(
-      ids = c("a", "b"),
-      site_models = create_jc69_site_model()
-    )
-  )
-
-  # Two IDs, one clock model
-  testthat::expect_error(
-    beautier:::create_beast2_input_distr(
-      ids = c("a", "b"),
-      clock_models = create_strict_clock_model(ids = "a")
-    )
-  )
-
-  # Two IDs, one tree prior
-  testthat::expect_error(
-    beautier:::create_beast2_input_distr(
-      ids = c("a", "b"),
-      clock_models = create_yule_tree_prior()
     )
   )
 

@@ -1,21 +1,14 @@
 #' Creates the distribution section of a BEAST2 XML parameter file.
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_id}})
 #' @inheritParams create_beast2_input
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @seealso \code{\link{create_beast2_input}}
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
   site_models,
   clock_models,
   tree_priors
 ) {
-  testit::assert(beautier::are_ids(ids))
-  testit::assert(length(ids) >= length(site_models))
-  testit::assert(length(ids) >= length(clock_models))
-  testit::assert(length(ids) == length(tree_priors))
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(beautier::are_tree_priors(tree_priors))
@@ -35,7 +28,6 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 
   # likelihood
   text <- c(text, create_beast2_input_distr_likelihood(
-      ids = ids,
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors
@@ -92,7 +84,6 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  ids,
   site_models,
   clock_models,
   tree_priors
@@ -107,7 +98,7 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     )
 
   # Do each tree likelihood
-  n <- length(ids)
+  n <- length(site_models)
   for (i in seq(1, n)) {
     site_model <- site_models[[i]]
     id <- site_model$id
