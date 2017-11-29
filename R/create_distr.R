@@ -25,7 +25,7 @@ create_distr <- function(
   id,
   ...
 ) {
-  if (!is_distr_name(name)) {
+  if (!beautier::is_distr_name(name)) {
     distr_as_string <- function() {
       s <- NULL
       for (p in get_distr_names()) {
