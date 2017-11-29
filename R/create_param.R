@@ -8,9 +8,16 @@
 #'   \code{\link{create_alpha_param}},
 #'   \code{\link{create_beta_param}},
 #'   \code{\link{create_clock_rate_param}},
+#'   \code{\link{create_kappa_1_param}},
+#'   \code{\link{create_kappa_2_param}},
 #'   \code{\link{create_m_param}},
 #'   \code{\link{create_mean_param}},
 #'   \code{\link{create_mu_param}},
+#'   \code{\link{create_rate_ac_param}},
+#'   \code{\link{create_rate_ag_param}},
+#'   \code{\link{create_rate_at_param}},
+#'   \code{\link{create_rate_cg_param}},
+#'   \code{\link{create_rate_gt_param}},
 #'   \code{\link{create_s_param}},
 #'   \code{\link{create_scale_param}},
 #'   and \code{\link{create_sigma_param}}
@@ -200,6 +207,43 @@ create_clock_rate_param <- function(
   )
 }
 
+#' Create a parameter called kappa 1
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called kappa 1
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_kappa_1_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "2.0"
+) {
+  beautier::create_param(
+    name = "kappa_1",
+    id = id,
+    lower = lower,
+    value = value
+  )
+}
+
+#' Create a parameter called kappa 2
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called kappa 2
+#' @author Richel J.C. Bilderbeek
+#' @export
+create_kappa_2_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "2.0"
+) {
+  beautier::create_param(
+    name = "kappa_2",
+    id = id,
+    lower = lower,
+    value = value
+  )
+}
 #' Create a parameter called lambda
 #' @inheritParams create_param
 #' @param value value of the parameter
@@ -391,6 +435,136 @@ create_mu_param <- function(
     id = id,
     estimate = estimate,
     value = value
+  )
+}
+
+#' Create a parameter called 'rate AC'
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called 'rate AC'
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rate_ac_param <- create_rate_ac_param()
+#'   testit::assert(is_rate_ac_param(rate_ac_param))
+#' @export
+create_rate_ac_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "1.0"
+) {
+  return(
+    beautier::create_param(
+      name = "rate_ac",
+      id = id,
+      lower = lower,
+      value = value
+    )
+  )
+}
+
+#' Create a parameter called 'rate AG'
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called 'rate AG'
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rate_ag_param <- create_rate_ag_param()
+#'   testit::assert(is_rate_ag_param(rate_ag_param))
+#' @export
+create_rate_ag_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "1.0"
+) {
+  return(
+    beautier::create_param(
+      name = "rate_ag",
+      id = id,
+      lower = lower,
+      value = value
+    )
+  )
+}
+
+#' Create a parameter called 'rate AT'
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called 'rate AT'
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rate_at_param <- create_rate_at_param()
+#'   testit::assert(is_rate_at_param())
+#' @export
+create_rate_at_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "1.0"
+) {
+  return(
+    beautier::create_param(
+      name = "rate_at",
+      id = id,
+      lower = lower,
+      value = value
+    )
+  )
+}
+
+#' Create a parameter called 'rate CG'
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called 'rate CG'
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rate_cg_param <- create_rate_cg_param()
+#'   testit::assert(is_rate_cg_param())
+#' @export
+create_rate_cg_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "1.0"
+) {
+  return(
+    beautier::create_param(
+      name = "rate_cg",
+      id = id,
+      lower = lower,
+      value = value
+    )
+  )
+}
+
+#' Create a parameter called 'rate GT'
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @return a parameter called 'rate GT'
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rate_gt_param <- create_rate_gt_param()
+#'   testit::assert(is_rate_gt_param())
+#' @export
+create_rate_gt_param <- function(
+  id = NA,
+  lower = "0.0",
+  value = "1.0"
+) {
+  return(
+    beautier::create_param(
+      name = "rate_gt",
+      id = id,
+      lower = lower,
+      value = value
+    )
   )
 }
 

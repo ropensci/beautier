@@ -165,19 +165,29 @@ init_tn93_site_model <- function(
   param_id
 ) {
   testit::assert(beautier::is_tn93_site_model(tn93_site_model))
+  kappa_1_prior_distr <- init_distr(
+    tn93_site_model$kappa_1_prior_distr,
+    distr_id = distr_id,
+    param_id = param_id
+  )
+  distr_id <- distr_id + 1
+  param_id <- param_id + get_distr_n_params(tn93_site_model$kappa_1_prior_distr)
+  kappa_2_prior_distr = init_distr(
+    tn93_site_model$kappa_2_prior_distr,
+    distr_id = distr_id,
+    param_id = param_id
+  )
+  param_id <- param_id + get_distr_n_params(tn93_site_model$kappa_2_prior_distr)
+  kappa_1_param <- init_param(tn93_site_model$kappa_1_param, id = param_id)
+  param_id <- param_id + 1
+  kappa_2_param <- init_param(tn93_site_model$kappa_2_param, id = param_id)
 
   create_tn93_site_model(
     id = tn93_site_model$id,
     gamma_site_model = tn93_site_model$gamma_site_model,
-    kappa_1_prior_distr = init_distr(
-      tn93_site_model$kappa_1_prior_distr,
-      distr_id,
-      param_id
-    ),
-    kappa_2_prior_distr = init_distr(
-      tn93_site_model$kappa_2_prior_distr,
-      distr_id + 1,
-      param_id + get_distr_n_params(tn93_site_model$kappa_1_prior_distr)
-    )
+    kappa_1_prior_distr = kappa_1_prior_distr,
+    kappa_2_prior_distr = kappa_2_prior_distr,
+    kappa_1_param = kappa_1_param,
+    kappa_2_param = kappa_2_param
   )
 }

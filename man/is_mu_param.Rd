@@ -19,6 +19,13 @@ TRUE if x is a valid mu parameter,
 Determine if the object is a valid
 mu parameter
 }
+\examples{
+  mu_param <- create_mu_param()
+  testit::assert(is_mu_param(mu_param))
+}
+\seealso{
+\code{\link{create_mu_param}} creates a mu parameter
+}
 \author{
 Richel J.C. Bilderbeek
 }

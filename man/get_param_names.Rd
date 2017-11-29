@@ -17,6 +17,8 @@ Get the parameter names
   testthat::expect_true("alpha" \%in\% names)
   testthat::expect_true("beta" \%in\% names)
   testthat::expect_true("clock_rate" \%in\% names)
+  testthat::expect_true("kappa_1" \%in\% names)
+  testthat::expect_true("kappa_2" \%in\% names)
   testthat::expect_true("lambda" \%in\% names)
   testthat::expect_true("m" \%in\% names)
   testthat::expect_true("mean" \%in\% names)

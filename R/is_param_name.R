@@ -3,5 +3,5 @@
 #' @return TRUE if the name is a valid parameter name, FALSE otherwise
 #' @export
 is_param_name <- function(name) {
-  return(name %in% beautier::get_param_names())
+  name %in% beautier::get_param_names()
 }

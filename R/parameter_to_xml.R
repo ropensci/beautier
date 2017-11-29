@@ -22,6 +22,10 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_beta(parameter)) # nolint internal function
   } else if (beautier::is_clock_rate_param(parameter)) {
     text <- c(text, parameter_to_xml_clock_rate(parameter)) # nolint internal function
+  } else if (beautier::is_kappa_1_param(parameter)) {
+    text <- c(text, parameter_to_xml_kappa_1(parameter)) # nolint internal function
+  } else if (beautier::is_kappa_2_param(parameter)) {
+    text <- c(text, parameter_to_xml_kappa_2(parameter)) # nolint internal function
   } else if (beautier::is_lambda_param(parameter)) {
     text <- c(text, parameter_to_xml_lambda(parameter)) # nolint internal function
   } else if (beautier::is_m_param(parameter)) {
@@ -30,11 +34,22 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_mean(parameter)) # nolint internal function
   } else if (beautier::is_mu_param(parameter)) {
     text <- c(text, parameter_to_xml_mu(parameter)) # nolint internal function
+  } else if (beautier::is_rate_ac_param(parameter)) {
+    text <- c(text, parameter_to_xml_rate_ac(parameter)) # nolint internal function
+  } else if (beautier::is_rate_ag_param(parameter)) {
+    text <- c(text, parameter_to_xml_rate_ag(parameter)) # nolint internal function
+  } else if (beautier::is_rate_at_param(parameter)) {
+    text <- c(text, parameter_to_xml_rate_at(parameter)) # nolint internal function
+  } else if (beautier::is_rate_cg_param(parameter)) {
+    text <- c(text, parameter_to_xml_rate_cg(parameter)) # nolint internal function
+  } else if (beautier::is_rate_gt_param(parameter)) {
+    text <- c(text, parameter_to_xml_rate_gt(parameter)) # nolint internal function
   } else if (beautier::is_s_param(parameter)) {
     text <- c(text, parameter_to_xml_s(parameter)) # nolint internal function
   } else if (beautier::is_scale_param(parameter)) {
     text <- c(text, parameter_to_xml_scale(parameter)) # nolint internal function
   } else {
+    # This assert will also fail for new parameter types
     testit::assert(beautier::is_sigma_param(parameter))
     text <- c(text, parameter_to_xml_sigma(parameter)) # nolint internal function
   }
@@ -121,6 +136,47 @@ parameter_to_xml_clock_rate <- function(
   )
   text
 }
+
+#' Converts a kappa 1 parameter to XML
+#' @param parameter a kappa 1 parameter,
+#'   as created by \code{\link{create_kappa_1_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_kappa_1 <- function(
+  parameter
+) {
+  testit::assert(beautier::is_kappa_1_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"kappa1.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+#' Converts a kappa 2 parameter to XML
+#' @param parameter a kappa 2 parameter,
+#'   as created by \code{\link{create_kappa_2_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_kappa_2 <- function(
+  parameter
+) {
+  testit::assert(beautier::is_kappa_2_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"kappa2.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+
 
 #' Converts a lambda parameter to XML
 #' @param parameter a lambda parameter,
@@ -222,6 +278,101 @@ parameter_to_xml_mu <- function(
     )
   )
   text
+}
+
+#' Converts a 'rate AC' parameter to XML
+#' @param parameter a 'rate AC' parameter,
+#'   as created by \code{\link{create_rate_ac_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_rate_ac <- function(
+  parameter
+) {
+  testit::assert(beautier::is_rate_ac_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"rateAC.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+#' Converts a 'rate AG' parameter to XML
+#' @param parameter a 'rate AG' parameter,
+#'   as created by \code{\link{create_rate_ac_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_rate_ag <- function(
+  parameter
+) {
+  testit::assert(beautier::is_rate_ag_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"rateAG.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+#' Converts a 'rate AT' parameter to XML
+#' @param parameter a 'rate AT' parameter,
+#'   as created by \code{\link{create_rate_at_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_rate_at <- function(
+  parameter
+) {
+  testit::assert(beautier::is_rate_at_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"rateAT.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+#' Converts a 'rate CG' parameter to XML
+#' @param parameter a 'rate CG' parameter,
+#'   as created by \code{\link{create_rate_cg_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_rate_cg <- function(
+  parameter
+) {
+  testit::assert(beautier::is_rate_cg_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"rateCG.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+#' Converts a 'rate GT' parameter to XML
+#' @param parameter a 'rate GT' parameter,
+#'   as created by \code{\link{create_rate_gt_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_rate_gt <- function(
+  parameter
+) {
+  testit::assert(beautier::is_rate_gt_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"rateGT.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
 }
 
 #' Converts a s parameter to XML

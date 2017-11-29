@@ -22,19 +22,37 @@ create_beast2_input_state <- function(
     tree_priors = tree_priors,
     initial_phylogenies = initial_phylogenies)
   )
-  for (tree_prior in tree_priors) {
-    text <- c(text, create_beast2_input_state_tree_prior(
-      tree_prior = tree_prior))
-  }
 
   for (site_model in site_models) {
     new_text <- site_model_to_xml_rates(site_model = site_model) # nolint internal function
     if (!is.null(new_text)) text <- c(text, new_text)
   }
 
+  for (tree_prior in tree_priors) {
+    text <- c(text, create_beast2_input_state_tree_prior(
+      tree_prior = tree_prior))
+  }
+
   for (clock_model in clock_models) {
     text <- c(text, create_beast2_input_state_clock_model(
       clock_model = clock_model)
+    )
+  }
+
+  freqparams <- NULL
+
+  last_site_model <- site_models[[length(site_models)]]
+  if (!is_jc69_site_model(last_site_model)) {
+    text <- c(
+      text,
+      beautier::indent(
+        paste0(
+          "<parameter ",
+          "id=\"freqParameter.s:", last_site_model$id, "\" dimension=\"4\" lower=\"0.0\" ",
+          "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
+        ),
+        n_spaces = 4
+      )
     )
   }
 
@@ -60,8 +78,6 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   #         <alignment idref="anthus_nd4"/>
   #     </taxonset>
   # </tree>
-  # <parameter id="clockRate.c:anthus_nd4" name="stateNode">1.0</parameter>
-  # <parameter id="birthRate.t:anthus_nd4" name="stateNode">1.0</parameter>
   #
   # Except that the first tree does not have a clockRate
 
@@ -81,14 +97,19 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
       )
     )
     # Each tree, except the first, have a clockRate
-    if (i > 1) {
+    if (i > 1 && 1 == 2) { # TODO
       text <- c(text, paste0("    <parameter ",
         "id=\"clockRate.c:", id, "\" ",
         "name=\"stateNode\">1.0</parameter>"))
     }
-    tree_prior_text <- tree_prior_to_xml_state(tree_prior = tree_prior) # nolint internal function
-    text <- c(text, beautier::indent(tree_prior_text, n_spaces = 4))
   } # next i
+  text <- c(
+    text,
+    beautier::indent(
+      paste0("<parameter ", "id=\"birthRate.t:", tree_priors[[n]]$id, "\" ", "name=\"stateNode\">1.0</parameter>"),
+      n_spaces = 4
+    )
+  )
   text
 }
 

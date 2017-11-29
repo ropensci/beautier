@@ -93,7 +93,7 @@ create_jc69_site_model <- function(
 #' @export
 create_hky_site_model <- function(
   id = NA,
-  kappa = get_default_kappa(),
+  kappa = "2.0",
   gamma_site_model = create_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
     m = create_m_param(value = "1.0"),
@@ -134,6 +134,8 @@ create_hky_site_model <- function(
 create_tn93_site_model <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model(),
+  kappa_1_param = create_kappa_1_param(),
+  kappa_2_param = create_kappa_2_param(),
   kappa_1_prior_distr = create_log_normal_distr(
     m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
     s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
@@ -148,7 +150,9 @@ create_tn93_site_model <- function(
     id = id,
     gamma_site_model = gamma_site_model,
     kappa_1_prior_distr = kappa_1_prior_distr,
-    kappa_2_prior_distr = kappa_2_prior_distr
+    kappa_2_prior_distr = kappa_2_prior_distr,
+    kappa_1_param = kappa_1_param,
+    kappa_2_param = kappa_2_param
   )
 }
 
@@ -198,7 +202,12 @@ create_gtr_site_model <- function(
   rate_gt_prior_distr = create_gamma_distr(
     alpha = create_alpha_param(value = "0.05"),
     beta = create_beta_param(value = "10.0")
-  )
+  ),
+  rate_ac_param = create_rate_ac_param(),
+  rate_ag_param = create_rate_ag_param(),
+  rate_at_param = create_rate_at_param(),
+  rate_cg_param = create_rate_cg_param(),
+  rate_gt_param = create_rate_gt_param()
 ) {
   beautier::create_site_model(
     name = "GTR",
@@ -208,6 +217,11 @@ create_gtr_site_model <- function(
     rate_ag_prior_distr = rate_ag_prior_distr,
     rate_at_prior_distr = rate_at_prior_distr,
     rate_cg_prior_distr = rate_cg_prior_distr,
-    rate_gt_prior_distr = rate_gt_prior_distr
+    rate_gt_prior_distr = rate_gt_prior_distr,
+    rate_ac_param = rate_ac_param,
+    rate_ag_param = rate_ag_param,
+    rate_at_param = rate_at_param,
+    rate_cg_param = rate_cg_param,
+    rate_gt_param = rate_gt_param
   )
 }

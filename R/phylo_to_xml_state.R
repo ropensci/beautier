@@ -10,7 +10,7 @@ phylo_to_xml_state <- function(
 ) {
   testit::assert(beautier::is_id(id))
   if (!beautier::is_phylo(phylo)) {
-    return(rnd_phylo_to_xml_state(id = id)) # nolint internal function
+    return(rnd_phylo_to_xml_state(id)) # nolint internal function
   }
   testit::assert(beautier::is_phylo(phylo))
   text <- NULL

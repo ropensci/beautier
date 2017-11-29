@@ -2,8 +2,7 @@
 % Please edit documentation in R/is_lambda_param.R
 \name{is_lambda_param}
 \alias{is_lambda_param}
-\title{Determine if the object is a valid
-lambda parameter}
+\title{Determine if the object is a valid lambda parameter}
 \usage{
 is_lambda_param(x)
 }
@@ -16,8 +15,14 @@ TRUE if x is a valid lambda parameter,
   FALSE otherwise
 }
 \description{
-Determine if the object is a valid
-lambda parameter
+Determine if the object is a valid lambda parameter
+}
+\examples{
+  lambda_param <- create_lambda_param()
+  testit::assert(is_lambda_param(lambda_param))
+}
+\seealso{
+lambda parameters are returned by \code{\link{create_lambda_param}}
 }
 \author{
 Richel J.C. Bilderbeek

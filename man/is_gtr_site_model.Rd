@@ -17,6 +17,10 @@ TRUE if x is a valid GTR site model, FALSE otherwise
 Determine if the object is a valid GTR site model,
 as created by \code{\link{create_gtr_site_model}}
 }
+\examples{
+  gtr_site_model <- create_gtr_site_model()
+  testit::assert(is_gtr_site_model(gtr_site_model))
+}
 \author{
 Richel J.C. Bilderbeek
 }

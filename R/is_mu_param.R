@@ -4,11 +4,15 @@
 #'   mu parameter
 #' @return TRUE if x is a valid mu parameter,
 #'   FALSE otherwise
+#' @seealso \code{\link{create_mu_param}} creates a mu parameter
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   mu_param <- create_mu_param()
+#'   testit::assert(is_mu_param(mu_param))
 #' @export
 is_mu_param <- function(
   x
 ) {
   if (!beautier::is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "mu")
+  x$name == "mu"
 }
