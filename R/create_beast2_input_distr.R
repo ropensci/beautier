@@ -158,8 +158,9 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
       "</parameter>"))
 
     text <- c(text,
-      create_beast2_input_distr_subst_model(
-        site_model = site_model
+      beautier::indent(
+        site_model_to_xml_subst_model(site_model),
+        n_spaces = 20
       )
     )
 
@@ -588,55 +589,3 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
   text
 
 }
-
-#' Creates the substModel section in the distribution section
-#' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distr
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_subst_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  site_model
-) {
-  testit::assert(is_site_model(site_model))
-  id <- site_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  if (beautier::is_jc69_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
-  } else if (is_hky_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
-    text <- c(text, paste0("    <frequencies ",
-      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("</substModel>"))
-  } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
-      "kappa2=\"@kappa2.s:", id, "\">"))
-    text <- c(text, paste0("    <frequencies ",
-      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("</substModel>"))
-  } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
-      "rateAG=\"@rateAG.s:", id, "\" rateAT=\"@rateAT.s:", id, "\" ",
-      "rateCG=\"@rateCG.s:", id, "\" rateGT=\"@rateGT.s:", id, "\">"))
-    text <- c(text, paste0("    <parameter ",
-      "id=\"rateCT.s:", id, "\" estimate=\"false\" lower=\"0.0\" ",
-      "name=\"rateCT\">1.0</parameter>"))
-    text <- c(text, paste0("    <frequencies ",
-      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("</substModel>"))
-  }
-  text <- beautier::indent(text, n_spaces = 20)
-  text
-}
-
-
