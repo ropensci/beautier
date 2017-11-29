@@ -168,14 +168,16 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     # Clock models
     if (i == 1) {
       text <- c(text,
-        create_beast2_input_distr_clock_model_first(
-          clock_model = clock_model
+        beautier::indent(
+          clock_model_to_brm_xml(clock_model),
+          n_spaces = 16
         )
       )
     } else {
       text <- c(text,
-        create_beast2_input_distr_clock_model_other(
-          clock_model = clock_model
+        beautier::indent(
+          clock_model_to_other_brm_xml(clock_model),
+          n_spaces = 16
         )
       )
     }
@@ -296,7 +298,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
 
     site_models_text <- create_beast2_input_distr_prior_prior_site_model(site_model = site_model, i = i) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
-    clock_models_text <- create_beast2_input_distr_clock_models(clock_model = clock_model) # nolint
+    clock_models_text <- beautier::indent(clock_model_to_prior_xml(clock_model), n_spaces = 12)
     prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
 
     # Mix text
@@ -587,21 +589,6 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
 
 }
 
-#' Creates the clock models section in the distribution section
-#' of a BEAST2 XML parameter file
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  clock_model
-) {
-  testit::assert(beautier::is_clock_model(clock_model))
-  text <- clock_model_to_prior_xml(clock_model) # nolint internal function call
-  beautier::indent(text, n_spaces = 12)
-}
-
 #' Creates the substModel section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distr
@@ -620,7 +607,6 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
   if (beautier::is_jc69_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
-    text <- beautier::indent(text, n_spaces = 20)
   } else if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
@@ -628,7 +614,6 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("</substModel>"))
-    text <- beautier::indent(text, n_spaces = 20)
   } else if (is_tn93_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
@@ -637,7 +622,6 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("</substModel>"))
-    text <- beautier::indent(text, n_spaces = 20)
   } else if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
@@ -650,37 +634,9 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
       "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
       "frequencies=\"@freqParameter.s:", id, "\"/>"))
     text <- c(text, paste0("</substModel>"))
-    text <- beautier::indent(text, n_spaces = 20)
   }
+  text <- beautier::indent(text, n_spaces = 20)
   text
 }
 
-#' Creates the first clock models' section in the distribution section
-#' of a BEAST2 XML parameter file
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_clock_model_first <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  clock_model
-) {
-  text <- clock_model_to_brm_xml(clock_model = clock_model) # nolint internal function call
-  beautier::indent(text, n_spaces = 16)
-}
 
-#' Creates the second or later clock models' section in the distribution section
-#' of a BEAST2 XML parameter file
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_clock_model_other <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  clock_model
-) {
-  testit::assert(is_clock_model(clock_model))
-
-  text <- clock_model_to_other_brm_xml(clock_model) # nolint internal function call
-  beautier::indent(text, n_spaces = 16)
-}
