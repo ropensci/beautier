@@ -8,7 +8,7 @@ distr_to_xml <- function(
   distr
 ) {
   text <- NULL
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   if (!beautier::is_id(id)) {
     stop("distribution must have an ID")
   }
@@ -46,7 +46,7 @@ distr_to_xml_beta <- function(
   distr
 ) {
   testit::assert(beautier::is_beta_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -76,7 +76,7 @@ distr_to_xml_exp <- function(
   distr
 ) {
   testit::assert(beautier::is_exp_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -101,7 +101,7 @@ distr_to_xml_gamma <- function(
   distr
 ) {
   testit::assert(beautier::is_gamma_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -132,7 +132,7 @@ distr_to_xml_inv_gamma <- function(
   distr
 ) {
   testit::assert(beautier::is_inv_gamma_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -163,7 +163,7 @@ distr_to_xml_laplace <- function(
   distr
 ) {
   testit::assert(beautier::is_laplace_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -193,7 +193,7 @@ distr_to_xml_log_normal <- function(
   distr
 ) {
   testit::assert(beautier::is_log_normal_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -225,7 +225,7 @@ distr_to_xml_normal <- function(
   distr
 ) {
   testit::assert(beautier::is_normal_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -256,7 +256,7 @@ distr_to_xml_one_div_x <- function(
   distr
 ) {
   testit::assert(beautier::is_one_div_x_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -274,7 +274,7 @@ distr_to_xml_poisson <- function(
   distr
 ) {
   testit::assert(beautier::is_poisson_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
@@ -300,7 +300,7 @@ distr_to_xml_uniform <- function(
   distr
 ) {
   testit::assert(beautier::is_uniform_distr(distr))
-  id <- beautier::get_distr_id(distr)
+  id <- distr$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
