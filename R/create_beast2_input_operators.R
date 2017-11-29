@@ -22,127 +22,78 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
   testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
-  n <- length(ids)
-  for (i in seq(1, n)) {
 
-    id <- ids[i]
-    site_model <- site_models[[i]]
+  # Tree priors is leading
+  for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    clock_model <- clock_models[[i]]
-    testit::assert(beautier::is_tree_prior(tree_prior))
-    testit::assert(beautier::is_clock_model(clock_model))
+    id <- tree_prior$id
 
-    if (i > 1) {
-      text <- c(text, "")
-      text <- c(text, paste0("    <operator ",
-        "id=\"StrictClockRateScaler.c:", id, "\" ",
-        "spec=\"ScaleOperator\" ",
-        "parameter=\"@clockRate.c:", id, "\" ",
-        "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-    }
-
-    text <- c(text, create_beast2_input_operators_tree_priors_1(
-      id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
-
-    if (i > 1) {
-      text <- c(text, "")
-      text <- c(text, paste0("    <operator ",
-        "id=\"strictClockUpDownOperator.c:", id, "\" ",
-        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
-      text <- c(text, paste0("        <up idref=\"clockRate.c:", id, "\"/>"))
-      text <- c(text, paste0("        <down idref=\"Tree.t:", id, "\"/>"))
-      text <- c(text, paste0("    </operator>"))
-    }
-
-    text <- c(text, create_beast2_input_operators_tree_priors_2(
-      id = id, tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
-
-    # There are three parts: rate, freq and gamma. Order differs
-    gamma_shape_scaler <- create_beast2_input_operators_gamma_shape_scaler(id = id, site_model = site_model) # nolint
-    frequencies_exchanger <- create_beast2_input_operators_frequencies_exchanger(id = id, site_model = site_model) # nolint
-    rates <- create_beast2_input_operators_rates(id = id, site_model = site_model) # nolint
-    gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model = site_model)) # nolint
-    prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model = site_model)) # nolint
-
-    if (is_gtr_site_model(site_model)) {
-      if (gcc == 0) {
-        text <- c(text, rates)
-        text <- c(text, frequencies_exchanger)
-      } else if (gcc == 1) {
-        text <- c(text, frequencies_exchanger)
-        text <- c(text, rates)
-      } else {
-        if (prop_invariant == get_default_prop_invariant()) {
-          text <- c(text, frequencies_exchanger)
-          text <- c(text, rates)
-          text <- c(text, gamma_shape_scaler)
-        } else {
-          text <- c(text, gamma_shape_scaler)
-          text <- c(text, frequencies_exchanger)
-          text <- c(text, rates)
-        }
+    # Extra trees' clock models
+    clock_model <- find_clock_model(clock_models = clock_models, id = id)
+    if (!is.null(clock_model)) {
+      if (i > 1) {
+        text <- c(text, "")
+        text <- c(text, paste0("    <operator ",
+          "id=\"StrictClockRateScaler.c:", id, "\" ",
+          "spec=\"ScaleOperator\" ",
+          "parameter=\"@clockRate.c:", id, "\" ",
+          "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
       }
-    } else {
-      text <- c(text, rates)
-      text <- c(text, gamma_shape_scaler)
-      text <- c(text, frequencies_exchanger)
+      if (is_yule_tree_prior(tree_prior)) {
+        text <- c(text, "")
+        text <- c(text, paste0("    <operator ",
+          "id=\"YuleBirthRateScaler.t:", id, "\" spec=\"ScaleOperator\" ",
+          "parameter=\"@birthRate.t:", id, "\" scaleFactor=\"0.75\" ",
+          "weight=\"3.0\"/>"))
+      }
+      if (i > 1) {
+        text <- c(text, "")
+        text <- c(text, paste0("    <operator ",
+          "id=\"strictClockUpDownOperator.c:", id, "\" ",
+          "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
+        text <- c(text, paste0("        <up idref=\"clockRate.c:", id, "\"/>"))
+        text <- c(text, paste0("        <down idref=\"Tree.t:", id, "\"/>"))
+        text <- c(text, paste0("    </operator>"))
+      }
     }
 
-    text <- c(text, create_beast2_input_operators_tree_priors_3(
-      id = id, tree_prior = tree_prior))
+    # Tree priors
+    text <- c(text, create_beast2_input_operators_tree_priors(
+      tree_prior = tree_prior, fixed_crown_age = fixed_crown_age))
 
-    # Clock models
-    text <- c(text, create_beast2_input_operators_clock_model(
-      id = id, clock_model = clock_model))
+    # Clock models with same ID
+    clock_model <- find_clock_model(clock_models = clock_models, id = id)
+    if (!is.null(clock_model)) {
+      testit::assert(beautier::is_clock_model(clock_model))
+      text <- c(text, create_beast2_input_operators_clock_model(
+        id = id, clock_model = clock_model))
+    }
+
+    # Site models with same ID
+    site_model <- find_site_model(site_models = site_models, id = id)
+    if (!is.null(site_model)) {
+      text <- c(text, site_model_to_xml_operators(site_model))
+    }
   }
+
   text
 }
 
 
 #' Creates the first tree_priors section in the operators section
 #' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
 #' @inheritParams create_beast2_input_operators
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_operators_tree_priors_1 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
+create_beast2_input_operators_tree_priors <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   tree_prior,
   fixed_crown_age
 ) {
+  id <- tree_prior$id
   text <- NULL
 
-  if (is_yule_tree_prior(tree_prior)) {
-    text <- c(text, "")
-    text <- c(text, paste0("    <operator ",
-      "id=\"YuleBirthRateScaler.t:", id, "\" spec=\"ScaleOperator\" ",
-      "parameter=\"@birthRate.t:", id, "\" scaleFactor=\"0.75\" ",
-      "weight=\"3.0\"/>"))
-  }
-  text
-}
-
-#' Creates the second tree_priors section in the operators section
-#' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
-#' @param fixed_crown_age determines if the phylogeny its crown age is
-#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
-#'   the crown age is fixed to the crown age
-#'   of the initial phylogeny.
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_operators_tree_priors_2 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  tree_prior = create_yule_tree_prior(),
-  fixed_crown_age
-) {
-  text <- NULL
   operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (fixed_crown_age == FALSE) {
@@ -183,23 +134,6 @@ create_beast2_input_operators_tree_priors_2 <- function( # nolint long function 
     "id=\"", operator_id_pre, "WilsonBalding.t:", id,
     "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", id,
     "\" weight=\"3.0\"/>"))
-
-  text
-}
-
-#' Creates the third tree_priors section in the operators section
-#' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
-#' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_operators_tree_priors_3 <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  tree_prior
-) {
-  text <- NULL
   if (is_bd_tree_prior(tree_prior)) {
     text <- c(text, "")
     text <- c(text, paste0("    <operator id=\"BirthRateScaler.t:",
@@ -240,6 +174,7 @@ create_beast2_input_operators_tree_priors_3 <- function( # nolint long function 
   text
 }
 
+
 #' Creates the site_models section in the operators section
 #' of a BEAST2 XML parameter file
 #' @param id the ID of the alignment (can be extracted from
@@ -250,9 +185,9 @@ create_beast2_input_operators_tree_priors_3 <- function( # nolint long function 
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_operators_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  site_model = create_jc69_site_model()
+  site_model
 ) {
+  id <- site_model$id
   text <- NULL
 
   if (is_hky_site_model(site_model)) {
@@ -303,9 +238,9 @@ create_beast2_input_operators_rates <- function( # nolint long function name is 
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_operators_gamma_shape_scaler <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  site_model = create_site_model(name = "JC69")
+  site_model
 ) {
+  id <- site_model$id
   text <- NULL
   if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
     text <- c(text, paste0(""))
@@ -327,10 +262,10 @@ create_beast2_input_operators_gamma_shape_scaler <- function( # nolint long func
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_operators_frequencies_exchanger <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
-  site_model = create_site_model(name = "JC69")
+  site_model
 ) {
   text <- NULL
+  id <- site_model$id
   if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0(""))
     text <- c(text, paste0("    <operator ",

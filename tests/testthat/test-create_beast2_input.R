@@ -161,7 +161,6 @@ test_that("Run all defaults", {
 
 test_that("Reproduce gtr_2_4.xml", {
 
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = get_input_fasta_filename(),
     site_models = create_gtr_site_model(
@@ -198,6 +197,8 @@ test_that("Reproduce gtr_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "gtr_2_4.xml", package = "beautier"))
+
+  beautier:::compare_lines(created_lines, expected_lines)
 
   testthat::expect_identical(created_lines, expected_lines)
 })
@@ -749,7 +750,7 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "relaxed_clock_log_normal_2_4.xml", package = "beautier"))
-
+  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1339,6 +1340,8 @@ test_that("Reproduce aco_nd2_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_2_4.xml", package = "beautier"))
+  testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
+  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 
