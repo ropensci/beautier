@@ -127,51 +127,7 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
     text <- c(text, paste0("<parameter id=\"growthRate.t:", id, "\" ",
       "name=\"stateNode\">3.0E-4</parameter>"))
   }
-  text <- beautier::indent(text, n_spaces = 4)
-  text
-}
-
-#' Creates the gamma_site_models part of the state section of a BEAST2
-#' XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_state_gamma_site_models_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  site_model
-) {
-  testit::assert(beautier::is_site_model(site_model))
-  id <- site_model$id
-  testit::assert(beautier::is_id(id))
-  text <- NULL
-  text <- c(text, paste0("    <parameter ",
-    "id=\"gammaShape.s:", id, "\" ",
-    "name=\"stateNode\">",
-    beautier::get_gamma_shape(get_gamma_site_model(site_model)),
-    "</parameter>")
-  )
-  text
-}
-
-#' Creates the freqParameters gamma_site_models part of the state section of
-#' a BEAST2 XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_state_gamma_site_models_freqparams <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  site_model
-) {
-  testit::assert(beautier::is_site_model(site_model))
-  id <- site_model$id
-  testit::assert(beautier::is_id(id))
-  text <- NULL
-  if (!is_jc69_site_model(site_model)) {
-    text <- c(text, paste0("    <parameter ",
-      "id=\"freqParameter.s:", id, "\" dimension=\"4\" lower=\"0.0\" ",
-      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"))
-  }
-  text
+  beautier::indent(text, n_spaces = 4)
 }
 
 #' Creates the clock models' part of the state section of

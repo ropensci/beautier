@@ -38,8 +38,27 @@ site_model_to_xml_rates <- function(
   # 2) freq
   # 3) gamma shape
   # Order is determined by site model and Gamma Category Count :-(
-  freqparams <- create_beast2_input_state_gamma_site_models_freqparams(site_model = site_model) # nolint
-  gamma_shape <- create_beast2_input_state_gamma_site_models_gamma_shape(site_model = site_model) # nolint
+  freqparams <- NULL
+  if (!is_jc69_site_model(site_model)) {
+    freqparams <- beautier::indent(
+      paste0(
+        "<parameter ",
+        "id=\"freqParameter.s:", id, "\" dimension=\"4\" lower=\"0.0\" ",
+        "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
+      ),
+      n_spaces = 4
+    )
+  }
+  gamma_shape <- beautier::indent(
+    paste0(
+      "<parameter ",
+      "id=\"gammaShape.s:", id, "\" ",
+      "name=\"stateNode\">",
+      beautier::get_gamma_shape(get_gamma_site_model(site_model)),
+      "</parameter>"
+    ),
+    n_spaces = 4
+  )
   gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
   prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
   text <- NULL
