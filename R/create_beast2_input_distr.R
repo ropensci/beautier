@@ -663,7 +663,6 @@ create_beast2_input_distr_subst_model <- function( # nolint long function name i
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_clock_model_first <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
   text <- clock_model_to_brm_xml(clock_model = clock_model) # nolint internal function call
@@ -678,7 +677,6 @@ create_beast2_input_distr_clock_model_first <- function( # nolint long function 
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_distr_clock_model_other <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  id,
   clock_model
 ) {
   testit::assert(is_clock_model(clock_model))

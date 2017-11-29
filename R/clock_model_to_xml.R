@@ -1,7 +1,5 @@
 #' Converts a clock model to the \code{<prior>} section of the
 #' XML as text
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
@@ -10,6 +8,7 @@ clock_model_to_prior_xml <- function(
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
@@ -31,14 +30,12 @@ clock_model_to_prior_xml <- function(
 
 #' Converts a clock model to the \code{<branchRateModel>} section of the
 #' XML as text
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+clock_model_to_brm_xml <- function(
   clock_model
 ) {
   id <- clock_model$id
@@ -84,14 +81,12 @@ clock_model_to_brm_xml <- function( # nolint long function name is fine, as (1) 
 
 #' Creates the second or later clock models' section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-clock_model_to_other_brm_xml <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+clock_model_to_other_brm_xml <- function(
   clock_model
 ) {
   id <- clock_model$id

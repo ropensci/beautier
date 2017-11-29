@@ -5,7 +5,7 @@
 \title{Creates the second or later clock models' section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distr_clock_model_other(id, clock_model)
+create_beast2_input_distr_clock_model_other(clock_model)
 }
 \arguments{
 \item{clock_model}{a clock_model,
