@@ -24,7 +24,12 @@ create_beast2_input_state <- function(
   )
 
   for (site_model in site_models) {
-    new_text <- site_model_to_xml_rates(site_model = site_model) # nolint internal function
+    new_text <- site_model_to_xml_rates(site_model) # nolint internal function
+    if (!is.null(new_text)) text <- c(text, new_text)
+  }
+
+  for (site_model in site_models) {
+    new_text <- gamma_site_model_to_xml_state(gamma_site_model, site_model$id) # nolint internal function
     if (!is.null(new_text)) text <- c(text, new_text)
   }
 

@@ -44,37 +44,7 @@ site_model_to_xml_rates <- function(
       rates <- c(rates, parameter_to_xml(site_model$kappa_2_param))
   }
   rates <- beautier::indent(rates, n_spaces = 4)
-  # There are three parts:
-  # 1) rates
-  # 2) freq
-  # 3) gamma shape
-  # Order is determined by site model and Gamma Category Count :-(
-  gamma_shape <- beautier::indent(
-    paste0(
-      "<parameter ",
-      "id=\"gammaShape.s:", id, "\" ",
-      "name=\"stateNode\">",
-      beautier::get_gamma_shape(get_gamma_site_model(site_model)),
-      "</parameter>"
-    ),
-    n_spaces = 4
-  )
-  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
-  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
   text <- NULL
-  if (gcc == 0) {
-    text <- c(text, rates)
-  } else if (gcc == 1) {
-    text <- c(text, rates)
-  } else {
-    if (is_gtr_site_model(site_model) &&
-        prop_invariant != get_default_prop_invariant()) {
-        text <- c(text, gamma_shape)
-        text <- c(text, rates)
-      } else {
-        text <- c(text, rates)
-        text <- c(text, gamma_shape)
-      }
-  }
+  text <- c(text, rates)
   text
 }
