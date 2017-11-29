@@ -294,8 +294,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
     }
 
     # No beautier:: before create_beast2_input_distr_prior_prior_tree_prior, as it is private # nolint
-    tree_priors_text <- tree_prior_to_xml_prior(tree_prior) # nolint internal function
-    tree_priors_text <- beautier::indent(tree_priors_text, n_spaces = 12)
+    tree_priors_text <- beautier::indent(tree_prior_to_xml_prior(tree_prior), n_spaces = 12)  # nolint internal function
 
     site_models_text <- create_beast2_input_distr_prior_prior_site_model(site_model = site_model, i = i) # nolint
     gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model = site_model) # nolint
@@ -327,7 +326,7 @@ create_beast2_input_distr_prior_distr <- function( # nolint long function name i
 bd_tree_prior_to_xml_prior <- function(
   bd_tree_prior
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior))
+  testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
   testit::assert(beautier::is_id(id))
 
@@ -380,7 +379,7 @@ bd_tree_prior_to_xml_prior <- function(
 create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ccp_tree_prior
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+  testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
   testit::assert(beautier::is_id(id))
 
@@ -489,7 +488,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
   site_model,
   i
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
 
@@ -566,7 +565,7 @@ create_beast2_input_distr_prior_prior_site_model <- function( # nolint long func
 create_beast2_input_distr_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
 

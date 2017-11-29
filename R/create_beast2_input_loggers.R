@@ -255,7 +255,7 @@ create_beast2_input_loggers_tree_prior <- function( # nolint long function name 
 create_beast2_input_loggers_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
 
@@ -287,7 +287,7 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
 create_beast2_input_loggers_freqparam <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
 
@@ -308,7 +308,7 @@ create_beast2_input_loggers_freqparam <- function( # nolint long function name i
 create_beast2_input_loggers_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
 
@@ -329,17 +329,17 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 create_beast2_input_loggers_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   clock_model
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
-    text <- c(text, paste0("        <log idref=\"ucldStdev.c:", id, "\"/>"))
-    text <- c(text, paste0("        <log id=\"rate.c:", id, "\" ",
+    text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>"))
+    text <- c(text, paste0("<log id=\"rate.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.RateStatistic\" ",
       "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\"/>"))
   }
-  text
+  indent(text, n_spaces = 8)
 }

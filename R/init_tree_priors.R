@@ -67,7 +67,7 @@ init_bd_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint internal function call
+  testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
 
   result <- create_bd_tree_prior(
     birth_rate_distr = init_distr(
@@ -97,7 +97,7 @@ init_ccp_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint internal function call
+  testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
 
   result <- create_ccp_tree_prior(
     pop_size_distr = init_distr(
@@ -120,7 +120,7 @@ init_cep_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint internal function call
+  testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
   testit::assert(!is.na(distr_id))
   testit::assert(!is.na(param_id))
   testit::assert(!is.na(
