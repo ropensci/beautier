@@ -6,7 +6,7 @@
 #'   as returned by \code{\link{create_mcmc}}
 #' @param tree_priors one or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
-#' @param clock_models one or more clock models,
+#' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
 #' @param misc_options one misc_options object,
 #'   as returned by \code{\link{create_misc_options}}

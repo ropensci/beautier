@@ -15,7 +15,7 @@ their FASTA filesnames using \code{\link{get_ids}})}
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 
-\item{clock_models}{one or more clock models,
+\item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 
 \item{tree_priors}{one or more tree priors,

@@ -106,12 +106,14 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
       )
     )
 
+  # Do each tree likelihood
   n <- length(ids)
   for (i in seq(1, n)) {
-    id <- ids[i]
     site_model <- site_models[[i]]
-    clock_model <- clock_models[[i]]
-    testit::assert(beautier::is_clock_model(clock_model))
+    id <- site_model$id
+
+    # Not all site models have their own clock
+    clock_model <- find_clock_model(clock_models, id = id)
     testit::assert(beautier::is_site_model(site_model))
 
     text <- c(text, paste0("    <distribution id=\"treeLikelihood.",
@@ -166,22 +168,24 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     text <- c(text, "        </siteModel>")
 
     # Clock models
-    if (i == 1) {
-      text <- c(text,
-        beautier::indent(
-          clock_model_to_xml_brm(clock_model),
-          n_spaces = 8
-        )
-      )
-    } else {
-      text <- c(text,
-        beautier::indent(
-          clock_model_to_xml_brm_nonfirst(clock_model),
-          n_spaces = 8
-        )
-      )
-    }
+    if (!is.null(clock_model)) {
 
+      if (i == 1) {
+        text <- c(text,
+          beautier::indent(
+            clock_model_to_xml_brm(clock_model),
+            n_spaces = 8
+          )
+        )
+      } else {
+        text <- c(text,
+          beautier::indent(
+            clock_model_to_xml_brm_nonfirst(clock_model),
+            n_spaces = 8
+          )
+        )
+      }
+    }
     text <- c(text, "    </distribution>")
   }
   text <- c(text, "</distribution>")
