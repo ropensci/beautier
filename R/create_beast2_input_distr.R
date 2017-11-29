@@ -341,7 +341,7 @@ bd_tree_prior_to_xml_prior <- function(
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+ccp_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ccp_tree_prior
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
@@ -374,7 +374,7 @@ create_beast2_input_distr_prior_prior_tree_prior_ccp <- function( # nolint long 
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior_tree_prior_cep <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+cep_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   cep_tree_prior
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
