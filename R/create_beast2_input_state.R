@@ -37,11 +37,6 @@ create_beast2_input_state <- function(
     if (!is.null(new_text)) text <- c(text, new_text)
   }
 
-  for (tree_prior in tree_priors) {
-    text <- c(text, create_beast2_input_state_tree_prior(
-      tree_prior = tree_prior))
-  }
-
   for (clock_model in clock_models) {
     text <- c(
       text,
@@ -52,16 +47,25 @@ create_beast2_input_state <- function(
     )
   }
 
+  for (tree_prior in tree_priors) {
+    text <- c(
+      text,
+      beautier::indent(
+        tree_prior_to_xml_state(tree_prior),
+        n_spaces = 4
+      )
+    )
+  }
+
   freqparams <- NULL
 
-  last_site_model <- site_models[[length(site_models)]]
-  if (!is_jc69_site_model(last_site_model)) {
+  if (length(site_models) > 1) {
     text <- c(
       text,
       beautier::indent(
         paste0(
           "<parameter ",
-          "id=\"freqParameter.s:", last_site_model$id, "\" dimension=\"4\" lower=\"0.0\" ",
+          "id=\"freqParameter.s:", site_models[[1]]$id, "\" dimension=\"4\" lower=\"0.0\" ",
           "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
         ),
         n_spaces = 4
@@ -124,42 +128,4 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     )
   )
   text
-}
-
-
-#' Creates the tree priors part of the state section of a BEAST2
-#' XML parameter file
-#' @param tree_prior tree prior, as created by \code{\link{create_tree_prior}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_state_tree_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  tree_prior
-) {
-  testit::assert(beautier::is_tree_prior(tree_prior))
-  id <- tree_prior$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  if (is_bd_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<parameter id=\"BDBirthRate.t:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
-    text <- c(text, paste0("<parameter id=\"BDDeathRate.t:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"))
-  } else if (is_ccp_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<parameter id=\"popSize.t:", id, "\" ",
-      "name=\"stateNode\">0.3</parameter>"))
-  } else if (is_cbs_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<parameter id=\"bPopSizes.t:", id, "\" ",
-      "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
-      "upper=\"380000.0\">380.0</parameter>"))
-    text <- c(text, paste0("<stateNode id=\"bGroupSizes.t:", id, "\" ",
-      "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
-  } else if (is_cep_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<parameter id=\"ePopSize.t:", id, "\" ",
-      "name=\"stateNode\">0.3</parameter>"))
-    text <- c(text, paste0("<parameter id=\"growthRate.t:", id, "\" ",
-      "name=\"stateNode\">3.0E-4</parameter>"))
-  }
-  beautier::indent(text, n_spaces = 4)
 }

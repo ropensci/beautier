@@ -1556,6 +1556,12 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         n_rate_categories = 2
       )
     ),
+    tree_priors = list(
+      create_bd_tree_prior(),
+      create_ccp_tree_prior(),
+      create_cep_tree_prior(),
+      create_yule_tree_prior()
+    ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
       nucleotides_uppercase = TRUE
