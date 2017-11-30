@@ -95,7 +95,7 @@ init_rln_clock_model <- function(
 
   if (is.na(result$mparam_id)) {
     result$mparam_id <- param_id +
-      get_distr_n_params(rln_clock_model$ucldstdev_distr)
+      beautier::get_distr_n_params(rln_clock_model$ucldstdev_distr)
   }
 
   result
