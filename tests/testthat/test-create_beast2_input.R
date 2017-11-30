@@ -1557,10 +1557,17 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
       )
     ),
     tree_priors = list(
-      create_bd_tree_prior(),
+      create_bd_tree_prior(
+        birth_rate_distr = create_normal_distr(),
+        death_rate_distr = create_one_div_x_distr()
+      ),
       create_ccp_tree_prior(),
-      create_cep_tree_prior(),
-      create_yule_tree_prior()
+      create_cep_tree_prior(
+        pop_size_distr = create_exp_distr()
+      ),
+      create_yule_tree_prior(
+        birth_rate_distr = create_log_normal_distr()
+      )
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
