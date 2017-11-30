@@ -501,6 +501,8 @@ test_that("Reproduce hky_gcc_1_2_4.xml", {
 
 test_that("Reproduce hky_gcc_2_2_4.xml", {
 
+  skip("WIP")
+
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     site_models = create_hky_site_model(
@@ -524,6 +526,8 @@ test_that("Reproduce hky_gcc_2_2_4.xml", {
 })
 
 test_that("Reproduce hky_gcc_4_2_4.xml", {
+
+  skip("WIP")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -704,6 +708,8 @@ test_that("Check that tn93_gcc_1_2_4.xml is reproduced", {
 })
 
 test_that("Reproduce tn93_gcc_2_2_4.xml", {
+
+  skip("WIP")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
