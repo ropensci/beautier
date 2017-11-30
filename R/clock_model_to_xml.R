@@ -86,9 +86,12 @@ clock_model_to_xml_brm <- function(
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
-    text <- c(text, paste0("    <parameter ",
-      "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
-      "name=\"clock.rate\">1.0</parameter>"))
+    # TODO: move elsewhere
+    if (1 == 2) {
+      text <- c(text, paste0("    <parameter ",
+        "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
+        "name=\"clock.rate\">1.0</parameter>"))
+    }
     text <- c(text, paste0("</branchRateModel>"))
   }
   text
