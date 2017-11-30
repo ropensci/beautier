@@ -1567,11 +1567,22 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
           id = 16
         )
       ),
-      create_ccp_tree_prior(),
+      create_ccp_tree_prior(
+        pop_size_distr = create_gamma_distr(
+          id = 36,
+          alpha = create_alpha_param(id = 188, value = "2.0"),
+          beta = create_beta_param(id = 189, value = "2.0")
+        )
+      ),
       create_cep_tree_prior(
         pop_size_distr = create_exp_distr(
           id = 8,
           mean = create_mean_param(id = 173, value = "1.0")
+        ),
+        growth_rate_distr = create_inv_gamma_distr(
+          id = 4,
+          alpha = create_alpha_param(id = 182, value = "2.0"),
+          beta = create_beta_param(id = 183, value = "2.0")
         )
       ),
       create_yule_tree_prior(

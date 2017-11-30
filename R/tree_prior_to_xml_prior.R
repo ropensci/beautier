@@ -1,5 +1,6 @@
 #' Creates the XML of a tree prior,
 #'   as used in the \code{prior} section
+#'   of the \code{distribution}
 #' @param tree_prior a tree prior,
 #'   as returned by \code{\link{create_tree_prior}})
 #' @return the tree prior as XML text

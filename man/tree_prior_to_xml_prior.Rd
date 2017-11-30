@@ -3,7 +3,8 @@
 \name{tree_prior_to_xml_prior}
 \alias{tree_prior_to_xml_prior}
 \title{Creates the XML of a tree prior,
-  as used in the \code{prior} section}
+  as used in the \code{prior} section
+  of the \code{distribution}}
 \usage{
 tree_prior_to_xml_prior(tree_prior)
 }
@@ -17,6 +18,7 @@ the tree prior as XML text
 \description{
 Creates the XML of a tree prior,
   as used in the \code{prior} section
+  of the \code{distribution}
 }
 \author{
 Richel J.C. Bilderbeek
