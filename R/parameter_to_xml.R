@@ -167,7 +167,6 @@ parameter_to_xml_kappa_2 <- function(
   testit::assert(beautier::is_kappa_2_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
-  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"kappa2.s:", id, "\" ",

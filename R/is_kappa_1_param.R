@@ -3,7 +3,8 @@
 #'   kappa 1 parameter
 #' @return TRUE if x is a valid kappa 1 parameter,
 #'   FALSE otherwise
-#' @seealso kappa 1 parameters are returned by \code{\link{create_kappa_1_param}}
+#' @seealso kappa 1 parameters are returned by
+#'   \code{\link{create_kappa_1_param}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   kappa_1_param <- create_kappa_1_param()

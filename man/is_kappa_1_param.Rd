@@ -22,7 +22,8 @@ Determine if the object is a valid kappa 1 parameter
   testit::assert(is_kappa_1_param(kappa_1_param))
 }
 \seealso{
-kappa 1 parameters are returned by \code{\link{create_kappa_1_param}}
+kappa 1 parameters are returned by
+  \code{\link{create_kappa_1_param}}
 }
 \author{
 Richel J.C. Bilderbeek

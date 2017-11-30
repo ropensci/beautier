@@ -457,7 +457,7 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
   text <- NULL
   gamma_site_model <- beautier::get_gamma_site_model(
     site_model = site_model)
-  if (get_gamma_cat_count(gamma_site_model) >= 2) {
+  if (beautier::get_gamma_cat_count(gamma_site_model) >= 2) {
     text <- c(text, paste0("<prior ",
       "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
       "x=\"@gammaShape.s:", id, "\">"))

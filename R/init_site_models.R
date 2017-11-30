@@ -118,23 +118,23 @@ init_gtr_site_model <- function(
     param_id <- param_id + beautier::get_distr_n_params(rate_gt_prior_distr)
   }
   if (!is_init_param(rate_ac_param)) {
-    rate_ac_param <- init_param(rate_ac_param, id = param_id)
+    rate_ac_param <- init_param(rate_ac_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
   }
   if (!is_init_param(rate_ag_param)) {
-    rate_ag_param <- init_param(rate_ag_param, id = param_id)
+    rate_ag_param <- init_param(rate_ag_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
   }
   if (!is_init_param(rate_at_param)) {
-    rate_at_param <- init_param(rate_at_param, id = param_id)
+    rate_at_param <- init_param(rate_at_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
   }
   if (!is_init_param(rate_cg_param)) {
-    rate_cg_param <- init_param(rate_cg_param, id = param_id)
+    rate_cg_param <- init_param(rate_cg_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
   }
   if (!is_init_param(rate_gt_param)) {
-    rate_gt_param <- init_param(rate_gt_param, id = param_id)
+    rate_gt_param <- init_param(rate_gt_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
   }
 
@@ -202,16 +202,18 @@ init_tn93_site_model <- function(
     param_id = param_id
   )
   distr_id <- distr_id + 1
-  param_id <- param_id + get_distr_n_params(tn93_site_model$kappa_1_prior_distr)
-  kappa_2_prior_distr = init_distr(
+  param_id <- param_id + beautier::get_distr_n_params(
+    tn93_site_model$kappa_1_prior_distr)
+  kappa_2_prior_distr <- init_distr(
     tn93_site_model$kappa_2_prior_distr,
     distr_id = distr_id,
     param_id = param_id
   )
-  param_id <- param_id + get_distr_n_params(tn93_site_model$kappa_2_prior_distr)
-  kappa_1_param <- init_param(tn93_site_model$kappa_1_param, id = param_id)
+  param_id <- param_id + beautier::get_distr_n_params(
+    tn93_site_model$kappa_2_prior_distr)
+  kappa_1_param <- init_param(tn93_site_model$kappa_1_param, id = param_id) # nolint internal function
   param_id <- param_id + 1
-  kappa_2_param <- init_param(tn93_site_model$kappa_2_param, id = param_id)
+  kappa_2_param <- init_param(tn93_site_model$kappa_2_param, id = param_id) # nolint internal function
 
   create_tn93_site_model(
     id = tn93_site_model$id,

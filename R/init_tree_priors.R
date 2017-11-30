@@ -78,7 +78,7 @@ init_bd_tree_prior <- function(
     death_rate_distr = init_distr(
       bd_tree_prior$death_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(bd_tree_prior$birth_rate_distr)
+      param_id + beautier::get_distr_n_params(bd_tree_prior$birth_rate_distr)
     )
   )
 
@@ -135,7 +135,7 @@ init_cep_tree_prior <- function(
     growth_rate_distr = init_distr(
       cep_tree_prior$growth_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr)
+      param_id + beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )
 

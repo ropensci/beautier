@@ -5,9 +5,9 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 get_param_id <- function(parameter) {
-  if (!is_param(parameter)) {
+  if (!beautier::is_param(parameter)) {
     stop("Must supply a valid parameter")
   }
   testit::assert("id" %in% names(parameter))
-  return(parameter$id)
+  parameter$id
 }

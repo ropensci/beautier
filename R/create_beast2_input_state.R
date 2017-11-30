@@ -57,14 +57,15 @@ create_beast2_input_state <- function(
     )
   }
 
-  njcsm <- find_non_jc69_site_model(site_models)
+  njcsm <- beautier::find_non_jc69_site_model(site_models)
   if (!is.null(njcsm)) {
     text <- c(
       text,
       beautier::indent(
         paste0(
           "<parameter ",
-          "id=\"freqParameter.s:", njcsm$id, "\" dimension=\"4\" lower=\"0.0\" ",
+          "id=\"freqParameter.s:", njcsm$id, "\" dimension=\"4\" ",
+          "lower=\"0.0\" ",
           "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
         ),
         n_spaces = 4
@@ -113,7 +114,8 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
       )
     )
     # Each tree, except the first, have a clockRate
-    if (i > 1 && 1 == 2) { # TODO
+    # TODO: remove the 1 == 2 statement
+    if (i > 1 && 1 == 2) {
       text <- c(text, paste0("    <parameter ",
         "id=\"clockRate.c:", id, "\" ",
         "name=\"stateNode\">1.0</parameter>"))
@@ -122,7 +124,8 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   text <- c(
     text,
     beautier::indent(
-      paste0("<parameter ", "id=\"birthRate.t:", tree_priors[[n]]$id, "\" ", "name=\"stateNode\">1.0</parameter>"),
+      paste0("<parameter ", "id=\"birthRate.t:", tree_priors[[n]]$id, "\" ",
+        "name=\"stateNode\">1.0</parameter>"),
       n_spaces = 4
     )
   )

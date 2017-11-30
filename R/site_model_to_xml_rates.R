@@ -17,21 +17,11 @@ site_model_to_xml_rates <- function(
     site_model$rate_at_param$id <- id
     site_model$rate_cg_param$id <- id
     site_model$rate_gt_param$id <- id
-    rates <- c(rates, parameter_to_xml(site_model$rate_ac_param))
-    rates <- c(rates, parameter_to_xml(site_model$rate_ag_param))
-    rates <- c(rates, parameter_to_xml(site_model$rate_at_param))
-    rates <- c(rates, parameter_to_xml(site_model$rate_cg_param))
-    rates <- c(rates, parameter_to_xml(site_model$rate_gt_param))
-    # rates <- c(rates, paste0("<parameter id=\"rateAC.s:", id, "\" ",
-    #   "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    # rates <- c(rates, paste0("<parameter id=\"rateAG.s:", id, "\" ",
-    #   "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    # rates <- c(rates, paste0("<parameter id=\"rateAT.s:", id, "\" ",
-    #   "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    # rates <- c(rates, paste0("<parameter id=\"rateCG.s:", id, "\" ",
-    #   "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
-    # rates <- c(rates, paste0("<parameter id=\"rateGT.s:", id, "\" ",
-    #   "lower=\"0.0\" name=\"stateNode\">1.0</parameter>"))
+    rates <- c(rates, parameter_to_xml(site_model$rate_ac_param)) # nolint internal function
+    rates <- c(rates, parameter_to_xml(site_model$rate_ag_param)) # nolint internal function
+    rates <- c(rates, parameter_to_xml(site_model$rate_at_param)) # nolint internal function
+    rates <- c(rates, parameter_to_xml(site_model$rate_cg_param)) # nolint internal function
+    rates <- c(rates, parameter_to_xml(site_model$rate_gt_param)) # nolint internal function
   } else if (is_hky_site_model(site_model)) {
     site_model$kappa_param$id <- id
     rates <- c(rates, paste0("<parameter id=\"kappa.s:", id, "\" ",
@@ -40,8 +30,8 @@ site_model_to_xml_rates <- function(
   } else if (is_tn93_site_model(site_model)) {
       site_model$kappa_1_param$id <- id
       site_model$kappa_2_param$id <- id
-      rates <- c(rates, parameter_to_xml(site_model$kappa_1_param))
-      rates <- c(rates, parameter_to_xml(site_model$kappa_2_param))
+      rates <- c(rates, parameter_to_xml(site_model$kappa_1_param)) # nolint internal function
+      rates <- c(rates, parameter_to_xml(site_model$kappa_2_param)) # nolint internal function
   }
   rates <- beautier::indent(rates, n_spaces = 4)
   text <- NULL
