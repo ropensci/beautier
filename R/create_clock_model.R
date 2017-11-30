@@ -66,7 +66,7 @@ create_clock_model <- function(
 #' @export
 create_rln_clock_model <- function(
   id = NA,
-  mean_rate_prior_distr = create_uniform_distr(), # don't know default distribution
+  mean_rate_prior_distr = create_uniform_distr(), # unknown default distribution
   ucldstdev_distr = create_gamma_distr(),
   mparam_id = NA,
   mean_clock_rate = 1.0,
