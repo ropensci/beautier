@@ -57,15 +57,14 @@ create_beast2_input_state <- function(
     )
   }
 
-  freqparams <- NULL
-
-  if (length(site_models) > 1) {
+  nytp <- find_non_yule_tree_prior(tree_priors)
+  if (!is.null(nytp)) {
     text <- c(
       text,
       beautier::indent(
         paste0(
           "<parameter ",
-          "id=\"freqParameter.s:", site_models[[1]]$id, "\" dimension=\"4\" lower=\"0.0\" ",
+          "id=\"freqParameter.s:", nytp$id, "\" dimension=\"4\" lower=\"0.0\" ",
           "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
         ),
         n_spaces = 4
