@@ -36,6 +36,8 @@ create_clock_model <- function(
 
 #' Create a relaxed log-normal clock model
 #' @inheritParams create_clock_model
+#' @param mean_rate_prior_distr the mean clock rate prior distribution,
+#'   as created by a \code{\link{create_distr}} function
 #' @param ucldstdev_distr the uclstdev distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @param mparam_id the ID of the M paramater in the branchRateModel,
@@ -64,8 +66,8 @@ create_clock_model <- function(
 #' @export
 create_rln_clock_model <- function(
   id = NA,
-  ucldstdev_distr = create_gamma_distr(),
   mean_rate_prior_distr = create_uniform_distr(), # don't know default distribution
+  ucldstdev_distr = create_gamma_distr(),
   mparam_id = NA,
   mean_clock_rate = 1.0,
   n_rate_categories = -1,

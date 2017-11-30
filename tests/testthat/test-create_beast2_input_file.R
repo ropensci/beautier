@@ -421,6 +421,7 @@ test_that("All site models, clock models and tree priors, crown age est", {
   if (!beautier::is_on_travis()) return()
 
   skip("WIP, Issue #8")
+
   input_fasta_filename_1 <- system.file(
     "extdata", "anthus_aco.fas", package = "beautier"
   )
