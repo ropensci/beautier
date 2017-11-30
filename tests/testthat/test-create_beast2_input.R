@@ -1571,6 +1571,28 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 1,
           gamma_shape = 0.8
+        ),
+        rate_ac_prior_distr = create_beta_distr(
+          id = 5,
+          alpha = create_alpha_param(id = 190, value = "2.0"),
+          beta = create_beta_param(id = 191, value = "2.0")
+        ),
+        rate_ag_prior_distr = create_laplace_distr(
+          id = 8,
+          mu = create_mu_param(id = 192, value = "0.0"),
+          scale = create_scale_param(id = 193, value = "1.0")
+        ),
+        rate_at_prior_distr = create_inv_gamma_distr(
+          id = 5,
+          alpha = create_alpha_param(id = 194, value = "2.0"),
+          beta = create_beta_param(id = 195, value = "2.0")
+        ),
+        rate_cg_prior_distr = create_poisson_distr(
+          id = 9,
+          lambda = create_lambda_param(id = 196, value = "0.693")
+        ),
+        rate_gt_prior_distr = create_uniform_distr(
+          id = 40
         )
       )
     ),
