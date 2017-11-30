@@ -78,7 +78,6 @@ clock_model_to_xml_brm <- function(
       "clock.rate=\"@ucldMean.c:", id, "\" numberOfDiscreteRates=\"0\" ",
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"))
-
     text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.c:", id, "\" ",
       "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))

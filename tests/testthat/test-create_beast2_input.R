@@ -1613,7 +1613,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         ucldstdev_distr = create_exp_distr(
           id = 10,
           mean = create_mean_param(id = 203, value = "1.0")
-        )
+        ),
+        mparam_id = 78
       ),
       create_rln_clock_model(
         mean_clock_rate = 1.2,
