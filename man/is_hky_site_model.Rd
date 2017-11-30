@@ -17,6 +17,10 @@ TRUE if x is a valid HKY site model, FALSE otherwise
 Determine if the object is a valid HKY site model,
 as created by \code{\link{create_hky_site_model}}
 }
+\examples{
+  hky_site_model <- create_hky_site_model()
+  testit::assert(is_hky_site_model(hky_site_model))
+}
 \author{
 Richel J.C. Bilderbeek
 }

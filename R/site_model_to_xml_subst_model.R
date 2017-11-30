@@ -11,25 +11,25 @@ site_model_to_xml_subst_model <- function(
   id <- site_model$id
   testit::assert(beautier::is_id(id))
 
-  text <- NULL
   if (beautier::is_jc69_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>"))
-  } else if (is_hky_site_model(site_model)) {
+    return(
+      paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>")
+    )
+  }
+
+  text <- NULL
+  freq_equilibrium_text <- beautier::indent(
+    freq_equilibrium_to_xml(site_model$freq_equilibrium, id),
+    n_spaces = 4
+  )
+
+  if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
-    text <- c(text, paste0("    <frequencies ",
-      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("</substModel>"))
   } else if (is_tn93_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
       "kappa2=\"@kappa2.s:", id, "\">"))
-    text <- c(text, paste0("    <frequencies ",
-      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("</substModel>"))
   } else if (is_gtr_site_model(site_model)) {
     text <- c(text, paste0("<substModel ",
       "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
@@ -38,10 +38,8 @@ site_model_to_xml_subst_model <- function(
     text <- c(text, paste0("    <parameter ",
       "id=\"rateCT.s:", id, "\" estimate=\"false\" lower=\"0.0\" ",
       "name=\"rateCT\">1.0</parameter>"))
-    text <- c(text, paste0("    <frequencies ",
-      "id=\"estimatedFreqs.s:", id, "\" spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"))
-    text <- c(text, paste0("</substModel>"))
   }
+  text <- c(text, freq_equilibrium_text)
+  text <- c(text, paste0("</substModel>"))
   text
 }

@@ -98,14 +98,16 @@ create_hky_site_model <- function(
   kappa_prior_distr = create_log_normal_distr(
     m = create_m_param(value = "1.0"),
     s = create_s_param(value = "1.25")
-  )
+  ),
+  freq_equilibrium = "estimated"
 ) {
   beautier::create_site_model(
     name = "HKY",
     id = id,
     gamma_site_model = gamma_site_model,
     kappa = kappa,
-    kappa_prior_distr = kappa_prior_distr
+    kappa_prior_distr = kappa_prior_distr,
+    freq_equilibrium = freq_equilibrium
   )
 }
 
@@ -147,7 +149,8 @@ create_tn93_site_model <- function(
   kappa_2_prior_distr = create_log_normal_distr(
     m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
     s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
-  )
+  ),
+  freq_equilibrium = "estimated"
 ) {
   beautier::create_site_model(
     name = "TN93",
@@ -156,7 +159,8 @@ create_tn93_site_model <- function(
     kappa_1_prior_distr = kappa_1_prior_distr,
     kappa_2_prior_distr = kappa_2_prior_distr,
     kappa_1_param = kappa_1_param,
-    kappa_2_param = kappa_2_param
+    kappa_2_param = kappa_2_param,
+    freq_equilibrium = freq_equilibrium
   )
 }
 
@@ -221,7 +225,8 @@ create_gtr_site_model <- function(
   rate_ag_param = create_rate_ag_param(),
   rate_at_param = create_rate_at_param(),
   rate_cg_param = create_rate_cg_param(),
-  rate_gt_param = create_rate_gt_param()
+  rate_gt_param = create_rate_gt_param(),
+  freq_equilibrium = "estimated"
 ) {
   beautier::create_site_model(
     name = "GTR",
@@ -236,6 +241,7 @@ create_gtr_site_model <- function(
     rate_ag_param = rate_ag_param,
     rate_at_param = rate_at_param,
     rate_cg_param = rate_cg_param,
-    rate_gt_param = rate_gt_param
+    rate_gt_param = rate_gt_param,
+    freq_equilibrium = freq_equilibrium
   )
 }

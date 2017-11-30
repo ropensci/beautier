@@ -21,5 +21,6 @@ is_site_model <- function(
   if (!beautier::is_site_model_name(x$name)) return(FALSE)
   if (!"id" %in% names(x)) return(FALSE)
   if (!"gamma_site_model" %in% names(x)) return(FALSE)
+  if (!beautier::is_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }

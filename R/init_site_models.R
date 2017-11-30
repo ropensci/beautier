@@ -150,7 +150,8 @@ init_gtr_site_model <- function(
     rate_ag_param = rate_ag_param,
     rate_at_param = rate_at_param,
     rate_cg_param = rate_cg_param,
-    rate_gt_param = rate_gt_param
+    rate_gt_param = rate_gt_param,
+    freq_equilibrium = gtr_site_model$freq_equilibrium
   )
 
   testit::assert(beautier::is_gtr_site_model(result))
@@ -178,7 +179,8 @@ init_hky_site_model <- function(
       hky_site_model$kappa_prior,
       distr_id,
       param_id
-    )
+    ),
+    freq_equilibrium = hky_site_model$freq_equilibrium
   )
 
   result
@@ -221,6 +223,7 @@ init_tn93_site_model <- function(
     kappa_1_prior_distr = kappa_1_prior_distr,
     kappa_2_prior_distr = kappa_2_prior_distr,
     kappa_1_param = kappa_1_param,
-    kappa_2_param = kappa_2_param
+    kappa_2_param = kappa_2_param,
+    freq_equilibrium = tn93_site_model$freq_equilibrium
   )
 }

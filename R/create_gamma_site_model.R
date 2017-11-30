@@ -23,7 +23,8 @@ create_gamma_site_model <- function(
       id = 0,  # TODO: id must be NA by default
       value = "1.0" # string to match XML
     )
-  )
+  ),
+  freq_equilibrium = "estimated"
 ) {
   list(
     gamma_cat_count = gamma_cat_count,

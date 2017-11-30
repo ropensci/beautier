@@ -25,6 +25,8 @@ is_tn93_site_model <- function(
   if (!beautier::is_param(x$kappa_1_param)) return(FALSE)
   if (!"kappa_2_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$kappa_2_param)) return(FALSE)
+  if (!"freq_equilibrium" %in% names(x)) return(FALSE)
+  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 
 }

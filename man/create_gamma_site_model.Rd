@@ -8,7 +8,7 @@ create_gamma_site_model(gamma_cat_count = get_default_gamma_cat_count(),
   gamma_shape = get_default_gamma_shape(),
   prop_invariant = get_default_prop_invariant(),
   gamma_shape_prior_distr = create_exp_distr(id = 0, mean =
-  create_mean_param(id = 0, value = "1.0")))
+  create_mean_param(id = 0, value = "1.0")), freq_equilibrium = "estimated")
 }
 \arguments{
 \item{gamma_cat_count}{the number of gamma categories, must

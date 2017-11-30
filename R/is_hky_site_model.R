@@ -3,6 +3,9 @@
 #' @param x an object, to be determined if it is a valid HKY site model
 #' @return TRUE if x is a valid HKY site model, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   hky_site_model <- create_hky_site_model()
+#'   testit::assert(is_hky_site_model(hky_site_model))
 #' @export
 is_hky_site_model <- function(
   x
@@ -11,5 +14,7 @@ is_hky_site_model <- function(
   if (x$name != "HKY") return(FALSE)
   if (!"kappa_prior_distr" %in% names(x)) return(FALSE)
   if (!beautier::is_distr(x$kappa_prior_distr)) return(FALSE)
+  if (!"freq_equilibrium" %in% names(x)) return(FALSE)
+  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 }

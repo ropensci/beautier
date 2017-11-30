@@ -19,7 +19,7 @@ create_gtr_site_model(id = NA, gamma_site_model = create_gamma_site_model(),
   rate_ag_param = create_rate_ag_param(),
   rate_at_param = create_rate_at_param(),
   rate_cg_param = create_rate_cg_param(),
-  rate_gt_param = create_rate_gt_param())
+  rate_gt_param = create_rate_gt_param(), freq_equilibrium = "estimated")
 }
 \arguments{
 \item{id}{the IDs of the alignment (can be extracted from
