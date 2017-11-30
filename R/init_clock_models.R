@@ -76,7 +76,10 @@ init_rln_clock_model <- function(
       rln_clock_model$uclstdev_distr,
       distr_id,
       param_id
-    )
+    ),
+    mean_clock_rate = rln_clock_model$mean_clock_rate,
+    n_rate_categories = rln_clock_model$n_rate_categories,
+    normalize_mean_clock_rate = rln_clock_model$normalize_mean_clock_rate
   )
 
   if (is.na(result$mparam_id)) {

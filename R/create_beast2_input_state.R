@@ -29,7 +29,11 @@ create_beast2_input_state <- function(
   }
 
   for (site_model in site_models) {
-    new_text <- gamma_site_model_to_xml_state(gamma_site_model, site_model$id) # nolint internal function
+    new_text <- indent(
+      gamma_site_model_to_xml_state( # nolint internal function
+        beautier::get_gamma_site_model(site_model), site_model$id),
+      n_spaces = 4
+    )
     if (!is.null(new_text)) text <- c(text, new_text)
   }
 
@@ -39,8 +43,12 @@ create_beast2_input_state <- function(
   }
 
   for (clock_model in clock_models) {
-    text <- c(text, create_beast2_input_state_clock_model(
-      clock_model = clock_model)
+    text <- c(
+      text,
+      beautier::indent(
+        clock_model_to_xml_state(clock_model),
+        n_spaces = 4
+      )
     )
   }
 
@@ -154,30 +162,4 @@ create_beast2_input_state_tree_prior <- function( # nolint long function name is
       "name=\"stateNode\">3.0E-4</parameter>"))
   }
   beautier::indent(text, n_spaces = 4)
-}
-
-#' Creates the clock models' part of the state section of
-#' a BEAST2 XML parameter file
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_state_clock_model <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  clock_model
-) {
-  testit::assert(beautier::is_clock_model(clock_model))
-  id <- clock_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  if (is_rln_clock_model(clock_model)) {
-    text <- c(text, paste0("<parameter id=\"ucldStdev.c:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-    text <- c(text, paste0("<stateNode ",
-      "id=\"rateCategories.c:", id, "\" ",
-      "spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>"))
-    text <- beautier::indent(text, n_spaces = 4)
-  }
-  text
 }

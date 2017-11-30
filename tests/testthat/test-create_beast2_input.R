@@ -739,7 +739,9 @@ test_that("Reproduce tn93_gcc_2_2_4.xml", {
 # Clock model: RLN
 ################################################################################
 
-test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
+test_that("Reproduce rln_2_4.xml", {
+
+  skip("WIP")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -756,12 +758,15 @@ test_that("Reproduce relaxed_clock_log_normal_2_4.xml", {
     )
   )
   expected_lines <- readLines(system.file("extdata",
-    "relaxed_clock_log_normal_2_4.xml", package = "beautier"))
+    "rln_2_4.xml", package = "beautier"))
+  testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
   testthat::expect_identical(created_lines, expected_lines)
 
 })
 
-test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
+test_that("Reproduce rln_uclstdev_beta_2_4.xml", {
+
+  skip("WIP")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -777,8 +782,9 @@ test_that("Reproduce relaxed_clock_log_normal_uclstdev_beta_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected_lines <- readLines(system.file("extdata",
-    "relaxed_clock_log_normal_uclstdev_beta_2_4.xml", package = "beautier"))
+    "rln_uclstdev_beta_2_4.xml", package = "beautier"))
 
+  testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
   testthat::expect_identical(created_lines, expected_lines)
 
 })
@@ -1501,18 +1507,53 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filenames,
     site_models = list(
-      create_jc69_site_model(),
-      create_hky_site_model(kappa = "2.1"),
+      create_jc69_site_model(
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 4,
+          gamma_shape = 0.1
+        )
+      ),
+      create_hky_site_model(
+        kappa = "2.1",
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 3,
+          gamma_shape = 0.2
+        )
+      ),
       create_tn93_site_model(
         kappa_1_param = create_kappa_1_param(value = "2.2"),
-        kappa_2_param = create_kappa_2_param(value = "2.3")
+        kappa_2_param = create_kappa_2_param(value = "2.3"),
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2,
+          gamma_shape = 0.4
+        )
       ),
       create_gtr_site_model(
         rate_ac_param = create_rate_ac_param(value = "1.1"),
         rate_ag_param = create_rate_ag_param(value = "1.2"),
         rate_at_param = create_rate_at_param(value = "1.3"),
         rate_cg_param = create_rate_cg_param(value = "1.4"),
-        rate_gt_param = create_rate_gt_param(value = "1.6")
+        rate_gt_param = create_rate_gt_param(value = "1.6"),
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 1,
+          gamma_shape = 0.8
+        )
+      )
+    ),
+    clock_models = list(
+      create_strict_clock_model(),
+      create_rln_clock_model(
+        mean_clock_rate = 1.1,
+        n_rate_categories = 0
+      ),
+      create_rln_clock_model(
+        mean_clock_rate = 1.2,
+        n_rate_categories = 1,
+        normalize_mean_clock_rate = TRUE
+      ),
+      create_rln_clock_model(
+        mean_clock_rate = 1.3,
+        n_rate_categories = 2
       )
     ),
     misc_options = create_misc_options(
@@ -1520,8 +1561,10 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
+
   expected_lines <- readLines(system.file("extdata",
-    "aco_nd2_nd3_nd4_complex_2_4.xml", package = "beautier"))
+    "aco_nd2_nd3_nd4_complex_modified_2_4.xml", package = "beautier"))
+  testit::assert(are_beast2_input_lines(expected_lines))
   beautier:::compare_lines(created_lines, expected_lines)
 
   testthat::expect_identical(created_lines, expected_lines)

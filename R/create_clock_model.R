@@ -40,6 +40,13 @@ create_clock_model <- function(
 #'   as created by a \code{\link{create_distr}} function
 #' @param mparam_id the ID of the M paramater in the branchRateModel,
 #'   set to NA to have it initialized
+#' @param mean_clock_rate the mean clock rate, 1.0 by default
+#'   (is called 'ucld_stdev' in XML, where 'ucld_stdev' is always 0.1)
+#' @param n_rate_categories the number of rate categories.
+#'   -1 is default,
+#'   0 denotes as much rates as branches
+#' @param normalize_mean_clock_rate normalize the mean clock rate
+
 #' @return a relaxed log-normal clock_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -58,13 +65,19 @@ create_clock_model <- function(
 create_rln_clock_model <- function(
   id = NA,
   uclstdev_distr = create_gamma_distr(),
-  mparam_id = NA
+  mparam_id = NA,
+  mean_clock_rate = 1.0,
+  n_rate_categories = -1,
+  normalize_mean_clock_rate = FALSE
 ) {
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
     id = id,
     uclstdev_distr = uclstdev_distr,
-    mparam_id = mparam_id
+    mparam_id = mparam_id,
+    mean_clock_rate = mean_clock_rate,
+    n_rate_categories = n_rate_categories,
+    normalize_mean_clock_rate = normalize_mean_clock_rate
   )
   rln_clock_model
 }

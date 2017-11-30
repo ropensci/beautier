@@ -5,7 +5,8 @@
 \title{Create a relaxed log-normal clock model}
 \usage{
 create_rln_clock_model(id = NA, uclstdev_distr = create_gamma_distr(),
-  mparam_id = NA)
+  mparam_id = NA, mean_clock_rate = 1, n_rate_categories = -1,
+  normalize_mean_clock_rate = FALSE)
 }
 \arguments{
 \item{id}{a clock model's ID}
@@ -15,6 +16,15 @@ as created by a \code{\link{create_distr}} function}
 
 \item{mparam_id}{the ID of the M paramater in the branchRateModel,
 set to NA to have it initialized}
+
+\item{mean_clock_rate}{the mean clock rate, 1.0 by default
+(is called 'ucld_stdev' in XML, where 'ucld_stdev' is always 0.1)}
+
+\item{n_rate_categories}{the number of rate categories.
+-1 is default,
+0 denotes as much rates as branches}
+
+\item{normalize_mean_clock_rate}{normalize the mean clock rate}
 }
 \value{
 a relaxed log-normal clock_model
