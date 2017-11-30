@@ -57,14 +57,14 @@ create_beast2_input_state <- function(
     )
   }
 
-  nytp <- find_non_yule_tree_prior(tree_priors)
-  if (!is.null(nytp)) {
+  njcsm <- find_non_jc69_site_model(site_models)
+  if (!is.null(njcsm)) {
     text <- c(
       text,
       beautier::indent(
         paste0(
           "<parameter ",
-          "id=\"freqParameter.s:", nytp$id, "\" dimension=\"4\" lower=\"0.0\" ",
+          "id=\"freqParameter.s:", njcsm$id, "\" dimension=\"4\" lower=\"0.0\" ",
           "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
         ),
         n_spaces = 4

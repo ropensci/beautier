@@ -12,7 +12,7 @@ find_non_yule_tree_prior <- function(
     stop("'tree_priors' must be a list of tree priors")
   }
   for (tree_prior in tree_priors) {
-    if (is_yule_tree_prior(tree_prior)) {
+    if (!is_yule_tree_prior(tree_prior)) {
       return(tree_prior)
     }
   }
