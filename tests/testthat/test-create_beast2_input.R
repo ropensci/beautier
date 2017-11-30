@@ -1569,7 +1569,10 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
       ),
       create_ccp_tree_prior(),
       create_cep_tree_prior(
-        pop_size_distr = create_exp_distr()
+        pop_size_distr = create_exp_distr(
+          id = 8,
+          mean = create_mean_param(id = 173, value = "1.0")
+        )
       ),
       create_yule_tree_prior(
         birth_rate_distr = create_log_normal_distr()

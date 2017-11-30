@@ -222,12 +222,6 @@ name="alignment">
             <prior id="DeathRatePrior.t:anthus_aco" name="distribution" x="@BDDeathRate.t:anthus_aco">
                 <OneOnX id="OneOnX.16" name="distr"/>
             </prior>
-            <prior id="PopSizePrior.t:anthus_nd2" name="distribution" x="@popSize.t:anthus_nd2">
-                <Gamma id="Gamma.36" name="distr">
-                    <parameter id="RealParameter.188" estimate="false" name="alpha">2.0</parameter>
-                    <parameter id="RealParameter.189" estimate="false" name="beta">2.0</parameter>
-                </Gamma>
-            </prior>
             <prior id="ePopSizePrior.t:anthus_nd3" name="distribution" x="@ePopSize.t:anthus_nd3">
                 <Exponential id="Exponential.8" name="distr">
                     <parameter id="RealParameter.173" estimate="false" name="mean">1.0</parameter>
@@ -277,6 +271,12 @@ name="alignment">
                 <Gamma id="Gamma.35" name="distr">
                     <parameter id="RealParameter.186" estimate="false" name="alpha">2.0</parameter>
                     <parameter id="RealParameter.187" estimate="false" name="beta">2.0</parameter>
+                </Gamma>
+            </prior>
+            <prior id="PopSizePrior.t:anthus_nd2" name="distribution" x="@popSize.t:anthus_nd2">
+                <Gamma id="Gamma.36" name="distr">
+                    <parameter id="RealParameter.188" estimate="false" name="alpha">2.0</parameter>
+                    <parameter id="RealParameter.189" estimate="false" name="beta">2.0</parameter>
                 </Gamma>
             </prior>
             <prior id="RateACPrior.s:anthus_nd4" name="distribution" x="@rateAC.s:anthus_nd4">
