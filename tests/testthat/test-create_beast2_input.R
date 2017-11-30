@@ -1605,13 +1605,22 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
           id = 5,
           mean = create_mean_param(id = 197, value = "0.0"),
           sigma = create_sigma_param(id = 198, value = "1.0")
+        ),
+        ucldstdev_distr = create_exp_distr(
+          id = 10,
+          mean = create_mean_param(id = 203, value = "1.0")
         )
       ),
       create_rln_clock_model(
         mean_clock_rate = 1.2,
         n_rate_categories = 1,
         normalize_mean_clock_rate = TRUE,
-        mean_rate_prior_distr = create_one_div_x_distr(id = 17)
+        mean_rate_prior_distr = create_one_div_x_distr(id = 17),
+        ucldstdev_distr = create_laplace_distr(
+          id = 9,
+          mu = create_mu_param(id = 204, value = "0.0"),
+          scale = create_scale_param(id = 205, value = "1.0")
+        )
       ),
       create_rln_clock_model(
         mean_clock_rate = 1.3,
@@ -1619,7 +1628,14 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         mean_rate_prior_distr = create_log_normal_distr(
           id = 17,
           m = create_m_param(id = 199, value = "1.0"),
-          s = create_s_param(id = 200, value = "1.25")
+          s = create_s_param(
+            id = 200, value = "1.25", lower = "0.0", upper = "5.0"
+          )
+        ),
+        ucldstdev_distr = create_inv_gamma_distr(
+          id = 6,
+          alpha = create_alpha_param(id = 206, value = "2.0"),
+          beta = create_beta_param(id = 207, value = "2.0")
         )
       )
     ),

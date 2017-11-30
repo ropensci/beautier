@@ -311,25 +311,25 @@ name="alignment">
                     <parameter id="RealParameter.198" estimate="false" name="sigma">1.0</parameter>
                 </Normal>
             </prior>
-            <prior id="MeanRatePrior.c:anthus_nd3" name="distribution" x="@ucldMean.c:anthus_nd3">
-                <OneOnX id="OneOnX.17" name="distr"/>
-            </prior>
-            <prior id="MeanRatePrior.c:anthus_nd4" name="distribution" x="@ucldMean.c:anthus_nd4">
-                <LogNormal id="LogNormalDistributionModel.17" name="distr">
-                    <parameter id="RealParameter.199" estimate="false" name="M">1.0</parameter>
-                    <parameter id="RealParameter.200" estimate="false" lower="0.0" name="S" upper="5.0">1.25</parameter>
-                </LogNormal>
-            </prior>
             <prior id="ucldStdevPrior.c:anthus_nd2" name="distribution" x="@ucldStdev.c:anthus_nd2">
                 <Exponential id="Exponential.10" name="distr">
                     <parameter id="RealParameter.203" estimate="false" name="mean">1.0</parameter>
                 </Exponential>
+            </prior>
+            <prior id="MeanRatePrior.c:anthus_nd3" name="distribution" x="@ucldMean.c:anthus_nd3">
+                <OneOnX id="OneOnX.17" name="distr"/>
             </prior>
             <prior id="ucldStdevPrior.c:anthus_nd3" name="distribution" x="@ucldStdev.c:anthus_nd3">
                 <LaplaceDistribution id="LaplaceDistribution.9" name="distr">
                     <parameter id="RealParameter.204" estimate="false" name="mu">0.0</parameter>
                     <parameter id="RealParameter.205" estimate="false" name="scale">1.0</parameter>
                 </LaplaceDistribution>
+            </prior>
+            <prior id="MeanRatePrior.c:anthus_nd4" name="distribution" x="@ucldMean.c:anthus_nd4">
+                <LogNormal id="LogNormalDistributionModel.17" name="distr">
+                    <parameter id="RealParameter.199" estimate="false" name="M">1.0</parameter>
+                    <parameter id="RealParameter.200" estimate="false" lower="0.0" name="S" upper="5.0">1.25</parameter>
+                </LogNormal>
             </prior>
             <prior id="ucldStdevPrior.c:anthus_nd4" name="distribution" x="@ucldStdev.c:anthus_nd4">
                 <InverseGamma id="InverseGamma.6" name="distr">
