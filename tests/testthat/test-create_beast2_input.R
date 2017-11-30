@@ -1586,7 +1586,11 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         )
       ),
       create_yule_tree_prior(
-        birth_rate_distr = create_log_normal_distr()
+        birth_rate_distr = create_log_normal_distr(
+          id = 16,
+          m = create_m_param(id = 171, value = "1.0"),
+          s = create_s_param(id = 172, value = "1.25", lower = "0.0", upper = "5.0")
+        )
       )
     ),
     misc_options = create_misc_options(
