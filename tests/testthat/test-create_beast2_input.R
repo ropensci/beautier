@@ -1558,8 +1558,14 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
     ),
     tree_priors = list(
       create_bd_tree_prior(
-        birth_rate_distr = create_normal_distr(),
-        death_rate_distr = create_one_div_x_distr()
+        birth_rate_distr = create_normal_distr(
+          id = 4,
+          mean = create_mean_param(id = 169, value = "0.0"),
+          sigma = create_sigma_param(id = 170, value = "1.0")
+        ),
+        death_rate_distr = create_one_div_x_distr(
+          id = 16
+        )
       ),
       create_ccp_tree_prior(),
       create_cep_tree_prior(
