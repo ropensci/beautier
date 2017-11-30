@@ -75,6 +75,7 @@ clock_model_to_xml_brm <- function(
     text <- c(text, paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
+      "clock.rate=\"@ucldMean.c:", id, "\" numberOfDiscreteRates=\"0\" ",
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"))
 
@@ -90,27 +91,6 @@ clock_model_to_xml_brm <- function(
       "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
       "name=\"clock.rate\">1.0</parameter>"))
     text <- c(text, paste0("</branchRateModel>"))
-  }
-  text
-}
-
-#' Converts a non-first clock model to the \code{branchRateModel}
-#' section of the XML as text
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-clock_model_to_xml_brm_nonfirst <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  clock_model
-) {
-  id <- clock_model$id
-  text <- NULL
-  if (is_strict_clock_model(clock_model)) {
-    text <- c(text, paste0("<branchRateModel ",
-      "id=\"StrictClock.c:", id, "\" ",
-      "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-      "clock.rate=\"@clockRate.c:", id, "\"/>"))
   }
   text
 }

@@ -120,21 +120,12 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     # Clock models
     if (!is.null(clock_model)) {
 
-      if (i == 1) {
-        text <- c(text,
-          beautier::indent(
-            clock_model_to_xml_brm(clock_model),
-            n_spaces = 8
-          )
+      text <- c(text,
+        beautier::indent(
+          clock_model_to_xml_brm(clock_model),
+          n_spaces = 8
         )
-      } else {
-        text <- c(text,
-          beautier::indent(
-            clock_model_to_xml_brm_nonfirst(clock_model),
-            n_spaces = 8
-          )
-        )
-      }
+      )
     }
     text <- c(text, "    </distribution>")
   }
