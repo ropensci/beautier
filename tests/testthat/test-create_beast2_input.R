@@ -1534,6 +1534,10 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
             alpha = create_alpha_param(id = 178, value = "2.0"),
             beta = create_beta_param(id = 179, value = "2.0")
           )
+        ),
+        kappa_prior_distr = create_poisson_distr(
+          id = 8,
+          lambda = create_lambda_param(id = 184, value = "0.693")
         )
       ),
       create_tn93_site_model(
@@ -1541,7 +1545,21 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         kappa_2_param = create_kappa_2_param(value = "2.3"),
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 2,
-          gamma_shape = 0.4
+          gamma_shape = 0.4,
+          gamma_shape_prior_distr = create_gamma_distr(
+            id = 34,
+            alpha = create_alpha_param(id = 180, value = "2.0"),
+            beta = create_beta_param(id = 181, value = "2.0")
+          )
+        ),
+        kappa_1_prior_distr = create_exp_distr(
+          id = 9,
+          mean = create_mean_param(id = 185, value = "1.0")
+        ),
+        kappa_2_prior_distr = create_gamma_distr(
+          id = 35,
+          alpha = create_alpha_param(id = 186, value = "2.0"),
+          beta = create_beta_param(id = 187, value = "2.0")
         )
       ),
       create_gtr_site_model(
