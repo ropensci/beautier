@@ -11,7 +11,7 @@ test_that("use", {
   testthat::expect_silent(
     get_rln_ucldstdev_distr(
       create_rln_clock_model(
-        uclstdev_distr = create_gamma_distr(id = 1)
+        ucldstdev_distr = create_gamma_distr(id = 1)
       )
     )
   )

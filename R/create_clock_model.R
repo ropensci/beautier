@@ -36,7 +36,7 @@ create_clock_model <- function(
 
 #' Create a relaxed log-normal clock model
 #' @inheritParams create_clock_model
-#' @param uclstdev_distr the uclstdev distribution,
+#' @param ucldstdev_distr the uclstdev distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @param mparam_id the ID of the M paramater in the branchRateModel,
 #'   set to NA to have it initialized
@@ -64,7 +64,7 @@ create_clock_model <- function(
 #' @export
 create_rln_clock_model <- function(
   id = NA,
-  uclstdev_distr = create_gamma_distr(),
+  ucldstdev_distr = create_gamma_distr(),
   mparam_id = NA,
   mean_clock_rate = 1.0,
   n_rate_categories = -1,
@@ -73,7 +73,7 @@ create_rln_clock_model <- function(
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
     id = id,
-    uclstdev_distr = uclstdev_distr,
+    ucldstdev_distr = ucldstdev_distr,
     mparam_id = mparam_id,
     mean_clock_rate = mean_clock_rate,
     n_rate_categories = n_rate_categories,

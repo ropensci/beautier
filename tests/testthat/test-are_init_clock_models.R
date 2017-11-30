@@ -5,7 +5,7 @@ test_that("detect initialized RLN clock models", {
 
   init_rln_models <- list(
     create_rln_clock_model(
-      uclstdev_distr = create_uniform_distr(id = 1),
+      ucldstdev_distr = create_uniform_distr(id = 1),
       mparam_id = 1
     )
   )
@@ -19,7 +19,7 @@ test_that("detect uninitialized RLN clock models", {
 
   uninit_rln_models <- list(
     create_rln_clock_model(
-      uclstdev_distr = create_uniform_distr(id = NA)
+      ucldstdev_distr = create_uniform_distr(id = NA)
     )
   )
 
