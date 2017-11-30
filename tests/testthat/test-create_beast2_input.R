@@ -1552,7 +1552,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
             id = 34,
             alpha = create_alpha_param(id = 180, value = "2.0"),
             beta = create_beta_param(id = 181, value = "2.0")
-          )
+          ),
+          prop_invariant = 0.6
         ),
         kappa_1_prior_distr = create_exp_distr(
           id = 9,
@@ -1572,8 +1573,7 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         rate_gt_param = create_rate_gt_param(value = "1.6"),
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 1,
-          gamma_shape = 0.8,
-          prop_invariant = 0.6
+          gamma_shape = 0.8
         ),
         rate_ac_prior_distr = create_beta_distr(
           id = 5,
