@@ -72,12 +72,19 @@ clock_model_to_xml_brm <- function(
     text <- c(text, "</branchRateModel>")
   } else if (is_rln_clock_model(clock_model)) {
     mparam_id <- clock_model$mparam_id
-    text <- c(text, paste0("<branchRateModel ",
+    line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-      "clock.rate=\"@ucldMean.c:", id, "\" numberOfDiscreteRates=\"0\" ",
+      "clock.rate=\"@ucldMean.c:", id, "\" ",
+      ifelse(clock_model$normalize_mean_clock_rate == TRUE, "normalize=\"true\" ", ""),
+      "numberOfDiscreteRates=\"",
+      ifelse(clock_model$normalize_mean_clock_rate == TRUE, "1", "0"),
+      "\" ",
       "rateCategories=\"@rateCategories.c:", id, "\" ",
-      "tree=\"@Tree.t:", id, "\">"))
+      "tree=\"@Tree.t:", id, "\">"
+    )
+
+    text <- c(text, line)
     text <- c(text, paste0("    <LogNormal ",
       "id=\"LogNormalDistributionModel.c:", id, "\" ",
       "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))

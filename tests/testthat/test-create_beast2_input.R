@@ -1628,7 +1628,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
           id = 9,
           mu = create_mu_param(id = 204, value = "0.0"),
           scale = create_scale_param(id = 205, value = "1.0")
-        )
+        ),
+        mparam_id = 115
       ),
       create_rln_clock_model(
         mean_clock_rate = 1.3,
@@ -1644,7 +1645,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
           id = 6,
           alpha = create_alpha_param(id = 206, value = "2.0"),
           beta = create_beta_param(id = 207, value = "2.0")
-        )
+        ),
+        mparam_id = 147
       )
     ),
     tree_priors = list(
