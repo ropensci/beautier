@@ -250,22 +250,25 @@ create_beast2_input_distr_prior_prior <- function( # nolint long function name i
     )
   }
 
-  for (i in seq_along(site_models)) {
-    site_model <- site_models[[i]]
-    id <- site_model$id
+  # gamma site models
+  for (site_model in site_models) {
+    text <- c(
+      text,
+      beautier::indent(
+        create_beast2_input_distr_gamma_site_models(site_model), # nolint
+        n_spaces = 12
+      )
+    )
+  }
 
-    site_models_text <- beautier::indent(site_model_to_xml_prior(site_model), n_spaces = 12) # nolint
-    gamma_site_models_text <- create_beast2_input_distr_gamma_site_models(site_model) # nolint
-    prop_invariant <- beautier::get_prop_invariant(get_gamma_site_model(site_model)) # nolint
-
-    # Mix text
-    if (prop_invariant == get_default_prop_invariant()) {
-      text <- c(text, site_models_text)
-      text <- c(text, gamma_site_models_text)
-    } else {
-      text <- c(text, gamma_site_models_text)
-      text <- c(text, site_models_text)
-    }
+  for (site_model in site_models) {
+    text <- c(
+      text,
+      beautier::indent(
+        site_model_to_xml_prior(site_model), # nolint
+        n_spaces = 12
+      )
+    )
   }
 
   for (clock_model in clock_models) {
@@ -472,7 +475,6 @@ create_beast2_input_distr_gamma_site_models <- function( # nolint long function 
     )
     text <- c(text, paste0("</prior>"))
   }
-  text <- beautier::indent(text, n_spaces = 12)
   text
 
 }

@@ -1510,14 +1510,24 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
       create_jc69_site_model(
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 4,
-          gamma_shape = 0.1
+          gamma_shape = 0.1,
+          gamma_shape_prior_distr = create_gamma_distr(
+            id = 32,
+            alpha = create_alpha_param(id = 174, value = "2.0"),
+            beta = create_beta_param(id = 175, value = "2.0")
+          )
         )
       ),
       create_hky_site_model(
         kappa = "2.1",
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 3,
-          gamma_shape = 0.2
+          gamma_shape = 0.2,
+          gamma_shape_prior_distr = create_beta_distr(
+            id = 4,
+            alpha = create_alpha_param(id = 178, value = "2.0"),
+            beta = create_beta_param(id = 179, value = "2.0")
+          )
         )
       ),
       create_tn93_site_model(
