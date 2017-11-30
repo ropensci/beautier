@@ -1575,7 +1575,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         rate_gt_param = create_rate_gt_param(value = "1.6"),
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 1,
-          gamma_shape = 0.8
+          gamma_shape = 0.8,
+          prop_invariant = 0.4
         ),
         rate_ac_prior_distr = create_beta_distr(
           id = 5,
