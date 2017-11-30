@@ -1521,7 +1521,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
             id = 32,
             alpha = create_alpha_param(id = 174, value = "2.0"),
             beta = create_beta_param(id = 175, value = "2.0")
-          )
+          ),
+          prop_invariant = 0.7
         )
       ),
       create_hky_site_model(
@@ -1533,7 +1534,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
             id = 4,
             alpha = create_alpha_param(id = 178, value = "2.0"),
             beta = create_beta_param(id = 179, value = "2.0")
-          )
+          ),
+          prop_invariant = 0.6
         ),
         kappa_prior_distr = create_poisson_distr(
           id = 8,
@@ -1597,7 +1599,9 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
       )
     ),
     clock_models = list(
-      create_strict_clock_model(),
+      create_strict_clock_model(
+        clock_rate_param = create_clock_rate_param(value = 1.1)
+      ),
       create_rln_clock_model(
         mean_clock_rate = 1.1,
         n_rate_categories = 0,
