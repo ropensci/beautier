@@ -222,16 +222,22 @@ name="alignment">
             <prior id="DeathRatePrior.t:anthus_aco" name="distribution" x="@BDDeathRate.t:anthus_aco">
                 <OneOnX id="OneOnX.16" name="distr"/>
             </prior>
-            <prior id="YuleBirthRatePrior.t:anthus_nd4" name="distribution" x="@birthRate.t:anthus_nd4">
-                <LogNormal id="LogNormalDistributionModel.16" name="distr">
-                    <parameter id="RealParameter.171" estimate="false" name="M">1.0</parameter>
-                    <parameter id="RealParameter.172" estimate="false" lower="0.0" name="S" upper="5.0">1.25</parameter>
-                </LogNormal>
+            <prior id="PopSizePrior.t:anthus_nd2" name="distribution" x="@popSize.t:anthus_nd2">
+                <Gamma id="Gamma.36" name="distr">
+                    <parameter id="RealParameter.188" estimate="false" name="alpha">2.0</parameter>
+                    <parameter id="RealParameter.189" estimate="false" name="beta">2.0</parameter>
+                </Gamma>
             </prior>
             <prior id="ePopSizePrior.t:anthus_nd3" name="distribution" x="@ePopSize.t:anthus_nd3">
                 <Exponential id="Exponential.8" name="distr">
                     <parameter id="RealParameter.173" estimate="false" name="mean">1.0</parameter>
                 </Exponential>
+            </prior>
+            <prior id="YuleBirthRatePrior.t:anthus_nd4" name="distribution" x="@birthRate.t:anthus_nd4">
+                <LogNormal id="LogNormalDistributionModel.16" name="distr">
+                    <parameter id="RealParameter.171" estimate="false" name="M">1.0</parameter>
+                    <parameter id="RealParameter.172" estimate="false" lower="0.0" name="S" upper="5.0">1.25</parameter>
+                </LogNormal>
             </prior>
             <prior id="GammaShapePrior.s:anthus_aco" name="distribution" x="@gammaShape.s:anthus_aco">
                 <Gamma id="Gamma.32" name="distr">
@@ -271,12 +277,6 @@ name="alignment">
                 <Gamma id="Gamma.35" name="distr">
                     <parameter id="RealParameter.186" estimate="false" name="alpha">2.0</parameter>
                     <parameter id="RealParameter.187" estimate="false" name="beta">2.0</parameter>
-                </Gamma>
-            </prior>
-            <prior id="PopSizePrior.t:anthus_nd2" name="distribution" x="@popSize.t:anthus_nd2">
-                <Gamma id="Gamma.36" name="distr">
-                    <parameter id="RealParameter.188" estimate="false" name="alpha">2.0</parameter>
-                    <parameter id="RealParameter.189" estimate="false" name="beta">2.0</parameter>
                 </Gamma>
             </prior>
             <prior id="RateACPrior.s:anthus_nd4" name="distribution" x="@rateAC.s:anthus_nd4">
