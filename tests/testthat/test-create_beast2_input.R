@@ -1600,16 +1600,27 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
       create_strict_clock_model(),
       create_rln_clock_model(
         mean_clock_rate = 1.1,
-        n_rate_categories = 0
+        n_rate_categories = 0,
+        mean_rate_prior_distr = create_normal_distr(
+          id = 5,
+          mean = create_mean_param(id = 197, value = "0.0"),
+          sigma = create_sigma_param(id = 198, value = "1.0")
+        )
       ),
       create_rln_clock_model(
         mean_clock_rate = 1.2,
         n_rate_categories = 1,
-        normalize_mean_clock_rate = TRUE
+        normalize_mean_clock_rate = TRUE,
+        mean_rate_prior_distr = create_one_div_x_distr(id = 17)
       ),
       create_rln_clock_model(
         mean_clock_rate = 1.3,
-        n_rate_categories = 2
+        n_rate_categories = 2,
+        mean_rate_prior_distr = create_log_normal_distr(
+          id = 17,
+          m = create_m_param(id = 199, value = "1.0"),
+          s = create_s_param(id = 200, value = "1.25")
+        )
       )
     ),
     tree_priors = list(

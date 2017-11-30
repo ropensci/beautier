@@ -70,13 +70,24 @@ init_rln_clock_model <- function(
   param_id
 ) {
   testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  ucldstdev_distr <- init_distr(
+    rln_clock_model$ucldstdev_distr,
+    distr_id,
+    param_id
+  )
+  distr_id <- distr_id + 1
+  param_id <- param_id + get_distr_n_params(ucldstdev_distr)
+  mean_rate_prior_distr <- init_distr(
+    rln_clock_model$mean_rate_prior_distr,
+    distr_id,
+    param_id
+  )
+  distr_id <- distr_id + 1
+  param_id <- param_id + get_distr_n_params(mean_rate_prior_distr)
 
   result <- create_rln_clock_model(
-    ucldstdev_distr = init_distr(
-      rln_clock_model$ucldstdev_distr,
-      distr_id,
-      param_id
-    ),
+    ucldstdev_distr = ucldstdev_distr,
+    mean_rate_prior_distr = mean_rate_prior_distr,
     mean_clock_rate = rln_clock_model$mean_clock_rate,
     n_rate_categories = rln_clock_model$n_rate_categories,
     normalize_mean_clock_rate = rln_clock_model$normalize_mean_clock_rate

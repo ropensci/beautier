@@ -5,7 +5,8 @@
 \title{Create a relaxed log-normal clock model}
 \usage{
 create_rln_clock_model(id = NA, ucldstdev_distr = create_gamma_distr(),
-  mparam_id = NA, mean_clock_rate = 1, n_rate_categories = -1,
+  mean_rate_prior_distr = create_uniform_distr(), mparam_id = NA,
+  mean_clock_rate = 1, n_rate_categories = -1,
   normalize_mean_clock_rate = FALSE)
 }
 \arguments{

@@ -65,6 +65,7 @@ create_clock_model <- function(
 create_rln_clock_model <- function(
   id = NA,
   ucldstdev_distr = create_gamma_distr(),
+  mean_rate_prior_distr = create_uniform_distr(), # don't know default distribution
   mparam_id = NA,
   mean_clock_rate = 1.0,
   n_rate_categories = -1,
@@ -74,6 +75,7 @@ create_rln_clock_model <- function(
     name = "relaxed_log_normal",
     id = id,
     ucldstdev_distr = ucldstdev_distr,
+    mean_rate_prior_distr = mean_rate_prior_distr,
     mparam_id = mparam_id,
     mean_clock_rate = mean_clock_rate,
     n_rate_categories = n_rate_categories,
