@@ -35,6 +35,7 @@ Prefer using the
   \code{\link{create_rate_ag_param}},
   \code{\link{create_rate_at_param}},
   \code{\link{create_rate_cg_param}},
+  \code{\link{create_rate_ct_param}},
   \code{\link{create_rate_gt_param}},
   \code{\link{create_s_param}},
   \code{\link{create_scale_param}},

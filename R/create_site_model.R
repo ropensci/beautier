@@ -192,6 +192,8 @@ create_tn93_site_model <- function(
 #'   as returned by \code{\link{create_rate_at_param}})
 #' @param rate_cg_param the 'rate CG' parameter,
 #'   as returned by \code{\link{create_rate_cg_param}})
+#' @param rate_ct_param the 'rate CT' parameter,
+#'   as returned by \code{\link{create_rate_ct_param}})
 #' @param rate_gt_param the 'rate GT' parameter,
 #'   as returned by \code{\link{create_rate_gt_param}})
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
@@ -237,6 +239,7 @@ create_gtr_site_model <- function(
   rate_ag_param = create_rate_ag_param(),
   rate_at_param = create_rate_at_param(),
   rate_cg_param = create_rate_cg_param(),
+  rate_ct_param = create_rate_ct_param(estimate = FALSE),
   rate_gt_param = create_rate_gt_param(),
   freq_equilibrium = "estimated"
 ) {
@@ -253,6 +256,7 @@ create_gtr_site_model <- function(
     rate_ag_param = rate_ag_param,
     rate_at_param = rate_at_param,
     rate_cg_param = rate_cg_param,
+    rate_ct_param = rate_ct_param,
     rate_gt_param = rate_gt_param,
     freq_equilibrium = freq_equilibrium
   )

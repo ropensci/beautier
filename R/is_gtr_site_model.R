@@ -31,6 +31,8 @@ is_gtr_site_model <- function(
   if (!beautier::is_param(x$rate_at_param)) return(FALSE)
   if (!"rate_cg_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_cg_param)) return(FALSE)
+  if (!"rate_ct_param" %in% names(x)) return(FALSE)
+  if (!beautier::is_param(x$rate_ct_param)) return(FALSE)
   if (!"rate_gt_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_gt_param)) return(FALSE)
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)

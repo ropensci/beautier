@@ -4,14 +4,15 @@
 \alias{create_rate_cg_param}
 \title{Create a parameter called 'rate CG'}
 \usage{
-create_rate_cg_param(id = NA, lower = "0.0", value = "1.0")
+create_rate_cg_param(id = NA, estimate = TRUE, value = "1.0",
+  lower = "0.0")
 }
 \arguments{
 \item{id}{the parameter's ID}
 
-\item{lower}{lowest possible value of the parameter}
-
 \item{value}{value of the parameter}
+
+\item{lower}{lowest possible value of the parameter}
 }
 \value{
 a parameter called 'rate CG'

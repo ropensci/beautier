@@ -190,6 +190,7 @@ test_that("Reproduce gtr_2_4.xml", {
         alpha = create_alpha_param(id = 17, value = "0.05"),
         beta = create_beta_param(id = 18, value = "10.0")
       )
+
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
@@ -197,7 +198,6 @@ test_that("Reproduce gtr_2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "gtr_2_4.xml", package = "beautier"))
-
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -1572,6 +1572,7 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         rate_ag_param = create_rate_ag_param(value = "1.2"),
         rate_at_param = create_rate_at_param(value = "1.3"),
         rate_cg_param = create_rate_cg_param(value = "1.4"),
+        rate_ct_param = create_rate_cg_param(value = "1.5", estimate = FALSE),
         rate_gt_param = create_rate_gt_param(value = "1.6"),
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 1,

@@ -17,6 +17,7 @@
 #'   \code{\link{create_rate_ag_param}},
 #'   \code{\link{create_rate_at_param}},
 #'   \code{\link{create_rate_cg_param}},
+#'   \code{\link{create_rate_ct_param}},
 #'   \code{\link{create_rate_gt_param}},
 #'   \code{\link{create_s_param}},
 #'   \code{\link{create_scale_param}},
@@ -95,13 +96,11 @@ create_alpha_param <- function(
   estimate = FALSE,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "alpha",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "alpha",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
 
@@ -149,13 +148,11 @@ create_beta_param <- function(
   estimate = FALSE,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "beta",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "beta",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
 
@@ -197,13 +194,11 @@ create_clock_rate_param <- function(
   estimate = FALSE,
   value = "1.0"
 ) {
-  return(
-    beautier::create_param(
-      name = "clock_rate",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "clock_rate",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
 
@@ -283,12 +278,10 @@ create_lambda_param <- function(
   id = NA,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "lambda",
-      id = id,
-      value = value
-    )
+  beautier::create_param(
+    name = "lambda",
+    id = id,
+    value = value
   )
 }
 
@@ -332,13 +325,11 @@ create_m_param <- function(
   estimate = FALSE,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "m",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "m",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
 
@@ -454,16 +445,16 @@ create_mu_param <- function(
 #' @export
 create_rate_ac_param <- function(
   id = NA,
-  lower = "0.0",
-  value = "1.0"
+  estimate = TRUE,
+  value = "1.0",
+  lower = "0.0"
 ) {
-  return(
-    beautier::create_param(
-      name = "rate_ac",
-      id = id,
-      lower = lower,
-      value = value
-    )
+  beautier::create_param(
+    name = "rate_ac",
+    id = id,
+    estimate = estimate,
+    value = value,
+    lower = lower
   )
 }
 
@@ -481,16 +472,16 @@ create_rate_ac_param <- function(
 #' @export
 create_rate_ag_param <- function(
   id = NA,
-  lower = "0.0",
-  value = "1.0"
+  estimate = TRUE,
+  value = "1.0",
+  lower = "0.0"
 ) {
-  return(
-    beautier::create_param(
-      name = "rate_ag",
-      id = id,
-      lower = lower,
-      value = value
-    )
+  beautier::create_param(
+    name = "rate_ag",
+    id = id,
+    estimate = estimate,
+    value = value,
+    lower = lower
   )
 }
 
@@ -508,14 +499,16 @@ create_rate_ag_param <- function(
 #' @export
 create_rate_at_param <- function(
   id = NA,
-  lower = "0.0",
-  value = "1.0"
+  estimate = TRUE,
+  value = "1.0",
+  lower = "0.0"
 ) {
   beautier::create_param(
     name = "rate_at",
     id = id,
-    lower = lower,
-    value = value
+    estimate = estimate,
+    value = value,
+    lower = lower
   )
 }
 
@@ -533,16 +526,43 @@ create_rate_at_param <- function(
 #' @export
 create_rate_cg_param <- function(
   id = NA,
-  lower = "0.0",
-  value = "1.0"
+  estimate = TRUE,
+  value = "1.0",
+  lower = "0.0"
 ) {
-  return(
-    beautier::create_param(
-      name = "rate_cg",
-      id = id,
-      lower = lower,
-      value = value
-    )
+  beautier::create_param(
+    name = "rate_cg",
+    id = id,
+    estimate = estimate,
+    value = value,
+    lower = lower
+  )
+}
+
+#' Create a parameter called 'rate CT'
+#' @inheritParams create_param
+#' @param value value of the parameter
+#' @param lower lowest possible value of the parameter
+#' @return a parameter called 'rate CT'
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rate_ct_param <- create_rate_ct_param()
+#'   testit::assert(is_rate_ct_param(rate_ct_param))
+#' @export
+create_rate_ct_param <- function(
+  id = NA,
+  estimate = TRUE,
+  value = "1.0",
+  lower = "0.0"
+) {
+  beautier::create_param(
+    name = "rate_ct",
+    id = id,
+    estimate = estimate,
+    value = value,
+    lower = lower
   )
 }
 
@@ -560,16 +580,16 @@ create_rate_cg_param <- function(
 #' @export
 create_rate_gt_param <- function(
   id = NA,
-  lower = "0.0",
-  value = "1.0"
+  estimate = TRUE,
+  value = "1.0",
+  lower = "0.0"
 ) {
-  return(
-    beautier::create_param(
-      name = "rate_gt",
-      id = id,
-      lower = lower,
-      value = value
-    )
+  beautier::create_param(
+    name = "rate_gt",
+    id = id,
+    estimate = estimate,
+    lower = lower,
+    value = value
   )
 }
 

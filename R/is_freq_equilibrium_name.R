@@ -16,4 +16,3 @@ is_freq_equilibrium_name <- function(
 ) {
   name %in% beautier::get_freq_equilibrium_names()
 }
-

@@ -19,6 +19,7 @@ create_gtr_site_model(id = NA, gamma_site_model = create_gamma_site_model(),
   rate_ag_param = create_rate_ag_param(),
   rate_at_param = create_rate_at_param(),
   rate_cg_param = create_rate_cg_param(),
+  rate_ct_param = create_rate_ct_param(),
   rate_gt_param = create_rate_gt_param(), freq_equilibrium = "estimated")
 }
 \arguments{
@@ -54,6 +55,9 @@ as returned by \code{\link{create_rate_at_param}})}
 
 \item{rate_cg_param}{the 'rate CG' parameter,
 as returned by \code{\link{create_rate_cg_param}})}
+
+\item{rate_ct_param}{the 'rate CT' parameter,
+as returned by \code{\link{create_rate_ct_param}})}
 
 \item{rate_gt_param}{the 'rate GT' parameter,
 as returned by \code{\link{create_rate_gt_param}})}

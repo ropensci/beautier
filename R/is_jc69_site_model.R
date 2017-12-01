@@ -9,6 +9,6 @@
 is_jc69_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
+  if (!beautier::is_site_model(x)) return(FALSE)
   x$name == "JC69"
 }

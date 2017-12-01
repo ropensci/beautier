@@ -42,6 +42,8 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_rate_at(parameter)) # nolint internal function
   } else if (beautier::is_rate_cg_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_cg(parameter)) # nolint internal function
+  } else if (beautier::is_rate_ct_param(parameter)) {
+    text <- c(text, parameter_to_xml_rate_ct(parameter)) # nolint internal function
   } else if (beautier::is_rate_gt_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_gt(parameter)) # nolint internal function
   } else if (beautier::is_s_param(parameter)) {
@@ -350,6 +352,25 @@ parameter_to_xml_rate_cg <- function(
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"rateCG.s:", id, "\" ",
+    "lower=\"", lower, "\" ",
+    "name=\"stateNode\">", value, "</parameter>"
+  )
+}
+
+#' Converts a 'rate CT' parameter to XML
+#' @param parameter a 'rate CT' parameter,
+#'   as created by \code{\link{create_rate_ct_param}})
+#' @return the parameter as XML text
+#' @author Richel J.C. Bilderbeek
+parameter_to_xml_rate_ct <- function(
+  parameter
+) {
+  testit::assert(beautier::is_rate_ct_param(parameter))
+  id <- beautier::get_param_id(parameter)
+  testit::assert(beautier::is_id(id))
+  value <- parameter$value
+  lower <- parameter$lower
+  paste0("<parameter id=\"rateCT.s:", id, "\" ",
     "lower=\"", lower, "\" ",
     "name=\"stateNode\">", value, "</parameter>"
   )

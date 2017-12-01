@@ -27,6 +27,7 @@ Get the parameter names
   testthat::expect_true("rate_ag" \%in\% names)
   testthat::expect_true("rate_at" \%in\% names)
   testthat::expect_true("rate_cg" \%in\% names)
+  testthat::expect_true("rate_ct" \%in\% names)
   testthat::expect_true("rate_gt" \%in\% names)
   testthat::expect_true("s" \%in\% names)
   testthat::expect_true("scale" \%in\% names)
