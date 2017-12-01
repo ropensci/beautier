@@ -4,7 +4,7 @@
 \alias{init_tn93_site_model}
 \title{Initializes a TN93 site model}
 \usage{
-init_tn93_site_model(tn93_site_model, distr_id, param_id)
+init_tn93_site_model(tn93_site_model, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{tn93_site_model}{a TN93 site model,
@@ -19,6 +19,12 @@ an initialized TN93 site model
 }
 \description{
 Initializes a TN93 site model
+}
+\examples{
+  tn93_site_model <- create_tn93_site_model()
+  testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))
+  tn93_site_model <- beautier:::init_tn93_site_model(tn93_site_model)
+  testit::assert(beautier:::is_init_tn93_site_model(tn93_site_model))
 }
 \author{
 Richel J.C. Bilderbeek

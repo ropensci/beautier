@@ -4,7 +4,7 @@
 \alias{init_hky_site_model}
 \title{Initializes an HKY site model}
 \usage{
-init_hky_site_model(hky_site_model, distr_id, param_id)
+init_hky_site_model(hky_site_model, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{hky_site_model}{an HKY site model,
@@ -19,6 +19,12 @@ an initialized HKY site model
 }
 \description{
 Initializes an HKY site model
+}
+\examples{
+  hky_site_model <- create_hky_site_model()
+  testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
+  hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
+  testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
 }
 \author{
 Richel J.C. Bilderbeek

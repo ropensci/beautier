@@ -69,6 +69,11 @@ init_site_models <- function(
 #' @inheritParams init_site_models
 #' @return an initialized GTR site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   gtr_site_model <- create_gtr_site_model()
+#'   testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
+#'   gtr_site_model <- beautier:::init_gtr_site_model(gtr_site_model)
+#'   testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
 init_gtr_site_model <- function(
   gtr_site_model,
   distr_id = 0,
@@ -170,10 +175,15 @@ init_gtr_site_model <- function(
 #' @inheritParams init_site_models
 #' @return an initialized HKY site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   hky_site_model <- create_hky_site_model()
+#'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
+#'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
+#'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
 init_hky_site_model <- function(
   hky_site_model,
-  distr_id,
-  param_id
+  distr_id = 0,
+  param_id = 0
 ) {
   testit::assert(beautier::is_hky_site_model(hky_site_model))
 
@@ -198,10 +208,15 @@ init_hky_site_model <- function(
 #' @inheritParams init_site_models
 #' @return an initialized TN93 site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   tn93_site_model <- create_tn93_site_model()
+#'   testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))
+#'   tn93_site_model <- beautier:::init_tn93_site_model(tn93_site_model)
+#'   testit::assert(beautier:::is_init_tn93_site_model(tn93_site_model))
 init_tn93_site_model <- function(
   tn93_site_model,
-  distr_id,
-  param_id
+  distr_id = 0,
+  param_id = 0
 ) {
   testit::assert(beautier::is_tn93_site_model(tn93_site_model))
   kappa_1_prior_distr <- init_distr(

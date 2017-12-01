@@ -20,6 +20,12 @@ an initialized GTR site model
 \description{
 Initializes a GTR site model
 }
+\examples{
+  gtr_site_model <- create_gtr_site_model()
+  testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
+  gtr_site_model <- beautier:::init_gtr_site_model(gtr_site_model)
+  testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
+}
 \author{
 Richel J.C. Bilderbeek
 }
