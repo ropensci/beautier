@@ -1599,7 +1599,8 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
         ),
         rate_gt_prior_distr = create_uniform_distr(
           id = 40
-        )
+        ),
+        freq_equilibrium = "all_equal"
       )
     ),
     clock_models = list(
