@@ -367,7 +367,7 @@ parameter_to_xml_rate_ct <- function(
   parameter,
   which_name = "state_node"
 ) {
-  if (!name %in% c("state_node", "rate_name")) {
+  if (!which_name %in% c("state_node", "rate_name")) {
     stop("'name' must be either 'state_node' or 'rate_name'")
   }
   testit::assert(beautier::is_rate_ct_param(parameter))
