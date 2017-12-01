@@ -433,6 +433,8 @@ create_mu_param <- function(
 
 #' Create a parameter called 'rate AC'
 #' @inheritParams create_param
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called 'rate AC'
@@ -460,6 +462,8 @@ create_rate_ac_param <- function(
 
 #' Create a parameter called 'rate AG'
 #' @inheritParams create_param
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called 'rate AG'
@@ -487,6 +491,8 @@ create_rate_ag_param <- function(
 
 #' Create a parameter called 'rate AT'
 #' @inheritParams create_param
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called 'rate AT'
@@ -514,6 +520,8 @@ create_rate_at_param <- function(
 
 #' Create a parameter called 'rate CG'
 #' @inheritParams create_param
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called 'rate CG'
@@ -541,6 +549,8 @@ create_rate_cg_param <- function(
 
 #' Create a parameter called 'rate CT'
 #' @inheritParams create_param
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called 'rate CT'
@@ -568,6 +578,8 @@ create_rate_ct_param <- function(
 
 #' Create a parameter called 'rate GT'
 #' @inheritParams create_param
+#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
+#'   FALSE otherwise
 #' @param value value of the parameter
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called 'rate GT'

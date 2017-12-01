@@ -10,6 +10,9 @@ create_rate_cg_param(id = NA, estimate = TRUE, value = "1.0",
 \arguments{
 \item{id}{the parameter's ID}
 
+\item{estimate}{TRUE if this parameter mu be estimated by BEAST2,
+FALSE otherwise}
+
 \item{value}{value of the parameter}
 
 \item{lower}{lowest possible value of the parameter}
