@@ -22,6 +22,11 @@ by \code{\link{create_gamma_site_model}}}
 which is a log-normal distribution
 (as created by \code{\link{create_log_normal_distr}})
 by default}
+
+\item{freq_equilibrium}{the frequency in which the rates are at equilibrium
+are either \code{estimated}, \code{empirical} or \code{all_equal}.
+\code{\link{get_freq_equilibrium_names}} returns the possible values
+for \code{freq_equilibrium}}
 }
 \value{
 an HKY site_model

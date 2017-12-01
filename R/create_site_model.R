@@ -79,6 +79,10 @@ create_jc69_site_model <- function(
 #'   which is a log-normal distribution
 #'   (as created by \code{\link{create_log_normal_distr}})
 #'   by default
+#' @param freq_equilibrium the frequency in which the rates are at equilibrium
+#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
+#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   for \code{freq_equilibrium}
 #' @return an HKY site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -125,6 +129,10 @@ create_hky_site_model <- function(
 #'   as returned by \code{\link{create_kappa_1_param}}
 #' @param kappa_2_param the 'kappa 2' parameter,
 #'   as returned by \code{\link{create_kappa_2_param}}
+#' @param freq_equilibrium the frequency in which the rates are at equilibrium
+#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
+#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   for \code{freq_equilibrium}
 #' @return a TN93 site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -186,6 +194,10 @@ create_tn93_site_model <- function(
 #'   as returned by \code{\link{create_rate_cg_param}})
 #' @param rate_gt_param the 'rate GT' parameter,
 #'   as returned by \code{\link{create_rate_gt_param}})
+#' @param freq_equilibrium the frequency in which the rates are at equilibrium
+#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
+#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   for \code{freq_equilibrium}
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples

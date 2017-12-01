@@ -37,6 +37,11 @@ by default}
 which is a log-normal distribution
 (as created by \code{\link{create_log_normal_distr}})
 by default}
+
+\item{freq_equilibrium}{the frequency in which the rates are at equilibrium
+are either \code{estimated}, \code{empirical} or \code{all_equal}.
+\code{\link{get_freq_equilibrium_names}} returns the possible values
+for \code{freq_equilibrium}}
 }
 \value{
 a TN93 site_model
