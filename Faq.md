@@ -6,10 +6,9 @@ Version 2.4.7.
 
 ## What's the roadmap?
 
-For version (`v1.10`), the interface for one alignment will probably remain stable.
+For version (`v1.10`), the interface for one alignment will probably remain stable. 
 
- * `v1.11`/`v2.0`: support two alignments well, allow shared site model, clock model and tree prior. This may change the interface of `create_beast2_input`. If that interface changes, new version will be `v2.0` 
- * `v1.12`/`v2.1`: support more than two alignments well
+ * `v2.0`: support multiple alignments well, allow shared site model, clock model and tree prior
 
 There are some minor things that can be added, see 'How can I indicate a feature that I miss?'
 to request so.

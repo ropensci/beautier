@@ -57,7 +57,7 @@ See [FAQ](Faq.md)
 
 `beautier` cannot do everything `BEAUti` can. 
 
-Here are some missing or unsupported features:
+Here are some missing or (yet) unsupported features:
 
  * Support for amino acid sequences
  * Support for three or more alignments with a mix of linked site models, clock models and tree priors
