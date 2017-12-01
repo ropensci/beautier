@@ -1699,6 +1699,7 @@ test_that("Reproduce aco_nd2_nd3_nd4_complex_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_nd3_nd4_complex_modified_2_4.xml", package = "beautier"))
   testit::assert(are_beast2_input_lines(expected_lines))
+  are_equivalent_xml_lines(created_lines, expected_lines)
   beautier:::compare_lines(created_lines, expected_lines)
 
   testthat::expect_identical(created_lines, expected_lines)

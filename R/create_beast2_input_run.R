@@ -57,7 +57,6 @@ create_beast2_input_run <- function(
   )
 
   text <- c(text, create_beast2_input_operators(
-    ids = ids,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,

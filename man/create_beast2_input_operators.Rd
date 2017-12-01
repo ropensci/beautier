@@ -4,14 +4,10 @@
 \alias{create_beast2_input_operators}
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators(ids, site_models = create_jc69_site_models(ids =
-  ids), clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(ids = ids), fixed_crown_age)
+create_beast2_input_operators(site_models, clock_models, tree_priors,
+  fixed_crown_age)
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_ids}})}
-
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 

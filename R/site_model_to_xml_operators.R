@@ -10,39 +10,50 @@ site_model_to_xml_operators <- function(
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
-
   text <- NULL
 
-  # There are three parts: rate, freq and gamma. Order differs
-  gamma_shape_scaler <- create_beast2_input_operators_gamma_shape_scaler(site_model = site_model) # nolint
-  frequencies_exchanger <- create_beast2_input_operators_frequencies_exchanger(site_model = site_model) # nolint
-  rates <- create_beast2_input_operators_rates(site_model = site_model) # nolint
-  gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
-  prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
-
-  if (is_gtr_site_model(site_model)) {
-    if (gcc == 0) {
-      text <- c(text, rates)
-      text <- c(text, frequencies_exchanger)
-    } else if (gcc == 1) {
-      text <- c(text, frequencies_exchanger)
-      text <- c(text, rates)
-    } else {
-      if (prop_invariant == get_default_prop_invariant()) {
-        text <- c(text, frequencies_exchanger)
-        text <- c(text, rates)
-        text <- c(text, gamma_shape_scaler)
-      } else {
-        text <- c(text, gamma_shape_scaler)
-        text <- c(text, frequencies_exchanger)
-        text <- c(text, rates)
-      }
-    }
-  } else {
-    text <- c(text, rates)
-    text <- c(text, gamma_shape_scaler)
-    text <- c(text, frequencies_exchanger)
+  if (is_hky_site_model(site_model)) {
+    text <- c(text, paste0("<operator id=\"KappaScaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@kappa.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+  } else if (is_tn93_site_model(site_model)) {
+    text <- c(text, paste0("<operator id=\"kappa1Scaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0("<operator id=\"kappa2Scaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+  } else if (is_gtr_site_model(site_model)) {
+    text <- c(text, paste0("<operator id=\"RateACScaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0("<operator id=\"RateAGScaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@rateAG.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0("<operator id=\"RateATScaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@rateAT.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0("<operator id=\"RateCGScaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@rateCG.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    text <- c(text, paste0("<operator id=\"RateGTScaler.s:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+  }
+  if (!is_jc69_site_model(site_model)) {
+    text <- c(text, paste0("<operator ",
+      "id=\"FrequenciesExchanger.s:", id, "\" spec=\"DeltaExchangeOperator\" ",
+      "delta=\"0.01\" weight=\"0.1\">"))
+    text <- c(text, paste0("    <parameter ",
+      "idref=\"freqParameter.s:", id, "\"/>"))
+    text <- c(text, paste0("</operator>"))
   }
 
+  if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
+    text <- c(text, paste0("<operator ",
+      "id=\"gammaShapeScaler.s:", id, "\" spec=\"ScaleOperator\" ",
+      "parameter=\"@gammaShape.s:", id, "\" scaleFactor=\"0.5\" ",
+      "weight=\"0.1\"/>"))
+  }
   text
 }
