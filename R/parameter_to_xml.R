@@ -365,7 +365,7 @@ parameter_to_xml_rate_cg <- function(
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_rate_ct <- function(
   parameter,
-  name = "state_node"
+  which_name = "state_node"
 ) {
   if (!name %in% c("state_node", "rate_name")) {
     stop("'name' must be either 'state_node' or 'rate_name'")
@@ -380,8 +380,8 @@ parameter_to_xml_rate_ct <- function(
     line <- paste0(line, " estimate=\"false\"")
   }
   name_str <- NULL
-  if (name == "state_node") name_str <- "stateNode"
-  if (name == "rate_name") name_str <- "rateCT"
+  if (which_name == "state_node") name_str <- "stateNode"
+  if (which_name == "rate_name") name_str <- "rateCT"
   testit::assert(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
