@@ -71,6 +71,7 @@ clock_model_to_xml_brm <- function(
     )
     text <- c(text, "</branchRateModel>")
   } else if (is_rln_clock_model(clock_model)) {
+    n_discrete_rates <- clock_model$n_rate_categories
     mparam_id <- clock_model$mparam_id
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
@@ -79,7 +80,7 @@ clock_model_to_xml_brm <- function(
       ifelse(clock_model$normalize_mean_clock_rate == TRUE,
         "normalize=\"true\" ", ""),
       "numberOfDiscreteRates=\"",
-      ifelse(clock_model$normalize_mean_clock_rate == TRUE, "1", "0"),
+      n_discrete_rates,
       "\" ",
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"
