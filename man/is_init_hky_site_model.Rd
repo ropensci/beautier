@@ -18,6 +18,12 @@ TRUE if x is an initialized HKY site model
 Determine if x is an initialized hky site model
 as created by \code{\link{create_hky_site_model}}
 }
+\examples{
+  hky_site_model <- create_hky_site_model()
+  testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
+  hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
+  testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
+}
 \author{
 Richel J.C. Bilderbeek
 }

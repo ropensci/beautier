@@ -360,19 +360,32 @@ parameter_to_xml_rate_cg <- function(
 #' Converts a 'rate CT' parameter to XML
 #' @param parameter a 'rate CT' parameter,
 #'   as created by \code{\link{create_rate_ct_param}})
+#' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_rate_ct <- function(
-  parameter
+  parameter,
+  name = "state_node"
 ) {
+  if (!name %in% c("state_node", "rate_name")) {
+    stop("'name' must be either 'state_node' or 'rate_name'")
+  }
   testit::assert(beautier::is_rate_ct_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
-  paste0("<parameter id=\"rateCT.s:", id, "\" ",
-    "lower=\"", lower, "\" ",
-    "name=\"stateNode\">", value, "</parameter>"
+  line <- paste0("<parameter id=\"rateCT.s:", id, "\"")
+  if (parameter$estimate == FALSE) {
+    line <- paste0(line, " estimate=\"false\"")
+  }
+  name_str <- NULL
+  if (name == "state_node") name_str <- "stateNode"
+  if (name == "rate_name") name_str <- "rateCT"
+  testit::assert(!is.null(name_str))
+
+  paste0(line, " lower=\"", lower, "\"",
+    " name=\"", name_str, "\">", value, "</parameter>"
   )
 }
 

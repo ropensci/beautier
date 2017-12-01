@@ -9,7 +9,7 @@ is_init_gtr_site_model(x)
 }
 \arguments{
 \item{x}{the object to check if it is an
-initialized HKY site model}
+initialized GTR site model}
 }
 \value{
 TRUE if x is an initialized GTR site model
@@ -17,6 +17,12 @@ TRUE if x is an initialized GTR site model
 \description{
 Determine if x is an initialized GTR site model
 as created by \code{\link{create_gtr_site_model}}
+}
+\examples{
+  gtr_site_model <- create_gtr_site_model()
+  testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
+  gtr_site_model <- beautier:::init_gtr_site_model(gtr_site_model)
+  testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
 }
 \author{
 Richel J.C. Bilderbeek

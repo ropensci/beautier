@@ -4,7 +4,7 @@
 \alias{init_gtr_site_model}
 \title{Initializes a GTR site model}
 \usage{
-init_gtr_site_model(gtr_site_model, distr_id, param_id)
+init_gtr_site_model(gtr_site_model, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{gtr_site_model}{a GTR site model,

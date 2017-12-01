@@ -23,9 +23,14 @@ is_init_site_model <- function(
 #' Determine if x is an initialized GTR site model
 #' as created by \code{\link{create_gtr_site_model}}
 #' @param x the object to check if it is an
-#'   initialized HKY site model
+#'   initialized GTR site model
 #' @return TRUE if x is an initialized GTR site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   gtr_site_model <- create_gtr_site_model()
+#'   testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
+#'   gtr_site_model <- beautier:::init_gtr_site_model(gtr_site_model)
+#'   testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
 is_init_gtr_site_model <- function(
   x
 ) {
@@ -35,6 +40,12 @@ is_init_gtr_site_model <- function(
   if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_cg_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_gt_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_init_param(x$rate_ac_param)) return(FALSE) # nolint internal function
+  if (!is_init_param(x$rate_ag_param)) return(FALSE) # nolint internal function
+  if (!is_init_param(x$rate_at_param)) return(FALSE) # nolint internal function
+  if (!is_init_param(x$rate_cg_param)) return(FALSE) # nolint internal function
+  if (!is_init_param(x$rate_ct_param)) return(FALSE) # nolint internal function
+  if (!is_init_param(x$rate_gt_param)) return(FALSE) # nolint internal function
   TRUE
 }
 
@@ -44,6 +55,11 @@ is_init_gtr_site_model <- function(
 #'   initialized HKY site model
 #' @return TRUE if x is an initialized HKY site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   hky_site_model <- create_hky_site_model()
+#'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
+#'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
+#'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
 is_init_hky_site_model <- function(
   x
 ) {
@@ -57,6 +73,11 @@ is_init_hky_site_model <- function(
 #'   initialized TN93 site model
 #' @return TRUE if x is an initialized TN93 site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   tn93_site_model <- create_tn93_site_model()
+#'   testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))
+#'   tn93_site_model <- beautier:::init_tn93_site_model(tn93_site_model)
+#'   testit::assert(beautier:::is_init_tn93_site_model(tn93_site_model))
 is_init_tn93_site_model <- function(
   x
 ) {

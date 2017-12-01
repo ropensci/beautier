@@ -71,8 +71,8 @@ init_site_models <- function(
 #' @author Richel J.C. Bilderbeek
 init_gtr_site_model <- function(
   gtr_site_model,
-  distr_id,
-  param_id
+  distr_id = 0,
+  param_id = 0
 ) {
   testit::assert(beautier::is_gtr_site_model(gtr_site_model))
 
@@ -85,6 +85,7 @@ init_gtr_site_model <- function(
   rate_ag_param <- gtr_site_model$rate_ag_param
   rate_at_param <- gtr_site_model$rate_at_param
   rate_cg_param <- gtr_site_model$rate_cg_param
+  rate_ct_param <- gtr_site_model$rate_ct_param
   rate_gt_param <- gtr_site_model$rate_gt_param
 
   if (!is_init_distr(rate_ac_prior_distr)) {
@@ -133,6 +134,10 @@ init_gtr_site_model <- function(
     rate_cg_param <- init_param(rate_cg_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
   }
+  if (!is_init_param(rate_ct_param)) {
+    rate_ct_param <- init_param(rate_ct_param, id = param_id) # nolint internal function
+    param_id <- param_id + 1
+  }
   if (!is_init_param(rate_gt_param)) {
     rate_gt_param <- init_param(rate_gt_param, id = param_id) # nolint internal function
     param_id <- param_id + 1
@@ -150,6 +155,7 @@ init_gtr_site_model <- function(
     rate_ag_param = rate_ag_param,
     rate_at_param = rate_at_param,
     rate_cg_param = rate_cg_param,
+    rate_ct_param = rate_ct_param,
     rate_gt_param = rate_gt_param,
     freq_equilibrium = gtr_site_model$freq_equilibrium
   )

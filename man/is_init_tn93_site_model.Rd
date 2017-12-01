@@ -18,6 +18,12 @@ TRUE if x is an initialized TN93 site model
 Determine if x is an initialized tn93 site model
 as created by \code{\link{create_tn93_site_model}}
 }
+\examples{
+  tn93_site_model <- create_tn93_site_model()
+  testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))
+  tn93_site_model <- beautier:::init_tn93_site_model(tn93_site_model)
+  testit::assert(beautier:::is_init_tn93_site_model(tn93_site_model))
+}
 \author{
 Richel J.C. Bilderbeek
 }
