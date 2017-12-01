@@ -45,7 +45,7 @@ site_model_to_xml_subst_model <- function(
         text,
         indent(
           parameter_to_xml_rate_ct(
-            site_model$rate_ct_param, name = "rate_name"
+            site_model$rate_ct_param, which_name = "rate_name"
           ), n_spaces = 4
         )
       )
