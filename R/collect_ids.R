@@ -1,5 +1,5 @@
 #' Of each element of x, extract the \code{id}
-#' @param one or more elements with an \code{id} element
+#' @param x one or more elements with an \code{id} element
 #' @return a vector of IDs
 collect_ids <- function(x) {
   ids <- rep(NA, length(x))

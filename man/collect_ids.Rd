@@ -7,7 +7,7 @@
 collect_ids(x)
 }
 \arguments{
-\item{one}{or more elements with an \code{id} element}
+\item{x}{one or more elements with an \code{id} element}
 }
 \value{
 a vector of IDs
