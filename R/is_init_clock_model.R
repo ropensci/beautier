@@ -27,6 +27,7 @@ is_init_rln_clock_model <- function(
 ) {
   testit::assert(beautier::is_rln_clock_model(x))
   if (!is_init_distr(x$ucldstdev_distr)) return(FALSE) # nolint internal function call
+  if (!is_init_distr(x$mean_rate_prior_distr)) return(FALSE) # nolint internal function call
   !is.na(x$mparam_id)
 }
 

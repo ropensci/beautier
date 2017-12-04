@@ -25,7 +25,8 @@ test_that("RLN clock model", {
   testthat::expect_true(
     beautier:::is_init_clock_model(
       create_rln_clock_model(
-        ucldstdev_distr = create_uniform_distr(id = 1),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        ucldstdev_distr = create_uniform_distr(id = 2),
         mparam_id = 2
       )
     )
