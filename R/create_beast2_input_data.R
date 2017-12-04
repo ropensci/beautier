@@ -5,7 +5,7 @@ create_beast2_input_data <- function(
   input_fasta_filenames,
   misc_options = create_misc_options()
 ) {
-  testit::assert(beautier::files_exist(input_fasta_filenames))
+  testit::assert(files_exist(input_fasta_filenames))
 
   text <- NULL
   n <- length(input_fasta_filenames)

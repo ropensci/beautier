@@ -9,6 +9,8 @@ are_beast2_input_lines(lines, verbose = FALSE,
   method = ifelse(is_on_travis(), "deep", "fast"))
 }
 \arguments{
+\item{lines}{lines of text}
+
 \item{verbose}{if TRUE, BEAST2 output is shown,
 no output otherwise}
 
@@ -16,8 +18,6 @@ no output otherwise}
 The 'deep' method uses BEAST2 to validate the complete file.
 The 'fast' method uses some superficial tests (for example: if all
 IDs are unique)}
-
-\item{text}{lines of text}
 }
 \value{
 TRUE if the text is valid, FALSE if not

@@ -12,7 +12,7 @@ create_beast2_input_beast <- function(
   fixed_crown_age = FALSE,
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
-  testit::assert(beautier::files_exist(input_fasta_filenames))
+  testit::assert(files_exist(input_fasta_filenames))
   testit::assert(length(input_fasta_filenames) >= length(site_models))
   testit::assert(length(input_fasta_filenames) >= length(clock_models))
   testit::assert(length(input_fasta_filenames) == length(tree_priors))

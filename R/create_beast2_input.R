@@ -51,7 +51,7 @@ create_beast2_input <- function(
     testit::assert(class(initial_phylogenies) == "multiPhylo")
   }
   # Check input
-  if (!beautier::files_exist(input_fasta_filenames)) {
+  if (!files_exist(input_fasta_filenames)) {
     stop("input_fasta_filenames not found")
   }
   if (!are_site_models(site_models)) {

@@ -109,7 +109,9 @@ test_that("A fixed crown age must have equal TreeHeights", {
 
   if (!beautier::is_on_travis()) return()
 
-    posterior <- create_posterior(
+  skip("WIP")
+
+  posterior <- create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc = create_mcmc(chain_length = 10000),
@@ -125,6 +127,8 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   "with that TreeHeight"), {
 
   if (!beautier::is_on_travis()) return()
+
+  skip("WIP")
 
   crown_age <- 123
   posterior <- beautier::create_posterior(

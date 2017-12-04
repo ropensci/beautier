@@ -1,6 +1,6 @@
 #' Would these lines of text, when written to a file,
 #'   result in a valid BEAST2 input file?
-#' @param text lines of text
+#' @param lines lines of text
 #' @param method the method to check. Can be 'deep' or 'fast'.
 #'   The 'deep' method uses BEAST2 to validate the complete file.
 #'   The 'fast' method uses some superficial tests (for example: if all

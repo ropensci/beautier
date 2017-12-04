@@ -1,44 +1,91 @@
 #' Determine if XML files result in equivalent trees
-#' @param filename1 name of a first XML file
-#' @param filename2 name of a second XML file
+#' @param filename_1 name of a first XML file
+#' @param filename_2 name of a second XML file
+#' @param section the name of the XML section, use NA to check the whole file
 #' @return TRUE if the two XML files result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 are_equivalent_xml_files <- function(
-  filename1, filename2
+  filename_1,
+  filename_2,
+  section = NA
 ) {
-  if (!file.exists(filename1)) {
-    stop("filename1 must be present")
+  if (!file.exists(filename_1)) {
+    stop(
+      "'filename_1' must be the name of a present file. ",
+      "File name '", filename_1, "' not found"
+    )
   }
-  if (!file.exists(filename2)) {
-    stop("filename2 must be present")
+  if (!file.exists(filename_2)) {
+    stop(
+      "'filename_2' must be the name of a present file. ",
+      "File name '", filename_2, "' not found"
+    )
   }
   are_equivalent_xml_lines(
-    readLines(filename1),
-    readLines(filename2))
+    readLines(filename_1),
+    readLines(filename_2),
+    section = section
+  )
 }
 
 #' Determine if XML lines result in equivalent trees
-#' @param lines1 lines of a first XML file
-#' @param lines2 lines of a second XML file
+#' @param lines_1 lines of a first XML file
+#' @param lines_2 lines of a second XML file
+#' @param section the name of the XML section
 #' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 are_equivalent_xml_lines <- function(
-  lines1, lines2, verbose = FALSE
+  lines_1,
+  lines_2,
+  section = NA,
+  verbose = FALSE
 ) {
-  if (length(lines1) != length(lines2)) {
+  if (is.na(section)) {
+    return(
+      are_equivalent_xml_lines_all(
+        lines_1 = lines_1,
+        lines_2 = lines_2,
+        verbose = verbose
+      )
+    )
+  } else {
+    testit::assert(!is.na(section))
+    return(
+      are_equivalent_xml_lines_section(
+        lines_1 = lines_1,
+        lines_2 = lines_2,
+        section = section,
+        verbose = verbose
+      )
+    )
+  }
+}
+
+#' Determine if XML lines result in equivalent trees
+#' @param lines_1 lines of a first XML file
+#' @param lines_2 lines of a second XML file
+#' @param section the name of the XML section
+#' @param verbose print the reason why the XML lines differ
+#' @return TRUE if the two XML lines result in equivalent trees,
+#'   FALSE otherwise
+#' @author Richel J.C. Bilderbeek
+are_equivalent_xml_lines_all <- function(
+  lines_1,
+  lines_2,
+  verbose = FALSE
+) {
+  if (length(lines_1) != length(lines_2)) {
     if (verbose) {
       print(paste0("different lengths: ",
-        length(lines1), " vs ", length(lines2)))
+        length(lines_1), " vs ", length(lines_2)))
     }
     return(FALSE)
   }
-  for (line in lines1) {
-    if (!line %in% lines2) {
+  for (line in lines_1) {
+    if (!line %in% lines_2) {
       if (verbose) {
         print(paste0("line '", line, "' not found"))
       }
@@ -46,4 +93,47 @@ are_equivalent_xml_lines <- function(
     }
   }
   TRUE
+}
+
+#' Determine if XML lines result in equivalent trees
+#' @param lines_1 lines of a first XML file
+#' @param lines_2 lines of a second XML file
+#' @param section the name of the XML section
+#' @param verbose print the reason why the XML lines differ
+#' @return TRUE if the two XML lines result in equivalent trees,
+#'   FALSE otherwise
+#' @author Richel J.C. Bilderbeek
+are_equivalent_xml_lines_section <- function(
+  lines_1,
+  lines_2,
+  section,
+  verbose = FALSE
+) {
+  if (!has_xml_opening_tag(lines = lines_1, section = section)) {
+    stop(
+      "Opening tag for 'section' could not be found in 'lines_1', ",
+      "'section' has value '", section, "'"
+    )
+  }
+  if (!has_xml_closing_tag(lines = lines_1, section = section)) {
+    stop(
+      "Closing tag for 'section' could not be found in 'lines_1', ",
+      "'section' has value '", section, "'"
+    )
+  }
+  if (!has_xml_opening_tag(lines = lines_2, section = section)) {
+    stop(
+      "Opening tag for 'section' could not be found in 'lines_2', ",
+      "'section' has value '", section, "'"
+    )
+  }
+  if (!has_xml_closing_tag(lines = lines_2, section = section)) {
+    stop(
+      "Closing tag for 'section' could not be found in 'lines_2', ",
+      "'section' has value '", section, "'"
+    )
+  }
+  section_1 <- extract_xml_section_from_lines(lines = lines_1, section = section)
+  section_2 <- extract_xml_section_from_lines(lines = lines_2, section = section)
+  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose)
 }
