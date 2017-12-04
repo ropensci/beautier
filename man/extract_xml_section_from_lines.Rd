@@ -8,11 +8,9 @@ extract_xml_section_from_lines(lines, section)
 }
 \arguments{
 \item{lines}{lines of the XML text}
+
+\item{section}{the XML section name}
 }
 \description{
 Get the lines of an XML section, including the section tags
 }
-\section{the XML section name}{
-NA
-}
-
