@@ -78,6 +78,8 @@ test_that("Create CCP posterior with random initial tree", {
 
   if (!beautier::is_on_travis()) return()
 
+  skip("WIP")
+
   posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
@@ -90,6 +92,8 @@ test_that("Create CCP posterior with random initial tree", {
 test_that("Create BD posterior with random initial tree", {
 
   if (!beautier::is_on_travis()) return()
+
+  skip("WIP")
 
   posterior <- create_posterior(
     n_taxa = 2,
@@ -166,6 +170,8 @@ test_that("Produce XML for Yule species tree prior", {
 
   if (!beautier::is_on_travis()) return()
 
+  skip("WIP")
+
   input_fasta_filename <- get_input_fasta_filename()
   output_xml_filename <- tempfile()
   create_beast2_input_file(
@@ -182,6 +188,8 @@ test_that("Produce XML for Yule species tree prior", {
 test_that("All site models produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
+
+  skip("WIP")
 
   site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -203,6 +211,8 @@ test_that(paste0("All site models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
   if (!beautier::is_on_travis()) return()
+
+  skip("WIP")
 
   site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -228,6 +238,8 @@ test_that("strict clock model produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
+  skip("WIP")
+
   output_xml_filename <- tempfile()
   create_beast2_input_file(
     input_fasta_filenames = get_input_fasta_filename(),
@@ -240,6 +252,7 @@ test_that("strict clock model produce a valid BEAST2 input file", {
 test_that("RLN clock model produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
+
   skip("WIP")
 
   output_xml_filename <- tempfile() # nolint

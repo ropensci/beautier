@@ -1,11 +1,11 @@
-context("save_text")
+context("save_lines")
 
-test_that("save_text: use", {
+test_that("save_lines: use", {
   filename <- tempfile()
-  text <- c("Hello", "world")
-  save_text(
+  lines <- c("Hello", "world")
+  save_lines(
     filename = filename,
-    text = text
+    lines = lines
   )
   expect_equal(file.exists(filename), TRUE)
 

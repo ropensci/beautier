@@ -11,6 +11,9 @@ extract_xml_section_from_lines(lines, section)
 
 \item{section}{the XML section name}
 }
+\value{
+the section's lines of XML text, including the tags
+}
 \description{
 Get the lines of an XML section, including the section tags
 }
