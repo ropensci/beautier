@@ -12,8 +12,6 @@ are_equivalent_xml_lines_all(lines_1, lines_2, verbose = FALSE)
 \item{lines_2}{lines of a second XML file}
 
 \item{verbose}{print the reason why the XML lines differ}
-
-\item{section}{the name of the XML section}
 }
 \value{
 TRUE if the two XML lines result in equivalent trees,
