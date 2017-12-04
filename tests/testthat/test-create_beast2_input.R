@@ -127,8 +127,6 @@ test_that("input is checked, two alignments", {
 
 test_that("Reproduce 2_4.xml", {
 
-  skip("WIP")
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = get_input_fasta_filename(),
     tree_priors = create_yule_tree_prior(
@@ -137,6 +135,12 @@ test_that("Reproduce 2_4.xml", {
 
   expected_lines <- readLines(system.file("extdata",
     "2_4.xml", package = "beautier"))
+
+  testthat::expect_true(
+    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+  )
+
+  skip("WIP")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
@@ -1486,13 +1490,13 @@ test_that("Reproduce aco_nd2_nd3_nd4_2_4.xml", {
     input_fasta_filenames = input_fasta_filenames,
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 111)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 222)),
+        birth_rate_distr = create_uniform_distr(id = 4)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 333)),
+        birth_rate_distr = create_uniform_distr(id = 7)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 444))
+        birth_rate_distr = create_uniform_distr(id = 10))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -1501,7 +1505,7 @@ test_that("Reproduce aco_nd2_nd3_nd4_2_4.xml", {
   )
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_nd3_nd4_2_4.xml", package = "beautier"))
-
+  beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
 })
 

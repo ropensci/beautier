@@ -2,6 +2,8 @@
 
 export(are_beast2_input_lines)
 export(are_clock_models)
+export(are_equal_xml_files)
+export(are_equal_xml_lines)
 export(are_equivalent_xml_files)
 export(are_equivalent_xml_lines)
 export(are_ids)
