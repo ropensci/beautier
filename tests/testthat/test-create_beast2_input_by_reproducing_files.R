@@ -798,8 +798,6 @@ test_that("tn93_gcc_2_2_4.xml", {
 
 test_that("rln_2_4.xml", {
 
-  skip("WIP: call to create_beast2_input fails")
-
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
     clock_models = create_rln_clock_model(
@@ -831,8 +829,6 @@ test_that("rln_2_4.xml", {
 })
 
 test_that("rln_uclstdev_beta_2_4.xml", {
-
-  skip("WIP: call to create_beast2_input fails")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_input_fasta_filename(),
@@ -1788,7 +1784,7 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
 
 test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
 
-  skip("WIP: create_beast2_input interface")
+  skip("WIP: tracelog")
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
@@ -2061,7 +2057,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
 
 test_that("aco_nd2_shared_site_model_2_4.xml", {
 
-  skip("WIP: create_beast2_input interface")
+  skip("WIP: tracelog")
 
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
