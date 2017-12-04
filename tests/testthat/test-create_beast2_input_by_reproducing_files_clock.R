@@ -264,7 +264,8 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
 
 test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
 
-  skip("WIP: tracelog")
+  skip("WIP: interface")
+
   fasta_filename_1 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filename_2 <- system.file("extdata",
