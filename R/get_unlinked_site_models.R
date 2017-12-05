@@ -1,0 +1,17 @@
+#' Get the first site model of each ID
+#' @param site_models a list of one or more site models
+get_unlinked_site_models <- function(site_models) {
+  testit::assert(beautier::are_site_models(site_models))
+  results <- list()
+  ids <- NULL
+  for (site_model in site_models) {
+    id <- site_model$id
+    if (!id %in% ids) {
+      ids <- c(ids, id)
+      results[[length(ids)]] <- site_model
+    }
+  }
+
+  testit::assert(beautier::are_site_models(results))
+  results
+}

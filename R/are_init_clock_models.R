@@ -10,5 +10,5 @@ are_init_clock_models <- function(
   for (i in x) {
     if (!is_init_clock_model(i)) return(FALSE) # nolint internal function call
   }
-  return(TRUE)
+  TRUE
 }

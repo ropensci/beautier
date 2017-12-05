@@ -23,18 +23,15 @@ create_beast2_input_state <- function(
     initial_phylogenies = initial_phylogenies)
   )
 
-  for (site_model in site_models) {
-    new_text <- site_model_to_xml_state(site_model) # nolint internal function
-    if (!is.null(new_text)) text <- c(text, new_text)
-  }
-
-  for (site_model in site_models) {
-    new_text <- indent(
-      gamma_site_model_to_xml_state( # nolint internal function
-        beautier::get_gamma_site_model(site_model), site_model$id),
-      n_spaces = 4
+  site_models_xml <- site_models_to_xml_state(site_models) # nolint internal function
+  if (length(site_models_xml) != 0) {
+    text <- c(
+      text,
+      indent(
+        site_models_xml,
+        n_spaces = 4
+      )
     )
-    if (!is.null(new_text)) text <- c(text, new_text)
   }
 
   clock_models_xml <- clock_models_to_xml_state(clock_models) # nolint internal function
@@ -53,22 +50,6 @@ create_beast2_input_state <- function(
       text,
       beautier::indent(
         tree_prior_to_xml_state(tree_prior),
-        n_spaces = 4
-      )
-    )
-  }
-
-  njcsm <- beautier::find_non_jc69_site_model(site_models)
-  if (!is.null(njcsm)) {
-    text <- c(
-      text,
-      beautier::indent(
-        paste0(
-          "<parameter ",
-          "id=\"freqParameter.s:", njcsm$id, "\" dimension=\"4\" ",
-          "lower=\"0.0\" ",
-          "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
-        ),
         n_spaces = 4
       )
     )

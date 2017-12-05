@@ -50,7 +50,10 @@ create_clock_model <- function(
 #'   -1 is default,
 #'   0 denotes as much rates as branches
 #' @param normalize_mean_clock_rate normalize the mean clock rate
-
+#' @param dimension the dimensionality of the relaxed clock model.
+#'   Leave NA to let beautier calculate it.
+#'   Else, the dimensionality of the clock
+#'   equals twice the number of taxa minus two.
 #' @return a relaxed log-normal clock_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -73,7 +76,8 @@ create_rln_clock_model <- function(
   mparam_id = NA,
   mean_clock_rate = "1.0",
   n_rate_categories = -1,
-  normalize_mean_clock_rate = FALSE
+  normalize_mean_clock_rate = FALSE,
+  dimension = NA
 ) {
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
@@ -83,8 +87,10 @@ create_rln_clock_model <- function(
     mparam_id = mparam_id,
     mean_clock_rate = mean_clock_rate,
     n_rate_categories = n_rate_categories,
-    normalize_mean_clock_rate = normalize_mean_clock_rate
+    normalize_mean_clock_rate = normalize_mean_clock_rate,
+    dimension = dimension
   )
+  testit::assert(is_rln_clock_model(rln_clock_model))
   rln_clock_model
 }
 
@@ -122,5 +128,6 @@ create_strict_clock_model <- function(
     id = id,
     clock_rate_param = clock_rate_param
   )
+  testit::assert(is_strict_clock_model(strict_clock_model))
   strict_clock_model
 }

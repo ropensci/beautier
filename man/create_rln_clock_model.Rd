@@ -8,7 +8,7 @@ create_rln_clock_model(id = NA,
   mean_rate_prior_distr = create_uniform_distr(),
   ucldstdev_distr = create_gamma_distr(), mparam_id = NA,
   mean_clock_rate = "1.0", n_rate_categories = -1,
-  normalize_mean_clock_rate = FALSE)
+  normalize_mean_clock_rate = FALSE, dimension = NA)
 }
 \arguments{
 \item{id}{a clock model's ID}
@@ -30,6 +30,11 @@ set to NA to have it initialized}
 0 denotes as much rates as branches}
 
 \item{normalize_mean_clock_rate}{normalize the mean clock rate}
+
+\item{dimension}{the dimensionality of the relaxed clock model.
+Leave NA to let beautier calculate it.
+Else, the dimensionality of the clock
+equals twice the number of taxa minus two.}
 }
 \value{
 a relaxed log-normal clock_model

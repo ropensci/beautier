@@ -11,10 +11,16 @@ gamma_site_model_to_xml_state <- function(
 ) {
   testit::assert(beautier::is_gamma_site_model(gamma_site_model))
   testit::assert(beautier::is_id(id))
-  if (beautier::get_gamma_cat_count(gamma_site_model) <= 1) return(NULL)
-  paste0("<parameter id=\"gammaShape.s:", id, "\" ",
-    "name=\"stateNode\">",
-    beautier::get_gamma_shape(gamma_site_model),
-    "</parameter>"
-  )
+  text <- NULL
+  if (beautier::get_gamma_cat_count(gamma_site_model) >= 2) {
+    text <- c(
+      text,
+      paste0("<parameter id=\"gammaShape.s:", id, "\" ",
+        "name=\"stateNode\">",
+        gamma_site_model$gamma_shape,
+        "</parameter>"
+      )
+    )
+  }
+  text
 }

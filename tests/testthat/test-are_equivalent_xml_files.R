@@ -30,20 +30,3 @@ test_that("abuse", {
   )
 
 })
-
-test_that("modified files must be equivalent", {
-
-  filename_1 <- system.file("extdata",
-    "aco_nd2_nd3_nd4_complex_2_4.xml", package = "beautier")
-  filename_2 <- system.file("extdata",
-    "aco_nd2_nd3_nd4_complex_modified_2_4.xml", package = "beautier")
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_files(filename_1, filename_2)
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_files(filename_1, filename_2,
-      section = "state")
-  )
-
-})

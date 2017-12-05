@@ -7,7 +7,8 @@ test_that("detect initialized RLN clock models", {
     create_rln_clock_model(
       mean_rate_prior_distr = create_uniform_distr(id = 1),
       ucldstdev_distr = create_uniform_distr(id = 2),
-      mparam_id = 1
+      mparam_id = 1,
+      dimension = 10
     )
   )
   testthat::expect_true(

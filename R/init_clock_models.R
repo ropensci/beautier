@@ -30,6 +30,10 @@ init_clock_models <- function(
           distr_id = distr_id,
           param_id = param_id
         )
+        if (is.na(clock_model$dimension)) {
+          clock_model$dimension <- (2 * length(ids)) - 2
+        }
+
         distr_id <- distr_id  # Has one distributions
         param_id <- param_id + beautier::get_distr_n_params(
           clock_model$ucldstdev_distr) +
