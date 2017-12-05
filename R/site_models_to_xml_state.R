@@ -1,0 +1,37 @@
+#' Converts one or more clock models to the \code{state} section of the
+#' XML as text
+#' @param site_models a list of one or more site_models,
+#'   as created by \code{\link{create_site_model}}
+#' @return lines of XML text, without indentation nor \code{state}
+#'   tags
+#' @author Richel J.C. Bilderbeek
+site_models_to_xml_state <- function(
+  site_models
+) {
+  testit::assert(beautier::are_site_models(site_models))
+
+  # Remove the clock models that share a same alignment
+  site_models <- get_unlinked_site_models(site_models) # nolint internal function
+  testit::assert(beautier::are_site_models(site_models))
+
+  text <- NULL
+  for (site_model in site_models) {
+    text <- c(text,
+      site_model_to_xml_state(site_model)
+    )
+  }
+
+  # Remove the first line of the first clock model, if any
+  site_model <- site_models[[1]]
+  line_to_remove <- site_model_to_xml_state(site_model) # nolint
+  if (is_rln_site_model(site_model)) {
+    # A RLN clock model returns three lines, only remove the first
+    testit::assert(length(line_to_remove) == 3)
+    line_to_remove <- line_to_remove[1]
+  }
+  testit::assert(!is.null(line_to_remove))
+  text <- text[text != line_to_remove]
+
+
+  text
+}

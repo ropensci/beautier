@@ -20,8 +20,8 @@ Determine if the XML text has unique distribution IDs and unique
 \examples{
   line_1 <- "<parameter id=\\"RealParameter.1\\" ...</parameter>"
   line_2 <- "<parameter id=\\"RealParameter.2\\" ...</parameter>"
-  testit::assert(beautier:::has_unique_ids(c(line_1, line_2))
-  testit::assert(!beautier:::has_unique_ids(c(line_1, line_1))
+  testit::assert(beautier:::has_unique_ids(c(line_1, line_2)))
+  testit::assert(!beautier:::has_unique_ids(c(line_1, line_1)))
 }
 \seealso{
 to obtain the duplicate IDs, use \code{\link{get_duplicate_ids}}
