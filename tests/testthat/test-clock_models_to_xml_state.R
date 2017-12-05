@@ -194,3 +194,58 @@ test_that("strict 1.1 strict 1.2 strict 1.3 strict 1.4", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
+
+test_that("RLN -1 RLN 0 RLN 1 RLN 2 rates", {
+
+  # Does not matter for the state section
+  expected <- c(
+    "<parameter id=\"ucldStdev.c:anthus_aco\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_aco\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd2\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd3\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd4\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd4\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd4\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_rln_clock_model(id = "anthus_aco", n_rate_categories = -1),
+      create_rln_clock_model(id = "anthus_nd2", n_rate_categories = 0),
+      create_rln_clock_model(id = "anthus_nd3", n_rate_categories = 1),
+      create_rln_clock_model(id = "anthus_nd4", n_rate_categories = 2)
+    )
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+
+})
+
+test_that("RLN 1.1 RLN 1.2 RLN 1.3 RLN 1.4 clock rates", {
+
+  expected <- c(
+    "<parameter id=\"ucldStdev.c:anthus_aco\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_aco\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd2\" name=\"stateNode\">1.2</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd2\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd3\" name=\"stateNode\">1.3</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd3\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd4\" name=\"stateNode\">1.4</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd4\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd4\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"
+
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_rln_clock_model(id = "anthus_aco", mean_clock_rate = "1.1"),
+      create_rln_clock_model(id = "anthus_nd2", mean_clock_rate = "1.2"),
+      create_rln_clock_model(id = "anthus_nd3", mean_clock_rate = "1.3"),
+      create_rln_clock_model(id = "anthus_nd4", mean_clock_rate = "1.4")
+    )
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})

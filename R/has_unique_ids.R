@@ -7,8 +7,8 @@
 #' @examples
 #'   line_1 <- "<parameter id=\"RealParameter.1\" ...</parameter>"
 #'   line_2 <- "<parameter id=\"RealParameter.2\" ...</parameter>"
-#'   testit::assert(has_unique_ids(c(line_1, line_2))
-#'   testit::assert(!has_unique_ids(c(line_1, line_1))
+#'   testit::assert(beautier:::has_unique_ids(c(line_1, line_2))
+#'   testit::assert(!beautier:::has_unique_ids(c(line_1, line_1))
 has_unique_ids <- function(
   text
 ) {
