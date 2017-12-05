@@ -29,16 +29,14 @@ test_that("rln_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
-  expected_lines <- readLines(system.file("extdata",
-    "rln_2_4.xml", package = "beautier"))
-
-  skip("WIP: state section fails")
-  beautier:::compare_lines(created_lines, expected_lines, section = "state")
+  expected_lines <- readLines(beautier:::get_path("rln_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
+
+  skip("WIP: distribition section fails")
 
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
@@ -65,19 +63,15 @@ test_that("rln_uclstdev_beta_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected_lines <- readLines(system.file("extdata",
-    "rln_uclstdev_beta_2_4.xml", package = "beautier"))
-
-  skip("WIP: state section fails")
+  expected_lines <- readLines(beautier:::get_path("rln_uclstdev_beta_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
 
-  testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
-  )
+  skip("WIP: distribution section fails")
+
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
   )
@@ -99,14 +93,12 @@ test_that("strict_clock_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected_lines <- readLines(system.file("extdata",
-    "strict_clock_2_4.xml", package = "beautier"))
-
-  skip("WIP: state section fails")
+  expected_lines <- readLines(beautier:::get_path("strict_clock_2_4.xml"))
 
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "state")
   )
+
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
   )
@@ -133,10 +125,8 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected_lines <- readLines(system.file("extdata",
-    "strict_clock_rate_0_5_2_4.xml", package = "beautier"))
-
-  skip("WIP: state section fails")
+  expected_lines <- readLines(beautier:::get_path(
+    "strict_clock_rate_0_5_2_4.xml"))
 
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "state")
@@ -158,10 +148,8 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
 
 test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
+  fasta_filename_1 <- beautier:::get_path("anthus_aco.fas")
+  fasta_filename_2 <- beautier:::get_path("anthus_nd2.fas")
   input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
 
   created_lines <- beautier::create_beast2_input(
@@ -187,8 +175,8 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(system.file("extdata",
-    "aco_nd2_strict_rln_2_4.xml", package = "beautier"))
+  expected_lines <- readLines(beautier:::get_path(
+    "aco_nd2_strict_rln_2_4.xml"))
 
   skip("WIP: state section fails")
 
@@ -196,6 +184,7 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
+  beautier:::compare_lines(created_lines, expected_lines, section = "state")
 
   skip("WIP: distribution section fails")
 
@@ -219,22 +208,21 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
 test_that("aco_nd2_rln_rln_2_4.xml", {
 
+  input_fasta_filenames <- c(
+    beautier:::get_path("anthus_aco.fas"),
+    beautier:::get_path("anthus_nd2.fas")
+  )
+  ids <- beautier:::get_ids(input_fasta_filenames)
+
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
-    clock_models = create_rln_clock_model(
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
-      ),
-      mparam_id = 1
-    ),
-    tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1)
+    input_fasta_filenames = input_fasta_filenames,
+    clock_models = list(
+      create_rln_clock_model(),
+      create_rln_clock_model()
     )
   )
-  expected_lines <- readLines(system.file("extdata",
-    "aco_nd2_rln_rln_2_4.xml", package = "beautier"))
+  expected_lines <- readLines(beautier:::get_path(
+    "aco_nd2_rln_rln_2_4.xml"))
 
   skip("WIP: state section fails")
 
@@ -242,6 +230,7 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
+  beautier:::compare_lines(created_lines, expected_lines, section = "state")
 
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
@@ -267,14 +256,14 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
 
   skip("WIP: interface")
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_3 <- system.file("extdata",
-    "anthus_nd3.fas", package = "beautier")
-  fasta_filename_4 <- system.file("extdata",
-    "anthus_nd4.fas", package = "beautier")
+  fasta_filename_1 <- beautier:::get_path(
+    "anthus_aco.fas")
+  fasta_filename_2 <- beautier:::get_path(
+    "anthus_nd2.fas")
+  fasta_filename_3 <- beautier:::get_path(
+    "anthus_nd3.fas")
+  fasta_filename_4 <- beautier:::get_path(
+    "anthus_nd4.fas")
   input_fasta_filenames <- c(
     fasta_filename_1, fasta_filename_2, fasta_filename_3, fasta_filename_4
   )
@@ -297,8 +286,8 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(system.file("extdata",
-    "aco_nd2_nd3_nd4_shared_clock_2_4.xml", package = "beautier"))
+  expected_lines <- readLines(beautier:::get_path(
+    "aco_nd2_nd3_nd4_shared_clock_2_4.xml"))
 
   skip("WIP: state section fails")
 
