@@ -15,7 +15,7 @@ names can be found in \code{\link{get_clock_model_names}}}
 \item{...}{specific clock model parameters}
 }
 \value{
-a clock_model
+a valid clock model
 }
 \description{
 General function to create a clock model
@@ -27,7 +27,9 @@ Prefer using the named function
 }
 \seealso{
 An alignment ID can be extracted from
-  its FASTA filesname using \code{\link{get_id}}
+  its FASTA filesname using \code{\link{get_id}}.
+  \code{\link{is_clock_model}} can be used to verify the created clock
+  model is valid
 }
 \author{
 Richel J.C. Bilderbeek

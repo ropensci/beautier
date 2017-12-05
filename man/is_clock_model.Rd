@@ -15,3 +15,7 @@ TRUE if the clock_model is a valid clock_model, FALSE otherwise
 \description{
 Determine if the object is a valid clock_model
 }
+\seealso{
+see \code{\link{create_clock_model}} for an overview of functions
+  to create valid clock model
+}

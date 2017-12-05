@@ -1,0 +1,173 @@
+context("clock_models_to_xml_state")
+
+test_that("strict strict strict strict", {
+
+  expected <- c(
+    # Note the absence of anthus_aco
+    "<parameter id=\"clockRate.c:anthus_nd2\" name=\"stateNode\">1.0</parameter>", # nolint
+    "<parameter id=\"clockRate.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>", # nolint
+    "<parameter id=\"clockRate.c:anthus_nd4\" name=\"stateNode\">1.0</parameter>"  # nolint
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_nd2"),
+      create_strict_clock_model(id = "anthus_nd3"),
+      create_strict_clock_model(id = "anthus_nd4")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+test_that("RLN RLN RLN RLN", {
+
+  expected <- c(
+    # note the absence of ucldMean.c for anthus_aco
+    "<parameter id=\"ucldStdev.c:anthus_aco\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_aco\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd2\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd3\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"ucldMean.c:anthus_nd4\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd4\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd4\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_rln_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_nd2"),
+      create_rln_clock_model(id = "anthus_nd3"),
+      create_rln_clock_model(id = "anthus_nd4")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+
+test_that("strict, RLN, strict, RLN", {
+
+  expected <- c(
+    # Note the absence of anthus_aco
+    "<parameter id=\"ucldMean.c:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd2\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"clockRate.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldMean.c:anthus_nd4\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd4\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd4\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_nd2"),
+      create_strict_clock_model(id = "anthus_nd3"),
+      create_rln_clock_model(id = "anthus_nd4")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+test_that("RLN, strict, RLN, strict", {
+
+  expected <- c(
+    # note the absence of ucldMean.c for anthus_aco
+    "<parameter id=\"ucldStdev.c:anthus_aco\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_aco\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"clockRate.c:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldMean.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
+    "<parameter id=\"ucldStdev.c:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_nd3\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"clockRate.c:anthus_nd4\" name=\"stateNode\">1.0</parameter>"
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_rln_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_nd2"),
+      create_rln_clock_model(id = "anthus_nd3"),
+      create_strict_clock_model(id = "anthus_nd4")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+
+
+test_that("shared strict clock by (aco, nd2, nd3, nd4)", {
+
+  expected <- c(
+    # None at all
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_aco")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+test_that("shared RLN clock", {
+
+  expected <- c(
+    # Nothing at all
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_rln_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_aco")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+test_that("shared strict clocks by (aco, nd2) and (nd3, nd4)", {
+
+  expected <- c(
+    "<parameter id=\"clockRate.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>"
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_nd3"),
+      create_strict_clock_model(id = "anthus_nd3")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+test_that("(aco, nd2) share RLN clocks, (nd3, nd4) share strict clocks", {
+
+  expected <- c(
+    "<parameter id=\"ucldStdev.c:anthus_aco\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_aco\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>",
+    "<parameter id=\"clockRate.c:anthus_nd3\" name=\"stateNode\">1.0</parameter>"
+  )
+  created <- beautier:::clock_models_to_xml_state(
+    clock_models = list(
+      create_rln_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_nd3"),
+      create_strict_clock_model(id = "anthus_nd3")
+    )
+  )
+  beautier:::are_equivalent_xml_lines(created, expected)
+
+})
+
+
+

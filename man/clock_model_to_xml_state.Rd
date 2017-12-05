@@ -11,6 +11,10 @@ clock_model_to_xml_state(clock_model)
 \item{clock_model}{a clock_model,
 as created by \code{\link{create_clock_model}}}
 }
+\value{
+lines of XML text, without indentation nor \code{state}
+  tags
+}
 \description{
 Converts a clock model to the \code{state} section of the
 XML as text

@@ -151,6 +151,8 @@ test_that("Can specify fixed crown age", {
 
   if (!beautier::is_on_travis()) return()
 
+  skip("WIP")
+
   input_fasta_filename <- beautier::get_input_fasta_filename()
   output_xml_filename_fixed <- tempfile()
 

@@ -2,6 +2,8 @@
 #' XML as text
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
+#' @return lines of XML text, without indentation nor \code{state}
+#'   tags
 #' @author Richel J.C. Bilderbeek
 clock_model_to_xml_state <- function(
   clock_model
