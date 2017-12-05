@@ -33,6 +33,7 @@ test_that("rln_2_4.xml", {
     "rln_2_4.xml", package = "beautier"))
 
   skip("WIP: state section fails")
+  beautier:::compare_lines(created_lines, expected_lines, section = "state")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(

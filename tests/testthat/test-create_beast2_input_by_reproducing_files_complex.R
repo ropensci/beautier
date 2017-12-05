@@ -11,10 +11,8 @@ context(
 
 test_that("anthus_nd2_anthus_aco_2_4.xml", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
+  fasta_filename_1 <- beautier:::get_path("anthus_nd2.fas")
+  fasta_filename_2 <- beautier:::get_path("anthus_aco.fas")
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),

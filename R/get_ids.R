@@ -11,7 +11,6 @@
 #'     capitalize_first_char_id = TRUE
 #'   ) == c("A", "B")
 #' )
-#' @export
 get_ids <- function(
   fasta_filenames,
   capitalize_first_char_id = FALSE

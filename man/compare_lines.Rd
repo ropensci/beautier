@@ -5,12 +5,14 @@
 \title{Internal debug function to compare the actually created
 lines to expected lines.}
 \usage{
-compare_lines(lines, expected)
+compare_lines(lines, expected, section = NA)
 }
 \arguments{
 \item{lines}{the created lines}
 
 \item{expected}{the expected/goal/target lines}
+
+\item{section}{the XML section. Leave at NA to compare all lines}
 }
 \description{
 Internal debug function to compare the actually created

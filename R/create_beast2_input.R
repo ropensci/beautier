@@ -92,7 +92,7 @@ create_beast2_input <- function(
   )  # nolint internal function
   clock_models <- init_clock_models(
     clock_models = clock_models,
-    ids = get_ids(input_fasta_filenames),
+    fasta_filenames = input_fasta_filenames,
     distr_id = 0 + get_site_models_n_distrs(site_models),
     param_id = 0 + get_site_models_n_params(site_models)
   )  # nolint internal function

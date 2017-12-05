@@ -86,12 +86,10 @@ test_that("input is checked, one alignment", {
 
 test_that("input is checked, two alignments", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
+  fasta_filename_1 <- beautier:::get_path("anthus_nd2.fas")
+  fasta_filename_2 <- beautier:::get_path("anthus_aco.fas")
   input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-  ids <- get_ids(input_fasta_filenames)
+  ids <- beautier:::get_ids(input_fasta_filenames)
 
   # Two filesnames, one site model
   testthat::expect_error(

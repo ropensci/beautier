@@ -2,11 +2,13 @@ context("init_clock_models")
 
 test_that("initialize RLN clock model", {
 
-  id <- "a"
+
+  fasta_filenames <- beautier:::get_path("test_output_0.fas")
   before <- list(create_rln_clock_model())
   testit::assert(is_rln_clock_model(before[[1]]))
   testit::assert(!beautier:::are_init_clock_models(before))
-  after <- beautier:::init_clock_models(before, ids = id)
+  after <- beautier:::init_clock_models(
+    before, fasta_filenames = fasta_filenames)
   testthat::expect_true(is_rln_clock_model(after[[1]]))
   testthat::expect_true(beautier:::are_init_clock_models(after))
 
@@ -14,18 +16,19 @@ test_that("initialize RLN clock model", {
 
 test_that("initialize strict clock model", {
 
-  id <- "a"
+  fasta_filenames <- beautier:::get_path("test_output_0.fas")
   before <- list(create_strict_clock_model())
   testit::assert(is_strict_clock_model(before[[1]]))
   testit::assert(!beautier:::are_init_clock_models(before))
-  after <- beautier:::init_clock_models(before, ids = id)
+  after <- beautier:::init_clock_models(
+    before, fasta_filenames = fasta_filenames)
   testthat::expect_true(is_strict_clock_model(after[[1]]))
   testthat::expect_true(beautier:::are_init_clock_models(after))
 })
 
 test_that("initialize RLN clock model", {
 
-  id <- "a"
+  fasta_filenames <- beautier:::get_path("test_output_0.fas")
   clock_model <- create_rln_clock_model(
     ucldstdev_distr = create_gamma_distr(
       id = 0,
@@ -37,8 +40,21 @@ test_that("initialize RLN clock model", {
   before <- list(clock_model)
   testit::assert(is_rln_clock_model(before[[1]]))
   testit::assert(!beautier:::are_init_clock_models(before))
-  after <- beautier:::init_clock_models(before, ids = id)
+  after <- beautier:::init_clock_models(
+    before, fasta_filenames = fasta_filenames)
   testthat::expect_true(is_rln_clock_model(after[[1]]))
   testthat::expect_true(beautier:::are_init_clock_models(after))
+})
 
+test_that("initialize RLN clock model with correct dimensions", {
+
+  fasta_filenames <- beautier:::get_path("test_output_5.fas")
+  after <- beautier:::init_clock_models(
+    list(create_rln_clock_model()), fasta_filenames = fasta_filenames)
+  testthat::expect_equal(after[[1]]$dimension, 8)
+
+  fasta_filenames <- beautier:::get_path("test_output_6.fas")
+  after <- beautier:::init_clock_models(
+    list(create_rln_clock_model()), fasta_filenames = fasta_filenames)
+  testthat::expect_equal(after[[1]]$dimension, 10)
 })

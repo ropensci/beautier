@@ -1,20 +1,23 @@
 #' Initializes all clock models
 #' @param clock_models a list of one or more clock models to be initialized.
 #'   Clock priors can be created using \code{\link{create_clock_model}}
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_ids}})
+#' @param fasta_filenames the one ore more names of the FASTA files that
+#'   contain the one or more alignments
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized clock models
 #' @author Richel J.C. Bilderbeek
 init_clock_models <- function(
+  fasta_filenames,
   clock_models,
-  ids,
   distr_id = 0,
   param_id = 0
 ) {
+  testit::assert(beautier:::files_exist(fasta_filenames))
   testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(length(clock_models) <= length(ids))
+  testit::assert(length(clock_models) == length(fasta_filenames))
+  ids <- get_ids(fasta_filenames)
+  n_taxa <- get_n_taxa(fasta_filenames[1])
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
@@ -31,7 +34,7 @@ init_clock_models <- function(
           param_id = param_id
         )
         if (is.na(clock_model$dimension)) {
-          clock_model$dimension <- (2 * length(ids)) - 2
+          clock_model$dimension <- (2 * n_taxa) - 2
         }
 
         distr_id <- distr_id  # Has one distributions

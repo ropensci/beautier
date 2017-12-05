@@ -2,12 +2,16 @@ context("create_beast2_input_state")
 
 test_that("birth_death", {
 
-  id <- "test_output_0"
+  fasta_filename <- beautier:::get_path("test_output_0.fas")
+  id <- beautier:::get_id(fasta_filename)
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = beautier:::init_clock_models(
-        list(create_strict_clock_model()), ids = id, distr_id = 0),
+        clock_models = list(create_strict_clock_model()),
+        fasta_filenames = fasta_filename,
+        distr_id = 0
+      ),
       tree_priors = beautier:::init_tree_priors(
         list(create_yule_tree_prior()), ids = id, distr_id = 1),
       initial_phylogenies = NA
@@ -18,7 +22,10 @@ test_that("birth_death", {
     beautier:::create_beast2_input_state(
       site_models = list(create_gtr_site_model(id = id)),
       clock_models = beautier:::init_clock_models(
-        list(create_strict_clock_model()), ids = id, distr_id = 0),
+        clock_models = list(create_strict_clock_model()),
+        fasta_filenames = fasta_filename,
+        distr_id = 0
+      ),
       tree_priors = beautier:::init_tree_priors(
         list(create_yule_tree_prior()), ids = id, distr_id = 1),
       initial_phylogenies = NA

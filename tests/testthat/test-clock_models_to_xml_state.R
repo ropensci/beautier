@@ -213,10 +213,14 @@ test_that("RLN -1 RLN 0 RLN 1 RLN 2 rates", {
   )
   created <- beautier:::clock_models_to_xml_state(
     clock_models = list(
-      create_rln_clock_model(id = "anthus_aco", n_rate_categories = -1, dimension = 42),
-      create_rln_clock_model(id = "anthus_nd2", n_rate_categories = 0, dimension = 42),
-      create_rln_clock_model(id = "anthus_nd3", n_rate_categories = 1, dimension = 42),
-      create_rln_clock_model(id = "anthus_nd4", n_rate_categories = 2, dimension = 42)
+      create_rln_clock_model(id = "anthus_aco",
+        n_rate_categories = -1, dimension = 42),
+      create_rln_clock_model(id = "anthus_nd2",
+        n_rate_categories = 0, dimension = 42),
+      create_rln_clock_model(id = "anthus_nd3",
+        n_rate_categories = 1, dimension = 42),
+      create_rln_clock_model(id = "anthus_nd4",
+        n_rate_categories = 2, dimension = 42)
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
