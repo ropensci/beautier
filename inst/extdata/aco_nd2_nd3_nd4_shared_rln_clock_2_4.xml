@@ -152,6 +152,8 @@ name="alignment">
             </taxonset>
         </tree>
         <parameter id="birthRate.t:anthus_nd4" name="stateNode">1.0</parameter>
+        <parameter id="ucldStdev.c:anthus_aco" lower="0.0" name="stateNode">0.1</parameter>
+        <stateNode id="rateCategories.c:anthus_aco" spec="parameter.IntegerParameter" dimension="42">1</stateNode>
     </state>
 
     <init id="RandomTree.t:anthus_aco" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:anthus_aco" taxa="@anthus_aco">
@@ -196,6 +198,12 @@ name="alignment">
             <prior id="YuleBirthRatePrior.t:anthus_nd4" name="distribution" x="@birthRate.t:anthus_nd4">
                 <Uniform id="Uniform.10" name="distr" upper="Infinity"/>
             </prior>
+            <prior id="ucldStdevPrior.c:anthus_aco" name="distribution" x="@ucldStdev.c:anthus_aco">
+                <Gamma id="Gamma.6" name="distr">
+                    <parameter id="RealParameter.21" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.22" estimate="false" name="beta">0.3819</parameter>
+                </Gamma>
+            </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
             <distribution id="treeLikelihood.anthus_aco" spec="ThreadedTreeLikelihood" data="@anthus_aco" tree="@Tree.t:anthus_aco">
@@ -205,11 +213,14 @@ name="alignment">
                     <parameter id="proportionInvariant.s:anthus_aco" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
                     <substModel id="JC69.s:anthus_aco" spec="JukesCantor"/>
                 </siteModel>
-                <branchRateModel id="StrictClock.c:anthus_aco" spec="beast.evolution.branchratemodel.StrictClockModel">
-                    <parameter id="clockRate.c:anthus_aco" estimate="false" name="clock.rate">1.0</parameter>
+                <branchRateModel id="RelaxedClock.c:anthus_aco" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" rateCategories="@rateCategories.c:anthus_aco" tree="@Tree.t:anthus_nd2">
+                    <LogNormal id="LogNormalDistributionModel.c:anthus_aco" S="@ucldStdev.c:anthus_aco" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.20" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                    <parameter id="ucldMean.c:anthus_aco" estimate="false" name="clock.rate">1.0</parameter>
                 </branchRateModel>
             </distribution>
-            <distribution id="treeLikelihood.anthus_nd2" spec="ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:anthus_aco" data="@anthus_nd2" tree="@Tree.t:anthus_nd2">
+            <distribution id="treeLikelihood.anthus_nd2" spec="ThreadedTreeLikelihood" branchRateModel="@RelaxedClock.c:anthus_aco" data="@anthus_nd2" tree="@Tree.t:anthus_nd2">
                 <siteModel id="SiteModel.s:anthus_nd2" spec="SiteModel">
                     <parameter id="mutationRate.s:anthus_nd2" estimate="false" name="mutationRate">1.0</parameter>
                     <parameter id="gammaShape.s:anthus_nd2" estimate="false" name="shape">1.0</parameter>
@@ -217,13 +228,16 @@ name="alignment">
                     <substModel id="JC69.s:anthus_nd2" spec="JukesCantor"/>
                 </siteModel>
             </distribution>
-            <distribution id="treeLikelihood.anthus_nd3" spec="ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:anthus_aco" data="@anthus_nd3" tree="@Tree.t:anthus_nd3">
+            <distribution id="treeLikelihood.anthus_nd3" spec="ThreadedTreeLikelihood" data="@anthus_nd3" tree="@Tree.t:anthus_nd3">
                 <siteModel id="SiteModel.s:anthus_nd3" spec="SiteModel">
                     <parameter id="mutationRate.s:anthus_nd3" estimate="false" name="mutationRate">1.0</parameter>
                     <parameter id="gammaShape.s:anthus_nd3" estimate="false" name="shape">1.0</parameter>
                     <parameter id="proportionInvariant.s:anthus_nd3" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
                     <substModel id="JC69.s:anthus_nd3" spec="JukesCantor"/>
                 </siteModel>
+                <branchRateModel id="StrictClock.c:anthus_aco" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter id="clockRate.c:anthus_aco" name="clock.rate">1.0</parameter>
+                </branchRateModel>
             </distribution>
             <distribution id="treeLikelihood.anthus_nd4" spec="ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:anthus_aco" data="@anthus_nd4" tree="@Tree.t:anthus_nd4">
                 <siteModel id="SiteModel.s:anthus_nd4" spec="SiteModel">
@@ -300,6 +314,14 @@ name="alignment">
 
     <operator id="YuleModelWilsonBalding.t:anthus_nd4" spec="WilsonBalding" tree="@Tree.t:anthus_nd4" weight="3.0"/>
 
+    <operator id="ucldStdevScaler.c:anthus_aco" spec="ScaleOperator" parameter="@ucldStdev.c:anthus_aco" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:anthus_aco" spec="IntRandomWalkOperator" parameter="@rateCategories.c:anthus_aco" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:anthus_aco" spec="SwapOperator" intparameter="@rateCategories.c:anthus_aco" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:anthus_aco" spec="UniformOperator" parameter="@rateCategories.c:anthus_aco" weight="10.0"/>
+
     <logger id="tracelog" fileName="anthus_aco.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
         <log idref="posterior"/>
         <log idref="likelihood"/>
@@ -320,6 +342,8 @@ name="alignment">
         <log id="TreeHeight.t:anthus_nd4" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:anthus_nd4"/>
         <log idref="YuleModel.t:anthus_nd4"/>
         <log idref="birthRate.t:anthus_nd4"/>
+        <log idref="ucldStdev.c:anthus_aco"/>
+        <log id="rate.c:anthus_aco" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:anthus_aco" tree="@Tree.t:anthus_nd2"/>
     </logger>
 
     <logger id="screenlog" logEvery="1000">
@@ -330,19 +354,19 @@ name="alignment">
     </logger>
 
     <logger id="treelog.t:anthus_aco" fileName="$(tree).trees" logEvery="1000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:anthus_aco" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:anthus_aco"/>
+        <log id="TreeWithMetaDataLogger.t:anthus_aco" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:anthus_aco" tree="@Tree.t:anthus_aco"/>
     </logger>
 
     <logger id="treelog.t:anthus_nd2" fileName="$(tree).trees" logEvery="1000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:anthus_nd2" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:anthus_nd2"/>
+        <log id="TreeWithMetaDataLogger.t:anthus_nd2" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:anthus_aco" tree="@Tree.t:anthus_nd2"/>
     </logger>
 
     <logger id="treelog.t:anthus_nd3" fileName="$(tree).trees" logEvery="1000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:anthus_nd3" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:anthus_nd3"/>
+        <log id="TreeWithMetaDataLogger.t:anthus_nd3" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:anthus_aco" tree="@Tree.t:anthus_nd3"/>
     </logger>
 
     <logger id="treelog.t:anthus_nd4" fileName="$(tree).trees" logEvery="1000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:anthus_nd4" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:anthus_nd4"/>
+        <log id="TreeWithMetaDataLogger.t:anthus_nd4" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:anthus_aco" tree="@Tree.t:anthus_nd4"/>
     </logger>
 
 </run>

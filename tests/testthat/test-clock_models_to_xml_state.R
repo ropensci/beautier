@@ -16,7 +16,7 @@ test_that("strict strict strict strict", {
       create_strict_clock_model(id = "anthus_nd4")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -44,7 +44,7 @@ test_that("RLN RLN RLN RLN", {
       create_rln_clock_model(id = "anthus_nd4")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -69,7 +69,7 @@ test_that("strict, RLN, strict, RLN", {
       create_rln_clock_model(id = "anthus_nd4")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -93,7 +93,7 @@ test_that("RLN, strict, RLN, strict", {
       create_strict_clock_model(id = "anthus_nd4")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -112,14 +112,16 @@ test_that("shared strict clock by (aco, nd2, nd3, nd4)", {
       create_strict_clock_model(id = "anthus_aco")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
 test_that("shared RLN clock", {
 
   expected <- c(
-    # Nothing at all
+    "<parameter id=\"ucldStdev.c:anthus_aco\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>",
+    "<stateNode id=\"rateCategories.c:anthus_aco\" spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"
+
   )
   created <- beautier:::clock_models_to_xml_state(
     clock_models = list(
@@ -129,7 +131,7 @@ test_that("shared RLN clock", {
       create_rln_clock_model(id = "anthus_aco")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -146,7 +148,7 @@ test_that("shared strict clocks by (aco, nd2) and (nd3, nd4)", {
       create_strict_clock_model(id = "anthus_nd3")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -165,9 +167,6 @@ test_that("(aco, nd2) share RLN clocks, (nd3, nd4) share strict clocks", {
       create_strict_clock_model(id = "anthus_nd3")
     )
   )
-  beautier:::are_equivalent_xml_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
-
-
-

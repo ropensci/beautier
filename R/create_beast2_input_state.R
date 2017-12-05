@@ -37,13 +37,16 @@ create_beast2_input_state <- function(
     if (!is.null(new_text)) text <- c(text, new_text)
   }
 
-  text <- c(
-    text,
-    indent(
-      clock_models_to_xml_state(clock_models),
-      n_spaces = 4
+  clock_models_xml <- clock_models_to_xml_state(clock_models)
+  if (length(clock_models_xml) != 0) {
+    text <- c(
+      text,
+      indent(
+        clock_models_xml,
+        n_spaces = 4
+      )
     )
-  )
+  }
 
   for (tree_prior in tree_priors) {
     text <- c(

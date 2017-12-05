@@ -13,7 +13,17 @@ clock_model_to_xml_state <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  if (is_rln_clock_model(clock_model)) {
+  if (is_strict_clock_model(clock_model)) {
+    text <- c(
+      text,
+      paste0("<parameter id=\"clockRate.c:", id, "\" ",
+        "name=\"stateNode\">1.0</parameter>"
+      )
+    )
+  } else {
+    # Fails on unimplemented clock models
+    testit::assert(is_rln_clock_model(clock_model))
+
     text <- c(
       text,
       paste0(
@@ -21,15 +31,12 @@ clock_model_to_xml_state <- function(
         "name=\"stateNode\">", clock_model$mean_clock_rate, "</parameter>"
       )
     )
-    # ucldStdev.cis always 0.1, cannot set it to other value
+    # ucldStdev.c is always 0.1, cannot set it to other value
     text <- c(text, paste0("<parameter id=\"ucldStdev.c:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-    if (clock_model$n_rate_categories > -1) {
-      # value is always 1 if number of rate categories is not -1
-      # no idea how to calculate the dimension
-      text <- c(text, paste0("<stateNode id=\"rateCategories.c:", id, "\" ",
-        "spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"))
-    }
+    # value is always 1, no idea yet how to calculate the dimension
+    text <- c(text, paste0("<stateNode id=\"rateCategories.c:", id, "\" ",
+      "spec=\"parameter.IntegerParameter\" dimension=\"42\">1</stateNode>"))
   }
 
   text

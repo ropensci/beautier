@@ -21,8 +21,10 @@ test_that("2_4.xml", {
     "2_4.xml", package = "beautier"))
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(
+      created_lines, expected_lines, section = "state")
   )
+
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
   )
