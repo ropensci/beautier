@@ -42,7 +42,9 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = "nonsense"),
+    beautier:::extract_xml_section_from_lines(
+      lines = lines, section = "nonsense"
+    ),
     "Opening tag for 'section' could not be found in 'lines'"
   )
 
