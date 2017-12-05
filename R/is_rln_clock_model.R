@@ -16,7 +16,7 @@
 is_rln_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE)
+  if (!beautier::is_clock_model(x)) return(FALSE)
   if (x$name != "relaxed_log_normal") return(FALSE)
   if (!"ucldstdev_distr" %in% names(x)) return(FALSE)
   if (!"mean_rate_prior_distr" %in% names(x)) return(FALSE)

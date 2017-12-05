@@ -65,5 +65,5 @@ are_beast2_input_lines_deep <- function(
 are_beast2_input_lines_fast <- function(
   lines
 ) {
-  has_unique_ids(lines)
+  has_unique_ids(lines) # nolint internal function
 }

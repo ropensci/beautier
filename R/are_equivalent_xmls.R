@@ -102,7 +102,7 @@ are_equivalent_xml_lines_all <- function(
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-are_equivalent_xml_lines_section <- function(
+are_equivalent_xml_lines_section <- function( # nolint don't care about internal function length
   lines_1,
   lines_2,
   section,
@@ -132,7 +132,9 @@ are_equivalent_xml_lines_section <- function(
       "'section' has value '", section, "'"
     )
   }
-  section_1 <- extract_xml_section_from_lines(lines = lines_1, section = section)
-  section_2 <- extract_xml_section_from_lines(lines = lines_2, section = section)
-  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose)
+  section_1 <- extract_xml_section_from_lines(
+    lines = lines_1, section = section)
+  section_2 <- extract_xml_section_from_lines(
+    lines = lines_2, section = section)
+  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint internal function
 }

@@ -11,7 +11,8 @@ clock_models_to_xml_state <- function(
   testit::assert(beautier::are_clock_models(clock_models))
 
   # Remove the clock models that share a same alignment
-  clock_models <- get_unlinked_clock_models(clock_models)
+  clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
+  testit::assert(beautier::are_clock_models(clock_models))
 
   text <- NULL
   for (clock_model in clock_models) {
@@ -22,17 +23,14 @@ clock_models_to_xml_state <- function(
 
   # Remove the first line of the first clock model, if any
   clock_model <- clock_models[[1]]
-  line_to_remove <- NULL
-  if (is_strict_clock_model(clock_model)) {
-    line_to_remove <- clock_model_to_xml_state(clock_model)
-  } else {
-    # Will fail for unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model))
-    # clock_model_to_xml_state returns three lines, only use the first
-    line_to_remove <- clock_model_to_xml_state(clock_model)[1]
+  line_to_remove <- clock_model_to_xml_state(clock_model) # nolint
+  if (is_rln_clock_model(clock_model)) {
+    # A RLN clock model returns three lines, only remove the first
+    testit::assert(length(line_to_remove) == 3)
+    line_to_remove <- line_to_remove[1]
   }
   testit::assert(!is.null(line_to_remove))
-  text <- text[ text != line_to_remove ]
+  text <- text[text != line_to_remove]
 
 
   text

@@ -17,19 +17,18 @@ clock_model_to_xml_state <- function(
     text <- c(
       text,
       paste0("<parameter id=\"clockRate.c:", id, "\" ",
-        "name=\"stateNode\">1.0</parameter>"
+        "name=\"stateNode\">", clock_model$clock_rate_param$value,
+        "</parameter>"
       )
     )
   } else {
     # Fails on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model))
+    testit::assert(beautier::is_rln_clock_model(clock_model))
 
-    text <- c(
-      text,
-      paste0(
-        "<parameter id=\"ucldMean.c:", id, "\" ",
-        "name=\"stateNode\">", clock_model$mean_clock_rate, "</parameter>"
-      )
+    # ucldMean.c must be the first line, as it will be removed when
+    # the first clock model is an RLN clock model
+    text <- c(text, paste0("<parameter id=\"ucldMean.c:", id, "\" ",
+        "name=\"stateNode\">", clock_model$mean_clock_rate, "</parameter>")
     )
     # ucldStdev.c is always 0.1, cannot set it to other value
     text <- c(text, paste0("<parameter id=\"ucldStdev.c:", id, "\" ",

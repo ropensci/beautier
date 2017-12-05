@@ -18,7 +18,7 @@ create_clock_model <- function(
   id,
   ...
 ) {
-  if (!is_clock_model_name(name)) {
+  if (!beautier::is_clock_model_name(name)) {
     clock_models_as_string <- function() {
       s <- NULL
       for (p in get_clock_model_names()) {
@@ -111,6 +111,12 @@ create_strict_clock_model <- function(
   id = NA,
   clock_rate_param = create_clock_rate_param()
 ) {
+  if (!is_clock_rate_param(clock_rate_param)) {
+    stop(
+      "'clock_rate_param' must be a clock rate parameter, ",
+      "as can be created by create_clock_rate_param"
+    )
+  }
   strict_clock_model <- beautier::create_clock_model(
     name = "strict",
     id = id,

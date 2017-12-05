@@ -190,9 +190,9 @@ create_beta_param <- function(
 #'   testit::assert(file.exists("my_beast.xml"))
 #' @export
 create_clock_rate_param <- function(
-  id = NA,
+  value = "1.0",
   estimate = FALSE,
-  value = "1.0"
+  id = NA
 ) {
   beautier::create_param(
     name = "clock_rate",

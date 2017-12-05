@@ -1,19 +1,17 @@
 #' Get the first clock model of each ID
 #' @param clock_models a list of one or more clock models
-get_unlinked_clock_models <- function(
-  clock_models
-) {
-  testit::assert(are_clock_models(clock_models))
+get_unlinked_clock_models <- function(clock_models) {
+  testit::assert(beautier::are_clock_models(clock_models))
   results <- list()
   ids <- NULL
   for (clock_model in clock_models) {
     id <- clock_model$id
     if (!id %in% ids) {
       ids <- c(ids, id)
-      results[[ length(ids) ]] <- clock_model
+      results[[length(ids)]] <- clock_model
     }
   }
 
-  testit::assert(are_clock_models(results))
+  testit::assert(beautier::are_clock_models(results))
   results
 }

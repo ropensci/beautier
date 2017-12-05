@@ -4,9 +4,13 @@
 #' @return TRUE if all IDs are unique, FALSE otherwise
 #' @seealso to obtain the duplicate IDs, use \code{\link{get_duplicate_ids}}
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @examples
+#'   line_1 <- "<parameter id=\"RealParameter.1\" ...</parameter>"
+#'   line_2 <- "<parameter id=\"RealParameter.2\" ...</parameter>"
+#'   testit::assert(has_unique_ids(c(line_1, line_2))
+#'   testit::assert(!has_unique_ids(c(line_1, line_1))
 has_unique_ids <- function(
   text
 ) {
-  length(beautier::get_duplicate_ids(text)) == 0
+  length(get_duplicate_ids(text)) == 0
 }

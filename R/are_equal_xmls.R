@@ -73,7 +73,9 @@ are_equal_xml_lines <- function(
       "'section' has value '", section, "'"
     )
   }
-  section_1 <- extract_xml_section_from_lines(lines = lines_1, section = section)
-  section_2 <- extract_xml_section_from_lines(lines = lines_2, section = section)
+  section_1 <- extract_xml_section_from_lines(
+    lines = lines_1, section = section)
+  section_2 <- extract_xml_section_from_lines(
+    lines = lines_2, section = section)
   identical(section_1, section_2)
 }

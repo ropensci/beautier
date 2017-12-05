@@ -18,7 +18,9 @@ clock_model_to_xml_operators <- function(
       "parameter=\"@clockRate.c:", id, "\" ",
       "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
   } else {
-    testit::assert(is_rln_clock_model(clock_model))
+    # Will fail on unimplemented clock models
+    testit::assert(beautier::is_rln_clock_model(clock_model))
+
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"3.0\"/>"))
@@ -42,4 +44,3 @@ clock_model_to_xml_operators <- function(
 
   text
 }
-

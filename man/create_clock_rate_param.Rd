@@ -5,15 +5,15 @@
 \title{Create a parameter called \code{clock_rate},
   as needed by \code{\link{create_strict_clock_model}}}
 \usage{
-create_clock_rate_param(id = NA, estimate = FALSE, value = "1.0")
+create_clock_rate_param(value = "1.0", estimate = FALSE, id = NA)
 }
 \arguments{
-\item{id}{the alignment id}
+\item{value}{value of the parameter}
 
 \item{estimate}{TRUE if this parameter is estimated by BEAST2,
 FALSE otherwise}
 
-\item{value}{value of the parameter}
+\item{id}{the alignment id}
 }
 \value{
 a parameter called rate

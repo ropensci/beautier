@@ -37,7 +37,7 @@ create_beast2_input_state <- function(
     if (!is.null(new_text)) text <- c(text, new_text)
   }
 
-  clock_models_xml <- clock_models_to_xml_state(clock_models)
+  clock_models_xml <- clock_models_to_xml_state(clock_models) # nolint internal function
   if (length(clock_models_xml) != 0) {
     text <- c(
       text,

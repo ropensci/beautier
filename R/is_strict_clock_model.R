@@ -16,7 +16,7 @@
 is_strict_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE)
+  if (!beautier::is_clock_model(x)) return(FALSE)
   if (x$name != "strict") return(FALSE)
   if (!"clock_rate_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$clock_rate_param)) return(FALSE)
