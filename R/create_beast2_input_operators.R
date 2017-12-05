@@ -58,4 +58,3 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
 
   text
 }
-

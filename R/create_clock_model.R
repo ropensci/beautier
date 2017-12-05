@@ -90,7 +90,7 @@ create_rln_clock_model <- function(
     normalize_mean_clock_rate = normalize_mean_clock_rate,
     dimension = dimension
   )
-  testit::assert(is_rln_clock_model(rln_clock_model))
+  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   rln_clock_model
 }
 
@@ -128,6 +128,6 @@ create_strict_clock_model <- function(
     id = id,
     clock_rate_param = clock_rate_param
   )
-  testit::assert(is_strict_clock_model(strict_clock_model))
+  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
   strict_clock_model
 }

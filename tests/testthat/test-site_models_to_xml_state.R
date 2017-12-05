@@ -111,16 +111,16 @@ test_that("GTR GTR GTR GTR", {
 test_that("HKY 0 HKY 1 HKY 2 HKY 3 GCC", {
 
   expected <- c(
-    "<parameter id=\"kappa.s:anthus_aco\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>",
-    "<parameter id=\"kappa.s:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>",
-    "<parameter id=\"kappa.s:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>",
-    "<parameter id=\"kappa.s:anthus_nd4\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>",
-    "<parameter id=\"gammaShape.s:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"gammaShape.s:anthus_nd4\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"freqParameter.s:anthus_aco\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>",
-    "<parameter id=\"freqParameter.s:anthus_nd2\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>",
-    "<parameter id=\"freqParameter.s:anthus_nd3\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>",
-    "<parameter id=\"freqParameter.s:anthus_nd4\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
+    "<parameter id=\"kappa.s:anthus_aco\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"kappa.s:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"kappa.s:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"kappa.s:anthus_nd4\" lower=\"0.0\" name=\"stateNode\">2.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd3\" name=\"stateNode\">1.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd4\" name=\"stateNode\">1.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"freqParameter.s:anthus_aco\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"freqParameter.s:anthus_nd2\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"freqParameter.s:anthus_nd3\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"freqParameter.s:anthus_nd4\" dimension=\"4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.25</parameter>" # nolint XML is long, so this line is long
   )
   created <- beautier:::site_models_to_xml_state(
     site_models = list(
@@ -166,10 +166,10 @@ test_that("JC69 1 JC69 1 JC69 1 JC69 1 GCC", {
 test_that("JC69 2 JC69 2 JC69 2 JC69 2 GCC", {
 
   expected <- c(
-    "<parameter id=\"gammaShape.s:anthus_aco\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"gammaShape.s:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"gammaShape.s:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"gammaShape.s:anthus_nd4\" name=\"stateNode\">1.0</parameter>"
+    "<parameter id=\"gammaShape.s:anthus_aco\" name=\"stateNode\">1.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd2\" name=\"stateNode\">1.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd3\" name=\"stateNode\">1.0</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd4\" name=\"stateNode\">1.0</parameter>" # nolint XML is long, so this line is long
   )
   created <- beautier:::site_models_to_xml_state(
     site_models = list(

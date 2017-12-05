@@ -39,10 +39,6 @@ test_that("anthus_nd2_anthus_aco_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
   skip("WIP: distribution section fails")
 
   testthat::expect_true(

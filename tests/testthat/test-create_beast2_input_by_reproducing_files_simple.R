@@ -203,12 +203,6 @@ test_that("gtr_gcc_2_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: state section fails")
-
-  testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
   skip("WIP: operators section fails")
 
   testthat::expect_true(

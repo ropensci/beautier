@@ -20,11 +20,5 @@ site_models_to_xml_state <- function(
       site_model_to_xml_state(site_model)
     )
   }
-
-  # Remove the first line of the first clock model, if any
-  #site_model <- site_models[[1]]
-  #line_to_remove <- site_model_to_xml_state(site_model) # nolint
-  #text <- text[text != line_to_remove]
-
   text
 }
