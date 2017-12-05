@@ -17,3 +17,6 @@ the section's lines of XML text, including the tags
 \description{
 Get the lines of an XML section, including the section tags
 }
+\author{
+Richel J.C. Bilderbeek
+}

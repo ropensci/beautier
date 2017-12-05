@@ -18,9 +18,12 @@ Find duplicate RealParameter IDs
 \examples{
   line_1 <- "<parameter id=\\"RealParameter.1\\" ...</parameter>"
   line_2 <- "<parameter id=\\"RealParameter.2\\" ...</parameter>"
-  testit::assert(get_duplicate_ids(c(line_1, line_2) == c("1", "2")))
-  testit::assert(get_duplicate_ids(c(line_1, line_1) == c("1")))
-  testit::assert(get_duplicate_ids(c(line_2, line_2) == c("2")))
+  testit::assert(
+    beautier:::get_duplicate_ids(c(line_1, line_2) == c("1", "2")))
+  testit::assert(
+    beautier:::get_duplicate_ids(c(line_1, line_1) == c("1")))
+  testit::assert(
+    beautier:::get_duplicate_ids(c(line_2, line_2) == c("2")))
 }
 \seealso{
 to see if all IDs are unqiue, use \code{\link{has_unique_ids}}
