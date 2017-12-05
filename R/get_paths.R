@@ -5,7 +5,7 @@
 get_paths <- function(filenames) {
 
   for (i in seq_along(filenames)) {
-    filenames[i] <- get_path(filenames[i])
+    filenames[i] <- get_path(filenames[i]) # nolint internal function
   }
 
   filenames
