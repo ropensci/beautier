@@ -8,7 +8,7 @@ test_that("two alignments with two initial trees", {
   fasta_filename_2 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-  ids <- get_ids(fasta_filenames)
+  ids <- beautier:::get_ids(fasta_filenames)
   phylo1 <- fasta_to_phylo(fasta_filename_1, crown_age = 10)
   phylo2 <- fasta_to_phylo(fasta_filename_2, crown_age = 5)
   initial_phylogenies <- c(phylo1, phylo2)
@@ -35,7 +35,7 @@ test_that("abuse: two files, one phylogeny", {
   fasta_filename_2 <- system.file("extdata",
     "anthus_aco.fas", package = "beautier")
   fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-  ids <- get_ids(fasta_filenames)
+  ids <- beautier:::get_ids(fasta_filenames)
   phylos <- c(fasta_to_phylo(fasta_filename_1, crown_age = 10))
   tree_priors <- beautier:::init_tree_priors(
     list(create_yule_tree_prior(), create_yule_tree_prior()),

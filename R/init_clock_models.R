@@ -16,7 +16,7 @@ init_clock_models <- function(
   testit::assert(beautier:::files_exist(fasta_filenames))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(length(clock_models) == length(fasta_filenames))
-  ids <- get_ids(fasta_filenames)
+  ids <- get_ids(fasta_filenames) # nolint internal function
   n_taxa <- get_n_taxa(fasta_filenames[1])
 
   for (i in seq_along(clock_models)) {

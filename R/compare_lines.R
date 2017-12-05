@@ -9,8 +9,10 @@ compare_lines <- function(
   section = NA
 ) {
   if (!is.na(section)) {
-    lines <- beautier:::extract_xml_section_from_lines(lines = lines, section = section)
-    expected <- beautier:::extract_xml_section_from_lines(lines = expected, section = section)
+    lines <- beautier:::extract_xml_section_from_lines(
+      lines = lines, section = section)
+    expected <- beautier:::extract_xml_section_from_lines(
+      lines = expected, section = section)
   }
   utils::write.csv(lines, "~/created.csv")
   utils::write.csv(expected, "~/expected.csv")
