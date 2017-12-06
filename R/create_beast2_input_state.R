@@ -16,46 +16,20 @@ create_beast2_input_state <- function(
   testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
-  text <- c(text, "<state id=\"state\" storeEvery=\"5000\">")
-
-  text <- c(text, create_beast2_input_state_tree(
-    tree_priors = tree_priors,
-    initial_phylogenies = initial_phylogenies)
+  text <- c(
+    text,
+    create_beast2_input_state_tree(
+      tree_priors = tree_priors,
+      initial_phylogenies = initial_phylogenies
+    )
   )
 
-  site_models_xml <- site_models_to_xml_state(site_models) # nolint internal function
-  if (length(site_models_xml) != 0) {
-    text <- c(
-      text,
-      indent(
-        site_models_xml,
-        n_spaces = 4
-      )
-    )
-  }
+  text <- c(text, site_models_to_xml_state(site_models)) # nolint internal function
+  text <- c(text, clock_models_to_xml_state(clock_models)) # nolint internal function
+  text <- c(text, tree_priors_to_xml_state(tree_priors)) # nolint internal function
 
-  clock_models_xml <- clock_models_to_xml_state(clock_models) # nolint internal function
-  if (length(clock_models_xml) != 0) {
-    text <- c(
-      text,
-      indent(
-        clock_models_xml,
-        n_spaces = 4
-      )
-    )
-  }
-
-  tree_priors_xml <- tree_priors_to_xml_state(tree_priors) # nolint internal function
-  if (length(tree_priors_xml) != 0) {
-    text <- c(
-      text,
-      indent(
-        tree_priors_xml,
-        n_spaces = 4
-      )
-    )
-  }
-
+  text <- beautier::indent(text, n_spaces = 4)
+  text <- c("<state id=\"state\" storeEvery=\"5000\">", text)
   text <- c(text, "</state>")
   beautier::indent(text, n_spaces = 4)
 }
@@ -79,7 +53,6 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
   #     </taxonset>
   # </tree>
   #
-  # Except that the first tree does not have a clockRate
 
   text <- NULL
 
@@ -89,13 +62,7 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
     tree_prior <- tree_priors[[i]]
     id <- tree_prior$id
 
-    text <- c(
-      text,
-      beautier::indent(
-        phylo_to_xml_state(id = id, phylo = initial_phylo),
-        n_spaces = 4
-      )
-    )
+    text <- c(text, phylo_to_xml_state(id = id, phylo = initial_phylo))
   } # next i
   text
 }
