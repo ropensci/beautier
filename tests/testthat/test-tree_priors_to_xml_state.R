@@ -114,11 +114,11 @@ test_that("CEP CEP CEP CEP", {
 test_that("Yule Yule Yule BD", {
 
   expected <- c(
-    "<parameter id=\"birthRate.t:anthus_aco\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"birthRate.t:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"birthRate.t:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"BDBirthRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"
+    "<parameter id=\"birthRate.t:anthus_aco\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"birthRate.t:anthus_nd2\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"birthRate.t:anthus_nd3\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDBirthRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>" # nolint XML can be long
   )
   created <- beautier:::tree_priors_to_xml_state(
     tree_priors = list(
@@ -135,12 +135,12 @@ test_that("Yule Yule Yule BD", {
 test_that("Yule Yule BD BD", {
 
   expected <- c(
-    "<parameter id=\"birthRate.t:anthus_aco\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"birthRate.t:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"BDBirthRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>",
-    "<parameter id=\"BDBirthRate.t:anthus_nd3\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_nd3\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"
+    "<parameter id=\"birthRate.t:anthus_aco\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"birthRate.t:anthus_nd2\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDBirthRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>", # nolint XML can be long
+    "<parameter id=\"BDBirthRate.t:anthus_nd3\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_nd3\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>" # nolint XML can be long
   )
   created <- beautier:::tree_priors_to_xml_state(
     tree_priors = list(
@@ -157,12 +157,12 @@ test_that("Yule Yule BD BD", {
 test_that("BD Yule Yule BD", {
 
   expected <- c(
-    "<parameter id=\"BDBirthRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>",
-    "<parameter id=\"birthRate.t:anthus_nd2\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"birthRate.t:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"BDBirthRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"
+    "<parameter id=\"BDBirthRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>", # nolint XML can be long
+    "<parameter id=\"birthRate.t:anthus_nd2\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"birthRate.t:anthus_nd3\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDBirthRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_nd4\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>" # nolint XML can be long
   )
   created <- beautier:::tree_priors_to_xml_state(
     tree_priors = list(
@@ -180,12 +180,12 @@ test_that("BD Yule Yule BD", {
 test_that("BD BD Yule Yule", {
 
   expected <- c(
-    "<parameter id=\"birthRate.t:anthus_nd3\" name=\"stateNode\">1.0</parameter>",
-    "<parameter id=\"BDBirthRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>",
-    "<parameter id=\"BDBirthRate.t:anthus_nd2\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>",
-    "<parameter id=\"BDDeathRate.t:anthus_nd2\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>",
-    "<parameter id=\"birthRate.t:anthus_nd4\" name=\"stateNode\">1.0</parameter>"
+    "<parameter id=\"birthRate.t:anthus_nd3\" name=\"stateNode\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDBirthRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_aco\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>", # nolint XML can be long
+    "<parameter id=\"BDBirthRate.t:anthus_nd2\" lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>", # nolint XML can be long
+    "<parameter id=\"BDDeathRate.t:anthus_nd2\" lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>", # nolint XML can be long
+    "<parameter id=\"birthRate.t:anthus_nd4\" name=\"stateNode\">1.0</parameter>" # nolint XML can be long
   )
   created <- beautier:::tree_priors_to_xml_state(
     tree_priors = list(
