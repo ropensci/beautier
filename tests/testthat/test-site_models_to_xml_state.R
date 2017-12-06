@@ -190,3 +190,51 @@ test_that("JC69 2 JC69 2 JC69 2 JC69 2 GCC", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
+
+test_that("JC69 2 JC69 2 JC69 2 JC69 2 GCC diff shapes diff prop_inv", {
+
+  expected <- c(
+    "<parameter id=\"gammaShape.s:anthus_aco\" name=\"stateNode\">1.1</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd2\" name=\"stateNode\">1.2</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd3\" name=\"stateNode\">1.3</parameter>", # nolint XML is long, so this line is long
+    "<parameter id=\"gammaShape.s:anthus_nd4\" name=\"stateNode\">1.4</parameter>" # nolint XML is long, so this line is long
+  )
+  created <- beautier:::site_models_to_xml_state(
+    site_models = list(
+      create_jc69_site_model(id = "anthus_aco",
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2, gamma_shape = "1.1", prop_invariant = 0.1)
+      ),
+      create_jc69_site_model(id = "anthus_nd2",
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2, gamma_shape = "1.2", prop_invariant = 0.2)
+      ),
+      create_jc69_site_model(id = "anthus_nd3",
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2, gamma_shape = "1.3", prop_invariant = 0.3)
+      ),
+      create_jc69_site_model(id = "anthus_nd4",
+        gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2, gamma_shape = "1.4", prop_invariant = 0.4)
+      )
+    )
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+
+})
+
+test_that("JC69 JC69 JC69 JC69 shared site model", {
+
+  expected <- c(
+  )
+  created <- beautier:::site_models_to_xml_state(
+    site_models = list(
+      create_jc69_site_model(id = "anthus_aco"),
+      create_jc69_site_model(id = "anthus_aco"),
+      create_jc69_site_model(id = "anthus_aco"),
+      create_jc69_site_model(id = "anthus_aco")
+    )
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+
+})

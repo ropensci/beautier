@@ -45,11 +45,12 @@ create_beast2_input_state <- function(
     )
   }
 
-  for (tree_prior in tree_priors) {
+  tree_priors_xml <- tree_priors_to_xml_state(tree_priors) # nolint internal function
+  if (length(tree_priors_xml) != 0) {
     text <- c(
       text,
-      beautier::indent(
-        tree_prior_to_xml_state(tree_prior),
+      indent(
+        tree_priors_xml,
         n_spaces = 4
       )
     )
@@ -103,13 +104,5 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
         "name=\"stateNode\">1.0</parameter>"))
     }
   } # next i
-  text <- c(
-    text,
-    beautier::indent(
-      paste0("<parameter ", "id=\"birthRate.t:", tree_priors[[n]]$id, "\" ",
-        "name=\"stateNode\">1.0</parameter>"),
-      n_spaces = 4
-    )
-  )
   text
 }
