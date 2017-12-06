@@ -31,11 +31,14 @@ create_beast2_input_run <- function(
     "chainLength=\"", get_mcmc_chain_length(mcmc), "\">"))
 
   text <- c(text,
-    create_beast2_input_state(
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors,
-      initial_phylogenies = initial_phylogenies
+    indent(
+      create_beast2_input_state(
+        site_models = site_models,
+        clock_models = clock_models,
+        tree_priors = tree_priors,
+        initial_phylogenies = initial_phylogenies
+      ),
+      n_spaces = 4
     )
   )
 
