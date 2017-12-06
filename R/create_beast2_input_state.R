@@ -96,13 +96,6 @@ create_beast2_input_state_tree <- function( # nolint long function name is fine,
         n_spaces = 4
       )
     )
-    # Each tree, except the first, have a clockRate
-    # TODO: remove the 1 == 2 statement
-    if (i > 1 && 1 == 2) {
-      text <- c(text, paste0("    <parameter ",
-        "id=\"clockRate.c:", id, "\" ",
-        "name=\"stateNode\">1.0</parameter>"))
-    }
   } # next i
   text
 }
