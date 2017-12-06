@@ -30,7 +30,7 @@ test_that("anthus_nd2_anthus_aco_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "anthus_nd2_anthus_aco_2_4.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -40,7 +40,7 @@ test_that("anthus_nd2_anthus_aco_2_4.xml", {
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -85,7 +85,7 @@ test_that("aco_nd2_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_2_4.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -94,13 +94,13 @@ test_that("aco_nd2_2_4.xml", {
 
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -142,7 +142,7 @@ test_that("aco_nd2_nd3_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_nd3_2_4.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -150,13 +150,13 @@ test_that("aco_nd2_nd3_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -199,7 +199,7 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_nd3_nd4_2_4.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -207,13 +207,13 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -254,16 +254,16 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -303,7 +303,7 @@ test_that("aco_hky_nd2.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_hky_nd2.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -311,13 +311,13 @@ test_that("aco_hky_nd2.xml", {
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -374,7 +374,7 @@ test_that("aco_nd2_hky.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_hky.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -382,13 +382,13 @@ test_that("aco_nd2_hky.xml", {
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -431,7 +431,7 @@ test_that("aco_hky_nd2_tn93.xml, example 9", {
   expected_lines <- readLines(system.file("extdata",
     "aco_hky_nd2_tn93.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -439,13 +439,13 @@ test_that("aco_hky_nd2_tn93.xml, example 9", {
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -487,7 +487,7 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
     "bd_birth_rate_normal_death_rate_gamma_2_4.xml",
     package = "beautier"))
 
-  skip("WIP: state section fails")
+
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -495,10 +495,10 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
   skip("WIP: operator section fails")
@@ -548,21 +548,15 @@ test_that("aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4.xml", package = "beautier"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
 
-  testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    are_equivalent_xml_lines(created_lines, expected_lines, section = "distribution")
   )
 
 
@@ -783,11 +777,11 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     "aco_nd2_nd3_nd4_complex_2_4.xml", package = "beautier"))
   testit::assert(are_beast2_input_lines(expected_lines))
 
-  skip("WIP: state section fails")
+  skip("WIP: state")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created_lines, expected_lines, section = "state", verbose = TRUE)
   )
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -796,7 +790,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines, section = "state", verbose = TRUE)
   testthat::expect_identical(created_lines, expected_lines)
 
 })

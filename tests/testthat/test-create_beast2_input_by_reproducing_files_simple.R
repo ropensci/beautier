@@ -26,7 +26,7 @@ test_that("2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -89,7 +89,7 @@ test_that("gtr_2_4.xml", {
       section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -146,7 +146,7 @@ test_that("gtr_gcc_1_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -209,7 +209,7 @@ test_that("gtr_gcc_2_2_4.xml", {
   skip("WIP: operators section fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -265,16 +265,15 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
 
   skip("WIP: distribution fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -330,13 +329,13 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: state section fails")
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
+  )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -370,10 +369,11 @@ test_that("hky_2_4.xml", {
     "hky_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -405,10 +405,11 @@ test_that("hky_kappa_2_4.xml", {
     "hky_kappa_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -441,10 +442,11 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
     "hky_prop_invariant_0_5_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -476,10 +478,11 @@ test_that("hky_gcc_1_2_4.xml", {
     "hky_gcc_1_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -518,7 +521,7 @@ test_that("hky_gcc_2_2_4.xml", {
   skip("WIP: distribution fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -555,7 +558,7 @@ test_that("hky_gcc_4_2_4.xml", {
   skip("WIP: distribution fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -586,10 +589,11 @@ test_that("jc69_2_4.xml", {
     "jc69_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -619,14 +623,12 @@ test_that("jc69_gcc_2_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "jc69_gcc_2_2_4.xml"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -658,10 +660,11 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
     "jc69_gcc_2_shape_1_5_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -695,10 +698,11 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
     "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -738,10 +742,11 @@ test_that("tn93_2_4.xml", {
     "tn93_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -777,10 +782,11 @@ test_that("tn93_gcc_1_2_4.xml", {
     "tn93_gcc_1_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -823,7 +829,7 @@ test_that("tn93_gcc_2_2_4.xml", {
   skip("WIP: distribution fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -857,19 +863,13 @@ test_that("bd_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "bd_2_4.xml"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -896,18 +896,13 @@ test_that("bd_6_taxa_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "bd_6_taxa_2_4.xml"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -929,22 +924,21 @@ test_that("cbs_6_taxa_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "cbs_6_taxa_2_4.xml"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
-  skip("WIP")
+  skip("WIP: operators")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
@@ -964,7 +958,6 @@ test_that("ccp_6_taxa_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "ccp_6_taxa_2_4.xml"))
 
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -972,10 +965,7 @@ test_that("ccp_6_taxa_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1004,7 +994,6 @@ test_that("cep_6_taxa_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "cep_6_taxa_2_4.xml"))
 
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -1012,10 +1001,7 @@ test_that("cep_6_taxa_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1039,7 +1025,6 @@ test_that("cbs_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "cbs_2_4.xml"))
 
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -1047,11 +1032,7 @@ test_that("cbs_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1088,7 +1069,6 @@ test_that("ccp_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "ccp_2_4.xml"))
 
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -1096,10 +1076,7 @@ test_that("ccp_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1126,7 +1103,6 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "ccp_pop_size_gamma_2_4.xml"))
 
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -1134,10 +1110,7 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1167,7 +1140,6 @@ test_that("cep_2_4.xml", {
 
   expected_lines <- readLines(beautier:::get_path("cep_2_4.xml"))
 
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -1175,10 +1147,7 @@ test_that("cep_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1205,10 +1174,11 @@ test_that("yule_2_4.xml", {
     "yule_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1233,10 +1203,11 @@ test_that("birth_rate_uniform_2_4.xml", {
     "birth_rate_uniform_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1264,10 +1235,11 @@ test_that("birth_rate_normal_2_4.xml", {
     "birth_rate_normal_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1291,10 +1263,11 @@ test_that("birth_rate_one_div_x_2_4.xml", {
     "birth_rate_one_div_x_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1327,10 +1300,11 @@ test_that("birth_rate_log_normal_2_4.xml", {
     "birth_rate_log_normal_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1357,10 +1331,11 @@ test_that("birth_rate_exp_2_4.xml", {
     "birth_rate_exp_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1389,10 +1364,11 @@ test_that("birth_rate_gamma_2_4.xml", {
     "birth_rate_gamma_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1420,10 +1396,11 @@ test_that("birth_rate_beta_2_4.xml", {
     "birth_rate_beta_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1451,10 +1428,11 @@ test_that("birth_rate_laplace_2_4.xml", {
     "birth_rate_laplace_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1490,10 +1468,11 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
     "birth_rate_inv_gamma_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -1520,10 +1499,11 @@ test_that("birth_rate_poisson_2_4.xml", {
     "birth_rate_poisson_2_4.xml"))
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 

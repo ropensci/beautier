@@ -21,7 +21,7 @@ create_beast2_input_state <- function(
     initial_phylo <- initial_phylogenies[[i]]
     tree_prior <- tree_priors[[i]]
     id <- tree_prior$id
-    text <- c(text, phylo_to_xml_state(id = id, phylo = initial_phylo))
+    text <- c(text, phylo_to_xml_state(id = id, phylo = initial_phylo)) # nolint internal function
   }
 
   text <- c(text, site_models_to_xml_state(site_models)) # nolint internal function

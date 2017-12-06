@@ -178,13 +178,10 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
   expected_lines <- readLines(beautier:::get_path(
     "aco_nd2_strict_rln_2_4.xml"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
-  beautier:::compare_lines(created_lines, expected_lines, section = "state")
 
   skip("WIP: distribution section fails")
 
@@ -224,13 +221,12 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path(
     "aco_nd2_rln_rln_2_4.xml"))
 
-  skip("WIP: state section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
-  beautier:::compare_lines(created_lines, expected_lines, section = "state")
+
+  skip("WIP: distribution")
 
   testthat::expect_true(
     are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
@@ -288,8 +284,6 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
   )
   expected_lines <- readLines(beautier:::get_path(
     "aco_nd2_nd3_nd4_shared_clock_2_4.xml"))
-
-  skip("WIP: state section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
