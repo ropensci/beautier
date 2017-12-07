@@ -787,12 +787,13 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     "aco_nd2_nd3_nd4_complex_2_4.xml", package = "beautier"))
   testit::assert(are_beast2_input_lines(expected_lines))
 
-  skip("WIP: state")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
+
+  skip("WIP: distribution section fails")
+
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "distribution")
