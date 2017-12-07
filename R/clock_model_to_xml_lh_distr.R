@@ -41,12 +41,10 @@ clock_model_to_xml_lh_distr <- function(
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-      "clock.rate=\"@ucldMean.c:", id, "\" ",
+      # "clock.rate=\"@ucldMean.c:", id, "\" ",
       ifelse(clock_model$normalize_mean_clock_rate == TRUE,
         "normalize=\"true\" ", ""),
-      "numberOfDiscreteRates=\"",
-      n_discrete_rates,
-      "\" ",
+      ifelse(n_discrete_rates != -1, paste0("numberOfDiscreteRates=\"", n_discrete_rates, "\" "), ""),
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"
     )
@@ -60,12 +58,9 @@ clock_model_to_xml_lh_distr <- function(
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
-    # TODO: move elsewhere
-    if (1 == 2) {
-      text <- c(text, paste0("    <parameter ",
-        "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
-        "name=\"clock.rate\">1.0</parameter>"))
-    }
+    text <- c(text, paste0("    <parameter ",
+      "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
+      "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
     text <- c(text, paste0("</branchRateModel>"))
   }
   text

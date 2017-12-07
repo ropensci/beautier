@@ -363,9 +363,7 @@ yule_tree_prior_to_xml_prior_distr <- function(
   )
   text <- c(text,
     indent(
-      distr_to_xml(
-        distr = yule_tree_prior$birth_rate_distr
-      ),
+      distr_to_xml(yule_tree_prior$birth_rate_distr),
       n_spaces = 4
     )
   )
