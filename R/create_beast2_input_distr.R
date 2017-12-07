@@ -19,11 +19,11 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
   testit::assert(are_init_tree_priors(tree_priors)) # nolint internal function call
 
   text <- NULL
-  text <- c(text,
-    "    <distribution id=\"posterior\" spec=\"util.CompoundDistribution\">")
 
   # prior
-  text <- c(text, create_beast2_input_distr_prior(
+  text <- c(
+    text,
+    create_beast2_input_distr_prior(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors
@@ -31,14 +31,21 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
   )
 
   # likelihood
-  text <- c(text, create_beast2_input_distr_likelihood(
+  text <- c(
+    text,
+    create_beast2_input_distr_likelihood(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors
     )
   )
-
-  text <- c(text, "    </distribution>") # posterior distribution
+  text <- indent(text, n_spaces = 4)
+  text <- c(
+    "<distribution id=\"posterior\" spec=\"util.CompoundDistribution\">",
+    text
+  )
+  text <- c(text, "</distribution>") # posterior distribution
+  text <- indent(text, n_spaces = 4)
   text
 }
 
@@ -46,6 +53,8 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 #' Creates the prior section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distr
+#' @seealso this function is called by \code{\link{create_beast2_input_distr}},
+#'   together with \code{\link{create_beast2_input_distr_likelihood}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
@@ -63,16 +72,15 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
   tree_priors
 ) {
   text <- NULL
-
   text <- c(text, tree_priors_to_xml_prior_distr(tree_priors)) # nolint internal function
   text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint internal function
   text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint internal function
   text <- c(text, clock_models_to_xml_prior_distr(clock_models)) # nolint internal function
   text <- indent(text, n_spaces = 4)
 
+  # Surround text by prior distribution tag
   text <- c("<distribution id=\"prior\" spec=\"util.CompoundDistribution\">", text)
   text <- c(text, "</distribution>")
-  indent(text, n_spaces = 8)
 }
 
 
@@ -82,6 +90,8 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
+#' @seealso this function is called by \code{\link{create_beast2_input_distr}},
+#'   together with \code{\link{create_beast2_input_distr_prior}}
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -96,14 +106,6 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
   tree_priors
 ) {
   text <- NULL
-  text <- c(
-      text,
-      paste0(
-        "<distribution id=\"likelihood\" ",
-        "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
-      )
-    )
-
   # Do each tree likelihood
   n <- length(site_models)
   for (i in seq(1, n)) {
@@ -114,13 +116,13 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
     clock_model <- beautier::find_clock_model(clock_models, id = id)
     testit::assert(beautier::is_site_model(site_model))
 
-    text <- c(text, paste0("    <distribution id=\"treeLikelihood.",
+    text <- c(text, paste0("<distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
       beautier::indent(
         site_model_to_xml_site_model(site_model),
-        n_spaces = 8
+        n_spaces = 4
       )
     )
 
@@ -130,15 +132,25 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
       text <- c(text,
         beautier::indent(
           clock_model_to_xml_brm(clock_model),
-          n_spaces = 8
+          n_spaces = 4
         )
       )
     }
-    text <- c(text, "    </distribution>")
+    text <- c(text, "</distribution>")
   }
-  text <- c(text, "</distribution>")
 
-  beautier::indent(text, n_spaces = 8)
+  text <- indent(text, n_spaces = 4)
+
+  # Surround by likelihood distribution tags
+  text <- c(
+      paste0(
+        "<distribution id=\"likelihood\" ",
+        "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
+      ),
+    text
+  )
+  text <- c(text, "</distribution>")
+  text
 }
 
 
