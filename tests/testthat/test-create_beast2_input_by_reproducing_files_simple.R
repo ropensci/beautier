@@ -270,12 +270,12 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
       section = "state")
   )
 
-  skip("WIP: distribution fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
+
+  skip("WIP: operators fails")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
@@ -518,12 +518,12 @@ test_that("hky_gcc_2_2_4.xml", {
       section = "state")
   )
 
-  skip("WIP: distribution fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
+
+  skip("WIP: operators fails")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
@@ -555,12 +555,12 @@ test_that("hky_gcc_4_2_4.xml", {
       section = "state")
   )
 
-  skip("WIP: distribution fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
+
+  skip("WIP: operators fails")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
@@ -826,12 +826,12 @@ test_that("tn93_gcc_2_2_4.xml", {
       section = "state")
   )
 
-  skip("WIP: distribution fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
+
+  skip("WIP: operators fails")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)

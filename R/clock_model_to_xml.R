@@ -3,7 +3,7 @@
 #' @param clock_model a clock_model,
 #'   as created by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
-clock_model_to_xml_prior <- function(
+clock_model_to_xml_prior_distr <- function(
   clock_model
 ) {
   testit::assert(beautier::is_clock_model(clock_model))

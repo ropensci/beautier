@@ -345,5 +345,5 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml state section", {
       )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected, verbose = TRUE))
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

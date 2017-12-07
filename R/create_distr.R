@@ -443,7 +443,8 @@ create_poisson_distr <- function(
 
 #' Create a uniform distribution
 #' @inheritParams create_distr
-#' @param upper an upper limit of the uniform distribution
+#' @param upper an upper limit of the uniform distribution.
+#'   If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.
 #' @return a uniform distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions

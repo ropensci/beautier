@@ -4,7 +4,7 @@
 #'   as created by \code{\link{create_site_model}})
 #' @return the site model as XML text
 #' @author Richel J.C. Bilderbeek
-site_model_to_xml_prior <- function(
+site_model_to_xml_prior_distr <- function(
   site_model
 ) {
   testit::assert(beautier::is_site_model(site_model))

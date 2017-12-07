@@ -4,14 +4,23 @@
 #' @inheritParams create_beast2_input_distr
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 #' @author Richel J.C. Bilderbeek
-tree_priors_to_xml_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+tree_priors_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   tree_priors
 ) {
 
+
   text <- NULL
   for (tree_prior in tree_priors) {
-    text <- c(text, tree_prior_to_xml_distr(tree_prior))
+    text <- c(text, tree_prior_to_xml_prior_distr(tree_prior))
   }
   text
 }

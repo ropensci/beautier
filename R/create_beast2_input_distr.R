@@ -51,29 +51,16 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
   tree_priors
 ) {
   text <- NULL
-  text <- c(text,
-    "        <distribution id=\"prior\" spec=\"util.CompoundDistribution\">")
 
-  # Lines starting with '<distribution id ='
-  text <- c(
-    text,
-    tree_priors_to_xml_distr(
-      tree_priors = tree_priors
-    )
-  )
+  text <- c(text, tree_priors_to_xml_prior_distr(tree_priors)) # nolint internal function
+  text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint internal function
+  text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint internal function
+  text <- c(text, clock_models_to_xml_prior_distr(clock_models)) # nolint internal function
+  text <- indent(text, n_spaces = 4)
 
-  # Lines starting with '<prior id ='
-  text <- c(
-    text,
-    create_beast2_input_distr_prior_prior(
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors
-    )
-  )
-
-  text <- c(text, "        </distribution>")
-  text
+  text <- c("<distribution id=\"prior\" spec=\"util.CompoundDistribution\">", text)
+  text <- c(text, "</distribution>")
+  indent(text, n_spaces = 8)
 }
 
 
@@ -134,77 +121,6 @@ create_beast2_input_distr_likelihood <- function( # nolint long function name is
   beautier::indent(text, n_spaces = 8)
 }
 
-#' Creates the prior section in the prior section of the
-#' distribution section of a BEAST2 XML parameter file.
-#' These lines start with '<prior id='
-#' @inheritParams create_beast2_input_distr
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_prior_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  site_models,
-  clock_models,
-  tree_priors
-) {
-  text <- NULL
-
-  for (i in seq_along(tree_priors)) {
-    tree_prior <- tree_priors[[i]]
-    id <- tree_prior$id
-    # Irregularity: WIP, TODO, to be moved to someplace else
-    if (is_yule_tree_prior(tree_prior)) {
-
-      if (i == 2) {
-        text <- c(text, paste0("            <prior ",
-          "id=\"ClockPrior.c:", id, "\" name=\"distribution\" ",
-          "x=\"@clockRate.c:", id, "\">"))
-        text <- c(text, paste0("                <Uniform id=\"Uniform.3\" ",
-          "name=\"distr\" upper=\"Infinity\"/>"))
-        text <- c(text, paste0("            </prior>"))
-      }
-    }
-
-    text <- c(
-      text,
-      beautier::indent(
-        tree_prior_to_xml_prior(tree_prior),
-        n_spaces = 12
-      )
-    )
-  }
-
-  # gamma site models
-  for (site_model in site_models) {
-    text <- c(
-      text,
-      beautier::indent(
-        create_beast2_input_distr_gamma_site_models(site_model), # nolint
-        n_spaces = 12
-      )
-    )
-  }
-
-  for (site_model in site_models) {
-    text <- c(
-      text,
-      beautier::indent(
-        site_model_to_xml_prior(site_model), # nolint
-        n_spaces = 12
-      )
-    )
-  }
-
-  for (clock_model in clock_models) {
-    text <- c(
-      text,
-      beautier::indent(
-        clock_model_to_xml_prior(clock_model),
-        n_spaces = 12
-      )
-    )
-  }
-  text
-}
 
 #' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
@@ -214,7 +130,7 @@ create_beast2_input_distr_prior_prior <- function( # nolint long function name i
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-bd_tree_prior_to_xml_prior <- function(
+bd_tree_prior_to_xml_prior_distr <- function(
   bd_tree_prior
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
@@ -222,6 +138,12 @@ bd_tree_prior_to_xml_prior <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
+
+  text <- c(text, paste0("<distribution id=\"BirthDeath.t:", id,
+    "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
+    "birthDiffRate=\"@BDBirthRate.t:", id, "\" ",
+    "relativeDeathRate=\"@BDDeathRate.t:", id, "\" ",
+    "tree=\"@Tree.t:", id, "\"/>"))
 
   # BDBirthRate
   bd_birth_rate_distr <- beautier::get_bd_birth_rate_distr(
@@ -260,6 +182,36 @@ bd_tree_prior_to_xml_prior <- function(
 
 #' Creates the tree prior section in the prior section of
 #' the prior section of the distribution section
+#' of a BEAST2 XML parameter file for a Birth-Death tree prior
+#' @param cbs_tree_prior a Coalenscent Bayesian Skyline tree_prior,
+#'   as created by \code{\link{create_cbs_tree_prior}}
+#' @note this function is not intended for regular use, thus its
+#'   long name length is accepted
+#' @author Richel J.C. Bilderbeek
+cbs_tree_prior_to_xml_prior_distr <- function(
+  cbs_tree_prior
+) {
+  testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
+  id <- cbs_tree_prior$id
+  testit::assert(beautier::is_id(id))
+
+  text <- NULL
+  text <- c(text, paste0("<distribution ",
+    "id=\"BayesianSkyline.t:",
+    id, "\" spec=\"BayesianSkyline\" groupSizes=\"@bGroupSizes.t:", id,
+    "\" popSizes=\"@bPopSizes.t:", id, "\">"))
+  text <- c(text, paste0("    ",
+    "<treeIntervals id=\"BSPTreeIntervals.t:", id, "\" ",
+    "spec=\"TreeIntervals\" tree=\"@Tree.t:", id, "\"/>"))
+  text <- c(text, paste0("</distribution>"))
+  text <- c(text, paste0("<distribution id=\"MarkovChainedPopSizes.t:", id,
+    "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
+    "jeffreys=\"true\" parameter=\"@bPopSizes.t:", id, "\"/>"))
+  text
+}
+
+#' Creates the tree prior section in the prior section of
+#' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Constant Population tree prior
 #' @param ccp_tree_prior a Coalescent Constant Population tree prior,
@@ -267,15 +219,28 @@ bd_tree_prior_to_xml_prior <- function(
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-ccp_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ccp_tree_prior
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
   testit::assert(beautier::is_id(id))
 
-  # pop size
   text <- NULL
+
+  # distributions
+  text <- c(text, paste0("<distribution id=\"CoalescentConstant.t:", id,
+    "\" spec=\"Coalescent\">"))
+  text <- c(text, paste0("    ",
+    "<populationModel id=\"ConstantPopulation.t:", id,
+    "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", id, "\"/>"))
+  text <- c(text, paste0(
+    "    <treeIntervals id=\"TreeIntervals.t:",
+    id, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
+    id, "\"/>"))
+  text <- c(text, "</distribution>")
+
+  # pop size
   text <- c(text, paste0(
     "<prior id=\"PopSizePrior.t:", id,
     "\" name=\"distribution\" x=\"@popSize.t:",
@@ -300,7 +265,7 @@ ccp_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-cep_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   cep_tree_prior
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
@@ -308,6 +273,20 @@ cep_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as
   testit::assert(beautier::is_id(id))
 
   text <- NULL
+
+  # distribution
+  text <- c(text, paste0("<distribution ",
+    "id=\"CoalescentExponential.t:", id, "\" spec=\"Coalescent\">"))
+  text <- c(text, paste0("    <populationModel ",
+    "id=\"ExponentialGrowth.t:", id, "\" spec=\"ExponentialGrowth\" ",
+    "growthRate=\"@growthRate.t:", id, "\" ",
+    "popSize=\"@ePopSize.t:", id, "\"/>"))
+  text <- c(text, paste0("    <treeIntervals ",
+    "id=\"TreeIntervals.t:", id, "\" spec=\"TreeIntervals\" ",
+    "tree=\"@Tree.t:", id, "\"/>"))
+  text <- c(text, paste0("</distribution>"))
+
+  # prior
   text <- c(text, paste0("<prior ",
     "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@ePopSize.t:", id, "\">"))
@@ -342,7 +321,7 @@ cep_tree_prior_to_xml_prior <- function( # nolint long function name is fine, as
 #' @param yule_tree_prior a Yule tree_prior,
 #'   as created by \code{\link{create_yule_tree_prior}}
 #' @author Richel J.C. Bilderbeek
-yule_tree_prior_to_xml_prior <- function(
+yule_tree_prior_to_xml_prior_distr <- function(
   yule_tree_prior
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
@@ -350,6 +329,13 @@ yule_tree_prior_to_xml_prior <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
+
+  # distribution
+  text <- c(text, paste0("<distribution id=\"YuleModel.t:", id,
+    "\" spec=\"beast.evolution.speciation.YuleModel\" ",
+    "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>"))
+
+  # prior
   text <- c(text, paste0(
       "<prior id=\"YuleBirthRatePrior.t:", id, "\" ",
       "name=\"distribution\" x=\"@birthRate.t:", id, "\">"
@@ -365,39 +351,4 @@ yule_tree_prior_to_xml_prior <- function(
   )
   text <- c(text, paste0("</prior>"))
   text
-}
-
-#' Creates the gamma site models section in the distribution section
-#' of a BEAST2 XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
-create_beast2_input_distr_gamma_site_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
-  site_model
-) {
-  testit::assert(beautier::is_site_model(site_model))
-  id <- site_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  gamma_site_model <- beautier::get_gamma_site_model(
-    site_model = site_model)
-  if (beautier::get_gamma_cat_count(gamma_site_model) >= 2) {
-    text <- c(text, paste0("<prior ",
-      "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
-      "x=\"@gammaShape.s:", id, "\">"))
-    text <- c(
-      text,
-      beautier::indent(
-        distr_to_xml(
-          gamma_site_model$gamma_shape_prior_distr
-        ),
-        n_spaces = 4
-      )
-    )
-    text <- c(text, paste0("</prior>"))
-  }
-  text
-
 }

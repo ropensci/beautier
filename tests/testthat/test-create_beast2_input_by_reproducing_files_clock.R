@@ -36,15 +36,14 @@ test_that("rln_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribition section fails")
-
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -73,7 +72,8 @@ test_that("rln_uclstdev_beta_2_4.xml", {
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   beautier:::compare_lines(created_lines, expected_lines)
@@ -96,11 +96,13 @@ test_that("strict_clock_2_4.xml", {
   expected_lines <- readLines(beautier:::get_path("strict_clock_2_4.xml"))
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -129,10 +131,12 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
     "strict_clock_rate_0_5_2_4.xml"))
 
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "state")
   )
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -183,10 +187,9 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribution section fails")
-
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -226,10 +229,9 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribution")
-
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   skip("WIP: operators section fails")
@@ -290,10 +292,9 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribution section fails")
-
   testthat::expect_true(
-    are_equal_xml_lines(created_lines, expected_lines, section = "distribution")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "distribution")
   )
 
   skip("WIP: operators section fails")
