@@ -16,29 +16,20 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
 
   text <- NULL
 
-  for (tree_prior in tree_priors) {
-    text <- c(
-      text,
-      interspace(
-        indent(
-          tree_prior_to_xml_operators(
-            tree_prior = tree_prior,
-            fixed_crown_age = fixed_crown_age
-          ),
-          n_spaces = 4
-        )
-      )
+
+  text <- c(
+    text,
+    tree_priors_to_xml_operators(
+      tree_priors = tree_priors,
+      fixed_crown_age = fixed_crown_age
     )
-  }
+  )
 
   for (site_model in site_models) {
     text <- c(
       text,
       interspace(
-        indent(
-          site_model_to_xml_operators(site_model),
-          n_spaces = 4
-        )
+        site_model_to_xml_operators(site_model)
       )
     )
   }
@@ -48,13 +39,10 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
     text <- c(
       text,
       interspace(
-        indent(
-          clock_model_to_xml_operators(clock_model),
-          n_spaces = 4
-        )
+        clock_model_to_xml_operators(clock_model)
       )
     )
   }
 
-  text
+  beautier::indent(text, n_spaces = 4)
 }
