@@ -33,10 +33,9 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
   # likelihood
   text <- c(
     text,
-    create_beast2_input_distr_likelihood(
+    create_beast2_input_distr_lh(
       site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors
+      clock_models = clock_models
     )
   )
   text <- indent(text, n_spaces = 4)
@@ -54,7 +53,7 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 #' of a BEAST2 XML parameter file
 #' @inheritParams create_beast2_input_distr
 #' @seealso this function is called by \code{\link{create_beast2_input_distr}},
-#'   together with \code{\link{create_beast2_input_distr_likelihood}}
+#'   together with \code{\link{create_beast2_input_distr_lh}}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
@@ -100,55 +99,44 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_lh <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_models,
-  clock_models,
-  tree_priors
+  clock_models
 ) {
+  testit::assert(length(site_models) == length(clock_models))
+
   text <- NULL
-  # Do each tree likelihood
   n <- length(site_models)
   for (i in seq(1, n)) {
     site_model <- site_models[[i]]
+    clock_model <- clock_models[[i]]
     id <- site_model$id
-
-    # Not all site models have their own clock
-    clock_model <- beautier::find_clock_model(clock_models, id = id)
-    testit::assert(beautier::is_site_model(site_model))
 
     text <- c(text, paste0("<distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
       beautier::indent(
-        site_model_to_xml_site_model(site_model),
+        site_model_to_xml_lh_distr(site_model),
         n_spaces = 4
       )
     )
-
-    # Clock models
-    if (!is.null(clock_model)) {
-
-      text <- c(text,
-        beautier::indent(
-          clock_model_to_xml_brm(clock_model),
-          n_spaces = 4
-        )
+    text <- c(text,
+      beautier::indent(
+        clock_model_to_xml_lh_distr(clock_model),
+        n_spaces = 4
       )
-    }
+    )
     text <- c(text, "</distribution>")
   }
 
   text <- indent(text, n_spaces = 4)
 
   # Surround by likelihood distribution tags
-  text <- c(
-      paste0(
-        "<distribution id=\"likelihood\" ",
-        "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
-      ),
-    text
-  )
+  text <- c(paste0(
+    "<distribution id=\"likelihood\" ",
+    "spec=\"util.CompoundDistribution\" useThreads=\"true\">"),
+    text)
   text <- c(text, "</distribution>")
   text
 }

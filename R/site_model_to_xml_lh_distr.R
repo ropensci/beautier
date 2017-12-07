@@ -4,7 +4,15 @@
 #'   as created by \code{\link{create_site_model}})
 #' @return the site model as XML text
 #' @author Richel J.C. Bilderbeek
-site_model_to_xml_site_model <- function(
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #       HERE, where the ID of the distribution is 'likelihood'
+#'  #     </distribution>
+#'  # </distribution>
+site_model_to_xml_lh_distr <- function(
   site_model
 ) {
   testit::assert(beautier::is_site_model(site_model))

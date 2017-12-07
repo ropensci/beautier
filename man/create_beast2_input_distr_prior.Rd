@@ -34,6 +34,10 @@ this function is not intended for regular use, thus its
  #     </distribution>
  # </distribution>
 }
+\seealso{
+this function is called by \code{\link{create_beast2_input_distr}},
+  together with \code{\link{create_beast2_input_distr_lh}}
+}
 \author{
 Richel J.C. Bilderbeek
 }
