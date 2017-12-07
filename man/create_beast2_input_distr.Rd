@@ -23,6 +23,11 @@ Creates the distribution section of a BEAST2 XML parameter file.
 this function is not intended for regular use, thus its
   long name length is accepted
 }
+\examples{
+ # <distribution id="posterior" spec="util.CompoundDistribution">
+ #   HERE
+ # </distribution>
+}
 \seealso{
 \code{\link{create_beast2_input}}
 }

@@ -25,6 +25,15 @@ of a BEAST2 XML parameter file
 this function is not intended for regular use, thus its
   long name length is accepted
 }
+\examples{
+ # <distribution id="posterior" spec="util.CompoundDistribution">
+ #     <distribution id="prior" spec="util.CompoundDistribution">
+ #       HERE, where the ID of the distribution is 'prior'
+ #     </distribution>
+ #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+ #     </distribution>
+ # </distribution>
+}
 \author{
 Richel J.C. Bilderbeek
 }

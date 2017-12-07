@@ -4,6 +4,10 @@
 #'   long name length is accepted
 #' @seealso \code{\link{create_beast2_input}}
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #   HERE
+#'  # </distribution>
 create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_models,
   clock_models,
@@ -45,6 +49,14 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 create_beast2_input_distr_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_models,
   clock_models,
@@ -70,6 +82,14 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #       HERE, where the ID of the distribution is 'likelihood'
+#'  #     </distribution>
+#'  # </distribution>
 create_beast2_input_distr_likelihood <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_models,
   clock_models,

@@ -13,17 +13,7 @@ clock_model_to_xml_prior_distr <- function(
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
 
-    text <- c(text, paste0("<prior id=\"MeanRatePrior.c:", id, "\" ",
-      "name=\"distribution\" x=\"@ucldMean.c:", id, "\">"))
-    text <- c(text,
-      indent(
-        distr_to_xml(
-          distr = clock_model$mean_rate_prior_distr
-        ),
-        n_spaces = 4
-      )
-    )
-    text <- c(text, paste0("</prior>"))
+    text <- c(text, rln_clock_model_to_xml_mean_rate_prior(clock_model))
 
     text <- c(text, paste0("<prior ",
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
