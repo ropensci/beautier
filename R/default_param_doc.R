@@ -12,7 +12,10 @@
 #'   as returned by \code{\link{create_clock_model}}
 #' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
+#' @param crown_age the crown age of the phylogeny
 #' @param distr_id a distributions' ID
+#' @param fasta_filename a FASTA filename.
+#'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param fasta_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param fixed_crown_age determines if the phylogeny its crown age is
@@ -64,8 +67,9 @@ default_params_doc <- function(
   ccp_tree_prior,
   cep_tree_prior,
   clock_model, clock_models,
+  crown_age,
   distr_id,
-  fasta_filenames,
+  fasta_filename, fasta_filenames,
   fixed_crown_age,
   gtr_site_model,
   hky_site_model,
