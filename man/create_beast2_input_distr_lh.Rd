@@ -26,7 +26,7 @@ this function is not intended for regular use, thus its
  # <distribution id="posterior" spec="util.CompoundDistribution">
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #     </distribution>
- #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+ #     <distribution id="likelihood" ...>
  #       HERE, where the ID of the distribution is 'likelihood'
  #     </distribution>
  # </distribution>

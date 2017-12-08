@@ -9,7 +9,7 @@
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
@@ -20,7 +20,7 @@ tree_priors_to_xml_prior_distr <- function( # nolint long function name is fine,
 
   text <- NULL
   for (tree_prior in tree_priors) {
-    text <- c(text, tree_prior_to_xml_prior_distr(tree_prior))
+    text <- c(text, tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
   }
   text
 }

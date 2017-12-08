@@ -39,6 +39,6 @@ is_init_strict_clock_model <- function(
   strict_clock_model
 ) {
   testit::assert(beautier::is_strict_clock_model(strict_clock_model))
-  if (!is_init_distr(strict_clock_model$clock_rate_distr)) return(FALSE)
+  if (!is_init_distr(strict_clock_model$clock_rate_distr)) return(FALSE) # nolint internal function
   !is.na(strict_clock_model$clock_rate_param$id)
 }

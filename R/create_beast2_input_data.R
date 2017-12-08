@@ -29,7 +29,7 @@ create_beast2_input_data <- function(
         nucleotides_uppercase = misc_options$nucleotides_uppercase
       )
     )
-    text <- c(text, indent("</data>", n_spaces = 16))
+    text <- c(text, indent("</data>", n_spaces = 16)) # nolint internal function
   }
   text
 }

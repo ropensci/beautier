@@ -9,7 +9,7 @@
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
@@ -42,13 +42,13 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
       clock_models = clock_models
     )
   )
-  text <- indent(text, n_spaces = 4)
+  text <- indent(text, n_spaces = 4) # nolint internal function
   text <- c(
     "<distribution id=\"posterior\" spec=\"util.CompoundDistribution\">",
     text
   )
   text <- c(text, "</distribution>") # posterior distribution
-  text <- indent(text, n_spaces = 4)
+  text <- indent(text, n_spaces = 4) # nolint internal function
   text
 }
 
@@ -66,7 +66,7 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 create_beast2_input_distr_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
@@ -79,7 +79,7 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
   text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint internal function
   text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint internal function
   text <- c(text, clock_models_to_xml_prior_distr(clock_models)) # nolint internal function
-  text <- indent(text, n_spaces = 4)
+  text <- indent(text, n_spaces = 4) # nolint internal function
 
   # Surround text by prior distribution tag
   text <- c("<distribution id=\"prior\" spec=\"util.CompoundDistribution\">", text)
@@ -99,7 +99,7 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
@@ -134,7 +134,7 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
     text <- c(text, "</distribution>")
   }
 
-  text <- indent(text, n_spaces = 4)
+  text <- indent(text, n_spaces = 4) # nolint internal function
 
   # Surround by likelihood distribution tags
   text <- c(paste0(
@@ -156,7 +156,7 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 bd_tree_prior_to_xml_prior_distr <- function(
@@ -219,7 +219,7 @@ bd_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 cbs_tree_prior_to_xml_prior_distr <- function(
@@ -255,7 +255,7 @@ cbs_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
@@ -306,7 +306,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fi
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
@@ -369,7 +369,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fi
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 yule_tree_prior_to_xml_prior_distr <- function(

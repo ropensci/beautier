@@ -22,7 +22,7 @@ of a BEAST2 XML parameter file for a Birth-Death tree prior
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #       HERE, where the ID of the distribution is 'prior'
  #     </distribution>
- #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+ #     <distribution id="likelihood" ...>
  #     </distribution>
  # </distribution>
 }

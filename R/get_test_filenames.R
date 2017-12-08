@@ -10,5 +10,5 @@
 #'   )
 #' @export
 get_fasta_filename <- function() {
-  get_path("test_output_0.fas")
+  get_path("test_output_0.fas") # nolint internal function
 }

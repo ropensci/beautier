@@ -41,7 +41,10 @@ clock_model_to_xml_lh_distr <- function(
       # "clock.rate=\"@ucldMean.c:", id, "\" ",
       ifelse(clock_model$normalize_mean_clock_rate == TRUE,
         "normalize=\"true\" ", ""),
-      ifelse(n_discrete_rates != -1, paste0("numberOfDiscreteRates=\"", n_discrete_rates, "\" "), ""),
+      ifelse(n_discrete_rates != -1,
+        paste0("numberOfDiscreteRates=\"", n_discrete_rates, "\" "),
+        ""
+      ),
       "rateCategories=\"@rateCategories.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\">"
     )

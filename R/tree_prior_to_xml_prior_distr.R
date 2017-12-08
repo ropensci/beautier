@@ -8,7 +8,7 @@
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
 #'  #     </distribution>
-#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
 tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily

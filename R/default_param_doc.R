@@ -87,7 +87,6 @@ default_params_doc <- function(
   tn93_site_model,
   tree_prior, tree_priors,
   yule_tree_prior
-)
-{
-
+) {
+  # Nothing
 }
