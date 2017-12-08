@@ -153,10 +153,32 @@ test_that("RLN RLN strict strict", {
   )
   created <- beautier:::clock_models_to_xml_prior_distr(
     list(
-      create_rln_clock_model(id = "anthus_aco"),
-      create_rln_clock_model(id = "anthus_nd2"),
-      create_strict_clock_model(id = "anthus_nd3"),
-      create_strict_clock_model(id = "anthus_nd4")
+      create_rln_clock_model(
+        id = "anthus_aco",
+        mean_rate_prior_distr = create_uniform_distr(id = "irrelevant"),
+        ucldstdev_distr = create_gamma_distr(
+          id = 6,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      ),
+      create_rln_clock_model(
+        id = "anthus_nd2",
+        mean_rate_prior_distr = create_uniform_distr(id = 14),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd3",
+        clock_rate_distr = create_uniform_distr(id = 20)
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd4",
+        clock_rate_distr = create_uniform_distr(id = 24)
+      )
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
@@ -194,20 +216,36 @@ test_that("strict RLN RLN strict", {
   )
   created <- beautier:::clock_models_to_xml_prior_distr(
     list(
-      create_strict_clock_model(id = "anthus_aco"),
-      create_strict_clock_model(id = "anthus_nd2"),
-      create_strict_clock_model(id = "anthus_nd3"),
-      create_strict_clock_model(id = "anthus_nd4")
+      create_strict_clock_model(
+        id = "anthus_aco",
+        clock_rate_distr = create_uniform_distr(id = "irrelevant")
+      ),
+      create_rln_clock_model(
+        id = "anthus_nd2",
+        mean_rate_prior_distr = create_uniform_distr(id = 14),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      ),
+      create_rln_clock_model(
+        id = "anthus_nd3",
+        mean_rate_prior_distr = create_uniform_distr(id = 26),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd4",
+        clock_rate_distr = create_uniform_distr(id = 24)
+      )
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
-
-
-
-
-
-
 
 test_that("strict strict RLN RLN", {
 
@@ -236,18 +274,36 @@ test_that("strict strict RLN RLN", {
   )
   created <- beautier:::clock_models_to_xml_prior_distr(
     list(
-      create_strict_clock_model(id = "anthus_aco"),
-      create_strict_clock_model(id = "anthus_nd2"),
-      create_strict_clock_model(id = "anthus_nd3"),
-      create_strict_clock_model(id = "anthus_nd4")
+      create_strict_clock_model(
+        id = "anthus_aco",
+        clock_rate_distr = create_uniform_distr(id = "irrelevant")
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd2",
+        clock_rate_distr = create_uniform_distr(id = 3)
+      ),
+      create_rln_clock_model(
+        id = "anthus_nd3",
+        mean_rate_prior_distr = create_uniform_distr(id = 26),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      ),
+      create_rln_clock_model(
+        id = "anthus_nd4",
+        mean_rate_prior_distr = create_uniform_distr(id = 34),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      )
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
-
-
-
-
 
 test_that("RLN strict strict RLN", {
 
@@ -276,10 +332,32 @@ test_that("RLN strict strict RLN", {
   )
   created <- beautier:::clock_models_to_xml_prior_distr(
     list(
-      create_strict_clock_model(id = "anthus_aco"),
-      create_strict_clock_model(id = "anthus_nd2"),
-      create_strict_clock_model(id = "anthus_nd3"),
-      create_strict_clock_model(id = "anthus_nd4")
+      create_rln_clock_model(
+        id = "anthus_aco",
+        mean_rate_prior_distr = create_uniform_distr(id = "irrelevant"),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd2",
+        clock_rate_distr = create_uniform_distr(id = 3)
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd3",
+        clock_rate_distr = create_uniform_distr(id = 20)
+      ),
+      create_rln_clock_model(
+        id = "anthus_nd4",
+        mean_rate_prior_distr = create_uniform_distr(id = 34),
+        ucldstdev_distr = create_gamma_distr(
+          id = 14,
+          alpha = create_alpha_param(id = 21, value = "0.5396"),
+          beta = create_beta_param(id = 22, value = "0.3819")
+        )
+      )
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))

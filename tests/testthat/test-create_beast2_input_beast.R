@@ -2,8 +2,8 @@ context("create_beast2_input_beast")
 
 test_that("use", {
 
-  fasta_filename <- get_fasta_filename()
-  id <- get_id(fasta_filename)
+  fasta_filename <- beautier:::get_path("anthus_aco.fas")
+  id <- beautier:::get_id(fasta_filename)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
@@ -13,6 +13,10 @@ test_that("use", {
           id = id,
           birth_rate_distr = create_uniform_distr(id = 1)
         )
+      ),
+      clock_models = beautier:::init_clock_models(
+        fasta_filenames = fasta_filename,
+        clock_models = list(create_strict_clock_model())
       )
     )
   )
