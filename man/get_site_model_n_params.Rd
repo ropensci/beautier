@@ -7,8 +7,8 @@
 get_site_model_n_params(site_model)
 }
 \arguments{
-\item{site_model}{a site_model,
-as created by \code{\link{create_site_model}}}
+\item{site_model}{a site model,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 the number of distributions a site model has

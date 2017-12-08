@@ -8,7 +8,8 @@ create_beast2_input_data(input_fasta_filenames,
   misc_options = create_misc_options())
 }
 \arguments{
-\item{input_fasta_filenames}{One or more fasta filenames}
+\item{input_fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}

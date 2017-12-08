@@ -1,7 +1,6 @@
 #' Extract the Coalescent Contant Population tree prior's
 #' population size distribution
-#' @param ccp_tree_prior a ccp tree prior, as created
-#'   by \code{\link{create_ccp_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return the birth rate distribution
 #' @author Richel J.C. Bilderbeek
 #' @export

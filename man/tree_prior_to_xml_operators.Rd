@@ -8,8 +8,8 @@
 tree_prior_to_xml_operators(tree_prior, fixed_crown_age = FALSE)
 }
 \arguments{
-\item{tree_prior}{a tree prior,
-as returned by \code{\link{create_tree_prior}})}
+\item{tree_prior}{a tree priors,
+as returned by \code{\link{create_tree_prior}}}
 
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,

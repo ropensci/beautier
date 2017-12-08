@@ -1,6 +1,5 @@
 #' Get the number of distributions one or more site models have
-#' @param site_models a list of site_models,
-#'   as created by \code{\link{create_site_model}}
+#' @inheritParams default_params_doc
 #' @return the number of parameters the site models have
 #' @author Richel J.C. Bilderbeek
 #' @export

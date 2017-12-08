@@ -13,7 +13,8 @@ create_beast2_input_beast(input_fasta_filenames,
   initial_phylogenies = rep(NA, length(input_fasta_filenames)))
 }
 \arguments{
-\item{input_fasta_filenames}{One or more fasta filenames}
+\item{input_fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}

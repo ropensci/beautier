@@ -1,11 +1,9 @@
 #' Finds a clock model with a certain ID
-#' @param clock_models a list of one or more clock models,
-#'   as returned by \code{\link{create_clock_model}}
+#' @inheritParams default_params_doc
 #' @param id the ID of the clock model
 #' @return the clock models with the desired ID, NULL if such a clock model is
 #'   absent
 #' @author Richel J.C. Bilderbeek
-#' @export
 find_clock_model <- function(
   clock_models,
   id

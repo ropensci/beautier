@@ -13,7 +13,8 @@ create_beast2_input_file(input_fasta_filenames, output_xml_filename,
   length(input_fasta_filenames)))
 }
 \arguments{
-\item{input_fasta_filenames}{One or more fasta filenames}
+\item{input_fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{output_xml_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
@@ -48,7 +49,7 @@ Create a BEAST2 input file
 
   # Birth-Death tree prior, crown age is estimated
   create_beast2_input_file(
-    input_fasta_filenames = get_input_fasta_filename(),
+    input_fasta_filenames = get_fasta_filename(),
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(file.exists(output_xml_filename))
@@ -58,11 +59,11 @@ Create a BEAST2 input file
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
   create_beast2_input_file(
-    input_fasta_filenames = get_input_fasta_filename(),
+    input_fasta_filenames = get_fasta_filename(),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_age = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(
-      fasta_filename = get_input_fasta_filename(),
+      fasta_filename = get_fasta_filename(),
       crown_age = 15)
   )
   testthat::expect_true(file.exists(output_xml_filename_fixed))

@@ -1,7 +1,6 @@
 #' Converts a site model to XML,
 #'   used in the \code{prior} section
-#' @param site_model a site model,
-#'   as created by \code{\link{create_site_model}})
+#' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richel J.C. Bilderbeek
 site_model_to_xml_prior_distr <- function(

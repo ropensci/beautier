@@ -113,7 +113,7 @@ test_that("use one with initial phylogeny", {
   # 'c' is used to convert phylo to multiPhylo
   phylos <- c(
     fasta_to_phylo(
-      get_input_fasta_filename(),
+      get_fasta_filename(),
       crown_age = 42
     )
   )

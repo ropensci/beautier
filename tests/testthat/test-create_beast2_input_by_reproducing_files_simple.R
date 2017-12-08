@@ -12,7 +12,7 @@ context(
 test_that("2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = get_input_fasta_filename(),
+    input_fasta_filenames = get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -48,9 +48,9 @@ test_that("2_4.xml", {
 test_that("gtr_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = get_input_fasta_filename(),
+    input_fasta_filenames = get_fasta_filename(),
     site_models = create_gtr_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       rate_ac_prior_distr = create_gamma_distr(
         id = 0,
         alpha = create_alpha_param(id = 7, value = "0.05"),
@@ -102,9 +102,9 @@ test_that("gtr_2_4.xml", {
 test_that("gtr_gcc_1_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
       ),
@@ -163,9 +163,9 @@ test_that("gtr_gcc_1_2_4.xml", {
 test_that("gtr_gcc_2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       ),
@@ -221,9 +221,9 @@ test_that("gtr_gcc_2_2_4.xml", {
 test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
         gamma_shape = 1.5
@@ -284,9 +284,9 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
         gamma_shape = 1.5,
@@ -352,9 +352,9 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 test_that("hky_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_hky_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_param(id = 1, value = "1.0"),
@@ -388,9 +388,9 @@ test_that("hky_2_4.xml", {
 test_that("hky_kappa_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_hky_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       kappa = 3.4,
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
@@ -423,9 +423,9 @@ test_that("hky_kappa_2_4.xml", {
 test_that("hky_prop_invariant_0_5_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_hky_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         prop_invariant = 0.5
       ),
@@ -459,9 +459,9 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
 test_that("hky_gcc_1_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_hky_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
       ),
@@ -495,9 +495,9 @@ test_that("hky_gcc_1_2_4.xml", {
 test_that("hky_gcc_2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_hky_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
       ),
@@ -532,9 +532,9 @@ test_that("hky_gcc_2_2_4.xml", {
 test_that("hky_gcc_4_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_hky_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 4
       ),
@@ -573,7 +573,7 @@ test_that("hky_gcc_4_2_4.xml", {
 
 test_that("jc69_2_4.xml", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
@@ -606,7 +606,7 @@ test_that("jc69_2_4.xml", {
 
 test_that("jc69_gcc_2_2_4.xml", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
 
   created_lines <- beautier::create_beast2_input(
@@ -641,7 +641,7 @@ test_that("jc69_gcc_2_2_4.xml", {
 
 test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
 
   created_lines <- beautier::create_beast2_input(
@@ -677,7 +677,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
 
 test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
 
   created_lines <- beautier::create_beast2_input(
@@ -720,9 +720,9 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 test_that("tn93_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_tn93_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 1,
         m = create_m_param(id = 3, value = "1.0"),
@@ -759,9 +759,9 @@ test_that("tn93_2_4.xml", {
 test_that("tn93_gcc_1_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_tn93_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 0,
@@ -799,9 +799,9 @@ test_that("tn93_gcc_1_2_4.xml", {
 test_that("tn93_gcc_2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_tn93_site_model(
-      id = get_id(get_input_fasta_filename()),
+      id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 0,
@@ -1018,7 +1018,7 @@ test_that("cep_6_taxa_2_4.xml", {
 test_that("cbs_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_cbs_tree_prior()
   )
 
@@ -1060,7 +1060,7 @@ test_that("cbs_2_4.xml is invalid", {
 test_that("ccp_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
@@ -1090,7 +1090,7 @@ test_that("ccp_2_4.xml", {
 test_that("ccp_pop_size_gamma_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = beautier::create_gamma_distr(
         id = 2,
@@ -1127,7 +1127,7 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
 test_that("cep_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1),
       growth_rate_distr = create_laplace_distr(
@@ -1165,7 +1165,7 @@ test_that("cep_2_4.xml", {
 test_that("yule_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -1194,7 +1194,7 @@ test_that("yule_2_4.xml", {
 test_that("birth_rate_uniform_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -1221,7 +1221,7 @@ test_that("birth_rate_uniform_2_4.xml", {
 test_that("birth_rate_normal_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         id = 0,
@@ -1253,7 +1253,7 @@ test_that("birth_rate_normal_2_4.xml", {
 test_that("birth_rate_one_div_x_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_one_div_x_distr(id = 1)
     )
@@ -1280,7 +1280,7 @@ test_that("birth_rate_one_div_x_2_4.xml", {
 test_that("birth_rate_log_normal_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_log_normal_distr(
         id = 0,
@@ -1318,7 +1318,7 @@ test_that("birth_rate_log_normal_2_4.xml", {
 test_that("birth_rate_exp_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_exp_distr(
         id = 1,
@@ -1350,7 +1350,7 @@ test_that("birth_rate_exp_2_4.xml", {
 test_that("birth_rate_gamma_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_yule_tree_prior(
       birth_rate_distr = beautier::create_gamma_distr(
         id = 0,
@@ -1382,7 +1382,7 @@ test_that("birth_rate_gamma_2_4.xml", {
 test_that("birth_rate_beta_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_beta_distr(
         id = 0,
@@ -1414,7 +1414,7 @@ test_that("birth_rate_beta_2_4.xml", {
 test_that("birth_rate_laplace_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_laplace_distr(
         id = 0,
@@ -1446,7 +1446,7 @@ test_that("birth_rate_laplace_2_4.xml", {
 test_that("birth_rate_inv_gamma_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_inv_gamma_distr(
         id = 0,
@@ -1486,7 +1486,7 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
 test_that("birth_rate_poisson_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_poisson_distr(
         id = 0,

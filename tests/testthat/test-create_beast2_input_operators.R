@@ -16,7 +16,7 @@ test_that("abuse", {
 })
 
 test_that("Operators that change crown age are absent at fixed crown age", {
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 

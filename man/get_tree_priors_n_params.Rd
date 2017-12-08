@@ -7,8 +7,8 @@
 get_tree_priors_n_params(tree_priors)
 }
 \arguments{
-\item{tree_priors}{a list of tree_priors,
-as created by the \code{\link{create_tree_prior}} functions}
+\item{tree_priors}{one or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 }
 \value{
 the number of parameters the tree priors have

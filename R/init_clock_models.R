@@ -1,8 +1,5 @@
 #' Initializes all clock models
-#' @param clock_models a list of one or more clock models to be initialized.
-#'   Clock priors can be created using \code{\link{create_clock_model}}
-#' @param fasta_filenames the one ore more names of the FASTA files that
-#'   contain the one or more alignments
+#' @inheritParams default_params_doc
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized clock models
@@ -66,9 +63,7 @@ init_clock_models <- function(
 }
 
 #' Initializes a Relaxed Log-Normal clock model
-#' @param rln_clock_model a Relaxed Log-Normal clock model,
-#'   as returned by \code{\link{create_rln_clock_model}}
-#' @inheritParams init_clock_models
+#' @inheritParams default_params_doc
 #' @return an initialized Relaxed Log-Normal clock model
 #' @author Richel J.C. Bilderbeek
 init_rln_clock_model <- function(
@@ -92,28 +87,27 @@ init_rln_clock_model <- function(
   distr_id <- distr_id + 1
   param_id <- param_id + beautier::get_distr_n_params(mean_rate_prior_distr)
 
+  mparam_id <- rln_clock_model$mparam_id
+  if (is.na(mparam_id)) {
+    mparam_id <- param_id
+    param_id <- param_id + 1
+  }
+
   result <- create_rln_clock_model(
     ucldstdev_distr = ucldstdev_distr,
     mean_rate_prior_distr = mean_rate_prior_distr,
     mean_clock_rate = rln_clock_model$mean_clock_rate,
     n_rate_categories = rln_clock_model$n_rate_categories,
-    normalize_mean_clock_rate = rln_clock_model$normalize_mean_clock_rate
+    normalize_mean_clock_rate = rln_clock_model$normalize_mean_clock_rate,
+    mparam_id = mparam_id
   )
 
-  if (is.na(result$mparam_id)) {
-    result$mparam_id <- param_id +
-      beautier::get_distr_n_params(rln_clock_model$ucldstdev_distr)
-  }
 
   result
 }
 
 #' Initializes a strict clock model
-#' @param strict_clock_model a strict clock model,
-#'   as returned by \code{\link{create_strict_clock_model}}
-#' @param id the ID of the alignments this clock model is associated with,
-#'   as can be extracted from its FASTA filesnames using \code{\link{get_id}})
-#' @inheritParams init_clock_models
+#' @inheritParams default_params_doc
 #' @return an initialized strict clock model
 #' @author Richel J.C. Bilderbeek
 init_strict_clock_model <- function(

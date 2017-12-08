@@ -8,16 +8,12 @@
 create_beast2_input_loggers_clock_models(clock_model)
 }
 \arguments{
-\item{clock_model}{a clock_model,
-as created by \code{\link{create_clock_model}}}
+\item{clock_model}{a clock model,
+as returned by \code{\link{create_clock_model}}}
 }
 \description{
 Creates the clock models part of the two logger sections
   of a BEAST2 XML parameter file
-}
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
 }
 \author{
 Richel J.C. Bilderbeek

@@ -1,9 +1,7 @@
 #' Creates the distribution section in the prior section of the
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<distribution id='
-#' @inheritParams create_beast2_input_distr
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   tree_prior

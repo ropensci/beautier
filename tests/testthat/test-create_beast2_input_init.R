@@ -37,7 +37,7 @@ test_that("abuse", {
 
 test_that("Can specify fixed crown age", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
 
   # Input file must be found
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)

@@ -3,7 +3,7 @@ context("create_beast2_input_data")
 test_that("sequences are sorted, as per v2.4", {
 
   lines <- create_beast2_input_data(
-      input_fasta_filenames = beautier::get_input_fasta_filename()
+      input_fasta_filenames = beautier::get_fasta_filename()
     )
   expected <- paste0("                    <sequence id=\"seq_t1\" ",
     "taxon=\"t1\" totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>")

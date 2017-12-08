@@ -1,14 +1,6 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_ids}})
-#' @inheritParams create_beast2_input
-#' @param site_models a list of one or more site models,
-#'   as returned by \code{\link{create_site_model}}
-#' @param tree_priors a list of one or more tree priors,
-#'   as returned by \code{\link{create_tree_prior}}
-#' @param clock_models a list of one or more clock models,
-#'   as returned by \code{\link{create_clock_model}}
 #' @author Richel J.C. Bilderbeek
+#' @inheritParams default_params_doc
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
   site_models = create_jc69_site_models(ids = ids),
@@ -247,10 +239,7 @@ create_beast2_input_loggers_tree_prior <- function( # nolint long function name 
 
 #' Creates the first site models part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @inheritParams create_beast2_input_loggers
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_rates <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
@@ -279,10 +268,7 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
 
 #' Creates the freqParameter part of the log sections
 #'   of a BEAST2 XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @inheritParams create_beast2_input_loggers
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_freqparam <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
@@ -301,9 +287,7 @@ create_beast2_input_loggers_freqparam <- function( # nolint long function name i
 
 #' Creates the gammaShape part of the log sections
 #'   of a BEAST2 XML parameter file
-#' @param site_model a site_model, as created by \code{\link{create_site_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_gamma_shape <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
@@ -321,10 +305,7 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 
 #' Creates the clock models part of the two logger sections
 #'   of a BEAST2 XML parameter file
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_loggers_clock_models <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   clock_model

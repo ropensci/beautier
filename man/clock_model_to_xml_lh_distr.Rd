@@ -8,16 +8,12 @@ XML as text}
 clock_model_to_xml_lh_distr(clock_model)
 }
 \arguments{
-\item{clock_model}{a clock_model,
-as created by \code{\link{create_clock_model}}}
+\item{clock_model}{a clock model,
+as returned by \code{\link{create_clock_model}}}
 }
 \description{
 Converts a clock model to the \code{branchRateModel} section of the
 XML as text
-}
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
 }
 \examples{
  # <distribution id="posterior" spec="util.CompoundDistribution">

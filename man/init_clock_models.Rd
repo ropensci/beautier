@@ -7,11 +7,8 @@
 init_clock_models(fasta_filenames, clock_models, distr_id = 0, param_id = 0)
 }
 \arguments{
-\item{fasta_filenames}{the one ore more names of the FASTA files that
-contain the one or more alignments}
-
-\item{clock_models}{a list of one or more clock models to be initialized.
-Clock priors can be created using \code{\link{create_clock_model}}}
+\item{clock_models}{a list of one or more clock models,
+as returned by \code{\link{create_clock_model}}}
 
 \item{distr_id}{the first distributions' ID}
 

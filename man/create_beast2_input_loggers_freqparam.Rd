@@ -8,15 +8,12 @@
 create_beast2_input_loggers_freqparam(site_model)
 }
 \arguments{
-\item{site_model}{a site_model, as created by \code{\link{create_site_model}}}
+\item{site_model}{a site model,
+as returned by \code{\link{create_site_model}}}
 }
 \description{
 Creates the freqParameter part of the log sections
   of a BEAST2 XML parameter file
-}
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
 }
 \author{
 Richel J.C. Bilderbeek

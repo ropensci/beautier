@@ -9,16 +9,17 @@ create_beast2_input_loggers(ids, site_models = create_jc69_site_models(ids =
   tree_priors = create_yule_tree_priors(ids = ids))
 }
 \arguments{
-\item{ids}{the IDs of the alignments (can be extracted from
-their FASTA filesnames using \code{\link{get_ids}})}
+\item{ids}{one or more alignments' IDs.
+IDs can be extracted from their FASTA filesnames
+with \code{\link{get_ids}})}
 
-\item{site_models}{a list of one or more site models,
+\item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 
-\item{tree_priors}{a list of one or more tree priors,
+\item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 }
 \description{

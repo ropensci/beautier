@@ -7,7 +7,7 @@
 find_site_model(site_models, id)
 }
 \arguments{
-\item{site_models}{a list of one or more site models,
+\item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 
 \item{id}{the ID of the site model}

@@ -1,9 +1,6 @@
 #' Converts a clock model to the \code{branchRateModel} section of the
 #' XML as text
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">

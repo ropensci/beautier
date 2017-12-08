@@ -2,7 +2,7 @@ context("create_beast2_input_beast")
 
 test_that("use", {
 
-  fasta_filename <- get_input_fasta_filename()
+  fasta_filename <- get_fasta_filename()
   id <- get_id(fasta_filename)
 
   testthat::expect_silent(

@@ -8,8 +8,8 @@
 tree_prior_to_xml_state(tree_prior)
 }
 \arguments{
-\item{tree_prior}{a tree prior,
-as returned by \code{\link{create_tree_prior}})}
+\item{tree_prior}{a tree priors,
+as returned by \code{\link{create_tree_prior}}}
 }
 \value{
 the tree prior as XML text

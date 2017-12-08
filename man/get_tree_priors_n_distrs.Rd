@@ -7,8 +7,8 @@
 get_tree_priors_n_distrs(tree_priors)
 }
 \arguments{
-\item{tree_priors}{a list of tree_priors,
-as created by \code{\link{create_tree_prior}}}
+\item{tree_priors}{one or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 }
 \value{
 the number of distributions a tree prior has

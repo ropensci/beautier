@@ -1,14 +1,12 @@
 #' Create a BEAST2 input file
-#' @inheritParams create_beast2_input
-#' @param output_xml_filename Name of the XML parameter file created by this
-#'   function. BEAST2 uses this file as input.
+#' @inheritParams default_params_doc
 #' @examples
 #'   # The file created by beautier, a BEAST2 input file
 #'   output_xml_filename <- "example_bd.xml"
 #'
 #'   # Birth-Death tree prior, crown age is estimated
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_input_fasta_filename(),
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     output_xml_filename = output_xml_filename
 #'   )
 #'   testthat::expect_true(file.exists(output_xml_filename))
@@ -18,11 +16,11 @@
 #'
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_input_fasta_filename(),
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     output_xml_filename = output_xml_filename_fixed,
 #'     fixed_crown_age = TRUE,
 #'     initial_phylogenies = beautier::fasta_to_phylo(
-#'       fasta_filename = get_input_fasta_filename(),
+#'       fasta_filename = get_fasta_filename(),
 #'       crown_age = 15)
 #'   )
 #'   testthat::expect_true(file.exists(output_xml_filename_fixed))

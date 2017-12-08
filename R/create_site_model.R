@@ -56,7 +56,7 @@ create_site_model <- function(
 #'  testit::assert(is_jc69_site_model(jc69_site_model))
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_input_fasta_filename(),
+#'    input_fasta_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = jc69_site_model
 #'  )
@@ -90,7 +90,7 @@ create_jc69_site_model <- function(
 #'  testit::assert(is_hky_site_model(hky_site_model))
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_input_fasta_filename(),
+#'    input_fasta_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = hky_site_model
 #'  )
@@ -140,7 +140,7 @@ create_hky_site_model <- function(
 #'  testit::assert(is_tn93_site_model(tn93_site_model))
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_input_fasta_filename(),
+#'    input_fasta_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = tn93_site_model
 #'  )
@@ -207,7 +207,7 @@ create_tn93_site_model <- function(
 #'  testit::assert(is_gtr_site_model(gtr_site_model))
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_input_fasta_filename(),
+#'    input_fasta_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = gtr_site_model
 #'  )

@@ -16,7 +16,7 @@ context(
 test_that("rln_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
         id = 0,
@@ -50,7 +50,7 @@ test_that("rln_2_4.xml", {
 test_that("rln_uclstdev_beta_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_beta_distr(
         id = 0,
@@ -88,7 +88,7 @@ test_that("rln_uclstdev_beta_2_4.xml", {
 test_that("strict_clock_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -113,7 +113,7 @@ test_that("strict_clock_2_4.xml", {
 
 test_that("strict_clock_rate_0_5_2_4.xml", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,

@@ -1,11 +1,6 @@
 #' Creates the XML of a tree prior,
 #'   as used in the \code{operators} section
-#' @param tree_prior a tree prior,
-#'   as returned by \code{\link{create_tree_prior}})
-#' @param fixed_crown_age determines if the phylogeny its crown age is
-#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
-#'   the crown age is fixed to the crown age
-#'   of the initial phylogeny.
+#' @inheritParams default_params_doc
 #' @return the tree prior as XML text
 #' @author Richel J.C. Bilderbeek
 tree_prior_to_xml_operators <- function(

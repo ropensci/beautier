@@ -8,14 +8,14 @@ These lines start with '<distribution id='}
 \usage{
 tree_prior_to_xml_prior_distr(tree_prior)
 }
+\arguments{
+\item{tree_prior}{a tree priors,
+as returned by \code{\link{create_tree_prior}}}
+}
 \description{
 Creates the distribution section in the prior section of the
 distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='
-}
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
 }
 \author{
 Richel J.C. Bilderbeek

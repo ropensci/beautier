@@ -8,8 +8,8 @@ XML as text}
 clock_models_to_xml_state(clock_models)
 }
 \arguments{
-\item{clock_models}{a list of one or more clock_models,
-as created by \code{\link{create_clock_model}}}
+\item{clock_models}{a list of one or more clock models,
+as returned by \code{\link{create_clock_model}}}
 }
 \value{
 lines of XML text, without indentation nor \code{state}

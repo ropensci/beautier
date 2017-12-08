@@ -1,8 +1,5 @@
 #' Initializes all site models
-#' @param site_models a list of one or more site models to be initialized.
-#'   Clock priors can be created using \code{\link{create_site_model}}
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_ids}})
+#' @inheritParams default_params_doc
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized site models

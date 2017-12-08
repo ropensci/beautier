@@ -7,8 +7,12 @@
 get_unlinked_clock_models(clock_models)
 }
 \arguments{
-\item{clock_models}{a list of one or more clock models}
+\item{clock_models}{a list of one or more clock models,
+as returned by \code{\link{create_clock_model}}}
 }
 \description{
 Get the first clock model of each ID
+}
+\author{
+Richel J.C. Bilderbeek
 }

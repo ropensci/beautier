@@ -1,5 +1,6 @@
 #' Get the first site model of each ID
-#' @param site_models a list of one or more site models
+#' @inheritParams default_params_doc
+#' @author Richel J.C. Bilderbeek
 get_unlinked_site_models <- function(site_models) {
   testit::assert(beautier::are_site_models(site_models))
   results <- list()

@@ -1,6 +1,5 @@
 #' Finds the first non-JC69 site model from a list of one or more site models
-#' @param site_models a list of one or more site models,
-#'   as returned by \code{\link{create_site_model}}
+#' @inheritParams default_params_doc
 #' @return the first non-JC69 site model, NULL if such a site model is
 #'   absent
 #' @author Richel J.C. Bilderbeek

@@ -8,8 +8,8 @@ XML as text}
 site_models_to_xml_state(site_models)
 }
 \arguments{
-\item{site_models}{a list of one or more site_models,
-as created by \code{\link{create_site_model}}}
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 lines of XML text, without indentation nor \code{state}

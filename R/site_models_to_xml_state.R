@@ -1,7 +1,6 @@
 #' Converts one or more clock models to the \code{state} section of the
 #' XML as text
-#' @param site_models a list of one or more site_models,
-#'   as created by \code{\link{create_site_model}}
+#' @inheritParams default_params_doc
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richel J.C. Bilderbeek

@@ -1,7 +1,6 @@
 #' Converts a clock model to the \code{prior} section of the
 #' XML as text
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 clock_model_to_xml_prior_distr <- function(
   clock_model

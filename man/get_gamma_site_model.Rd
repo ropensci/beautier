@@ -2,19 +2,19 @@
 % Please edit documentation in R/get_gamma_site_model.R
 \name{get_gamma_site_model}
 \alias{get_gamma_site_model}
-\title{Extract the gamma site model from an HKY site model}
+\title{Extract the gamma site model from a site model}
 \usage{
 get_gamma_site_model(site_model)
 }
 \arguments{
-\item{site_model}{one or more gamma_site_models, as created
-by \code{\link{create_gamma_site_model}}}
+\item{site_model}{a site model,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 the gamma site model
 }
 \description{
-Extract the gamma site model from an HKY site model
+Extract the gamma site model from a site model
 }
 \author{
 Richel J.C. Bilderbeek

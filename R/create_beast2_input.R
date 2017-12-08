@@ -1,26 +1,9 @@
 #' Create a BEAST2 XML input text
-#' @param input_fasta_filenames One or more fasta filenames
-#' @param site_models one or more site models,
-#'   as returned by \code{\link{create_site_model}}
-#' @param mcmc one mcmc object,
-#'   as returned by \code{\link{create_mcmc}}
-#' @param tree_priors one or more tree priors,
-#'   as returned by \code{\link{create_tree_prior}}
-#' @param clock_models a list of one or more clock models,
-#'   as returned by \code{\link{create_clock_model}}
-#' @param misc_options one misc_options object,
-#'   as returned by \code{\link{create_misc_options}}
-#' @param fixed_crown_age determines if the phylogeny its crown age is
-#'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
-#'   the crown age is fixed to the crown age
-#'   of the initial phylogeny.
-#' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
-#'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
-#'   the phylogeny is assumed to be of class ape::phylo.
+#' @inheritParams default_params_doc
 #' @examples
-#'   # Create a BEAST2 input file's text from the example FASTA file
-#'   xml <- create_beast2_input(
-#'     input_fasta_filenames = get_input_fasta_filename()
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "my_beast.xml"
 #'   )
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richel J.C. Bilderbeek

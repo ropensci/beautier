@@ -10,8 +10,9 @@ init_strict_clock_model(strict_clock_model, id)
 \item{strict_clock_model}{a strict clock model,
 as returned by \code{\link{create_strict_clock_model}}}
 
-\item{id}{the ID of the alignments this clock model is associated with,
-as can be extracted from its FASTA filesnames using \code{\link{get_id}})}
+\item{id}{an alignment's IDs.
+An ID can be extracted from its FASTA filesname
+with \code{\link{get_ids}})}
 }
 \value{
 an initialized strict clock model

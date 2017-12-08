@@ -1,5 +1,6 @@
 #' Get the first tree prior of each ID
-#' @param tree_priors a list of one or more tree priors
+#' @inheritParams default_params_doc
+#' @author Richel J.C. Bilderbeek
 get_unlinked_tree_priors <- function(tree_priors) {
   testit::assert(beautier::are_tree_priors(tree_priors))
   results <- list()

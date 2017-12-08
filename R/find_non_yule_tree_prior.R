@@ -1,6 +1,5 @@
 #' Finds the first non-Yule tree prior from a list of one or more tree priors
-#' @param tree_priors a list of one or more tree priors,
-#'   as returned by \code{\link{create_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return the first non-Yule tree prior, NULL if such a tree prior is
 #'   absent
 #' @author Richel J.C. Bilderbeek

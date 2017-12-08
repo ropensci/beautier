@@ -7,8 +7,8 @@
 get_site_models_n_params(site_models)
 }
 \arguments{
-\item{site_models}{a list of site_models,
-as created by \code{\link{create_site_model}}}
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 the number of parameters the site models have

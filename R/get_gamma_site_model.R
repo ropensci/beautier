@@ -1,6 +1,5 @@
-#' Extract the gamma site model from an HKY site model
-#' @param site_model one or more gamma_site_models, as created
-#'   by \code{\link{create_gamma_site_model}}
+#' Extract the gamma site model from a site model
+#' @inheritParams default_params_doc
 #' @return the gamma site model
 #' @author Richel J.C. Bilderbeek
 #' @export

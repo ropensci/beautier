@@ -1,7 +1,6 @@
 #' Creates the XML of a random phylogeny,
 #'   as used in the \code{state} section
-#' @param id the ID of the alignment (can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}})
+#' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
 rnd_phylo_to_xml_state <- function(

@@ -8,8 +8,8 @@ population size distribution}
 get_ccp_pop_size_distr(ccp_tree_prior)
 }
 \arguments{
-\item{ccp_tree_prior}{a ccp tree prior, as created
-by \code{\link{create_ccp_tree_prior}}}
+\item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
+as returned by \code{\link{create_ccp_tree_prior}}}
 }
 \value{
 the birth rate distribution

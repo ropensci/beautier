@@ -1,6 +1,7 @@
 #' Extract the kappa from an HKY site model
-#' @param site_models one or more site_models
+#' @inheritParams default_params_doc
 #' @return the kappa
+#' @author Richel J.C. Bilderbeek
 #' @export
 get_kappa <- function(site_models) {
 

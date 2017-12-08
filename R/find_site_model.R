@@ -1,6 +1,5 @@
 #' Finds a site model with a certain ID
-#' @param site_models a list of one or more site models,
-#'   as returned by \code{\link{create_site_model}}
+#' @inheritParams default_params_doc
 #' @param id the ID of the site model
 #' @return the site models with the desired ID, NULL if such a site model is
 #'   absent

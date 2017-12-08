@@ -1,6 +1,5 @@
 #' Get the number of parameters a list of tree priors has
-#' @param tree_priors a list of tree_priors,
-#'   as created by the \code{\link{create_tree_prior}} functions
+#' @inheritParams default_params_doc
 #' @return the number of parameters the tree priors have
 #' @author Richel J.C. Bilderbeek
 #' @examples

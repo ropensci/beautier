@@ -9,7 +9,7 @@ site_model_to_xml_prior_distr(site_model)
 }
 \arguments{
 \item{site_model}{a site model,
-as created by \code{\link{create_site_model}})}
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 the site model as XML text

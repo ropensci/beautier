@@ -7,8 +7,12 @@
 get_unlinked_site_models(site_models)
 }
 \arguments{
-\item{site_models}{a list of one or more site models}
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 }
 \description{
 Get the first site model of each ID
+}
+\author{
+Richel J.C. Bilderbeek
 }

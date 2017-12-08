@@ -15,7 +15,7 @@ test_that("input is checked, one alignment", {
 
   testthat::expect_silent(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename()
+      input_fasta_filenames = get_fasta_filename()
     )
   )
 
@@ -27,7 +27,7 @@ test_that("input is checked, one alignment", {
   )
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       mcmc = "nonsense"
     ),
     "mcmc must be a valid mcmc object, as returned by 'create_mcmc'"
@@ -35,7 +35,7 @@ test_that("input is checked, one alignment", {
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       tree_priors = "nonsense"
     ),
     "tree_priors must be valid, as returned by 'create_tree_priors'"
@@ -43,42 +43,42 @@ test_that("input is checked, one alignment", {
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       fixed_crown_age = "nonsense" # Error
     )
   )
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       site_models = "nonsense"
     )
   )
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       tree_priors = "nonsense"
     )
   )
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       clock_models = "nonsense"
     )
   )
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       mcmc = "nonsense"
     )
   )
 
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       initial_phylogenies = "nonsense"
     )
   )
@@ -130,7 +130,7 @@ test_that("input is checked, two alignments", {
 test_that("Run all defaults", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename()
+    input_fasta_filenames = beautier::get_fasta_filename()
   )
 
   testthat::expect_true(are_beast2_input_lines(created_lines))
@@ -147,7 +147,7 @@ test_that("Run all defaults", {
 test_that("Run GTR", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model()
   )
 
@@ -178,7 +178,7 @@ test_that("Run GTR", {
 
 test_that("Use of a strict clock", {
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
   lines <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
@@ -192,7 +192,7 @@ test_that("Use of a strict clock", {
 test_that("Use of a RLN clock", {
 
   lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model()
   )
   testthat::expect_true(are_beast2_input_lines(lines))
@@ -216,7 +216,7 @@ test_that("Use of a RLN clock", {
 test_that("Run BD tree prior", {
 
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_bd_tree_prior()
   )
 
@@ -239,7 +239,7 @@ test_that("Run BD tree prior", {
 test_that("Run CEP", {
 
   lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_input_fasta_filename(),
+    input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior()
   )
   testthat::expect_true(are_beast2_input_lines(lines))

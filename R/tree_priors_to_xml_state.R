@@ -1,7 +1,6 @@
 #' Converts one or more tree priors to the \code{state} section of the
 #' XML as text
-#' @param tree_priors a list of one or more tree_priors,
-#'   as created by \code{\link{create_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richel J.C. Bilderbeek

@@ -7,8 +7,8 @@
 get_site_models_n_distrs(site_models)
 }
 \arguments{
-\item{site_models}{a list of one or more site_models,
-each created by \code{\link{create_site_model}}}
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 the number of distributions the site models have

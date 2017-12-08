@@ -7,7 +7,7 @@
 find_non_yule_tree_prior(tree_priors)
 }
 \arguments{
-\item{tree_priors}{a list of one or more tree priors,
+\item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 }
 \value{

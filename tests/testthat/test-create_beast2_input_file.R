@@ -11,7 +11,7 @@ test_that("checks input", {
   )
   testthat::expect_error(
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       mcmc = list(chain_length = 0), # Error
       output_xml_filename = "output.xml"
     )
@@ -19,7 +19,7 @@ test_that("checks input", {
 
   testthat::expect_error(
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       mcmc = create_mcmc(chain_length = 10000),
       tree_priors = create_tree_prior(name = "nonsense"),
       output_xml_filename = "output.xml"
@@ -28,7 +28,7 @@ test_that("checks input", {
 
   testthat::expect_error(
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       mcmc = create_mcmc(chain_length = 10000),
       output_xml_filename = "output.xml",
       fixed_crown_age = "nonsense" # Error
@@ -37,7 +37,7 @@ test_that("checks input", {
 
   testthat::expect_error(
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       output_xml_filename = "output.xml",
       site_models = "nonsense"
     )
@@ -45,7 +45,7 @@ test_that("checks input", {
 
   testthat::expect_error(
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       output_xml_filename = "output.xml",
       tree_priors = "nonsense"
     )
@@ -53,7 +53,7 @@ test_that("checks input", {
 
   testthat::expect_error(
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       output_xml_filename = "output.xml",
       clock_models = "nonsense"
     )
@@ -153,7 +153,7 @@ test_that("Can specify fixed crown age", {
 
   skip("WIP")
 
-  input_fasta_filename <- beautier::get_input_fasta_filename()
+  input_fasta_filename <- beautier::get_fasta_filename()
   output_xml_filename_fixed <- tempfile()
 
   # Input file must be found
@@ -178,7 +178,7 @@ test_that("Produce XML for Yule species tree prior", {
 
   skip("WIP")
 
-  input_fasta_filename <- get_input_fasta_filename()
+  input_fasta_filename <- get_fasta_filename()
   output_xml_filename <- tempfile()
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
@@ -203,7 +203,7 @@ test_that("All site models produce a valid BEAST2 input file", {
 
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = get_input_fasta_filename(),
+      input_fasta_filenames = get_fasta_filename(),
       site_models = site_model,
       output_xml_filename = output_xml_filename
     )
@@ -224,7 +224,7 @@ test_that(paste0("All site models produce a valid BEAST2 input file, ",
   testthat::expect_true(length(site_models) > 1)
   for (site_model in site_models) {
 
-    input_fasta_filename <- get_input_fasta_filename()
+    input_fasta_filename <- get_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
       input_fasta_filenames = input_fasta_filename,
@@ -248,7 +248,7 @@ test_that("strict clock model produce a valid BEAST2 input file", {
 
   output_xml_filename <- tempfile()
   create_beast2_input_file(
-    input_fasta_filenames = get_input_fasta_filename(),
+    input_fasta_filenames = get_fasta_filename(),
     clock_models = create_strict_clock_model(),
     output_xml_filename = output_xml_filename
   )
@@ -263,7 +263,7 @@ test_that("RLN clock model produce a valid BEAST2 input file", {
 
   output_xml_filename <- tempfile() # nolint
   create_beast2_input_file(
-    input_fasta_filenames = get_input_fasta_filename(),
+    input_fasta_filenames = get_fasta_filename(),
     clock_models = create_rln_clock_model(),
     output_xml_filename = output_xml_filename
   )
@@ -281,7 +281,7 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
   testthat::expect_true(length(clock_models) > 1)
 
   for (clock_model in clock_models) {
-    input_fasta_filename <- get_input_fasta_filename()
+    input_fasta_filename <- get_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
       input_fasta_filenames = input_fasta_filename,

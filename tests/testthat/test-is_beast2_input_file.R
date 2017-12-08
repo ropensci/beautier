@@ -4,7 +4,7 @@ test_that("FASTA file is not a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
-  filename <- beautier::get_input_fasta_filename()
+  filename <- beautier::get_fasta_filename()
   is_ok <- NULL
 
   testthat::expect_output(

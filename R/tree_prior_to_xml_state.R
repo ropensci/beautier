@@ -1,7 +1,6 @@
 #' Creates the XML of a tree prior,
 #'   as used in the \code{state} section
-#' @param tree_prior a tree prior,
-#'   as returned by \code{\link{create_tree_prior}})
+#' @inheritParams default_params_doc
 #' @return the tree prior as XML text
 #' @author Richel J.C. Bilderbeek
 tree_prior_to_xml_state <- function(

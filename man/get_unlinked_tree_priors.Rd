@@ -7,8 +7,12 @@
 get_unlinked_tree_priors(tree_priors)
 }
 \arguments{
-\item{tree_priors}{a list of one or more tree priors}
+\item{tree_priors}{one or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 }
 \description{
 Get the first tree prior of each ID
+}
+\author{
+Richel J.C. Bilderbeek
 }

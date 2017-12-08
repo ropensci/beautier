@@ -13,7 +13,8 @@ create_beast2_input(input_fasta_filenames,
   initial_phylogenies = rep(NA, length(input_fasta_filenames)))
 }
 \arguments{
-\item{input_fasta_filenames}{One or more fasta filenames}
+\item{input_fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
@@ -43,9 +44,9 @@ the phylogeny is assumed to be of class ape::phylo.}
 Create a BEAST2 XML input text
 }
 \examples{
-  # Create a BEAST2 input file's text from the example FASTA file
-  xml <- create_beast2_input(
-    input_fasta_filenames = get_input_fasta_filename()
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    "my_beast.xml"
   )
 }
 \seealso{

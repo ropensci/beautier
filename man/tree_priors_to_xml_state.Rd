@@ -8,8 +8,8 @@ XML as text}
 tree_priors_to_xml_state(tree_priors)
 }
 \arguments{
-\item{tree_priors}{a list of one or more tree_priors,
-as created by \code{\link{create_tree_prior}}}
+\item{tree_priors}{one or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 }
 \value{
 lines of XML text, without indentation nor \code{state}

@@ -7,11 +7,15 @@
 get_kappa(site_models)
 }
 \arguments{
-\item{site_models}{one or more site_models}
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 the kappa
 }
 \description{
 Extract the kappa from an HKY site model
+}
+\author{
+Richel J.C. Bilderbeek
 }

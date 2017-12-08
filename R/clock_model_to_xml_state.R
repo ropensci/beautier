@@ -1,7 +1,6 @@
 #' Converts a clock model to the \code{state} section of the
 #' XML as text
-#' @param clock_model a clock_model,
-#'   as created by \code{\link{create_clock_model}}
+#' @inheritParams default_params_doc
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richel J.C. Bilderbeek
