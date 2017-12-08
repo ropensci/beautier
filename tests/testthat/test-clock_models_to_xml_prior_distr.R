@@ -225,17 +225,17 @@ test_that("strict RLN RLN strict", {
         mean_rate_prior_distr = create_uniform_distr(id = 14),
         ucldstdev_distr = create_gamma_distr(
           id = 14,
-          alpha = create_alpha_param(id = 21, value = "0.5396"),
-          beta = create_beta_param(id = 22, value = "0.3819")
+          alpha = create_alpha_param(id = 64, value = "0.5396"),
+          beta = create_beta_param(id = 65, value = "0.3819")
         )
       ),
       create_rln_clock_model(
         id = "anthus_nd3",
         mean_rate_prior_distr = create_uniform_distr(id = 26),
         ucldstdev_distr = create_gamma_distr(
-          id = 14,
-          alpha = create_alpha_param(id = 21, value = "0.5396"),
-          beta = create_beta_param(id = 22, value = "0.3819")
+          id = 22,
+          alpha = create_alpha_param(id = 106, value = "0.5396"),
+          beta = create_beta_param(id = 107, value = "0.3819")
         )
       ),
       create_strict_clock_model(
@@ -286,18 +286,18 @@ test_that("strict strict RLN RLN", {
         id = "anthus_nd3",
         mean_rate_prior_distr = create_uniform_distr(id = 26),
         ucldstdev_distr = create_gamma_distr(
-          id = 14,
-          alpha = create_alpha_param(id = 21, value = "0.5396"),
-          beta = create_beta_param(id = 22, value = "0.3819")
+          id = 22,
+          alpha = create_alpha_param(id = 106, value = "0.5396"),
+          beta = create_beta_param(id = 107, value = "0.3819")
         )
       ),
       create_rln_clock_model(
         id = "anthus_nd4",
         mean_rate_prior_distr = create_uniform_distr(id = 34),
         ucldstdev_distr = create_gamma_distr(
-          id = 14,
-          alpha = create_alpha_param(id = 21, value = "0.5396"),
-          beta = create_beta_param(id = 22, value = "0.3819")
+          id = 30,
+          alpha = create_alpha_param(id = 148, value = "0.5396"),
+          beta = create_beta_param(id = 149, value = "0.3819")
         )
       )
     )
@@ -336,7 +336,7 @@ test_that("RLN strict strict RLN", {
         id = "anthus_aco",
         mean_rate_prior_distr = create_uniform_distr(id = "irrelevant"),
         ucldstdev_distr = create_gamma_distr(
-          id = 14,
+          id = 6,
           alpha = create_alpha_param(id = 21, value = "0.5396"),
           beta = create_beta_param(id = 22, value = "0.3819")
         )
@@ -353,9 +353,9 @@ test_that("RLN strict strict RLN", {
         id = "anthus_nd4",
         mean_rate_prior_distr = create_uniform_distr(id = 34),
         ucldstdev_distr = create_gamma_distr(
-          id = 14,
-          alpha = create_alpha_param(id = 21, value = "0.5396"),
-          beta = create_beta_param(id = 22, value = "0.3819")
+          id = 30,
+          alpha = create_alpha_param(id = 148, value = "0.5396"),
+          beta = create_beta_param(id = 149, value = "0.3819")
         )
       )
     )
@@ -471,7 +471,7 @@ test_that("strict RLN", {
           alpha = create_alpha_param(id = 3, value = "0.5396"),
           beta = create_beta_param(id = 4, value = "0.3819")
         ),
-        mean_rate_prior_distr = create_uniform_distr(id = "irrelevant")
+        mean_rate_prior_distr = create_uniform_distr(id = 6)
       )
     )
   )

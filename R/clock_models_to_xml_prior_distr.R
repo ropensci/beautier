@@ -18,24 +18,19 @@ clock_models_to_xml_prior_distr <- function(clock_models) {
     )
   }
 
-  # Remove first strict clock
-  for (clock_model in clock_models) {
-    if (is_strict_clock_model(clock_model)) {
-      lines_to_remove <- clock_model_to_xml_prior_distr(clock_model)
-      text <- remove_multiline(text, lines_to_remove)
-      break
-    }
-    text
-  }
+  # Remove first clock rate, which is
+  #  - for strict: <prior id=\"ClockPrior.c:...
+  #  - for RLN: <prior id=\"MeanRatePrior.c:...
+  clock_model <- clock_models[[1]]
+  if (is_strict_clock_model(clock_model)) {
+    lines_to_remove <- clock_model_to_xml_prior_distr(clock_model)
+    text <- remove_multiline(text, lines_to_remove)
+  } else {
+    # Will fail for unimplemented clock models
+    testit::assert(beautier::is_rln_clock_model(clock_model))
 
-  # Remove first 'meanRate' (in RLN)
-  for (clock_model in clock_models) {
-    if (is_rln_clock_model(clock_model)) {
-      lines_to_remove <- rln_clock_model_to_xml_mean_rate_prior(clock_model)
-      text <- remove_multiline(text, lines_to_remove)
-      break
-    }
-    text
+    lines_to_remove <- rln_clock_model_to_xml_mean_rate_prior(clock_model)
+    text <- remove_multiline(text, lines_to_remove)
   }
 
   text
