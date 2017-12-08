@@ -6,6 +6,12 @@
 \usage{
 fasta_to_phylo(fasta_filename, crown_age)
 }
+\arguments{
+\item{fasta_filename}{a FASTA filename.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{crown_age}{the crown age of the phylogeny}
+}
 \value{
 a phylogeny
 }
