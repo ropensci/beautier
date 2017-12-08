@@ -16,32 +16,29 @@ is_init_clock_model <- function(
   }
 }
 
-#' Determine if x is an initialized relaxed log-normal clock_model object,
-#' as created by \code{\link{create_rln_clock_model}}
-#' @param x the object to check if it is an
-#'   initialized relaxed log-normal clock_model object
-#' @return TRUE if x is an initialized relaxed log-normal clock_model object
+#' Determine if x is an initialized relaxed log-normal clock_model object
+#' @inheritParams default_params_doc
+#' @return TRUE if x is an initialized relaxed log-normal clock_model object,
+#'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 is_init_rln_clock_model <- function(
-  x
+  rln_clock_model
 ) {
-  testit::assert(beautier::is_rln_clock_model(x))
-  if (!is_init_distr(x$ucldstdev_distr)) return(FALSE) # nolint internal function call
-  if (!is_init_distr(x$mean_rate_prior_distr)) return(FALSE) # nolint internal function call
-  !is.na(x$mparam_id) && !is.na(x$dimension)
+  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  if (!is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE) # nolint internal function call
+  if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) return(FALSE) # nolint internal function call
+  !is.na(rln_clock_model$mparam_id) && !is.na(rln_clock_model$dimension)
 }
 
 #' Determine if x is an initialized strict clock_model object
-#' as created by \code{\link{create_strict_clock_model}}
-#' @param x the object to check if it is an
-#'   initialized strict clock model object
-#' @return TRUE if x is an initializedstrict clock_model object
+#' @inheritParams default_params_doc
+#' @return TRUE if x is an initialized strict clock_model object
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_init_strict_clock_model <- function(
-  x
+  strict_clock_model
 ) {
-  testit::assert(beautier::is_strict_clock_model(x))
-
-  !is.na(x$clock_rate_param$id)
+  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
+  if (!is_init_distr(strict_clock_model$clock_rate_distr)) return(FALSE)
+  !is.na(strict_clock_model$clock_rate_param$id)
 }

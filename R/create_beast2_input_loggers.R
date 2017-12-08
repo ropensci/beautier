@@ -322,5 +322,5 @@ create_beast2_input_loggers_clock_models <- function( # nolint long function nam
       "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\"/>"))
   }
-  beautier::indent(text, n_spaces = 8)
+  indent(text, n_spaces = 8)
 }

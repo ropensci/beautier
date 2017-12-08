@@ -5,13 +5,17 @@
 \title{Create a strict clock model}
 \usage{
 create_strict_clock_model(id = NA,
-  clock_rate_param = create_clock_rate_param())
+  clock_rate_param = create_clock_rate_param(),
+  clock_rate_distr = create_uniform_distr())
 }
 \arguments{
 \item{id}{a clock model's ID}
 
-\item{clock_rate_param}{a clock_rate parameter,
-as created by a \code{\link{create_clock_rate_param}} function}
+\item{clock_rate_param}{the clock rate's parameter,
+as created by the \code{\link{create_clock_rate_param}} function}
+
+\item{clock_rate_distr}{the clock rate's distribution,
+as created by a \code{\link{create_distr}} function}
 }
 \value{
 a strict clock_model

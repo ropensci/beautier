@@ -17,7 +17,7 @@ site_model_to_xml_subst_model <- function(
   }
 
   text <- NULL
-  freq_equilibrium_text <- beautier::indent(
+  freq_equilibrium_text <- indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id),
     n_spaces = 4
   )

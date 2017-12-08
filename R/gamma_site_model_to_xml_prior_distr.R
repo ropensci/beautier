@@ -18,7 +18,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint long function name is 
       "x=\"@gammaShape.s:", id, "\">"))
     text <- c(
       text,
-      beautier::indent(
+      indent(
         distr_to_xml(
           gamma_site_model$gamma_shape_prior_distr
         ),

@@ -116,13 +116,13 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
       id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
-      beautier::indent(
+      indent(
         site_model_to_xml_lh_distr(site_model),
         n_spaces = 4
       )
     )
     text <- c(text,
-      beautier::indent(
+      indent(
         clock_model_to_xml_lh_distr(clock_model),
         n_spaces = 4
       )

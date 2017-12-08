@@ -96,8 +96,10 @@ create_rln_clock_model <- function(
 
 #' Create a strict clock model
 #' @inheritParams create_clock_model
-#' @param clock_rate_param a clock_rate parameter,
-#'   as created by a \code{\link{create_clock_rate_param}} function
+#' @param clock_rate_param the clock rate's parameter,
+#'   as created by the \code{\link{create_clock_rate_param}} function
+#' @param clock_rate_distr the clock rate's distribution,
+#'   as created by a \code{\link{create_distr}} function
 #' @return a strict clock_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -115,18 +117,26 @@ create_rln_clock_model <- function(
 #' @export
 create_strict_clock_model <- function(
   id = NA,
-  clock_rate_param = create_clock_rate_param()
+  clock_rate_param = create_clock_rate_param(),
+  clock_rate_distr = create_uniform_distr()
 ) {
   if (!is_clock_rate_param(clock_rate_param)) {
     stop(
       "'clock_rate_param' must be a clock rate parameter, ",
-      "as can be created by create_clock_rate_param"
+      "as can be created by 'create_clock_rate_param'"
+    )
+  }
+  if (!is_distr(clock_rate_distr)) {
+    stop(
+      "'clock_rate_distr' must be a distribution, ",
+      "as can be created by 'create_distr'"
     )
   }
   strict_clock_model <- beautier::create_clock_model(
     name = "strict",
     id = id,
-    clock_rate_param = clock_rate_param
+    clock_rate_param = clock_rate_param,
+    clock_rate_distr = clock_rate_distr
   )
   testit::assert(beautier::is_strict_clock_model(strict_clock_model))
   strict_clock_model

@@ -4,21 +4,24 @@
 \alias{init_strict_clock_model}
 \title{Initializes a strict clock model}
 \usage{
-init_strict_clock_model(strict_clock_model, id)
+init_strict_clock_model(strict_clock_model, distr_id, param_id)
 }
 \arguments{
 \item{strict_clock_model}{a strict clock model,
 as returned by \code{\link{create_strict_clock_model}}}
 
-\item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
-with \code{\link{get_ids}})}
+\item{distr_id}{a distributions' ID}
+
+\item{param_id}{a parameter's ID}
 }
 \value{
 an initialized strict clock model
 }
 \description{
 Initializes a strict clock model
+}
+\examples{
+  strict_clock_model <- create_strict_clock_model()
 }
 \author{
 Richel J.C. Bilderbeek

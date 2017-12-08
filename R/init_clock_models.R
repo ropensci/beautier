@@ -47,9 +47,12 @@ init_clock_models <- function(
 
         clock_model <- init_strict_clock_model( # nolint internal function call
           clock_model,
-          id = ids[i]
+          distr_id = distr_id,
+          param_id = param_id
         )
-        # Does not touch 'distr_id', nor 'param_id'
+        distr_id <- distr_id  + 1 # Has one distributions
+        param_id <- param_id + beautier::get_distr_n_params(
+          clock_model$clock_rate_distr)
       }
 
       testit::assert(is_init_strict_clock_model(clock_model)) # nolint internal function call
@@ -110,16 +113,28 @@ init_rln_clock_model <- function(
 #' @inheritParams default_params_doc
 #' @return an initialized strict clock model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   strict_clock_model <- create_strict_clock_model()
 init_strict_clock_model <- function(
   strict_clock_model,
-  id
+  distr_id,
+  param_id
 ) {
-  testit::assert(beautier::is_id(id))
   testit::assert(beautier::is_strict_clock_model(strict_clock_model))
 
-  result <- strict_clock_model
+  # clock_rate_distr
+  strict_clock_model$clock_rate_distr <- init_distr(
+    strict_clock_model$clock_rate_distr,
+    distr_id,
+    param_id
+  )
+  distr_id <- distr_id + 1
+  param_id <- param_id + beautier::get_distr_n_params(
+    strict_clock_model$clock_rate_distr)
 
-  result$clock_rate_param$id <- id
+  # clock_rate_param
+  strict_clock_model$clock_rate_param$id <- param_id
+  param_id <- param_id + 1
 
-  result
+  strict_clock_model
 }

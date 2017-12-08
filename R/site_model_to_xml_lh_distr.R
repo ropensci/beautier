@@ -58,7 +58,7 @@ site_model_to_xml_lh_distr <- function(
     "</parameter>"))
 
   text <- c(text,
-    beautier::indent(
+    indent(
       site_model_to_xml_subst_model(site_model),
       n_spaces = 4
     )

@@ -32,7 +32,7 @@ create_beast2_input_init <- function(
       text <- c(text, "")
       text <- c(
         text,
-        beautier::indent(rnd_phylo_to_xml_init(id), n_spaces = 4)
+        indent(rnd_phylo_to_xml_init(id), n_spaces = 4)
       )
     }
   }

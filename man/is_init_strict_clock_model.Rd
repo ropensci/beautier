@@ -2,21 +2,19 @@
 % Please edit documentation in R/is_init_clock_model.R
 \name{is_init_strict_clock_model}
 \alias{is_init_strict_clock_model}
-\title{Determine if x is an initialized strict clock_model object
-as created by \code{\link{create_strict_clock_model}}}
+\title{Determine if x is an initialized strict clock_model object}
 \usage{
-is_init_strict_clock_model(x)
+is_init_strict_clock_model(strict_clock_model)
 }
 \arguments{
-\item{x}{the object to check if it is an
-initialized strict clock model object}
+\item{strict_clock_model}{a strict clock model,
+as returned by \code{\link{create_strict_clock_model}}}
 }
 \value{
-TRUE if x is an initializedstrict clock_model object
+TRUE if x is an initialized strict clock_model object
 }
 \description{
 Determine if x is an initialized strict clock_model object
-as created by \code{\link{create_strict_clock_model}}
 }
 \author{
 Richel J.C. Bilderbeek

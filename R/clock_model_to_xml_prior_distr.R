@@ -26,6 +26,14 @@ clock_model_to_xml_prior_distr <- function(
       )
     )
     text <- c(text, paste0("</prior>"))
+  } else {
+    # Fails for unimplemented clock models
+    testit::assert(is_strict_clock_model(clock_model))
+    text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
+      "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
+    text <- c(text, indent(distr_to_xml(clock_model$clock_rate_distr), n_spaces = 4))
+    text <- c(text, paste0("</prior>"))
+
   }
   text
 }

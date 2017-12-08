@@ -9,7 +9,17 @@ clock_models_to_xml_prior_distr <- function(clock_models) {
     )
   }
 
-  # Remove first 'meanRate'
+  # Remove first strict clock
+  for (clock_model in clock_models) {
+    if (is_strict_clock_model(clock_model)) {
+      lines_to_remove <- clock_model_to_xml_prior_distr(clock_model)
+      text <- remove_multiline(text, lines_to_remove)
+      break
+    }
+    text
+  }
+
+  # Remove first 'meanRate' (in RLN)
   for (clock_model in clock_models) {
     if (is_rln_clock_model(clock_model)) {
       lines_to_remove <- rln_clock_model_to_xml_mean_rate_prior(clock_model)

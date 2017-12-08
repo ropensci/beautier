@@ -16,5 +16,8 @@ That filename without its full path and extension
 Get the filename's base without extension
 }
 \examples{
-  testit::assert(get_file_base_sans_ext("/home/richel/test.txt") == "test")
+  testit::assert(
+    beautier:::get_file_base_sans_ext("/home/richel/test.txt")
+    == "test"
+ )
 }
