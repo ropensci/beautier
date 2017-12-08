@@ -3,11 +3,11 @@ context("tree_prior_to_xml_prior_distr")
 test_that("BD", {
 
   expected <- c(
-    "<distribution id=\"BirthDeath.t:test_output_0\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:test_output_0\" relativeDeathRate=\"@BDDeathRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>",
-    "<prior id=\"BirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDBirthRate.t:test_output_0\">",
+    "<distribution id=\"BirthDeath.t:test_output_0\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:test_output_0\" relativeDeathRate=\"@BDDeathRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
+    "<prior id=\"BirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDBirthRate.t:test_output_0\">", # nolint XML
     "    <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>",
     "</prior>",
-    "<prior id=\"DeathRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDDeathRate.t:test_output_0\">",
+    "<prior id=\"DeathRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDDeathRate.t:test_output_0\">", # nolint XML
     "    <Uniform id=\"Uniform.4\" name=\"distr\"/>",
     "</prior>"
   )
@@ -59,17 +59,17 @@ test_that("CCP", {
 test_that("CEP", {
 
   expected <- c(
-    "<distribution id=\"CoalescentExponential.t:test_output_0\" spec=\"Coalescent\">",
-    "    <populationModel id=\"ExponentialGrowth.t:test_output_0\" spec=\"ExponentialGrowth\" growthRate=\"@growthRate.t:test_output_0\" popSize=\"@ePopSize.t:test_output_0\"/>",
-    "    <treeIntervals id=\"TreeIntervals.t:test_output_0\" spec=\"TreeIntervals\" tree=\"@Tree.t:test_output_0\"/>",
+    "<distribution id=\"CoalescentExponential.t:test_output_0\" spec=\"Coalescent\">", # nolint XML
+    "    <populationModel id=\"ExponentialGrowth.t:test_output_0\" spec=\"ExponentialGrowth\" growthRate=\"@growthRate.t:test_output_0\" popSize=\"@ePopSize.t:test_output_0\"/>", # nolint XML
+    "    <treeIntervals id=\"TreeIntervals.t:test_output_0\" spec=\"TreeIntervals\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
     "</distribution>",
-    "<prior id=\"ePopSizePrior.t:test_output_0\" name=\"distribution\" x=\"@ePopSize.t:test_output_0\">",
+    "<prior id=\"ePopSizePrior.t:test_output_0\" name=\"distribution\" x=\"@ePopSize.t:test_output_0\">", # nolint XML
     "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>",
     "</prior>",
-    "<prior id=\"GrowthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@growthRate.t:test_output_0\">",
+    "<prior id=\"GrowthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@growthRate.t:test_output_0\">", # nolint XML
     "    <LaplaceDistribution id=\"LaplaceDistribution.0\" name=\"distr\">",
-    "        <parameter id=\"RealParameter.1\" estimate=\"false\" name=\"mu\">0.001</parameter>",
-    "        <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"scale\">30.701135</parameter>",
+    "        <parameter id=\"RealParameter.1\" estimate=\"false\" name=\"mu\">0.001</parameter>", # nolint XML
+    "        <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"scale\">30.701135</parameter>", # nolint XML
     "    </LaplaceDistribution>",
     "</prior>"
   )
@@ -90,8 +90,8 @@ test_that("CEP", {
 test_that("Yule", {
 
   expected <- c(
-    "<distribution id=\"YuleModel.t:test_output_0\" spec=\"beast.evolution.speciation.YuleModel\" birthDiffRate=\"@birthRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>",
-    "<prior id=\"YuleBirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@birthRate.t:test_output_0\">",
+    "<distribution id=\"YuleModel.t:test_output_0\" spec=\"beast.evolution.speciation.YuleModel\" birthDiffRate=\"@birthRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
+    "<prior id=\"YuleBirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@birthRate.t:test_output_0\">", # nolint XML
     "    <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>",
     "</prior>"
   )

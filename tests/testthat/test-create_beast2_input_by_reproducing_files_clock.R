@@ -43,7 +43,8 @@ test_that("rln_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -196,7 +197,8 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 
   if (is_on_travis()) {
@@ -264,7 +266,8 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 

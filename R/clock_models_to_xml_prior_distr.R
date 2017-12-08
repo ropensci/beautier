@@ -23,13 +23,13 @@ clock_models_to_xml_prior_distr <- function(clock_models) { # nolint internal fu
   #  - for RLN: <prior id=\"MeanRatePrior.c:...
   clock_model <- clock_models[[1]]
   if (is_strict_clock_model(clock_model)) {
-    lines_to_remove <- clock_model_to_xml_prior_distr(clock_model)
+    lines_to_remove <- clock_model_to_xml_prior_distr(clock_model) # nolint internal function
     text <- remove_multiline(text, lines_to_remove) # nolint internal function
   } else {
     # Will fail for unimplemented clock models
     testit::assert(beautier::is_rln_clock_model(clock_model))
 
-    lines_to_remove <- rln_clock_model_to_xml_mean_rate_prior(clock_model)
+    lines_to_remove <- rln_clock_model_to_xml_mean_rate_prior(clock_model) # nolint internal function
     text <- remove_multiline(text, lines_to_remove) # nolint internal function
   }
 

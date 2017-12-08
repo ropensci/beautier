@@ -11,7 +11,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+tree_prior_to_xml_prior_distr <- function( # nolint internal function
   tree_prior
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))

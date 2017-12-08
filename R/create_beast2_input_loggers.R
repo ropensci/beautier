@@ -315,12 +315,12 @@ create_beast2_input_loggers_clock_models <- function( # nolint long function nam
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  if (is_rln_clock_model(clock_model)) {
+  if (beautier::is_rln_clock_model(clock_model)) {
     text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>"))
     text <- c(text, paste0("<log id=\"rate.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.RateStatistic\" ",
       "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\"/>"))
   }
-  indent(text, n_spaces = 8)
+  indent(text, n_spaces = 8) # nolint internal function
 }

@@ -159,7 +159,7 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-bd_tree_prior_to_xml_prior_distr <- function(
+bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   bd_tree_prior
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
@@ -222,7 +222,7 @@ bd_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-cbs_tree_prior_to_xml_prior_distr <- function(
+cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   cbs_tree_prior
 ) {
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
@@ -258,7 +258,7 @@ cbs_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   ccp_tree_prior
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
@@ -309,7 +309,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fi
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   cep_tree_prior
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
@@ -372,7 +372,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fi
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-yule_tree_prior_to_xml_prior_distr <- function(
+yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   yule_tree_prior
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
