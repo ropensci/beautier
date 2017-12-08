@@ -152,12 +152,9 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
 
 test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
-  fasta_filename_1 <- beautier:::get_path("anthus_aco.fas")
-  fasta_filename_2 <- beautier:::get_path("anthus_nd2.fas")
-  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_aco.fas", "anthus_nd2.fas")),
     clock_models = list(
       create_strict_clock_model(),
       create_rln_clock_model(
