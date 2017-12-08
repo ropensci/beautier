@@ -6,7 +6,11 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
-#'  #   HERE
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
 #'  # </distribution>
 create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_models,
@@ -147,6 +151,14 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 bd_tree_prior_to_xml_prior_distr <- function(
   bd_tree_prior
 ) {
@@ -202,6 +214,14 @@ bd_tree_prior_to_xml_prior_distr <- function(
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 cbs_tree_prior_to_xml_prior_distr <- function(
   cbs_tree_prior
 ) {
@@ -230,6 +250,14 @@ cbs_tree_prior_to_xml_prior_distr <- function(
 #' Coalescent Constant Population tree prior
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   ccp_tree_prior
 ) {
@@ -273,6 +301,14 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fi
 #' Coalescent Exponential Population tree prior
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   cep_tree_prior
 ) {
@@ -328,6 +364,14 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint long function name is fi
 #' of a BEAST2 XML parameter file for a Yule tree prior
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'  # <distribution id="posterior" spec="util.CompoundDistribution">
+#'  #     <distribution id="prior" spec="util.CompoundDistribution">
+#'  #       HERE, where the ID of the distribution is 'prior'
+#'  #     </distribution>
+#'  #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+#'  #     </distribution>
+#'  # </distribution>
 yule_tree_prior_to_xml_prior_distr <- function(
   yule_tree_prior
 ) {

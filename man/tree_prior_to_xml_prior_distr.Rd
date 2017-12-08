@@ -17,6 +17,15 @@ Creates the distribution section in the prior section of the
 distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='
 }
+\examples{
+ # <distribution id="posterior" spec="util.CompoundDistribution">
+ #     <distribution id="prior" spec="util.CompoundDistribution">
+ #       HERE, where the ID of the distribution is 'prior'
+ #     </distribution>
+ #     <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+ #     </distribution>
+ # </distribution>
+}
 \author{
 Richel J.C. Bilderbeek
 }
