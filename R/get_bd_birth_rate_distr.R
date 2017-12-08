@@ -1,6 +1,5 @@
 #' Extract the birth rate distribution from a Birth-Death tree prior
-#' @param bd_tree_prior a Yule tree prior, as created
-#'   by \code{\link{create_bd_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return the birth rate distribution
 #' @author Richel J.C. Bilderbeek
 #' @export

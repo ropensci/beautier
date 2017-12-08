@@ -1,6 +1,5 @@
 #' Extract the MCMC chain length from an mcmc object.
-#' @param mcmc one mcmc, as created
-#'   by \code{\link{create_mcmc}}
+#' @inheritParams default_params_doc
 #' @return the MCMC chain length
 #' @author Richel J.C. Bilderbeek
 #' @export

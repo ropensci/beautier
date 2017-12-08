@@ -1,7 +1,5 @@
 #' Creates the map section of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_ids}})
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_init <- function(
   ids,

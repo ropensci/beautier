@@ -7,7 +7,9 @@
 create_jc69_site_models(ids)
 }
 \arguments{
-\item{ids}{the alignment IDs}
+\item{ids}{one or more alignments' IDs.
+IDs can be extracted from their FASTA filesnames
+with \code{\link{get_ids}})}
 }
 \value{
 a list of site_models

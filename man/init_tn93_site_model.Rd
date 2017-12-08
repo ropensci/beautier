@@ -10,9 +10,9 @@ init_tn93_site_model(tn93_site_model, distr_id = 0, param_id = 0)
 \item{tn93_site_model}{a TN93 site model,
 as returned by \code{\link{create_tn93_site_model}}}
 
-\item{distr_id}{the first distributions' ID}
+\item{distr_id}{a distributions' ID}
 
-\item{param_id}{the first parameter's ID}
+\item{param_id}{a parameter's ID}
 }
 \value{
 an initialized TN93 site model

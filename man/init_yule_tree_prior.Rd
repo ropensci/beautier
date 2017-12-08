@@ -7,12 +7,12 @@
 init_yule_tree_prior(yule_tree_prior, distr_id, param_id)
 }
 \arguments{
-\item{yule_tree_prior}{a Yule tree prior,
-as returned by \code{\link{create_yule_tree_prior}}}
+\item{yule_tree_prior}{a Yule tree_prior,
+as created by \code{\link{create_yule_tree_prior}}}
 
-\item{distr_id}{the first distributions' ID}
+\item{distr_id}{a distributions' ID}
 
-\item{param_id}{the first parameter's ID}
+\item{param_id}{a parameter's ID}
 }
 \value{
 an initialized Yule tree prior

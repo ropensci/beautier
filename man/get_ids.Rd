@@ -7,7 +7,8 @@
 get_ids(fasta_filenames, capitalize_first_char_id = FALSE)
 }
 \arguments{
-\item{fasta_filenames}{one or more FASTA filenames}
+\item{fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{capitalize_first_char_id}{capitalize the first character of the IDs}
 }

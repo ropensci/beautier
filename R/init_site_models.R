@@ -61,9 +61,7 @@ init_site_models <- function(
 }
 
 #' Initializes a GTR site model
-#' @param gtr_site_model a GTR site model,
-#'   as returned by \code{\link{create_gtr_site_model}}
-#' @inheritParams init_site_models
+#' @inheritParams default_params_doc
 #' @return an initialized GTR site model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -167,9 +165,7 @@ init_gtr_site_model <- function(
 }
 
 #' Initializes an HKY site model
-#' @param hky_site_model an HKY site model,
-#'   as returned by \code{\link{create_hky_site_model}}
-#' @inheritParams init_site_models
+#' @inheritParams default_params_doc
 #' @return an initialized HKY site model
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -200,9 +196,7 @@ init_hky_site_model <- function(
 }
 
 #' Initializes a TN93 site model
-#' @param tn93_site_model a TN93 site model,
-#'   as returned by \code{\link{create_tn93_site_model}}
-#' @inheritParams init_site_models
+#' @inheritParams default_params_doc
 #' @return an initialized TN93 site model
 #' @author Richel J.C. Bilderbeek
 #' @examples

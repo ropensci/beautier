@@ -7,6 +7,9 @@
 init_clock_models(fasta_filenames, clock_models, distr_id = 0, param_id = 0)
 }
 \arguments{
+\item{fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 

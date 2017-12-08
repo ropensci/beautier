@@ -1,6 +1,5 @@
 #' Create a random phylogeny, with a specified crown age, from a FASTA file
-#' @param fasta_filename Name of an existing FASTA file
-#' @param crown_age the crown age of the phylogeny
+#' @inheritParams default_params_doc
 #' @return a phylogeny
 #' @examples
 #'   fasta_filename <- beautier::get_fasta_filename()

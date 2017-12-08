@@ -7,8 +7,8 @@
 get_mcmc_chain_length(mcmc)
 }
 \arguments{
-\item{mcmc}{one mcmc, as created
-by \code{\link{create_mcmc}}}
+\item{mcmc}{one mcmc object,
+as returned by \code{\link{create_mcmc}}}
 }
 \value{
 the MCMC chain length

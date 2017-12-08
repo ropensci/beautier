@@ -7,7 +7,7 @@
 get_bd_birth_rate_distr(bd_tree_prior)
 }
 \arguments{
-\item{bd_tree_prior}{a Yule tree prior, as created
+\item{bd_tree_prior}{a Birth-Death tree prior, as created
 by \code{\link{create_bd_tree_prior}}}
 }
 \value{

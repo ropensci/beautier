@@ -6,11 +6,6 @@
 \usage{
 fasta_to_phylo(fasta_filename, crown_age)
 }
-\arguments{
-\item{fasta_filename}{Name of an existing FASTA file}
-
-\item{crown_age}{the crown age of the phylogeny}
-}
 \value{
 a phylogeny
 }

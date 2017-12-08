@@ -1,3 +1,6 @@
+#' Used by \code{\link{clock_models_to_xml_prior_distr}}
+#' @inheritParams default_params_doc
+#' @author Richel J.C. Bilderbeek
 rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) {
 
   testit::assert(beautier::is_rln_clock_model(rln_clock_model))

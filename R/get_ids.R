@@ -1,5 +1,5 @@
 #' Conclude the IDs from one or more FASTA filenames
-#' @param fasta_filenames one or more FASTA filenames
+#' @inheritParams default_params_doc
 #' @param capitalize_first_char_id capitalize the first character of the IDs
 #' @return the IDs
 #' @author Richel J.C. Bilderbeek

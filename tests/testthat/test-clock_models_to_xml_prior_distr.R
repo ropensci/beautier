@@ -113,3 +113,29 @@ test_that("RLN", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+test_that("strict RLN", {
+
+  expected <- c(
+  )
+  created <- beautier:::clock_models_to_xml_prior_distr(
+    list(
+      create_strict_clock_model(id = "anthus_aco"),
+      create_rln_clock_model(id = "anthus_nd2")
+    )
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+test_that("RLN strict", {
+
+  expected <- c(
+  )
+  created <- beautier:::clock_models_to_xml_prior_distr(
+    list(
+      create_rln_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_nd2")
+    )
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})

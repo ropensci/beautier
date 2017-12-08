@@ -1,3 +1,5 @@
+#' @inheritParams default_params_doc
+#' @author Richel J.C. Bilderbeek
 clock_models_to_xml_prior_distr <- function(clock_models) {
   text <- NULL
   for (clock_model in clock_models) {

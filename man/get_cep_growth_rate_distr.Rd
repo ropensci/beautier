@@ -8,8 +8,8 @@ growth rate distribution}
 get_cep_growth_rate_distr(cep_tree_prior)
 }
 \arguments{
-\item{cep_tree_prior}{a cep tree prior, as created
-by \code{\link{create_cep_tree_prior}}}
+\item{cep_tree_prior}{a cep tree prior,
+as returned by \code{\link{create_cep_tree_prior}}}
 }
 \value{
 the growth rate distribution

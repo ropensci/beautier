@@ -8,8 +8,9 @@
 rnd_phylo_to_xml_init(id)
 }
 \arguments{
-\item{id}{the ID of the alignment (can be extracted from
-its FASTA filesname using \code{\link{get_id}})}
+\item{id}{an alignment's IDs.
+An ID can be extracted from its FASTA filesname
+with \code{\link{get_ids}})}
 }
 \value{
 the phylogeny as XML text

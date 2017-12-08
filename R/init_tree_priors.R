@@ -54,9 +54,7 @@ init_tree_priors <- function(
 }
 
 #' Initializes a Birth-Death tree prior
-#' @inheritParams init_tree_priors
-#' @param bd_tree_prior a Birth-Death tree prior,
-#'   as returned by \code{\link{create_bd_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return an initialized Birth-Death tree prior
 #' @author Richel J.C. Bilderbeek
 init_bd_tree_prior <- function(
@@ -84,9 +82,7 @@ init_bd_tree_prior <- function(
 
 
 #' Initializes a Coalescent Constant Population tree prior
-#' @inheritParams init_tree_priors
-#' @param ccp_tree_prior a Coalescent Constant Population tree prior,
-#'   as returned by \code{\link{create_ccp_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return an initialized Coalescent Constant Population tree prior
 #' @author Richel J.C. Bilderbeek
 init_ccp_tree_prior <- function(
@@ -107,9 +103,7 @@ init_ccp_tree_prior <- function(
 }
 
 #' Initializes a Coalescent Exponential Population tree prior
-#' @inheritParams init_tree_priors
-#' @param cep_tree_prior a Coalescent Exponential Population tree prior,
-#'   as returned by \code{\link{create_cep_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return an initialized Coalescent Exponential Population tree prior
 #' @author Richel J.C. Bilderbeek
 init_cep_tree_prior <- function(
@@ -140,9 +134,7 @@ init_cep_tree_prior <- function(
 }
 
 #' Initializes a Yule tree prior
-#' @inheritParams init_tree_priors
-#' @param yule_tree_prior a Yule tree prior,
-#'   as returned by \code{\link{create_yule_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return an initialized Yule tree prior
 #' @author Richel J.C. Bilderbeek
 init_yule_tree_prior <- function(

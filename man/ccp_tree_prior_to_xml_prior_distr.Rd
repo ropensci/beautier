@@ -11,17 +11,13 @@ ccp_tree_prior_to_xml_prior_distr(ccp_tree_prior)
 }
 \arguments{
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
-as created by \code{\link{create_ccp_tree_prior}}}
+as returned by \code{\link{create_ccp_tree_prior}}}
 }
 \description{
 Creates the tree prior section in the prior section of
 the prior section of the distribution section
 of a BEAST2 XML parameter file for a
 Coalescent Constant Population tree prior
-}
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
 }
 \author{
 Richel J.C. Bilderbeek

@@ -25,7 +25,7 @@ create_site_models <- function() {
 }
 
 #' Creates a JC69_site_model for each ID
-#' @param ids the alignment IDs
+#' @inheritParams default_params_doc
 #' @return a list of site_models
 #' @seealso The alignment IDs can be deduced from the FASTA filenames,
 #'   using \code{\link{get_ids}}

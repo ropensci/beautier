@@ -1,6 +1,5 @@
 #' Get the number of distributions a tree prior has
-#' @param tree_prior a tree_prior,
-#'   as created by \code{\link{create_tree_prior}}
+#' @inheritParams default_params_doc
 #' @return the number of distributions a tree prior has
 #' @author Richel J.C. Bilderbeek
 #' @examples

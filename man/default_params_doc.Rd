@@ -5,14 +5,25 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(ccp_tree_prior, clock_model, clock_models, distr_id,
-  fixed_crown_age, initial_phylogenies, input_fasta_filenames, mcmc,
-  misc_options, output_xml_filename, param_id, rln_clock_model, site_model,
-  site_models, strict_clock_model, tree_prior, tree_priors)
+default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
+  cep_tree_prior, clock_model, clock_models, distr_id, fasta_filenames,
+  fixed_crown_age, gtr_site_model, hky_site_model, id, ids, initial_phylogenies,
+  input_fasta_filenames, mcmc, misc_options, output_xml_filename, param_id,
+  rln_clock_model, site_model, site_models, strict_clock_model, tn93_site_model,
+  tree_prior, tree_priors, yule_tree_prior)
 }
 \arguments{
+\item{bd_tree_prior}{a Birth-Death tree prior, as created
+by \code{\link{create_bd_tree_prior}}}
+
+\item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
+as returned by \code{\link{create_cbs_tree_prior}}}
+
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as returned by \code{\link{create_ccp_tree_prior}}}
+
+\item{cep_tree_prior}{a cep tree prior,
+as returned by \code{\link{create_cep_tree_prior}}}
 
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
@@ -22,10 +33,27 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{distr_id}{a distributions' ID}
 
+\item{fasta_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
 \item{fixed_crown_age}{determines if the phylogeny its crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
+
+\item{gtr_site_model}{a GTR site model,
+as returned by \code{\link{create_gtr_site_model}}}
+
+\item{hky_site_model}{an HKY site model,
+as returned by \code{\link{create_hky_site_model}}}
+
+\item{id}{an alignment's IDs.
+An ID can be extracted from its FASTA filesname
+with \code{\link{get_ids}})}
+
+\item{ids}{one or more alignments' IDs.
+IDs can be extracted from their FASTA filesnames
+with \code{\link{get_ids}})}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
 Each one set to NA will result in BEAST2 using a random phylogeny. Else
@@ -57,19 +85,17 @@ as returned by \code{\link{create_site_model}}}
 \item{strict_clock_model}{a strict clock model,
 as returned by \code{\link{create_strict_clock_model}}}
 
+\item{tn93_site_model}{a TN93 site model,
+as returned by \code{\link{create_tn93_site_model}}}
+
 \item{tree_prior}{a tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
-with \code{\link{get_ids}})}
-
-\item{ids}{one or more alignments' IDs.
-IDs can be extracted from their FASTA filesnames
-with \code{\link{get_ids}})}
+\item{yule_tree_prior}{a Yule tree_prior,
+as created by \code{\link{create_yule_tree_prior}}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

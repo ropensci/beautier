@@ -163,6 +163,8 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
           alpha = create_alpha_param(id = 3, value = "0.5396"),
           beta = create_beta_param(id = 4, value = "0.3819")
         )
+        #,
+        #mean_rate_prior_distr = create_uniform_distr(id = 6)
       )
     ),
     tree_priors = list(
@@ -191,7 +193,7 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 
   if (is_on_travis()) {

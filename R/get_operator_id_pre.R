@@ -1,5 +1,5 @@
 #' Get the prefix of operator IDs
-#' @param tree_prior tree priors, as created by \code{\link{create_tree_prior}}
+#' @inheritParams default_params_doc
 #' @examples
 #'   bd_pre <- get_operator_id_pre(
 #'     tree_prior = create_bd_tree_prior()
