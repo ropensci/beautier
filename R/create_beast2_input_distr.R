@@ -82,7 +82,9 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
   text <- indent(text, n_spaces = 4) # nolint internal function
 
   # Surround text by prior distribution tag
-  text <- c("<distribution id=\"prior\" spec=\"util.CompoundDistribution\">", text)
+  text <- c(
+    "<distribution id=\"prior\" spec=\"util.CompoundDistribution\">",
+    text)
   text <- c(text, "</distribution>")
 }
 

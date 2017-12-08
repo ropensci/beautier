@@ -44,5 +44,5 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
     )
   }
 
-  indent(text, n_spaces = 4)
+  indent(text, n_spaces = 4) # nolint internal function
 }

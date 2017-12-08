@@ -4,14 +4,14 @@ test_that("RLN", {
 
   expected <- c(
     "<distribution id=\"prior\" spec=\"util.CompoundDistribution\">",
-    "    <distribution id=\"YuleModel.t:test_output_0\" spec=\"beast.evolution.speciation.YuleModel\" birthDiffRate=\"@birthRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>",
-    "    <prior id=\"YuleBirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@birthRate.t:test_output_0\">",
+    "    <distribution id=\"YuleModel.t:test_output_0\" spec=\"beast.evolution.speciation.YuleModel\" birthDiffRate=\"@birthRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
+    "    <prior id=\"YuleBirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@birthRate.t:test_output_0\">", # nolint XML
     "        <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>",
     "    </prior>",
-    "    <prior id=\"ucldStdevPrior.c:test_output_0\" name=\"distribution\" x=\"@ucldStdev.c:test_output_0\">",
+    "    <prior id=\"ucldStdevPrior.c:test_output_0\" name=\"distribution\" x=\"@ucldStdev.c:test_output_0\">", # nolint XML
     "        <Gamma id=\"Gamma.0\" name=\"distr\">",
-    "            <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"alpha\">0.5396</parameter>",
-    "            <parameter id=\"RealParameter.3\" estimate=\"false\" name=\"beta\">0.3819</parameter>",
+    "            <parameter id=\"RealParameter.2\" estimate=\"false\" name=\"alpha\">0.5396</parameter>", # nolint XML
+    "            <parameter id=\"RealParameter.3\" estimate=\"false\" name=\"beta\">0.3819</parameter>", # nolint XML
     "        </Gamma>",
     "    </prior>",
     "</distribution>"
