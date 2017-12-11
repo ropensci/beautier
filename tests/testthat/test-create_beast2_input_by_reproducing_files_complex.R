@@ -100,7 +100,8 @@ test_that("aco_nd2_nd3_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -157,7 +158,8 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -206,7 +208,8 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -543,7 +546,8 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "state")
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "state")
   testthat::expect_identical(created_lines, expected_lines)
 
 })
