@@ -16,7 +16,7 @@
 tree_priors_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   tree_priors
 ) {
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
   for (tree_prior in tree_priors) {

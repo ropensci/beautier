@@ -9,79 +9,18 @@ context(
 # Two alignments
 ################################################################################
 
-test_that("anthus_nd2_anthus_aco_2_4.xml", {
+test_that("aco_nd2_2_4.xml", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
-      c("anthus_nd2.fas", "anthus_aco.fas")
+      c("anthus_aco.fas", "anthus_nd2.fas")
     ),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 4)),
-      create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 1))
-    ),
-    clock_models = list(
-      create_strict_clock_model(
-        clock_rate_distr = create_uniform_distr(id = 3)
-      ),
-      create_strict_clock_model()
-    ),
-    misc_options = beautier::create_misc_options(
-      capitalize_first_char_id = FALSE,
-      nucleotides_uppercase = TRUE
-    )
-  )
-  expected_lines <- readLines(system.file("extdata",
-    "anthus_nd2_anthus_aco_2_4.xml", package = "beautier"))
-
-
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
-  )
-
-  skip("WIP: distribution section fails")
-
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
-      section = "distribution")
-  )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created_lines, expected_lines,
-    section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
-  testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
-
-  if (is_on_travis()) {
-    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
-  } else {
-    if (1 == 2) {
-      testthat::expect_identical(created_lines, expected_lines)
-    }
-  }
-})
-
-test_that("aco_nd2_2_4.xml", {
-
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
-  ids <- get_ids(input_fasta_filenames)
-
-  created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
-    tree_priors = list(
-      create_yule_tree_prior(
-        id = ids[1],
+        id = "anthus_aco",
         birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        id = ids[2],
+        id = "anthus_nd2",
         birth_rate_distr = create_uniform_distr(id = 4))
     ),
     misc_options = create_misc_options(
@@ -92,22 +31,13 @@ test_that("aco_nd2_2_4.xml", {
   expected_lines <- readLines(system.file("extdata",
     "aco_nd2_2_4.xml", package = "beautier"))
 
-
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
 
-
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
-  skip("WIP: distribution section fails")
-
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -122,25 +52,26 @@ test_that("aco_nd2_2_4.xml", {
 
 test_that("aco_nd2_nd3_2_4.xml", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_3 <- system.file("extdata",
-    "anthus_nd3.fas", package = "beautier")
-  input_fasta_filenames <- c(
-    fasta_filename_1, fasta_filename_2, fasta_filename_3
-  )
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas")
+    ),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 111)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 222)),
+        birth_rate_distr = create_uniform_distr(id = 4)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 333))
+        birth_rate_distr = create_uniform_distr(id = 7))
+    ),
+    clock_models = list(
+      create_strict_clock_model(),
+      create_strict_clock_model(
+        clock_rate_distr = create_uniform_distr(id = 3)
+      ),
+      create_strict_clock_model(
+        clock_rate_distr = create_uniform_distr(id = 6)
+      )
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -158,38 +89,26 @@ test_that("aco_nd2_nd3_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribution section fails")
-
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 test_that("aco_nd2_nd3_nd4_2_4.xml", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_3 <- system.file("extdata",
-    "anthus_nd3.fas", package = "beautier")
-  fasta_filename_4 <- system.file("extdata",
-    "anthus_nd4.fas", package = "beautier")
-  input_fasta_filenames <- c(
-    fasta_filename_1, fasta_filename_2, fasta_filename_3, fasta_filename_4
-  )
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas", "anthus_nd4.fas")
+    ),
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)),
@@ -199,6 +118,21 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
         birth_rate_distr = create_uniform_distr(id = 7)),
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 10))
+    ),
+    clock_models = list(
+      create_strict_clock_model(),
+      create_strict_clock_model(
+        id = "anthus_nd2",
+        clock_rate_distr = create_uniform_distr(id = 3)
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd3",
+        clock_rate_distr = create_uniform_distr(id = 6)
+      ),
+      create_strict_clock_model(
+        id = "anthus_nd4",
+        clock_rate_distr = create_uniform_distr(id = 9)
+      )
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -216,40 +150,38 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
-  skip("WIP: distribution section fails")
-
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
 
 test_that("aco_nd2_shared_site_model_2_4.xml", {
 
-  skip("WIP: tracelog")
-
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-    site_models = create_jc69_site_model(id = get_id(fasta_filename_1)),
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_aco.fas", "anthus_nd2.fas")
+    ),
+    site_models = list(
+      create_jc69_site_model(id = "anthus_aco"),
+      create_jc69_site_model(id = "anthus_aco")
+    ),
     tree_priors = list(
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 4))
+    ),
+    clock_models = list(
+      create_strict_clock_model(),
+      create_strict_clock_model(
+        clock_rate_distr = create_uniform_distr(id = 3)
+      )
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -264,22 +196,16 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-
-
-  testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
-  )
-
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines, section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
 })
 
@@ -322,13 +248,13 @@ test_that("aco_hky_nd2.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -394,13 +320,13 @@ test_that("aco_nd2_hky.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -452,13 +378,13 @@ test_that("aco_hky_nd2_tn93.xml, example 9", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -509,10 +435,10 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
   )
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines, section = "state")
   )
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
@@ -571,7 +497,7 @@ test_that("aco_nd2_jc69_jc69_strict_rln_yule_yule_2_4", {
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
 
