@@ -35,6 +35,24 @@ clock_model_to_xml_operators <- function(
 
     id <- clock_model$id
     testit::assert(beautier::is_id(id))
+    if (is_first == FALSE) {
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"ucldMeanScaler.c:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@ucldMean.c:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"1.0\"/>"
+        )
+      )
+
+      text <- c(
+        text,
+        paste0("<operator id=\"relaxedUpDownOperator.c:", id, "\" ",
+          "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
+      text <- c(text, paste0("    <up idref=\"ucldMean.c:anthus_nd2\"/>"))
+      text <- c(text, paste0("    <down idref=\"Tree.t:anthus_nd2\"/>"))
+      text <- c(text, paste0("</operator>"))
+    }
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"3.0\"/>"))
