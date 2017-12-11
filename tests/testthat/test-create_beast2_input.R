@@ -129,11 +129,11 @@ test_that("input is checked, two alignments", {
 
 test_that("Run all defaults", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_fasta_filename()
   )
 
-  testthat::expect_true(are_beast2_input_lines(created_lines))
+  testthat::expect_true(are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -146,12 +146,12 @@ test_that("Run all defaults", {
 
 test_that("Run GTR", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model()
   )
 
-  testthat::expect_true(are_beast2_input_lines(created_lines))
+  testthat::expect_true(are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -215,12 +215,12 @@ test_that("Use of a RLN clock", {
 
 test_that("Run BD tree prior", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_bd_tree_prior()
   )
 
-  testthat::expect_true(are_beast2_input_lines(created_lines))
+  testthat::expect_true(are_beast2_input_lines(created))
 })
 
 

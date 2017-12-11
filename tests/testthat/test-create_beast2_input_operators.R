@@ -20,14 +20,14 @@ test_that("Operators that change crown age are absent at fixed crown age", {
   id <- get_id(input_fasta_filename)
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
-  created_lines_fixed <- beautier:::create_beast2_input_operators(
+  created_fixed <- beautier:::create_beast2_input_operators(
     site_models = create_jc69_site_models(ids = id),
     clock_models = create_strict_clock_models(ids = id),
     tree_priors = create_yule_tree_priors(ids = id),
     fixed_crown_age = TRUE
   )
 
-  created_lines_nonfixed <- beautier:::create_beast2_input_operators(
+  created_nonfixed <- beautier:::create_beast2_input_operators(
     site_models = create_jc69_site_models(ids = id),
     clock_models = create_strict_clock_models(ids = id),
     tree_priors = create_yule_tree_priors(ids = id),
@@ -37,30 +37,30 @@ test_that("Operators that change crown age are absent at fixed crown age", {
   # treeScaler operator absent in fixed crown age tree
   testthat::expect_equal(1,
     length(grep(pattern = "TreeScaler",
-      x = created_lines_nonfixed))
+      x = created_nonfixed))
   )
   testthat::expect_equal(0,
     length(grep(pattern = "TreeScaler",
-      x = created_lines_fixed))
+      x = created_fixed))
   )
 
   # wide operator absent in fixed crown age tree
   testthat::expect_equal(1,
     length(grep(pattern = "TreeRootScaler",
-      x = created_lines_nonfixed))
+      x = created_nonfixed))
   )
   testthat::expect_equal(0,
     length(grep(pattern = "TreeRootScaler",
-      x = created_lines_fixed))
+      x = created_fixed))
   )
 
   # subtree slide operator absent in fixed crown age tree
   testthat::expect_equal(1,
     length(grep(pattern = "SubtreeSlide",
-      x = created_lines_nonfixed))
+      x = created_nonfixed))
   )
   testthat::expect_equal(0,
     length(grep(pattern = "SubtreeSlide",
-      x = created_lines_fixed))
+      x = created_fixed))
   )
 })

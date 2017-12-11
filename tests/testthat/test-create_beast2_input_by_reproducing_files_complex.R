@@ -11,7 +11,7 @@ context(
 
 test_that("aco_nd2_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
@@ -28,36 +28,36 @@ test_that("aco_nd2_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "aco_nd2_2_4.xml", package = "beautier"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
 
-  beautier:::compare_lines(created_lines, expected_lines, section = "operators")
-  testthat::expect_identical(created_lines, expected_lines)
-  testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
+  beautier:::compare_lines(created, expected, section = "operators")
+  testthat::expect_identical(created, expected)
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 })
 
 test_that("aco_nd2_nd3_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas")
     ),
@@ -83,36 +83,36 @@ test_that("aco_nd2_nd3_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "aco_nd2_nd3_2_4.xml", package = "beautier"))
 
 
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 })
 
 test_that("aco_nd2_nd3_nd4_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas", "anthus_nd4.fas")
     ),
@@ -146,32 +146,32 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "aco_nd2_nd3_nd4_2_4.xml", package = "beautier"))
 
 
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 })
 
 
 test_that("aco_nd2_shared_site_model_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
@@ -196,31 +196,31 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "aco_nd2_shared_site_model_2_4.xml", package = "beautier"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   skip("WIP: distribution section fails")
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 })
 
 test_that("aco_hky_nd2.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
@@ -256,32 +256,32 @@ test_that("aco_hky_nd2.xml", {
     )
   )
 
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "aco_hky_nd2.xml", package = "beautier"))
 
 
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 
   if (is_on_travis()) {
-    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
+    testthat::expect_true(beautier::are_beast2_input_lines(created))
   } else {
     if (1 == 2) {
-      testthat::expect_identical(created_lines, expected_lines)
+      testthat::expect_identical(created, expected)
     }
   }
 })
@@ -291,7 +291,7 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
   fasta_filename <- system.file("extdata",
     "test_output_0.fas", package = "beautier")
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = fasta_filename,
     tree_priors = create_bd_tree_prior(
         birth_rate_distr = create_normal_distr(
@@ -306,7 +306,7 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
         )
     )
   )
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "bd_birth_rate_normal_death_rate_gamma_2_4.xml",
     package = "beautier"))
 
@@ -314,22 +314,22 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operator section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
-  testthat::expect_identical(created_lines, expected_lines)
+  beautier:::compare_lines(created, expected)
+  testthat::expect_identical(created, expected)
 })
 
 ################################################################################
@@ -342,7 +342,7 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
 test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas", "anthus_nd4.fas")
     ),
@@ -535,24 +535,24 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     )
   )
 
-  expected_lines <- readLines(system.file("extdata",
+  expected <- readLines(system.file("extdata",
     "aco_nd2_nd3_nd4_complex_2_4.xml", package = "beautier"))
-  testit::assert(are_beast2_input_lines(expected_lines))
+  testit::assert(are_beast2_input_lines(expected))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "distribution")
+      created, expected, section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "state")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 
 })

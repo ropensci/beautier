@@ -15,7 +15,7 @@ context(
 
 test_that("rln_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
@@ -29,28 +29,28 @@ test_that("rln_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
-  expected_lines <- readLines(beautier:::get_path("rln_2_4.xml"))
+  expected <- readLines(beautier:::get_path("rln_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 })
 
 test_that("rln_uclstdev_beta_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_beta_distr(
@@ -63,22 +63,22 @@ test_that("rln_uclstdev_beta_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected_lines <- readLines(beautier:::get_path("rln_uclstdev_beta_2_4.xml"))
+  expected <- readLines(beautier:::get_path("rln_uclstdev_beta_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
-  testthat::expect_identical(created_lines, expected_lines)
+  beautier:::compare_lines(created, expected)
+  testthat::expect_identical(created, expected)
 
 })
 
@@ -88,35 +88,35 @@ test_that("rln_uclstdev_beta_2_4.xml", {
 
 test_that("strict_clock_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected_lines <- readLines(beautier:::get_path("strict_clock_2_4.xml"))
+  expected <- readLines(beautier:::get_path("strict_clock_2_4.xml"))
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
-  testthat::expect_identical(created_lines, expected_lines)
+  beautier:::compare_lines(created, expected)
+  testthat::expect_identical(created, expected)
 })
 
 test_that("strict_clock_rate_0_5_2_4.xml", {
 
   input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
       clock_rate_param = create_clock_rate_param(
@@ -128,22 +128,22 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected_lines <- readLines(beautier:::get_path(
+  expected <- readLines(beautier:::get_path(
     "strict_clock_rate_0_5_2_4.xml"))
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
-  testthat::expect_identical(created_lines, expected_lines)
+  beautier:::compare_lines(created, expected)
+  testthat::expect_identical(created, expected)
 
 })
 
@@ -153,7 +153,7 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
 
 test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
@@ -181,37 +181,37 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(beautier:::get_path(
+  expected <- readLines(beautier:::get_path(
     "aco_nd2_strict_rln_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 
   if (is_on_travis()) {
-    testthat::expect_true(beautier::are_beast2_input_lines(created_lines))
+    testthat::expect_true(beautier::are_beast2_input_lines(created))
   } else {
     if (1 == 2) {
-      testthat::expect_identical(created_lines, expected_lines)
+      testthat::expect_identical(created, expected)
     }
   }
 })
 
 test_that("aco_nd2_rln_rln_2_4.xml", {
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
@@ -244,24 +244,24 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
       )
     )
   )
-  expected_lines <- readLines(beautier:::get_path(
+  expected <- readLines(beautier:::get_path(
     "aco_nd2_rln_rln_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines,
+  beautier:::compare_lines(created, expected,
     section = "distribution")
-  testthat::expect_identical(created_lines, expected_lines)
+  testthat::expect_identical(created, expected)
 })
 
 
@@ -290,7 +290,7 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
     fasta_filename_1, fasta_filename_2, fasta_filename_3, fasta_filename_4
   )
 
-  created_lines <- beautier::create_beast2_input(
+  created <- beautier::create_beast2_input(
     input_fasta_filenames = input_fasta_filenames,
     clock_models = create_strict_clock_model(get_id(input_fasta_filenames[1])),
     tree_priors = list(
@@ -308,21 +308,21 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected_lines <- readLines(beautier:::get_path(
+  expected <- readLines(beautier:::get_path(
     "aco_nd2_nd3_nd4_shared_clock_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      created_lines, expected_lines, section = "state")
+      created, expected, section = "state")
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+    beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
-  testthat::expect_identical(created_lines, expected_lines)
+  beautier:::compare_lines(created, expected)
+  testthat::expect_identical(created, expected)
 })
