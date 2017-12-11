@@ -145,7 +145,6 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
 #' Determine if XML operator lines result in equivalent trees
 #' @param lines_1 lines of a first XML file
 #' @param lines_2 lines of a second XML file
-#' @param section the name of the XML section
 #' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise

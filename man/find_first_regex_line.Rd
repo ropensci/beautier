@@ -6,6 +6,11 @@
 \usage{
 find_first_regex_line(lines, regex)
 }
+\arguments{
+\item{lines}{lines of tex}
+
+\item{regex}{the regex as text}
+}
 \description{
 Find the first line that satisfies a regex
 }

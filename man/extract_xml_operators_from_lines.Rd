@@ -6,6 +6,12 @@
 \usage{
 extract_xml_operators_from_lines(lines)
 }
+\arguments{
+\item{lines}{lines of text}
+}
+\value{
+lines of text from the first to and including the last operators line
+}
 \description{
 Extract everything between first operators and last operators line
 }

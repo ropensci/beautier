@@ -1,4 +1,6 @@
 #' Extract everything between first operators and last operators line
+#' @param lines lines of text
+#' @return lines of text from the first to and including the last operators line
 #' @author Richel J.C. Bilderbeek
 extract_xml_operators_from_lines <- function(lines)
 {
