@@ -109,7 +109,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
   verbose = FALSE
 ) {
   if (section == "operators") {
-    return(are_equivalent_xml_lines_operators(lines_1, lines_2, verbose))
+    return(are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)) # nolint internal function
   }
   if (!has_xml_opening_tag(lines = lines_1, section = section)) {
     stop(
@@ -154,7 +154,7 @@ are_equivalent_xml_lines_operators <- function( # nolint don't care about intern
   lines_2,
   verbose = FALSE
 ) {
-  section_1 <- extract_xml_operators_from_lines(lines_1)
-  section_2 <- extract_xml_operators_from_lines(lines_2)
+  section_1 <- extract_xml_operators_from_lines(lines_1) # nolint internal function
+  section_2 <- extract_xml_operators_from_lines(lines_2) # nolint internal function
   are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint internal function
 }
