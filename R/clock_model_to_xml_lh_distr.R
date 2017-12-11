@@ -1,8 +1,8 @@
 #' Converts a clock model to the \code{branchRateModel} section of the
 #' XML as text
 #' @inheritParams default_params_doc
-#' @param is_first_of_many boolean to indicate if this is the
-#'   first clock model out of many (two or more)
+#' @param is_first boolean to indicate if this is the
+#'   first clock model (out of one, two or more)
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">

@@ -11,16 +11,21 @@ context(
 
 test_that("anthus_nd2_anthus_aco_2_4.xml", {
 
-  fasta_filename_1 <- beautier:::get_path("anthus_nd2.fas")
-  fasta_filename_2 <- beautier:::get_path("anthus_aco.fas")
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_nd2.fas", "anthus_aco.fas")
+    ),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 1)),
+        birth_rate_distr = create_uniform_distr(id = 4)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 2))
+        birth_rate_distr = create_uniform_distr(id = 1))
+    ),
+    clock_models = list(
+      create_strict_clock_model(
+        clock_rate_distr = create_uniform_distr(id = 3)
+      ),
+      create_strict_clock_model()
     ),
     misc_options = beautier::create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -46,7 +51,8 @@ test_that("anthus_nd2_anthus_aco_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  beautier:::compare_lines(created_lines, expected_lines,
+    section = "distribution")
   testthat::expect_identical(created_lines, expected_lines)
   testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
 
