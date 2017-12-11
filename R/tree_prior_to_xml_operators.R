@@ -43,6 +43,17 @@ tree_prior_to_xml_operators <- function(
       "id=\"GrowthRateRandomWalk.t:", id, "\" ",
       "spec=\"RealRandomWalkOperator\" parameter=\"@growthRate.t:", id, "\" ",
       "weight=\"3.0\" windowSize=\"1.0\"/>"))
+  } else {
+    # Will fail on unimplemented tree priors
+    testit::assert(beautier::is_yule_tree_prior(tree_prior))
+
+    text <- c(text,
+      paste0(
+        "<operator id=\"YuleBirthRateScaler.t:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@birthRate.t:", id, "\" ",
+        "scaleFactor=\"0.75\" weight=\"3.0\"/>"
+      )
+    )
   }
 
   if (fixed_crown_age == FALSE) {

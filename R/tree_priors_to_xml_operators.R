@@ -5,7 +5,7 @@
 #' @author Richel J.C. Bilderbeek
 tree_priors_to_xml_operators <- function(
   tree_priors,
-  fixed_crown_age
+  fixed_crown_age = FALSE
 ) {
 
   testit::assert(beautier::are_tree_priors(tree_priors))

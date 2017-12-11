@@ -5,7 +5,7 @@
 \title{Creates the XML of a list of one or more tree priors,
   as used in the \code{operators} section}
 \usage{
-tree_priors_to_xml_operators(tree_priors, fixed_crown_age)
+tree_priors_to_xml_operators(tree_priors, fixed_crown_age = FALSE)
 }
 \arguments{
 \item{tree_priors}{one or more tree priors,
