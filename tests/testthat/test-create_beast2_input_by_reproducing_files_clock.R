@@ -70,12 +70,12 @@ test_that("rln_uclstdev_beta_2_4.xml", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribution section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
   )
+
+  skip("WIP: operators section fails")
 
   beautier:::compare_lines(created_lines, expected_lines)
   testthat::expect_identical(created_lines, expected_lines)
@@ -155,7 +155,8 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
   created_lines <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
-      c("anthus_aco.fas", "anthus_nd2.fas")),
+      c("anthus_aco.fas", "anthus_nd2.fas")
+    ),
     clock_models = list(
       create_strict_clock_model(
         clock_rate_distr = create_uniform_distr(id = 2)
@@ -212,14 +213,10 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
 
 test_that("aco_nd2_rln_rln_2_4.xml", {
 
-  input_fasta_filenames <- c(
-    beautier:::get_path("anthus_aco.fas"),
-    beautier:::get_path("anthus_nd2.fas")
-  )
-  ids <- beautier:::get_ids(input_fasta_filenames)
-
   created_lines <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_aco.fas", "anthus_nd2.fas")
+    ),
     clock_models = list(
       create_rln_clock_model(
         ucldstdev_distr = create_gamma_distr(
