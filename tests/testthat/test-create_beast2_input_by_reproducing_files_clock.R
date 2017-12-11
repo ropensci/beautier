@@ -189,8 +189,6 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
       created_lines, expected_lines, section = "state")
   )
 
-  skip("WIP: distribution section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
       section = "distribution")
@@ -253,8 +251,6 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created_lines, expected_lines, section = "state")
   )
-
-  skip("WIP: distribution section fails")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
