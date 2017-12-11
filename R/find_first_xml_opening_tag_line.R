@@ -10,5 +10,5 @@ find_first_xml_opening_tag_line <- function( # nolint internal functions may be 
   if (!is.character(section)) {
     stop("'section' must be a word")
   }
-  find_first_regex_line(lines, paste0("<", section, ".*>"))
+  find_first_regex_line(lines, paste0("<", section, ".*>")) # nolint internal function
 }

@@ -35,14 +35,14 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
   }
 
 
-  for (clock_model in clock_models) {
-    text <- c(
-      text,
-      interspace(
-        clock_model_to_xml_operators(clock_model)
+  text <- c(
+    text,
+    interspace(
+      clock_models_to_xml_operators(
+        clock_models = clock_models
       )
     )
-  }
+  )
 
   indent(text, n_spaces = 4) # nolint internal function
 }

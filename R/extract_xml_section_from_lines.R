@@ -11,7 +11,7 @@ extract_xml_section_from_lines <- function(
     stop("'section' must be a word")
   }
   if (section == "operators") {
-    return(extract_xml_operators_from_lines(lines))
+    return(extract_xml_operators_from_lines(lines)) # nolint internal function
   }
   if (!has_xml_opening_tag(lines = lines, section = section)) {
     stop(
