@@ -6,10 +6,11 @@ clock_models_to_xml_operators <- function(
 ) {
   testit::assert(beautier::are_clock_models(clock_models))
   text <- NULL
-  for (clock_model in clock_models) {
+  for (i in seq_along(clock_models)) {
+    clock_model <- clock_models[[i]]
     text <- c(
       text,
-      clock_model_to_xml_operators(clock_model)
+      clock_model_to_xml_operators(clock_model, i == 1)
     )
   }
   text

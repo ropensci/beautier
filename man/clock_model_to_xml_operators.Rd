@@ -5,11 +5,14 @@
 \title{Converts a clock model to the \code{operators} section of the
 XML as text}
 \usage{
-clock_model_to_xml_operators(clock_model)
+clock_model_to_xml_operators(clock_model, is_first)
 }
 \arguments{
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
+
+\item{is_first}{boolean to indicate if this is the first clock model
+out of many (one, two or more)}
 }
 \description{
 Converts a clock model to the \code{operators} section of the

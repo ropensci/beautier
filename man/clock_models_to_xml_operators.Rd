@@ -2,7 +2,7 @@
 % Please edit documentation in R/clock_models_to_xml_operators.R
 \name{clock_models_to_xml_operators}
 \alias{clock_models_to_xml_operators}
-\title{Create all clock models' operators}
+\title{Create all clock models' operators' XML text}
 \usage{
 clock_models_to_xml_operators(clock_models)
 }
@@ -11,7 +11,7 @@ clock_models_to_xml_operators(clock_models)
 as returned by \code{\link{create_clock_model}}}
 }
 \description{
-Create all clock models' operators
+Create all clock models' operators' XML text
 }
 \author{
 Richel J.C. Bilderbeek

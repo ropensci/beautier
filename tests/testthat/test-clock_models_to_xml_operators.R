@@ -2,15 +2,12 @@ context("clock_models_to_xml_operators")
 
 test_that("strict", {
 
-  expected <- c(
-    ""
-  )
   created <- beautier:::clock_models_to_xml_operators(
     clock_models = list(
-      create_strict_clock_model(id = "test_output_0")
+      create_strict_clock_model()
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(is.null(created))
 })
 
 test_that("strict strict", {
@@ -30,6 +27,5 @@ test_that("strict strict", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  beautier:::compare_lines(created, expected)
 })
 

@@ -9,20 +9,32 @@ clock_model_to_xml_operators <- function(
   is_first
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
-  id <- clock_model$id
-  testit::assert(beautier::is_id(id))
+
+  # May not need ID at all, if it is the first and strict clock model
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
-    text <- c(text, paste0("<operator ",
-      "id=\"StrictClockRateScaler.c:", id, "\" ",
-      "spec=\"ScaleOperator\" ",
-      "parameter=\"@clockRate.c:", id, "\" ",
-      "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+    if (is_first == FALSE) {
+      id <- clock_model$id
+      testit::assert(beautier::is_id(id))
+      text <- c(text, paste0("<operator ",
+        "id=\"StrictClockRateScaler.c:", id, "\" ",
+        "spec=\"ScaleOperator\" ",
+        "parameter=\"@clockRate.c:", id, "\" ",
+        "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
+      text <- c(text, paste0("<operator ",
+        "id=\"strictClockUpDownOperator.c:", id, "\" ",
+        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
+      text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>"))
+      text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
+      text <- c(text, paste0("</operator>"))
+    }
   } else {
     # Will fail on unimplemented clock models
     testit::assert(beautier::is_rln_clock_model(clock_model))
 
+    id <- clock_model$id
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"3.0\"/>"))
@@ -37,12 +49,5 @@ clock_model_to_xml_operators <- function(
       "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"))
   }
-  text <- c(text, paste0("<operator ",
-    "id=\"strictClockUpDownOperator.c:", id, "\" ",
-    "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
-  text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>"))
-  text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
-  text <- c(text, paste0("</operator>"))
-
   text
 }
