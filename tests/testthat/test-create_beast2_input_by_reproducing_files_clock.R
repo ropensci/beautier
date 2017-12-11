@@ -43,8 +43,13 @@ test_that("rln_2_4.xml", {
 
   skip("WIP: operators section fails")
 
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
+
   beautier:::compare_lines(created, expected,
-    section = "distribution")
+    section = "operators")
   testthat::expect_identical(created, expected)
 })
 

@@ -48,4 +48,3 @@ test_that("Yule Yule", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
-
