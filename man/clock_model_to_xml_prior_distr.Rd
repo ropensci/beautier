@@ -5,11 +5,14 @@
 \title{Converts a clock model to the \code{prior} section of the
 XML as text}
 \usage{
-clock_model_to_xml_prior_distr(clock_model)
+clock_model_to_xml_prior_distr(clock_model, is_first = TRUE)
 }
 \arguments{
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
+
+\item{is_first}{boolean that indicates if the clock model is the first
+of many (can be one, two or more)}
 }
 \description{
 Converts a clock model to the \code{prior} section of the
