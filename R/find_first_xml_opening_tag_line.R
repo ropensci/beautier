@@ -10,12 +10,5 @@ find_first_xml_opening_tag_line <- function( # nolint internal functions may be 
   if (!is.character(section)) {
     stop("'section' must be a word")
   }
-  for (i in seq_along(lines)) {
-    match <- stringr::str_extract(
-      str = lines[i],
-      pattern = paste0("<", section, ".*>")
-    )
-    if (!is.na(match)) return(i)
-  }
-  NA
+  find_first_regex_line(lines, paste0("<", section, ".*>"))
 }

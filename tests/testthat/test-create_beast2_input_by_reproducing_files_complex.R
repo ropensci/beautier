@@ -43,7 +43,12 @@ test_that("aco_nd2_2_4.xml", {
 
   skip("WIP: operators section fails")
 
-  beautier:::compare_lines(created_lines, expected_lines)
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created_lines, expected_lines,
+      section = "operators")
+  )
+
+  beautier:::compare_lines(created_lines, expected_lines, section = "operators")
   testthat::expect_identical(created_lines, expected_lines)
   testthat::expect_true(are_equivalent_xml_lines(created_lines, expected_lines))
 

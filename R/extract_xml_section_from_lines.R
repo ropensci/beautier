@@ -7,6 +7,9 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
+  if (section == "operators") {
+    return(extract_xml_operators_from_lines(lines))
+  }
   if (!has_xml_opening_tag(lines = lines, section = section)) {
     stop(
       "Opening tag for 'section' could not be found in 'lines', ",

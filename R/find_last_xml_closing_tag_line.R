@@ -10,12 +10,5 @@ find_last_xml_closing_tag_line <- function(
   if (!is.character(section)) {
     stop("'section' must be a word")
   }
-  for (i in rev(seq_along(lines))) {
-    match <- stringr::str_extract(
-      str = lines[i],
-      pattern = paste0("</", section, ">")
-    )
-    if (!is.na(match)) return(i)
-  }
-  NA
+  find_last_regex_line(lines, paste0("</", section, ">"))
 }
