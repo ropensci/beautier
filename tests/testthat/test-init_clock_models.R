@@ -63,7 +63,8 @@ test_that("initialize RLN clock model with correct mparam_id", {
 
   fasta_filenames <- beautier:::get_path("test_output_5.fas")
   after <- beautier:::init_clock_models(
-    list(create_rln_clock_model(mparam_id = 42)), fasta_filenames = fasta_filenames)
+    list(create_rln_clock_model(mparam_id = 42)),
+    fasta_filenames = fasta_filenames)
   testthat::expect_equal(after[[1]]$mparam_id, 42)
 
 })

@@ -39,11 +39,11 @@ test_that("CBS", {
 test_that("CCP", {
 
   expected <- c(
-    "<distribution id=\"CoalescentConstant.t:test_output_0\" spec=\"Coalescent\">",
-    "    <populationModel id=\"ConstantPopulation.t:test_output_0\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:test_output_0\"/>",
-    "    <treeIntervals id=\"TreeIntervals.t:test_output_0\" spec=\"TreeIntervals\" tree=\"@Tree.t:test_output_0\"/>",
-    "</distribution>",
-    "<prior id=\"PopSizePrior.t:test_output_0\" name=\"distribution\" x=\"@popSize.t:test_output_0\">",
+    "<distribution id=\"CoalescentConstant.t:test_output_0\" spec=\"Coalescent\">", # nolint XML
+    "    <populationModel id=\"ConstantPopulation.t:test_output_0\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:test_output_0\"/>", # nolint XML
+    "    <treeIntervals id=\"TreeIntervals.t:test_output_0\" spec=\"TreeIntervals\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
+    "</distribution>", # nolint XML
+    "<prior id=\"PopSizePrior.t:test_output_0\" name=\"distribution\" x=\"@popSize.t:test_output_0\">", # nolint XML
     "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>",
     "</prior>"
   )

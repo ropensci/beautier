@@ -129,7 +129,7 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
     )
     text <- c(text,
       indent(
-        clock_model_to_xml_lh_distr(clock_model),
+        clock_model_to_xml_lh_distr(clock_model, i == 1),
         n_spaces = 4
       )
     )

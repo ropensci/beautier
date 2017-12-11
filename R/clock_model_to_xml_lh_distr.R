@@ -1,6 +1,8 @@
 #' Converts a clock model to the \code{branchRateModel} section of the
 #' XML as text
 #' @inheritParams default_params_doc
+#' @param is_first_of_many boolean to indicate if this is the
+#'   first clock model out of many (two or more)
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
@@ -11,7 +13,8 @@
 #'  #     </distribution>
 #'  # </distribution>
 clock_model_to_xml_lh_distr <- function(
-  clock_model
+  clock_model,
+  is_first = TRUE
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
@@ -19,26 +22,35 @@ clock_model_to_xml_lh_distr <- function(
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
-    text <- c(text, paste0("<branchRateModel ",
-      "id=\"StrictClock.c:", id, "\" ",
-      "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    # initialization may happen here
-    clock_model$clock_rate_param$id <- id
-    text <- c(
-      text,
-      indent(
-        beautier::parameter_to_xml(clock_model$clock_rate_param),
-        n_spaces = 4
+    if (is_first == TRUE) {
+      text <- c(text, paste0("<branchRateModel ",
+        "id=\"StrictClock.c:", id, "\" ",
+        "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
+      # initialization may happen here
+      clock_model$clock_rate_param$id <- id
+      text <- c(
+        text,
+        indent(
+          beautier::parameter_to_xml(clock_model$clock_rate_param),
+          n_spaces = 4
+        )
       )
-    )
-    text <- c(text, "</branchRateModel>")
+      text <- c(text, "</branchRateModel>")
+    } else {
+      text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id, "\" ",
+        "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
+        "clock.rate=\"@clockRate.c:", id, "\"/>")
+      )
+    }
   } else if (is_rln_clock_model(clock_model)) {
     n_discrete_rates <- clock_model$n_rate_categories
     mparam_id <- clock_model$mparam_id
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-      # "clock.rate=\"@ucldMean.c:", id, "\" ",
+      ifelse(is_first == TRUE, "",
+        paste0("clock.rate=\"@ucldMean.c:", id, "\" ")
+      ),
       ifelse(clock_model$normalize_mean_clock_rate == TRUE,
         "normalize=\"true\" ", ""),
       ifelse(n_discrete_rates != -1,
@@ -58,10 +70,14 @@ clock_model_to_xml_lh_distr <- function(
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
-    text <- c(text, paste0("    <parameter ",
-      "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
-      "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
+    if (is_first == TRUE) {
+      text <- c(text, paste0("    <parameter ",
+        "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
+        "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
+    }
     text <- c(text, paste0("</branchRateModel>"))
   }
+
+
   text
 }

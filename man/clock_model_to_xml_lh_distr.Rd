@@ -5,11 +5,14 @@
 \title{Converts a clock model to the \code{branchRateModel} section of the
 XML as text}
 \usage{
-clock_model_to_xml_lh_distr(clock_model)
+clock_model_to_xml_lh_distr(clock_model, is_first = TRUE)
 }
 \arguments{
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
+
+\item{is_first_of_many}{boolean to indicate if this is the
+first clock model out of many (two or more)}
 }
 \description{
 Converts a clock model to the \code{branchRateModel} section of the

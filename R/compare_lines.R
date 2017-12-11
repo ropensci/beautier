@@ -14,8 +14,8 @@ compare_lines <- function(
     expected <- extract_xml_section_from_lines(
       lines = expected, section = section)
   }
-  utils::write.csv(lines, "~/created.csv")
-  utils::write.csv(expected, "~/expected.csv")
+  writeLines(lines, "~/created.xml")
+  writeLines(expected, "~/expected.xml")
   for (i in 1:min(length(expected), length(lines))) {
     testthat::expect_equal(
       expected[i], lines[i]

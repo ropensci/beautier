@@ -40,11 +40,7 @@ test_that("RLN", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
-
-
-
 
 test_that("RLN -1 rates", {
 
@@ -69,7 +65,6 @@ test_that("RLN -1 rates", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("RLN 0 rates", {
@@ -96,7 +91,6 @@ test_that("RLN 0 rates", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("RLN 1 rates", {
