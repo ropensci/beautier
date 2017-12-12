@@ -2,83 +2,13 @@ context("create_beast2_input_file")
 
 test_that("checks input", {
 
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = "nonexisting", # Error
-      mcmc = create_mcmc(chain_length = 10000),
-      output_xml_filename = "output.xml"
-    )
-  )
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = get_fasta_filename(),
-      mcmc = list(chain_length = 0), # Error
-      output_xml_filename = "output.xml"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = get_fasta_filename(),
-      mcmc = create_mcmc(chain_length = 10000),
-      tree_priors = create_tree_prior(name = "nonsense"),
-      output_xml_filename = "output.xml"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = get_fasta_filename(),
-      mcmc = create_mcmc(chain_length = 10000),
-      output_xml_filename = "output.xml",
-      fixed_crown_age = "nonsense" # Error
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = get_fasta_filename(),
-      output_xml_filename = "output.xml",
-      site_models = "nonsense"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = get_fasta_filename(),
-      output_xml_filename = "output.xml",
-      tree_priors = "nonsense"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = get_fasta_filename(),
-      output_xml_filename = "output.xml",
-      clock_models = "nonsense"
-    )
-  )
-
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-
-  testthat::expect_error(
-    create_beast2_input_file(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
-      output_xml_filename = "output.xml",
-      initial_phylogenies = c(ape::rcoal(4))
-    )
-  )
-
+  # Don't: input is checked by 'create_beast2_input'
+  # See 'create_beast2_input' tests
 })
 
 test_that("Create CCP posterior with random initial tree", {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   posterior <- create_posterior(
     n_taxa = 2,
@@ -93,8 +23,6 @@ test_that("Create BD posterior with random initial tree", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
   posterior <- create_posterior(
     n_taxa = 2,
     sequence_length = 1,
@@ -108,8 +36,6 @@ test_that("Create BD posterior with random initial tree", {
 test_that("A fixed crown age must have equal TreeHeights", {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   posterior <- create_posterior(
     n_taxa = 5,
@@ -127,8 +53,6 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   "with that TreeHeight"), {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   crown_age <- 123
   posterior <- beautier::create_posterior(
@@ -150,8 +74,6 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
 test_that("Can specify fixed crown age", {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   input_fasta_filename <- beautier::get_fasta_filename()
   output_xml_filename_fixed <- tempfile()
@@ -176,8 +98,6 @@ test_that("Produce XML for Yule species tree prior", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
   input_fasta_filename <- get_fasta_filename()
   output_xml_filename <- tempfile()
   create_beast2_input_file(
@@ -194,8 +114,6 @@ test_that("Produce XML for Yule species tree prior", {
 test_that("All site models produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -217,8 +135,6 @@ test_that(paste0("All site models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   site_models <- beautier::create_site_models()
   testthat::expect_true(length(site_models) > 1)
@@ -244,8 +160,6 @@ test_that("strict clock model produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
   output_xml_filename <- tempfile()
   create_beast2_input_file(
     input_fasta_filenames = get_fasta_filename(),
@@ -258,8 +172,6 @@ test_that("strict clock model produce a valid BEAST2 input file", {
 test_that("RLN clock model produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
-
-  skip("WIP")
 
   output_xml_filename <- tempfile() # nolint
   create_beast2_input_file(
@@ -275,7 +187,6 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
   "fixed crown age"), {
 
   if (!beautier::is_on_travis()) return()
-  skip("WIP")
 
   clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
@@ -301,13 +212,8 @@ test_that("All tree priors produce a valid BEAST2 input file", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
   tree_priors <- beautier::create_tree_priors()
-  testthat::expect_true(length(tree_priors) > 1)
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
   for (tree_prior in tree_priors) {
 
@@ -335,9 +241,7 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
 
   tree_priors <- beautier::create_tree_priors()
   testthat::expect_true(length(tree_priors) > 1)
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
   for (tree_prior in tree_priors) {
     output_xml_filename <- tempfile()
@@ -432,13 +336,8 @@ test_that("All site models, clock models and tree priors, crown age est", {
 
   skip("WIP, Issue #8")
 
-  input_fasta_filename_1 <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
-  input_fasta_filename_2 <- system.file(
-    "extdata", "anthus_nd2.fas", package = "beautier"
-  )
-  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  input_fasta_filenames <- beautier:::get_paths(
+    c("anthus_aco.fas", "anthus_nd2.fas"))
   n_fail <- 0
 
   for (site_model_1 in beautier::create_site_models()) {
