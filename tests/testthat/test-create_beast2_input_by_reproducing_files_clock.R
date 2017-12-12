@@ -132,9 +132,7 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 ################################################################################
@@ -178,23 +176,14 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected,
-    section = "operators")
-
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
   testthat::expect_true(beautier::are_beast2_input_lines(created))
 })
 
@@ -231,7 +220,8 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
       create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 4)
       )
-    )
+    ),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
   expected <- readLines(beautier:::get_path(
     "aco_nd2_rln_rln_2_4.xml"))
@@ -240,22 +230,18 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
 
-  beautier:::compare_lines(created, expected,
-    section = "operators")
+  skip("WIP: complete fails")
 
+  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -312,6 +298,11 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
   )
 
   skip("WIP: operators section fails")
+
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
 
   beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))

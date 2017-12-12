@@ -40,14 +40,10 @@ test_that("aco_nd2_2_4.xml", {
       section = "distribution")
   )
 
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -85,20 +81,14 @@ test_that("aco_nd2_nd3_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -138,30 +128,20 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path(
-    "aco_nd2_nd3_nd4_2_4.xml"))
-
-
+  expected <- readLines(beautier:::get_path("aco_nd2_nd3_nd4_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected,
-    section = "distribution")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -200,6 +180,10 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
 
   skip("WIP: distribution section fails")
 
@@ -207,9 +191,6 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   beautier:::compare_lines(created, expected,
     section = "distribution")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
@@ -253,10 +234,7 @@ test_that("aco_hky_nd2.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
-    "aco_hky_nd2.xml"))
-
-
+  expected <- readLines(beautier:::get_path("aco_hky_nd2.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -267,17 +245,11 @@ test_that("aco_hky_nd2.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  testthat::expect_true(beautier::are_beast2_input_lines(created))
 })
 
 test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
@@ -540,7 +512,6 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "distribution")
   )
-
 
   skip("WIP: operators section fails")
 
