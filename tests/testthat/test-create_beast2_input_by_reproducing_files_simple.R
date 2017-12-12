@@ -23,17 +23,14 @@ test_that("2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -88,20 +85,14 @@ test_that("gtr_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -154,16 +145,10 @@ test_that("gtr_gcc_1_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created, expected)
@@ -214,20 +199,14 @@ test_that("gtr_gcc_2_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -276,19 +255,14 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -339,21 +313,14 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-
-  beautier:::compare_lines(created, expected, section = "operators")
-
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -387,13 +354,10 @@ test_that("hky_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -426,12 +390,7 @@ test_that("hky_kappa_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("hky_prop_invariant_0_5_2_4.xml", {
@@ -463,10 +422,6 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -499,10 +454,6 @@ test_that("hky_gcc_1_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -536,10 +487,6 @@ test_that("hky_gcc_2_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -573,12 +520,7 @@ test_that("hky_gcc_4_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 ################################################################################
@@ -610,12 +552,7 @@ test_that("jc69_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("jc69_gcc_2_2_4.xml", {
@@ -645,12 +582,7 @@ test_that("jc69_gcc_2_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
@@ -681,23 +613,15 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
-  input_fasta_filename <- beautier:::get_path("test_output_0.fas")
-  id <- get_id(input_fasta_filename)
-
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
     site_models = create_jc69_site_model(
-      id = id,
+      id = "test_output_0",
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
         gamma_shape = 1.5,
@@ -719,12 +643,7 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 ################################################################################
@@ -763,10 +682,6 @@ test_that("tn93_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -803,10 +718,6 @@ test_that("tn93_gcc_1_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -839,15 +750,10 @@ test_that("tn93_gcc_2_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -881,15 +787,10 @@ test_that("bd_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -919,10 +820,6 @@ test_that("bd_6_taxa_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -951,10 +848,6 @@ test_that("cbs_6_taxa_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -982,10 +875,6 @@ test_that("ccp_6_taxa_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1018,10 +907,6 @@ test_that("cep_6_taxa_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1049,12 +934,7 @@ test_that("cbs_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("cbs_2_4.xml is invalid", {
@@ -1093,12 +973,7 @@ test_that("ccp_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("ccp_pop_size_gamma_2_4.xml", {
@@ -1117,7 +992,6 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
   expected <- readLines(beautier:::get_path(
     "ccp_pop_size_gamma_2_4.xml"))
 
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
@@ -1127,10 +1001,6 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operator section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1164,12 +1034,7 @@ test_that("cep_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 ################################################################################
@@ -1195,10 +1060,6 @@ test_that("yule_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operatprs section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1224,12 +1085,7 @@ test_that("birth_rate_uniform_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_normal_2_4.xml", {
@@ -1256,12 +1112,7 @@ test_that("birth_rate_normal_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_one_div_x_2_4.xml", {
@@ -1284,10 +1135,6 @@ test_that("birth_rate_one_div_x_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1321,12 +1168,7 @@ test_that("birth_rate_log_normal_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_exp_2_4.xml", {
@@ -1352,12 +1194,7 @@ test_that("birth_rate_exp_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 
@@ -1385,12 +1222,7 @@ test_that("birth_rate_gamma_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_beta_2_4.xml", {
@@ -1417,12 +1249,11 @@ test_that("birth_rate_beta_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_laplace_2_4.xml", {
@@ -1449,12 +1280,11 @@ test_that("birth_rate_laplace_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-
-  skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_inv_gamma_2_4.xml", {
