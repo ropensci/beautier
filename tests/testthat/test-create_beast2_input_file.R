@@ -366,16 +366,11 @@ test_that("All site models, clock models and tree priors, crown age est", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
   for (site_model in beautier::create_site_models()) {
     for (clock_model in beautier::create_clock_models()) {
       for (tree_prior in beautier::create_tree_priors()) {
-
 
         output_xml_filename <- tempfile()
         create_beast2_input_file(
@@ -400,11 +395,7 @@ test_that("All site models, clock models and tree priors, fixed crown age", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
   for (site_model in beautier::create_site_models()) {
     for (clock_model in beautier::create_clock_models()) {
@@ -478,7 +469,5 @@ test_that("All site models, clock models and tree priors, crown age est", {
       }
     }
   }
-  # 2017-11-27 9:48: 160 fails
   testthat::expect_equal(n_fail, 0)
-
 })
