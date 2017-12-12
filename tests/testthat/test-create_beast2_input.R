@@ -19,12 +19,54 @@ test_that("input is checked, one alignment", {
     )
   )
 
+  # 1 input_fasta_filenames,
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = "nonexisting" # Error
     ),
-    "'input_fasta_filenames' not found"
+    "'input_fasta_filenames' must be the name of one or more present files"
   )
+
+  # 2 site_models
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_fasta_filename(),
+      site_models = "nonsense"
+    ),
+    paste0(
+      "'site_models' must be a valid site model, ",
+      "or a list of valid site models, ",
+      "as returned by 'create_site_model'"
+    )
+  )
+
+  # 3 clock_models
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_fasta_filename(),
+      clock_models = "nonsense"
+    ),
+    paste0(
+      "'clock_models' must be a valid clock model, ",
+      "or a list of valid clock models, ",
+      "as returned by 'create_clock_model'"
+    )
+  )
+
+  # 4 tree_priors
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_fasta_filename(),
+      tree_priors = "nonsense"
+    ),
+    paste0(
+      "'tree_priors' must be a valid tree prior, ",
+      "or a list of valid tree priors, ",
+      "as returned by 'create_tree_prior'"
+    )
+  )
+
+  # 5 mcmc
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),
@@ -33,52 +75,25 @@ test_that("input is checked, one alignment", {
     "'mcmc' must be a valid mcmc object, as returned by 'create_mcmc'"
   )
 
+  # 6 misc_options
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),
-      tree_priors = "nonsense"
+      misc_options = "nonsense"
     ),
-    paste0(
-      "'tree_priors' must be one or more valid tree priors, ",
-      "as returned by 'create_tree_priors'"
-    )
+    "'misc_options' must be a valid misc options object"
   )
 
+  # 7 fixed_crown_age
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),
       fixed_crown_age = "nonsense" # Error
-    )
+    ),
+    "'fixed_crown_age' must be either TRUE or FALSE"
   )
 
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
-      site_models = "nonsense"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
-      tree_priors = "nonsense"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
-      clock_models = "nonsense"
-    )
-  )
-
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
-      mcmc = "nonsense"
-    )
-  )
-
+  # 8 initial_phylogenies
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),

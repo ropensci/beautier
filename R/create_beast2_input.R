@@ -34,12 +34,16 @@ create_beast2_input <- function(
     testit::assert(class(initial_phylogenies) == "multiPhylo")
   }
   # Check input
+
+  # 1 input_fasta_filenames
   if (!files_exist(input_fasta_filenames)) {
     stop(
       "'input_fasta_filenames' must be the name ",
       "of one or more present files. "
     )
   }
+
+  # 2 site_models
   if (!are_site_models(site_models)) {
     stop(
       "'site_models' must be a valid site model, ",
@@ -47,6 +51,8 @@ create_beast2_input <- function(
       "as returned by 'create_site_model'"
     )
   }
+
+  # 3 clock_models
   if (!are_clock_models(clock_models)) {
     stop(
       "'clock_models' must be a valid clock model, ",
@@ -54,6 +60,8 @@ create_beast2_input <- function(
       "as returned by 'create_clock_model'"
     )
   }
+
+  # 4 tree_priors
   if (!are_tree_priors(tree_priors)) {
     stop(
       "'tree_priors' must be a valid tree prior, ",
@@ -61,25 +69,44 @@ create_beast2_input <- function(
       "as returned by 'create_tree_prior'"
     )
   }
+
+  # 5 mcmc
   if (!is_mcmc(mcmc)) {
-    stop("mcmc must be a valid mcmc object, as returned by 'create_mcmc'")
+    stop(
+      "'mcmc' must be a valid mcmc object, ",
+      "as returned by 'create_mcmc'"
+    )
   }
+
+  # 6 misc_options
+  if (!is_misc_options(misc_options)) {
+    stop(
+      "'misc_options' must be a valid misc options object, ",
+      "as returned by 'create_misc_options'"
+    )
+  }
+
+  # 7 fixed_crown_age
   if (!is.logical(fixed_crown_age)) {
-    stop("fixed_crown_age must be either TRUE or FALSE")
+    stop("'fixed_crown_age' must be either TRUE or FALSE")
   }
-  if (length(input_fasta_filenames) < length(clock_models)) {
-    stop("Must supply at least as much input_fasta_filenames as clock_models")
+
+  # 8 initial_phylogenies
+  if (class(initial_phylogenies) != "multiPhylo" &&
+      !is.na(initial_phylogenies)) {
+    stop("initial_phylogenies must be either NA, ",
+      "or of type 'phylo' or of type 'multiPhylo'")
+  }
+
+  # Lengths
+  if (length(input_fasta_filenames) != length(clock_models)) {
+    stop("Must supply as much input_fasta_filenames as clock_models")
   }
   if (length(input_fasta_filenames) != length(tree_priors)) {
     stop("Must supply as much input_fasta_filenames as tree priors")
   }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")
-  }
-  if (class(initial_phylogenies) != "multiPhylo" &&
-      !is.na(initial_phylogenies)) {
-    stop("initial_phylogenies must be either NA, ",
-      "or of type 'phylo' or 'multiPhylo'")
   }
 
   site_models <- init_site_models(

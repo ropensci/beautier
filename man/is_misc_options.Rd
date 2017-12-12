@@ -15,3 +15,10 @@ TRUE if the object is a valid misc_options, FALSE otherwise
 \description{
 Determine if the object is a valid misc_options
 }
+\examples{
+  misc_options <- create_misc_options()
+  testit::assert(is_misc_options(misc_options))
+}
+\author{
+Richel J.C. Bilderbeek
+}

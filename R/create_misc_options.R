@@ -8,15 +8,16 @@
 #'   in uppercase?
 #' @return a misc_options
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   misc_options <- create_misc_options()
+#'   testit::assert(is_misc_options(misc_options))
 #' @export
 create_misc_options <- function(
   capitalize_first_char_id = FALSE,
   nucleotides_uppercase = FALSE
 ) {
-  return(
-    list(
-      capitalize_first_char_id = capitalize_first_char_id,
-      nucleotides_uppercase = nucleotides_uppercase
-    )
+  list(
+    capitalize_first_char_id = capitalize_first_char_id,
+    nucleotides_uppercase = nucleotides_uppercase
   )
 }

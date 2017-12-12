@@ -25,6 +25,10 @@ Function to create a misc_options, containing miscellaneous options
   to fine-tune the created BEAST2 XML file. Whatever option chosen
   here, the created XML file will be valid.
 }
+\examples{
+  misc_options <- create_misc_options()
+  testit::assert(is_misc_options(misc_options))
+}
 \author{
 Richel J.C. Bilderbeek
 }
