@@ -12,9 +12,7 @@ remove_first_brm_clock_rate <- function(lines) {
       break
     }
   }
-  if (is.na(line_index)) {
-    stop("regex not found")
-  }
+  testit::assert(!is.na(line_index))
 
   # Remove 'clock.rate=\"@ucldMean.c:anthus_aco\" '
   from <- " clock\\.rate=\"@ucldMean\\.c:[a-zA-Z0-9_]+\""

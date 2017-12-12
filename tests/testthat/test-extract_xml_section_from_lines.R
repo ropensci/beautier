@@ -33,7 +33,20 @@ test_that("use", {
 
 })
 
-test_that("abuse", {
+test_that("abuse: section must be a word", {
+
+  testthat::expect_error(
+    beautier:::extract_xml_section_from_lines(lines = lines, section = NA),
+    "'section' must be a word"
+  )
+
+  testthat::expect_error(
+    beautier:::extract_xml_section_from_lines(lines = lines, section = NULL),
+    "'section' must be a word"
+  )
+})
+
+test_that("abuse: opening tag absent", {
 
   lines <- c(
     "<a>",
@@ -47,15 +60,20 @@ test_that("abuse", {
     ),
     "Opening tag for 'section' could not be found in 'lines'"
   )
+})
 
-  testthat::expect_error(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = NA),
-    "'section' must be a word"
+test_that("abuse: closing tag absent", {
+
+  lines <- c(
+    "<a>",
+    "  text",
+    "<no_slash_a>"
   )
 
   testthat::expect_error(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = NULL),
-    "'section' must be a word"
+    beautier:::extract_xml_section_from_lines(
+      lines = lines, section = "a"
+    ),
+    "Closing tag for 'section' could not be found in 'lines'"
   )
-
 })

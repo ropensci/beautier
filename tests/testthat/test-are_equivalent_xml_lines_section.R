@@ -1,4 +1,4 @@
-context("are_equal_xml_lines")
+context("are_equivalent_xml_lines_section")
 
 test_that("use", {
 
@@ -21,10 +21,10 @@ test_that("use", {
   )
 
   testthat::expect_true(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = "a")
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = "a")
   )
   testthat::expect_false(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = "b")
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = "b")
   )
 
 })
@@ -32,7 +32,7 @@ test_that("use", {
 test_that("abuse: section must be a word", {
 
   testthat::expect_error(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = NA),
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = NA),
     "'section' must be a word"
   )
 
@@ -49,7 +49,8 @@ test_that("abuse: opening tag of lines 1 not found", {
   lines_2 <- lines_1
 
   testthat::expect_error(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = "nonsense"),
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+      section = "nonsense"),
     "Opening tag for 'section' could not be found in 'lines_1'"
   )
 })
@@ -65,7 +66,8 @@ test_that("abuse: closing tag of lines 1 not found", {
   lines_2 <- lines_1
 
   testthat::expect_error(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = "a"),
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+      section = "a"),
     "Closing tag for 'section' could not be found in 'lines_1'"
   )
 })
@@ -91,7 +93,8 @@ test_that("abuse: opening tag of lines 2 not found", {
   )
 
   testthat::expect_error(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = "a"),
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+      section = "a"),
     "Opening tag for 'section' could not be found in 'lines_2'"
   )
 })
@@ -111,7 +114,8 @@ test_that("abuse: closing tag of lines 2 not found", {
   )
 
   testthat::expect_error(
-    beautier:::are_equal_xml_lines(lines_1, lines_2, section = "a"),
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+      section = "a"),
     "Closing tag for 'section' could not be found in 'lines_2'"
   )
 })

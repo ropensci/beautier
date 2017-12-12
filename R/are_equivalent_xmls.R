@@ -108,6 +108,9 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
   section,
   verbose = FALSE
 ) {
+  if (!is.character(section)) {
+    stop("'section' must be a word")
+  }
   if (section == "operators") {
     return(are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)) # nolint internal function
   }
