@@ -3,7 +3,7 @@ context("create_beast2_input_loggers")
 test_that("use", {
 
   testthat::expect_silent(
-    create_beast2_input_loggers(
+    beautier:::create_beast2_input_loggers(
       ids = "test_output_0"
     )
   )
@@ -12,11 +12,7 @@ test_that("use", {
 
 test_that("abuse", {
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
-  ids <- get_ids(c(fasta_filename_1, fasta_filename_2))
+  ids <- c("anthus_nd2", "anthus_aco.fas")
 
   # Two filenames, one site model
   testthat::expect_error(

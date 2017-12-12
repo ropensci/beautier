@@ -73,7 +73,8 @@ create_beast2_input_run <- function(
     ids = ids,
     site_models = site_models,
     clock_models = clock_models,
-    tree_priors = tree_priors))
+    tree_priors = tree_priors)
+  )
 
   text <- c(text, "")
   text <- c(text, "</run>")

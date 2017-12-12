@@ -7,8 +7,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(ids = ids)
 ) {
-  testit::assert(length(ids) >= length(site_models))
-  testit::assert(length(ids) >= length(clock_models))
+  testit::assert(length(ids) == length(site_models))
+  testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(beautier::are_ids(ids))
   testit::assert(beautier::are_site_models(site_models))
@@ -34,11 +34,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 
   text <- c(text,
     indent(
-      create_beast2_input_treelogs(
-        ids = ids,
-        clock_models = clock_models
-      ),
-      n_spaces = 0
+      create_beast2_input_treelogs(clock_models),
+      n_spaces = 4
     )
   )
 
@@ -166,37 +163,23 @@ create_beast2_input_screenlog <- function() {
 #' @inheritParams create_beast2_input_loggers
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
-  ids,
-  clock_models = create_strict_clock_models(ids = ids)
+  clock_models
 ) {
-  testit::assert(length(ids) >= length(clock_models))
+  testit::assert(beautier::are_clock_models(clock_models))
 
   text <- NULL
-  n <- length(ids)
-  for (i in seq(1, n)) {
-
-    id <- ids[i]
-    clock_model <- clock_models[[i]]
+  for (clock_model in clock_models) {
 
     text <- c(text, "")
-    text <- c(text, paste0("    <logger id=\"treelog.t:", id, "\" ",
+    id <- clock_model$id
+    text <- c(text, paste0("<logger id=\"treelog.t:", id, "\" ",
       "fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
-
-    # Clock models
-    if (is_strict_clock_model(clock_model)) {
-      text <- c(text, paste0("        <log ",
-        "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
-        "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-        "tree=\"@Tree.t:", id, "\"/>"))
-    } else if (is_rln_clock_model(clock_model)) {
-      text <- c(text, paste0("        <log ",
-        "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
-        "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-        "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
-        "tree=\"@Tree.t:", id, "\"/>"))
-    }
-    text <- c(text, "    </logger>")
-  } # next i
+    text <- c(
+      text,
+      indent(clock_model_to_xml_treelogger(clock_model), n_spaces = 4)
+    )
+    text <- c(text, "</logger>")
+  }
   text
 }
 
