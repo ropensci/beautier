@@ -55,20 +55,16 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 ) {
   testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(site_models))
-  testit::assert(length(ids) >= length(clock_models))
+  testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
 
   text <- NULL
   # 1 tracelog
   filename <- utils::head(ids, n = 1)
-  text <- c(text, paste0("    <logger id=\"tracelog\" fileName=\"",
-    filename, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
-    "sanitiseHeaders=\"true\" sort=\"smart\">"))
 
-  text <- c(text, "        <log idref=\"posterior\"/>")
-  text <- c(text, "        <log idref=\"likelihood\"/>")
-
-  text <- c(text, "        <log idref=\"prior\"/>")
+  text <- c(text, "<log idref=\"posterior\"/>")
+  text <- c(text, "<log idref=\"likelihood\"/>")
+  text <- c(text, "<log idref=\"prior\"/>")
 
   n <- length(ids)
   for (i in seq(1, n)) {
@@ -77,22 +73,19 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     tree_prior <- tree_priors[[i]]
     clock_model <- clock_models[[i]]
 
-    text <- c(text, paste0("        <log idref=\"treeLikelihood.",
-      id, "\"/>"))
-    text <- c(text, paste0("        <log id=\"TreeHeight.t:", id,
-      "\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:",
-      id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"treeLikelihood.", id, "\"/>"))
+    text <- c(text, paste0("<log id=\"TreeHeight.t:", id, "\" ",
+      "spec=\"beast.evolution.tree.TreeHeightLogger\" ",
+      "tree=\"@Tree.t:", id, "\"/>")
+    )
 
     if (i > 1) {
-      text <- c(text, paste0("        <log idref=\"clockRate.c:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"clockRate.c:", id, "\"/>"))
     }
 
     text <- c(text,
-      indent(
-        create_beast2_input_loggers_tree_prior(
-          tree_prior = tree_prior
-        ),
-        n_spaces = 8
+      create_beast2_input_loggers_tree_prior(
+        tree_prior = tree_prior
       )
     )
 
@@ -137,8 +130,13 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     )
 
   }
-  text <- c(text, "    </logger>")
-  text
+  text <- indent(text, n_spaces = 4)
+
+  text <- c(paste0("<logger id=\"tracelog\" fileName=\"",
+    filename, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
+    "sanitiseHeaders=\"true\" sort=\"smart\">"), text)
+  text <- c(text, "</logger>")
+  indent(text, n_spaces = 4)
 }
 
 #' Creates the screenlog section of the logger section
@@ -234,16 +232,16 @@ create_beast2_input_loggers_rates <- function( # nolint long function name is fi
   text <- NULL
 
   if (is_hky_site_model(site_model)) {
-    text <- c(text, paste0("        <log idref=\"kappa.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>"))
   } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("        <log idref=\"kappa1.s:", id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"kappa2.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>"))
   } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("        <log idref=\"rateAC.s:", id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"rateAG.s:", id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"rateAT.s:", id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"rateCG.s:", id, "\"/>"))
-    text <- c(text, paste0("        <log idref=\"rateGT.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"rateAG.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"rateAT.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"rateCG.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"rateGT.s:", id, "\"/>"))
   }
 
   text
@@ -262,8 +260,7 @@ create_beast2_input_loggers_freqparam <- function( # nolint long function name i
 
   text <- NULL
   if (!is_jc69_site_model(site_model)) {
-    text <- c(text, paste0("        <log ",
-      "idref=\"freqParameter.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"freqParameter.s:", id, "\"/>"))
   }
   text
 }
@@ -281,7 +278,7 @@ create_beast2_input_loggers_gamma_shape <- function( # nolint long function name
 
   text <- NULL
   if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
-    text <- c(text, paste0("        <log idref=\"gammaShape.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"gammaShape.s:", id, "\"/>"))
   }
   text
 }
@@ -305,5 +302,5 @@ create_beast2_input_loggers_clock_models <- function( # nolint long function nam
       "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\"/>"))
   }
-  indent(text, n_spaces = 8) # nolint internal function
+  text
 }
