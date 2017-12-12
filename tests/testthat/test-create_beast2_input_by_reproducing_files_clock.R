@@ -269,13 +269,13 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
     ),
     tree_priors = list(
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 111)),
+        birth_rate_distr = create_uniform_distr(id = 1)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 222)),
+        birth_rate_distr = create_uniform_distr(id = 4)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 333)),
+        birth_rate_distr = create_uniform_distr(id = 7)),
       create_yule_tree_prior(
-        birth_rate_distr = create_uniform_distr(id = 444))
+        birth_rate_distr = create_uniform_distr(id = 10))
     ),
     misc_options = create_misc_options(
       capitalize_first_char_id = FALSE,
@@ -296,6 +296,7 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
+  beautier:::compare_lines(created, expected, section = "distribution")
 
   skip("WIP: operators section fails")
 
@@ -304,6 +305,6 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
       section = "operators")
   )
 
-  beautier:::compare_lines(created, expected)
+  beautier:::compare_lines(created, expected, section = "distribution")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

@@ -110,8 +110,6 @@ test_that("strict strict", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
-
-
 test_that("strict RLN", {
 
   input_fasta_filenames <- beautier:::get_paths(
@@ -221,4 +219,48 @@ test_that("RLN strict", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+
+
+
+
+test_that("strict shared", {
+
+  expected <- c(
+    "<distribution id=\"likelihood\" spec=\"util.CompoundDistribution\" useThreads=\"true\">", # nolint XML
+    "    <distribution id=\"treeLikelihood.anthus_aco\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_aco\" tree=\"@Tree.t:anthus_aco\">", # nolint XML
+    "        <siteModel id=\"SiteModel.s:anthus_aco\" spec=\"SiteModel\">", # nolint XML
+    "            <parameter id=\"mutationRate.s:anthus_aco\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"gammaShape.s:anthus_aco\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"proportionInvariant.s:anthus_aco\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
+    "            <substModel id=\"JC69.s:anthus_aco\" spec=\"JukesCantor\"/>", # nolint XML
+    "        </siteModel>", # nolint XML
+    "        <branchRateModel id=\"StrictClock.c:anthus_aco\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint XML
+    "            <parameter id=\"clockRate.c:anthus_aco\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
+    "        </branchRateModel>", # nolint XML
+    "    </distribution>", # nolint XML
+    "    <distribution id=\"treeLikelihood.anthus_nd2\" spec=\"ThreadedTreeLikelihood\" branchRateModel=\"@StrictClock.c:anthus_aco\" data=\"@anthus_nd2\" tree=\"@Tree.t:anthus_nd2\">", # nolint XML
+    "        <siteModel id=\"SiteModel.s:anthus_nd2\" spec=\"SiteModel\">", # nolint XML
+    "            <parameter id=\"mutationRate.s:anthus_nd2\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"gammaShape.s:anthus_nd2\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"proportionInvariant.s:anthus_nd2\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
+    "            <substModel id=\"JC69.s:anthus_nd2\" spec=\"JukesCantor\"/>", # nolint XML
+    "        </siteModel>", # nolint XML
+    "    </distribution>", # nolint XML
+    "</distribution>" # nolint XML
+  )
+  created <- beautier:::create_beast2_input_distr_lh(
+    site_models = list(
+      create_jc69_site_model(id = "anthus_aco"),
+      create_jc69_site_model(id = "anthus_nd2")
+    ),
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"),
+      create_strict_clock_model(id = "anthus_aco")
+    )
+  )
+  skip("WIP: distr lh shared strict")
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  beautier:::compare_lines(created, expected)
 })
