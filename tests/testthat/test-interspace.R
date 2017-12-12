@@ -2,23 +2,30 @@ context("interspace")
 
 test_that("use, one line", {
 
-  lines <- "a"
-  result <- beautier:::interspace(lines)
-  testthat::expect_equal(length(result), 2)
+  input <- c("<a/>")
+  result <- beautier:::interspace(input)
+  expected <- input
+  testthat::expect_equal(result, expected)
 
 })
 
 test_that("use, two lines", {
 
-  lines <- c("a", "b")
-  result <- beautier:::interspace(lines)
-  testthat::expect_equal(length(result), 4)
+  input <- c(
+    "<a/>",
+    "<b/>"
+    )
+  result <- beautier:::interspace(input)
+  expected <- c(
+    "<a/>",
+    "",
+    "<b/>"
+    )
+  testthat::expect_equal(result, expected)
 
 })
 
-test_that("use, two lines", {
-
-  skip("WIP")
+test_that("use, simple indentation", {
 
   input <- c(
     "<a>",
@@ -27,6 +34,29 @@ test_that("use, two lines", {
     )
   result <- beautier:::interspace(input)
   expected <- input
+  testthat::expect_equal(result, expected)
+
+})
+
+test_that("use, complex indentation", {
+
+  input <- c(
+    "<a>",
+    "  indented",
+    "</a>",
+    "<b>",
+    "<c>"
+    )
+  result <- beautier:::interspace(input)
+  expected <- c(
+    "<a>",
+    "  indented",
+    "</a>",
+    "",
+    "<b>",
+    "",
+    "<c>"
+    )
   testthat::expect_equal(result, expected)
 
 })
