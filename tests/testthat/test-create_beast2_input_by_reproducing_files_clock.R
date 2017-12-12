@@ -139,7 +139,56 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
 # Two alignments
 ################################################################################
 
-test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
+test_that("aco_nd2_strict_strict_2_4.xml, strict strict", {
+
+  created <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier:::get_paths(
+      c("anthus_aco.fas", "anthus_nd2.fas")
+    ),
+    clock_models = list(
+      create_strict_clock_model(
+        clock_rate_distr = create_uniform_distr(id = 2)
+      ),
+      create_strict_clock_model(
+        clock_rate_distr = create_uniform_distr(id = 3)
+      )
+    ),
+    tree_priors = list(
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 1)),
+      create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 4))
+    ),
+    misc_options = create_misc_options(
+      capitalize_first_char_id = FALSE,
+      nucleotides_uppercase = TRUE
+    )
+  )
+  expected <- readLines(beautier:::get_path(
+    "aco_nd2_strict_strict_2_4.xml"))
+
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(
+      created, expected, section = "state")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "distribution")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "loggers")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected)
+  )
+})
+
+test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
 
   created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
@@ -184,13 +233,20 @@ test_that("aco_nd2_strict_rln_2_4.xml, example 10", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
+  skip("WIP: loggers")
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "loggers")
+  )
+  beautier:::compare_lines(created, expected, section = "loggers")
+
   skip("WIP: complete")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected)
   )
 })
 
-test_that("aco_nd2_rln_rln_2_4.xml", {
+test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
 
   created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
@@ -241,10 +297,14 @@ test_that("aco_nd2_rln_rln_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
+  skip("WIP: loggers fails")
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "loggers")
+  )
+  beautier:::compare_lines(created, expected, section = "loggers")
 
-  skip("WIP: complete fails")
-
-  beautier:::compare_lines(created, expected)
+  skip("WIP: loggers fails")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
