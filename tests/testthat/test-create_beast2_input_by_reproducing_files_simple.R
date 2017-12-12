@@ -377,8 +377,7 @@ test_that("hky_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
-    "hky_2_4.xml"))
+  expected <- readLines(beautier:::get_path("hky_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -390,8 +389,11 @@ test_that("hky_2_4.xml", {
   )
 
   skip("WIP: operators section fails")
-
-  beautier:::compare_lines(created, expected)
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
+  beautier:::compare_lines(created, expected, section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
