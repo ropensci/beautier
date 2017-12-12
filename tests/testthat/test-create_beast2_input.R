@@ -23,14 +23,14 @@ test_that("input is checked, one alignment", {
     create_beast2_input(
       input_fasta_filenames = "nonexisting" # Error
     ),
-    "input_fasta_filenames not found"
+    "'input_fasta_filenames' not found"
   )
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),
       mcmc = "nonsense"
     ),
-    "mcmc must be a valid mcmc object, as returned by 'create_mcmc'"
+    "'mcmc' must be a valid mcmc object, as returned by 'create_mcmc'"
   )
 
   testthat::expect_error(
@@ -38,7 +38,10 @@ test_that("input is checked, one alignment", {
       input_fasta_filenames = get_fasta_filename(),
       tree_priors = "nonsense"
     ),
-    "tree_priors must be valid, as returned by 'create_tree_priors'"
+    paste0(
+      "'tree_priors' must be one or more valid tree priors, ",
+      "as returned by 'create_tree_priors'"
+    )
   )
 
   testthat::expect_error(

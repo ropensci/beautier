@@ -35,16 +35,31 @@ create_beast2_input <- function(
   }
   # Check input
   if (!files_exist(input_fasta_filenames)) {
-    stop("input_fasta_filenames not found")
+    stop(
+      "'input_fasta_filenames' must be the name ",
+      "of one or more present files. "
+    )
   }
   if (!are_site_models(site_models)) {
-    stop("invalid site_models")
+    stop(
+      "'site_models' must be a valid site model, ",
+      "or a list of valid site models, ",
+      "as returned by 'create_site_model'"
+    )
   }
   if (!are_clock_models(clock_models)) {
-    stop("invalid clock_models")
+    stop(
+      "'clock_models' must be a valid clock model, ",
+      "or a list of valid clock models, ",
+      "as returned by 'create_clock_model'"
+    )
   }
   if (!are_tree_priors(tree_priors)) {
-    stop("tree_priors must be valid, as returned by 'create_tree_priors'")
+    stop(
+      "'tree_priors' must be a valid tree prior, ",
+      "or a list of valid tree priors, ",
+      "as returned by 'create_tree_prior'"
+    )
   }
   if (!is_mcmc(mcmc)) {
     stop("mcmc must be a valid mcmc object, as returned by 'create_mcmc'")

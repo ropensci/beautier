@@ -4,6 +4,4 @@
 #' @export
 is_on_travis <- function() {
   Sys.getenv("TRAVIS") != ""
-  # TODO: let Travis check again
-  FALSE
 }
