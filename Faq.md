@@ -6,7 +6,7 @@ Version 2.4.7.
 
 ## What's the roadmap?
 
-For version (`v1.10`), the interface for one alignment will probably remain stable. 
+From version `1.10` onwards, the interface for one alignment will probably remain stable. 
 
  * `v2.0`: support multiple alignments well, allow shared site model, clock model and tree prior
 
