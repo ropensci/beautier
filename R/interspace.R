@@ -5,7 +5,7 @@ interspace <- function(lines) {
   if (length(lines) == 0) return(lines)
 
   # number of spaces of non-indented line
-  nsni <- count_trailing_spaces(lines[1])
+  nsni <- count_trailing_spaces(lines[1]) # nolint internal function
 
   result <- NULL
   for (i in seq_along(lines)) {
