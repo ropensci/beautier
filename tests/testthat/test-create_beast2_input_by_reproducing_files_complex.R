@@ -297,7 +297,8 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
         )
     )
   )
-  expected <- readLines(beautier:::get_path("bd_birth_rate_normal_death_rate_gamma_2_4.xml"))
+  expected <- readLines(beautier:::get_path(
+    "bd_birth_rate_normal_death_rate_gamma_2_4.xml"))
 
 
 

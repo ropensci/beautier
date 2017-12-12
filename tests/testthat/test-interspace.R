@@ -15,3 +15,18 @@ test_that("use, two lines", {
   testthat::expect_equal(length(result), 4)
 
 })
+
+test_that("use, two lines", {
+
+  skip("WIP")
+
+  input <- c(
+    "<a>",
+    "  indented",
+    "</a>"
+    )
+  result <- beautier:::interspace(input)
+  expected <- input
+  testthat::expect_equal(result, expected)
+
+})
