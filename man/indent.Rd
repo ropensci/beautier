@@ -2,7 +2,8 @@
 % Please edit documentation in R/indent.R
 \name{indent}
 \alias{indent}
-\title{Determine if x consists out of IDs}
+\title{Indent text for a certain number of spaces
+If the text is only whitespace, leave it as such}
 \usage{
 indent(text, n_spaces)
 }
@@ -15,7 +16,8 @@ indent(text, n_spaces)
 the indented text
 }
 \description{
-Determine if x consists out of IDs
+Indent text for a certain number of spaces
+If the text is only whitespace, leave it as such
 }
 \author{
 Richel J.C. Bilderbeek

@@ -9,6 +9,6 @@ extract_xml_operators_from_lines <- function( # nolint internal function
   if (is.na(first_line)) {
     return("")
   }
-  last_line <- find_last_regex_line(lines, "<operator id=\"") # nolint internal function
+  last_line <- find_last_regex_line(lines, "(<operator id=\")|(</operator>)") # nolint internal function
   lines[first_line:last_line]
 }

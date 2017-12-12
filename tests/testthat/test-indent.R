@@ -1,21 +1,46 @@
 context("indent")
 
-test_that("use", {
+test_that("use, single line", {
 
-  testthat::expect_silent(indent(text = "test", n_spaces = 2))
+  input <- "test"
+  created <- beautier:::indent(text = input, n_spaces = 2)
+  expected <- "  test"
+  testthat::expect_equal(created, expected)
 
-  text <- c("hello", "world")
-  testthat::expect_silent(indent(text = text, n_spaces = 2))
+})
 
-  indented_text_1 <- paste0(" ", c("hello", "world"))
-  testthat::expect_equal(indent(text = text, n_spaces = 1), indented_text_1)
+test_that("use, two lines", {
 
-  indented_text_2 <- paste0("  ", c("hello", "world"))
-  testthat::expect_equal(indent(text = text, n_spaces = 2), indented_text_2)
+  input <- c("hello", "world")
+  created <- beautier:::indent(text = input, n_spaces = 2)
+  expected <- c("  hello", "  world")
+  testthat::expect_equal(created, expected)
+
+})
+
+test_that("indent two lines with zero spaces", {
+
+  input <- c("hello", "world")
+  created <- beautier:::indent(text = input, n_spaces = 0)
+  expected <- input
+  testthat::expect_equal(created, expected)
+
+})
+
+test_that("do not indent whitespace", {
+
+  input <- ""
+  created <- beautier:::indent(text = input, n_spaces = 2)
+  expected <- ""
+  testthat::expect_equal(created, expected)
+
 })
 
 test_that("abuse", {
 
-  testthat::expect_error(indent(text = "test", n_spaces = -1))
+  testthat::expect_error(
+    beautier:::indent(text = "test", n_spaces = -1),
+    "'n_spaces' must be a positive integer"
+  )
 
 })
