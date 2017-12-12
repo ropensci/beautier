@@ -84,15 +84,13 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     }
 
     text <- c(text,
-      create_beast2_input_loggers_tree_prior(
-        tree_prior = tree_prior
-      )
+      create_beast2_input_loggers_tree_prior(tree_prior)
     )
 
     # Now three things
-    rates <- create_beast2_input_loggers_rates(site_model = site_model) # nolint
-    freqparams <- create_beast2_input_loggers_freqparam(site_model = site_model) # nolint
-    gamma_shape <- create_beast2_input_loggers_gamma_shape(site_model = site_model) # nolint
+    rates <- create_beast2_input_loggers_rates(site_model) # nolint
+    freqparams <- create_beast2_input_loggers_freqparam(site_model) # nolint
+    gamma_shape <- create_beast2_input_loggers_gamma_shape(site_model) # nolint
     gcc <- beautier::get_gamma_cat_count(beautier::get_gamma_site_model(site_model)) # nolint
     prop_invariant <- beautier::get_prop_invariant(beautier::get_gamma_site_model(site_model)) # nolint
 
@@ -123,12 +121,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 
 
 
-    text <- c(text,
-      create_beast2_input_loggers_clock_models(
-        clock_model = clock_model
-      )
-    )
-
+    text <- c(text, create_beast2_input_loggers_clock_models(clock_model))
   }
   text <- indent(text, n_spaces = 4)
 
