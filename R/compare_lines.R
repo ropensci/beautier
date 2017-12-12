@@ -16,10 +16,4 @@ compare_lines <- function(
   }
   writeLines(lines, "~/created.xml")
   writeLines(expected, "~/expected.xml")
-  for (i in 1:min(length(expected), length(lines))) {
-    testthat::expect_equal(
-      expected[i], lines[i]
-    )
-    print(paste0(i, " / ", length(expected)))
-  }
 }
