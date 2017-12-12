@@ -237,10 +237,7 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP")
-
   tree_priors <- beautier::create_tree_priors()
-  testthat::expect_true(length(tree_priors) > 1)
   input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
   for (tree_prior in tree_priors) {
@@ -255,7 +252,7 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
     )
     ok <- beautier::is_beast2_input_file(output_xml_filename)
     if (!ok) {
-      print(tree_prior)
+      print(tree_prior$name)
       beautier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
     }
     testthat::expect_true(ok)
