@@ -34,23 +34,21 @@ test_that("HKY", {
   )
   created <- beautier:::site_models_to_xml_operators(
     site_models = list(
-      create_hky_site_model()
+      create_hky_site_model(id = "test_output_0")
     )
   )
-  testthat::expect_true(is.null(created))
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
 test_that("JC69", {
 
-  expected <- c(
-    # Nothing
-  )
-  created <- beautier:::site_models_to_xml_operators(
-    site_models = list(
-      create_hky_site_model()
+  testthat::expect_true(
+    is.null(
+      beautier:::site_models_to_xml_operators(
+        site_models = list(create_jc69_site_model()) # No ID needed
+      )
     )
   )
-  testthat::expect_true(is.null(created))
 })
 
 test_that("TN93", {
@@ -64,10 +62,10 @@ test_that("TN93", {
   )
   created <- beautier:::site_models_to_xml_operators(
     site_models = list(
-      create_hky_site_model()
+      create_tn93_site_model(id = "test_output_0")
     )
   )
-  testthat::expect_true(is.null(created))
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
 ################################################################################
@@ -126,16 +124,16 @@ test_that("HKY HKY", {
 
 test_that("JC69 JC69", {
 
-  expected <- c(
-    # Nothing
-  )
-  created <- beautier:::site_models_to_xml_operators(
-    site_model = list(
-      create_jc69_site_model(id = "anthus_aco"),
-      create_jc69_site_model(id = "anthus_nd2")
+  testthat::expect_true(
+    is.null(
+      beautier:::site_models_to_xml_operators(
+        site_model = list(
+          create_jc69_site_model(id = "anthus_aco"),
+          create_jc69_site_model(id = "anthus_nd2")
+        )
+      )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
 test_that("TN93 TN93", {
