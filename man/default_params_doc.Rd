@@ -8,10 +8,10 @@ documentation.}
 default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   cep_tree_prior, clock_model, clock_models, crown_age, distr_id,
   fasta_filename, fasta_filenames, fixed_crown_age, gtr_site_model,
-  hky_site_model, id, ids, initial_phylogenies, input_fasta_filenames, mcmc,
-  misc_options, output_xml_filename, param_id, rln_clock_model, site_model,
-  site_models, strict_clock_model, tn93_site_model, tree_prior, tree_priors,
-  yule_tree_prior)
+  hky_site_model, id, ids, initial_phylogenies, input_fasta_filenames, is_first,
+  mcmc, misc_options, output_xml_filename, param_id, rln_clock_model,
+  site_model, site_models, strict_clock_model, tn93_site_model, tree_prior,
+  tree_priors, yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -68,6 +68,9 @@ the phylogeny is assumed to be of class ape::phylo.}
 \item{input_fasta_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
+\item{is_first}{boolean to indicate if this is the first
+out of many (one, two or more)}
+
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}
 
@@ -102,9 +105,6 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
-
-\item{is_first}{boolean to indicate if this is the first
-out of many (one, two or more)}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

@@ -79,6 +79,7 @@ default_params_doc <- function(
   ids,
   initial_phylogenies,
   input_fasta_filenames,
+  is_first,
   mcmc,
   misc_options,
   output_xml_filename,
