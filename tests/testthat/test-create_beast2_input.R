@@ -388,7 +388,6 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  skip("WIP: shared tree prior")
   testthat::expect_true(are_beast2_input_lines(lines, verbose = TRUE))
 })
 

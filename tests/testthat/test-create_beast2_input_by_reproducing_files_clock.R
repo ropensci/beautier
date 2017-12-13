@@ -234,14 +234,10 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-  skip("WIP: loggers")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "loggers")
   )
-  beautier:::compare_lines(created, expected, section = "loggers")
-
-  skip("WIP: complete")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected)
   )
@@ -298,14 +294,10 @@ test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
   )
-  skip("WIP: loggers fails")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "loggers")
   )
-  beautier:::compare_lines(created, expected, section = "loggers")
-
-  skip("WIP: loggers fails")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
