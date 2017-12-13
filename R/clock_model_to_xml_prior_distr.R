@@ -15,8 +15,6 @@ clock_model_to_xml_prior_distr <- function(
   is_first = TRUE
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
-  id <- clock_model$id
-  testit::assert(beautier::is_id(id))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
@@ -25,6 +23,8 @@ clock_model_to_xml_prior_distr <- function(
       text <- c(text, rln_clock_model_to_xml_mean_rate_prior(clock_model)) # nolint internal function
     }
 
+    id <- clock_model$id
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<prior ",
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", id, "\">"))
@@ -42,6 +42,8 @@ clock_model_to_xml_prior_distr <- function(
     testit::assert(beautier::is_strict_clock_model(clock_model))
 
     if (is_first == FALSE) {
+      id <- clock_model$id
+      testit::assert(beautier::is_id(id))
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
         "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
       text <- c(text, indent(

@@ -9,7 +9,9 @@
 #'  # </distribution>
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
-clock_models_to_xml_prior_distr <- function(clock_models) { # nolint internal function name
+clock_models_to_xml_prior_distr <- function(clock_models) { # nolint internal function
+
+  clock_models <- get_unlinked_clock_models(clock_models)  # nolint internal function
   text <- NULL
 
   for (i in seq_along(clock_models)) {
