@@ -1,5 +1,9 @@
 context("clock_model_to_xml_lh_distr")
 
+################################################################################
+# One alignment
+################################################################################
+
 test_that("strict", {
 
   expected <- c(
@@ -256,3 +260,9 @@ test_that("RLN no normalize", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })
+
+
+################################################################################
+# Two alignment, unlinked clock models
+################################################################################
+
