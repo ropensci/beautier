@@ -10,7 +10,7 @@
 site_model_to_xml_tracelog <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
 
   text <- NULL

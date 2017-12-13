@@ -254,4 +254,3 @@ test_that("shared Yule", {
     "Cannot have linked tree priors"
   )
 })
-

@@ -65,19 +65,19 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   text <- c(text, "<log idref=\"posterior\"/>")
   text <- c(text, "<log idref=\"likelihood\"/>")
   text <- c(text, "<log idref=\"prior\"/>")
-  text <- c(text, tree_models_to_xml_tracelog(site_models))
+  text <- c(text, tree_models_to_xml_tracelog(site_models)) # nolint internal function
 
-  site_models_xml <- site_models_to_xml_tracelog(site_models)
+  site_models_xml <- site_models_to_xml_tracelog(site_models) # nolint internal function
   if (!is.null(site_models_xml)) {
     text <- c(text, site_models_xml)
   }
 
-  clock_models_xml <- clock_models_to_xml_tracelog(clock_models)
+  clock_models_xml <- clock_models_to_xml_tracelog(clock_models) # nolint internal function
   if (!is.null(clock_models_xml)) {
     text <- c(text, clock_models_xml)
   }
 
-  text <- c(text, tree_priors_to_xml_tracelog(tree_priors))
+  text <- c(text, tree_priors_to_xml_tracelog(tree_priors)) # nolint internal function
 
   text <- indent(text, n_spaces = 4) # nolint internal function
 
@@ -85,7 +85,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     filename, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
     "sanitiseHeaders=\"true\" sort=\"smart\">"), text)
   text <- c(text, "</logger>")
-  indent(text, n_spaces = 4)
+  indent(text, n_spaces = 4) # nolint internal function
 }
 
 #' Creates the screenlog section of the logger section

@@ -12,13 +12,13 @@ clock_models_to_xml_tracelog <- function(
 ) {
   testit::assert(beautier::are_clock_models(clock_models))
 
-  clock_models <- get_unlinked_clock_models(clock_models)
+  clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
 
   text <- NULL
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
     testit::assert(beautier::is_clock_model(clock_model))
-    text <- c(text, clock_model_to_xml_tracelog(clock_model, i == 1))
+    text <- c(text, clock_model_to_xml_tracelog(clock_model, i == 1)) # nolint internal function
   }
   text
 }
