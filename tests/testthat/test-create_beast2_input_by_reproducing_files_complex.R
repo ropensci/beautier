@@ -185,7 +185,7 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
       section = "operators")
   )
 
-  skip("WIP: distribution section fails")
+  skip("WIP: distribution, 2 alignments")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -512,7 +512,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
       created, expected, section = "distribution")
   )
 
-  skip("WIP: operators section fails")
+  skip("WIP: operators, 4 alignments")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(

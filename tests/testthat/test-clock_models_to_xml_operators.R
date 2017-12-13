@@ -158,3 +158,4 @@ test_that("shared strict", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
