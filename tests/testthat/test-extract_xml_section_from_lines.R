@@ -33,6 +33,26 @@ test_that("use", {
 
 })
 
+test_that("use: operators", {
+
+  testthat::expect_silent(
+    beautier:::extract_xml_section_from_lines(
+      lines = readLines(beautier:::get_path("2_4.xml")),
+      section = "operators")
+  )
+
+})
+
+test_that("use: loggers", {
+
+  testthat::expect_silent(
+    beautier:::extract_xml_section_from_lines(
+      lines = readLines(beautier:::get_path("2_4.xml")),
+      section = "loggers")
+  )
+
+})
+
 test_that("abuse: section must be a word", {
 
   testthat::expect_error(

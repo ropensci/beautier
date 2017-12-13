@@ -47,3 +47,12 @@ test_that("use general function with get_tree_prior_names", {
   }
 
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    beautier::create_tree_prior(name = "nonsense"),
+    "invalid tree prior name"
+  )
+
+})

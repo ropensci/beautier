@@ -6,9 +6,7 @@ extract_xml_loggers_from_lines <- function( # nolint internal function
   lines
 ) {
   first_line <- find_first_regex_line(lines, "<logger id=\"") # nolint internal function
-  if (is.na(first_line)) {
-    return("")
-  }
+  testit::assert(!is.na(first_line))
   last_line <- find_last_regex_line(lines, "</logger>") # nolint internal function
   lines[first_line:last_line]
 }
