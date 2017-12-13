@@ -16,7 +16,7 @@ clock_model_to_xml_treelogger <- function(
   } else {
 
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model))
+    testit::assert(is_rln_clock_model(clock_model)) # nolingt internal function
 
     return(
       paste0(

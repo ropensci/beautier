@@ -79,7 +79,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 
   text <- c(text, tree_priors_to_xml_tracelog(tree_priors))
 
-  text <- indent(text, n_spaces = 4)
+  text <- indent(text, n_spaces = 4) # nolint internal function
 
   text <- c(paste0("<logger id=\"tracelog\" fileName=\"",
     filename, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
