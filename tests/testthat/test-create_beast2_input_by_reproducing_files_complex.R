@@ -501,7 +501,6 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
 
   expected <- readLines(beautier:::get_path(
     "aco_nd2_nd3_nd4_complex_2_4.xml"))
-  testit::assert(are_beast2_input_lines(expected))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(

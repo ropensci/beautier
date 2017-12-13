@@ -47,8 +47,8 @@ clock_model_to_xml_operators <- function(
         text,
         paste0("<operator id=\"relaxedUpDownOperator.c:", id, "\" ",
           "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
-      text <- c(text, paste0("    <up idref=\"ucldMean.c:anthus_nd2\"/>"))
-      text <- c(text, paste0("    <down idref=\"Tree.t:anthus_nd2\"/>"))
+      text <- c(text, paste0("    <up idref=\"ucldMean.c:", id, "\"/>"))
+      text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
       text <- c(text, paste0("</operator>"))
     }
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
