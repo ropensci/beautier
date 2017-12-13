@@ -98,7 +98,11 @@ create_beast2_input <- function(
       "or of type 'phylo' or of type 'multiPhylo'")
   }
 
+
   # Lengths
+  if (length(input_fasta_filenames) != length(site_models)) {
+    stop("Must supply as much input_fasta_filenames as site_models")
+  }
   if (length(input_fasta_filenames) != length(clock_models)) {
     stop("Must supply as much input_fasta_filenames as clock_models")
   }

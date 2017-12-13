@@ -104,9 +104,10 @@ test_that("input is checked, one alignment", {
 
 test_that("input is checked, two alignments", {
 
-  fasta_filename_1 <- beautier:::get_path("anthus_nd2.fas")
-  fasta_filename_2 <- beautier:::get_path("anthus_aco.fas")
-  input_fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
+
+  input_fasta_filenames <- beautier:::get_paths(
+    c("anthus_nd2.fas", "anthus_aco.fas")
+  )
   ids <- beautier:::get_ids(input_fasta_filenames)
 
   # Two filesnames, one site model
@@ -114,25 +115,26 @@ test_that("input is checked, two alignments", {
     create_beast2_input(
       input_fasta_filenames = input_fasta_filenames,
       site_models = create_jc69_site_models(ids = "only_one")
-    )
+    ),
+    "Must supply as much input_fasta_filenames as site_models"
   )
 
   # Two filesnames, one clock model
-  if (1 == 2) {
-    testthat::expect_silent(
-      create_beast2_input(
-        input_fasta_filenames = input_fasta_filenames,
-        clock_models = create_strict_clock_models(ids = ids[1])
-      )
-    )
-  }
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = input_fasta_filenames,
+      clock_models = create_strict_clock_models(ids = ids[1])
+    ),
+    "Must supply as much input_fasta_filenames as clock_models"
+  )
 
-  # Two filesnames, one tree prior
+  # Two filenames, one tree prior
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = input_fasta_filenames,
       tree_priors = create_yule_tree_priors(ids = ids[1])
-    )
+    ),
+    "Must supply as much input_fasta_filenames as tree priors"
   )
 
   # Two filesnames, one phylogeny
@@ -140,7 +142,8 @@ test_that("input is checked, two alignments", {
     create_beast2_input(
       input_fasta_filenames = input_fasta_filenames,
       initial_phylogenies = c(ape::rcoal(4))
-    )
+    ),
+    "Must supply as much input_fasta_filenames as initial_phylogenies"
   )
 
 })

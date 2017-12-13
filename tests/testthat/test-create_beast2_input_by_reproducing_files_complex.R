@@ -185,7 +185,7 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
       section = "operators")
   )
 
-  skip("WIP: distribution, 2 alignments")
+  skip("WIP: distribution, 2 alignments, shared site model")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,

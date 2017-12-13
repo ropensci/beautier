@@ -6,6 +6,10 @@ test_that("use", {
     parameter_to_xml(parameter = create_alpha_param(id = 1))
   )
 
+  testthat::expect_silent(
+    parameter_to_xml(parameter = create_rate_ct_param(id = 1))
+  )
+
   testthat::expect_equal(
     parameter_to_xml(parameter = create_alpha_param(id = 1)),
     "<parameter id=\"RealParameter.1\" estimate=\"false\" name=\"alpha\">0</parameter>" # nolint
