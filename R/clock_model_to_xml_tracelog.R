@@ -17,15 +17,22 @@ clock_model_to_xml_tracelog <- function(
 
   text <- NULL
   if (beautier::is_rln_clock_model(clock_model)) {
+    if (is_first == FALSE) {
+      text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>"))
+    }
     text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>"))
     text <- c(text, paste0("<log id=\"rate.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.RateStatistic\" ",
       "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
       "tree=\"@Tree.t:", id, "\"/>")
     )
-  }
-  if (is_first == FALSE) {
-    text <- c(text, paste0("<log idref=\"clockRate.c:", id, "\"/>"))
+  } else {
+    # Will fail on unimplemented clock models
+    testit::assert(beautier::is_strict_clock_model(clock_model))
+
+    if (is_first == FALSE) {
+      text <- c(text, paste0("<log idref=\"clockRate.c:", id, "\"/>"))
+    }
   }
   text
 }

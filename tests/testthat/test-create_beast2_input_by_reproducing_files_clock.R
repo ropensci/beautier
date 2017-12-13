@@ -48,9 +48,7 @@ test_that("rln_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "loggers")
   )
-  beautier:::compare_lines(created, expected, section = "loggers")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("rln_uclstdev_beta_2_4.xml", {
