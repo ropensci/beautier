@@ -222,32 +222,34 @@ test_that("RLN strict", {
 test_that("RLN RLN", {
 
   expected <- c(
-    "<distribution id=\"treeLikelihood.anthus_aco\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_aco\" tree=\"@Tree.t:anthus_aco\">", # nolint XML
-    "    <siteModel id=\"SiteModel.s:anthus_aco\" spec=\"SiteModel\">", # nolint XML
-    "        <parameter id=\"mutationRate.s:anthus_aco\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
-    "        <parameter id=\"gammaShape.s:anthus_aco\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
-    "        <parameter id=\"proportionInvariant.s:anthus_aco\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
-    "        <substModel id=\"JC69.s:anthus_aco\" spec=\"JukesCantor\"/>", # nolint XML
-    "    </siteModel>", # nolint XML
-    "    <branchRateModel id=\"RelaxedClock.c:anthus_aco\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:anthus_aco\" tree=\"@Tree.t:anthus_aco\">", # nolint XML
-    "        <LogNormal id=\"LogNormalDistributionModel.c:anthus_aco\" S=\"@ucldStdev.c:anthus_aco\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
-    "            <parameter id=\"RealParameter.20\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
-    "        </LogNormal>", # nolint XML
-    "        <parameter id=\"ucldMean.c:anthus_aco\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
-    "    </branchRateModel>", # nolint XML
-    "</distribution>", # nolint XML
-    "<distribution id=\"treeLikelihood.anthus_nd2\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_nd2\" tree=\"@Tree.t:anthus_nd2\">", # nolint XML
-    "    <siteModel id=\"SiteModel.s:anthus_nd2\" spec=\"SiteModel\">", # nolint XML
-    "        <parameter id=\"mutationRate.s:anthus_nd2\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
-    "        <parameter id=\"gammaShape.s:anthus_nd2\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
-    "        <parameter id=\"proportionInvariant.s:anthus_nd2\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
-    "        <substModel id=\"JC69.s:anthus_nd2\" spec=\"JukesCantor\"/>", # nolint XML
-    "    </siteModel>", # nolint XML
-    "    <branchRateModel id=\"RelaxedClock.c:anthus_nd2\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" clock.rate=\"@ucldMean.c:anthus_nd2\" rateCategories=\"@rateCategories.c:anthus_nd2\" tree=\"@Tree.t:anthus_nd2\">", # nolint XML
-    "        <LogNormal id=\"LogNormalDistributionModel.c:anthus_nd2\" S=\"@ucldStdev.c:anthus_nd2\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
-    "            <parameter id=\"RealParameter.63\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
-    "        </LogNormal>", # nolint XML
-    "    </branchRateModel>", # nolint XML
+    "<distribution id=\"likelihood\" spec=\"util.CompoundDistribution\" useThreads=\"true\">", # nolint XML
+    "    <distribution id=\"treeLikelihood.anthus_aco\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_aco\" tree=\"@Tree.t:anthus_aco\">", # nolint XML
+    "        <siteModel id=\"SiteModel.s:anthus_aco\" spec=\"SiteModel\">", # nolint XML
+    "            <parameter id=\"mutationRate.s:anthus_aco\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"gammaShape.s:anthus_aco\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"proportionInvariant.s:anthus_aco\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
+    "            <substModel id=\"JC69.s:anthus_aco\" spec=\"JukesCantor\"/>", # nolint XML
+    "        </siteModel>", # nolint XML
+    "        <branchRateModel id=\"RelaxedClock.c:anthus_aco\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:anthus_aco\" tree=\"@Tree.t:anthus_aco\">", # nolint XML
+    "            <LogNormal id=\"LogNormalDistributionModel.c:anthus_aco\" S=\"@ucldStdev.c:anthus_aco\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
+    "                <parameter id=\"RealParameter.20\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
+    "            </LogNormal>", # nolint XML
+    "            <parameter id=\"ucldMean.c:anthus_aco\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
+    "        </branchRateModel>", # nolint XML
+    "    </distribution>", # nolint XML
+    "    <distribution id=\"treeLikelihood.anthus_nd2\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_nd2\" tree=\"@Tree.t:anthus_nd2\">", # nolint XML
+    "        <siteModel id=\"SiteModel.s:anthus_nd2\" spec=\"SiteModel\">", # nolint XML
+    "            <parameter id=\"mutationRate.s:anthus_nd2\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"gammaShape.s:anthus_nd2\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
+    "            <parameter id=\"proportionInvariant.s:anthus_nd2\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
+    "            <substModel id=\"JC69.s:anthus_nd2\" spec=\"JukesCantor\"/>", # nolint XML
+    "        </siteModel>", # nolint XML
+    "        <branchRateModel id=\"RelaxedClock.c:anthus_nd2\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" clock.rate=\"@ucldMean.c:anthus_nd2\" rateCategories=\"@rateCategories.c:anthus_nd2\" tree=\"@Tree.t:anthus_nd2\">", # nolint XML
+    "            <LogNormal id=\"LogNormalDistributionModel.c:anthus_nd2\" S=\"@ucldStdev.c:anthus_nd2\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
+    "                <parameter id=\"RealParameter.63\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
+    "            </LogNormal>", # nolint XML
+    "        </branchRateModel>", # nolint XML
+    "    </distribution>", # nolint XML
     "</distribution>" # nolint XML
   )
   created <- beautier:::create_beast2_input_distr_lh(
@@ -265,11 +267,8 @@ test_that("RLN RLN", {
       )
     )
   )
-  skip("WIP: distr, RLN RLN")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  beautier:::compare_lines(created, expected)
 })
-
 
 test_that("strict shared", {
 
