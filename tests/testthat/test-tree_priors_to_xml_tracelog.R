@@ -1,5 +1,13 @@
 context("tree_priors_to_xml_tracelog")
 
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("creates a text", {
+
+  testthat::expect_true(
+    is.character(
+      beautier:::tree_priors_to_xml_tracelog(
+        create_yule_tree_priors(ids = "anthus_aco")
+      )
+    )
+  )
+
 })

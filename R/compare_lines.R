@@ -14,6 +14,6 @@ compare_lines <- function(
     expected <- extract_xml_section_from_lines(
       lines = expected, section = section)
   }
-  writeLines(lines, "~/created.xml")
-  writeLines(expected, "~/expected.xml")
+  writeLines(text = lines, "~/created.xml")
+  writeLines(text = expected, "~/expected.xml")
 }

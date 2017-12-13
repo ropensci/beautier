@@ -66,8 +66,17 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   text <- c(text, "<log idref=\"likelihood\"/>")
   text <- c(text, "<log idref=\"prior\"/>")
   text <- c(text, tree_models_to_xml_tracelog(site_models))
-  text <- c(text, site_models_to_xml_tracelog(site_models))
-  text <- c(text, clock_models_to_xml_tracelog(clock_models))
+
+  site_models_xml <- site_models_to_xml_tracelog(site_models)
+  if (!is.null(site_models_xml)) {
+    text <- c(text, site_models_xml)
+  }
+
+  clock_models_xml <- clock_models_to_xml_tracelog(clock_models)
+  if (!is.null(clock_models_xml)) {
+    text <- c(text, clock_models_xml)
+  }
+
   text <- c(text, tree_priors_to_xml_tracelog(tree_priors))
 
   text <- indent(text, n_spaces = 4)

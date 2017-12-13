@@ -37,6 +37,8 @@
 #'   the phylogeny is assumed to be of class ape::phylo.
 #' @param input_fasta_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' @param is_first boolean to indicate if this is the first
+#'   out of many (one, two or more)
 #' @param mcmc one mcmc object,
 #'   as returned by \code{\link{create_mcmc}}
 #' @param output_xml_filename Name of the XML parameter file created by this

@@ -11,7 +11,7 @@ clock_model_to_xml_operators(clock_model, is_first)
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
 
-\item{is_first}{boolean to indicate if this is the first clock model
+\item{is_first}{boolean to indicate if this is the first
 out of many (one, two or more)}
 }
 \description{

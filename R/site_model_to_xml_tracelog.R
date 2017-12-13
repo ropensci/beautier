@@ -1,6 +1,19 @@
+#' Creates the site model's XML for the tracelog section
+#' @inheritParams default_params_doc
+#' @seealso all site models' tracelog section is created
+#'   by \code{\link{site_models_to_xml_tracelog}}
+#' @examples
+#' # <logger id="tracelog" ...>
+#' #'   # Here
+#' # </logger>
+#' @author Richel J.C. Bilderbeek
 site_model_to_xml_tracelog <- function(
   site_model
 ) {
+  testit::assert(is_site_model(site_model))
+  id <- site_model$id
+
+  text <- NULL
   if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>"))
   } else if (is_tn93_site_model(site_model)) {

@@ -102,6 +102,9 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
+
+\item{is_first}{boolean to indicate if this is the first
+out of many (one, two or more)}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

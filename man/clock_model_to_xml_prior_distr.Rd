@@ -11,8 +11,8 @@ clock_model_to_xml_prior_distr(clock_model, is_first = TRUE)
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
 
-\item{is_first}{boolean that indicates if the clock model is the first
-of many (can be one, two or more)}
+\item{is_first}{boolean to indicate if this is the first
+out of many (one, two or more)}
 }
 \description{
 Converts a clock model to the \code{prior} section of the

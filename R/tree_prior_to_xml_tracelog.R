@@ -1,9 +1,11 @@
-#' Creates the tree priors part of the two logger sections
-#'   of a BEAST2 XML parameter file
-#' @param tree_prior a tree prior,
-#'   as created by \code{\link{create_tree_prior}}
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
+#' Creates the tree prior's XML for the tracelog section
+#' @inheritParams default_params_doc
+#' @seealso all tree priors' tracelog section is created
+#'   by \code{\link{tree_priors_to_xml_tracelog}}
+#' @examples
+#' # <logger id="tracelog" ...>
+#' #'   # Here
+#' # </logger>
 #' @author Richel J.C. Bilderbeek
 tree_prior_to_xml_tracelog <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   tree_prior

@@ -1,8 +1,6 @@
 #' Converts a clock model to the \code{prior} section of the
 #' XML as text
 #' @inheritParams default_params_doc
-#' @param is_first boolean that indicates if the clock model is the first
-#'   of many (can be one, two or more)
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">

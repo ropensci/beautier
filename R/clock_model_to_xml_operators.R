@@ -1,8 +1,6 @@
 #' Converts a clock model to the \code{operators} section of the
 #' XML as text
 #' @inheritParams default_params_doc
-#' @param is_first boolean to indicate if this is the first clock model
-#'   out of many (one, two or more)
 #' @author Richel J.C. Bilderbeek
 clock_model_to_xml_operators <- function(
   clock_model,

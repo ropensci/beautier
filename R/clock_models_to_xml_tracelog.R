@@ -1,3 +1,12 @@
+#' Creates the clock models' XML for the tracelog section
+#' @inheritParams default_params_doc
+#' @seealso the complete tracelog section is created
+#'   by \code{\link{create_beast2_input_tracelog}}
+#' @examples
+#' # <logger id="tracelog" ...>
+#' #'   # Here
+#' # </logger>
+#' @author Richel J.C. Bilderbeek
 clock_models_to_xml_tracelog <- function(
   clock_models
 ) {

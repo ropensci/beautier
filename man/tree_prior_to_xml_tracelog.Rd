@@ -2,22 +2,25 @@
 % Please edit documentation in R/tree_prior_to_xml_tracelog.R
 \name{tree_prior_to_xml_tracelog}
 \alias{tree_prior_to_xml_tracelog}
-\title{Creates the tree priors part of the two logger sections
-  of a BEAST2 XML parameter file}
+\title{Creates the tree prior's XML for the tracelog section}
 \usage{
 tree_prior_to_xml_tracelog(tree_prior)
 }
 \arguments{
-\item{tree_prior}{a tree prior,
-as created by \code{\link{create_tree_prior}}}
+\item{tree_prior}{a tree priors,
+as returned by \code{\link{create_tree_prior}}}
 }
 \description{
-Creates the tree priors part of the two logger sections
-  of a BEAST2 XML parameter file
+Creates the tree prior's XML for the tracelog section
 }
-\note{
-this function is not intended for regular use, thus its
-  long name length is accepted
+\examples{
+# <logger id="tracelog" ...>
+#'   # Here
+# </logger>
+}
+\seealso{
+all tree priors' tracelog section is created
+  by \code{\link{tree_priors_to_xml_tracelog}}
 }
 \author{
 Richel J.C. Bilderbeek
