@@ -11,7 +11,7 @@ init_site_models <- function(
   param_id = 0
 ) {
   testit::assert(beautier::are_site_models(site_models))
-  testit::assert(length(site_models) <= length(ids))
+  testit::assert(length(site_models) == length(ids))
 
   for (i in seq_along(site_models)) {
     site_model <- site_models[[i]]

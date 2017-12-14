@@ -13,8 +13,8 @@ create_beast2_input_beast <- function(
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   testit::assert(files_exist(input_fasta_filenames)) # nolint internal function
-  testit::assert(length(input_fasta_filenames) >= length(site_models))
-  testit::assert(length(input_fasta_filenames) >= length(clock_models))
+  testit::assert(length(input_fasta_filenames) == length(site_models))
+  testit::assert(length(input_fasta_filenames) == length(clock_models))
   testit::assert(length(input_fasta_filenames) == length(tree_priors))
   testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
   testit::assert(beautier::are_site_models(site_models))
