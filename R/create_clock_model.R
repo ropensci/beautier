@@ -37,7 +37,7 @@ create_clock_model <- function(
 }
 
 #' Create a relaxed log-normal clock model
-#' @inheritParams create_clock_model
+#' @inheritParams default_params_doc
 #' @param mean_rate_prior_distr the mean clock rate prior distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @param ucldstdev_distr the uclstdev distribution,
@@ -95,7 +95,7 @@ create_rln_clock_model <- function(
 }
 
 #' Create a strict clock model
-#' @inheritParams create_clock_model
+#' @inheritParams default_params_doc
 #' @param clock_rate_param the clock rate's parameter,
 #'   as created by the \code{\link{create_clock_rate_param}} function
 #' @param clock_rate_distr the clock rate's distribution,

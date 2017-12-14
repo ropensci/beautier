@@ -1,5 +1,5 @@
 #' Get the BEAUti name for a clock model
-#' @inheritParams create_beast2_input_distr
+#' @inheritParams default_params_doc
 #' @examples
 #'   strict <- create_strict_clock_model()
 #'   testit::assert(beautier:::get_clock_model_name(strict) == "StrictClock")

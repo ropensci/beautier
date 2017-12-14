@@ -45,7 +45,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 
 #' Creates the tracelog section of the logger section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_loggers
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_tracelog <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
@@ -91,7 +91,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 #' Creates the screenlog section of the logger section
 #' of a BEAST2 XML parameter file
 #' @return the XML text
-#' @inheritParams create_beast2_input_loggers
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_screenlog <- function() {
   text <- NULL
@@ -107,7 +107,7 @@ create_beast2_input_screenlog <- function() {
 
 #' Creates the tracelog section of the logger section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_loggers
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   clock_models

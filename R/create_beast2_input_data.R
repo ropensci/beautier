@@ -1,5 +1,5 @@
 #' Creates the data section of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_data <- function(
   input_fasta_filenames,

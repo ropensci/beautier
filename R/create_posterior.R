@@ -2,7 +2,7 @@
 #' @param n_taxa number of taxa in the simulated phylogeny
 #' @param sequence_length a DNA sequence length, in base pairs
 #' @param crown_age the crown age of the phylogeny
-#' @inheritParams create_beast2_input
+#' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_posterior <- function(

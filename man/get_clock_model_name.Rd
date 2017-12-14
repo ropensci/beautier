@@ -6,6 +6,10 @@
 \usage{
 get_clock_model_name(clock_model)
 }
+\arguments{
+\item{clock_model}{a clock model,
+as returned by \code{\link{create_clock_model}}}
+}
 \description{
 Get the BEAUti name for a clock model
 }

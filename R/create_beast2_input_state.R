@@ -1,7 +1,7 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
-#' @inheritParams create_beast2_input
+#' @inheritParams default_params_doc
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek

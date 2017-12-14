@@ -1,5 +1,5 @@
 #' Creates the distribution section of a BEAST2 XML parameter file.
-#' @inheritParams create_beast2_input
+#' @inheritParams default_params_doc
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @seealso \code{\link{create_beast2_input}}
@@ -55,7 +55,7 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 
 #' Creates the prior section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distr
+#' @inheritParams default_params_doc
 #' @seealso this function is called by \code{\link{create_beast2_input_distr}},
 #'   together with \code{\link{create_beast2_input_distr_lh}}
 #' @note this function is not intended for regular use, thus its
@@ -96,7 +96,7 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 
 #' Creates the likelihood section in the distribution section
 #' of a BEAST2 XML parameter file
-#' @inheritParams create_beast2_input_distr
+#' @inheritParams default_params_doc
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
