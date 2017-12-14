@@ -122,9 +122,19 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
     site_model <- site_models[[i]]
     clock_model <- clock_models[[i]]
     id <- site_model$id
-
+    is_first <- i == 1
+    brm_line <- ""
+    j <- get_first_clock_model_index(clock_model, clock_models)
+    if (i != j) {
+      testit::assert(j < i)
+      branch_rate_model_ref <- clock_models[[j]]$id
+      clock_model_str <- get_clock_model_name(clock_models[[j]])
+      brm_line <- paste0("branchRateModel=\"@", clock_model_str, ".c:", branch_rate_model_ref, "\" ")
+    }
     text <- c(text, paste0("<distribution id=\"treeLikelihood.",
-      id, "\" spec=\"ThreadedTreeLikelihood\" data=\"@", id,
+      id, "\" spec=\"ThreadedTreeLikelihood\" ",
+      brm_line,
+      "data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
       indent(
@@ -132,9 +142,13 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
         n_spaces = 4
       )
     )
+
     text <- c(text,
       indent(
-        clock_model_to_xml_lh_distr(clock_model, i == 1),
+        clock_model_to_xml_lh_distr(
+          clock_model,
+          is_first = is_first
+        ),
         n_spaces = 4
       )
     )
