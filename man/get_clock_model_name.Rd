@@ -11,9 +11,9 @@ Get the BEAUti name for a clock model
 }
 \examples{
   strict <- create_strict_clock_model()
-  testit::assert(get_clock_model_name(strict) == "StrictClock")
+  testit::assert(beautier:::get_clock_model_name(strict) == "StrictClock")
   rln <- create_rln_clock_model()
-  testit::assert(get_clock_model_name(rln) == "RelaxedClock")
+  testit::assert(beautier:::get_clock_model_name(rln) == "RelaxedClock")
 }
 \author{
 Richel J.C. Bilderbeek

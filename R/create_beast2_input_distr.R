@@ -129,7 +129,10 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
       testit::assert(j < i)
       branch_rate_model_ref <- clock_models[[j]]$id
       clock_model_str <- get_clock_model_name(clock_models[[j]])
-      brm_line <- paste0("branchRateModel=\"@", clock_model_str, ".c:", branch_rate_model_ref, "\" ")
+      brm_line <- paste0(
+        "branchRateModel=\"@", clock_model_str, ".c:",
+        branch_rate_model_ref, "\" "
+      )
     }
     text <- c(text, paste0("<distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" ",
