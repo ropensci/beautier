@@ -13,7 +13,7 @@ get_clock_model_name <- function(
     return("StrictClock")
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model))
+    testit::assert(beautier::is_rln_clock_model(clock_model))
     return("RelaxedClock")
   }
 }

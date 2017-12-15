@@ -124,11 +124,11 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
     id <- site_model$id
     is_first <- i == 1
     brm_line <- ""
-    j <- get_first_clock_model_index(clock_model, clock_models)
+    j <- get_first_clock_model_index(clock_model, clock_models) # nolint internal function
     if (i != j) {
       testit::assert(j < i)
       branch_rate_model_ref <- clock_models[[j]]$id
-      clock_model_str <- get_clock_model_name(clock_models[[j]])
+      clock_model_str <- get_clock_model_name(clock_models[[j]]) # nolint internal function
       brm_line <- paste0(
         "branchRateModel=\"@", clock_model_str, ".c:",
         branch_rate_model_ref, "\" "
