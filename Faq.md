@@ -4,14 +4,9 @@
 
 Version 2.4.7.
 
-## What's the roadmap?
+## What's the [road map](road_map.md)?
 
-From version `1.10` onwards, the interface for one alignment will probably remain stable. 
-
- * `v2.0`: support multiple alignments well, allow shared site model, clock model and tree prior
-
-There are some minor things that can be added, see 'How can I indicate a feature that I miss?'
-to request so.
+See [road map](road_map.md).
 
 ## How can I indicate a feature that I miss?
 
