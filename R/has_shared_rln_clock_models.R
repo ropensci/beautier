@@ -5,7 +5,7 @@
 has_shared_rln_clock_models <- function(
   clock_models
 ) {
-  rln_clock_models <- clock_models[ are_rln_clock_models(clock_models)  ]
-  rln_ids <- get_clock_models_ids(rln_clock_models)
+  rln_clock_models <- clock_models[are_rln_clock_models(clock_models)] # nolint internal function
+  rln_ids <- get_clock_models_ids(rln_clock_models) # nolint internal function
   length(unique(rln_ids)) != length(rln_ids)
 }
