@@ -13,6 +13,11 @@ before_script:
   - sudo apt-get install oracle-java8-set-default
   - ./install_beast2.sh
 
+script: 
+  - |
+    R CMD build .
+    travis_wait 30 R CMD check beautier.tar.gz
+
 after_success:
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
