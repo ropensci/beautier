@@ -68,7 +68,7 @@ Here are some missing or (yet) unsupported features:
  * Tree priors
    * Calibrated Yule model
    * Coalescent Extended Bayesian Skyline
- * Initialization (this is tab in `BEAUti`)
+ * Initialization (this is a tab that is hidden by default in `BEAUti`)
 
 ## There is a feature I miss
 
