@@ -10,9 +10,8 @@
 is_gtr_site_model <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
+  if (!beautier::is_site_model(x)) return(FALSE)
   if (x$name != "GTR") return(FALSE)
-  if (!"gamma_site_model" %in% names(x)) return(FALSE)
   if (!"rate_ac_prior_distr" %in% names(x)) return(FALSE)
   if (!beautier::is_distr(x$rate_ac_prior_distr)) return(FALSE)
   if (!"rate_ag_prior_distr" %in% names(x)) return(FALSE)
