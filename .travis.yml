@@ -16,7 +16,7 @@ before_script:
 script: 
   - |
     R CMD build .
-    travis_wait 30 R CMD check beautier.tar.gz
+    travis_wait 30 R CMD check beautier*tar.gz
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
