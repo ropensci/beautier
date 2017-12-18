@@ -6,6 +6,10 @@
 \usage{
 has_shared_rln_clock_models(clock_models)
 }
+\arguments{
+\item{clock_models}{a list of one or more clock models,
+as returned by \code{\link{create_clock_model}}}
+}
 \description{
 Are there any shared RLN clock models?
 }
