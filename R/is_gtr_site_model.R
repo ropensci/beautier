@@ -24,15 +24,15 @@ is_gtr_site_model <- function(
   expected_distrs <- list(x$rate_ac_prior_distr, x$rate_ag_prior_distr,
     x$rate_at_prior_distr, x$rate_cg_prior_distr, x$rate_gt_prior_distr)
   for (expected_distr in expected_distrs) {
-  if (!beautier::is_distr(expected_distr)) return(FALSE)
+    if (!beautier::is_distr(expected_distr)) return(FALSE)
   }
 
-  if (!beautier::is_param(x$rate_ac_param)) return(FALSE)
-  if (!beautier::is_param(x$rate_ag_param)) return(FALSE)
-  if (!beautier::is_param(x$rate_at_param)) return(FALSE)
-  if (!beautier::is_param(x$rate_cg_param)) return(FALSE)
-  if (!beautier::is_param(x$rate_ct_param)) return(FALSE)
-  if (!beautier::is_param(x$rate_gt_param)) return(FALSE)
+  expected_params <- list(x$rate_ac_param, x$rate_ag_param, x$rate_at_param,
+    x$rate_cg_param, x$rate_ct_param, x$rate_gt_param)
+  for (expected_param in expected_params) {
+    if (!beautier::is_param(expected_param)) return(FALSE)
+  }
+
   if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 }
