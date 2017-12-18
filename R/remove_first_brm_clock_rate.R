@@ -1,4 +1,5 @@
 #' @author Richel J.C. Bilderbeek
+#' @note TODO: remove
 remove_first_brm_clock_rate <- function(lines) {
   # Find first line with '<branchRateModel id=\"RelaxedClock.c:'
   line_index <- NA

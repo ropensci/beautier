@@ -14,7 +14,7 @@
 clock_model_to_xml_lh_distr <- function(
   clock_model,
   is_first = TRUE,
-  is_first_shared = FALSE
+  is_non_first_shared = TRUE
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
@@ -23,9 +23,8 @@ clock_model_to_xml_lh_distr <- function(
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
     if (is_first == TRUE) {
-      text <- c(text, paste0("<branchRateModel ",
-        "id=\"StrictClock.c:", id, "\" ",
-        "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
+      text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
+        id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
       # initialization may happen here
       clock_model$clock_rate_param$id <- id
       text <- c(
@@ -39,7 +38,7 @@ clock_model_to_xml_lh_distr <- function(
     } else {
       testit::assert(is_first == FALSE)
 
-      if (is_first_shared == FALSE) {
+      if (is_non_first_shared == FALSE) {
         text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id, "\" ",
           "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
           "clock.rate=\"@clockRate.c:", id, "\"/>")

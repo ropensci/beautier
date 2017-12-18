@@ -305,9 +305,7 @@ test_that("strict shared", {
       create_strict_clock_model(id = "anthus_aco")
     )
   )
-  skip("WIP: distr lh shared strict")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  beautier:::compare_lines(created, expected)
 })
 
 test_that("RLN shared", {

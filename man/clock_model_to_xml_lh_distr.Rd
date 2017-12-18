@@ -6,7 +6,7 @@
 XML as text}
 \usage{
 clock_model_to_xml_lh_distr(clock_model, is_first = TRUE,
-  is_first_shared = FALSE)
+  is_non_first_shared = TRUE)
 }
 \arguments{
 \item{clock_model}{a clock model,

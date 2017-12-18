@@ -146,13 +146,13 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
       )
     )
 
-
+    is_non_first_shared <- is_index_of_non_first_shared_clock_model(i, clock_models) # nolint internal function
     text <- c(text,
       indent(
         clock_model_to_xml_lh_distr(
           clock_model,
           is_first = is_first,
-          is_first_shared = is_index_of_first_shared_clock_model(i, clock_models) # nolint internal function
+          is_non_first_shared = is_non_first_shared
         ),
         n_spaces = 4
       )
