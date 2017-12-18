@@ -20,6 +20,13 @@ the index of the first clock models with the same ID,
 \description{
 Get the index of a clock model with a list of clock models
 }
+\examples{
+  a <- create_strict_clock_model(id = 1)
+  b <- create_rln_clock_model(id = 2)
+  ab <- list(a, b)
+  testit::assert(beautier:::get_first_clock_model_index(a, ab) == 1)
+  testit::assert(beautier:::get_first_clock_model_index(b, ab) == 2)
+}
 \author{
 Richel J.C. Bilderbeek
 }
