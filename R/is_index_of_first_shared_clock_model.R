@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @param i the index of the clock model within \code{clock_models}
 #' @author Richel J.C. Bilderbeek
-is_index_of_first_shared_clock_model <- function(
+is_index_of_first_shared_clock_model <- function( # nolint internal function
   i,
   clock_models
 ) {

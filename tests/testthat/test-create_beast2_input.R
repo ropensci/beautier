@@ -146,6 +146,18 @@ test_that("input is checked, two alignments", {
     "Must supply as much input_fasta_filenames as initial_phylogenies"
   )
 
+
+  # Two filesnames, two RLN clock models
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = input_fasta_filenames,
+      clock_models = list(
+        create_rln_clock_model(id = ids[1]),
+        create_rln_clock_model(id = ids[1])
+      )
+    ),
+    "Cannot have shared Relaxed Log-Normal clock models"
+  )
 })
 
 test_that("Run all defaults", {

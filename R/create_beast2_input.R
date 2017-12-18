@@ -113,6 +113,12 @@ create_beast2_input <- function(
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")
   }
 
+  # More complex
+  if (has_shared_rln_clock_models(clock_models)) {
+    stop("Cannot have shared Relaxed Log-Normal clock models")
+  }
+
+
   site_models <- init_site_models(
     site_models = site_models,
     ids = get_ids(input_fasta_filenames),

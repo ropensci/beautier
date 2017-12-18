@@ -404,9 +404,11 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     ),
     clock_models = list(
       create_strict_clock_model(
+        id = "anthus_aco",
         clock_rate_param = create_clock_rate_param(value = 1.1)
       ),
       create_rln_clock_model(
+        id = "anthus_nd2",
         mean_clock_rate = 1.1,
         n_rate_categories = 0,
         mean_rate_prior_distr = create_normal_distr(
@@ -421,6 +423,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
         mparam_id = 78
       ),
       create_rln_clock_model(
+        id = "anthus_nd3",
         mean_clock_rate = 1.2,
         n_rate_categories = 1,
         normalize_mean_clock_rate = TRUE,
@@ -433,6 +436,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
         mparam_id = 115
       ),
       create_rln_clock_model(
+        id = "anthus_nd4",
         mean_clock_rate = 1.3,
         n_rate_categories = 2,
         mean_rate_prior_distr = create_log_normal_distr(

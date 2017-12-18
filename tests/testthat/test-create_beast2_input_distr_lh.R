@@ -310,22 +310,19 @@ test_that("strict shared", {
 
 test_that("RLN shared", {
 
-  skip("WIP: distr lh shared RLN")
-
-  expected <- c(
-  )
-  created <- beautier:::create_beast2_input_distr_lh(
-    site_models = list(
-      create_jc69_site_model(id = "anthus_aco"),
-      create_jc69_site_model(id = "anthus_nd2")
-    ),
-    clock_models = list(
-      create_rln_clock_model(id = "anthus_aco"),
-      create_rln_clock_model(id = "anthus_aco")
+  # Cannot have a shared RLN clock
+  testthat::expect_error(
+    beautier:::create_beast2_input_distr_lh(
+      site_models = list(
+        create_jc69_site_model(id = "anthus_aco"),
+        create_jc69_site_model(id = "anthus_nd2")
+      ),
+      clock_models = list(
+        create_rln_clock_model(id = "anthus_aco"),
+        create_rln_clock_model(id = "anthus_aco")
+      )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  beautier:::compare_lines(created, expected)
 })
 
 ################################################################################

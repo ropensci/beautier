@@ -39,8 +39,8 @@ clock_model_to_xml_lh_distr <- function(
       testit::assert(is_first == FALSE)
 
       if (is_non_first_shared == FALSE) {
-        text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id, "\" ",
-          "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
+        text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id,
+          "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
           "clock.rate=\"@clockRate.c:", id, "\"/>")
         )
       }

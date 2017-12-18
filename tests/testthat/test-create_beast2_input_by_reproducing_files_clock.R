@@ -251,6 +251,7 @@ test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
     ),
     clock_models = list(
       create_rln_clock_model(
+        id = "anthus_aco",
         ucldstdev_distr = create_gamma_distr(
           id = 6,
           alpha = create_alpha_param(id = 21, value = "0.5396"),
@@ -260,6 +261,7 @@ test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
         mparam_id = 20
       ),
       create_rln_clock_model(
+        id = "anthus_nd2",
         ucldstdev_distr = create_gamma_distr(
           id = 14,
           alpha = create_alpha_param(id = 64, value = "0.5396"),
