@@ -17,7 +17,6 @@ Imports:
     geiger,
     phangorn,
     RBeast, 
-    ribir,
     seqinr,
     stringr,
     testit
