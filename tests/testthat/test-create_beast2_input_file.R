@@ -331,7 +331,7 @@ test_that("All site models, clock models and tree priors, crown age est", {
 
   if (!beautier::is_on_travis()) return()
 
-  skip("WIP, Issue #8")
+  # skip("WIP, Issue #8") # nolint remove if n_fail is zero
 
   input_fasta_filenames <- beautier:::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas"))
@@ -342,9 +342,7 @@ test_that("All site models, clock models and tree priors, crown age est", {
       for (clock_model_1 in beautier::create_clock_models()) {
         for (clock_model_2 in beautier::create_clock_models()) {
           for (tree_prior in beautier::create_tree_priors()) {
-
-            if (beautier:::has_shared_rln_clock_models(
-              list(clock_model_1, clock_model_2))) next
+            cat(".")
 
             output_xml_filename <- "~/invalid.xml"
             create_beast2_input_file(

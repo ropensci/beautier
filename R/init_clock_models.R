@@ -34,7 +34,7 @@ init_clock_models <- function(
           clock_model$dimension <- (2 * n_taxa) - 2
         }
 
-        distr_id <- distr_id  # Has one distributions
+        distr_id <- distr_id  + 2 # Has two distributions
         param_id <- param_id + beautier::get_distr_n_params(
           clock_model$ucldstdev_distr) +
           1 # mparam
