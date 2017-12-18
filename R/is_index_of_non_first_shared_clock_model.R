@@ -10,7 +10,7 @@ is_index_of_non_first_shared_clock_model <- function(
   testit::assert(i <= length(clock_models))
   testit::assert(beautier::are_clock_models(clock_models))
   if (length(clock_models) <= 1) return(FALSE)
-  ids <- beautier:::get_clock_models_ids(clock_models)
+  ids <- get_clock_models_ids(clock_models)
   id <- clock_models[[i]]$id
   ids <- ids[1:i - 1]
   id %in% ids

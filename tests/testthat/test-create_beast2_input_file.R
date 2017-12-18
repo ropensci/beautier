@@ -343,6 +343,9 @@ test_that("All site models, clock models and tree priors, crown age est", {
         for (clock_model_2 in beautier::create_clock_models()) {
           for (tree_prior in beautier::create_tree_priors()) {
 
+            if (beautier:::has_shared_rln_clock_models(
+              list(clock_model_1, clock_model_2))) next
+
             output_xml_filename <- "~/invalid.xml"
             create_beast2_input_file(
               input_fasta_filenames = input_fasta_filenames,
