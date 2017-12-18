@@ -12,29 +12,26 @@ is_gtr_site_model <- function(
 ) {
   if (!beautier::is_site_model(x)) return(FALSE)
   if (x$name != "GTR") return(FALSE)
-  if (!"rate_ac_prior_distr" %in% names(x)) return(FALSE)
+
+  expected_names <- c("rate_ac_prior_distr", "rate_ag_prior_distr",
+    "rate_at_prior_distr", "rate_cg_prior_distr", "rate_gt_prior_distr",
+    "rate_ac_param", "rate_ag_param", "rate_at_param", "rate_cg_param",
+    "rate_ct_param", "rate_gt_param", "freq_equilibrium")
+  for (expected_name in expected_names) {
+    if (!expected_name %in% names(x)) return(FALSE)
+  }
+
   if (!beautier::is_distr(x$rate_ac_prior_distr)) return(FALSE)
-  if (!"rate_ag_prior_distr" %in% names(x)) return(FALSE)
   if (!beautier::is_distr(x$rate_ag_prior_distr)) return(FALSE)
-  if (!"rate_at_prior_distr" %in% names(x)) return(FALSE)
   if (!beautier::is_distr(x$rate_at_prior_distr)) return(FALSE)
-  if (!"rate_cg_prior_distr" %in% names(x)) return(FALSE)
   if (!beautier::is_distr(x$rate_cg_prior_distr)) return(FALSE)
-  if (!"rate_gt_prior_distr" %in% names(x)) return(FALSE)
   if (!beautier::is_distr(x$rate_gt_prior_distr)) return(FALSE)
-  if (!"rate_ac_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_ac_param)) return(FALSE)
-  if (!"rate_ag_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_ag_param)) return(FALSE)
-  if (!"rate_at_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_at_param)) return(FALSE)
-  if (!"rate_cg_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_cg_param)) return(FALSE)
-  if (!"rate_ct_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_ct_param)) return(FALSE)
-  if (!"rate_gt_param" %in% names(x)) return(FALSE)
   if (!beautier::is_param(x$rate_gt_param)) return(FALSE)
-  if (!"freq_equilibrium" %in% names(x)) return(FALSE)
   if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 }
