@@ -105,7 +105,7 @@ test_that("input is checked, one alignment", {
 test_that("input is checked, two alignments", {
 
   input_fasta_filenames <- beautier:::get_paths(
-    c("anthus_nd2.fas", "anthus_aco.fas")
+    c("anthus_aco.fas", "anthus_nd2.fas")
   )
   ids <- beautier:::get_ids(input_fasta_filenames)
 
