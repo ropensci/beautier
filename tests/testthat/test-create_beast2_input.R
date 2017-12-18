@@ -4,7 +4,7 @@ context("create_beast2_input")
 # * check if XML created is valid with minimal tests
 # Does not
 # * check if valid XML files are reproduced.
-#   'test-create_beast2_input_by_reproducingf_files.R' does that
+#   'test-create_beast2_input_by_reproducing_files.R' does that
 # * check if XML created is valid with thorough tests.
 #   'test-create_beast2_input_file.R' does that
 
@@ -103,7 +103,6 @@ test_that("input is checked, one alignment", {
 })
 
 test_that("input is checked, two alignments", {
-
 
   input_fasta_filenames <- beautier:::get_paths(
     c("anthus_nd2.fas", "anthus_aco.fas")
@@ -404,48 +403,4 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
     tree_priors = list(tree_prior, tree_prior)
   )
   testthat::expect_true(are_beast2_input_lines(lines, verbose = TRUE))
-})
-
-#-------------------------------------------------------------------------------
-# Brute force tests, two alignments
-#-------------------------------------------------------------------------------
-test_that("All site models, clock models and tree priors, crown age est", {
-
-  skip("WIP: two alignments, shared tree prior")
-
-  if (!is_on_travis()) return()
-
-  input_fasta_filenames <- beautier:::get_paths(
-    c("anthus_aco.fas", "anthus_nd2.fas")
-  )
-
-  for (site_model_1 in beautier::create_site_models()) {
-    for (site_model_2 in beautier::create_site_models()) {
-      for (clock_model_1 in beautier::create_clock_models()) {
-        for (clock_model_2 in beautier::create_clock_models()) {
-          for (tree_prior in beautier::create_tree_priors()) {
-
-            lines <- create_beast2_input(
-              input_fasta_filenames = input_fasta_filenames,
-              site_models = list(site_model_1, site_model_2),
-              clock_models = list(clock_model_1, clock_model_2),
-              tree_priors = list(tree_prior, tree_prior)
-            )
-            if (!are_beast2_input_lines(lines)) {
-              print(
-                paste(
-                  site_model_1$name,
-                  site_model_2$name,
-                  clock_model_1$name,
-                  clock_model_1$name,
-                  tree_prior$name
-                )
-              )
-            }
-            testthat::expect_true(are_beast2_input_lines(lines))
-          }
-        }
-      }
-    }
-  }
 })

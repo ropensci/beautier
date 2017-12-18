@@ -7,5 +7,4 @@ test_that("all clock_models must be recognized as such", {
   for (clock_model in clock_models) {
     testthat::expect_true(beautier::is_clock_model(clock_model))
   }
-
 })
