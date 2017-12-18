@@ -1,6 +1,7 @@
 #' Converts a clock model to the \code{branchRateModel} section of the
 #' XML as text
 #' @inheritParams default_params_doc
+#' @param is_first_shared is this clock model the first of multiple shared ones?
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
@@ -12,7 +13,8 @@
 #'  # </distribution>
 clock_model_to_xml_lh_distr <- function(
   clock_model,
-  is_first = TRUE
+  is_first = TRUE,
+  is_first_shared = FALSE
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
@@ -35,10 +37,14 @@ clock_model_to_xml_lh_distr <- function(
       )
       text <- c(text, "</branchRateModel>")
     } else {
-      text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id, "\" ",
-        "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-        "clock.rate=\"@clockRate.c:", id, "\"/>")
-      )
+      testit::assert(is_first == FALSE)
+
+      if (is_first_shared == FALSE) {
+        text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id, "\" ",
+          "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
+          "clock.rate=\"@clockRate.c:", id, "\"/>")
+        )
+      }
     }
   } else if (is_rln_clock_model(clock_model)) {
     n_discrete_rates <- clock_model$n_rate_categories

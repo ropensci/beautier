@@ -5,7 +5,8 @@
 \title{Converts a clock model to the \code{branchRateModel} section of the
 XML as text}
 \usage{
-clock_model_to_xml_lh_distr(clock_model, is_first = TRUE)
+clock_model_to_xml_lh_distr(clock_model, is_first = TRUE,
+  is_first_shared = FALSE)
 }
 \arguments{
 \item{clock_model}{a clock model,
@@ -13,6 +14,8 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{is_first}{boolean to indicate if this is the first
 out of many (one, two or more)}
+
+\item{is_first_shared}{is this clock model the first of multiple shared ones?}
 }
 \description{
 Converts a clock model to the \code{branchRateModel} section of the
