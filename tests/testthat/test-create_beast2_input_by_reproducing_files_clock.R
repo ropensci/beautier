@@ -347,20 +347,13 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
-
-  skip("WIP: distribution")
-
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-  beautier:::compare_lines(created, expected, section = "distribution")
-
-
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
