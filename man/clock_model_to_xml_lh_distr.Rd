@@ -15,7 +15,8 @@ as returned by \code{\link{create_clock_model}}}
 \item{is_first}{boolean to indicate if this is the first
 out of many (one, two or more)}
 
-\item{is_first_shared}{is this clock model the first of multiple shared ones?}
+\item{is_non_first_shared}{is this clock model not the first of
+multiple shared ones?}
 }
 \description{
 Converts a clock model to the \code{branchRateModel} section of the
