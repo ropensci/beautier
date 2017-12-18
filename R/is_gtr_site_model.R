@@ -21,11 +21,12 @@ is_gtr_site_model <- function(
     if (!expected_name %in% names(x)) return(FALSE)
   }
 
-  if (!beautier::is_distr(x$rate_ac_prior_distr)) return(FALSE)
-  if (!beautier::is_distr(x$rate_ag_prior_distr)) return(FALSE)
-  if (!beautier::is_distr(x$rate_at_prior_distr)) return(FALSE)
-  if (!beautier::is_distr(x$rate_cg_prior_distr)) return(FALSE)
-  if (!beautier::is_distr(x$rate_gt_prior_distr)) return(FALSE)
+  expected_distrs <- list(x$rate_ac_prior_distr, x$rate_ag_prior_distr,
+    x$rate_at_prior_distr, x$rate_cg_prior_distr, x$rate_gt_prior_distr)
+  for (expected_distr in expected_distrs) {
+  if (!beautier::is_distr(expected_distr)) return(FALSE)
+  }
+
   if (!beautier::is_param(x$rate_ac_param)) return(FALSE)
   if (!beautier::is_param(x$rate_ag_param)) return(FALSE)
   if (!beautier::is_param(x$rate_at_param)) return(FALSE)
