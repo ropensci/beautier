@@ -12,6 +12,7 @@ is_index_of_first_shared_clock_model <- function( # nolint internal function
   if (length(clock_models) <= 1) return(FALSE)
   ids <- get_clock_models_ids(clock_models) # nolint internal function
   id <- clock_models[[i]]$id
-  ids <- ids[i + 1:length(clock_models)]
+  n_clock_models <- length(clock_models)
+  ids <- ids[i + 1:n_clock_models]
   id %in% ids
 }
