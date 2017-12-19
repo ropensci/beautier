@@ -25,7 +25,6 @@ Suggests:
     knitr,
     ggplot2,
     lintr,
-    PBD,
     rmarkdown,
     testthat,
     TreeSim
@@ -33,5 +32,4 @@ Remotes:
     beast-dev/RBeast,
     jimhester/covr,
     jimhester/lintr,
-    MangoTheCat/goodpractice,
-    rsetienne/PBD/PBD
+    MangoTheCat/goodpractice
