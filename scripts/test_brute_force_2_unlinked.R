@@ -3,6 +3,8 @@
 test_that("All site models, clock models and tree priors, crown age est", {
 
   if (!beautier::is_on_travis()) return()
+  print(Sys.time())
+  Rprof("~/profile.txt")
 
   input_fasta_filenames <- beautier:::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas"))
@@ -13,7 +15,8 @@ test_that("All site models, clock models and tree priors, crown age est", {
       for (clock_model_1 in beautier::create_clock_models()) {
         for (clock_model_2 in beautier::create_clock_models()) {
           for (tree_prior in beautier::create_tree_priors()) {
-            if (runif(n = 1) < 0.50) next
+
+            if (runif(n = 1) < 0.9) next
 
             output_xml_filename <- "~/invalid.xml"
             create_beast2_input_file(
@@ -38,4 +41,8 @@ test_that("All site models, clock models and tree priors, crown age est", {
     }
   }
   testthat::expect_equal(n_fail, 0)
+  Rprof()
+  print(Sys.time())
+  summaryRprof("~/profile.txt")
+  plotProfileCallGraph(readProfileData("~/profile.txt"), score = "total")
 })
