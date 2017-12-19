@@ -16,7 +16,7 @@ before_script:
   - ./install_beast2.sh
 
 after_success:
-  - Rscript -e 'devtools::install_github("beautier", ref = "develop")'
+  - Rscript -e 'devtools::install_github("richelbilderbeek/beautier", ref = "develop")'
   - time Rscript scripts/test_brute_force_1.R
   - time Rscript scripts/test_brute_force_2_unlinked.R
   - Rscript -e 'lintr::lint_package()'
