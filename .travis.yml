@@ -14,6 +14,7 @@ before_script:
   - ./install_beast2.sh
 
 after_success:
+  - Rscript -e 'install.package("devtools")'
   - Rscript -e 'devtools::install_package("beautier", ref = "develop")'
   - time Rscript scripts/test_brute_force_1.R
   - time Rscript scripts/test_brute_force_2_unlinked.R
