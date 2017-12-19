@@ -16,3 +16,4 @@ vignettes/*.fas
 vignettes/my_beast.xml
 my_beast.xml
 beast.xml
+inst/doc
