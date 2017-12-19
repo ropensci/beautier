@@ -1,4 +1,5 @@
 library(beautier)
+
 input_fasta_filenames <- beautier:::get_paths(
   c("anthus_aco.fas", "anthus_nd2.fas"))
 
@@ -35,3 +36,4 @@ for (site_model_1 in beautier::create_site_models()) {
   }
 }
 testthat::expect_equal(n_fail, 0)
+
