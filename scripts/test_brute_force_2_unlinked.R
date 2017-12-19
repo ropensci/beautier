@@ -4,6 +4,7 @@ input_fasta_filenames <- beautier:::get_paths(
   c("anthus_aco.fas", "anthus_nd2.fas"))
 
 n_fail <- 0
+n <- 0
 
 for (site_model_1 in beautier::create_site_models()) {
   for (site_model_2 in beautier::create_site_models()) {
@@ -27,7 +28,9 @@ for (site_model_1 in beautier::create_site_models()) {
               verbose = TRUE)
             n_fail <- n_fail + 1
           }
-          # testthat::expect_true(is_ok) # nolint one day will be OK
+          n <- n + 1
+          if (n == 100) is_ok <- FALSE 
+          testthat::expect_true(is_ok) # nolint one day will be OK
         }
       }
     }
