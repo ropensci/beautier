@@ -123,7 +123,7 @@ create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
   clock_models = create_strict_clock_model(
-    clock_rate_parameter = create_clock_rate_parameter(value = 0.5)) 
+    clock_rate_param = create_clock_rate_param(value = 0.5)) 
 )
 ```
 
@@ -157,4 +157,26 @@ beautier::create_beast2_input_file(
 )
 ```
 
+Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.
+
 Thanks to Paul van Els for this use case.
+
+## Example #11: Two alignments, shared clock model
+
+[Example 11: shared clock model](aco_nd2_same_clock_model.png)
+
+```{r example_10}
+beautier::create_beast2_input_file(
+  c("anthus_aco.fas", "anthus_nd2.fas"),
+  "my_beast.xml",
+  clock_models = list(
+    create_strict_clock_model(id = "anthus_aco"), 
+    create_strict_clock_model(id = "anthus_aco")
+  )
+)
+```
+
+From `v1.13`, it will be supported to have two alignments with shared site models, clock models and tree priors.
+
+Thanks to Yacine Ben Chehida for this use case.
+

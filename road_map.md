@@ -1,6 +1,6 @@
 ## road map
 
-From version `1.10` onwards, the interface for one alignment will probably remain stable. 
+From version `1.10` onwards, the interface for one alignment will most likely remain stable. 
 
  * `v1.12`: support two alignments
  * `v1.13`: allow shared site model, clock model and tree prior (for two alignments) 
