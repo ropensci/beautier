@@ -1,12 +1,10 @@
-context("brute_force_1")
+library(beautier)
 
 ################################################################################
 # Site models
 ################################################################################
 
-test_that("All site models, clock models and tree priors, crown age est", {
-
-  if (!beautier::is_on_travis()) return()
+brute_force_1_site_models <- function() {
 
   input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
@@ -31,16 +29,13 @@ test_that("All site models, clock models and tree priors, crown age est", {
       }
     }
   }
-})
+}
 
 ################################################################################
 # Clock models
 ################################################################################
 
-test_that(paste0("All clock models produce a valid BEAST2 input file, ",
-  "fixed crown age"), {
-
-  if (!beautier::is_on_travis()) return()
+brute_force_1_clock_models_fixed_crown_age <- function() {
 
   clock_models <- beautier::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
@@ -60,15 +55,13 @@ test_that(paste0("All clock models produce a valid BEAST2 input file, ",
       beautier::is_beast2_input_file(output_xml_filename)
     )
   }
-})
+}
 
 ################################################################################
 # Tree priors
 ################################################################################
 
-test_that("All tree priors produce a valid BEAST2 input file", {
-
-  if (!beautier::is_on_travis()) return()
+brute_force_1_tree_priors <- function() {
 
   tree_priors <- beautier::create_tree_priors()
   input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
@@ -88,12 +81,9 @@ test_that("All tree priors produce a valid BEAST2 input file", {
     }
     testthat::expect_true(is_ok)
   }
-})
+}
 
-test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
-  "fixed crown age"), {
-
-  if (!beautier::is_on_travis()) return()
+brute_force_1_tree_priors_fixed_crown_age <- function() {
 
   tree_priors <- beautier::create_tree_priors()
   input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
@@ -115,15 +105,13 @@ test_that(paste0("All tree priors produce a valid BEAST2 input file, ",
     }
     testthat::expect_true(ok)
   }
-})
+}
 
 ################################################################################
 # Combinations
 ################################################################################
 
-test_that("All site models, clock models and tree priors, fixed crown age", {
-
-  if (!beautier::is_on_travis()) return()
+brute_force_1_combinations_fixed_crown_age <- function() {
 
   input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
 
@@ -151,4 +139,11 @@ test_that("All site models, clock models and tree priors, fixed crown age", {
       }
     }
   }
-})
+}
+
+
+brute_force_1_site_models()
+brute_force_1_clock_models_fixed_crown_age()
+brute_force_1_tree_priors()
+brute_force_1_tree_priors_fixed_crown_age()
+brute_force_1_combinations_fixed_crown_age()
