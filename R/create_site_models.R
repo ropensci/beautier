@@ -30,14 +30,14 @@ create_site_models <- function() {
 #'   using \code{\link{get_ids}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   m <- create_jc69_site_models("a")
-#'   testthat::expect_equal(length(m), 1)
-#'   testthat::expect_true(is_jc69_site_model(m[[1]]))
-#'
-#'   m <- create_jc69_site_models(c("a", "b"))
-#'   testthat::expect_equal(length(m), 2)
-#'   testthat::expect_true(is_jc69_site_model(m[[1]]))
-#'   testthat::expect_true(is_jc69_site_model(m[[2]]))
+#'   fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+#'   site_models <- create_jc69_site_models(c("anthus_aco", "anthus_nd2"))
+#'   create_beast2_input_file(
+#'     fasta_filenames,
+#'     "create_jc69_site_models.xml",
+#'     site_models = site_models
+#'   )
+#'   testit::assert(file.exists("create_jc69_site_models.xml"))
 #' @export
 create_jc69_site_models <- function(ids) {
   n <- length(ids)

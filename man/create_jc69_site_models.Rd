@@ -18,14 +18,14 @@ a list of site_models
 Creates a JC69_site_model for each ID
 }
 \examples{
-  m <- create_jc69_site_models("a")
-  testthat::expect_equal(length(m), 1)
-  testthat::expect_true(is_jc69_site_model(m[[1]]))
-
-  m <- create_jc69_site_models(c("a", "b"))
-  testthat::expect_equal(length(m), 2)
-  testthat::expect_true(is_jc69_site_model(m[[1]]))
-  testthat::expect_true(is_jc69_site_model(m[[2]]))
+  fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  site_models <- create_jc69_site_models(c("anthus_aco", "anthus_nd2"))
+  create_beast2_input_file(
+    fasta_filenames,
+    "create_jc69_site_models.xml",
+    site_models = site_models
+  )
+  testit::assert(file.exists("create_jc69_site_models.xml"))
 }
 \seealso{
 The alignment IDs can be deduced from the FASTA filenames,
