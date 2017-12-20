@@ -22,7 +22,7 @@ Determine if the object is a valid strict clock model,
 
   # rln: Relaxed Log-Normal
   rln_clock_model <- create_rln_clock_model()
-  testit::assert(!is_strict_clock_model(rln_clock_model))
+  testit::assert(!beautier:::is_strict_clock_model(rln_clock_model))
 }
 \seealso{
 \code{\link{create_clock_model}} shows an overview of

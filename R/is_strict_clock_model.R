@@ -10,7 +10,7 @@
 #'
 #'   # rln: Relaxed Log-Normal
 #'   rln_clock_model <- create_rln_clock_model()
-#'   testit::assert(!is_strict_clock_model(rln_clock_model))
+#'   testit::assert(!beautier:::is_strict_clock_model(rln_clock_model))
 is_strict_clock_model <- function(
   x
 ) {

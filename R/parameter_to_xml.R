@@ -4,7 +4,7 @@
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   xml <- parameter_to_xml(create_alpha_param(id = 1))
+#'   xml <- beautier:::parameter_to_xml(create_alpha_param(id = 1))
 #'   testit::assert(length(xml) == 1)
 #'   testit::assert(nchar(xml) > 1)
 parameter_to_xml <- function(

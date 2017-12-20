@@ -17,7 +17,7 @@ the parameter as XML text
 Converts a parameter to XML
 }
 \examples{
-  xml <- parameter_to_xml(create_alpha_param(id = 1))
+  xml <- beautier:::parameter_to_xml(create_alpha_param(id = 1))
   testit::assert(length(xml) == 1)
   testit::assert(nchar(xml) > 1)
 }
