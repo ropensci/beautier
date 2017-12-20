@@ -20,7 +20,7 @@ create_beast2_input_run <- function(
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
-  testit::assert(beautier::are_ids(ids))
+  testit::assert(are_ids(ids))  # nolint internal function
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(beautier::are_tree_priors(tree_priors))

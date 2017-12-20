@@ -7,7 +7,7 @@ create_beast2_input_init <- function(
 ) {
   testit::assert(class(initial_phylogenies) == "multiPhylo" ||
     is.na(initial_phylogenies))
-  testit::assert(beautier::are_ids(ids))
+  testit::assert(are_ids(ids)) # nolint internal function
   testit::assert(length(ids) == length(initial_phylogenies))
 
   text <- NULL
