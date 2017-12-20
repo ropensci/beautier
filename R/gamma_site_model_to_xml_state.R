@@ -10,7 +10,7 @@ gamma_site_model_to_xml_state <- function(
   id
 ) {
   testit::assert(beautier::is_gamma_site_model(gamma_site_model))
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   text <- NULL
   if (beautier::get_gamma_cat_count(gamma_site_model) >= 2) {
     text <- c(

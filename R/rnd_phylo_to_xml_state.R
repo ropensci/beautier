@@ -6,7 +6,7 @@
 rnd_phylo_to_xml_state <- function(
   id
 ) {
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   text <- NULL
   text <- c(text, paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"))
   text <- c(text, paste0("    <taxonset id=\"TaxonSet.", id, "\" ",

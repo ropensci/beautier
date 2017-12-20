@@ -13,7 +13,7 @@ clock_model_to_xml_tracelog <- function(
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   if (beautier::is_rln_clock_model(clock_model)) {

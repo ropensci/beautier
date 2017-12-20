@@ -9,7 +9,7 @@ tree_prior_to_xml_operators <- function(
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   operator_id_pre <- beautier::get_operator_id_pre(tree_prior)

@@ -14,7 +14,7 @@ clock_model_to_xml_operators <- function(
   if (is_strict_clock_model(clock_model)) {
     if (is_first == FALSE) {
       id <- clock_model$id
-      testit::assert(beautier::is_id(id))
+      testit::assert(is_id(id))
       text <- c(text, paste0("<operator ",
         "id=\"StrictClockRateScaler.c:", id, "\" ",
         "spec=\"ScaleOperator\" ",
@@ -32,7 +32,7 @@ clock_model_to_xml_operators <- function(
     testit::assert(beautier::is_rln_clock_model(clock_model))
 
     id <- clock_model$id
-    testit::assert(beautier::is_id(id))
+    testit::assert(is_id(id))
     if (is_first == FALSE) {
       text <- c(
         text,

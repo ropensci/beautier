@@ -14,12 +14,12 @@ site_model_to_xml_operators <- function(
   text <- NULL
 
   if (is_hky_site_model(site_model)) {
-    testit::assert(beautier::is_id(id))
+    testit::assert(is_id(id))
     text <- c(text, paste0("<operator id=\"KappaScaler.s:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa.s:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
   } else if (is_tn93_site_model(site_model)) {
-    testit::assert(beautier::is_id(id))
+    testit::assert(is_id(id))
     text <- c(text, paste0("<operator id=\"kappa1Scaler.s:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
@@ -27,7 +27,7 @@ site_model_to_xml_operators <- function(
       "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
   } else if (is_gtr_site_model(site_model)) {
-    testit::assert(beautier::is_id(id))
+    testit::assert(is_id(id))
     text <- c(text, paste0("<operator id=\"RateACScaler.s:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
@@ -45,7 +45,7 @@ site_model_to_xml_operators <- function(
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
   }
   if (!is_jc69_site_model(site_model)) {
-    testit::assert(beautier::is_id(id))
+    testit::assert(is_id(id))
     text <- c(text, paste0("<operator ",
       "id=\"FrequenciesExchanger.s:", id, "\" spec=\"DeltaExchangeOperator\" ",
       "delta=\"0.01\" weight=\"0.1\">"))
@@ -55,7 +55,7 @@ site_model_to_xml_operators <- function(
   }
 
   if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
-    testit::assert(beautier::is_id(id))
+    testit::assert(is_id(id))
     text <- c(text, paste0("<operator ",
       "id=\"gammaShapeScaler.s:", id, "\" spec=\"ScaleOperator\" ",
       "parameter=\"@gammaShape.s:", id, "\" scaleFactor=\"0.5\" ",

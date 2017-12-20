@@ -12,7 +12,7 @@ tree_prior_to_xml_tracelog <- function( # nolint long function name is fine, as 
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   if (is_yule_tree_prior(tree_prior)) {

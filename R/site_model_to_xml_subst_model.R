@@ -8,7 +8,7 @@ site_model_to_xml_subst_model <- function(
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   if (beautier::is_jc69_site_model(site_model)) {
     return(

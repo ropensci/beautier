@@ -16,7 +16,7 @@ site_model_to_xml_lh_distr <- function(
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 

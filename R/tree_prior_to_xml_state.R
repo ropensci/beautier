@@ -8,7 +8,7 @@ tree_prior_to_xml_state <- function(
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {

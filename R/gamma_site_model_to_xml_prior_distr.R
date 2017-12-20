@@ -7,7 +7,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint long function name is 
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   gamma_site_model <- beautier::get_gamma_site_model(

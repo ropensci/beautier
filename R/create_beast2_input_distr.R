@@ -191,7 +191,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -254,7 +254,7 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
   id <- cbs_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<distribution ",
@@ -290,7 +290,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -341,7 +341,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -404,7 +404,7 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 

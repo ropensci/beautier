@@ -13,7 +13,7 @@ distr_to_xml <- function(
 ) {
   text <- NULL
   id <- distr$id
-  if (!beautier::is_id(id)) {
+  if (!is_id(id)) {
     stop("distribution must have an ID")
   }
   if (is_beta_distr(distr)) {
@@ -51,7 +51,7 @@ distr_to_xml_beta <- function(
 ) {
   testit::assert(beautier::is_beta_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
@@ -81,7 +81,7 @@ distr_to_xml_exp <- function(
 ) {
   testit::assert(beautier::is_exp_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Exponential ",
@@ -106,7 +106,7 @@ distr_to_xml_gamma <- function(
 ) {
   testit::assert(beautier::is_gamma_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Gamma ",
@@ -137,7 +137,7 @@ distr_to_xml_inv_gamma <- function(
 ) {
   testit::assert(beautier::is_inv_gamma_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<InverseGamma ",
@@ -168,7 +168,7 @@ distr_to_xml_laplace <- function(
 ) {
   testit::assert(beautier::is_laplace_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<LaplaceDistribution ",
@@ -198,7 +198,7 @@ distr_to_xml_log_normal <- function(
 ) {
   testit::assert(beautier::is_log_normal_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<LogNormal ",
@@ -230,7 +230,7 @@ distr_to_xml_normal <- function(
 ) {
   testit::assert(beautier::is_normal_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Normal ",
@@ -261,7 +261,7 @@ distr_to_xml_one_div_x <- function(
 ) {
   testit::assert(beautier::is_one_div_x_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<OneOnX ",
@@ -279,7 +279,7 @@ distr_to_xml_poisson <- function(
 ) {
   testit::assert(beautier::is_poisson_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<distr ",
@@ -305,7 +305,7 @@ distr_to_xml_uniform <- function(
 ) {
   testit::assert(beautier::is_uniform_distr(distr))
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")

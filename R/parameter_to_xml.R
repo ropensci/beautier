@@ -12,7 +12,7 @@ parameter_to_xml <- function(
 ) {
   text <- NULL
   id <- beautier::get_param_id(parameter)
-  if (!beautier::is_id(id)) {
+  if (!is_id(id)) {
     stop("parameter must have an ID")
   }
   testit::assert(!is.na(id))
@@ -71,7 +71,7 @@ parameter_to_xml_alpha <- function(
 ) {
   testit::assert(beautier::is_alpha_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
 
@@ -98,7 +98,7 @@ parameter_to_xml_beta <- function(
 ) {
   testit::assert(beautier::is_beta_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -124,7 +124,7 @@ parameter_to_xml_clock_rate <- function(
 ) {
   testit::assert(beautier::is_clock_rate_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -152,7 +152,7 @@ parameter_to_xml_kappa_1 <- function(
 ) {
   testit::assert(beautier::is_kappa_1_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"kappa1.s:", id, "\" ",
@@ -171,7 +171,7 @@ parameter_to_xml_kappa_2 <- function(
 ) {
   testit::assert(beautier::is_kappa_2_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"kappa2.s:", id, "\" ",
@@ -192,7 +192,7 @@ parameter_to_xml_lambda <- function(
 ) {
   testit::assert(beautier::is_lambda_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   text <- NULL
   text <- c(text,
@@ -216,7 +216,7 @@ parameter_to_xml_m <- function(
 ) {
   testit::assert(beautier::is_m_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -242,7 +242,7 @@ parameter_to_xml_mean <- function(
 ) {
   testit::assert(beautier::is_mean_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -268,7 +268,7 @@ parameter_to_xml_mu <- function(
 ) {
   testit::assert(beautier::is_mu_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -294,7 +294,7 @@ parameter_to_xml_rate_ac <- function(
 ) {
   testit::assert(beautier::is_rate_ac_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"rateAC.s:", id, "\" ",
@@ -313,7 +313,7 @@ parameter_to_xml_rate_ag <- function(
 ) {
   testit::assert(beautier::is_rate_ag_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"rateAG.s:", id, "\" ",
@@ -332,7 +332,7 @@ parameter_to_xml_rate_at <- function(
 ) {
   testit::assert(beautier::is_rate_at_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"rateAT.s:", id, "\" ",
@@ -351,7 +351,7 @@ parameter_to_xml_rate_cg <- function(
 ) {
   testit::assert(beautier::is_rate_cg_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"rateCG.s:", id, "\" ",
@@ -373,7 +373,7 @@ parameter_to_xml_rate_ct <- function(
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_ct_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateCT.s:", id, "\"")
@@ -400,7 +400,7 @@ parameter_to_xml_rate_gt <- function(
 ) {
   testit::assert(beautier::is_rate_gt_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   paste0("<parameter id=\"rateGT.s:", id, "\" ",
@@ -419,7 +419,7 @@ parameter_to_xml_s <- function(
 ) {
   testit::assert(beautier::is_s_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   lower <- parameter$lower
@@ -450,7 +450,7 @@ parameter_to_xml_scale <- function(
 ) {
   testit::assert(beautier::is_scale_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL
@@ -476,7 +476,7 @@ parameter_to_xml_sigma <- function(
 ) {
   testit::assert(beautier::is_sigma_param(parameter))
   id <- beautier::get_param_id(parameter)
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   text <- NULL

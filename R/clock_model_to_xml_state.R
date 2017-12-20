@@ -9,7 +9,7 @@ clock_model_to_xml_state <- function(
 ) {
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
