@@ -11,9 +11,49 @@
 #' @param id the ID of the alignment
 #' @param ... specific tree prior parameters
 #' @return a tree_prior
-#' @seealso An alignment ID can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}}
+#' @seealso See
+#'   \code{\link{create_bd_tree_prior}},
+#'   \code{\link{create_cbs_tree_prior}},
+#'   \code{\link{create_ccp_tree_prior}}
+#'   \code{\link{create_cep_tree_prior}}
+#'   and \code{\link{create_yule_tree_prior}}
+#'   for more examples using those functions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_tree_prior_bd.xml",
+#'     tree_priors = create_bd_tree_prior()
+#'   )
+#'   testit::assert(file.exists("create_tree_prior_bd.xml"))
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_tree_prior_cbs.xml",
+#'     tree_priors = create_cbs_tree_prior()
+#'   )
+#'   testit::assert(file.exists("create_tree_prior_cbs.xml"))
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_tree_prior_ccp.xml",
+#'     tree_priors = create_ccp_tree_prior()
+#'   )
+#'   testit::assert(file.exists("create_tree_prior_ccp.xml"))
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_tree_prior_cep.xml",
+#'     tree_priors = create_cep_tree_prior()
+#'   )
+#'   testit::assert(file.exists("create_tree_prior_cep.xml"))
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_tree_prior_yule.xml",
+#'     tree_priors = create_yule_tree_prior()
+#'   )
+#'   testit::assert(file.exists("create_tree_prior_yule.xml"))
 #' @export
 create_tree_prior <- function(
   name,
@@ -57,13 +97,23 @@ create_tree_prior <- function(
 #' @examples
 #'   bd_tree_prior <- create_bd_tree_prior()
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_bd_tree_prior.xml",
 #'     tree_priors = bd_tree_prior
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_bd_tree_prior.xml"))
+#'
+#'   bd_tree_prior_exp <- create_bd_tree_prior(
+#'     birth_rate_distr = create_exp_distr()
+#'   )
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_bd_tree_prior_exp.xml",
+#'     tree_priors = bd_tree_prior_exp
+#'   )
+#'   testit::assert(file.exists("create_bd_tree_prior_exp.xml"))
 #' @export
 create_bd_tree_prior <- function(
   id = NA,
@@ -87,13 +137,12 @@ create_bd_tree_prior <- function(
 #' @examples
 #'   cbs_tree_prior <- create_cbs_tree_prior()
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_cbs_tree_prior.xml",
 #'     tree_priors = cbs_tree_prior
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_cbs_tree_prior.xml"))
 #' @export
 create_cbs_tree_prior <- function(
   id = NA
@@ -115,13 +164,12 @@ create_cbs_tree_prior <- function(
 #' @examples
 #'   ccp_tree_prior <- create_ccp_tree_prior()
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_ccp_tree_prior.xml",
 #'     tree_priors = ccp_tree_prior
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_ccp_tree_prior.xml"))
 #' @export
 create_ccp_tree_prior <- function(
   id = NA,
@@ -147,13 +195,12 @@ create_ccp_tree_prior <- function(
 #' @examples
 #'   cep_tree_prior <- create_cep_tree_prior()
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_cep_tree_prior.xml",
 #'     tree_priors = cep_tree_prior
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_cep_tree_prior.xml"))
 #' @export
 create_cep_tree_prior <- function(
   id = NA,
@@ -186,13 +233,12 @@ create_cep_tree_prior <- function(
 #' @examples
 #'   yule_tree_prior <- create_yule_tree_prior()
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_yule_tree_prior.xml",
 #'     tree_priors = yule_tree_prior
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_yule_tree_prior.xml"))
 #' @export
 create_yule_tree_prior <- function(
   id = NA,

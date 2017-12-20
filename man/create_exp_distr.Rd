@@ -36,6 +36,4 @@ the function \code{\link{create_distr}} shows an overview
 }
 \author{
 Richel J.C. Bilderbeek
-
-Richel J.C. Bilderbeek
 }

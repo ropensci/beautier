@@ -18,13 +18,12 @@ Create a Coalescent Bayesian Skyline tree prior
 \examples{
   cbs_tree_prior <- create_cbs_tree_prior()
 
-  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    "my_beast.xml",
+    input_fasta_filenames = get_fasta_filename(),
+    "create_cbs_tree_prior.xml",
     tree_priors = cbs_tree_prior
   )
-  testit::assert(file.exists("my_beast.xml"))
+  testit::assert(file.exists("create_cbs_tree_prior.xml"))
 }
 \seealso{
 An alignment ID can be extracted from

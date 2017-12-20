@@ -16,8 +16,18 @@
 #'   \code{\link{create_poisson_distr}}
 #'   and \code{\link{create_uniform_distr}}
 #' @return a distribution
-#' @seealso use \code{\link{is_distr}} to check if a
-#'   distribution is valid
+#' @note See
+#'   \code{\link{create_beta_distr}},
+#'   \code{\link{create_exp_distr}},
+#'   \code{\link{create_gamma_distr}},
+#'   \code{\link{create_inv_gamma_distr}},
+#'   \code{\link{create_laplace_distr}},
+#'   \code{\link{create_log_normal_distr}},
+#'   \code{\link{create_normal_distr}},
+#'   \code{\link{create_one_div_x_distr}},
+#'   \code{\link{create_poisson_distr}}
+#'   and \code{\link{create_uniform_distr}}
+#'   for examples how to use those distributions
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_distr <- function(
@@ -63,12 +73,12 @@ create_distr <- function(
 #'
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_beta_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_beta_distr.xml"))
 #' @export
 create_beta_distr <- function(
   id = NA,
@@ -100,7 +110,6 @@ create_beta_distr <- function(
 #' @return an exponential distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   exp_distr <- create_exp_distr()

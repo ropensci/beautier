@@ -28,13 +28,23 @@ Create a Birth-Death tree prior
 \examples{
   bd_tree_prior <- create_bd_tree_prior()
 
-  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    "my_beast.xml",
+    input_fasta_filenames = get_fasta_filename(),
+    "create_bd_tree_prior.xml",
     tree_priors = bd_tree_prior
   )
-  testit::assert(file.exists("my_beast.xml"))
+  testit::assert(file.exists("create_bd_tree_prior.xml"))
+
+  bd_tree_prior_exp <- create_bd_tree_prior(
+    birth_rate_distr = create_exp_distr()
+  )
+
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    "create_bd_tree_prior_exp.xml",
+    tree_priors = bd_tree_prior_exp
+  )
+  testit::assert(file.exists("create_bd_tree_prior_exp.xml"))
 }
 \seealso{
 An alignment ID can be extracted from
