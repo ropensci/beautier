@@ -35,5 +35,5 @@ for (site_model_1 in beautier::create_site_models()) {
     }
   }
 }
-quit(n_fail)
+quit(status = n_fail, save = "no")
 
