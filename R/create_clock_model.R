@@ -58,7 +58,6 @@ create_clock_model <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
-#'   testit::assert(is_rln_clock_model(rln_clock_model))
 #'
 #'   input_fasta_filenames <- beautier::get_path("test_output_0.fas")
 #'   create_beast2_input_file(
@@ -102,7 +101,6 @@ create_rln_clock_model <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model()
-#'   testit::assert(is_strict_clock_model(strict_clock_model))
 #'
 #'   input_fasta_filenames <- beautier::get_path("test_output_0.fas")
 #'   create_beast2_input_file(

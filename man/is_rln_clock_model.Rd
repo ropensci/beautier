@@ -19,10 +19,10 @@ Determine if the object is a valid relaxed log normal clock model
 }
 \examples{
   rln_clock_model <- create_rln_clock_model()
-  testit::assert(is_rln_clock_model(rln_clock_model))
+  # TODO
 
   strict_clock_model <- create_strict_clock_model()
-  testit::assert(!is_rln_clock_model(strict_clock_model))
+  # TODO
 }
 \seealso{
 \code{\link{create_clock_model}} shows an overview of

@@ -8,7 +8,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   mu_param <- create_mu_param()
-#'   testit::assert(is_mu_param(mu_param))
+#'   # TODO
 is_mu_param <- function(
   x
 ) {

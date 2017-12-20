@@ -27,7 +27,7 @@ Function to create a misc_options, containing miscellaneous options
 }
 \examples{
   misc_options <- create_misc_options()
-  testit::assert(is_misc_options(misc_options))
+  # TODO
 }
 \author{
 Richel J.C. Bilderbeek

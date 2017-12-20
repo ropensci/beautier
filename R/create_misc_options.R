@@ -10,7 +10,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   misc_options <- create_misc_options()
-#'   testit::assert(is_misc_options(misc_options))
+#'   # TODO
 #' @export
 create_misc_options <- function(
   capitalize_first_char_id = FALSE,

@@ -14,9 +14,9 @@ argument value}
 Checks if \code{name} is a valid \code{freq_equilibrium} argument value
 }
 \examples{
-  testit::assert(is_freq_equilibrium_name("estimated"))
-  testit::assert(is_freq_equilibrium_name("empirical"))
-  testit::assert(is_freq_equilibrium_name("all_equal"))
+  testit::assert(beautier:::is_freq_equilibrium_name("estimated"))
+  testit::assert(beautier:::is_freq_equilibrium_name("empirical"))
+  testit::assert(beautier:::is_freq_equilibrium_name("all_equal"))
 }
 \seealso{
 the \code{freq_equilibrium} argument is used by

@@ -29,13 +29,11 @@ and normal distribution
 \examples{
   # Create the parameter
   mean_param <- create_mean_param()
-  testit::assert(is_mean_param(mean_param))
 
   # Use the parameter in a distribution
   exp_distr <- create_exp_distr(
     mean = mean_param
   )
-  testit::assert(is_exp_distr(exp_distr))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

@@ -27,7 +27,6 @@ Create a Birth-Death tree prior
 }
 \examples{
   bd_tree_prior <- create_bd_tree_prior()
-  testit::assert(is_bd_tree_prior(bd_tree_prior))
 
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(

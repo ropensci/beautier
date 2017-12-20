@@ -19,9 +19,9 @@ Creates all supported clock models,
   and \code{\link{create_strict_clock_model}}
 }
 \examples{
- clock_models <- create_clock_models()
- testit::assert(is_rln_clock_model(clock_models[[1]]))
- testit::assert(is_strict_clock_model(clock_models[[2]]))
+ clock_models <- beautier:::create_clock_models()
+ testit::assert(beautier:::is_rln_clock_model(clock_models[[1]]))
+ testit::assert(beautier:::is_strict_clock_model(clock_models[[2]]))
 }
 \author{
 Richel J.C. Bilderbeek

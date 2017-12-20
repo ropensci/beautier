@@ -51,7 +51,6 @@ Create a TN93 site model
 }
 \examples{
  tn93_site_model <- create_tn93_site_model()
- testit::assert(is_tn93_site_model(tn93_site_model))
 
  create_beast2_input_file(
    input_fasta_filenames = get_fasta_filename(),

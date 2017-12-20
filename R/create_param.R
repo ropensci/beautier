@@ -70,13 +70,11 @@ create_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   alpha_param <- create_alpha_param()
-#'   testit::assert(is_alpha_param(alpha_param))
 #'
 #'   # Use the parameter in a distribution
 #'   beta_distr <- create_beta_distr(
 #'     alpha = alpha_param
 #'   )
-#'   testit::assert(is_beta_distr(beta_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -120,13 +118,11 @@ create_alpha_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   beta_param <- create_beta_param()
-#'   testit::assert(is_beta_param(beta_param))
 #'
 #'   # Use the parameter in a distribution
 #'   gamma_distr <- create_gamma_distr(
 #'     beta = beta_param
 #'   )
-#'   testit::assert(is_gamma_distr(gamma_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -166,13 +162,11 @@ create_beta_param <- function(
 #'   clock_rate_param <- create_clock_rate_param(
 #'     id = "anthus_aco", estimate = FALSE, value = 1.0
 #'   )
-#'   testit::assert(is_clock_rate_param(clock_rate_param))
 #'
 #'   # Use the parameter in a clock model
 #'   strict_clock_model <- create_strict_clock_model(
 #'     clock_rate_param = clock_rate_param
 #'   )
-#'   testit::assert(is_strict_clock_model(strict_clock_model))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -247,13 +241,11 @@ create_kappa_2_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   lambda_param <- create_lambda_param()
-#'   testit::assert(is_lambda_param(lambda_param))
 #'
 #'   # Use the parameter in a distribution
 #'   poisson_distr <- create_poisson_distr(
 #'     lambda = lambda_param
 #'   )
-#'   testit::assert(is_poisson_distr(poisson_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -291,13 +283,11 @@ create_lambda_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   m_param <- create_m_param()
-#'   testit::assert(is_m_param(m_param))
 #'
 #'   # Use the parameter in a distribution
 #'   log_normal_distr <- create_log_normal_distr(
 #'     m = m_param
 #'   )
-#'   testit::assert(is_log_normal_distr(log_normal_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -339,13 +329,11 @@ create_m_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   mean_param <- create_mean_param()
-#'   testit::assert(is_mean_param(mean_param))
 #'
 #'   # Use the parameter in a distribution
 #'   exp_distr <- create_exp_distr(
 #'     mean = mean_param
 #'   )
-#'   testit::assert(is_exp_distr(exp_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -385,13 +373,11 @@ create_mean_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   mu_param <- create_mu_param()
-#'   testit::assert(is_mu_param(mu_param))
 #'
 #'   # Use the parameter in a distribution
 #'   laplace_distr <- create_laplace_distr(
 #'     mu = mu_param
 #'   )
-#'   testit::assert(is_laplace_distr(laplace_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -429,7 +415,7 @@ create_mu_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_ac_param <- create_rate_ac_param()
-#'   testit::assert(is_rate_ac_param(rate_ac_param))
+#'   # TODO
 #' @export
 create_rate_ac_param <- function(
   id = NA,
@@ -458,7 +444,7 @@ create_rate_ac_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_ag_param <- create_rate_ag_param()
-#'   testit::assert(is_rate_ag_param(rate_ag_param))
+#'   # TODO
 #' @export
 create_rate_ag_param <- function(
   id = NA,
@@ -487,7 +473,7 @@ create_rate_ag_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_at_param <- create_rate_at_param()
-#'   testit::assert(is_rate_at_param(rate_at_param))
+#'   # TODO
 #' @export
 create_rate_at_param <- function(
   id = NA,
@@ -516,7 +502,7 @@ create_rate_at_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_cg_param <- create_rate_cg_param()
-#'   testit::assert(is_rate_cg_param(rate_cg_param))
+#'   # TODO
 #' @export
 create_rate_cg_param <- function(
   id = NA,
@@ -545,7 +531,7 @@ create_rate_cg_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_ct_param <- create_rate_ct_param()
-#'   testit::assert(is_rate_ct_param(rate_ct_param))
+#'   # TODO
 #' @export
 create_rate_ct_param <- function(
   id = NA,
@@ -574,7 +560,7 @@ create_rate_ct_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_gt_param <- create_rate_gt_param()
-#'   testit::assert(is_rate_gt_param(rate_gt_param))
+#'   # TODO
 #' @export
 create_rate_gt_param <- function(
   id = NA,
@@ -607,13 +593,11 @@ create_rate_gt_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   s_param <- create_s_param()
-#'   testit::assert(is_s_param(s_param))
 #'
 #'   # Use the parameter in a distribution
 #'   log_normal_distr <- create_log_normal_distr(
 #'     s = s_param
 #'   )
-#'   testit::assert(is_log_normal_distr(log_normal_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -659,13 +643,11 @@ create_s_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   scale_param <- create_scale_param()
-#'   testit::assert(is_scale_param(scale_param))
 #'
 #'   # Use the parameter in a distribution
 #'   laplace_distr <- create_laplace_distr(
 #'     scale = scale_param
 #'   )
-#'   testit::assert(is_laplace_distr(laplace_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
@@ -707,13 +689,11 @@ create_scale_param <- function(
 #' @examples
 #'   # Create the parameter
 #'   sigma_param <- create_sigma_param()
-#'   testit::assert(is_sigma_param(sigma_param))
 #'
 #'   # Use the parameter in a distribution
 #'   normal_distr <- create_normal_distr(
 #'     sigma = sigma_param
 #'   )
-#'   testit::assert(is_normal_distr(normal_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

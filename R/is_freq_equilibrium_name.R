@@ -7,9 +7,9 @@
 #'   and \code{\link{create_tn93_site_model}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   testit::assert(is_freq_equilibrium_name("estimated"))
-#'   testit::assert(is_freq_equilibrium_name("empirical"))
-#'   testit::assert(is_freq_equilibrium_name("all_equal"))
+#'   testit::assert(beautier:::is_freq_equilibrium_name("estimated"))
+#'   testit::assert(beautier:::is_freq_equilibrium_name("empirical"))
+#'   testit::assert(beautier:::is_freq_equilibrium_name("all_equal"))
 is_freq_equilibrium_name <- function(
   name
 ) {

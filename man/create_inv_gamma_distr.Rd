@@ -24,9 +24,8 @@ Create an inverse gamma distribution
 }
 \examples{
   inv_gamma_distr <- create_inv_gamma_distr()
-  testit::assert(is_inv_gamma_distr(inv_gamma_distr))
 
-  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+  input_fasta_filename <- get_fasta_filename()
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     "my_beast.xml",

@@ -19,7 +19,7 @@ as created by \code{\link{create_hky_site_model}}
 }
 \examples{
   hky_site_model <- create_hky_site_model()
-  testit::assert(is_hky_site_model(hky_site_model))
+  # TODO
 }
 \author{
 Richel J.C. Bilderbeek

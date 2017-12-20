@@ -8,7 +8,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   kappa_2_param <- create_kappa_2_param()
-#'   testit::assert(is_kappa_2_param(kappa_2_param))
+#'   # TODO
 is_kappa_2_param <- function(
   x
 ) {

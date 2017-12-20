@@ -23,7 +23,6 @@ as created by \code{\link{create_log_normal_distr}}
 }
 \examples{
   log_normal_distr <- create_log_normal_distr()
-  testit::assert(is_log_normal_distr(log_normal_distr))
 
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(

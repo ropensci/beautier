@@ -60,9 +60,8 @@ create_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   beta_distr <- create_beta_distr()
-#'   testit::assert(is_beta_distr(beta_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -106,9 +105,8 @@ create_beta_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   exp_distr <- create_exp_distr()
-#'   testit::assert(is_exp_distr(exp_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -147,9 +145,8 @@ create_exp_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   gamma_distr <- create_gamma_distr()
-#'   testit::assert(is_gamma_distr(gamma_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -194,9 +191,8 @@ create_gamma_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   inv_gamma_distr <- create_inv_gamma_distr()
-#'   testit::assert(is_inv_gamma_distr(inv_gamma_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -241,9 +237,8 @@ create_inv_gamma_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
-#'   testit::assert(is_laplace_distr(laplace_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -288,11 +283,9 @@ create_laplace_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   log_normal_distr <- create_log_normal_distr()
-#'   testit::assert(is_log_normal_distr(log_normal_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -333,11 +326,9 @@ create_log_normal_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   normal_distr <- create_normal_distr()
-#'   testit::assert(is_normal_distr(normal_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
@@ -376,11 +367,9 @@ create_normal_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   one_div_x_distr <- create_one_div_x_distr()
-#'   testit::assert(is_one_div_x_distr(one_div_x_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = one_div_x_distr
@@ -435,9 +424,8 @@ create_poisson_distr <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   uniform_distr <- create_uniform_distr()
-#'   testit::assert(is_uniform_distr(uniform_distr))
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",

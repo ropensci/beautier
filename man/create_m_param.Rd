@@ -27,13 +27,11 @@ this parameter is used in a log-normal distribution
 \examples{
   # Create the parameter
   m_param <- create_m_param()
-  testit::assert(is_m_param(m_param))
 
   # Use the parameter in a distribution
   log_normal_distr <- create_log_normal_distr(
     m = m_param
   )
-  testit::assert(is_log_normal_distr(log_normal_distr))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

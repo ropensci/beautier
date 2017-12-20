@@ -19,7 +19,7 @@ Determine if the object is a valid kappa 2 parameter
 }
 \examples{
   kappa_2_param <- create_kappa_2_param()
-  testit::assert(is_kappa_2_param(kappa_2_param))
+  # TODO
 }
 \seealso{
 kappa 2 parameters are returned by

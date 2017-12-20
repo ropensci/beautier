@@ -56,7 +56,6 @@ create_tree_prior <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   bd_tree_prior <- create_bd_tree_prior()
-#'   testit::assert(is_bd_tree_prior(bd_tree_prior))
 #'
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
@@ -87,7 +86,6 @@ create_bd_tree_prior <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   cbs_tree_prior <- create_cbs_tree_prior()
-#'   testit::assert(is_cbs_tree_prior(cbs_tree_prior))
 #'
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
@@ -116,7 +114,6 @@ create_cbs_tree_prior <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   ccp_tree_prior <- create_ccp_tree_prior()
-#'   testit::assert(is_ccp_tree_prior(ccp_tree_prior))
 #'
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
@@ -149,7 +146,6 @@ create_ccp_tree_prior <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   cep_tree_prior <- create_cep_tree_prior()
-#'   testit::assert(is_cep_tree_prior(cep_tree_prior))
 #'
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
@@ -189,7 +185,6 @@ create_cep_tree_prior <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   yule_tree_prior <- create_yule_tree_prior()
-#'   testit::assert(is_yule_tree_prior(yule_tree_prior))
 #'
 #'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(

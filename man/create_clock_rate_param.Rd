@@ -26,13 +26,11 @@ Create a parameter called \code{clock_rate},
   clock_rate_param <- create_clock_rate_param(
     id = "anthus_aco", estimate = FALSE, value = 1.0
   )
-  testit::assert(is_clock_rate_param(clock_rate_param))
 
   # Use the parameter in a clock model
   strict_clock_model <- create_strict_clock_model(
     clock_rate_param = clock_rate_param
   )
-  testit::assert(is_strict_clock_model(strict_clock_model))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

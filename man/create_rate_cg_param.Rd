@@ -25,7 +25,7 @@ Create a parameter called 'rate CG'
 }
 \examples{
   rate_cg_param <- create_rate_cg_param()
-  testit::assert(is_rate_cg_param(rate_cg_param))
+  # TODO
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

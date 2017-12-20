@@ -46,7 +46,6 @@ Create a relaxed log-normal clock model
 }
 \examples{
   rln_clock_model <- create_rln_clock_model()
-  testit::assert(is_rln_clock_model(rln_clock_model))
 
   input_fasta_filenames <- beautier::get_path("test_output_0.fas")
   create_beast2_input_file(

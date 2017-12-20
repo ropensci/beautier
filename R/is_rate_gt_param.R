@@ -8,7 +8,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_gt_param <- create_rate_gt_param()
-#'   testit::assert(is_rate_gt_param(rate_gt_param))
+#'   # TODO
 is_rate_gt_param <- function(
   x
 ) {

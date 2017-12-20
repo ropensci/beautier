@@ -23,7 +23,6 @@ Create a Yule tree prior
 }
 \examples{
   yule_tree_prior <- create_yule_tree_prior()
-  testit::assert(is_yule_tree_prior(yule_tree_prior))
 
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(

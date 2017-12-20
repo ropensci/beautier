@@ -15,7 +15,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model()
-#'   testit::assert(is_gamma_site_model(gamma_site_model))
+#'   TODO
 #' @export
 create_gamma_site_model <- function(
   gamma_cat_count = get_default_gamma_cat_count(),

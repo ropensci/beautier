@@ -24,13 +24,11 @@ this parameter is used in a Poisson distribution
 \examples{
   # Create the parameter
   lambda_param <- create_lambda_param()
-  testit::assert(is_lambda_param(lambda_param))
 
   # Use the parameter in a distribution
   poisson_distr <- create_poisson_distr(
     lambda = lambda_param
   )
-  testit::assert(is_poisson_distr(poisson_distr))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

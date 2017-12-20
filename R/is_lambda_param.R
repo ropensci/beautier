@@ -7,7 +7,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   lambda_param <- create_lambda_param()
-#'   testit::assert(is_lambda_param(lambda_param))
+#'   testit::assert(beautier:::is_lambda_param(lambda_param))
 is_lambda_param <- function(
   x
 ) {

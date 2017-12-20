@@ -19,7 +19,7 @@ Determine if the object is a valid lambda parameter
 }
 \examples{
   lambda_param <- create_lambda_param()
-  testit::assert(is_lambda_param(lambda_param))
+  testit::assert(beautier:::is_lambda_param(lambda_param))
 }
 \seealso{
 lambda parameters are returned by \code{\link{create_lambda_param}}

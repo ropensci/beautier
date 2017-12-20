@@ -25,7 +25,7 @@ Create a parameter called 'rate AG'
 }
 \examples{
   rate_ag_param <- create_rate_ag_param()
-  testit::assert(is_rate_ag_param(rate_ag_param))
+  # TODO
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

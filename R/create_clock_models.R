@@ -5,10 +5,9 @@
 #' @return a list of site_models
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'  clock_models <- create_clock_models()
-#'  testit::assert(is_rln_clock_model(clock_models[[1]]))
-#'  testit::assert(is_strict_clock_model(clock_models[[2]]))
-#' @export
+#'  clock_models <- beautier:::create_clock_models()
+#'  testit::assert(beautier:::is_rln_clock_model(clock_models[[1]]))
+#'  testit::assert(beautier:::is_strict_clock_model(clock_models[[2]]))
 create_clock_models <- function() {
   return(
     list(

@@ -8,7 +8,6 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_ag_param <- create_rate_ag_param()
-#'   testit::assert(is_rate_ag_param(rate_ag_param))
 is_rate_ag_param <- function(
   x
 ) {

@@ -31,13 +31,11 @@ and inverse gamma distribution
 \examples{
   # Create the parameter
   alpha_param <- create_alpha_param()
-  testit::assert(is_alpha_param(alpha_param))
 
   # Use the parameter in a distribution
   beta_distr <- create_beta_distr(
     alpha = alpha_param
   )
-  testit::assert(is_beta_distr(beta_distr))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

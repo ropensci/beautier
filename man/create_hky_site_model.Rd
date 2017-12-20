@@ -36,7 +36,6 @@ Create an HKY site model
 }
 \examples{
  hky_site_model <- create_hky_site_model()
- testit::assert(is_hky_site_model(hky_site_model))
 
  create_beast2_input_file(
    input_fasta_filenames = get_fasta_filename(),

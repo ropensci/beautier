@@ -21,7 +21,6 @@ Create a Coalescent Constant Population tree prior
 }
 \examples{
   ccp_tree_prior <- create_ccp_tree_prior()
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
 
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(

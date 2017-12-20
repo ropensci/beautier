@@ -4,7 +4,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   misc_options <- create_misc_options()
-#'   testit::assert(is_misc_options(misc_options))
+#'   # TODO
 is_misc_options <- function(
   x
 ) {

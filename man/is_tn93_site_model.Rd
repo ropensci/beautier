@@ -17,13 +17,10 @@ TRUE if x is a valid TN93 site model, FALSE otherwise
 Determine if the object is a valid TN93 site model,
 }
 \examples{
-  tn93_site_model <- create_tn93_site_model()
-  testit::assert(is_tn93_site_model(tn93_site_model))
-
  create_beast2_input_file(
    input_fasta_filenames = get_fasta_filename(),
    "beast.xml",
-   site_models = tn93_site_model
+   site_models = create_tn93_site_model()
  )
 }
 \author{

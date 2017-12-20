@@ -23,11 +23,11 @@ Creates all supported site models
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
- site_models <- create_site_models()
- testit::assert(is_gtr_site_model(site_models[[1]]))
- testit::assert(is_hky_site_model(site_models[[2]]))
- testit::assert(is_jc69_site_model(site_models[[3]]))
- testit::assert(is_tn93_site_model(site_models[[4]]))
+ site_models <- beautier:::create_site_models()
+ testit::assert(beautier:::is_gtr_site_model(site_models[[1]]))
+ testit::assert(beautier:::is_hky_site_model(site_models[[2]]))
+ testit::assert(beautier:::is_jc69_site_model(site_models[[3]]))
+ testit::assert(beautier:::is_tn93_site_model(site_models[[4]]))
 }
 \author{
 Richel J.C. Bilderbeek

@@ -21,7 +21,6 @@ Determine if the object is a valid
 }
 \examples{
   rate_ag_param <- create_rate_ag_param()
-  testit::assert(is_rate_ag_param(rate_ag_param))
 }
 \seealso{
 \code{\link{create_rate_ag_param}} creates a 'rate AG' parameter

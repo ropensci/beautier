@@ -25,7 +25,7 @@ Create a parameter called 'rate CT'
 }
 \examples{
   rate_ct_param <- create_rate_ct_param()
-  testit::assert(is_rate_ct_param(rate_ct_param))
+  # TODO
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

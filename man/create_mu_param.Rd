@@ -27,13 +27,11 @@ this parameter is used in a Laplace distribution
 \examples{
   # Create the parameter
   mu_param <- create_mu_param()
-  testit::assert(is_mu_param(mu_param))
 
   # Use the parameter in a distribution
   laplace_distr <- create_laplace_distr(
     mu = mu_param
   )
-  testit::assert(is_laplace_distr(laplace_distr))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

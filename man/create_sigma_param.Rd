@@ -27,13 +27,11 @@ this parameter is used in a normal distribution
 \examples{
   # Create the parameter
   sigma_param <- create_sigma_param()
-  testit::assert(is_sigma_param(sigma_param))
 
   # Use the parameter in a distribution
   normal_distr <- create_normal_distr(
     sigma = sigma_param
   )
-  testit::assert(is_normal_distr(normal_distr))
 
   # Use the distribution to create a BEAST2 input file
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")

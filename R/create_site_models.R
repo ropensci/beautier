@@ -7,12 +7,11 @@
 #' @return a list of site_models
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'  site_models <- create_site_models()
-#'  testit::assert(is_gtr_site_model(site_models[[1]]))
-#'  testit::assert(is_hky_site_model(site_models[[2]]))
-#'  testit::assert(is_jc69_site_model(site_models[[3]]))
-#'  testit::assert(is_tn93_site_model(site_models[[4]]))
-#' @export
+#'  site_models <- beautier:::create_site_models()
+#'  testit::assert(beautier:::is_gtr_site_model(site_models[[1]]))
+#'  testit::assert(beautier:::is_hky_site_model(site_models[[2]]))
+#'  testit::assert(beautier:::is_jc69_site_model(site_models[[3]]))
+#'  testit::assert(beautier:::is_tn93_site_model(site_models[[4]]))
 create_site_models <- function() {
   return(
     list(

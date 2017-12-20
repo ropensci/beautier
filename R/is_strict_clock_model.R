@@ -7,7 +7,6 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model()
-#'   testit::assert(is_strict_clock_model(strict_clock_model))
 #'
 #'   # rln: Relaxed Log-Normal
 #'   rln_clock_model <- create_rln_clock_model()

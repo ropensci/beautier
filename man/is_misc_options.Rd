@@ -17,7 +17,7 @@ Determine if the object is a valid misc_options
 }
 \examples{
   misc_options <- create_misc_options()
-  testit::assert(is_misc_options(misc_options))
+  # TODO
 }
 \author{
 Richel J.C. Bilderbeek

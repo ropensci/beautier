@@ -25,7 +25,7 @@ Create a parameter called 'rate AC'
 }
 \examples{
   rate_ac_param <- create_rate_ac_param()
-  testit::assert(is_rate_ac_param(rate_ac_param))
+  # TODO
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

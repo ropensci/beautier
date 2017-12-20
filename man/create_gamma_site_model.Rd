@@ -38,7 +38,7 @@ Use \code{\link{create_site_model}} to create a site model
 }
 \examples{
   gamma_site_model <- create_gamma_site_model()
-  testit::assert(is_gamma_site_model(gamma_site_model))
+  TODO
 }
 \author{
 Richel J.C. Bilderbeek

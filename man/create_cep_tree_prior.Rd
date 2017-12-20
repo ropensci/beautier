@@ -24,7 +24,6 @@ Create a Coalescent Exponential Population tree prior
 }
 \examples{
   cep_tree_prior <- create_cep_tree_prior()
-  testit::assert(is_cep_tree_prior(cep_tree_prior))
 
   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
