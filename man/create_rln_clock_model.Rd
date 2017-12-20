@@ -47,12 +47,23 @@ Create a relaxed log-normal clock model
 \examples{
   rln_clock_model <- create_rln_clock_model()
 
-  input_fasta_filenames <- beautier::get_path("test_output_0.fas")
   create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filenames,
-    "my_beast.xml",
+    get_fasta_filename(),
+    "create_rln_clock_model.xml",
     clock_models = rln_clock_model
   )
+  testit::assert(file.exists("create_rln_clock_model.xml"))
+
+  rln_clock_model_exp <- create_rln_clock_model(
+    mean_rate_prior_distr = create_exp_distr()
+  )
+
+  create_beast2_input_file(
+    get_fasta_filename(),
+    "create_rln_clock_model_exp.xml",
+    clock_models = rln_clock_model_exp
+  )
+  testit::assert(file.exists("create_rln_clock_model_exp.xml"))
 }
 \author{
 Richel J.C. Bilderbeek

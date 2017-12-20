@@ -28,12 +28,23 @@ Create a strict clock model
 \examples{
   strict_clock_model <- create_strict_clock_model()
 
-  input_fasta_filenames <- beautier::get_path("test_output_0.fas")
   create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filenames,
-    "my_beast.xml",
+    get_fasta_filename(),
+    "create_strict_clock_model.xml",
     clock_models = strict_clock_model
   )
+  testit::assert(file.exists("create_strict_clock_model.xml"))
+
+  strict_clock_model_gamma <- create_strict_clock_model(
+    clock_rate_distr = create_gamma_distr()
+  )
+
+  create_beast2_input_file(
+    get_fasta_filename(),
+    "create_strict_clock_model_gamma.xml",
+    clock_models = strict_clock_model_gamma
+  )
+  testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
 }
 \author{
 Richel J.C. Bilderbeek

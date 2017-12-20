@@ -9,9 +9,29 @@
 #' @return a valid clock model
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}}.
-#'   \code{\link{is_clock_model}} can be used to verify the created clock
-#'   model is valid
+#'   For more examples about creating a relaxed log-normal clock
+#'   model, see \code{\link{create_rln_clock_model}}.
+#'   For more examples about creating a strict clock
+#'   model, see \code{\link{create_strict_clock_model}}.
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   rln_clock_model <- create_rln_clock_model()
+#'
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     "create_clock_model_rln.xml",
+#'     clock_models = rln_clock_model
+#'   )
+#'   testit::assert(file.exists("create_clock_model_rln.xml"))
+#'
+#'   strict_clock_model <- create_strict_clock_model()
+#'
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     "create_clock_model_strict.xml",
+#'     clock_models = strict_clock_model
+#'   )
+#'   testit::assert(file.exists("create_clock_model_strict.xml"))
 #' @export
 create_clock_model <- function(
   name,
@@ -59,12 +79,23 @@ create_clock_model <- function(
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
 #'
-#'   input_fasta_filenames <- beautier::get_path("test_output_0.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filenames,
-#'     "my_beast.xml",
+#'     get_fasta_filename(),
+#'     "create_rln_clock_model.xml",
 #'     clock_models = rln_clock_model
 #'   )
+#'   testit::assert(file.exists("create_rln_clock_model.xml"))
+#'
+#'   rln_clock_model_exp <- create_rln_clock_model(
+#'     mean_rate_prior_distr = create_exp_distr()
+#'   )
+#'
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     "create_rln_clock_model_exp.xml",
+#'     clock_models = rln_clock_model_exp
+#'   )
+#'   testit::assert(file.exists("create_rln_clock_model_exp.xml"))
 #' @export
 create_rln_clock_model <- function(
   id = NA,
@@ -102,12 +133,23 @@ create_rln_clock_model <- function(
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model()
 #'
-#'   input_fasta_filenames <- beautier::get_path("test_output_0.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filenames,
-#'     "my_beast.xml",
+#'     get_fasta_filename(),
+#'     "create_strict_clock_model.xml",
 #'     clock_models = strict_clock_model
 #'   )
+#'   testit::assert(file.exists("create_strict_clock_model.xml"))
+#'
+#'   strict_clock_model_gamma <- create_strict_clock_model(
+#'     clock_rate_distr = create_gamma_distr()
+#'   )
+#'
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     "create_strict_clock_model_gamma.xml",
+#'     clock_models = strict_clock_model_gamma
+#'   )
+#'   testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
 #' @export
 create_strict_clock_model <- function(
   id = NA,
