@@ -39,7 +39,7 @@ test_that("use general function with get_tree_prior_names", {
 
   names <- get_tree_prior_names()
   for (name in names) {
-    tree_prior <- beautier::create_tree_prior(
+    tree_prior <- beautier:::create_tree_prior(
       name = name,
       id = NA
     )
@@ -51,7 +51,7 @@ test_that("use general function with get_tree_prior_names", {
 test_that("abuse", {
 
   testthat::expect_error(
-    beautier::create_tree_prior(name = "nonsense"),
+    beautier:::create_tree_prior(name = "nonsense"),
     "invalid tree prior name"
   )
 

@@ -8,11 +8,11 @@ input_fasta_filenames <- beautier:::get_paths(
 
 # Shared tree priors
 
-for (site_model_1 in beautier::create_site_models()) {
-  for (site_model_2 in beautier::create_site_models()) {
-    for (clock_model_1 in beautier::create_clock_models()) {
-      for (clock_model_2 in beautier::create_clock_models()) {
-        for (tree_prior in beautier::create_tree_priors()) {
+for (site_model_1 in beautier:::create_site_models()) {
+  for (site_model_2 in beautier:::create_site_models()) {
+    for (clock_model_1 in beautier:::create_clock_models()) {
+      for (clock_model_2 in beautier:::create_clock_models()) {
+        for (tree_prior in beautier:::create_tree_priors()) {
 
           lines <- create_beast2_input(
             input_fasta_filenames = input_fasta_filenames,

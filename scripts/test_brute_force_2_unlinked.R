@@ -6,11 +6,11 @@ input_fasta_filenames <- beautier:::get_paths(
 n_fail <- 0
 n <- 0
 
-for (site_model_1 in beautier::create_site_models()) {
-  for (site_model_2 in beautier::create_site_models()) {
-    for (clock_model_1 in beautier::create_clock_models()) {
-      for (clock_model_2 in beautier::create_clock_models()) {
-        for (tree_prior in beautier::create_tree_priors()) {
+for (site_model_1 in beautier:::create_site_models()) {
+  for (site_model_2 in beautier:::create_site_models()) {
+    for (clock_model_1 in beautier:::create_clock_models()) {
+      for (clock_model_2 in beautier:::create_clock_models()) {
+        for (tree_prior in beautier:::create_tree_priors()) {
 
           output_xml_filename <- "~/invalid.xml"
           create_beast2_input_file(

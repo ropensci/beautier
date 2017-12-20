@@ -70,7 +70,7 @@ create_bd_tree_prior <- function(
   birth_rate_distr = create_uniform_distr(),
   death_rate_distr = create_uniform_distr()
   ) {
-  beautier::create_tree_prior(
+  create_tree_prior(
     name = "birth_death",
     id = id,
     birth_rate_distr = birth_rate_distr,
@@ -98,7 +98,7 @@ create_bd_tree_prior <- function(
 create_cbs_tree_prior <- function(
   id = NA
   ) {
-  beautier::create_tree_prior(
+  create_tree_prior(
     name = "coalescent_bayesian_skyline",
     id = id
   )
@@ -127,7 +127,7 @@ create_ccp_tree_prior <- function(
   id = NA,
   pop_size_distr = beautier::create_one_div_x_distr()
 ) {
-  beautier::create_tree_prior(
+  create_tree_prior(
     name = "coalescent_constant_population",
     id = id,
     pop_size_distr = pop_size_distr
@@ -161,7 +161,7 @@ create_cep_tree_prior <- function(
   growth_rate_distr = create_laplace_distr()
 ) {
   return(
-    beautier::create_tree_prior(
+    create_tree_prior(
       name = "coalescent_exp_population",
       id = id,
       pop_size_distr = pop_size_distr,
@@ -199,7 +199,7 @@ create_yule_tree_prior <- function(
   birth_rate_distr = create_uniform_distr()
 ) {
   return(
-    beautier::create_tree_prior(
+    create_tree_prior(
       name = "yule",
       id = id,
       birth_rate_distr = birth_rate_distr
