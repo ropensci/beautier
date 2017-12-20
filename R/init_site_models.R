@@ -15,9 +15,9 @@ init_site_models <- function(
 
   for (i in seq_along(site_models)) {
     site_model <- site_models[[i]]
-    testit::assert(beautier::is_site_model(site_model))
+    testit::assert(is_site_model(site_model))
 
-    if (beautier::is_gtr_site_model(site_model)) {
+    if (is_gtr_site_model(site_model)) {
 
       # GTR
       if (!is_init_gtr_site_model(site_model)) {
@@ -28,7 +28,7 @@ init_site_models <- function(
         )
       }
 
-    } else if (beautier::is_hky_site_model(site_model)) {
+    } else if (is_hky_site_model(site_model)) {
 
       # HKY
       if (!is_init_hky_site_model(site_model)) {
@@ -40,10 +40,10 @@ init_site_models <- function(
         )
       }
 
-    } else if (beautier::is_jc69_site_model(site_model)) {
+    } else if (is_jc69_site_model(site_model)) {
       # Nothing to initialize (for now)
     } else {
-      testit::assert(beautier::is_tn93_site_model(site_model))
+      testit::assert(is_tn93_site_model(site_model))
       site_model <- init_tn93_site_model( # nolint internal function call
         site_model,
         distr_id = distr_id,
@@ -74,7 +74,7 @@ init_gtr_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_gtr_site_model(gtr_site_model))
+  testit::assert(is_gtr_site_model(gtr_site_model))
 
   rate_ac_prior_distr <- gtr_site_model$rate_ac_prior_distr
   rate_ag_prior_distr <- gtr_site_model$rate_ag_prior_distr
@@ -160,7 +160,7 @@ init_gtr_site_model <- function(
     freq_equilibrium = gtr_site_model$freq_equilibrium
   )
 
-  testit::assert(beautier::is_gtr_site_model(result))
+  testit::assert(is_gtr_site_model(result))
   result
 }
 
@@ -178,7 +178,7 @@ init_hky_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_hky_site_model(hky_site_model))
+  testit::assert(is_hky_site_model(hky_site_model))
 
   result <- create_hky_site_model(
     id = hky_site_model$id,
@@ -209,7 +209,7 @@ init_tn93_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_tn93_site_model(tn93_site_model))
+  testit::assert(is_tn93_site_model(tn93_site_model))
   kappa_1_prior_distr <- init_distr(
     tn93_site_model$kappa_1_prior_distr,
     distr_id = distr_id,

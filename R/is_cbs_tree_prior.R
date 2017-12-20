@@ -5,9 +5,8 @@
 #' @return TRUE if x is a valid constant coalescent Bayesian skyline prior,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_cbs_tree_prior <- function(
   x
 ) {
-  return("name" %in% names(x) && x$name == "coalescent_bayesian_skyline")
+  "name" %in% names(x) && x$name == "coalescent_bayesian_skyline"
 }

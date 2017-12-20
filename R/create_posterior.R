@@ -77,7 +77,7 @@ create_posterior <- function(
   )
   testthat::expect_true(file.exists(beast_filename))
   testthat::expect_true(
-    beautier::is_beast2_input_file(beast_filename)
+    is_beast2_input_file(beast_filename)
   )
 
   # Run BEAST2 to measure posterior

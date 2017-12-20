@@ -12,11 +12,10 @@
 #'
 #'   strict_clock_model <- create_strict_clock_model()
 #'   testit::assert(!is_rln_clock_model(strict_clock_model))
-#' @export
 is_rln_clock_model <- function(
   x
 ) {
-  if (!beautier::is_clock_model(x)) return(FALSE)
+  if (!is_clock_model(x)) return(FALSE)
   if (x$name != "relaxed_log_normal") return(FALSE)
   if (!"ucldstdev_distr" %in% names(x)) return(FALSE)
   if (!"mean_rate_prior_distr" %in% names(x)) return(FALSE)

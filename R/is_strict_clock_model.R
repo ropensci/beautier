@@ -12,15 +12,14 @@
 #'   # rln: Relaxed Log-Normal
 #'   rln_clock_model <- create_rln_clock_model()
 #'   testit::assert(!is_strict_clock_model(rln_clock_model))
-#' @export
 is_strict_clock_model <- function(
   x
 ) {
-  if (!beautier::is_clock_model(x)) return(FALSE)
+  if (!is_clock_model(x)) return(FALSE)
   if (x$name != "strict") return(FALSE)
   if (!"clock_rate_param" %in% names(x)) return(FALSE)
-  if (!beautier::is_param(x$clock_rate_param)) return(FALSE)
+  if (!is_param(x$clock_rate_param)) return(FALSE)
   if (!"clock_rate_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$clock_rate_distr)) return(FALSE)
+  if (!is_distr(x$clock_rate_distr)) return(FALSE)
   TRUE
 }

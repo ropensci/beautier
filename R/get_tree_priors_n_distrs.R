@@ -19,7 +19,7 @@ get_tree_priors_n_distrs <- function(
   }
   n <- 0
   for (tree_prior in tree_priors) {
-    testit::assert(beautier::is_tree_prior(tree_prior))
+    testit::assert(is_tree_prior(tree_prior))
     n <- n + beautier::get_tree_prior_n_distrs(tree_prior)
   }
   n

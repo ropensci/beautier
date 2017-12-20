@@ -6,17 +6,17 @@
 is_init_tree_prior <- function(
   x
 ) {
-  if (!beautier::is_tree_prior(x)) return(FALSE)
-  if (beautier::is_bd_tree_prior(x)) {
+  if (!is_tree_prior(x)) return(FALSE)
+  if (is_bd_tree_prior(x)) {
     return(is_init_bd_tree_prior(x))  # nolint internal function call
-  } else if (beautier::is_cbs_tree_prior(x)) {
+  } else if (is_cbs_tree_prior(x)) {
     return(is_init_cbs_tree_prior(x))  # nolint internal function call
-  } else if (beautier::is_ccp_tree_prior(x)) {
+  } else if (is_ccp_tree_prior(x)) {
     return(is_init_ccp_tree_prior(x))  # nolint internal function call
-  } else if (beautier::is_cep_tree_prior(x)) {
+  } else if (is_cep_tree_prior(x)) {
     return(is_init_cep_tree_prior(x))  # nolint internal function call
   } else {
-    testit::assert(beautier::is_yule_tree_prior(x))
+    testit::assert(is_yule_tree_prior(x))
     return(is_init_yule_tree_prior(x))  # nolint internal function call
   }
 }
@@ -29,7 +29,7 @@ is_init_tree_prior <- function(
 is_init_bd_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_bd_tree_prior(x))
+  testit::assert(is_bd_tree_prior(x))
   return(is_init_distr(get_bd_birth_rate_distr(x)) &&
     is_init_distr(get_bd_death_rate_distr(x))
   )
@@ -45,7 +45,7 @@ is_init_bd_tree_prior <- function(
 is_init_cbs_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_cbs_tree_prior(x))
+  testit::assert(is_cbs_tree_prior(x))
 
   # Yup, is always initialized
   TRUE
@@ -61,7 +61,7 @@ is_init_cbs_tree_prior <- function(
 is_init_ccp_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_ccp_tree_prior(x))
+  testit::assert(is_ccp_tree_prior(x))
   is_init_distr(get_ccp_pop_size_distr(x)) # nolint internal function
 }
 
@@ -75,7 +75,7 @@ is_init_ccp_tree_prior <- function(
 is_init_cep_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_cep_tree_prior(x))
+  testit::assert(is_cep_tree_prior(x))
 
   is_init_distr(get_cep_pop_size_distr(x)) &&  # nolint internal function
   is_init_distr(get_cep_growth_rate_distr(x))  # nolint internal function
@@ -89,6 +89,6 @@ is_init_cep_tree_prior <- function(
 is_init_yule_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_yule_tree_prior(x))
+  testit::assert(is_yule_tree_prior(x))
   is_init_distr(get_yule_birth_rate_distr(x)) # nolint internal function
 }

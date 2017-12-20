@@ -18,7 +18,7 @@ create_clock_model <- function(
   id,
   ...
 ) {
-  if (!beautier::is_clock_model_name(name)) {
+  if (!is_clock_model_name(name)) {
     clock_models_as_string <- function() {
       s <- NULL
       for (p in get_clock_model_names()) {
@@ -90,7 +90,7 @@ create_rln_clock_model <- function(
     normalize_mean_clock_rate = normalize_mean_clock_rate,
     dimension = dimension
   )
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  testit::assert(is_rln_clock_model(rln_clock_model))
   rln_clock_model
 }
 
@@ -138,6 +138,6 @@ create_strict_clock_model <- function(
     clock_rate_param = clock_rate_param,
     clock_rate_distr = clock_rate_distr
   )
-  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
+  testit::assert(is_strict_clock_model(strict_clock_model))
   strict_clock_model
 }

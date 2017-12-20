@@ -4,7 +4,7 @@
 #' @examples
 #'   testit::assert(is_clock_model_name("relaxed_log_normal"))
 #'   testit::assert(is_clock_model_name("strict"))
-#' @export
+#' @author Richel J.C. Bilderbeek
 is_clock_model_name <- function(name) {
   name %in% beautier::get_clock_model_names()
 }

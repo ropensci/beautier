@@ -8,10 +8,9 @@
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_one_div_x_distr <- function(
   x
 ) {
-  if (!beautier::is_distr(x)) return(FALSE)
+  if (!is_distr(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "one_div_x")
 }

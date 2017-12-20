@@ -5,10 +5,9 @@
 #' @return TRUE if x is a valid sigma parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_sigma_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
+  if (!is_param(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "sigma")
 }

@@ -6,7 +6,7 @@
 tree_prior_to_xml_state <- function(
   tree_prior
 ) {
-  testit::assert(beautier::is_tree_prior(tree_prior))
+  testit::assert(is_tree_prior(tree_prior))
   id <- tree_prior$id
   testit::assert(is_id(id))
 
@@ -31,7 +31,7 @@ tree_prior_to_xml_state <- function(
     text <- c(text, paste0("<parameter id=\"growthRate.t:", id, "\" ",
       "name=\"stateNode\">3.0E-4</parameter>"))
   } else {
-    testit::assert(beautier::is_yule_tree_prior(tree_prior))
+    testit::assert(is_yule_tree_prior(tree_prior))
       text <- c(text, paste0("<parameter ", "id=\"birthRate.t:", id, "\" ",
         "name=\"stateNode\">1.0</parameter>"))
   }

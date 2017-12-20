@@ -16,9 +16,8 @@
 #'  or \code{\link{is_uniform_distr}},
 #'  to check for more specific distribution
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_distr <- function(
   x
 ) {
-  return("name" %in% names(x))
+  "name" %in% names(x)
 }

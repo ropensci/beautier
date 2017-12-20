@@ -2,7 +2,6 @@
 #' @param x an object, to be determined if it is a valid mcmc object
 #' @return TRUE if x is a valid mcmc object, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_mcmc <- function(
   x
 ) {

@@ -10,7 +10,7 @@ init_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_distr(distr))
+  testit::assert(is_distr(distr))
 
   if (is.na(distr$id)) {
     distr$id <- distr_id
@@ -96,7 +96,7 @@ init_distr <- function(
     }
 
   } else {
-    testit::assert(beautier::is_uniform_distr(distr))
+    testit::assert(is_uniform_distr(distr))
 
     # Always initialized
 

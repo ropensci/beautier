@@ -5,7 +5,7 @@
 gamma_site_model_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
   site_model
 ) {
-  testit::assert(beautier::is_site_model(site_model))
+  testit::assert(is_site_model(site_model))
   id <- site_model$id
   testit::assert(is_id(id))
 

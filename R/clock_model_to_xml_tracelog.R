@@ -11,12 +11,12 @@ clock_model_to_xml_tracelog <- function(
   clock_model,
   is_first
 ) {
-  testit::assert(beautier::is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model))
   id <- clock_model$id
   testit::assert(is_id(id))
 
   text <- NULL
-  if (beautier::is_rln_clock_model(clock_model)) {
+  if (is_rln_clock_model(clock_model)) {
     if (is_first == FALSE) {
       text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>"))
     }
@@ -28,7 +28,7 @@ clock_model_to_xml_tracelog <- function(
     )
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(beautier::is_strict_clock_model(clock_model))
+    testit::assert(is_strict_clock_model(clock_model))
 
     if (is_first == FALSE) {
       text <- c(text, paste0("<log idref=\"clockRate.c:", id, "\"/>"))

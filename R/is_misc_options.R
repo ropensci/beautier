@@ -5,7 +5,6 @@
 #' @examples
 #'   misc_options <- create_misc_options()
 #'   testit::assert(is_misc_options(misc_options))
-#' @export
 is_misc_options <- function(
   x
 ) {

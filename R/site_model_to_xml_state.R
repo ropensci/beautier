@@ -6,7 +6,7 @@
 site_model_to_xml_state <- function(
   site_model
 ) {
-  testit::assert(beautier::is_site_model(site_model))
+  testit::assert(is_site_model(site_model))
   id <- site_model$id
   testit::assert(is_id(id))
   text <- NULL
@@ -53,7 +53,7 @@ site_model_to_xml_state <- function(
       text <- c(text, parameter_to_xml(site_model$kappa_2_param)) # nolint internal function
   }
 
-  if (!beautier::is_jc69_site_model(site_model) &&
+  if (!is_jc69_site_model(site_model) &&
       site_model$freq_equilibrium == "estimated") {
     text <- c(
       text,

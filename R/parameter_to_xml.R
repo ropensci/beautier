@@ -19,43 +19,43 @@ parameter_to_xml <- function(
   if (is.na(parameter$value)) {
     stop("parameter must have a value")
   }
-  if (beautier::is_alpha_param(parameter)) {
+  if (is_alpha_param(parameter)) {
     text <- c(text, parameter_to_xml_alpha(parameter)) # nolint internal function
-  } else if (beautier::is_beta_param(parameter)) {
+  } else if (is_beta_param(parameter)) {
     text <- c(text, parameter_to_xml_beta(parameter)) # nolint internal function
-  } else if (beautier::is_clock_rate_param(parameter)) {
+  } else if (is_clock_rate_param(parameter)) {
     text <- c(text, parameter_to_xml_clock_rate(parameter)) # nolint internal function
-  } else if (beautier::is_kappa_1_param(parameter)) {
+  } else if (is_kappa_1_param(parameter)) {
     text <- c(text, parameter_to_xml_kappa_1(parameter)) # nolint internal function
-  } else if (beautier::is_kappa_2_param(parameter)) {
+  } else if (is_kappa_2_param(parameter)) {
     text <- c(text, parameter_to_xml_kappa_2(parameter)) # nolint internal function
-  } else if (beautier::is_lambda_param(parameter)) {
+  } else if (is_lambda_param(parameter)) {
     text <- c(text, parameter_to_xml_lambda(parameter)) # nolint internal function
-  } else if (beautier::is_m_param(parameter)) {
+  } else if (is_m_param(parameter)) {
     text <- c(text, parameter_to_xml_m(parameter)) # nolint internal function
-  } else if (beautier::is_mean_param(parameter)) {
+  } else if (is_mean_param(parameter)) {
     text <- c(text, parameter_to_xml_mean(parameter)) # nolint internal function
-  } else if (beautier::is_mu_param(parameter)) {
+  } else if (is_mu_param(parameter)) {
     text <- c(text, parameter_to_xml_mu(parameter)) # nolint internal function
-  } else if (beautier::is_rate_ac_param(parameter)) {
+  } else if (is_rate_ac_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_ac(parameter)) # nolint internal function
-  } else if (beautier::is_rate_ag_param(parameter)) {
+  } else if (is_rate_ag_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_ag(parameter)) # nolint internal function
-  } else if (beautier::is_rate_at_param(parameter)) {
+  } else if (is_rate_at_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_at(parameter)) # nolint internal function
-  } else if (beautier::is_rate_cg_param(parameter)) {
+  } else if (is_rate_cg_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_cg(parameter)) # nolint internal function
-  } else if (beautier::is_rate_ct_param(parameter)) {
+  } else if (is_rate_ct_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_ct(parameter)) # nolint internal function
-  } else if (beautier::is_rate_gt_param(parameter)) {
+  } else if (is_rate_gt_param(parameter)) {
     text <- c(text, parameter_to_xml_rate_gt(parameter)) # nolint internal function
-  } else if (beautier::is_s_param(parameter)) {
+  } else if (is_s_param(parameter)) {
     text <- c(text, parameter_to_xml_s(parameter)) # nolint internal function
-  } else if (beautier::is_scale_param(parameter)) {
+  } else if (is_scale_param(parameter)) {
     text <- c(text, parameter_to_xml_scale(parameter)) # nolint internal function
   } else {
     # This assert will also fail for new parameter types
-    testit::assert(beautier::is_sigma_param(parameter))
+    testit::assert(is_sigma_param(parameter))
     text <- c(text, parameter_to_xml_sigma(parameter)) # nolint internal function
   }
   text
@@ -69,7 +69,7 @@ parameter_to_xml <- function(
 parameter_to_xml_alpha <- function(
   parameter
 ) {
-  testit::assert(beautier::is_alpha_param(parameter))
+  testit::assert(is_alpha_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -96,7 +96,7 @@ parameter_to_xml_alpha <- function(
 parameter_to_xml_beta <- function(
   parameter
 ) {
-  testit::assert(beautier::is_beta_param(parameter))
+  testit::assert(is_beta_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -122,7 +122,7 @@ parameter_to_xml_beta <- function(
 parameter_to_xml_clock_rate <- function(
   parameter
 ) {
-  testit::assert(beautier::is_clock_rate_param(parameter))
+  testit::assert(is_clock_rate_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -150,7 +150,7 @@ parameter_to_xml_clock_rate <- function(
 parameter_to_xml_kappa_1 <- function(
   parameter
 ) {
-  testit::assert(beautier::is_kappa_1_param(parameter))
+  testit::assert(is_kappa_1_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -169,7 +169,7 @@ parameter_to_xml_kappa_1 <- function(
 parameter_to_xml_kappa_2 <- function(
   parameter
 ) {
-  testit::assert(beautier::is_kappa_2_param(parameter))
+  testit::assert(is_kappa_2_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -190,7 +190,7 @@ parameter_to_xml_kappa_2 <- function(
 parameter_to_xml_lambda <- function(
   parameter
 ) {
-  testit::assert(beautier::is_lambda_param(parameter))
+  testit::assert(is_lambda_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -214,7 +214,7 @@ parameter_to_xml_lambda <- function(
 parameter_to_xml_m <- function(
   parameter
 ) {
-  testit::assert(beautier::is_m_param(parameter))
+  testit::assert(is_m_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -240,7 +240,7 @@ parameter_to_xml_m <- function(
 parameter_to_xml_mean <- function(
   parameter
 ) {
-  testit::assert(beautier::is_mean_param(parameter))
+  testit::assert(is_mean_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -266,7 +266,7 @@ parameter_to_xml_mean <- function(
 parameter_to_xml_mu <- function(
   parameter
 ) {
-  testit::assert(beautier::is_mu_param(parameter))
+  testit::assert(is_mu_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -292,7 +292,7 @@ parameter_to_xml_mu <- function(
 parameter_to_xml_rate_ac <- function(
   parameter
 ) {
-  testit::assert(beautier::is_rate_ac_param(parameter))
+  testit::assert(is_rate_ac_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -311,7 +311,7 @@ parameter_to_xml_rate_ac <- function(
 parameter_to_xml_rate_ag <- function(
   parameter
 ) {
-  testit::assert(beautier::is_rate_ag_param(parameter))
+  testit::assert(is_rate_ag_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -330,7 +330,7 @@ parameter_to_xml_rate_ag <- function(
 parameter_to_xml_rate_at <- function(
   parameter
 ) {
-  testit::assert(beautier::is_rate_at_param(parameter))
+  testit::assert(is_rate_at_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -349,7 +349,7 @@ parameter_to_xml_rate_at <- function(
 parameter_to_xml_rate_cg <- function(
   parameter
 ) {
-  testit::assert(beautier::is_rate_cg_param(parameter))
+  testit::assert(is_rate_cg_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -371,7 +371,7 @@ parameter_to_xml_rate_ct <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(beautier::is_rate_ct_param(parameter))
+  testit::assert(is_rate_ct_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -398,7 +398,7 @@ parameter_to_xml_rate_ct <- function(
 parameter_to_xml_rate_gt <- function(
   parameter
 ) {
-  testit::assert(beautier::is_rate_gt_param(parameter))
+  testit::assert(is_rate_gt_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   value <- parameter$value
@@ -417,7 +417,7 @@ parameter_to_xml_rate_gt <- function(
 parameter_to_xml_s <- function(
   parameter
 ) {
-  testit::assert(beautier::is_s_param(parameter))
+  testit::assert(is_s_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -448,7 +448,7 @@ parameter_to_xml_s <- function(
 parameter_to_xml_scale <- function(
   parameter
 ) {
-  testit::assert(beautier::is_scale_param(parameter))
+  testit::assert(is_scale_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
@@ -474,7 +474,7 @@ parameter_to_xml_scale <- function(
 parameter_to_xml_sigma <- function(
   parameter
 ) {
-  testit::assert(beautier::is_sigma_param(parameter))
+  testit::assert(is_sigma_param(parameter))
   id <- beautier::get_param_id(parameter)
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")

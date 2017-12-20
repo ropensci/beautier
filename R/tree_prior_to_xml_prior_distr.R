@@ -14,18 +14,18 @@
 tree_prior_to_xml_prior_distr <- function( # nolint internal function
   tree_prior
 ) {
-  testit::assert(beautier::is_tree_prior(tree_prior))
+  testit::assert(is_tree_prior(tree_prior))
   text <- NULL
-  if (beautier::is_bd_tree_prior(tree_prior)) {
+  if (is_bd_tree_prior(tree_prior)) {
     text <- c(text, bd_tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
-  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
+  } else if (is_cbs_tree_prior(tree_prior)) {
     text <- c(text, cbs_tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
-  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
+  } else if (is_ccp_tree_prior(tree_prior)) {
     text <- c(text, ccp_tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
-  } else if (beautier::is_cep_tree_prior(tree_prior)) {
+  } else if (is_cep_tree_prior(tree_prior)) {
     text <- c(text, cep_tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
   } else {
-    testit::assert(beautier::is_yule_tree_prior(tree_prior))
+    testit::assert(is_yule_tree_prior(tree_prior))
     text <- c(text, yule_tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
   }
   text

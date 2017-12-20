@@ -12,21 +12,20 @@
 #'    "beast.xml",
 #'    site_models = tn93_site_model
 #'  )
-#' @export
 is_tn93_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   if (!"kappa_1_prior_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$kappa_1_prior_distr)) return(FALSE)
+  if (!is_distr(x$kappa_1_prior_distr)) return(FALSE)
   if (!"kappa_2_prior_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$kappa_2_prior_distr)) return(FALSE)
+  if (!is_distr(x$kappa_2_prior_distr)) return(FALSE)
   if (!"kappa_1_param" %in% names(x)) return(FALSE)
-  if (!beautier::is_param(x$kappa_1_param)) return(FALSE)
+  if (!is_param(x$kappa_1_param)) return(FALSE)
   if (!"kappa_2_param" %in% names(x)) return(FALSE)
-  if (!beautier::is_param(x$kappa_2_param)) return(FALSE)
+  if (!is_param(x$kappa_2_param)) return(FALSE)
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 
 }

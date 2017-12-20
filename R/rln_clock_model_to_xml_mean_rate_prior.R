@@ -3,7 +3,7 @@
 #' @author Richel J.C. Bilderbeek
 rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint internal function
 
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  testit::assert(is_rln_clock_model(rln_clock_model))
   id <- rln_clock_model$id
   testit::assert(is_id(id))
 

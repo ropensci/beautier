@@ -6,11 +6,10 @@
 #' @examples
 #'   gtr_site_model <- create_gtr_site_model()
 #'   testit::assert(is_gtr_site_model(gtr_site_model))
-#' @export
 is_gtr_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   if (x$name != "GTR") return(FALSE)
 
   expected_names <- c("rate_ac_prior_distr", "rate_ag_prior_distr",
@@ -24,15 +23,15 @@ is_gtr_site_model <- function(
   expected_distrs <- list(x$rate_ac_prior_distr, x$rate_ag_prior_distr,
     x$rate_at_prior_distr, x$rate_cg_prior_distr, x$rate_gt_prior_distr)
   for (expected_distr in expected_distrs) {
-    if (!beautier::is_distr(expected_distr)) return(FALSE)
+    if (!is_distr(expected_distr)) return(FALSE)
   }
 
   expected_params <- list(x$rate_ac_param, x$rate_ag_param, x$rate_at_param,
     x$rate_cg_param, x$rate_ct_param, x$rate_gt_param)
   for (expected_param in expected_params) {
-    if (!beautier::is_param(expected_param)) return(FALSE)
+    if (!is_param(expected_param)) return(FALSE)
   }
 
-  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 }

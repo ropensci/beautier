@@ -35,7 +35,7 @@ distr_to_xml <- function(
   } else if (is_poisson_distr(distr)) {
     text <- c(text, distr_to_xml_poisson(distr)) # nolint internal function
   } else {
-    testit::assert(beautier::is_uniform_distr(distr))
+    testit::assert(is_uniform_distr(distr))
     text <- c(text, distr_to_xml_uniform(distr)) # nolint internal function
   }
   text
@@ -49,7 +49,7 @@ distr_to_xml <- function(
 distr_to_xml_beta <- function(
   distr
 ) {
-  testit::assert(beautier::is_beta_distr(distr))
+  testit::assert(is_beta_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -79,7 +79,7 @@ distr_to_xml_beta <- function(
 distr_to_xml_exp <- function(
   distr
 ) {
-  testit::assert(beautier::is_exp_distr(distr))
+  testit::assert(is_exp_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -104,7 +104,7 @@ distr_to_xml_exp <- function(
 distr_to_xml_gamma <- function(
   distr
 ) {
-  testit::assert(beautier::is_gamma_distr(distr))
+  testit::assert(is_gamma_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -135,7 +135,7 @@ distr_to_xml_gamma <- function(
 distr_to_xml_inv_gamma <- function(
   distr
 ) {
-  testit::assert(beautier::is_inv_gamma_distr(distr))
+  testit::assert(is_inv_gamma_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -166,7 +166,7 @@ distr_to_xml_inv_gamma <- function(
 distr_to_xml_laplace <- function(
   distr
 ) {
-  testit::assert(beautier::is_laplace_distr(distr))
+  testit::assert(is_laplace_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -196,7 +196,7 @@ distr_to_xml_laplace <- function(
 distr_to_xml_log_normal <- function(
   distr
 ) {
-  testit::assert(beautier::is_log_normal_distr(distr))
+  testit::assert(is_log_normal_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -228,7 +228,7 @@ distr_to_xml_log_normal <- function(
 distr_to_xml_normal <- function(
   distr
 ) {
-  testit::assert(beautier::is_normal_distr(distr))
+  testit::assert(is_normal_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -259,7 +259,7 @@ distr_to_xml_normal <- function(
 distr_to_xml_one_div_x <- function(
   distr
 ) {
-  testit::assert(beautier::is_one_div_x_distr(distr))
+  testit::assert(is_one_div_x_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -277,7 +277,7 @@ distr_to_xml_one_div_x <- function(
 distr_to_xml_poisson <- function(
   distr
 ) {
-  testit::assert(beautier::is_poisson_distr(distr))
+  testit::assert(is_poisson_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 
@@ -303,7 +303,7 @@ distr_to_xml_poisson <- function(
 distr_to_xml_uniform <- function(
   distr
 ) {
-  testit::assert(beautier::is_uniform_distr(distr))
+  testit::assert(is_uniform_distr(distr))
   id <- distr$id
   testit::assert(is_id(id))
 

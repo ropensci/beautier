@@ -13,7 +13,7 @@ get_first_clock_model_index <- function(
   clock_model,
   clock_models
 ) {
-  if (!beautier::is_clock_model(clock_model)) {
+  if (!is_clock_model(clock_model)) {
     stop("'clock_model' must be a clock model")
   }
   if (!beautier::are_clock_models(clock_models)) {

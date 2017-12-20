@@ -5,7 +5,6 @@
 #' @return TRUE if the file is valid, FALSE if not
 #' @author Richel J.C. Bilderbeek
 #' @seealso Use \code{\link{are_beast2_input_lines}} to check the lines
-#' @export
 is_beast2_input_file <- function(filename, verbose = FALSE) {
   if (!file.exists(filename)) {
     stop("file not found")
@@ -36,12 +35,4 @@ is_beast2_input_file <- function(filename, verbose = FALSE) {
   }
   is_valid <- utils::tail(output, n = 1) == "Done!"
   is_valid
-}
-
-#' Deprecated name for function \code{\link{is_beast2_input_file}}
-#' @param filename name of the BEAST2 XML input file
-#' @return TRUE if the file is valid, FALSE if not
-#' @export
-is_valid_beast2_input_file <- function(filename) {
-  beautier::is_beast2_input_file(filename = filename)
 }

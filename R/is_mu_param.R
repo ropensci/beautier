@@ -9,10 +9,9 @@
 #' @examples
 #'   mu_param <- create_mu_param()
 #'   testit::assert(is_mu_param(mu_param))
-#' @export
 is_mu_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
+  if (!is_param(x)) return(FALSE)
   x$name == "mu"
 }

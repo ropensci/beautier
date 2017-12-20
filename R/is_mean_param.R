@@ -4,10 +4,9 @@
 #' @return TRUE if x is a valid mean parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_mean_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
+  if (!is_param(x)) return(FALSE)
   return("name" %in% names(x) && x$name == "mean")
 }

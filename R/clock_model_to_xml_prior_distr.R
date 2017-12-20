@@ -14,7 +14,7 @@ clock_model_to_xml_prior_distr <- function(
   clock_model,
   is_first = TRUE
 ) {
-  testit::assert(beautier::is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
@@ -39,7 +39,7 @@ clock_model_to_xml_prior_distr <- function(
     text <- c(text, paste0("</prior>"))
   } else {
     # Fails for unimplemented clock models
-    testit::assert(beautier::is_strict_clock_model(clock_model))
+    testit::assert(is_strict_clock_model(clock_model))
 
     if (is_first == FALSE) {
       id <- clock_model$id

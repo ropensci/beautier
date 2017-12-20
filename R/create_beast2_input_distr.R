@@ -189,7 +189,7 @@ create_beast2_input_distr_lh <- function( # nolint long function name is fine, a
 bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   bd_tree_prior
 ) {
-  testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
+  testit::assert(is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
   testit::assert(is_id(id))
 
@@ -252,7 +252,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   cbs_tree_prior
 ) {
-  testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
+  testit::assert(is_cbs_tree_prior(cbs_tree_prior))
   id <- cbs_tree_prior$id
   testit::assert(is_id(id))
 
@@ -288,7 +288,7 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   ccp_tree_prior
 ) {
-  testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
   testit::assert(is_id(id))
 
@@ -339,7 +339,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   cep_tree_prior
 ) {
-  testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
+  testit::assert(is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id
   testit::assert(is_id(id))
 
@@ -402,7 +402,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   yule_tree_prior
 ) {
-  testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
+  testit::assert(is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
   testit::assert(is_id(id))
 

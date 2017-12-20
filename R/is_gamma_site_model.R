@@ -5,7 +5,6 @@
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model()
 #'   testit::assert(is_gamma_site_model(gamma_site_model))
-#' @export
 is_gamma_site_model <- function(x) {
 
   if (!"gamma_cat_count" %in% names(x)) return(FALSE)
@@ -16,6 +15,6 @@ is_gamma_site_model <- function(x) {
   if (x$prop_invariant < 0.0) return(FALSE)
   if (x$prop_invariant > 1.0) return(FALSE)
   if (!"gamma_shape_prior_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$gamma_shape_prior_distr)) return(FALSE)
+  if (!is_distr(x$gamma_shape_prior_distr)) return(FALSE)
   TRUE
 }

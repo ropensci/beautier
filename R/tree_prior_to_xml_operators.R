@@ -7,7 +7,7 @@ tree_prior_to_xml_operators <- function(
   tree_prior,
   fixed_crown_age = FALSE
 ) {
-  testit::assert(beautier::is_tree_prior(tree_prior))
+  testit::assert(is_tree_prior(tree_prior))
   id <- tree_prior$id
   testit::assert(is_id(id))
 
@@ -45,7 +45,7 @@ tree_prior_to_xml_operators <- function(
       "weight=\"3.0\" windowSize=\"1.0\"/>"))
   } else {
     # Will fail on unimplemented tree priors
-    testit::assert(beautier::is_yule_tree_prior(tree_prior))
+    testit::assert(is_yule_tree_prior(tree_prior))
 
     text <- c(text,
       paste0(

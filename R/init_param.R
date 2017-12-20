@@ -9,7 +9,7 @@ init_param <- function(
   param,
   id
 ) {
-  testit::assert(beautier::is_param(param))
+  testit::assert(is_param(param))
 
   if (is.na(param$id)) {
     param$id <- id

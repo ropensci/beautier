@@ -6,11 +6,11 @@
 site_model_to_xml_subst_model <- function(
   site_model
 ) {
-  testit::assert(beautier::is_site_model(site_model))
+  testit::assert(is_site_model(site_model))
   id <- site_model$id
   testit::assert(is_id(id))
 
-  if (beautier::is_jc69_site_model(site_model)) {
+  if (is_jc69_site_model(site_model)) {
     return(
       paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>")
     )

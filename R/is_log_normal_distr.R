@@ -23,16 +23,15 @@
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
-#' @export
 is_log_normal_distr <- function(
   x
 ) {
-  if (!beautier::is_distr(x)) return(FALSE)
+  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "log_normal") return(FALSE)
   if (!"m" %in% names(x)) return(FALSE)
-  if (!beautier::is_m_param(x$m)) return(FALSE)
+  if (!is_m_param(x$m)) return(FALSE)
   if (!"s" %in% names(x)) return(FALSE)
-  if (!beautier::is_s_param(x$s)) return(FALSE)
+  if (!is_s_param(x$s)) return(FALSE)
   TRUE
 }

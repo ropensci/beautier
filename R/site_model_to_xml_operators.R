@@ -6,7 +6,7 @@
 site_model_to_xml_operators <- function(
   site_model
 ) {
-  testit::assert(beautier::is_site_model(site_model))
+  testit::assert(is_site_model(site_model))
 
   # May be NA for JC69 model
   id <- site_model$id

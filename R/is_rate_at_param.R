@@ -9,10 +9,9 @@
 #' @examples
 #'   rate_at_param <- create_rate_at_param()
 #'   testit::assert(is_rate_at_param(rate_at_param))
-#' @export
 is_rate_at_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
+  if (!is_param(x)) return(FALSE)
   x$name == "rate_at"
 }

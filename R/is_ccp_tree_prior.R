@@ -6,7 +6,6 @@
 #' @return TRUE if x is a valid constant coalescence population tree prior,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_ccp_tree_prior <- function(
   x
 ) {

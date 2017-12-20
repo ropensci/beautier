@@ -25,7 +25,7 @@ create_distr <- function(
   id,
   ...
 ) {
-  if (!beautier::is_distr_name(name)) {
+  if (!is_distr_name(name)) {
     distr_as_string <- function() {
       s <- NULL
       for (p in get_distr_names()) {
@@ -268,11 +268,11 @@ create_laplace_distr <- function(
   mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
   scale = create_scale_param(id = NA, estimate = FALSE, value = 1.0)
 ) {
-  if (!beautier::is_mu_param(mu)) {
+  if (!is_mu_param(mu)) {
     stop("'mu' must be a mu parameter, ",
       "as returned by 'create_mu_param'")
   }
-  if (!beautier::is_scale_param(scale)) {
+  if (!is_scale_param(scale)) {
     stop("'scale' must be a scale parameter, ",
       "as returned by 'create_scale_param'")
   }

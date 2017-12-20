@@ -8,7 +8,7 @@ test_that("checks input", {
 
 test_that("Create CCP posterior with random initial tree", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   posterior <- create_posterior(
     n_taxa = 2,
@@ -21,7 +21,7 @@ test_that("Create CCP posterior with random initial tree", {
 
 test_that("Create BD posterior with random initial tree", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   posterior <- create_posterior(
     n_taxa = 2,
@@ -35,7 +35,7 @@ test_that("Create BD posterior with random initial tree", {
 
 test_that("A fixed crown age must have equal TreeHeights", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   posterior <- create_posterior(
     n_taxa = 5,
@@ -52,7 +52,7 @@ test_that("A fixed crown age must have equal TreeHeights", {
 test_that(paste0("Fixed and specified crown age must result in a posterior ",
   "with that TreeHeight"), {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   crown_age <- 123
   posterior <- beautier::create_posterior(
@@ -73,7 +73,7 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
 
 test_that("Can specify fixed crown age", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   input_fasta_filename <- beautier::get_fasta_filename()
   output_xml_filename_fixed <- tempfile()
@@ -90,13 +90,13 @@ test_that("Can specify fixed crown age", {
       input_fasta_filename, crown_age = 15)
   )
   testthat::expect_true(
-    beautier::is_beast2_input_file(output_xml_filename_fixed)
+    is_beast2_input_file(output_xml_filename_fixed)
   )
 })
 
 test_that("Produce XML for Yule species tree prior", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   input_fasta_filename <- get_fasta_filename()
   output_xml_filename <- tempfile()
@@ -106,13 +106,13 @@ test_that("Produce XML for Yule species tree prior", {
     output_xml_filename = output_xml_filename
   )
   testthat::expect_true(
-    beautier::is_beast2_input_file(output_xml_filename)
+    is_beast2_input_file(output_xml_filename)
   )
 })
 
 test_that("strict clock model produce a valid BEAST2 input file", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   output_xml_filename <- tempfile()
   create_beast2_input_file(
@@ -120,12 +120,12 @@ test_that("strict clock model produce a valid BEAST2 input file", {
     clock_models = create_strict_clock_model(),
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_true(beautier::is_beast2_input_file(output_xml_filename))
+  testthat::expect_true(is_beast2_input_file(output_xml_filename))
 })
 
 test_that("RLN clock model produce a valid BEAST2 input file", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   output_xml_filename <- tempfile() # nolint
   create_beast2_input_file(
@@ -133,5 +133,5 @@ test_that("RLN clock model produce a valid BEAST2 input file", {
     clock_models = create_rln_clock_model(),
     output_xml_filename = output_xml_filename
   )
-  testthat::expect_true(beautier::is_beast2_input_file(output_xml_filename))
+  testthat::expect_true(is_beast2_input_file(output_xml_filename))
 })

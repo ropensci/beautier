@@ -51,7 +51,7 @@ are_beast2_input_lines_deep <- function(
 ) {
   filename <- tempfile()
   beautier::save_lines(filename = filename, lines = lines)
-  beautier::is_beast2_input_file(
+  is_beast2_input_file(
     filename = filename,
     verbose = verbose
   )

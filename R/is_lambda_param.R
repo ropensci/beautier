@@ -8,10 +8,9 @@
 #' @examples
 #'   lambda_param <- create_lambda_param()
 #'   testit::assert(is_lambda_param(lambda_param))
-#' @export
 is_lambda_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
+  if (!is_param(x)) return(FALSE)
   x$name == "lambda"
 }

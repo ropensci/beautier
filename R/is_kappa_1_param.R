@@ -9,10 +9,9 @@
 #' @examples
 #'   kappa_1_param <- create_kappa_1_param()
 #'   testit::assert(is_kappa_1_param(kappa_1_param))
-#' @export
 is_kappa_1_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
+  if (!is_param(x)) return(FALSE)
   x$name == "kappa_1"
 }

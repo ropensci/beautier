@@ -8,11 +8,10 @@
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_normal_distr <- function(
   x
 ) {
-  if (!beautier::is_distr(x)) return(FALSE)
+  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "normal") return(FALSE)
   if (!"mean" %in% names(x)) return(FALSE)

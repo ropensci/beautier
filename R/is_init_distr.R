@@ -7,29 +7,29 @@
 is_init_distr <- function(
   x
 ) {
-  if (!beautier::is_distr(x)) return(FALSE)
+  if (!is_distr(x)) return(FALSE)
   if (is.na(x$id)) return(FALSE)
 
-  if (beautier::is_beta_distr(x)) {
+  if (is_beta_distr(x)) {
     return(is_init_beta_distr(x))  # nolint internal function call
-  } else if (beautier::is_exp_distr(x)) {
+  } else if (is_exp_distr(x)) {
     return(is_init_exp_distr(x))  # nolint internal function call
-  } else if (beautier::is_gamma_distr(x)) {
+  } else if (is_gamma_distr(x)) {
     return(is_init_gamma_distr(x))  # nolint internal function call
-  } else if (beautier::is_inv_gamma_distr(x)) {
+  } else if (is_inv_gamma_distr(x)) {
     return(is_init_inv_gamma_distr(x))  # nolint internal function call
-  } else if (beautier::is_laplace_distr(x)) {
+  } else if (is_laplace_distr(x)) {
     return(is_init_laplace_distr(x))  # nolint internal function call
-  } else if (beautier::is_log_normal_distr(x)) {
+  } else if (is_log_normal_distr(x)) {
     return(is_init_log_normal_distr(x))  # nolint internal function call
-  } else if (beautier::is_normal_distr(x)) {
+  } else if (is_normal_distr(x)) {
     return(is_init_normal_distr(x))  # nolint internal function call
-  } else if (beautier::is_one_div_x_distr(x)) {
+  } else if (is_one_div_x_distr(x)) {
     return(is_init_one_div_x_distr(x))  # nolint internal function call
-  } else if (beautier::is_poisson_distr(x)) {
+  } else if (is_poisson_distr(x)) {
     return(is_init_poisson_distr(x))  # nolint internal function call
   } else {
-    testit::assert(beautier::is_uniform_distr(x))
+    testit::assert(is_uniform_distr(x))
     return(is_init_uniform_distr(x))  # nolint internal function call
   }
 }
@@ -43,7 +43,7 @@ is_init_distr <- function(
 is_init_beta_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_beta_distr(x))
+  testit::assert(is_beta_distr(x))
   !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
@@ -56,7 +56,7 @@ is_init_beta_distr <- function(
 is_init_exp_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_exp_distr(x))
+  testit::assert(is_exp_distr(x))
   !is.na(x$mean$id)
 }
 
@@ -69,7 +69,7 @@ is_init_exp_distr <- function(
 is_init_gamma_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_gamma_distr(x))
+  testit::assert(is_gamma_distr(x))
   !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
@@ -82,7 +82,7 @@ is_init_gamma_distr <- function(
 is_init_inv_gamma_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_inv_gamma_distr(x))
+  testit::assert(is_inv_gamma_distr(x))
   !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
@@ -95,7 +95,7 @@ is_init_inv_gamma_distr <- function(
 is_init_laplace_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_laplace_distr(x))
+  testit::assert(is_laplace_distr(x))
   !is.na(x$mu$id) && !is.na(x$scale$id)
 }
 
@@ -108,7 +108,7 @@ is_init_laplace_distr <- function(
 is_init_log_normal_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_log_normal_distr(x))
+  testit::assert(is_log_normal_distr(x))
   !is.na(x$m$id) && !is.na(x$s$id)
 }
 
@@ -121,7 +121,7 @@ is_init_log_normal_distr <- function(
 is_init_normal_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_normal_distr(x))
+  testit::assert(is_normal_distr(x))
   !is.na(x$mean$id) && !is.na(x$sigma$id)
 }
 
@@ -134,7 +134,7 @@ is_init_normal_distr <- function(
 is_init_one_div_x_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_one_div_x_distr(x))
+  testit::assert(is_one_div_x_distr(x))
   TRUE
 }
 
@@ -147,7 +147,7 @@ is_init_one_div_x_distr <- function(
 is_init_poisson_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_poisson_distr(x))
+  testit::assert(is_poisson_distr(x))
   !is.na(x$lambda$id)
 }
 
@@ -160,6 +160,6 @@ is_init_poisson_distr <- function(
 is_init_uniform_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_uniform_distr(x))
+  testit::assert(is_uniform_distr(x))
   TRUE
 }

@@ -18,7 +18,7 @@ init_clock_models <- function(
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
-    testit::assert(beautier::is_clock_model(clock_model))
+    testit::assert(is_clock_model(clock_model))
 
     if (is_rln_clock_model(clock_model)) {
       # RLN
@@ -41,7 +41,7 @@ init_clock_models <- function(
       }
 
     } else {
-      testit::assert(beautier::is_strict_clock_model(clock_model))
+      testit::assert(is_strict_clock_model(clock_model))
 
       if (!is_init_strict_clock_model(clock_model)) {
 
@@ -74,7 +74,7 @@ init_rln_clock_model <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  testit::assert(is_rln_clock_model(rln_clock_model))
   ucldstdev_distr <- init_distr(
     rln_clock_model$ucldstdev_distr,
     distr_id,
@@ -121,7 +121,7 @@ init_strict_clock_model <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
+  testit::assert(is_strict_clock_model(strict_clock_model))
 
   # clock_rate_distr
   strict_clock_model$clock_rate_distr <- init_distr(

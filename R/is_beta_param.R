@@ -5,10 +5,9 @@
 #' @return TRUE if x is a valid beta parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_beta_param <- function(
   x
 ) {
-  if (!beautier::is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "beta")
+  if (!is_param(x)) return(FALSE)
+  "name" %in% names(x) && x$name == "beta"
 }

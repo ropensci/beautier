@@ -7,7 +7,7 @@
 clock_model_to_xml_state <- function(
   clock_model
 ) {
-  testit::assert(beautier::is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model))
   id <- clock_model$id
   testit::assert(is_id(id))
 
@@ -22,7 +22,7 @@ clock_model_to_xml_state <- function(
     )
   } else {
     # Fails on unimplemented clock models
-    testit::assert(beautier::is_rln_clock_model(clock_model))
+    testit::assert(is_rln_clock_model(clock_model))
 
     testit::assert(!is.na(clock_model$mean_clock_rate))
     testit::assert(!is.na(clock_model$dimension))

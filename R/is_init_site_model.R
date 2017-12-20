@@ -7,15 +7,15 @@
 is_init_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
-  if (beautier::is_gtr_site_model(x)) {
+  if (!is_site_model(x)) return(FALSE)
+  if (is_gtr_site_model(x)) {
     return(is_init_gtr_site_model(x)) # nolint internal function call
-  } else if (beautier::is_hky_site_model(x)) {
+  } else if (is_hky_site_model(x)) {
     return(is_init_hky_site_model(x)) # nolint internal function call
-  } else if (beautier::is_jc69_site_model(x)) {
+  } else if (is_jc69_site_model(x)) {
     return(TRUE)
   } else {
-    testit::assert(beautier::is_tn93_site_model(x))
+    testit::assert(is_tn93_site_model(x))
     return(is_init_tn93_site_model(x)) # nolint internal function call
   }
 }
@@ -34,7 +34,7 @@ is_init_site_model <- function(
 is_init_gtr_site_model <- function(
   x
 ) {
-  testit::assert(beautier::is_gtr_site_model(x))
+  testit::assert(is_gtr_site_model(x))
   if (!is_init_distr(x$rate_ac_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_ag_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE) # nolint internal function
@@ -63,7 +63,7 @@ is_init_gtr_site_model <- function(
 is_init_hky_site_model <- function(
   x
 ) {
-  testit::assert(beautier::is_hky_site_model(x))
+  testit::assert(is_hky_site_model(x))
   is_init_distr(x$kappa_prior) # nolint internal function
 }
 
@@ -81,7 +81,7 @@ is_init_hky_site_model <- function(
 is_init_tn93_site_model <- function(
   x
 ) {
-  testit::assert(beautier::is_tn93_site_model(x))
+  testit::assert(is_tn93_site_model(x))
   is_init_distr(x$kappa_1_prior) &&
     is_init_distr(x$kappa_2_prior)
 }

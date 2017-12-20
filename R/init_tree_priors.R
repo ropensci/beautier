@@ -14,7 +14,7 @@ init_tree_priors <- function(
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    testit::assert(beautier::is_tree_prior(tree_prior))
+    testit::assert(is_tree_prior(tree_prior))
 
     if (is_bd_tree_prior(tree_prior)) {
       if (!is_init_bd_tree_prior(tree_prior)) {
@@ -37,7 +37,7 @@ init_tree_priors <- function(
         )
       }
     } else {
-      testit::assert(beautier::is_yule_tree_prior(tree_prior))
+      testit::assert(is_yule_tree_prior(tree_prior))
       if (!is_init_yule_tree_prior(tree_prior)) {
         tree_prior <- init_yule_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
@@ -62,7 +62,7 @@ init_bd_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
+  testit::assert(is_bd_tree_prior(bd_tree_prior))
 
   result <- create_bd_tree_prior(
     birth_rate_distr = init_distr(
@@ -90,7 +90,7 @@ init_ccp_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
 
   result <- create_ccp_tree_prior(
     pop_size_distr = init_distr(
@@ -111,7 +111,7 @@ init_cep_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
+  testit::assert(is_cep_tree_prior(cep_tree_prior))
   testit::assert(!is.na(distr_id))
   testit::assert(!is.na(param_id))
   testit::assert(!is.na(
@@ -142,7 +142,7 @@ init_yule_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
+  testit::assert(is_yule_tree_prior(yule_tree_prior))
 
   result <- create_yule_tree_prior(
     birth_rate_distr = init_distr(

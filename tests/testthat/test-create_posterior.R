@@ -2,7 +2,7 @@ context("create_posterior")
 
 test_that("returns a posterior", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   posterior <- create_posterior(
     n_taxa = 2,
@@ -15,7 +15,7 @@ test_that("returns a posterior", {
 
 test_that("use", {
 
-  if (!beautier::is_on_travis()) return()
+  if (!is_on_travis()) return()
 
   testthat::expect_silent(
     create_posterior(

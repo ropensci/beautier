@@ -10,7 +10,6 @@
 #'   testit::assert(is_freq_equilibrium_name("estimated"))
 #'   testit::assert(is_freq_equilibrium_name("empirical"))
 #'   testit::assert(is_freq_equilibrium_name("all_equal"))
-#' @export
 is_freq_equilibrium_name <- function(
   name
 ) {

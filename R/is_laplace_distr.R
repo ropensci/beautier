@@ -11,16 +11,15 @@
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'   testit::assert(is_laplace_distr(laplace_distr))
-#' @export
 is_laplace_distr <- function(
   x
 ) {
-  if (!beautier::is_distr(x)) return(FALSE)
+  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "laplace") return(FALSE)
   if (!"mu" %in% names(x)) return(FALSE)
-  if (!beautier::is_mu_param(x$mu)) return(FALSE)
+  if (!is_mu_param(x$mu)) return(FALSE)
   if (!"scale" %in% names(x)) return(FALSE)
-  if (!beautier::is_scale_param(x$scale)) return(FALSE)
+  if (!is_scale_param(x$scale)) return(FALSE)
   TRUE
 }

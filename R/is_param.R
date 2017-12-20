@@ -4,7 +4,6 @@
 #' @return TRUE if x is a valid parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_param <- function(
   x
 ) {

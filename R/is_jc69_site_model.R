@@ -5,10 +5,9 @@
 #' @examples
 #'   jc69_site_model <- create_jc69_site_model()
 #'   testit::assert(is_jc69_site_model(jc69_site_model))
-#' @export
 is_jc69_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   x$name == "JC69"
 }

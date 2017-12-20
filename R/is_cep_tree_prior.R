@@ -6,7 +6,6 @@
 #' @return TRUE if x is a valid coalescent exponentialpopulation tree prior,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_cep_tree_prior <- function(
   x
 ) {
