@@ -30,11 +30,11 @@ for (site_model_1 in beautier::create_site_models()) {
           }
           n <- n + 1
           if (n == 100) is_ok <- FALSE 
-          testthat::expect_true(is_ok) # nolint one day will be OK
+          testit::assert(is_ok) # nolint one day will be OK
         }
       }
     }
   }
 }
-testthat::expect_equal(n_fail, 0)
+testit::assert(n_fail == 0)
 
