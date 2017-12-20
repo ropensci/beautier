@@ -38,12 +38,15 @@ Use \code{\link{create_site_model}} to create a site model
 }
 \examples{
   gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
+
   site_model <- create_hky_site_model(gamma_site_model = gamma_site_model)
+
   create_beast2_input_file(
     get_fasta_filename(),
-    "beast2.xml",
+    "create_gamma_site_model.xml",
     site_model = site_model
- )
+  )
+  testit::assert(file.exists("create_gamma_site_model.xml"))
 }
 \author{
 Richel J.C. Bilderbeek

@@ -15,12 +15,15 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
+#'
 #'   site_model <- create_hky_site_model(gamma_site_model = gamma_site_model)
+#'
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
-#'     "beast2.xml",
+#'     "create_gamma_site_model.xml",
 #'     site_model = site_model
-#'  )
+#'   )
+#'   testit::assert(file.exists("create_gamma_site_model.xml"))
 #' @export
 create_gamma_site_model <- function(
   gamma_cat_count = get_default_gamma_cat_count(),

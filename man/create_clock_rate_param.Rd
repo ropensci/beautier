@@ -33,13 +33,12 @@ Create a parameter called \code{clock_rate},
   )
 
   # Use the distribution to create a BEAST2 input file
-  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    "my_beast.xml",
+    input_fasta_filenames = get_fasta_filename(),
+    "create_clock_rate_param.xml",
     clock_models = strict_clock_model
   )
-  testit::assert(file.exists("my_beast.xml"))
+  testit::assert(file.exists("create_clock_rate_param.xml"))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

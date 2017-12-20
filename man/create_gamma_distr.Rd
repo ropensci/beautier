@@ -24,17 +24,21 @@ a gamma distribution
 Create a gamma distribution
 }
 \examples{
-  gamma_distr <- create_gamma_distr()
-
-  input_fasta_filename <- get_fasta_filename()
-  create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    "my_beast.xml",
-    tree_priors = create_yule_tree_prior(
-      birth_rate_distr = gamma_distr
-    )
+  gamma_distr <- create_gamma_distr(
+     alpha = create_alpha_param(value = 0.05),
+     beta = create_beta_param(value = 10.0)
   )
-  testit::assert(file.exists("my_beast.xml"))
+
+  gtr_site_model <- create_gtr_site_model(
+    rate_ac_prior_distr = gamma_distr
+  )
+
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    "create_gamma_distr.xml",
+    site_model = gtr_site_model
+  )
+  testit::assert(file.exists("create_gamma_distr.xml"))
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

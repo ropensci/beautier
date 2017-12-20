@@ -238,13 +238,14 @@ create_tn93_site_model <- function(
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'  gtr_site_model <- create_gtr_site_model()
+#'   gtr_site_model <- create_gtr_site_model()
 #'
-#'  create_beast2_input_file(
-#'    input_fasta_filenames = get_fasta_filename(),
-#'    "beast.xml",
-#'    site_models = gtr_site_model
-#'  )
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_gtr_site_model.xml",
+#'     site_models = gtr_site_model
+#'   )
+#'   testit::assert(file.exists("create_gtr_site_model.xml"))
 #' @export
 create_gtr_site_model <- function(
   id = NA,

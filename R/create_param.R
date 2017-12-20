@@ -77,15 +77,14 @@ create_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_alpha_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_alpha_param.xml"))
 #' @export
 create_alpha_param <- function(
   id = NA,
@@ -125,15 +124,14 @@ create_alpha_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_beta_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = gamma_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_beta_param.xml"))
 #' @export
 create_beta_param <- function(
   id = NA,
@@ -169,13 +167,12 @@ create_beta_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_clock_rate_param.xml",
 #'     clock_models = strict_clock_model
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_clock_rate_param.xml"))
 #' @export
 create_clock_rate_param <- function(
   value = "1.0",
@@ -248,9 +245,8 @@ create_kappa_2_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
@@ -290,9 +286,8 @@ create_lambda_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -336,9 +331,8 @@ create_m_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
@@ -380,9 +374,8 @@ create_mean_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -600,9 +593,8 @@ create_rate_gt_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -650,9 +642,8 @@ create_s_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -696,9 +687,8 @@ create_scale_param <- function(
 #'   )
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr

@@ -38,15 +38,14 @@ and inverse gamma distribution
   )
 
   # Use the distribution to create a BEAST2 input file
-  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    "my_beast.xml",
+    input_fasta_filenames = get_fasta_filename(),
+    "create_alpha_param.xml",
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = beta_distr
     )
   )
-  testit::assert(file.exists("my_beast.xml"))
+  testit::assert(file.exists("create_alpha_param.xml"))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

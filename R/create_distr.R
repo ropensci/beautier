@@ -61,9 +61,8 @@ create_distr <- function(
 #' @examples
 #'   beta_distr <- create_beta_distr()
 #'
-#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -106,9 +105,8 @@ create_beta_distr <- function(
 #' @examples
 #'   exp_distr <- create_exp_distr()
 #'
-#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
@@ -144,17 +142,21 @@ create_exp_distr <- function(
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   gamma_distr <- create_gamma_distr()
-#'
-#'   input_fasta_filename <- get_fasta_filename()
-#'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
-#'     "my_beast.xml",
-#'     tree_priors = create_yule_tree_prior(
-#'       birth_rate_distr = gamma_distr
-#'     )
+#'   gamma_distr <- create_gamma_distr(
+#'      alpha = create_alpha_param(value = 0.05),
+#'      beta = create_beta_param(value = 10.0)
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'
+#'   gtr_site_model <- create_gtr_site_model(
+#'     rate_ac_prior_distr = gamma_distr
+#'   )
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_gamma_distr.xml",
+#'     site_model = gtr_site_model
+#'   )
+#'   testit::assert(file.exists("create_gamma_distr.xml"))
 #' @export
 create_gamma_distr <- function(
   id = NA,
@@ -192,9 +194,8 @@ create_gamma_distr <- function(
 #' @examples
 #'   inv_gamma_distr <- create_inv_gamma_distr()
 #'
-#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = inv_gamma_distr
@@ -238,9 +239,8 @@ create_inv_gamma_distr <- function(
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'
-#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -425,9 +425,8 @@ create_poisson_distr <- function(
 #' @examples
 #'   uniform_distr <- create_uniform_distr()
 #'
-#'   input_fasta_filename <- get_fasta_filename()
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = input_fasta_filename,
+#'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = uniform_distr
