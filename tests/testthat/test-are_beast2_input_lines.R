@@ -3,20 +3,20 @@ context("are_beast2_input_lines")
 test_that("use", {
 
   testthat::expect_true(
-    are_beast2_input_lines(
+    beautier:::beautier:::are_beast2_input_lines(
       readLines(beautier:::get_path("2_4.xml"))
     )
   )
 
   testthat::expect_true(
-    are_beast2_input_lines(
+    beautier:::are_beast2_input_lines(
       readLines(beautier:::get_path("2_4.xml")),
       method = "deep"
     )
   )
 
   testthat::expect_true(
-    are_beast2_input_lines(
+    beautier:::are_beast2_input_lines(
       readLines(beautier:::get_path("2_4.xml")),
       method = "fast"
     )
@@ -27,7 +27,7 @@ test_that("use", {
 test_that("abuse", {
 
   testthat::expect_error(
-    are_beast2_input_lines(
+    beautier:::are_beast2_input_lines(
       readLines(beautier:::get_path("2_4.xml")),
       method = "nonsense"
     ),

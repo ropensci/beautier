@@ -32,6 +32,47 @@ Prefer using the
   \code{\link{create_jc69_site_model}},
   and \code{\link{create_tn93_site_model}}
 }
+\examples{
+  # GTR
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    output_xml_filename = "example_gtr.xml",
+    site_models = create_gtr_site_model()
+  )
+  testthat::expect_true(file.exists("example_gtr.xml"))
+
+  # HKY
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    output_xml_filename = "example_hky.xml",
+    site_models = create_hky_site_model()
+  )
+  testthat::expect_true(file.exists("example_hky.xml"))
+
+  # JC69
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    output_xml_filename = "example_jc69.xml",
+    site_models = create_jc69_site_model()
+  )
+  testthat::expect_true(file.exists("example_jc69.xml"))
+
+  # TN93
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    output_xml_filename = "example_tn93.xml",
+    site_models = create_tn93_site_model()
+  )
+  testthat::expect_true(file.exists("example_tn93.xml"))
+}
+\seealso{
+See \code{\link{create_gtr_site_model}} for more examples
+  with a GTR site model. See \code{\link{create_hky_site_model}}
+  for more examples with an HKY site model. See
+  \code{\link{create_jc69_site_model}} for more examples with a JC69
+  site model. See \code{\link{create_tn93_site_model}} for more
+  examples with a TN93 site model
+}
 \author{
 Richel J.C. Bilderbeek
 }

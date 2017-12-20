@@ -27,7 +27,7 @@ are_beast2_input_lines <- function(
   } else {
     testit::assert(method == "fast")
     return(
-      are_beast2_input_lines_fast(lines = lines)
+      are_beast2_input_lines_fast(lines) # nolint internal function
     )
   }
 }
