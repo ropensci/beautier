@@ -37,5 +37,4 @@ for (site_model_1 in beautier:::create_site_models()) {
     }
   }
 }
-
-
+return(n_fail)
