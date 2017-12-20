@@ -2,12 +2,8 @@ context("are_equal_xml_files")
 
 test_that("use", {
 
-  filename_1 <- filename <- system.file(
-    "extdata", "are_equal_xml_files_1.xml", package = "beautier"
-  )
-  filename_2 <- filename <- system.file(
-    "extdata", "are_equal_xml_files_1.xml", package = "beautier"
-  )
+  filename_1 <- filename <- beautier::get_path("are_equal_xml_files_1.xml")
+  filename_2 <- filename <- beautier::get_path("are_equal_xml_files_1.xml")
   testthat::expect_true(
     are_equal_xml_files(filename_1, filename_2, section = "a")
   )
@@ -18,12 +14,8 @@ test_that("use", {
 
 test_that("abuse", {
 
-  filename_1 <- filename <- system.file(
-    "extdata", "are_equal_xml_files_1.xml", package = "beautier"
-  )
-  filename_2 <- filename <- system.file(
-    "extdata", "are_equal_xml_files_2.xml", package = "beautier"
-  )
+  filename_1 <- filename <- beautier::get_path("are_equal_xml_files_1.xml")
+  filename_2 <- filename <- beautier::get_path("are_equal_xml_files_2.xml")
   testthat::expect_silent(
     are_equal_xml_files(
       filename_1 = filename_1,

@@ -1,7 +1,7 @@
 #' Convert a FASTA file to a table of sequences
 #' @param fasta_filenames One or more existing FASTA filenames
 #' @return a table of sequences
-#' @export
+#' @author Richel J.C. Bilderbeek
 fasta_file_to_sequences <- function(fasta_filenames) {
 
   if (!file.exists(fasta_filenames)) {

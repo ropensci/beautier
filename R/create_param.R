@@ -79,9 +79,7 @@ create_param <- function(
 #'   testit::assert(is_beta_distr(beta_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -131,9 +129,7 @@ create_alpha_param <- function(
 #'   testit::assert(is_gamma_distr(gamma_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -179,9 +175,7 @@ create_beta_param <- function(
 #'   testit::assert(is_strict_clock_model(strict_clock_model))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -262,9 +256,7 @@ create_kappa_2_param <- function(
 #'   testit::assert(is_poisson_distr(poisson_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -308,9 +300,7 @@ create_lambda_param <- function(
 #'   testit::assert(is_log_normal_distr(log_normal_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -358,9 +348,7 @@ create_m_param <- function(
 #'   testit::assert(is_exp_distr(exp_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -406,9 +394,7 @@ create_mean_param <- function(
 #'   testit::assert(is_laplace_distr(laplace_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -630,9 +616,7 @@ create_rate_gt_param <- function(
 #'   testit::assert(is_log_normal_distr(log_normal_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -684,9 +668,7 @@ create_s_param <- function(
 #'   testit::assert(is_laplace_distr(laplace_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -734,9 +716,7 @@ create_scale_param <- function(
 #'   testit::assert(is_normal_distr(normal_distr))
 #'
 #'   # Use the distribution to create a BEAST2 input file
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",

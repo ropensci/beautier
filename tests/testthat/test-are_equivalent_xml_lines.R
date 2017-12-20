@@ -3,10 +3,10 @@ context("are_equivalent_xml_lines")
 test_that("use", {
 
   lines1 <- readLines(
-    system.file("extdata", "gtr_gcc_2_2_4.xml", package = "beautier")
+    beautier::get_path("gtr_gcc_2_2_4.xml")
   )
   lines2 <- readLines(
-    system.file("extdata", "jc69_2_4.xml", package = "beautier")
+    beautier::get_path("jc69_2_4.xml")
   )
 
   testthat::expect_true(

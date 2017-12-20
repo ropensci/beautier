@@ -62,9 +62,7 @@ create_distr <- function(
 #'   beta_distr <- create_beta_distr()
 #'   testit::assert(is_beta_distr(beta_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -110,9 +108,7 @@ create_beta_distr <- function(
 #'   exp_distr <- create_exp_distr()
 #'   testit::assert(is_exp_distr(exp_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -153,9 +149,7 @@ create_exp_distr <- function(
 #'   gamma_distr <- create_gamma_distr()
 #'   testit::assert(is_gamma_distr(gamma_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -202,9 +196,7 @@ create_gamma_distr <- function(
 #'   inv_gamma_distr <- create_inv_gamma_distr()
 #'   testit::assert(is_inv_gamma_distr(inv_gamma_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -251,9 +243,7 @@ create_inv_gamma_distr <- function(
 #'   laplace_distr <- create_laplace_distr()
 #'   testit::assert(is_laplace_distr(laplace_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -300,9 +290,7 @@ create_laplace_distr <- function(
 #'   log_normal_distr <- create_log_normal_distr()
 #'   testit::assert(is_log_normal_distr(log_normal_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -347,9 +335,7 @@ create_log_normal_distr <- function(
 #'   normal_distr <- create_normal_distr()
 #'   testit::assert(is_normal_distr(normal_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -392,9 +378,7 @@ create_normal_distr <- function(
 #'   one_div_x_distr <- create_one_div_x_distr()
 #'   testit::assert(is_one_div_x_distr(one_div_x_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -453,9 +437,7 @@ create_poisson_distr <- function(
 #'   uniform_distr <- create_uniform_distr()
 #'   testit::assert(is_uniform_distr(uniform_distr))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",

@@ -20,9 +20,7 @@ test_that("invalid.xml is not a valid BEAST2 input file", {
   # Gives a status error
   if (!is_on_travis()) return()
 
-  filename <- system.file(
-    "extdata", "invalid.xml", package = "beautier"
-  )
+  filename <- beautier::get_path("invalid.xml")
 
   is_ok <- NULL
 
@@ -38,9 +36,7 @@ test_that("bd_2_4.xml is valid", {
 
   if (!is_on_travis()) return()
 
-  filename <- system.file(
-    "extdata", "bd_2_4.xml", package = "beautier"
-  )
+  filename <- beautier::get_path("bd_2_4.xml")
   testthat::expect_true(file.exists(filename))
   testthat::expect_true(is_beast2_input_file(filename))
 
@@ -50,9 +46,7 @@ test_that("anthus_2_4.xml is valid", {
 
   if (!is_on_travis()) return()
 
-  filename <- system.file(
-    "extdata", "anthus_2_4.xml", package = "beautier"
-  )
+  filename <- beautier::get_path("anthus_2_4.xml")
   testthat::expect_true(file.exists(filename))
   testthat::expect_true(is_beast2_input_file(filename))
 

@@ -293,12 +293,8 @@ test_that("Run CEP", {
 
 test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
-  input_fasta_filename_1 <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
-  input_fasta_filename_2 <- system.file(
-    "extdata", "anthus_nd2.fas", package = "beautier"
-  )
+  input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
+  input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_jc69_site_model()
   site_model_2 <- create_jc69_site_model()
@@ -316,12 +312,8 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
 test_that("TN93 TN93 strict strict yule", {
 
-  input_fasta_filename_1 <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
-  input_fasta_filename_2 <- system.file(
-    "extdata", "anthus_nd2.fas", package = "beautier"
-  )
+  input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
+  input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_tn93_site_model()
   site_model_2 <- create_tn93_site_model()
@@ -341,12 +333,8 @@ test_that("TN93 TN93 strict strict yule", {
 
 test_that("GTR GTR strict strict yule", {
 
-  input_fasta_filename_1 <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
-  input_fasta_filename_2 <- system.file(
-    "extdata", "anthus_nd2.fas", package = "beautier"
-  )
+  input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
+  input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_gtr_site_model()
   site_model_2 <- create_gtr_site_model()
@@ -365,12 +353,8 @@ test_that("GTR GTR strict strict yule", {
 
 test_that("GTR TN93 strict strict yule", {
 
-  input_fasta_filename_1 <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
-  input_fasta_filename_2 <- system.file(
-    "extdata", "anthus_nd2.fas", package = "beautier"
-  )
+  input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
+  input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
   input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_gtr_site_model()
   site_model_2 <- create_tn93_site_model()

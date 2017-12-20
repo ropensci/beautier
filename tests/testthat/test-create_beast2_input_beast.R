@@ -29,10 +29,8 @@ test_that("abuse", {
   )
 
 
-  fasta_filename_1 <- system.file("extdata",
-    "anthus_nd2.fas", package = "beautier")
-  fasta_filename_2 <- system.file("extdata",
-    "anthus_aco.fas", package = "beautier")
+  fasta_filename_1 <- beautier::get_path("anthus_nd2.fas")
+  fasta_filename_2 <- beautier::get_path("anthus_aco.fas")
 
   # Two filenames, one site model
   testthat::expect_error(

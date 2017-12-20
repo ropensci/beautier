@@ -58,9 +58,7 @@ create_tree_prior <- function(
 #'   bd_tree_prior <- create_bd_tree_prior()
 #'   testit::assert(is_bd_tree_prior(bd_tree_prior))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -91,9 +89,7 @@ create_bd_tree_prior <- function(
 #'   cbs_tree_prior <- create_cbs_tree_prior()
 #'   testit::assert(is_cbs_tree_prior(cbs_tree_prior))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -122,9 +118,7 @@ create_cbs_tree_prior <- function(
 #'   ccp_tree_prior <- create_ccp_tree_prior()
 #'   testit::assert(is_ccp_tree_prior(ccp_tree_prior))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -157,9 +151,7 @@ create_ccp_tree_prior <- function(
 #'   cep_tree_prior <- create_cep_tree_prior()
 #'   testit::assert(is_cep_tree_prior(cep_tree_prior))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",
@@ -199,9 +191,7 @@ create_cep_tree_prior <- function(
 #'   yule_tree_prior <- create_yule_tree_prior()
 #'   testit::assert(is_yule_tree_prior(yule_tree_prior))
 #'
-#'   input_fasta_filename <- system.file(
-#'     "extdata", "anthus_aco.fas", package = "beautier"
-#'   )
+#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = input_fasta_filename,
 #'     "my_beast.xml",

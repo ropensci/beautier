@@ -769,9 +769,7 @@ test_that("tn93_gcc_2_2_4.xml", {
 test_that("bd_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = system.file(
-      "extdata", "test_output_0.fas", package = "beautier"
-    ),
+    input_fasta_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_bd_tree_prior(
       birth_rate_distr = beautier::create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -797,9 +795,7 @@ test_that("bd_2_4.xml", {
 test_that("bd_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = system.file(
-      "extdata", "test_output_6.fas", package = "beautier"
-    ),
+    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_bd_tree_prior(
       birth_rate_distr = beautier::create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -826,9 +822,7 @@ test_that("bd_6_taxa_2_4.xml", {
 test_that("cbs_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = system.file(
-      "extdata", "test_output_6.fas", package = "beautier"
-    ),
+    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_cbs_tree_prior()
   )
 
@@ -854,9 +848,7 @@ test_that("cbs_6_taxa_2_4.xml", {
 test_that("ccp_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = system.file(
-      "extdata", "test_output_6.fas", package = "beautier"
-    ),
+    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
@@ -881,9 +873,7 @@ test_that("ccp_6_taxa_2_4.xml", {
 test_that("cep_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = system.file(
-      "extdata", "test_output_6.fas", package = "beautier"
-    ),
+    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_cep_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 2),
       growth_rate_distr = create_laplace_distr(
