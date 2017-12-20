@@ -14,7 +14,7 @@ as returned by \code{\link{create_tree_prior}}}
 Get the prefix of operator IDs
 }
 \examples{
-  bd_pre <- get_operator_id_pre(
+  bd_pre <- beautier:::get_operator_id_pre(
     tree_prior = create_bd_tree_prior()
   )
   testthat::expect_equal(bd_pre, "BirthDeath")
