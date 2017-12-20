@@ -241,12 +241,12 @@ create_inv_gamma_distr <- function(
 #'
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_laplace_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_laplace_distr.xml"))
 #' @export
 create_laplace_distr <- function(
   id = NA,
@@ -396,6 +396,17 @@ create_one_div_x_distr <- function(
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   poisson_distr <- create_poisson_distr()
+#'
+#'   create_beast2_input_file(
+#'     input_fasta_filenames = get_fasta_filename(),
+#'     "create_poisson_distr.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = poisson_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_poisson_distr.xml"))
 #' @export
 create_poisson_distr <- function(
   id = NA,
@@ -427,12 +438,12 @@ create_poisson_distr <- function(
 #'
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_uniform_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = uniform_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_uniform_distr.xml"))
 #' @export
 create_uniform_distr <- function(
   id = NA,

@@ -247,12 +247,12 @@ create_kappa_2_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_lambda_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_lambda_param.xml"))
 #' @export
 create_lambda_param <- function(
   id = NA,
@@ -288,12 +288,12 @@ create_lambda_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_m_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_m_param.xml"))
 #' @export
 create_m_param <- function(
   id = NA,
@@ -333,12 +333,12 @@ create_m_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_mean_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_mean_param.xml"))
 #' @export
 create_mean_param <- function(
   id = NA,
@@ -376,12 +376,12 @@ create_mean_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_mu_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_mu_param.xml"))
 #' @export
 create_mu_param <- function(
   id = NA,
@@ -595,12 +595,12 @@ create_rate_gt_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_s_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_s_param.xml"))
 #' @export
 create_s_param <- function(
   id = NA,
@@ -644,12 +644,12 @@ create_s_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_scale_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_scale_param.xml"))
 #' @export
 create_scale_param <- function(
   id = NA,
@@ -689,12 +689,12 @@ create_scale_param <- function(
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
 #'     input_fasta_filenames = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     "create_sigma_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists("create_sigma_param.xml"))
 #' @export
 create_sigma_param <- function(
   id = NA,

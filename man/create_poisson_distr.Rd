@@ -18,6 +18,18 @@ a Poisson distribution
 \description{
 Create a Poisson distribution
 }
+\examples{
+  poisson_distr <- create_poisson_distr()
+
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    "create_poisson_distr.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = poisson_distr
+    )
+  )
+  testit::assert(file.exists("create_poisson_distr.xml"))
+}
 \seealso{
 the function \code{\link{create_distr}} shows an overview
   of all supported distributions
