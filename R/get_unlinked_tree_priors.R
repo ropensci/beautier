@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 get_unlinked_tree_priors <- function(tree_priors) {
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_tree_priors(tree_priors))
   results <- list()
   ids <- NULL
   for (tree_prior in tree_priors) {
@@ -13,6 +13,6 @@ get_unlinked_tree_priors <- function(tree_priors) {
     }
   }
 
-  testit::assert(beautier::are_tree_priors(results))
+  testit::assert(are_tree_priors(results))
   results
 }

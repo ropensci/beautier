@@ -4,7 +4,7 @@
 clock_models_to_xml_operators <- function(
   clock_models
 ) {
-  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models))
 
   clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
 

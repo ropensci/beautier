@@ -15,7 +15,7 @@
 get_tree_priors_n_params <- function(
   tree_priors
 ) {
-  if (!beautier::are_tree_priors(tree_priors)) {
+  if (!are_tree_priors(tree_priors)) {
     stop("'tree_priors' must be a list of tree priors")
   }
   n <- 0

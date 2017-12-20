@@ -8,7 +8,7 @@ tree_priors_to_xml_operators <- function(
   fixed_crown_age = FALSE
 ) {
 
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_tree_priors(tree_priors))
 
   text <- NULL
   for (tree_prior in tree_priors) {

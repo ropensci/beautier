@@ -11,9 +11,9 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(are_ids(ids))  # nolint internal function
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_site_models(site_models))
+  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_tree_priors(tree_priors))
 
   text <- NULL
   text <- c(text, create_beast2_input_tracelog(
@@ -112,7 +112,7 @@ create_beast2_input_screenlog <- function() {
 create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   clock_models
 ) {
-  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models))
 
   text <- NULL
   for (clock_model in clock_models) {

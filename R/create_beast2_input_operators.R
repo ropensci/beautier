@@ -10,9 +10,9 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
   fixed_crown_age
 ) {
   testit::assert(is.logical(fixed_crown_age))
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_site_models(site_models))
+  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_tree_priors(tree_priors))
 
   text <- NULL
 

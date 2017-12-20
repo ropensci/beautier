@@ -17,9 +17,9 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
   clock_models,
   tree_priors
 ) {
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_site_models(site_models))
+  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_tree_priors(tree_priors))
   testit::assert(are_init_tree_priors(tree_priors)) # nolint internal function call
 
   text <- NULL

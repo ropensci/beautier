@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 get_unlinked_clock_models <- function(clock_models) {
-  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models))
   results <- list()
   ids <- NULL
   for (clock_model in clock_models) {
@@ -13,6 +13,6 @@ get_unlinked_clock_models <- function(clock_models) {
     }
   }
 
-  testit::assert(beautier::are_clock_models(results))
+  testit::assert(are_clock_models(results))
   results
 }

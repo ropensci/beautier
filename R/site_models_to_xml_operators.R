@@ -3,7 +3,7 @@
 site_models_to_xml_operators <- function(
   site_models
 ) {
-  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(are_site_models(site_models))
 
   site_models <- get_unlinked_site_models(site_models) # nolint internal function
 

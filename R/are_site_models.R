@@ -2,7 +2,6 @@
 #' @param x the object to check if it consists out of site_models objects
 #' @return TRUE if x, or all elements of x, are site_model objects
 #' @author Richel J.C. Bilderbeek
-#' @export
 are_site_models <- function(
   x
 ) {

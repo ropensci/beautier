@@ -10,7 +10,7 @@ init_tree_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_tree_priors(tree_priors))
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]

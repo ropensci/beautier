@@ -6,7 +6,7 @@
 are_init_site_models <- function(
   x
 ) {
-  if (!beautier::are_site_models(x)) return(FALSE)
+  if (!are_site_models(x)) return(FALSE)
   for (i in x) {
     if (!is_init_site_model(i)) return(FALSE) # nolint internal function call
   }

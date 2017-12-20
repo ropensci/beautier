@@ -7,11 +7,11 @@
 clock_models_to_xml_state <- function(
   clock_models
 ) {
-  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models))
 
   # Remove the clock models that share a same alignment
   clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
-  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models))
 
   text <- NULL
   for (clock_model in clock_models) {

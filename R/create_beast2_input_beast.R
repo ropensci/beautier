@@ -17,9 +17,9 @@ create_beast2_input_beast <- function(
   testit::assert(length(input_fasta_filenames) == length(clock_models))
   testit::assert(length(input_fasta_filenames) == length(tree_priors))
   testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(are_site_models(site_models))
+  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_tree_priors(tree_priors))
   testit::assert(are_init_clock_models(clock_models)) # nolint internal function
 
   # Alignment IDs
