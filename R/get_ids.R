@@ -6,7 +6,7 @@
 #' @seealso Use \code{\link{get_id}} for one filename
 #' @examples
 #'   # Basic usage
-#'   testit::assert(get_ids("a.fas", "b.fas") == c("a", "b"))
+#'   testit::assert(get_ids(c("a.fas", "b.fas")) == c("a", "b"))
 #'
 #'   # Usage to create a BEAST2 XML file
 #'   fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
