@@ -19,3 +19,6 @@ Determines if the name is a valid clock model name
   testit::assert(is_clock_model_name("relaxed_log_normal"))
   testit::assert(is_clock_model_name("strict"))
 }
+\author{
+Richel J.C. Bilderbeek
+}

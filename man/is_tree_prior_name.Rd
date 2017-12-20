@@ -15,3 +15,6 @@ TRUE if the name is a valid tree_prior name, FALSE otherwise
 \description{
 Determines if the name is a valid tree prior name
 }
+\author{
+Richel J.C. Bilderbeek
+}

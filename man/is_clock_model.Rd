@@ -19,3 +19,6 @@ Determine if the object is a valid clock_model
 see \code{\link{create_clock_model}} for an overview of functions
   to create valid clock model
 }
+\author{
+Richel J.C. Bilderbeek
+}

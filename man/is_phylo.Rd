@@ -16,5 +16,5 @@ TRUE or FALSE
 Checks if the input is a phylogeny
 }
 \author{
-Richel Bilderbeek
+Richel J.C. Bilderbeek
 }

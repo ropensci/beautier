@@ -15,3 +15,6 @@ TRUE if the name is a valid parameter name, FALSE otherwise
 \description{
 Determines if the name is a valid parameter name
 }
+\author{
+Richel J.C. Bilderbeek
+}
