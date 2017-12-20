@@ -66,8 +66,4 @@ test_that("abuse", {
     is_beast2_input_file("abs.ent")
   )
 
-  testthat::expect_error(
-    is_valid_beast2_input_file("abs.ent")
-  )
-
 })
