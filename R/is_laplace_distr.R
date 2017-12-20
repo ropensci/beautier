@@ -10,7 +10,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
-#'   # TODO
+#'   testit::assert(beautier:::is_laplace_distr(laplace_distr))
 is_laplace_distr <- function(
   x
 ) {

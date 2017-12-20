@@ -8,7 +8,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   kappa_2_param <- create_kappa_2_param()
-#'   # TODO
+#'   testit::assert(beautier:::is_kappa_2_param(kappa_2_param))
 is_kappa_2_param <- function(
   x
 ) {

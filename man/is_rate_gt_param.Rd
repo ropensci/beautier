@@ -21,7 +21,7 @@ Determine if the object is a valid
 }
 \examples{
   rate_gt_param <- create_rate_gt_param()
-  # TODO
+  testit::assert(beautier:::is_rate_gt_param(rate_gt_param))
 }
 \seealso{
 \code{\link{create_rate_gt_param}} creates a 'rate GT' parameter

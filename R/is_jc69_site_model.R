@@ -4,7 +4,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   jc69_site_model <- create_jc69_site_model()
-#'   # TODO
+#'   testit::assert(beautier:::is_jc69_site_model(jc69_site_model))
 is_jc69_site_model <- function(
   x
 ) {

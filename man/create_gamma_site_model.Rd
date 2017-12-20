@@ -37,8 +37,13 @@ Use \code{\link{create_site_model}} to create a site model
   that has both a gamma site model and substitution model
 }
 \examples{
-  gamma_site_model <- create_gamma_site_model()
-  # TODO
+  gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
+  site_model <- create_hky_site_model(gamma_site_model = gamma_site_model)
+  create_beast2_input_file(
+    get_fasta_filename(),
+    "beast2.xml",
+    site_model = site_model
+ )
 }
 \author{
 Richel J.C. Bilderbeek

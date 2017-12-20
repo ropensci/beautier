@@ -8,10 +8,10 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
-#'   # TODO
+#'   testit::assert(beautier:::is_rln_clock_model(rln_clock_model))
 #'
 #'   strict_clock_model <- create_strict_clock_model()
-#'   # TODO
+#'   testit::assert(beautier:::is_strict_clock_model(strict_clock_model))
 is_rln_clock_model <- function(
   x
 ) {

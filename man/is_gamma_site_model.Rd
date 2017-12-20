@@ -17,7 +17,7 @@ Is object x a gamma site model?
 }
 \examples{
   gamma_site_model <- create_gamma_site_model()
-  # TODO
+  testit::assert(beautier:::is_gamma_site_model(gamma_site_model))
 }
 \author{
 Richel J.C. Bilderbeek

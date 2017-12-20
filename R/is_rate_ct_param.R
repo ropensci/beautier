@@ -8,7 +8,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_ct_param <- create_rate_ct_param()
-#'   # TODO
+#'   testit::assert(beautier:::is_rate_ct_param(rate_ct_param))
 is_rate_ct_param <- function(
   x
 ) {

@@ -23,7 +23,7 @@ as created by \code{\link{create_laplace_distr}}
 }
 \examples{
   laplace_distr <- create_laplace_distr()
-  # TODO
+  testit::assert(beautier:::is_laplace_distr(laplace_distr))
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

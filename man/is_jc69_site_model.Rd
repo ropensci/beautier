@@ -17,7 +17,7 @@ Determine if the object is a valid JC69 site model
 }
 \examples{
   jc69_site_model <- create_jc69_site_model()
-  # TODO
+  testit::assert(beautier:::is_jc69_site_model(jc69_site_model))
 }
 \author{
 Richel J.C. Bilderbeek

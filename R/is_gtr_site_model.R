@@ -5,7 +5,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   gtr_site_model <- create_gtr_site_model()
-#'   # TODO
+#'   testit::assert(beautier:::is_gtr_site_model(gtr_site_model))
 is_gtr_site_model <- function(
   x
 ) {

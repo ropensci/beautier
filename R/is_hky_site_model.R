@@ -5,7 +5,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   hky_site_model <- create_hky_site_model()
-#'   # TODO
+#'   testit::assert(beautier:::is_hky_site_model(hky_site_model))
 is_hky_site_model <- function(
   x
 ) {

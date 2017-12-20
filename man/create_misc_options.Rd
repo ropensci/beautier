@@ -26,8 +26,13 @@ Function to create a misc_options, containing miscellaneous options
   here, the created XML file will be valid.
 }
 \examples{
-  misc_options <- create_misc_options()
-  # TODO
+  misc_options <- create_misc_options(nucleotides_uppercase = TRUE)
+  xml <- create_beast2_input(
+    get_fasta_filename(),
+    misc_options = misc_options
+  )
+  testit::assert(is.character(xml))
+  testit::assert(length(xml) > 1)
 }
 \author{
 Richel J.C. Bilderbeek

@@ -21,7 +21,7 @@ Determine if the object is a valid
 }
 \examples{
   rate_ac_param <- create_rate_ac_param()
-  # TODO
+  testit::assert(beautier:::is_rate_ac_param(rate_ac_param))
 }
 \seealso{
 \code{\link{create_rate_ac_param}} creates a 'rate AC' parameter

@@ -21,7 +21,7 @@ mu parameter
 }
 \examples{
   mu_param <- create_mu_param()
-  # TODO
+  testit::assert(beautier:::is_mu_param(mu_param))
 }
 \seealso{
 \code{\link{create_mu_param}} creates a mu parameter
