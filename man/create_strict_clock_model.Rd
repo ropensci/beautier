@@ -29,9 +29,7 @@ Create a strict clock model
   strict_clock_model <- create_strict_clock_model()
   testit::assert(is_strict_clock_model(strict_clock_model))
 
-  input_fasta_filenames <- system.file(
-    "extdata", "test_output_0.fas", package = "beautier"
-  )
+  input_fasta_filenames <- beautier::get_path("test_output_0.fas")
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filenames,
     "my_beast.xml",

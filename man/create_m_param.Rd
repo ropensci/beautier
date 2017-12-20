@@ -36,9 +36,7 @@ this parameter is used in a log-normal distribution
   testit::assert(is_log_normal_distr(log_normal_distr))
 
   # Use the distribution to create a BEAST2 input file
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     "my_beast.xml",

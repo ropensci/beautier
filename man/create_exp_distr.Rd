@@ -22,9 +22,7 @@ Create an exponential distribution
   exp_distr <- create_exp_distr()
   testit::assert(is_exp_distr(exp_distr))
 
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     "my_beast.xml",

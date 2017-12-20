@@ -33,9 +33,7 @@ this parameter is used in a Poisson distribution
   testit::assert(is_poisson_distr(poisson_distr))
 
   # Use the distribution to create a BEAST2 input file
-  input_fasta_filename <- system.file(
-    "extdata", "anthus_aco.fas", package = "beautier"
-  )
+  input_fasta_filename <- beautier::get_path("anthus_aco.fas")
   create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     "my_beast.xml",
