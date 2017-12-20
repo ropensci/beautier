@@ -17,7 +17,7 @@ Obtain the crown age of a phylony
 }
 \examples{
   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-  created <- get_phylo_crown_age(phylogeny = phylogeny)
+  created <- beautier:::get_phylo_crown_age(phylogeny = phylogeny)
   testit::assert(created == 15)
 }
 \author{
