@@ -3,7 +3,11 @@
 #'   as created by \code{\link{create_distr}})
 #' @return the distribution as XML text
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @examples
+#'   xml <- beautier:::distr_to_xml(create_uniform_distr(id = 1))
+#'   testit::assert(is.character(xml))
+#'   testit::assert(length(xml) == 1)
+#'   testit::assert(nchar(xml) > 1)
 distr_to_xml <- function(
   distr
 ) {

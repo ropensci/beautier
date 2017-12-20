@@ -20,6 +20,10 @@ TRUE if the text is valid, FALSE if not
 Would these lines of text, when written to a file,
   result in a valid BEAST2 input file?
 }
+\examples{
+  fasta_filename <- beautier::get_path("test_output_0.fas")
+  lines <- create_beast2_input_lines(fasta_filename)
+}
 \seealso{
 Use \code{\link{is_beast2_input_file}} to check a file
 }

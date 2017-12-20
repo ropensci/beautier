@@ -15,6 +15,14 @@ the filename's full path
 \description{
 Get the full path of a file in the 'inst/extdata' folder
 }
+\examples{
+  testit::assert(is.character(get_path("test_output_0.fas")))
+  testit::assert(is.character(get_path("anthus_aco.fas")))
+  testit::assert(is.character(get_path("anthus_nd2.fas")))
+}
+\seealso{
+for more files, use \code{\link{get_paths}}
+}
 \author{
 Richel J.C. Bilderbeek
 }

@@ -23,6 +23,9 @@ TRUE if the two sections of the XML files are equal,
 \description{
 Determine if XML files result in equal trees
 }
+\seealso{
+to check for equivalence, use \code{\link{are_equivalent_xml_files}}
+}
 \author{
 Richel J.C. Bilderbeek
 }

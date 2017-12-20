@@ -16,6 +16,11 @@ the parameter as XML text
 \description{
 Converts a parameter to XML
 }
+\examples{
+  xml <- parameter_to_xml(create_alpha_param(id = 1))
+  testit::assert(length(xml) == 1)
+  testit::assert(nchar(xml) > 1)
+}
 \author{
 Richel J.C. Bilderbeek
 }

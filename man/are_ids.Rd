@@ -15,6 +15,9 @@ TRUE if x, or all elements of x, are IDs
 \description{
 Determine if x consists out of IDs
 }
+\seealso{
+to check one ID, use \code{\link{is_id}}
+}
 \author{
 Richel J.C. Bilderbeek
 }

@@ -20,6 +20,9 @@ TRUE if the two XML files result in equivalent trees,
 \description{
 Determine if XML files result in equivalent trees
 }
+\seealso{
+to check for equality, use \code{\link{are_equal_xml_files}}
+}
 \author{
 Richel J.C. Bilderbeek
 }

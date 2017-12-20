@@ -34,7 +34,6 @@ is_init_rln_clock_model <- function(
 #' @inheritParams default_params_doc
 #' @return TRUE if x is an initialized strict clock_model object
 #' @author Richel J.C. Bilderbeek
-#' @export
 is_init_strict_clock_model <- function(
   strict_clock_model
 ) {

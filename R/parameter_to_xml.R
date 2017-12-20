@@ -3,7 +3,10 @@
 #'   as created by \code{\link{create_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @examples
+#'   xml <- parameter_to_xml(create_alpha_param(id = 1))
+#'   testit::assert(length(xml) == 1)
+#'   testit::assert(nchar(xml) > 1)
 parameter_to_xml <- function(
   parameter
 ) {

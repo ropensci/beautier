@@ -10,10 +10,22 @@ get_paths(filenames)
 \item{filenames}{the files' names, without the path}
 }
 \value{
-the filenames' full path
+the filenames' full paths
 }
 \description{
 Get the full paths of files in the 'inst/extdata' folder
+}
+\examples{
+  testit::assert(
+    length(
+      get_paths(
+        c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")
+      )
+     ) == 3
+   )
+}
+\seealso{
+for one file, use \code{\link{get_path}}
 }
 \author{
 Richel J.C. Bilderbeek

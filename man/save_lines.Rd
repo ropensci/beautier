@@ -17,6 +17,11 @@ Nothing
 \description{
 Save text (a container of strings) to a file
 }
+\examples{
+  text <- c("hello", "world")
+  beautier:::save_lines(filename = "test.txt", lines = text)
+  testit::assert(file.exists("test.txt"))
+}
 \author{
 Richel J.C. Bilderbeek
 }

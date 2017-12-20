@@ -15,6 +15,9 @@ TRUE if x is a valid ID, FALSE otherwise
 \description{
 Determine if the object is a valid ID
 }
+\seealso{
+to check multiple IDs, use \code{\link{are_ids}}
+}
 \author{
 Richel J.C. Bilderbeek
 }
