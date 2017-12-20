@@ -7,7 +7,7 @@
 get_fasta_filename()
 }
 \value{
-the path of a fasta file used in testing
+the path of a FASTA file used in testing
 }
 \description{
 Get the path of a FASTA file used in testing
@@ -20,4 +20,7 @@ Get the path of a FASTA file used in testing
     input_fasta_filenames = filename,
     "my_beast.xml"
   )
+}
+\author{
+Richel J.C. Bilderbeek
 }

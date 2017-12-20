@@ -7,7 +7,8 @@ test_that("example", {
   phylos <- beautier::fasta_to_phylo(fasta_filename, crown_age = crown_age)
   testthat::expect_equal(5, length(phylos$tip.label))
   testthat::expect_equal(crown_age,
-    beautier::get_phylo_crown_age(phylos))
+    beautier:::get_phylo_crown_age(phylos)
+  )
 })
 
 test_that("abuse", {
