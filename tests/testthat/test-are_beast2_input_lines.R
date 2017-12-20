@@ -3,7 +3,7 @@ context("are_beast2_input_lines")
 test_that("use", {
 
   testthat::expect_true(
-    beautier:::beautier:::are_beast2_input_lines(
+    beautier:::are_beast2_input_lines(
       readLines(beautier:::get_path("2_4.xml"))
     )
   )
