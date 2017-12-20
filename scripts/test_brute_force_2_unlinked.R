@@ -29,12 +29,11 @@ for (site_model_1 in beautier::create_site_models()) {
             n_fail <- n_fail + 1
           }
           n <- n + 1
-          if (n == 100) is_ok <- FALSE 
-          testit::assert(is_ok) # nolint one day will be OK
+          if (n == 100) return(1)
         }
       }
     }
   }
 }
-testit::assert(n_fail == 0)
+return(n_fail)
 
