@@ -20,7 +20,7 @@ for (site_model_1 in beautier:::create_site_models()) {
             tree_priors = list(tree_prior, tree_prior),
             output_xml_filename = output_xml_filename
           )
-          is_ok <- beautier::is_beast2_input_file(output_xml_filename)
+          is_ok <- beautier:::is_beast2_input_file(output_xml_filename)
           if (!is_ok) {
             print(paste(site_model_1$name, site_model_2$name,
               clock_model_1$name, clock_model_2$name, tree_prior$name))
