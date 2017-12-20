@@ -29,11 +29,10 @@ for (site_model_1 in beautier:::create_site_models()) {
             n_fail <- n_fail + 1
           }
           n <- n + 1
-          if (n == 100) quit(n)
+          if (n == 100) quit(status = n, save = "no")
         }
       }
     }
   }
 }
-return(n_fail)
-
+quit(status = n_fail, save = "no")
