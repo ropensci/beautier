@@ -44,7 +44,7 @@ are_beast2_input_lines <- function(
 #' @seealso Use \code{\link{is_beast2_input_file}} to check a file
 #' @examples
 #'   fasta_filename <- beautier::get_path("test_output_0.fas")
-#'   lines <- create_beast2_input_lines(fasta_filename)
+#'   lines <- create_beast2_input(fasta_filename)
 are_beast2_input_lines_deep <- function(
   lines,
   verbose = FALSE
