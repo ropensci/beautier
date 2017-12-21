@@ -19,7 +19,21 @@ a phylogeny
 Create a random phylogeny, with a specified crown age, from a FASTA file
 }
 \examples{
-  fasta_filename <- beautier::get_fasta_filename()
-  phylo <- beautier::fasta_to_phylo(fasta_filename, crown_age = 15)
-  testit::assert(5 == length(phylo$tip.label))
+  # Create a random phylogy, with
+  # - the same taxa names as the FASTA
+  # - the desired crown age
+  fasta_filename <- get_fasta_filename()
+  initial_phylogeny <- fasta_to_phylo(
+    fasta_filename,
+    crown_age = 15
+   )
+
+  # Crown age fixed to the crown age of the phylogeny
+  create_beast2_input_file(
+    input_fasta_filenames = fasta_filename,
+    "fasta_to_phylo.xml",
+    fixed_crown_age = TRUE,
+    initial_phylogenies = initial_phylogeny
+  )
+  testthat::expect_true(file.exists("fasta_to_phylo.xml"))
 }

@@ -78,9 +78,6 @@ test_that("Can specify fixed crown age", {
   input_fasta_filename <- beautier::get_fasta_filename()
   output_xml_filename_fixed <- tempfile()
 
-  # Input file must be found
-  testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
-
   beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
     tree_priors = create_bd_tree_prior(),
