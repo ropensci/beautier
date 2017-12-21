@@ -42,11 +42,3 @@ test_that("use more typesafe names", {
   testthat::expect_true(is_site_model(site_model))
 
 })
-
-test_that("Can specify HKY kappa", {
-
-  site_model <- beautier::create_hky_site_model(kappa = 2.0)
-  testthat::expect_true(is_site_model(site_model))
-  testthat::expect_equal(get_kappa(site_model), 2.0)
-
-})

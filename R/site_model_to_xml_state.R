@@ -45,7 +45,7 @@ site_model_to_xml_state <- function(
     site_model$kappa_param$id <- id
     text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">",
-      beautier::get_kappa(site_model), "</parameter>"))
+      site_model$kappa, "</parameter>"))
   } else if (is_tn93_site_model(site_model)) {
       site_model$kappa_1_param$id <- id
       site_model$kappa_2_param$id <- id
