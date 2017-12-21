@@ -24,17 +24,11 @@ library(beautier)
 ```
 
 A BEAST2 XML input file needs an alignment (as BEAST2 infers
-phylogenies and parameters on DNA sequences). in this demonstration,
-a FASTA file with a random alignment is created:
+phylogenies and parameters on DNA sequences). This demonstration uses
+a testing FASTA file used by `beautier`:
 
 ```{r}
-fasta_filename <- tempfile(pattern = "demo", fileext = ".fas")
-
-beautier::create_random_fasta(
-  n_taxa = 5, # species
-  sequence_length = 20, # DNA nucleotides
-  filename = fasta_filename
-)
+fasta_filename <- get_path("test_output_0.fas")
 ```
 
 We can display the alignment in the file:
