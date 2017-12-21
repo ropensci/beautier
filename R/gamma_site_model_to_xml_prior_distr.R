@@ -12,7 +12,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint long function name is 
   text <- NULL
   gamma_site_model <- beautier::get_gamma_site_model(
     site_model = site_model)
-  if (beautier::get_gamma_cat_count(gamma_site_model) >= 2) {
+  if (gamma_site_model$gamma_cat_count >= 2) {
     text <- c(text, paste0("<prior ",
       "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
       "x=\"@gammaShape.s:", id, "\">"))

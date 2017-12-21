@@ -4,7 +4,7 @@ test_that("Can specify HKY gamma category count", {
 
   gamma_site_model <- beautier::create_gamma_site_model(gamma_cat_count = 1)
   testthat::expect_true(is_gamma_site_model(gamma_site_model))
-  testthat::expect_equal(get_gamma_cat_count(gamma_site_model), 1)
+  testthat::expect_equal(gamma_site_model$gamma_cat_count, 1)
 
 })
 

@@ -54,7 +54,7 @@ site_model_to_xml_operators <- function(
     text <- c(text, paste0("</operator>"))
   }
 
-  if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
+  if (get_gamma_site_model(site_model)$gamma_cat_count > 1) {
     testit::assert(is_id(id))
     text <- c(text, paste0("<operator ",
       "id=\"gammaShapeScaler.s:", id, "\" spec=\"ScaleOperator\" ",

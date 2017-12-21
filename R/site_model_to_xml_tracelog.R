@@ -29,7 +29,7 @@ site_model_to_xml_tracelog <- function(
   if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"freqParameter.s:", id, "\"/>"))
   }
-  if (get_gamma_cat_count(get_gamma_site_model(site_model)) > 1) {
+  if (get_gamma_site_model(site_model)$gamma_cat_count > 1) {
     text <- c(text, paste0("<log idref=\"gammaShape.s:", id, "\"/>"))
   }
   text

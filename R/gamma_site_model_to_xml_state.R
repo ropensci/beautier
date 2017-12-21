@@ -12,7 +12,7 @@ gamma_site_model_to_xml_state <- function(
   testit::assert(is_gamma_site_model(gamma_site_model))
   testit::assert(is_id(id))
   text <- NULL
-  if (beautier::get_gamma_cat_count(gamma_site_model) >= 2) {
+  if (gamma_site_model$gamma_cat_count >= 2) {
     text <- c(
       text,
       paste0("<parameter id=\"gammaShape.s:", id, "\" ",

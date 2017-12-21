@@ -20,8 +20,8 @@ site_model_to_xml_lh_distr <- function(
 
   text <- NULL
 
-  gamma_category_count <- beautier::get_gamma_cat_count(
-    beautier::get_gamma_site_model(site_model))
+  gamma_category_count <-
+    beautier::get_gamma_site_model(site_model)$gamma_cat_count
   if (gamma_category_count == 0) {
     text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
       id, "\" spec=\"SiteModel\">")
