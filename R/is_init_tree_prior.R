@@ -61,8 +61,7 @@ is_init_cbs_tree_prior <- function(
 is_init_ccp_tree_prior <- function(
   x
 ) {
-  testit::assert(is_ccp_tree_prior(x))
-  is_init_distr(get_ccp_pop_size_distr(x)) # nolint internal function
+  is_init_distr(x$pop_size_distr) # nolint internal function
 }
 
 #' Determine if x is an initialized Coalescent Exponential Population
