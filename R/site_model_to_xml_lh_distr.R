@@ -20,8 +20,7 @@ site_model_to_xml_lh_distr <- function(
 
   text <- NULL
 
-  gamma_category_count <-
-    beautier::get_gamma_site_model(site_model)$gamma_cat_count
+  gamma_category_count <- site_model$gamma_site_model$gamma_cat_count
   if (gamma_category_count == 0) {
     text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
       id, "\" spec=\"SiteModel\">")
@@ -52,7 +51,7 @@ site_model_to_xml_lh_distr <- function(
     "    <parameter id=\"proportionInvariant.s:",
     id, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">",
-    beautier::get_gamma_site_model(site_model)$prop_invariant,
+    site_model$gamma_site_model$prop_invariant,
     "</parameter>"))
 
   text <- c(text,
