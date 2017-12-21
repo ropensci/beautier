@@ -47,6 +47,19 @@ See
   and \code{\link{create_uniform_distr}}
   for examples how to use those distributions
 }
+\examples{
+  # Use any distribution 
+  distr <- create_beta_distr()
+
+  create_beast2_input_file(
+    input_fasta_filenames = get_fasta_filename(),
+    "create_distr.xml",
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = distr
+    )
+  )
+  testit::assert(file.exists("create_distr.xml"))
+}
 \author{
 Richel J.C. Bilderbeek
 }

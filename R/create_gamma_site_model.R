@@ -12,7 +12,6 @@
 #' @return a gamma site model
 #' @note Use \code{\link{create_site_model}} to create a site model
 #'   that has both a gamma site model and substitution model
-#' @author Richel J.C. Bilderbeek
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
 #'
@@ -24,6 +23,7 @@
 #'     site_model = site_model
 #'   )
 #'   testit::assert(file.exists("create_gamma_site_model.xml"))
+#' @author Richel J.C. Bilderbeek
 #' @export
 create_gamma_site_model <- function(
   gamma_cat_count = "0",

@@ -52,9 +52,7 @@ site_model_to_xml_lh_distr <- function(
     "    <parameter id=\"proportionInvariant.s:",
     id, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">",
-    beautier::get_prop_invariant(
-      beautier::get_gamma_site_model(site_model)
-    ),
+    beautier::get_gamma_site_model(site_model)$prop_invariant,
     "</parameter>"))
 
   text <- c(text,
