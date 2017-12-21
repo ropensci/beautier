@@ -46,7 +46,7 @@ create_posterior <- function(
   input_fasta_filename <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
-  beautier::create_random_fasta(
+  create_random_fasta(
     n_taxa = n_taxa,
     sequence_length = sequence_length,
     filename = input_fasta_filename

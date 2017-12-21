@@ -2,13 +2,7 @@
 library(beautier)
 
 ## ------------------------------------------------------------------------
-fasta_filename <- tempfile(pattern = "demo", fileext = ".fas")
-
-beautier::create_random_fasta(
-  n_taxa = 5, # species
-  sequence_length = 20, # DNA nucleotides
-  filename = fasta_filename
-)
+fasta_filename <- get_path("test_output_0.fas")
 
 ## ------------------------------------------------------------------------
 image(ape::read.FASTA(fasta_filename))

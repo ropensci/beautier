@@ -12,7 +12,7 @@
 
 <meta name="author" content="Richel J.C. Bilderbeek" />
 
-<meta name="date" content="2017-11-22" />
+<meta name="date" content="2017-12-21" />
 
 <title>beautier demo</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">beautier demo</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
-<h4 class="date"><em>2017-11-22</em></h4>
+<h4 class="date"><em>2017-12-21</em></h4>
 
 
 
@@ -82,17 +82,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Demonstration</h1>
 <p>First, <code>beautier</code> is loaded:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(beautier)</code></pre></div>
-<p>A BEAST2 XML input file needs an alignment (as BEAST2 infers phylogenies and parameters on DNA sequences). in this demonstration, a FASTA file with a random alignment is created:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filename &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">pattern =</span> <span class="st">&quot;demo&quot;</span>, <span class="dt">fileext =</span> <span class="st">&quot;.fas&quot;</span>)
-
-beautier<span class="op">::</span><span class="kw">create_random_fasta</span>(
-  <span class="dt">n_taxa =</span> <span class="dv">5</span>, <span class="co"># species</span>
-  <span class="dt">sequence_length =</span> <span class="dv">20</span>, <span class="co"># DNA nucleotides</span>
-  <span class="dt">filename =</span> fasta_filename
-)</code></pre></div>
+<p>A BEAST2 XML input file needs an alignment (as BEAST2 infers phylogenies and parameters on DNA sequences). This demonstration uses a testing FASTA file used by <code>beautier</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filename &lt;-<span class="st"> </span><span class="kw">get_path</span>(<span class="st">&quot;test_output_0.fas&quot;</span>)</code></pre></div>
 <p>We can display the alignment in the file:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">image</span>(ape<span class="op">::</span><span class="kw">read.FASTA</span>(fasta_filename))</code></pre></div>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAC8VBMVEUAAAAAAAoAABoAAB0AADEAADMAAE4AAIgAAJEAAP8AJwAAMwAAaQAAhwAAiAAAxAAA/QAA/wABAQECAgIDAwMEBAQFBQUGBgYHBwcICAgJAAAJCQkKCgoLCwsMDAwNDQ0ODg4PDw8QEBARERESEhITExMUFBQVFRUWFhYXAAAXFxcYGBgZGRkaGhobGxscHBwdHR0eAAAfHx8gICAhISEiIiIkJCQlJSUnJycoKAAoKCgpKSkqKiorAAArKyssLCwtLS0uLi4vLy8wMDAxMQAxMTEyMjIzAAAzMwAzMzM0NDQ1NTU2NjY3Nzc4ODg7Ozs8PDw+Pj4/Pz9AQEBBQUFDQ0NGRkZHR0dISEhJSUlMTExNTU1PT09QUFBRAABRUVFSUlJTU1NUVFRVVVVWVlZYWFhZWVlaWlpcXFxdXV1eXl5gYGBhYWFiYmJkZGRlZWVmZmZoaGhra2tsbABsbGxtbW1ubm5wcHBxcXFycnJ0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICCgoKDg4OEhACEhISFhYWGhoaHh4eIAACIiACIiIiJiYmKioqLi4uMjIyNjY2Pj4+QkJCTk5OUlJSVlZWWlpaXAACYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKCioqKjo6OkpKSmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrK1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2/v7/AwMDBwcHCwsLDw8PExMTGxsbHx8fIyMjKygDKysrMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLU1NTV1dXX19fY2NjZ2dna2trb29vc3Nze3t7f39/g4ODh4eHi4uLj4+Pk5OTo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39wD39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7/AAD//wD////ZvMJoAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAIV0lEQVR4nO3deVwUZRzH8ac7uw3NDIHUDjMpS7PSwi4rNVGxw+i0w0zJK1Mzr7S0skMtu7PD2zJNLa0kqDCLyDIrM8+8DzRLZXP+amZ259l57T7PfJ946cLW9/PH7jL8fGDeAgu7AyMsFpio6HegskcgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABwJoY7GvxQGDq/2DvwQM/uwfXKOfC33nH9xU3h3wdyCAep93TbRTftIPZl98reyq9IAVaxwd7aj2+rkfDjos2iH9y70Hvg4EUK/X/4526RLfa3LEcP9g66/3yf6oGd2+MPeMWpc9sj66IeWEqrLj20a3z8ipU6fN1JB8ueTQKtGO7BvZepeI9FQ5diahQGtS0i/0D2qAxlVvM3LSgLqZq+UWDdBD4taXx3cSw+QGNdBXM2fObNjWvlhajp1JKNC46q+IEt+gGqhIDCyzr1Y06CgH1UCF4kXnavCJ8suXGsip+b3l3JmEArXOLa01yDeoBsq+vMy9fidnu7dJDZRzpXu1vtkEb0uSA/0qpludGvkGlUDbxctxKyqB9lQfGzuX5EBPpO+w3hWLooNKoG/FAvvyxzl28g5dCbRMzIx9y0kOlNXVskpTfXe+SqAvRYF9Odi513nXG1QCfS8+jH3LyQ30Q/i+9pzovbISaIN4M3zjz2rBQKXipfCN6dO8ueQGGpL2WWFh4SjxhRxUf5G+oF34ugh8BFnNwt8y7jm1t7cluYEa3+NcbjtZ7o4G6H0xxh1siYDeC3+svSA+9bYkNdAiMcO9zq231xvUfKPYW3R4ZurjmT0bAKBQd9Hp1YndTsyT/zJZgG5/NtpZHlC/1FL3eoLI9wZbP/ic7Enfjxpzc8+pd/N71ohCb0PKscfJjvH9qDEtN7POdW+VyZdLDj4i2uGVFmjBIF9Dt+sHJ/kHRwesOMo/OEU/t2WIf7Cg3Hvgi48HgQgEIhCIQCACgQgEIhCIQCACgQgEIhCIQCACgQgEIhBoPwM93DJJare2YoCyvQdG5QOf3kOq8iHTfbq8B2njNsi1/o6takz6txr31r8nEIEIRCACEciyutzmXu1p24VAQUADBIGUZQshtljW3LrnE0jZxk4d14as3+rOziaQOudT7K9W/S0CBQD1brObQAFAs05baREoAKhf5Ej2OQRSA/2cb9fshvx1BFKUl1XsHjLGTzFNBY0zthLINAIRiEAEIlBlBsIesQ76ySqxaYG0HvKfxr2GQAQiEIEIRCAr8ojiqKa1Lhm7m0A6oME1n/54xMl9CaTIeVZjU+pQ+9bIk3YRKD7nWY1VTYvsW1PESgIpijxxaO1s36SMQHqgklYZC/k1SAu0MS/ljhUWgXRAv2Q2/8Z9gUBKoFBWx10WgTTlZRV/Lvq/7bSTQIoKGmc8H3nicC2BUAQiEIEIRKDKDBT3jmiBtLu/L3Z39wdQ3ASBCEQgAhGIQJZ8wKzfAAIFAIXmpxFInfu7GrMzhCCQOvd3NTYvWdKQQJoiX4OaEIhABCIQgSohUOR3NQikK/K7GgQyikAEIhCBCESgJAaK8/CK20stkN7We0UclLY4KfkaAhGIQAQiEIGs8MMdW/s0SmsxnUBaoLvrv/lxd/ERgRQ5T/ssF5PsW827EEiR87TP8m7OUfYduhJIVfgh19+LRmYUEEgPNDr1zK47CKQHsqxQ51sJpAGad79z421RRiA10AL3DM69MvkRpCovq3jXFU0mfzKw2isEUuU87bP6vsy0qydbBIIRiEAEIhCB/i9AsTtXJQ4odnECEYhABCIQgf5dzuNBs9y/K9CdQDqgMfXfsCskkCL3l1l63Oi9RKDY3F9mub7PppLNBFLnfIo1bFpDiDvXE0gD9GfqTUu3zT19fz9o/98BCveS2EKgIKD5YhmB1ED5NfPtG8Nr7+enff4jQHlZxbtbnjt2/qM1XuPXIFXOsxpr8xqkXzfDIhCMQAQiEIEIVImB3uppUu3zmxl2Rj3TyYbpppMXpdjvQt+tFQNkVrsvTSeHjjKdnHez6WRpmumkE4FABAIRCEQgEIFABAIRCFQhQB2+Mp18bKzp5IJbTCd31TWddKoQoI0h08kdO00nyzYZv/kNxpNWBQElUwQCEQhEIBCBQAQCEQhEIBCBQAQCEQhEIBCBQIkHksdUo8KnEbAmtqydU2QyCReWJ1w2WdMr8UDymOrgvNMITBUPf3BH6mKDSbiwPOEyXjNa4oHkMdWBydMIXN7ZsvY27WEwiRYukydchmv6SjyQPKY6MO80AqvELPtycAM8CRde7Z1wGa/pK/FA8phqlPsHmBeJYvvyjZS9cNJsYeeEy0ZreiUcKHpMNcrd7XlimX05XayDk0YLuydcNlrTq4Lu5p1jqlGRjyDnz4KMT9kNJw0Wjpxw2WhNrwoCmu/+Jwbn7vYqMde+HHY2nsQLeydcNlrTK+FA0WOqUeHdbm5/YxO64gE8CReOnnDZZE2vhAOVyWOqUWGgKSnjFvZMDT4ezJ2ECxfJEy6brOmV+E8xeUw1KvKJM6nFqe0XmkyihcfLEy6brOnFn8VABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCEQgEIFABAIRCPQPkdCsw1CD6IMAAAAASUVORK5CYII=" /><!-- --></p>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 <p>Now we can create our XML file:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The name of the file you intend to let BEAST2 run</span>
 output_xml_filename &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">pattern =</span> <span class="st">&quot;demo&quot;</span>, <span class="dt">fileext =</span> <span class="st">&quot;.xml&quot;</span>)
@@ -108,13 +102,13 @@ beautier<span class="op">::</span><span class="kw">create_beast2_input_file</spa
 ## 
 ## 
 ##     &lt;data
-## id=&quot;demo12ed256cbd28&quot;
+## id=&quot;test_output_0&quot;
 ## name=&quot;alignment&quot;&gt;
-##                     &lt;sequence id=&quot;seq_t1&quot; taxon=&quot;t1&quot; totalcount=&quot;4&quot; value=&quot;ccggattagctaacgcctgc&quot;/&gt;
-##                     &lt;sequence id=&quot;seq_t2&quot; taxon=&quot;t2&quot; totalcount=&quot;4&quot; value=&quot;gcggagcggttaacgcctcc&quot;/&gt;
-##                     &lt;sequence id=&quot;seq_t3&quot; taxon=&quot;t3&quot; totalcount=&quot;4&quot; value=&quot;gggtattacggcaaaaacta&quot;/&gt;
-##                     &lt;sequence id=&quot;seq_t4&quot; taxon=&quot;t4&quot; totalcount=&quot;4&quot; value=&quot;ctgcgggagataacctgccg&quot;/&gt;
-##                     &lt;sequence id=&quot;seq_t5&quot; taxon=&quot;t5&quot; totalcount=&quot;4&quot; value=&quot;gggtattacctcagtaacta&quot;/&gt;
+##                     &lt;sequence id=&quot;seq_t1&quot; taxon=&quot;t1&quot; totalcount=&quot;4&quot; value=&quot;acttgttgcgactgcgcctg&quot;/&gt;
+##                     &lt;sequence id=&quot;seq_t2&quot; taxon=&quot;t2&quot; totalcount=&quot;4&quot; value=&quot;acttattgcgactgaggccg&quot;/&gt;
+##                     &lt;sequence id=&quot;seq_t3&quot; taxon=&quot;t3&quot; totalcount=&quot;4&quot; value=&quot;acttaatgcgaatgagcccg&quot;/&gt;
+##                     &lt;sequence id=&quot;seq_t4&quot; taxon=&quot;t4&quot; totalcount=&quot;4&quot; value=&quot;aacgacccgcgatcggggat&quot;/&gt;
+##                     &lt;sequence id=&quot;seq_t5&quot; taxon=&quot;t5&quot; totalcount=&quot;4&quot; value=&quot;acttgttgcgactgagcctg&quot;/&gt;
 ##                 &lt;/data&gt;
 ## 
 ## 
@@ -139,66 +133,66 @@ beautier<span class="op">::</span><span class="kw">create_beast2_input_file</spa
 ## 
 ## &lt;run id=&quot;mcmc&quot; spec=&quot;MCMC&quot; chainLength=&quot;10000000&quot;&gt;
 ##     &lt;state id=&quot;state&quot; storeEvery=&quot;5000&quot;&gt;
-##         &lt;tree id=&quot;Tree.t:demo12ed256cbd28&quot; name=&quot;stateNode&quot;&gt;
-##             &lt;taxonset id=&quot;TaxonSet.demo12ed256cbd28&quot; spec=&quot;TaxonSet&quot;&gt;
-##                 &lt;alignment idref=&quot;demo12ed256cbd28&quot;/&gt;
+##         &lt;tree id=&quot;Tree.t:test_output_0&quot; name=&quot;stateNode&quot;&gt;
+##             &lt;taxonset id=&quot;TaxonSet.test_output_0&quot; spec=&quot;TaxonSet&quot;&gt;
+##                 &lt;alignment idref=&quot;test_output_0&quot;/&gt;
 ##             &lt;/taxonset&gt;
 ##         &lt;/tree&gt;
-##         &lt;parameter id=&quot;birthRate.t:demo12ed256cbd28&quot; name=&quot;stateNode&quot;&gt;1.0&lt;/parameter&gt;
+##         &lt;parameter id=&quot;birthRate.t:test_output_0&quot; name=&quot;stateNode&quot;&gt;1.0&lt;/parameter&gt;
 ##     &lt;/state&gt;
 ## 
-##     &lt;init id=&quot;RandomTree.t:demo12ed256cbd28&quot; spec=&quot;beast.evolution.tree.RandomTree&quot; estimate=&quot;false&quot; initial=&quot;@Tree.t:demo12ed256cbd28&quot; taxa=&quot;@demo12ed256cbd28&quot;&gt;
-##         &lt;populationModel id=&quot;ConstantPopulation0.t:demo12ed256cbd28&quot; spec=&quot;ConstantPopulation&quot;&gt;
-##             &lt;parameter id=&quot;randomPopSize.t:demo12ed256cbd28&quot; name=&quot;popSize&quot;&gt;1.0&lt;/parameter&gt;
+##     &lt;init id=&quot;RandomTree.t:test_output_0&quot; spec=&quot;beast.evolution.tree.RandomTree&quot; estimate=&quot;false&quot; initial=&quot;@Tree.t:test_output_0&quot; taxa=&quot;@test_output_0&quot;&gt;
+##         &lt;populationModel id=&quot;ConstantPopulation0.t:test_output_0&quot; spec=&quot;ConstantPopulation&quot;&gt;
+##             &lt;parameter id=&quot;randomPopSize.t:test_output_0&quot; name=&quot;popSize&quot;&gt;1.0&lt;/parameter&gt;
 ##         &lt;/populationModel&gt;
 ##     &lt;/init&gt;
 ## 
 ##     &lt;distribution id=&quot;posterior&quot; spec=&quot;util.CompoundDistribution&quot;&gt;
 ##         &lt;distribution id=&quot;prior&quot; spec=&quot;util.CompoundDistribution&quot;&gt;
-##             &lt;distribution id=&quot;YuleModel.t:demo12ed256cbd28&quot; spec=&quot;beast.evolution.speciation.YuleModel&quot; birthDiffRate=&quot;@birthRate.t:demo12ed256cbd28&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot;/&gt;
-##             &lt;prior id=&quot;YuleBirthRatePrior.t:demo12ed256cbd28&quot; name=&quot;distribution&quot; x=&quot;@birthRate.t:demo12ed256cbd28&quot;&gt;
+##             &lt;distribution id=&quot;YuleModel.t:test_output_0&quot; spec=&quot;beast.evolution.speciation.YuleModel&quot; birthDiffRate=&quot;@birthRate.t:test_output_0&quot; tree=&quot;@Tree.t:test_output_0&quot;/&gt;
+##             &lt;prior id=&quot;YuleBirthRatePrior.t:test_output_0&quot; name=&quot;distribution&quot; x=&quot;@birthRate.t:test_output_0&quot;&gt;
 ##                 &lt;Uniform id=&quot;Uniform.100&quot; name=&quot;distr&quot; upper=&quot;Infinity&quot;/&gt;
 ##             &lt;/prior&gt;
 ##         &lt;/distribution&gt;
 ##         &lt;distribution id=&quot;likelihood&quot; spec=&quot;util.CompoundDistribution&quot; useThreads=&quot;true&quot;&gt;
-##             &lt;distribution id=&quot;treeLikelihood.demo12ed256cbd28&quot; spec=&quot;ThreadedTreeLikelihood&quot; data=&quot;@demo12ed256cbd28&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot;&gt;
-##                 &lt;siteModel id=&quot;SiteModel.s:demo12ed256cbd28&quot; spec=&quot;SiteModel&quot;&gt;
-##                     &lt;parameter id=&quot;mutationRate.s:demo12ed256cbd28&quot; estimate=&quot;false&quot; name=&quot;mutationRate&quot;&gt;1.0&lt;/parameter&gt;
-##                     &lt;parameter id=&quot;gammaShape.s:demo12ed256cbd28&quot; estimate=&quot;false&quot; name=&quot;shape&quot;&gt;1.0&lt;/parameter&gt;
-##                     &lt;parameter id=&quot;proportionInvariant.s:demo12ed256cbd28&quot; estimate=&quot;false&quot; lower=&quot;0.0&quot; name=&quot;proportionInvariant&quot; upper=&quot;1.0&quot;&gt;0.0&lt;/parameter&gt;
-##                     &lt;substModel id=&quot;JC69.s:demo12ed256cbd28&quot; spec=&quot;JukesCantor&quot;/&gt;
+##             &lt;distribution id=&quot;treeLikelihood.test_output_0&quot; spec=&quot;ThreadedTreeLikelihood&quot; data=&quot;@test_output_0&quot; tree=&quot;@Tree.t:test_output_0&quot;&gt;
+##                 &lt;siteModel id=&quot;SiteModel.s:test_output_0&quot; spec=&quot;SiteModel&quot;&gt;
+##                     &lt;parameter id=&quot;mutationRate.s:test_output_0&quot; estimate=&quot;false&quot; name=&quot;mutationRate&quot;&gt;1.0&lt;/parameter&gt;
+##                     &lt;parameter id=&quot;gammaShape.s:test_output_0&quot; estimate=&quot;false&quot; name=&quot;shape&quot;&gt;1.0&lt;/parameter&gt;
+##                     &lt;parameter id=&quot;proportionInvariant.s:test_output_0&quot; estimate=&quot;false&quot; lower=&quot;0.0&quot; name=&quot;proportionInvariant&quot; upper=&quot;1.0&quot;&gt;0.0&lt;/parameter&gt;
+##                     &lt;substModel id=&quot;JC69.s:test_output_0&quot; spec=&quot;JukesCantor&quot;/&gt;
 ##                 &lt;/siteModel&gt;
-##                 &lt;branchRateModel id=&quot;StrictClock.c:demo12ed256cbd28&quot; spec=&quot;beast.evolution.branchratemodel.StrictClockModel&quot;&gt;
-##                     &lt;parameter id=&quot;clockRate.c:demo12ed256cbd28&quot; estimate=&quot;false&quot; name=&quot;clock.rate&quot;&gt;1.0&lt;/parameter&gt;
+##                 &lt;branchRateModel id=&quot;StrictClock.c:test_output_0&quot; spec=&quot;beast.evolution.branchratemodel.StrictClockModel&quot;&gt;
+##                     &lt;parameter id=&quot;clockRate.c:test_output_0&quot; estimate=&quot;false&quot; name=&quot;clock.rate&quot;&gt;1.0&lt;/parameter&gt;
 ##                 &lt;/branchRateModel&gt;
 ##             &lt;/distribution&gt;
 ##         &lt;/distribution&gt;
 ##     &lt;/distribution&gt;
 ## 
-##     &lt;operator id=&quot;YuleBirthRateScaler.t:demo12ed256cbd28&quot; spec=&quot;ScaleOperator&quot; parameter=&quot;@birthRate.t:demo12ed256cbd28&quot; scaleFactor=&quot;0.75&quot; weight=&quot;3.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleBirthRateScaler.t:test_output_0&quot; spec=&quot;ScaleOperator&quot; parameter=&quot;@birthRate.t:test_output_0&quot; scaleFactor=&quot;0.75&quot; weight=&quot;3.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelTreeScaler.t:demo12ed256cbd28&quot; spec=&quot;ScaleOperator&quot; scaleFactor=&quot;0.5&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;3.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelTreeScaler.t:test_output_0&quot; spec=&quot;ScaleOperator&quot; scaleFactor=&quot;0.5&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;3.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelTreeRootScaler.t:demo12ed256cbd28&quot; spec=&quot;ScaleOperator&quot; rootOnly=&quot;true&quot; scaleFactor=&quot;0.5&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;3.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelTreeRootScaler.t:test_output_0&quot; spec=&quot;ScaleOperator&quot; rootOnly=&quot;true&quot; scaleFactor=&quot;0.5&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;3.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelUniformOperator.t:demo12ed256cbd28&quot; spec=&quot;Uniform&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;30.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelUniformOperator.t:test_output_0&quot; spec=&quot;Uniform&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;30.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelSubtreeSlide.t:demo12ed256cbd28&quot; spec=&quot;SubtreeSlide&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;15.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelSubtreeSlide.t:test_output_0&quot; spec=&quot;SubtreeSlide&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;15.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelNarrow.t:demo12ed256cbd28&quot; spec=&quot;Exchange&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;15.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelNarrow.t:test_output_0&quot; spec=&quot;Exchange&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;15.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelWide.t:demo12ed256cbd28&quot; spec=&quot;Exchange&quot; isNarrow=&quot;false&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;3.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelWide.t:test_output_0&quot; spec=&quot;Exchange&quot; isNarrow=&quot;false&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;3.0&quot;/&gt;
 ## 
-##     &lt;operator id=&quot;YuleModelWilsonBalding.t:demo12ed256cbd28&quot; spec=&quot;WilsonBalding&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot; weight=&quot;3.0&quot;/&gt;
+##     &lt;operator id=&quot;YuleModelWilsonBalding.t:test_output_0&quot; spec=&quot;WilsonBalding&quot; tree=&quot;@Tree.t:test_output_0&quot; weight=&quot;3.0&quot;/&gt;
 ## 
-##     &lt;logger id=&quot;tracelog&quot; fileName=&quot;demo12ed256cbd28.log&quot; logEvery=&quot;1000&quot; model=&quot;@posterior&quot; sanitiseHeaders=&quot;true&quot; sort=&quot;smart&quot;&gt;
+##     &lt;logger id=&quot;tracelog&quot; fileName=&quot;test_output_0.log&quot; logEvery=&quot;1000&quot; model=&quot;@posterior&quot; sanitiseHeaders=&quot;true&quot; sort=&quot;smart&quot;&gt;
 ##         &lt;log idref=&quot;posterior&quot;/&gt;
 ##         &lt;log idref=&quot;likelihood&quot;/&gt;
 ##         &lt;log idref=&quot;prior&quot;/&gt;
-##         &lt;log idref=&quot;treeLikelihood.demo12ed256cbd28&quot;/&gt;
-##         &lt;log id=&quot;TreeHeight.t:demo12ed256cbd28&quot; spec=&quot;beast.evolution.tree.TreeHeightLogger&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot;/&gt;
-##         &lt;log idref=&quot;YuleModel.t:demo12ed256cbd28&quot;/&gt;
-##         &lt;log idref=&quot;birthRate.t:demo12ed256cbd28&quot;/&gt;
+##         &lt;log idref=&quot;treeLikelihood.test_output_0&quot;/&gt;
+##         &lt;log id=&quot;TreeHeight.t:test_output_0&quot; spec=&quot;beast.evolution.tree.TreeHeightLogger&quot; tree=&quot;@Tree.t:test_output_0&quot;/&gt;
+##         &lt;log idref=&quot;YuleModel.t:test_output_0&quot;/&gt;
+##         &lt;log idref=&quot;birthRate.t:test_output_0&quot;/&gt;
 ##     &lt;/logger&gt;
 ## 
 ##     &lt;logger id=&quot;screenlog&quot; logEvery=&quot;1000&quot;&gt;
@@ -208,8 +202,8 @@ beautier<span class="op">::</span><span class="kw">create_beast2_input_file</spa
 ##         &lt;log idref=&quot;prior&quot;/&gt;
 ##     &lt;/logger&gt;
 ## 
-##     &lt;logger id=&quot;treelog.t:demo12ed256cbd28&quot; fileName=&quot;$(tree).trees&quot; logEvery=&quot;1000&quot; mode=&quot;tree&quot;&gt;
-##         &lt;log id=&quot;TreeWithMetaDataLogger.t:demo12ed256cbd28&quot; spec=&quot;beast.evolution.tree.TreeWithMetaDataLogger&quot; tree=&quot;@Tree.t:demo12ed256cbd28&quot;/&gt;
+##     &lt;logger id=&quot;treelog.t:test_output_0&quot; fileName=&quot;$(tree).trees&quot; logEvery=&quot;1000&quot; mode=&quot;tree&quot;&gt;
+##         &lt;log id=&quot;TreeWithMetaDataLogger.t:test_output_0&quot; spec=&quot;beast.evolution.tree.TreeWithMetaDataLogger&quot; tree=&quot;@Tree.t:test_output_0&quot;/&gt;
 ##     &lt;/logger&gt;
 ## 
 ## &lt;/run&gt;
