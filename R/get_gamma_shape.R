@@ -11,11 +11,3 @@ get_gamma_shape <- function(gamma_site_model) {
   testit::assert("gamma_shape" %in% names(gamma_site_model))
   gamma_site_model$gamma_shape
 }
-
-#' Get the default gamma shape value
-#' @note this value is returned as a string, to be able to exactly replicate
-#'   all XML files
-#' @export
-get_default_gamma_shape <- function() {
-  return("1.0")
-}
