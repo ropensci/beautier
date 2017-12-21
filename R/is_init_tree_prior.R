@@ -90,5 +90,5 @@ is_init_yule_tree_prior <- function(
   x
 ) {
   testit::assert(is_yule_tree_prior(x))
-  is_init_distr(get_yule_birth_rate_distr(x)) # nolint internal function
+  is_init_distr(x$birth_rate_distr) # nolint internal function
 }
