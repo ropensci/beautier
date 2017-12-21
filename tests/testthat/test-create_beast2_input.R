@@ -386,5 +386,7 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines, verbose = TRUE))
+  testthat::expect_true(
+    beautier:::are_beast2_input_lines(lines, verbose = TRUE)
+  )
 })
