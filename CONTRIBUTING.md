@@ -21,6 +21,11 @@ Please send all that is needed to reproduce the use case:
 BEAUti plugins are not supported (for now). See 'Submitting code'
 if you'd like `beautier` to do so.
 
+You can do so by:
+
+ * Add an Issue
+ * Send @richelbilderbeek an email (@richelbilderbeek will make an Issue of it)
+
 ## Submitting code
 
 Submitted code should follow these quality guidelines:
@@ -37,12 +42,15 @@ For BEAUti plugins, there needs to be added:
  * Enough documentation so an example use case can be reproduced
  * Stating that maintenance will be done by the Collaborator
 
+Emails with code will not be accepted.
+
 ## Submitting bugs
 
 Awesome! These are your options:
 
  * Add an Issue, with the test that fails
  * Submit a Pull Request, where the test is added to the `tests/testthat` folder
+ * Send @richelbilderbeek an email (@richelbilderbeek will make an Issue of it)
 
 Pull Requests should follow the same guidelines as 'Submitting code'.
 
