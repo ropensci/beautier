@@ -18,7 +18,7 @@ Get the number of parameters a list of tree priors has
 }
 \examples{
  testit::assert(
-   get_tree_priors_n_params(
+   beautier:::get_tree_priors_n_params(
      list(
        create_bd_tree_prior(), # zero
        create_cep_tree_prior() # two

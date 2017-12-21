@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_site_model_names.R
 \name{get_site_model_names}
 \alias{get_site_model_names}
-\title{Get the site model names}
+\title{Get the site models' names}
 \usage{
 get_site_model_names()
 }
@@ -10,14 +10,14 @@ get_site_model_names()
 the site model names
 }
 \description{
-Get the site model names
+Get the site models' names
 }
 \examples{
-  names <- get_site_model_names()
-  testthat::expect_true("JC69" \%in\% names)
-  testthat::expect_true("HKY" \%in\% names)
-  testthat::expect_true("TN93" \%in\% names)
-  testthat::expect_true("GTR" \%in\% names)
+  names <- beautier:::get_site_model_names()
+  testit::assert("JC69" \%in\% names)
+  testit::assert("HKY" \%in\% names)
+  testit::assert("TN93" \%in\% names)
+  testit::assert("GTR" \%in\% names)
 }
 \author{
 Richel J.C. Bilderbeek

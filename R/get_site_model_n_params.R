@@ -2,7 +2,19 @@
 #' @inheritParams default_params_doc
 #' @return the number of distributions a site model has
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @examples
+#'   testit::assert(
+#'     beautier:::get_site_model_n_params(create_gtr_site_model()) == 10
+#'   )
+#'   testit::assert(
+#'     beautier:::get_site_model_n_params(create_hky_site_model()) == 2
+#'   )
+#'   testit::assert(
+#'     beautier:::get_site_model_n_params(create_jc69_site_model()) == 0
+#'   )
+#'   testit::assert(
+#'     beautier:::get_site_model_n_params(create_tn93_site_model()) == 4
+#'   )
 get_site_model_n_params <- function(
   site_model
 ) {

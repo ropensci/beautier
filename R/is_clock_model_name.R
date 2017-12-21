@@ -6,5 +6,5 @@
 #'   testit::assert(beautier:::is_clock_model_name("strict"))
 #' @author Richel J.C. Bilderbeek
 is_clock_model_name <- function(name) {
-  name %in% beautier::get_clock_model_names()
+  name %in% get_clock_model_names()
 }

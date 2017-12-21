@@ -9,9 +9,7 @@ create_mcmc <- function(
   if (chain_length <= 0) {
     stop("chain_length must be a non-zero positive integer")
   }
-  return(
-    list(
-      chain_length = chain_length
-    )
+  list(
+    chain_length = chain_length
   )
 }

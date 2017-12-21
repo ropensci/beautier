@@ -16,6 +16,20 @@ the number of distributions a site model has
 \description{
 Get the number of distributions a site model has
 }
+\examples{
+  testit::assert(
+    beautier:::get_site_model_n_params(create_gtr_site_model()) == 10
+  )
+  testit::assert(
+    beautier:::get_site_model_n_params(create_hky_site_model()) == 2
+  )
+  testit::assert(
+    beautier:::get_site_model_n_params(create_jc69_site_model()) == 0
+  )
+  testit::assert(
+    beautier:::get_site_model_n_params(create_tn93_site_model()) == 4
+  )
+}
 \author{
 Richel J.C. Bilderbeek
 }

@@ -5,11 +5,10 @@
 #'   and \code{\link{create_tn93_site_model}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   names <- get_freq_equilibrium_names()
+#'   names <- beautier:::get_freq_equilibrium_names()
 #'   testit::assert("estimated" %in% names)
 #'   testit::assert("empirical" %in% names)
 #'   testit::assert("all_equal" %in% names)
-#' @export
 get_freq_equilibrium_names <- function() {
   c("estimated", "empirical", "all_equal")
 }

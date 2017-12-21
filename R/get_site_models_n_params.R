@@ -2,6 +2,11 @@
 #' @inheritParams default_params_doc
 #' @return the number of parameters the site models have
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   testit::assert(beautier:::get_site_models_n_params(list(create_gtr_site_model())) == 10)
+#'   testit::assert(beautier:::get_site_models_n_params(list(create_hky_site_model())) == 2)
+#'   testit::assert(beautier:::get_site_models_n_params(list(create_jc69_site_model())) == 0)
+#'   testit::assert(beautier:::get_site_models_n_params(list(create_tn93_site_model())) == 4)
 #' @export
 get_site_models_n_params <- function(
   site_models
@@ -12,7 +17,7 @@ get_site_models_n_params <- function(
   n <- 0
   for (site_model in site_models) {
     testit::assert(is_site_model(site_model))
-    n <- n + beautier::get_site_model_n_params(site_model)
+    n <- n + get_site_model_n_params(site_model) # nolint internal function
   }
   n
 }

@@ -4,7 +4,17 @@
 #'   its named functions
 #' @return the number of parameters that distribution uses
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @examples
+#'   testit::assert(beautier:::get_distr_n_params(create_beta_distr()) == 2)
+#'   testit::assert(beautier:::get_distr_n_params(create_exp_distr()) == 1)
+#'   testit::assert(beautier:::get_distr_n_params(create_gamma_distr()) == 2)
+#'   testit::assert(beautier:::get_distr_n_params(create_inv_gamma_distr()) == 2)
+#'   testit::assert(beautier:::get_distr_n_params(create_laplace_distr()) == 2)
+#'   testit::assert(beautier:::get_distr_n_params(create_log_normal_distr()) == 2)
+#'   testit::assert(beautier:::get_distr_n_params(create_normal_distr()) == 2)
+#'   testit::assert(beautier:::get_distr_n_params(create_one_div_x_distr()) == 0)
+#'   testit::assert(beautier:::get_distr_n_params(create_poisson_distr()) == 1)
+#'   testit::assert(beautier:::get_distr_n_params(create_uniform_distr()) == 0)
 get_distr_n_params <- function(
   distr
 ) {

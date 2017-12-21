@@ -51,8 +51,8 @@ init_site_models <- function(
       )
     }
 
-    distr_id <- distr_id + beautier::get_site_model_n_distrs(site_model)
-    param_id <- param_id + beautier::get_site_model_n_params(site_model)
+    distr_id <- distr_id + get_site_model_n_distrs(site_model) # nolint internal function
+    param_id <- param_id + get_site_model_n_params(site_model) # nolint internal function
 
     if (is.na(site_model$id)) site_model$id <- ids[i]
     site_models[[i]] <- site_model
@@ -92,31 +92,31 @@ init_gtr_site_model <- function(
     rate_ac_prior_distr <- init_distr(
       rate_ac_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + beautier::get_distr_n_params(rate_ac_prior_distr)
+    param_id <- param_id + get_distr_n_params(rate_ac_prior_distr)
   }
   if (!is_init_distr(rate_ag_prior_distr)) {
     rate_ag_prior_distr <- init_distr(
       rate_ag_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + beautier::get_distr_n_params(rate_ag_prior_distr)
+    param_id <- param_id + get_distr_n_params(rate_ag_prior_distr)
   }
   if (!is_init_distr(rate_at_prior_distr)) {
     rate_at_prior_distr <- init_distr(
       rate_at_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + beautier::get_distr_n_params(rate_at_prior_distr)
+    param_id <- param_id + get_distr_n_params(rate_at_prior_distr)
   }
   if (!is_init_distr(rate_cg_prior_distr)) {
     rate_cg_prior_distr <- init_distr(
       rate_cg_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + beautier::get_distr_n_params(rate_cg_prior_distr)
+    param_id <- param_id + get_distr_n_params(rate_cg_prior_distr)
   }
   if (!is_init_distr(rate_gt_prior_distr)) {
     rate_gt_prior_distr <- init_distr(
       rate_gt_prior_distr, distr_id = distr_id, param_id = param_id)
     distr_id <- distr_id + 1
-    param_id <- param_id + beautier::get_distr_n_params(rate_gt_prior_distr)
+    param_id <- param_id + get_distr_n_params(rate_gt_prior_distr)
   }
   if (!is_init_param(rate_ac_param)) {
     rate_ac_param <- init_param(rate_ac_param, id = param_id) # nolint internal function
@@ -216,14 +216,14 @@ init_tn93_site_model <- function(
     param_id = param_id
   )
   distr_id <- distr_id + 1
-  param_id <- param_id + beautier::get_distr_n_params(
+  param_id <- param_id + get_distr_n_params(
     tn93_site_model$kappa_1_prior_distr)
   kappa_2_prior_distr <- init_distr(
     tn93_site_model$kappa_2_prior_distr,
     distr_id = distr_id,
     param_id = param_id
   )
-  param_id <- param_id + beautier::get_distr_n_params(
+  param_id <- param_id + get_distr_n_params(
     tn93_site_model$kappa_2_prior_distr)
   kappa_1_param <- init_param(tn93_site_model$kappa_1_param, id = param_id) # nolint internal function
   param_id <- param_id + 1

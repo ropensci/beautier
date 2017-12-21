@@ -44,8 +44,8 @@ init_tree_priors <- function(
         )
       }
     }
-    distr_id <- distr_id + beautier::get_tree_prior_n_distrs(tree_prior)
-    param_id <- param_id + beautier::get_tree_prior_n_params(tree_prior)
+    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior)
+    param_id <- param_id + get_tree_prior_n_params(tree_prior)
 
     if (is.na(tree_prior$id)) tree_prior$id <- ids[i]
     tree_priors[[i]] <- tree_prior
@@ -73,7 +73,7 @@ init_bd_tree_prior <- function(
     death_rate_distr = init_distr(
       bd_tree_prior$death_rate_distr,
       distr_id + 1,
-      param_id + beautier::get_distr_n_params(bd_tree_prior$birth_rate_distr)
+      param_id + get_distr_n_params(bd_tree_prior$birth_rate_distr)
     )
   )
 
@@ -115,7 +115,7 @@ init_cep_tree_prior <- function(
   testit::assert(!is.na(distr_id))
   testit::assert(!is.na(param_id))
   testit::assert(!is.na(
-    beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)))
+    get_distr_n_params(cep_tree_prior$pop_size_distr)))
 
   result <- create_cep_tree_prior(
     pop_size_distr = init_distr(
@@ -126,7 +126,7 @@ init_cep_tree_prior <- function(
     growth_rate_distr = init_distr(
       cep_tree_prior$growth_rate_distr,
       distr_id + 1,
-      param_id + beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)
+      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )
 

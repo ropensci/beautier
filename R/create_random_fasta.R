@@ -3,7 +3,6 @@
 #' @param sequence_length The number of base pairs the alignment will have
 #' @param filename the name of the FASTA file created
 #' @return Nothing
-#' @export
 create_random_fasta <- function(
   n_taxa,
   sequence_length,

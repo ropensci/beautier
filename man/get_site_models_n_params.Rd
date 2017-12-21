@@ -16,6 +16,12 @@ the number of parameters the site models have
 \description{
 Get the number of distributions one or more site models have
 }
+\examples{
+  testit::assert(beautier:::get_site_models_n_params(list(create_gtr_site_model())) == 10)
+  testit::assert(beautier:::get_site_models_n_params(list(create_hky_site_model())) == 2)
+  testit::assert(beautier:::get_site_models_n_params(list(create_jc69_site_model())) == 0)
+  testit::assert(beautier:::get_site_models_n_params(list(create_tn93_site_model())) == 4)
+}
 \author{
 Richel J.C. Bilderbeek
 }

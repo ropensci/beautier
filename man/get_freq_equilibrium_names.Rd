@@ -10,7 +10,7 @@ get_freq_equilibrium_names()
 Returns valid values for the \code{freq_equilibrium} argument
 }
 \examples{
-  names <- get_freq_equilibrium_names()
+  names <- beautier:::get_freq_equilibrium_names()
   testit::assert("estimated" \%in\% names)
   testit::assert("empirical" \%in\% names)
   testit::assert("all_equal" \%in\% names)

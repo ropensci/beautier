@@ -4,7 +4,6 @@
 #' @param crown_age the crown age of the phylogeny
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
-#' @export
 create_posterior <- function(
     n_taxa,
     sequence_length,

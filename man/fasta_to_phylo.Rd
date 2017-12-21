@@ -2,7 +2,8 @@
 % Please edit documentation in R/fasta_to_phylo.R
 \name{fasta_to_phylo}
 \alias{fasta_to_phylo}
-\title{Create a random phylogeny, with a specified crown age, from a FASTA file}
+\title{Create a random phylogeny, with the same taxa names as the FASTA file
+  and the desired crown age}
 \usage{
 fasta_to_phylo(fasta_filename, crown_age)
 }
@@ -13,10 +14,12 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 \item{crown_age}{the crown age of the phylogeny}
 }
 \value{
-a phylogeny
+a a random phylogy, with the same taxa names as the FASTA file
+  and the desired crown age
 }
 \description{
-Create a random phylogeny, with a specified crown age, from a FASTA file
+Create a random phylogeny, with the same taxa names as the FASTA file
+  and the desired crown age
 }
 \examples{
   # Create a random phylogy, with
