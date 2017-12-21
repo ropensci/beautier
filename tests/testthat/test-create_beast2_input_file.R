@@ -55,7 +55,7 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   if (!is_on_travis()) return()
 
   crown_age <- 123
-  posterior <- beautier::create_posterior(
+  posterior <- beautier:::create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc = create_mcmc(chain_length = 10000),
@@ -67,7 +67,7 @@ test_that(paste0("Fixed and specified crown age must result in a posterior ",
   testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
     tolerance = 0.001)
   testthat::expect_equal(crown_age,
-    get_phylo_crown_age(posterior$trees$STATE_10000),
+    beautier:::get_phylo_crown_age(posterior$trees$STATE_10000),
     tolerance = 0.001)
 })
 
