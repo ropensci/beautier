@@ -26,9 +26,9 @@
 #'   testit::assert(file.exists("create_gamma_site_model.xml"))
 #' @export
 create_gamma_site_model <- function(
-  gamma_cat_count = get_default_gamma_cat_count(),
-  gamma_shape = get_default_gamma_shape(),
-  prop_invariant = get_default_prop_invariant(),
+  gamma_cat_count = "0",
+  gamma_shape = "1.0",
+  prop_invariant = "0.0",
   gamma_shape_prior_distr = create_exp_distr(
     id = 0, # TODO: id must be NA by default
     mean = create_mean_param(

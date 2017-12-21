@@ -4,11 +4,10 @@
 \alias{create_gamma_site_model}
 \title{Create a gamma site model, part of a site model}
 \usage{
-create_gamma_site_model(gamma_cat_count = get_default_gamma_cat_count(),
-  gamma_shape = get_default_gamma_shape(),
-  prop_invariant = get_default_prop_invariant(),
-  gamma_shape_prior_distr = create_exp_distr(id = 0, mean =
-  create_mean_param(id = 0, value = "1.0")), freq_equilibrium = "estimated")
+create_gamma_site_model(gamma_cat_count = "0", gamma_shape = "1.0",
+  prop_invariant = "0.0", gamma_shape_prior_distr = create_exp_distr(id = 0,
+  mean = create_mean_param(id = 0, value = "1.0")),
+  freq_equilibrium = "estimated")
 }
 \arguments{
 \item{gamma_cat_count}{the number of gamma categories, must

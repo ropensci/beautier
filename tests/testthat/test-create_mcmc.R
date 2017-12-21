@@ -7,7 +7,7 @@ test_that("use", {
   )
 
   testthat::expect_silent(
-    create_mcmc(chain_length = 1000)
+    create_mcmc(chain_length = 10000)
   )
 
 })

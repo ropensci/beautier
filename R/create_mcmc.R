@@ -4,10 +4,10 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mcmc <- function(
-  chain_length = get_default_mcmc_chain_length()
+  chain_length = 10000000
 ) {
-  if (chain_length <= 0) {
-    stop("chain_length must be a non-zero positive integer")
+  if (chain_length < 10000) {
+    stop("chain_length must be at least 10,000")
   }
   list(
     chain_length = chain_length
