@@ -20,7 +20,7 @@ Create a random phylogeny, with a specified crown age, from a FASTA file
 }
 \examples{
   # Create a random phylogy, with
-  # - the same taxa names as the FASTA
+  # - the same taxa names as the FASTA file
   # - the desired crown age
   fasta_filename <- get_fasta_filename()
   initial_phylogeny <- fasta_to_phylo(

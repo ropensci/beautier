@@ -1,9 +1,11 @@
-#' Create a random phylogeny, with a specified crown age, from a FASTA file
+#' Create a random phylogeny, with the same taxa names as the FASTA file
+#'   and the desired crown age
 #' @inheritParams default_params_doc
-#' @return a phylogeny
+#' @return a a random phylogy, with the same taxa names as the FASTA file
+#'   and the desired crown age
 #' @examples
 #'   # Create a random phylogy, with
-#'   # - the same taxa names as the FASTA
+#'   # - the same taxa names as the FASTA file
 #'   # - the desired crown age
 #'   fasta_filename <- get_fasta_filename()
 #'   initial_phylogeny <- fasta_to_phylo(
@@ -39,7 +41,5 @@ fasta_to_phylo <- function(fasta_filename, crown_age) {
   # Create a random tree ...
   phylo <- ape::rcoal(n = length(taxa_names), tip.label = taxa_names)
   # ... with the correct crown age
-  phylo <- geiger::rescale(phylo, "depth", crown_age)
-
-  phylo
+  geiger::rescale(phylo, "depth", crown_age)
 }
