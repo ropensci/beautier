@@ -19,3 +19,6 @@ an alignment of class DNAbin
 \description{
 Create a random alignment
 }
+\author{
+Richel J.C. Bilderbeek
+}

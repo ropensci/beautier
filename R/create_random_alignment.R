@@ -3,7 +3,7 @@
 #' @param sequence_length The number of base pairs the alignment will have
 #' @param rate mutation rate
 #' @return an alignment of class DNAbin
-#' @export
+#' @author Richel J.C. Bilderbeek
 create_random_alignment <- function(
   n_taxa,
   sequence_length,
