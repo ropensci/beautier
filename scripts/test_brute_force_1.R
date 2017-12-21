@@ -43,7 +43,7 @@ brute_force_1_clock_models_fixed_crown_age <- function() {
 
   n_fail <- 0
 
-  clock_models <- beautier::create_clock_models()
+  clock_models <- beautier:::create_clock_models()
   testthat::expect_true(length(clock_models) > 1)
 
   for (clock_model in clock_models) {
