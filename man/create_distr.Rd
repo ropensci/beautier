@@ -48,7 +48,7 @@ See
   for examples how to use those distributions
 }
 \examples{
-  # Use any distribution 
+  # Use any distribution
   distr <- create_beta_distr()
 
   create_beast2_input_file(

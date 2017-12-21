@@ -5,11 +5,7 @@
 is_mcmc <- function(
   x
 ) {
-  if (!"chain_length" %in% names(x)) {
-    return(FALSE)
-  }
-  if (x$chain_length < 10000) {
-    return(FALSE)
-  }
+  if (!"chain_length" %in% names(x)) return(FALSE)
+  if (x$chain_length < 10000) return(FALSE)
   TRUE
 }
