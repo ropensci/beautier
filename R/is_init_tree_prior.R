@@ -30,9 +30,8 @@ is_init_bd_tree_prior <- function(
   x
 ) {
   testit::assert(is_bd_tree_prior(x))
-  return(is_init_distr(get_bd_birth_rate_distr(x)) &&
-    is_init_distr(get_bd_death_rate_distr(x))
-  )
+  is_init_distr(x$birth_rate_distr) &&
+    is_init_distr(x$death_rate_distr)
 }
 
 #' Determine if x is an initialized Coalescent Bayesian Skyline

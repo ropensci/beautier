@@ -202,8 +202,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "tree=\"@Tree.t:", id, "\"/>"))
 
   # BDBirthRate
-  bd_birth_rate_distr <- beautier::get_bd_birth_rate_distr(
-    bd_tree_prior = bd_tree_prior)
+  bd_birth_rate_distr <- bd_tree_prior$birth_rate_distr
 
   text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
@@ -218,8 +217,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(text, paste0("</prior>"))
 
   # BDDeathRate
-  bd_death_rate_distr <- beautier::get_bd_death_rate_distr(
-    bd_tree_prior = bd_tree_prior)
+  bd_death_rate_distr <- bd_tree_prior$death_rate_distr
 
   text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
