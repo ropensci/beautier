@@ -77,8 +77,8 @@ is_init_cep_tree_prior <- function(
 ) {
   testit::assert(is_cep_tree_prior(x))
 
-  is_init_distr(get_cep_pop_size_distr(x)) &&  # nolint internal function
-  is_init_distr(get_cep_growth_rate_distr(x))  # nolint internal function
+  is_init_distr(x$pop_size_distr) &&  # nolint internal function
+  is_init_distr(x$growth_rate_distr)  # nolint internal function
 }
 
 #' Determine if x is an initialized Yule tree_prior object
