@@ -4,19 +4,29 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # birth_rate_distr and death_rate_distr
-#'  testit::assert(beautier:::get_tree_prior_n_distrs(create_bd_tree_prior()) == 2)
+#'  testit::assert(
+#'    beautier:::get_tree_prior_n_distrs(create_bd_tree_prior()) == 2
+#'  )
 #'
 #'  # none
-#'  testit::assert(beautier:::get_tree_prior_n_distrs(create_cbs_tree_prior()) == 0)
+#'  testit::assert(
+#'    beautier:::get_tree_prior_n_distrs(create_cbs_tree_prior()) == 0
+#'  )
 #'
 #'  # pop_size_distr
-#'  testit::assert(beautier:::get_tree_prior_n_distrs(create_ccp_tree_prior()) == 1)
+#'  testit::assert(
+#'    beautier:::get_tree_prior_n_distrs(create_ccp_tree_prior()) == 1
+#'  )
 #'
 #'  # pop_size_distr and growth_rate_distr
-#'  testit::assert(beautier:::get_tree_prior_n_distrs(create_cep_tree_prior()) == 2)
+#'  testit::assert(
+#'    beautier:::get_tree_prior_n_distrs(create_cep_tree_prior()) == 2
+#'  )
 #'
 #'  # birth_rate_distr
-#'  testit::assert(beautier:::get_tree_prior_n_distrs(create_yule_tree_prior()) == 1)
+#'  testit::assert(
+#'    beautier:::get_tree_prior_n_distrs(create_yule_tree_prior()) == 1
+#'  )
 get_tree_prior_n_distrs <- function(
   tree_prior
 ) {
