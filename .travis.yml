@@ -17,8 +17,8 @@ before_script:
 
 after_success:
   - Rscript -e 'devtools::install_github("richelbilderbeek/beautier", ref = "develop")'
-  - Rscript scripts/test_brute_force_1.R; exit $?
-  - travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R; exit $?
+  - Rscript scripts/test_brute_force_1.R
+  - travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
