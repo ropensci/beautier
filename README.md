@@ -14,7 +14,9 @@ The purpose of `beautier` is to create
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-For analysing the BEAST2 output files, use [RBeast](https://github.com/beast-dev/RBeast).
+For analysing the BEAST2 output files, use [beastier](https://github.com/richelbilderbeek/beastier).
+
+For doing other things with BEAST2, use [RBeast](https://github.com/beast-dev/RBeast).
 
 ## Supported
 
