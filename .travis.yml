@@ -8,7 +8,7 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
-  - beast-dev/RBeast
+  - richelbilderbeek/beastier
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8

@@ -99,7 +99,7 @@ create_posterior <- function(
   testthat::expect_true(file.exists(beast_trees_filename))
 
   # All TreeHeights (crown ages) should be the same
-  posterior <- RBeast::parse_beast_posterior(
+  posterior <- beastier::parse_beast_posterior(
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
 

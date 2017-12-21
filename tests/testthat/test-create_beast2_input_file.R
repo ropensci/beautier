@@ -16,7 +16,7 @@ test_that("Create CCP posterior with random initial tree", {
     mcmc = create_mcmc(chain_length = 10000),
     tree_priors = create_ccp_tree_prior()
   )
-  testthat::expect_true(RBeast::is_posterior(posterior))
+  testthat::expect_true(beastier::is_posterior(posterior))
 })
 
 test_that("Create BD posterior with random initial tree", {
@@ -29,7 +29,7 @@ test_that("Create BD posterior with random initial tree", {
     mcmc = create_mcmc(chain_length = 10000),
     tree_priors = create_bd_tree_prior()
   )
-  testthat::expect_true(RBeast::is_posterior(posterior))
+  testthat::expect_true(beastier::is_posterior(posterior))
 
 })
 

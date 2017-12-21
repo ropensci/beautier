@@ -9,7 +9,7 @@ test_that("returns a posterior", {
     sequence_length = 4,
     mcmc = create_mcmc(chain_length = 10000)
   )
-  testthat::expect_true(RBeast::is_posterior(posterior))
+  testthat::expect_true(beastier::is_posterior(posterior))
 
 })
 
