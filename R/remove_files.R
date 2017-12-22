@@ -6,17 +6,17 @@
 #'   beautier:::remove_files("abs.ent")
 #'
 #'   # Create a file
-#'   filename <- "remove_files.fas"
+#'   fasta_filename <- "remove_files.fas"
 #'   beautier:::create_random_fasta(
 #'     n_taxa = 5,
 #'     sequence_length = 10,
 #'     fasta_filename = fasta_filename
 #'   )
-#'   testit::assert(file.exists(filename))
+#'   testit::assert(file.exists(fasta_filename))
 #'
 #'   # Can safely delete a mix of present and absent files
-#'   beautier:::remove_files(c("abs.ent", filename))
-#'   testit::assert(!file.exists(filename))
+#'   beautier:::remove_files(c("abs.ent", fasta_filename))
+#'   testit::assert(!file.exists(fasta_filename))
 #' @author Richel J.C. Bilderbeek
 remove_files <- function(filenames) {
   for (filename in filenames) {

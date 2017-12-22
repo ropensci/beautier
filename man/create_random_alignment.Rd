@@ -4,7 +4,8 @@
 \alias{create_random_alignment}
 \title{Create a random alignment}
 \usage{
-create_random_alignment(n_taxa, sequence_length, rate = 1)
+create_random_alignment(n_taxa, sequence_length, rate = 1,
+  taxa_name_ext = "")
 }
 \arguments{
 \item{n_taxa}{The number of taxa}
@@ -12,6 +13,8 @@ create_random_alignment(n_taxa, sequence_length, rate = 1)
 \item{sequence_length}{The number of base pairs the alignment will have}
 
 \item{rate}{mutation rate}
+
+\item{taxa_name_ext}{the extension of the taxa names}
 }
 \value{
 an alignment of class DNAbin

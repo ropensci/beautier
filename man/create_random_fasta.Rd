@@ -4,7 +4,8 @@
 \alias{create_random_fasta}
 \title{Create a random FASTA file}
 \usage{
-create_random_fasta(n_taxa, sequence_length, fasta_filename)
+create_random_fasta(n_taxa, sequence_length, fasta_filename,
+  taxa_name_ext = "")
 }
 \arguments{
 \item{n_taxa}{The number of taxa}
@@ -13,6 +14,8 @@ create_random_fasta(n_taxa, sequence_length, fasta_filename)
 
 \item{fasta_filename}{a FASTA filename.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{taxa_name_ext}{the extension of the taxa names}
 }
 \value{
 Nothing, creates a FASTA file

@@ -26,7 +26,7 @@ create_posterior <- function(
     if (!is.na(crown_age) && !is.numeric(crown_age)) {
       stop("crown age must be either NA or a non-zero positive number")
     }
-    if (is.numeric(crown_age) && crown_age <= 0.0) {
+    if (!is.na(crown_age) && crown_age <= 0.0) {
       stop("crown age must be either NA or a non-zero positive number")
     }
   }
@@ -49,7 +49,6 @@ create_posterior <- function(
     sequence_length = sequence_length,
     fasta_filenames = input_fasta_filenames
   )
-  testthat::expect_true(files_exist(input_fasta_filenames))
 
   initial_phylogenies <- list()
   for (i in seq_along(crown_ages)) {
@@ -64,6 +63,7 @@ create_posterior <- function(
       crown_age = crown_age
     )
   }
+  testit::assert(are_initial_phylogenies(initial_phylogenies))
   testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
   testit::assert(length(input_fasta_filenames) == length(crown_ages))
   fixed_crown_ages <- !is.na(crown_ages)
@@ -78,8 +78,13 @@ create_posterior <- function(
     fixed_crown_ages = fixed_crown_ages,
     initial_phylogenies = initial_phylogenies
   )
-  testthat::expect_true(file.exists(beast_filename))
-  testthat::expect_true(is_beast2_input_file(beast_filename))
+  testit::assert(file.exists(beast_filename))
+  if (!is_beast2_input_file(beast_filename)) {
+    print(paste(
+      "Error: file '", beast_filename, "' is not a valid BEAST2 file:")
+    )
+    is_beast2_input_file(beast_filename, verbose = verbose)
+  }
 
   # Run BEAST2 to measure posterior
   remove_files(c(beast_state_filename, beast_log_filename, beast_trees_filename))

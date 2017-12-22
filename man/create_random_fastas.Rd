@@ -15,7 +15,7 @@ create_random_fastas(n_taxa, sequence_length, fasta_filenames)
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 }
 \value{
-Nothing, creates a FASTA file
+Nothing, creates one or more random FASTA files
 }
 \description{
 Create one or more random FASTA files

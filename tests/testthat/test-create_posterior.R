@@ -7,8 +7,7 @@ test_that("returns a posterior", {
   posterior <- beautier:::create_posterior(
     n_taxa = 2,
     sequence_length = 4,
-    mcmc = create_mcmc(chain_length = 10000),
-    verbose = TRUE
+    mcmc = create_mcmc(chain_length = 10000)
   )
   testthat::expect_true(beastier::is_posterior(posterior))
 
@@ -19,7 +18,7 @@ test_that("use", {
   if (!is_on_travis()) return()
 
   testthat::expect_silent(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 4,
       mcmc = create_mcmc(chain_length = 10000)
@@ -27,21 +26,29 @@ test_that("use", {
   )
 
   testthat::expect_silent(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 4,
       mcmc = create_mcmc(chain_length = 10000),
-      fixed_crown_age = TRUE
+      crown_ages = 15
     )
   )
 
   testthat::expect_silent(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 4,
       mcmc = create_mcmc(chain_length = 10000),
-      fixed_crown_age = TRUE,
-      crown_age = 15
+      crown_ages = c(15, 15)
+    )
+  )
+
+  testthat::expect_silent(
+    beautier:::create_posterior(
+      n_taxa = 2,
+      sequence_length = 4,
+      mcmc = create_mcmc(chain_length = 10000),
+      crown_ages = c(10, NA)
     )
   )
 })
@@ -49,7 +56,7 @@ test_that("use", {
 test_that("abuse", {
 
   testthat::expect_error(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = -1, # Must be positive
       sequence_length = 4,
       mcmc = create_mcmc(chain_length = 10000),
@@ -58,7 +65,7 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 0, # Must be non-zero positive
       mcmc = create_mcmc(chain_length = 10000),
@@ -67,7 +74,7 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 1,
       mcmc = "nonsense",
@@ -76,7 +83,7 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 1,
       mcmc = create_mcmc(chain_length = 10000),
@@ -85,7 +92,7 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    create_posterior(
+    beautier:::create_posterior(
       n_taxa = 2,
       sequence_length = 4,
       mcmc = create_mcmc(chain_length = 10000),
@@ -99,7 +106,7 @@ test_that("A fixed crown age must have equal TreeHeights", {
 
   if (!is_on_travis()) return()
 
-  posterior <- create_posterior(
+  posterior <- beautier:::create_posterior(
     n_taxa = 5,
     sequence_length = 10,
     mcmc = create_mcmc(chain_length = 10000),

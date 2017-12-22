@@ -1,7 +1,28 @@
 context("create_random_alignment")
 
+test_that("use", {
+
+  testthat::expect_silent(
+    beautier:::create_random_alignment(
+      n_taxa = 5,
+      sequence_length = 20,
+      rate = 0.1
+    )
+  )
+
+  testthat::expect_silent(
+    beautier:::create_random_alignment(
+      n_taxa = 5,
+      sequence_length = 20,
+      rate = 0.1,
+      ext = "_aco"
+    )
+  )
+
+})
+
 test_that("checks input", {
-  expect_silent(
+  testthat::expect_silent(
     create_random_alignment(
       n_taxa = 5,
       sequence_length = 20,
