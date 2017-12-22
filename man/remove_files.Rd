@@ -31,7 +31,6 @@ Removes files if and only if present
   # Can safely delete a mix of present and absent files
   beautier:::remove_files(c("abs.ent", filename))
   testit::assert(!file.exists(filename))
-
 }
 \author{
 Richel J.C. Bilderbeek

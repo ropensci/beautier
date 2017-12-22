@@ -20,6 +20,6 @@
 #' @author Richel J.C. Bilderbeek
 remove_files <- function(filenames) {
   for (filename in filenames) {
-    if (file.exist(filename)) file.remove(filename)
+    if (file.exists(filename)) file.remove(filename)
   }
 }
