@@ -143,7 +143,6 @@ test_that(paste0("One fixed crown age must result in a posterior ",
     n_taxa = 5,
     sequence_length = 10,
     mcmc = create_mcmc(chain_length = 10000),
-    fixed_crown_age = TRUE,
     crown_ages = crown_age
   )
   testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
