@@ -2,11 +2,11 @@ context("create_random_fasta")
 
 test_that("create_random_fasta: use", {
   filename <- tempfile()
-  expect_silent(
-    sequences_table <- create_random_fasta(
+  testthat::expect_silent(
+    sequences_table <- beautier:::create_random_fasta(
       n_taxa = 5,
       sequence_length = 20,
-      filename = filename
+      fasta_filename = filename
     )
   )
   expect_true(file.exists(filename))

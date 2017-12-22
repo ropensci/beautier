@@ -13,6 +13,8 @@
 #' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
 #' @param crown_age the crown age of the phylogeny
+#' @param crown_ages the crown ages of the phylogenies. Set to NA
+#'   if the crown age needs to be estimated
 #' @param distr_id a distributions' ID
 #' @param fasta_filename a FASTA filename.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
@@ -46,13 +48,14 @@
 #'   out of many (one, two or more)
 #' @param mcmc one mcmc object,
 #'   as returned by \code{\link{create_mcmc}}
+#' @param misc_options one misc_options object,
+#'   as returned by \code{\link{create_misc_options}}
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
-#' @param misc_options one misc_options object,
-#'   as returned by \code{\link{create_misc_options}}
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
+#' @param sequence_length a DNA sequence length, in base pairs
 #' @param site_model a site model,
 #'   as returned by \code{\link{create_site_model}}
 #' @param site_models one or more site models,
@@ -74,7 +77,7 @@ default_params_doc <- function(
   ccp_tree_prior,
   cep_tree_prior,
   clock_model, clock_models,
-  crown_age,
+  crown_age, crown_ages,
   distr_id,
   fasta_filename, fasta_filenames,
   fixed_crown_age,
@@ -91,6 +94,7 @@ default_params_doc <- function(
   output_xml_filename,
   param_id,
   rln_clock_model,
+  sequence_length,
   site_model, site_models,
   strict_clock_model,
   tn93_site_model,

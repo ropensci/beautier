@@ -74,7 +74,6 @@ for (site_model_1 in beautier:::create_site_models()) {
     for (clock_model_1 in beautier:::create_clock_models()) {
       for (clock_model_2 in beautier:::create_clock_models()) {
         for (tree_prior in beautier:::create_tree_priors()) {
-          cat(".")
           output_xml_filename <- "~/invalid.xml"
           initial_phylenies <- fastas_to_phylos(
               fasta_filenames = input_fasta_filenames[1],

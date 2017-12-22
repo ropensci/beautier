@@ -6,12 +6,12 @@
 documentation.}
 \usage{
 default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
-  cep_tree_prior, clock_model, clock_models, crown_age, distr_id,
+  cep_tree_prior, clock_model, clock_models, crown_age, crown_ages, distr_id,
   fasta_filename, fasta_filenames, fixed_crown_age, fixed_crown_ages,
   gtr_site_model, hky_site_model, id, ids, initial_phylogenies,
   input_fasta_filenames, is_first, mcmc, misc_options, output_xml_filename,
-  param_id, rln_clock_model, site_model, site_models, strict_clock_model,
-  tn93_site_model, tree_prior, tree_priors, yule_tree_prior)
+  param_id, rln_clock_model, sequence_length, site_model, site_models,
+  strict_clock_model, tn93_site_model, tree_prior, tree_priors, yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -33,6 +33,9 @@ as returned by \code{\link{create_clock_model}}}
 as returned by \code{\link{create_clock_model}}}
 
 \item{crown_age}{the crown age of the phylogeny}
+
+\item{crown_ages}{the crown ages of the phylogenies. Set to NA
+if the crown age needs to be estimated}
 
 \item{distr_id}{a distributions' ID}
 
@@ -90,6 +93,8 @@ function. BEAST2 uses this file as input.}
 
 \item{rln_clock_model}{a Relaxed Log-Normal clock model,
 as returned by \code{\link{create_rln_clock_model}}}
+
+\item{sequence_length}{a DNA sequence length, in base pairs}
 
 \item{site_model}{a site model,
 as returned by \code{\link{create_site_model}}}

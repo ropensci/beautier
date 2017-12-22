@@ -1,24 +1,25 @@
 #' Create a random FASTA file
+#' @inheritParams default_params_doc
 #' @param n_taxa The number of taxa
-#' @param sequence_length The number of base pairs the alignment will have
-#' @param filename the name of the FASTA file created
-#' @return Nothing
+#' @return Nothing, creates a FASTA file
+#' @author Richel J.C. Bilderbeek
 create_random_fasta <- function(
   n_taxa,
   sequence_length,
-  filename) {
+  fasta_filename
+) {
   if (n_taxa < 2) {
     stop("need n_taxa >= 2")
   }
   if (sequence_length < 1) {
     stop("need sequence_length >= 1")
   }
-  if (!is.character(filename)) {
+  if (!is.character(fasta_filename)) {
     stop("filename must be a character string")
   }
-  if (filename == "") {
+  if (fasta_filename == "") {
     stop("filename must have non-zero length")
   }
   alignments <- create_random_alignment(n_taxa, sequence_length) # nolint internal function
-  phangorn::write.phyDat(alignments, file = filename, format = "fasta")
+  phangorn::write.phyDat(alignments, file = fasta_filename, format = "fasta")
 }

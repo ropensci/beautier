@@ -6,7 +6,7 @@
 \usage{
 create_posterior(n_taxa, sequence_length,
   tree_priors = create_yule_tree_prior(), mcmc = create_mcmc(),
-  fixed_crown_age = FALSE, crown_age = NA)
+  crown_ages = NA, verbose = FALSE)
 }
 \arguments{
 \item{n_taxa}{number of taxa in the simulated phylogeny}
@@ -19,12 +19,8 @@ as returned by \code{\link{create_tree_prior}}}
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}
 
-\item{fixed_crown_age}{determines if the phylogeny's crown age is
-fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
-the crown age is fixed to the crown age
-of the initial phylogeny.}
-
-\item{crown_age}{the crown age of the phylogeny}
+\item{crown_ages}{the crown ages of the phylogenies. Set to NA
+if the crown age needs to be estimated}
 }
 \description{
 Create a BEAST2 posterior by running BEAST2 from a random alignment
