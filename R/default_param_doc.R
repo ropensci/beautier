@@ -68,6 +68,8 @@
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tree_priors one or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
+#' @param verbose if TRUE, additional information is displayed, that
+#'   is potentially useful in debugging
 #' @param yule_tree_prior a Yule tree_prior,
 #'   as created by \code{\link{create_yule_tree_prior}}
 #' @author Richel J.C. Bilderbeek
@@ -99,6 +101,7 @@ default_params_doc <- function(
   strict_clock_model,
   tn93_site_model,
   tree_prior, tree_priors,
+  verbose,
   yule_tree_prior
 ) {
   # Nothing

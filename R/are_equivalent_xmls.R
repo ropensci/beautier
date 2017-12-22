@@ -31,10 +31,10 @@ are_equivalent_xml_files <- function(
 }
 
 #' Determine if XML lines result in equivalent trees
+#' @inheritParams default_params_doc
 #' @param lines_1 lines of a first XML file
 #' @param lines_2 lines of a second XML file
 #' @param section the name of the XML section
-#' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
@@ -66,9 +66,9 @@ are_equivalent_xml_lines <- function(
 }
 
 #' Determine if XML lines result in equivalent trees
+#' @inheritParams default_params_doc
 #' @param lines_1 lines of a first XML file
 #' @param lines_2 lines of a second XML file
-#' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
@@ -96,10 +96,10 @@ are_equivalent_xml_lines_all <- function(
 }
 
 #' Determine if XML lines result in equivalent trees
+#' @inheritParams default_params_doc
 #' @param lines_1 lines of a first XML file
 #' @param lines_2 lines of a second XML file
 #' @param section the name of the XML section
-#' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
@@ -150,9 +150,9 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
 }
 
 #' Determine if XML operator lines result in equivalent trees
+#' @inheritParams default_params_doc
 #' @param lines_1 lines of a first XML file
 #' @param lines_2 lines of a second XML file
-#' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
@@ -167,9 +167,9 @@ are_equivalent_xml_lines_operators <- function( # nolint don't care about intern
 }
 
 #' Determine if XML operator lines result in equivalent trees
+#' @inheritParams default_params_doc
 #' @param lines_1 lines of a first XML file
 #' @param lines_2 lines of a second XML file
-#' @param verbose print the reason why the XML lines differ
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek

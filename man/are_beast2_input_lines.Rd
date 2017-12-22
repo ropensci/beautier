@@ -11,8 +11,8 @@ are_beast2_input_lines(lines, verbose = FALSE,
 \arguments{
 \item{lines}{lines of text}
 
-\item{verbose}{if TRUE, BEAST2 output is shown,
-no output otherwise}
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 
 \item{method}{the method to check. Can be 'deep' or 'fast'.
 The 'deep' method uses BEAST2 to validate the complete file.

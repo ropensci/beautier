@@ -11,7 +11,8 @@ are_equivalent_xml_lines_loggers(lines_1, lines_2, verbose = FALSE)
 
 \item{lines_2}{lines of a second XML file}
 
-\item{verbose}{print the reason why the XML lines differ}
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 }
 \value{
 TRUE if the two XML lines result in equivalent trees,

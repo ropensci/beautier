@@ -11,7 +11,8 @@ default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   gtr_site_model, hky_site_model, id, ids, initial_phylogenies,
   input_fasta_filenames, is_first, mcmc, misc_options, output_xml_filename,
   param_id, rln_clock_model, sequence_length, site_model, site_models,
-  strict_clock_model, tn93_site_model, tree_prior, tree_priors, yule_tree_prior)
+  strict_clock_model, tn93_site_model, tree_prior, tree_priors, verbose,
+  yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -113,6 +114,9 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
+
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}

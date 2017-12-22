@@ -21,6 +21,9 @@ as returned by \code{\link{create_mcmc}}}
 
 \item{crown_ages}{the crown ages of the phylogenies. Set to NA
 if the crown age needs to be estimated}
+
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 }
 \description{
 Create a BEAST2 posterior by running BEAST2 from a random alignment

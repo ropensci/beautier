@@ -9,8 +9,8 @@ is_beast2_input_file(filename, verbose = FALSE)
 \arguments{
 \item{filename}{name of the BEAST2 XML input file}
 
-\item{verbose}{if TRUE, BEAST2 output is shown,
-no output otherwise}
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 }
 \value{
 TRUE if the file is valid, FALSE if not

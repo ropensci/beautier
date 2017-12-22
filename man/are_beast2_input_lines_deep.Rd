@@ -10,8 +10,8 @@ are_beast2_input_lines_deep(lines, verbose = FALSE)
 \arguments{
 \item{lines}{lines of text}
 
-\item{verbose}{if TRUE, BEAST2 output is shown,
-no output otherwise}
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 }
 \value{
 TRUE if the text is valid, FALSE if not
