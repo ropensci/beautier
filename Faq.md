@@ -30,10 +30,9 @@ Article is still in preperation.
 
 ## What is the idea behind the logo?
 
-The rat is a BEAST2 logo, symbolizing `BEAUti`. The R is the R mirrored of the R logo (the R logo also has a grey disc). 
+The golden spiral symbolizes beauty (and thus `BEAUti`). 
 
-The order of the symbols should be a rat and an R, as this is closes to reading `BEAUti-R`.
-Because `beautier` is `BEAUti for R`, I mirrored the R, so that the rat would stand in front of ('before') the R. 
+The order of the symbols should be a symbol for beauty and an R. 
 
 ## What are the FASTA files?
 
