@@ -4,7 +4,7 @@
 \alias{create_mcmc}
 \title{Function to create the MCMC options, as in the BEAUti MCMC tab.}
 \usage{
-create_mcmc(chain_length = 1e+07)
+create_mcmc(chain_length = 10000000)
 }
 \arguments{
 \item{chain_length}{the MCMC's chain length}
@@ -14,6 +14,16 @@ an mcmc
 }
 \description{
 Function to create the MCMC options, as in the BEAUti MCMC tab.
+}
+\examples{
+  mcmc <- create_mcmc(chain_length = 50000)
+
+  create_beast2_input_file(
+    get_fasta_filename(),
+    "create_mcmc.xml",
+    mcmc = mcmc
+  )
+  testit::assert(file.exists("create_mcmc.xml"))
 }
 \author{
 Richel J.C. Bilderbeek

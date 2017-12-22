@@ -2,6 +2,15 @@
 #' @param chain_length the MCMC's chain length
 #' @return an mcmc
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   mcmc <- create_mcmc(chain_length = 50000)
+#'
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     "create_mcmc.xml",
+#'     mcmc = mcmc
+#'   )
+#'   testit::assert(file.exists("create_mcmc.xml"))
 #' @export
 create_mcmc <- function(
   chain_length = 10000000

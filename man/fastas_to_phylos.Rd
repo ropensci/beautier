@@ -22,7 +22,7 @@ Create a random phylogeny, with the same taxa names as the FASTA file
   and the desired crown age
 }
 \examples{
-  # Create tworandom phylogies, with
+  # Create two random phylogies, with
   # - the same taxa names as the FASTA files
   # - the desired crown age
   fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
