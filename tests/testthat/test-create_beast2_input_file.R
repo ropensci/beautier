@@ -132,3 +132,24 @@ test_that("RLN clock model produce a valid BEAST2 input file", {
   )
   testthat::expect_true(is_beast2_input_file(output_xml_filename))
 })
+
+test_that("Two fixed crown ages, interface", {
+
+  if (!is_on_travis()) return()
+
+  crown_age <- 123
+  posterior <- beautier:::create_posterior(
+    n_taxa = 5,
+    sequence_length = 10,
+    mcmc = create_mcmc(chain_length = 10000),
+    fixed_crown_age = TRUE,
+    crown_age = crown_age
+  )
+  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(crown_age,
+    beautier:::get_phylo_crown_age(posterior$trees$STATE_10000),
+    tolerance = 0.001)
+})

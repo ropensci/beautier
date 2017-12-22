@@ -18,8 +18,13 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param fasta_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
-#' @param fixed_crown_age determines if the phylogeny its crown age is
+#' @param fixed_crown_age determines if the phylogeny's crown age is
 #'   fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+#'   the crown age is fixed to the crown age
+#'   of the initial phylogeny.
+#' @param fixed_crown_ages one or more booleans to determine if the
+#'   phylogenies' crown ages are fixed.
+#'   If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
 #' @param hky_site_model an HKY site model,

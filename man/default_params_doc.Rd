@@ -42,7 +42,7 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 \item{fasta_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
-\item{fixed_crown_age}{determines if the phylogeny its crown age is
+\item{fixed_crown_age}{determines if the phylogeny's crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
@@ -105,6 +105,12 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
+
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
+the crown age is fixed to the crown age
+of the initial phylogeny.}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

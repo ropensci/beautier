@@ -48,3 +48,16 @@ test_that("Yule Yule", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+test_that("interface: support multiple fixed_crown_ages", {
+
+  testthat::expect_silent(
+    beautier:::tree_priors_to_xml_operators(
+      tree_prior = list(
+        create_yule_tree_prior(id = "anthus_aco"),
+        create_yule_tree_prior(id = "anthus_nd2")
+      ),
+      fixed_crown_ages = c(TRUE, TRUE)
+    )
+  )
+})

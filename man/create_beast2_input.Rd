@@ -31,7 +31,7 @@ as returned by \code{\link{create_mcmc}}}
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
 
-\item{fixed_crown_age}{determines if the phylogeny its crown age is
+\item{fixed_crown_age}{determines if the phylogeny's crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}

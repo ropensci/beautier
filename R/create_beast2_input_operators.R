@@ -21,7 +21,7 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
     text,
     tree_priors_to_xml_operators(
       tree_priors = tree_priors,
-      fixed_crown_age = fixed_crown_age
+      fixed_crown_ages = rep(fixed_crown_age, times = length(tree_priors))
     )
   )
 

@@ -11,7 +11,7 @@ tree_prior_to_xml_operators(tree_prior, fixed_crown_age = FALSE)
 \item{tree_prior}{a tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{fixed_crown_age}{determines if the phylogeny its crown age is
+\item{fixed_crown_age}{determines if the phylogeny's crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}

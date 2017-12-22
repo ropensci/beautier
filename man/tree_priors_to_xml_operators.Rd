@@ -5,14 +5,16 @@
 \title{Creates the XML of a list of one or more tree priors,
   as used in the \code{operators} section}
 \usage{
-tree_priors_to_xml_operators(tree_priors, fixed_crown_age = FALSE)
+tree_priors_to_xml_operators(tree_priors, fixed_crown_ages = rep(FALSE, times
+  = length(tree_priors)))
 }
 \arguments{
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{fixed_crown_age}{determines if the phylogeny its crown age is
-fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 }
