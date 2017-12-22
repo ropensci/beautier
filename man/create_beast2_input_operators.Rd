@@ -5,7 +5,7 @@
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_operators(site_models, clock_models, tree_priors,
-  fixed_crown_age)
+  fixed_crown_ages = rep(FALSE, length(site_models)))
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -17,8 +17,9 @@ as returned by \code{\link{create_clock_model}}}
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{fixed_crown_age}{determines if the phylogeny's crown age is
-fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 }

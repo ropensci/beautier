@@ -61,11 +61,15 @@ create_beast2_input_run <- function(
 
   text <- c(text, "")
 
-  text <- c(text, create_beast2_input_operators(
-    site_models = site_models,
-    clock_models = clock_models,
-    tree_priors = tree_priors,
-    fixed_crown_age = fixed_crown_age))
+  text <- c(
+    text,
+    create_beast2_input_operators(
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors,
+      fixed_crown_age = rep(fixed_crown_age, length(site_models))
+    )
+  )
 
   text <- c(text, "")
 

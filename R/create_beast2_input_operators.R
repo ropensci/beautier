@@ -3,16 +3,17 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_operators <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_operators <- function( # nolint internal function
   site_models,
   clock_models,
   tree_priors,
-  fixed_crown_age
+  fixed_crown_ages = rep(FALSE, length(site_models))
 ) {
-  testit::assert(is.logical(fixed_crown_age))
+  testit::assert(is.logical(fixed_crown_ages))
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
+  testit::assert(length(site_models) == length(fixed_crown_ages))
 
   text <- NULL
 
@@ -21,7 +22,7 @@ create_beast2_input_operators <- function( # nolint long function name is fine, 
     text,
     tree_priors_to_xml_operators(
       tree_priors = tree_priors,
-      fixed_crown_ages = rep(fixed_crown_age, times = length(tree_priors))
+      fixed_crown_ages = fixed_crown_ages
     )
   )
 

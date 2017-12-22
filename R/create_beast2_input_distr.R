@@ -12,7 +12,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr <- function( # nolint internal function
   site_models,
   clock_models,
   tree_priors
@@ -69,7 +69,7 @@ create_beast2_input_distr <- function( # nolint long function name is fine, as (
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_prior <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_prior <- function( # nolint internal function
   site_models,
   clock_models,
   tree_priors
@@ -110,7 +110,7 @@ create_beast2_input_distr_prior <- function( # nolint long function name is fine
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_lh <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_distr_lh <- function( # nolint internal function
   site_models,
   clock_models
 ) {

@@ -2,7 +2,7 @@
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
-gamma_site_model_to_xml_prior_distr <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+gamma_site_model_to_xml_prior_distr <- function( # nolint internal function
   site_model
 ) {
   testit::assert(is_site_model(site_model))

@@ -5,7 +5,7 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-create_beast2_input_data_sequences <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+create_beast2_input_data_sequences <- function( # nolint internal function
   input_fasta_filename,
   nucleotides_uppercase = FALSE
 ) {

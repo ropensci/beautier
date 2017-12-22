@@ -7,7 +7,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
-tree_prior_to_xml_tracelog <- function( # nolint long function name is fine, as (1) it follows a pattern (2) this function is not intended to be used regularily
+tree_prior_to_xml_tracelog <- function( # nolint internal function
   tree_prior
 ) {
   testit::assert(is_tree_prior(tree_prior))

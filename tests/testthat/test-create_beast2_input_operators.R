@@ -9,7 +9,7 @@ test_that("abuse", {
       site_models = create_jc69_site_models(ids = id),
       clock_models = create_strict_clock_models(ids = id),
       tree_priors = create_yule_tree_priors(ids = id),
-      fixed_crown_age = FALSE
+      fixed_crown_ages = FALSE
     )
   )
 
@@ -24,14 +24,14 @@ test_that("Operators that change crown age are absent at fixed crown age", {
     site_models = create_jc69_site_models(ids = id),
     clock_models = create_strict_clock_models(ids = id),
     tree_priors = create_yule_tree_priors(ids = id),
-    fixed_crown_age = TRUE
+    fixed_crown_ages = TRUE
   )
 
   created_nonfixed <- beautier:::create_beast2_input_operators(
     site_models = create_jc69_site_models(ids = id),
     clock_models = create_strict_clock_models(ids = id),
     tree_priors = create_yule_tree_priors(ids = id),
-    fixed_crown_age = FALSE
+    fixed_crown_ages = FALSE
   )
 
   # treeScaler operator absent in fixed crown age tree
@@ -63,4 +63,19 @@ test_that("Operators that change crown age are absent at fixed crown age", {
     length(grep(pattern = "SubtreeSlide",
       x = created_fixed))
   )
+})
+
+test_that("Multiple fixed_crown_ages, interface", {
+  input_fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  ids <- get_ids(input_fasta_filenames)
+
+  testthat::expect_silent(
+    beautier:::create_beast2_input_operators(
+      site_models = create_jc69_site_models(ids = ids),
+      clock_models = create_strict_clock_models(ids = ids),
+      tree_priors = create_yule_tree_priors(ids = ids),
+      fixed_crown_ages = c(TRUE, TRUE)
+    )
+  )
+
 })
