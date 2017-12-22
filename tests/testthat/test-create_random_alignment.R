@@ -15,7 +15,7 @@ test_that("use", {
       n_taxa = 5,
       sequence_length = 20,
       rate = 0.1,
-      ext = "_aco"
+      taxa_name_ext = "_aco"
     )
   )
 
