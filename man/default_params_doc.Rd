@@ -6,12 +6,12 @@
 documentation.}
 \usage{
 default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
-  cep_tree_prior, clock_model, clock_models, crown_age, crown_ages, distr_id,
-  fasta_filename, fasta_filenames, fixed_crown_age, gtr_site_model,
-  hky_site_model, id, ids, initial_phylogenies, input_fasta_filenames, is_first,
-  mcmc, misc_options, output_xml_filename, param_id, rln_clock_model,
-  site_model, site_models, strict_clock_model, tn93_site_model, tree_prior,
-  tree_priors, yule_tree_prior)
+  cep_tree_prior, clock_model, clock_models, crown_age, distr_id,
+  fasta_filename, fasta_filenames, fixed_crown_age, fixed_crown_ages,
+  gtr_site_model, hky_site_model, id, ids, initial_phylogenies,
+  input_fasta_filenames, is_first, mcmc, misc_options, output_xml_filename,
+  param_id, rln_clock_model, site_model, site_models, strict_clock_model,
+  tn93_site_model, tree_prior, tree_priors, yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -44,6 +44,12 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{fixed_crown_age}{determines if the phylogeny's crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+the crown age is fixed to the crown age
+of the initial phylogeny.}
+
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 
@@ -105,12 +111,6 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
-
-\item{fixed_crown_ages}{one or more booleans to determine if the
-phylogenies' crown ages are fixed.
-If FALSE, crown age is estimated by BEAST2. If TRUE,
-the crown age is fixed to the crown age
-of the initial phylogeny.}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

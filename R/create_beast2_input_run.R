@@ -4,8 +4,6 @@
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
 #' @inheritParams default_params_doc
-#' @note this function is not intended for regular use, thus its
-#'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_run <- function(
   ids,
