@@ -31,7 +31,7 @@ create_beast2_input <- function(
   }
   if (class(initial_phylogenies) == "phylo") {
     initial_phylogenies <- c(initial_phylogenies)
-    testit::assert(class(initial_phylogenies) == "multiPhylo")
+    testit::assert(are_initial_phylogenies(initial_phylogenies))
   }
   # Check input
 
@@ -92,12 +92,9 @@ create_beast2_input <- function(
   }
 
   # 8 initial_phylogenies
-  if (class(initial_phylogenies) != "multiPhylo" &&
-      !is.na(initial_phylogenies)) {
-    stop("initial_phylogenies must be either NA, ",
-      "or of type 'phylo' or of type 'multiPhylo'")
+  if (!are_initial_phylogenies(initial_phylogenies)) {
+    stop("initial_phylogenies must be a list of NAs and phylo objects")
   }
-
 
   # Lengths
   if (length(input_fasta_filenames) != length(site_models)) {

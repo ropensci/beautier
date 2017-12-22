@@ -118,3 +118,62 @@ test_that("abuse", {
   )
 
 })
+
+test_that("A fixed crown age must have equal TreeHeights", {
+
+  if (!is_on_travis()) return()
+
+  posterior <- create_posterior(
+    n_taxa = 5,
+    sequence_length = 10,
+    mcmc = create_mcmc(chain_length = 10000),
+    tree_priors = create_bd_tree_prior(),
+    fixed_crown_age = TRUE
+  )
+  testthat::expect_true(all(posterior$estimates$TreeHeight
+    == posterior$estimates$TreeHeight[1]))
+})
+
+
+test_that(paste0("Fixed and specified crown age must result in a posterior ",
+  "with that TreeHeight"), {
+
+  if (!is_on_travis()) return()
+
+  crown_age <- 123
+  posterior <- beautier:::create_posterior(
+    n_taxa = 5,
+    sequence_length = 10,
+    mcmc = create_mcmc(chain_length = 10000),
+    fixed_crown_age = TRUE,
+    crown_age = crown_age
+  )
+  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(crown_age,
+    beautier:::get_phylo_crown_age(posterior$trees$STATE_10000),
+    tolerance = 0.001)
+})
+
+test_that("Two fixed crown ages, interface", {
+
+  if (!is_on_travis()) return()
+
+  crown_age <- 123
+  posterior <- beautier:::create_posterior(
+    n_taxa = 5,
+    sequence_length = 10,
+    mcmc = create_mcmc(chain_length = 10000),
+    fixed_crown_age = TRUE,
+    crown_age = crown_age
+  )
+  testthat::expect_equal(posterior$estimates$TreeHeight[1], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(posterior$estimates$TreeHeight[10], crown_age,
+    tolerance = 0.001)
+  testthat::expect_equal(crown_age,
+    beautier:::get_phylo_crown_age(posterior$trees$STATE_10000),
+    tolerance = 0.001)
+})

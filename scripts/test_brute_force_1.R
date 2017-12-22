@@ -53,7 +53,7 @@ brute_force_1_clock_models_fixed_crown_age <- function() {
       input_fasta_filenames = input_fasta_filename,
       clock_models = clock_model,
       output_xml_filename = output_xml_filename,
-      fixed_crown_age = TRUE,
+      fixed_crown_ages = TRUE,
       initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
@@ -111,7 +111,7 @@ brute_force_1_tree_priors_fixed_crown_age <- function() {
       input_fasta_filenames = input_fasta_filename,
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename,
-      fixed_crown_age = TRUE,
+      fixed_crown_ages = TRUE,
       initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
@@ -147,7 +147,7 @@ brute_force_1_combinations_fixed_crown_age <- function() {
           clock_models = clock_model,
           tree_priors = tree_prior,
           output_xml_filename = output_xml_filename,
-          fixed_crown_age = TRUE,
+          fixed_crown_ages = TRUE,
           initial_phylogenies = beautier::fasta_to_phylo(
             input_fasta_filename, crown_age = 15)
         )

@@ -12,8 +12,7 @@ create_beast2_input_state <- function(
   initial_phylogenies
 ) {
   testit::assert(length(tree_priors) == length(initial_phylogenies))
-  testit::assert(class(initial_phylogenies) == "multiPhylo" ||
-      is.na(initial_phylogenies))
+  testit::assert(are_initial_phylogenies(initial_phylogenies))
   testit::assert(are_tree_priors(tree_priors))
 
   text <- NULL
