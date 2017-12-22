@@ -31,7 +31,6 @@ create_posterior <- function(
     }
   }
   base_filename <- "tmp_create_posterior"
-  #base_filename <- tempfile(pattern = "tmp_create_posterior")
   # BEAST2 input XML file, created by beautier::create_beast2_input_file
   beast_filename <- paste0(base_filename, ".xml")
   # BEAST2 output file, containing the posterior parameter estimates
@@ -43,7 +42,6 @@ create_posterior <- function(
   # FASTA file needed only temporarily to store simulated DNA alignments
   input_fasta_filenames <- paste0(paste0(base_filename, "_", seq_along(crown_ages)), ".fasta")
   input_fasta_filenames[1] <- paste0(base_filename, ".fasta")
-  print(paste("input_fasta_filenames: ", input_fasta_filenames))
 
   # Create FASTA file
   create_random_fastas(
@@ -69,7 +67,6 @@ create_posterior <- function(
   testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
   testit::assert(length(input_fasta_filenames) == length(crown_ages))
   fixed_crown_ages <- !is.na(crown_ages)
-  print(paste("fixed_crown_ages:", fixed_crown_ages))
   remove_files(c(beast_filename))
 
   # Create BEAST2 input file
@@ -81,11 +78,8 @@ create_posterior <- function(
     fixed_crown_ages = fixed_crown_ages,
     initial_phylogenies = initial_phylogenies
   )
-  print(paste("beast_filename:", beast_filename))
   testthat::expect_true(file.exists(beast_filename))
-  testthat::expect_true(
-    is_beast2_input_file(beast_filename)
-  )
+  testthat::expect_true(is_beast2_input_file(beast_filename))
 
   # Run BEAST2 to measure posterior
   remove_files(c(beast_state_filename, beast_log_filename, beast_trees_filename))
@@ -100,9 +94,7 @@ create_posterior <- function(
   }
   system(cmd)
   # If these are absent, BEAST2 could not parse the input file
-  print(paste("beast_state_filename:", beast_state_filename))
   testthat::expect_true(file.exists(beast_state_filename))
-  print(paste("beast_log_filename:", beast_log_filename))
   testthat::expect_true(file.exists(beast_log_filename))
   testthat::expect_true(file.exists(beast_trees_filename))
 
@@ -111,11 +103,10 @@ create_posterior <- function(
     trees_filename = beast_trees_filename,
     log_filename = beast_log_filename)
 
-  file.remove(beast_filename)
-  file.remove(beast_state_filename)
-  file.remove(beast_log_filename)
-  file.remove(beast_trees_filename)
-  file.remove(input_fasta_filename)
+  remove_files(input_fasta_filenames)
+  remove_files(c(beast_filename, beast_state_filename,
+    beast_log_filename, beast_trees_filename)
+  )
 
   posterior
 }
