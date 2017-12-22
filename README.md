@@ -16,6 +16,8 @@ from its function arguments. In this way, a scientific pipeline using
 
 For analysing the BEAST2 output files, use [beastier](https://github.com/richelbilderbeek/beastier).
 
+For tip-dating analyses using fossils as dated terminal taxa, use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR)
+
 For doing other things with BEAST2, use [RBeast](https://github.com/beast-dev/RBeast).
 
 ## Supported

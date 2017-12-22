@@ -8,6 +8,6 @@ create_random_phylogeny <- function(
   taxa_name_ext = ""
 ) {
   phylogeny <- ape::rcoal(n = n_taxa)
-  phylogeny$tip.label <- paste0(phylogeny$tip.label, taxa_name_ext)
+  phylogeny$tip.label <- paste0(phylogeny$tip.label, taxa_name_ext) # nolint APE uses a different style guideline
   phylogeny
 }

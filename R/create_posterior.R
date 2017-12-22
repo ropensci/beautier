@@ -40,7 +40,9 @@ create_posterior <- function(
   # BEAST2 output file, containing the final MCMC state
   beast_state_filename <- paste0(base_filename, ".xml.state")
   # FASTA file needed only temporarily to store simulated DNA alignments
-  input_fasta_filenames <- paste0(paste0(base_filename, "_", seq_along(crown_ages)), ".fasta")
+  input_fasta_filenames <- paste0(
+    paste0(base_filename, "_", seq_along(crown_ages)), ".fasta"
+  )
   input_fasta_filenames[1] <- paste0(base_filename, ".fasta")
 
   # Create FASTA file
@@ -87,8 +89,10 @@ create_posterior <- function(
   }
 
   # Run BEAST2 to measure posterior
-  remove_files(c(beast_state_filename, beast_log_filename, beast_trees_filename))
-  testthat::expect_false(files_exist(c(beast_state_filename, beast_log_filename, beast_trees_filename)))
+  remove_files(
+    c(beast_state_filename, beast_log_filename, beast_trees_filename))
+  testthat::expect_false(files_exist(
+    c(beast_state_filename, beast_log_filename, beast_trees_filename)))
   cmd <- paste(
     "java -jar ~/Programs/beast/lib/beast.jar",
     " -statefile ", beast_state_filename,
