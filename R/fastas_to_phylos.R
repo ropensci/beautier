@@ -24,7 +24,7 @@
 #' @export
 fastas_to_phylos <- function(fasta_filenames, crown_age) {
 
-  if (!beautier:::files_exist(fasta_filenames)) {
+  if (!files_exist(fasta_filenames)) {
     stop("'fasta_filenames' must be the names of existing files")
   }
   if (crown_age <= 0.0) {
