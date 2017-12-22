@@ -13,13 +13,14 @@ create_beast2_input_run <- function(
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(ids = ids),
   mcmc = create_mcmc(),
-  fixed_crown_age = FALSE,
+  fixed_crown_ages = rep(FALSE, times = length(ids)),
   initial_phylogenies = rep(NA, length(ids))
 ) {
   testit::assert(length(ids) == length(initial_phylogenies))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
+  testit::assert(length(ids) == length(fixed_crown_ages))
   testit::assert(are_ids(ids))  # nolint internal function
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
@@ -67,7 +68,7 @@ create_beast2_input_run <- function(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors,
-      fixed_crown_age = rep(fixed_crown_age, length(site_models))
+      fixed_crown_ages = fixed_crown_ages
     )
   )
 

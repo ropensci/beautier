@@ -7,7 +7,8 @@
 create_beast2_input_run(ids, site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(ids = ids), mcmc = create_mcmc(),
-  fixed_crown_age = FALSE, initial_phylogenies = rep(NA, length(ids)))
+  fixed_crown_ages = rep(FALSE, times = length(ids)),
+  initial_phylogenies = rep(NA, length(ids)))
 }
 \arguments{
 \item{ids}{the IDs of the alignments (can be extracted from
@@ -25,8 +26,9 @@ as returned by \code{\link{create_tree_prior}}}
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}
 
-\item{fixed_crown_age}{determines if the phylogeny's crown age is
-fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 

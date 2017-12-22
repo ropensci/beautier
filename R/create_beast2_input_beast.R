@@ -71,7 +71,7 @@ create_beast2_input_beast <- function(
       clock_models = clock_models,
       mcmc = mcmc,
       tree_priors = tree_priors,
-      fixed_crown_age = fixed_crown_age,
+      fixed_crown_ages = rep(fixed_crown_age, times = length(ids)),
       initial_phylogenies = initial_phylogenies
     )
   )
