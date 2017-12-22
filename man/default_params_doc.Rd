@@ -6,7 +6,7 @@
 documentation.}
 \usage{
 default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
-  cep_tree_prior, clock_model, clock_models, crown_age, distr_id,
+  cep_tree_prior, clock_model, clock_models, crown_age, crown_ages, distr_id,
   fasta_filename, fasta_filenames, fixed_crown_age, gtr_site_model,
   hky_site_model, id, ids, initial_phylogenies, input_fasta_filenames, is_first,
   mcmc, misc_options, output_xml_filename, param_id, rln_clock_model,
