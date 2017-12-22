@@ -84,13 +84,13 @@ test_that("input is checked, one alignment", {
     "'misc_options' must be a valid misc options object"
   )
 
-  # 7 fixed_crown_age
+  # 7 fixed_crown_ages
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),
-      fixed_crown_age = "nonsense" # Error
+      fixed_crown_ages = "nonsense" # Error
     ),
-    "'fixed_crown_age' must be either TRUE or FALSE"
+    "'fixed_crown_ages' must be one or more booleans"
   )
 
   # 8 initial_phylogenies
@@ -134,6 +134,15 @@ test_that("input is checked, two alignments", {
       tree_priors = create_yule_tree_priors(ids = ids[1])
     ),
     "Must supply as much input_fasta_filenames as tree priors"
+  )
+
+  # Two filenames, one tree prior
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = input_fasta_filenames,
+      fixed_crown_ages = TRUE
+    ),
+    "Must supply as much input_fasta_filenames as fixed crown ages"
   )
 
   # Two filesnames, one phylogeny

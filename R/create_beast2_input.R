@@ -16,7 +16,7 @@ create_beast2_input <- function(
   tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  fixed_crown_age = FALSE,
+  fixed_crown_ages = rep(FALSE, times = length(input_fasta_filenames)),
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   # Convert possible-non-list input to lists and multiPhylo
@@ -86,9 +86,9 @@ create_beast2_input <- function(
     )
   }
 
-  # 7 fixed_crown_age
-  if (!is.logical(fixed_crown_age)) {
-    stop("'fixed_crown_age' must be either TRUE or FALSE")
+  # 7 fixed_crown_ages
+  if (!is.logical(fixed_crown_ages)) {
+    stop("'fixed_crown_ages' must be one or more booleans")
   }
 
   # 8 initial_phylogenies
@@ -108,6 +108,9 @@ create_beast2_input <- function(
   }
   if (length(input_fasta_filenames) != length(tree_priors)) {
     stop("Must supply as much input_fasta_filenames as tree priors")
+  }
+  if (length(input_fasta_filenames) != length(fixed_crown_ages)) {
+    stop("Must supply as much input_fasta_filenames as fixed crown ages")
   }
   if (length(input_fasta_filenames) != length(initial_phylogenies)) {
     stop("Must supply as much input_fasta_filenames as initial_phylogenies")
@@ -144,14 +147,14 @@ create_beast2_input <- function(
   options(scipen = 20)
 
   text <- create_beast2_input_beast(
-      input_fasta_filenames = input_fasta_filenames,
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors,
-      mcmc = mcmc,
-      misc_options = misc_options,
-      fixed_crown_ages = rep(fixed_crown_age, times = length(input_fasta_filenames)),
-      initial_phylogenies = initial_phylogenies
+    input_fasta_filenames = input_fasta_filenames,
+    site_models = site_models,
+    clock_models = clock_models,
+    tree_priors = tree_priors,
+    mcmc = mcmc,
+    misc_options = misc_options,
+    fixed_crown_ages = fixed_crown_ages,
+    initial_phylogenies = initial_phylogenies
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function
 

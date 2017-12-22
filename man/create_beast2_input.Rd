@@ -9,8 +9,9 @@ create_beast2_input(input_fasta_filenames,
   clock_models = create_strict_clock_models(ids =
   get_ids(input_fasta_filenames)), tree_priors = create_yule_tree_priors(ids =
   get_ids(input_fasta_filenames)), mcmc = create_mcmc(),
-  misc_options = create_misc_options(), fixed_crown_age = FALSE,
-  initial_phylogenies = rep(NA, length(input_fasta_filenames)))
+  misc_options = create_misc_options(), fixed_crown_ages = rep(FALSE, times
+  = length(input_fasta_filenames)), initial_phylogenies = rep(NA,
+  length(input_fasta_filenames)))
 }
 \arguments{
 \item{input_fasta_filenames}{One or more FASTA filenames.
@@ -31,8 +32,9 @@ as returned by \code{\link{create_mcmc}}}
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
 
-\item{fixed_crown_age}{determines if the phylogeny's crown age is
-fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 

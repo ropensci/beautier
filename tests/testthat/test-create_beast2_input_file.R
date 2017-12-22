@@ -82,9 +82,28 @@ test_that("Can specify fixed crown age", {
     input_fasta_filenames = input_fasta_filename,
     tree_priors = create_bd_tree_prior(),
     output_xml_filename = output_xml_filename_fixed,
-    fixed_crown_age = TRUE,
+    fixed_crown_ages = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(
       input_fasta_filename, crown_age = 15)
+  )
+  testthat::expect_true(
+    is_beast2_input_file(output_xml_filename_fixed)
+  )
+})
+
+test_that("Can specify fixed crown ages", {
+
+  if (!is_on_travis()) return()
+
+  input_fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  output_xml_filename_fixed <- tempfile()
+
+  beautier::create_beast2_input_file(
+    input_fasta_filenames = input_fasta_filenames,
+    output_xml_filename = output_xml_filename_fixed,
+    fixed_crown_ages = c(TRUE, TRUE),
+    initial_phylogenies = beautier::fastas_to_phylos(
+      input_fasta_filenames, crown_age = 15)
   )
   testthat::expect_true(
     is_beast2_input_file(output_xml_filename_fixed)

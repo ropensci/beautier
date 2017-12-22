@@ -9,8 +9,8 @@ create_beast2_input_file(input_fasta_filenames, output_xml_filename,
   clock_models = create_strict_clock_models(ids =
   get_ids(input_fasta_filenames)), tree_priors = create_yule_tree_priors(ids =
   get_ids(input_fasta_filenames)), mcmc = create_mcmc(),
-  fixed_crown_age = FALSE, initial_phylogenies = rep(NA,
-  length(input_fasta_filenames)))
+  fixed_crown_ages = rep(FALSE, length(input_fasta_filenames)),
+  initial_phylogenies = rep(NA, length(input_fasta_filenames)))
 }
 \arguments{
 \item{input_fasta_filenames}{One or more FASTA filenames.
@@ -31,8 +31,9 @@ as returned by \code{\link{create_tree_prior}}}
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}
 
-\item{fixed_crown_age}{determines if the phylogeny's crown age is
-fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 
@@ -61,7 +62,7 @@ Create a BEAST2 input file
   create_beast2_input_file(
     input_fasta_filenames = get_fasta_filename(),
     output_xml_filename = output_xml_filename_fixed,
-    fixed_crown_age = TRUE,
+    fixed_crown_ages = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(
       fasta_filename = get_fasta_filename(),
       crown_age = 15)
