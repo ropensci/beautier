@@ -9,7 +9,7 @@ create_beast2_input_beast <- function(
   tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  fixed_crown_age = FALSE,
+  fixed_crown_ages = rep(FALSE, times = length(input_fasta_filenames)),
   initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   testit::assert(files_exist(input_fasta_filenames)) # nolint internal function
@@ -17,6 +17,7 @@ create_beast2_input_beast <- function(
   testit::assert(length(input_fasta_filenames) == length(clock_models))
   testit::assert(length(input_fasta_filenames) == length(tree_priors))
   testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
+  testit::assert(length(input_fasta_filenames) == length(fixed_crown_ages))
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
@@ -71,7 +72,7 @@ create_beast2_input_beast <- function(
       clock_models = clock_models,
       mcmc = mcmc,
       tree_priors = tree_priors,
-      fixed_crown_ages = rep(fixed_crown_age, times = length(ids)),
+      fixed_crown_ages = fixed_crown_ages,
       initial_phylogenies = initial_phylogenies
     )
   )

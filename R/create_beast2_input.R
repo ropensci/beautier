@@ -150,7 +150,7 @@ create_beast2_input <- function(
       tree_priors = tree_priors,
       mcmc = mcmc,
       misc_options = misc_options,
-      fixed_crown_age = fixed_crown_age,
+      fixed_crown_ages = rep(fixed_crown_age, times = length(input_fasta_filenames)),
       initial_phylogenies = initial_phylogenies
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function
