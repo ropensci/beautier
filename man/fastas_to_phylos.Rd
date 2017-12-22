@@ -22,8 +22,8 @@ Create a random phylogeny, with the same taxa names as the FASTA file
   and the desired crown age
 }
 \examples{
-  # Create a random phylogy, with
-  # - the same taxa names as the FASTA file
+  # Create tworandom phylogies, with
+  # - the same taxa names as the FASTA files
   # - the desired crown age
   fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   initial_phylogenies <- fastas_to_phylos(
@@ -33,7 +33,7 @@ Create a random phylogeny, with the same taxa names as the FASTA file
 
   # Crown age fixed to the crown age of the phylogeny
   create_beast2_input_file(
-    input_fasta_filenames = fasta_filename,
+    input_fasta_filenames = fasta_filenames,
     "fastas_to_phylos.xml",
     fixed_crown_ages = c(TRUE, TRUE),
     initial_phylogenies = initial_phylogenies
