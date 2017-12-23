@@ -63,3 +63,4 @@ fastas_to_phylos.xml
 fasta_to_phylo.xml
 test.txt
 vignettes/*.xml
+*.xml
