@@ -88,11 +88,6 @@ create_beast2_input <- function(
     stop("'posterior_crown_age' must be either NA or a non-zero postive value")
   }
 
-  # 7 crown_age
-  # if (!is.logical(posterior_crown_ages)) {
-  #   stop("'posterior_crown_ages' must be one or more booleans")
-  # }
-
   # Lengths
   if (length(input_fasta_filenames) != length(site_models)) {
     stop("Must supply as much input_fasta_filenames as site_models")
@@ -135,7 +130,8 @@ create_beast2_input <- function(
   options(scipen = 20)
 
   # Convert from new to older interface
-  fixed_crown_ages <- rep(!is.na(posterior_crown_age), time = length(input_fasta_filenames))
+  fixed_crown_ages <- rep(!is.na(posterior_crown_age),
+    times = length(input_fasta_filenames))
   initial_phylogenies <- rep(NA, time = length(input_fasta_filenames))
   if (!is.na(posterior_crown_age)) {
     initial_phylogenies <- fastas_to_phylos(
