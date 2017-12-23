@@ -1,24 +1,19 @@
-#' Create a BEAST2 input file
+#' Create a BEAST2 input file, interface of v1.12.
+#' This interface is obsoleted, use \code{\link{create_beast2_input_file}}
+#' instead
 #' @inheritParams default_params_doc
 #' @examples
 #'   # The file created by beautier, a BEAST2 input file
-#'   output_xml_filename <- "create_beast2_input_file.xml"
-#'
-#'   # Birth-Death tree prior, crown age is estimated
-#'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
-#'     output_xml_filename = output_xml_filename
-#'   )
-#'   testthat::expect_true(file.exists(output_xml_filename))
-#'
-#'   # The file created by beautier, a BEAST2 input file
-#'   output_xml_filename_fixed <- "create_beast2_input_file_fixed.xml"
+#'   output_xml_filename_fixed <- "create_beast2_input_file_1_12.xml"
 #'
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
-#'   create_beast2_input_file(
+#'   create_beast2_input_file_1_12(
 #'     input_fasta_filenames = get_fasta_filename(),
 #'     output_xml_filename = output_xml_filename_fixed,
-#'     posterior_crown_age = 15
+#'     fixed_crown_ages = TRUE,
+#'     initial_phylogenies = beautier::fasta_to_phylo(
+#'       fasta_filename = get_fasta_filename(),
+#'       crown_age = 15)
 #'   )
 #'   testthat::expect_true(file.exists(output_xml_filename_fixed))
 #' @author Richel J.C. Bilderbeek
@@ -29,7 +24,7 @@
 #'   a different MCMC setup. See \code{\link{fasta_to_phylo}} for examples with
 #'   a fixed crown age
 #' @export
-create_beast2_input_file <- function(
+create_beast2_input_file_1_12 <- function(
   input_fasta_filenames,
   output_xml_filename,
   site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
@@ -37,16 +32,18 @@ create_beast2_input_file <- function(
     ids = get_ids(input_fasta_filenames)),
   tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
   mcmc = create_mcmc(),
-  posterior_crown_age = NA
+  fixed_crown_ages = rep(FALSE, length(input_fasta_filenames)),
+  initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
-  # Error handling done by create_beast2_input
-  text <- create_beast2_input(
+  # Error handling done by create_beast2_input_1_12
+  text <- create_beast2_input_1_12(
     input_fasta_filenames = input_fasta_filenames,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
     mcmc = mcmc,
-    posterior_crown_age = posterior_crown_age
+    fixed_crown_ages = fixed_crown_ages,
+    initial_phylogenies = initial_phylogenies
   )
 
   # Write to file

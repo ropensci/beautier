@@ -1,15 +1,4 @@
----
-title: "Examples"
-author: "Richel J.C. Bilderbeek"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Examples}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
-```{r setup, include = FALSE}
+## ----setup, include = FALSE----------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -24,41 +13,17 @@ for (filename in c("my_fasta.fas", "my_alignment.fas")) {
 for (filename in c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")) {
   file.copy(from = beautier::get_path(filename), to = filename)
 }
-```
 
-# Examples
-
-For all examples, do load `beautier`:
-
-```{r}
+## ------------------------------------------------------------------------
 library(beautier)
-```
 
-All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 
-and create a BEAST2 input file called `my_beast.xml`.
-
-## Example #1: all default
-
-Using all default settings, only specify a DNA alignment.
-
-```{r}
+## ------------------------------------------------------------------------
 create_beast2_input_file(
   "test_output_0.fas",
   "my_beast.xml"
 )
-```
 
-All other parameters are set to their defaults, as in BEAUti.
-
-## Example #2: fixed crown age
-
-Using all default settings, only specify a DNA alignment.
-
-```
-[No screenshot, as this cannot be done in BEAUti yet]
-```
-
-```{r}
+## ------------------------------------------------------------------------
 create_beast2_input_file_1_12(
   "my_fasta.fas",
   "my_beast.xml",
@@ -67,52 +32,36 @@ create_beast2_input_file_1_12(
     fasta_filename = "my_fasta.fas",
     crown_age = 15)
 )
-```
 
-```{r}
+## ------------------------------------------------------------------------
 create_beast2_input_file(
   "my_fasta.fas",
   "my_beast.xml",
   posterior_crown_age = 15
 )
-```
 
-`fasta_to_phylo` creates a random phylogeny from
-a FASTA file of a certain crown age. 
-
-## Example #3: JC69 site model
-
-```{r}
+## ------------------------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
   site_models = create_jc69_site_model()
 )
-```
 
-## Example #4: Relaxed clock log normal
-
-```{r example_4}
+## ----example_4-----------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
   clock_models = create_rln_clock_model()
 )
-```
 
-## Example #5: Birth-Death tree prior
-
-```{r example_5}
+## ----example_5-----------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
   tree_priors = create_bd_tree_prior() 
 )
-```
 
-## Example #6: Yule tree prior with a normally distributed birth rate
-
-```{r example_6}
+## ----example_6-----------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
@@ -120,13 +69,8 @@ create_beast2_input_file(
     birth_rate_distr = create_normal_distr()
   ) 
 )
-```
 
-Thanks to Yacine Ben Chehida for this use case
-
-## Example #7: HKY site model with a non-zero proportion of invariants
-
-```{r example_7}
+## ----example_7-----------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
@@ -134,37 +78,22 @@ create_beast2_input_file(
     gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
   )
 )
-```
 
-Thanks to Yacine Ben Chehida for this use case
-
-## Example #8: Strict clock with a known clock rate
-
-```{r example_8}
+## ----example_8-----------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
   clock_models = create_strict_clock_model(
     clock_rate_param = create_clock_rate_param(value = 0.5)) 
 )
-```
 
-Thanks to Paul van Els and Yacine Ben Chehida for this use case.
-
-## Example #9: Two alignments
-
-```{r example_9}
+## ----example_9-----------------------------------------------------------
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
 )
-```
 
-Thanks to Paul van Els for this use case and supplying these FASTA files.
-
-## Example #10: Two alignments, different site models
-
-```{r example_10}
+## ----example_10----------------------------------------------------------
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
@@ -173,15 +102,8 @@ beautier::create_beast2_input_file(
     create_tn93_site_model()
   )
 )
-```
 
-Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.
-
-Thanks to Paul van Els for this use case.
-
-## Example #11: Two alignments, shared clock model
-
-```{r example_11}
+## ----example_11----------------------------------------------------------
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
@@ -190,9 +112,4 @@ beautier::create_beast2_input_file(
     create_strict_clock_model(id = "anthus_aco")
   )
 )
-```
-
-From `v1.13`, it will be supported to have two alignments with shared site models, clock models and tree priors.
-
-Thanks to Yacine Ben Chehida for this use case.
 

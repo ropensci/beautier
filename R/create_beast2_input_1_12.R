@@ -1,14 +1,14 @@
-#' Create a BEAST2 XML input text
+#' Create a BEAST2 XML input text, interface of v1.12
 #' @inheritParams default_params_doc
 #' @examples
-#'   create_beast2_input_file(
+#'   create_beast2_input_file_1_12(
 #'     input_fasta_filenames = get_fasta_filename(),
 #'     "my_beast.xml"
 #'   )
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_beast2_input <- function(
+create_beast2_input_1_12 <- function(
   input_fasta_filenames,
   site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
   clock_models = create_strict_clock_models(
@@ -16,7 +16,8 @@ create_beast2_input <- function(
   tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  posterior_crown_age = NA
+  fixed_crown_ages = rep(FALSE, times = length(input_fasta_filenames)),
+  initial_phylogenies = rep(NA, length(input_fasta_filenames))
 ) {
   # Convert possible-non-list input to lists and multiPhylo
   if (is_site_model(site_models)) {
@@ -27,6 +28,10 @@ create_beast2_input <- function(
   }
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
+  }
+  if (class(initial_phylogenies) == "phylo") {
+    initial_phylogenies <- c(initial_phylogenies)
+    testit::assert(are_initial_phylogenies(initial_phylogenies))
   }
   # Check input
 
@@ -81,17 +86,15 @@ create_beast2_input <- function(
     )
   }
 
-  if (!is.na(posterior_crown_age) && !is.numeric(posterior_crown_age)) {
-    stop("'posterior_crown_age' must be either NA or a non-zero postive value")
-  }
-  if (!is.na(posterior_crown_age) && posterior_crown_age <= 0.0) {
-    stop("'posterior_crown_age' must be either NA or a non-zero postive value")
+  # 7 fixed_crown_ages
+  if (!is.logical(fixed_crown_ages)) {
+    stop("'fixed_crown_ages' must be one or more booleans")
   }
 
-  # 7 crown_age
-  # if (!is.logical(posterior_crown_ages)) {
-  #   stop("'posterior_crown_ages' must be one or more booleans")
-  # }
+  # 8 initial_phylogenies
+  if (!are_initial_phylogenies(initial_phylogenies)) {
+    stop("initial_phylogenies must be a list of NAs and phylo objects")
+  }
 
   # Lengths
   if (length(input_fasta_filenames) != length(site_models)) {
@@ -102,6 +105,12 @@ create_beast2_input <- function(
   }
   if (length(input_fasta_filenames) != length(tree_priors)) {
     stop("Must supply as much input_fasta_filenames as tree priors")
+  }
+  if (length(input_fasta_filenames) != length(fixed_crown_ages)) {
+    stop("Must supply as much input_fasta_filenames as fixed crown ages")
+  }
+  if (length(input_fasta_filenames) != length(initial_phylogenies)) {
+    stop("Must supply as much input_fasta_filenames as initial_phylogenies")
   }
 
   site_models <- init_site_models(
@@ -133,18 +142,6 @@ create_beast2_input <- function(
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
-
-  # Convert from new to older interface
-  fixed_crown_ages <- rep(!is.na(posterior_crown_age), time = length(input_fasta_filenames))
-  initial_phylogenies <- rep(NA, time = length(input_fasta_filenames))
-  if (!is.na(posterior_crown_age)) {
-    initial_phylogenies <- fastas_to_phylos(
-      fasta_filenames = input_fasta_filenames,
-      crown_age = posterior_crown_age
-    )
-  }
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
-  testit::assert(length(input_fasta_filenames) == length(initial_phylogenies)) # nolint internal function
 
   text <- create_beast2_input_beast(
     input_fasta_filenames = input_fasta_filenames,

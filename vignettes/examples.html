@@ -14,7 +14,7 @@
 
 <meta name="date" content="2017-12-23" />
 
-<title>From 1.12.0 to 1.12.1</title>
+<title>Examples</title>
 
 
 
@@ -68,118 +68,135 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title toc-ignore">From 1.12.0 to 1.12.1</h1>
+<h1 class="title toc-ignore">Examples</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
 <h4 class="date"><em>2017-12-23</em></h4>
 
 
 
-<p>This vignette describes how to transition your interface from <code>beautier</code> <code>v1.12.0</code> to <code>v1.12.1</code> and why this interface is changed.</p>
+<div id="examples" class="section level1">
+<h1>Examples</h1>
+<p>For all examples, do load <code>beautier</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(beautier)</code></pre></div>
-<div id="internal-functions" class="section level3">
-<h3>Internal functions</h3>
-<p>This vignette checks if XML files created by <code>beautier</code> are accepted by BEAST2. The internal function <code>is_beast2_input_file</code> lets BEAST2 validate a BEAST2 input file. <code>is_beast2_input_file</code> assumes that BEAST2 is installed correctly and stops otherwise. Instead of forcing all <code>beautier</code> users to install BEAST2, a fail-safe wrapper function will be used:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">is_beast2_input_file_safe &lt;-<span class="st"> </span><span class="cf">function</span>(beast2_input_filename) {
-  <span class="kw">tryCatch</span>(
-    <span class="kw">return</span>(beautier<span class="op">:::</span><span class="kw">is_beast2_input_file</span>(beast2_input_filename)),
-    <span class="dt">error =</span> <span class="cf">function</span>(cond) {
-      <span class="kw">print</span>(<span class="st">&quot;BEAST2 not found&quot;</span>)
-    }
-  )
-  <span class="ot">TRUE</span>
-}</code></pre></div>
+<p>All examples read the alignment from a FASTA file (usually <code>my_fasta.fas</code>) and create a BEAST2 input file called <code>my_beast.xml</code>.</p>
+<div id="example-1-all-default" class="section level2">
+<h2>Example #1: all default</h2>
+<p>Using all default settings, only specify a DNA alignment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;test_output_0.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>
+)</code></pre></div>
+<p>All other parameters are set to their defaults, as in BEAUti.</p>
 </div>
-<div id="changes" class="section level2">
-<h2>Changes</h2>
-<p>The major change is in how to set a fixed crown age.</p>
-<div id="one-alignment-is-no-problem" class="section level3">
-<h3>One alignment is no problem</h3>
-<p>For one alignment, this is how this is done:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filename &lt;-<span class="st"> </span><span class="kw">get_fasta_filename</span>()
-
-<span class="kw">create_beast2_input_file</span>(
-  <span class="dt">input_fasta_filenames =</span> fasta_filename,
-  <span class="dt">output_xml_filename =</span> <span class="st">&quot;fix.xml&quot;</span>,
-  <span class="dt">fixed_crown_ages =</span> <span class="ot">TRUE</span>,
+<div id="example-2-fixed-crown-age" class="section level2">
+<h2>Example #2: fixed crown age</h2>
+<p>Using all default settings, only specify a DNA alignment.</p>
+<pre><code>[No screenshot, as this cannot be done in BEAUti yet]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file_1_12</span>(
+  <span class="st">&quot;my_fasta.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">fixed_crown_age =</span> <span class="ot">TRUE</span>,
   <span class="dt">initial_phylogenies =</span> <span class="kw">fasta_to_phylo</span>(
-    <span class="dt">fasta_filename =</span> fasta_filename,
-    <span class="dt">crown_age =</span> <span class="dv">15</span>
+    <span class="dt">fasta_filename =</span> <span class="st">&quot;my_fasta.fas&quot;</span>,
+    <span class="dt">crown_age =</span> <span class="dv">15</span>)
+)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_fasta.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">posterior_crown_age =</span> <span class="dv">15</span>
+)</code></pre></div>
+<p><code>fasta_to_phylo</code> creates a random phylogeny from a FASTA file of a certain crown age.</p>
+</div>
+<div id="example-3-jc69-site-model" class="section level2">
+<h2>Example #3: JC69 site model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_alignment.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">site_models =</span> <span class="kw">create_jc69_site_model</span>()
+)</code></pre></div>
+</div>
+<div id="example-4-relaxed-clock-log-normal" class="section level2">
+<h2>Example #4: Relaxed clock log normal</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_alignment.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">clock_models =</span> <span class="kw">create_rln_clock_model</span>()
+)</code></pre></div>
+</div>
+<div id="example-5-birth-death-tree-prior" class="section level2">
+<h2>Example #5: Birth-Death tree prior</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_alignment.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">tree_priors =</span> <span class="kw">create_bd_tree_prior</span>() 
+)</code></pre></div>
+</div>
+<div id="example-6-yule-tree-prior-with-a-normally-distributed-birth-rate" class="section level2">
+<h2>Example #6: Yule tree prior with a normally distributed birth rate</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_alignment.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">tree_priors =</span> <span class="kw">create_yule_tree_prior</span>(
+    <span class="dt">birth_rate_distr =</span> <span class="kw">create_normal_distr</span>()
+  ) 
+)</code></pre></div>
+<p>Thanks to Yacine Ben Chehida for this use case</p>
+</div>
+<div id="example-7-hky-site-model-with-a-non-zero-proportion-of-invariants" class="section level2">
+<h2>Example #7: HKY site model with a non-zero proportion of invariants</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_alignment.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">site_models =</span> <span class="kw">create_hky_site_model</span>(
+    <span class="dt">gamma_site_model =</span> <span class="kw">create_gamma_site_model</span>(<span class="dt">prop_invariant =</span> <span class="fl">0.5</span>)
   )
-)
-testit<span class="op">::</span><span class="kw">assert</span>(<span class="kw">is_beast2_input_file_safe</span>(<span class="st">&quot;fix.xml&quot;</span>))
-<span class="co">#&gt; [1] &quot;BEAST2 not found&quot;</span></code></pre></div>
-<p>For one alignment, these is no room to do incorrect things. This will change when using two alignments.</p>
+)</code></pre></div>
+<p>Thanks to Yacine Ben Chehida for this use case</p>
 </div>
-<div id="for-two-alignment-problems-arise" class="section level3">
-<h3>For two alignment, problems arise</h3>
-<p>When using two alignments, in which both crown ages are fixed, the interface is:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
-
-<span class="kw">create_beast2_input_file</span>(
-  <span class="dt">input_fasta_filenames =</span> fasta_filenames,
-  <span class="dt">output_xml_filename =</span> <span class="st">&quot;fix_fix.xml&quot;</span>,
-  <span class="dt">fixed_crown_ages =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>),
-  <span class="dt">initial_phylogenies =</span> <span class="kw">fastas_to_phylos</span>(
-    <span class="dt">fasta_filename =</span> fasta_filenames,
-    <span class="dt">crown_age =</span> <span class="dv">15</span>
+<div id="example-8-strict-clock-with-a-known-clock-rate" class="section level2">
+<h2>Example #8: Strict clock with a known clock rate</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="st">&quot;my_alignment.fas&quot;</span>,
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">clock_models =</span> <span class="kw">create_strict_clock_model</span>(
+    <span class="dt">clock_rate_param =</span> <span class="kw">create_clock_rate_param</span>(<span class="dt">value =</span> <span class="fl">0.5</span>)) 
+)</code></pre></div>
+<p>Thanks to Paul van Els and Yacine Ben Chehida for this use case.</p>
+</div>
+<div id="example-9-two-alignments" class="section level2">
+<h2>Example #9: Two alignments</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
+  <span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>),
+  <span class="st">&quot;my_beast.xml&quot;</span>
+)</code></pre></div>
+<p>Thanks to Paul van Els for this use case and supplying these FASTA files.</p>
+</div>
+<div id="example-10-two-alignments-different-site-models" class="section level2">
+<h2>Example #10: Two alignments, different site models</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beautier<span class="op">::</span><span class="kw">create_beast2_input_file</span>(
+  <span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>),
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">site_models =</span> <span class="kw">list</span>(
+    <span class="kw">create_hky_site_model</span>(), 
+    <span class="kw">create_tn93_site_model</span>()
   )
-)
-testit<span class="op">::</span><span class="kw">assert</span>(<span class="kw">is_beast2_input_file_safe</span>(<span class="st">&quot;fix_fix.xml&quot;</span>))
-<span class="co">#&gt; [1] &quot;BEAST2 not found&quot;</span></code></pre></div>
-<p>Questions that may open up are:</p>
-<ul>
-<li>what if <code>fixed_crown_ages</code> is set to other boolean pairs?</li>
-<li>what if <code>initial_phylogenies</code> is supplied two phylogenies with different crown ages?</li>
-</ul>
+)</code></pre></div>
+<p>Since <code>v1.12</code> this it is supported to have two alignments with different site models, clock models and tree priors.</p>
+<p>Thanks to Paul van Els for this use case.</p>
 </div>
-</div>
-<div id="what-if-fixed_crown_ages-is-set-to-other-boolean-pairs" class="section level2">
-<h2>what if <code>fixed_crown_ages</code> is set to other boolean pairs?</h2>
-<p>In the code above, <code>fixed_crown_ages</code> is set to <code>TRUE</code> for both alignments. This invites to explore other boolean pairs:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">combinations &lt;-<span class="st"> </span><span class="kw">list</span>()
-combinations[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">FALSE</span>)
-combinations[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>)
-combinations[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>)
-
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq_along</span>(combinations)) {
-  combination &lt;-<span class="st"> </span>combinations[[i]]
-  output_filename &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;combination_&quot;</span>, i, <span class="st">&quot;.xml&quot;</span>)
-  
-  <span class="kw">create_beast2_input_file</span>(
-    <span class="dt">input_fasta_filenames =</span> fasta_filenames,
-    <span class="dt">output_xml_filename =</span> output_filename,
-    <span class="dt">fixed_crown_ages =</span> combination,
-    <span class="dt">initial_phylogenies =</span> <span class="kw">fastas_to_phylos</span>(
-      <span class="dt">fasta_filename =</span> fasta_filenames,
-      <span class="dt">crown_age =</span> <span class="dv">15</span>
-    )
+<div id="example-11-two-alignments-shared-clock-model" class="section level2">
+<h2>Example #11: Two alignments, shared clock model</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beautier<span class="op">::</span><span class="kw">create_beast2_input_file</span>(
+  <span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>),
+  <span class="st">&quot;my_beast.xml&quot;</span>,
+  <span class="dt">clock_models =</span> <span class="kw">list</span>(
+    <span class="kw">create_strict_clock_model</span>(<span class="dt">id =</span> <span class="st">&quot;anthus_aco&quot;</span>), 
+    <span class="kw">create_strict_clock_model</span>(<span class="dt">id =</span> <span class="st">&quot;anthus_aco&quot;</span>)
   )
-  testit<span class="op">::</span><span class="kw">assert</span>(<span class="kw">is_beast2_input_file_safe</span>(output_filename))
-}
-<span class="co">#&gt; [1] &quot;BEAST2 not found&quot;</span>
-<span class="co">#&gt; [1] &quot;BEAST2 not found&quot;</span>
-<span class="co">#&gt; [1] &quot;BEAST2 not found&quot;</span></code></pre></div>
-<p>All combinations are legal, but irrelevant. Especially the combination <code>c(TRUE, FALSE)</code> is misleading: this will result in a posterior with phylogenies of all the same (fixed) crown ages: the first <code>TRUE</code> will ‘take the lead’, similar to when supplying two phylogenies with a different fixed crown age (see below).</p>
+)</code></pre></div>
+<p>From <code>v1.13</code>, it will be supported to have two alignments with shared site models, clock models and tree priors.</p>
+<p>Thanks to Yacine Ben Chehida for this use case.</p>
 </div>
-<div id="what-if-initial_phylogenies-is-supplied-two-phylogenies-with-different-crown-ages" class="section level2">
-<h2>what if <code>initial_phylogenies</code> is supplied two phylogenies with different crown ages?</h2>
-<p>If two phylogenies with a fixed <em>-but different-</em> crown age are supplied, a valid BEAST2 input file is created:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
-
-initial_phylogenies &lt;-<span class="st"> </span><span class="kw">list</span>()
-initial_phylogenies[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">fasta_to_phylo</span>(fasta_filenames[<span class="dv">1</span>], <span class="dt">crown_age =</span> <span class="dv">12</span>)
-initial_phylogenies[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">fasta_to_phylo</span>(fasta_filenames[<span class="dv">2</span>], <span class="dt">crown_age =</span> <span class="dv">34</span>)
-
-<span class="kw">create_beast2_input_file</span>(
-  <span class="dt">input_fasta_filenames =</span> fasta_filenames,
-  <span class="dt">output_xml_filename =</span> <span class="st">&quot;12_34.xml&quot;</span>,
-  <span class="dt">fixed_crown_ages =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>),
-  <span class="dt">initial_phylogenies =</span> initial_phylogenies
-)
-
-testit<span class="op">::</span><span class="kw">assert</span>(<span class="kw">is_beast2_input_file_safe</span>(<span class="st">&quot;12_34.xml&quot;</span>))
-<span class="co">#&gt; [1] &quot;BEAST2 not found&quot;</span></code></pre></div>
-<p>Running BEAST2 with <code>12_34.xml</code> results in a posterior with phylogenies of a crown age of 12. Go ahead and try.</p>
 </div>
 
 

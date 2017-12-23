@@ -10,7 +10,7 @@ context(
 ################################################################################
 
 test_that("aco_nd2_2_4.xml", {
-
+#
   created <- beautier::create_beast2_input(
     input_fasta_filenames = beautier:::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")

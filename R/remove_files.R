@@ -7,7 +7,7 @@
 #'
 #'   # Create a file
 #'   fasta_filename <- "remove_files.fas"
-#'   beautier:::create_random_fasta(
+#'   beastier:::create_random_fasta(
 #'     n_taxa = 5,
 #'     sequence_length = 10,
 #'     fasta_filename = fasta_filename

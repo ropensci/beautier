@@ -6,34 +6,6 @@ test_that("checks input", {
   # See 'create_beast2_input' tests
 })
 
-test_that("Create CCP posterior with random initial tree", {
-
-  if (!is_on_travis()) return()
-
-  posterior <- create_posterior(
-    n_taxa = 2,
-    sequence_length = 1,
-    mcmc = create_mcmc(chain_length = 10000),
-    tree_priors = create_ccp_tree_prior()
-  )
-  testthat::expect_true(beastier::is_posterior(posterior))
-})
-
-test_that("Create BD posterior with random initial tree", {
-
-  if (!is_on_travis()) return()
-
-  posterior <- create_posterior(
-    n_taxa = 2,
-    sequence_length = 1,
-    mcmc = create_mcmc(chain_length = 10000),
-    tree_priors = create_bd_tree_prior()
-  )
-  testthat::expect_true(beastier::is_posterior(posterior))
-
-})
-
-
 test_that("Can specify fixed crown age", {
 
   if (!is_on_travis()) return()
@@ -43,7 +15,6 @@ test_that("Can specify fixed crown age", {
 
   beautier::create_beast2_input_file(
     input_fasta_filenames = input_fasta_filename,
-    tree_priors = create_bd_tree_prior(),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_ages = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(

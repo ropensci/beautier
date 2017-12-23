@@ -84,22 +84,22 @@ test_that("input is checked, one alignment", {
     "'misc_options' must be a valid misc options object"
   )
 
-  # 7 fixed_crown_ages
+  # 7 posterior_crown_age
   testthat::expect_error(
     create_beast2_input(
       input_fasta_filenames = get_fasta_filename(),
-      fixed_crown_ages = "nonsense" # Error
+      posterior_crown_age = "nonsense" # Error
     ),
-    "'fixed_crown_ages' must be one or more booleans"
+    "'posterior_crown_age' must be either NA or a non-zero postive value"
+  )
+  testthat::expect_error(
+    create_beast2_input(
+      input_fasta_filenames = get_fasta_filename(),
+      posterior_crown_age = -12.34 # Error
+    ),
+    "'posterior_crown_age' must be either NA or a non-zero postive value"
   )
 
-  # 8 initial_phylogenies
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
-      initial_phylogenies = "nonsense"
-    )
-  )
 })
 
 test_that("input is checked, two alignments", {
@@ -136,25 +136,6 @@ test_that("input is checked, two alignments", {
     "Must supply as much input_fasta_filenames as tree priors"
   )
 
-  # Two filenames, one tree prior
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
-      fixed_crown_ages = TRUE
-    ),
-    "Must supply as much input_fasta_filenames as fixed crown ages"
-  )
-
-  # Two filesnames, one phylogeny
-  testthat::expect_error(
-    create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
-      initial_phylogenies = c(ape::rcoal(4))
-    ),
-    "Must supply as much input_fasta_filenames as initial_phylogenies"
-  )
-
-
   # Two filesnames, two RLN clock models
   testthat::expect_error(
     create_beast2_input(
@@ -174,7 +155,7 @@ test_that("Run all defaults", {
     input_fasta_filenames = beautier::get_fasta_filename()
   )
 
-  testthat::expect_true(beautier:::are_beast2_input_lines(created))
+  testthat::expect_true(beastier:::are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -192,7 +173,7 @@ test_that("Run GTR", {
     site_models = create_gtr_site_model()
   )
 
-  testthat::expect_true(beautier:::are_beast2_input_lines(created))
+  testthat::expect_true(beastier:::are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -227,7 +208,7 @@ test_that("Use of a strict clock", {
       clock_rate_param = create_clock_rate_param(id = id)
     )
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 })
 
 test_that("Use of a RLN clock", {
@@ -236,7 +217,7 @@ test_that("Use of a RLN clock", {
     input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model()
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 
 })
 
@@ -261,7 +242,7 @@ test_that("Run BD tree prior", {
     tree_priors = create_bd_tree_prior()
   )
 
-  testthat::expect_true(beautier:::are_beast2_input_lines(created))
+  testthat::expect_true(beastier:::are_beast2_input_lines(created))
 })
 
 
@@ -283,7 +264,7 @@ test_that("Run CEP", {
     input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior()
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 
 })
 
@@ -316,7 +297,7 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 })
 
 test_that("TN93 TN93 strict strict yule", {
@@ -335,7 +316,7 @@ test_that("TN93 TN93 strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 })
 
 
@@ -356,7 +337,7 @@ test_that("GTR GTR strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 })
 
 
@@ -376,7 +357,7 @@ test_that("GTR TN93 strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(beautier:::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier:::are_beast2_input_lines(lines))
 })
 
 test_that("JC69 JC69 strict relaxed_log_normal Yule", {
@@ -396,6 +377,6 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
     tree_priors = list(tree_prior, tree_prior)
   )
   testthat::expect_true(
-    beautier:::are_beast2_input_lines(lines, verbose = TRUE)
+    beastier:::are_beast2_input_lines(lines)
   )
 })

@@ -22,6 +22,7 @@ create_beast2_input_beast <- function(
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
   testit::assert(are_init_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
 
   # Alignment IDs
   ids <- beautier::get_id(

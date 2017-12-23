@@ -10,9 +10,9 @@ default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   fasta_filename, fasta_filenames, fixed_crown_age, fixed_crown_ages,
   gtr_site_model, hky_site_model, id, ids, initial_phylogenies,
   input_fasta_filenames, is_first, mcmc, misc_options, output_xml_filename,
-  param_id, rln_clock_model, sequence_length, site_model, site_models,
-  strict_clock_model, tn93_site_model, tree_prior, tree_priors, verbose,
-  yule_tree_prior)
+  param_id, posterior_crown_age, rln_clock_model, sequence_length, site_model,
+  site_models, strict_clock_model, tn93_site_model, tree_prior, tree_priors,
+  verbose, yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -91,6 +91,9 @@ as returned by \code{\link{create_misc_options}}}
 function. BEAST2 uses this file as input.}
 
 \item{param_id}{a parameter's ID}
+
+\item{posterior_crown_age}{the crown age the posteriors'
+phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}
 
 \item{rln_clock_model}{a Relaxed Log-Normal clock model,
 as returned by \code{\link{create_rln_clock_model}}}
