@@ -8,7 +8,7 @@
 ^create_pdf\.sh$
 ^demo\.pdf$
 ^create_pdf\.R$
-^install_beast2\.sh$
+^install_beast2$
 ^.*\.png$
 ^code_of_conduct\.md$
 ^CONTRIBUTING\.md$

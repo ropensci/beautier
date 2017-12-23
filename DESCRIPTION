@@ -18,7 +18,6 @@ Imports:
     geiger,
     phangorn,
     seqinr,
-    stringr,
     testit
 Suggests:
     devtools,
