@@ -4,7 +4,7 @@
 \alias{create_mcmc}
 \title{Function to create the MCMC options, as in the BEAUti MCMC tab.}
 \usage{
-create_mcmc(chain_length = 10000000)
+create_mcmc(chain_length = 1e+07)
 }
 \arguments{
 \item{chain_length}{the MCMC's chain length}

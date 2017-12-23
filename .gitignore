@@ -17,7 +17,6 @@ vignettes/my_beast.xml
 my_beast.xml
 beast.xml
 inst/doc
-beast.xml
 create_alpha_param.xml
 create_bd_tree_prior_exp.xml
 create_bd_tree_prior.xml
@@ -56,13 +55,11 @@ create_tree_prior_yule.xml
 create_uniform_distr.xml
 create_yule_tree_priors.xml
 create_yule_tree_prior.xml
-example_bd_fixed.xml
-example_bd.xml
 example_gtr.xml
 example_hky.xml
 example_jc69.xml
 example_tn93.xml
 fastas_to_phylos.xml
 fasta_to_phylo.xml
-my_beast.xml
 test.txt
+vignettes/*.xml
