@@ -36,10 +36,7 @@ Using all default settings, only specify a DNA alignment.
 create_beast2_input_file(
   "my_fasta.fas",
   "my_beast.xml",
-  fixed_crown_age = TRUE,
-  initial_phylogenies = fasta_to_phylo(
-    fasta_filename = "my_fasta.fas",
-    crown_age = 15)
+  posterior_crown_age = 15
 )
 ```
 
