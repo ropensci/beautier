@@ -20,17 +20,16 @@ Removes files if and only if present
   beautier:::remove_files("abs.ent")
 
   # Create a file
-  fasta_filename <- "remove_files.fas"
-  beastier:::create_random_fasta(
-    n_taxa = 5,
-    sequence_length = 10,
-    fasta_filename = fasta_filename
+  filename <- "remove_files.xml"
+  create_beast2_input_file(
+    get_fasta_filename(),
+    filename
   )
-  testit::assert(file.exists(fasta_filename))
+  testit::assert(file.exists(filename))
 
   # Can safely delete a mix of present and absent files
-  beautier:::remove_files(c("abs.ent", fasta_filename))
-  testit::assert(!file.exists(fasta_filename))
+  beautier:::remove_files(c("abs.ent", filename))
+  testit::assert(!file.exists(filename))
 }
 \author{
 Richel J.C. Bilderbeek
