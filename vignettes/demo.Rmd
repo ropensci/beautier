@@ -11,6 +11,8 @@ vignette: >
 
 # Introduction
 
+![The beautier logo](beautier_logo.png)
+
 The purpose of `beautier` is to create a valid `BEAST2` XML input file
 from its function argument. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
