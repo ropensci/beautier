@@ -93,12 +93,6 @@ See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs'
 
 Sure, just add an Issue. Or send an email.
 
-## Build status of builds that `beautier` relies on
-
-master|develop|project
----|---|---
-[![Build Status](https://travis-ci.org/richelbilderbeek/beastier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beastier) [![codecov.io](https://codecov.io/github/richelbilderbeek/beastier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastier?branch=master) | [![Build Status](https://travis-ci.org/richelbilderbeek/beastier.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/beastier) [![codecov.io](https://codecov.io/github/richelbilderbeek/beastier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastier?branch=master) | [beastier](https://github.com/richelbilderbeek/beastier)
-
 ## External links
 
  * [BEAST2 GitHub](https://github.com/CompEvol/beast2)
