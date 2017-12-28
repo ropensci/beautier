@@ -157,12 +157,14 @@ crown age of 12. Go ahead and try.
 
 ```{r cleanup, include = FALSE}
 # Cleaning up
-beautier:::remove_files(
-  c(
-    "fix.xml", 
-    "fix_fix.xml", 
-    paste0("combination_", seq(1, 3), ".xml"), 
-    "12_34.xml"
-  )
+filenames <- c(
+  "fix.xml", 
+  "fix_fix.xml", 
+  paste0("combination_", seq(1, 3), ".xml"), 
+  "12_34.xml"
 )
+
+for (filename in filenames) {
+  if (file.exists(filename)) file.remove(filename)
+}
 ```

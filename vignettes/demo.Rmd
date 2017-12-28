@@ -62,9 +62,9 @@ This XML input file can be read by BEAST2.
 
 ```{r cleanup, include = FALSE}
 # Cleaning up
-beautier:::remove_files(
-  c(
-    "beast2.xml"
-  )
+filenames <- c(
+  "beast2.xml"
 )
-```
+for (filename in filenames) {
+  if (file.exists(filename)) file.remove(filename)
+}```

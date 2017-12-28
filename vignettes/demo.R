@@ -19,11 +19,3 @@ create_beast2_input_file(
 ## ------------------------------------------------------------------------
 cat(readLines(output_xml_filename), quote = FALSE, sep = '\n')
 
-## ----cleanup, include = FALSE--------------------------------------------
-# Cleaning up
-beautier:::remove_files(
-  c(
-    "beast2.xml"
-  )
-)
-
