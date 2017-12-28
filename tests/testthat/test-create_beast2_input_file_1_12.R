@@ -21,7 +21,7 @@ test_that("Can specify fixed crown age", {
       input_fasta_filename, crown_age = 15)
   )
   testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
+    lumier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
 
@@ -40,6 +40,6 @@ test_that("Can specify fixed crown ages", {
       input_fasta_filenames, crown_age = 15)
   )
   testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
+    lumier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })

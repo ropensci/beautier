@@ -934,7 +934,7 @@ test_that("cbs_2_4.xml is invalid", {
   # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
   # groupSize cannot be more than 4
   filename <- beautier:::get_path("cbs_2_4.xml")
-  testthat::expect_false(beastier:::is_beast2_input_file(filename))
+  testthat::expect_false(lumier::is_beast2_input_file(filename))
 })
 
 ################################################################################

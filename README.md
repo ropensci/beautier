@@ -14,9 +14,11 @@ The purpose of `beautier` is to create
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-For analysing the BEAST2 output files, use [beastier](https://github.com/richelbilderbeek/beastier).
+Use [beastier](https://github.com/richelbilderbeek/beastier) to paste BEAST2 output (`.log`, `.trees`, etc) files.
 
-For tip-dating analyses using fossils as dated terminal taxa, use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR)
+Use [lumier](https://github.com/richelbilderbeek/lumier) to run BEAST2.
+
+Use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR) for tip-dating analyses using fossils as dated terminal taxa.
 
 For doing other things with BEAST2, use [RBeast](https://github.com/beast-dev/RBeast).
 

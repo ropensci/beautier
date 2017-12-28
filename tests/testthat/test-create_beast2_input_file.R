@@ -19,7 +19,7 @@ test_that("Can specify fixed crown age", {
     posterior_crown_age = 15
   )
   testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
+    lumier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
 
@@ -36,6 +36,6 @@ test_that("Can specify fixed crown ages", {
     posterior_crown_age = 15
   )
   testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
+    lumier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
