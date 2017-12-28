@@ -8,7 +8,7 @@ test_that("checks input", {
 
 test_that("Can specify fixed crown age", {
 
-  if (!is_on_travis()) return()
+  if (!beautier:::is_on_travis()) return()
 
   input_fasta_filename <- beautier::get_fasta_filename()
   output_xml_filename_fixed <- tempfile()
@@ -27,7 +27,7 @@ test_that("Can specify fixed crown age", {
 
 test_that("Can specify fixed crown ages", {
 
-  if (!is_on_travis()) return()
+  if (!beautier:::is_on_travis()) return()
 
   input_fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   output_xml_filename_fixed <- tempfile()
