@@ -1,17 +1,51 @@
 context("create_beast2_input_1_12")
-# Does
-# * check the interface
-# * check if XML created is valid with minimal tests
-# Does not
-# * check if valid XML files are reproduced.
-#   'test-create_beast2_input_1_12_by_reproducing_files.R' does that
-# * check if XML created is valid with thorough tests.
-#   'test-create_beast2_input_1_12_file.R' does that
 
-################################################################################
-# General
-################################################################################
-test_that("input is checked, one alignment", {
+test_that("abuse: one alignment", {
+
+  testthat::expect_silent(
+    create_beast2_input_1_12(
+      input_fasta_filenames = get_fasta_filename()
+    )
+  )
+
+  # Convert one site model to list for user
+  testthat::expect_silent(
+    create_beast2_input_1_12(
+      input_fasta_filenames = get_fasta_filename(),
+      site_models = create_jc69_site_model()
+    )
+  )
+
+  # Convert one clock model to list for user
+  testthat::expect_silent(
+    create_beast2_input_1_12(
+      input_fasta_filenames = get_fasta_filename(),
+      clock_models = create_strict_clock_model()
+    )
+  )
+
+  # Convert one tree prior to list for user
+  testthat::expect_silent(
+    create_beast2_input_1_12(
+      input_fasta_filenames = get_fasta_filename(),
+      tree_priors = create_yule_tree_prior()
+    )
+  )
+
+  # Create one phylogeny to list for user
+  testthat::expect_silent(
+    create_beast2_input_1_12(
+      input_fasta_filenames = get_fasta_filename(),
+      initial_phylogenies = fasta_to_phylo(
+        fasta_filename = get_fasta_filename(),
+        crown_age = 10
+      )
+    )
+  )
+
+})
+
+test_that("abuse: one alignment", {
 
   testthat::expect_silent(
     create_beast2_input_1_12(
@@ -102,7 +136,7 @@ test_that("input is checked, one alignment", {
   )
 })
 
-test_that("input is checked, two alignments", {
+test_that("abuse: two alignments", {
 
   input_fasta_filenames <- beautier:::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")

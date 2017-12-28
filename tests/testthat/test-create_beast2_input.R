@@ -8,10 +8,18 @@ context("create_beast2_input")
 # * check if XML created is valid with thorough tests.
 #   'test-create_beast2_input_file.R' does that
 
-################################################################################
-# General
-################################################################################
-test_that("input is checked, one alignment", {
+test_that("use", {
+
+  testthat::expect_silent(
+    create_beast2_input(
+      input_fasta_filenames = get_fasta_filename(),
+      posterior_crown_age = 15
+    )
+  )
+
+})
+
+test_that("abuse: one alignment", {
 
   testthat::expect_silent(
     create_beast2_input(
@@ -102,7 +110,7 @@ test_that("input is checked, one alignment", {
 
 })
 
-test_that("input is checked, two alignments", {
+test_that("abuse: two alignments", {
 
   input_fasta_filenames <- beautier:::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
