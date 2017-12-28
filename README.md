@@ -20,7 +20,7 @@ Use [lumier](https://github.com/richelbilderbeek/lumier) to run BEAST2.
 
 Use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR) for tip-dating analyses using fossils as dated terminal taxa.
 
-For doing other things with BEAST2, use [RBeast](https://github.com/beast-dev/RBeast).
+Use [RBeast](https://github.com/beast-dev/RBeast) for other things.
 
 ## Supported
 
