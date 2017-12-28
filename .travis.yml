@@ -17,6 +17,7 @@ before_script:
 
 after_success:
   - Rscript -e 'devtools::install_github("richelbilderbeek/lumier")'
+  - Rscript -e 'testthat::test_file("test-create_beast2_input.R")'
   - Rscript -e 'testthat::test_file("test-create_beast2_input_file.R")'
   - Rscript -e 'testthat::test_file("test-create_beast2_input_file_1_12.R")'
   - Rscript scripts/test_brute_force_1.R
