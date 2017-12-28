@@ -14,17 +14,18 @@ URL: https://github.com/richelbilderbeek/beautier
 BugReports: https://github.com/richelbilderbeek/beautier/issues
 Imports:
     ape,
-    beastier, 
     geiger,
     phangorn,
     seqinr,
     stringr,
     testit
 Suggests:
+    beastier, 
     devtools,
     knitr,
     ggplot2,
     lintr,
+    lumier,
     rmarkdown,
     testthat,
     TreeSim
@@ -33,3 +34,4 @@ Remotes:
     jimhester/lintr,
     MangoTheCat/goodpractice,
     richelbilderbeek/beastier
+    richelbilderbeek/lumier
