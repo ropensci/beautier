@@ -8,8 +8,6 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
-  - richelbilderbeek/beastier
-  - richelbilderbeek/lumier
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8
@@ -18,7 +16,7 @@ before_script:
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
 
 after_success:
-  - Rscript -e 'devtools::install_github("richelbilderbeek/beautier")'
+  - Rscript -e 'devtools::install_github("richelbilderbeek/lumier")'
   - Rscript scripts/test_brute_force_1.R
   - travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R
   - Rscript -e 'lintr::lint_package()'

@@ -20,12 +20,10 @@ Imports:
     stringr,
     testit
 Suggests:
-    beastier, 
     devtools,
     knitr,
     ggplot2,
     lintr,
-    lumier,
     rmarkdown,
     testthat,
     TreeSim
@@ -33,5 +31,3 @@ Remotes:
     jimhester/covr,
     jimhester/lintr,
     MangoTheCat/goodpractice,
-    richelbilderbeek/beastier
-    richelbilderbeek/lumier
