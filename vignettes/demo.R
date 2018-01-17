@@ -19,3 +19,12 @@ create_beast2_input_file(
 ## ------------------------------------------------------------------------
 cat(readLines(output_xml_filename), quote = FALSE, sep = '\n')
 
+## ----cleanup, include = FALSE--------------------------------------------
+# Cleaning up
+filenames <- c(
+  "beast2.xml"
+)
+for (filename in filenames) {
+  if (file.exists(filename)) file.remove(filename)
+}
+

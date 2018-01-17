@@ -42,8 +42,8 @@ Create a BEAST2 input file
 
   # Birth-Death tree prior, crown age is estimated
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
-    output_xml_filename = output_xml_filename
+    get_fasta_filename(),
+    output_xml_filename
   )
   testthat::expect_true(file.exists(output_xml_filename))
 
@@ -52,8 +52,8 @@ Create a BEAST2 input file
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
-    output_xml_filename = output_xml_filename_fixed,
+    get_fasta_filename(),
+    output_xml_filename_fixed,
     posterior_crown_age = 15
   )
   testthat::expect_true(file.exists(output_xml_filename_fixed))
@@ -63,8 +63,7 @@ See \code{\link{create_site_model}} for examples with
   different site models. See \code{\link{create_clock_model}} for examples
   with clock models. See \code{\link{create_tree_prior}} for examples with
   different tree priors. See \code{\link{create_mcmc}} for examples with
-  a different MCMC setup. See \code{\link{fasta_to_phylo}} for examples with
-  a fixed crown age
+  a different MCMC setup.
 }
 \author{
 Richel J.C. Bilderbeek

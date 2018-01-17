@@ -21,7 +21,7 @@ is_beast2_input_file_safe <- function(beast2_input_filename) {
 ## ----fix-----------------------------------------------------------------
 fasta_filename <- get_fasta_filename()
 
-create_beast2_input_file(
+create_beast2_input_file_1_12(
   input_fasta_filenames = fasta_filename,
   output_xml_filename = "fix.xml",
   fixed_crown_ages = TRUE,
@@ -35,7 +35,7 @@ testit::assert(is_beast2_input_file_safe("fix.xml"))
 ## ----fix_fix-------------------------------------------------------------
 fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
 
-create_beast2_input_file(
+create_beast2_input_file_1_12(
   input_fasta_filenames = fasta_filenames,
   output_xml_filename = "fix_fix.xml",
   fixed_crown_ages = c(TRUE, TRUE),
@@ -56,7 +56,7 @@ for (i in seq_along(combinations)) {
   combination <- combinations[[i]]
   output_filename <- paste0("combination_", i, ".xml")
   
-  create_beast2_input_file(
+  create_beast2_input_file_1_12(
     input_fasta_filenames = fasta_filenames,
     output_xml_filename = output_filename,
     fixed_crown_ages = combination,
@@ -75,7 +75,7 @@ initial_phylogenies <- list()
 initial_phylogenies[[1]] <- fasta_to_phylo(fasta_filenames[1], crown_age = 12)
 initial_phylogenies[[2]] <- fasta_to_phylo(fasta_filenames[2], crown_age = 34)
 
-create_beast2_input_file(
+create_beast2_input_file_1_12(
   input_fasta_filenames = fasta_filenames,
   output_xml_filename = "12_34.xml",
   fixed_crown_ages = c(TRUE, TRUE),
@@ -86,12 +86,14 @@ testit::assert(is_beast2_input_file_safe("12_34.xml"))
 
 ## ----cleanup, include = FALSE--------------------------------------------
 # Cleaning up
-beautier:::remove_files(
-  c(
-    "fix.xml", 
-    "fix_fix.xml", 
-    paste0("combination_", seq(1, 3), ".xml"), 
-    "12_34.xml"
-  )
+filenames <- c(
+  "fix.xml", 
+  "fix_fix.xml", 
+  paste0("combination_", seq(1, 3), ".xml"), 
+  "12_34.xml"
 )
+
+for (filename in filenames) {
+  if (file.exists(filename)) file.remove(filename)
+}
 
