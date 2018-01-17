@@ -8,5 +8,9 @@ is_mcmc <- function(
 ) {
   if (!"chain_length" %in% names(x)) return(FALSE)
   if (x$chain_length <= 0) return(FALSE)
+  if (!"store_every" %in% names(x)) return(FALSE)
+  if (!is.na(x$store_every) && x$store_every < -1) return (FALSE)
+  if (!is.na(x$store_every) && x$store_every == 0) return (FALSE)
+  if (!is.na(x$store_every) && x$store_every > x$chain_length) return (FALSE)
   TRUE
 }

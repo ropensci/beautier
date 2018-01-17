@@ -1348,7 +1348,7 @@ test_that("aco_mcmc_chainlength_10_store_every_1.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    mcmc = create_mcmc(chain_length =  10),
+    mcmc = create_mcmc(chain_length =  10, store_every = 1),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
 
@@ -1357,10 +1357,7 @@ test_that("aco_mcmc_chainlength_10_store_every_1.xml", {
   )
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
-      section = "run",
-      verbose = TRUE)
+      section = "run")
   )
-  writeLines(text = created, "~/created.txt")
-  writeLines(text = expected, "~/expected.txt")
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected, verbose = TRUE))
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

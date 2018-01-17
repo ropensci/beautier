@@ -11,7 +11,10 @@ mcmc_to_xml_run <- function(mcmc)
 {
   testit::assert(is_mcmc(mcmc))
   xml <- paste0("<run id=\"mcmc\" spec=\"MCMC\" ",
-    "chainLength=\"", mcmc$chain_length)
-  xml <- paste0(xml, "\">")
+    "chainLength=\"", mcmc$chain_length, "\"")
+  if (!is.na(mcmc$store_every) && mcmc$store_every > 0) {
+    xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
+  }
+  xml <- paste0(xml, ">")
   xml
 }
