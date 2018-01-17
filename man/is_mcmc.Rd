@@ -16,7 +16,7 @@ TRUE if x is a valid mcmc object, FALSE otherwise
 Determine if the object is a valid mcmc object
 }
 \seealso{
-Use \link{\code{create_mcmc}}
+Use \code{\link{create_mcmc}}
 }
 \author{
 Richel J.C. Bilderbeek
