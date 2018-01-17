@@ -26,8 +26,7 @@ create_beast2_input_run <- function(
 
   text <- NULL
 
-  text <- c(text, paste0("<run id=\"mcmc\" spec=\"MCMC\" ",
-    "chainLength=\"", mcmc$chain_length, "\">"))
+  text <- c(text, mcmc_to_xml_run(mcmc))
 
   text <- c(text,
     indent(

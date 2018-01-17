@@ -15,10 +15,14 @@
 create_mcmc <- function(
   chain_length = 10000000
 ) {
-  if (chain_length < 10000) {
-    stop("chain_length must be at least 10,000")
+  if (chain_length <= 0) {
+    stop("chain_length must be positive and non-zero")
   }
-  list(
+  mcmc <- list(
     chain_length = chain_length
   )
+
+  # Postcondition
+  testit::assert(is_mcmc(mcmc))
+  mcmc
 }

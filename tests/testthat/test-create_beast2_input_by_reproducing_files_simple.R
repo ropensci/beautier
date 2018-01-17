@@ -1336,3 +1336,31 @@ test_that("birth_rate_poisson_2_4.xml", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+################################################################################
+# MCMC options
+################################################################################
+
+test_that("aco_mcmc_chainlength_10_store_every_1.xml", {
+
+  created <- beautier::create_beast2_input(
+    input_fasta_filenames = beautier:::get_path("anthus_aco.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mcmc = create_mcmc(chain_length =  10),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+
+  expected <- readLines(beautier:::get_path(
+    "aco_mcmc_chainlength_10_store_every_1.xml")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "run",
+      verbose = TRUE)
+  )
+  writeLines(text = created, "~/created.txt")
+  writeLines(text = expected, "~/expected.txt")
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected, verbose = TRUE))
+})
