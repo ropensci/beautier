@@ -1,8 +1,8 @@
 Package: beautier
 Title: BEAUti for R: creates BEAST2 XML input files
 Version: 1.12.1
-Author: Richel Bilderbeek <richel@richelbilderbeek.nl>
-Maintainer: Richel Bilderbeek <richel@richelbilderbeek.nl>
+Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: BEAST2 needs an XML input file.
   BEAUti is a GUI that does this, requiring active user input.
   This R package creates equivalent XML files from function parameters.
