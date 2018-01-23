@@ -44,16 +44,12 @@
 #'   the phylogeny is assumed to be of class ape::phylo.
 #' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
-#' @param input_filenames One or more FASTA filenames.
-#'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param is_first boolean to indicate if this is the first
 #'   out of many (one, two or more)
 #' @param mcmc one mcmc object,
 #'   as returned by \code{\link{create_mcmc}}
 #' @param misc_options one misc_options object,
 #'   as returned by \code{\link{create_misc_options}}
-#' @param output_filename Name of the XML parameter file created by this
-#'   function. BEAST2 uses this file as input.
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID

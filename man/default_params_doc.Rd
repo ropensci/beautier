@@ -122,12 +122,6 @@ is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
-
-\item{input_filenames}{One or more FASTA filenames.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
-
-\item{output_filename}{Name of the XML parameter file created by this
-function. BEAST2 uses this file as input.}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'
