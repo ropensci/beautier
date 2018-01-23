@@ -7,8 +7,7 @@
 #'   testit::assert(xml ==
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
 #'   )
-mcmc_to_xml_run <- function(mcmc)
-{
+mcmc_to_xml_run <- function(mcmc) {
   testit::assert(is_mcmc(mcmc))
   xml <- paste0("<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\"")
