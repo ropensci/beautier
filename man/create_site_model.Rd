@@ -36,7 +36,7 @@ Prefer using the
   # GTR
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
-    output_xml_filename = "example_gtr.xml",
+    output_filename = "example_gtr.xml",
     site_models = create_gtr_site_model()
   )
   testthat::expect_true(file.exists("example_gtr.xml"))
@@ -44,7 +44,7 @@ Prefer using the
   # HKY
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
-    output_xml_filename = "example_hky.xml",
+    output_filename = "example_hky.xml",
     site_models = create_hky_site_model()
   )
   testthat::expect_true(file.exists("example_hky.xml"))
@@ -52,7 +52,7 @@ Prefer using the
   # JC69
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
-    output_xml_filename = "example_jc69.xml",
+    output_filename = "example_jc69.xml",
     site_models = create_jc69_site_model()
   )
   testthat::expect_true(file.exists("example_jc69.xml"))
@@ -60,7 +60,7 @@ Prefer using the
   # TN93
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
-    output_xml_filename = "example_tn93.xml",
+    output_filename = "example_tn93.xml",
     site_models = create_tn93_site_model()
   )
   testthat::expect_true(file.exists("example_tn93.xml"))

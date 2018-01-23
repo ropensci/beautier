@@ -6,7 +6,7 @@
 This interface is obsoleted, use \code{\link{create_beast2_input_file}}
 instead}
 \usage{
-create_beast2_input_file_1_12(input_filenames, output_xml_filename,
+create_beast2_input_file_1_12(input_filenames, output_filename,
   site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
   clock_models = create_strict_clock_models(ids = get_ids(input_filenames)),
   tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
@@ -18,7 +18,7 @@ create_beast2_input_file_1_12(input_filenames, output_xml_filename,
 \item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
-\item{output_xml_filename}{Name of the XML parameter file created by this
+\item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
 
 \item{site_models}{one or more site models,
@@ -50,18 +50,18 @@ instead
 }
 \examples{
   # The file created by beautier, a BEAST2 input file
-  output_xml_filename_fixed <- "create_beast2_input_file_1_12.xml"
+  output_filename_fixed <- "create_beast2_input_file_1_12.xml"
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
   create_beast2_input_file_1_12(
     input_filenames = get_fasta_filename(),
-    output_xml_filename = output_xml_filename_fixed,
+    output_filename = output_filename_fixed,
     fixed_crown_ages = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(
       fasta_filename = get_fasta_filename(),
       crown_age = 15)
   )
-  testthat::expect_true(file.exists(output_xml_filename_fixed))
+  testthat::expect_true(file.exists(output_filename_fixed))
 }
 \seealso{
 See \code{\link{create_site_model}} for examples with

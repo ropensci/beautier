@@ -54,7 +54,7 @@
 #'   as returned by \code{\link{create_misc_options}}
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
-#' @param output_xml_filename Name of the XML parameter file created by this
+#' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
 #' @param posterior_crown_age the crown age the posteriors'
@@ -99,7 +99,7 @@ default_params_doc <- function(
   is_first,
   mcmc,
   misc_options,
-  output_xml_filename,
+  output_filename,
   param_id,
   posterior_crown_age,
   rln_clock_model,
