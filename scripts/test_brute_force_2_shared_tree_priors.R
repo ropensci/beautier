@@ -2,7 +2,7 @@ library(beautier)
 
 # All site models, clock models and tree priors
 
-input_fasta_filenames <- beautier:::get_paths(
+input_filenames <- beautier:::get_paths(
   c("anthus_aco.fas", "anthus_nd2.fas")
 )
 
@@ -15,7 +15,7 @@ for (site_model_1 in beautier:::create_site_models()) {
         for (tree_prior in beautier:::create_tree_priors()) {
 
           lines <- create_beast2_input(
-            input_fasta_filenames = input_fasta_filenames,
+            input_filenames = input_filenames,
             site_models = list(site_model_1, site_model_2),
             clock_models = list(clock_model_1, clock_model_2),
             tree_priors = list(tree_prior, tree_prior)

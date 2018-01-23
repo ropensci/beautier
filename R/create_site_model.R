@@ -23,7 +23,7 @@
 #' @examples
 #'   # GTR
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     output_xml_filename = "example_gtr.xml",
 #'     site_models = create_gtr_site_model()
 #'   )
@@ -31,7 +31,7 @@
 #'
 #'   # HKY
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     output_xml_filename = "example_hky.xml",
 #'     site_models = create_hky_site_model()
 #'   )
@@ -39,7 +39,7 @@
 #'
 #'   # JC69
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     output_xml_filename = "example_jc69.xml",
 #'     site_models = create_jc69_site_model()
 #'   )
@@ -47,7 +47,7 @@
 #'
 #'   # TN93
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     output_xml_filename = "example_tn93.xml",
 #'     site_models = create_tn93_site_model()
 #'   )
@@ -93,7 +93,7 @@ create_site_model <- function(
 #'  jc69_site_model <- create_jc69_site_model()
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_fasta_filename(),
+#'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = jc69_site_model
 #'  )
@@ -126,7 +126,7 @@ create_jc69_site_model <- function(
 #'  hky_site_model <- create_hky_site_model()
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_fasta_filename(),
+#'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = hky_site_model
 #'  )
@@ -175,7 +175,7 @@ create_hky_site_model <- function(
 #'  tn93_site_model <- create_tn93_site_model()
 #'
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_fasta_filename(),
+#'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = tn93_site_model
 #'  )
@@ -241,7 +241,7 @@ create_tn93_site_model <- function(
 #'   gtr_site_model <- create_gtr_site_model()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_gtr_site_model.xml",
 #'     site_models = gtr_site_model
 #'   )

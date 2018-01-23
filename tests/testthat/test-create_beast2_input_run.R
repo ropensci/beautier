@@ -2,7 +2,7 @@ context("create_beast2_input_run")
 
 test_that("usage, one fixed crown age", {
 
-  fasta_filename <- beautier:::get_path("anthus_aco.fas")
+  fasta_filename <- beautier::get_path("anthus_aco.fas")
   id <- beautier:::get_id(fasta_filename)
 
   testthat::expect_silent(
@@ -21,7 +21,7 @@ test_that("usage, one fixed crown age", {
 
 test_that("usage, two alignments", {
 
-  fasta_filenames <- beautier:::get_paths(
+  fasta_filenames <- beautier::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   ids <- beautier:::get_ids(fasta_filenames)
@@ -55,7 +55,7 @@ test_that("usage, two alignments", {
 
 test_that("usage, two alignments, fixed crown ages", {
 
-  fasta_filenames <- beautier:::get_paths(
+  fasta_filenames <- beautier::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   ids <- beautier:::get_ids(fasta_filenames)

@@ -34,7 +34,7 @@ Create a parameter called \code{clock_rate},
 
   # Use the distribution to create a BEAST2 input file
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_clock_rate_param.xml",
     clock_models = strict_clock_model
   )

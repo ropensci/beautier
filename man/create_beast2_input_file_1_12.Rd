@@ -6,16 +6,16 @@
 This interface is obsoleted, use \code{\link{create_beast2_input_file}}
 instead}
 \usage{
-create_beast2_input_file_1_12(input_fasta_filenames, output_xml_filename,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
-  clock_models = create_strict_clock_models(ids =
-  get_ids(input_fasta_filenames)), tree_priors = create_yule_tree_priors(ids =
-  get_ids(input_fasta_filenames)), mcmc = create_mcmc(),
-  fixed_crown_ages = rep(FALSE, length(input_fasta_filenames)),
-  initial_phylogenies = rep(NA, length(input_fasta_filenames)))
+create_beast2_input_file_1_12(input_filenames, output_xml_filename,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
+  clock_models = create_strict_clock_models(ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
+  mcmc = create_mcmc(), fixed_crown_ages = rep(FALSE,
+  length(input_filenames)), initial_phylogenies = rep(NA,
+  length(input_filenames)))
 }
 \arguments{
-\item{input_fasta_filenames}{One or more FASTA filenames.
+\item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{output_xml_filename}{Name of the XML parameter file created by this
@@ -54,7 +54,7 @@ instead
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
   create_beast2_input_file_1_12(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     output_xml_filename = output_xml_filename_fixed,
     fixed_crown_ages = TRUE,
     initial_phylogenies = beautier::fasta_to_phylo(

@@ -120,10 +120,10 @@ test_that("strict strict", {
 
 test_that("strict RLN", {
 
-  input_fasta_filenames <- beautier:::get_paths(
+  input_filenames <- beautier::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
-  ids <- beautier:::get_ids(input_fasta_filenames)
+  ids <- beautier:::get_ids(input_filenames)
 
   expected <- c(
         "<distribution id=\"likelihood\" spec=\"util.CompoundDistribution\" useThreads=\"true\">", # nolint XML

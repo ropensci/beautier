@@ -11,7 +11,7 @@ context("create_beast2_input")
 test_that("Run all defaults", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_fasta_filename()
+    input_filenames = beautier::get_fasta_filename()
   )
 
   testthat::expect_true(beastier::are_beast2_input_lines(created))
@@ -28,7 +28,7 @@ test_that("Run all defaults", {
 test_that("Run GTR", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_fasta_filename(),
+    input_filenames = beautier::get_fasta_filename(),
     site_models = create_gtr_site_model()
   )
 
@@ -62,7 +62,7 @@ test_that("Use of a strict clock", {
   input_fasta_filename <- beautier::get_fasta_filename()
   id <- get_id(input_fasta_filename)
   lines <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+    input_filenames = input_fasta_filename,
     clock_models = create_strict_clock_model(
       clock_rate_param = create_clock_rate_param(id = id)
     )
@@ -73,7 +73,7 @@ test_that("Use of a strict clock", {
 test_that("Use of a RLN clock", {
 
   lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_fasta_filename(),
+    input_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model()
   )
   testthat::expect_true(beastier::are_beast2_input_lines(lines))
@@ -97,7 +97,7 @@ test_that("Use of a RLN clock", {
 test_that("Run BD tree prior", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_fasta_filename(),
+    input_filenames = beautier::get_fasta_filename(),
     tree_priors = create_bd_tree_prior()
   )
 
@@ -120,7 +120,7 @@ test_that("Run BD tree prior", {
 test_that("Run CEP", {
 
   lines <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_fasta_filename(),
+    input_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior()
   )
   testthat::expect_true(beastier::are_beast2_input_lines(lines))
@@ -144,14 +144,14 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
 
   input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
   input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
-  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_jc69_site_model()
   site_model_2 <- create_jc69_site_model()
   clock_model_1 <- create_strict_clock_model()
   clock_model_2 <- create_strict_clock_model()
   tree_prior <- create_cep_tree_prior()
   lines <- create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = list(site_model_1, site_model_2),
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
@@ -163,14 +163,14 @@ test_that("TN93 TN93 strict strict yule", {
 
   input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
   input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
-  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_tn93_site_model()
   site_model_2 <- create_tn93_site_model()
   clock_model_1 <- create_strict_clock_model()
   clock_model_2 <- create_strict_clock_model()
   tree_prior <- create_yule_tree_prior()
   lines <- create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = list(site_model_1, site_model_2),
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
@@ -184,14 +184,14 @@ test_that("GTR GTR strict strict yule", {
 
   input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
   input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
-  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_gtr_site_model()
   site_model_2 <- create_gtr_site_model()
   clock_model_1 <- create_strict_clock_model()
   clock_model_2 <- create_strict_clock_model()
   tree_prior <- create_yule_tree_prior()
   lines <- create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = list(site_model_1, site_model_2),
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
@@ -204,14 +204,14 @@ test_that("GTR TN93 strict strict yule", {
 
   input_fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
   input_fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
-  input_fasta_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
+  input_filenames <- c(input_fasta_filename_1, input_fasta_filename_2)
   site_model_1 <- create_gtr_site_model()
   site_model_2 <- create_tn93_site_model()
   clock_model_1 <- create_strict_clock_model()
   clock_model_2 <- create_strict_clock_model()
   tree_prior <- create_yule_tree_prior()
   lines <- create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = list(site_model_1, site_model_2),
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
@@ -221,7 +221,7 @@ test_that("GTR TN93 strict strict yule", {
 
 test_that("JC69 JC69 strict relaxed_log_normal Yule", {
 
-  input_fasta_filenames <- beautier:::get_paths(
+  input_filenames <- beautier:::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   site_model_1 <- create_jc69_site_model()
@@ -230,7 +230,7 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
   clock_model_2 <- create_rln_clock_model()
   tree_prior <- create_yule_tree_prior()
   lines <- create_beast2_input(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = list(site_model_1, site_model_2),
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)

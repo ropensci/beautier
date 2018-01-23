@@ -16,7 +16,7 @@ brute_force_1_site_models <- function() {
 
         output_xml_filename <- tempfile()
         create_beast2_input_file(
-          input_fasta_filenames = input_fasta_filename,
+          input_filenames = input_fasta_filename,
           site_models = site_model,
           clock_models = clock_model,
           tree_priors = tree_prior,
@@ -50,7 +50,7 @@ brute_force_1_clock_models_fixed_crown_age <- function() {
     input_fasta_filename <- get_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_filenames = input_fasta_filename,
       clock_models = clock_model,
       output_xml_filename = output_xml_filename,
       fixed_crown_ages = TRUE,
@@ -83,7 +83,7 @@ brute_force_1_tree_priors <- function() {
 
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_filenames = input_fasta_filename,
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename
     )
@@ -108,7 +108,7 @@ brute_force_1_tree_priors_fixed_crown_age <- function() {
   for (tree_prior in tree_priors) {
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_filenames = input_fasta_filename,
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename,
       fixed_crown_ages = TRUE,
@@ -142,7 +142,7 @@ brute_force_1_combinations_fixed_crown_age <- function() {
 
         output_xml_filename <- tempfile()
         create_beast2_input_file(
-          input_fasta_filenames = input_fasta_filename,
+          input_filenames = input_fasta_filename,
           site_models = site_model,
           clock_models = clock_model,
           tree_priors = tree_prior,

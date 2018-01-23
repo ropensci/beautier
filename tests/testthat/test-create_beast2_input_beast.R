@@ -2,12 +2,12 @@ context("create_beast2_input_beast")
 
 test_that("use, one alignment", {
 
-  fasta_filename <- beautier:::get_path("anthus_aco.fas")
+  fasta_filename <- beautier::get_path("anthus_aco.fas")
   id <- beautier:::get_id(fasta_filename)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
-      input_fasta_filenames = fasta_filename,
+      input_filenames = fasta_filename,
       tree_priors = list(
         create_yule_tree_prior(
           id = id,
@@ -27,12 +27,12 @@ test_that("use, one alignment", {
 
 test_that("use, two alignments", {
 
-  fasta_filenames <- beautier:::get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- beautier::get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   ids <- beautier:::get_id(fasta_filenames)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
-      input_fasta_filenames = fasta_filenames,
+      input_filenames = fasta_filenames,
       tree_priors = list(
         create_yule_tree_prior(
           id = ids[1],
@@ -61,12 +61,12 @@ test_that("use, two alignments", {
 
 test_that("use, two alignments, fixed crown ages", {
 
-  fasta_filenames <- beautier:::get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- beautier::get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   ids <- beautier:::get_id(fasta_filenames)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
-      input_fasta_filenames = fasta_filenames,
+      input_filenames = fasta_filenames,
       tree_priors = list(
         create_yule_tree_prior(
           id = ids[1],
@@ -97,7 +97,7 @@ test_that("use, two alignments, fixed crown ages", {
 test_that("abuse", {
 
   testthat::expect_error(
-    create_beast2_input_beast(input_fasta_filenames = "nonsense")
+    create_beast2_input_beast(input_filenames = "nonsense")
   )
 
   fasta_filename_1 <- beautier::get_path("anthus_nd2.fas")
@@ -106,7 +106,7 @@ test_that("abuse", {
   # Two filenames, one site model
   testthat::expect_error(
     create_beast2_input_beast(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      input_filenames = c(fasta_filename_1, fasta_filename_2),
       site_models = create_jc69_site_model()
     )
   )
@@ -114,7 +114,7 @@ test_that("abuse", {
   # Two filenames, one clock model
   testthat::expect_error(
     create_beast2_input_beast(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      input_filenames = c(fasta_filename_1, fasta_filename_2),
       clock_models = create_strict_clock_model()
     )
   )
@@ -122,7 +122,7 @@ test_that("abuse", {
   # Two filenames, one tree prior
   testthat::expect_error(
     create_beast2_input_beast(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      input_filenames = c(fasta_filename_1, fasta_filename_2),
       tree_priors = create_yule_tree_prior()
     )
   )
@@ -130,7 +130,7 @@ test_that("abuse", {
   # Two filenames, one phylogeny
   testthat::expect_error(
     create_beast2_input_beast(
-      input_fasta_filenames = c(fasta_filename_1, fasta_filename_2),
+      input_filenames = c(fasta_filename_1, fasta_filename_2),
       initial_phylogenies = c(ape::rcoal(4))
     )
   )

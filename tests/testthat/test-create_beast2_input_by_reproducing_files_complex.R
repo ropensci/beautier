@@ -12,7 +12,7 @@ context(
 test_that("aco_nd2_2_4.xml", {
 #
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
     tree_priors = list(
@@ -28,7 +28,7 @@ test_that("aco_nd2_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path("aco_nd2_2_4.xml"))
+  expected <- readLines(beautier::get_path("aco_nd2_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -50,7 +50,7 @@ test_that("aco_nd2_2_4.xml", {
 test_that("aco_nd2_nd3_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas")
     ),
     tree_priors = list(
@@ -75,7 +75,7 @@ test_that("aco_nd2_nd3_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path("aco_nd2_nd3_2_4.xml"))
+  expected <- readLines(beautier::get_path("aco_nd2_nd3_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -95,7 +95,7 @@ test_that("aco_nd2_nd3_2_4.xml", {
 test_that("aco_nd2_nd3_nd4_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas", "anthus_nd4.fas")
     ),
     tree_priors = list(
@@ -128,7 +128,7 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path("aco_nd2_nd3_nd4_2_4.xml"))
+  expected <- readLines(beautier::get_path("aco_nd2_nd3_nd4_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -149,7 +149,7 @@ test_that("aco_nd2_nd3_nd4_2_4.xml", {
 test_that("aco_nd2_shared_site_model_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
     site_models = list(
@@ -173,7 +173,7 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "aco_nd2_shared_site_model_2_4.xml"))
 
   testthat::expect_true(
@@ -199,7 +199,7 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
 test_that("aco_hky_nd2.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
     site_models = list(
@@ -234,7 +234,7 @@ test_that("aco_hky_nd2.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path("aco_hky_nd2.xml"))
+  expected <- readLines(beautier::get_path("aco_hky_nd2.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -255,7 +255,7 @@ test_that("aco_hky_nd2.xml", {
 test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_bd_tree_prior(
         birth_rate_distr = create_normal_distr(
           id = 0,
@@ -269,7 +269,7 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
         )
     )
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "bd_birth_rate_normal_death_rate_gamma_2_4.xml"))
 
 
@@ -307,7 +307,7 @@ test_that("bd_birth_rate_normal_death_rate_gamma_2_4.xml", {
 test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas", "anthus_nd4.fas")
     ),
     site_models = list(
@@ -503,7 +503,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "aco_nd2_nd3_nd4_complex_2_4.xml"))
 
   testthat::expect_true(

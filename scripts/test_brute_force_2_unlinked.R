@@ -1,6 +1,6 @@
 library(beautier)
 
-input_fasta_filenames <- beautier:::get_paths(
+input_filenames <- beautier:::get_paths(
   c("anthus_aco.fas", "anthus_nd2.fas"))
 
 n_fail <- 0
@@ -14,7 +14,7 @@ for (site_model_1 in beautier:::create_site_models()) {
           cat(".")
           output_xml_filename <- "~/invalid.xml"
           create_beast2_input_file(
-            input_fasta_filenames = input_fasta_filenames,
+            input_filenames = input_filenames,
             site_models = list(site_model_1, site_model_2),
             clock_models = list(clock_model_1, clock_model_2),
             tree_priors = list(tree_prior, tree_prior),
@@ -44,14 +44,14 @@ for (site_model_1 in beautier:::create_site_models()) {
           cat(".")
           output_xml_filename <- "~/invalid.xml"
           create_beast2_input_file(
-            input_fasta_filenames = input_fasta_filenames,
+            input_filenames = input_filenames,
             site_models = list(site_model_1, site_model_2),
             clock_models = list(clock_model_1, clock_model_2),
             tree_priors = list(tree_prior, tree_prior),
             output_xml_filename = output_xml_filename,
             fixed_crown_ages = c(TRUE, TRUE),
             initial_phylogenies = fastas_to_phylos(
-              fasta_filenames = input_fasta_filenames,
+              fasta_filenames = input_filenames,
               crown_age = 15
             )
           )
@@ -78,12 +78,12 @@ for (site_model_1 in beautier:::create_site_models()) {
           if (runif(n = 1) < 0.9) next
           output_xml_filename <- "~/invalid.xml"
           initial_phylenies <- fastas_to_phylos(
-              fasta_filenames = input_fasta_filenames[1],
+              fasta_filenames = input_filenames[1],
               crown_age = 15
             )
           initial_phylenies[[2]] <- NA
           create_beast2_input_file(
-            input_fasta_filenames = input_fasta_filenames,
+            input_filenames = input_filenames,
             site_models = list(site_model_1, site_model_2),
             clock_models = list(clock_model_1, clock_model_2),
             tree_priors = list(tree_prior, tree_prior),

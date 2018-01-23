@@ -5,7 +5,7 @@
 #'   testit::assert(file.exists(filename))
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = filename,
+#'     input_filenames = filename,
 #'     "my_beast.xml"
 #'   )
 #' @author Richel J.C. Bilderbeek

@@ -2,18 +2,18 @@
 #' @inheritParams default_params_doc
 #' @examples
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml"
 #'   )
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input <- function(
-  input_fasta_filenames,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
+  input_filenames,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
   clock_models = create_strict_clock_models(
-    ids = get_ids(input_fasta_filenames)),
-  tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
+    ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
   posterior_crown_age = NA
@@ -30,10 +30,10 @@ create_beast2_input <- function(
   }
   # Check input
 
-  # 1 input_fasta_filenames
-  if (!files_exist(input_fasta_filenames)) {
+  # 1 input_filenames
+  if (!files_exist(input_filenames)) {
     stop(
-      "'input_fasta_filenames' must be the name ",
+      "'input_filenames' must be the name ",
       "of one or more present files. "
     )
   }
@@ -89,31 +89,31 @@ create_beast2_input <- function(
   }
 
   # Lengths
-  if (length(input_fasta_filenames) != length(site_models)) {
-    stop("Must supply as much input_fasta_filenames as site_models")
+  if (length(input_filenames) != length(site_models)) {
+    stop("Must supply as much input_filenames as site_models")
   }
-  if (length(input_fasta_filenames) != length(clock_models)) {
-    stop("Must supply as much input_fasta_filenames as clock_models")
+  if (length(input_filenames) != length(clock_models)) {
+    stop("Must supply as much input_filenames as clock_models")
   }
-  if (length(input_fasta_filenames) != length(tree_priors)) {
-    stop("Must supply as much input_fasta_filenames as tree priors")
+  if (length(input_filenames) != length(tree_priors)) {
+    stop("Must supply as much input_filenames as tree priors")
   }
 
   site_models <- init_site_models(
     site_models = site_models,
-    ids = get_ids(input_fasta_filenames),
+    ids = get_ids(input_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint internal function
   clock_models <- init_clock_models(
     clock_models = clock_models,
-    fasta_filenames = input_fasta_filenames,
+    fasta_filenames = input_filenames,
     distr_id = 0 + get_site_models_n_distrs(site_models),
     param_id = 0 + get_site_models_n_params(site_models)
   )  # nolint internal function
   tree_priors <- init_tree_priors( # nolint internal function
     tree_priors,
-    ids = get_ids(input_fasta_filenames),
+    ids = get_ids(input_filenames),
     distr_id = 100,
     param_id = 200
   )
@@ -131,19 +131,19 @@ create_beast2_input <- function(
 
   # Convert from new to older interface
   fixed_crown_ages <- rep(!is.na(posterior_crown_age),
-    times = length(input_fasta_filenames))
-  initial_phylogenies <- rep(NA, time = length(input_fasta_filenames))
+    times = length(input_filenames))
+  initial_phylogenies <- rep(NA, time = length(input_filenames))
   if (!is.na(posterior_crown_age)) {
     initial_phylogenies <- fastas_to_phylos(
-      fasta_filenames = input_fasta_filenames,
+      fasta_filenames = input_filenames,
       crown_age = posterior_crown_age
     )
   }
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
-  testit::assert(length(input_fasta_filenames) == length(initial_phylogenies)) # nolint internal function
+  testit::assert(length(input_filenames) == length(initial_phylogenies)) # nolint internal function
 
   text <- create_beast2_input_beast(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,

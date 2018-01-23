@@ -4,11 +4,11 @@
 \alias{create_beast2_input_data}
 \title{Creates the data section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_data(input_fasta_filenames,
+create_beast2_input_data(input_filenames,
   misc_options = create_misc_options())
 }
 \arguments{
-\item{input_fasta_filenames}{One or more FASTA filenames.
+\item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{misc_options}{one misc_options object,

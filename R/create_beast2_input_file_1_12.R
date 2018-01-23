@@ -8,7 +8,7 @@
 #'
 #'   # Birth-Death tree prior, crown age is fixed at 15 time units
 #'   create_beast2_input_file_1_12(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     output_xml_filename = output_xml_filename_fixed,
 #'     fixed_crown_ages = TRUE,
 #'     initial_phylogenies = beautier::fasta_to_phylo(
@@ -25,19 +25,19 @@
 #'   a fixed crown age
 #' @export
 create_beast2_input_file_1_12 <- function(
-  input_fasta_filenames,
+  input_filenames,
   output_xml_filename,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
   clock_models = create_strict_clock_models(
-    ids = get_ids(input_fasta_filenames)),
-  tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
+    ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
   mcmc = create_mcmc(),
-  fixed_crown_ages = rep(FALSE, length(input_fasta_filenames)),
-  initial_phylogenies = rep(NA, length(input_fasta_filenames))
+  fixed_crown_ages = rep(FALSE, length(input_filenames)),
+  initial_phylogenies = rep(NA, length(input_filenames))
 ) {
   # Error handling done by create_beast2_input_1_12
   text <- create_beast2_input_1_12(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,

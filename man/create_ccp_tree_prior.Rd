@@ -23,7 +23,7 @@ Create a Coalescent Constant Population tree prior
   ccp_tree_prior <- create_ccp_tree_prior()
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_ccp_tree_prior.xml",
     tree_priors = ccp_tree_prior
   )

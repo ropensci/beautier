@@ -12,7 +12,7 @@ test_that("use", {
 
   testthat::expect_silent(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       posterior_crown_age = 15
     )
   )
@@ -23,22 +23,22 @@ test_that("abuse: one alignment", {
 
   testthat::expect_silent(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename()
+      input_filenames = get_fasta_filename()
     )
   )
 
-  # 1 input_fasta_filenames,
+  # 1 input_filenames,
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = "nonexisting" # Error
+      input_filenames = "nonexisting" # Error
     ),
-    "'input_fasta_filenames' must be the name of one or more present files"
+    "'input_filenames' must be the name of one or more present files"
   )
 
   # 2 site_models
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       site_models = "nonsense"
     ),
     paste0(
@@ -51,7 +51,7 @@ test_that("abuse: one alignment", {
   # 3 clock_models
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       clock_models = "nonsense"
     ),
     paste0(
@@ -64,7 +64,7 @@ test_that("abuse: one alignment", {
   # 4 tree_priors
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       tree_priors = "nonsense"
     ),
     paste0(
@@ -77,7 +77,7 @@ test_that("abuse: one alignment", {
   # 5 mcmc
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       mcmc = "nonsense"
     ),
     "'mcmc' must be a valid mcmc object, as returned by 'create_mcmc'"
@@ -86,7 +86,7 @@ test_that("abuse: one alignment", {
   # 6 misc_options
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       misc_options = "nonsense"
     ),
     "'misc_options' must be a valid misc options object"
@@ -95,14 +95,14 @@ test_that("abuse: one alignment", {
   # 7 posterior_crown_age
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       posterior_crown_age = "nonsense" # Error
     ),
     "'posterior_crown_age' must be either NA or a non-zero postive value"
   )
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = get_fasta_filename(),
+      input_filenames = get_fasta_filename(),
       posterior_crown_age = -12.34 # Error
     ),
     "'posterior_crown_age' must be either NA or a non-zero postive value"
@@ -112,42 +112,42 @@ test_that("abuse: one alignment", {
 
 test_that("abuse: two alignments", {
 
-  input_fasta_filenames <- beautier:::get_paths(
+  input_filenames <- beautier::get_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
-  ids <- beautier:::get_ids(input_fasta_filenames)
+  ids <- beautier:::get_ids(input_filenames)
 
   # Two filesnames, one site model
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
+      input_filenames = input_filenames,
       site_models = create_jc69_site_models(ids = "only_one")
     ),
-    "Must supply as much input_fasta_filenames as site_models"
+    "Must supply as much input_filenames as site_models"
   )
 
   # Two filesnames, one clock model
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
+      input_filenames = input_filenames,
       clock_models = create_strict_clock_models(ids = ids[1])
     ),
-    "Must supply as much input_fasta_filenames as clock_models"
+    "Must supply as much input_filenames as clock_models"
   )
 
   # Two filenames, one tree prior
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
+      input_filenames = input_filenames,
       tree_priors = create_yule_tree_priors(ids = ids[1])
     ),
-    "Must supply as much input_fasta_filenames as tree priors"
+    "Must supply as much input_filenames as tree priors"
   )
 
   # Two filesnames, two RLN clock models
   testthat::expect_error(
     create_beast2_input(
-      input_fasta_filenames = input_fasta_filenames,
+      input_filenames = input_filenames,
       clock_models = list(
         create_rln_clock_model(id = ids[1]),
         create_rln_clock_model(id = ids[1])

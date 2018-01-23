@@ -26,7 +26,7 @@ Create a beta distribution
   beta_distr <- create_beta_distr()
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_beta_distr.xml",
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = beta_distr

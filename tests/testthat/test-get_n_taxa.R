@@ -3,36 +3,36 @@ context("get_n_taxa")
 test_that("use", {
 
   testthat::expect_equal(
-    beautier:::get_n_taxa(beautier:::get_path("test_output_5.fas")),
+    beautier:::get_n_taxa(beautier::get_path("test_output_5.fas")),
     5
   )
 
   testthat::expect_equal(
-    beautier:::get_n_taxa(beautier:::get_path("test_output_6.fas")),
+    beautier:::get_n_taxa(beautier::get_path("test_output_6.fas")),
     6
   )
 
   testthat::expect_equal(
-    beautier:::get_n_taxa(beautier:::get_path("anthus_aco.fas")),
+    beautier:::get_n_taxa(beautier::get_path("anthus_aco.fas")),
     22
   )
 
   testthat::expect_silent(
-    beautier:::get_n_taxa(beautier:::get_path("anthus_nd2.fas"))
+    beautier:::get_n_taxa(beautier::get_path("anthus_nd2.fas"))
   )
 
   testthat::expect_equal(
-    beautier:::get_n_taxa(beautier:::get_path("anthus_nd2.fas")),
+    beautier:::get_n_taxa(beautier::get_path("anthus_nd2.fas")),
     22
   )
 
   testthat::expect_equal(
-    beautier:::get_n_taxa(beautier:::get_path("anthus_nd3.fas")),
+    beautier:::get_n_taxa(beautier::get_path("anthus_nd3.fas")),
     22
   )
 
   testthat::expect_equal(
-    beautier:::get_n_taxa(beautier:::get_path("anthus_nd4.fas")),
+    beautier:::get_n_taxa(beautier::get_path("anthus_nd4.fas")),
     22
   )
 

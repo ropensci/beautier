@@ -42,7 +42,9 @@
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
 #'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
 #'   the phylogeny is assumed to be of class ape::phylo.
-#' @param input_fasta_filenames One or more FASTA filenames.
+#' @param input_filenames One or more FASTA filenames.
+#'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param is_first boolean to indicate if this is the first
 #'   out of many (one, two or more)
@@ -50,6 +52,8 @@
 #'   as returned by \code{\link{create_mcmc}}
 #' @param misc_options one misc_options object,
 #'   as returned by \code{\link{create_misc_options}}
+#' @param output_filename Name of the XML parameter file created by this
+#'   function. BEAST2 uses this file as input.
 #' @param output_xml_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
@@ -91,7 +95,7 @@ default_params_doc <- function(
   id,
   ids,
   initial_phylogenies,
-  input_fasta_filenames,
+  input_filenames,
   is_first,
   mcmc,
   misc_options,
