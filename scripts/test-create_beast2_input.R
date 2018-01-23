@@ -14,7 +14,7 @@ test_that("Run all defaults", {
     input_fasta_filenames = beautier::get_fasta_filename()
   )
 
-  testthat::expect_true(lumier::are_beast2_input_lines(created))
+  testthat::expect_true(beastier::are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -32,7 +32,7 @@ test_that("Run GTR", {
     site_models = create_gtr_site_model()
   )
 
-  testthat::expect_true(lumier::are_beast2_input_lines(created))
+  testthat::expect_true(beastier::are_beast2_input_lines(created))
 })
 
 ################################################################################
@@ -67,7 +67,7 @@ test_that("Use of a strict clock", {
       clock_rate_param = create_clock_rate_param(id = id)
     )
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 })
 
 test_that("Use of a RLN clock", {
@@ -76,7 +76,7 @@ test_that("Use of a RLN clock", {
     input_fasta_filenames = beautier::get_fasta_filename(),
     clock_models = create_rln_clock_model()
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 
 })
 
@@ -101,7 +101,7 @@ test_that("Run BD tree prior", {
     tree_priors = create_bd_tree_prior()
   )
 
-  testthat::expect_true(lumier::are_beast2_input_lines(created))
+  testthat::expect_true(beastier::are_beast2_input_lines(created))
 })
 
 
@@ -123,7 +123,7 @@ test_that("Run CEP", {
     input_fasta_filenames = beautier::get_fasta_filename(),
     tree_priors = beautier::create_cep_tree_prior()
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 
 })
 
@@ -156,7 +156,7 @@ test_that("JC69 JC69 strict strict coalescent_exp_population", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 })
 
 test_that("TN93 TN93 strict strict yule", {
@@ -175,7 +175,7 @@ test_that("TN93 TN93 strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 })
 
 
@@ -196,7 +196,7 @@ test_that("GTR GTR strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 })
 
 
@@ -216,7 +216,7 @@ test_that("GTR TN93 strict strict yule", {
     clock_models = list(clock_model_1, clock_model_2),
     tree_priors = list(tree_prior, tree_prior)
   )
-  testthat::expect_true(lumier::are_beast2_input_lines(lines))
+  testthat::expect_true(beastier::are_beast2_input_lines(lines))
 })
 
 test_that("JC69 JC69 strict relaxed_log_normal Yule", {
@@ -236,6 +236,6 @@ test_that("JC69 JC69 strict relaxed_log_normal Yule", {
     tree_priors = list(tree_prior, tree_prior)
   )
   testthat::expect_true(
-    lumier::are_beast2_input_lines(lines)
+    beastier::are_beast2_input_lines(lines)
   )
 })

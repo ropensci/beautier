@@ -22,11 +22,11 @@ brute_force_1_site_models <- function() {
           tree_priors = tree_prior,
           output_xml_filename = output_xml_filename
         )
-        is_ok <- lumier::is_beast2_input_file(output_xml_filename)
+        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
         testthat::expect_true(is_ok)
         if (!is_ok) {
           print(paste(site_model$name, clock_model$name, tree_prior$name))
-          lumier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+          beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
           n_fail <- n_fail + 1
         }
       }
@@ -57,11 +57,11 @@ brute_force_1_clock_models_fixed_crown_age <- function() {
       initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
-    is_ok <- lumier::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
-      lumier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+      beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
       n_fail <- n_fail + 1
     }
   }
@@ -87,11 +87,11 @@ brute_force_1_tree_priors <- function() {
       tree_priors = tree_prior,
       output_xml_filename = output_xml_filename
     )
-    is_ok <- lumier::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
-      lumier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+      beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
       n_fail <- n_fail + 1
     }
   }
@@ -115,11 +115,11 @@ brute_force_1_tree_priors_fixed_crown_age <- function() {
       initial_phylogenies = beautier::fasta_to_phylo(
         input_fasta_filename, crown_age = 15)
     )
-    is_ok <- lumier::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
-      lumier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+      beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
       n_fail <- n_fail + 1
     }
   }
@@ -151,11 +151,11 @@ brute_force_1_combinations_fixed_crown_age <- function() {
           initial_phylogenies = beautier::fasta_to_phylo(
             input_fasta_filename, crown_age = 15)
         )
-        is_ok <- lumier::is_beast2_input_file(output_xml_filename)
+        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
         testthat::expect_true(is_ok)
         if (!is_ok) {
           print(paste(site_model$name, clock_model$name, tree_prior$name))
-          lumier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+          beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
           n_fail <- n_fail + 1
         }
       }

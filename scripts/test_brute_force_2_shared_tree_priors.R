@@ -20,7 +20,7 @@ for (site_model_1 in beautier:::create_site_models()) {
             clock_models = list(clock_model_1, clock_model_2),
             tree_priors = list(tree_prior, tree_prior)
           )
-          if (!lumier::are_beast2_input_lines(lines)) {
+          if (!beastier::are_beast2_input_lines(lines)) {
             print(
               paste(
                 site_model_1$name,
@@ -31,7 +31,7 @@ for (site_model_1 in beautier:::create_site_models()) {
               )
             )
           }
-          testthat::expect_true(lumier::are_beast2_input_lines(lines))
+          testthat::expect_true(beastier::are_beast2_input_lines(lines))
         }
       }
     }

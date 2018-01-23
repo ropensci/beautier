@@ -17,7 +17,7 @@ test_that("Can specify fixed crown age", {
     posterior_crown_age = 15
   )
   testthat::expect_true(
-    lumier::is_beast2_input_file(output_xml_filename_fixed)
+    beastier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
 
@@ -32,7 +32,7 @@ test_that("Can specify fixed crown ages", {
     posterior_crown_age = 15
   )
   testthat::expect_true(
-    lumier::is_beast2_input_file(output_xml_filename_fixed)
+    beastier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
 
@@ -43,5 +43,5 @@ test_that("cbs_2_4.xml is invalid", {
   # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
   # groupSize cannot be more than 4
   filename <- beautier:::get_path("cbs_2_4.xml")
-  testthat::expect_false(lumier::is_beast2_input_file(filename))
+  testthat::expect_false(beastier::is_beast2_input_file(filename))
 })
