@@ -26,7 +26,7 @@ create_beast2_input_run <- function(
 
   text <- NULL
 
-  text <- c(text, mcmc_to_xml_run(mcmc))
+  text <- c(text, mcmc_to_xml_run(mcmc)) # nolint internal function
 
   text <- c(text,
     indent(
