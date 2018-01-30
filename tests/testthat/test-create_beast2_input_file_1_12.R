@@ -32,7 +32,8 @@ test_that("create data set of two alignments, with/out fixed crown ages", {
   testthat::expect_silent(
     create_beast2_input_file_1_12(
       fasta_filenames,
-      "anthus_na_na.xml"
+      "anthus_na_na.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
     )
   )
 
@@ -40,6 +41,7 @@ test_that("create data set of two alignments, with/out fixed crown ages", {
     create_beast2_input_file_1_12(
       fasta_filenames,
       "anthus_15_15.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
       fixed_crown_ages = c(TRUE, TRUE),
       initial_phylogenies = list(phylo_1_15, phylo_2_15)
     )
@@ -49,6 +51,7 @@ test_that("create data set of two alignments, with/out fixed crown ages", {
     create_beast2_input_file_1_12(
       fasta_filenames,
       "anthus_na_15.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
       fixed_crown_ages = c(FALSE, TRUE),
       initial_phylogenies = list(NA, phylo_2_15)
     )
@@ -58,6 +61,7 @@ test_that("create data set of two alignments, with/out fixed crown ages", {
     create_beast2_input_file_1_12(
       fasta_filenames,
       "anthus_15_na.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
       fixed_crown_ages = c(TRUE, FALSE),
       initial_phylogenies = list(phylo_1_15, NA)
     )
@@ -67,6 +71,7 @@ test_that("create data set of two alignments, with/out fixed crown ages", {
     create_beast2_input_file_1_12(
       fasta_filenames,
       "anthus_15_26.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
       fixed_crown_ages = c(TRUE, TRUE),
       initial_phylogenies = list(phylo_1_15, phylo_2_26)
     )
