@@ -29,7 +29,7 @@ See [examples](examples.md).
 If you use the `devtools` R package, this is easy:
 
 ```
-devtools::install_github("richelbilderbeek/beastier")
+devtools::install_github("richelbilderbeek/beautier")
 ```
 
 ## FAQ
@@ -38,13 +38,21 @@ See [FAQ](Faq.md)
 
 ## Missing features/unsupported
 
-`beastier` cannot do everything `BEAST2` can. 
+`beautier` cannot do everything `BEAUti` can. 
 
 Here are some missing or (yet) unsupported features:
 
- * Setup BEAGLE
- * Continue a BEAST2 run
- * Validate a BEAST2 input file
+ * Support for shared site or clock models (will be added in `v1.13`)
+ * Support for amino acid sequences
+ * Support for three or more alignments with a mix of linked site models, clock models and tree priors
+ * Specify a prior that allows a sub-clade to be monophyletic 
+ * Clock models
+   * Relaxed exponential
+   * Random local
+ * Tree priors
+   * Calibrated Yule model
+   * Coalescent Extended Bayesian Skyline
+ * Initialization (this is a tab that is hidden by default in `BEAUti`)
 
 ## There is a feature I miss
 
