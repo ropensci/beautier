@@ -15,7 +15,6 @@ BugReports: https://github.com/richelbilderbeek/beautier/issues
 Imports:
     ape,
     geiger,
-    phangorn,
     seqinr,
     stringr,
     testit

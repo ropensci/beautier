@@ -31,7 +31,7 @@ after_success:
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
-  - ./check_dead_links
+  - ./scripts/check_dead_links
 
 after_failure:
   # - sudo Rscript install_this_r_package.R
