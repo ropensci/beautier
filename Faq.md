@@ -30,9 +30,8 @@ Article is still in preperation.
 
 ## What is the idea behind the logo?
 
-The golden spiral symbolizes beauty (and thus `BEAUti`). 
-
-The order of the symbols should be a symbol for beauty and an R. 
+The logo consists of a rough redraw of Belle, from the Disney animated
+movie 'Beauty and the Beast', and the R logo. 
 
 ## What are the FASTA files?
 
@@ -45,3 +44,6 @@ Thanks to Paul van Els.
 FASTA files `test_output_0.fas`, `anthus_nd3.fas` and `anthus_nd4.fas`
 are artificially made FASTA files. 
 
+## If I set a fixed crown age with multiple alignments, only the first alignment has so
+
+Correct. This is a feature of BEAST2, which I assume is right. 
