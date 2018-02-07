@@ -717,8 +717,11 @@ create_scale_param <- function(
 create_sigma_param <- function(
   id = NA,
   estimate = FALSE,
-  value = 0.0
+  value = 1.0
 ) {
+  if (value <= 0.0) {
+    stop("value must be non-zero and positive")
+  }
   return(
     beautier::create_param(
       name = "sigma",
