@@ -4,7 +4,7 @@
 \alias{create_sigma_param}
 \title{Create a parameter called sigma}
 \usage{
-create_sigma_param(id = NA, estimate = FALSE, value = 0)
+create_sigma_param(id = NA, estimate = FALSE, value = 1)
 }
 \arguments{
 \item{id}{the parameter's ID}
