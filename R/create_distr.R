@@ -115,6 +115,19 @@ create_beta_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_beta_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_beta_distr}} for examples.
+#' @inherit create_beta_distr
+#' @export
+create_distr_beta <- function(
+  id = NA,
+  alpha = create_alpha_param(),
+  beta = create_beta_param()
+) {
+  create_beta_distr(id = id, alpha = alpha, beta = beta)
+}
+
 #' Create an exponential distribution
 #' @inheritParams create_distr
 #' @param mean the mean parameter,
@@ -150,6 +163,18 @@ create_exp_distr <- function(
       mean = mean
     )
   )
+}
+
+#' Alternative name for \code{\link{create_exp_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_exp_distr}} for examples.
+#' @inherit create_exp_distr
+#' @export
+create_distr_exp <- function(
+  id = NA,
+  mean = create_mean_param()
+) {
+  create_exp_distr(id = id, mean = mean)
 }
 
 #' Create a gamma distribution
@@ -202,6 +227,19 @@ create_gamma_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_gamma_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_gamma_distr}} for examples.
+#' @inherit create_gamma_distr
+#' @export
+create_distr_gamma <- function(
+  id = NA,
+  alpha = create_alpha_param(id = NA, estimate = FALSE, value = "0.5396"),
+  beta = create_beta_param(id = NA, estimate = FALSE, value = "0.3819")
+) {
+  create_gamma_distr(id = id, alpha = alpha, beta = beta)
+}
+
 #' Create an inverse gamma distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
@@ -245,6 +283,19 @@ create_inv_gamma_distr <- function(
       beta = beta
     )
   )
+}
+
+#' Alternative name for \code{\link{create_inv_gamma_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_inv_gamma_distr}} for examples.
+#' @inherit create_inv_gamma_distr
+#' @export
+create_distr_inv_gamma <- function(
+  id = NA,
+  alpha = create_alpha_param(),
+  beta = create_beta_param()
+) {
+  create_inv_gamma_distr(id = id, alpha = alpha, beta = beta)
 }
 
 #' Create a Laplace distribution
@@ -292,6 +343,19 @@ create_laplace_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_laplace_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_laplace_distr}} for examples.
+#' @inherit create_laplace_distr
+#' @export
+create_distr_laplace <- function(
+  id = NA,
+  mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
+  scale = create_scale_param(id = NA, estimate = FALSE, value = 1.0)
+) {
+  create_laplace_distr(id = id, mu = mu, scale = scale)
+}
+
 #' Create a log-normal distribution
 #' @inheritParams create_distr
 #' @param m the m parameter,
@@ -333,6 +397,19 @@ create_log_normal_distr <- function(
       s = s
     )
   )
+}
+
+#' Alternative name for \code{\link{create_log_normal_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_log_normal_distr}} for examples.
+#' @inherit create_log_normal_distr
+#' @export
+create_distr_log_normal <- function(
+  id = NA,
+  m = create_m_param(),
+  s = create_s_param()
+) {
+  create_log_normal_distr(id = id, m = m, s = s)
 }
 
 #' Create an normal distribution
@@ -380,6 +457,19 @@ create_normal_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_normal_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_normal_distr}} for examples.
+#' @inherit create_normal_distr
+#' @export
+create_distr_normal <- function(
+  id = NA,
+  mean = create_mean_param(),
+  sigma = create_sigma_param()
+) {
+  create_normal_distr(id = id, mean = mean, sigma = sigma)
+}
+
 #' Create a 1/x distribution
 #' @inheritParams create_distr
 #' @return a 1/x distribution
@@ -407,6 +497,17 @@ create_one_div_x_distr <- function(
       id = id
     )
   )
+}
+
+#' Alternative name for \code{\link{create_one_div_x_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_one_div_x_distr}} for examples.
+#' @inherit create_one_div_x_distr
+#' @export
+create_distr_one_div_x <- function(
+  id = NA
+) {
+  create_one_div_x_distr(id = id)
 }
 
 #' Create a Poisson distribution
@@ -446,6 +547,19 @@ create_poisson_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_poisson_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_poisson_distr}} for examples.
+#' @inherit create_poisson_distr
+#' @export
+create_distr_poisson <- function(
+  id = NA,
+  lambda = create_lambda_param()
+) {
+  create_poisson_distr(id = id, lambda = lambda)
+}
+
+
 #' Create a uniform distribution
 #' @inheritParams create_distr
 #' @param upper an upper limit of the uniform distribution.
@@ -477,4 +591,16 @@ create_uniform_distr <- function(
       upper = upper
     )
   )
+}
+
+#' Alternative name for \code{\link{create_uniform_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_uniform_distr}} for examples.
+#' @inherit create_uniform_distr
+#' @export
+create_distr_uniform <- function(
+  id = NA,
+  upper = Inf
+) {
+  create_uniform_distr(id = id, upper = upper)
 }
