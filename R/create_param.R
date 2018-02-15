@@ -359,7 +359,7 @@ create_param_lambda <- function(
   id = NA,
   value = 0.0
 ) {
-  create_lambda_param(id = id, estimate = estimate, value = value)
+  create_lambda_param(id = id, value = value)
 }
 
 #' Create a parameter called m

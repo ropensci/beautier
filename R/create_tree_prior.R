@@ -128,6 +128,23 @@ create_bd_tree_prior <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_bd_tree_prior}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_bd_tree_prior}} for examples.
+#' @inherit create_bd_tree_prior
+#' @export
+create_tree_prior_bd <- function(
+  id = NA,
+  birth_rate_distr = create_uniform_distr(),
+  death_rate_distr = create_uniform_distr()
+) {
+  create_bd_tree_prior(
+    id = id,
+    birth_rate_distr = birth_rate_distr,
+    death_rate_distr = death_rate_distr
+  )
+}
+
 #' Create a Coalescent Bayesian Skyline tree prior
 #' @param id the ID of the alignment
 #' @return a Coalescent Bayesian Skyline tree_prior
@@ -151,6 +168,17 @@ create_cbs_tree_prior <- function(
     name = "coalescent_bayesian_skyline",
     id = id
   )
+}
+
+#' Alternative name for \code{\link{create_cbs_tree_prior}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_cbs_tree_prior}} for examples.
+#' @inherit create_cbs_tree_prior
+#' @export
+create_tree_prior_cbs <- function(
+  id = NA
+) {
+  create_cbs_tree_prior(id = id)
 }
 
 #' Create a Coalescent Constant Population tree prior
@@ -180,6 +208,18 @@ create_ccp_tree_prior <- function(
     id = id,
     pop_size_distr = pop_size_distr
   )
+}
+
+#' Alternative name for \code{\link{create_ccp_tree_prior}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_ccp_tree_prior}} for examples.
+#' @inherit create_ccp_tree_prior
+#' @export
+create_tree_prior_ccp <- function(
+  id = NA,
+  pop_size_distr = beautier::create_one_div_x_distr()
+) {
+  create_ccp_tree_prior(id = id, pop_size_distr = pop_size_distr)
 }
 
 #' Create a Coalescent Exponential Population tree prior
@@ -217,6 +257,23 @@ create_cep_tree_prior <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_cep_tree_prior}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_cep_tree_prior}} for examples.
+#' @inherit create_cep_tree_prior
+#' @export
+create_tree_prior_cep <- function(
+  id = NA,
+  pop_size_distr = create_one_div_x_distr(),
+  growth_rate_distr = create_laplace_distr()
+) {
+  create_cep_tree_prior(
+    id = id,
+    pop_size_distr = pop_size_distr,
+    growth_rate_distr = growth_rate_distr
+  )
+}
+
 #' Create a Yule tree prior
 #' @param id the ID of the alignment
 #' @param birth_rate_distr the birth rate distribution,
@@ -244,11 +301,21 @@ create_yule_tree_prior <- function(
   id = NA,
   birth_rate_distr = create_uniform_distr()
 ) {
-  return(
-    create_tree_prior(
-      name = "yule",
-      id = id,
-      birth_rate_distr = birth_rate_distr
-    )
+  create_tree_prior(
+    name = "yule",
+    id = id,
+    birth_rate_distr = birth_rate_distr
   )
+}
+
+#' Alternative name for \code{\link{create_yule_tree_prior}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_yule_tree_prior}} for examples.
+#' @inherit create_yule_tree_prior
+#' @export
+create_tree_prior_yule <- function(
+  id = NA,
+  birth_rate_distr = create_uniform_distr()
+) {
+  create_yule_tree_prior(id = id, birth_rate_distr = birth_rate_distr)
 }
