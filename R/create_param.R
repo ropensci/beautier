@@ -357,7 +357,6 @@ create_lambda_param <- function(
 #' @export
 create_param_lambda <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0
 ) {
   create_lambda_param(id = id, estimate = estimate, value = value)

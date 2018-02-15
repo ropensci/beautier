@@ -6,7 +6,7 @@
 the user find the function from a search tree. See
 \code{\link{create_lambda_param}} for examples.}
 \usage{
-create_param_lambda(id = NA, estimate = FALSE, value = 0)
+create_param_lambda(id = NA, value = 0)
 }
 \arguments{
 \item{id}{the parameter's ID}
