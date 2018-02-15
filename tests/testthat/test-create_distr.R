@@ -31,27 +31,89 @@ test_that("use, default", {
 test_that("use, parameters", {
 
   # English function names
-  testthat::expect_silent(create_beta_distr(id = 1, alpha = create_alpha_param(), beta = create_beta_param()))
-  testthat::expect_silent(create_exp_distr(id = 1, mean = create_mean_param()))
-  testthat::expect_silent(create_gamma_distr(id = 1, alpha = create_alpha_param(), beta = create_beta_param()))
-  testthat::expect_silent(create_inv_gamma_distr(id = 1, alpha = create_alpha_param(), beta = create_beta_param()))
-  testthat::expect_silent(create_laplace_distr(id = 1, mu = create_mu_param(), scale = create_scale_param()))
-  testthat::expect_silent(create_log_normal_distr(id = 1, m = create_m_param(), s = create_s_param()))
-  testthat::expect_silent(create_normal_distr(id = 1, mean = create_mean_param(), sigma = create_sigma_param()))
-  testthat::expect_silent(create_one_div_x_distr(id = 1))
-  testthat::expect_silent(create_poisson_distr(id = 1, lambda = create_lambda_param()))
-  testthat::expect_silent(create_uniform_distr())
+  testthat::expect_silent(
+    create_beta_distr(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_exp_distr(id = 1, mean = create_mean_param())
+  )
+  testthat::expect_silent(
+    create_gamma_distr(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_inv_gamma_distr(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_laplace_distr(
+      id = 1, mu = create_mu_param(), scale = create_scale_param()
+    )
+  )
+  testthat::expect_silent(
+    create_log_normal_distr(id = 1, m = create_m_param(), s = create_s_param())
+  )
+  testthat::expect_silent(
+    create_normal_distr(
+      id = 1, mean = create_mean_param(), sigma = create_sigma_param()
+    )
+  )
+  testthat::expect_silent(
+    create_one_div_x_distr(id = 1)
+  )
+  testthat::expect_silent(
+    create_poisson_distr(id = 1, lambda = create_lambda_param())
+  )
+  testthat::expect_silent(
+    create_uniform_distr()
+  )
 
   # Search-tree friendly function names
-  testthat::expect_silent(create_distr_beta(id = 1, alpha = create_alpha_param(), beta = create_beta_param()))
-  testthat::expect_silent(create_distr_exp(id = 1, mean = create_mean_param()))
-  testthat::expect_silent(create_distr_gamma(id = 1, alpha = create_alpha_param(), beta = create_beta_param()))
-  testthat::expect_silent(create_distr_inv_gamma(id = 1, alpha = create_alpha_param(), beta = create_beta_param()))
-  testthat::expect_silent(create_distr_laplace(id = 1, mu = create_mu_param(), scale = create_scale_param()))
-  testthat::expect_silent(create_distr_log_normal(id = 1, m = create_m_param(), s = create_s_param()))
-  testthat::expect_silent(create_distr_normal(id = 1, mean = create_mean_param(), sigma = create_sigma_param()))
-  testthat::expect_silent(create_distr_one_div_x(id = 1))
-  testthat::expect_silent(create_distr_poisson(id = 1, lambda = create_lambda_param()))
+  testthat::expect_silent(
+    create_distr_beta(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_exp(
+      id = 1, mean = create_mean_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_gamma(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_inv_gamma(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_laplace(
+      id = 1, mu = create_mu_param(), scale = create_scale_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_log_normal(
+      id = 1, m = create_m_param(), s = create_s_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_normal(
+      id = 1, mean = create_mean_param(), sigma = create_sigma_param()
+    )
+  )
+  testthat::expect_silent(
+    create_distr_one_div_x(id = 1)
+  )
+  testthat::expect_silent(
+    create_distr_poisson(id = 1, lambda = create_lambda_param())
+  )
   testthat::expect_silent(create_distr_uniform())
 
 })
