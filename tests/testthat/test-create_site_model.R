@@ -1,8 +1,18 @@
 context("create_site_model")
 
-test_that("JC69 is accepted", {
+test_that("use, default arguments", {
 
-  testthat::expect_true(is_site_model(create_jc69_site_model()))
+  # English
+  testthat::expect_true(beautier:::is_site_model(create_gtr_site_model()))
+  testthat::expect_true(beautier:::is_site_model(create_jc69_site_model()))
+  testthat::expect_true(beautier:::is_site_model(create_hky_site_model()))
+  testthat::expect_true(beautier:::is_site_model(create_tn93_site_model()))
+
+  # Search-tree friendly
+  testthat::expect_true(beautier:::is_site_model(create_site_model_gtr()))
+  testthat::expect_true(beautier:::is_site_model(create_site_model_jc69()))
+  testthat::expect_true(beautier:::is_site_model(create_site_model_hky()))
+  testthat::expect_true(beautier:::is_site_model(create_site_model_tn93()))
 
 })
 

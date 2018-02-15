@@ -85,128 +85,6 @@ create_site_model <- function(
   site_model
 }
 
-#' Create a JC69 site model
-#' @inheritParams create_site_model
-#' @return a JC69 site_model
-#' @author Richel J.C. Bilderbeek
-#' @examples
-#'  jc69_site_model <- create_jc69_site_model()
-#'
-#'  create_beast2_input_file(
-#'    input_filenames = get_fasta_filename(),
-#'    "beast.xml",
-#'    site_models = jc69_site_model
-#'  )
-#' @export
-create_jc69_site_model <- function(
-  id = NA,
-  gamma_site_model = create_gamma_site_model()
-) {
-  beautier::create_site_model(
-    name = "JC69",
-    id = id,
-    gamma_site_model = gamma_site_model
-  )
-}
-
-#' Create an HKY site model
-#' @inheritParams create_site_model
-#' @param kappa the kappa
-#' @param kappa_prior_distr the distribution of the kappa prior,
-#'   which is a log-normal distribution
-#'   (as created by \code{\link{create_log_normal_distr}})
-#'   by default
-#' @param freq_equilibrium the frequency in which the rates are at equilibrium
-#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
-#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
-#'   for \code{freq_equilibrium}
-#' @return an HKY site_model
-#' @author Richel J.C. Bilderbeek
-#' @examples
-#'  hky_site_model <- create_hky_site_model()
-#'
-#'  create_beast2_input_file(
-#'    input_filenames = get_fasta_filename(),
-#'    "beast.xml",
-#'    site_models = hky_site_model
-#'  )
-#' @export
-create_hky_site_model <- function(
-  id = NA,
-  kappa = "2.0",
-  gamma_site_model = create_gamma_site_model(),
-  kappa_prior_distr = create_log_normal_distr(
-    m = create_m_param(value = "1.0"),
-    s = create_s_param(value = "1.25")
-  ),
-  freq_equilibrium = "estimated"
-) {
-  beautier::create_site_model(
-    name = "HKY",
-    id = id,
-    gamma_site_model = gamma_site_model,
-    kappa = kappa,
-    kappa_prior_distr = kappa_prior_distr,
-    freq_equilibrium = freq_equilibrium
-  )
-}
-
-#' Create a TN93 site model
-#' @inheritParams create_site_model
-#' @param kappa_1_prior_distr the distribution of the kappa 1 prior,
-#'   which is a log-normal distribution
-#'   (as created by \code{\link{create_log_normal_distr}})
-#'   by default
-#' @param kappa_2_prior_distr the distribution of the kappa 2 prior,
-#'   which is a log-normal distribution
-#'   (as created by \code{\link{create_log_normal_distr}})
-#'   by default
-#' @param kappa_1_param the 'kappa 1' parameter,
-#'   as returned by \code{\link{create_kappa_1_param}}
-#' @param kappa_2_param the 'kappa 2' parameter,
-#'   as returned by \code{\link{create_kappa_2_param}}
-#' @param freq_equilibrium the frequency in which the rates are at equilibrium
-#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
-#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
-#'   for \code{freq_equilibrium}
-#' @return a TN93 site_model
-#' @author Richel J.C. Bilderbeek
-#' @examples
-#'  tn93_site_model <- create_tn93_site_model()
-#'
-#'  create_beast2_input_file(
-#'    input_filenames = get_fasta_filename(),
-#'    "beast.xml",
-#'    site_models = tn93_site_model
-#'  )
-#' @export
-create_tn93_site_model <- function(
-  id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  kappa_1_param = create_kappa_1_param(),
-  kappa_2_param = create_kappa_2_param(),
-  kappa_1_prior_distr = create_log_normal_distr(
-    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
-    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
-  ),
-  kappa_2_prior_distr = create_log_normal_distr(
-    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
-    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
-  ),
-  freq_equilibrium = "estimated"
-) {
-  beautier::create_site_model(
-    name = "TN93",
-    id = id,
-    gamma_site_model = gamma_site_model,
-    kappa_1_prior_distr = kappa_1_prior_distr,
-    kappa_2_prior_distr = kappa_2_prior_distr,
-    kappa_1_param = kappa_1_param,
-    kappa_2_param = kappa_2_param,
-    freq_equilibrium = freq_equilibrium
-  )
-}
-
 #' Create a GTR site model
 #' @inheritParams create_site_model
 #' @param rate_ac_prior_distr the AC rate prior distribution,
@@ -293,6 +171,249 @@ create_gtr_site_model <- function(
     rate_cg_param = rate_cg_param,
     rate_ct_param = rate_ct_param,
     rate_gt_param = rate_gt_param,
+    freq_equilibrium = freq_equilibrium
+  )
+}
+
+#' Alternative name for \code{\link{create_gtr_site_model}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_gtr_site_model}} for examples.
+#' @inherit create_gtr_site_model
+#' @export
+create_site_model_gtr <- function(
+  id = NA,
+  gamma_site_model = create_gamma_site_model(),
+  rate_ac_prior_distr = create_gamma_distr(
+    alpha = create_alpha_param(value = "0.05"),
+    beta = create_beta_param(value = "10.0")
+  ),
+  rate_ag_prior_distr = create_gamma_distr(
+    alpha = create_alpha_param(value = "0.05"),
+    beta = create_beta_param(value = "20.0")
+  ),
+  rate_at_prior_distr = create_gamma_distr(
+    alpha = create_alpha_param(value = "0.05"),
+    beta = create_beta_param(value = "10.0")
+  ),
+  rate_cg_prior_distr = create_gamma_distr(
+    alpha = create_alpha_param(value = "0.05"),
+    beta = create_beta_param(value = "10.0")
+  ),
+  rate_gt_prior_distr = create_gamma_distr(
+    alpha = create_alpha_param(value = "0.05"),
+    beta = create_beta_param(value = "10.0")
+  ),
+  rate_ac_param = create_rate_ac_param(),
+  rate_ag_param = create_rate_ag_param(),
+  rate_at_param = create_rate_at_param(),
+  rate_cg_param = create_rate_cg_param(),
+  rate_ct_param = create_rate_ct_param(estimate = FALSE),
+  rate_gt_param = create_rate_gt_param(),
+  freq_equilibrium = "estimated"
+) {
+  create_gtr_site_model(
+    id = id,
+    gamma_site_model = gamma_site_model,
+    rate_ac_prior_distr = rate_ac_prior_distr,
+    rate_ag_prior_distr = rate_ag_prior_distr,
+    rate_at_prior_distr = rate_at_prior_distr,
+    rate_cg_prior_distr = rate_cg_prior_distr,
+    rate_gt_prior_distr = rate_gt_prior_distr,
+    rate_ac_param = rate_ac_param,
+    rate_ag_param = rate_ag_param,
+    rate_at_param = rate_at_param,
+    rate_cg_param = rate_cg_param,
+    rate_ct_param = rate_ct_param,
+    rate_gt_param = rate_gt_param,
+    freq_equilibrium = freq_equilibrium
+  )
+}
+
+#' Create an HKY site model
+#' @inheritParams create_site_model
+#' @param kappa the kappa
+#' @param kappa_prior_distr the distribution of the kappa prior,
+#'   which is a log-normal distribution
+#'   (as created by \code{\link{create_log_normal_distr}})
+#'   by default
+#' @param freq_equilibrium the frequency in which the rates are at equilibrium
+#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
+#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   for \code{freq_equilibrium}
+#' @return an HKY site_model
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'  hky_site_model <- create_hky_site_model()
+#'
+#'  create_beast2_input_file(
+#'    input_filenames = get_fasta_filename(),
+#'    "beast.xml",
+#'    site_models = hky_site_model
+#'  )
+#' @export
+create_hky_site_model <- function(
+  id = NA,
+  kappa = "2.0",
+  gamma_site_model = create_gamma_site_model(),
+  kappa_prior_distr = create_log_normal_distr(
+    m = create_m_param(value = "1.0"),
+    s = create_s_param(value = "1.25")
+  ),
+  freq_equilibrium = "estimated"
+) {
+  beautier::create_site_model(
+    name = "HKY",
+    id = id,
+    gamma_site_model = gamma_site_model,
+    kappa = kappa,
+    kappa_prior_distr = kappa_prior_distr,
+    freq_equilibrium = freq_equilibrium
+  )
+}
+
+#' Alternative name for \code{\link{create_hky_site_model}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_hky_site_model}} for examples.
+#' @inherit create_hky_site_model
+#' @export
+create_site_model_hky <- function(
+  id = NA,
+  kappa = "2.0",
+  gamma_site_model = create_gamma_site_model(),
+  kappa_prior_distr = create_log_normal_distr(
+    m = create_m_param(value = "1.0"),
+    s = create_s_param(value = "1.25")
+  ),
+  freq_equilibrium = "estimated"
+) {
+  create_hky_site_model(
+    id = id,
+    kappa = kappa,
+    gamma_site_model = gamma_site_model,
+    kappa_prior_distr = kappa_prior_distr,
+    freq_equilibrium = freq_equilibrium
+  )
+}
+
+#' Create a JC69 site model
+#' @inheritParams create_site_model
+#' @return a JC69 site_model
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'  jc69_site_model <- create_jc69_site_model()
+#'
+#'  create_beast2_input_file(
+#'    input_filenames = get_fasta_filename(),
+#'    "beast.xml",
+#'    site_models = jc69_site_model
+#'  )
+#' @export
+create_jc69_site_model <- function(
+  id = NA,
+  gamma_site_model = create_gamma_site_model()
+) {
+  beautier::create_site_model(
+    name = "JC69",
+    id = id,
+    gamma_site_model = gamma_site_model
+  )
+}
+
+#' Alternative name for \code{\link{create_jc69_site_model}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_jc69_site_model}} for examples.
+#' @inherit create_jc69_site_model
+#' @export
+create_site_model_jc69 <- function(
+  id = NA,
+  gamma_site_model = create_gamma_site_model()
+) {
+  create_jc69_site_model(id = id, gamma_site_model = gamma_site_model)
+}
+
+#' Create a TN93 site model
+#' @inheritParams create_site_model
+#' @param kappa_1_prior_distr the distribution of the kappa 1 prior,
+#'   which is a log-normal distribution
+#'   (as created by \code{\link{create_log_normal_distr}})
+#'   by default
+#' @param kappa_2_prior_distr the distribution of the kappa 2 prior,
+#'   which is a log-normal distribution
+#'   (as created by \code{\link{create_log_normal_distr}})
+#'   by default
+#' @param kappa_1_param the 'kappa 1' parameter,
+#'   as returned by \code{\link{create_kappa_1_param}}
+#' @param kappa_2_param the 'kappa 2' parameter,
+#'   as returned by \code{\link{create_kappa_2_param}}
+#' @param freq_equilibrium the frequency in which the rates are at equilibrium
+#'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
+#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   for \code{freq_equilibrium}
+#' @return a TN93 site_model
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'  tn93_site_model <- create_tn93_site_model()
+#'
+#'  create_beast2_input_file(
+#'    input_filenames = get_fasta_filename(),
+#'    "beast.xml",
+#'    site_models = tn93_site_model
+#'  )
+#' @export
+create_tn93_site_model <- function(
+  id = NA,
+  gamma_site_model = create_gamma_site_model(),
+  kappa_1_param = create_kappa_1_param(),
+  kappa_2_param = create_kappa_2_param(),
+  kappa_1_prior_distr = create_log_normal_distr(
+    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
+  ),
+  kappa_2_prior_distr = create_log_normal_distr(
+    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
+  ),
+  freq_equilibrium = "estimated"
+) {
+  beautier::create_site_model(
+    name = "TN93",
+    id = id,
+    gamma_site_model = gamma_site_model,
+    kappa_1_prior_distr = kappa_1_prior_distr,
+    kappa_2_prior_distr = kappa_2_prior_distr,
+    kappa_1_param = kappa_1_param,
+    kappa_2_param = kappa_2_param,
+    freq_equilibrium = freq_equilibrium
+  )
+}
+
+#' Alternative name for \code{\link{create_tn93_site_model}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_tn93_site_model}} for examples.
+#' @inherit create_tn93_site_model
+#' @export
+create_site_model_tn93 <- function(
+  id = NA,
+  gamma_site_model = create_gamma_site_model(),
+  kappa_1_param = create_kappa_1_param(),
+  kappa_2_param = create_kappa_2_param(),
+  kappa_1_prior_distr = create_log_normal_distr(
+    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
+  ),
+  kappa_2_prior_distr = create_log_normal_distr(
+    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
+    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
+  ),
+  freq_equilibrium = "estimated"
+) {
+  create_tn93_site_model(
+    id = id,
+    gamma_site_model = gamma_site_model,
+    kappa_1_param = kappa_1_param,
+    kappa_2_param = kappa_2_param,
+    kappa_1_prior_distr = kappa_1_prior_distr,
+    kappa_2_prior_distr = kappa_2_prior_distr,
     freq_equilibrium = freq_equilibrium
   )
 }
