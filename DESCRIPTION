@@ -24,8 +24,7 @@ Suggests:
     ggplot2,
     lintr,
     rmarkdown,
-    testthat,
-    TreeSim
+    testthat
 Remotes: 
     jimhester/covr,
     jimhester/lintr,
