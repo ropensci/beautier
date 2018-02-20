@@ -28,7 +28,7 @@ and normal distribution
 }
 \examples{
   # Create the parameter
-  mean_param <- create_mean_param()
+  mean_param <- create_mean_param(value = 1.0)
 
   # Use the parameter in a distribution
   exp_distr <- create_exp_distr(

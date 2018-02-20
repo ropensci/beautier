@@ -150,7 +150,7 @@ create_distr_beta <- function(
 #' @export
 create_exp_distr <- function(
   id = NA,
-  mean = create_mean_param()
+  mean = create_mean_param(value = 1.0)
 ) {
   if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
