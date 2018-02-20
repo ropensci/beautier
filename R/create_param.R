@@ -10,6 +10,7 @@
 #'   \code{\link{create_clock_rate_param}},
 #'   \code{\link{create_kappa_1_param}},
 #'   \code{\link{create_kappa_2_param}},
+#'   \code{\link{create_lambda_param}},
 #'   \code{\link{create_m_param}},
 #'   \code{\link{create_mean_param}},
 #'   \code{\link{create_mu_param}},

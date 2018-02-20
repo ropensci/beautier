@@ -8,6 +8,7 @@ test_that("use, default values", {
   testthat::expect_silent(create_clock_rate_param())
   testthat::expect_silent(create_kappa_1_param())
   testthat::expect_silent(create_kappa_2_param())
+  testthat::expect_silent(create_lambda_param())
   testthat::expect_silent(create_m_param())
   testthat::expect_silent(create_mean_param())
   testthat::expect_silent(create_mu_param())
@@ -27,6 +28,7 @@ test_that("use, default values", {
   testthat::expect_silent(create_param_clock_rate())
   testthat::expect_silent(create_param_kappa_1())
   testthat::expect_silent(create_param_kappa_2())
+  testthat::expect_silent(create_param_lambda())
   testthat::expect_silent(create_param_m())
   testthat::expect_silent(create_param_mean())
   testthat::expect_silent(create_param_mu())
@@ -59,6 +61,9 @@ test_that("use, valid function arguments", {
   )
   testthat::expect_silent(
     create_kappa_2_param(id = 1, lower = 0.1, value = 0.5)
+  )
+  testthat::expect_silent(
+    create_lambda_param(id = 1, value = 1.0)
   )
   testthat::expect_silent(
     create_m_param(id = 1, estimate = TRUE, value = 0.5)
@@ -112,6 +117,9 @@ test_that("use, valid function arguments", {
   )
   testthat::expect_silent(
     create_param_kappa_2(id = 1, lower = 0.1, value = 0.5)
+  )
+  testthat::expect_silent(
+    create_param_lambda(id = 1, value = 1.0)
   )
   testthat::expect_silent(
     create_param_m(id = 1, estimate = TRUE, value = 0.5)
