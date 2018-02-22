@@ -65,6 +65,22 @@ test_that("use, JC69", {
 
 })
 
+test_that("use, JC69, different gamma site model", {
+
+  # gamma_site_model$gamma_shape_prior_distr: one_div_x: 0
+  testthat::expect_equal(
+    beautier:::get_site_model_n_params(
+      create_jc69_site_model(
+        gamma_site_model = create_gamma_site_model(
+          gamma_shape_prior_distr = create_one_div_x_distr()
+        )
+      )
+    ),
+    0
+  )
+
+})
+
 test_that("use, TN93", {
 
   # gamma_site_model$gamma_shape_prior_distr: exp_distr: 1
