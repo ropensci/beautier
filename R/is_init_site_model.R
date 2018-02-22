@@ -46,7 +46,7 @@ is_init_gtr_site_model <- function(
   if (!is_init_param(x$rate_cg_param)) return(FALSE) # nolint internal function
   if (!is_init_param(x$rate_ct_param)) return(FALSE) # nolint internal function
   if (!is_init_param(x$rate_gt_param)) return(FALSE) # nolint internal function
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
   TRUE
 }
 
@@ -65,7 +65,7 @@ is_init_hky_site_model <- function(
   x
 ) {
   testit::assert(is_hky_site_model(x))
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
   is_init_distr(x$kappa_prior) # nolint internal function
 }
 
@@ -84,7 +84,7 @@ is_init_jc69_site_model <- function(
   x
 ) {
   testit::assert(is_jc69_site_model(x))
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
   TRUE
 }
 
@@ -103,7 +103,7 @@ is_init_tn93_site_model <- function(
   x
 ) {
   testit::assert(is_tn93_site_model(x))
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
   is_init_distr(x$kappa_1_prior) &&
     is_init_distr(x$kappa_2_prior)
 }

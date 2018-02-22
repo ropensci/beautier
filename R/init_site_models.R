@@ -73,7 +73,7 @@ init_gtr_site_model <- function(
   testit::assert(is_gtr_site_model(gtr_site_model))
 
   # Gamma site model
-  if (!is_init_distr(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+  if (!is_init_distr(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
     gtr_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
       gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
       distr_id = distr_id,
@@ -85,76 +85,103 @@ init_gtr_site_model <- function(
     )
   }
 
-  if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) {
+  if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) { # nolint internal function
     gtr_site_model$rate_ac_prior_distr <- init_distr(
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(gtr_site_model$rate_ac_prior_distr)
+    param_id <- param_id + get_distr_n_params(
+      gtr_site_model$rate_ac_prior_distr
+    )
   }
-  if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) {
+  if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) { # nolint internal function
     gtr_site_model$rate_ag_prior_distr <- init_distr(
       gtr_site_model$rate_ag_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(gtr_site_model$rate_ag_prior_distr)
+    param_id <- param_id + get_distr_n_params(
+      gtr_site_model$rate_ag_prior_distr
+    )
   }
-  if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) {
+  if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) { # nolint internal function
     gtr_site_model$rate_at_prior_distr <- init_distr(
       gtr_site_model$rate_at_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(gtr_site_model$rate_at_prior_distr)
+    param_id <- param_id + get_distr_n_params(
+      gtr_site_model$rate_at_prior_distr
+    )
   }
-  if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) {
+  if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) { # nolint internal function
     gtr_site_model$rate_cg_prior_distr <- init_distr(
       gtr_site_model$rate_cg_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(gtr_site_model$rate_cg_prior_distr)
+    param_id <- param_id + get_distr_n_params(
+      gtr_site_model$rate_cg_prior_distr
+    )
   }
-  if (!is_init_distr(gtr_site_model$rate_gt_prior_distr)) {
+  if (!is_init_distr(gtr_site_model$rate_gt_prior_distr)) { # nolint internal function
     gtr_site_model$rate_gt_prior_distr <- init_distr(
       gtr_site_model$rate_gt_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(gtr_site_model$rate_gt_prior_distr)
+    param_id <- param_id + get_distr_n_params(
+      gtr_site_model$rate_gt_prior_distr
+    )
   }
-  if (!is_init_param(gtr_site_model$rate_ac_param)) {
-    gtr_site_model$rate_ac_param <- init_param(gtr_site_model$rate_ac_param, id = param_id) # nolint internal function
+  if (!is_init_param(gtr_site_model$rate_ac_param)) { # nolint internal function
+    gtr_site_model$rate_ac_param <- init_param( # nolint internal function
+      gtr_site_model$rate_ac_param,
+      id = param_id
+    )
     param_id <- param_id + 1
   }
-  if (!is_init_param(gtr_site_model$rate_ag_param)) {
-    gtr_site_model$rate_ag_param <- init_param(gtr_site_model$rate_ag_param, id = param_id) # nolint internal function
+  if (!is_init_param(gtr_site_model$rate_ag_param)) { # nolint internal function
+    gtr_site_model$rate_ag_param <- init_param( # nolint internal function
+      gtr_site_model$rate_ag_param,
+      id = param_id
+    )
     param_id <- param_id + 1
   }
-  if (!is_init_param(gtr_site_model$rate_at_param)) {
-    gtr_site_model$rate_at_param <- init_param(gtr_site_model$rate_at_param, id = param_id) # nolint internal function
+  if (!is_init_param(gtr_site_model$rate_at_param)) { # nolint internal function
+    gtr_site_model$rate_at_param <- init_param( # nolint internal function
+      gtr_site_model$rate_at_param, id = param_id
+    )
     param_id <- param_id + 1
   }
-  if (!is_init_param(gtr_site_model$rate_cg_param)) {
-    gtr_site_model$rate_cg_param <- init_param(gtr_site_model$rate_cg_param, id = param_id) # nolint internal function
+  if (!is_init_param(gtr_site_model$rate_cg_param)) { # nolint internal function
+    gtr_site_model$rate_cg_param <- init_param( # nolint internal function
+      gtr_site_model$rate_cg_param,
+      id = param_id
+    )
     param_id <- param_id + 1
   }
-  if (!is_init_param(gtr_site_model$rate_ct_param)) {
-    gtr_site_model$rate_ct_param <- init_param(gtr_site_model$rate_ct_param, id = param_id) # nolint internal function
+  if (!is_init_param(gtr_site_model$rate_ct_param)) { # nolint internal function
+    gtr_site_model$rate_ct_param <- init_param( # nolint internal function
+      gtr_site_model$rate_ct_param,
+      id = param_id
+    )
     param_id <- param_id + 1
   }
-  if (!is_init_param(gtr_site_model$rate_gt_param)) {
-    gtr_site_model$rate_gt_param <- init_param(gtr_site_model$rate_gt_param, id = param_id) # nolint internal function
+  if (!is_init_param(gtr_site_model$rate_gt_param)) { # nolint internal function
+    gtr_site_model$rate_gt_param <- init_param( # nolint internal function
+      gtr_site_model$rate_gt_param,
+      id = param_id
+    )
     param_id <- param_id + 1
   }
-  testit::assert(is_gtr_site_model(gtr_site_model))
+  testit::assert(is_gtr_site_model(gtr_site_model)) # nolint internal function
   testit::assert(is_init_gamma_site_model(gtr_site_model$gamma_site_model)) # nolint internal function
   testit::assert(is_init_gtr_site_model(gtr_site_model)) # nolint internal function
   gtr_site_model
