@@ -30,7 +30,7 @@ create_gamma_site_model <- function(
   gamma_shape = "1.0",
   prop_invariant = "0.0",
   gamma_shape_prior_distr = create_exp_distr(
-    id = 0, # TODO: id must be NA by default
+    id = NA,
     mean = create_mean_param(
       id = 0,  # TODO: id must be NA by default
       value = "1.0" # string to match XML
