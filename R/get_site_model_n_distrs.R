@@ -28,14 +28,15 @@ get_site_model_n_distrs <- function(
   if (!is_site_model(site_model)) {
     stop("'site_model' must be a site model")
   }
+  gamma_site_model_n_distrs <- 1
   if (is_gtr_site_model(site_model)) {
-    return(5)
+    return(5 + gamma_site_model_n_distrs)
   } else if (is_hky_site_model(site_model)) {
-    return(1)
+    return(1 + gamma_site_model_n_distrs)
   } else if (is_jc69_site_model(site_model)) {
-    return(0)
+    return(0 + gamma_site_model_n_distrs)
   } else {
     testit::assert(is_tn93_site_model(site_model))
-    return(2)
+    return(2 + gamma_site_model_n_distrs)
   }
 }
