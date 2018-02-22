@@ -208,7 +208,7 @@ init_hky_site_model <- function(
 }
 
 
-#' Initializes an HKY site model
+#' Initializes a JC69 site model
 #' @inheritParams default_params_doc
 #' @return an initialized HKY site model
 #' @author Richel J.C. Bilderbeek

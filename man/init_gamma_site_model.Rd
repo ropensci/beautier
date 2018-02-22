@@ -7,6 +7,9 @@
 init_gamma_site_model(gamma_site_model, distr_id = 0, param_id = 0)
 }
 \arguments{
+\item{gamma_site_model}{a site model's gamma site model,
+as returned by \code{\link{create_gamma_site_model}}}
+
 \item{distr_id}{the first distributions' ID}
 
 \item{param_id}{the first parameter's ID}

@@ -8,10 +8,11 @@ documentation.}
 default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   cep_tree_prior, clock_model, clock_models, crown_age, crown_ages, distr_id,
   fasta_filename, fasta_filenames, fixed_crown_age, fixed_crown_ages,
-  gtr_site_model, hky_site_model, id, ids, initial_phylogenies, input_filenames,
-  is_first, mcmc, misc_options, output_filename, param_id, posterior_crown_age,
-  rln_clock_model, sequence_length, site_model, site_models, strict_clock_model,
-  tn93_site_model, tree_prior, tree_priors, verbose, yule_tree_prior)
+  gamma_site_model, gtr_site_model, hky_site_model, id, ids,
+  initial_phylogenies, input_filenames, is_first, jc69_site_model, mcmc,
+  misc_options, output_filename, param_id, posterior_crown_age, rln_clock_model,
+  sequence_length, site_model, site_models, strict_clock_model, tn93_site_model,
+  tree_prior, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -56,6 +57,9 @@ If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
 
+\item{gamma_site_model}{a site model's gamma site model,
+as returned by \code{\link{create_gamma_site_model}}}
+
 \item{gtr_site_model}{a GTR site model,
 as returned by \code{\link{create_gtr_site_model}}}
 
@@ -79,6 +83,9 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{is_first}{boolean to indicate if this is the first
 out of many (one, two or more)}
+
+\item{jc69_site_model}{a JC69 site model,
+as returned by \code{\link{create_jc69_site_model}}}
 
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}

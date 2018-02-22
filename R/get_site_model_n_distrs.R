@@ -3,24 +3,24 @@
 #' @return the number of distributions a site model has
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   # rates AC, AG, AT, CG and GT
+#'   # gamma site model, rates AC, AG, AT, CG and GT
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_gtr_site_model()) == 5
+#'     beautier:::get_site_model_n_distrs(create_gtr_site_model()) == 6
 #'   )
 #'
-#'   # kappa
+#'   # gamma site model, kappa
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_hky_site_model()) == 1
+#'     beautier:::get_site_model_n_distrs(create_hky_site_model()) == 2
 #'   )
 #'
-#'   # no distributions
+#'   # gamma site model
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_jc69_site_model()) == 0
+#'     beautier:::get_site_model_n_distrs(create_jc69_site_model()) == 1
 #'   )
 #'
-#'   # kappa 1 and kappa 2
+#'   # gamma site model, kappa 1 and kappa 2
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_tn93_site_model()) == 2
+#'     beautier:::get_site_model_n_distrs(create_tn93_site_model()) == 3
 #'   )
 get_site_model_n_distrs <- function(
   site_model
