@@ -18,16 +18,16 @@ Get the number of distributions a site model has
 }
 \examples{
   testit::assert(
-    beautier:::get_site_model_n_params(create_gtr_site_model()) == 10
+    beautier:::get_site_model_n_params(create_gtr_site_model()) == 11
   )
   testit::assert(
-    beautier:::get_site_model_n_params(create_hky_site_model()) == 2
+    beautier:::get_site_model_n_params(create_hky_site_model()) == 3
   )
   testit::assert(
-    beautier:::get_site_model_n_params(create_jc69_site_model()) == 0
+    beautier:::get_site_model_n_params(create_jc69_site_model()) == 1
   )
   testit::assert(
-    beautier:::get_site_model_n_params(create_tn93_site_model()) == 4
+    beautier:::get_site_model_n_params(create_tn93_site_model()) == 5
   )
 }
 \author{
