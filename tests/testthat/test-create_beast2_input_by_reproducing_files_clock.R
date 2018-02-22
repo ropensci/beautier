@@ -195,6 +195,18 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
     input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
+    site_models = list(
+      create_jc69_site_model(
+        gamma_site_model = create_gamma_site_model(
+          gamma_shape_prior_distr = create_exp_distr(id = 0)
+        )
+      ),
+      create_jc69_site_model(
+        gamma_site_model = create_gamma_site_model(
+          gamma_shape_prior_distr = create_exp_distr(id = 0)
+        )
+      )
+    ),
     clock_models = list(
       create_strict_clock_model(
         clock_rate_distr = create_uniform_distr(id = 2)
@@ -205,7 +217,8 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
           alpha = create_alpha_param(id = 3, value = "0.5396"),
           beta = create_beta_param(id = 4, value = "0.3819")
         ),
-        mean_rate_prior_distr = create_uniform_distr(id = 6)
+        mean_rate_prior_distr = create_uniform_distr(id = 6),
+        mparam_id = 2
       )
     ),
     tree_priors = list(
