@@ -2,7 +2,7 @@
 
 For all examples, do load `beautier`:
 
-```
+```{r load_library}
 library(beautier)
 ```
 
@@ -15,7 +15,7 @@ Using all default settings, only specify a DNA alignment.
 
 ![Example #1: all default](pics/all_default.png)
 
-```
+```{r example_1}
 create_beast2_input_file(
   "test_output_0.fas",
   "my_beast.xml"
@@ -32,7 +32,7 @@ Using all default settings, only specify a DNA alignment.
 [No screenshot, as this cannot be done in BEAUti yet]
 ```
 
-```
+```{r example_2}
 create_beast2_input_file(
   "my_fasta.fas",
   "my_beast.xml",
@@ -47,7 +47,7 @@ a FASTA file of a certain crown age.
 
 ![Example #3: JC69 site model](pics/jc69_2_4.png)
 
-```
+```{r example_3}
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
@@ -144,7 +144,7 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 ![Example 10: Two alignments, different site models](pics/aco_hky_nd2_tn93.png)
 
 ```{r example_10}
-beautier::create_beast2_input_file(
+create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
   site_models = list(
@@ -163,7 +163,7 @@ Thanks to Paul van Els for this use case.
 [Example 11: shared clock model](aco_nd2_same_clock_model.png)
 
 ```{r example_10}
-beautier::create_beast2_input_file(
+create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
   clock_models = list(
