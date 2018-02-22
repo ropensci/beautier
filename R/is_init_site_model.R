@@ -8,6 +8,7 @@ is_init_site_model <- function(
   x
 ) {
   if (!is_site_model(x)) return(FALSE)
+  if (is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   if (is_gtr_site_model(x)) {
     return(is_init_gtr_site_model(x)) # nolint internal function call
   } else if (is_hky_site_model(x)) {
