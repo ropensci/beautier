@@ -269,26 +269,86 @@ create_random_distr <- function() {
 
 
 create_random_gamma_site_model <- function() {
-  gamma_site_model <- create_gamma_site_model(
-    gamma_cat_count = sample(x = 0:4, size = 1),
-    gamma_shape = runif(n = 1, min = 0.0, max = 1.0),
-    prop_invariant = runif(n = 1, min = 0.0, max = 1.0),
-    gamma_shape_prior_distr = create_random_distr(),
-    freq_equilibrium = create_random_freq_equilibrium()
-  )
+
+
+  gamma_site_model <- NA
+  while (length(gamma_site_model) == 1 && is.na(gamma_site_model)) {
+    tryCatch(
+      gamma_site_model <- create_gamma_site_model(
+        gamma_cat_count = sample(x = -1:4, size = 1),
+        gamma_shape = runif(n = 1, min = -1.0, max = 1.0),
+        prop_invariant = runif(n = 1, min = -1.0, max = 1.0),
+        gamma_shape_prior_distr = create_random_distr(),
+        freq_equilibrium = create_random_freq_equilibrium()
+      ),
+      error = function(cond) {}
+    )
+  }
   testit::assert(beautier:::is_gamma_site_model(gamma_site_model))
   gamma_site_model
 }
 
 create_random_jc69_site_model <- function() {
+
   create_jc69_site_model(
     gamma_site_model = create_random_gamma_site_model()
   )
 }
 
+create_random_hky_site_model <- function() {
+
+  create_hky_site_model(
+    gamma_site_model = create_random_gamma_site_model(),
+    kappa = runif(n = 1, min = -100.0, max = 100.0),
+    kappa_prior_distr = create_random_distr(),
+    freq_equilibrium = create_random_freq_equilibrium()
+  )
+}
+
+create_random_tn93_site_model <- function() {
+  create_tn93_site_model(
+    gamma_site_model = create_random_gamma_site_model(),
+    kappa_1_param = create_random_kappa_1_param(),
+    kappa_2_param = create_random_kappa_2_param(),
+    kappa_1_prior_distr = create_random_distr(),
+    kappa_2_prior_distr = create_random_distr(),
+    freq_equilibrium = create_random_freq_equilibrium()
+  )
+}
+
+create_random_gtr_site_model <- function() {
+  create_gtr_site_model(
+    gamma_site_model = create_random_gamma_site_model(),
+    rate_ac_prior_distr = create_random_distr(),
+    rate_ag_prior_distr = create_random_distr(),
+    rate_at_prior_distr = create_random_distr(),
+    rate_cg_prior_distr = create_random_distr(),
+    rate_gt_prior_distr = create_random_distr(),
+    rate_ac_param = create_random_rate_ac_param(),
+    rate_ag_param = create_random_rate_ag_param(),
+    rate_at_param = create_random_rate_at_param(),
+    rate_cg_param = create_random_rate_cg_param(),
+    rate_ct_param = create_random_rate_ct_param(),
+    rate_gt_param = create_random_rate_gt_param(),
+    freq_equilibrium = create_random_freq_equilibrium()
+  )
+}
+
 
 create_random_site_model <- function() {
-  create_random_jc69_site_model()
+
+  site_model_index <- sample(x = 1:4, size = 1)
+  if (site_model_index == 1) {
+    create_random_jc69_site_model()
+  } else if (site_model_index == 2) {
+    create_random_hky_site_model()
+  } else if (site_model_index == 3) {
+    create_random_tn93_site_model()
+  } else if (site_model_index == 4) {
+    create_random_gtr_site_model()
+  } else {
+    testit::assert(!"Should not get here")
+  }
 }
 
 
@@ -325,7 +385,6 @@ create_random <- function(
 }
 
 set.seed(0)
-create_random()
 
 status <- 0
 for (i in seq(1, 100)) {
