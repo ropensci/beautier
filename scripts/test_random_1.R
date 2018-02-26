@@ -181,10 +181,18 @@ create_random_laplace_distr <- function() {
 }
 
 create_random_log_normal_distr <- function() {
-  create_log_normal_distr(
-    m = create_random_m_param(),
-    s = create_random_s_param()
-  )
+
+  log_normal_distr <- NA
+  while (length(log_normal_distr) == 1 && is.na(log_normal_distr)) {
+    tryCatch(
+      log_normal_distr <- create_log_normal_distr(
+        m = create_random_m_param(),
+        s = create_random_s_param()
+      ),
+      error = function(cond) {}
+    )
+  }
+  log_normal_distr
 }
 
 create_random_normal_distr <- function() {

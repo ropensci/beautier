@@ -25,4 +25,3 @@ init_gamma_site_model <- function(
   testit::assert(is_gamma_site_model(gamma_site_model))
   gamma_site_model
 }
-
