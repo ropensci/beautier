@@ -224,3 +224,12 @@ test_that("abuse, poisson", {
   )
 
 })
+
+test_that("abuse, uniform", {
+
+  testthat::expect_error(
+    create_uniform_distr(upper = 0.0),
+    "'upper' must be non-zero and positive"
+  )
+
+})

@@ -131,10 +131,17 @@ create_random_scale_param <- function() {
 }
 
 create_random_sigma_param <- function() {
-  create_sigma_param(
-    estimate = create_random_estimate(),
-    value = runif(n = 1, min = -100, max = 100)
-  )
+  sigma_param <- NA
+  while (length(sigma_param) == 1 && is.na(sigma_param)) {
+    tryCatch(
+      sigma_param <- create_sigma_param(
+        estimate = create_random_estimate(),
+        value = runif(n = 1, min = -100, max = 100)
+      ),
+      error = function(cond) {}
+    )
+  }
+  sigma_param
 }
 
 
@@ -198,9 +205,17 @@ create_random_poisson_distr <- function() {
 }
 
 create_random_uniform_distr <- function() {
-  create_uniform_distr(
-    upper = runif(n = 1, min = -100, max = 100)
-  )
+
+  uniform_distr <- NA
+  while (length(uniform_distr) == 1 && is.na(uniform_distr)) {
+    tryCatch(
+      uniform_distr <- create_uniform_distr(
+        upper = runif(n = 1, min = -100, max = 100)
+      ),
+      error = function(cond) {}
+    )
+  }
+  uniform_distr
 }
 
 
@@ -280,7 +295,15 @@ create_random <- function(
   )
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
   if (!is_ok) {
-    print(paste(site_model, clock_model, tree_prior))
+    print("ERROR")
+    file.copy(output_xml_filename, "/home/richel/bad.xml")
+    beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+    print("site model:")
+    print(site_model)
+    print("clock model:")
+    print(clock_model)
+    print("tree prior:")
+    print(tree_prior)
   }
   is_ok
 }
@@ -289,7 +312,10 @@ set.seed(0)
 create_random()
 
 status <- 0
-for (i in seq(1, 100)) {
+for (i in seq(1, 3)) {
+  print("--------------------")
+  print(paste("-",i,"-"))
+  print("--------------------")
   ok <- create_random()
   if (ok == FALSE) status <- 1
 }
