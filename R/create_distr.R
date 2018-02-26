@@ -217,13 +217,15 @@ create_gamma_distr <- function(
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
-  return(
-    beautier::create_distr(
-      name = "gamma",
-      id = id,
-      alpha = alpha,
-      beta = beta
-    )
+  if (alpha$value < 0.0) {
+    stop("'value' of 'alpha' must be positive")
+  }
+
+  beautier::create_distr(
+    name = "gamma",
+    id = id,
+    alpha = alpha,
+    beta = beta
   )
 }
 

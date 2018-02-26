@@ -162,6 +162,11 @@ test_that("abuse, gamma_distr", {
     "'beta' must be a beta parameter"
   )
 
+  testthat::expect_error(
+    create_gamma_distr(alpha = create_alpha_param(value = -1.0)),
+    "'value' of 'alpha' must be positive"
+  )
+
 })
 
 test_that("abuse, inv_gamma_distr", {
