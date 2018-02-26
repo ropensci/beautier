@@ -296,7 +296,7 @@ create_random <- function(
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
   if (!is_ok) {
     print("ERROR")
-    file.copy(output_xml_filename, "/home/richel/bad.xml")
+    file.copy(output_xml_filename, "/home/richel/bad.xml", overwrite = TRUE)
     beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
     print("site model:")
     print(site_model)

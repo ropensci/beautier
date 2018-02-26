@@ -389,6 +389,9 @@ create_log_normal_distr <- function(
   if (!is_s_param(s)) {
     stop("'s' must be an s parameter, as returned by 'create_s_param'")
   }
+  if (s$value < 0.0) {
+    stop("'value' of 's' must be positive")
+  }
   return(
     beautier::create_distr(
       name = "log_normal",

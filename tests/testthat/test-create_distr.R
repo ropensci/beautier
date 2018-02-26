@@ -201,6 +201,11 @@ test_that("abuse, log_normal_distr", {
     "'s' must be an s parameter"
   )
 
+  testthat::expect_error(
+    create_log_normal_distr(s = create_s_param(value = -1.0)),
+    "'value' of 's' must be positive"
+  )
+
 })
 
 test_that("abuse, normal_distr", {
