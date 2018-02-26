@@ -160,10 +160,18 @@ create_random_exp_distr <- function() {
 }
 
 create_random_gamma_distr <- function() {
-  create_gamma_distr(
-    alpha = create_random_alpha_param(),
-    beta = create_random_beta_param()
-  )
+
+  gamma_distr <- NA
+  while (length(gamma_distr) == 1 && is.na(gamma_distr)) {
+    tryCatch(
+      gamma_distr <- create_gamma_distr(
+      alpha = create_random_alpha_param(),
+      beta = create_random_beta_param()
+    ),
+      error = function(cond) {}
+    )
+  }
+  gamma_distr
 }
 
 create_random_inv_gamma_distr <- function() {
