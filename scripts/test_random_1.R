@@ -312,12 +312,15 @@ set.seed(0)
 create_random()
 
 status <- 0
-for (i in seq(1, 3)) {
+for (i in seq(1, 100)) {
   print("--------------------")
   print(paste("-",i,"-"))
   print("--------------------")
   ok <- create_random()
-  if (ok == FALSE) status <- 1
+  if (ok == FALSE) {
+    status <- 1
+    break
+  }
 }
 
 # quit(status = status, save = "no")
