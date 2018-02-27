@@ -4,11 +4,13 @@
 \alias{parameter_to_xml_rate_ac}
 \title{Converts a 'rate AC' parameter to XML}
 \usage{
-parameter_to_xml_rate_ac(parameter)
+parameter_to_xml_rate_ac(parameter, which_name = "state_node")
 }
 \arguments{
 \item{parameter}{a 'rate AC' parameter,
 as created by \code{\link{create_rate_ac_param}})}
+
+\item{which_name}{the name, can be \code{state_node} or \code{rate_name}}
 }
 \value{
 the parameter as XML text

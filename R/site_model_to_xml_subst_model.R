@@ -34,10 +34,58 @@ site_model_to_xml_subst_model <- function(
       "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
       "rateAG=\"@rateAG.s:", id, "\" rateAT=\"@rateAT.s:", id, "\" ",
       "rateCG=\"@rateCG.s:", id, "\" rateGT=\"@rateGT.s:", id, "\">"))
-    testit::assert(site_model$rate_ac_param$estimate == TRUE || to_do()) # nolint internal function
-    testit::assert(site_model$rate_ag_param$estimate == TRUE || to_do()) # nolint internal function
-    testit::assert(site_model$rate_at_param$estimate == TRUE || to_do()) # nolint internal function
-    testit::assert(site_model$rate_cg_param$estimate == TRUE || to_do()) # nolint internal function
+
+    if (site_model$rate_ac_param$estimate == FALSE) {
+      site_model$rate_ac_param$id <- id
+      text <- c(
+        text,
+        indent(
+          parameter_to_xml_rate_ac(
+            site_model$rate_ac_param, which_name = "rate_name"
+          ), n_spaces = 4
+        )
+      )
+    }
+
+
+    if (site_model$rate_ag_param$estimate == FALSE) {
+      site_model$rate_ag_param$id <- id
+      text <- c(
+        text,
+        indent(
+          parameter_to_xml_rate_ag(
+            site_model$rate_ag_param, which_name = "rate_name"
+          ), n_spaces = 4
+        )
+      )
+    }
+
+
+    if (site_model$rate_at_param$estimate == FALSE) {
+      site_model$rate_at_param$id <- id
+      text <- c(
+        text,
+        indent(
+          parameter_to_xml_rate_at(
+            site_model$rate_at_param, which_name = "rate_name"
+          ), n_spaces = 4
+        )
+      )
+    }
+
+
+    if (site_model$rate_cg_param$estimate == FALSE) {
+      site_model$rate_cg_param$id <- id
+      text <- c(
+        text,
+        indent(
+          parameter_to_xml_rate_cg(
+            site_model$rate_cg_param, which_name = "rate_name"
+          ), n_spaces = 4
+        )
+      )
+    }
+
     if (site_model$rate_ct_param$estimate == FALSE) {
       site_model$rate_ct_param$id <- id
       text <- c(
@@ -60,7 +108,6 @@ site_model_to_xml_subst_model <- function(
         )
       )
     }
-    # testit::assert(site_model$rate_gt_param$estimate == TRUE || to_do()) # nolint internal function
   }
   text <- c(text, freq_equilibrium_text)
   text <- c(text, paste0("</substModel>"))
