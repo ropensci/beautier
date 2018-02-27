@@ -14,7 +14,7 @@ The purpose of `beautier` is to create
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-`beautier` is part of the [rbeast2](https://github.com/richelbilderbeek/rbeast2) package suite:
+`beautier` is part of the [babette](https://github.com/richelbilderbeek/babette) package suite:
 
  * [beautier](https://github.com/richelbilderbeek/beautier) creates BEAST2 input (`.xml`) files.
  * [beastier](https://github.com/richelbilderbeek/beastier) runs BEAST2
