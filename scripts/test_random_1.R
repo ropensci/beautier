@@ -389,10 +389,11 @@ set.seed(seed)
 
 status <- 0
 for (i in seq(1, 1000)) {
+  print(i)
   ok <- create_random()
   if (ok == FALSE) {
     status <- 1
-    # break
+    break
   }
 }
 
