@@ -26,7 +26,7 @@ after_success:
   #- Rscript -e 'testthat::test_file("test-create_beast2_input_file.R")'
   #- Rscript -e 'testthat::test_file("test-create_beast2_input_file_1_12.R")'
   - Rscript scripts/test_brute_force_1.R
-  #- travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R
+  - travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
