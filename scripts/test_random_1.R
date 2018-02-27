@@ -384,11 +384,13 @@ create_random <- function(
   is_ok
 }
 
-seed <- 0
+seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
 set.seed(seed)
+print("seed:", seed)
 
 status <- 0
-for (i in seq(1, 1000)) {
+# Use one hour
+for (i in seq(1, 900)) {
   print(i)
   ok <- create_random()
   if (ok == FALSE) {
