@@ -386,7 +386,7 @@ create_random <- function(
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
 set.seed(seed)
-print("seed:", seed)
+print(paste("seed:", seed))
 
 status <- 0
 # Use one hour
@@ -399,5 +399,8 @@ for (i in seq(1, 900)) {
   }
 }
 
-print("seed:", seed)
+seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
+set.seed(seed)
+print(paste("seed:", seed))
+
 # quit(status = status, save = "no")
