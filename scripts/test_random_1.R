@@ -1,7 +1,11 @@
 library(beautier)
 
-create_random_estimate <- function() {
+create_random_bool <- function() {
   sample(x = 1:2, size = 1) == 1
+}
+
+create_random_estimate <- function() {
+  create_random_bool()
 }
 
 create_random_alpha_param <- function() {
@@ -334,7 +338,6 @@ create_random_gtr_site_model <- function() {
   )
 }
 
-
 create_random_site_model <- function() {
 
   site_model_index <- sample(x = 1:4, size = 1)
@@ -351,6 +354,104 @@ create_random_site_model <- function() {
   }
 }
 
+################
+# Clock models #
+################
+create_random_rln_clock_model <- function() {
+
+  rln_clock_model <- NA
+  while (length(rln_clock_model) == 1 && is.na(rln_clock_model)) {
+    tryCatch(
+      rln_clock_model <- create_rln_clock_model(
+        mean_rate_prior_distr = create_random_distr(),
+        ucldstdev_distr = create_random_distr(),
+        mean_clock_rate = runif(n = 1, min = -100.0, max = 100.0),
+        n_rate_categories = sample(x = -2:10, size = 1),
+        normalize_mean_clock_rate = create_random_bool()
+      ),
+      error = function(cond) {}
+    )
+  }
+  rln_clock_model
+}
+
+create_random_strict_clock_model <- function() {
+
+  strict_clock_model <- NA
+  while (length(strict_clock_model) == 1 && is.na(strict_clock_model)) {
+    tryCatch(
+      strict_clock_model <- create_strict_clock_model(
+        clock_rate_param = create_random_clock_rate_param(),
+        clock_rate_distr = create_random_distr()
+      ),
+      error = function(cond) {}
+    )
+  }
+  strict_clock_model
+}
+
+create_random_clock_model <- function() {
+  clock_model_index <- sample(x = 1:2, size = 1)
+  if (clock_model_index == 1) {
+    create_random_rln_clock_model()
+  } else if (clock_model_index == 2) {
+    create_random_strict_clock_model()
+  } else {
+    testit::assert(!"Should not get here")
+  }
+}
+
+################
+# Tree priors  #
+################
+
+create_random_bd_tree_prior <- function() {
+  create_bd_tree_prior(
+    birth_rate_distr = create_random_distr(),
+    death_rate_distr = create_random_distr()
+  )
+}
+
+create_random_cbs_tree_prior <- function() {
+  create_cbs_tree_prior()
+}
+
+create_random_ccp_tree_prior <- function() {
+  create_ccp_tree_prior(
+    pop_size_distr = create_random_distr()
+  )
+}
+
+create_random_cep_tree_prior <- function() {
+  create_cep_tree_prior(
+    pop_size_distr = create_random_distr(),
+    growth_rate_distr = create_random_distr()
+  )
+}
+create_random_yule_tree_prior <- function() {
+  create_yule_tree_prior(
+    birth_rate_distr = create_random_distr()
+  )
+}
+
+create_random_tree_prior <- function() {
+  tree_prior_index <- sample(x = 1:5, size = 1)
+
+  if (tree_prior_index == 1) {
+    create_random_bd_tree_prior()
+  } else if (tree_prior_index == 2) {
+    create_random_cbs_tree_prior()
+  } else if (tree_prior_index == 3) {
+    create_random_ccp_tree_prior()
+  } else if (tree_prior_index == 4) {
+    create_random_cep_tree_prior()
+  } else if (tree_prior_index == 5) {
+    create_random_yule_tree_prior()
+  } else {
+    testit::assert(!"Should not get here")
+  }
+}
+
 
 create_random <- function(
   input_fasta_filename = beautier:::get_path("anthus_aco.fas")
@@ -358,8 +459,8 @@ create_random <- function(
 
   input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
   site_model <- create_random_site_model()
-  clock_model <- create_strict_clock_model()
-  tree_prior <- create_yule_tree_prior()
+  clock_model <- create_random_clock_model()
+  tree_prior <- create_random_tree_prior()
 
   output_xml_filename <- tempfile()
   create_beast2_input_file(
@@ -399,8 +500,6 @@ for (i in seq(1, 900)) {
   }
 }
 
-seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-set.seed(seed)
 print(paste("seed:", seed))
 
 # quit(status = status, save = "no")
