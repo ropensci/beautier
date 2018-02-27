@@ -324,6 +324,95 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
+
+
+
+
+
+
+
+
+test_that("gtr_no_rate_estimation_2_4.xml", {
+
+  skip("WIP")
+
+  created <- beautier::create_beast2_input(
+    input_filenames = get_fasta_filename(),
+    site_models = create_gtr_site_model(
+      id = get_id(get_fasta_filename()),
+      rate_ac_prior_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 7, value = "0.05"),
+        beta = create_beta_param(id = 8, value = "10.0")
+      ),
+      rate_ag_prior_distr = create_gamma_distr(
+        id = 1,
+        alpha = create_alpha_param(id = 9, value = "0.05"),
+        beta = create_beta_param(id = 10, value = "20.0")
+      ),
+      rate_at_prior_distr = create_gamma_distr(
+        id = 2,
+        alpha = create_alpha_param(id = 11, value = "0.05"),
+        beta = create_beta_param(id = 12, value = "10.0")
+      ),
+      rate_cg_prior_distr = create_gamma_distr(
+        id = 3,
+        alpha = create_alpha_param(id = 13, value = "0.05"),
+        beta = create_beta_param(id = 14, value = "10.0")
+      ),
+      rate_gt_prior_distr = create_gamma_distr(
+        id = 5,
+        alpha = create_alpha_param(id = 17, value = "0.05"),
+        beta = create_beta_param(id = 18, value = "10.0")
+      ),
+      rate_ac_param = create_rate_ac_param(
+        value = "1.0",
+        estimate = FALSE
+      ),
+      rate_ag_param = create_rate_ag_param(
+        value = "1.0",
+        estimate = FALSE
+      ),
+      rate_at_param = create_rate_at_param(
+        value = "1.0",
+        estimate = FALSE
+      ),
+      rate_cg_param = create_rate_cg_param(
+        value = "1.0",
+        estimate = FALSE
+      ),
+      rate_ct_param = create_rate_ct_param(
+        value = "1.0",
+        estimate = FALSE
+      ),
+      rate_gt_param = create_rate_gt_param(
+        value = "1.0",
+        estimate = FALSE
+      )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1))
+  )
+
+  expected <- readLines(beautier::get_path("gtr_no_rate_estimation_2_4.xml"))
+
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "state")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "distribution")
+  )
+  beautier:::compare_lines(created, expected, section = "distribution")
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+
 ################################################################################
 # Site model: HKY
 ################################################################################

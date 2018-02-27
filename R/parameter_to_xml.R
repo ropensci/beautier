@@ -393,19 +393,30 @@ parameter_to_xml_rate_ct <- function(
 #' Converts a 'rate GT' parameter to XML
 #' @param parameter a 'rate GT' parameter,
 #'   as created by \code{\link{create_rate_gt_param}})
+#' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
 parameter_to_xml_rate_gt <- function(
-  parameter
+  parameter,
+  which_name = "state_node"
 ) {
+  testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(is_rate_gt_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
   value <- parameter$value
   lower <- parameter$lower
-  paste0("<parameter id=\"rateGT.s:", id, "\" ",
-    "lower=\"", lower, "\" ",
-    "name=\"stateNode\">", value, "</parameter>"
+  line <- paste0("<parameter id=\"rateGT.s:", id, "\"")
+  if (parameter$estimate == FALSE) {
+    line <- paste0(line, " estimate=\"false\"")
+  }
+  name_str <- NULL
+  if (which_name == "state_node") name_str <- "stateNode"
+  if (which_name == "rate_name") name_str <- "rateGT"
+  testit::assert(!is.null(name_str))
+
+  paste0(line, " lower=\"", lower, "\"",
+    " name=\"", name_str, "\">", value, "</parameter>"
   )
 }
 
