@@ -281,6 +281,7 @@ test_that("HKY 2 HKY 2 HKY 2 HKY 2 GCC diff shapes diff prop_inv", {
 
 test_that("aco_nd2_nd3_nd4_complex_2_4.xml state section", {
 
+  skip("state, 4 alignments")
   expected <- c(
     "<parameter id=\"kappa.s:anthus_nd2\" lower=\"0.0\" name=\"stateNode\">2.1</parameter>", # nolint XML is long, so this line is long
     "<parameter id=\"kappa1.s:anthus_nd3\" lower=\"0.0\" name=\"stateNode\">2.2</parameter>", # nolint XML is long, so this line is long
