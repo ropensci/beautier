@@ -397,4 +397,5 @@ for (i in seq(1, 1000)) {
   }
 }
 
+print("seed:", seed)
 # quit(status = status, save = "no")
