@@ -334,8 +334,6 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
 test_that("gtr_no_rate_estimation_2_4.xml", {
 
-  skip("WIP")
-
   created <- beautier::create_beast2_input(
     input_filenames = get_fasta_filename(),
     site_models = create_gtr_site_model(
@@ -404,10 +402,13 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-  beautier:::compare_lines(created, expected, section = "distribution")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "logger")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

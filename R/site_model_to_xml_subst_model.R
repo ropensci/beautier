@@ -30,10 +30,24 @@ site_model_to_xml_subst_model <- function(
       "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
       "kappa2=\"@kappa2.s:", id, "\">"))
   } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"gtr.s:", id, "\" spec=\"GTR\" rateAC=\"@rateAC.s:", id, "\" ",
-      "rateAG=\"@rateAG.s:", id, "\" rateAT=\"@rateAT.s:", id, "\" ",
-      "rateCG=\"@rateCG.s:", id, "\" rateGT=\"@rateGT.s:", id, "\">"))
+    subst_model_xml <- paste0("<substModel ", "id=\"gtr.s:", id, "\" spec=\"GTR\"")
+    if (site_model$rate_ac_param$estimate == TRUE) {
+      subst_model_xml <- paste0(subst_model_xml, " rateAC=\"@rateAC.s:", id, "\"")
+    }
+    if (site_model$rate_ag_param$estimate == TRUE) {
+      subst_model_xml <- paste0(subst_model_xml, " rateAG=\"@rateAG.s:", id, "\"")
+    }
+    if (site_model$rate_at_param$estimate == TRUE) {
+      subst_model_xml <- paste0(subst_model_xml, " rateAT=\"@rateAT.s:", id, "\"")
+    }
+    if (site_model$rate_cg_param$estimate == TRUE) {
+      subst_model_xml <- paste0(subst_model_xml, " rateCG=\"@rateCG.s:", id, "\"")
+    }
+    if (site_model$rate_gt_param$estimate == TRUE) {
+      subst_model_xml <- paste0(subst_model_xml, " rateGT=\"@rateGT.s:", id, "\"")
+    }
+    subst_model_xml <- paste0(subst_model_xml, ">")
+    text <- c(text, subst_model_xml)
 
     if (site_model$rate_ac_param$estimate == FALSE) {
       site_model$rate_ac_param$id <- id

@@ -42,31 +42,41 @@ site_model_to_xml_prior_distr <- function(
     )
     text <- c(text, paste0("</prior>"))
   } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("<prior id=\"RateACPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAC.s:", id, "\">"))
-    text <- c(text, indent(
-      distr_to_xml(site_model$rate_ac_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateAGPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
-    text <- c(text, indent(
-      distr_to_xml(site_model$rate_ag_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateATPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
-    text <- c(text, indent(
-      distr_to_xml(site_model$rate_at_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateCGPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
-    text <- c(text, indent(
-      distr_to_xml(site_model$rate_cg_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
-    text <- c(text, paste0("<prior id=\"RateGTPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateGT.s:", id, "\">"))
-    text <- c(text, indent(
-      distr_to_xml(site_model$rate_gt_prior_distr), n_spaces = 4))
-    text <- c(text, paste0("</prior>"))
+    if (site_model$rate_ac_param$estimate == TRUE) {
+      text <- c(text, paste0("<prior id=\"RateACPrior.s:", id, "\" ",
+        "name=\"distribution\" x=\"@rateAC.s:", id, "\">"))
+      text <- c(text, indent(
+        distr_to_xml(site_model$rate_ac_prior_distr), n_spaces = 4))
+      text <- c(text, paste0("</prior>"))
+    }
+    if (site_model$rate_ag_param$estimate == TRUE) {
+      text <- c(text, paste0("<prior id=\"RateAGPrior.s:", id, "\" ",
+        "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
+      text <- c(text, indent(
+        distr_to_xml(site_model$rate_ag_prior_distr), n_spaces = 4))
+      text <- c(text, paste0("</prior>"))
+    }
+    if (site_model$rate_at_param$estimate == TRUE) {
+      text <- c(text, paste0("<prior id=\"RateATPrior.s:", id, "\" ",
+        "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
+      text <- c(text, indent(
+        distr_to_xml(site_model$rate_at_prior_distr), n_spaces = 4))
+      text <- c(text, paste0("</prior>"))
+    }
+    if (site_model$rate_cg_param$estimate == TRUE) {
+      text <- c(text, paste0("<prior id=\"RateCGPrior.s:", id, "\" ",
+        "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
+      text <- c(text, indent(
+        distr_to_xml(site_model$rate_cg_prior_distr), n_spaces = 4))
+      text <- c(text, paste0("</prior>"))
+    }
+    if (site_model$rate_gt_param$estimate == TRUE) {
+      text <- c(text, paste0("<prior id=\"RateGTPrior.s:", id, "\" ",
+        "name=\"distribution\" x=\"@rateGT.s:", id, "\">"))
+      text <- c(text, indent(
+        distr_to_xml(site_model$rate_gt_prior_distr), n_spaces = 4))
+      text <- c(text, paste0("</prior>"))
+    }
   }
 
   text
