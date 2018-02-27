@@ -288,8 +288,8 @@ init_tn93_site_model <- function(
   testit::assert(is_tn93_site_model(tn93_site_model))
   # Initialize gamma site model
   if (
-    !is_init_distr(tn93_site_model$gamma_site_model$gamma_shape_prior_distr
-  )) {
+    !is_init_distr(tn93_site_model$gamma_site_model$gamma_shape_prior_distr)
+  ) {
     tn93_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
       tn93_site_model$gamma_site_model$gamma_shape_prior_distr,
       distr_id = distr_id,

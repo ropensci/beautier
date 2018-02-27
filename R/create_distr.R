@@ -217,13 +217,18 @@ create_gamma_distr <- function(
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
-  return(
-    beautier::create_distr(
-      name = "gamma",
-      id = id,
-      alpha = alpha,
-      beta = beta
-    )
+  if (alpha$value < 0.0) {
+    stop("'value' of 'alpha' must be positive")
+  }
+  if (beta$value < 0.0) {
+    stop("'value' of 'beta' must be positive")
+  }
+
+  beautier::create_distr(
+    name = "gamma",
+    id = id,
+    alpha = alpha,
+    beta = beta
   )
 }
 
@@ -388,6 +393,9 @@ create_log_normal_distr <- function(
   }
   if (!is_s_param(s)) {
     stop("'s' must be an s parameter, as returned by 'create_s_param'")
+  }
+  if (s$value < 0.0) {
+    stop("'value' of 's' must be positive")
   }
   return(
     beautier::create_distr(
@@ -584,12 +592,13 @@ create_uniform_distr <- function(
   id = NA,
   upper = Inf
 ) {
-  return(
-    beautier::create_distr(
-      name = "uniform",
-      id = id,
-      upper = upper
-    )
+  if (!is.na(upper) && upper <= 0.0) {
+    stop("'upper' must be non-zero and positive")
+  }
+  beautier::create_distr(
+    name = "uniform",
+    id = id,
+    upper = upper
   )
 }
 

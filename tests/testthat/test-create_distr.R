@@ -162,6 +162,15 @@ test_that("abuse, gamma_distr", {
     "'beta' must be a beta parameter"
   )
 
+  testthat::expect_error(
+    create_gamma_distr(alpha = create_alpha_param(value = -1.0)),
+    "'value' of 'alpha' must be positive"
+  )
+  testthat::expect_error(
+    create_gamma_distr(beta = create_beta_param(value = -1.0)),
+    "'value' of 'beta' must be positive"
+  )
+
 })
 
 test_that("abuse, inv_gamma_distr", {
@@ -201,6 +210,11 @@ test_that("abuse, log_normal_distr", {
     "'s' must be an s parameter"
   )
 
+  testthat::expect_error(
+    create_log_normal_distr(s = create_s_param(value = -1.0)),
+    "'value' of 's' must be positive"
+  )
+
 })
 
 test_that("abuse, normal_distr", {
@@ -221,6 +235,15 @@ test_that("abuse, poisson", {
   testthat::expect_error(
     create_poisson_distr(lambda = "nonsense"),
     "'lambda' must be a lambda parameter"
+  )
+
+})
+
+test_that("abuse, uniform", {
+
+  testthat::expect_error(
+    create_uniform_distr(upper = 0.0),
+    "'upper' must be non-zero and positive"
   )
 
 })

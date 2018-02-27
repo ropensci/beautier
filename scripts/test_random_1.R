@@ -131,10 +131,17 @@ create_random_scale_param <- function() {
 }
 
 create_random_sigma_param <- function() {
-  create_sigma_param(
-    estimate = create_random_estimate(),
-    value = runif(n = 1, min = -100, max = 100)
-  )
+  sigma_param <- NA
+  while (length(sigma_param) == 1 && is.na(sigma_param)) {
+    tryCatch(
+      sigma_param <- create_sigma_param(
+        estimate = create_random_estimate(),
+        value = runif(n = 1, min = -100, max = 100)
+      ),
+      error = function(cond) {}
+    )
+  }
+  sigma_param
 }
 
 
@@ -153,10 +160,18 @@ create_random_exp_distr <- function() {
 }
 
 create_random_gamma_distr <- function() {
-  create_gamma_distr(
-    alpha = create_random_alpha_param(),
-    beta = create_random_beta_param()
-  )
+
+  gamma_distr <- NA
+  while (length(gamma_distr) == 1 && is.na(gamma_distr)) {
+    tryCatch(
+      gamma_distr <- create_gamma_distr(
+      alpha = create_random_alpha_param(),
+      beta = create_random_beta_param()
+    ),
+      error = function(cond) {}
+    )
+  }
+  gamma_distr
 }
 
 create_random_inv_gamma_distr <- function() {
@@ -174,10 +189,18 @@ create_random_laplace_distr <- function() {
 }
 
 create_random_log_normal_distr <- function() {
-  create_log_normal_distr(
-    m = create_random_m_param(),
-    s = create_random_s_param()
-  )
+
+  log_normal_distr <- NA
+  while (length(log_normal_distr) == 1 && is.na(log_normal_distr)) {
+    tryCatch(
+      log_normal_distr <- create_log_normal_distr(
+        m = create_random_m_param(),
+        s = create_random_s_param()
+      ),
+      error = function(cond) {}
+    )
+  }
+  log_normal_distr
 }
 
 create_random_normal_distr <- function() {
@@ -198,9 +221,17 @@ create_random_poisson_distr <- function() {
 }
 
 create_random_uniform_distr <- function() {
-  create_uniform_distr(
-    upper = runif(n = 1, min = -100, max = 100)
-  )
+
+  uniform_distr <- NA
+  while (length(uniform_distr) == 1 && is.na(uniform_distr)) {
+    tryCatch(
+      uniform_distr <- create_uniform_distr(
+        upper = runif(n = 1, min = -100, max = 100)
+      ),
+      error = function(cond) {}
+    )
+  }
+  uniform_distr
 }
 
 
@@ -238,26 +269,86 @@ create_random_distr <- function() {
 
 
 create_random_gamma_site_model <- function() {
-  gamma_site_model <- create_gamma_site_model(
-    gamma_cat_count = sample(x = 0:4, size = 1),
-    gamma_shape = runif(n = 1, min = 0.0, max = 1.0),
-    prop_invariant = runif(n = 1, min = 0.0, max = 1.0),
-    gamma_shape_prior_distr = create_random_distr(),
-    freq_equilibrium = create_random_freq_equilibrium()
-  )
+
+
+  gamma_site_model <- NA
+  while (length(gamma_site_model) == 1 && is.na(gamma_site_model)) {
+    tryCatch(
+      gamma_site_model <- create_gamma_site_model(
+        gamma_cat_count = sample(x = -1:4, size = 1),
+        gamma_shape = runif(n = 1, min = -1.0, max = 1.0),
+        prop_invariant = runif(n = 1, min = -1.0, max = 1.0),
+        gamma_shape_prior_distr = create_random_distr(),
+        freq_equilibrium = create_random_freq_equilibrium()
+      ),
+      error = function(cond) {}
+    )
+  }
   testit::assert(beautier:::is_gamma_site_model(gamma_site_model))
   gamma_site_model
 }
 
 create_random_jc69_site_model <- function() {
+
   create_jc69_site_model(
     gamma_site_model = create_random_gamma_site_model()
   )
 }
 
+create_random_hky_site_model <- function() {
+
+  create_hky_site_model(
+    gamma_site_model = create_random_gamma_site_model(),
+    kappa = runif(n = 1, min = -100.0, max = 100.0),
+    kappa_prior_distr = create_random_distr(),
+    freq_equilibrium = create_random_freq_equilibrium()
+  )
+}
+
+create_random_tn93_site_model <- function() {
+  create_tn93_site_model(
+    gamma_site_model = create_random_gamma_site_model(),
+    kappa_1_param = create_random_kappa_1_param(),
+    kappa_2_param = create_random_kappa_2_param(),
+    kappa_1_prior_distr = create_random_distr(),
+    kappa_2_prior_distr = create_random_distr(),
+    freq_equilibrium = create_random_freq_equilibrium()
+  )
+}
+
+create_random_gtr_site_model <- function() {
+  create_gtr_site_model(
+    gamma_site_model = create_random_gamma_site_model(),
+    rate_ac_prior_distr = create_random_distr(),
+    rate_ag_prior_distr = create_random_distr(),
+    rate_at_prior_distr = create_random_distr(),
+    rate_cg_prior_distr = create_random_distr(),
+    rate_gt_prior_distr = create_random_distr(),
+    rate_ac_param = create_random_rate_ac_param(),
+    rate_ag_param = create_random_rate_ag_param(),
+    rate_at_param = create_random_rate_at_param(),
+    rate_cg_param = create_random_rate_cg_param(),
+    rate_ct_param = create_random_rate_ct_param(),
+    rate_gt_param = create_random_rate_gt_param(),
+    freq_equilibrium = create_random_freq_equilibrium()
+  )
+}
+
 
 create_random_site_model <- function() {
-  create_random_jc69_site_model()
+
+  site_model_index <- sample(x = 1:4, size = 1)
+  if (site_model_index == 1) {
+    create_random_jc69_site_model()
+  } else if (site_model_index == 2) {
+    create_random_hky_site_model()
+  } else if (site_model_index == 3) {
+    create_random_tn93_site_model()
+  } else if (site_model_index == 4) {
+    create_random_gtr_site_model()
+  } else {
+    testit::assert(!"Should not get here")
+  }
 }
 
 
@@ -280,18 +371,31 @@ create_random <- function(
   )
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
   if (!is_ok) {
-    print(paste(site_model, clock_model, tree_prior))
+    print("ERROR")
+    file.copy(output_xml_filename, "/home/richel/bad.xml", overwrite = TRUE)
+    beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+    print("site model:")
+    print(site_model)
+    print("clock model:")
+    print(clock_model)
+    print("tree prior:")
+    print(tree_prior)
   }
   is_ok
 }
 
 set.seed(0)
-create_random()
 
 status <- 0
 for (i in seq(1, 100)) {
+  print("--------------------")
+  print(paste("-",i,"-"))
+  print("--------------------")
   ok <- create_random()
-  if (ok == FALSE) status <- 1
+  if (ok == FALSE) {
+    status <- 1
+    break
+  }
 }
 
 # quit(status = status, save = "no")
