@@ -384,17 +384,15 @@ create_random <- function(
   is_ok
 }
 
-set.seed(0)
+seed <- 0
+set.seed(seed)
 
 status <- 0
-for (i in seq(1, 100)) {
-  print("--------------------")
-  print(paste("-",i,"-"))
-  print("--------------------")
+for (i in seq(1, 1000)) {
   ok <- create_random()
   if (ok == FALSE) {
     status <- 1
-    break
+    # break
   }
 }
 
