@@ -94,7 +94,7 @@ When removing the `create_` prefix, this code:
 ```{r}
 site_model <- list(
   gamma_site_model = create_gamma_site_model(),
-  # ...
+  # ..
 )
 ```
 
@@ -103,7 +103,7 @@ becomes:
 ```{r}
 site_model <- list(
   gamma_site_model = gamma_site_model(),
-  # ...
+  # ..
 )
 ```
 
@@ -113,7 +113,7 @@ of the `gamma_site_model` argument:
 ```{r}
 site_model <- list(
   gsm = gamma_site_model(),
-  # ...
+  # ..
 )
 ```
 
