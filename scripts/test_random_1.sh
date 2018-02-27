@@ -1,4 +1,6 @@
 #!/bin/bash
+# Script for the Groningen Peregrine computer cluster
+
 #SBATCH --time=1:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
