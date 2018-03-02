@@ -151,10 +151,18 @@ create_random_sigma_param <- function() {
 
 
 create_random_beta_distr <- function() {
-  create_beta_distr(
-    alpha = create_random_alpha_param(),
-    beta = create_random_beta_param()
-  )
+
+  beta_distr <- NA
+  while (length(beta_distr) == 1 && is.na(beta_distr)) {
+    tryCatch(
+      beta_distr <- create_beta_distr(
+      alpha = create_random_alpha_param(),
+      beta = create_random_beta_param()
+    ),
+      error = function(cond) {}
+    )
+  }
+  beta_distr
 }
 
 create_random_exp_distr <- function() {
