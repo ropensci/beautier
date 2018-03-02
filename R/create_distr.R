@@ -108,8 +108,8 @@ create_beta_distr <- function(
   if (alpha$value < 0.0) {
     stop("'alpha' must have a positive value")
   }
-  if (beta$value < 0.0) {
-    stop("'beta' must have a positive value")
+  if (beta$value < 1.0) {
+    stop("'beta' must have a value of at least 1.0")
   }
   return(
     beautier::create_distr(

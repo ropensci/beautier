@@ -147,7 +147,12 @@ test_that("abuse, beta_distr", {
 
   testthat::expect_error(
     create_beta_distr(beta = create_beta_param(value = -1.0)),
-    "'beta' must have a positive value"
+    "'beta' must have a value of at least 1.0"
+  )
+
+  testthat::expect_error(
+    create_beta_distr(beta = create_beta_param(value = 0.5)),
+    "'beta' must have a value of at least 1.0"
   )
 
 })
