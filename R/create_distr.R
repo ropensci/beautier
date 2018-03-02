@@ -73,9 +73,11 @@ create_distr <- function(
 #' Create a beta distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
-#'   as returned by \code{\link{create_alpha_param}}
+#'   as returned by \code{\link{create_alpha_param}}. The value
+#'   of alpha must be at least 0.0.
 #' @param beta the beta shape parameter,
-#'   as returned by \code{\link{create_beta_param}}
+#'   as returned by \code{\link{create_beta_param}}. The value
+#'   of beta must be at least 1.0.
 #' @return a beta distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions

@@ -169,7 +169,7 @@ create_param_alpha <- function(
 create_beta_param <- function(
   id = NA,
   estimate = FALSE,
-  value = 0.0
+  value = 1.0
 ) {
   beautier::create_param(
     name = "beta",

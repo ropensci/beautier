@@ -4,7 +4,7 @@
 \alias{create_beta_param}
 \title{Create a parameter called beta}
 \usage{
-create_beta_param(id = NA, estimate = FALSE, value = 0)
+create_beta_param(id = NA, estimate = FALSE, value = 1)
 }
 \arguments{
 \item{id}{the parameter's ID}
