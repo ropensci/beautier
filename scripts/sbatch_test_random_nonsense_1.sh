@@ -8,7 +8,7 @@
 #SBATCH --mem=1M
 #SBATCH --job-name=sbatch_test_random_nonsense_1
 #SBATCH --output=sbatch_test_random_nonsense.log
-for i in `seq 1 10`
+for i in `seq 1 100`
 do
   echo $i
   sbatch test_random_nonsense_1.sh
