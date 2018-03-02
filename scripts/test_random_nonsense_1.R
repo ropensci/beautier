@@ -460,6 +460,87 @@ create_random_tree_prior <- function() {
   }
 }
 
+create_random_param <- function() {
+
+  param_index <- sample(x = 1:18, size = 1)
+
+  if (param_index == 1) {
+    create_random_alpha_param()
+  } else if (param_index == 2) {
+    create_random_beta_param()
+  } else if (param_index == 3) {
+     create_random_clock_rate_param()
+  } else if (param_index == 4) {
+    create_random_kappa_1_param()
+  } else if (param_index == 5) {
+    create_random_kappa_2_param()
+  } else if (param_index == 6) {
+    create_random_lambda_param()
+  } else if (param_index == 7) {
+    create_random_m_param()
+  } else if (param_index == 8) {
+    create_random_mean_param()
+  } else if (param_index == 9) {
+    create_random_mu_param()
+  } else if (param_index == 10) {
+    create_random_rate_ac_param()
+  } else if (param_index == 11) {
+    create_random_rate_ag_param()
+  } else if (param_index == 12) {
+    create_random_rate_at_param()
+  } else if (param_index == 13) {
+    create_random_rate_cg_param()
+  } else if (param_index == 14) {
+    create_random_rate_ct_param()
+  } else if (param_index == 15) {
+    create_random_rate_gt_param()
+  } else if (param_index == 16) {
+    create_random_s_param()
+  } else if (param_index == 17) {
+    create_random_scale_param()
+  } else if (param_index == 18) {
+    create_random_sigma_param()
+  } else {
+    testit::assert(!"Should not get here")
+  }
+
+
+}
+
+create_random_anything <- function() {
+
+  anything_index <- sample(x = 1:13, size = 1)
+
+  if (anything_index == 1) {
+    create_random_site_model()
+  } else if (anything_index == 2) {
+    create_random_clock_model()
+  } else if (anything_index == 3) {
+    create_random_tree_prior()
+  } else if (anything_index == 4) {
+    create_random_gamma_site_model()
+  } else if (anything_index == 5) {
+    create_random_distr()
+  } else if (anything_index == 6) {
+    create_random_freq_equilibrium()
+  } else if (anything_index == 7) {
+    create_random_estimate()
+  } else if (anything_index == 8) {
+    create_random_param()
+  } else if (anything_index == 9) {
+    "nonsense"
+  } else if (anything_index == 10) {
+    NA
+  } else if (anything_index == 11) {
+    NULL
+  } else if (anything_index == 12) {
+    42
+  } else if (anything_index == 13) {
+    ape::rcoal(4)
+  } else {
+    testit::assert(!"Should not get here")
+  }
+}
 
 create_random <- function(
   input_fasta_filename = beautier:::get_path("anthus_aco.fas")
@@ -473,9 +554,9 @@ create_random <- function(
         create_beast2_input_file(
           input_filenames = beautier:::get_path("anthus_aco.fas"),
           output_filename = output_xml_filename,
-          site_models = create_random_site_model(),
-          clock_models = create_random_clock_model(),
-          tree_priors = create_random_tree_prior()
+          site_models = create_random_anything(),
+          clock_models = create_random_anything(),
+          tree_priors = create_random_anything()
         )
         done <- TRUE
       },
