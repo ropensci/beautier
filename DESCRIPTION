@@ -1,5 +1,5 @@
 Package: beautier
-Title: BEAUti for R: create BEAST2 XML input files
+Title: beautier: BEAUti from R
 Version: 1.12.2.3
 Date: 2018-02-27
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>

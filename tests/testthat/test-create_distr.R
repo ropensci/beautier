@@ -140,6 +140,16 @@ test_that("abuse, beta_distr", {
     "'beta' must be a beta parameter"
   )
 
+  testthat::expect_error(
+    create_beta_distr(alpha = create_alpha_param(value = -1.0)),
+    "'alpha' must have a positive value"
+  )
+
+  testthat::expect_error(
+    create_beta_distr(beta = create_beta_param(value = -1.0)),
+    "'beta' must have a positive value"
+  )
+
 })
 
 test_that("abuse, exp_distr", {

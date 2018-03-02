@@ -105,6 +105,12 @@ create_beta_distr <- function(
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
+  if (alpha$value < 0.0) {
+    stop("'alpha' must have a positive value")
+  }
+  if (beta$value < 0.0) {
+    stop("'beta' must have a positive value")
+  }
   return(
     beautier::create_distr(
       name = "beta",
