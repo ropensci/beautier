@@ -544,8 +544,18 @@ create_param_mu <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_ac_param <- create_rate_ac_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_ac_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_ac_param = rate_ac_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_ac_param.xml"))
 #' @export
 create_rate_ac_param <- function(
   id = NA,
@@ -587,8 +597,18 @@ create_param_rate_ac <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_ag_param <- create_rate_ag_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_ag_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_ag_param = rate_ag_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_ag_param.xml"))
 #' @export
 create_rate_ag_param <- function(
   id = NA,
@@ -630,8 +650,18 @@ create_param_rate_ag <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_at_param <- create_rate_at_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_at_param <- create_rate_at_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_at_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_at_param = rate_at_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_at_param.xml"))
 #' @export
 create_rate_at_param <- function(
   id = NA,
@@ -673,8 +703,18 @@ create_param_rate_at <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_cg_param <- create_rate_cg_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_cg_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_cg_param = rate_cg_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_cg_param.xml"))
 #' @export
 create_rate_cg_param <- function(
   id = NA,
@@ -716,8 +756,18 @@ create_param_rate_cg <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_ct_param <- create_rate_ct_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_ct_param <- create_rate_ct_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_ct_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_ct_param = rate_ct_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_ct_param.xml"))
 #' @export
 create_rate_ct_param <- function(
   id = NA,
@@ -759,8 +809,18 @@ create_param_rate_ct <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_gt_param <- create_rate_gt_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_gt_param <- create_rate_gt_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_gt_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_gt_param = rate_gt_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_gt_param.xml"))
 #' @export
 create_rate_gt_param <- function(
   id = NA,
