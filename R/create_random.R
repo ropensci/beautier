@@ -2,7 +2,7 @@
 #' @author Richel J.C. Bilderbeek
 create_random_alpha_param <- function() {
   create_alpha_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -11,8 +11,8 @@ create_random_alpha_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_bd_tree_prior <- function() {
   create_bd_tree_prior(
-    birth_rate_distr = create_random_distr(),
-    death_rate_distr = create_random_distr()
+    birth_rate_distr = create_random_distr(), # nolint internal function
+    death_rate_distr = create_random_distr() # nolint internal function
   )
 }
 
@@ -24,10 +24,10 @@ create_random_beta_distr <- function() {
   while (length(beta_distr) == 1 && is.na(beta_distr)) {
     tryCatch(
       beta_distr <- create_beta_distr(
-        alpha = create_random_alpha_param(),
-        beta = create_random_beta_param()
+        alpha = create_random_alpha_param(), # nolint internal function
+        beta = create_random_beta_param() # nolint internal function
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   beta_distr
@@ -37,7 +37,7 @@ create_random_beta_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_beta_param <- function() {
   create_beta_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -58,7 +58,7 @@ create_random_cbs_tree_prior <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_ccp_tree_prior <- function() {
   create_ccp_tree_prior(
-    pop_size_distr = create_random_distr()
+    pop_size_distr = create_random_distr() # nolint internal function
   )
 }
 
@@ -66,8 +66,8 @@ create_random_ccp_tree_prior <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_cep_tree_prior <- function() {
   create_cep_tree_prior(
-    pop_size_distr = create_random_distr(),
-    growth_rate_distr = create_random_distr()
+    pop_size_distr = create_random_distr(), # nolint internal function
+    growth_rate_distr = create_random_distr() # nolint internal function
   )
 }
 
@@ -88,7 +88,7 @@ create_random_clock_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_clock_rate_param <- function() {
   create_clock_rate_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -98,25 +98,25 @@ create_random_clock_rate_param <- function() {
 create_random_distr <- function() {
   distr_index <- sample(x = 1:10, size = 1)
   if (distr_index == 1) {
-    create_random_beta_distr()
+    create_random_beta_distr() # nolint internal function
   } else if (distr_index == 2) {
-    create_random_exp_distr()
+    create_random_exp_distr() # nolint internal function
   } else if (distr_index == 3) {
-    create_random_gamma_distr()
+    create_random_gamma_distr() # nolint internal function
   } else if (distr_index == 4) {
-    create_random_inv_gamma_distr()
+    create_random_inv_gamma_distr() # nolint internal function
   } else if (distr_index == 5) {
-    create_random_laplace_distr()
+    create_random_laplace_distr() # nolint internal function
   } else if (distr_index == 6) {
-    create_random_log_normal_distr()
+    create_random_log_normal_distr() # nolint internal function
   } else if (distr_index == 7) {
-    create_random_normal_distr()
+    create_random_normal_distr() # nolint internal function
   } else if (distr_index == 8) {
-    create_random_one_div_x_distr()
+    create_random_one_div_x_distr() # nolint internal function
   } else if (distr_index == 9) {
-    create_random_poisson_distr()
+    create_random_poisson_distr() # nolint internal function
   } else if (distr_index == 10) {
-    create_random_uniform_distr()
+    create_random_uniform_distr() # nolint internal function
   } else {
     testit::assert(!"Should not get here")
   }
@@ -126,14 +126,14 @@ create_random_distr <- function() {
 #' which must be TRUE or FALSE
 #' @author Richel J.C. Bilderbeek
 create_random_estimate <- function() {
-  create_random_bool()
+  create_random_bool() # nolint internal function
 }
 
 #' Create a random exponential distribution
 #' @author Richel J.C. Bilderbeek
 create_random_exp_distr <- function() {
   create_exp_distr(
-    mean = create_random_mean_param()
+    mean = create_random_mean_param() # nolint internal function
   )
 }
 
@@ -153,10 +153,10 @@ create_random_gamma_distr <- function() {
   while (length(gamma_distr) == 1 && is.na(gamma_distr)) {
     tryCatch(
       gamma_distr <- create_gamma_distr(
-      alpha = create_random_alpha_param(),
-      beta = create_random_beta_param()
+      alpha = create_random_alpha_param(), # nolint internal function
+      beta = create_random_beta_param() # nolint internal function
     ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   gamma_distr
@@ -172,13 +172,13 @@ create_random_gamma_site_model <- function() {
         gamma_cat_count = sample(x = -1:4, size = 1),
         gamma_shape = stats::runif(n = 1, min = -1.0, max = 1.0),
         prop_invariant = stats::runif(n = 1, min = -1.0, max = 1.0),
-        gamma_shape_prior_distr = create_random_distr(),
-        freq_equilibrium = create_random_freq_equilibrium()
+        gamma_shape_prior_distr = create_random_distr(), # nolint internal function
+        freq_equilibrium = create_random_freq_equilibrium() # nolint internal function
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
-  testit::assert(is_gamma_site_model(gamma_site_model))
+  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint internal function
   gamma_site_model
 }
 
@@ -186,19 +186,19 @@ create_random_gamma_site_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_gtr_site_model <- function() {
   create_gtr_site_model(
-    gamma_site_model = create_random_gamma_site_model(),
-    rate_ac_prior_distr = create_random_distr(),
-    rate_ag_prior_distr = create_random_distr(),
-    rate_at_prior_distr = create_random_distr(),
-    rate_cg_prior_distr = create_random_distr(),
-    rate_gt_prior_distr = create_random_distr(),
-    rate_ac_param = create_random_rate_ac_param(),
-    rate_ag_param = create_random_rate_ag_param(),
-    rate_at_param = create_random_rate_at_param(),
-    rate_cg_param = create_random_rate_cg_param(),
-    rate_ct_param = create_random_rate_ct_param(),
-    rate_gt_param = create_random_rate_gt_param(),
-    freq_equilibrium = create_random_freq_equilibrium()
+    gamma_site_model = create_random_gamma_site_model(), # nolint internal function
+    rate_ac_prior_distr = create_random_distr(), # nolint internal function
+    rate_ag_prior_distr = create_random_distr(), # nolint internal function
+    rate_at_prior_distr = create_random_distr(), # nolint internal function
+    rate_cg_prior_distr = create_random_distr(), # nolint internal function
+    rate_gt_prior_distr = create_random_distr(), # nolint internal function
+    rate_ac_param = create_random_rate_ac_param(), # nolint internal function
+    rate_ag_param = create_random_rate_ag_param(), # nolint internal function
+    rate_at_param = create_random_rate_at_param(), # nolint internal function
+    rate_cg_param = create_random_rate_cg_param(), # nolint internal function
+    rate_ct_param = create_random_rate_ct_param(), # nolint internal function
+    rate_gt_param = create_random_rate_gt_param(), # nolint internal function
+    freq_equilibrium = create_random_freq_equilibrium() # nolint internal function
   )
 }
 
@@ -206,10 +206,10 @@ create_random_gtr_site_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_hky_site_model <- function() {
   create_hky_site_model(
-    gamma_site_model = create_random_gamma_site_model(),
+    gamma_site_model = create_random_gamma_site_model(), # nolint internal function
     kappa = stats::runif(n = 1, min = -100.0, max = 100.0),
-    kappa_prior_distr = create_random_distr(),
-    freq_equilibrium = create_random_freq_equilibrium()
+    kappa_prior_distr = create_random_distr(), # nolint internal function
+    freq_equilibrium = create_random_freq_equilibrium() # nolint internal function
   )
 }
 
@@ -217,8 +217,8 @@ create_random_hky_site_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_inv_gamma_distr <- function() {
   create_inv_gamma_distr(
-    alpha = create_random_alpha_param(),
-    beta = create_random_beta_param()
+    alpha = create_random_alpha_param(), # nolint internal function
+    beta = create_random_beta_param() # nolint internal function
   )
 }
 
@@ -226,7 +226,7 @@ create_random_inv_gamma_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_jc69_site_model <- function() {
   create_jc69_site_model(
-    gamma_site_model = create_random_gamma_site_model()
+    gamma_site_model = create_random_gamma_site_model() # nolint internal function
   )
 }
 
@@ -260,8 +260,8 @@ create_random_lambda_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_laplace_distr <- function() {
   create_laplace_distr(
-    mu = create_random_mu_param(),
-    scale = create_random_scale_param()
+    mu = create_random_mu_param(), # nolint internal function
+    scale = create_random_scale_param() # nolint internal function
   )
 }
 
@@ -273,10 +273,10 @@ create_random_log_normal_distr <- function() {
   while (length(log_normal_distr) == 1 && is.na(log_normal_distr)) {
     tryCatch(
       log_normal_distr <- create_log_normal_distr(
-        m = create_random_m_param(),
-        s = create_random_s_param()
+        m = create_random_m_param(), # nolint internal function
+        s = create_random_s_param() # nolint internal function
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   log_normal_distr
@@ -286,7 +286,7 @@ create_random_log_normal_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_m_param <- function() {
   create_m_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -295,7 +295,7 @@ create_random_m_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_mean_param <- function() {
   create_mean_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -304,7 +304,7 @@ create_random_mean_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_mu_param <- function() {
   create_mu_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -313,8 +313,8 @@ create_random_mu_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_normal_distr <- function() {
   create_normal_distr(
-    mean = create_random_mean_param(),
-    sigma = create_random_sigma_param()
+    mean = create_random_mean_param(), # nolint internal function
+    sigma = create_random_sigma_param() # nolint internal function
   )
 }
 
@@ -328,7 +328,7 @@ create_random_one_div_x_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_poisson_distr <- function() {
   create_poisson_distr(
-    lambda = create_random_lambda_param()
+    lambda = create_random_lambda_param() # nolint internal function
   )
 }
 
@@ -336,7 +336,7 @@ create_random_poisson_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_rate_ac_param <- function() {
   create_rate_ac_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -346,7 +346,7 @@ create_random_rate_ac_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_rate_ag_param <- function() {
   create_rate_ag_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -356,7 +356,7 @@ create_random_rate_ag_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_rate_at_param <- function() {
   create_rate_at_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -366,7 +366,7 @@ create_random_rate_at_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_rate_cg_param <- function() {
   create_rate_cg_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -377,7 +377,7 @@ create_random_rate_cg_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_rate_ct_param <- function() {
   create_rate_ct_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -387,7 +387,7 @@ create_random_rate_ct_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_rate_gt_param <- function() {
   create_rate_gt_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -401,13 +401,13 @@ create_random_rln_clock_model <- function() {
   while (length(rln_clock_model) == 1 && is.na(rln_clock_model)) {
     tryCatch(
       rln_clock_model <- create_rln_clock_model(
-        mean_rate_prior_distr = create_random_distr(),
-        ucldstdev_distr = create_random_distr(),
+        mean_rate_prior_distr = create_random_distr(), # nolint internal function
+        ucldstdev_distr = create_random_distr(), # nolint internal function
         mean_clock_rate = stats::runif(n = 1, min = -100.0, max = 100.0),
         n_rate_categories = sample(x = -2:10, size = 1),
-        normalize_mean_clock_rate = create_random_bool()
+        normalize_mean_clock_rate = create_random_bool() # nolint internal function
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   rln_clock_model
@@ -417,7 +417,7 @@ create_random_rln_clock_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_s_param <- function() {
   create_s_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100),
     lower = stats::runif(n = 1, min = -100, max = 100)
   )
@@ -427,7 +427,7 @@ create_random_s_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_scale_param <- function() {
   create_scale_param(
-    estimate = create_random_estimate(),
+    estimate = create_random_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -100, max = 100)
   )
 }
@@ -439,10 +439,10 @@ create_random_sigma_param <- function() {
   while (length(sigma_param) == 1 && is.na(sigma_param)) {
     tryCatch(
       sigma_param <- create_sigma_param(
-        estimate = create_random_estimate(),
+        estimate = create_random_estimate(), # nolint internal function
         value = stats::runif(n = 1, min = -100, max = 100)
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   sigma_param
@@ -454,13 +454,13 @@ create_random_site_model <- function() {
 
   site_model_index <- sample(x = 1:4, size = 1)
   if (site_model_index == 1) {
-    create_random_jc69_site_model()
+    create_random_jc69_site_model() # nolint internal function
   } else if (site_model_index == 2) {
-    create_random_hky_site_model()
+    create_random_hky_site_model() # nolint internal function
   } else if (site_model_index == 3) {
-    create_random_tn93_site_model()
+    create_random_tn93_site_model() # nolint internal function
   } else if (site_model_index == 4) {
-    create_random_gtr_site_model()
+    create_random_gtr_site_model() # nolint internal function
   } else {
     testit::assert(!"Should not get here")
   }
@@ -474,10 +474,10 @@ create_random_strict_clock_model <- function() {
   while (length(strict_clock_model) == 1 && is.na(strict_clock_model)) {
     tryCatch(
       strict_clock_model <- create_strict_clock_model(
-        clock_rate_param = create_random_clock_rate_param(),
-        clock_rate_distr = create_random_distr()
+        clock_rate_param = create_random_clock_rate_param(), # nolint internal function
+        clock_rate_distr = create_random_distr() # nolint internal function
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   strict_clock_model
@@ -487,12 +487,12 @@ create_random_strict_clock_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_tn93_site_model <- function() {
   create_tn93_site_model(
-    gamma_site_model = create_random_gamma_site_model(),
-    kappa_1_param = create_random_kappa_1_param(),
-    kappa_2_param = create_random_kappa_2_param(),
-    kappa_1_prior_distr = create_random_distr(),
-    kappa_2_prior_distr = create_random_distr(),
-    freq_equilibrium = create_random_freq_equilibrium()
+    gamma_site_model = create_random_gamma_site_model(), # nolint internal function
+    kappa_1_param = create_random_kappa_1_param(), # nolint internal function
+    kappa_2_param = create_random_kappa_2_param(), # nolint internal function
+    kappa_1_prior_distr = create_random_distr(), # nolint internal function
+    kappa_2_prior_distr = create_random_distr(), # nolint internal function
+    freq_equilibrium = create_random_freq_equilibrium() # nolint internal function
   )
 }
 
@@ -502,15 +502,15 @@ create_random_tree_prior <- function() {
   tree_prior_index <- sample(x = 1:5, size = 1)
 
   if (tree_prior_index == 1) {
-    create_random_bd_tree_prior()
+    create_random_bd_tree_prior() # nolint internal function
   } else if (tree_prior_index == 2) {
-    create_random_cbs_tree_prior()
+    create_random_cbs_tree_prior() # nolint internal function
   } else if (tree_prior_index == 3) {
-    create_random_ccp_tree_prior()
+    create_random_ccp_tree_prior() # nolint internal function
   } else if (tree_prior_index == 4) {
-    create_random_cep_tree_prior()
+    create_random_cep_tree_prior() # nolint internal function
   } else if (tree_prior_index == 5) {
-    create_random_yule_tree_prior()
+    create_random_yule_tree_prior() # nolint internal function
   } else {
     testit::assert(!"Should not get here")
   }
@@ -526,7 +526,7 @@ create_random_uniform_distr <- function() {
       uniform_distr <- create_uniform_distr(
         upper = stats::runif(n = 1, min = -100, max = 100)
       ),
-      error = function(cond) {}
+      error = function(cond) {} # nolint
     )
   }
   uniform_distr
@@ -536,6 +536,6 @@ create_random_uniform_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_random_yule_tree_prior <- function() {
   create_yule_tree_prior(
-    birth_rate_distr = create_random_distr()
+    birth_rate_distr = create_random_distr() # nolint internal function
   )
 }
