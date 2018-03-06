@@ -10,5 +10,5 @@ are_clock_models <- function(
   for (i in x) {
     if (!is_clock_model(i)) return(FALSE)
   }
-  return(TRUE)
+  TRUE
 }

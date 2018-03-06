@@ -1441,11 +1441,24 @@ test_that("anthus_aco_sub_calibration.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     mcmc = create_mcmc(chain_length = 10000),
+    mrca_priors = create_mrca_prior(
+      taxa_names = get_taxa_names(
+        beautier::get_beautier_path("anthus_aco_sub.fas")
+      ),
+      mrca_distr = create_normal_distr(
+        mean = create_mean_param(value = "0.02"),
+        sigma = create_sigma_param(value = "0.001")
+      )
+    ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
 
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated.xml")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "state")
   )
   beautier:::compare_lines(created, expected)
   testthat::expect_true(

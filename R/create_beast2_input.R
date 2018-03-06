@@ -29,6 +29,10 @@ create_beast2_input <- function(
   if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
+  if (is_mrca_prior(mrca_priors)) {
+    mrca_priors <- list(mrca_priors)
+  }
+
   # Check input
 
   # 1 input_filenames
@@ -66,7 +70,15 @@ create_beast2_input <- function(
     )
   }
 
-  # 5 mcmc
+  # 5 MRCA priors
+  if (!are_mrca_priors(mrca_priors)) {
+    stop(
+      "'mrca_priors' must be NA or a valid mrca object, ",
+      "as returned by 'create_mrca_prior'"
+    )
+  }
+
+  # 6 mcmc
   if (!is_mcmc(mcmc)) {
     stop(
       "'mcmc' must be a valid mcmc object, ",
@@ -74,7 +86,7 @@ create_beast2_input <- function(
     )
   }
 
-  # 6 misc_options
+  # 7 misc_options
   if (!is_misc_options(misc_options)) {
     stop(
       "'misc_options' must be a valid misc options object, ",
