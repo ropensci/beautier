@@ -8,9 +8,10 @@ create_beast2_input_beast(input_filenames,
   site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
   clock_models = create_strict_clock_models(ids = get_ids(input_filenames)),
   tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
-  mcmc = create_mcmc(), misc_options = create_misc_options(),
-  fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
-  initial_phylogenies = rep(NA, length(input_filenames)))
+  mrca_priors = NA, mcmc = create_mcmc(),
+  misc_options = create_misc_options(), fixed_crown_ages = rep(FALSE, times
+  = length(input_filenames)), initial_phylogenies = rep(NA,
+  length(input_filenames)))
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -24,6 +25,9 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
+
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}

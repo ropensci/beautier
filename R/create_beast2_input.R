@@ -133,6 +133,7 @@ create_beast2_input <- function(
   testit::assert(are_init_site_models(site_models))  # nolint internal function
   testit::assert(are_init_clock_models(clock_models))  # nolint internal function
   testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function
+  #testit::assert(are_init_mrca_priors(mrca_priors))  # nolint internal function
 
   # More complex
   if (has_shared_rln_clock_models(clock_models)) {
@@ -160,6 +161,7 @@ create_beast2_input <- function(
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
+    mrca_priors = mrca_priors,
     mcmc = mcmc,
     misc_options = misc_options,
     fixed_crown_ages = fixed_crown_ages,

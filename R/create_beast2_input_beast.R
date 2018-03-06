@@ -7,6 +7,7 @@ create_beast2_input_beast <- function(
   clock_models = create_strict_clock_models(
     ids = get_ids(input_filenames)),
   tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
+  mrca_priors = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
   fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
@@ -21,6 +22,7 @@ create_beast2_input_beast <- function(
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_mrca_priors(mrca_priors))
   testit::assert(are_init_clock_models(clock_models)) # nolint internal function
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
 
