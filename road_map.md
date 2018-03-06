@@ -1,4 +1,4 @@
-## road map
+# Road map
 
 Version | Goal
 ---|---
@@ -9,6 +9,10 @@ Version | Goal
 
 There are some minor things that can be added, see 'How can I indicate a feature that I miss?'
 to request so.
+
+## `v.13`: allow calibration nodes
+
+![Set a calibration node](clade_age_prior.png)
 
 ## Past milestones
 
