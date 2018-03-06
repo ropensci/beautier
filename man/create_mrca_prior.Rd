@@ -4,7 +4,11 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior()
+create_mrca_prior(taxa_names)
+}
+\arguments{
+\item{taxa_names}{names of the taxa,
+as returned by \code{\link{get_taxa_names}}}
 }
 \value{
 an MRCA prior

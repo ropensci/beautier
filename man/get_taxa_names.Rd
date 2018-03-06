@@ -15,6 +15,13 @@ the taxa names
 \description{
 Extract the names of taxa from a file
 }
+\examples{
+  created <- get_taxa_names(get_beautier_path("anthus_aco_sub.fas"))
+  expected <- c(
+    "61430_aco", "626029_aco", "630116_aco", "630210_aco", "B25702_aco"
+   )
+  testit::assert(created == expected)
+}
 \author{
 Richel J.C. Bilderbeek
 }
