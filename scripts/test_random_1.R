@@ -7,9 +7,9 @@ create_random <- function(
   create_beast2_input_file(
     input_filenames = beautier:::get_beautier_path("anthus_aco.fas"),
     output_filename = output_xml_filename,
-    site_models = beautier:::create_random_site_model(),
-    clock_models = beautier:::create_random_clock_model(),
-    tree_priors = beautier:::create_random_tree_prior()
+    site_models = beautier:::create_rnd_site_model(),
+    clock_models = beautier:::create_rnd_clock_model(),
+    tree_priors = beautier:::create_rnd_tree_prior()
   )
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
   if (!is_ok) {
