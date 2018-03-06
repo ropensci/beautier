@@ -7,7 +7,7 @@
 create_beast2_input(input_filenames, site_models = create_jc69_site_models(ids
   = get_ids(input_filenames)), clock_models = create_strict_clock_models(ids =
   get_ids(input_filenames)), tree_priors = create_yule_tree_priors(ids =
-  get_ids(input_filenames)), mcmc = create_mcmc(),
+  get_ids(input_filenames)), mrca_priors = NA, mcmc = create_mcmc(),
   misc_options = create_misc_options(), posterior_crown_age = NA)
 }
 \arguments{
@@ -22,6 +22,9 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
+
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 
 \item{mcmc}{one mcmc object,
 as returned by \code{\link{create_mcmc}}}

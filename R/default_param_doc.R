@@ -2,6 +2,8 @@
 #' documentation.
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
+#' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
+#'   as returned by \code{\link{create_mrca_prior}}
 #' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
 #'   as returned by \code{\link{create_cbs_tree_prior}}
 #' @param ccp_tree_prior a Coalescent Constant Population tree prior,
@@ -81,6 +83,7 @@
 #' @author Richel J.C. Bilderbeek
 default_params_doc <- function(
   bd_tree_prior,
+  calibration_nodes,
   cbs_tree_prior,
   ccp_tree_prior,
   cep_tree_prior,
