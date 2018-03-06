@@ -77,10 +77,9 @@ create_rnd_clock_model <- function() {
   clock_model_index <- sample(x = 1:2, size = 1)
   if (clock_model_index == 1) {
     create_rnd_rln_clock_model() # nolint internal function
-  } else if (clock_model_index == 2) {
-    create_rnd_strict_clock_model() # nolint internal function
   } else {
-    testit::assert(!"Should not get here")
+    testit::assert(clock_model_index == 2)
+    create_rnd_strict_clock_model() # nolint internal function
   }
 }
 
@@ -115,10 +114,9 @@ create_rnd_distr <- function() {
     create_rnd_one_div_x_distr() # nolint internal function
   } else if (distr_index == 9) {
     create_rnd_poisson_distr() # nolint internal function
-  } else if (distr_index == 10) {
-    create_rnd_uniform_distr() # nolint internal function
   } else {
-    testit::assert(!"Should not get here")
+    testit::assert(distr_index == 10)
+    create_rnd_uniform_distr() # nolint internal function
   }
 }
 
@@ -459,10 +457,9 @@ create_rnd_site_model <- function() {
     create_rnd_hky_site_model() # nolint internal function
   } else if (site_model_index == 3) {
     create_rnd_tn93_site_model() # nolint internal function
-  } else if (site_model_index == 4) {
-    create_rnd_gtr_site_model() # nolint internal function
   } else {
-    testit::assert(!"Should not get here")
+    testit::assert(site_model_index == 4)
+    create_rnd_gtr_site_model() # nolint internal function
   }
 }
 
@@ -509,10 +506,9 @@ create_rnd_tree_prior <- function() {
     create_rnd_ccp_tree_prior() # nolint internal function
   } else if (tree_prior_index == 4) {
     create_rnd_cep_tree_prior() # nolint internal function
-  } else if (tree_prior_index == 5) {
-    create_rnd_yule_tree_prior() # nolint internal function
   } else {
-    testit::assert(!"Should not get here")
+    testit::assert(tree_prior_index == 5)
+    create_rnd_yule_tree_prior() # nolint internal function
   }
 }
 

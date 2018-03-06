@@ -68,11 +68,14 @@ test_that("create_rnd_cep_tree_prior", {
 
 test_that("create_rnd_clock_model", {
   set.seed(0)
-  testthat::expect_true(
-    beautier:::is_clock_model(
-      beautier:::create_rnd_clock_model()
+  # Repeat often enough so all execution branches are hit
+  for (i in seq(1, 2)) {
+    testthat::expect_true(
+      beautier:::is_clock_model(
+        beautier:::create_rnd_clock_model()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_clock_rate_param", {
@@ -341,11 +344,14 @@ test_that("create_rnd_sigma_param", {
 
 test_that("create_rnd_site_model", {
   set.seed(0)
-  testthat::expect_true(
-    beautier:::is_site_model(
-      beautier:::create_rnd_site_model()
+  # Repeat often enough so all execution branches are hit
+  for (i in seq(1, 4)) {
+    testthat::expect_true(
+      beautier:::is_site_model(
+        beautier:::create_rnd_site_model()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_strict_clock_model", {
@@ -368,11 +374,14 @@ test_that("create_rnd_tn93_site_model", {
 
 test_that("create_rnd_tree_prior", {
   set.seed(0)
-  testthat::expect_true(
-    beautier:::is_tree_prior(
-      beautier:::create_rnd_tree_prior()
+  # Repeat often enough so all execution branches are hit
+  for (i in seq(1, 5)) {
+    testthat::expect_true(
+      beautier:::is_tree_prior(
+        beautier:::create_rnd_tree_prior()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_uniform_distr", {
