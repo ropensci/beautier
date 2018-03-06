@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_site_model.R
 \name{create_tn93_site_model}
 \alias{create_tn93_site_model}
+\alias{create_site_model_tn93}
 \title{Create a TN93 site model}
 \usage{
 create_tn93_site_model(id = NA,

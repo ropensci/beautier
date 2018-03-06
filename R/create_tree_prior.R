@@ -114,7 +114,8 @@ create_tree_prior <- function(
 #'     tree_priors = bd_tree_prior_exp
 #'   )
 #'   testit::assert(file.exists("create_bd_tree_prior_exp.xml"))
-#' @export
+#' @aliases create_bd_tree_prior create_tree_prior_bd
+#' @export create_bd_tree_prior create_tree_prior_bd
 create_bd_tree_prior <- create_tree_prior_bd <- function(
   id = NA,
   birth_rate_distr = create_uniform_distr(),
@@ -143,7 +144,8 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #'     tree_priors = cbs_tree_prior
 #'   )
 #'   testit::assert(file.exists("create_cbs_tree_prior.xml"))
-#' @export
+#' @aliases create_cbs_tree_prior create_tree_prior_cbs
+#' @export create_cbs_tree_prior create_tree_prior_cbs
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
   id = NA
   ) {
@@ -170,7 +172,8 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #'     tree_priors = ccp_tree_prior
 #'   )
 #'   testit::assert(file.exists("create_ccp_tree_prior.xml"))
-#' @export
+#' @aliases create_ccp_tree_prior create_tree_prior_ccp
+#' @export create_ccp_tree_prior create_tree_prior_ccp
 create_ccp_tree_prior <- create_tree_prior_ccp <- function(
   id = NA,
   pop_size_distr = beautier::create_one_div_x_distr()
@@ -201,7 +204,8 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #'     tree_priors = cep_tree_prior
 #'   )
 #'   testit::assert(file.exists("create_cep_tree_prior.xml"))
-#' @export
+#' @aliases create_cep_tree_prior create_tree_prior_cep
+#' @export create_cep_tree_prior create_tree_prior_cep
 create_cep_tree_prior <- create_tree_prior_cep <- function(
   id = NA,
   pop_size_distr = create_one_div_x_distr(),
@@ -237,7 +241,8 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #'     tree_priors = yule_tree_prior
 #'   )
 #'   testit::assert(file.exists("create_yule_tree_prior.xml"))
-#' @export
+#' @aliases create_yule_tree_prior create_tree_prior_yule
+#' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(
   id = NA,
   birth_rate_distr = create_uniform_distr()

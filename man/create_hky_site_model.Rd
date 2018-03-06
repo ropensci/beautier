@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_site_model.R
 \name{create_hky_site_model}
 \alias{create_hky_site_model}
+\alias{create_site_model_hky}
 \title{Create an HKY site model}
 \usage{
 create_hky_site_model(id = NA, kappa = "2.0",

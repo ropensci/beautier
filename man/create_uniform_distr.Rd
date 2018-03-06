@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_uniform_distr}
 \alias{create_uniform_distr}
+\alias{create_distr_uniform}
 \title{Create a uniform distribution}
 \usage{
 create_uniform_distr(id = NA, upper = Inf)

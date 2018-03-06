@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_gamma_distr}
 \alias{create_gamma_distr}
+\alias{create_distr_gamma}
 \title{Create a gamma distribution}
 \usage{
 create_gamma_distr(id = NA, alpha = create_alpha_param(id = NA, estimate =

@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_rate_ac_param}
 \alias{create_rate_ac_param}
+\alias{create_param_rate_ac}
 \title{Create a parameter called 'rate AC'}
 \usage{
 create_rate_ac_param(id = NA, estimate = TRUE, value = "1.0",

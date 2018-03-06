@@ -104,7 +104,8 @@ create_param <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_alpha_param.xml"))
-#' @export
+#' @aliases create_alpha_param create_param_alpha
+#' @export create_alpha_param create_param_alpha
 create_alpha_param <- create_param_alpha <- function(
   id = NA,
   estimate = FALSE,
@@ -151,7 +152,8 @@ create_alpha_param <- create_param_alpha <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_beta_param.xml"))
-#' @export
+#' @aliases create_beta_param create_param_beta
+#' @export create_beta_param create_param_beta
 create_beta_param <- create_param_beta <- function(
   id = NA,
   estimate = FALSE,
@@ -192,7 +194,8 @@ create_beta_param <- create_param_beta <- function(
 #'     clock_models = strict_clock_model
 #'   )
 #'   testit::assert(file.exists("create_clock_rate_param.xml"))
-#' @export
+#' @aliases create_clock_rate_param create_param_clock_rate
+#' @export create_clock_rate_param create_param_clock_rate
 create_clock_rate_param <- create_param_clock_rate <- function(
   value = "1.0",
   estimate = FALSE,
@@ -212,7 +215,8 @@ create_clock_rate_param <- create_param_clock_rate <- function(
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called kappa 1
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @aliases create_kappa_1_param create_param_kappa_1
+#' @export create_kappa_1_param create_param_kappa_1
 create_kappa_1_param <- create_param_kappa_1 <- function(
   id = NA,
   lower = "0.0",
@@ -232,7 +236,8 @@ create_kappa_1_param <- create_param_kappa_1 <- function(
 #' @param lower lowest possible value of the parameter
 #' @return a parameter called kappa 2
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @aliases create_kappa_2_param create_param_kappa_2
+#' @export create_kappa_2_param create_param_kappa_2
 create_kappa_2_param <- create_param_kappa_2 <- function(
   id = NA,
   lower = "0.0",
@@ -273,7 +278,8 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_lambda_param.xml"))
-#' @export
+#' @aliases create_lambda_param create_param_lambda
+#' @export create_lambda_param create_param_lambda
 create_lambda_param <- create_param_lambda <- function(
   id = NA,
   value = 0.0
@@ -314,7 +320,8 @@ create_lambda_param <- create_param_lambda <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_m_param.xml"))
-#' @export
+#' @aliases create_m_param create_param_m
+#' @export create_m_param create_param_m
 create_m_param <- create_param_m <- function(
   id = NA,
   estimate = FALSE,
@@ -359,7 +366,8 @@ create_m_param <- create_param_m <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_mean_param.xml"))
-#' @export
+#' @aliases create_mean_param create_param_mean
+#' @export create_mean_param create_param_mean
 create_mean_param <- create_param_mean <- function(
   id = NA,
   estimate = FALSE,
@@ -402,7 +410,8 @@ create_mean_param <- create_param_mean <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_mu_param.xml"))
-#' @export
+#' @aliases create_mu_param create_param_mu
+#' @export create_mu_param create_param_mu
 create_mu_param <- create_param_mu <- function(
   id = NA,
   estimate = FALSE,
@@ -439,7 +448,8 @@ create_mu_param <- create_param_mu <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_rate_ac_param.xml"))
-#' @export
+#' @aliases create_rate_ac_param create_param_rate_ac
+#' @export create_rate_ac_param create_param_rate_ac
 create_rate_ac_param <- create_param_rate_ac <- function(
   id = NA,
   estimate = TRUE,
@@ -478,7 +488,8 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_rate_ag_param.xml"))
-#' @export
+#' @aliases create_rate_ag_param create_param_rate_ag
+#' @export create_rate_ag_param create_param_rate_ag
 create_rate_ag_param <- create_param_rate_ag <- function(
   id = NA,
   estimate = TRUE,
@@ -517,7 +528,8 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_rate_at_param.xml"))
-#' @export
+#' @aliases create_rate_at_param create_param_rate_at
+#' @export create_rate_at_param create_param_rate_at
 create_rate_at_param <- create_param_rate_at <- function(
   id = NA,
   estimate = TRUE,
@@ -556,7 +568,8 @@ create_rate_at_param <- create_param_rate_at <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_rate_cg_param.xml"))
-#' @export
+#' @aliases create_rate_cg_param create_param_rate_cg
+#' @export create_rate_cg_param create_param_rate_cg
 create_rate_cg_param <- create_param_rate_cg <- function(
   id = NA,
   estimate = TRUE,
@@ -595,7 +608,8 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_rate_ct_param.xml"))
-#' @export
+#' @aliases create_rate_ct_param create_param_rate_ct
+#' @export create_rate_ct_param create_param_rate_ct
 create_rate_ct_param <- create_param_rate_ct <- function(
   id = NA,
   estimate = TRUE,
@@ -634,7 +648,8 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_rate_gt_param.xml"))
-#' @export
+#' @aliases create_rate_gt_param create_param_rate_gt
+#' @export create_rate_gt_param create_param_rate_gt
 create_rate_gt_param <- create_param_rate_gt <- function(
   id = NA,
   estimate = TRUE,
@@ -681,7 +696,8 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_s_param.xml"))
-#' @export
+#' @aliases create_s_param create_param_s
+#' @export create_s_param create_param_s
 create_s_param <- create_param_s <- function(
   id = NA,
   estimate = FALSE,
@@ -728,7 +744,8 @@ create_s_param <- create_param_s <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_scale_param.xml"))
-#' @export
+#' @aliases create_scale_param create_param_scale
+#' @export create_scale_param create_param_scale
 create_scale_param <- create_param_scale <- function(
   id = NA,
   estimate = FALSE,
@@ -771,7 +788,8 @@ create_scale_param <- create_param_scale <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_sigma_param.xml"))
-#' @export
+#' @aliases create_sigma_param create_param_sigma
+#' @export create_sigma_param create_param_sigma
 create_sigma_param <- create_param_sigma <- function(
   id = NA,
   estimate = FALSE,

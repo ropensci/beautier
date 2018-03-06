@@ -93,7 +93,8 @@ create_distr <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_beta_distr.xml"))
-#' @export
+#' @aliases create_beta_distr create_distr_beta
+#' @export create_beta_distr create_distr_beta
 create_beta_distr <- create_distr_beta <- function(
   id = NA,
   alpha = create_alpha_param(),
@@ -140,7 +141,8 @@ create_beta_distr <- create_distr_beta <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
-#' @export
+#' @aliases create_exp_distr create_distr_exp
+#' @export create_exp_distr create_distr_exp
 create_exp_distr <- create_distr_exp <- function(
   id = NA,
   mean = create_mean_param(value = 1.0)
@@ -182,7 +184,8 @@ create_exp_distr <- create_distr_exp <- function(
 #'     site_model = gtr_site_model
 #'   )
 #'   testit::assert(file.exists("create_gamma_distr.xml"))
-#' @export
+#' @aliases create_gamma_distr create_distr_gamma
+#' @export create_gamma_distr create_distr_gamma
 create_gamma_distr <- create_distr_gamma <- function(
   id = NA,
   alpha = create_alpha_param(id = NA, estimate = FALSE, value = "0.5396"),
@@ -232,7 +235,8 @@ create_gamma_distr <- create_distr_gamma <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
-#' @export
+#' @aliases create_inv_gamma_distr create_distr_inv_gamma
+#' @export create_inv_gamma_distr create_distr_inv_gamma
 create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   id = NA,
   alpha = create_alpha_param(),
@@ -246,13 +250,11 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
-  return(
-    beautier::create_distr(
-      name = "inv_gamma",
-      id = id,
-      alpha = alpha,
-      beta = beta
-    )
+  beautier::create_distr(
+    name = "inv_gamma",
+    id = id,
+    alpha = alpha,
+    beta = beta
   )
 }
 
@@ -277,7 +279,8 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_laplace_distr.xml"))
-#' @export
+#' @aliases create_laplace_distr create_distr_laplace
+#' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
   id = NA,
   mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
@@ -320,7 +323,8 @@ create_laplace_distr <- create_distr_laplace <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
-#' @export
+#' @aliases create_log_normal_distr create_distr_log_normal
+#' @export create_log_normal_distr create_distr_log_normal
 create_log_normal_distr <- create_distr_log_normal <- function(
   id = NA,
   m = create_m_param(),
@@ -335,13 +339,11 @@ create_log_normal_distr <- create_distr_log_normal <- function(
   if (s$value < 0.0) {
     stop("'value' of 's' must be positive")
   }
-  return(
-    beautier::create_distr(
-      name = "log_normal",
-      id = id,
-      m = m,
-      s = s
-    )
+  beautier::create_distr(
+    name = "log_normal",
+    id = id,
+    m = m,
+    s = s
   )
 }
 
@@ -366,7 +368,8 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
-#' @export
+#' @aliases create_normal_distr create_distr_normal
+#' @export create_normal_distr create_distr_normal
 create_normal_distr <- create_distr_normal <- function(
   id = NA,
   mean = create_mean_param(),
@@ -405,15 +408,14 @@ create_normal_distr <- create_distr_normal <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
-#' @export
+#' @aliases create_one_div_x_distr create_distr_one_div_x
+#' @export create_one_div_x_distr create_distr_one_div_x
 create_one_div_x_distr <- create_distr_one_div_x <- function(
   id = NA
 ) {
-  return(
-    beautier::create_distr(
-      name = "one_div_x",
-      id = id
-    )
+  beautier::create_distr(
+    name = "one_div_x",
+    id = id
   )
 }
 
@@ -436,7 +438,8 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_poisson_distr.xml"))
-#' @export
+#' @aliases create_poisson_distr create_distr_poisson
+#' @export create_poisson_distr create_distr_poisson
 create_poisson_distr <- create_distr_poisson <- function(
   id = NA,
   lambda = create_lambda_param()
@@ -445,12 +448,10 @@ create_poisson_distr <- create_distr_poisson <- function(
     stop("'lambda' must be a lambda parameter, ",
       "as returned by 'create_lambda_param'")
   }
-  return(
-    beautier::create_distr(
-      name = "poisson",
-      id = id,
-      lambda = lambda
-    )
+  beautier::create_distr(
+    name = "poisson",
+    id = id,
+    lambda = lambda
   )
 }
 
@@ -473,7 +474,8 @@ create_poisson_distr <- create_distr_poisson <- function(
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_uniform_distr.xml"))
-#' @export
+#' @aliases create_uniform_distr create_distr_uniform
+#' @export create_uniform_distr create_distr_uniform
 create_uniform_distr <- create_distr_uniform <- function(
   id = NA,
   upper = Inf

@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_kappa_2_param}
 \alias{create_kappa_2_param}
+\alias{create_param_kappa_2}
 \title{Create a parameter called kappa 2}
 \usage{
 create_kappa_2_param(id = NA, lower = "0.0", value = "2.0")

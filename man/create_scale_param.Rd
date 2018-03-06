@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_scale_param}
 \alias{create_scale_param}
+\alias{create_param_scale}
 \title{Create a parameter called scale}
 \usage{
 create_scale_param(id = NA, estimate = FALSE, value = 0)

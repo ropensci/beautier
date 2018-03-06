@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_tree_prior.R
 \name{create_yule_tree_prior}
 \alias{create_yule_tree_prior}
+\alias{create_tree_prior_yule}
 \title{Create a Yule tree prior}
 \usage{
 create_yule_tree_prior(

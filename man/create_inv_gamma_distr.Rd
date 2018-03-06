@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_inv_gamma_distr}
 \alias{create_inv_gamma_distr}
+\alias{create_distr_inv_gamma}
 \title{Create an inverse gamma distribution}
 \usage{
 create_inv_gamma_distr(id = NA, alpha = create_alpha_param(),

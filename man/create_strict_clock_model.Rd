@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_clock_model.R
 \name{create_strict_clock_model}
 \alias{create_strict_clock_model}
+\alias{create_clock_model_strict}
 \title{Create a strict clock model}
 \usage{
 create_strict_clock_model(id = NA,

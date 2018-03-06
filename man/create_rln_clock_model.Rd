@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_clock_model.R
 \name{create_rln_clock_model}
 \alias{create_rln_clock_model}
+\alias{create_clock_model_rln}
 \title{Create a relaxed log-normal clock model}
 \usage{
 create_rln_clock_model(id = NA,

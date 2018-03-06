@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_exp_distr}
 \alias{create_exp_distr}
+\alias{create_distr_exp}
 \title{Create an exponential distribution}
 \usage{
 create_exp_distr(id = NA, mean = create_mean_param(value = 1))

@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_sigma_param}
 \alias{create_sigma_param}
+\alias{create_param_sigma}
 \title{Create a parameter called sigma}
 \usage{
 create_sigma_param(id = NA, estimate = FALSE, value = 1)

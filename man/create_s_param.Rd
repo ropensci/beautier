@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_s_param}
 \alias{create_s_param}
+\alias{create_param_s}
 \title{Create a parameter called s}
 \usage{
 create_s_param(id = NA, estimate = FALSE, value = 0, lower = 0,

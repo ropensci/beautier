@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_log_normal_distr}
 \alias{create_log_normal_distr}
+\alias{create_distr_log_normal}
 \title{Create a log-normal distribution}
 \usage{
 create_log_normal_distr(id = NA, m = create_m_param(),

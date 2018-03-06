@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_laplace_distr}
 \alias{create_laplace_distr}
+\alias{create_distr_laplace}
 \title{Create a Laplace distribution}
 \usage{
 create_laplace_distr(id = NA, mu = create_mu_param(id = NA, estimate =

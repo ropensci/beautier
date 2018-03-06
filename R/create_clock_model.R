@@ -96,7 +96,8 @@ create_clock_model <- function(
 #'     clock_models = rln_clock_model_exp
 #'   )
 #'   testit::assert(file.exists("create_rln_clock_model_exp.xml"))
-#' @export
+#' @aliases create_rln_clock_model create_clock_model_rln
+#' @export create_rln_clock_model create_clock_model_rln
 create_rln_clock_model <- create_clock_model_rln <- function(
   id = NA,
   mean_rate_prior_distr = create_uniform_distr(), # unknown default distr
@@ -150,7 +151,8 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #'     clock_models = strict_clock_model_gamma
 #'   )
 #'   testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
-#' @export
+#' @aliases create_strict_clock_model create_clock_model_strict
+#' @export create_strict_clock_model create_clock_model_strict
 create_strict_clock_model <- create_clock_model_strict <- function(
   id = NA,
   clock_rate_param = create_clock_rate_param(),

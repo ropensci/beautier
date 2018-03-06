@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_poisson_distr}
 \alias{create_poisson_distr}
+\alias{create_distr_poisson}
 \title{Create a Poisson distribution}
 \usage{
 create_poisson_distr(id = NA, lambda = create_lambda_param())

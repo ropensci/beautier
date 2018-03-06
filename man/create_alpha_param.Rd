@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_alpha_param}
 \alias{create_alpha_param}
+\alias{create_param_alpha}
 \title{Create a parameter called alpha}
 \usage{
 create_alpha_param(id = NA, estimate = FALSE, value = 0)

@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_beta_param}
 \alias{create_beta_param}
+\alias{create_param_beta}
 \title{Create a parameter called beta}
 \usage{
 create_beta_param(id = NA, estimate = FALSE, value = 1)

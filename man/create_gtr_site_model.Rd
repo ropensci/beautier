@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_site_model.R
 \name{create_gtr_site_model}
 \alias{create_gtr_site_model}
+\alias{create_site_model_gtr}
 \title{Create a GTR site model}
 \usage{
 create_gtr_site_model(id = NA, gamma_site_model = create_gamma_site_model(),

@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_tree_prior.R
 \name{create_cbs_tree_prior}
 \alias{create_cbs_tree_prior}
+\alias{create_tree_prior_cbs}
 \title{Create a Coalescent Bayesian Skyline tree prior}
 \usage{
 create_cbs_tree_prior(id = NA)

@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_mu_param}
 \alias{create_mu_param}
+\alias{create_param_mu}
 \title{Create a parameter called mu}
 \usage{
 create_mu_param(id = NA, estimate = FALSE, value = 0)

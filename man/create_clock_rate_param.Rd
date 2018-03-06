@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_clock_rate_param}
 \alias{create_clock_rate_param}
+\alias{create_param_clock_rate}
 \title{Create a parameter called \code{clock_rate},
   as needed by \code{\link{create_strict_clock_model}}}
 \usage{

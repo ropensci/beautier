@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_beta_distr}
 \alias{create_beta_distr}
+\alias{create_distr_beta}
 \title{Create a beta distribution}
 \usage{
 create_beta_distr(id = NA, alpha = create_alpha_param(),

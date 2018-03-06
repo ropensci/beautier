@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_site_model.R
 \name{create_jc69_site_model}
 \alias{create_jc69_site_model}
+\alias{create_site_model_jc69}
 \title{Create a JC69 site model}
 \usage{
 create_jc69_site_model(id = NA,

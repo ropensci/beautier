@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_lambda_param}
 \alias{create_lambda_param}
+\alias{create_param_lambda}
 \title{Create a parameter called lambda}
 \usage{
 create_lambda_param(id = NA, value = 0)

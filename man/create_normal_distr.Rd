@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_normal_distr}
 \alias{create_normal_distr}
+\alias{create_distr_normal}
 \title{Create an normal distribution}
 \usage{
 create_normal_distr(id = NA, mean = create_mean_param(),

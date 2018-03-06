@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_distr.R
 \name{create_one_div_x_distr}
 \alias{create_one_div_x_distr}
+\alias{create_distr_one_div_x}
 \title{Create a 1/x distribution}
 \usage{
 create_one_div_x_distr(id = NA)

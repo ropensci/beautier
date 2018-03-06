@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_tree_prior.R
 \name{create_bd_tree_prior}
 \alias{create_bd_tree_prior}
+\alias{create_tree_prior_bd}
 \title{Create a Birth-Death tree prior}
 \usage{
 create_bd_tree_prior(

@@ -124,7 +124,8 @@ create_site_model <- function(
 #'     site_models = gtr_site_model
 #'   )
 #'   testit::assert(file.exists("create_gtr_site_model.xml"))
-#' @export
+#' @aliases create_gtr_site_model create_site_model_gtr
+#' @export create_gtr_site_model create_site_model_gtr
 create_gtr_site_model <- create_site_model_gtr <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model(),
@@ -196,7 +197,8 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #'    "beast.xml",
 #'    site_models = hky_site_model
 #'  )
-#' @export
+#' @aliases create_hky_site_model create_site_model_hky
+#' @export create_hky_site_model create_site_model_hky
 create_hky_site_model <- create_site_model_hky <- function(
   id = NA,
   kappa = "2.0",
@@ -229,7 +231,8 @@ create_hky_site_model <- create_site_model_hky <- function(
 #'    "beast.xml",
 #'    site_models = jc69_site_model
 #'  )
-#' @export
+#' @aliases create_jc69_site_model create_site_model_jc69
+#' @export create_jc69_site_model create_site_model_jc69
 create_jc69_site_model <- create_site_model_jc69 <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model()
@@ -269,7 +272,8 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'    "beast.xml",
 #'    site_models = tn93_site_model
 #'  )
-#' @export
+#' @aliases create_tn93_site_model create_site_model_tn93
+#' @export create_tn93_site_model create_site_model_tn93
 create_tn93_site_model <- create_site_model_tn93 <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model(),

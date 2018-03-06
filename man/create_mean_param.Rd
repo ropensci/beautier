@@ -2,6 +2,7 @@
 % Please edit documentation in R/create_param.R
 \name{create_mean_param}
 \alias{create_mean_param}
+\alias{create_param_mean}
 \title{Create a parameter called mean}
 \usage{
 create_mean_param(id = NA, estimate = FALSE, value = 0)
