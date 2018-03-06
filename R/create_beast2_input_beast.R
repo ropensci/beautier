@@ -2,22 +2,22 @@
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 create_beast2_input_beast <- function(
-  input_fasta_filenames,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
+  input_filenames,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
   clock_models = create_strict_clock_models(
-    ids = get_ids(input_fasta_filenames)),
-  tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
+    ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  fixed_crown_ages = rep(FALSE, times = length(input_fasta_filenames)),
-  initial_phylogenies = rep(NA, length(input_fasta_filenames))
+  fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
+  initial_phylogenies = rep(NA, length(input_filenames))
 ) {
-  testit::assert(files_exist(input_fasta_filenames)) # nolint internal function
-  testit::assert(length(input_fasta_filenames) == length(site_models))
-  testit::assert(length(input_fasta_filenames) == length(clock_models))
-  testit::assert(length(input_fasta_filenames) == length(tree_priors))
-  testit::assert(length(input_fasta_filenames) == length(initial_phylogenies))
-  testit::assert(length(input_fasta_filenames) == length(fixed_crown_ages))
+  testit::assert(files_exist(input_filenames)) # nolint internal function
+  testit::assert(length(input_filenames) == length(site_models))
+  testit::assert(length(input_filenames) == length(clock_models))
+  testit::assert(length(input_filenames) == length(tree_priors))
+  testit::assert(length(input_filenames) == length(initial_phylogenies))
+  testit::assert(length(input_filenames) == length(fixed_crown_ages))
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
@@ -26,7 +26,7 @@ create_beast2_input_beast <- function(
 
   # Alignment IDs
   ids <- beautier::get_id(
-    input_fasta_filenames,
+    input_filenames,
     capitalize_first_char_id = misc_options$capitalize_first_char_id
   )
 
@@ -46,7 +46,7 @@ create_beast2_input_beast <- function(
 
   text <- c(text,
     create_beast2_input_data(
-      input_fasta_filenames = input_fasta_filenames,
+      input_filenames = input_filenames,
       misc_options = misc_options
     )
   )

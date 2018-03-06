@@ -2,7 +2,7 @@ context("create_beast2_input_state")
 
 test_that("birth_death", {
 
-  fasta_filename <- beautier:::get_path("test_output_0.fas")
+  fasta_filename <- beautier::get_path("test_output_0.fas")
   id <- beautier:::get_id(fasta_filename)
   testthat::expect_silent(
     beautier:::create_beast2_input_state(

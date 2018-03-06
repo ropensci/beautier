@@ -16,17 +16,17 @@ brute_force_1_site_models <- function() {
 
         output_xml_filename <- tempfile()
         create_beast2_input_file(
-          input_fasta_filenames = input_fasta_filename,
+          input_filenames = input_fasta_filename,
+          output_filename = output_xml_filename,
           site_models = site_model,
           clock_models = clock_model,
-          tree_priors = tree_prior,
-          output_xml_filename = output_xml_filename
+          tree_priors = tree_prior
         )
-        is_ok <- beastier:::is_beast2_input_file(output_xml_filename)
+        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
         testthat::expect_true(is_ok)
         if (!is_ok) {
           print(paste(site_model$name, clock_model$name, tree_prior$name))
-          beastier:::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+          beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
           n_fail <- n_fail + 1
         }
       }
@@ -50,18 +50,16 @@ brute_force_1_clock_models_fixed_crown_age <- function() {
     input_fasta_filename <- get_fasta_filename()
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_filenames = input_fasta_filename,
+      output_filename = output_xml_filename,
       clock_models = clock_model,
-      output_xml_filename = output_xml_filename,
-      fixed_crown_ages = TRUE,
-      initial_phylogenies = beautier::fasta_to_phylo(
-        input_fasta_filename, crown_age = 15)
+      posterior_crown_age = 15
     )
-    is_ok <- beastier:::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
-      beastier:::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+      beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
       n_fail <- n_fail + 1
     }
   }
@@ -83,15 +81,15 @@ brute_force_1_tree_priors <- function() {
 
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_filenames = input_fasta_filename,
       tree_priors = tree_prior,
-      output_xml_filename = output_xml_filename
+      output_filename = output_xml_filename
     )
-    is_ok <- beastier:::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
-      beastier:::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+      beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
       n_fail <- n_fail + 1
     }
   }
@@ -108,18 +106,16 @@ brute_force_1_tree_priors_fixed_crown_age <- function() {
   for (tree_prior in tree_priors) {
     output_xml_filename <- tempfile()
     create_beast2_input_file(
-      input_fasta_filenames = input_fasta_filename,
+      input_filenames = input_fasta_filename,
       tree_priors = tree_prior,
-      output_xml_filename = output_xml_filename,
-      fixed_crown_ages = TRUE,
-      initial_phylogenies = beautier::fasta_to_phylo(
-        input_fasta_filename, crown_age = 15)
+      output_filename = output_xml_filename,
+      posterior_crown_age = 15
     )
-    is_ok <- beastier:::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
-      beastier:::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+      beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
       n_fail <- n_fail + 1
     }
   }
@@ -142,20 +138,18 @@ brute_force_1_combinations_fixed_crown_age <- function() {
 
         output_xml_filename <- tempfile()
         create_beast2_input_file(
-          input_fasta_filenames = input_fasta_filename,
+          input_filenames = input_fasta_filename,
           site_models = site_model,
           clock_models = clock_model,
           tree_priors = tree_prior,
-          output_xml_filename = output_xml_filename,
-          fixed_crown_ages = TRUE,
-          initial_phylogenies = beautier::fasta_to_phylo(
-            input_fasta_filename, crown_age = 15)
+          output_filename = output_xml_filename,
+          posterior_crown_age = 15
         )
-        is_ok <- beastier:::is_beast2_input_file(output_xml_filename)
+        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
         testthat::expect_true(is_ok)
         if (!is_ok) {
           print(paste(site_model$name, clock_model$name, tree_prior$name))
-          beastier:::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+          beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
           n_fail <- n_fail + 1
         }
       }

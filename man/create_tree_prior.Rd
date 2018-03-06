@@ -31,35 +31,35 @@ Prefer the use the named functions
 }
 \examples{
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_tree_prior_bd.xml",
     tree_priors = create_bd_tree_prior()
   )
   testit::assert(file.exists("create_tree_prior_bd.xml"))
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_tree_prior_cbs.xml",
     tree_priors = create_cbs_tree_prior()
   )
   testit::assert(file.exists("create_tree_prior_cbs.xml"))
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_tree_prior_ccp.xml",
     tree_priors = create_ccp_tree_prior()
   )
   testit::assert(file.exists("create_tree_prior_ccp.xml"))
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_tree_prior_cep.xml",
     tree_priors = create_cep_tree_prior()
   )
   testit::assert(file.exists("create_tree_prior_cep.xml"))
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_tree_prior_yule.xml",
     tree_priors = create_yule_tree_prior()
   )

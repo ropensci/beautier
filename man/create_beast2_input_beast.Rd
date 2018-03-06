@@ -4,17 +4,16 @@
 \alias{create_beast2_input_beast}
 \title{Creates the beast section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_beast(input_fasta_filenames,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
-  clock_models = create_strict_clock_models(ids =
-  get_ids(input_fasta_filenames)), tree_priors = create_yule_tree_priors(ids =
-  get_ids(input_fasta_filenames)), mcmc = create_mcmc(),
-  misc_options = create_misc_options(), fixed_crown_ages = rep(FALSE, times
-  = length(input_fasta_filenames)), initial_phylogenies = rep(NA,
-  length(input_fasta_filenames)))
+create_beast2_input_beast(input_filenames,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
+  clock_models = create_strict_clock_models(ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
+  mcmc = create_mcmc(), misc_options = create_misc_options(),
+  fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
+  initial_phylogenies = rep(NA, length(input_filenames)))
 }
 \arguments{
-\item{input_fasta_filenames}{One or more FASTA filenames.
+\item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{site_models}{one or more site models,

@@ -5,7 +5,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  create_beast2_input_file(
-#'    input_fasta_filenames = get_fasta_filename(),
+#'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
 #'    site_models = create_tn93_site_model()
 #'  )

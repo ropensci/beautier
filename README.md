@@ -14,32 +14,11 @@ The purpose of `beautier` is to create
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-For analysing the BEAST2 output files, use [beastier](https://github.com/richelbilderbeek/beastier).
+`beautier` is part of the [babette](https://github.com/richelbilderbeek/babette) package suite:
 
-For tip-dating analyses using fossils as dated terminal taxa, use [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR)
-
-For doing other things with BEAST2, use [RBeast](https://github.com/beast-dev/RBeast).
-
-## Supported
-
-The default parameters of these settings are supported:
-
- * Site models
-   * GTR
-   * HKY
-   * JC69
-   * TN93
- * Clock models
-   * Relaxed log-normal
-   * Strict
- * Priors
-   * Birth-Death
-   * Coalescent Bayesian Skyline
-   * Coalescent Constant Population
-   * Coalescent Exponential Population
-   * Yule
-
-Unlike BEAUti, `beautier` *does* allow for a fixed crown age.
+ * [beautier](https://github.com/richelbilderbeek/beautier) creates BEAST2 input (`.xml`) files.
+ * [beastier](https://github.com/richelbilderbeek/beastier) runs BEAST2
+ * [tracerer](https://github.com/richelbilderbeek/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
 
 ## Examples
 
@@ -91,21 +70,15 @@ See [CONTRIBUTING](CONTRIBUTING.md), at 'Submitting bugs'
 
 Sure, just add an Issue. Or send an email.
 
-## Build status of builds that `beautier` relies on
-
-master|develop|project
----|---|---
-[![Build Status](https://travis-ci.org/richelbilderbeek/beastier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beastier) [![codecov.io](https://codecov.io/github/richelbilderbeek/beastier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastier?branch=master) | [![Build Status](https://travis-ci.org/richelbilderbeek/beastier.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/beastier) [![codecov.io](https://codecov.io/github/richelbilderbeek/beastier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beastier?branch=master) | [beastier](https://github.com/richelbilderbeek/beastier)
-
 ## External links
 
  * [BEAST2 GitHub](https://github.com/CompEvol/beast2)
 
 ## References
 
-Article about `beautier`:
+Article about `babette`:
 
- * Bilderbeek, Richel J.C., Etienne, Rampal S., "beautier: BEAUti from R" *In preparation*.
+ * Bilderbeek, Richel J.C., Etienne, Rampal S., "babette: BEAUti 2, BEAST2 and Tracer for R". bioRxiv 271866; doi: https://doi.org/10.1101/271866
 
 FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  

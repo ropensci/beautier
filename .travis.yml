@@ -8,21 +8,28 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - MangoTheCat/goodpractice
-  - richelbilderbeek/beastier
 
 before_script:
   - sudo apt-get install -qq oracle-java8-installer # Java 8
   - sudo apt-get install oracle-java8-set-default
   - ./install_beast2
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
+  # proselint
+  - sudo pip install proselint
+  # markdown-link-check
+  - sudo apt-get install npm
+  - sudo npm install -g markdown-link-check
 
 after_success:
-  - Rscript -e 'devtools::install_github("richelbilderbeek/beautier", ref = "develop")'
+  - Rscript -e 'devtools::install_github("richelbilderbeek/babette")'
   - Rscript scripts/test_brute_force_1.R
-  - travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R
+  #- travis_wait 30 Rscript scripts/test_brute_force_2_unlinked.R
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
+  - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
+  - ls
+  - ./scripts/check_dead_links
 
 after_failure:
   # - sudo Rscript install_this_r_package.R

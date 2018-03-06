@@ -4,18 +4,17 @@
 \alias{create_beast2_input_file}
 \title{Create a BEAST2 input file}
 \usage{
-create_beast2_input_file(input_fasta_filenames, output_xml_filename,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
-  clock_models = create_strict_clock_models(ids =
-  get_ids(input_fasta_filenames)), tree_priors = create_yule_tree_priors(ids =
-  get_ids(input_fasta_filenames)), mcmc = create_mcmc(),
-  posterior_crown_age = NA)
+create_beast2_input_file(input_filenames, output_filename,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
+  clock_models = create_strict_clock_models(ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
+  mcmc = create_mcmc(), posterior_crown_age = NA)
 }
 \arguments{
-\item{input_fasta_filenames}{One or more FASTA filenames.
+\item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
-\item{output_xml_filename}{Name of the XML parameter file created by this
+\item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
 
 \item{site_models}{one or more site models,
@@ -38,33 +37,32 @@ Create a BEAST2 input file
 }
 \examples{
   # The file created by beautier, a BEAST2 input file
-  output_xml_filename <- "create_beast2_input_file.xml"
+  output_filename <- "create_beast2_input_file.xml"
 
   # Birth-Death tree prior, crown age is estimated
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
-    output_xml_filename = output_xml_filename
+    get_fasta_filename(),
+    output_filename
   )
-  testthat::expect_true(file.exists(output_xml_filename))
+  testthat::expect_true(file.exists(output_filename))
 
   # The file created by beautier, a BEAST2 input file
-  output_xml_filename_fixed <- "create_beast2_input_file_fixed.xml"
+  output_filename_fixed <- "create_beast2_input_file_fixed.xml"
 
   # Birth-Death tree prior, crown age is fixed at 15 time units
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
-    output_xml_filename = output_xml_filename_fixed,
+    get_fasta_filename(),
+    output_filename_fixed,
     posterior_crown_age = 15
   )
-  testthat::expect_true(file.exists(output_xml_filename_fixed))
+  testthat::expect_true(file.exists(output_filename_fixed))
 }
 \seealso{
 See \code{\link{create_site_model}} for examples with
   different site models. See \code{\link{create_clock_model}} for examples
   with clock models. See \code{\link{create_tree_prior}} for examples with
   different tree priors. See \code{\link{create_mcmc}} for examples with
-  a different MCMC setup. See \code{\link{fasta_to_phylo}} for examples with
-  a fixed crown age
+  a different MCMC setup.
 }
 \author{
 Richel J.C. Bilderbeek

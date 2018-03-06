@@ -24,8 +24,18 @@ a parameter called 'rate CG'
 Create a parameter called 'rate CG'
 }
 \examples{
-  rate_cg_param <- create_rate_cg_param()
-  # TODO
+  # Create parameter
+  rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
+
+  # Use the parameter to create a BEAST2 input file
+  create_beast2_input_file(
+    input_filenames = get_fasta_filename(),
+    "create_rate_cg_param.xml",
+    site_models = create_gtr_site_model(
+      rate_cg_param = rate_cg_param
+    )
+  )
+  testit::assert(file.exists("create_rate_cg_param.xml"))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

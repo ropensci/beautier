@@ -26,7 +26,7 @@ Create a log-normal distribution
   log_normal_distr <- create_log_normal_distr()
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "my_beast.xml",
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = log_normal_distr

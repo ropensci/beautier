@@ -4,16 +4,16 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   testit::assert(
-#'     beautier:::get_site_models_n_distrs(list(create_gtr_site_model())) == 5
+#'     beautier:::get_site_models_n_distrs(list(create_gtr_site_model())) == 6
 #'   )
 #'   testit::assert(
-#'     beautier:::get_site_models_n_distrs(list(create_hky_site_model())) == 1
+#'     beautier:::get_site_models_n_distrs(list(create_hky_site_model())) == 2
 #'   )
 #'   testit::assert(
-#'     beautier:::get_site_models_n_distrs(list(create_jc69_site_model())) == 0
+#'     beautier:::get_site_models_n_distrs(list(create_jc69_site_model())) == 1
 #'   )
 #'   testit::assert(
-#'     beautier:::get_site_models_n_distrs(list(create_tn93_site_model())) == 2
+#'     beautier:::get_site_models_n_distrs(list(create_tn93_site_model())) == 3
 #'   )
 get_site_models_n_distrs <- function(
   site_models

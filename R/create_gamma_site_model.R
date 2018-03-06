@@ -30,7 +30,7 @@ create_gamma_site_model <- function(
   gamma_shape = "1.0",
   prop_invariant = "0.0",
   gamma_shape_prior_distr = create_exp_distr(
-    id = 0, # TODO: id must be NA by default
+    id = NA,
     mean = create_mean_param(
       id = 0,  # TODO: id must be NA by default
       value = "1.0" # string to match XML
@@ -38,10 +38,26 @@ create_gamma_site_model <- function(
   ),
   freq_equilibrium = "estimated"
 ) {
-  list(
+  if (gamma_cat_count < 0) {
+    stop("'gamma_cat_count' must be positive")
+  }
+  if (gamma_shape < 0.0) {
+    stop("'gamma_shape' must be positive")
+  }
+  if (prop_invariant < 0.0 || prop_invariant > 1.0) {
+    stop("'prop_invariant' must be in range [0.0, 1.0]")
+  }
+  if (!is_distr(gamma_shape_prior_distr)) {
+    stop("'gamma_shape_prior_distr' must be a distribution")
+  }
+
+
+  gamma_site_model <- list(
     gamma_cat_count = gamma_cat_count,
     gamma_shape = gamma_shape,
     prop_invariant = prop_invariant,
     gamma_shape_prior_distr = gamma_shape_prior_distr
   )
+  testit::assert(is_gamma_site_model(gamma_site_model))
+  gamma_site_model
 }

@@ -10,6 +10,7 @@
 #'   \code{\link{create_clock_rate_param}},
 #'   \code{\link{create_kappa_1_param}},
 #'   \code{\link{create_kappa_2_param}},
+#'   \code{\link{create_lambda_param}},
 #'   \code{\link{create_m_param}},
 #'   \code{\link{create_mean_param}},
 #'   \code{\link{create_mu_param}},
@@ -35,7 +36,7 @@
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_alpha_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -96,7 +97,7 @@ create_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_alpha_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -116,6 +117,20 @@ create_alpha_param <- function(
     value = value
   )
 }
+
+#' Alternative name for \code{\link{create_alpha_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_alpha_param}} for examples.
+#' @inherit create_alpha_param
+#' @export
+create_param_alpha <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_alpha_param(id = id, estimate = estimate, value = value)
+}
+
 
 #' Create a parameter called beta
 #' @inheritParams create_param
@@ -143,7 +158,7 @@ create_alpha_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_beta_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = gamma_distr
@@ -154,7 +169,7 @@ create_alpha_param <- function(
 create_beta_param <- function(
   id = NA,
   estimate = FALSE,
-  value = 0.0
+  value = 1.0
 ) {
   beautier::create_param(
     name = "beta",
@@ -162,6 +177,19 @@ create_beta_param <- function(
     estimate = estimate,
     value = value
   )
+}
+
+#' Alternative name for \code{\link{create_beta_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_beta_param}} for examples.
+#' @inherit create_beta_param
+#' @export
+create_param_beta <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_beta_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called \code{clock_rate},
@@ -186,7 +214,7 @@ create_beta_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_clock_rate_param.xml",
 #'     clock_models = strict_clock_model
 #'   )
@@ -203,6 +231,19 @@ create_clock_rate_param <- function(
     estimate = estimate,
     value = value
   )
+}
+
+#' Alternative name for \code{\link{create_clock_rate_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_clock_rate_param}} for examples.
+#' @inherit create_clock_rate_param
+#' @export
+create_param_clock_rate <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_clock_rate_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called kappa 1
@@ -225,6 +266,19 @@ create_kappa_1_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_kappa_1_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_kappa_1_param}} for examples.
+#' @inherit create_kappa_1_param
+#' @export
+create_param_kappa_1 <- function(
+  id = NA,
+  lower = "0.0",
+  value = "2.0"
+) {
+  create_kappa_1_param(id = id, lower = lower, value = value)
+}
+
 #' Create a parameter called kappa 2
 #' @inheritParams create_param
 #' @param value value of the parameter
@@ -244,6 +298,20 @@ create_kappa_2_param <- function(
     value = value
   )
 }
+
+#' Alternative name for \code{\link{create_kappa_2_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_kappa_2_param}} for examples.
+#' @inherit create_kappa_2_param
+#' @export
+create_param_kappa_2 <- function(
+  id = NA,
+  lower = "0.0",
+  value = "2.0"
+) {
+  create_kappa_2_param(id = id, lower = lower, value = value)
+}
+
 #' Create a parameter called lambda
 #' @inheritParams create_param
 #' @param value value of the parameter
@@ -264,7 +332,7 @@ create_kappa_2_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_lambda_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
@@ -281,6 +349,18 @@ create_lambda_param <- function(
     id = id,
     value = value
   )
+}
+
+#' Alternative name for \code{\link{create_lambda_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_lambda_param}} for examples.
+#' @inherit create_lambda_param
+#' @export
+create_param_lambda <- function(
+  id = NA,
+  value = 0.0
+) {
+  create_lambda_param(id = id, value = value)
 }
 
 #' Create a parameter called m
@@ -305,7 +385,7 @@ create_lambda_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_m_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -326,6 +406,19 @@ create_m_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_m_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_m_param}} for examples.
+#' @inherit create_m_param
+#' @export
+create_param_m <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_m_param(id = id, estimate = estimate, value = value)
+}
+
 #' Create a parameter called mean
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
@@ -341,7 +434,7 @@ create_m_param <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
-#'   mean_param <- create_mean_param()
+#'   mean_param <- create_mean_param(value = 1.0)
 #'
 #'   # Use the parameter in a distribution
 #'   exp_distr <- create_exp_distr(
@@ -350,7 +443,7 @@ create_m_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_mean_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
@@ -369,6 +462,19 @@ create_mean_param <- function(
     estimate = estimate,
     value = value
   )
+}
+
+#' Alternative name for \code{\link{create_mean_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_mean_param}} for examples.
+#' @inherit create_mean_param
+#' @export
+create_param_mean <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_mean_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called mu
@@ -393,7 +499,7 @@ create_mean_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_mu_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -414,6 +520,19 @@ create_mu_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_mu_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_mu_param}} for examples.
+#' @inherit create_mu_param
+#' @export
+create_param_mu <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_mu_param(id = id, estimate = estimate, value = value)
+}
+
 #' Create a parameter called 'rate AC'
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
@@ -425,8 +544,18 @@ create_mu_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_ac_param <- create_rate_ac_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_ac_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_ac_param = rate_ac_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_ac_param.xml"))
 #' @export
 create_rate_ac_param <- function(
   id = NA,
@@ -443,6 +572,20 @@ create_rate_ac_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_rate_ac_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_rate_ac_param}} for examples.
+#' @inherit create_rate_ac_param
+#' @export
+create_param_rate_ac <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_rate_ac_param(id = id, estimate = estimate, value = value)
+}
+
+
 #' Create a parameter called 'rate AG'
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
@@ -454,8 +597,18 @@ create_rate_ac_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_ag_param <- create_rate_ag_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_ag_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_ag_param = rate_ag_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_ag_param.xml"))
 #' @export
 create_rate_ag_param <- function(
   id = NA,
@@ -472,6 +625,20 @@ create_rate_ag_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_rate_ag_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_rate_ag_param}} for examples.
+#' @inherit create_rate_ag_param
+#' @export
+create_param_rate_ag <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_rate_ag_param(id = id, estimate = estimate, value = value)
+}
+
+
 #' Create a parameter called 'rate AT'
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
@@ -483,8 +650,18 @@ create_rate_ag_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_at_param <- create_rate_at_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_at_param <- create_rate_at_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_at_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_at_param = rate_at_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_at_param.xml"))
 #' @export
 create_rate_at_param <- function(
   id = NA,
@@ -501,6 +678,20 @@ create_rate_at_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_rate_at_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_rate_at_param}} for examples.
+#' @inherit create_rate_at_param
+#' @export
+create_param_rate_at <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_rate_at_param(id = id, estimate = estimate, value = value)
+}
+
+
 #' Create a parameter called 'rate CG'
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
@@ -512,8 +703,18 @@ create_rate_at_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_cg_param <- create_rate_cg_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_cg_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_cg_param = rate_cg_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_cg_param.xml"))
 #' @export
 create_rate_cg_param <- function(
   id = NA,
@@ -530,6 +731,20 @@ create_rate_cg_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_rate_cg_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_rate_cg_param}} for examples.
+#' @inherit create_rate_cg_param
+#' @export
+create_param_rate_cg <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_rate_cg_param(id = id, estimate = estimate, value = value)
+}
+
+
 #' Create a parameter called 'rate CT'
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
@@ -541,8 +756,18 @@ create_rate_cg_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_ct_param <- create_rate_ct_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_ct_param <- create_rate_ct_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_ct_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_ct_param = rate_ct_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_ct_param.xml"))
 #' @export
 create_rate_ct_param <- function(
   id = NA,
@@ -559,6 +784,20 @@ create_rate_ct_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_rate_ct_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_rate_ct_param}} for examples.
+#' @inherit create_rate_ct_param
+#' @export
+create_param_rate_ct <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_rate_ct_param(id = id, estimate = estimate, value = value)
+}
+
+
 #' Create a parameter called 'rate GT'
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter mu be estimated by BEAST2,
@@ -570,8 +809,18 @@ create_rate_ct_param <- function(
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   rate_gt_param <- create_rate_gt_param()
-#'   # TODO
+#'   # Create parameter
+#'   rate_gt_param <- create_rate_gt_param(value = 1, estimate = FALSE)
+#'
+#'   # Use the parameter to create a BEAST2 input file
+#'   create_beast2_input_file(
+#'     input_filenames = get_fasta_filename(),
+#'     "create_rate_gt_param.xml",
+#'     site_models = create_gtr_site_model(
+#'       rate_gt_param = rate_gt_param
+#'     )
+#'   )
+#'   testit::assert(file.exists("create_rate_gt_param.xml"))
 #' @export
 create_rate_gt_param <- function(
   id = NA,
@@ -587,6 +836,20 @@ create_rate_gt_param <- function(
     value = value
   )
 }
+
+#' Alternative name for \code{\link{create_rate_gt_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_rate_gt_param}} for examples.
+#' @inherit create_rate_gt_param
+#' @export
+create_param_rate_gt <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_rate_gt_param(id = id, estimate = estimate, value = value)
+}
+
 
 #' Create a parameter called s
 #' @inheritParams create_param
@@ -612,7 +875,7 @@ create_rate_gt_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_s_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -639,6 +902,20 @@ create_s_param <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_s_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_s_param}} for examples.
+#' @inherit create_s_param
+#' @export
+create_param_s <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_s_param(id = id, estimate = estimate, value = value)
+}
+
+
 #' Create a parameter called scale
 #' @inheritParams create_param
 #' @param estimate TRUE if this parameter scale be estimated by BEAST2,
@@ -661,7 +938,7 @@ create_s_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_scale_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -683,6 +960,20 @@ create_scale_param <- function(
     )
   )
 }
+
+#' Alternative name for \code{\link{create_scale_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_scale_param}} for examples.
+#' @inherit create_scale_param
+#' @export
+create_param_scale <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 0.0
+) {
+  create_scale_param(id = id, estimate = estimate, value = value)
+}
+
 
 #' Create a parameter called sigma
 #' @inheritParams create_param
@@ -706,7 +997,7 @@ create_scale_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_sigma_param.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
@@ -717,8 +1008,11 @@ create_scale_param <- function(
 create_sigma_param <- function(
   id = NA,
   estimate = FALSE,
-  value = 0.0
+  value = 1.0
 ) {
+  if (value <= 0.0) {
+    stop("value must be non-zero and positive")
+  }
   return(
     beautier::create_param(
       name = "sigma",
@@ -727,4 +1021,17 @@ create_sigma_param <- function(
       value = value
     )
   )
+}
+
+#' Alternative name for \code{\link{create_sigma_param}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_sigma_param}} for examples.
+#' @inherit create_sigma_param
+#' @export
+create_param_sigma <- function(
+  id = NA,
+  estimate = FALSE,
+  value = 1.0
+) {
+  create_sigma_param(id = id, estimate = estimate, value = value)
 }

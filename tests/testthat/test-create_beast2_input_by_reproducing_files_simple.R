@@ -12,12 +12,12 @@ context(
 test_that("2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path("2_4.xml"))
+  expected <- readLines(beautier::get_path("2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -46,7 +46,7 @@ test_that("2_4.xml", {
 test_that("gtr_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     site_models = create_gtr_site_model(
       id = get_id(get_fasta_filename()),
       rate_ac_prior_distr = create_gamma_distr(
@@ -79,7 +79,7 @@ test_that("gtr_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path("gtr_2_4.xml"))
+  expected <- readLines(beautier::get_path("gtr_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -99,7 +99,7 @@ test_that("gtr_2_4.xml", {
 test_that("gtr_gcc_1_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_gtr_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -134,7 +134,7 @@ test_that("gtr_gcc_1_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path("gtr_gcc_1_2_4.xml"))
+  expected <- readLines(beautier::get_path("gtr_gcc_1_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -158,7 +158,7 @@ test_that("gtr_gcc_1_2_4.xml", {
 test_that("gtr_gcc_2_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_gtr_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -193,7 +193,7 @@ test_that("gtr_gcc_2_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path("gtr_gcc_2_2_4.xml"))
+  expected <- readLines(beautier::get_path("gtr_gcc_2_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -213,7 +213,7 @@ test_that("gtr_gcc_2_2_4.xml", {
 test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_gtr_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -249,7 +249,7 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path("gtr_gcc_2_shape_1_5_2_4.xml"))
+  expected <- readLines(beautier::get_path("gtr_gcc_2_shape_1_5_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -269,7 +269,7 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_gtr_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -306,7 +306,7 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"))
 
   testthat::expect_true(
@@ -324,6 +324,45 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
+test_that("gtr_no_rate_estimation_2_4.xml", {
+
+  created <- beautier::create_beast2_input(
+    input_filenames = get_fasta_filename(),
+    site_models = create_gtr_site_model(
+      id = get_id(get_fasta_filename()),
+      rate_ac_param = create_rate_ac_param(value = "1.0", estimate = FALSE),
+      rate_ag_param = create_rate_ag_param(value = "1.0", estimate = FALSE),
+      rate_at_param = create_rate_at_param(value = "1.0", estimate = FALSE),
+      rate_cg_param = create_rate_cg_param(value = "1.0", estimate = FALSE),
+      rate_ct_param = create_rate_ct_param(value = "1.0", estimate = FALSE),
+      rate_gt_param = create_rate_gt_param(value = "1.0", estimate = FALSE)
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1))
+  )
+
+  expected <- readLines(beautier::get_path("gtr_no_rate_estimation_2_4.xml"))
+
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "state")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "distribution")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "operators")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "logger")
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+
 ################################################################################
 # Site model: HKY
 ################################################################################
@@ -331,7 +370,7 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 test_that("hky_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_hky_site_model(
       id = get_id(get_fasta_filename()),
       kappa_prior_distr = create_log_normal_distr(
@@ -344,7 +383,7 @@ test_that("hky_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path("hky_2_4.xml"))
+  expected <- readLines(beautier::get_path("hky_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -366,7 +405,7 @@ test_that("hky_2_4.xml", {
 test_that("hky_kappa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_hky_site_model(
       id = get_id(get_fasta_filename()),
       kappa = 3.4,
@@ -379,7 +418,7 @@ test_that("hky_kappa_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "hky_kappa_2_4.xml"))
 
   testthat::expect_true(
@@ -396,7 +435,7 @@ test_that("hky_kappa_2_4.xml", {
 test_that("hky_prop_invariant_0_5_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_hky_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -411,7 +450,7 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "hky_prop_invariant_0_5_2_4.xml"))
 
   testthat::expect_true(
@@ -428,7 +467,7 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
 test_that("hky_gcc_1_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_hky_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -443,7 +482,7 @@ test_that("hky_gcc_1_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "hky_gcc_1_2_4.xml"))
 
   testthat::expect_true(
@@ -460,7 +499,7 @@ test_that("hky_gcc_1_2_4.xml", {
 test_that("hky_gcc_2_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_hky_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -475,7 +514,7 @@ test_that("hky_gcc_2_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "hky_gcc_2_2_4.xml"))
 
   testthat::expect_true(
@@ -493,7 +532,7 @@ test_that("hky_gcc_2_2_4.xml", {
 test_that("hky_gcc_4_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_hky_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -508,7 +547,7 @@ test_that("hky_gcc_4_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "hky_gcc_4_2_4.xml"))
 
   testthat::expect_true(
@@ -529,10 +568,10 @@ test_that("hky_gcc_4_2_4.xml", {
 
 test_that("jc69_2_4.xml", {
 
-  input_fasta_filename <- beautier:::get_path("test_output_0.fas")
+  input_fasta_filename <- beautier::get_path("test_output_0.fas")
   id <- get_id(input_fasta_filename)
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+    input_filenames = input_fasta_filename,
     site_models = create_jc69_site_model(
       id = id
     ),
@@ -541,7 +580,7 @@ test_that("jc69_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "jc69_2_4.xml"))
 
   testthat::expect_true(
@@ -557,11 +596,11 @@ test_that("jc69_2_4.xml", {
 
 test_that("jc69_gcc_2_2_4.xml", {
 
-  input_fasta_filename <- beautier:::get_path("test_output_0.fas")
+  input_fasta_filename <- beautier::get_path("test_output_0.fas")
   id <- get_id(input_fasta_filename)
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+    input_filenames = input_fasta_filename,
     site_models = create_jc69_site_model(
       id = id,
       gamma_site_model = create_gamma_site_model(
@@ -571,7 +610,7 @@ test_that("jc69_gcc_2_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "jc69_gcc_2_2_4.xml"))
 
   testthat::expect_true(
@@ -587,11 +626,11 @@ test_that("jc69_gcc_2_2_4.xml", {
 
 test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
 
-  input_fasta_filename <- beautier:::get_path("test_output_0.fas")
+  input_fasta_filename <- beautier::get_path("test_output_0.fas")
   id <- get_id(input_fasta_filename)
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = input_fasta_filename,
+    input_filenames = input_fasta_filename,
     site_models = create_jc69_site_model(
       id = id,
       gamma_site_model = create_gamma_site_model(
@@ -602,7 +641,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "jc69_gcc_2_shape_1_5_2_4.xml"))
 
   testthat::expect_true(
@@ -619,7 +658,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
 test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_jc69_site_model(
       id = "test_output_0",
       gamma_site_model = create_gamma_site_model(
@@ -632,7 +671,7 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
 
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"))
 
   testthat::expect_true(
@@ -653,7 +692,7 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 test_that("tn93_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_tn93_site_model(
       id = get_id(get_fasta_filename()),
       kappa_1_prior_distr = create_log_normal_distr(
@@ -671,7 +710,7 @@ test_that("tn93_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "tn93_2_4.xml"))
 
   testthat::expect_true(
@@ -688,7 +727,7 @@ test_that("tn93_2_4.xml", {
 test_that("tn93_gcc_1_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_tn93_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1),
@@ -707,7 +746,7 @@ test_that("tn93_gcc_1_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "tn93_gcc_1_2_4.xml"))
 
   testthat::expect_true(
@@ -724,7 +763,7 @@ test_that("tn93_gcc_1_2_4.xml", {
 test_that("tn93_gcc_2_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     site_models = create_tn93_site_model(
       id = get_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2),
@@ -743,7 +782,7 @@ test_that("tn93_gcc_2_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "tn93_gcc_2_2_4.xml"))
 
   testthat::expect_true(
@@ -769,7 +808,7 @@ test_that("tn93_gcc_2_2_4.xml", {
 test_that("bd_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_bd_tree_prior(
       birth_rate_distr = beautier::create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -778,7 +817,7 @@ test_that("bd_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "bd_2_4.xml"))
 
   testthat::expect_true(
@@ -795,7 +834,7 @@ test_that("bd_2_4.xml", {
 test_that("bd_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
+    input_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_bd_tree_prior(
       birth_rate_distr = beautier::create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -804,7 +843,7 @@ test_that("bd_6_taxa_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "bd_6_taxa_2_4.xml"))
 
   testthat::expect_true(
@@ -822,11 +861,11 @@ test_that("bd_6_taxa_2_4.xml", {
 test_that("cbs_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
+    input_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_cbs_tree_prior()
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "cbs_6_taxa_2_4.xml"))
 
   testthat::expect_true(
@@ -848,13 +887,13 @@ test_that("cbs_6_taxa_2_4.xml", {
 test_that("ccp_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
+    input_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "ccp_6_taxa_2_4.xml"))
 
 
@@ -873,7 +912,7 @@ test_that("ccp_6_taxa_2_4.xml", {
 test_that("cep_6_taxa_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier::get_path("test_output_6.fas"),
+    input_filenames = beautier::get_path("test_output_6.fas"),
     tree_priors = beautier::create_cep_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 2),
       growth_rate_distr = create_laplace_distr(
@@ -884,7 +923,7 @@ test_that("cep_6_taxa_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "cep_6_taxa_2_4.xml"))
 
 
@@ -907,11 +946,11 @@ test_that("cep_6_taxa_2_4.xml", {
 test_that("cbs_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_cbs_tree_prior()
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "cbs_2_4.xml"))
 
 
@@ -927,16 +966,6 @@ test_that("cbs_2_4.xml", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
-test_that("cbs_2_4.xml is invalid", {
-
-  # cbs_2_4.xml is invalid,
-  # because the groupSize's dimension is 5 by default,
-  # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
-  # groupSize cannot be more than 4
-  filename <- beautier:::get_path("cbs_2_4.xml")
-  testthat::expect_false(beastier:::is_beast2_input_file(filename))
-})
-
 ################################################################################
 # Tree prior: CCP
 ################################################################################
@@ -944,13 +973,13 @@ test_that("cbs_2_4.xml is invalid", {
 test_that("ccp_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "ccp_2_4.xml"))
 
 
@@ -969,7 +998,7 @@ test_that("ccp_2_4.xml", {
 test_that("ccp_pop_size_gamma_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_ccp_tree_prior(
       pop_size_distr = beautier::create_gamma_distr(
         id = 2,
@@ -979,7 +1008,7 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "ccp_pop_size_gamma_2_4.xml"))
 
   testthat::expect_true(
@@ -1001,7 +1030,7 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
 test_that("cep_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_cep_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1),
       growth_rate_distr = create_laplace_distr(
@@ -1012,7 +1041,7 @@ test_that("cep_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path("cep_2_4.xml"))
+  expected <- readLines(beautier::get_path("cep_2_4.xml"))
 
 
   testthat::expect_true(
@@ -1034,12 +1063,12 @@ test_that("cep_2_4.xml", {
 test_that("yule_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "yule_2_4.xml"))
 
   testthat::expect_true(
@@ -1059,12 +1088,12 @@ test_that("yule_2_4.xml", {
 test_that("birth_rate_uniform_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_uniform_2_4.xml"))
 
   testthat::expect_true(
@@ -1081,7 +1110,7 @@ test_that("birth_rate_uniform_2_4.xml", {
 test_that("birth_rate_normal_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         id = 0,
@@ -1091,7 +1120,7 @@ test_that("birth_rate_normal_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_normal_2_4.xml"))
 
   testthat::expect_true(
@@ -1108,13 +1137,13 @@ test_that("birth_rate_normal_2_4.xml", {
 test_that("birth_rate_one_div_x_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_one_div_x_distr(id = 1)
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_one_div_x_2_4.xml"))
 
   testthat::expect_true(
@@ -1131,7 +1160,7 @@ test_that("birth_rate_one_div_x_2_4.xml", {
 test_that("birth_rate_log_normal_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_log_normal_distr(
         id = 0,
@@ -1147,7 +1176,7 @@ test_that("birth_rate_log_normal_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_log_normal_2_4.xml"))
 
   testthat::expect_true(
@@ -1164,7 +1193,7 @@ test_that("birth_rate_log_normal_2_4.xml", {
 test_that("birth_rate_exp_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_exp_distr(
         id = 1,
@@ -1173,7 +1202,7 @@ test_that("birth_rate_exp_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_exp_2_4.xml"))
 
   testthat::expect_true(
@@ -1191,7 +1220,7 @@ test_that("birth_rate_exp_2_4.xml", {
 test_that("birth_rate_gamma_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = beautier::create_yule_tree_prior(
       birth_rate_distr = beautier::create_gamma_distr(
         id = 0,
@@ -1201,7 +1230,7 @@ test_that("birth_rate_gamma_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_gamma_2_4.xml"))
 
   testthat::expect_true(
@@ -1218,7 +1247,7 @@ test_that("birth_rate_gamma_2_4.xml", {
 test_that("birth_rate_beta_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_beta_distr(
         id = 0,
@@ -1228,7 +1257,7 @@ test_that("birth_rate_beta_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_beta_2_4.xml"))
 
   testthat::expect_true(
@@ -1249,7 +1278,7 @@ test_that("birth_rate_beta_2_4.xml", {
 test_that("birth_rate_laplace_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_laplace_distr(
         id = 0,
@@ -1259,7 +1288,7 @@ test_that("birth_rate_laplace_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_laplace_2_4.xml"))
 
   testthat::expect_true(
@@ -1280,7 +1309,7 @@ test_that("birth_rate_laplace_2_4.xml", {
 test_that("birth_rate_inv_gamma_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_inv_gamma_distr(
         id = 0,
@@ -1298,7 +1327,7 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "birth_rate_inv_gamma_2_4.xml"))
 
   testthat::expect_true(
@@ -1321,7 +1350,7 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
 test_that("birth_rate_poisson_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_poisson_distr(
         id = 0,
@@ -1330,7 +1359,7 @@ test_that("birth_rate_poisson_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier:::get_path("birth_rate_poisson_2_4.xml"))
+  expected <- readLines(beautier::get_path("birth_rate_poisson_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -1343,6 +1372,31 @@ test_that("birth_rate_poisson_2_4.xml", {
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "operators")
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+################################################################################
+# MCMC options
+################################################################################
+
+test_that("aco_mcmc_chainlength_10_store_every_1.xml", {
+
+  created <- beautier::create_beast2_input(
+    input_filenames = beautier::get_path("anthus_aco.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mcmc = create_mcmc(chain_length =  10, store_every = 1),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+
+  expected <- readLines(beautier::get_path(
+    "aco_mcmc_chainlength_10_store_every_1.xml")
+  )
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "run")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

@@ -29,8 +29,12 @@
 #'   If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
+#' @param gamma_site_model a site model's gamma site model,
+#'   as returned by \code{\link{create_gamma_site_model}}
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
+#' @param jc69_site_model a JC69 site model,
+#'   as returned by \code{\link{create_jc69_site_model}}
 #' @param gtr_site_model a GTR site model,
 #'   as returned by \code{\link{create_gtr_site_model}}
 #' @param id an alignment's IDs.
@@ -42,7 +46,7 @@
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
 #'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
 #'   the phylogeny is assumed to be of class ape::phylo.
-#' @param input_fasta_filenames One or more FASTA filenames.
+#' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param is_first boolean to indicate if this is the first
 #'   out of many (one, two or more)
@@ -50,7 +54,7 @@
 #'   as returned by \code{\link{create_mcmc}}
 #' @param misc_options one misc_options object,
 #'   as returned by \code{\link{create_misc_options}}
-#' @param output_xml_filename Name of the XML parameter file created by this
+#' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
 #' @param posterior_crown_age the crown age the posteriors'
@@ -86,16 +90,18 @@ default_params_doc <- function(
   fasta_filename, fasta_filenames,
   fixed_crown_age,
   fixed_crown_ages,
+  gamma_site_model,
   gtr_site_model,
   hky_site_model,
   id,
   ids,
   initial_phylogenies,
-  input_fasta_filenames,
+  input_filenames,
   is_first,
+  jc69_site_model,
   mcmc,
   misc_options,
-  output_xml_filename,
+  output_filename,
   param_id,
   posterior_crown_age,
   rln_clock_model,

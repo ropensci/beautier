@@ -33,7 +33,7 @@
 #'   distr <- create_beta_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = distr
@@ -73,9 +73,11 @@ create_distr <- function(
 #' Create a beta distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
-#'   as returned by \code{\link{create_alpha_param}}
+#'   as returned by \code{\link{create_alpha_param}}. The value
+#'   of alpha must be at least 0.0.
 #' @param beta the beta shape parameter,
-#'   as returned by \code{\link{create_beta_param}}
+#'   as returned by \code{\link{create_beta_param}}. The value
+#'   of beta must be at least 1.0.
 #' @return a beta distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -84,7 +86,7 @@ create_distr <- function(
 #'   beta_distr <- create_beta_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_beta_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -105,6 +107,12 @@ create_beta_distr <- function(
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
+  if (alpha$value < 0.0) {
+    stop("'alpha' must have a positive value")
+  }
+  if (beta$value < 1.0) {
+    stop("'beta' must have a value of at least 1.0")
+  }
   return(
     beautier::create_distr(
       name = "beta",
@@ -113,6 +121,19 @@ create_beta_distr <- function(
       beta = beta
     )
   )
+}
+
+#' Alternative name for \code{\link{create_beta_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_beta_distr}} for examples.
+#' @inherit create_beta_distr
+#' @export
+create_distr_beta <- function(
+  id = NA,
+  alpha = create_alpha_param(),
+  beta = create_beta_param()
+) {
+  create_beta_distr(id = id, alpha = alpha, beta = beta)
 }
 
 #' Create an exponential distribution
@@ -127,7 +148,7 @@ create_beta_distr <- function(
 #'   exp_distr <- create_exp_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
@@ -137,7 +158,7 @@ create_beta_distr <- function(
 #' @export
 create_exp_distr <- function(
   id = NA,
-  mean = create_mean_param()
+  mean = create_mean_param(value = 1.0)
 ) {
   if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
@@ -150,6 +171,18 @@ create_exp_distr <- function(
       mean = mean
     )
   )
+}
+
+#' Alternative name for \code{\link{create_exp_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_exp_distr}} for examples.
+#' @inherit create_exp_distr
+#' @export
+create_distr_exp <- function(
+  id = NA,
+  mean = create_mean_param()
+) {
+  create_exp_distr(id = id, mean = mean)
 }
 
 #' Create a gamma distribution
@@ -173,7 +206,7 @@ create_exp_distr <- function(
 #'   )
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_gamma_distr.xml",
 #'     site_model = gtr_site_model
 #'   )
@@ -192,14 +225,32 @@ create_gamma_distr <- function(
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
-  return(
-    beautier::create_distr(
-      name = "gamma",
-      id = id,
-      alpha = alpha,
-      beta = beta
-    )
+  if (alpha$value < 0.0) {
+    stop("'value' of 'alpha' must be positive")
+  }
+  if (beta$value < 0.0) {
+    stop("'value' of 'beta' must be positive")
+  }
+
+  beautier::create_distr(
+    name = "gamma",
+    id = id,
+    alpha = alpha,
+    beta = beta
   )
+}
+
+#' Alternative name for \code{\link{create_gamma_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_gamma_distr}} for examples.
+#' @inherit create_gamma_distr
+#' @export
+create_distr_gamma <- function(
+  id = NA,
+  alpha = create_alpha_param(id = NA, estimate = FALSE, value = "0.5396"),
+  beta = create_beta_param(id = NA, estimate = FALSE, value = "0.3819")
+) {
+  create_gamma_distr(id = id, alpha = alpha, beta = beta)
 }
 
 #' Create an inverse gamma distribution
@@ -216,7 +267,7 @@ create_gamma_distr <- function(
 #'   inv_gamma_distr <- create_inv_gamma_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = inv_gamma_distr
@@ -247,6 +298,19 @@ create_inv_gamma_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_inv_gamma_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_inv_gamma_distr}} for examples.
+#' @inherit create_inv_gamma_distr
+#' @export
+create_distr_inv_gamma <- function(
+  id = NA,
+  alpha = create_alpha_param(),
+  beta = create_beta_param()
+) {
+  create_inv_gamma_distr(id = id, alpha = alpha, beta = beta)
+}
+
 #' Create a Laplace distribution
 #' @inheritParams create_distr
 #' @param mu the mu parameter,
@@ -261,7 +325,7 @@ create_inv_gamma_distr <- function(
 #'   laplace_distr <- create_laplace_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_laplace_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -292,6 +356,19 @@ create_laplace_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_laplace_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_laplace_distr}} for examples.
+#' @inherit create_laplace_distr
+#' @export
+create_distr_laplace <- function(
+  id = NA,
+  mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
+  scale = create_scale_param(id = NA, estimate = FALSE, value = 1.0)
+) {
+  create_laplace_distr(id = id, mu = mu, scale = scale)
+}
+
 #' Create a log-normal distribution
 #' @inheritParams create_distr
 #' @param m the m parameter,
@@ -306,7 +383,7 @@ create_laplace_distr <- function(
 #'   log_normal_distr <- create_log_normal_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -325,6 +402,9 @@ create_log_normal_distr <- function(
   if (!is_s_param(s)) {
     stop("'s' must be an s parameter, as returned by 'create_s_param'")
   }
+  if (s$value < 0.0) {
+    stop("'value' of 's' must be positive")
+  }
   return(
     beautier::create_distr(
       name = "log_normal",
@@ -333,6 +413,19 @@ create_log_normal_distr <- function(
       s = s
     )
   )
+}
+
+#' Alternative name for \code{\link{create_log_normal_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_log_normal_distr}} for examples.
+#' @inherit create_log_normal_distr
+#' @export
+create_distr_log_normal <- function(
+  id = NA,
+  m = create_m_param(),
+  s = create_s_param()
+) {
+  create_log_normal_distr(id = id, m = m, s = s)
 }
 
 #' Create an normal distribution
@@ -349,7 +442,7 @@ create_log_normal_distr <- function(
 #'   normal_distr <- create_normal_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
@@ -380,6 +473,19 @@ create_normal_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_normal_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_normal_distr}} for examples.
+#' @inherit create_normal_distr
+#' @export
+create_distr_normal <- function(
+  id = NA,
+  mean = create_mean_param(),
+  sigma = create_sigma_param()
+) {
+  create_normal_distr(id = id, mean = mean, sigma = sigma)
+}
+
 #' Create a 1/x distribution
 #' @inheritParams create_distr
 #' @return a 1/x distribution
@@ -390,7 +496,7 @@ create_normal_distr <- function(
 #'   one_div_x_distr <- create_one_div_x_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = one_div_x_distr
@@ -409,6 +515,17 @@ create_one_div_x_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_one_div_x_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_one_div_x_distr}} for examples.
+#' @inherit create_one_div_x_distr
+#' @export
+create_distr_one_div_x <- function(
+  id = NA
+) {
+  create_one_div_x_distr(id = id)
+}
+
 #' Create a Poisson distribution
 #' @inheritParams create_distr
 #' @param lambda the lambda parameter
@@ -421,7 +538,7 @@ create_one_div_x_distr <- function(
 #'   poisson_distr <- create_poisson_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_poisson_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
@@ -446,6 +563,19 @@ create_poisson_distr <- function(
   )
 }
 
+#' Alternative name for \code{\link{create_poisson_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_poisson_distr}} for examples.
+#' @inherit create_poisson_distr
+#' @export
+create_distr_poisson <- function(
+  id = NA,
+  lambda = create_lambda_param()
+) {
+  create_poisson_distr(id = id, lambda = lambda)
+}
+
+
 #' Create a uniform distribution
 #' @inheritParams create_distr
 #' @param upper an upper limit of the uniform distribution.
@@ -458,7 +588,7 @@ create_poisson_distr <- function(
 #'   uniform_distr <- create_uniform_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "create_uniform_distr.xml",
 #'     tree_priors = create_yule_tree_prior(
 #'       birth_rate_distr = uniform_distr
@@ -470,11 +600,24 @@ create_uniform_distr <- function(
   id = NA,
   upper = Inf
 ) {
-  return(
-    beautier::create_distr(
-      name = "uniform",
-      id = id,
-      upper = upper
-    )
+  if (!is.na(upper) && upper <= 0.0) {
+    stop("'upper' must be non-zero and positive")
+  }
+  beautier::create_distr(
+    name = "uniform",
+    id = id,
+    upper = upper
   )
+}
+
+#' Alternative name for \code{\link{create_uniform_distr}}, to help
+#' the user find the function from a search tree. See
+#' \code{\link{create_uniform_distr}} for examples.
+#' @inherit create_uniform_distr
+#' @export
+create_distr_uniform <- function(
+  id = NA,
+  upper = Inf
+) {
+  create_uniform_distr(id = id, upper = upper)
 }

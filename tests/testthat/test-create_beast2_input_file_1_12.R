@@ -1,45 +1,80 @@
 context("create_beast2_input_file_1_12")
 
-test_that("checks input", {
+test_that("use", {
 
-  # Don't: input is checked by 'create_beast2_input_1_12'
-  # See 'create_beast2_input_1_12' tests
+  output_filename <- tempfile()
+  testit::assert(!file.exists(output_filename))
+
+  testthat::expect_silent(
+    create_beast2_input_file_1_12(
+      get_fasta_filename(),
+      output_filename
+    )
+  )
+
+  testthat::expect_true(file.exists(output_filename))
+
 })
 
-test_that("Can specify fixed crown age", {
+test_that("create data set of two alignments, with/out fixed crown ages", {
 
-  if (!is_on_travis()) return()
+  output_filename <- tempfile()
+  testit::assert(!file.exists(output_filename))
 
-  input_fasta_filename <- beautier::get_fasta_filename()
-  output_xml_filename_fixed <- tempfile()
+  fasta_filename_1 <- get_path("anthus_aco.fas")
+  fasta_filename_2 <- get_path("anthus_nd2.fas")
+  fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
 
-  beautier::create_beast2_input_file_1_12(
-    input_fasta_filenames = input_fasta_filename,
-    output_xml_filename = output_xml_filename_fixed,
-    fixed_crown_ages = TRUE,
-    initial_phylogenies = beautier::fasta_to_phylo(
-      input_fasta_filename, crown_age = 15)
+  phylo_1_15 <- fasta_to_phylo(fasta_filename_1, crown_age = 15)
+  phylo_2_15 <- fasta_to_phylo(fasta_filename_2, crown_age = 15)
+  phylo_2_26 <- fasta_to_phylo(fasta_filename_2, crown_age = 26)
+
+  testthat::expect_silent(
+    create_beast2_input_file_1_12(
+      fasta_filenames,
+      "anthus_na_na.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000)
+    )
   )
-  testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
+
+  testthat::expect_silent(
+    create_beast2_input_file_1_12(
+      fasta_filenames,
+      "anthus_15_15.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
+      fixed_crown_ages = c(TRUE, TRUE),
+      initial_phylogenies = list(phylo_1_15, phylo_2_15)
+    )
   )
-})
 
-test_that("Can specify fixed crown ages", {
-
-  if (!is_on_travis()) return()
-
-  input_fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
-  output_xml_filename_fixed <- tempfile()
-
-  beautier::create_beast2_input_file_1_12(
-    input_fasta_filenames = input_fasta_filenames,
-    output_xml_filename = output_xml_filename_fixed,
-    fixed_crown_ages = c(TRUE, TRUE),
-    initial_phylogenies = beautier::fastas_to_phylos(
-      input_fasta_filenames, crown_age = 15)
+  testthat::expect_silent(
+    create_beast2_input_file_1_12(
+      fasta_filenames,
+      "anthus_na_15.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
+      fixed_crown_ages = c(FALSE, TRUE),
+      initial_phylogenies = list(NA, phylo_2_15)
+    )
   )
-  testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
+
+    testthat::expect_silent(
+    create_beast2_input_file_1_12(
+      fasta_filenames,
+      "anthus_15_na.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
+      fixed_crown_ages = c(TRUE, FALSE),
+      initial_phylogenies = list(phylo_1_15, NA)
+    )
   )
+
+  testthat::expect_silent(
+    create_beast2_input_file_1_12(
+      fasta_filenames,
+      "anthus_15_26.xml",
+      mcmc = create_mcmc(chain_length = 10000, store_every = 1000),
+      fixed_crown_ages = c(TRUE, TRUE),
+      initial_phylogenies = list(phylo_1_15, phylo_2_26)
+    )
+  )
+
 })

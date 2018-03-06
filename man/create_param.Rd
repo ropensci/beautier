@@ -28,6 +28,7 @@ Prefer using the
   \code{\link{create_clock_rate_param}},
   \code{\link{create_kappa_1_param}},
   \code{\link{create_kappa_2_param}},
+  \code{\link{create_lambda_param}},
   \code{\link{create_m_param}},
   \code{\link{create_mean_param}},
   \code{\link{create_mu_param}},
@@ -52,7 +53,7 @@ Prefer using the
 
   # Use the distribution to create a BEAST2 input file
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_alpha_param.xml",
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = beta_distr

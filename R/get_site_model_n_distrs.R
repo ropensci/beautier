@@ -3,24 +3,24 @@
 #' @return the number of distributions a site model has
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   # rates AC, AG, AT, CG and GT
+#'   # gamma site model, rates AC, AG, AT, CG and GT
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_gtr_site_model()) == 5
+#'     beautier:::get_site_model_n_distrs(create_gtr_site_model()) == 6
 #'   )
 #'
-#'   # kappa
+#'   # gamma site model, kappa
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_hky_site_model()) == 1
+#'     beautier:::get_site_model_n_distrs(create_hky_site_model()) == 2
 #'   )
 #'
-#'   # no distributions
+#'   # gamma site model
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_jc69_site_model()) == 0
+#'     beautier:::get_site_model_n_distrs(create_jc69_site_model()) == 1
 #'   )
 #'
-#'   # kappa 1 and kappa 2
+#'   # gamma site model, kappa 1 and kappa 2
 #'   testit::assert(
-#'     beautier:::get_site_model_n_distrs(create_tn93_site_model()) == 2
+#'     beautier:::get_site_model_n_distrs(create_tn93_site_model()) == 3
 #'   )
 get_site_model_n_distrs <- function(
   site_model
@@ -28,14 +28,15 @@ get_site_model_n_distrs <- function(
   if (!is_site_model(site_model)) {
     stop("'site_model' must be a site model")
   }
+  gamma_site_model_n_distrs <- 1
   if (is_gtr_site_model(site_model)) {
-    return(5)
+    return(5 + gamma_site_model_n_distrs)
   } else if (is_hky_site_model(site_model)) {
-    return(1)
+    return(1 + gamma_site_model_n_distrs)
   } else if (is_jc69_site_model(site_model)) {
-    return(0)
+    return(0 + gamma_site_model_n_distrs)
   } else {
     testit::assert(is_tn93_site_model(site_model))
-    return(2)
+    return(2 + gamma_site_model_n_distrs)
   }
 }

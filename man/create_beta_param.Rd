@@ -4,7 +4,7 @@
 \alias{create_beta_param}
 \title{Create a parameter called beta}
 \usage{
-create_beta_param(id = NA, estimate = FALSE, value = 0)
+create_beta_param(id = NA, estimate = FALSE, value = 1)
 }
 \arguments{
 \item{id}{the parameter's ID}
@@ -39,7 +39,7 @@ and inverse gamma distribution
 
   # Use the distribution to create a BEAST2 input file
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_beta_param.xml",
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = gamma_distr

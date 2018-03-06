@@ -1,41 +1,16 @@
 context("create_beast2_input_file")
 
-test_that("checks input", {
+test_that("use", {
 
-  # Don't: input is checked by 'create_beast2_input'
-  # See 'create_beast2_input' tests
-})
+  output_filename <- tempfile()
+  testit::assert(!file.exists(output_filename))
 
-test_that("Can specify fixed crown age", {
-
-  if (!is_on_travis()) return()
-
-  input_fasta_filename <- beautier::get_fasta_filename()
-  output_xml_filename_fixed <- tempfile()
-
-  beautier::create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filename,
-    output_xml_filename = output_xml_filename_fixed,
-    posterior_crown_age = 15
+  testthat::expect_silent(
+    create_beast2_input_file(
+      get_fasta_filename(),
+      output_filename
+    )
   )
-  testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
-  )
-})
 
-test_that("Can specify fixed crown ages", {
-
-  if (!is_on_travis()) return()
-
-  input_fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
-  output_xml_filename_fixed <- tempfile()
-
-  beautier::create_beast2_input_file(
-    input_fasta_filenames = input_fasta_filenames,
-    output_xml_filename = output_xml_filename_fixed,
-    posterior_crown_age = 15
-  )
-  testthat::expect_true(
-    beastier:::is_beast2_input_file(output_xml_filename_fixed)
-  )
+  testthat::expect_true(file.exists(output_filename))
 })

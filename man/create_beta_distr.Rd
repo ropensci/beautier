@@ -11,10 +11,12 @@ create_beta_distr(id = NA, alpha = create_alpha_param(),
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
-as returned by \code{\link{create_alpha_param}}}
+as returned by \code{\link{create_alpha_param}}. The value
+of alpha must be at least 0.0.}
 
 \item{beta}{the beta shape parameter,
-as returned by \code{\link{create_beta_param}}}
+as returned by \code{\link{create_beta_param}}. The value
+of beta must be at least 1.0.}
 }
 \value{
 a beta distribution
@@ -26,7 +28,7 @@ Create a beta distribution
   beta_distr <- create_beta_distr()
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_beta_distr.xml",
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = beta_distr

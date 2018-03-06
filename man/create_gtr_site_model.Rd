@@ -77,7 +77,7 @@ Create a GTR site model
   gtr_site_model <- create_gtr_site_model()
 
   create_beast2_input_file(
-    input_fasta_filenames = get_fasta_filename(),
+    input_filenames = get_fasta_filename(),
     "create_gtr_site_model.xml",
     site_models = gtr_site_model
   )

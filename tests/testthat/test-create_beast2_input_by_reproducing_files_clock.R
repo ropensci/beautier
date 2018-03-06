@@ -16,7 +16,7 @@ context(
 test_that("rln_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
         id = 0,
@@ -29,7 +29,7 @@ test_that("rln_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
-  expected <- readLines(beautier:::get_path("rln_2_4.xml"))
+  expected <- readLines(beautier::get_path("rln_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -54,7 +54,7 @@ test_that("rln_2_4.xml", {
 test_that("rln_uclstdev_beta_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_beta_distr(
         id = 0,
@@ -66,7 +66,7 @@ test_that("rln_uclstdev_beta_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier:::get_path("rln_uclstdev_beta_2_4.xml"))
+  expected <- readLines(beautier::get_path("rln_uclstdev_beta_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
@@ -88,12 +88,12 @@ test_that("rln_uclstdev_beta_2_4.xml", {
 test_that("strict_clock_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path("strict_clock_2_4.xml"))
+  expected <- readLines(beautier::get_path("strict_clock_2_4.xml"))
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -111,7 +111,7 @@ test_that("strict_clock_2_4.xml", {
 test_that("strict_clock_rate_0_5_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_path("test_output_0.fas"),
+    input_filenames = beautier::get_path("test_output_0.fas"),
     clock_models = create_strict_clock_model(
       clock_rate_param = create_clock_rate_param(
         id = "test_output_0.fas",
@@ -122,7 +122,7 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "strict_clock_rate_0_5_2_4.xml"))
 
   testthat::expect_true(
@@ -143,7 +143,7 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
 test_that("aco_nd2_strict_strict_2_4.xml, strict strict", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
     clock_models = list(
@@ -165,7 +165,7 @@ test_that("aco_nd2_strict_strict_2_4.xml, strict strict", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "aco_nd2_strict_strict_2_4.xml"))
 
   testthat::expect_true(
@@ -192,8 +192,20 @@ test_that("aco_nd2_strict_strict_2_4.xml, strict strict", {
 test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
+    ),
+    site_models = list(
+      create_jc69_site_model(
+        gamma_site_model = create_gamma_site_model(
+          gamma_shape_prior_distr = create_exp_distr(id = 0)
+        )
+      ),
+      create_jc69_site_model(
+        gamma_site_model = create_gamma_site_model(
+          gamma_shape_prior_distr = create_exp_distr(id = 0)
+        )
+      )
     ),
     clock_models = list(
       create_strict_clock_model(
@@ -205,7 +217,8 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
           alpha = create_alpha_param(id = 3, value = "0.5396"),
           beta = create_beta_param(id = 4, value = "0.3819")
         ),
-        mean_rate_prior_distr = create_uniform_distr(id = 6)
+        mean_rate_prior_distr = create_uniform_distr(id = 6),
+        mparam_id = 2
       )
     ),
     tree_priors = list(
@@ -219,7 +232,7 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "aco_nd2_strict_rln_2_4.xml"))
 
   testthat::expect_true(
@@ -246,7 +259,7 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
 test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas")
     ),
     clock_models = list(
@@ -281,7 +294,7 @@ test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
     ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "aco_nd2_rln_rln_2_4.xml"))
 
   testthat::expect_true(
@@ -316,7 +329,7 @@ test_that("aco_nd2_rln_rln_2_4.xml, RLN RLN", {
 test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
 
   created <- beautier::create_beast2_input(
-    input_fasta_filenames = beautier:::get_paths(
+    input_filenames = beautier::get_paths(
       c("anthus_aco.fas", "anthus_nd2.fas", "anthus_nd3.fas", "anthus_nd4.fas")
     ),
     clock_models = list(
@@ -340,7 +353,7 @@ test_that("aco_nd2_nd3_nd4_shared_clock_2_4.xml", {
       nucleotides_uppercase = TRUE
     )
   )
-  expected <- readLines(beautier:::get_path(
+  expected <- readLines(beautier::get_path(
     "aco_nd2_nd3_nd4_shared_clock_2_4.xml"))
 
   testthat::expect_true(

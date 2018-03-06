@@ -4,10 +4,13 @@
 \alias{create_mcmc}
 \title{Function to create the MCMC options, as in the BEAUti MCMC tab.}
 \usage{
-create_mcmc(chain_length = 1e+07)
+create_mcmc(chain_length = 1e+07, store_every = -1)
 }
 \arguments{
 \item{chain_length}{the MCMC's chain length}
+
+\item{store_every}{number of states the posterior will be saved to file.
+Use -1 or NA to use the default frequency}
 }
 \value{
 an mcmc

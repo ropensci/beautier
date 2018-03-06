@@ -28,21 +28,31 @@ site_model_to_xml_operators <- function(
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
   } else if (is_gtr_site_model(site_model)) {
     testit::assert(is_id(id))
-    text <- c(text, paste0("<operator id=\"RateACScaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0("<operator id=\"RateAGScaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@rateAG.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0("<operator id=\"RateATScaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@rateAT.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0("<operator id=\"RateCGScaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@rateCG.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0("<operator id=\"RateGTScaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    if (site_model$rate_ac_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"RateACScaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
+    if (site_model$rate_ag_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"RateAGScaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@rateAG.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
+    if (site_model$rate_at_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"RateATScaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@rateAT.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
+    if (site_model$rate_cg_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"RateCGScaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@rateCG.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
+    if (site_model$rate_gt_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"RateGTScaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
   }
   if (!is_jc69_site_model(site_model)) {
     testit::assert(is_id(id))

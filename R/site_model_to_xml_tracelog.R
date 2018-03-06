@@ -20,11 +20,21 @@ site_model_to_xml_tracelog <- function(
     text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>"))
     text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>"))
   } else if (is_gtr_site_model(site_model)) {
-    text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>"))
-    text <- c(text, paste0("<log idref=\"rateAG.s:", id, "\"/>"))
-    text <- c(text, paste0("<log idref=\"rateAT.s:", id, "\"/>"))
-    text <- c(text, paste0("<log idref=\"rateCG.s:", id, "\"/>"))
-    text <- c(text, paste0("<log idref=\"rateGT.s:", id, "\"/>"))
+    if (site_model$rate_ac_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>"))
+    }
+    if (site_model$rate_ag_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"rateAG.s:", id, "\"/>"))
+    }
+    if (site_model$rate_at_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"rateAT.s:", id, "\"/>"))
+    }
+    if (site_model$rate_cg_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"rateCG.s:", id, "\"/>"))
+    }
+    if (site_model$rate_gt_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"rateGT.s:", id, "\"/>"))
+    }
   }
   if (!is_jc69_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"freqParameter.s:", id, "\"/>"))

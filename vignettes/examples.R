@@ -113,3 +113,17 @@ beautier::create_beast2_input_file(
   )
 )
 
+## ----cleanup, include = FALSE--------------------------------------------
+# Cleaning up
+filenames <- c(
+  "my_fasta.fas", 
+  "my_alignment.fas",
+  "test_output_0.fas", 
+  "anthus_aco.fas", 
+  "anthus_nd2.fas",
+  "my_beast.xml"
+)
+for (filename in filenames) {
+  if (file.exists(filename)) file.remove(filename)
+}
+

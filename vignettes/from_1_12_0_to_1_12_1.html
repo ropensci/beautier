@@ -12,7 +12,7 @@
 
 <meta name="author" content="Richel J.C. Bilderbeek" />
 
-<meta name="date" content="2017-12-23" />
+<meta name="date" content="2018-02-19" />
 
 <title>From 1.12.0 to 1.12.1</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">From 1.12.0 to 1.12.1</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
-<h4 class="date"><em>2017-12-23</em></h4>
+<h4 class="date"><em>2018-02-19</em></h4>
 
 
 
@@ -97,9 +97,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>For one alignment, this is how this is done:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filename &lt;-<span class="st"> </span><span class="kw">get_fasta_filename</span>()
 
-<span class="kw">create_beast2_input_file</span>(
-  <span class="dt">input_fasta_filenames =</span> fasta_filename,
-  <span class="dt">output_xml_filename =</span> <span class="st">&quot;fix.xml&quot;</span>,
+<span class="kw">create_beast2_input_file_1_12</span>(
+  <span class="dt">input_filenames =</span> fasta_filename,
+  <span class="dt">output_filename =</span> <span class="st">&quot;fix.xml&quot;</span>,
   <span class="dt">fixed_crown_ages =</span> <span class="ot">TRUE</span>,
   <span class="dt">initial_phylogenies =</span> <span class="kw">fasta_to_phylo</span>(
     <span class="dt">fasta_filename =</span> fasta_filename,
@@ -115,9 +115,9 @@ testit<span class="op">::</span><span class="kw">assert</span>(<span class="kw">
 <p>When using two alignments, in which both crown ages are fixed, the interface is:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
 
-<span class="kw">create_beast2_input_file</span>(
-  <span class="dt">input_fasta_filenames =</span> fasta_filenames,
-  <span class="dt">output_xml_filename =</span> <span class="st">&quot;fix_fix.xml&quot;</span>,
+<span class="kw">create_beast2_input_file_1_12</span>(
+  <span class="dt">input_filenames =</span> fasta_filenames,
+  <span class="dt">output_filename =</span> <span class="st">&quot;fix_fix.xml&quot;</span>,
   <span class="dt">fixed_crown_ages =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>),
   <span class="dt">initial_phylogenies =</span> <span class="kw">fastas_to_phylos</span>(
     <span class="dt">fasta_filename =</span> fasta_filenames,
@@ -145,9 +145,9 @@ combinations[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span cl
   combination &lt;-<span class="st"> </span>combinations[[i]]
   output_filename &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;combination_&quot;</span>, i, <span class="st">&quot;.xml&quot;</span>)
   
-  <span class="kw">create_beast2_input_file</span>(
-    <span class="dt">input_fasta_filenames =</span> fasta_filenames,
-    <span class="dt">output_xml_filename =</span> output_filename,
+  <span class="kw">create_beast2_input_file_1_12</span>(
+    <span class="dt">input_filenames =</span> fasta_filenames,
+    <span class="dt">output_filename =</span> output_filename,
     <span class="dt">fixed_crown_ages =</span> combination,
     <span class="dt">initial_phylogenies =</span> <span class="kw">fastas_to_phylos</span>(
       <span class="dt">fasta_filename =</span> fasta_filenames,
@@ -170,9 +170,9 @@ initial_phylogenies &lt;-<span class="st"> </span><span class="kw">list</span>()
 initial_phylogenies[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">fasta_to_phylo</span>(fasta_filenames[<span class="dv">1</span>], <span class="dt">crown_age =</span> <span class="dv">12</span>)
 initial_phylogenies[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="kw">fasta_to_phylo</span>(fasta_filenames[<span class="dv">2</span>], <span class="dt">crown_age =</span> <span class="dv">34</span>)
 
-<span class="kw">create_beast2_input_file</span>(
-  <span class="dt">input_fasta_filenames =</span> fasta_filenames,
-  <span class="dt">output_xml_filename =</span> <span class="st">&quot;12_34.xml&quot;</span>,
+<span class="kw">create_beast2_input_file_1_12</span>(
+  <span class="dt">input_filenames =</span> fasta_filenames,
+  <span class="dt">output_filename =</span> <span class="st">&quot;12_34.xml&quot;</span>,
   <span class="dt">fixed_crown_ages =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>),
   <span class="dt">initial_phylogenies =</span> initial_phylogenies
 )

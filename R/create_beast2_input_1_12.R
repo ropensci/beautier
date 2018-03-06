@@ -2,22 +2,22 @@
 #' @inheritParams default_params_doc
 #' @examples
 #'   create_beast2_input_file_1_12(
-#'     input_fasta_filenames = get_fasta_filename(),
+#'     input_filenames = get_fasta_filename(),
 #'     "my_beast.xml"
 #'   )
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input_1_12 <- function(
-  input_fasta_filenames,
-  site_models = create_jc69_site_models(ids = get_ids(input_fasta_filenames)),
+  input_filenames,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
   clock_models = create_strict_clock_models(
-    ids = get_ids(input_fasta_filenames)),
-  tree_priors = create_yule_tree_priors(ids = get_ids(input_fasta_filenames)),
+    ids = get_ids(input_filenames)),
+  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  fixed_crown_ages = rep(FALSE, times = length(input_fasta_filenames)),
-  initial_phylogenies = rep(NA, length(input_fasta_filenames))
+  fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
+  initial_phylogenies = rep(NA, length(input_filenames))
 ) {
   # Convert possible-non-list input to lists and multiPhylo
   if (is_site_model(site_models)) {
@@ -35,10 +35,10 @@ create_beast2_input_1_12 <- function(
   }
   # Check input
 
-  # 1 input_fasta_filenames
-  if (!files_exist(input_fasta_filenames)) {
+  # 1 input_filenames
+  if (!files_exist(input_filenames)) {
     stop(
-      "'input_fasta_filenames' must be the name ",
+      "'input_filenames' must be the name ",
       "of one or more present files. "
     )
   }
@@ -97,37 +97,37 @@ create_beast2_input_1_12 <- function(
   }
 
   # Lengths
-  if (length(input_fasta_filenames) != length(site_models)) {
-    stop("Must supply as much input_fasta_filenames as site_models")
+  if (length(input_filenames) != length(site_models)) {
+    stop("Must supply as much input_filenames as site_models")
   }
-  if (length(input_fasta_filenames) != length(clock_models)) {
-    stop("Must supply as much input_fasta_filenames as clock_models")
+  if (length(input_filenames) != length(clock_models)) {
+    stop("Must supply as much input_filenames as clock_models")
   }
-  if (length(input_fasta_filenames) != length(tree_priors)) {
-    stop("Must supply as much input_fasta_filenames as tree priors")
+  if (length(input_filenames) != length(tree_priors)) {
+    stop("Must supply as much input_filenames as tree priors")
   }
-  if (length(input_fasta_filenames) != length(fixed_crown_ages)) {
-    stop("Must supply as much input_fasta_filenames as fixed crown ages")
+  if (length(input_filenames) != length(fixed_crown_ages)) {
+    stop("Must supply as much input_filenames as fixed crown ages")
   }
-  if (length(input_fasta_filenames) != length(initial_phylogenies)) {
-    stop("Must supply as much input_fasta_filenames as initial_phylogenies")
+  if (length(input_filenames) != length(initial_phylogenies)) {
+    stop("Must supply as much input_filenames as initial_phylogenies")
   }
 
   site_models <- init_site_models(
     site_models = site_models,
-    ids = get_ids(input_fasta_filenames),
+    ids = get_ids(input_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint internal function
   clock_models <- init_clock_models(
     clock_models = clock_models,
-    fasta_filenames = input_fasta_filenames,
+    fasta_filenames = input_filenames,
     distr_id = 0 + get_site_models_n_distrs(site_models),
     param_id = 0 + get_site_models_n_params(site_models)
   )  # nolint internal function
   tree_priors <- init_tree_priors( # nolint internal function
     tree_priors,
-    ids = get_ids(input_fasta_filenames),
+    ids = get_ids(input_filenames),
     distr_id = 100,
     param_id = 200
   )
@@ -144,7 +144,7 @@ create_beast2_input_1_12 <- function(
   options(scipen = 20)
 
   text <- create_beast2_input_beast(
-    input_fasta_filenames = input_fasta_filenames,
+    input_filenames = input_filenames,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,

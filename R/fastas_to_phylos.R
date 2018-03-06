@@ -15,7 +15,7 @@
 #'
 #'   # Crown age fixed to the crown age of the phylogeny
 #'   create_beast2_input_file_1_12(
-#'     input_fasta_filenames = fasta_filenames,
+#'     input_filenames = fasta_filenames,
 #'     "fastas_to_phylos.xml",
 #'     fixed_crown_ages = c(TRUE, TRUE),
 #'     initial_phylogenies = initial_phylogenies
