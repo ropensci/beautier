@@ -1,8 +1,8 @@
 # FAQ
 
-## Which version of BEAUti do you use as a guideline?
+## Which version of BEAUti does `beautier` use?
 
-Version 2.4.7.
+Version 2.4.8.
 
 ## What's the [road map](road_map.md)?
 
