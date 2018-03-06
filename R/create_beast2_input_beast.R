@@ -73,6 +73,7 @@ create_beast2_input_beast <- function(
       ids = ids,
       site_models = site_models,
       clock_models = clock_models,
+      mrca_priors = mrca_priors,
       mcmc = mcmc,
       tree_priors = tree_priors,
       fixed_crown_ages = fixed_crown_ages,

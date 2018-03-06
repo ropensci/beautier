@@ -10,6 +10,7 @@ create_beast2_input_run <- function(
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(ids = ids),
+  mrca_priors = NA,
   mcmc = create_mcmc(),
   fixed_crown_ages = rep(FALSE, times = length(ids)),
   initial_phylogenies = rep(NA, length(ids))
@@ -23,6 +24,7 @@ create_beast2_input_run <- function(
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_mrca_priors(mrca_priors))
 
   text <- NULL
 
