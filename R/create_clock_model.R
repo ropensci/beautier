@@ -97,7 +97,7 @@ create_clock_model <- function(
 #'   )
 #'   testit::assert(file.exists("create_rln_clock_model_exp.xml"))
 #' @export
-create_rln_clock_model <- function(
+create_rln_clock_model <- create_clock_model_rln <- function(
   id = NA,
   mean_rate_prior_distr = create_uniform_distr(), # unknown default distr
   ucldstdev_distr = create_gamma_distr(),
@@ -120,33 +120,6 @@ create_rln_clock_model <- function(
   )
   testit::assert(is_rln_clock_model(rln_clock_model))
   rln_clock_model
-}
-
-#' Alternative name for \code{\link{create_rln_clock_model}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rln_clock_model}} for examples.
-#' @inherit create_rln_clock_model
-#' @export
-create_clock_model_rln <- function(
-  id = NA,
-  mean_rate_prior_distr = create_uniform_distr(), # unknown default distr
-  ucldstdev_distr = create_gamma_distr(),
-  mparam_id = NA,
-  mean_clock_rate = "1.0",
-  n_rate_categories = -1,
-  normalize_mean_clock_rate = FALSE,
-  dimension = NA
-) {
-  create_rln_clock_model(
-    id = id,
-    mean_rate_prior_distr = mean_rate_prior_distr,
-    ucldstdev_distr = ucldstdev_distr,
-    mparam_id = mparam_id,
-    mean_clock_rate = mean_clock_rate,
-    n_rate_categories = n_rate_categories,
-    normalize_mean_clock_rate = normalize_mean_clock_rate,
-    dimension = dimension
-  )
 }
 
 #' Create a strict clock model
@@ -178,7 +151,7 @@ create_clock_model_rln <- function(
 #'   )
 #'   testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
 #' @export
-create_strict_clock_model <- function(
+create_strict_clock_model <- create_clock_model_strict <- function(
   id = NA,
   clock_rate_param = create_clock_rate_param(),
   clock_rate_distr = create_uniform_distr()
@@ -203,21 +176,4 @@ create_strict_clock_model <- function(
   )
   testit::assert(is_strict_clock_model(strict_clock_model))
   strict_clock_model
-}
-
-#' Alternative name for \code{\link{create_strict_clock_model}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_strict_clock_model}} for examples.
-#' @inherit create_strict_clock_model
-#' @export
-create_clock_model_strict <- function(
-  id = NA,
-  clock_rate_param = create_clock_rate_param(),
-  clock_rate_distr = create_uniform_distr()
-) {
-  create_strict_clock_model(
-    id = id,
-    clock_rate_distr = clock_rate_distr,
-    clock_rate_param = clock_rate_param
-  )
 }

@@ -152,7 +152,7 @@ create_alpha_param <- create_param_alpha <- function(
 #'   )
 #'   testit::assert(file.exists("create_beta_param.xml"))
 #' @export
-create_beta_param <- function(
+create_beta_param <- create_param_beta <- function(
   id = NA,
   estimate = FALSE,
   value = 1.0
@@ -163,19 +163,6 @@ create_beta_param <- function(
     estimate = estimate,
     value = value
   )
-}
-
-#' Alternative name for \code{\link{create_beta_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_beta_param}} for examples.
-#' @inherit create_beta_param
-#' @export
-create_param_beta <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_beta_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called \code{clock_rate},
@@ -206,7 +193,7 @@ create_param_beta <- function(
 #'   )
 #'   testit::assert(file.exists("create_clock_rate_param.xml"))
 #' @export
-create_clock_rate_param <- function(
+create_clock_rate_param <- create_param_clock_rate <- function(
   value = "1.0",
   estimate = FALSE,
   id = NA
@@ -219,19 +206,6 @@ create_clock_rate_param <- function(
   )
 }
 
-#' Alternative name for \code{\link{create_clock_rate_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_clock_rate_param}} for examples.
-#' @inherit create_clock_rate_param
-#' @export
-create_param_clock_rate <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_clock_rate_param(id = id, estimate = estimate, value = value)
-}
-
 #' Create a parameter called kappa 1
 #' @inheritParams create_param
 #' @param value value of the parameter
@@ -239,7 +213,7 @@ create_param_clock_rate <- function(
 #' @return a parameter called kappa 1
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_kappa_1_param <- function(
+create_kappa_1_param <- create_param_kappa_1 <- function(
   id = NA,
   lower = "0.0",
   value = "2.0"
@@ -252,19 +226,6 @@ create_kappa_1_param <- function(
   )
 }
 
-#' Alternative name for \code{\link{create_kappa_1_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_kappa_1_param}} for examples.
-#' @inherit create_kappa_1_param
-#' @export
-create_param_kappa_1 <- function(
-  id = NA,
-  lower = "0.0",
-  value = "2.0"
-) {
-  create_kappa_1_param(id = id, lower = lower, value = value)
-}
-
 #' Create a parameter called kappa 2
 #' @inheritParams create_param
 #' @param value value of the parameter
@@ -272,7 +233,7 @@ create_param_kappa_1 <- function(
 #' @return a parameter called kappa 2
 #' @author Richel J.C. Bilderbeek
 #' @export
-create_kappa_2_param <- function(
+create_kappa_2_param <- create_param_kappa_2 <- function(
   id = NA,
   lower = "0.0",
   value = "2.0"
@@ -283,19 +244,6 @@ create_kappa_2_param <- function(
     lower = lower,
     value = value
   )
-}
-
-#' Alternative name for \code{\link{create_kappa_2_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_kappa_2_param}} for examples.
-#' @inherit create_kappa_2_param
-#' @export
-create_param_kappa_2 <- function(
-  id = NA,
-  lower = "0.0",
-  value = "2.0"
-) {
-  create_kappa_2_param(id = id, lower = lower, value = value)
 }
 
 #' Create a parameter called lambda
@@ -326,7 +274,7 @@ create_param_kappa_2 <- function(
 #'   )
 #'   testit::assert(file.exists("create_lambda_param.xml"))
 #' @export
-create_lambda_param <- function(
+create_lambda_param <- create_param_lambda <- function(
   id = NA,
   value = 0.0
 ) {
@@ -335,18 +283,6 @@ create_lambda_param <- function(
     id = id,
     value = value
   )
-}
-
-#' Alternative name for \code{\link{create_lambda_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_lambda_param}} for examples.
-#' @inherit create_lambda_param
-#' @export
-create_param_lambda <- function(
-  id = NA,
-  value = 0.0
-) {
-  create_lambda_param(id = id, value = value)
 }
 
 #' Create a parameter called m
@@ -379,7 +315,7 @@ create_param_lambda <- function(
 #'   )
 #'   testit::assert(file.exists("create_m_param.xml"))
 #' @export
-create_m_param <- function(
+create_m_param <- create_param_m <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -390,19 +326,6 @@ create_m_param <- function(
     estimate = estimate,
     value = value
   )
-}
-
-#' Alternative name for \code{\link{create_m_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_m_param}} for examples.
-#' @inherit create_m_param
-#' @export
-create_param_m <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_m_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called mean
@@ -437,7 +360,7 @@ create_param_m <- function(
 #'   )
 #'   testit::assert(file.exists("create_mean_param.xml"))
 #' @export
-create_mean_param <- function(
+create_mean_param <- create_param_mean <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -448,19 +371,6 @@ create_mean_param <- function(
     estimate = estimate,
     value = value
   )
-}
-
-#' Alternative name for \code{\link{create_mean_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_mean_param}} for examples.
-#' @inherit create_mean_param
-#' @export
-create_param_mean <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_mean_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called mu
@@ -493,7 +403,7 @@ create_param_mean <- function(
 #'   )
 #'   testit::assert(file.exists("create_mu_param.xml"))
 #' @export
-create_mu_param <- function(
+create_mu_param <- create_param_mu <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -504,19 +414,6 @@ create_mu_param <- function(
     estimate = estimate,
     value = value
   )
-}
-
-#' Alternative name for \code{\link{create_mu_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_mu_param}} for examples.
-#' @inherit create_mu_param
-#' @export
-create_param_mu <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_mu_param(id = id, estimate = estimate, value = value)
 }
 
 #' Create a parameter called 'rate AC'
@@ -543,7 +440,7 @@ create_param_mu <- function(
 #'   )
 #'   testit::assert(file.exists("create_rate_ac_param.xml"))
 #' @export
-create_rate_ac_param <- function(
+create_rate_ac_param <- create_param_rate_ac <- function(
   id = NA,
   estimate = TRUE,
   value = "1.0",
@@ -557,20 +454,6 @@ create_rate_ac_param <- function(
     lower = lower
   )
 }
-
-#' Alternative name for \code{\link{create_rate_ac_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rate_ac_param}} for examples.
-#' @inherit create_rate_ac_param
-#' @export
-create_param_rate_ac <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_rate_ac_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called 'rate AG'
 #' @inheritParams create_param
@@ -596,7 +479,7 @@ create_param_rate_ac <- function(
 #'   )
 #'   testit::assert(file.exists("create_rate_ag_param.xml"))
 #' @export
-create_rate_ag_param <- function(
+create_rate_ag_param <- create_param_rate_ag <- function(
   id = NA,
   estimate = TRUE,
   value = "1.0",
@@ -610,20 +493,6 @@ create_rate_ag_param <- function(
     lower = lower
   )
 }
-
-#' Alternative name for \code{\link{create_rate_ag_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rate_ag_param}} for examples.
-#' @inherit create_rate_ag_param
-#' @export
-create_param_rate_ag <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_rate_ag_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called 'rate AT'
 #' @inheritParams create_param
@@ -649,7 +518,7 @@ create_param_rate_ag <- function(
 #'   )
 #'   testit::assert(file.exists("create_rate_at_param.xml"))
 #' @export
-create_rate_at_param <- function(
+create_rate_at_param <- create_param_rate_at <- function(
   id = NA,
   estimate = TRUE,
   value = "1.0",
@@ -663,20 +532,6 @@ create_rate_at_param <- function(
     lower = lower
   )
 }
-
-#' Alternative name for \code{\link{create_rate_at_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rate_at_param}} for examples.
-#' @inherit create_rate_at_param
-#' @export
-create_param_rate_at <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_rate_at_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called 'rate CG'
 #' @inheritParams create_param
@@ -702,7 +557,7 @@ create_param_rate_at <- function(
 #'   )
 #'   testit::assert(file.exists("create_rate_cg_param.xml"))
 #' @export
-create_rate_cg_param <- function(
+create_rate_cg_param <- create_param_rate_cg <- function(
   id = NA,
   estimate = TRUE,
   value = "1.0",
@@ -716,20 +571,6 @@ create_rate_cg_param <- function(
     lower = lower
   )
 }
-
-#' Alternative name for \code{\link{create_rate_cg_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rate_cg_param}} for examples.
-#' @inherit create_rate_cg_param
-#' @export
-create_param_rate_cg <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_rate_cg_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called 'rate CT'
 #' @inheritParams create_param
@@ -755,7 +596,7 @@ create_param_rate_cg <- function(
 #'   )
 #'   testit::assert(file.exists("create_rate_ct_param.xml"))
 #' @export
-create_rate_ct_param <- function(
+create_rate_ct_param <- create_param_rate_ct <- function(
   id = NA,
   estimate = TRUE,
   value = "1.0",
@@ -769,20 +610,6 @@ create_rate_ct_param <- function(
     lower = lower
   )
 }
-
-#' Alternative name for \code{\link{create_rate_ct_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rate_ct_param}} for examples.
-#' @inherit create_rate_ct_param
-#' @export
-create_param_rate_ct <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_rate_ct_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called 'rate GT'
 #' @inheritParams create_param
@@ -808,7 +635,7 @@ create_param_rate_ct <- function(
 #'   )
 #'   testit::assert(file.exists("create_rate_gt_param.xml"))
 #' @export
-create_rate_gt_param <- function(
+create_rate_gt_param <- create_param_rate_gt <- function(
   id = NA,
   estimate = TRUE,
   value = "1.0",
@@ -822,20 +649,6 @@ create_rate_gt_param <- function(
     value = value
   )
 }
-
-#' Alternative name for \code{\link{create_rate_gt_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_rate_gt_param}} for examples.
-#' @inherit create_rate_gt_param
-#' @export
-create_param_rate_gt <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_rate_gt_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called s
 #' @inheritParams create_param
@@ -869,38 +682,22 @@ create_param_rate_gt <- function(
 #'   )
 #'   testit::assert(file.exists("create_s_param.xml"))
 #' @export
-create_s_param <- function(
+create_s_param <- create_param_s <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0,
   lower = 0.0,
   upper = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "s",
-      id = id,
-      estimate = estimate,
-      value = value,
-      lower = lower,
-      upper = upper
-    )
+  beautier::create_param(
+    name = "s",
+    id = id,
+    estimate = estimate,
+    value = value,
+    lower = lower,
+    upper = upper
   )
 }
-
-#' Alternative name for \code{\link{create_s_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_s_param}} for examples.
-#' @inherit create_s_param
-#' @export
-create_param_s <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_s_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called scale
 #' @inheritParams create_param
@@ -932,34 +729,18 @@ create_param_s <- function(
 #'   )
 #'   testit::assert(file.exists("create_scale_param.xml"))
 #' @export
-create_scale_param <- function(
+create_scale_param <- create_param_scale <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
 ) {
-  return(
-    beautier::create_param(
-      name = "scale",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "scale",
+    id = id,
+    estimate = estimate,
+    value = value
   )
 }
-
-#' Alternative name for \code{\link{create_scale_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_scale_param}} for examples.
-#' @inherit create_scale_param
-#' @export
-create_param_scale <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_scale_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called sigma
 #' @inheritParams create_param
@@ -991,7 +772,7 @@ create_param_scale <- function(
 #'   )
 #'   testit::assert(file.exists("create_sigma_param.xml"))
 #' @export
-create_sigma_param <- function(
+create_sigma_param <- create_param_sigma <- function(
   id = NA,
   estimate = FALSE,
   value = 1.0
@@ -999,25 +780,10 @@ create_sigma_param <- function(
   if (value <= 0.0) {
     stop("value must be non-zero and positive")
   }
-  return(
-    beautier::create_param(
-      name = "sigma",
-      id = id,
-      estimate = estimate,
-      value = value
-    )
+  beautier::create_param(
+    name = "sigma",
+    id = id,
+    estimate = estimate,
+    value = value
   )
-}
-
-#' Alternative name for \code{\link{create_sigma_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_sigma_param}} for examples.
-#' @inherit create_sigma_param
-#' @export
-create_param_sigma <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 1.0
-) {
-  create_sigma_param(id = id, estimate = estimate, value = value)
 }

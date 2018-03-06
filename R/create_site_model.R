@@ -125,7 +125,7 @@ create_site_model <- function(
 #'   )
 #'   testit::assert(file.exists("create_gtr_site_model.xml"))
 #' @export
-create_gtr_site_model <- function(
+create_gtr_site_model <- create_site_model_gtr <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model(),
   rate_ac_prior_distr = create_gamma_distr(
@@ -175,60 +175,6 @@ create_gtr_site_model <- function(
   )
 }
 
-#' Alternative name for \code{\link{create_gtr_site_model}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_gtr_site_model}} for examples.
-#' @inherit create_gtr_site_model
-#' @export
-create_site_model_gtr <- function(
-  id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  rate_ac_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
-    beta = create_beta_param(value = "10.0")
-  ),
-  rate_ag_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
-    beta = create_beta_param(value = "20.0")
-  ),
-  rate_at_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
-    beta = create_beta_param(value = "10.0")
-  ),
-  rate_cg_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
-    beta = create_beta_param(value = "10.0")
-  ),
-  rate_gt_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
-    beta = create_beta_param(value = "10.0")
-  ),
-  rate_ac_param = create_rate_ac_param(),
-  rate_ag_param = create_rate_ag_param(),
-  rate_at_param = create_rate_at_param(),
-  rate_cg_param = create_rate_cg_param(),
-  rate_ct_param = create_rate_ct_param(estimate = FALSE),
-  rate_gt_param = create_rate_gt_param(),
-  freq_equilibrium = "estimated"
-) {
-  create_gtr_site_model(
-    id = id,
-    gamma_site_model = gamma_site_model,
-    rate_ac_prior_distr = rate_ac_prior_distr,
-    rate_ag_prior_distr = rate_ag_prior_distr,
-    rate_at_prior_distr = rate_at_prior_distr,
-    rate_cg_prior_distr = rate_cg_prior_distr,
-    rate_gt_prior_distr = rate_gt_prior_distr,
-    rate_ac_param = rate_ac_param,
-    rate_ag_param = rate_ag_param,
-    rate_at_param = rate_at_param,
-    rate_cg_param = rate_cg_param,
-    rate_ct_param = rate_ct_param,
-    rate_gt_param = rate_gt_param,
-    freq_equilibrium = freq_equilibrium
-  )
-}
-
 #' Create an HKY site model
 #' @inheritParams create_site_model
 #' @param kappa the kappa
@@ -251,7 +197,7 @@ create_site_model_gtr <- function(
 #'    site_models = hky_site_model
 #'  )
 #' @export
-create_hky_site_model <- function(
+create_hky_site_model <- create_site_model_hky <- function(
   id = NA,
   kappa = "2.0",
   gamma_site_model = create_gamma_site_model(),
@@ -271,30 +217,6 @@ create_hky_site_model <- function(
   )
 }
 
-#' Alternative name for \code{\link{create_hky_site_model}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_hky_site_model}} for examples.
-#' @inherit create_hky_site_model
-#' @export
-create_site_model_hky <- function(
-  id = NA,
-  kappa = "2.0",
-  gamma_site_model = create_gamma_site_model(),
-  kappa_prior_distr = create_log_normal_distr(
-    m = create_m_param(value = "1.0"),
-    s = create_s_param(value = "1.25")
-  ),
-  freq_equilibrium = "estimated"
-) {
-  create_hky_site_model(
-    id = id,
-    kappa = kappa,
-    gamma_site_model = gamma_site_model,
-    kappa_prior_distr = kappa_prior_distr,
-    freq_equilibrium = freq_equilibrium
-  )
-}
-
 #' Create a JC69 site model
 #' @inheritParams create_site_model
 #' @return a JC69 site_model
@@ -308,7 +230,7 @@ create_site_model_hky <- function(
 #'    site_models = jc69_site_model
 #'  )
 #' @export
-create_jc69_site_model <- function(
+create_jc69_site_model <- create_site_model_jc69 <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model()
 ) {
@@ -317,18 +239,6 @@ create_jc69_site_model <- function(
     id = id,
     gamma_site_model = gamma_site_model
   )
-}
-
-#' Alternative name for \code{\link{create_jc69_site_model}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_jc69_site_model}} for examples.
-#' @inherit create_jc69_site_model
-#' @export
-create_site_model_jc69 <- function(
-  id = NA,
-  gamma_site_model = create_gamma_site_model()
-) {
-  create_jc69_site_model(id = id, gamma_site_model = gamma_site_model)
 }
 
 #' Create a TN93 site model
@@ -360,7 +270,7 @@ create_site_model_jc69 <- function(
 #'    site_models = tn93_site_model
 #'  )
 #' @export
-create_tn93_site_model <- function(
+create_tn93_site_model <- create_site_model_tn93 <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model(),
   kappa_1_param = create_kappa_1_param(),
@@ -383,37 +293,6 @@ create_tn93_site_model <- function(
     kappa_2_prior_distr = kappa_2_prior_distr,
     kappa_1_param = kappa_1_param,
     kappa_2_param = kappa_2_param,
-    freq_equilibrium = freq_equilibrium
-  )
-}
-
-#' Alternative name for \code{\link{create_tn93_site_model}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_tn93_site_model}} for examples.
-#' @inherit create_tn93_site_model
-#' @export
-create_site_model_tn93 <- function(
-  id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  kappa_1_param = create_kappa_1_param(),
-  kappa_2_param = create_kappa_2_param(),
-  kappa_1_prior_distr = create_log_normal_distr(
-    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
-    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
-  ),
-  kappa_2_prior_distr = create_log_normal_distr(
-    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
-    s = create_s_param(id = NA, estimate = FALSE, value = "1.25")
-  ),
-  freq_equilibrium = "estimated"
-) {
-  create_tn93_site_model(
-    id = id,
-    gamma_site_model = gamma_site_model,
-    kappa_1_param = kappa_1_param,
-    kappa_2_param = kappa_2_param,
-    kappa_1_prior_distr = kappa_1_prior_distr,
-    kappa_2_prior_distr = kappa_2_prior_distr,
     freq_equilibrium = freq_equilibrium
   )
 }

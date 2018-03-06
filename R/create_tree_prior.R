@@ -115,30 +115,13 @@ create_tree_prior <- function(
 #'   )
 #'   testit::assert(file.exists("create_bd_tree_prior_exp.xml"))
 #' @export
-create_bd_tree_prior <- function(
+create_bd_tree_prior <- create_tree_prior_bd <- function(
   id = NA,
   birth_rate_distr = create_uniform_distr(),
   death_rate_distr = create_uniform_distr()
   ) {
   create_tree_prior(
     name = "birth_death",
-    id = id,
-    birth_rate_distr = birth_rate_distr,
-    death_rate_distr = death_rate_distr
-  )
-}
-
-#' Alternative name for \code{\link{create_bd_tree_prior}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_bd_tree_prior}} for examples.
-#' @inherit create_bd_tree_prior
-#' @export
-create_tree_prior_bd <- function(
-  id = NA,
-  birth_rate_distr = create_uniform_distr(),
-  death_rate_distr = create_uniform_distr()
-) {
-  create_bd_tree_prior(
     id = id,
     birth_rate_distr = birth_rate_distr,
     death_rate_distr = death_rate_distr
@@ -161,24 +144,13 @@ create_tree_prior_bd <- function(
 #'   )
 #'   testit::assert(file.exists("create_cbs_tree_prior.xml"))
 #' @export
-create_cbs_tree_prior <- function(
+create_cbs_tree_prior <- create_tree_prior_cbs <- function(
   id = NA
   ) {
   create_tree_prior(
     name = "coalescent_bayesian_skyline",
     id = id
   )
-}
-
-#' Alternative name for \code{\link{create_cbs_tree_prior}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_cbs_tree_prior}} for examples.
-#' @inherit create_cbs_tree_prior
-#' @export
-create_tree_prior_cbs <- function(
-  id = NA
-) {
-  create_cbs_tree_prior(id = id)
 }
 
 #' Create a Coalescent Constant Population tree prior
@@ -199,7 +171,7 @@ create_tree_prior_cbs <- function(
 #'   )
 #'   testit::assert(file.exists("create_ccp_tree_prior.xml"))
 #' @export
-create_ccp_tree_prior <- function(
+create_ccp_tree_prior <- create_tree_prior_ccp <- function(
   id = NA,
   pop_size_distr = beautier::create_one_div_x_distr()
 ) {
@@ -208,18 +180,6 @@ create_ccp_tree_prior <- function(
     id = id,
     pop_size_distr = pop_size_distr
   )
-}
-
-#' Alternative name for \code{\link{create_ccp_tree_prior}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_ccp_tree_prior}} for examples.
-#' @inherit create_ccp_tree_prior
-#' @export
-create_tree_prior_ccp <- function(
-  id = NA,
-  pop_size_distr = beautier::create_one_div_x_distr()
-) {
-  create_ccp_tree_prior(id = id, pop_size_distr = pop_size_distr)
 }
 
 #' Create a Coalescent Exponential Population tree prior
@@ -242,32 +202,13 @@ create_tree_prior_ccp <- function(
 #'   )
 #'   testit::assert(file.exists("create_cep_tree_prior.xml"))
 #' @export
-create_cep_tree_prior <- function(
+create_cep_tree_prior <- create_tree_prior_cep <- function(
   id = NA,
   pop_size_distr = create_one_div_x_distr(),
   growth_rate_distr = create_laplace_distr()
 ) {
-  return(
-    create_tree_prior(
-      name = "coalescent_exp_population",
-      id = id,
-      pop_size_distr = pop_size_distr,
-      growth_rate_distr = growth_rate_distr
-    )
-  )
-}
-
-#' Alternative name for \code{\link{create_cep_tree_prior}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_cep_tree_prior}} for examples.
-#' @inherit create_cep_tree_prior
-#' @export
-create_tree_prior_cep <- function(
-  id = NA,
-  pop_size_distr = create_one_div_x_distr(),
-  growth_rate_distr = create_laplace_distr()
-) {
-  create_cep_tree_prior(
+  create_tree_prior(
+    name = "coalescent_exp_population",
     id = id,
     pop_size_distr = pop_size_distr,
     growth_rate_distr = growth_rate_distr
@@ -297,7 +238,7 @@ create_tree_prior_cep <- function(
 #'   )
 #'   testit::assert(file.exists("create_yule_tree_prior.xml"))
 #' @export
-create_yule_tree_prior <- function(
+create_yule_tree_prior <- create_tree_prior_yule <- function(
   id = NA,
   birth_rate_distr = create_uniform_distr()
 ) {
@@ -306,16 +247,4 @@ create_yule_tree_prior <- function(
     id = id,
     birth_rate_distr = birth_rate_distr
   )
-}
-
-#' Alternative name for \code{\link{create_yule_tree_prior}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_yule_tree_prior}} for examples.
-#' @inherit create_yule_tree_prior
-#' @export
-create_tree_prior_yule <- function(
-  id = NA,
-  birth_rate_distr = create_uniform_distr()
-) {
-  create_yule_tree_prior(id = id, birth_rate_distr = birth_rate_distr)
 }
