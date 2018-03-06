@@ -105,7 +105,7 @@ create_param <- function(
 #'   )
 #'   testit::assert(file.exists("create_alpha_param.xml"))
 #' @export
-create_alpha_param <- function(
+create_alpha_param <- create_param_alpha <- function(
   id = NA,
   estimate = FALSE,
   value = 0.0
@@ -117,20 +117,6 @@ create_alpha_param <- function(
     value = value
   )
 }
-
-#' Alternative name for \code{\link{create_alpha_param}}, to help
-#' the user find the function from a search tree. See
-#' \code{\link{create_alpha_param}} for examples.
-#' @inherit create_alpha_param
-#' @export
-create_param_alpha <- function(
-  id = NA,
-  estimate = FALSE,
-  value = 0.0
-) {
-  create_alpha_param(id = id, estimate = estimate, value = value)
-}
-
 
 #' Create a parameter called beta
 #' @inheritParams create_param
