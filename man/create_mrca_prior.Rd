@@ -4,11 +4,14 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(taxa_names)
+create_mrca_prior(taxa_names, mrca_distr)
 }
 \arguments{
 \item{taxa_names}{names of the taxa,
 as returned by \code{\link{get_taxa_names}}}
+
+\item{mrca_distr}{the MRCA distribution,
+as returned by \code{\link{create_distr}}}
 }
 \value{
 an MRCA prior

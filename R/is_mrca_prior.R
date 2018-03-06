@@ -9,5 +9,7 @@ is_mrca_prior <- function(
   x
 ) {
   if (!"taxa_names" %in% names(x)) return(FALSE)
+  if (!"mrca_distr" %in% names(x)) return(FALSE)
+  if (!is_distr(x$mrca_distr)) return(FALSE)
   TRUE
 }
