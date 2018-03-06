@@ -66,7 +66,9 @@ test_that("rln_uclstdev_beta_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier::get_beautier_path("rln_uclstdev_beta_2_4.xml"))
+  expected <- readLines(beautier::get_beautier_path(
+    "rln_uclstdev_beta_2_4.xml")
+  )
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
