@@ -1406,3 +1406,51 @@ test_that("aco_mcmc_chainlength_10_store_every_1.xml", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+################################################################################
+# MRCA priors
+################################################################################
+# No calibration yet
+test_that("anthus_aco_sub.xml", {
+  created <- beautier::create_beast2_input(
+    input_filenames = beautier::get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mcmc = create_mcmc(chain_length = 10000),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub.xml")
+  )
+  beautier:::compare_lines(created, expected)
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "run")
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+test_that("anthus_aco_sub_calibration.xml", {
+  skip("WIP")
+
+  created <- beautier::create_beast2_input(
+    input_filenames = beautier::get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mcmc = create_mcmc(chain_length = 10000),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_calibrated.xml")
+  )
+  beautier:::compare_lines(created, expected)
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(created, expected,
+      section = "run")
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
