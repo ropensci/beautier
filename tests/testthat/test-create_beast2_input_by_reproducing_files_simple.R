@@ -249,7 +249,9 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier::get_beautier_path("gtr_gcc_2_shape_1_5_2_4.xml"))
+  expected <- readLines(beautier::get_beautier_path(
+    "gtr_gcc_2_shape_1_5_2_4.xml")
+  )
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -341,7 +343,9 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier::get_beautier_path("gtr_no_rate_estimation_2_4.xml"))
+  expected <- readLines(beautier::get_beautier_path(
+    "gtr_no_rate_estimation_2_4.xml")
+  )
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
@@ -1359,7 +1363,9 @@ test_that("birth_rate_poisson_2_4.xml", {
     )
   )
 
-  expected <- readLines(beautier::get_beautier_path("birth_rate_poisson_2_4.xml"))
+  expected <- readLines(beautier::get_beautier_path(
+    "birth_rate_poisson_2_4.xml")
+  )
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,

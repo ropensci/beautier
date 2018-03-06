@@ -7,7 +7,9 @@
 #'   # Create two random phylogies, with
 #'   # - the same taxa names as the FASTA files
 #'   # - the desired crown age
-#'   fasta_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+#'   fasta_filenames <- get_beautier_paths(
+#'     c("anthus_aco.fas", "anthus_nd2.fas")
+#'   )
 #'   initial_phylogenies <- fastas_to_phylos(
 #'     fasta_filenames,
 #'     crown_age = 15

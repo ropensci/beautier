@@ -27,7 +27,9 @@ test_that("use, one alignment", {
 
 test_that("use, two alignments", {
 
-  fasta_filenames <- beautier::get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- beautier::get_beautier_paths(
+    c("anthus_aco.fas", "anthus_nd2.fas")
+  )
   ids <- beautier:::get_id(fasta_filenames)
 
   testthat::expect_silent(
@@ -61,7 +63,9 @@ test_that("use, two alignments", {
 
 test_that("use, two alignments, fixed crown ages", {
 
-  fasta_filenames <- beautier::get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- beautier::get_beautier_paths(
+    c("anthus_aco.fas", "anthus_nd2.fas")
+  )
   ids <- beautier:::get_id(fasta_filenames)
 
   testthat::expect_silent(

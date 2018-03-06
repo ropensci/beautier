@@ -18,7 +18,9 @@ a list of site_models
 Creates a JC69_site_model for each ID
 }
 \examples{
-  fasta_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- get_beautier_paths(
+    c("anthus_aco.fas", "anthus_nd2.fas")
+  )
   site_models <- create_jc69_site_models(c("anthus_aco", "anthus_nd2"))
   create_beast2_input_file(
     fasta_filenames,

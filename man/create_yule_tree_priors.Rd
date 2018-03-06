@@ -16,7 +16,9 @@ a list of Yule tree_prior objects
 Creates n Yule tree priors
 }
 \examples{
-  fasta_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- get_beautier_paths(
+    c("anthus_aco.fas", "anthus_nd2.fas")
+  )
 
   tree_priors <- create_yule_tree_priors(ids = get_ids(fasta_filenames))
 
