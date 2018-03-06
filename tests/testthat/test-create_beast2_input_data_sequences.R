@@ -41,7 +41,7 @@ test_that("abuse", {
 
 test_that("sort order", {
 
-  fasta_filename_1 <- beautier::get_path("anthus_nd2.fas")
+  fasta_filename_1 <- beautier::get_beautier_path("anthus_nd2.fas")
 
   lines <- create_beast2_input_data_sequences(fasta_filename_1)
   testthat::expect_true(substr(lines[11], 35, 46) != "seq_bas3_nd2")

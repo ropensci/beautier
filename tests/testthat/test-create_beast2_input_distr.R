@@ -2,7 +2,7 @@ context("create_beast2_input_distr")
 
 test_that("use with one ID", {
 
-  fasta_filename <- beautier::get_path("test_output_0.fas")
+  fasta_filename <- beautier::get_beautier_path("test_output_0.fas")
   id <- beautier:::get_id(fasta_filename)
 
   testthat::expect_silent(

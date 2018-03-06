@@ -11,8 +11,6 @@ vignette: >
 
 # Introduction
 
-![The beautier logo](beautier_logo.png)
-
 The purpose of `beautier` is to create a valid `BEAST2` XML input file
 from its function argument. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
@@ -30,7 +28,7 @@ phylogenies and parameters on DNA sequences). This demonstration uses
 a testing FASTA file used by `beautier`:
 
 ```{r}
-fasta_filename <- get_path("test_output_0.fas")
+fasta_filename <- get_beautier_path("test_output_0.fas")
 ```
 
 We can display the alignment in the file:

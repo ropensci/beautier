@@ -33,7 +33,7 @@ create_beast2_input_file_1_12(
 testit::assert(is_beast2_input_file_safe("fix.xml"))
 
 ## ----fix_fix-------------------------------------------------------------
-fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+fasta_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
 
 create_beast2_input_file_1_12(
   input_filenames = fasta_filenames,
@@ -69,7 +69,7 @@ for (i in seq_along(combinations)) {
 }
 
 ## ----12_34---------------------------------------------------------------
-fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+fasta_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
 
 initial_phylogenies <- list()
 initial_phylogenies[[1]] <- fasta_to_phylo(fasta_filenames[1], crown_age = 12)

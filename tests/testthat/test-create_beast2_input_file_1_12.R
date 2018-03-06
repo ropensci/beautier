@@ -21,8 +21,8 @@ test_that("create data set of two alignments, with/out fixed crown ages", {
   output_filename <- tempfile()
   testit::assert(!file.exists(output_filename))
 
-  fasta_filename_1 <- get_path("anthus_aco.fas")
-  fasta_filename_2 <- get_path("anthus_nd2.fas")
+  fasta_filename_1 <- get_beautier_path("anthus_aco.fas")
+  fasta_filename_2 <- get_beautier_path("anthus_nd2.fas")
   fasta_filenames <- c(fasta_filename_1, fasta_filename_2)
 
   phylo_1_15 <- fasta_to_phylo(fasta_filename_1, crown_age = 15)

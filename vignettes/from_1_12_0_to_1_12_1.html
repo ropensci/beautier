@@ -12,7 +12,7 @@
 
 <meta name="author" content="Richel J.C. Bilderbeek" />
 
-<meta name="date" content="2018-02-19" />
+<meta name="date" content="2018-03-06" />
 
 <title>From 1.12.0 to 1.12.1</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">From 1.12.0 to 1.12.1</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
-<h4 class="date"><em>2018-02-19</em></h4>
+<h4 class="date"><em>2018-03-06</em></h4>
 
 
 
@@ -113,7 +113,7 @@ testit<span class="op">::</span><span class="kw">assert</span>(<span class="kw">
 <div id="for-two-alignment-problems-arise" class="section level3">
 <h3>For two alignment, problems arise</h3>
 <p>When using two alignments, in which both crown ages are fixed, the interface is:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_beautier_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
 
 <span class="kw">create_beast2_input_file_1_12</span>(
   <span class="dt">input_filenames =</span> fasta_filenames,
@@ -164,7 +164,7 @@ combinations[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span cl
 <div id="what-if-initial_phylogenies-is-supplied-two-phylogenies-with-different-crown-ages" class="section level2">
 <h2>what if <code>initial_phylogenies</code> is supplied two phylogenies with different crown ages?</h2>
 <p>If two phylogenies with a fixed <em>-but different-</em> crown age are supplied, a valid BEAST2 input file is created:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fasta_filenames &lt;-<span class="st"> </span><span class="kw">get_beautier_paths</span>(<span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>))
 
 initial_phylogenies &lt;-<span class="st"> </span><span class="kw">list</span>()
 initial_phylogenies[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="kw">fasta_to_phylo</span>(fasta_filenames[<span class="dv">1</span>], <span class="dt">crown_age =</span> <span class="dv">12</span>)

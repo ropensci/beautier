@@ -2,13 +2,13 @@
 #' @param filename the file's name, without the path
 #' @return the filename's full path
 #' @author Richel J.C. Bilderbeek
-#' @seealso for more files, use \code{\link{get_paths}}
+#' @seealso for more files, use \code{\link{get_beautier_paths}}
 #' @examples
-#'   testit::assert(is.character(get_path("test_output_0.fas")))
-#'   testit::assert(is.character(get_path("anthus_aco.fas")))
-#'   testit::assert(is.character(get_path("anthus_nd2.fas")))
+#'   testit::assert(is.character(get_beautier_path("test_output_0.fas")))
+#'   testit::assert(is.character(get_beautier_path("anthus_aco.fas")))
+#'   testit::assert(is.character(get_beautier_path("anthus_nd2.fas")))
 #' @export
-get_path <- function(filename) {
+get_beautier_path <- function(filename) {
 
   full <- system.file("extdata", filename, package = "beautier")
   if (!file.exists(full)) {

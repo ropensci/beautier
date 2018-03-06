@@ -112,7 +112,7 @@ test_that("abuse: one alignment", {
 
 test_that("abuse: two alignments", {
 
-  input_filenames <- beautier::get_paths(
+  input_filenames <- beautier::get_beautier_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   ids <- beautier:::get_ids(input_filenames)

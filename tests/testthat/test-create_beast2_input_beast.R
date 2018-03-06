@@ -2,7 +2,7 @@ context("create_beast2_input_beast")
 
 test_that("use, one alignment", {
 
-  fasta_filename <- beautier::get_path("anthus_aco.fas")
+  fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
   id <- beautier:::get_id(fasta_filename)
 
   testthat::expect_silent(
@@ -27,7 +27,7 @@ test_that("use, one alignment", {
 
 test_that("use, two alignments", {
 
-  fasta_filenames <- beautier::get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- beautier::get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   ids <- beautier:::get_id(fasta_filenames)
 
   testthat::expect_silent(
@@ -61,7 +61,7 @@ test_that("use, two alignments", {
 
 test_that("use, two alignments, fixed crown ages", {
 
-  fasta_filenames <- beautier::get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+  fasta_filenames <- beautier::get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
   ids <- beautier:::get_id(fasta_filenames)
 
   testthat::expect_silent(
@@ -100,8 +100,8 @@ test_that("abuse", {
     create_beast2_input_beast(input_filenames = "nonsense")
   )
 
-  fasta_filename_1 <- beautier::get_path("anthus_nd2.fas")
-  fasta_filename_2 <- beautier::get_path("anthus_aco.fas")
+  fasta_filename_1 <- beautier::get_beautier_path("anthus_nd2.fas")
+  fasta_filename_2 <- beautier::get_beautier_path("anthus_aco.fas")
 
   # Two filenames, one site model
   testthat::expect_error(

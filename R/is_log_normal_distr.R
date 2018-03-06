@@ -11,7 +11,7 @@
 #' @examples
 #'   log_normal_distr <- create_log_normal_distr()
 #'
-#'   input_fasta_filename <- beautier::get_path("anthus_aco.fas")
+#'   input_fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
 #'   create_beast2_input_file(
 #'     input_filenames = input_fasta_filename,
 #'     "my_beast.xml",

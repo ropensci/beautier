@@ -6,12 +6,12 @@ knitr::opts_chunk$set(
 
 # Create files
 for (filename in c("my_fasta.fas", "my_alignment.fas")) {
-  file.copy(from = beautier::get_path("test_output_0.fas"), to = filename)
+  file.copy(from = beautier::get_beautier_path("test_output_0.fas"), to = filename)
 }
 
 # Copy to local
 for (filename in c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")) {
-  file.copy(from = beautier::get_path(filename), to = filename)
+  file.copy(from = beautier::get_beautier_path(filename), to = filename)
 }
 
 ## ------------------------------------------------------------------------

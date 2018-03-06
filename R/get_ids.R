@@ -9,7 +9,7 @@
 #'   testit::assert(get_ids(c("a.fas", "b.fas")) == c("a", "b"))
 #'
 #'   # Usage to create a BEAST2 XML file
-#'   fasta_filenames <- get_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+#'   fasta_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
 #'   clock_models <- create_strict_clock_models(
 #'     ids = get_ids(fasta_filenames)
 #'   )

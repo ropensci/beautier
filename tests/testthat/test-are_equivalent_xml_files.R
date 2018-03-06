@@ -2,8 +2,8 @@ context("are_equivalent_xml_files")
 
 test_that("use", {
 
-  filename1 <- beautier::get_path("gtr_gcc_2_2_4.xml")
-  filename2 <- beautier::get_path("jc69_2_4.xml")
+  filename1 <- beautier::get_beautier_path("gtr_gcc_2_2_4.xml")
+  filename2 <- beautier::get_beautier_path("jc69_2_4.xml")
 
   testthat::expect_true(
     beautier:::are_equivalent_xml_files(filename1, filename1)
@@ -17,7 +17,7 @@ test_that("use", {
 
 test_that("abuse", {
 
-  filename <- beautier::get_path("gtr_gcc_2_2_4.xml")
+  filename <- beautier::get_beautier_path("gtr_gcc_2_2_4.xml")
 
   testthat::expect_error(
     beautier:::are_equivalent_xml_files("nonse.nse", filename),

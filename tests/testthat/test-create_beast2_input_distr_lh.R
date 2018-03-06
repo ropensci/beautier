@@ -120,7 +120,7 @@ test_that("strict strict", {
 
 test_that("strict RLN", {
 
-  input_filenames <- beautier::get_paths(
+  input_filenames <- beautier::get_beautier_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   ids <- beautier:::get_ids(input_filenames)

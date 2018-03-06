@@ -2,7 +2,7 @@ context("create_beast2_input_state")
 
 test_that("birth_death", {
 
-  fasta_filename <- beautier::get_path("test_output_0.fas")
+  fasta_filename <- beautier::get_beautier_path("test_output_0.fas")
   id <- beautier:::get_id(fasta_filename)
   testthat::expect_silent(
     beautier:::create_beast2_input_state(
@@ -190,8 +190,8 @@ test_that("four phylogenies, shared clock", {
 
 test_that("two alignments, two initial phylogenies", {
 
-  fasta_filename_1 <- beautier::get_path("anthus_aco.fas")
-  fasta_filename_2 <- beautier::get_path("anthus_nd2.fas")
+  fasta_filename_1 <- beautier::get_beautier_path("anthus_aco.fas")
+  fasta_filename_2 <- beautier::get_beautier_path("anthus_nd2.fas")
   ids <- get_ids(c(fasta_filename_1, fasta_filename_2))
   phylo1 <- fasta_to_phylo(fasta_filename_1, crown_age = 314)
   phylo2 <- fasta_to_phylo(fasta_filename_2, crown_age = 42)

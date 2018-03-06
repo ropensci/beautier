@@ -2,7 +2,7 @@
 library(beautier)
 
 ## ------------------------------------------------------------------------
-fasta_filename <- get_path("test_output_0.fas")
+fasta_filename <- get_beautier_path("test_output_0.fas")
 
 ## ------------------------------------------------------------------------
 image(ape::read.FASTA(fasta_filename))
