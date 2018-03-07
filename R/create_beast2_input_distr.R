@@ -83,11 +83,7 @@ create_beast2_input_distr_prior <- function( # nolint internal function
   text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint internal function
   text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint internal function
   text <- c(text, mrca_priors_to_xml_prior_distr(mrca_priors)) # nolint internal function
-  clock_models_xml <- clock_models_to_xml_prior_distr(clock_models) # nolint internal function
-
-  if (!is.null(clock_models_xml)) {
-    text <- c(text, clock_models_xml)
-  }
+  text <- c(text, clock_models_to_xml_prior_distr(clock_models)) # nolint internal function
 
   text <- indent(text, n_spaces = 4) # nolint internal function
 
