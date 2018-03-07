@@ -101,5 +101,6 @@ init_distr <- function(
     # Always initialized
 
   }
+  testit::assert(!is.na(distr$id))
   distr
 }

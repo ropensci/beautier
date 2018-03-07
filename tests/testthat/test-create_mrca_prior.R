@@ -25,7 +25,7 @@ test_that("abuse", {
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr()
     ),
-    "'name' must be characters"
+    "'name' must be NA or characters"
   )
 
   testthat::expect_error(

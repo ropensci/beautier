@@ -18,8 +18,8 @@ create_mrca_prior <- function(
   mrca_distr = NA,
   clock_prior_distr_id = NA
 ) {
-  if (!is.character(name)) {
-    stop("'name' must be characters")
+  if (length(name) != 1 || (!is.character(name) && !is.na(name))) {
+    stop("'name' must be NA or characters")
   }
   if (!is.character(alignment_id)) {
     stop("'alignment_id' must be characters")
