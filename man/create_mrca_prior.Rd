@@ -4,12 +4,12 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(name = create_random_name(), alignment_id, taxa_names,
+create_mrca_prior(name = NA, alignment_id, taxa_names,
   is_monophyletic = FALSE, mrca_distr = NA, clock_prior_distr_id = NA)
 }
 \arguments{
 \item{name}{the unique name of the MRCA prior, for example a genus, family,
-order or even class name}
+order or even class name. Leave at NA to have it named automatically}
 
 \item{alignment_id}{ID of the alignment,
 as returned by \code{\link{get_alignment_id}}}

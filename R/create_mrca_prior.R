@@ -1,7 +1,7 @@
 #' Create a Most Recent Common Ancestor prior
 #' @inheritParams default_params_doc
 #' @param name the unique name of the MRCA prior, for example a genus, family,
-#'   order or even class name
+#'   order or even class name. Leave at NA to have it named automatically
 #' @param taxa_names names of the taxa,
 #'   as returned by \code{\link{get_taxa_names}}
 #' @param mrca_distr the distribution used by the MRCA prior.
@@ -11,7 +11,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mrca_prior <- function(
-  name = create_random_name(),
+  name = NA,
   alignment_id,
   taxa_names,
   is_monophyletic = FALSE,
