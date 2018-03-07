@@ -4,7 +4,8 @@
 \alias{create_beast2_input_distr}
 \title{Creates the distribution section of a BEAST2 XML parameter file.}
 \usage{
-create_beast2_input_distr(site_models, clock_models, tree_priors)
+create_beast2_input_distr(site_models, clock_models, tree_priors,
+  mrca_priors = NA)
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -15,6 +16,9 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
+
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 }
 \description{
 Creates the distribution section of a BEAST2 XML parameter file.
