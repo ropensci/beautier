@@ -15,7 +15,8 @@
 create_beast2_input_distr <- function( # nolint internal function
   site_models,
   clock_models,
-  tree_priors
+  tree_priors,
+  has_mrca_priors = FALSE
 ) {
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
@@ -39,7 +40,8 @@ create_beast2_input_distr <- function( # nolint internal function
     text,
     create_beast2_input_distr_lh(
       site_models = site_models,
-      clock_models = clock_models
+      clock_models = clock_models,
+      has_mrca_priors = has_mrca_priors
     )
   )
   text <- indent(text, n_spaces = 4) # nolint internal function
@@ -112,7 +114,8 @@ create_beast2_input_distr_prior <- function( # nolint internal function
 #'  # </distribution>
 create_beast2_input_distr_lh <- function( # nolint internal function
   site_models,
-  clock_models
+  clock_models,
+  has_mrca_priors = FALSE
 ) {
   testit::assert(length(site_models) == length(clock_models))
   testit::assert(!has_shared_rln_clock_models(clock_models)) # nolint internal function
@@ -153,7 +156,8 @@ create_beast2_input_distr_lh <- function( # nolint internal function
         clock_model_to_xml_lh_distr(
           clock_model,
           is_first = is_first,
-          is_non_first_shared = is_non_first_shared
+          is_non_first_shared = is_non_first_shared,
+          has_mrca_priors = has_mrca_priors
         ),
         n_spaces = 4
       )

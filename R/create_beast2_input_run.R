@@ -56,7 +56,8 @@ create_beast2_input_run <- function(
     create_beast2_input_distr(
       site_models = site_models,
       clock_models = clock_models,
-      tree_priors = tree_priors
+      tree_priors = tree_priors,
+      has_mrca_priors = length(mrca_priors) != 1 || !is.na(mrca_priors)
     )
   )
 

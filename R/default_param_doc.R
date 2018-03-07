@@ -33,6 +33,8 @@
 #'   of the initial phylogeny.
 #' @param gamma_site_model a site model's gamma site model,
 #'   as returned by \code{\link{create_gamma_site_model}}
+#' @param has_mrca_priors boolean to indicate the user supplied
+#'   at least one MRCA prior
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
 #' @param jc69_site_model a JC69 site model,
@@ -94,6 +96,7 @@ default_params_doc <- function(
   fixed_crown_ages,
   gamma_site_model,
   gtr_site_model,
+  has_mrca_priors,
   hky_site_model,
   id,
   ids,

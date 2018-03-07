@@ -5,13 +5,13 @@
 \title{Converts one or more clock models to the \code{state} section of the
 XML as text}
 \usage{
-clock_models_to_xml_state(clock_models, has_mrca_prior = FALSE)
+clock_models_to_xml_state(clock_models, has_mrca_priors = FALSE)
 }
 \arguments{
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 
-\item{has_mrca_prior}{boolean to indicate the user supplied
+\item{has_mrca_priors}{boolean to indicate the user supplied
 at least one MRCA prior}
 }
 \value{
