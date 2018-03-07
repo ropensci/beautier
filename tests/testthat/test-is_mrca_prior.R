@@ -31,6 +31,3 @@ test_that("use, two", {
   testthat::expect_true(is_mrca_prior(mrca_priors[[2]]))
 
 })
-
-
-
