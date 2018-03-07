@@ -7,7 +7,7 @@
 mrca_priors_to_xml_state <- function(
   mrca_priors
 ) {
-  testit::assert(are_mrca_priors(mrca_priors))
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NULL)
 
   text <- NULL

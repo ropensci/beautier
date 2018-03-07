@@ -6,9 +6,9 @@ are_mrca_priors <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_mrca_prior(x)) return(TRUE)
+  if (is_mrca_prior(x)) return(TRUE) # nolint internal function
   for (i in x) {
-    if (!is_mrca_prior(i)) return(FALSE)
+    if (!is_mrca_prior(i)) return(FALSE) # nolint internal function
   }
   TRUE
 }

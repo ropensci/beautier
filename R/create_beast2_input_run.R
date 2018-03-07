@@ -24,7 +24,7 @@ create_beast2_input_run <- function(
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
-  testit::assert(are_mrca_priors(mrca_priors))
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
 
   text <- NULL
 

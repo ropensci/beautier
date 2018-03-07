@@ -21,4 +21,3 @@ test_that("use", {
   testthat::expect_false(beautier:::are_mrca_priors(NULL))
 
 })
-
