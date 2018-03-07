@@ -7,6 +7,10 @@
 \usage{
 mrca_prior_to_xml_state(mrca_prior)
 }
+\arguments{
+\item{mrca_prior}{a Most Recent Common Ancestor prior,
+as returned by \code{\link{create_mrca_prior}}}
+}
 \value{
 the tree prior as XML text
 }

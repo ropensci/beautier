@@ -5,7 +5,7 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
+default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   cep_tree_prior, clock_model, clock_models, crown_age, crown_ages, distr_id,
   fasta_filename, fasta_filenames, fixed_crown_age, fixed_crown_ages,
   gamma_site_model, gtr_site_model, hky_site_model, id, ids,
@@ -15,6 +15,9 @@ default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   tn93_site_model, tree_prior, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
+\item{alignment_id}{ID of the alignment,
+as returned by \code{\link{get_alignment_id}}}
+
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
 by \code{\link{create_bd_tree_prior}}}
 
@@ -132,6 +135,9 @@ is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
+
+\item{mrca_prior}{a Most Recent Common Ancestor prior,
+as returned by \code{\link{create_mrca_prior}}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

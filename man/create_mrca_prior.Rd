@@ -7,6 +7,9 @@
 create_mrca_prior(alignment_id, taxa_names, mrca_distr)
 }
 \arguments{
+\item{alignment_id}{ID of the alignment,
+as returned by \code{\link{get_alignment_id}}}
+
 \item{taxa_names}{names of the taxa,
 as returned by \code{\link{get_taxa_names}}}
 

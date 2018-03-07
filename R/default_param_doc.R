@@ -1,7 +1,11 @@
 #' This function does nothing. It is intended to inherit is parameters'
 #' documentation.
+#' @param alignment_id ID of the alignment,
+#'   as returned by \code{\link{get_alignment_id}}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
+#' @param mrca_prior a Most Recent Common Ancestor prior,
+#'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
@@ -82,6 +86,7 @@
 #'   as created by \code{\link{create_yule_tree_prior}}
 #' @author Richel J.C. Bilderbeek
 default_params_doc <- function(
+  alignment_id,
   bd_tree_prior,
   cbs_tree_prior,
   ccp_tree_prior,

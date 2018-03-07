@@ -1,4 +1,5 @@
 #' Get the alignment ID from a FASTA filename
+#' @inheritParams default_params_doc
 #' @examples
 #'   created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
 #'   expected <- "anthus_aco_sub"

@@ -6,6 +6,10 @@
 \usage{
 get_alignment_id(fasta_filename)
 }
+\arguments{
+\item{fasta_filename}{a FASTA filename.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+}
 \description{
 Get the alignment ID from a FASTA filename
 }
