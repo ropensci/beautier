@@ -9,6 +9,6 @@ is_init_mrca_prior <- function(
   if (!is_mrca_prior(x)) return(FALSE)
   if (is.na(x$name)) return(FALSE)
   if (is.na(x$clock_prior_distr_id)) return(FALSE)
-  if (beautier:::is_distr(x$mrca_distr) && !beautier:::is_init_distr(x$mrca_distr)) return(FALSE)
+  if (is_distr(x$mrca_distr) && !is_init_distr(x$mrca_distr)) return(FALSE)
   TRUE
 }

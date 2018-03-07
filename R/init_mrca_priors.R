@@ -23,7 +23,9 @@ init_mrca_priors <- function(
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }
-    if (is_distr(mrca_prior$mrca_distr) && !is_init_distr(mrca_prior$mrca_distr)) {
+    if (is_distr(mrca_prior$mrca_distr) &&
+        !is_init_distr(mrca_prior$mrca_distr)
+    ) {
       mrca_prior$mrca_distr <- beautier:::init_distr(
         distr = mrca_prior$mrca_distr,
         distr_id = distr_id,
