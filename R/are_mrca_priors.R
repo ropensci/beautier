@@ -5,7 +5,6 @@
 are_mrca_priors <- function(
   x
 ) {
-  if (length(x) == 1 && is.na(x)) return(TRUE)
   if (is.null(x)) return(FALSE)
   if (is_mrca_prior(x)) return(TRUE)
   for (i in x) {

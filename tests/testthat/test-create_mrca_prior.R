@@ -2,8 +2,11 @@ context("create_mrca_prior")
 
 test_that("use", {
 
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+
   mrca_prior <- create_mrca_prior(
-    taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = get_taxa_names(fasta_filename),
     mrca_distr = create_normal_distr()
   )
 
@@ -12,8 +15,20 @@ test_that("use", {
 
 test_that("abuse", {
 
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+
   testthat::expect_error(
     create_mrca_prior(
+      alignment_id = NULL,
+      taxa_names = get_taxa_names(fasta_filename),
+      mrca_distr = create_normal_distr()
+    ),
+    "'alignment_id' must be characters"
+  )
+
+  testthat::expect_error(
+    create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
       taxa_names = NULL,
       mrca_distr = create_normal_distr()
     ),
@@ -22,7 +37,8 @@ test_that("abuse", {
 
   testthat::expect_error(
     create_mrca_prior(
-      taxa_names = c("a", "b"),
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = "nonsense"
     ),
     "'mrca_distr' must a distribution, as created by 'create_distr'"

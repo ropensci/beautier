@@ -1435,22 +1435,22 @@ test_that("anthus_aco_sub.xml", {
 test_that("anthus_aco_sub_calibration.xml", {
   skip("WIP")
 
+  fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
+
   created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_beautier_path("anthus_aco_sub.fas"),
+    input_filenames = fasta_filename,
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     mcmc = create_mcmc(chain_length = 10000),
     mrca_priors = create_mrca_prior(
-      taxa_names = get_taxa_names(
-        beautier::get_beautier_path("anthus_aco_sub.fas")
-      ),
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr(
         mean = create_mean_param(value = "0.02"),
         sigma = create_sigma_param(value = "0.001")
       )
     ),
-    clock_models = create_strict_clock_model(id = 0),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
 

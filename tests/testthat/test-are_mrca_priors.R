@@ -3,6 +3,7 @@ context("are_mrca_priors")
 test_that("use", {
 
   mrca_prior <- create_mrca_prior(
+    alignment_id = "anthus_aco",
     taxa_names = c("a", "b"),
     mrca_distr = create_one_div_x_distr()
   )

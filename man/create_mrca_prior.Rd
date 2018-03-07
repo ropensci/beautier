@@ -4,7 +4,7 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(taxa_names, mrca_distr)
+create_mrca_prior(alignment_id, taxa_names, mrca_distr)
 }
 \arguments{
 \item{taxa_names}{names of the taxa,
