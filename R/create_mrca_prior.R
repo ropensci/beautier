@@ -11,7 +11,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mrca_prior <- function(
-  name,
+  name = create_random_name(),
   alignment_id,
   taxa_names,
   is_monophyletic = FALSE,
