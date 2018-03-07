@@ -53,6 +53,17 @@ test_that("abuse", {
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
+      is_monophyletic = NULL,
+      mrca_distr = create_normal_distr()
+    ),
+    "'is_monophyletic' must be either TRUE or FALSE"
+  )
+
+  testthat::expect_error(
+    create_mrca_prior(
+      name = "my_prior_name",
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = "nonsense"
     ),
     "'mrca_distr' must a distribution, as created by 'create_distr'"

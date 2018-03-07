@@ -9,9 +9,9 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
   cep_tree_prior, clock_model, clock_models, clock_prior_distr_id, crown_age,
   crown_ages, distr_id, fasta_filename, fasta_filenames, fixed_crown_age,
   fixed_crown_ages, gamma_site_model, gtr_site_model, hky_site_model, id, ids,
-  initial_phylogenies, input_filenames, is_first, jc69_site_model, mcmc,
-  misc_options, mrca_prior, mrca_priors, output_filename, param_id,
-  posterior_crown_age, rln_clock_model, sequence_length, site_model,
+  initial_phylogenies, input_filenames, is_first, is_monophyletic,
+  jc69_site_model, mcmc, misc_options, mrca_prior, mrca_priors, output_filename,
+  param_id, posterior_crown_age, rln_clock_model, sequence_length, site_model,
   site_models, strict_clock_model, tn93_site_model, tree_prior, tree_priors,
   verbose, yule_tree_prior)
 }
@@ -90,6 +90,10 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{is_first}{boolean to indicate if this is the first
 out of many (one, two or more)}
+
+\item{is_monophyletic}{boolean to indicate monophyly is assumed in
+a Most Recent Common Ancestor prior,
+as returned by \code{\link{create_mrca_prior}}}
 
 \item{jc69_site_model}{a JC69 site model,
 as returned by \code{\link{create_jc69_site_model}}}

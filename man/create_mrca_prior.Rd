@@ -4,8 +4,8 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(name, alignment_id, taxa_names, mrca_distr,
-  clock_prior_distr_id = NA)
+create_mrca_prior(name, alignment_id, taxa_names, is_monophyletic = FALSE,
+  mrca_distr, clock_prior_distr_id = NA)
 }
 \arguments{
 \item{name}{the unique name of the MRCA prior, for example a genus, family,
@@ -16,6 +16,10 @@ as returned by \code{\link{get_alignment_id}}}
 
 \item{taxa_names}{names of the taxa,
 as returned by \code{\link{get_taxa_names}}}
+
+\item{is_monophyletic}{boolean to indicate monophyly is assumed in
+a Most Recent Common Ancestor prior,
+as returned by \code{\link{create_mrca_prior}}}
 
 \item{mrca_distr}{the MRCA distribution,
 as returned by \code{\link{create_distr}}}

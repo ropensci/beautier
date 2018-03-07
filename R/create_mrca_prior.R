@@ -13,6 +13,7 @@ create_mrca_prior <- function(
   name,
   alignment_id,
   taxa_names,
+  is_monophyletic = FALSE,
   mrca_distr,
   clock_prior_distr_id = NA
 ) {
@@ -25,6 +26,9 @@ create_mrca_prior <- function(
   if (!is.vector(taxa_names, mode = "character")) {
     stop("'taxa_names' must a character vector")
   }
+  if (!is.logical(is_monophyletic)) {
+    stop("'is_monophyletic' must be either TRUE or FALSE")
+  }
   if (!is_distr(mrca_distr)) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
@@ -32,6 +36,7 @@ create_mrca_prior <- function(
     name = name,
     alignment_id = alignment_id,
     taxa_names = taxa_names,
+    is_monophyletic = is_monophyletic,
     mrca_distr = mrca_distr,
     clock_prior_distr_id = clock_prior_distr_id
   )

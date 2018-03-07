@@ -37,6 +37,9 @@
 #'   as returned by \code{\link{create_gamma_site_model}}
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
+#' @param is_monophyletic boolean to indicate monophyly is assumed in
+#'   a Most Recent Common Ancestor prior,
+#'   as returned by \code{\link{create_mrca_prior}}
 #' @param jc69_site_model a JC69 site model,
 #'   as returned by \code{\link{create_jc69_site_model}}
 #' @param gtr_site_model a GTR site model,
@@ -108,6 +111,7 @@ default_params_doc <- function(
   initial_phylogenies,
   input_filenames,
   is_first,
+  is_monophyletic,
   jc69_site_model,
   mcmc,
   misc_options,
