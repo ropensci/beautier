@@ -41,8 +41,6 @@ and create a BEAST2 input file called `my_beast.xml`.
 
 Using all default settings, only specify a DNA alignment.
 
-![Example #1: all default](all_default.png)
-
 ```{r}
 create_beast2_input_file(
   "test_output_0.fas",
