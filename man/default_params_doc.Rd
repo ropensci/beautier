@@ -136,6 +136,9 @@ is potentially useful in debugging}
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
 
+\item{clock_prior_distr_id}{ID of an MRCA clock model's distribution.
+Keep at NA to have it initialized automatically}
+
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
 }

@@ -4,10 +4,8 @@
 #'   as returned by \code{\link{get_alignment_id}}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
-#' @param mrca_prior a Most Recent Common Ancestor prior,
-#'   as returned by \code{\link{create_mrca_prior}}
-#' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
-#'   as returned by \code{\link{create_mrca_prior}}
+#' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
+#'   Keep at NA to have it initialized automatically
 #' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
 #'   as returned by \code{\link{create_cbs_tree_prior}}
 #' @param ccp_tree_prior a Coalescent Constant Population tree prior,
@@ -60,6 +58,10 @@
 #'   as returned by \code{\link{create_mcmc}}
 #' @param misc_options one misc_options object,
 #'   as returned by \code{\link{create_misc_options}}
+#' @param mrca_prior a Most Recent Common Ancestor prior,
+#'   as returned by \code{\link{create_mrca_prior}}
+#' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
+#'   as returned by \code{\link{create_mrca_prior}}
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID

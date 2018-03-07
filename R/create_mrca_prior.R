@@ -10,7 +10,8 @@
 create_mrca_prior <- function(
   alignment_id,
   taxa_names,
-  mrca_distr
+  mrca_distr,
+  clock_prior_distr_id = NA
 ) {
   if (!is.character(alignment_id)) {
     stop("'alignment_id' must be characters")
@@ -24,7 +25,8 @@ create_mrca_prior <- function(
   mrca_prior <- list(
     alignment_id = alignment_id,
     taxa_names = taxa_names,
-    mrca_distr = mrca_distr
+    mrca_distr = mrca_distr,
+    clock_prior_distr_id = clock_prior_distr_id
   )
   testit::assert(is_mrca_prior(mrca_prior))
   mrca_prior

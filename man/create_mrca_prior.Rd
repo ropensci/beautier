@@ -4,7 +4,8 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(alignment_id, taxa_names, mrca_distr)
+create_mrca_prior(alignment_id, taxa_names, mrca_distr,
+  clock_prior_distr_id = NA)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -15,6 +16,9 @@ as returned by \code{\link{get_taxa_names}}}
 
 \item{mrca_distr}{the MRCA distribution,
 as returned by \code{\link{create_distr}}}
+
+\item{clock_prior_distr_id}{ID of an MRCA clock model's distribution.
+Keep at NA to have it initialized automatically}
 }
 \value{
 an MRCA prior

@@ -12,6 +12,7 @@ is_mrca_prior <- function(
   if (!"alignment_id" %in% names(x)) return(FALSE)
   if (!"taxa_names" %in% names(x)) return(FALSE)
   if (!"mrca_distr" %in% names(x)) return(FALSE)
+  if (!"clock_prior_distr_id" %in% names(x)) return(FALSE)
   if (!is_distr(x$mrca_distr)) return(FALSE)
   TRUE
 }

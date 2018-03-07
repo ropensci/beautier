@@ -1449,7 +1449,8 @@ test_that("anthus_aco_sub_calibration.xml", {
       mrca_distr = create_normal_distr(
         mean = create_mean_param(value = "0.02"),
         sigma = create_sigma_param(value = "0.001")
-      )
+      ),
+      clock_prior_distr_id = 0
     ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
