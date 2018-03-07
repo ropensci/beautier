@@ -5,7 +5,7 @@
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_operators(site_models, clock_models, tree_priors,
-  fixed_crown_ages = rep(FALSE, length(site_models)))
+  fixed_crown_ages = rep(FALSE, length(site_models)), mrca_priors = NA)
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -22,6 +22,9 @@ phylogenies' crown ages are fixed.
 If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
+
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 }
 \description{
 Creates the operators section of a BEAST2 XML parameter file
