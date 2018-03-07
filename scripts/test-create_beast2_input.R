@@ -152,7 +152,7 @@ test_that("Run MRCA, no distr", {
 })
 
 test_that("Run MRCA, MRCA distr", {
-  skip("WIP")
+
   fasta_filename <- get_fasta_filename()
   testthat::expect_silent(
     create_beast2_input(
