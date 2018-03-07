@@ -9,13 +9,13 @@ clock_model_to_xml_state <- function(
 ) {
   testit::assert(is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(clock_model$id))
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
     text <- c(
       text,
-      paste0("<parameter id=\"clockRate.c:", id, "\" ",
+      paste0("<parameter id=\"clockRate.c:", clock_model$id, "\" ",
         "name=\"stateNode\">", clock_model$clock_rate_param$value,
         "</parameter>"
       )

@@ -1,11 +1,14 @@
 #' Converts one or more clock models to the \code{state} section of the
 #' XML as text
 #' @inheritParams default_params_doc
+#' @param has_mrca_prior boolean to indicate the user supplied
+#'   at least one MRCA prior
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richel J.C. Bilderbeek
 clock_models_to_xml_state <- function(
-  clock_models
+  clock_models,
+  has_mrca_prior = FALSE
 ) {
   testit::assert(are_clock_models(clock_models))
 
@@ -21,6 +24,7 @@ clock_models_to_xml_state <- function(
   }
 
   # Remove the first line of the first clock model, if any
+  # if no MRCA prior is used
   clock_model <- clock_models[[1]]
   line_to_remove <- clock_model_to_xml_state(clock_model) # nolint
   if (is_rln_clock_model(clock_model)) {
@@ -29,8 +33,8 @@ clock_models_to_xml_state <- function(
     line_to_remove <- line_to_remove[1]
   }
   testit::assert(!is.null(line_to_remove))
-  text <- text[text != line_to_remove]
-
-
+  if (!has_mrca_prior) {
+    text <- text[text != line_to_remove]
+  }
   text
 }

@@ -5,7 +5,7 @@
 \title{Creates the state section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_state(site_models, clock_models, tree_priors,
-  initial_phylogenies)
+  initial_phylogenies, mrca_priors = NA)
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -19,6 +19,9 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{initial_phylogenies}{initial phylogenies, can be NAs if random
 phylogenies are desired}
+
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 }
 \description{
 Creates the state section of a BEAST2 XML parameter file

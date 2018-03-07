@@ -36,7 +36,8 @@ create_beast2_input_run <- function(
         site_models = site_models,
         clock_models = clock_models,
         tree_priors = tree_priors,
-        initial_phylogenies = initial_phylogenies
+        initial_phylogenies = initial_phylogenies,
+        mrca_priors = mrca_priors
       ),
       n_spaces = 4
     )
