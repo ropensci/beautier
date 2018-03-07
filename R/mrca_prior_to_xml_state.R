@@ -7,6 +7,7 @@ mrca_prior_to_xml_state <- function(
   mrca_prior
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
+  if (mrca_prior$is_monophyletic == FALSE) return(NULL)
   paste0(
     "<parameter ",
     "id=\"clockRate.c:", mrca_prior$alignment_id, "\" ",

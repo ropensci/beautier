@@ -16,22 +16,24 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   text <- NULL
-  text <- c(
-    text,
-    paste0(
-      "<prior id=\"ClockPrior.c:", mrca_prior$alignment_id, "\" ",
-      "name=\"distribution\" ",
-      "x=\"@clockRate.c:", mrca_prior$alignment_id, "\">"
+  if (mrca_prior$is_monophyletic) {
+    text <- c(
+      text,
+      paste0(
+        "<prior id=\"ClockPrior.c:", mrca_prior$alignment_id, "\" ",
+        "name=\"distribution\" ",
+        "x=\"@clockRate.c:", mrca_prior$alignment_id, "\">"
+      )
     )
-  )
-  text <- c(
-    text,
-    indent(
-      distr_to_xml(create_uniform_distr(id = mrca_prior$clock_prior_distr_id)),
-      n_spaces = 4
+    text <- c(
+      text,
+      indent(
+        distr_to_xml(create_uniform_distr(id = mrca_prior$clock_prior_distr_id)),
+        n_spaces = 4
+      )
     )
-  )
-  text <- c(text, paste0("</prior>"))
+    text <- c(text, paste0("</prior>"))
+  }
 
   opening_tag <- paste0(
     "<distribution id=\"", mrca_prior$name, ".prior\" ",
