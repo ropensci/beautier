@@ -1433,7 +1433,6 @@ test_that("anthus_aco_sub.xml", {
 })
 
 test_that("anthus_aco_sub_calibration.xml", {
-  skip("WIP")
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
 
@@ -1463,7 +1462,6 @@ test_that("anthus_aco_sub_calibration.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "run")

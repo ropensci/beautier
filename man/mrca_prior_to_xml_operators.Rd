@@ -2,7 +2,7 @@
 % Please edit documentation in R/mrca_prior_to_xml_operators.R
 \name{mrca_prior_to_xml_operators}
 \alias{mrca_prior_to_xml_operators}
-\title{Creates the XML of a mrca prior,
+\title{Creates the XML of an MRCA prior,
   as used in the \code{operators} section}
 \usage{
 mrca_prior_to_xml_operators(mrca_prior, fixed_crown_age = FALSE)
@@ -20,7 +20,7 @@ of the initial phylogeny.}
 the mrca prior as XML text
 }
 \description{
-Creates the XML of a mrca prior,
+Creates the XML of an MRCA prior,
   as used in the \code{operators} section
 }
 \author{

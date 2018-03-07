@@ -5,7 +5,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   ids,
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(ids = ids)
+  tree_priors = create_yule_tree_priors(ids = ids),
+  mrca_priors = NA
 ) {
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
@@ -14,13 +15,18 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   testit::assert(are_site_models(site_models))
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_mrca_priors(mrca_priors))
 
   text <- NULL
-  text <- c(text, create_beast2_input_tracelog(
-    ids = ids,
-    site_models = site_models,
-    clock_models = clock_models,
-    tree_priors = tree_priors)
+  text <- c(
+    text,
+    create_beast2_input_tracelog(
+      ids = ids,
+      site_models = site_models,
+      clock_models = clock_models,
+      tree_priors = tree_priors,
+      mrca_priors = mrca_priors
+    )
   )
 
   text <- c(text, "")
@@ -51,12 +57,14 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   ids,
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(ids = ids)
+  tree_priors = create_yule_tree_priors(ids = ids),
+  mrca_priors = NA
 ) {
   testit::assert(are_ids(ids))  # nolint internal function
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
 
   text <- NULL
   # 1 tracelog
@@ -78,7 +86,9 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   }
 
   text <- c(text, tree_priors_to_xml_tracelog(tree_priors)) # nolint internal function
+  text <- c(text, mrca_priors_to_xml_tracelog(mrca_priors)) # nolint internal function
 
+  # Indent and surround the current text
   text <- indent(text, n_spaces = 4) # nolint internal function
 
   text <- c(paste0("<logger id=\"tracelog\" fileName=\"",
