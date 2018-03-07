@@ -32,9 +32,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
     )
   )
   text <- c(text, paste0("</prior>"))
-
-  #     <Uniform id="Uniform.0" name="distr" upper="Infinity"/>
-  # </prior>
+  text <- c(text, paste0("<distribution id=\"all.prior\" spec=\"beast.math.distributions.MRCAPrior\" monophyletic=\"true\" tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"))
   # <distribution id="all.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:anthus_aco_sub">
   #     <taxonset id="all" spec="TaxonSet">
   #         <taxon id="626029_aco" spec="Taxon"/>
@@ -47,7 +45,9 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   #         <parameter id="RealParameter.1" estimate="false" name="mean">0.02</parameter>
   #         <parameter id="RealParameter.2" estimate="false" name="sigma">0.001</parameter>
   #     </Normal>
-  # </distribution>
+  text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
+  text <- c(text, paste0("</distribution>"))
+
 
   text
 }
