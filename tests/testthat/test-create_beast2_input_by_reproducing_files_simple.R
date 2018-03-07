@@ -1450,6 +1450,7 @@ test_that("anthus_aco_sub_calibration.xml", {
         sigma = create_sigma_param(value = "0.001")
       )
     ),
+    clock_models = create_strict_clock_model(id = 0),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
 

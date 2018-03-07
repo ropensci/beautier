@@ -15,8 +15,7 @@
 clock_model_to_xml_lh_distr <- function(
   clock_model,
   is_first = TRUE,
-  is_non_first_shared = TRUE,
-  has_mrca_priors = FALSE
+  is_non_first_shared = TRUE
 ) {
   testit::assert(is_clock_model(clock_model))
   id <- clock_model$id
@@ -24,7 +23,7 @@ clock_model_to_xml_lh_distr <- function(
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
-    if (is_first == TRUE && !has_mrca_priors) {
+    if (is_first == TRUE) {
       text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
         id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
       # initialization may happen here
@@ -38,7 +37,7 @@ clock_model_to_xml_lh_distr <- function(
       )
       text <- c(text, "</branchRateModel>")
     } else {
-      testit::assert(is_first == FALSE || has_mrca_priors == TRUE)
+      testit::assert(is_first == FALSE)
 
       if (is_non_first_shared == FALSE) {
         text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id,

@@ -6,7 +6,7 @@
 XML as text}
 \usage{
 clock_model_to_xml_lh_distr(clock_model, is_first = TRUE,
-  is_non_first_shared = TRUE, has_mrca_priors = FALSE)
+  is_non_first_shared = TRUE)
 }
 \arguments{
 \item{clock_model}{a clock model,
@@ -17,9 +17,6 @@ out of many (one, two or more)}
 
 \item{is_non_first_shared}{is this clock model not the first of
 multiple shared ones?}
-
-\item{has_mrca_priors}{boolean to indicate the user supplied
-at least one MRCA prior}
 }
 \description{
 Converts a clock model to the \code{branchRateModel} section of the

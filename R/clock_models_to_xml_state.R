@@ -5,8 +5,7 @@
 #'   tags
 #' @author Richel J.C. Bilderbeek
 clock_models_to_xml_state <- function(
-  clock_models,
-  has_mrca_priors = FALSE
+  clock_models
 ) {
   testit::assert(are_clock_models(clock_models))
 
@@ -31,8 +30,6 @@ clock_models_to_xml_state <- function(
     line_to_remove <- line_to_remove[1]
   }
   testit::assert(!is.null(line_to_remove))
-  if (!has_mrca_priors) {
-    text <- text[text != line_to_remove]
-  }
+  text <- text[text != line_to_remove]
   text
 }

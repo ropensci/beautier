@@ -5,8 +5,7 @@
 \title{Creates the likelihood section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distr_lh(site_models, clock_models,
-  has_mrca_priors = FALSE)
+create_beast2_input_distr_lh(site_models, clock_models)
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -14,9 +13,6 @@ as returned by \code{\link{create_site_model}}}
 
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
-
-\item{has_mrca_priors}{boolean to indicate the user supplied
-at least one MRCA prior}
 }
 \description{
 Creates the likelihood section in the distribution section
