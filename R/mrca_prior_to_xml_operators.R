@@ -8,6 +8,7 @@ mrca_prior_to_xml_operators <- function(
   fixed_crown_age = FALSE
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
+  if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
   id <- mrca_prior$alignment_id
 
   text <- NULL
