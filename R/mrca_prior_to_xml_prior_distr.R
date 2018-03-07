@@ -32,14 +32,19 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
     )
   )
   text <- c(text, paste0("</prior>"))
-  text <- c(
-    text,
-    paste0(
-      "<distribution id=\"", mrca_prior$name, ".prior\" ",
-      "spec=\"beast.math.distributions.MRCAPrior\" monophyletic=\"true\" ",
-      "tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"
-    )
+
+  opening_tag <- paste0(
+    "<distribution id=\"", mrca_prior$name, ".prior\" ",
+    "spec=\"beast.math.distributions.MRCAPrior\" "
   )
+  if (mrca_prior$is_monophyletic) {
+    opening_tag <- paste0(opening_tag, "monophyletic=\"true\" ")
+  }
+  opening_tag <- paste0(
+    opening_tag, "tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"
+  )
+
+  text <- c(text, opening_tag)
   text <- c(text, indent(mrca_prior_to_xml_taxonset(mrca_prior), n_spaces = 4)) # nolint internal function
   text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
   text <- c(text, paste0("</distribution>"))

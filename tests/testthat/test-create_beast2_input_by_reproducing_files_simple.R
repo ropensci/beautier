@@ -1451,6 +1451,7 @@ test_that("anthus_aco_sub_calibration.xml", {
         mean = create_mean_param(id = 1, value = "0.02"),
         sigma = create_sigma_param(id = 2, value = "0.001")
       ),
+      is_monophyletic = TRUE,
       clock_prior_distr_id = 0
     ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
