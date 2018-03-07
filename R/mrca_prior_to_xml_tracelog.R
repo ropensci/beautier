@@ -14,7 +14,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
 
   text <- NULL
-  text <- c(text, paste0("<log idref=\"all.prior\"/>"))
+  text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
   text <- c(
     text,
     paste0(

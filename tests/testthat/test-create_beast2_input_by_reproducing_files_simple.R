@@ -1512,4 +1512,3 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
-
