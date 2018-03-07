@@ -35,7 +35,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(
     text,
     paste0(
-      "<distribution id=\"all.prior\" ",
+      "<distribution id=\"", mrca_prior$name, ".prior\" ",
       "spec=\"beast.math.distributions.MRCAPrior\" monophyletic=\"true\" ",
       "tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"
     )
