@@ -33,18 +33,8 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   )
   text <- c(text, paste0("</prior>"))
   text <- c(text, paste0("<distribution id=\"all.prior\" spec=\"beast.math.distributions.MRCAPrior\" monophyletic=\"true\" tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"))
-  # <distribution id="all.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:anthus_aco_sub">
-  #     <taxonset id="all" spec="TaxonSet">
-  #         <taxon id="626029_aco" spec="Taxon"/>
-  #         <taxon id="630116_aco" spec="Taxon"/>
-  #         <taxon id="630210_aco" spec="Taxon"/>
-  #         <taxon id="B25702_aco" spec="Taxon"/>
-  #         <taxon id="61430_aco" spec="Taxon"/>
-  #     </taxonset>
-  #     <Normal id="Normal.0" name="distr">
-  #         <parameter id="RealParameter.1" estimate="false" name="mean">0.02</parameter>
-  #         <parameter id="RealParameter.2" estimate="false" name="sigma">0.001</parameter>
-  #     </Normal>
+  text <- c(text, indent(mrca_prior_to_xml_taxonset(mrca_prior), n_spaces = 4))
+  text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
   text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
   text <- c(text, paste0("</distribution>"))
 
