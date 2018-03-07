@@ -16,3 +16,21 @@ test_that("use", {
   testthat::expect_false(is_mrca_prior(42))
   testthat::expect_false(is_mrca_prior(NULL))
 })
+
+test_that("use, two", {
+
+  mrca_prior <- create_mrca_prior(
+    alignment_id = "anthus_aco",
+    taxa_names = c("a", "b"),
+    mrca_distr = create_one_div_x_distr()
+  )
+  mrca_priors <- list(mrca_prior, mrca_prior)
+
+  testthat::expect_false(is_mrca_prior(mrca_priors))
+  testthat::expect_true(is_mrca_prior(mrca_priors[[1]]))
+  testthat::expect_true(is_mrca_prior(mrca_priors[[2]]))
+
+})
+
+
+

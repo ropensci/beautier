@@ -31,6 +31,7 @@ create_beast2_input <- function(
   }
   if (is_mrca_prior(mrca_priors)) {
     mrca_priors <- list(mrca_priors)
+    testit::assert(is_mrca_prior(mrca_priors[[1]]))
   }
 
   # Check input
