@@ -4,8 +4,9 @@
 #'   order or even class name
 #' @param taxa_names names of the taxa,
 #'   as returned by \code{\link{get_taxa_names}}
-#' @param mrca_distr the MRCA distribution,
-#'   as returned by \code{\link{create_distr}}
+#' @param mrca_distr the distribution used by the MRCA prior.
+#'   Can be NA (the default) or any distribution
+#'   returned by \code{\link{create_distr}}
 #' @return an MRCA prior
 #' @author Richel J.C. Bilderbeek
 #' @export
@@ -14,7 +15,7 @@ create_mrca_prior <- function(
   alignment_id,
   taxa_names,
   is_monophyletic = FALSE,
-  mrca_distr,
+  mrca_distr = NA,
   clock_prior_distr_id = NA
 ) {
   if (!is.character(name)) {
@@ -29,7 +30,7 @@ create_mrca_prior <- function(
   if (!is.logical(is_monophyletic)) {
     stop("'is_monophyletic' must be either TRUE or FALSE")
   }
-  if (!is_distr(mrca_distr)) {
+  if (!is_distr(mrca_distr) && !is.na(mrca_distr)) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   mrca_prior <- list(

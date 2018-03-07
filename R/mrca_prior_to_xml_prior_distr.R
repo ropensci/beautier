@@ -46,7 +46,9 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
 
   text <- c(text, opening_tag)
   text <- c(text, indent(mrca_prior_to_xml_taxonset(mrca_prior), n_spaces = 4)) # nolint internal function
-  text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
+  if (is_distr(mrca_prior$mrca_distr)) {
+    text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
+  }
   text <- c(text, paste0("</distribution>"))
 
 

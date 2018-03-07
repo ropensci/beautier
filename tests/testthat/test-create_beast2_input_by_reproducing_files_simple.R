@@ -1488,11 +1488,6 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
       name = "every",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
-      mrca_distr = create_normal_distr(
-        id = 0,
-        mean = create_mean_param(id = 1, value = "0.02"),
-        sigma = create_sigma_param(id = 2, value = "0.001")
-      ),
       clock_prior_distr_id = 0
     ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
