@@ -18,13 +18,13 @@ distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='
 }
 \examples{
- # <distribution id="posterior" spec="util.CompoundDistribution">
- #     <distribution id="prior" spec="util.CompoundDistribution">
- #       HERE, where the ID of the distribution is 'prior'
- #     </distribution>
- #     <distribution id="likelihood" ...>
- #     </distribution>
- # </distribution>
+  # <taxonset id="all" spec="TaxonSet">
+  #     <taxon id="626029_aco" spec="Taxon"/>
+  #     <taxon id="630116_aco" spec="Taxon"/>
+  #     <taxon id="630210_aco" spec="Taxon"/>
+  #     <taxon id="B25702_aco" spec="Taxon"/>
+  #     <taxon id="61430_aco" spec="Taxon"/>
+  # </taxonset>
 }
 \author{
 Richel J.C. Bilderbeek
