@@ -4,6 +4,7 @@ test_that("use", {
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   mrca_prior <- create_mrca_prior(
+    name = "my_mrca_prior_name",
     alignment_id = get_alignment_id(fasta_filename),
     taxa_names = get_taxa_names(fasta_filename),
     mrca_distr = create_normal_distr()
@@ -20,6 +21,7 @@ test_that("use", {
 test_that("use, two", {
 
   mrca_prior <- create_mrca_prior(
+    name = "my_mrca_prior_name",
     alignment_id = "anthus_aco",
     taxa_names = c("a", "b"),
     mrca_distr = create_one_div_x_distr()

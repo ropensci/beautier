@@ -35,6 +35,7 @@ create_beast2_input_file <- function(
   clock_models = create_strict_clock_models(
     ids = get_ids(input_filenames)),
   tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
+  mrca_priors = NA,
   mcmc = create_mcmc(),
   posterior_crown_age = NA
 ) {
@@ -44,6 +45,7 @@ create_beast2_input_file <- function(
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
+    mrca_priors = mrca_priors,
     mcmc = mcmc,
     posterior_crown_age = posterior_crown_age
   )

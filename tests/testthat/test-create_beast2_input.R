@@ -12,8 +12,32 @@ test_that("use", {
 
   testthat::expect_silent(
     create_beast2_input(
+      input_filenames = get_fasta_filename()
+    )
+  )
+
+})
+
+test_that("use with fixed crown age", {
+
+  testthat::expect_silent(
+    create_beast2_input(
       input_filenames = get_fasta_filename(),
       posterior_crown_age = 15
+    )
+  )
+
+})
+
+test_that("use with calibration node", {
+
+  skip("WIP")
+  testthat::expect_silent(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      mrca_priors = create_mrca_prior(
+        taxa_names = get_taxa_names(get_fasta_filename())
+      )
     )
   )
 

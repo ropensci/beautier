@@ -1,5 +1,7 @@
 #' Create a Most Recent Common Ancestor prior
 #' @inheritParams default_params_doc
+#' @param name the unique name of the MRCA prior, for example a genus, family,
+#'   order or even class name
 #' @param taxa_names names of the taxa,
 #'   as returned by \code{\link{get_taxa_names}}
 #' @param mrca_distr the MRCA distribution,
@@ -8,11 +10,15 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mrca_prior <- function(
+  name,
   alignment_id,
   taxa_names,
   mrca_distr,
   clock_prior_distr_id = NA
 ) {
+  if (!is.character(name)) {
+    stop("'name' must be characters")
+  }
   if (!is.character(alignment_id)) {
     stop("'alignment_id' must be characters")
   }
@@ -23,6 +29,7 @@ create_mrca_prior <- function(
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   mrca_prior <- list(
+    name = name,
     alignment_id = alignment_id,
     taxa_names = taxa_names,
     mrca_distr = mrca_distr,
