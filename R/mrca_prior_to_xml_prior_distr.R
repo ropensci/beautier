@@ -28,7 +28,9 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
     text <- c(
       text,
       indent(
-        distr_to_xml(create_uniform_distr(id = mrca_prior$clock_prior_distr_id)),
+        distr_to_xml(create_uniform_distr(
+          id = mrca_prior$clock_prior_distr_id)
+        ),
         n_spaces = 4
       )
     )

@@ -25,8 +25,20 @@ mrca_prior_to_xml_lh_distr <- function(
   } else {
     testit::assert(!mrca_prior$is_monophyletic)
     text <- NULL
-    text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", mrca_prior$alignment_id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    text <- c(text, paste0("    <parameter id=\"clockRate.c:", mrca_prior$alignment_id, "\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>"))
+    text <- c(
+      text,
+      paste0(
+        "<branchRateModel id=\"StrictClock.c:", mrca_prior$alignment_id, "\" ",
+        "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"
+      )
+    )
+    text <- c(
+      text,
+      paste0(
+        "    <parameter id=\"clockRate.c:", mrca_prior$alignment_id, "\" ",
+        "estimate=\"false\" name=\"clock.rate\">1.0</parameter>"
+      )
+    )
     text <- c(text, paste0("</branchRateModel>"))
     text
   }
