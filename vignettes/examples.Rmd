@@ -82,8 +82,6 @@ a FASTA file of a certain crown age.
 
 ## Example #3: JC69 site model
 
-![Example #3: JC69 site model](jc69_2_4.png)
-
 ```{r}
 create_beast2_input_file(
   "my_alignment.fas",
@@ -93,8 +91,6 @@ create_beast2_input_file(
 ```
 
 ## Example #4: Relaxed clock log normal
-
-![Example #4: Relaxed clock log normal](rln_2_4.png)
 
 ```{r example_4}
 create_beast2_input_file(
@@ -106,8 +102,6 @@ create_beast2_input_file(
 
 ## Example #5: Birth-Death tree prior
 
-![Example #5: Birth-Death tree prior](bd_2_4.png)
-
 ```{r example_5}
 create_beast2_input_file(
   "my_alignment.fas",
@@ -117,8 +111,6 @@ create_beast2_input_file(
 ```
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
-
-![Example #6: Yule tree prior with a normally distributed birth rate](birth_rate_normal_2_4.png)
 
 ```{r example_6}
 create_beast2_input_file(
@@ -134,8 +126,6 @@ Thanks to Yacine Ben Chehida for this use case
 
 ## Example #7: HKY site model with a non-zero proportion of invariants
 
-![Example #7: HKY site model with a non-zero proportion of invariants](hky_prop_invariant_0_5_2_4.png)
-
 ```{r example_7}
 create_beast2_input_file(
   "my_alignment.fas",
@@ -150,8 +140,6 @@ Thanks to Yacine Ben Chehida for this use case
 
 ## Example #8: Strict clock with a known clock rate
 
-![Example #8: Strict clock with a known clock rate](strict_clock_rate_0_5_2_4.png)
-
 ```{r example_8}
 create_beast2_input_file(
   "my_alignment.fas",
@@ -165,8 +153,6 @@ Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
 ## Example #9: Two alignments
 
-![Example 9: Two alignments](anthus_2_4.png)
-
 ```{r example_9}
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
@@ -177,8 +163,6 @@ create_beast2_input_file(
 Thanks to Paul van Els for this use case and supplying these FASTA files.
 
 ## Example #10: Two alignments, different site models
-
-![Example 10: Two alignments, different site models](aco_hky_nd2_tn93.png)
 
 ```{r example_10}
 beautier::create_beast2_input_file(
