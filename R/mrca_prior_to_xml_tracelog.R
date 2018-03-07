@@ -15,12 +15,14 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
 
   text <- NULL
   text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
-  text <- c(
-    text,
-    paste0(
-      "<log idref=\"clockRate.c:", mrca_prior$alignment_id, "\"/>"
-    )
-  )
 
+  if (mrca_prior$is_monophyletic) {
+    text <- c(
+      text,
+      paste0(
+        "<log idref=\"clockRate.c:", mrca_prior$alignment_id, "\"/>"
+      )
+    )
+  }
   text
 }

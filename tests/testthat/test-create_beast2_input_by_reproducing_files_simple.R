@@ -1434,6 +1434,7 @@ test_that("anthus_aco_sub.xml", {
 
 test_that("anthus_aco_sub_calibration.xml", {
 
+  # This XML file has a normal distribution for the MRCA prior
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
 
   created <- beautier::create_beast2_input(
@@ -1472,9 +1473,7 @@ test_that("anthus_aco_sub_calibration.xml", {
 })
 
 test_that("anthus_aco_sub_calibrated_no_prior.xml", {
-  # This XML file has no prior distribution, name is 'every'
-
-  skip("WIP")
+  # This XML file has no prior distribution
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
 
@@ -1496,7 +1495,6 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated_no_prior.xml")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "state")
