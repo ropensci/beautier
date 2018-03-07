@@ -5,14 +5,14 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(bd_tree_prior, calibration_nodes, cbs_tree_prior,
-  ccp_tree_prior, cep_tree_prior, clock_model, clock_models, crown_age,
-  crown_ages, distr_id, fasta_filename, fasta_filenames, fixed_crown_age,
-  fixed_crown_ages, gamma_site_model, gtr_site_model, hky_site_model, id, ids,
+default_params_doc(bd_tree_prior, cbs_tree_prior, ccp_tree_prior,
+  cep_tree_prior, clock_model, clock_models, crown_age, crown_ages, distr_id,
+  fasta_filename, fasta_filenames, fixed_crown_age, fixed_crown_ages,
+  gamma_site_model, gtr_site_model, hky_site_model, id, ids,
   initial_phylogenies, input_filenames, is_first, jc69_site_model, mcmc,
-  misc_options, output_filename, param_id, posterior_crown_age, rln_clock_model,
-  sequence_length, site_model, site_models, strict_clock_model, tn93_site_model,
-  tree_prior, tree_priors, verbose, yule_tree_prior)
+  misc_options, mrca_priors, output_filename, param_id, posterior_crown_age,
+  rln_clock_model, sequence_length, site_model, site_models, strict_clock_model,
+  tn93_site_model, tree_prior, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -93,6 +93,9 @@ as returned by \code{\link{create_mcmc}}}
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
 
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
+
 \item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
 
@@ -129,9 +132,6 @@ is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

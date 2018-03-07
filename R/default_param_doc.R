@@ -83,7 +83,6 @@
 #' @author Richel J.C. Bilderbeek
 default_params_doc <- function(
   bd_tree_prior,
-  calibration_nodes,
   cbs_tree_prior,
   ccp_tree_prior,
   cep_tree_prior,
@@ -104,6 +103,7 @@ default_params_doc <- function(
   jc69_site_model,
   mcmc,
   misc_options,
+  mrca_priors,
   output_filename,
   param_id,
   posterior_crown_age,
