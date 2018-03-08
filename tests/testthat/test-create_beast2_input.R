@@ -132,6 +132,15 @@ test_that("abuse: one alignment", {
     "'posterior_crown_age' must be either NA or a non-zero postive value"
   )
 
+  # Higher-level abuse
+  testthat::expect_error(
+    create_beast2_input(
+      input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+      tree_priors = create_cbs_tree_prior(group_sizes_dimension = 5)
+    ),
+    "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)"
+  )
+
 })
 
 test_that("abuse: two alignments", {

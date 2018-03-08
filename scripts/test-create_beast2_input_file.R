@@ -35,13 +35,3 @@ test_that("Can specify fixed crown ages", {
     beastier::is_beast2_input_file(output_xml_filename_fixed)
   )
 })
-
-test_that("cbs_2_4.xml is invalid", {
-
-  # cbs_2_4.xml is invalid,
-  # because the groupSize's dimension is 5 by default,
-  # where the supplied number of taxa is 5. 5 taxa, this 4 nodes, so
-  # groupSize cannot be more than 4
-  filename <- beautier:::get_path("cbs_2_4.xml")
-  testthat::expect_false(beastier::is_beast2_input_file(filename))
-})

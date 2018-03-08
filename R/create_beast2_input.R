@@ -113,6 +113,23 @@ create_beast2_input <- function(
     stop("Must supply as much input_filenames as tree priors")
   }
 
+  # Higher-level checks
+  for (i in seq_along(input_filenames)) {
+    fasta_filename <- input_filenames[i]
+    tree_prior <- tree_priors[[i]]
+    if (is_cbs_tree_prior(tree_prior)) {
+      n_taxa <- get_n_taxa(fasta_filename)
+      group_sizes_dimension <- tree_prior$group_sizes_dimension
+      if (n_taxa <= group_sizes_dimension) {
+        stop(
+          "'group_sizes_dimension' (", group_sizes_dimension,
+          ") must be less than the number of taxa (", n_taxa, ")"
+        )
+      }
+    }
+  }
+
+  # Initialize all models and priors
   site_models <- init_site_models(
     site_models = site_models,
     ids = get_ids(input_filenames),

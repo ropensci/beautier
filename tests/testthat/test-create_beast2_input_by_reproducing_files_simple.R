@@ -676,12 +676,23 @@ test_that("cep_6_taxa_2_4.xml", {
 
 test_that("cbs_2_4.xml", {
 
+  testthat::expect_error(
+    beautier::create_beast2_input(
+      input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+      tree_priors = create_cbs_tree_prior()
+    ),
+    "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
+  )
+})
+
+test_that("cbs_6_taxa_2_4.xml", {
+
   created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+    input_filenames = beautier::get_beautier_path("test_output_6.fas"),
     tree_priors = create_cbs_tree_prior()
   )
   expected <- readLines(beautier::get_beautier_path(
-    "cbs_2_4.xml")
+    "cbs_6_taxa_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
