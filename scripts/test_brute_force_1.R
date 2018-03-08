@@ -198,15 +198,12 @@ brute_force_1_combinations_calibration <- function() {
   n_fail
 }
 
-set.seed(0)
 n_fail <- 0
 n_fail <- n_fail + brute_force_1_site_models()
 n_fail <- n_fail + brute_force_1_clock_models_fixed_crown_age()
 n_fail <- n_fail + brute_force_1_tree_priors()
 n_fail <- n_fail + brute_force_1_tree_priors_fixed_crown_age()
 n_fail <- n_fail + brute_force_1_combinations_fixed_crown_age()
-
-set.seed(0)
 # n_fail <- n_fail + brute_force_1_combinations_calibration()
 
 quit(status = n_fail, save = "no")
