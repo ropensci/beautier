@@ -6,11 +6,14 @@
 distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='}
 \usage{
-mrca_priors_to_xml_prior_distr(mrca_priors)
+mrca_priors_to_xml_prior_distr(mrca_priors, has_non_strict_clock_model)
 }
 \arguments{
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{has_non_strict_clock_model}{boolean to indicate that the is
+already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \description{
 Creates the distribution section in the prior section of the

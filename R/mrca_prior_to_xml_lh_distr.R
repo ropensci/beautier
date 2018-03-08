@@ -11,7 +11,8 @@
 #'  #     </distribution>
 #'  # </distribution>
 mrca_prior_to_xml_lh_distr <- function(
-  mrca_prior
+  mrca_prior,
+  has_non_strict_clock_model = FALSE
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
@@ -22,7 +23,7 @@ mrca_prior_to_xml_lh_distr <- function(
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
       "clock.rate=\"@clockRate.c:", mrca_prior$alignment_id, "\"/>"
     )
-  } else {
+  } else if (!has_non_strict_clock_model) {
     testit::assert(!mrca_prior$is_monophyletic)
     text <- NULL
     text <- c(

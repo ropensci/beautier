@@ -5,7 +5,7 @@
 \title{Converts an MRCA prior to the \code{branchRateModel} section of the
 XML as text}
 \usage{
-mrca_prior_to_xml_lh_distr(mrca_prior)
+mrca_prior_to_xml_lh_distr(mrca_prior, has_non_strict_clock_model = FALSE)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,

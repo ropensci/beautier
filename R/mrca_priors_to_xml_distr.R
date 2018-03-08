@@ -2,6 +2,8 @@
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<distribution id='
 #' @inheritParams default_params_doc
+#' @param has_non_strict_clock_model boolean to indicate that the is
+#'   already at least one non-strict (i.e. relaxed log-normal) clock model
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -12,14 +14,21 @@
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
 mrca_priors_to_xml_prior_distr <- function( # nolint internal function
-  mrca_priors
+  mrca_priors,
+  has_non_strict_clock_model
 ) {
   testit::assert(are_mrca_priors(mrca_priors))
   if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NULL)
 
   text <- NULL
   for (mrca_prior in mrca_priors) {
-    text <- c(text, mrca_prior_to_xml_prior_distr(mrca_prior)) # nolint internal function
+    text <- c(
+      text,
+      mrca_prior_to_xml_prior_distr(
+        mrca_prior,
+        has_non_strict_clock_model = has_non_strict_clock_model
+      )
+    )
   }
   text
 }
