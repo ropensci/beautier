@@ -678,13 +678,32 @@ test_that("cbs_2_4.xml", {
 
   created <- beautier::create_beast2_input(
     input_filenames = beautier::get_beautier_path("test_output_0.fas"),
-    tree_priors = beautier::create_cbs_tree_prior()
+    tree_priors = create_cbs_tree_prior()
   )
   expected <- readLines(beautier::get_beautier_path(
     "cbs_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
+
+  skip("WIP, #24")
+  created <- beautier::create_beast2_input(
+    input_filenames = beautier::get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_cbs_tree_prior(
+      group_sizes_dimension = 4
+    ),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_cbs_groupsize_4_dim.xml")
+  )
+  beautier:::compare_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+
 
 ################################################################################
 # Tree prior: CCP

@@ -130,7 +130,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 }
 
 #' Create a Coalescent Bayesian Skyline tree prior
-#' @param id the ID of the alignment
+#' @inheritParams default_param_doc
 #' @return a Coalescent Bayesian Skyline tree_prior
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}}
@@ -147,12 +147,16 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #' @aliases create_cbs_tree_prior create_tree_prior_cbs
 #' @export create_cbs_tree_prior create_tree_prior_cbs
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
-  id = NA
+  id = NA,
+  group_sizes_dimension = 5
   ) {
-  create_tree_prior(
+  cbs_tree_prior <- create_tree_prior(
     name = "coalescent_bayesian_skyline",
-    id = id
+    id = id,
+    group_sizes_dimension = group_sizes_dimension
   )
+  testit::assert(is_cbs_tree_prior(cbs_tree_prior))
+  cbs_tree_prior
 }
 
 #' Create a Coalescent Constant Population tree prior

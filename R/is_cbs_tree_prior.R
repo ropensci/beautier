@@ -8,5 +8,8 @@
 is_cbs_tree_prior <- function(
   x
 ) {
-  "name" %in% names(x) && x$name == "coalescent_bayesian_skyline"
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "coalescent_bayesian_skyline") return(FALSE)
+  if (!"group_sizes_dimension" %in% names(x)) return(FALSE)
+  TRUE
 }

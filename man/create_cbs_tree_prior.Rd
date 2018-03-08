@@ -5,10 +5,7 @@
 \alias{create_tree_prior_cbs}
 \title{Create a Coalescent Bayesian Skyline tree prior}
 \usage{
-create_cbs_tree_prior(id = NA)
-}
-\arguments{
-\item{id}{the ID of the alignment}
+create_cbs_tree_prior(id = NA, group_sizes_dimension = 5)
 }
 \value{
 a Coalescent Bayesian Skyline tree_prior
