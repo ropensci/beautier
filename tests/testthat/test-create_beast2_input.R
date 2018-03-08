@@ -138,7 +138,7 @@ test_that("abuse: one alignment", {
       input_filenames = get_beautier_path("anthus_aco_sub.fas"),
       tree_priors = create_cbs_tree_prior(group_sizes_dimension = 5)
     ),
-    "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)"
+    "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
   )
 
 })
