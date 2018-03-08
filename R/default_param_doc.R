@@ -35,6 +35,8 @@
 #'   of the initial phylogeny.
 #' @param gamma_site_model a site model's gamma site model,
 #'   as returned by \code{\link{create_gamma_site_model}}
+#' @param has_non_strict_clock_model boolean to indicate that the is
+#'   already at least one non-strict (i.e. relaxed log-normal) clock model
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
 #' @param is_monophyletic boolean to indicate monophyly is assumed in
@@ -105,6 +107,7 @@ default_params_doc <- function(
   fixed_crown_ages,
   gamma_site_model,
   gtr_site_model,
+  has_non_strict_clock_model,
   hky_site_model,
   id,
   ids,

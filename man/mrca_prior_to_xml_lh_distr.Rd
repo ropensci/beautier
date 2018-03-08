@@ -10,6 +10,9 @@ mrca_prior_to_xml_lh_distr(mrca_prior, has_non_strict_clock_model = FALSE)
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{has_non_strict_clock_model}{boolean to indicate that the is
+already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \description{
 Converts an MRCA prior to the \code{branchRateModel} section of the

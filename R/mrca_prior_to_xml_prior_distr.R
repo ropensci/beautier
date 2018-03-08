@@ -2,8 +2,6 @@
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<distribution id='
 #' @inheritParams default_params_doc
-#' @param has_non_strict_clock_model boolean to indicate that the is
-#'   already at least one non-strict (i.e. relaxed log-normal) clock model
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
