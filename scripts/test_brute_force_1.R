@@ -163,16 +163,15 @@ brute_force_1_combinations_calibration <- function() {
 
   n_fail <- 0
 
-  input_fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
+  # Must have at least 6 taxa, for CBS
+  input_fasta_filename <- beautier::get_beautier_path("test_output_6.fas")
 
   for (site_model in beautier:::create_site_models()) {
     for (clock_model in beautier:::create_clock_models()) {
       for (tree_prior in beautier:::create_tree_priors()) {
 
-        print(paste(site_model$name, clock_model$name, tree_prior$name))
+        output_xml_filename <- tempfile()
 
-        output_xml_filename <- "/home/richel/bad.xml"
-        # output_xml_filename <- tempfile()
         create_beast2_input_file(
           input_filenames = input_fasta_filename,
           site_models = site_model,
@@ -199,11 +198,11 @@ brute_force_1_combinations_calibration <- function() {
 }
 
 n_fail <- 0
-# n_fail <- n_fail + brute_force_1_site_models()
-# n_fail <- n_fail + brute_force_1_clock_models_fixed_crown_age()
-# n_fail <- n_fail + brute_force_1_tree_priors()
-# n_fail <- n_fail + brute_force_1_tree_priors_fixed_crown_age()
-# n_fail <- n_fail + brute_force_1_combinations_fixed_crown_age()
+n_fail <- n_fail + brute_force_1_site_models()
+n_fail <- n_fail + brute_force_1_clock_models_fixed_crown_age()
+n_fail <- n_fail + brute_force_1_tree_priors()
+n_fail <- n_fail + brute_force_1_tree_priors_fixed_crown_age()
+n_fail <- n_fail + brute_force_1_combinations_fixed_crown_age()
 n_fail <- n_fail + brute_force_1_combinations_calibration()
 
-# quit(status = n_fail, save = "no")
+quit(status = n_fail, save = "no")
