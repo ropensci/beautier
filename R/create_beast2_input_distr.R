@@ -180,7 +180,9 @@ create_beast2_input_distr_lh <- function( # nolint internal function
       indent(
         mrca_prior_to_xml_lh_distr(
           mrca_prior,
-          has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models)
+          has_non_strict_clock_model = get_has_non_strict_clock_model(
+            clock_models
+          )
         ),
         n_spaces = 4
       )
