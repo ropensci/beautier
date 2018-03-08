@@ -28,7 +28,7 @@
 #'   testit::assert(file.exists("create_tree_prior_bd.xml"))
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filenames = get_beautier_path("test_output_6.fas"),
 #'     "create_tree_prior_cbs.xml",
 #'     tree_priors = create_cbs_tree_prior()
 #'   )
@@ -139,7 +139,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #'   cbs_tree_prior <- create_cbs_tree_prior()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filenames = get_beautier_path("test_output_6.fas"),
 #'     "create_cbs_tree_prior.xml",
 #'     tree_priors = cbs_tree_prior
 #'   )
