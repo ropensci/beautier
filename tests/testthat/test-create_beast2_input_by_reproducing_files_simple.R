@@ -18,19 +18,6 @@ test_that("2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path("2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -80,19 +67,6 @@ test_that("gtr_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path("gtr_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -135,24 +109,7 @@ test_that("gtr_gcc_1_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(beautier::get_beautier_path("gtr_gcc_1_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected)
-  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
 test_that("gtr_gcc_2_2_4.xml", {
@@ -194,19 +151,6 @@ test_that("gtr_gcc_2_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(beautier::get_beautier_path("gtr_gcc_2_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -251,19 +195,6 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "gtr_gcc_2_shape_1_5_2_4.xml")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -310,19 +241,6 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -342,26 +260,8 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-
   expected <- readLines(beautier::get_beautier_path(
     "gtr_no_rate_estimation_2_4.xml")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "logger")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -388,19 +288,6 @@ test_that("hky_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path("hky_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -424,15 +311,6 @@ test_that("hky_kappa_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "hky_kappa_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -455,15 +333,7 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(beautier::get_beautier_path(
-    "hky_prop_invariant_0_5_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "hky_prop_invariant_0_5_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -488,15 +358,6 @@ test_that("hky_gcc_1_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "hky_gcc_1_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -520,16 +381,6 @@ test_that("hky_gcc_2_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "hky_gcc_2_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -552,16 +403,7 @@ test_that("hky_gcc_4_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(beautier::get_beautier_path(
-    "hky_gcc_4_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "hky_gcc_4_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -584,17 +426,7 @@ test_that("jc69_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
 
-  expected <- readLines(beautier::get_beautier_path(
-    "jc69_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
+  expected <- readLines(beautier::get_beautier_path("jc69_2_4.xml"))
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -616,15 +448,6 @@ test_that("jc69_gcc_2_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "jc69_gcc_2_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -646,15 +469,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(beautier::get_beautier_path(
-    "jc69_gcc_2_shape_1_5_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "jc69_gcc_2_shape_1_5_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -677,15 +492,6 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
   )
   expected <- readLines(beautier::get_beautier_path(
     "jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -715,15 +521,7 @@ test_that("tn93_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "tn93_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "tn93_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -751,15 +549,7 @@ test_that("tn93_gcc_1_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "tn93_gcc_1_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "tn93_gcc_1_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -787,15 +577,7 @@ test_that("tn93_gcc_2_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "tn93_gcc_2_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "tn93_gcc_2_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -820,17 +602,8 @@ test_that("bd_2_4.xml", {
         id = 4, upper = NA)
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "bd_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "bd_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -846,18 +619,8 @@ test_that("bd_6_taxa_2_4.xml", {
         id = 4, upper = NA)
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "bd_6_taxa_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "bd_6_taxa_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -868,22 +631,8 @@ test_that("cbs_6_taxa_2_4.xml", {
     input_filenames = beautier::get_beautier_path("test_output_6.fas"),
     tree_priors = beautier::create_cbs_tree_prior()
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "cbs_6_taxa_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "cbs_6_taxa_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -896,19 +645,8 @@ test_that("ccp_6_taxa_2_4.xml", {
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "ccp_6_taxa_2_4.xml"))
-
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "ccp_6_taxa_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -926,19 +664,8 @@ test_that("cep_6_taxa_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "cep_6_taxa_2_4.xml"))
-
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "cep_6_taxa_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -953,19 +680,8 @@ test_that("cbs_2_4.xml", {
     input_filenames = beautier::get_beautier_path("test_output_0.fas"),
     tree_priors = beautier::create_cbs_tree_prior()
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "cbs_2_4.xml"))
-
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "cbs_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -982,19 +698,8 @@ test_that("ccp_2_4.xml", {
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "ccp_2_4.xml"))
-
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "ccp_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1011,18 +716,8 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "ccp_pop_size_gamma_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "ccp_pop_size_gamma_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1044,19 +739,7 @@ test_that("cep_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path("cep_2_4.xml"))
-
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1071,23 +754,12 @@ test_that("yule_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-
-  expected <- readLines(beautier::get_beautier_path(
-    "yule_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
+  expected <- readLines(beautier::get_beautier_path("yule_2_4.xml"))
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
 ################################################################################
-# Priors
+# Tree priors
 ################################################################################
 test_that("birth_rate_uniform_2_4.xml", {
 
@@ -1096,17 +768,8 @@ test_that("birth_rate_uniform_2_4.xml", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_uniform_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "birth_rate_uniform_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1123,17 +786,8 @@ test_that("birth_rate_normal_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_normal_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "birth_rate_normal_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1148,15 +802,7 @@ test_that("birth_rate_one_div_x_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_one_div_x_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "birth_rate_one_div_x_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1179,17 +825,8 @@ test_that("birth_rate_log_normal_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_log_normal_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "birth_rate_log_normal_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1207,15 +844,7 @@ test_that("birth_rate_exp_2_4.xml", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_exp_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "birth_rate_exp_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1233,17 +862,8 @@ test_that("birth_rate_gamma_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_gamma_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
+    "birth_rate_gamma_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1260,21 +880,8 @@ test_that("birth_rate_beta_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_beta_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
+    "birth_rate_beta_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1291,21 +898,8 @@ test_that("birth_rate_laplace_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_laplace_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
+    "birth_rate_laplace_2_4.xml")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1330,25 +924,10 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
-    "birth_rate_inv_gamma_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
+    "birth_rate_inv_gamma_2_4.xml")
   )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
-
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("birth_rate_poisson_2_4.xml", {
@@ -1362,22 +941,8 @@ test_that("birth_rate_poisson_2_4.xml", {
       )
     )
   )
-
   expected <- readLines(beautier::get_beautier_path(
     "birth_rate_poisson_2_4.xml")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1400,10 +965,6 @@ test_that("aco_mcmc_chainlength_10_store_every_1.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "aco_mcmc_chainlength_10_store_every_1.xml")
   )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "run")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1423,11 +984,6 @@ test_that("anthus_aco_sub.xml", {
 
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub.xml")
-  )
-  beautier:::compare_lines(created, expected)
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "run")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1461,14 +1017,6 @@ test_that("anthus_aco_sub_calibration.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated.xml")
   )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "run")
-  )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1494,14 +1042,6 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
 
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated_no_prior.xml")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "run")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
@@ -1536,30 +1076,8 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
     ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )
-
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated_rln.xml")
-  )
-  beautier:::compare_lines(created, expected)
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "loggers")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "run")
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
