@@ -1508,7 +1508,6 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
 
 test_that("anthus_aco_sub_calibrated_rln.xml", {
 
-  skip("WIP, Issue 22")
   # This XML file has
   # - no MRCA prior distribution prior,
   # - an RLN clock model
@@ -1525,7 +1524,8 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
         id = 6,
         alpha = create_alpha_param(id = 21, value = "0.5396"),
         beta = create_beta_param(id = 22, value = "0.3819")
-      )
+      ),
+      mparam_id = 20
     ),
     mcmc = create_mcmc(chain_length = 10000),
     mrca_priors = create_mrca_prior(
