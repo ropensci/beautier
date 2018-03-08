@@ -151,9 +151,50 @@ create_beast2_input_file(
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
-## Example #9: Two alignments
+## Example #9: Use MRCA prior
+
+Since `v1.13` it is supported to specify 
+an MRCA ('Most Recent Common Ancestor') prior.
 
 ```{r example_9}
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas")
+  )
+)
+```
+
+## Example #10: Use MRCA prior to specify a close-to-fixed crown age
+
+Since `v1.13` it is supported to specify 
+an MRCA ('Most Recent Common Ancestor') prior.
+
+With an MRCA  prior, it is possible
+to specify a close-to-fixed crown age:
+
+```{r example_10}
+crown_age <- 15
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas"),
+    is_monophyletic = TRUE,
+    mrca_distr = create_normal_distr(
+      mean = create_mean_param(value = crown_age),
+      sigma = create_sigma_param(value = 0.001)
+    )
+  )
+)
+```
+
+## Example #11: Two alignments
+
+```{r example_11}
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
@@ -162,9 +203,9 @@ create_beast2_input_file(
 
 Thanks to Paul van Els for this use case and supplying these FASTA files.
 
-## Example #10: Two alignments, different site models
+## Example #12: Two alignments, different site models
 
-```{r example_10}
+```{r example_12}
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
@@ -179,9 +220,9 @@ Since `v1.12` this it is supported to have two alignments with different site mo
 
 Thanks to Paul van Els for this use case.
 
-## Example #11: Two alignments, shared clock model
+## Example #13: Two alignments, shared clock model
 
-```{r example_11}
+```{r example_13}
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
@@ -192,7 +233,7 @@ beautier::create_beast2_input_file(
 )
 ```
 
-From `v1.13`, it will be supported to have two alignments with shared site models, clock models and tree priors.
+From `v1.14`, it will be supported to have two alignments with shared site models, clock models and tree priors.
 
 Thanks to Yacine Ben Chehida for this use case.
 
