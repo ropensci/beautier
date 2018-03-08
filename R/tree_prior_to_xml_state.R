@@ -23,8 +23,14 @@ tree_prior_to_xml_state <- function(
     text <- c(text, paste0("<parameter id=\"bPopSizes.t:", id, "\" ",
       "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
       "upper=\"380000.0\">380.0</parameter>"))
-    text <- c(text, paste0("<stateNode id=\"bGroupSizes.t:", id, "\" ",
-      "spec=\"parameter.IntegerParameter\" dimension=\"5\">1</stateNode>"))
+    text <- c(
+      text,
+      paste0(
+        "<stateNode id=\"bGroupSizes.t:", id, "\" ",
+        "spec=\"parameter.IntegerParameter\" ",
+        "dimension=\"", tree_prior$group_sizes_dimension, "\">1</stateNode>"
+      )
+    )
   } else if (is_cep_tree_prior(tree_prior)) {
     text <- c(text, paste0("<parameter id=\"ePopSize.t:", id, "\" ",
       "name=\"stateNode\">0.3</parameter>"))

@@ -688,7 +688,6 @@ test_that("cbs_2_4.xml", {
 
 test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
 
-  skip("WIP, #24")
   created <- beautier::create_beast2_input(
     input_filenames = beautier::get_beautier_path("anthus_aco_sub.fas"),
     tree_priors = create_cbs_tree_prior(
@@ -699,7 +698,6 @@ test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_cbs_groupsize_4_dim.xml")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 

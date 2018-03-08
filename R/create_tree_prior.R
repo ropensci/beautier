@@ -130,7 +130,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 }
 
 #' Create a Coalescent Bayesian Skyline tree prior
-#' @inheritParams default_param_doc
+#' @inheritParams default_params_doc
 #' @return a Coalescent Bayesian Skyline tree_prior
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filesname using \code{\link{get_id}}
