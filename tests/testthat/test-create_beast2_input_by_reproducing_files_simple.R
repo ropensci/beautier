@@ -1109,3 +1109,39 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+
+test_that("anthus_aco_sub_two_mrca_priors.xml", {
+  # This XML file has no prior distribution
+
+  fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
+
+  created <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mcmc = create_mcmc(chain_length = 10000),
+    mrca_priors = list(
+      create_mrca_prior(
+        name = "first_two",
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = get_taxa_names(fasta_filename)[1:2],
+        clock_prior_distr_id = 0
+      )
+      # create_mrca_prior(
+      #   name = "last_three",
+      #   alignment_id = get_alignment_id(fasta_filename),
+      #   taxa_names = get_taxa_names(fasta_filename)[3:5],
+      #   clock_prior_distr_id = 0
+      # )
+    ),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_two_mrca_priors.xml")
+  )
+  beautier:::compare_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})

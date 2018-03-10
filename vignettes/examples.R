@@ -89,11 +89,37 @@ create_beast2_input_file(
 
 ## ----example_9-----------------------------------------------------------
 create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas")
+  )
+)
+
+## ----example_10----------------------------------------------------------
+crown_age <- 15
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas"),
+    is_monophyletic = TRUE,
+    mrca_distr = create_normal_distr(
+      mean = create_mean_param(value = crown_age),
+      sigma = create_sigma_param(value = 0.001)
+    )
+  )
+)
+
+## ----example_11----------------------------------------------------------
+create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
 )
 
-## ----example_10----------------------------------------------------------
+## ----example_12----------------------------------------------------------
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
@@ -103,7 +129,7 @@ beautier::create_beast2_input_file(
   )
 )
 
-## ----example_11----------------------------------------------------------
+## ----example_13----------------------------------------------------------
 beautier::create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
