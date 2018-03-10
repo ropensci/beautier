@@ -18,3 +18,12 @@ test_that("use '<tag text=hello/>'", {
   testthat::expect_equal(created, expected)
 
 })
+
+test_that("No tag gives NA", {
+
+  testthat::expect_true(
+    is.na(
+      beautier:::get_xml_opening_tag("no xml")
+    )
+  )
+})
