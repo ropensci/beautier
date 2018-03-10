@@ -10,7 +10,8 @@
 #'   testit::assert(is.na(beautier:::get_xml_opening_tag("no_xml")))
 #' @author Richel J.C. Bilderbeek
 get_xml_opening_tag <- function(text) {
-  first_line <- text[1]
+  first_line <- stringr::str_trim(text[1])
+
   # Get string like '<tag '
   xml_start <- stringr::str_extract(
     string = first_line,

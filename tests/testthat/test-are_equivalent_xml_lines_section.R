@@ -3,28 +3,48 @@ context("are_equivalent_xml_lines_section")
 test_that("use", {
 
   lines_1 <- c(
-    "<a>",
-    "  same",
-    "</a>",
-    "<b>",
-    "  different from lines_2",
-    "</b>"
+    "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><beast beautitemplate='Standard' beautistatus='' namespace=\"beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood\" required=\"\" version=\"2.4\">",
+    "",
+    "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000\">",
+    "    <init id=\"RandomTree.t:anthus_aco_sub\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\" initial=\"@Tree.t:anthus_aco_sub\" taxa=\"@anthus_aco_sub\">",
+    "        <populationModel id=\"ConstantPopulation0.t:anthus_aco_sub\" spec=\"ConstantPopulation\">",
+    "            <parameter id=\"randomPopSize.t:anthus_aco_sub\" name=\"popSize\">1.0</parameter>",
+    "        </populationModel>",
+    "    </init>",
+    "",
+    "    <logger id=\"tracelog\" fileName=\"anthus_aco_sub.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">",
+    "        <log idref=\"posterior\"/>",
+    "    </logger>",
+    "",
+    "</run>",
+    "",
+    "</beast>"
   )
 
   lines_2 <- c(
-    "<a>",
-    "  same",
-    "</a>",
-    "<b>",
-    "  different from lines_1",
-    "</b>"
+    "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><beast beautitemplate='Standard' beautistatus='' namespace=\"beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood\" required=\"\" version=\"2.4\">",
+    "",
+    "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000\">",
+    "    <init id=\"RandomTree.t:anthus_aco_sub\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\" initial=\"@Tree.t:anthus_aco_sub\" taxa=\"@anthus_aco_sub\">",
+    "        <populationModel id=\"ConstantPopulation0.t:anthus_aco_sub\" spec=\"ConstantPopulation\">",
+    "            <parameter id=\"randomPopSize.t:anthus_aco_sub\" name=\"popSize\">1.0</parameter>",
+    "        </populationModel>",
+    "    </init>",
+    "",
+    "    <logger id=\"tracelog\" fileName=\"anthus_aco_sub.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">",
+    "        <log idref=\"not_a_posterior_at_all\"/>", # different value
+    "    </logger>",
+    "",
+    "</run>",
+    "",
+    "</beast>"
   )
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = "a")
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = "init")
   )
   testthat::expect_false(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = "b")
+    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = "logger")
   )
 
 })

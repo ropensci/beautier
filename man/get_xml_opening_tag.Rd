@@ -9,8 +9,18 @@ get_xml_opening_tag(text)
 \arguments{
 \item{text}{text to be determined to be valid}
 }
+\value{
+the openin tag if found, else NA
+}
 \description{
 Get the XML opening tag
+}
+\examples{
+  testit::assert(
+    beautier:::get_xml_opening_tag("<my_tag text=something/>")
+    == "my_tag"
+  )
+  testit::assert(is.na(beautier:::get_xml_opening_tag("no_xml")))
 }
 \author{
 Richel J.C. Bilderbeek

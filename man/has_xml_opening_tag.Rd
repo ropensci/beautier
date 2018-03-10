@@ -5,12 +5,14 @@
 \title{Is an XML opening tag with value 'section' present amongst the lines of
   the text?}
 \usage{
-has_xml_opening_tag(lines, section)
+has_xml_opening_tag(lines, section = NA)
 }
 \arguments{
 \item{lines}{lines of an XML text}
 
-\item{section}{the XML section}
+\item{section}{if NA, this function returns TRUE if there is any
+XML opening tag. If \code{section} is set to a certain word,
+this function returns TRUE if that tag matches \code{section}}
 }
 \description{
 Is an XML opening tag with value 'section' present amongst the lines of
