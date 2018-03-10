@@ -1129,13 +1129,13 @@ test_that("anthus_aco_sub_two_mrca_priors.xml", {
         alignment_id = get_alignment_id(fasta_filename),
         taxa_names = get_taxa_names(fasta_filename)[1:2],
         clock_prior_distr_id = 0
+      ),
+      create_mrca_prior(
+        name = "last_three",
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = get_taxa_names(fasta_filename)[3:5],
+        clock_prior_distr_id = 0
       )
-      # create_mrca_prior(
-      #   name = "last_three",
-      #   alignment_id = get_alignment_id(fasta_filename),
-      #   taxa_names = get_taxa_names(fasta_filename)[3:5],
-      #   clock_prior_distr_id = 0
-      # )
     ),
     misc_options = create_misc_options(nucleotides_uppercase = TRUE)
   )

@@ -12,7 +12,7 @@ has_xml_opening_tag <- function(
     stop("'section' must be NA or a word")
   }
   if (is.na(section)) {
-    tag <- get_xml_opening_tag(lines)
+    tag <- get_xml_opening_tag(lines) # nolint
     return(!is.na(tag))
   }
   !is.na(find_first_xml_opening_tag_line(lines, section))

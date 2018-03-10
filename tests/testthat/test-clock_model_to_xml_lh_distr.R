@@ -16,6 +16,8 @@ test_that("strict", {
       id = "test_output_0"
     )
   )
+  testit::assert(beautier:::is_xml(expected))
+  testit::assert(beautier:::is_xml(created))
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 
 })

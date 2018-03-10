@@ -2,7 +2,8 @@
 % Please edit documentation in R/is_xml.R
 \name{is_xml}
 \alias{is_xml}
-\title{Checks if the text is a valid XML node}
+\title{Checks if the text is a valid XML node, that is,
+it has a opening and matching closing tag}
 \usage{
 is_xml(text)
 }
@@ -10,7 +11,8 @@ is_xml(text)
 \item{text}{text to be determined to be valid}
 }
 \description{
-Checks if the text is a valid XML node
+Checks if the text is a valid XML node, that is,
+it has a opening and matching closing tag
 }
 \author{
 Richel J.C. Bilderbeek

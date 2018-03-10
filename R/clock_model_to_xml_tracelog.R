@@ -34,5 +34,6 @@ clock_model_to_xml_tracelog <- function(
       text <- c(text, paste0("<log idref=\"clockRate.c:", id, "\"/>"))
     }
   }
+  testit::assert(is.null(text) || is_xml(text))
   text
 }
