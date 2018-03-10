@@ -4,5 +4,7 @@
 #' @examples
 #' @author Richel J.C. Bilderbeek
 is_xml <- function(text) {
-  !is.na(text)
+  if (is.na(text)) return(FALSE)
+  if (!has_xml_opening_tag(text)) return(FALSE)
+  TRUE
 }

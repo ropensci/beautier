@@ -1112,7 +1112,8 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
 
 
 test_that("anthus_aco_sub_two_mrca_priors.xml", {
-  # This XML file has no prior distribution
+
+  skip("WIP")
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
 

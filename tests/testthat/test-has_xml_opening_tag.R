@@ -1,6 +1,6 @@
 context("has_xml_opening_tag")
 
-test_that("use", {
+test_that("use on known tag", {
 
   text <- c(
     "  <a>",
@@ -12,15 +12,21 @@ test_that("use", {
   )
 
   testthat::expect_true(
-    beautier:::has_xml_opening_tag(text, section = "a"))
+    beautier:::has_xml_opening_tag(text, section = "a")
+  )
   testthat::expect_true(
-    beautier:::has_xml_opening_tag(text, section = "b"))
+    beautier:::has_xml_opening_tag(text, section = "b")
+  )
   testthat::expect_false(
-    beautier:::has_xml_opening_tag(text, section = "nonsense"))
+    beautier:::has_xml_opening_tag(text, section = "nonsense")
+  )
   testthat::expect_false(
-    beautier:::has_xml_opening_tag("", section = "nonsense"))
+    beautier:::has_xml_opening_tag("", section = "nonsense")
+  )
 
 })
+
+
 
 test_that("abuse", {
 
@@ -29,7 +35,7 @@ test_that("abuse", {
     "  some text",
     "</a>",
     "<b>",
-    "  some other tex",
+    "  some other text",
     "</b>"
   )
 
