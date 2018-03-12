@@ -3,13 +3,15 @@ library(beautier)
 create_random <- function(
   input_fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
 ) {
+  input_filename <- beautier:::get_beautier_path("anthus_aco.fas"),
   output_xml_filename <- tempfile()
   create_beast2_input_file(
-    input_filenames = beautier:::get_beautier_path("anthus_aco.fas"),
+    input_filenames = input_filename,
     output_filename = output_xml_filename,
     site_models = beautier:::create_rnd_site_model(),
     clock_models = beautier:::create_rnd_clock_model(),
-    tree_priors = beautier:::create_rnd_tree_prior()
+    tree_priors = beautier:::create_rnd_tree_prior(),
+    mrca_priors = beautier:::create_rnd_mrca_prior(input_filename)
   )
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
   if (!is_ok) {

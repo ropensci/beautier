@@ -298,6 +298,21 @@ create_rnd_mean_param <- function() {
   )
 }
 
+#' Create a random MRCA prior
+#' @param fasta_filename a FASTA filename
+#' @author Richel J.C. Bilderbeek
+create_rnd_mrca_prior <- function(fasta_filename) {
+  all_taxa_names <- get_taxa_names(fasta_filename)
+  n_taxa <- runif(min = 0, max = length(all_taxa_names), n = 1)
+  taxa_names <- sample(x = all_taxa_names, size = n_taxa, replace = TRUE)
+  create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = taxa_names,
+    is_monophyletic = create_rnd_bool(),
+    mrca_distr = create_rnd_distr()
+  )
+}
+
 #' Create a random mu parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_mu_param <- function() {

@@ -226,6 +226,17 @@ test_that("create_rnd_mean_param", {
   )
 })
 
+test_that("create_rnd_mrca_prior", {
+  testthat::expect_true(
+    beautier:::is_mrca_prior(
+      beautier:::create_rnd_mrca_prior(
+        get_beautier_path("anthus_aco_sub.fas")
+      )
+    )
+  )
+})
+
+
 test_that("create_rnd_mu_param", {
   testthat::expect_true(
     beautier:::is_mu_param(
