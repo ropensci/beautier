@@ -303,7 +303,7 @@ create_rnd_mean_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_mrca_prior <- function(fasta_filename) {
   all_taxa_names <- get_taxa_names(fasta_filename)
-  n_taxa <- runif(min = 1, max = length(all_taxa_names), n = 1)
+  n_taxa <- stats::runif(min = 1, max = length(all_taxa_names), n = 1)
   taxa_names <- sample(x = all_taxa_names, size = n_taxa)
   create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename),
