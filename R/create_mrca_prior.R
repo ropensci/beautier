@@ -11,11 +11,11 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mrca_prior <- function(
-  name = NA,
   alignment_id,
   taxa_names,
   is_monophyletic = FALSE,
   mrca_distr = NA,
+  name = NA,
   clock_prior_distr_id = NA
 ) {
   if (length(name) != 1 || (!is.character(name) && !is.na(name))) {

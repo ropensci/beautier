@@ -4,13 +4,10 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(name = NA, alignment_id, taxa_names,
-  is_monophyletic = FALSE, mrca_distr = NA, clock_prior_distr_id = NA)
+create_mrca_prior(alignment_id, taxa_names, is_monophyletic = FALSE,
+  mrca_distr = NA, name = NA, clock_prior_distr_id = NA)
 }
 \arguments{
-\item{name}{the unique name of the MRCA prior, for example a genus, family,
-order or even class name. Leave at NA to have it named automatically}
-
 \item{alignment_id}{ID of the alignment,
 as returned by \code{\link{get_alignment_id}}}
 
@@ -24,6 +21,9 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mrca_distr}{the distribution used by the MRCA prior.
 Can be NA (the default) or any distribution
 returned by \code{\link{create_distr}}}
+
+\item{name}{the unique name of the MRCA prior, for example a genus, family,
+order or even class name. Leave at NA to have it named automatically}
 
 \item{clock_prior_distr_id}{ID of an MRCA clock model's distribution.
 Keep at NA to have it initialized automatically}

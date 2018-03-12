@@ -6,7 +6,21 @@ test_that("use", {
 
   testthat::expect_true(
     beautier:::are_mrca_taxa_names_in_fastas(
-      mrca_taxa_names = get_taxa_names(fasta_filename),
+      mrca_priors = create_mrca_prior(
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = get_taxa_names(fasta_filename)
+      ),
+      fasta_filenames = fasta_filename
+    )
+  )
+
+  skip("WIP")
+  testthat::expect_false(
+    beautier:::are_mrca_taxa_names_in_fastas(
+      mrca_priors = create_mrca_prior(
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = paste0("broken_", get_taxa_names(fasta_filename))
+      ),
       fasta_filenames = fasta_filename
     )
   )
