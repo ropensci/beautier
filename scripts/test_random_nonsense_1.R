@@ -1,25 +1,25 @@
 library(beautier)
 
-create_random_anything <- function() {
+create_rnd_anything <- function() {
 
   anything_index <- sample(x = 1:13, size = 1)
 
   if (anything_index == 1) {
-    beautier:::create_random_site_model()
+    beautier:::create_rnd_site_model()
   } else if (anything_index == 2) {
-    beautier:::create_random_clock_model()
+    beautier:::create_rnd_clock_model()
   } else if (anything_index == 3) {
-    beautier:::create_random_tree_prior()
+    beautier:::create_rnd_tree_prior()
   } else if (anything_index == 4) {
-    beautier:::create_random_gamma_site_model()
+    beautier:::create_rnd_gamma_site_model()
   } else if (anything_index == 5) {
-    beautier:::create_random_distr()
+    beautier:::create_rnd_distr()
   } else if (anything_index == 6) {
-    beautier:::create_random_freq_equilibrium()
+    beautier:::create_rnd_freq_equilibrium()
   } else if (anything_index == 7) {
-    beautier:::create_random_estimate()
+    beautier:::create_rnd_estimate()
   } else if (anything_index == 8) {
-    beautier:::create_random_param()
+    beautier:::create_rnd_param()
   } else if (anything_index == 9) {
     "nonsense"
   } else if (anything_index == 10) {
@@ -47,9 +47,9 @@ create_random <- function(
         create_beast2_input_file(
           input_filenames = beautier:::get_path("anthus_aco.fas"),
           output_filename = output_xml_filename,
-          site_models = create_random_anything(),
-          clock_models = create_random_anything(),
-          tree_priors = create_random_anything()
+          site_models = create_rnd_anything(),
+          clock_models = create_rnd_anything(),
+          tree_priors = create_rnd_anything()
         )
         done <- TRUE
       },

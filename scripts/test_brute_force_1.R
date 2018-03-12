@@ -169,27 +169,30 @@ brute_force_1_combinations_calibration <- function() {
   for (site_model in beautier:::create_site_models()) {
     for (clock_model in beautier:::create_clock_models()) {
       for (tree_prior in beautier:::create_tree_priors()) {
+        for (is_monophyletic in c(TRUE, FALSE)) {
 
-        output_xml_filename <- tempfile()
+          output_xml_filename <- tempfile()
 
-        create_beast2_input_file(
-          input_filenames = input_fasta_filename,
-          site_models = site_model,
-          clock_models = clock_model,
-          tree_priors = tree_prior,
-          output_filename = output_xml_filename,
-          # posterior_crown_age = 15,
-          mrca_priors = create_mrca_prior(
-            alignment_id = get_alignment_id(input_fasta_filename),
-            taxa_names = get_taxa_names(input_fasta_filename)
+          create_beast2_input_file(
+            input_filenames = input_fasta_filename,
+            site_models = site_model,
+            clock_models = clock_model,
+            tree_priors = tree_prior,
+            output_filename = output_xml_filename,
+            # posterior_crown_age = 15,
+            mrca_priors = create_mrca_prior(
+              alignment_id = get_alignment_id(input_fasta_filename),
+              taxa_names = get_taxa_names(input_fasta_filename),
+              is_monophyletic = is_monophyletic
+            )
           )
-        )
-        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
-        testthat::expect_true(is_ok)
-        if (!is_ok) {
-          print(paste(site_model$name, clock_model$name, tree_prior$name))
-          beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
-          n_fail <- n_fail + 1
+          is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+          testthat::expect_true(is_ok)
+          if (!is_ok) {
+            print(paste(site_model$name, clock_model$name, tree_prior$name))
+            beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
+            n_fail <- n_fail + 1
+          }
         }
       }
     }
