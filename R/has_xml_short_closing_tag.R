@@ -1,8 +1,5 @@
 #' Is an XML closing tag with short closing text at the end of the text?
 #' @param lines lines of an XML text
-#' @param section if NA, this function returns TRUE if there is any
-#'   XML opening tag. If \code{section} is set to a certain word,
-#'   this function returns TRUE if that tag matches \code{section}
 #' @examples
 #'   testit::assert(beautier:::has_xml_short_closing_tag("<my_tag id=1/>"))
 #'   testit::assert(

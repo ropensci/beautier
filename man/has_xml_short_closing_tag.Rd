@@ -8,10 +8,6 @@ has_xml_short_closing_tag(lines)
 }
 \arguments{
 \item{lines}{lines of an XML text}
-
-\item{section}{if NA, this function returns TRUE if there is any
-XML opening tag. If \code{section} is set to a certain word,
-this function returns TRUE if that tag matches \code{section}}
 }
 \description{
 Is an XML closing tag with short closing text at the end of the text?
