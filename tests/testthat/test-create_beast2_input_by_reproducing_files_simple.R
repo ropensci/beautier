@@ -1077,7 +1077,7 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
 test_that("anthus_aco_sub_calibrated_rln.xml", {
 
   # This XML file has
-  # - no MRCA prior distribution prior,
+  # - an MRCA prior distribution prior,
   # - an RLN clock model
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
@@ -1107,6 +1107,45 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated_rln.xml")
   )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
+
+  skip("WIP, #26")
+  # This XML file has
+  # - an MRCA prior distribution prior,
+  # - an RLN clock model, that is monophyletic
+
+  fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
+
+  created <- beautier::create_beast2_input(
+    input_filenames = fasta_filename,
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    clock_models = create_rln_clock_model(
+      ucldstdev_distr = create_gamma_distr(
+        id = 6,
+        alpha = create_alpha_param(id = 21, value = "0.5396"),
+        beta = create_beta_param(id = 22, value = "0.3819")
+      ),
+      mparam_id = 20
+    ),
+    mcmc = create_mcmc(chain_length = 10000),
+    mrca_priors = create_mrca_prior(
+      name = "every",
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      clock_prior_distr_id = 0,
+      is_monophyletic = TRUE
+    ),
+    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+  )
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_calibrated_rln_monophyletic.xml")
+  )
+  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 

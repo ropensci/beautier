@@ -17,7 +17,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   text <- NULL
-  if (mrca_prior$is_monophyletic) {
+  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic) {
     text <- c(
       text,
       paste0(
