@@ -9,6 +9,8 @@ is_xml <- function(text) {
   if (has_xml_short_closing_tag(text)) return(TRUE)
   opening_tag <- get_xml_opening_tag(text)
   closing_tag <- get_xml_closing_tag(text)
+  if (is.na(closing_tag)) return(FALSE)
+  testit::assert(!is.na(closing_tag))
   if (opening_tag != closing_tag) return(FALSE)
   TRUE
 }
