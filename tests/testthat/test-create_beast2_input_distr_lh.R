@@ -329,6 +329,22 @@ test_that("RLN shared", {
   )
 })
 
+test_that("Must not have two branchRateModels, #26", {
+
+  created <- beautier:::create_beast2_input_distr_lh(
+    site_models = list(
+      create_jc69_site_model(id = "test_output_0")
+    ),
+    clock_models = list(
+      create_strict_clock_model(id = "test_output_0")
+    )
+  )
+  sum(grepl(x = created, pattern = " *<branchRateModel.*"))
+
+})
+
+
+
 ################################################################################
 # Two alignments, site models
 ################################################################################

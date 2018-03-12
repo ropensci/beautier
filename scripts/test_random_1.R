@@ -31,6 +31,14 @@ create_random <- function(
     print(tree_prior)
     print("mrca prior:")
     print(mrca_prior)
+    print("site model$name:")
+    print(site_model$name)
+    print("clock model$name:")
+    print(clock_model$name)
+    print("tree prior$name:")
+    print(tree_prior$name)
+    print("mrca prior$name:")
+    print(mrca_prior$name)
   }
   is_ok
 }
@@ -42,7 +50,7 @@ print(paste("seed:", seed))
 
 status <- 0
 # Use one hour
-for (i in seq(1, 900)) {
+for (i in seq(1, 4)) {
   print(i)
   ok <- create_random()
   if (ok == FALSE) {

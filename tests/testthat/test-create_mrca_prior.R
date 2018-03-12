@@ -89,4 +89,13 @@ test_that("abuse", {
     "All names of 'taxa_names' must be unique"
   )
 
+  testthat::expect_error(
+    create_mrca_prior(
+      name = "my_prior_name",
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = ""
+    ),
+    "'taxa_names' must have at least one taxon name"
+  )
+
 })
