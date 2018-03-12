@@ -189,7 +189,14 @@ brute_force_1_combinations_calibration <- function() {
           is_ok <- beastier::is_beast2_input_file(output_xml_filename)
           testthat::expect_true(is_ok)
           if (!is_ok) {
-            print(paste(site_model$name, clock_model$name, tree_prior$name))
+            print(
+              paste(
+                site_model$name,
+                clock_model$name,
+                tree_prior$name,
+                is_monophyletic
+              )
+            )
             beastier::is_beast2_input_file(output_xml_filename, verbose = TRUE)
             n_fail <- n_fail + 1
           }
