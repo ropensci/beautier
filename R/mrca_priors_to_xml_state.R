@@ -5,7 +5,8 @@
 #'   tags
 #' @author Richel J.C. Bilderbeek
 mrca_priors_to_xml_state <- function(
-  mrca_priors
+  mrca_priors,
+  has_non_strict_clock_model = FALSE
 ) {
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NULL)
@@ -13,7 +14,10 @@ mrca_priors_to_xml_state <- function(
   text <- NULL
   for (mrca_prior in mrca_priors) {
     text <- c(text,
-      mrca_prior_to_xml_state(mrca_prior)
+      mrca_prior_to_xml_state(
+        mrca_prior = mrca_prior,
+        has_non_strict_clock_model = has_non_strict_clock_model
+      )
     )
   }
 

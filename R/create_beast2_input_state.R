@@ -27,7 +27,13 @@ create_beast2_input_state <- function(
   text <- c(text, site_models_to_xml_state(site_models)) # nolint internal function
   text <- c(text, clock_models_to_xml_state(clock_models)) # nolint internal function
   text <- c(text, tree_priors_to_xml_state(tree_priors)) # nolint internal function
-  text <- c(text, mrca_priors_to_xml_state(mrca_priors)) # nolint internal function
+  text <- c(
+    text,
+    mrca_priors_to_xml_state( # nolint internal function
+      mrca_priors,
+      has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models) # nolint internal function
+    )
+  )
 
   text <- indent(text, n_spaces = 4) # nolint internal function
   text <- c("<state id=\"state\" storeEvery=\"5000\">", text)
