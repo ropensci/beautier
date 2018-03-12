@@ -46,7 +46,6 @@ test_that("use with calibration node", {
 
 test_that("Run MRCA, beautier issue #26", {
 
-  skip("WIP")
   fasta_filename <- get_fasta_filename()
   lines <- create_beast2_input(
     input_filenames = fasta_filename,

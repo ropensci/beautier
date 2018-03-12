@@ -331,8 +331,6 @@ test_that("RLN shared", {
 
 test_that("Must not have two branchRateModels, #26", {
 
-
-  skip("WIP")
   fasta_filename <- get_fasta_filename()
   created <- beautier:::create_beast2_input_distr_lh(
     site_models = list(

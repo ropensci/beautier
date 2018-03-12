@@ -4,7 +4,8 @@
 #' @return the MRCA priors as XML text
 #' @author Richel J.C. Bilderbeek
 mrca_priors_to_xml_operators <- function(
-  mrca_priors
+  mrca_priors,
+  has_non_strict_clock_model = FALSE
 ) {
 
   testit::assert(are_mrca_priors(mrca_priors))
@@ -14,7 +15,10 @@ mrca_priors_to_xml_operators <- function(
 
     text <- c(
       text,
-      mrca_prior_to_xml_operators(mrca_prior)
+      mrca_prior_to_xml_operators(
+        mrca_prior = mrca_prior,
+        has_non_strict_clock_model = has_non_strict_clock_model
+      )
     )
   }
   text

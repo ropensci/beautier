@@ -1112,7 +1112,6 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
 
 test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
 
-  skip("WIP, #26")
   # This XML file has
   # - an MRCA prior distribution prior,
   # - an RLN clock model, that is monophyletic
@@ -1145,7 +1144,6 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated_rln_monophyletic.xml")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 

@@ -200,6 +200,10 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     "spec=\"util.CompoundDistribution\" useThreads=\"true\">"),
     text)
   text <- c(text, "</distribution>")
+
+  # Must have one or zero branchRateModel
+  # testit::assert(sum(grepl(x = text, pattern = " *<branchRateModel.*")) < length(site_models)) # nolint perhaps one day
+
   text
 }
 

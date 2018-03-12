@@ -5,7 +5,8 @@
 \title{Creates the XML of an MRCA prior,
   as used in the \code{operators} section}
 \usage{
-mrca_prior_to_xml_operators(mrca_prior, fixed_crown_age = FALSE)
+mrca_prior_to_xml_operators(mrca_prior, fixed_crown_age = FALSE,
+  has_non_strict_clock_model = FALSE)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
@@ -15,6 +16,9 @@ as returned by \code{\link{create_mrca_prior}}}
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
+
+\item{has_non_strict_clock_model}{boolean to indicate that the is
+already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \value{
 the mrca prior as XML text

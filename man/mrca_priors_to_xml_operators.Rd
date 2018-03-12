@@ -5,11 +5,14 @@
 \title{Creates the XML of a list of one or more MRCA priors,
   as used in the \code{operators} section}
 \usage{
-mrca_priors_to_xml_operators(mrca_priors)
+mrca_priors_to_xml_operators(mrca_priors, has_non_strict_clock_model = FALSE)
 }
 \arguments{
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{has_non_strict_clock_model}{boolean to indicate that the is
+already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \value{
 the MRCA priors as XML text
