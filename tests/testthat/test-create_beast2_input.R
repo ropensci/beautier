@@ -44,7 +44,7 @@ test_that("use with calibration node", {
 })
 
 
-test_that("Run MRCA, beautier issue #26", {
+test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
 
   fasta_filename <- get_fasta_filename()
   lines <- create_beast2_input(
@@ -160,6 +160,19 @@ test_that("abuse: one alignment", {
       tree_priors = create_cbs_tree_prior(group_sizes_dimension = 5)
     ),
     "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
+  )
+
+
+  skip("WIP")
+  testthat::expect_error(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      mrca_priors = create_mrca_prior(
+        alignment_id = "my_alignment",
+        taxa_names = paste0("broken_", get_taxa_names(get_fasta_filename()))
+      )
+    ),
+    "All MRCA prior's taxa names must be FASTA file taxa names"
   )
 
 })
