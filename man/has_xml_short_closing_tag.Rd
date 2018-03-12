@@ -17,8 +17,12 @@ this function returns TRUE if that tag matches \code{section}}
 Is an XML closing tag with short closing text at the end of the text?
 }
 \examples{
-  testit::assert(has_xml_short_closing_tag("<my_tag id=1/>"))
-  testit::assert(!has_xml_short_closing_tag("<my_tag id=1>text</my_tag>"))
+  testit::assert(beautier:::has_xml_short_closing_tag("<my_tag id=1/>"))
+  testit::assert(
+    !beautier:::has_xml_short_closing_tag(
+      "<my_tag id=1>text</my_tag>"
+    )
+  )
 }
 \author{
 Richel J.C. Bilderbeek

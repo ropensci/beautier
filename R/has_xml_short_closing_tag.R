@@ -4,8 +4,12 @@
 #'   XML opening tag. If \code{section} is set to a certain word,
 #'   this function returns TRUE if that tag matches \code{section}
 #' @examples
-#'   testit::assert(has_xml_short_closing_tag("<my_tag id=1/>"))
-#'   testit::assert(!has_xml_short_closing_tag("<my_tag id=1>text</my_tag>"))
+#'   testit::assert(beautier:::has_xml_short_closing_tag("<my_tag id=1/>"))
+#'   testit::assert(
+#'     !beautier:::has_xml_short_closing_tag(
+#'       "<my_tag id=1>text</my_tag>"
+#'     )
+#'   )
 #' @author Richel J.C. Bilderbeek
 has_xml_short_closing_tag <- function(
   lines
