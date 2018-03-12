@@ -6,7 +6,7 @@ are_mrca_align_ids_in_fastas <- function(
   fasta_filenames
 ) {
   testit::assert(are_mrca_priors(mrca_priors))
-  ids <- get_alignment_ids(fasta_filenames = fasta_filenames)
+  ids <- get_alignment_ids(fasta_filenames)
   for (mrca_prior in mrca_priors) {
     testit::assert(is_mrca_prior(mrca_prior))
     testit::assert(!is_one_na(mrca_prior))
