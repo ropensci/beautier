@@ -50,7 +50,7 @@ print(paste("seed:", seed))
 
 status <- 0
 # Use one hour
-for (i in seq(1, 4)) {
+for (i in seq(1, 5)) {
   print(i)
   ok <- create_random()
   if (ok == FALSE) {

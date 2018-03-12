@@ -43,6 +43,28 @@ test_that("use with calibration node", {
 
 })
 
+
+test_that("Run MRCA, beautier issue #26", {
+
+  skip("WIP")
+  fasta_filename <- get_fasta_filename()
+  lines <- create_beast2_input(
+    input_filenames = fasta_filename,
+    site_models = create_jc69_site_model(),
+    clock_models = create_rln_clock_model(),
+    tree_priors = create_cep_tree_prior(),
+    mrca_priors = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      is_monophyletic = TRUE
+    )
+  )
+  testthat::expect_equal(
+    1,
+    sum(grepl(x = lines, pattern = " *<branchRateModel.*"))
+  )
+})
+
 test_that("abuse: one alignment", {
 
   testthat::expect_silent(

@@ -331,15 +331,28 @@ test_that("RLN shared", {
 
 test_that("Must not have two branchRateModels, #26", {
 
+
+  skip("WIP")
+  fasta_filename <- get_fasta_filename()
   created <- beautier:::create_beast2_input_distr_lh(
     site_models = list(
-      create_jc69_site_model(id = "test_output_0")
+      create_jc69_site_model(id = get_alignment_id(fasta_filename))
     ),
     clock_models = list(
-      create_strict_clock_model(id = "test_output_0")
+      create_rln_clock_model(id = get_alignment_id(fasta_filename))
+    ),
+    mrca_priors = list(
+      create_mrca_prior(
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = get_taxa_names(fasta_filename),
+        is_monophyletic = TRUE
+      )
     )
   )
-  sum(grepl(x = created, pattern = " *<branchRateModel.*"))
+  testthat::expect_equal(
+    1,
+    sum(grepl(x = created, pattern = " *<branchRateModel.*"))
+  )
 
 })
 
