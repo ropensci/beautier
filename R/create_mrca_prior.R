@@ -33,6 +33,10 @@ create_mrca_prior <- function(
   if (!is_distr(mrca_distr) && !is.na(mrca_distr)) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
+  if (length(unique(taxa_names)) != length(taxa_names)) {
+    stop("All names of 'taxa_names' must be unique")
+  }
+
   mrca_prior <- list(
     name = name,
     alignment_id = alignment_id,

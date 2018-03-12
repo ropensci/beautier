@@ -80,4 +80,13 @@ test_that("abuse", {
     "'mrca_distr' must a distribution, as created by 'create_distr'"
   )
 
+  testthat::expect_error(
+    create_mrca_prior(
+      name = "my_prior_name",
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = c(get_taxa_names(fasta_filename), get_taxa_names(fasta_filename)[1])
+    ),
+    "All names of 'taxa_names' must be unique"
+  )
+
 })
