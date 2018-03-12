@@ -42,10 +42,10 @@ See [FAQ](Faq.md)
 
 Here are some missing or (yet) unsupported features:
 
- * Support for shared site or clock models (will be added in `v1.13`)
+ * Support for shared site or clock models (will be added in `v1.14`)
  * Support for amino acid sequences
  * Support for three or more alignments with a mix of linked site models, clock models and tree priors
- * Specify a prior that allows a sub-clade to be monophyletic 
+ * Specify a prior that allows a sub-clade to be monophyletic (will be added in `v1.13`) 
  * Clock models
    * Relaxed exponential
    * Random local
