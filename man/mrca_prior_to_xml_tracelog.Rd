@@ -4,11 +4,14 @@
 \alias{mrca_prior_to_xml_tracelog}
 \title{Creates the mrca prior's XML for the tracelog section}
 \usage{
-mrca_prior_to_xml_tracelog(mrca_prior)
+mrca_prior_to_xml_tracelog(mrca_prior, has_non_strict_clock_model = FALSE)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{has_non_strict_clock_model}{boolean to indicate that the is
+already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \description{
 Creates the mrca prior's XML for the tracelog section

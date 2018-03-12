@@ -8,13 +8,17 @@
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
 mrca_priors_to_xml_tracelog <- function(
-  mrca_priors
+  mrca_priors,
+  has_non_strict_clock_model = FALSE
 ) {
   testit::assert(are_mrca_priors(mrca_priors))
   text <- NULL
   for (mrca_prior in mrca_priors) {
     text <- c(text,
-      mrca_prior_to_xml_tracelog(mrca_prior)
+      mrca_prior_to_xml_tracelog(
+        mrca_prior = mrca_prior,
+        has_non_strict_clock_model = has_non_strict_clock_model
+      )
     )
   }
   text

@@ -8,7 +8,8 @@
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
 mrca_prior_to_xml_tracelog <- function( # nolint internal function
-  mrca_prior
+  mrca_prior,
+  has_non_strict_clock_model = FALSE
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
@@ -16,7 +17,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   text <- NULL
   text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
 
-  if (mrca_prior$is_monophyletic) {
+  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic) {
     text <- c(
       text,
       paste0(
