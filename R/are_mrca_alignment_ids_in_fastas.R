@@ -1,7 +1,7 @@
 #' Determine if the MRCA priors' alignment IDs are present in the FASTA files
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
-are_mrca_alignment_ids_in_fastas <- function(
+are_mrca_align_ids_in_fastas <- function(
   mrca_priors,
   fasta_filenames
 ) {

@@ -31,12 +31,13 @@ test_that("use with fixed crown age", {
 
 test_that("use with calibration node", {
 
+  fasta_filename <- get_fasta_filename()
   testthat::expect_silent(
     create_beast2_input(
-      input_filenames = get_fasta_filename(),
+      input_filenames = fasta_filename,
       mrca_priors = create_mrca_prior(
-        alignment_id = "my_alignment",
-        taxa_names = get_taxa_names(get_fasta_filename())
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = get_taxa_names(fasta_filename)
       )
     )
   )

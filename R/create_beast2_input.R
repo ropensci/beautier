@@ -130,8 +130,14 @@ create_beast2_input <- function(
   }
 
   # All MRCA's taxa names must be in the FASTA files
-  if (!are_mrca_taxa_names_in_fastas(input_filenames, mrca_priors)) {
-    stop("All MRCA prior's taxa names must be FASTA file taxa names")
+  if (!is_one_na(mrca_priors)) {
+    testit::assert(are_mrca_priors(mrca_priors))
+    if (!are_mrca_taxa_names_in_fastas(
+        mrca_priors = mrca_priors, fasta_filenames = input_filenames
+      )
+    ) {
+      stop("All MRCA prior's taxa names must be FASTA file taxa names")
+    }
   }
 
   # Initialize all models and priors

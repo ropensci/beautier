@@ -84,7 +84,10 @@ test_that("abuse", {
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
-      taxa_names = c(get_taxa_names(fasta_filename), get_taxa_names(fasta_filename)[1])
+      taxa_names = c(
+        get_taxa_names(fasta_filename),
+        get_taxa_names(fasta_filename)[1]
+      )
     ),
     "All names of 'taxa_names' must be unique"
   )
