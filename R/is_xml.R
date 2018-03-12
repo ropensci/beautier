@@ -7,9 +7,8 @@ is_xml <- function(text) {
   if (length(text) == 1 && is.na(text)) return(FALSE)
   if (!has_xml_opening_tag(text)) return(FALSE)
   if (has_xml_short_closing_tag(text)) return(TRUE)
-  # tag <- get_xml_opening_tag(text)
-  # if (!has_xml_closing_tag(text, tag)) return(FALSE)
-
-
+  opening_tag <- get_xml_opening_tag(text)
+  closing_tag <- get_xml_closing_tag(text)
+  if (opening_tag != closing_tag) return(FALSE)
   TRUE
 }
