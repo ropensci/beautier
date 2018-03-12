@@ -8,7 +8,7 @@ brute_force_1_site_models <- function() {
 
   n_fail <- 0
 
-  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
+  input_fasta_filename <- beautier:::get_beautier_path("anthus_aco.fas")
 
   for (site_model in beautier:::create_site_models()) {
     for (clock_model in beautier:::create_clock_models()) {
@@ -75,7 +75,7 @@ brute_force_1_tree_priors <- function() {
   n_fail <- 0
 
   tree_priors <- beautier:::create_tree_priors()
-  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
+  input_fasta_filename <- beautier:::get_beautier_path("anthus_aco.fas")
 
   for (tree_prior in tree_priors) {
 
@@ -101,7 +101,7 @@ brute_force_1_tree_priors_fixed_crown_age <- function() {
   n_fail <- 0
 
   tree_priors <- beautier:::create_tree_priors()
-  input_fasta_filename <- beautier:::get_path("anthus_aco.fas")
+  input_fasta_filename <- beautier:::get_beautier_path("anthus_aco.fas")
 
   for (tree_prior in tree_priors) {
     output_xml_filename <- tempfile()

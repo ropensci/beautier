@@ -174,7 +174,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     testit::assert(are_mrca_priors(mrca_priors))
     testit::assert(length(mrca_priors) >= 1)
     mrca_prior <- NA
-    if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]]
+    if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]] # nolint
     testit::assert(is_mrca_prior(mrca_prior))
     text <- c(text,
       indent(
