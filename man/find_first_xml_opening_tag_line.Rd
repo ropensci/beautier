@@ -18,3 +18,6 @@ the line number's index (which is 1 for the first line) if the
 \description{
 Find the line number of the first section's opening tag
 }
+\author{
+Richel J.C. Bilderbeek
+}
