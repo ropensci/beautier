@@ -38,7 +38,7 @@ distr_to_xml <- function(
     testit::assert(is_uniform_distr(distr))
     text <- c(text, distr_to_xml_uniform(distr)) # nolint internal function
   }
-  testit::assert(is_xml(text))
+  testit::assert(is_xml(text)) # nolint
   text
 }
 

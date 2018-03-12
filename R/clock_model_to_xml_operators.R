@@ -65,6 +65,6 @@ clock_model_to_xml_operators <- function(
       "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"))
   }
-  testit::assert(is.null(text) || is_xml(text))
+  testit::assert(is.null(text) || is_xml(text)) # nolint internal function
   text
 }

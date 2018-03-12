@@ -58,7 +58,7 @@ parameter_to_xml <- function(
     testit::assert(is_sigma_param(parameter))
     text <- c(text, parameter_to_xml_sigma(parameter)) # nolint internal function
   }
-  testit::assert(is_xml(text))
+  testit::assert(is_xml(text)) # nolint
   text
 }
 

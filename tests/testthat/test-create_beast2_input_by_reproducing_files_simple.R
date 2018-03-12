@@ -1113,8 +1113,6 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
 
 test_that("anthus_aco_sub_two_mrca_priors.xml", {
 
-  skip("WIP")
-
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
 
   created <- beautier::create_beast2_input(
@@ -1143,6 +1141,5 @@ test_that("anthus_aco_sub_two_mrca_priors.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_two_mrca_priors.xml")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

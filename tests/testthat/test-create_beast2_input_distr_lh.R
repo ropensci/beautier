@@ -31,6 +31,8 @@ test_that("strict", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(beautier:::is_xml(created))
+  testthat::expect_true(beautier:::is_xml(expected))
 })
 
 
@@ -306,6 +308,8 @@ test_that("strict shared", {
     )
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(beautier:::is_xml(created))
+  testthat::expect_true(beautier:::is_xml(expected))
 })
 
 test_that("RLN shared", {

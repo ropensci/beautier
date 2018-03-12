@@ -172,9 +172,9 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     }
     # Can be either NA or a list of 1 element
     testit::assert(are_mrca_priors(mrca_priors))
-    testit::assert(length(mrca_priors) == 1)
+    testit::assert(length(mrca_priors) >= 1)
     mrca_prior <- NA
-    if (!is.na(mrca_priors)) mrca_prior <- mrca_priors[[1]]
+    if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]]
     testit::assert(is_mrca_prior(mrca_prior))
     text <- c(text,
       indent(
@@ -187,7 +187,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
         n_spaces = 4
       )
     )
-
+    # Close of '<distribution id="treeLikelihood.test_output_0"...'
     text <- c(text, "</distribution>")
   }
 
