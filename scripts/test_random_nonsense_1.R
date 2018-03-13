@@ -1,4 +1,22 @@
+
 library(beautier)
+
+is_on_whitelist <- function(msg) {
+  patterns <- c(
+    "'clock_models' must be a valid clock model",
+    "'tree_priors' must be a valid tree prior",
+    "'site_models' must be a valid site model",
+    "'mrca_priors' must be NA or a valid mrca object",
+    "'posterior_crown_age' must be either NA or a non-zero postive value"
+  )
+  for (pattern in patterns) {
+    if (!is.na(stringr::str_match(string = msg, pattern = pattern)[1,1])
+    ) {
+      return(TRUE)
+    }
+  }
+  FALSE
+}
 
 create_rnd_anything <- function(
   fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
@@ -72,6 +90,11 @@ create_rnd_mrca_prior_nasty <- function(
   }
 }
 
+create_rnd_crown_age <- function() {
+  values <- c(-1,0,1,15,NA)
+  sample(x = values, size = 1)
+}
+
 create_random <- function(
   input_fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
 ) {
@@ -88,12 +111,15 @@ create_random <- function(
           site_models = create_rnd_site_model_nasty(),
           clock_models = create_rnd_clock_model_nasty(),
           tree_priors = create_rnd_tree_prior_nasty(),
-          mrca_priors = create_rnd_mrca_prior_nasty(fasta_filename)
+          mrca_priors = create_rnd_mrca_prior_nasty(fasta_filename),
+          posterior_crown_age = create_rnd_crown_age()
         )
         done <- TRUE
       },
     error = function(error) {
-      print(error$message)
+      if (!is_on_whitelist(error$message)) {
+        print(error$message)
+      }
       done <- FALSE
       }
     )
