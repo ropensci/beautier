@@ -32,7 +32,12 @@ create_rnd_beta_distr <- function() {
           "'alpha' must have a positive value",
           "'beta' must have a value of at least 1.0"
         )
-        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message,
+            patterns = whitelist
+          )
+        ) {
           print(error$message)
           stop(error$message)
         }
@@ -169,7 +174,11 @@ create_rnd_gamma_distr <- function() {
           "'value' of 'alpha' must be positive",
           "'value' of 'beta' must be positive"
         )
-        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message, patterns = whitelist
+          )
+        ) {
           print(error$message)
           stop(error$message)
         }
@@ -199,7 +208,12 @@ create_rnd_gamma_site_model <- function() {
           "'gamma_shape' must be positive",
           "'prop_invariant' must be in range \\[0\\.0, 1\\.0\\]"
         )
-        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message,
+            patterns = whitelist
+          )
+        ) {
           print(error$message)
           stop(error$message)
         }
