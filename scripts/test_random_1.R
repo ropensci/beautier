@@ -49,8 +49,8 @@ set.seed(seed)
 print(paste("seed:", seed))
 
 status <- 0
-# Use one hour
-for (i in seq(1, 600)) {
+# 30 attempts per minute, use one hour
+for (i in seq(1, 30 * 60)) {
   print(i)
   ok <- create_random()
   if (ok == FALSE) {
