@@ -3,7 +3,7 @@
 create_rnd_alpha_param <- function() {
   create_alpha_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -28,7 +28,15 @@ create_rnd_beta_distr <- function() {
         beta = create_rnd_beta_param() # nolint internal function
       ),
       error = function(error) {
-        print(error$message)
+        whitelist <- c(
+          "'alpha' must have a positive value",
+          "'beta' must have a value of at least 1.0"
+        )
+        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+          print(error$message)
+          stop(error$message)
+        }
+        done <- FALSE
       }
     )
   }
@@ -40,7 +48,7 @@ create_rnd_beta_distr <- function() {
 create_rnd_beta_param <- function() {
   create_beta_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -90,7 +98,7 @@ create_rnd_clock_model <- function() {
 create_rnd_clock_rate_param <- function() {
   create_clock_rate_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -150,13 +158,23 @@ create_rnd_freq_equilibrium <- function() {
 create_rnd_gamma_distr <- function() {
 
   gamma_distr <- NA
-  while (length(gamma_distr) == 1 && is.na(gamma_distr)) {
+  while (is_one_na(gamma_distr)) {
     tryCatch(
-      gamma_distr <- create_gamma_distr(
-      alpha = create_rnd_alpha_param(), # nolint internal function
-      beta = create_rnd_beta_param() # nolint internal function
-    ),
-      error = function(cond) {} # nolint
+        gamma_distr <- create_gamma_distr(
+        alpha = create_rnd_alpha_param(), # nolint internal function
+        beta = create_rnd_beta_param() # nolint internal function
+      ),
+      error = function(error) {
+        whitelist <- c(
+          "'value' of 'alpha' must be positive",
+          "'value' of 'beta' must be positive"
+        )
+        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+          print(error$message)
+          stop(error$message)
+        }
+        done <- FALSE
+      }
     )
   }
   gamma_distr
@@ -234,8 +252,8 @@ create_rnd_jc69_site_model <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_kappa_1_param <- function() {
   create_kappa_1_param(
-    lower = stats::runif(n = 1, min = -100, max = 100),
-    value = stats::runif(n = 1, min = -100, max = 100)
+    lower = stats::runif(n = 1, min = -10, max = 10),
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -243,8 +261,8 @@ create_rnd_kappa_1_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_kappa_2_param <- function() {
   create_kappa_2_param(
-    lower = stats::runif(n = 1, min = -100, max = 100),
-    value = stats::runif(n = 1, min = -100, max = 100)
+    lower = stats::runif(n = 1, min = -10, max = 10),
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -252,7 +270,7 @@ create_rnd_kappa_2_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_lambda_param <- function() {
   create_lambda_param(
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -287,7 +305,7 @@ create_rnd_log_normal_distr <- function() {
 create_rnd_m_param <- function() {
   create_m_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -296,7 +314,7 @@ create_rnd_m_param <- function() {
 create_rnd_mean_param <- function() {
   create_mean_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -320,7 +338,7 @@ create_rnd_mrca_prior <- function(fasta_filename) {
 create_rnd_mu_param <- function() {
   create_mu_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -397,8 +415,8 @@ create_rnd_poisson_distr <- function() {
 create_rnd_rate_ac_param <- function() {
   create_rate_ac_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -407,8 +425,8 @@ create_rnd_rate_ac_param <- function() {
 create_rnd_rate_ag_param <- function() {
   create_rate_ag_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -417,8 +435,8 @@ create_rnd_rate_ag_param <- function() {
 create_rnd_rate_at_param <- function() {
   create_rate_at_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -427,8 +445,8 @@ create_rnd_rate_at_param <- function() {
 create_rnd_rate_cg_param <- function() {
   create_rate_cg_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 
 }
@@ -438,8 +456,8 @@ create_rnd_rate_cg_param <- function() {
 create_rnd_rate_ct_param <- function() {
   create_rate_ct_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -448,8 +466,8 @@ create_rnd_rate_ct_param <- function() {
 create_rnd_rate_gt_param <- function() {
   create_rate_gt_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -478,8 +496,8 @@ create_rnd_rln_clock_model <- function() {
 create_rnd_s_param <- function() {
   create_s_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100),
-    lower = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10),
+    lower = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -488,7 +506,7 @@ create_rnd_s_param <- function() {
 create_rnd_scale_param <- function() {
   create_scale_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -100, max = 100)
+    value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
 
@@ -500,7 +518,7 @@ create_rnd_sigma_param <- function() {
     tryCatch(
       sigma_param <- create_sigma_param(
         estimate = create_rnd_estimate(), # nolint internal function
-        value = stats::runif(n = 1, min = -100, max = 100)
+        value = stats::runif(n = 1, min = -10, max = 10)
       ),
       error = function(cond) {} # nolint
     )
@@ -582,7 +600,7 @@ create_rnd_uniform_distr <- function() {
   while (length(uniform_distr) == 1 && is.na(uniform_distr)) {
     tryCatch(
       uniform_distr <- create_uniform_distr(
-        upper = stats::runif(n = 1, min = -100, max = 100)
+        upper = stats::runif(n = 1, min = -10, max = 10)
       ),
       error = function(cond) {} # nolint
     )

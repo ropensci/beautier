@@ -1,23 +1,6 @@
 
 library(beautier)
 
-is_on_whitelist <- function(msg) {
-  patterns <- c(
-    "'clock_models' must be a valid clock model",
-    "'tree_priors' must be a valid tree prior",
-    "'site_models' must be a valid site model",
-    "'mrca_priors' must be NA or a valid mrca object",
-    "'posterior_crown_age' must be either NA or a non-zero postive value"
-  )
-  for (pattern in patterns) {
-    if (!is.na(stringr::str_match(string = msg, pattern = pattern)[1,1])
-    ) {
-      return(TRUE)
-    }
-  }
-  FALSE
-}
-
 create_rnd_anything <- function(
   fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
 ) {
@@ -117,10 +100,17 @@ create_random <- function(
         done <- TRUE
       },
     error = function(error) {
-      if (!is_on_whitelist(error$message)) {
-        print(error$message)
-      }
-      done <- FALSE
+        whitelist <- c(
+          "'clock_models' must be a valid clock model",
+          "'tree_priors' must be a valid tree prior",
+          "'site_models' must be a valid site model",
+          "'mrca_priors' must be NA or a valid mrca object",
+          "'posterior_crown_age' must be either NA or a non-zero postive value"
+        )
+        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+          print(error$message)
+        }
+        done <- FALSE
       }
     )
   }
