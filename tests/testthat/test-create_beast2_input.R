@@ -44,7 +44,6 @@ test_that("use with calibration node", {
 
 })
 
-
 test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
 
   fasta_filename <- get_fasta_filename()
@@ -58,6 +57,40 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = TRUE
     )
+  )
+  testthat::expect_equal(
+    1,
+    sum(grepl(x = lines, pattern = " *<branchRateModel.*"))
+  )
+})
+
+test_that("Run with two MRCA priors", {
+
+  skip("WIP")
+  fasta_filename <- get_beautier_path("test_output_0.fas")
+  set.seed(0)
+  mrca_prior_1 <- create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = get_taxa_names(fasta_filename),
+    is_monophyletic = TRUE
+  )
+  mrca_prior_2 <- create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = sample(x = get_taxa_names(fasta_filename), size = 2),
+    is_monophyletic = TRUE
+  )
+  mrca_priors <- list(mrca_prior_1, mrca_prior_2)
+
+  #mrca_prior_1$taxa_names
+  #mrca_prior_2$taxa_names
+  #setdiff(mrca_prior_1$taxa_names, mrca_prior_2$taxa_names)
+  fasta_filename <- get_fasta_filename()
+  lines <- create_beast2_input(
+    input_filenames = fasta_filename,
+    site_models = create_jc69_site_model(),
+    clock_models = create_rln_clock_model(),
+    tree_priors = create_cep_tree_prior(),
+    mrca_priors = mrca_priors
   )
   testthat::expect_equal(
     1,

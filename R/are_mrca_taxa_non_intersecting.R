@@ -20,6 +20,12 @@ are_mrca_taxa_non_intersecting <- function(mrca_priors) {
       taxa_names_2 <- mrca_prior_2$taxa_names
       diff <- setdiff(x = taxa_names_1, y = taxa_names_2)
       if (length(diff) == 0) next
+      print("diff")
+      print(diff)
+      print("taxa_names_1")
+      print(taxa_names_1)
+      print("taxa_names_2")
+      print(taxa_names_2)
       if (diff != taxa_names_1 && diff != taxa_names_2) {
         return(FALSE)
       }
