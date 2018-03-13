@@ -271,7 +271,7 @@ test_that("create_rnd_param", {
 
   set.seed(0)
   # Repeat often enough so all execution branches are hit
-  for (i in seq(1, 47)) {
+  for (i in seq(1, 55)) {
     testthat::expect_true(
       beautier:::is_param(
         beautier:::create_rnd_param()
