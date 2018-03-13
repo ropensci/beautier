@@ -209,6 +209,7 @@ test_that("abuse: one alignment", {
     taxa_names = all_taxa_names[2:3],
     is_monophyletic = TRUE
   )
+
   intersecting_mrca_priors <- list(prior_one_two, prior_two_three)
 
   testthat::expect_error(

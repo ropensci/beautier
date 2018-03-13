@@ -137,11 +137,18 @@ create_beast2_input <- function(
         mrca_priors = mrca_priors, fasta_filenames = input_filenames
       )
     ) {
+      mrca_ids <- NULL
+      for (mrca_prior in mrca_priors) {
+        mrca_ids <- paste(mrca_ids, mrca_prior$alignment_id)
+      }
+
       stop(
         paste0(
           "All MRCA prior's alignment IDs must match the FASTA file IDs. ",
           "Use 'get_alignment_id' on the FASTA filename ",
-          "to get the correct alignment ID"
+          "to get the correct alignment ID. ",
+          "Alignment IDs: ", get_alignment_ids(input_filenames),
+          ". MRCA alignment IDs: ", mrca_ids
         )
       )
     }
