@@ -1,8 +1,9 @@
 library(beautier)
 
-create_rnd_anything <- function() {
-
-  anything_index <- sample(x = 1:13, size = 1)
+create_rnd_anything <- function(
+  fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
+) {
+  anything_index <- sample(x = 1:14, size = 1)
 
   if (anything_index == 1) {
     beautier:::create_rnd_site_model()
@@ -19,7 +20,7 @@ create_rnd_anything <- function() {
   } else if (anything_index == 7) {
     beautier:::create_rnd_estimate()
   } else if (anything_index == 8) {
-    beautier:::create_rnd_param()
+    beautier:::create_rnd_parameter()
   } else if (anything_index == 9) {
     "nonsense"
   } else if (anything_index == 10) {
@@ -30,13 +31,49 @@ create_rnd_anything <- function() {
     42
   } else if (anything_index == 13) {
     ape::rcoal(4)
+  } else if (anything_index == 14) {
+    beautier:::create_rnd_mrca_prior(fasta_filename)
   } else {
     testit::assert(!"Should not get here")
   }
 }
 
+create_rnd_site_model_nasty <- function() {
+  if (beautier:::create_rnd_bool()) {
+    beautier:::create_rnd_site_model()
+  } else {
+    create_rnd_anything()
+  }
+}
+
+create_rnd_clock_model_nasty <- function() {
+  if (beautier:::create_rnd_bool()) {
+    beautier:::create_rnd_clock_model()
+  } else {
+    create_rnd_anything()
+  }
+}
+
+create_rnd_tree_prior_nasty <- function() {
+  if (beautier:::create_rnd_bool()) {
+    beautier:::create_rnd_tree_prior()
+  } else {
+    create_rnd_anything()
+  }
+}
+
+create_rnd_mrca_prior_nasty <- function(
+  fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
+) {
+  if (beautier:::create_rnd_bool()) {
+    beautier:::create_rnd_mrca_prior(fasta_filename)
+  } else {
+    create_rnd_anything()
+  }
+}
+
 create_random <- function(
-  input_fasta_filename = beautier:::get_path("anthus_aco.fas")
+  input_fasta_filename = beautier:::get_beautier_path("anthus_aco.fas")
 ) {
   output_xml_filename <- tempfile()
   done <- FALSE
@@ -44,16 +81,21 @@ create_random <- function(
   while(done == FALSE) {
     tryCatch(
       {
+        fasta_filename <- beautier:::get_beautier_path("anthus_aco.fas")
         create_beast2_input_file(
-          input_filenames = beautier:::get_path("anthus_aco.fas"),
+          input_filenames = fasta_filename,
           output_filename = output_xml_filename,
-          site_models = create_rnd_anything(),
-          clock_models = create_rnd_anything(),
-          tree_priors = create_rnd_anything()
+          site_models = create_rnd_site_model_nasty(),
+          clock_models = create_rnd_clock_model_nasty(),
+          tree_priors = create_rnd_tree_prior_nasty(),
+          mrca_priors = create_rnd_mrca_prior_nasty(fasta_filename)
         )
         done <- TRUE
       },
-    error = function(cond) { done <- FALSE }
+    error = function(cond) {
+      print(cond)
+      done <- FALSE
+      }
     )
   }
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
@@ -72,7 +114,7 @@ create_random <- function(
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-#seed <- 0
+seed <- 0
 set.seed(seed)
 print(paste("seed:", seed))
 

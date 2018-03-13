@@ -337,6 +337,51 @@ create_rnd_one_div_x_distr <- function() {
   create_one_div_x_distr()
 }
 
+#' Create a random parameter
+#' @author Richel J.C. Bilderbeek
+create_rnd_param <- function() {
+
+  param_index <- sample(x = 1:18, size = 1)
+  if (param_index == 1) {
+    create_alpha_param()
+  } else if (param_index == 2) {
+    create_beta_param()
+  } else if (param_index == 3) {
+    create_clock_rate_param()
+  } else if (param_index == 4) {
+    create_kappa_1_param()
+  } else if (param_index == 5) {
+    create_kappa_2_param()
+  } else if (param_index == 6) {
+    create_lambda_param()
+  } else if (param_index == 7) {
+    create_m_param()
+  } else if (param_index == 8) {
+    create_mean_param()
+  } else if (param_index == 9) {
+    create_mu_param()
+  } else if (param_index == 10) {
+    create_rate_ac_param()
+  } else if (param_index == 11) {
+    create_rate_ag_param()
+  } else if (param_index == 12) {
+    create_rate_at_param()
+  } else if (param_index == 13) {
+    create_rate_cg_param()
+  } else if (param_index == 14) {
+    create_rate_ct_param()
+  } else if (param_index == 15) {
+    create_rate_gt_param()
+  } else if (param_index == 16) {
+    create_s_param()
+  } else if (param_index == 17) {
+    create_scale_param()
+  } else {
+    testit::assert(param_index == 18)
+    create_sigma_param()
+  }
+}
+
 #' Create a random Poisson distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_poisson_distr <- function() {
