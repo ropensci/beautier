@@ -140,13 +140,13 @@ create_random <- function(
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-seed <- 0
+# seed <- 0
 set.seed(seed)
 print(paste("seed:", seed))
 
 status <- 0
-# Use one hour
-for (i in seq(1, 900)) {
+# Approx 30 per minute
+for (i in seq(1, 30 * 60)) {
   print(i)
   ok <- create_random()
   if (ok == FALSE) {
