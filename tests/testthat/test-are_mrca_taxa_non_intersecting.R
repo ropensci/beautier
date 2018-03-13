@@ -1,6 +1,6 @@
 context("are_mrca_taxa_non_intersecting")
 
-test_that("use", {
+test_that("use, intersection", {
 
   fasta_filename <- get_beautier_path("test_output_5.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
@@ -26,10 +26,32 @@ test_that("use", {
     )
   )
 
-  skip("WIP")
   testthat::expect_false(
     beautier:::are_mrca_taxa_non_intersecting(
       intersecting_priors
+    )
+  )
+
+})
+
+test_that("use, subset", {
+
+  fasta_filename <- get_beautier_path("test_output_5.fas")
+  all_taxa_names <- get_taxa_names(fasta_filename)
+
+  prior_one_two_three <-create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = all_taxa_names[1:3]
+  )
+  prior_two_three <-create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = all_taxa_names[2:3]
+  )
+  non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
+
+  testthat::expect_true(
+    beautier:::are_mrca_taxa_non_intersecting(
+      non_intersecting_priors
     )
   )
 
