@@ -39,7 +39,6 @@ test_that("use, intersection, monophyly", {
 
 test_that("use, intersection, monophyly, setdiff problem", {
 
-  skip("WIP")
   fasta_filename <- get_beautier_path("test_output_5.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
 
@@ -53,6 +52,7 @@ test_that("use, intersection, monophyly, setdiff problem", {
     taxa_names = all_taxa_names[c(1,3)],
     is_monophyletic = TRUE
   )
+
   non_intersecting_priors <- list(prior_one_to_five, prior_one_three)
 
   testthat::expect_true(

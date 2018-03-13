@@ -81,9 +81,6 @@ test_that("Run with two MRCA priors", {
   )
   mrca_priors <- list(mrca_prior_1, mrca_prior_2)
 
-  #mrca_prior_1$taxa_names
-  #mrca_prior_2$taxa_names
-  #setdiff(mrca_prior_1$taxa_names, mrca_prior_2$taxa_names)
   fasta_filename <- get_fasta_filename()
   lines <- create_beast2_input(
     input_filenames = fasta_filename,
@@ -92,10 +89,7 @@ test_that("Run with two MRCA priors", {
     tree_priors = create_cep_tree_prior(),
     mrca_priors = mrca_priors
   )
-  testthat::expect_equal(
-    1,
-    sum(grepl(x = lines, pattern = " *<branchRateModel.*"))
-  )
+  testit::assert(beastier:::are_beast2_input_lines(lines, method = "deep"))
 })
 
 test_that("abuse: one alignment", {
