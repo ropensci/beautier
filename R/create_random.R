@@ -345,6 +345,24 @@ create_rnd_mrca_prior <- function(fasta_filename) {
   )
 }
 
+#' Create a random MRCA prior
+#' @param fasta_filename a FASTA filename
+#' @author Richel J.C. Bilderbeek
+create_rnd_mrca_priors <- function(fasta_filename) {
+  param_index <- sample(x = 1:3, size = 1)
+  if (param_index == 1) {
+    NA
+  } else if (param_index == 2) {
+    create_rnd_mrca_prior(fasta_filename)
+  } else {
+    testit::assert(param_index == 3)
+    list(
+      create_rnd_mrca_prior(fasta_filename),
+      create_rnd_mrca_prior(fasta_filename)
+    )
+  }
+}
+
 #' Create a random mu parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_mu_param <- function() {

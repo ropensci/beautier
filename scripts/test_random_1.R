@@ -8,7 +8,7 @@ create_random <- function(
   site_model <- beautier:::create_rnd_site_model()
   clock_model <- beautier:::create_rnd_clock_model()
   tree_prior <- beautier:::create_rnd_tree_prior()
-  mrca_prior <- beautier:::create_rnd_mrca_prior(input_filename)
+  mrca_priors <- beautier:::create_rnd_mrca_priors(input_filename)
 
   create_beast2_input_file(
     input_filenames = input_filename,
@@ -16,7 +16,7 @@ create_random <- function(
     site_models = site_model,
     clock_models = clock_model,
     tree_priors = tree_prior,
-    mrca_priors = mrca_prior
+    mrca_priors = mrca_priors
   )
   is_ok <- beastier::is_beast2_input_file(output_xml_filename)
   if (!is_ok) {
@@ -29,22 +29,20 @@ create_random <- function(
     print(clock_model)
     print("tree prior:")
     print(tree_prior)
-    print("mrca prior:")
-    print(mrca_prior)
+    print("mrca priors:")
+    print(mrca_priors)
     print("site model$name:")
     print(site_model$name)
     print("clock model$name:")
     print(clock_model$name)
     print("tree prior$name:")
     print(tree_prior$name)
-    print("mrca prior$name:")
-    print(mrca_prior$name)
   }
   is_ok
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-# seed <- 0
+seed <- 0
 set.seed(seed)
 print(paste("seed:", seed))
 

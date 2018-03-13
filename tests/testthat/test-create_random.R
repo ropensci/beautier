@@ -240,6 +240,20 @@ test_that("create_rnd_mrca_prior", {
   )
 })
 
+test_that("create_rnd_mrca_priors", {
+  set.seed(0)
+  # Repeat often enough so all execution branches are hit
+  for (i in seq(1, 6)) {
+    testthat::expect_true(
+      beautier:::are_mrca_priors(
+        beautier:::create_rnd_mrca_priors(
+          get_beautier_path("anthus_aco_sub.fas")
+        )
+      )
+    )
+  }
+})
+
 
 test_that("create_rnd_mu_param", {
   testthat::expect_true(
