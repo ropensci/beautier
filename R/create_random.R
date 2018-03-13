@@ -513,21 +513,13 @@ create_rnd_rate_gt_param <- function() {
 #' Create a random RLN clock model
 #' @author Richel J.C. Bilderbeek
 create_rnd_rln_clock_model <- function() {
-
-  rln_clock_model <- NA
-  while (length(rln_clock_model) == 1 && is.na(rln_clock_model)) {
-    tryCatch(
-      rln_clock_model <- create_rln_clock_model(
-        mean_rate_prior_distr = create_rnd_distr(), # nolint internal function
-        ucldstdev_distr = create_rnd_distr(), # nolint internal function
-        mean_clock_rate = stats::runif(n = 1, min = -100.0, max = 100.0),
-        n_rate_categories = sample(x = -2:10, size = 1),
-        normalize_mean_clock_rate = create_rnd_bool() # nolint internal function
-      ),
-      error = function(cond) {} # nolint
-    )
-  }
-  rln_clock_model
+  create_rln_clock_model(
+    mean_rate_prior_distr = create_rnd_distr(), # nolint internal function
+    ucldstdev_distr = create_rnd_distr(), # nolint internal function
+    mean_clock_rate = stats::runif(n = 1, min = -100.0, max = 100.0),
+    n_rate_categories = sample(x = -2:10, size = 1),
+    normalize_mean_clock_rate = create_rnd_bool() # nolint internal function
+  )
 }
 
 #' Create a random s parameter
@@ -553,13 +545,27 @@ create_rnd_scale_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_sigma_param <- function() {
   sigma_param <- NA
-  while (length(sigma_param) == 1 && is.na(sigma_param)) {
+  while (is_one_na(sigma_param)) {
     tryCatch(
       sigma_param <- create_sigma_param(
         estimate = create_rnd_estimate(), # nolint internal function
         value = stats::runif(n = 1, min = -10, max = 10)
       ),
-      error = function(cond) {} # nolint
+      error = function(error) {
+        whitelist <- c(
+          "'value' must be non-zero and positive"
+        )
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message,
+            patterns = whitelist
+          )
+        ) {
+          print(error$message)
+          stop(error$message)
+        }
+        done <- FALSE
+      }
     )
   }
   sigma_param

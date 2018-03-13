@@ -363,11 +363,14 @@ test_that("create_rnd_scale_param", {
 })
 
 test_that("create_rnd_sigma_param", {
-  testthat::expect_true(
-    beautier:::is_sigma_param(
-      beautier:::create_rnd_sigma_param()
+  set.seed(0)
+  for (i in seq(1, 2)) {
+    testthat::expect_true(
+      beautier:::is_sigma_param(
+        beautier:::create_rnd_sigma_param()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_site_model", {

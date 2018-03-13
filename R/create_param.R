@@ -796,7 +796,7 @@ create_sigma_param <- create_param_sigma <- function(
   value = 1.0
 ) {
   if (value <= 0.0) {
-    stop("value must be non-zero and positive")
+    stop("'value' must be non-zero and positive")
   }
   beautier::create_param(
     name = "sigma",
