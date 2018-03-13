@@ -591,18 +591,10 @@ create_rnd_site_model <- function() {
 #' Create a random strict clock model
 #' @author Richel J.C. Bilderbeek
 create_rnd_strict_clock_model <- function() {
-
-  strict_clock_model <- NA
-  while (length(strict_clock_model) == 1 && is.na(strict_clock_model)) {
-    tryCatch(
-      strict_clock_model <- create_strict_clock_model(
-        clock_rate_param = create_rnd_clock_rate_param(), # nolint internal function
-        clock_rate_distr = create_rnd_distr() # nolint internal function
-      ),
-      error = function(cond) {} # nolint
-    )
-  }
-  strict_clock_model
+  create_strict_clock_model(
+    clock_rate_param = create_rnd_clock_rate_param(), # nolint internal function
+    clock_rate_distr = create_rnd_distr() # nolint internal function
+  )
 }
 
 #' Create a random TN93 site model
@@ -642,12 +634,26 @@ create_rnd_tree_prior <- function() {
 create_rnd_uniform_distr <- function() {
 
   uniform_distr <- NA
-  while (length(uniform_distr) == 1 && is.na(uniform_distr)) {
+  while (is_one_na(uniform_distr)) {
     tryCatch(
       uniform_distr <- create_uniform_distr(
         upper = stats::runif(n = 1, min = -10, max = 10)
       ),
-      error = function(cond) {} # nolint
+      error = function(error) {
+        whitelist <- c(
+          "'upper' must be non-zero and positive"
+        )
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message,
+            patterns = whitelist
+          )
+        ) {
+          print(error$message)
+          stop(error$message)
+        }
+        done <- FALSE
+      }
     )
   }
   uniform_distr

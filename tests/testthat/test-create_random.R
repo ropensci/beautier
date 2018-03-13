@@ -417,11 +417,13 @@ test_that("create_rnd_tree_prior", {
 
 test_that("create_rnd_uniform_distr", {
   set.seed(0)
-  testthat::expect_true(
-    beautier:::is_uniform_distr(
-      beautier:::create_rnd_uniform_distr()
+  for (i in seq(1, 2)) {
+    testthat::expect_true(
+      beautier:::is_uniform_distr(
+        beautier:::create_rnd_uniform_distr()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_yule_tree_prior", {
