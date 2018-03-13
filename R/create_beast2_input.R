@@ -154,6 +154,10 @@ create_beast2_input <- function(
     }
   }
 
+  if (!are_mrca_taxa_non_intersecting(mrca_priors = mrca_priors)) {
+    stop("Monophyletic MRCA priors must have taxon sets without intersection")
+  }
+
   # Initialize all models and priors
   site_models <- init_site_models(
     site_models = site_models,

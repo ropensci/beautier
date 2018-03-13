@@ -11,10 +11,12 @@ are_mrca_taxa_non_intersecting <- function(mrca_priors) {
   for (mrca_prior_1 in mrca_priors) {
     testit::assert(is_mrca_prior(mrca_prior_1))
     testit::assert(!is_one_na(mrca_prior_1))
+    if (!mrca_prior_1$is_monophyletic) next
     taxa_names_1 <- mrca_prior_1$taxa_names
     for (mrca_prior_2 in mrca_priors) {
       testit::assert(is_mrca_prior(mrca_prior_2))
       testit::assert(!is_one_na(mrca_prior_2))
+      if (!mrca_prior_2$is_monophyletic) next
       taxa_names_2 <- mrca_prior_2$taxa_names
       diff <- setdiff(x = taxa_names_1, y = taxa_names_2)
       if (length(diff) == 0) next
