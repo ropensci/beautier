@@ -107,7 +107,12 @@ create_random <- function(
           "'mrca_priors' must be NA or a valid mrca object",
           "'posterior_crown_age' must be either NA or a non-zero postive value"
         )
-        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message,
+            patterns = whitelist
+            )
+        ) {
           print(error$message)
         }
         done <- FALSE

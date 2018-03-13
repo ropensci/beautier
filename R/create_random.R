@@ -41,7 +41,6 @@ create_rnd_beta_distr <- function() {
           print(error$message)
           stop(error$message)
         }
-        done <- FALSE
       }
     )
   }
@@ -182,7 +181,6 @@ create_rnd_gamma_distr <- function() {
           print(error$message)
           stop(error$message)
         }
-        done <- FALSE
       }
     )
   }
@@ -193,7 +191,7 @@ create_rnd_gamma_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_gamma_site_model <- function() {
   gamma_site_model <- NA
-  while (length(gamma_site_model) == 1 && is.na(gamma_site_model)) {
+  while (is_one_na(gamma_site_model)) {
     tryCatch(
       gamma_site_model <- create_gamma_site_model(
         gamma_cat_count = sample(x = -1:4, size = 1),
@@ -217,7 +215,6 @@ create_rnd_gamma_site_model <- function() {
           print(error$message)
           stop(error$message)
         }
-        done <- FALSE
       }
     )
   }
@@ -313,7 +310,7 @@ create_rnd_laplace_distr <- function() {
 create_rnd_log_normal_distr <- function() {
 
   log_normal_distr <- NA
-  while (length(log_normal_distr) == 1 && is.na(log_normal_distr)) {
+  while (is_one_na(log_normal_distr)) {
     tryCatch(
       log_normal_distr <- create_log_normal_distr(
         m = create_rnd_m_param(), # nolint internal function
@@ -332,7 +329,6 @@ create_rnd_log_normal_distr <- function() {
           print(error$message)
           stop(error$message)
         }
-        done <- FALSE
       }
     )
   }
@@ -564,7 +560,6 @@ create_rnd_sigma_param <- function() {
           print(error$message)
           stop(error$message)
         }
-        done <- FALSE
       }
     )
   }
@@ -652,7 +647,6 @@ create_rnd_uniform_distr <- function() {
           print(error$message)
           stop(error$message)
         }
-        done <- FALSE
       }
     )
   }
