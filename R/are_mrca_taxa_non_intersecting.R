@@ -22,7 +22,9 @@ are_mrca_taxa_non_intersecting <- function(mrca_priors) {
       if (all(taxa_names_1 %in% taxa_names_2)) next
       diff <- setdiff(x = taxa_names_1, y = taxa_names_2)
       if (length(diff) == 0) next
-      if (length(diff) != length(taxa_names_1) && length(diff) != length(taxa_names_2)) {
+      if (length(diff) != length(taxa_names_1) &&
+          length(diff) != length(taxa_names_2)
+      ) {
         return(FALSE)
       }
     }

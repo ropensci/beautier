@@ -49,7 +49,7 @@ test_that("use, intersection, monophyly, setdiff problem", {
   )
   prior_one_three <- create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename),
-    taxa_names = all_taxa_names[c(1,3)],
+    taxa_names = all_taxa_names[c(1, 3)],
     is_monophyletic = TRUE
   )
 

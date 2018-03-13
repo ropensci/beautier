@@ -89,7 +89,7 @@ test_that("Run with two MRCA priors", {
     tree_priors = create_cep_tree_prior(),
     mrca_priors = mrca_priors
   )
-  testit::assert(beastier:::are_beast2_input_lines(lines, method = "deep"))
+  testit::assert(beastier:::are_beast2_input_lines(lines, method = "deep", verbose = TRUE))
 })
 
 test_that("abuse: one alignment", {
