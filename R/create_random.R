@@ -21,13 +21,15 @@ create_rnd_bd_tree_prior <- function() {
 create_rnd_beta_distr <- function() {
 
   beta_distr <- NA
-  while (length(beta_distr) == 1 && is.na(beta_distr)) {
+  while (is_one_na(beta_distr)) {
     tryCatch(
       beta_distr <- create_beta_distr(
         alpha = create_rnd_alpha_param(), # nolint internal function
         beta = create_rnd_beta_param() # nolint internal function
       ),
-      error = function(cond) {} # nolint
+      error = function(error) {
+        print(error$message)
+      }
     )
   }
   beta_distr
