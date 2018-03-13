@@ -195,9 +195,8 @@ test_that("abuse: one alignment", {
     "All MRCA prior's taxa names must be FASTA file taxa names"
   )
 
-  skip("WIP")
-
-  fasta_filename <- get_beautier_path("test_output_5.fas")
+  # Detect intersecting monophyletic MRCA priors
+  fasta_filename <- get_beautier_path("test_output_0.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
   prior_one_two <- create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename),
@@ -219,9 +218,6 @@ test_that("abuse: one alignment", {
     ),
     "Monophyletic MRCA priors must have taxon sets without intersection"
   )
-
-
-
 })
 
 test_that("abuse: two alignments", {
