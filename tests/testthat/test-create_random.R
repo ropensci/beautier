@@ -205,11 +205,13 @@ test_that("create_rnd_laplace_distr", {
 
 test_that("create_rnd_log_normal_distr", {
   set.seed(0)
-  testthat::expect_true(
-    beautier:::is_log_normal_distr(
-      beautier:::create_rnd_log_normal_distr()
+  for (i in seq(1, 6)) {
+    testthat::expect_true(
+      beautier:::is_log_normal_distr(
+        beautier:::create_rnd_log_normal_distr()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_m_param", {

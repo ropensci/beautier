@@ -319,7 +319,21 @@ create_rnd_log_normal_distr <- function() {
         m = create_rnd_m_param(), # nolint internal function
         s = create_rnd_s_param() # nolint internal function
       ),
-      error = function(cond) {} # nolint
+      error = function(error) {
+        whitelist <- c(
+          "'value' of 's' must be positive"
+        )
+        if (
+          !beautier:::is_in_patterns(
+            line = error$message,
+            patterns = whitelist
+          )
+        ) {
+          print(error$message)
+          stop(error$message)
+        }
+        done <- FALSE
+      }
     )
   }
   log_normal_distr
