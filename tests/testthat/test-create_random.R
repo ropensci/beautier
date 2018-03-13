@@ -125,11 +125,13 @@ test_that("create_rnd_gamma_distr", {
 
 test_that("create_rnd_gamma_site_model", {
   set.seed(0)
-  testthat::expect_true(
-    beautier:::is_gamma_site_model(
-      beautier:::create_rnd_gamma_site_model()
+  for (i in seq(1, 3)) {
+    testthat::expect_true(
+      beautier:::is_gamma_site_model(
+        beautier:::create_rnd_gamma_site_model()
+      )
     )
-  )
+  }
 })
 
 test_that("create_rnd_gtr_site_model", {

@@ -193,7 +193,18 @@ create_rnd_gamma_site_model <- function() {
         gamma_shape_prior_distr = create_rnd_distr(), # nolint internal function
         freq_equilibrium = create_rnd_freq_equilibrium() # nolint internal function
       ),
-      error = function(cond) {} # nolint
+      error = function(error) {
+        whitelist <- c(
+          "'gamma_cat_count' must be positive",
+          "'gamma_shape' must be positive",
+          "'prop_invariant' must be in range \\[0\\.0, 1\\.0\\]"
+        )
+        if (!beautier:::is_in_patterns(line = error$message, patterns = whitelist)) {
+          print(error$message)
+          stop(error$message)
+        }
+        done <- FALSE
+      }
     )
   }
   testit::assert(is_gamma_site_model(gamma_site_model)) # nolint internal function
