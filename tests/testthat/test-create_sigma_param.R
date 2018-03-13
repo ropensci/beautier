@@ -12,12 +12,12 @@ test_that("abuse", {
 
   testthat::expect_error(
     create_sigma_param(value = 0.0),
-    "value must be non-zero and positive"
+    "'value' must be non-zero and positive"
   )
 
   testthat::expect_error(
     create_sigma_param(value = -123.456),
-    "value must be non-zero and positive"
+    "'value' must be non-zero and positive"
   )
 
 })

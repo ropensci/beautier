@@ -74,7 +74,7 @@ create_rnd_mrca_prior_nasty <- function(
 }
 
 create_rnd_crown_age <- function() {
-  values <- c(-1,0,1,15,NA)
+  values <- c(-1, 0, 1, 15, NA)
   sample(x = values, size = 1)
 }
 
