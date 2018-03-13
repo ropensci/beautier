@@ -20,7 +20,7 @@ create_rnd_anything <- function(
   } else if (anything_index == 7) {
     beautier:::create_rnd_estimate()
   } else if (anything_index == 8) {
-    beautier:::create_rnd_parameter()
+    beautier:::create_rnd_param()
   } else if (anything_index == 9) {
     "nonsense"
   } else if (anything_index == 10) {
@@ -92,8 +92,8 @@ create_random <- function(
         )
         done <- TRUE
       },
-    error = function(cond) {
-      print(cond)
+    error = function(error) {
+      print(error$message)
       done <- FALSE
       }
     )
