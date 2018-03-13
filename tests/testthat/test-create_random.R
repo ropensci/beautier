@@ -271,7 +271,7 @@ test_that("create_rnd_param", {
 
   set.seed(0)
   # Repeat often enough so all execution branches are hit
-  for (i in seq(1, 25)) {
+  for (i in seq(1, 31)) {
     testthat::expect_true(
       beautier:::is_param(
         beautier:::create_rnd_param()
@@ -376,7 +376,7 @@ test_that("create_rnd_sigma_param", {
 test_that("create_rnd_site_model", {
   set.seed(0)
   # Repeat often enough so all execution branches are hit
-  for (i in seq(1, 7)) {
+  for (i in seq(1, 8)) {
     testthat::expect_true(
       beautier:::is_site_model(
         beautier:::create_rnd_site_model()
@@ -406,7 +406,7 @@ test_that("create_rnd_tn93_site_model", {
 test_that("create_rnd_tree_prior", {
   set.seed(0)
   # Repeat often enough so all execution branches are hit
-  for (i in seq(1, 10)) {
+  for (i in seq(1, 11)) {
     testthat::expect_true(
       beautier:::is_tree_prior(
         beautier:::create_rnd_tree_prior()

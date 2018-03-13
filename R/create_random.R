@@ -32,15 +32,9 @@ create_rnd_beta_distr <- function() {
           "'alpha' must have a positive value",
           "'beta' must have a value of at least 1.0"
         )
-        if (
-          !beautier:::is_in_patterns(
-            line = error$message,
-            patterns = whitelist
-          )
-        ) {
-          print(error$message)
-          stop(error$message)
-        }
+        testit::assert(
+          beautier:::is_in_patterns(line = error$message, patterns = whitelist)
+        )
       }
     )
   }
@@ -173,14 +167,9 @@ create_rnd_gamma_distr <- function() {
           "'value' of 'alpha' must be positive",
           "'value' of 'beta' must be positive"
         )
-        if (
-          !beautier:::is_in_patterns(
-            line = error$message, patterns = whitelist
-          )
-        ) {
-          print(error$message)
-          stop(error$message)
-        }
+        testit::assert(
+          beautier:::is_in_patterns(line = error$message, patterns = whitelist)
+        )
       }
     )
   }
@@ -206,15 +195,9 @@ create_rnd_gamma_site_model <- function() {
           "'gamma_shape' must be positive",
           "'prop_invariant' must be in range \\[0\\.0, 1\\.0\\]"
         )
-        if (
-          !beautier:::is_in_patterns(
-            line = error$message,
-            patterns = whitelist
-          )
-        ) {
-          print(error$message)
-          stop(error$message)
-        }
+        testit::assert(
+          beautier:::is_in_patterns(line = error$message, patterns = whitelist)
+        )
       }
     )
   }
@@ -320,15 +303,9 @@ create_rnd_log_normal_distr <- function() {
         whitelist <- c(
           "'value' of 's' must be positive"
         )
-        if (
-          !beautier:::is_in_patterns(
-            line = error$message,
-            patterns = whitelist
-          )
-        ) {
-          print(error$message)
-          stop(error$message)
-        }
+        testit::assert(
+          beautier:::is_in_patterns(line = error$message, patterns = whitelist)
+        )
       }
     )
   }
@@ -551,15 +528,9 @@ create_rnd_sigma_param <- function() {
         whitelist <- c(
           "'value' must be non-zero and positive"
         )
-        if (
-          !beautier:::is_in_patterns(
-            line = error$message,
-            patterns = whitelist
-          )
-        ) {
-          print(error$message)
-          stop(error$message)
-        }
+        testit::assert(
+          beautier:::is_in_patterns(line = error$message, patterns = whitelist)
+        )
       }
     )
   }
@@ -638,15 +609,9 @@ create_rnd_uniform_distr <- function() {
         whitelist <- c(
           "'upper' must be non-zero and positive"
         )
-        if (
-          !beautier:::is_in_patterns(
-            line = error$message,
-            patterns = whitelist
-          )
-        ) {
-          print(error$message)
-          stop(error$message)
-        }
+        testit::assert(
+          beautier:::is_in_patterns(line = error$message, patterns = whitelist)
+        )
       }
     )
   }
