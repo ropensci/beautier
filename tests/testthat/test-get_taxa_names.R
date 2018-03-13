@@ -8,3 +8,11 @@ test_that("use", {
   )
   testthat::expect_equal(created, expected)
 })
+
+test_that("abuse", {
+
+  testthat::expect_error(
+    get_taxa_names("abs.ent"),
+    "'filename' must be the name of a file that is present"
+  )
+})

@@ -120,6 +120,15 @@ test_that("abuse: one alignment", {
     )
   )
 
+  # mrca_priors
+  testthat::expect_error(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      mrca_priors = "nonsense"
+    ),
+    "'mrca_priors' must be NA or a valid mrca object"
+  )
+
   # 5 mcmc
   testthat::expect_error(
     create_beast2_input(
@@ -163,14 +172,24 @@ test_that("abuse: one alignment", {
     "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
   )
 
-
-  skip("WIP")
+  fasta_filename <- get_fasta_filename()
   testthat::expect_error(
     create_beast2_input(
-      input_filenames = get_fasta_filename(),
+      input_filenames = fasta_filename,
       mrca_priors = create_mrca_prior(
-        alignment_id = "my_alignment",
-        taxa_names = paste0("broken_", get_taxa_names(get_fasta_filename()))
+        alignment_id = paste0("broken_", get_alignment_id(fasta_filename)),
+        taxa_names = get_taxa_names(fasta_filename)
+      )
+    ),
+    "All MRCA prior's alignment IDs must match the FASTA file IDs"
+  )
+
+  testthat::expect_error(
+    create_beast2_input(
+      input_filenames = fasta_filename,
+      mrca_priors = create_mrca_prior(
+        alignment_id = get_alignment_id(fasta_filename),
+        taxa_names = paste0("broken_", get_taxa_names(fasta_filename))
       )
     ),
     "All MRCA prior's taxa names must be FASTA file taxa names"
