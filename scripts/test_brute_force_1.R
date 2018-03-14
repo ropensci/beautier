@@ -186,7 +186,10 @@ brute_force_1_combinations_calibration <- function() {
               is_monophyletic = is_monophyletic
             )
           )
-          is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+          is_ok <- beastier::is_beast2_input_file(
+            output_xml_filename,
+            show_warnings = TRUE
+          )
           testthat::expect_true(is_ok)
           if (!is_ok) {
             print(
