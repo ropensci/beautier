@@ -6,11 +6,14 @@
 distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='}
 \usage{
-mrca_prior_to_xml_taxonset(mrca_prior)
+mrca_prior_to_xml_taxonset(mrca_prior, taxa_names_with_ids = NULL)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{taxa_names_with_ids}{taxa names that already have received
+an ID. Causes the XML to \code{idref} these}
 }
 \description{
 Creates the distribution section in the prior section of the

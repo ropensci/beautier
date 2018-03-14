@@ -88,6 +88,7 @@ test_that("Run with two MRCA priors", {
     tree_priors = create_cep_tree_prior(),
     mrca_priors = mrca_priors
   )
+  beautier:::compare_lines(lines, lines)
   testit::assert(
     beastier:::are_beast2_input_lines(
       lines,

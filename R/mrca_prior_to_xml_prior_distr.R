@@ -2,6 +2,8 @@
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<distribution id='
 #' @inheritParams default_params_doc
+#' @param taxa_names_with_ids taxa names that already have received
+#'   an ID. Causes the XML to \code{idref} these
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
@@ -13,7 +15,8 @@
 #'  # </distribution>
 mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   mrca_prior,
-  has_non_strict_clock_model = FALSE
+  has_non_strict_clock_model = FALSE,
+  taxa_names_with_ids = NULL
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   text <- NULL
@@ -50,7 +53,16 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   )
 
   text <- c(text, opening_tag)
-  text <- c(text, indent(mrca_prior_to_xml_taxonset(mrca_prior), n_spaces = 4)) # nolint internal function
+  text <- c(
+    text,
+    indent(  # nolint internal function
+      mrca_prior_to_xml_taxonset(
+        mrca_prior,
+        taxa_names_with_ids
+      ),
+      n_spaces = 4
+    )
+  )
   if (is_distr(mrca_prior$mrca_distr)) {
     text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
   }
