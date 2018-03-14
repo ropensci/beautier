@@ -1225,6 +1225,5 @@ test_that("test_0_two_mrca_priors.xml, #30", {
   expected <- readLines(beautier::get_beautier_path(
     "test_output_0_two_mrca_priors.xml")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
