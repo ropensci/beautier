@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.4">
+
+
+    <data
+id="anthus_aco"
+name="alignment">
+                    <sequence id="seq_61430_aco" taxon="61430_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgaaaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagtcctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttgcagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctgccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_626029_aco" taxon="626029_aco" totalcount="4" value="acaggttagaaactactctgttttctggctgcttgtttaatgccctctcctattttattgtgacgattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtgtgcacagctgtcttgttttaaggcccagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtacgtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggaaataatgtggatgttgtgtgtttaagcactgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggactcttagaagccctctgtggcaaccacagagcgcatagttaattttctgtacaagaaaattaagatcctactcagtgttcaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcattttatggaaacaaagttgggaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgctttacttagccatacctgtgagcntggcagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattggttcaacagcagaggtaaaaatacctgtggcttacccggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_630116_aco" taxon="630116_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgaaaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagtcctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttgcagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctgccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_630210_aco" taxon="630210_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctcttagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaacaacatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtagttcnncangtnatttcttcacatcatttttaacctgcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctygtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaascatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_AMNH13589_aco" taxon="AMNH13589_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgaaaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagtcctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttgcagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctgccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_B25702_aco" taxon="B25702_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcccagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcactttgtttggtggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggaaataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggactcttagaagccctctgtggcaaccacagagcgcatagttaattttctgtgcaagaaaattaagatcctactcaatgttcaggaaagtcaagaatattcctgtttttttctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagcttggcagtgtctaaaattagaagtgttccttttcttctgctcttcccattcttgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattggttcaacagcagaggtaaaaatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_B41613_aco" taxon="B41613_aco" totalcount="4" value="acaggttagaaactactctgttttctggctgcttgtttaatgccctctcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcccagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggaaataatgtggatgttgtgtgtttaagcactgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggactcttagaagccctctgtggcaaccacagagcgcatagttaattttctgtacaagaaaattaagatcctactcagtgttcaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcattttatggaaacaaagttgggaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttcatagccatacctgtgagcntggcagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattggttcaacagcagaggtaaaaatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_B431_aco" taxon="B431_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcgaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacatttaattttctgtgcaagaaaattaacaacatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttcaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattagggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtattccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttaacattgattcaccagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccagccactctctgtttgtcttac"/>
+                    <sequence id="seq_B48218_aco" taxon="B48218_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttattgccctgtcctattttattgcgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacttccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttataacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgtngcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattcttgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcancagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_B87109_aco" taxon="B87109_aco" totalcount="4" value="acaggttagaaactactctgttttctggctgcttgtttaatgccctctcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcccagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagatttttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggaaataatgtggatgttgtgtgtttaagcactgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggactcttagaagccctctgtggcaaccacagagcgcatagttaattttctgtgcaagaaaattaagatcctactcagtgttcaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttgggaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttcatagccatacctgtgagcntggcagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattggttcaacagcagaggtaaaaatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_FALK1_aco" taxon="FALK1_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagtcctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttgcagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctgccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_KU21673_aco" taxon="KU21673_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcccagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgggaagtcctttcagactgaaggatactctgatttttagctatggaaataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggactcttagaagccctctgtggcaaccacagagcgcatagttaattttctgtgcaagaaaattaagatcctactcagtgttcaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaaccaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagcttggcagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattggttcaacagcagaggtaaaaatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_KU25127_aco" taxon="KU25127_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacatttaattttctgtgcaagaaaattaacaacatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttcaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattagggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtattccttttcttctgctcttcccattctngtgtgtcttcaatagtttctgcaaataatgatgtgcagacttaacattgattcaccagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccagccactctctgtttgtcttac"/>
+                    <sequence id="seq_KU3604_aco" taxon="KU3604_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccnagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcattttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtgaatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtcagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttctagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagcttgacagtgtctaaaattagaagtattccttttcttctgctcttcccattctagtgtgtcttcaatagtttctgcaaataatgatgtgcagacttaccattgattcaacagcagaggtaannatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_KU9813_aco" taxon="KU9813_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctcttagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaacaacatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtagttcnncangtnatttcttcacatcatttttaacctgcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_UWBM54394_aco" taxon="UWBM54394_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcgaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacatttaattttctgtgcaagaaaattaacaacatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattagggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtattccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaccagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccagccactctctgtttgtcttac"/>
+                    <sequence id="seq_UWBM54511_aco" taxon="UWBM54511_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgaaaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggccaagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgagaagtcctttcagactgaaggatactctgaattttagctatggagataatgtggatgttgtgtgtttaagtcctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggacccttagaagccctcagtggcaaccacagagcgcacagttaattttctgtgcaagaaaattaagatcatactctgtgtccaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttgcagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctgccacttgaaaagacaaattaaaaacnaatttataatgcttatatgctttagttacattngggtctttcagtaactttagtgcttttgatagccatacctgtgagnttgacagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattgattcaacagcagaggtaagcatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_UWBM54556_aco" taxon="UWBM54556_aco" totalcount="4" value="acaggttagaaactactctgttttctggctgcttgtttaatgccctgtcctattttattgtgacaattgtctgtttttcacagaaaactgagagtagtcaagggattccttgtcctttgctttggtctgcacagctgtcttgttttaaggcccagtggaatgagacagctgactcttcaggtgtgaaaacttggatgtaggtgtagattggctctcagttgacctccagctggtgcagattcttcagtttgtttgatggagctttgggaagtcctttcagactgaaggatactctgatttttagctatggaaataatgtggatgttgtgtgtttaagccctgtttgcagtttttttctgttcagtcagttattttactgtgtgagtcaggactcttagaagccctctgtggcaaccacagagcgcatagtttattttctgtgcaagaaaattaagatcctactcagtgttcaggaaagtcaagaatattcctggttttctctactgtaaaattttatcttgtaacttgtgtttgggtctgcatgattattcaaaaatcttagtagatttggaaggatgttgcatattatggaaacaaagttggaaaaagtttgtatcagttccagtatttcttcacatcatttnttaacnncntnnnnnnnnngcttctaccacttgaaaagacaaattaaaaaccaatttataatgcttatatgctttagttacattngagtctttcagtaactttagtgcttttgatagccatacctgtgagcntggcagtgtctaaaattagaagtgttccttttcttctgctcttcccattctcgtgtgtcttcaatagtttctgcaaataatgatgtgcagacttagcattggttcaacagcagaggtaaaaatacctgtggcttacttggcttcagcttatccagcagtgccaaccactctctgtttgtcttac"/>
+                    <sequence id="seq_bas3_aco" taxon="bas3_aco" totalcount="4" value="nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"/>
+                    <sequence id="seq_chacoensis_aco" taxon="chacoensis_aco" totalcount="4" value="nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"/>
+                    <sequence id="seq_dabbenei_aco" taxon="dabbenei_aco" totalcount="4" value="nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"/>
+                    <sequence id="seq_meridae_aco" taxon="meridae_aco" totalcount="4" value="nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"/>
+                </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10000000">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:anthus_aco" name="stateNode">
+            <taxonset id="TaxonSet.anthus_aco" spec="TaxonSet">
+                <alignment idref="anthus_aco"/>
+            </taxonset>
+        </tree>
+        <parameter id="rateAC.s:anthus_aco" lower="2.9412038763985" name="stateNode">6.41892588231713</parameter>
+        <parameter id="rateGT.s:anthus_aco" lower="-8.01067679654807" name="stateNode">-3.674565856345</parameter>
+        <parameter id="freqParameter.s:anthus_aco" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter id="gammaShape.s:anthus_aco" name="stateNode">0.889350537210703</parameter>
+        <parameter id="bPopSizes.t:anthus_aco" dimension="5" lower="0.0" name="stateNode" upper="380000.0">380.0</parameter>
+        <stateNode id="bGroupSizes.t:anthus_aco" spec="parameter.IntegerParameter" dimension="5">1</stateNode>
+        <parameter id="clockRate.c:anthus_aco" name="stateNode">1.0</parameter>
+    </state>
+
+    <init id="RandomTree.t:anthus_aco" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:anthus_aco" taxa="@anthus_aco">
+        <populationModel id="ConstantPopulation0.t:anthus_aco" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:anthus_aco" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="BayesianSkyline.t:anthus_aco" spec="BayesianSkyline" groupSizes="@bGroupSizes.t:anthus_aco" popSizes="@bPopSizes.t:anthus_aco">
+                <treeIntervals id="BSPTreeIntervals.t:anthus_aco" spec="TreeIntervals" tree="@Tree.t:anthus_aco"/>
+            </distribution>
+            <distribution id="MarkovChainedPopSizes.t:anthus_aco" spec="beast.math.distributions.MarkovChainDistribution" jeffreys="true" parameter="@bPopSizes.t:anthus_aco"/>
+            <prior id="GammaShapePrior.s:anthus_aco" name="distribution" x="@gammaShape.s:anthus_aco">
+                <Normal id="Normal.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="true" name="mean">-5.88050850201398</parameter>
+                    <parameter id="RealParameter.1" estimate="true" name="sigma">3.74045693315566</parameter>
+                </Normal>
+            </prior>
+            <prior id="RateACPrior.s:anthus_aco" name="distribution" x="@rateAC.s:anthus_aco">
+                <OneOnX id="OneOnX.1" name="distr"/>
+            </prior>
+            <prior id="RateGTPrior.s:anthus_aco" name="distribution" x="@rateGT.s:anthus_aco">
+                <Beta id="Beta.5" name="distr">
+                    <parameter id="RealParameter.5" estimate="false" name="alpha">5.88479721453041</parameter>
+                    <parameter id="RealParameter.6" estimate="true" name="beta">4.47421892080456</parameter>
+                </Beta>
+            </prior>
+            <distribution id="auto_name_1.prior" spec="beast.math.distributions.MRCAPrior" tree="@Tree.t:anthus_aco">
+                <taxonset id="auto_name_1" spec="TaxonSet">
+                    <taxon id="B87109_aco" spec="Taxon"/>
+                    <taxon id="AMNH13589_aco" spec="Taxon"/>
+                    <taxon id="UWBM54556_aco" spec="Taxon"/>
+                    <taxon id="UWBM54511_aco" spec="Taxon"/>
+                    <taxon id="meridae_aco" spec="Taxon"/>
+                    <taxon id="KU21673_aco" spec="Taxon"/>
+                    <taxon id="KU9813_aco" spec="Taxon"/>
+                    <taxon id="B431_aco" spec="Taxon"/>
+                </taxonset>
+                <InverseGamma id="InverseGamma.151" name="distr">
+                    <parameter id="RealParameter.300" estimate="true" name="alpha">5.14174296054989</parameter>
+                    <parameter id="RealParameter.301" estimate="true" name="beta">4.22242444939911</parameter>
+                </InverseGamma>
+            </distribution>
+            <prior id="ClockPrior.c:anthus_aco" name="distribution" x="@clockRate.c:anthus_aco">
+                <Uniform id="Uniform.152" name="distr" upper="Infinity"/>
+            </prior>
+            <distribution id="auto_name_2.prior" spec="beast.math.distributions.MRCAPrior" monophyletic="true" tree="@Tree.t:anthus_aco">
+                <taxonset id="auto_name_2" spec="TaxonSet">
+                    <taxon id="B41613_aco" spec="Taxon"/>
+                    <taxon id="630210_aco" spec="Taxon"/>
+                    <taxon id="B25702_aco" spec="Taxon"/>
+                </taxonset>
+                <Normal id="Normal.153" name="distr">
+                    <parameter id="RealParameter.302" estimate="false" name="mean">5.57829354889691</parameter>
+                    <parameter id="RealParameter.303" estimate="true" name="sigma">5.94617651775479</parameter>
+                </Normal>
+            </distribution>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution id="treeLikelihood.anthus_aco" spec="ThreadedTreeLikelihood" data="@anthus_aco" tree="@Tree.t:anthus_aco">
+                <siteModel id="SiteModel.s:anthus_aco" spec="SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:anthus_aco">
+                    <parameter id="mutationRate.s:anthus_aco" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="proportionInvariant.s:anthus_aco" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.321595584973693</parameter>
+                    <substModel id="gtr.s:anthus_aco" spec="GTR" rateAC="@rateAC.s:anthus_aco" rateGT="@rateGT.s:anthus_aco">
+                        <parameter id="rateAG.s:anthus_aco" estimate="false" lower="0.594391603954136" name="rateAG">1.06072623282671</parameter>
+                        <parameter id="rateAT.s:anthus_aco" estimate="false" lower="-0.455398699268699" name="rateAT">-9.53337595332414</parameter>
+                        <parameter id="rateCG.s:anthus_aco" estimate="false" lower="-0.447607557289302" name="rateCG">3.85463112965226</parameter>
+                        <parameter id="rateCT.s:anthus_aco" estimate="false" lower="-5.10405445937067" name="rateCT">-1.23805785551667</parameter>
+                        <frequencies id="empiricalFreqs.s:anthus_aco" spec="Frequencies" data="@anthus_aco"/>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="StrictClock.c:anthus_aco" spec="beast.evolution.branchratemodel.StrictClockModel">
+                    <parameter idref="clockRate.c:anthus_aco" estimate="false" name="clock.rate">1.0</parameter>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="popSizesScaler.t:anthus_aco" spec="ScaleOperator" parameter="@bPopSizes.t:anthus_aco" scaleFactor="0.75" weight="15.0"/>
+
+    <operator id="groupSizesDelta.t:anthus_aco" spec="DeltaExchangeOperator" integer="true" weight="6.0">
+        <intparameter idref="bGroupSizes.t:anthus_aco"/>
+    </operator>
+
+    <operator id="BayesianSkylineTreeScaler.t:anthus_aco" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:anthus_aco" weight="3.0"/>
+
+    <operator id="BayesianSkylineTreeRootScaler.t:anthus_aco" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:anthus_aco" weight="3.0"/>
+
+    <operator id="BayesianSkylineUniformOperator.t:anthus_aco" spec="Uniform" tree="@Tree.t:anthus_aco" weight="30.0"/>
+
+    <operator id="BayesianSkylineSubtreeSlide.t:anthus_aco" spec="SubtreeSlide" tree="@Tree.t:anthus_aco" weight="15.0"/>
+
+    <operator id="BayesianSkylineNarrow.t:anthus_aco" spec="Exchange" tree="@Tree.t:anthus_aco" weight="15.0"/>
+
+    <operator id="BayesianSkylineWide.t:anthus_aco" spec="Exchange" isNarrow="false" tree="@Tree.t:anthus_aco" weight="3.0"/>
+
+    <operator id="BayesianSkylineWilsonBalding.t:anthus_aco" spec="WilsonBalding" tree="@Tree.t:anthus_aco" weight="3.0"/>
+
+    <operator id="RateACScaler.s:anthus_aco" spec="ScaleOperator" parameter="@rateAC.s:anthus_aco" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="RateGTScaler.s:anthus_aco" spec="ScaleOperator" parameter="@rateGT.s:anthus_aco" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="FrequenciesExchanger.s:anthus_aco" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:anthus_aco"/>
+    </operator>
+
+    <operator id="gammaShapeScaler.s:anthus_aco" spec="ScaleOperator" parameter="@gammaShape.s:anthus_aco" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="StrictClockRateScaler.c:anthus_aco" spec="ScaleOperator" parameter="@clockRate.c:anthus_aco" scaleFactor="0.75" weight="3.0"/>
+
+    <operator id="strictClockUpDownOperator.c:anthus_aco" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+        <up idref="clockRate.c:anthus_aco"/>
+        <down idref="Tree.t:anthus_aco"/>
+    </operator>
+
+    <logger id="tracelog" fileName="anthus_aco.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.anthus_aco"/>
+        <log id="TreeHeight.t:anthus_aco" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:anthus_aco"/>
+        <log idref="rateAC.s:anthus_aco"/>
+        <log idref="rateGT.s:anthus_aco"/>
+        <log idref="freqParameter.s:anthus_aco"/>
+        <log idref="gammaShape.s:anthus_aco"/>
+        <log idref="BayesianSkyline.t:anthus_aco"/>
+        <log idref="bPopSizes.t:anthus_aco"/>
+        <log idref="bGroupSizes.t:anthus_aco"/>
+        <log idref="auto_name_1.prior"/>
+        <log idref="auto_name_2.prior"/>
+        <log idref="clockRate.c:anthus_aco"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:anthus_aco" fileName="$(tree).trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger.t:anthus_aco" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:anthus_aco"/>
+    </logger>
+
+</run>
+
+</beast>
