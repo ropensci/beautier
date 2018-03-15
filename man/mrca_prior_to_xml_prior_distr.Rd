@@ -7,7 +7,7 @@ distribution section of a BEAST2 XML parameter file.
 These lines start with '<distribution id='}
 \usage{
 mrca_prior_to_xml_prior_distr(mrca_prior, has_non_strict_clock_model = FALSE,
-  taxa_names_with_ids = NULL)
+  taxa_names_with_ids = NULL, is_first = TRUE)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
@@ -18,6 +18,8 @@ already at least one non-strict (i.e. relaxed log-normal) clock model}
 
 \item{taxa_names_with_ids}{taxa names that already have received
 an ID. Causes the XML to \code{idref} these}
+
+\item{is_first}{is this the first MRCA prior?}
 }
 \description{
 Creates the distribution section in the prior section of the

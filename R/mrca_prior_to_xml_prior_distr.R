@@ -4,6 +4,7 @@
 #' @inheritParams default_params_doc
 #' @param taxa_names_with_ids taxa names that already have received
 #'   an ID. Causes the XML to \code{idref} these
+#' @param is_first is this the first MRCA prior?
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
@@ -16,11 +17,12 @@
 mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   mrca_prior,
   has_non_strict_clock_model = FALSE,
-  taxa_names_with_ids = NULL
+  taxa_names_with_ids = NULL,
+  is_first = TRUE
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   text <- NULL
-  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic) {
+  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic && is_first) {
     text <- c(
       text,
       paste0(
