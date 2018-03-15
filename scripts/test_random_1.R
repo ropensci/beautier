@@ -18,7 +18,10 @@ create_random <- function(
     tree_priors = tree_prior,
     mrca_priors = mrca_priors
   )
-  is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+  is_ok <- beastier::is_beast2_input_file(
+    output_xml_filename,
+    show_warnings = TRUE
+  )
   if (!is_ok) {
     print("ERROR")
     file.copy(output_xml_filename, "/home/richel/bad.xml", overwrite = TRUE)
@@ -42,7 +45,7 @@ create_random <- function(
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-seed <- 0
+seed <- 1
 set.seed(seed)
 print(paste("seed:", seed))
 

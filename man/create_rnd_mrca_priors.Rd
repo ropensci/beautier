@@ -2,7 +2,10 @@
 % Please edit documentation in R/create_random.R
 \name{create_rnd_mrca_priors}
 \alias{create_rnd_mrca_priors}
-\title{Create a random MRCA prior}
+\title{Creates a random MRCA prior option. This is either zero, one
+or more MRCA priors. For zero MRCA priors, NA is used. When two
+or more MRCA priors (see \link{create_rnd_two_mrca_priors}) are created,
+those are checked to be compatible}
 \usage{
 create_rnd_mrca_priors(fasta_filename)
 }
@@ -10,7 +13,10 @@ create_rnd_mrca_priors(fasta_filename)
 \item{fasta_filename}{a FASTA filename}
 }
 \description{
-Create a random MRCA prior
+Creates a random MRCA prior option. This is either zero, one
+or more MRCA priors. For zero MRCA priors, NA is used. When two
+or more MRCA priors (see \link{create_rnd_two_mrca_priors}) are created,
+those are checked to be compatible
 }
 \author{
 Richel J.C. Bilderbeek

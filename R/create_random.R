@@ -345,7 +345,10 @@ create_rnd_mrca_prior <- function(fasta_filename) {
   )
 }
 
-#' Create a random MRCA prior
+#' Creates a random MRCA prior option. This is either zero, one
+#' or more MRCA priors. For zero MRCA priors, NA is used. When two
+#' or more MRCA priors (see \link{create_rnd_two_mrca_priors}) are created,
+#' those are checked to be compatible
 #' @param fasta_filename a FASTA filename
 #' @author Richel J.C. Bilderbeek
 create_rnd_mrca_priors <- function(fasta_filename) {
@@ -356,10 +359,22 @@ create_rnd_mrca_priors <- function(fasta_filename) {
     create_rnd_mrca_prior(fasta_filename)
   } else {
     testit::assert(param_index == 3)
-    list(
+    create_rnd_two_mrca_priors(fasta_filename)
+  }
+}
+
+#' Creates two MRCA priors, checked to be compatible
+#' @param fasta_filename a FASTA filename
+#' @author Richel J.C. Bilderbeek
+create_rnd_two_mrca_priors <- function(fasta_filename) {
+  while (1) {
+    mrca_priors <- list(
       create_rnd_mrca_prior(fasta_filename),
       create_rnd_mrca_prior(fasta_filename)
     )
+    if (!are_mrca_taxa_non_intersecting(mrca_priors)) {
+      return(mrca_priors)
+    }
   }
 }
 
