@@ -6,7 +6,7 @@
   as used in the \code{operators} section}
 \usage{
 mrca_prior_to_xml_operators(mrca_prior, fixed_crown_age = FALSE,
-  has_non_strict_clock_model = FALSE)
+  has_non_strict_clock_model = FALSE, is_first = TRUE)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
@@ -19,6 +19,8 @@ of the initial phylogeny.}
 
 \item{has_non_strict_clock_model}{boolean to indicate that the is
 already at least one non-strict (i.e. relaxed log-normal) clock model}
+
+\item{is_first}{is this the first MRCA prior?}
 }
 \value{
 the mrca prior as XML text
