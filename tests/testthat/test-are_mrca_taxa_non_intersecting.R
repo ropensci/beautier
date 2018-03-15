@@ -72,30 +72,6 @@ test_that("use, intersection, monophyly, setdiff problem", {
 
 })
 
-test_that("use, intersection, non-monophyletic", {
-
-  fasta_filename <- get_beautier_path("test_output_5.fas")
-  all_taxa_names <- get_taxa_names(fasta_filename)
-
-  prior_one_two <- create_mrca_prior(
-    alignment_id = get_alignment_id(fasta_filename),
-    taxa_names = all_taxa_names[1:2],
-    is_monophyletic = FALSE
-  )
-  prior_two_three <- create_mrca_prior(
-    alignment_id = get_alignment_id(fasta_filename),
-    taxa_names = all_taxa_names[2:3],
-    is_monophyletic = FALSE
-  )
-  # Would the priors be monophyletic, they would have an intersection
-  non_intersecting_priors <- list(prior_one_two, prior_two_three)
-  testthat::expect_true(
-    beautier:::are_mrca_taxa_non_intersecting(
-      non_intersecting_priors
-    )
-  )
-})
-
 test_that("use, subset", {
 
   fasta_filename <- get_beautier_path("test_output_5.fas")
@@ -147,8 +123,6 @@ test_that("use, one monophyly, issue #32", {
 })
 
 test_that("use, zero monophylies, issue #32", {
-
-  skip("WIP")
 
   fasta_filename <- get_beautier_path("anthus_aco.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
