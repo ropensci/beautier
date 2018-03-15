@@ -22,7 +22,10 @@ brute_force_1_site_models <- function() {
           clock_models = clock_model,
           tree_priors = tree_prior
         )
-        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+        is_ok <- beastier::is_beast2_input_file(
+          output_xml_filename,
+          show_warnings = TRUE
+        )
         testthat::expect_true(is_ok)
         if (!is_ok) {
           print(paste(site_model$name, clock_model$name, tree_prior$name))
@@ -55,7 +58,10 @@ brute_force_1_clock_models_fixed_crown_age <- function() {
       clock_models = clock_model,
       posterior_crown_age = 15
     )
-    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(
+      output_xml_filename,
+      show_warnings = TRUE
+    )
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
@@ -85,7 +91,10 @@ brute_force_1_tree_priors <- function() {
       tree_priors = tree_prior,
       output_filename = output_xml_filename
     )
-    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(
+      output_xml_filename,
+      show_warnings = TRUE
+    )
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
@@ -111,7 +120,10 @@ brute_force_1_tree_priors_fixed_crown_age <- function() {
       output_filename = output_xml_filename,
       posterior_crown_age = 15
     )
-    is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+    is_ok <- beastier::is_beast2_input_file(
+      output_xml_filename,
+      show_warnings = TRUE
+    )
     testthat::expect_true(is_ok)
     if (!is_ok) {
       print(paste(site_model$name, clock_model$name, tree_prior$name))
@@ -145,7 +157,10 @@ brute_force_1_combinations_fixed_crown_age <- function() {
           output_filename = output_xml_filename,
           posterior_crown_age = 15
         )
-        is_ok <- beastier::is_beast2_input_file(output_xml_filename)
+        is_ok <- beastier::is_beast2_input_file(
+          output_xml_filename,
+          show_warnings = TRUE
+        )
         testthat::expect_true(is_ok)
         if (!is_ok) {
           print(paste(site_model$name, clock_model$name, tree_prior$name))
