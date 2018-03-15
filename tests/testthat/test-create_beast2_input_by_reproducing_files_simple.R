@@ -1235,34 +1235,21 @@ test_that("issue_30.xml, #30", {
 
   created <- beautier::create_beast2_input(
     input_filenames = fasta_filename,
-    clock_models = create_rln_clock_model(
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
-      ),
-      mparam_id = 1
-    ),
-    tree_priors = create_cep_tree_prior(
-      pop_size_distr = create_one_div_x_distr(id = 1),
-      growth_rate_distr = create_laplace_distr(
-        id = 0,
-        mu = create_mu_param(id = 4, value = "0.001"),
-        scale = create_scale_param(id = 5, value = "30.701135")
-      )
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
     ),
     mrca_priors = list(
       create_mrca_prior(
         name = "most",
         alignment_id = get_alignment_id(fasta_filename),
-        taxa_names = c(paste0("t", seq(1,4))),
+        taxa_names = c(paste0("t", seq(1, 4))),
         is_monophyletic = FALSE,
         clock_prior_distr_id = 0
       ),
       create_mrca_prior(
         name = "some_mono",
         alignment_id = get_alignment_id(fasta_filename),
-        taxa_names = c(paste0("t", seq(2,3))),
+        taxa_names = c(paste0("t", seq(2, 3))),
         is_monophyletic = TRUE,
         clock_prior_distr_id = 0
       )
