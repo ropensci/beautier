@@ -429,6 +429,24 @@ test_that("create_rnd_tree_prior", {
   }
 })
 
+test_that("create_rnd_two_mrca_priors", {
+  set.seed(0)
+  # Repeat often enough so all execution branches are hit
+  for (i in seq(1, 10)) {
+    mrca_priors <- beautier:::create_rnd_two_mrca_priors(
+      get_beautier_path("anthus_aco_sub.fas")
+    )
+    testit::assert(length(mrca_priors) == 2)
+    testthat::expect_true(
+      beautier:::are_mrca_priors(mrca_priors)
+    )
+    testthat::expect_true(
+      beautier:::are_mrca_taxa_non_intersecting(mrca_priors)
+    )
+
+  }
+})
+
 test_that("create_rnd_uniform_distr", {
   set.seed(0)
   for (i in seq(1, 2)) {

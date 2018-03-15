@@ -20,18 +20,27 @@ test_that("use, intersection, monophyly", {
     taxa_names = all_taxa_names[3:4],
     is_monophyletic = TRUE
   )
-  intersecting_priors <- list(prior_one_two, prior_two_three)
-  non_intersecting_priors <- list(prior_one_two, prior_three_four)
+
 
   testthat::expect_true(
     beautier:::are_mrca_taxa_non_intersecting(
-      non_intersecting_priors
+      list(prior_one_two, prior_three_four)
+    )
+  )
+  testthat::expect_true(
+    beautier:::are_mrca_taxa_non_intersecting(
+      list(prior_three_four, prior_one_two)
     )
   )
 
   testthat::expect_false(
     beautier:::are_mrca_taxa_non_intersecting(
-      intersecting_priors
+      list(prior_one_two, prior_two_three)
+    )
+  )
+  testthat::expect_false(
+    beautier:::are_mrca_taxa_non_intersecting(
+      list(prior_two_three, prior_one_two)
     )
   )
 
@@ -105,6 +114,31 @@ test_that("use, subset", {
   non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
 
   testthat::expect_true(
+    beautier:::are_mrca_taxa_non_intersecting(
+      non_intersecting_priors
+    )
+  )
+
+})
+
+test_that("use, subset, issue #32", {
+
+  fasta_filename <- get_beautier_path("anthus_aco.fas")
+  all_taxa_names <- get_taxa_names(fasta_filename)
+
+  prior_one_two_three <- create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = c("bas3_aco", "KU3604_aco", "meridae_aco"),
+    is_monophyletic = TRUE
+  )
+  prior_two_three <- create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = c("KU9813_aco", "KU3604_aco", "UWBM54511_aco", "630210_aco", "626029_aco", "630116_aco"),
+    is_monophyletic = TRUE
+  )
+  non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
+
+  testthat::expect_false(
     beautier:::are_mrca_taxa_non_intersecting(
       non_intersecting_priors
     )

@@ -40,12 +40,14 @@ create_random <- function(
     print(clock_model$name)
     print("tree prior$name:")
     print(tree_prior$name)
+    print("length(mrca priors):")
+    print(length(mrca_priors))
   }
   is_ok
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-seed <- 2
+seed <- 5
 set.seed(seed)
 print(paste("seed:", seed))
 
