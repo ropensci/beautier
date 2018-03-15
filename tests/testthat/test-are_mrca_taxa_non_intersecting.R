@@ -121,7 +121,9 @@ test_that("use, subset", {
 
 })
 
-test_that("use, subset, issue #32", {
+test_that("use, issue #32", {
+
+  skip("WIP")
 
   fasta_filename <- get_beautier_path("anthus_aco.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
@@ -134,7 +136,7 @@ test_that("use, subset, issue #32", {
   prior_two_three <- create_mrca_prior(
     alignment_id = get_alignment_id(fasta_filename),
     taxa_names = c("KU9813_aco", "KU3604_aco", "UWBM54511_aco", "630210_aco", "626029_aco", "630116_aco"),
-    is_monophyletic = TRUE
+    is_monophyletic = FALSE
   )
   non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
 
