@@ -372,7 +372,7 @@ create_rnd_two_mrca_priors <- function(fasta_filename) {
       create_rnd_mrca_prior(fasta_filename),
       create_rnd_mrca_prior(fasta_filename)
     )
-    if (!are_mrca_taxa_non_intersecting(mrca_priors)) {
+    if (are_mrca_taxa_non_intersecting(mrca_priors)) {
       return(mrca_priors)
     }
   }

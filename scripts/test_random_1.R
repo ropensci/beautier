@@ -45,7 +45,7 @@ create_random <- function(
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-seed <- 1
+seed <- 2
 set.seed(seed)
 print(paste("seed:", seed))
 
