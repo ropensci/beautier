@@ -147,4 +147,4 @@ for (i in seq(1, 30 * 60)) {
 
 print(paste("seed:", seed))
 
-# quit(status = status, save = "no")
+quit(status = status, save = "no")

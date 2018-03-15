@@ -47,7 +47,7 @@ create_random <- function(
 }
 
 seed <- as.integer((as.double(Sys.time())*1000+Sys.getpid()) %% 2^31)
-# seed <- 5
+# seed <- 0
 set.seed(seed)
 print(paste("seed:", seed))
 
@@ -64,4 +64,4 @@ for (i in seq(1, 30 * 60)) {
 
 print(paste("seed:", seed))
 
-# quit(status = status, save = "no")
+quit(status = status, save = "no")
