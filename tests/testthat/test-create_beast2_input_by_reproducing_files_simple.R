@@ -1230,7 +1230,6 @@ test_that("test_0_two_mrca_priors.xml, #30", {
 
 test_that("issue_30.xml, #30", {
 
-  skip("WIP")
   fasta_filename <- beautier::get_beautier_path("test_output_0.fas")
 
   created <- beautier::create_beast2_input(
