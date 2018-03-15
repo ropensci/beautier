@@ -5,7 +5,8 @@
 \title{Creates the XML of an MRCA prior,
   as used in the \code{state} section}
 \usage{
-mrca_prior_to_xml_state(mrca_prior, has_non_strict_clock_model = FALSE)
+mrca_prior_to_xml_state(mrca_prior, has_non_strict_clock_model = FALSE,
+  is_first = TRUE)
 }
 \arguments{
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
@@ -13,6 +14,8 @@ as returned by \code{\link{create_mrca_prior}}}
 
 \item{has_non_strict_clock_model}{boolean to indicate that the is
 already at least one non-strict (i.e. relaxed log-normal) clock model}
+
+\item{is_first}{is this the first MRCA prior?}
 }
 \value{
 the tree prior as XML text
