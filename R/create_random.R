@@ -359,7 +359,7 @@ create_rnd_mrca_priors <- function(fasta_filename) {
     create_rnd_mrca_prior(fasta_filename)
   } else {
     testit::assert(param_index == 3)
-    create_rnd_two_mrca_priors(fasta_filename)
+    create_rnd_two_mrca_priors(fasta_filename) # nolint internal function
   }
 }
 

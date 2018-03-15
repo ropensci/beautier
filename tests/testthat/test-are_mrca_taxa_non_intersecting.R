@@ -123,8 +123,6 @@ test_that("use, subset", {
 
 test_that("use, issue #32", {
 
-  skip("WIP")
-
   fasta_filename <- get_beautier_path("anthus_aco.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
 
