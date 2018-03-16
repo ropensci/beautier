@@ -126,11 +126,48 @@ create_beast2_input_file(
 
 Thanks to Paul van Els and Yacine Ben Chehida for this use case.
 
-## Example #9: Two alignments
+## Example #9: Use MRCA prior
 
-![Example 9: Two alignments](pics/anthus_2_4.png)
+![Example 9: MRCA prior](pics/mrca_prior_all.png)
+
+Since `v1.13` it is supported to specify 
+an MRCA ('Most Recent Common Ancestor') prior.
 
 ```{r example_9}
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas")
+  )
+)
+```
+
+To use that MRCA prior to calibrate the crown age to 10 time units:
+
+![Example 9: MRCA prior to set a fixed crown age](pics/mrca_prior_crown_age.png)
+
+```{r example_9_fixed_crown_age}
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas"),
+    mrca_distr = create_normal_distr(
+      mean = create_mean_param(value = 10.0),
+      sigma = create_sigma_param(value = 0.01)
+    )
+  )
+)
+```
+
+## Example #10: Two alignments
+
+![Example 10: Two alignments](pics/anthus_2_4.png)
+
+```{r example_10}
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
@@ -139,11 +176,11 @@ create_beast2_input_file(
 
 Thanks to Paul van Els for this use case and supplying these FASTA files.
 
-## Example #10: Two alignments, different site models
+## Example #11: Two alignments, different site models
 
-![Example 10: Two alignments, different site models](pics/aco_hky_nd2_tn93.png)
+![Example 11: Two alignments, different site models](pics/aco_hky_nd2_tn93.png)
 
-```{r example_10}
+```{r example_11}
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
@@ -158,11 +195,11 @@ Since `v1.12` this it is supported to have two alignments with different site mo
 
 Thanks to Paul van Els for this use case.
 
-## Example #11: Two alignments, shared clock model
+## Example #12: Two alignments, shared clock model
 
-[Example 11: shared clock model](aco_nd2_same_clock_model.png)
+[Example 12: shared clock model](aco_nd2_same_clock_model.png)
 
-```{r example_10}
+```{r example_12}
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
