@@ -1,7 +1,7 @@
 Package: beautier
 Title: beautier: BEAUti from R
-Version: 1.12.2.4
-Date: 2018-03-05
+Version: 1.13
+Date: 2018-03-16
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: BEAST2 needs an XML input file.
