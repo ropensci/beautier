@@ -4,8 +4,8 @@ Version: 1.13
 Date: 2018-03-16
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
-Description: BEAST2 needs an XML input file.
-  BEAUti is a GUI that does this, requiring active user input.
+Description: 'BEAST2' needs an XML input file.
+  'BEAUti' is a GUI that does this, requiring active user input.
   This R package creates equivalent XML files from function parameters.
 License: GPL-3 | file LICENSE
 LazyData: true
@@ -26,7 +26,3 @@ Suggests:
     lintr,
     rmarkdown,
     testthat
-Remotes: 
-    jimhester/covr,
-    jimhester/lintr,
-    MangoTheCat/goodpractice
