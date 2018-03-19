@@ -64,3 +64,5 @@ fasta_to_phylo.xml
 test.txt
 vignettes/*.xml
 *.xml
+beautier_*.tar.gz
+beautier.Rcheck/
