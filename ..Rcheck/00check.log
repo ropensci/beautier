@@ -1,0 +1,122 @@
+* using log directory ‘/home/richel/GitHubs/beautier/..Rcheck’
+* using R version 3.4.2 (2017-09-28)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using option ‘--as-cran’
+* checking for file ‘./DESCRIPTION’ ... OK
+* this is package ‘beautier’ version ‘1.13’
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>’
+
+New submission
+
+Package has a VignetteBuilder field but no prebuilt vignette index.
+
+The build time stamp is missing.
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... NOTE
+Subdirectory ‘beautier.Rcheck/beautier’ seems to contain an installed version of the package.
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .Rhistory
+  .gitignore
+  .travis.yml
+  ..Rcheck
+  .Rproj.user
+  .git
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+
+CRAN-pack does not know about
+  .travis.yml
+  ..Rcheck
+  .git
+* checking for portable file names ... NOTE
+Found the following non-portable file paths:
+  beautier/beautier.Rcheck/00_pkg_src/beautier/inst/extdata/anthus_aco_sub_calibrated_rln_monophyletic.xml
+  beautier/beautier.Rcheck/00_pkg_src/beautier/inst/extdata/bd_birth_rate_normal_death_rate_gamma_2_4.xml
+  beautier/beautier.Rcheck/00_pkg_src/beautier/inst/extdata/gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml
+  beautier/beautier.Rcheck/00_pkg_src/beautier/inst/extdata/jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml
+  beautier/beautier.Rcheck/00_pkg_src/beautier/inst/extdata/test_output_5_nonconflicting_mrca_priors.xml
+  beautier/beautier.Rcheck/00_pkg_src/beautier/tests/testthat/test-create_beast2_input_by_reproducing_files_clock.R
+  beautier/beautier.Rcheck/00_pkg_src/beautier/tests/testthat/test-create_beast2_input_by_reproducing_files_complex.R
+  beautier/beautier.Rcheck/00_pkg_src/beautier/tests/testthat/test-create_beast2_input_by_reproducing_files_simple.R
+  beautier/beautier.Rcheck/00_pkg_src/beautier/tests/testthat/test-create_beast2_input_data_sequences.R
+  beautier/beautier.Rcheck/00_pkg_src/beautier/tests/testthat/test-is_index_of_first_shared_clock_model.R
+
+Tarballs are only required to store paths of up to 100 bytes and cannot
+store those of more than 256 bytes, with restrictions including to 100
+bytes for the final component.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘beautier’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Checking should be performed on sources prepared by ‘R CMD build’.
+* checking top-level files ... NOTE
+Non-standard files/directories found at top level:
+  ‘CONTRIBUTING.md’ ‘Faq.md’ ‘beautier.Rcheck’ ‘beautier.Rproj’
+  ‘beautier_1.13.tar.gz’ ‘code_of_conduct.md’ ‘create_pdf.R’
+  ‘examples.md’ ‘install_beast2’ ‘install_r_packages.R’ ‘pics’
+  ‘road_map.md’ ‘scripts’
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following directories with names of check directories:
+  ./..Rcheck
+  ./beautier.Rcheck
+Most likely, these were included erroneously.
+Found the following directory with the name of a version control directory:
+  ./.git
+These should not be in a package tarball.
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking use of S3 registration ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking files in ‘vignettes’ ... WARNING
+Files in the 'vignettes' directory but no files in 'inst/doc':
+  ‘aco_hky_nd2_tn93.png’, ‘all_default.png’, ‘anthus_2_4.png’,
+    ‘bd_2_4.png’, ‘beautier_logo.png’, ‘birth_rate_normal_2_4.png’,
+    ‘demo.R’, ‘demo.Rmd’, ‘demo.html’, ‘examples.R’, ‘examples.Rmd’,
+    ‘examples.html’, ‘from_1_12_0_to_1_12_1.R’,
+    ‘from_1_12_0_to_1_12_1.Rmd’, ‘from_1_12_0_to_1_12_1.html’,
+    ‘hky_prop_invariant_0_5_2_4.png’, ‘jc69_2_4.png’, ‘rln_2_4.png’,
+    ‘strict_clock_rate_0_5_2_4.png’
+* checking examples ... OK
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ... OK
+  Running ‘testthat.R’
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes in ‘inst/doc’ ... WARNING
+Package vignettes without corresponding PDF/HTML:
+   ‘demo.Rmd’
+   ‘examples.Rmd’
+   ‘from_1_12_0_to_1_12_1.Rmd’
+
+* checking re-building of vignette outputs ... OK
+* checking PDF version of manual ... OK
+* DONE
+Status: 3 WARNINGs, 6 NOTEs

@@ -1,0 +1,18 @@
+Package: beautier
+Title: 'BEAUti' from R
+Version: 1.13
+Date: 2018-03-16
+Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Description: 'BEAST2' needs an XML input file.
+  'BEAUti' is a GUI that does this, requiring active user input.
+  This R package creates equivalent XML files from function parameters.
+License: GPL-3 | file LICENSE
+LazyData: true
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr
+URL: https://github.com/richelbilderbeek/beautier
+BugReports: https://github.com/richelbilderbeek/beautier/issues
+Imports: ape, geiger, seqinr, stringr, testit
+Suggests: devtools, knitr, ggplot2, lintr, rmarkdown, testthat
+Built: R 3.4.2; ; 2018-03-21 13:04:01 UTC; unix
