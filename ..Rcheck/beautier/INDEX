@@ -1,0 +1,846 @@
+are_clock_models        Determine if x consists out of clock_models
+                        objects
+are_equal_xml_files     Determine if XML files result in equal trees
+are_equal_xml_lines     Determine if XML lines result in equal trees
+are_equivalent_xml_files
+                        Determine if XML files result in equivalent
+                        trees
+are_equivalent_xml_lines
+                        Determine if XML lines result in equivalent
+                        trees
+are_equivalent_xml_lines_all
+                        Determine if XML lines result in equivalent
+                        trees
+are_equivalent_xml_lines_loggers
+                        Determine if XML operator lines result in
+                        equivalent trees
+are_equivalent_xml_lines_operators
+                        Determine if XML operator lines result in
+                        equivalent trees
+are_equivalent_xml_lines_section
+                        Determine if XML lines result in equivalent
+                        trees
+are_ids                 Determine if x consists out of IDs
+are_init_clock_models   Determine if x consists out of initialized
+                        clock_models objects
+are_init_mrca_priors    Determine if x consists out of initialized
+                        mrca_priors objects
+are_init_site_models    Determine if x consists out of initialized
+                        site_models objects
+are_init_tree_priors    Determine if x consists out of initialized
+                        tree_priors objects
+are_mrca_align_ids_in_fastas
+                        Determine if the MRCA priors' alignment IDs are
+                        present in the FASTA files
+are_mrca_priors         Determine if x consists out of mrca_priors
+                        objects
+are_mrca_taxa_names_in_fastas
+                        Determine if the MRCA priors' taxa names are
+                        present in the FASTA files
+are_mrca_taxa_non_intersecting
+                        Determine if MRCA priors that are monophyletic
+                        (i.e., assume no other taxons share a same
+                        MRCA) are compatible, that is, there are no
+                        taxa that intersect. For example, one MRCA
+                        prior with taxon 1 and 2 is incompatible with
+                        an MRCA prior with taxon 3 and 4
+are_rln_clock_models    Are the clock models Relaxed Log-Normal clock
+                        models?
+are_site_models         Determine if x consists out of site_models
+                        objects
+are_tree_priors         Determine if x consists out of tree_priors
+                        objects
+bd_tree_prior_to_xml_prior_distr
+                        Creates the tree prior section in the prior
+                        section of the prior section of the
+                        distribution section of a BEAST2 XML parameter
+                        file for a Birth-Death tree prior
+cbs_tree_prior_to_xml_prior_distr
+                        Creates the tree prior section in the prior
+                        section of the prior section of the
+                        distribution section of a BEAST2 XML parameter
+                        file for a Birth-Death tree prior
+ccp_tree_prior_to_xml_prior_distr
+                        Creates the tree prior section in the prior
+                        section of the prior section of the
+                        distribution section of a BEAST2 XML parameter
+                        file for a Coalescent Constant Population tree
+                        prior
+cep_tree_prior_to_xml_prior_distr
+                        Creates the tree prior section in the prior
+                        section of the prior section of the
+                        distribution section of a BEAST2 XML parameter
+                        file for a Coalescent Exponential Population
+                        tree prior
+clock_model_to_xml_lh_distr
+                        Converts a clock model to the 'branchRateModel'
+                        section of the XML as text
+clock_model_to_xml_operators
+                        Converts a clock model to the 'operators'
+                        section of the XML as text
+clock_model_to_xml_prior_distr
+                        Converts a clock model to the 'prior' section
+                        of the XML as text
+clock_model_to_xml_state
+                        Converts a clock model to the 'state' section
+                        of the XML as text
+clock_model_to_xml_tracelog
+                        Creates the clock model's XML for the tracelog
+                        section
+clock_models_to_xml_operators
+                        Create all clock models' operators' XML text
+clock_models_to_xml_prior_distr
+                        Represent the clock models as XML
+clock_models_to_xml_state
+                        Converts one or more clock models to the
+                        'state' section of the XML as text
+clock_models_to_xml_tracelog
+                        Creates the clock models' XML for the tracelog
+                        section
+compare_lines           Internal debug function to compare the actually
+                        created lines to expected lines.
+count_trailing_spaces   Count the number of spaces before the first
+                        character
+create_alpha_param      Create a parameter called alpha
+create_bd_tree_prior    Create a Birth-Death tree prior
+create_beast2_input     Create a BEAST2 XML input text
+create_beast2_input_1_12
+                        Create a BEAST2 XML input text, interface of
+                        v1.12
+create_beast2_input_beast
+                        Creates the beast section of a BEAST2 XML
+                        parameter file
+create_beast2_input_data
+                        Creates the data section of a BEAST2 XML
+                        parameter file
+create_beast2_input_data_sequences
+                        Creates the data section of a BEAST2 XML
+                        parameter file
+create_beast2_input_distr
+                        Creates the distribution section of a BEAST2
+                        XML parameter file.
+create_beast2_input_distr_lh
+                        Creates the likelihood section in the
+                        distribution section of a BEAST2 XML parameter
+                        file
+create_beast2_input_distr_prior
+                        Creates the prior section in the distribution
+                        section of a BEAST2 XML parameter file
+create_beast2_input_file
+                        Create a BEAST2 input file
+create_beast2_input_file_1_12
+                        Create a BEAST2 input file, interface of v1.12.
+                        This interface is obsoleted, use
+                        'create_beast2_input_file' instead
+create_beast2_input_init
+                        Creates the map section of a BEAST2 XML
+                        parameter file
+create_beast2_input_loggers
+                        Creates the two logger sections of a BEAST2 XML
+                        parameter file
+create_beast2_input_map
+                        Creates the map section of a BEAST2 XML
+                        parameter file
+create_beast2_input_operators
+                        Creates the operators section of a BEAST2 XML
+                        parameter file
+create_beast2_input_run
+                        Creates the state section of a BEAST2 XML
+                        parameter file
+create_beast2_input_screenlog
+                        Creates the screenlog section of the logger
+                        section of a BEAST2 XML parameter file
+create_beast2_input_state
+                        Creates the state section of a BEAST2 XML
+                        parameter file
+create_beast2_input_tracelog
+                        Creates the tracelog section of the logger
+                        section of a BEAST2 XML parameter file
+create_beast2_input_treelogs
+                        Creates the tracelog section of the logger
+                        section of a BEAST2 XML parameter file
+create_beast2_input_xml
+                        Creates the xml section of a BEAST2 XML
+                        parameter file
+create_beta_distr       Create a beta distribution
+create_beta_param       Create a parameter called beta
+create_cbs_tree_prior   Create a Coalescent Bayesian Skyline tree prior
+create_ccp_tree_prior   Create a Coalescent Constant Population tree
+                        prior
+create_cep_tree_prior   Create a Coalescent Exponential Population tree
+                        prior
+create_clock_model      General function to create a clock model
+create_clock_models     Creates all supported clock models, which is
+                        just a list of the types returned by
+                        'create_rln_clock_model', and
+                        'create_strict_clock_model'
+create_clock_rate_param
+                        Create a parameter called 'clock_rate', as
+                        needed by 'create_strict_clock_model'
+create_distr            General function to create a distribution.
+create_exp_distr        Create an exponential distribution
+create_gamma_distr      Create a gamma distribution
+create_gamma_site_model
+                        Create a gamma site model, part of a site model
+create_gtr_site_model   Create a GTR site model
+create_hky_site_model   Create an HKY site model
+create_inv_gamma_distr
+                        Create an inverse gamma distribution
+create_jc69_site_model
+                        Create a JC69 site model
+create_jc69_site_models
+                        Creates a JC69_site_model for each ID
+create_kappa_1_param    Create a parameter called kappa 1
+create_kappa_2_param    Create a parameter called kappa 2
+create_lambda_param     Create a parameter called lambda
+create_laplace_distr    Create a Laplace distribution
+create_log_normal_distr
+                        Create a log-normal distribution
+create_m_param          Create a parameter called m
+create_mcmc             Function to create the MCMC options, as in the
+                        BEAUti MCMC tab.
+create_mean_param       Create a parameter called mean
+create_misc_options     Function to create a misc_options, containing
+                        miscellaneous options to fine-tune the created
+                        BEAST2 XML file. Whatever option chosen here,
+                        the created XML file will be valid.
+create_mrca_prior       Create a Most Recent Common Ancestor prior
+create_mu_param         Create a parameter called mu
+create_normal_distr     Create an normal distribution
+create_one_div_x_distr
+                        Create a 1/x distribution
+create_param            General function to create a parameter.
+create_poisson_distr    Create a Poisson distribution
+create_random_name      Create a random name, for example, to be used
+                        by 'create_mrca_prior'
+create_rate_ac_param    Create a parameter called 'rate AC'
+create_rate_ag_param    Create a parameter called 'rate AG'
+create_rate_at_param    Create a parameter called 'rate AT'
+create_rate_cg_param    Create a parameter called 'rate CG'
+create_rate_ct_param    Create a parameter called 'rate CT'
+create_rate_gt_param    Create a parameter called 'rate GT'
+create_rln_clock_model
+                        Create a relaxed log-normal clock model
+create_rnd_alpha_param
+                        Create a random alpha parameter
+create_rnd_bd_tree_prior
+                        Create a random BD tree prior
+create_rnd_beta_distr   Create a random beta distribution
+create_rnd_beta_param   Create a random beta parameter
+create_rnd_bool         Create a random boolean
+create_rnd_cbs_tree_prior
+                        Create a random CBS tree prior
+create_rnd_ccp_tree_prior
+                        Create a random CCP tree prior
+create_rnd_cep_tree_prior
+                        Create a random CEP tree prior
+create_rnd_clock_model
+                        Create a random clock model
+create_rnd_clock_rate_param
+                        Create a random clock rate parameter
+create_rnd_distr        Create a random distribution
+create_rnd_estimate     Create a random value for 'estimate', which
+                        must be TRUE or FALSE
+create_rnd_exp_distr    Create a random exponential distribution
+create_rnd_freq_equilibrium
+                        Create a random value for 'freq equilibrium',
+                        which can be 'estimated', 'empirical' or
+                        'all_equal'
+create_rnd_gamma_distr
+                        Create a random gamma distribution
+create_rnd_gamma_site_model
+                        Create a random gamma site model
+create_rnd_gtr_site_model
+                        Create a random GTR site model
+create_rnd_hky_site_model
+                        Create a random HKY site model
+create_rnd_inv_gamma_distr
+                        Create a random inverse-gamma distribution
+create_rnd_jc69_site_model
+                        Create a random JC69 distribution
+create_rnd_kappa_1_param
+                        Create a random kappa 1 parameter
+create_rnd_kappa_2_param
+                        Create a random kappa 2 parameter
+create_rnd_lambda_param
+                        Create a random lambda parameter
+create_rnd_laplace_distr
+                        Create a random Laplace distribution
+create_rnd_log_normal_distr
+                        Create a random log-normal distribution
+create_rnd_m_param      Create a random m parameter
+create_rnd_mean_param   Create a random mean parameter
+create_rnd_mrca_prior   Create a random MRCA prior
+create_rnd_mrca_priors
+                        Creates a random MRCA prior option. This is
+                        either zero, one or more MRCA priors. For zero
+                        MRCA priors, NA is used. When two or more MRCA
+                        priors (see create_rnd_two_mrca_priors) are
+                        created, those are checked to be compatible
+create_rnd_mu_param     Create a random mu parameter
+create_rnd_normal_distr
+                        Create a random normal distribution
+create_rnd_one_div_x_distr
+                        Create a random 1/x distribution
+create_rnd_param        Create a random parameter
+create_rnd_poisson_distr
+                        Create a random Poisson distribution
+create_rnd_rate_ac_param
+                        Create a random rate AC parameter
+create_rnd_rate_ag_param
+                        Create a random rate AG parameter
+create_rnd_rate_at_param
+                        Create a random rate AT parameter
+create_rnd_rate_cg_param
+                        Create a random rate CG parameter
+create_rnd_rate_ct_param
+                        Create a random rate CT parameter
+create_rnd_rate_gt_param
+                        Create a random rate GT parameter
+create_rnd_rln_clock_model
+                        Create a random RLN clock model
+create_rnd_s_param      Create a random s parameter
+create_rnd_scale_param
+                        Create a random scale parameter
+create_rnd_sigma_param
+                        Create a random sigma parameter
+create_rnd_site_model   Create a random site model
+create_rnd_strict_clock_model
+                        Create a random strict clock model
+create_rnd_tn93_site_model
+                        Create a random TN93 site model
+create_rnd_tree_prior   Create a random tree prior
+create_rnd_two_mrca_priors
+                        Creates two MRCA priors, checked to be
+                        compatible
+create_rnd_uniform_distr
+                        Create a random uniform distribution
+create_rnd_yule_tree_prior
+                        Create a random Yule tree prior
+create_s_param          Create a parameter called s
+create_scale_param      Create a parameter called scale
+create_sigma_param      Create a parameter called sigma
+create_site_model       General function to create a site model.
+create_site_models      Creates all supported site models which is just
+                        a list of the types returned by
+                        'create_gtr_site_model',
+                        'create_hky_site_model',
+                        'create_jc69_site_model' and
+                        'create_tn93_site_model'
+create_strict_clock_model
+                        Create a strict clock model
+create_strict_clock_models
+                        Creates n strict clock_models
+create_tn93_site_model
+                        Create a TN93 site model
+create_tree_prior       Internal function to create a tree prior
+create_tree_priors      Creates all supported tree priors, which is
+                        just a list of the types returned by
+                        'create_bd_tree_prior',
+                        'create_cbs_tree_prior',
+                        'create_ccp_tree_prior',
+                        'create_cep_tree_prior' and
+                        'create_yule_tree_prior'
+create_uniform_distr    Create a uniform distribution
+create_yule_tree_prior
+                        Create a Yule tree prior
+create_yule_tree_priors
+                        Creates n Yule tree priors
+default_params_doc      This function does nothing. It is intended to
+                        inherit is parameters' documentation.
+distr_to_xml            Converts a distribution to XML
+distr_to_xml_beta       Converts a beta distribution to XML
+distr_to_xml_exp        Converts an exponential distribution to XML
+distr_to_xml_gamma      Converts a gamma distribution to XML
+distr_to_xml_inv_gamma
+                        Converts a inv_gamma distribution to XML
+distr_to_xml_laplace    Converts a laplace distibution to XML
+distr_to_xml_log_normal
+                        Converts a log-normal distribution to XML
+distr_to_xml_normal     Converts a normal distribution to XML
+distr_to_xml_one_div_x
+                        Converts a 1/x distribution to XML
+distr_to_xml_poisson    Converts a poisson distribution to XML
+distr_to_xml_uniform    Converts a uniform distribution to XML
+extract_xml_loggers_from_lines
+                        Extract everything between first loggers and
+                        last loggers line
+extract_xml_operators_from_lines
+                        Extract everything between first operators and
+                        last operators line
+extract_xml_section_from_lines
+                        Get the lines of an XML section, including the
+                        section tags
+fasta_file_to_sequences
+                        Convert a FASTA file to a table of sequences
+fasta_to_phylo          Create a random phylogeny, with the same taxa
+                        names as the FASTA file and the desired crown
+                        age
+fastas_to_phylos        Create a random phylogeny, with the same taxa
+                        names as the FASTA file and the desired crown
+                        age
+files_exist             Multi-file file.exists function
+find_clock_model        Finds a clock model with a certain ID
+find_first_regex_line   Find the first line that satisfies a regex
+find_first_xml_opening_tag_line
+                        Find the line number of the first section's
+                        opening tag
+find_last_xml_closing_tag_line
+                        Find the highest line number of a section's
+                        closing tag
+freq_equilibrium_to_xml
+                        Creates the 'freq_equilibrium' as XML
+gamma_site_model_to_xml_prior_distr
+                        Creates the gamma site models section in the
+                        distribution section of a BEAST2 XML parameter
+                        file
+gamma_site_model_to_xml_state
+                        Converts a gamma site model to XML, used in the
+                        'state' section
+gamma_site_models_to_xml_prior_distr
+                        Creates the gamma site models section in the
+                        distribution section of a BEAST2 XML parameter
+                        file
+get_alignment_id        Get the alignment ID from a FASTA filename
+get_alignment_ids       Get the alignment ID from one or more FASTA
+                        filenames
+get_beautier_path       Get the full path of a file in the
+                        'inst/extdata' folder
+get_beautier_paths      Get the full paths of files in the
+                        'inst/extdata' folder
+get_clock_model_name    Get the BEAUti name for a clock model
+get_clock_model_names   Get the clock model names
+get_clock_models_ids    Collect the IDs of the list of clock models
+get_distr_n_params      Get the number of parameters a distribution
+                        uses
+get_distr_names         Get the distribution names
+get_fasta_filename      Get the path of a FASTA file used in testing
+get_file_base_sans_ext
+                        Get the filename's base without extension
+get_first_clock_model_index
+                        Get the index of a clock model with a list of
+                        clock models
+get_freq_equilibrium_names
+                        Returns valid values for the 'freq_equilibrium'
+                        argument
+get_has_non_strict_clock_model
+                        Determines if there is at least one non-strict
+                        clock model in the list of one or more clock
+                        models
+get_id                  Conclude the ID from a FASTA filename
+get_ids                 Conclude the IDs from one or more FASTA
+                        filenames
+get_n_taxa              Extract the number of taxa from a file
+get_operator_id_pre     Get the prefix of operator IDs
+get_param_names         Get the parameter names
+get_phylo_crown_age     Obtain the crown age of a phylony
+get_site_model_n_distrs
+                        Get the number of distributions a site model
+                        has
+get_site_model_n_params
+                        Get the number of distributions a site model
+                        has
+get_site_model_names    Get the site models' names
+get_site_models_n_distrs
+                        Get the number of distributions a site model
+                        has
+get_site_models_n_params
+                        Get the number of distributions one or more
+                        site models have
+get_taxa_names          Extract the names of taxa from a file
+get_tree_prior_n_distrs
+                        Get the number of distributions a tree prior
+                        has
+get_tree_prior_n_params
+                        Get the number of parameters a tree prior has
+get_tree_prior_names    Get the tree prior names
+get_tree_priors_n_distrs
+                        Get the number of distributions a tree prior
+                        has
+get_tree_priors_n_params
+                        Get the number of parameters a list of tree
+                        priors has
+get_unlinked_clock_models
+                        Get the first clock model of each ID
+get_unlinked_site_models
+                        Get the first site model of each ID
+get_unlinked_tree_priors
+                        Get the first tree prior of each ID
+get_xml_closing_tag     Get the XML closing tag
+get_xml_opening_tag     Get the XML opening tag
+has_shared_rln_clock_models
+                        Are there any shared RLN clock models?
+has_xml_closing_tag     Is an XML opening tag with value 'section'
+                        present amongst the lines of the text?
+has_xml_opening_tag     Is an XML opening tag with value 'section'
+                        present amongst the lines of the text?
+has_xml_short_closing_tag
+                        Is an XML closing tag with short closing text
+                        at the end of the text?
+indent                  Indent text for a certain number of spaces If
+                        the text is only whitespace, leave it as such
+init_bd_tree_prior      Initializes a Birth-Death tree prior
+init_ccp_tree_prior     Initializes a Coalescent Constant Population
+                        tree prior
+init_cep_tree_prior     Initializes a Coalescent Exponential Population
+                        tree prior
+init_clock_models       Initializes all clock models
+init_distr              Initializes a distribution
+init_gamma_site_model   Initializes all site models
+init_gtr_site_model     Initializes a GTR site model
+init_hky_site_model     Initializes an HKY site model
+init_jc69_site_model    Initializes a JC69 site model
+init_mrca_priors        Initializes all mrca priors
+init_param              Initializes a parameter
+init_rln_clock_model    Initializes a Relaxed Log-Normal clock model
+init_site_models        Initializes all site models
+init_strict_clock_model
+                        Initializes a strict clock model
+init_tn93_site_model    Initializes a TN93 site model
+init_tree_priors        Initializes all tree priors
+init_yule_tree_prior    Initializes a Yule tree prior
+interspace              Puts spaces in between the lines
+is_alpha_param          Determine if the object is a valid alpha
+                        parameter
+is_bd_tree_prior        Determine if the object is a valid Birth Death
+                        tree prior as returned by
+                        'create_bd_tree_prior'
+is_beta_distr           Determine if the object is a valid beta
+                        distribution, as created by 'create_beta_distr'
+is_beta_param           Determine if the object is a valid beta
+                        parameter
+is_cbs_tree_prior       Determine if the object is a valid constant
+                        coalescent Bayesian skyline prior as returned
+                        by 'create_cbs_tree_prior'
+is_ccp_tree_prior       Determine if the object is a valid constant
+                        coalescence population tree prior, as returned
+                        by 'create_ccp_tree_prior'
+is_cep_tree_prior       Determine if the object is a valid coalescent
+                        exponential population tree prior as returned
+                        by 'create_cep_tree_prior'
+is_clock_model          Determine if the object is a valid clock_model
+is_clock_model_name     Determines if the name is a valid clock model
+                        name
+is_clock_rate_param     Determine if the object is a valid clock_rate
+                        parameter
+is_distr                Determine if the object is a valid distribution
+is_distr_name           Determines if the name is a valid distribution
+                        name
+is_exp_distr            Determine if the object is a valid exponential
+                        distribution as created by 'create_exp_distr'
+is_freq_equilibrium_name
+                        Checks if 'name' is a valid 'freq_equilibrium'
+                        argument value
+is_gamma_distr          Determine if the object is a valid gamma
+                        distribution, as created by
+                        'create_gamma_distr'
+is_gamma_site_model     Is object x a gamma site model?
+is_gtr_site_model       Determine if the object is a valid GTR site
+                        model, as created by 'create_gtr_site_model'
+is_hky_site_model       Determine if the object is a valid HKY site
+                        model, as created by 'create_hky_site_model'
+is_id                   Determine if the object is a valid ID
+is_in_patterns          Create a random beta distribution
+is_index_of_first_shared_clock_model
+                        Is the index the first of a series of clock
+                        models that are shared?
+is_index_of_non_first_shared_clock_model
+                        Is the index the first of a series of clock
+                        models that are shared?
+is_init_bd_tree_prior   Determine if x is an initialized Birth-Death
+                        tree_prior object
+is_init_beta_distr      Determine if x is an initialized beta
+                        distribution object as created by
+                        'create_beta_distr'
+is_init_cbs_tree_prior
+                        Determine if x is an initialized Coalescent
+                        Bayesian Skyline tree_prior object
+is_init_ccp_tree_prior
+                        Determine if x is an initialized Coalescent
+                        Constant Population tree_prior object
+is_init_cep_tree_prior
+                        Determine if x is an initialized Coalescent
+                        Exponential Population tree_prior object
+is_init_clock_model     Determine if x is an initialized clock_model
+                        object, as created by 'create_clock_model'
+is_init_distr           Determine if x is an initialized distribution
+                        object as created by 'create_distr'
+is_init_exp_distr       Determine if x is an initialized exponential
+                        distribution object as created by
+                        'create_exp_distr'
+is_init_gamma_distr     Determine if x is an initialized gamma
+                        distribution object
+is_init_gamma_site_model
+                        Determine if x is an initialized gamma site
+                        model, as created by 'create_gamma_site_model'
+is_init_gtr_site_model
+                        Determine if x is an initialized GTR site model
+                        as created by 'create_gtr_site_model'
+is_init_hky_site_model
+                        Determine if x is an initialized hky site model
+                        as created by 'create_hky_site_model'
+is_init_inv_gamma_distr
+                        Determine if x is an initialized inv_gamma
+                        distribution object as created by
+                        'create_inv_gamma_distr'
+is_init_jc69_site_model
+                        Determine if x is an initialized JC69 site
+                        model as created by 'create_jc69_site_model'
+is_init_laplace_distr   Determine if x is an initialized laplace
+                        distribution object as created by
+                        'create_laplace_distr'
+is_init_log_normal_distr
+                        Determine if x is an initialized log_normal
+                        distribution object as created by
+                        'create_log_normal_distr'
+is_init_mrca_prior      Determine if x is an initialized mrca_prior
+                        objects
+is_init_normal_distr    Determine if x is an initialized normal
+                        distribution object as created by
+                        'create_normal_distr'
+is_init_one_div_x_distr
+                        Determine if x is an initialized one_div_x
+                        distribution object as created by
+                        'create_one_div_x_distr'
+is_init_param           Determine if x is an initialized parameter, as
+                        created by 'create_param'
+is_init_poisson_distr   Determine if x is an initialized poisson
+                        distribution object as created by
+                        'create_poisson_distr'
+is_init_rln_clock_model
+                        Determine if x is an initialized relaxed
+                        log-normal clock_model object
+is_init_site_model      Determine if x is an initialized site model, as
+                        created by 'create_site_model'
+is_init_strict_clock_model
+                        Determine if x is an initialized strict
+                        clock_model object
+is_init_tn93_site_model
+                        Determine if x is an initialized tn93 site
+                        model as created by 'create_tn93_site_model'
+is_init_tree_prior      Determine if x is an initialized tree_prior
+                        objects
+is_init_uniform_distr   Determine if x is an initialized uniform
+                        distribution object as created by
+                        'create_uniform_distr'
+is_init_yule_tree_prior
+                        Determine if x is an initialized Yule
+                        tree_prior object
+is_inv_gamma_distr      Determine if the object is a valid inv_gamma
+                        distribution, as created by
+                        'create_inv_gamma_distr'
+is_jc69_site_model      Determine if the object is a valid JC69 site
+                        model
+is_kappa_1_param        Determine if the object is a valid kappa 1
+                        parameter
+is_kappa_2_param        Determine if the object is a valid kappa 2
+                        parameter
+is_lambda_param         Determine if the object is a valid lambda
+                        parameter
+is_laplace_distr        Determine if the object is a valid laplace
+                        distribution, as created by
+                        'create_laplace_distr'
+is_log_normal_distr     Determine if the object is a valid log-normal
+                        distribution, as created by
+                        'create_log_normal_distr'
+is_m_param              Determine if the object is a valid m parameter
+is_mcmc                 Determine if the object is a valid mcmc object
+is_mean_param           Determine if the object is a valid mean
+                        parameter
+is_misc_options         Determine if the object is a valid misc_options
+is_mrca_prior           Determine of the object is an MRCA prior, as
+                        returned by 'create_mrca_prior'
+is_mu_param             Determine if the object is a valid mu parameter
+is_normal_distr         Determine if the object is a valid normal
+                        distribution as created by
+                        'create_normal_distr'
+is_one_div_x_distr      Determine if the object is a valid 1/x
+                        distribution, as created by
+                        'create_one_div_x_distr'
+is_one_na               Determines if x is one NA
+is_param                Determine if the object is a valid parameter
+is_param_name           Determines if the name is a valid parameter
+                        name
+is_phylo                Checks if the input is a phylogeny
+is_poisson_distr        Determine if the object is a valid poisson
+                        distribution as created by
+                        'create_poisson_distr'
+is_rate_ac_param        Determine if the object is a valid 'rate AC'
+                        parameter
+is_rate_ag_param        Determine if the object is a valid 'rate AG'
+                        parameter
+is_rate_at_param        Determine if the object is a valid 'rate AT'
+                        parameter
+is_rate_cg_param        Determine if the object is a valid 'rate CG'
+                        parameter
+is_rate_ct_param        Determine if the object is a valid 'rate CT'
+                        parameter
+is_rate_gt_param        Determine if the object is a valid 'rate GT'
+                        parameter
+is_rln_clock_model      Determine if the object is a valid relaxed log
+                        normal clock model
+is_s_param              Determine if the object is a valid s parameter
+is_scale_param          Determine if the object is a valid scale
+                        parameter
+is_sigma_param          Determine if the object is a valid sigma
+                        parameter
+is_site_model           Determine if the object is a valid site_model
+is_site_model_name      Determines if the name is a valid site_model
+                        name
+is_strict_clock_model   Determine if the object is a valid strict clock
+                        model, as returned by
+                        'create_strict_clock_model'
+is_tn93_site_model      Determine if the object is a valid TN93 site
+                        model,
+is_tree_prior           Determine if an object is a valid tree prior
+is_tree_prior_name      Determines if the name is a valid tree prior
+                        name
+is_uniform_distr        Determine if the object is a valid uniform
+                        distribution as created by
+                        'create_uniform_distr'
+is_xml                  Checks if the text is a valid XML node, that
+                        is, it has a opening and matching closing tag
+is_yule_tree_prior      Determine if the object is a valid Yule tree
+                        prior, as returned by 'create_yule_tree_prior'
+mcmc_to_xml_run         Converts an MCMC object to the run section's
+                        XML
+mrca_prior_to_xml_lh_distr
+                        Converts an MRCA prior to the 'branchRateModel'
+                        section of the XML as text
+mrca_prior_to_xml_operators
+                        Creates the XML of an MRCA prior, as used in
+                        the 'operators' section
+mrca_prior_to_xml_prior_distr
+                        Creates the distribution section in the prior
+                        section of the distribution section of a BEAST2
+                        XML parameter file. These lines start with
+                        '<distribution id='
+mrca_prior_to_xml_state
+                        Creates the XML of an MRCA prior, as used in
+                        the 'state' section
+mrca_prior_to_xml_taxonset
+                        Creates the distribution section in the prior
+                        section of the distribution section of a BEAST2
+                        XML parameter file. These lines start with
+                        '<distribution id='
+mrca_prior_to_xml_tracelog
+                        Creates the mrca prior's XML for the tracelog
+                        section
+mrca_priors_to_xml_operators
+                        Creates the XML of a list of one or more MRCA
+                        priors, as used in the 'operators' section
+mrca_priors_to_xml_prior_distr
+                        Creates the distribution section in the prior
+                        section of the distribution section of a BEAST2
+                        XML parameter file. These lines start with
+                        '<distribution id='
+mrca_priors_to_xml_state
+                        Converts one or more MRCA priors to the 'state'
+                        section of the XML as text
+mrca_priors_to_xml_tracelog
+                        Creates the mrca priors' XML for the tracelog
+                        section
+parameter_to_xml        Converts a parameter to XML
+parameter_to_xml_alpha
+                        Converts an alpha parameter to XML
+parameter_to_xml_beta   Converts a beta parameter to XML
+parameter_to_xml_clock_rate
+                        Converts a 'clockRate' parameter to XML
+parameter_to_xml_kappa_1
+                        Converts a kappa 1 parameter to XML
+parameter_to_xml_kappa_2
+                        Converts a kappa 2 parameter to XML
+parameter_to_xml_lambda
+                        Converts a lambda parameter to XML
+parameter_to_xml_m      Converts a m parameter to XML
+parameter_to_xml_mean   Converts a mean parameter to XML
+parameter_to_xml_mu     Converts a mu parameter to XML
+parameter_to_xml_rate_ac
+                        Converts a 'rate AC' parameter to XML
+parameter_to_xml_rate_ag
+                        Converts a 'rate AG' parameter to XML
+parameter_to_xml_rate_at
+                        Converts a 'rate AT' parameter to XML
+parameter_to_xml_rate_cg
+                        Converts a 'rate CG' parameter to XML
+parameter_to_xml_rate_ct
+                        Converts a 'rate CT' parameter to XML
+parameter_to_xml_rate_gt
+                        Converts a 'rate GT' parameter to XML
+parameter_to_xml_s      Converts a s parameter to XML
+parameter_to_xml_scale
+                        Converts a scale parameter to XML
+parameter_to_xml_sigma
+                        Converts a sigma parameter to XML
+phylo_to_xml_state      Creates the XML of a phylogeny, as used in the
+                        'state' section
+remove_multiline        Remove consequetive lines
+rln_clock_model_to_xml_mean_rate_prior
+                        Used by 'clock_models_to_xml_prior_distr'
+rnd_phylo_to_xml_init   Creates the XML of a random phylogeny, as used
+                        in the 'init' section
+rnd_phylo_to_xml_state
+                        Creates the XML of a random phylogeny, as used
+                        in the 'state' section
+site_model_to_xml_lh_distr
+                        Converts a site model to XML, used in the
+                        'siteModel' section
+site_model_to_xml_operators
+                        Converts a site model to XML, used in the
+                        'operators' section
+site_model_to_xml_prior_distr
+                        Converts a site model to XML, used in the
+                        'prior' section
+site_model_to_xml_state
+                        Converts a site model to XML, used in the
+                        'state' section
+site_model_to_xml_subst_model
+                        Converts a site model to XML, used in the
+                        'substModel' section
+site_model_to_xml_tracelog
+                        Creates the site model's XML for the tracelog
+                        section
+site_models_to_xml_prior_distr
+                        Represent the site models as XML
+site_models_to_xml_state
+                        Converts one or more clock models to the
+                        'state' section of the XML as text
+site_models_to_xml_tracelog
+                        Creates the site models' XML for the tracelog
+                        section
+tree_models_to_xml_tracelog
+                        Creates the tree models' XML for the tracelog
+                        section
+tree_prior_to_xml_operators
+                        Creates the XML of a tree prior, as used in the
+                        'operators' section
+tree_prior_to_xml_prior_distr
+                        Creates the distribution section in the prior
+                        section of the distribution section of a BEAST2
+                        XML parameter file. These lines start with
+                        '<distribution id='
+tree_prior_to_xml_state
+                        Creates the XML of a tree prior, as used in the
+                        'state' section
+tree_prior_to_xml_tracelog
+                        Creates the tree prior's XML for the tracelog
+                        section
+tree_priors_to_xml_operators
+                        Creates the XML of a list of one or more tree
+                        priors, as used in the 'operators' section
+tree_priors_to_xml_prior_distr
+                        Creates the distribution section in the prior
+                        section of the distribution section of a BEAST2
+                        XML parameter file. These lines start with
+                        '<distribution id='
+tree_priors_to_xml_state
+                        Converts one or more tree priors to the 'state'
+                        section of the XML as text
+tree_priors_to_xml_tracelog
+                        Creates the tree priors' XML for the tracelog
+                        section
+yule_tree_prior_to_xml_prior_distr
+                        Creates the 'prior' section in the prior
+                        section of the prior section of the
+                        distribution section of a BEAST2 XML parameter
+                        file for a Yule tree prior
