@@ -97,6 +97,20 @@ create_beast2_input_file(
   )
 )
 
+## ----example_9_fixed_crown_age-------------------------------------------
+create_beast2_input_file(
+  "my_alignment.fas",
+  "my_beast.xml",
+  mrca_priors = create_mrca_prior(
+    alignment_id = get_alignment_id("my_alignment.fas"),
+    taxa_names = get_taxa_names("my_alignment.fas"),
+    mrca_distr = create_normal_distr(
+      mean = create_mean_param(value = 10.0),
+      sigma = create_sigma_param(value = 0.01)
+    )
+  )
+)
+
 ## ----example_10----------------------------------------------------------
 crown_age <- 15
 create_beast2_input_file(
