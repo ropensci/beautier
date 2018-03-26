@@ -4,9 +4,16 @@ Version: 1.13
 Date: 2018-03-16
 Author: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Maintainer: Richel J.C. Bilderbeek <richel@richelbilderbeek.nl>
-Description: 'BEAST2' needs an XML input file.
-  'BEAUti' is a GUI that does this, requiring active user input.
-  This R package creates equivalent XML files from function parameters.
+Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
+  Bayesian phylogenetic tool, that uses DNA/RNA/protein data
+  and many model priors to create a posterior of jointly estimated 
+  phylogenies and parameters.
+  'BEAUti 2' (which is part of 'BEAST2') is a GUI tool 
+  that allows users to specify the many possible setups
+  and generates the XML file 'BEAST2' needs to run.
+  This package provides a way to create 'BEAST2' input
+  files without active user input, but using
+  R function calls instead.
 License: GPL-3 | file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
