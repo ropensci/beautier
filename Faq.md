@@ -1,5 +1,13 @@
 # FAQ
 
+## Shouldn't the slogan be 'beautier: BEAUti 2 for R'?
+
+That slogan would indeed be more precise. That
+extra precision would come at the cost of 
+readability (the extra '2'). As there is no `BEAUti 1`,
+there is no possible confusion and that extra number 
+does not add extra information.
+
 ## Which version of BEAUti does `beautier` use?
 
 Version 2.4.8.
