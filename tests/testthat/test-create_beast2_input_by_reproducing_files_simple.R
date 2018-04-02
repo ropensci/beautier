@@ -1259,6 +1259,5 @@ test_that("issue_30.xml, #30", {
   expected <- readLines(beautier::get_beautier_path(
     "issue_30.xml")
   )
-  beautier:::compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })

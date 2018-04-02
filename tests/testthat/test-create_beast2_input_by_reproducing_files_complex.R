@@ -193,8 +193,6 @@ test_that("aco_nd2_shared_site_model_2_4.xml", {
     beautier:::are_equivalent_xml_lines(created, expected,
       section = "distribution")
   )
-  beautier:::compare_lines(created, expected,
-    section = "distribution")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -514,7 +512,6 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "state")
   )
-  beautier:::compare_lines(created, expected, section = "state")
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
       created, expected, section = "distribution")
@@ -527,7 +524,5 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
       created, expected, section = "operators")
   )
 
-  beautier:::compare_lines(created, expected,
-    section = "operators")
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
