@@ -9,6 +9,7 @@
 #' @examples
 #'   mu_param <- create_mu_param()
 #'   testit::assert(beautier:::is_mu_param(mu_param))
+#' @noRd
 is_mu_param <- function(
   x
 ) {

@@ -11,6 +11,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @noRd
 tree_prior_to_xml_prior_distr <- function( # nolint internal function
   tree_prior
 ) {

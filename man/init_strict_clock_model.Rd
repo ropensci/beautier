@@ -6,14 +6,6 @@
 \usage{
 init_strict_clock_model(strict_clock_model, distr_id, param_id)
 }
-\arguments{
-\item{strict_clock_model}{a strict clock model,
-as returned by \code{\link{create_strict_clock_model}}}
-
-\item{distr_id}{a distributions' ID}
-
-\item{param_id}{a parameter's ID}
-}
 \value{
 an initialized strict clock model
 }

@@ -10,31 +10,6 @@ create_beast2_input(input_filenames, site_models = create_jc69_site_models(ids
   get_ids(input_filenames)), mrca_priors = NA, mcmc = create_mcmc(),
   misc_options = create_misc_options(), posterior_crown_age = NA)
 }
-\arguments{
-\item{input_filenames}{One or more FASTA filenames.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{tree_priors}{one or more tree priors,
-as returned by \code{\link{create_tree_prior}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{mcmc}{one mcmc object,
-as returned by \code{\link{create_mcmc}}}
-
-\item{misc_options}{one misc_options object,
-as returned by \code{\link{create_misc_options}}}
-
-\item{posterior_crown_age}{the crown age the posteriors'
-phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}
-}
 \description{
 Create a BEAST2 XML input text
 }

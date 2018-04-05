@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid alpha parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_alpha_param <- function(
   x
 ) {

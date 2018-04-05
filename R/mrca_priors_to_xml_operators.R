@@ -3,6 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the MRCA priors as XML text
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 mrca_priors_to_xml_operators <- function(
   mrca_priors,
   has_non_strict_clock_model = FALSE

@@ -9,6 +9,7 @@
 #' @examples
 #'   kappa_2_param <- create_kappa_2_param()
 #'   testit::assert(beautier:::is_kappa_2_param(kappa_2_param))
+#' @noRd
 is_kappa_2_param <- function(
   x
 ) {

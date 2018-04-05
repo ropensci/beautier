@@ -30,6 +30,7 @@
 #'  testit::assert(
 #'    beautier:::get_tree_prior_n_params(create_yule_tree_prior()) == 0
 #'  )
+#' @noRd
 get_tree_prior_n_params <- function(
   tree_prior
 ) {

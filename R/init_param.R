@@ -5,6 +5,7 @@
 #'   has an ID
 #' @return an initialized parameter
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 init_param <- function(
   param,
   id

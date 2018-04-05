@@ -1,6 +1,7 @@
 #' Create all clock models' operators' XML text
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 clock_models_to_xml_operators <- function(
   clock_models
 ) {

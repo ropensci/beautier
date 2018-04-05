@@ -4,13 +4,14 @@
 #' @return TRUE if x is a valid strict clock model, FALSE otherwise
 #' @seealso \code{\link{create_clock_model}} shows an overview of
 #'   functions to create a clock model
-#' @author Richel J.C. Bilderbeek
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model()
 #'
 #'   # rln: Relaxed Log-Normal
 #'   rln_clock_model <- create_rln_clock_model()
 #'   testit::assert(!beautier:::is_strict_clock_model(rln_clock_model))
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 is_strict_clock_model <- function(
   x
 ) {

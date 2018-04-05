@@ -4,6 +4,7 @@
 #' @param param_id the first parameter's ID
 #' @return a list of initialized mrca priors
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 init_mrca_priors <- function(
   mrca_priors,
   distr_id = 0,

@@ -5,6 +5,7 @@
 #' with taxon 3 and 4
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 are_mrca_taxa_non_intersecting <- function(mrca_priors) {
   testit::assert(are_mrca_priors(mrca_priors))
   if (is_one_na(mrca_priors)) return(TRUE)

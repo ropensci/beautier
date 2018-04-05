@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid constant coalescent Bayesian skyline prior,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_cbs_tree_prior <- function(
   x
 ) {

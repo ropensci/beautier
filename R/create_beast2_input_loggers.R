@@ -1,6 +1,7 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
 #' @author Richel J.C. Bilderbeek
 #' @inheritParams default_params_doc
+#' @noRd
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
   site_models = create_jc69_site_models(ids = ids),

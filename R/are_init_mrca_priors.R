@@ -3,6 +3,7 @@
 #'   initialized mrca_priors objects
 #' @return TRUE if x, or all elements of x, are initialized mrca_prior objects
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 are_init_mrca_priors <- function(
   x
 ) {

@@ -16,6 +16,7 @@
 #'  or \code{\link{is_uniform_distr}},
 #'  to check for more specific distribution
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_distr <- function(
   x
 ) {

@@ -4,6 +4,7 @@
 #' @param param_id the first parameter's ID
 #' @return a list of initialized clock models
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 init_clock_models <- function(
   fasta_filenames,
   clock_models,

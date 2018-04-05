@@ -3,6 +3,7 @@
 #' @inheritParams default_params_doc
 #' @param text text to be determined to be valid
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_xml <- function(text) {
   if (is_one_na(text)) return(FALSE) # nolint internal function
   if (!has_xml_opening_tag(text)) return(FALSE) # nolint internal function

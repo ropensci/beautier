@@ -11,6 +11,7 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 mrca_priors_to_xml_prior_distr <- function( # nolint internal function
   mrca_priors,
   has_non_strict_clock_model

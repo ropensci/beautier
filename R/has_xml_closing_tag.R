@@ -2,6 +2,8 @@
 #'   the text?
 #' @param lines lines of the XML text
 #' @param section the XML section
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 has_xml_closing_tag <- function(
   lines,
   section

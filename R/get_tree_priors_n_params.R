@@ -11,6 +11,7 @@
 #'      )
 #'    ) == 2
 #'  )
+#' @noRd
 get_tree_priors_n_params <- function(
   tree_priors
 ) {

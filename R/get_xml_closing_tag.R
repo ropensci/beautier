@@ -14,6 +14,7 @@
 #'   )
 #'   testit::assert(is.na(beautier:::get_xml_closing_tag("no_xml")))
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 get_xml_closing_tag <- function(text) {
   last_line <- stringr::str_trim(text[length(text)])
 

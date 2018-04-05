@@ -5,6 +5,7 @@
 #'   phylogenies are desired
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 create_beast2_input_run <- function(
   ids,
   site_models = create_jc69_site_models(ids = ids),

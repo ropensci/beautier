@@ -7,6 +7,7 @@
 #'   the) created lines are stored
 #' @param expected_lines_filename name of the file where the (section of
 #'   the) expected lines are stored
+#' @noRd
 compare_lines <- function(
   lines,
   expected,

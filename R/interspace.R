@@ -1,5 +1,7 @@
 #' Puts spaces in between the lines
 #' @param lines lines of text
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 interspace <- function(lines) {
 
   if (length(lines) == 0) return(lines)

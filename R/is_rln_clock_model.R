@@ -12,6 +12,7 @@
 #'
 #'   strict_clock_model <- create_strict_clock_model()
 #'   testit::assert(beautier:::is_strict_clock_model(strict_clock_model))
+#' @noRd
 is_rln_clock_model <- function(
   x
 ) {

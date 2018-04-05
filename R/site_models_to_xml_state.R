@@ -4,6 +4,7 @@
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 site_models_to_xml_state <- function(
   site_models
 ) {

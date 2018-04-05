@@ -1,6 +1,7 @@
 #' Creates the beast section of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 create_beast2_input_beast <- function(
   input_filenames,
   site_models = create_jc69_site_models(ids = get_ids(input_filenames)),

@@ -4,6 +4,7 @@
 #' @return TRUE if x is a valid mean parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_mean_param <- function(
   x
 ) {

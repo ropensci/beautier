@@ -4,6 +4,7 @@
 #'   initialized distribution object
 #' @return TRUE if x is an initialized distribution object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_distr <- function(
   x
 ) {

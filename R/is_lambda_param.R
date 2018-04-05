@@ -8,6 +8,7 @@
 #' @examples
 #'   lambda_param <- create_lambda_param()
 #'   testit::assert(beautier:::is_lambda_param(lambda_param))
+#' @noRd
 is_lambda_param <- function(
   x
 ) {

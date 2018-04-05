@@ -3,6 +3,7 @@
 #'   initialized mrca_priors object
 #' @return TRUE if x is an initialized mrca_prior object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_mrca_prior <- function(
   x
 ) {

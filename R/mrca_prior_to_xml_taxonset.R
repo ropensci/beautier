@@ -13,6 +13,7 @@
 #'   #     <taxon id="B25702_aco" spec="Taxon"/>
 #'   #     <taxon id="61430_aco" spec="Taxon"/>
 #'   # </taxonset>
+#' @noRd
 mrca_prior_to_xml_taxonset <- function(
   mrca_prior,
   taxa_names_with_ids = NULL

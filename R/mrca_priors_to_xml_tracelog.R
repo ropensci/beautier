@@ -7,6 +7,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 mrca_priors_to_xml_tracelog <- function(
   mrca_priors,
   has_non_strict_clock_model = FALSE

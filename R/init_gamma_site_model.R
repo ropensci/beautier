@@ -4,6 +4,7 @@
 #' @param param_id the first parameter's ID
 #' @return a list of initialized site models
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 init_gamma_site_model <- function(
   gamma_site_model,
   distr_id = 0,

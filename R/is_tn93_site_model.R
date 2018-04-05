@@ -9,6 +9,7 @@
 #'    "beast.xml",
 #'    site_models = create_tn93_site_model()
 #'  )
+#' @noRd
 is_tn93_site_model <- function(
   x
 ) {

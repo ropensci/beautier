@@ -20,6 +20,7 @@
 #'     )
 #'   )
 #'   testit::assert(file.exists("my_beast.xml"))
+#' @noRd
 is_log_normal_distr <- function(
   x
 ) {

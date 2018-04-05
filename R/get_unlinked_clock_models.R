@@ -1,6 +1,7 @@
 #' Get the first clock model of each ID
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 get_unlinked_clock_models <- function(clock_models) {
   testit::assert(are_clock_models(clock_models))
   results <- list()

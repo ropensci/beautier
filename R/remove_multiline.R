@@ -2,6 +2,7 @@
 #' @param text lines of characters
 #' @param lines_to_remove lines of character that need to be removed from text
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 remove_multiline <- function(text, lines_to_remove) {
   first_line_to_remove <- lines_to_remove[1]
   first_line_to_remove_index <- which(text == first_line_to_remove)

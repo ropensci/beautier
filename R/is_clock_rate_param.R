@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid clock_rate parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_clock_rate_param <- function(
   x
 ) {

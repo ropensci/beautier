@@ -27,6 +27,7 @@
 #'  testit::assert(
 #'    beautier:::get_tree_prior_n_distrs(create_yule_tree_prior()) == 1
 #'  )
+#' @noRd
 get_tree_prior_n_distrs <- function(
   tree_prior
 ) {

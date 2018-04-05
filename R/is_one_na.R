@@ -9,6 +9,7 @@
 #'   testit::assert(!beautier:::is_one_na(3.14))
 #'   testit::assert(!beautier:::is_one_na(c(NA, NA)))
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_one_na <- function(x) {
   length(x) == 1 && is.na(x)
 }

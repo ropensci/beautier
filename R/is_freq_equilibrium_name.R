@@ -10,6 +10,7 @@
 #'   testit::assert(beautier:::is_freq_equilibrium_name("estimated"))
 #'   testit::assert(beautier:::is_freq_equilibrium_name("empirical"))
 #'   testit::assert(beautier:::is_freq_equilibrium_name("all_equal"))
+#' @noRd
 is_freq_equilibrium_name <- function(
   name
 ) {

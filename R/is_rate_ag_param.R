@@ -8,6 +8,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   rate_ag_param <- create_rate_ag_param()
+#' @noRd
 is_rate_ag_param <- function(
   x
 ) {

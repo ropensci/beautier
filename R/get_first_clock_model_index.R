@@ -9,6 +9,7 @@
 #'   ab <- list(a, b)
 #'   testit::assert(beautier:::get_first_clock_model_index(a, ab) == 1)
 #'   testit::assert(beautier:::get_first_clock_model_index(b, ab) == 2)
+#' @noRd
 get_first_clock_model_index <- function(
   clock_model,
   clock_models

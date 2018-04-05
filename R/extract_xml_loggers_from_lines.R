@@ -2,6 +2,7 @@
 #' @param lines lines of text
 #' @return lines of text from the first to and including the last operators line
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 extract_xml_loggers_from_lines <- function( # nolint internal function
   lines
 ) {

@@ -4,7 +4,7 @@
 #' @param x object to be determined if it is an MRCA prior
 #' @return TRUE if \code{x} is an MRCA prior, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @export
+#' @noRd
 is_mrca_prior <- function(
   x
 ) {

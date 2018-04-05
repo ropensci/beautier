@@ -9,6 +9,7 @@
 #'   testit::assert("estimated" %in% names)
 #'   testit::assert("empirical" %in% names)
 #'   testit::assert("all_equal" %in% names)
+#' @noRd
 get_freq_equilibrium_names <- function() {
   c("estimated", "empirical", "all_equal")
 }

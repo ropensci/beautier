@@ -3,6 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the tree priors as XML text
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 tree_priors_to_xml_operators <- function(
   tree_priors,
   fixed_crown_ages = rep(FALSE, times = length(tree_priors))

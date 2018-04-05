@@ -7,6 +7,7 @@
 #'   testit::assert(beautier:::is_site_model_name("TN93"))
 #'   testit::assert(beautier:::is_site_model_name("GTR"))
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_site_model_name <- function(name) {
   name %in% get_site_model_names() # nolint internal function
 }

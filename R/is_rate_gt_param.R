@@ -9,6 +9,7 @@
 #' @examples
 #'   rate_gt_param <- create_rate_gt_param()
 #'   testit::assert(beautier:::is_rate_gt_param(rate_gt_param))
+#' @noRd
 is_rate_gt_param <- function(
   x
 ) {

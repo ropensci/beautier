@@ -7,6 +7,7 @@
 #'   xml <- beautier:::parameter_to_xml(create_alpha_param(id = 1))
 #'   testit::assert(length(xml) == 1)
 #'   testit::assert(nchar(xml) > 1)
+#' @noRd
 parameter_to_xml <- function(
   parameter
 ) {

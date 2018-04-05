@@ -94,6 +94,7 @@
 #' @param yule_tree_prior a Yule tree_prior,
 #'   as created by \code{\link{create_yule_tree_prior}}
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 default_params_doc <- function(
   alignment_id,
   bd_tree_prior,

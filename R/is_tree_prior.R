@@ -3,6 +3,7 @@
 #' @return TRUE if x is a valid tree_prior, FALSE otherwise
 #' @seealso tree priors can be created by \code{\link{create_tree_prior}})
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_tree_prior <- function(
   x
 ) {

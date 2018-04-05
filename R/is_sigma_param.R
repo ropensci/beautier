@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid sigma parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_sigma_param <- function(
   x
 ) {

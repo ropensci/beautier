@@ -4,6 +4,7 @@
 #'   initialized clock_models object
 #' @return TRUE if x is an initialized clock_model object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_clock_model <- function(
   x
 ) {
@@ -21,6 +22,7 @@ is_init_clock_model <- function(
 #' @return TRUE if x is an initialized relaxed log-normal clock_model object,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_rln_clock_model <- function(
   rln_clock_model
 ) {
@@ -34,6 +36,7 @@ is_init_rln_clock_model <- function(
 #' @inheritParams default_params_doc
 #' @return TRUE if x is an initialized strict clock_model object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_strict_clock_model <- function(
   strict_clock_model
 ) {

@@ -11,6 +11,7 @@
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'   testit::assert(beautier:::is_laplace_distr(laplace_distr))
+#' @noRd
 is_laplace_distr <- function(
   x
 ) {

@@ -3,6 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 rnd_phylo_to_xml_state <- function(
   id
 ) {

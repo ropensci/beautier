@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid m parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_m_param <- function(
   x
 ) {

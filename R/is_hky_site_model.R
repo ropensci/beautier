@@ -6,6 +6,7 @@
 #' @examples
 #'   hky_site_model <- create_hky_site_model()
 #'   testit::assert(beautier:::is_hky_site_model(hky_site_model))
+#' @noRd
 is_hky_site_model <- function(
   x
 ) {

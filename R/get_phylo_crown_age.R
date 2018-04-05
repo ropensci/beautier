@@ -6,6 +6,7 @@
 #'   created <- beautier:::get_phylo_crown_age(phylogeny = phylogeny)
 #'   testit::assert(created == 15)
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 get_phylo_crown_age <- function(
   phylogeny
 ) {

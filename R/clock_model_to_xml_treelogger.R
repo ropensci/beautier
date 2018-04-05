@@ -1,3 +1,6 @@
+#' Convert a clock model to the XML of the TreeLogger
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 clock_model_to_xml_treelogger <- function(
   clock_model
 ) {

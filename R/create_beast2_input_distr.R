@@ -3,7 +3,6 @@
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @seealso \code{\link{create_beast2_input}}
-#' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -12,6 +11,8 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 create_beast2_input_distr <- function( # nolint internal function
   site_models,
   clock_models,

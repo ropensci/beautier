@@ -1,6 +1,7 @@
 #' Are the clock models Relaxed Log-Normal clock models?
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 are_rln_clock_models <- function(
   clock_models
 ) {

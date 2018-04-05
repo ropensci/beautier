@@ -10,10 +10,6 @@ create_strict_clock_model(id = NA,
   clock_rate_distr = create_uniform_distr())
 }
 \arguments{
-\item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
-with \code{\link{get_ids}})}
-
 \item{clock_rate_param}{the clock rate's parameter,
 as created by the \code{\link{create_clock_rate_param}} function}
 

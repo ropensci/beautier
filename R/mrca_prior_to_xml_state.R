@@ -4,6 +4,7 @@
 #' @param is_first is this the first MRCA prior?
 #' @return the tree prior as XML text
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 mrca_prior_to_xml_state <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE,

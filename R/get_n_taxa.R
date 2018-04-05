@@ -2,6 +2,7 @@
 #' @param filename name of a FASTA file
 #' @return the number of taxa
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 get_n_taxa <- function(filename) {
 
   if (!file.exists(filename)) {

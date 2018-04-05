@@ -7,10 +7,6 @@ of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_treelogs(clock_models)
 }
-\arguments{
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-}
 \description{
 Creates the tracelog section of the logger section
 of a BEAST2 XML parameter file

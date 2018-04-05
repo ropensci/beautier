@@ -8,6 +8,7 @@
 #'   testit::assert(is.character(xml))
 #'   testit::assert(length(xml) == 1)
 #'   testit::assert(nchar(xml) > 1)
+#' @noRd
 distr_to_xml <- function(
   distr
 ) {

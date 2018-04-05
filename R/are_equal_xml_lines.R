@@ -8,6 +8,7 @@
 #' @return TRUE if the two sections of the XML files are equal,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 are_equal_xml_lines <- function(
   lines_1,
   lines_2,

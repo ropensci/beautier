@@ -13,6 +13,7 @@
 #'   testit::assert(!beautier:::is_site_model(create_strict_clock_model()))
 #'   testit::assert(!beautier:::is_site_model(create_bd_tree_prior()))
 #'   testit::assert(!beautier:::is_site_model(create_mcmc()))
+#' @noRd
 is_site_model <- function(
   x
 ) {

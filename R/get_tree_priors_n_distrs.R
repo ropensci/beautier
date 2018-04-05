@@ -10,6 +10,7 @@
 #'        create_ccp_tree_prior() # has one distribution
 #'      )
 #'    ) == 3)
+#' @noRd
 get_tree_priors_n_distrs <- function(
   tree_priors
 ) {

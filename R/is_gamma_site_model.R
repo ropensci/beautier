@@ -5,6 +5,7 @@
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model()
 #'   testit::assert(beautier:::is_gamma_site_model(gamma_site_model))
+#' @noRd
 is_gamma_site_model <- function(x) {
 
   if (!"gamma_cat_count" %in% names(x)) return(FALSE)

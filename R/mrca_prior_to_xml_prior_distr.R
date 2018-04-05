@@ -14,6 +14,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @noRd
 mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   mrca_prior,
   has_non_strict_clock_model = FALSE,

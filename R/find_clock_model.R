@@ -4,6 +4,7 @@
 #' @return the clock models with the desired ID, NULL if such a clock model is
 #'   absent
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 find_clock_model <- function(
   clock_models,
   id

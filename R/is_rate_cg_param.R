@@ -9,6 +9,7 @@
 #' @examples
 #'   rate_cg_param <- create_rate_cg_param()
 #'   testit::assert(beautier:::is_rate_cg_param(rate_cg_param))
+#' @noRd
 is_rate_cg_param <- function(
   x
 ) {

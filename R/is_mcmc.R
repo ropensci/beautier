@@ -3,6 +3,7 @@
 #' @seealso Use \code{\link{create_mcmc}}
 #' @return TRUE if x is a valid mcmc object, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_mcmc <- function(
   x
 ) {

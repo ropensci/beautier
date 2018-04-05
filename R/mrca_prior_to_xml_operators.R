@@ -4,6 +4,7 @@
 #' @param is_first is this the first MRCA prior?
 #' @return the mrca prior as XML text
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 mrca_prior_to_xml_operators <- function(
   mrca_prior,
   fixed_crown_age = FALSE,

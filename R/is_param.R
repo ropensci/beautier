@@ -4,6 +4,7 @@
 #' @return TRUE if x is a valid parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_param <- function(
   x
 ) {

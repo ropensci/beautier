@@ -18,6 +18,7 @@
 #'     beautier:::is_tree_prior_name("yule")
 #'   )
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_tree_prior_name <- function(name) {
   name %in% get_tree_prior_names() # nolint internal function
 }

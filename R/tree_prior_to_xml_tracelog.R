@@ -7,6 +7,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 tree_prior_to_xml_tracelog <- function( # nolint internal function
   tree_prior
 ) {

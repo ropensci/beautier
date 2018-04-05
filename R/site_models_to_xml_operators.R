@@ -1,5 +1,6 @@
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 site_models_to_xml_operators <- function(
   site_models
 ) {

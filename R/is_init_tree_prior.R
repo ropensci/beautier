@@ -3,6 +3,7 @@
 #'   initialized tree_priors object
 #' @return TRUE if x is an initialized tree_prior object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_tree_prior <- function(
   x
 ) {
@@ -26,6 +27,7 @@ is_init_tree_prior <- function(
 #'   initialized Birth-Death tree prior object
 #' @return TRUE if x is an initialized Birth-Death tree_prior object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_bd_tree_prior <- function(
   x
 ) {
@@ -41,6 +43,7 @@ is_init_bd_tree_prior <- function(
 #' @return TRUE if x is an initialized Coalescent Bayesian Skyline
 #'   tree prior object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_cbs_tree_prior <- function(
   x
 ) {
@@ -57,6 +60,7 @@ is_init_cbs_tree_prior <- function(
 #' @return TRUE if x is an initialized Coalescent Constant Population
 #'   tree prior object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_ccp_tree_prior <- function(
   x
 ) {
@@ -84,6 +88,7 @@ is_init_cep_tree_prior <- function(
 #'   initialized Yule tree prior object
 #' @return TRUE if x is an initialized Yule tree_prior object
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_init_yule_tree_prior <- function(
   x
 ) {

@@ -5,6 +5,7 @@
 #' @examples
 #'   jc69_site_model <- create_jc69_site_model()
 #'   testit::assert(beautier:::is_jc69_site_model(jc69_site_model))
+#' @noRd
 is_jc69_site_model <- function(
   x
 ) {

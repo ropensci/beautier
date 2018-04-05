@@ -2,6 +2,7 @@
 #' @inheritParams default_params_doc
 #' @note this must be FALSE, as BEAUti rejects this as well
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 has_shared_rln_clock_models <- function(
   clock_models
 ) {

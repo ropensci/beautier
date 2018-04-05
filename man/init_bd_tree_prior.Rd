@@ -6,14 +6,6 @@
 \usage{
 init_bd_tree_prior(bd_tree_prior, distr_id, param_id)
 }
-\arguments{
-\item{bd_tree_prior}{a Birth-Death tree prior, as created
-by \code{\link{create_bd_tree_prior}}}
-
-\item{distr_id}{a distributions' ID}
-
-\item{param_id}{a parameter's ID}
-}
 \value{
 an initialized Birth-Death tree prior
 }

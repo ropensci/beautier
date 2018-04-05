@@ -1,6 +1,7 @@
 #' Creates the map section of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 create_beast2_input_init <- function(
   ids,
   initial_phylogenies

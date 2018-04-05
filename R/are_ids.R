@@ -3,6 +3,7 @@
 #' @return TRUE if x, or all elements of x, are IDs
 #' @author Richel J.C. Bilderbeek
 #' @seealso to check one ID, use \code{\link{is_id}}
+#' @noRd
 are_ids <- function(
   x
 ) {

@@ -15,6 +15,7 @@
 #'   testit::assert(
 #'     beautier:::get_site_models_n_distrs(list(create_tn93_site_model())) == 3
 #'   )
+#' @noRd
 get_site_models_n_distrs <- function(
   site_models
 ) {

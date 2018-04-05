@@ -2,6 +2,7 @@
 #' @param x the object to check if it consists out of mrca_priors objects
 #' @return TRUE if x, or all elements of x, are mrca_prior objects
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 are_mrca_priors <- function(
   x
 ) {

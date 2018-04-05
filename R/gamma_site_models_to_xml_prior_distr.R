@@ -2,6 +2,7 @@
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 gamma_site_models_to_xml_prior_distr <- function( # nolint internal function
   site_models
 ) {

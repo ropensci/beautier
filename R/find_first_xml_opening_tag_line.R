@@ -4,6 +4,7 @@
 #' @return the line number's index (which is 1 for the first line) if the
 #'   opening tag is found, else NA
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 find_first_xml_opening_tag_line <- function( # nolint internal functions may be long
   lines,
   section

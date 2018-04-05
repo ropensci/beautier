@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid scale parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_scale_param <- function(
   x
 ) {

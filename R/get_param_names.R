@@ -21,6 +21,7 @@
 #'   testit::assert("s" %in% names)
 #'   testit::assert("scale" %in% names)
 #'   testit::assert("sigma" %in% names)
+#' @noRd
 get_param_names <- function() {
   c(
     "alpha",

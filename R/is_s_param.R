@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid s parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_s_param <- function(
   x
 ) {

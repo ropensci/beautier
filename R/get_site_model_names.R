@@ -7,6 +7,7 @@
 #'   testit::assert("TN93" %in% names)
 #'   testit::assert("GTR" %in% names)
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 get_site_model_names <- function() {
   c("JC69", "HKY", "TN93", "GTR")
 }

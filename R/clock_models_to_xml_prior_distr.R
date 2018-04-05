@@ -9,6 +9,7 @@
 #'  # </distribution>
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 clock_models_to_xml_prior_distr <- function( # nolint internal function
   clock_models
 ) {

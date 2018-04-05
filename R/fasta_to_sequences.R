@@ -2,6 +2,7 @@
 #' @param fasta_filenames One or more existing FASTA filenames
 #' @return a table of sequences
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 fasta_file_to_sequences <- function(fasta_filenames) {
 
   if (!file.exists(fasta_filenames)) {

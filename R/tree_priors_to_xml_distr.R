@@ -11,6 +11,7 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 tree_priors_to_xml_prior_distr <- function( # nolint internal function
   tree_priors
 ) {

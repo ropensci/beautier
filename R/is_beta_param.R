@@ -5,6 +5,7 @@
 #' @return TRUE if x is a valid beta parameter,
 #'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_beta_param <- function(
   x
 ) {

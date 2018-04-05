@@ -8,6 +8,7 @@
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 is_beta_distr <- function(
   x
 ) {

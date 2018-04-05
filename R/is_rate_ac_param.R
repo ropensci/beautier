@@ -9,6 +9,7 @@
 #' @examples
 #'   rate_ac_param <- create_rate_ac_param()
 #'   testit::assert(beautier:::is_rate_ac_param(rate_ac_param))
+#' @noRd
 is_rate_ac_param <- function(
   x
 ) {

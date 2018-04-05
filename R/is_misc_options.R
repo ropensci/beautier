@@ -5,6 +5,7 @@
 #' @examples
 #'   misc_options <- create_misc_options()
 #'   testit::assert(beautier:::is_misc_options(misc_options))
+#' @noRd
 is_misc_options <- function(
   x
 ) {

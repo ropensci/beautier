@@ -8,6 +8,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 mrca_prior_to_xml_tracelog <- function( # nolint internal function
   mrca_prior,
   has_non_strict_clock_model = FALSE,

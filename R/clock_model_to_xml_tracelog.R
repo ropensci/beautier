@@ -7,6 +7,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 clock_model_to_xml_tracelog <- function(
   clock_model,
   is_first
