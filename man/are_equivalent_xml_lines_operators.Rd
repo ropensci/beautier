@@ -10,6 +10,9 @@ are_equivalent_xml_lines_operators(lines_1, lines_2, verbose = FALSE)
 \item{lines_1}{lines of a first XML file}
 
 \item{lines_2}{lines of a second XML file}
+
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 }
 \value{
 TRUE if the two XML lines result in equivalent trees,

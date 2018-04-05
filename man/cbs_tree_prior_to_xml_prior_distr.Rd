@@ -8,6 +8,10 @@ of a BEAST2 XML parameter file for a Birth-Death tree prior}
 \usage{
 cbs_tree_prior_to_xml_prior_distr(cbs_tree_prior)
 }
+\arguments{
+\item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
+as returned by \code{\link{create_cbs_tree_prior}}}
+}
 \description{
 Creates the tree prior section in the prior section of
 the prior section of the distribution section

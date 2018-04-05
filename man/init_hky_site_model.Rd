@@ -6,6 +6,14 @@
 \usage{
 init_hky_site_model(hky_site_model, distr_id = 0, param_id = 0)
 }
+\arguments{
+\item{hky_site_model}{an HKY site model,
+as returned by \code{\link{create_hky_site_model}}}
+
+\item{distr_id}{a distributions' ID}
+
+\item{param_id}{a parameter's ID}
+}
 \value{
 an initialized HKY site model
 }

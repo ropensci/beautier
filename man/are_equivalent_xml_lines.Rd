@@ -12,6 +12,9 @@ are_equivalent_xml_lines(lines_1, lines_2, section = NA, verbose = FALSE)
 \item{lines_2}{lines of a second XML file}
 
 \item{section}{the name of the XML section}
+
+\item{verbose}{if TRUE, additional information is displayed, that
+is potentially useful in debugging}
 }
 \value{
 TRUE if the two XML lines result in equivalent trees,

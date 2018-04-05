@@ -20,6 +20,35 @@ create_beast2_input_file_1_12(input_filenames, output_filename,
   length(input_filenames)), initial_phylogenies = rep(NA,
   length(input_filenames)))
 }
+\arguments{
+\item{input_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{output_filename}{Name of the XML parameter file created by this
+function. BEAST2 uses this file as input.}
+
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
+
+\item{clock_models}{a list of one or more clock models,
+as returned by \code{\link{create_clock_model}}}
+
+\item{tree_priors}{one or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
+
+\item{mcmc}{one mcmc object,
+as returned by \code{\link{create_mcmc}}}
+
+\item{fixed_crown_ages}{one or more booleans to determine if the
+phylogenies' crown ages are fixed.
+If FALSE, crown age is estimated by BEAST2. If TRUE,
+the crown age is fixed to the crown age
+of the initial phylogeny.}
+
+\item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
+Each one set to NA will result in BEAST2 using a random phylogeny. Else
+the phylogeny is assumed to be of class ape::phylo.}
+}
 \description{
 Create a BEAST2 input file, interface of v1.12.
 This interface is obsoleted, use \code{\link{create_beast2_input_file}}

@@ -6,6 +6,14 @@
 \usage{
 init_rln_clock_model(rln_clock_model, distr_id, param_id)
 }
+\arguments{
+\item{rln_clock_model}{a Relaxed Log-Normal clock model,
+as returned by \code{\link{create_rln_clock_model}}}
+
+\item{distr_id}{a distributions' ID}
+
+\item{param_id}{a parameter's ID}
+}
 \value{
 an initialized Relaxed Log-Normal clock model
 }

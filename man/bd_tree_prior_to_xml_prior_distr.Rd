@@ -8,6 +8,10 @@ of a BEAST2 XML parameter file for a Birth-Death tree prior}
 \usage{
 bd_tree_prior_to_xml_prior_distr(bd_tree_prior)
 }
+\arguments{
+\item{bd_tree_prior}{a Birth-Death tree prior, as created
+by \code{\link{create_bd_tree_prior}}}
+}
 \description{
 Creates the tree prior section in the prior section of
 the prior section of the distribution section

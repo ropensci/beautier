@@ -8,6 +8,10 @@ of a BEAST2 XML parameter file for a Yule tree prior}
 \usage{
 yule_tree_prior_to_xml_prior_distr(yule_tree_prior)
 }
+\arguments{
+\item{yule_tree_prior}{a Yule tree_prior,
+as created by \code{\link{create_yule_tree_prior}}}
+}
 \description{
 Creates the \code{prior} section in the prior section of
 the prior section of the distribution section
