@@ -8,7 +8,7 @@ create_param(name, id, ...)
 }
 \arguments{
 \item{name}{the parameters' name. Valid
-names can be found in \code{\link{get_param_names}}}
+names can be found in \code{get_param_names}}
 
 \item{id}{the parameter's ID}
 

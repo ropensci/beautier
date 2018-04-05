@@ -65,7 +65,7 @@ as returned by \code{\link{create_rate_gt_param}})}
 
 \item{freq_equilibrium}{the frequency in which the rates are at equilibrium
 are either \code{estimated}, \code{empirical} or \code{all_equal}.
-\code{\link{get_freq_equilibrium_names}} returns the possible values
+\code{get_freq_equilibrium_names} returns the possible values
 for \code{freq_equilibrium}}
 }
 \value{

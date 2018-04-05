@@ -8,7 +8,7 @@ create_tree_prior(name, id, ...)
 }
 \arguments{
 \item{name}{the tree prior name. Can be any name
-in \code{\link{get_tree_prior_names}}}
+in \code{get_tree_prior_names}}
 
 \item{id}{the ID of the alignment}
 

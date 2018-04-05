@@ -7,7 +7,7 @@
 #' @param gamma_shape_prior_distr the distribution of the gamma shape prior
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
-#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a gamma site model
 #' @note Use \code{\link{create_site_model}} to create a site model

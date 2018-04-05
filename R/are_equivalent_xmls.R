@@ -4,8 +4,9 @@
 #' @param section the name of the XML section, use NA to check the whole file
 #' @return TRUE if the two XML files result in equivalent trees,
 #'   FALSE otherwise
-#' @seealso to check for equality, use \code{\link{are_equal_xml_files}}
+#' @seealso to check for equality, use \code{are_equal_xml_files}
 #' @author Richel J.C. Bilderbeek
+#' @noRd
 are_equivalent_xml_files <- function(
   filename_1,
   filename_2,

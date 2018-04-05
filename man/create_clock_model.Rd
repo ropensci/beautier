@@ -8,7 +8,7 @@ create_clock_model(name, id, ...)
 }
 \arguments{
 \item{name}{the clock model name. Valid
-names can be found in \code{\link{get_clock_model_names}}}
+names can be found in \code{get_clock_model_names}}
 
 \item{id}{a clock model's ID}
 

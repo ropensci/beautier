@@ -1,6 +1,6 @@
 #' General function to create a site model.
 #' @param name the site model name. Valid
-#'   names can be found in \code{\link{get_site_model_names}}
+#'   names can be found in \code{get_site_model_names}
 #' @param id the IDs of the alignment (can be extracted from
 #'   the FASTA filesname using \code{\link{get_id}})
 #' @param gamma_site_model a gamma site model, as created
@@ -111,7 +111,7 @@ create_site_model <- function(
 #'   as returned by \code{\link{create_rate_gt_param}})
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
-#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
@@ -185,7 +185,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #'   by default
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
-#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return an HKY site_model
 #' @author Richel J.C. Bilderbeek
@@ -260,7 +260,7 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'   as returned by \code{\link{create_kappa_2_param}}
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
-#'   \code{\link{get_freq_equilibrium_names}} returns the possible values
+#'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a TN93 site_model
 #' @author Richel J.C. Bilderbeek

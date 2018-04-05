@@ -3,7 +3,7 @@
 #'   \code{\link{create_rln_clock_model}}
 #'   and \code{\link{create_strict_clock_model}}
 #' @param name the clock model name. Valid
-#'   names can be found in \code{\link{get_clock_model_names}}
+#'   names can be found in \code{get_clock_model_names}
 #' @param id a clock model's ID
 #' @param ... specific clock model parameters
 #' @return a valid clock model

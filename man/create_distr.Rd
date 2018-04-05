@@ -8,7 +8,7 @@ create_distr(name, id, ...)
 }
 \arguments{
 \item{name}{the distribution name. Valid
-names can be found in \code{\link{get_distr_names}}}
+names can be found in \code{get_distr_names}}
 
 \item{id}{the distribution's ID}
 

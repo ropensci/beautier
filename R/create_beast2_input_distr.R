@@ -61,8 +61,8 @@ create_beast2_input_distr <- function( # nolint internal function
 #' Creates the prior section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
-#' @seealso this function is called by \code{\link{create_beast2_input_distr}},
-#'   together with \code{\link{create_beast2_input_distr_lh}}
+#' @seealso this function is called by \code{create_beast2_input_distr},
+#'   together with \code{create_beast2_input_distr_lh}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
@@ -106,8 +106,8 @@ create_beast2_input_distr_prior <- function( # nolint internal function
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richel J.C. Bilderbeek
-#' @seealso this function is called by \code{\link{create_beast2_input_distr}},
-#'   together with \code{\link{create_beast2_input_distr_prior}}
+#' @seealso this function is called by \code{create_beast2_input_distr},
+#'   together with \code{create_beast2_input_distr_prior}
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">

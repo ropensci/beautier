@@ -1,6 +1,6 @@
 #' General function to create a parameter.
 #' @param name the parameters' name. Valid
-#'   names can be found in \code{\link{get_param_names}}
+#'   names can be found in \code{get_param_names}
 #' @param id the parameter's ID
 #' @param ... specific parameter parameters
 #' @note Prefer using the

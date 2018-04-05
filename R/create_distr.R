@@ -1,6 +1,6 @@
 #' General function to create a distribution.
 #' @param name the distribution name. Valid
-#'   names can be found in \code{\link{get_distr_names}}
+#'   names can be found in \code{get_distr_names}
 #' @param id the distribution's ID
 #' @param ... specific distribution parameters
 #' @note Prefer using the

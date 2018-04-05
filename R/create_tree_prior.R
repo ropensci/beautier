@@ -7,7 +7,7 @@
 #'   and \code{\link{create_yule_tree_prior}}
 #'   instead
 #' @param name the tree prior name. Can be any name
-#'   in \code{\link{get_tree_prior_names}}
+#'   in \code{get_tree_prior_names}
 #' @param id the ID of the alignment
 #' @param ... specific tree prior parameters
 #' @return a tree_prior
