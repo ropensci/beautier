@@ -19,3 +19,4 @@
 ^scripts$
 ^road_map\.md$
 ^NEWS\.md$
+^appveyor\.yml$
