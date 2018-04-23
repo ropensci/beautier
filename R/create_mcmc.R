@@ -21,7 +21,7 @@ create_mcmc <- function(
   if (chain_length <= 0) {
     stop("'chain_length' must be positive and non-zero")
   }
-  if (!is.na(store_every) && (store_every < -1 || store_every < 1000)) {
+  if (!is.na(store_every) && store_every != -1 && store_every < 1000) {
     stop("'store_every' must be at least 1000, NA or -1")
   }
   if (!is.na(store_every) && store_every > chain_length) {
