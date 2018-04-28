@@ -56,7 +56,7 @@ are artificially made FASTA files.
 
 ## If I set a fixed crown age with multiple alignments, only the first alignment has so
 
-Correct. This is a feature of BEAST2, which I assume is right. 
+Correct. This is a feature of BEAST2, which is assumed to be correct. 
 
 ## Why are the functions prefixed with `create_`?
 
@@ -133,5 +133,26 @@ bad idea to be inconsistent in prefixing functions with `create_`.
 In the end, it was decided to keep `create_`. Yes, it is more 
 typing (auto-complete will fix that), but clarity comes first.
 
- 
+## Why the name?
 
+`beautier` is 'BEAUti for R'. 
+
+Additionally, it is a joke that suggests `beautier` would have more beauty than `BEAUti`.
+This suggestion benefits the image of author of `beautier`, who, however, thinks that
+both tools are equally valuable and beautiful.
+
+## Why the logo?
+
+Initially, the logo was a low-tech remake of Belle, for Beauty and the Beast. 
+To prevent problems with Disney, a different logo was picked.
+
+The current logo shows a butterfly, an animal considered to be beautiful.
+The butterfly is drawn by Jose Scholten, who kindly allowed her work to
+be used for free, by attribution.
+
+## How did you convert the fuzzy white background to one single color?
+
+```
+convert butterfly.png -fuzz 15% -fill white -opaque white butterfly_mono_background.png
+convert butterfly_mono_background.png -background white -alpha remove butterfly_mono_background_2.png
+```
