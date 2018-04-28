@@ -147,7 +147,7 @@ Initially, the logo was a low-tech remake of Belle, for Beauty and the Beast.
 To prevent problems with Disney, a different logo was picked.
 
 The current logo shows a butterfly, an animal considered to be beautiful.
-The butterfly is drawn by Jose Scholten, who kindly allowed her work to
+The butterfly is drawn by Jose Scholte, who kindly allowed her work to
 be used for free, by attribution.
 
 ## How did you convert the fuzzy white background to one single color?
