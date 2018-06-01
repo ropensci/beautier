@@ -42,15 +42,13 @@ Now we can create our XML file:
 
 ```{r}
 # The name of the file you intend to let BEAST2 run
-output_filename <- "beast2.xml"
+output_filename <- tempfile(pattern = "beeast2", fileext = ".xml")
 
 create_beast2_input_file(
   fasta_filename,
   output_filename
 )
 ```
-
-(note: the line `tree_priors = create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 1))` will be removed somewhere close in the future)
 
 The file indeed is a BEAST2 input file:
 
@@ -59,13 +57,3 @@ cat(readLines(output_filename), quote = FALSE, sep = '\n')
 ```
 
 This XML input file can be read by BEAST2.
-
-```{r cleanup, include = FALSE}
-# Cleaning up
-filenames <- c(
-  "beast2.xml"
-)
-for (filename in filenames) {
-  if (file.exists(filename)) file.remove(filename)
-}
-```
