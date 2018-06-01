@@ -95,7 +95,6 @@ output_filename &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<
   fasta_filename,
   output_filename
 )</code></pre></div>
-<p>(note: the line <code>tree_priors = create_yule_tree_prior(birth_rate_distribution = create_uniform_distr(id = 1))</code> will be removed somewhere close in the future)</p>
 <p>The file indeed is a BEAST2 input file:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="kw">readLines</span>(output_filename), <span class="dt">quote =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</code></pre></div>
 <pre><code>## &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;beast beautitemplate='Standard' beautistatus='' namespace=&quot;beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood&quot; required=&quot;&quot; version=&quot;2.4&quot;&gt;
