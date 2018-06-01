@@ -3,7 +3,7 @@
 \name{create_inv_gamma_distr}
 \alias{create_inv_gamma_distr}
 \alias{create_distr_inv_gamma}
-\title{Create an inverse gamma distribution}
+\title{Create an inverse-gamma distribution}
 \usage{
 create_inv_gamma_distr(id = NA, alpha = create_alpha_param(),
   beta = create_beta_param())
@@ -18,10 +18,10 @@ as returned by \code{\link{create_alpha_param}}}
 as returned by \code{\link{create_beta_param}}}
 }
 \value{
-an inverse gamma distribution
+an inverse-gamma distribution
 }
 \description{
-Create an inverse gamma distribution
+Create an inverse-gamma distribution
 }
 \examples{
   inv_gamma_distr <- create_inv_gamma_distr()

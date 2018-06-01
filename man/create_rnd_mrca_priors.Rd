@@ -4,7 +4,8 @@
 \alias{create_rnd_mrca_priors}
 \title{Creates a random MRCA prior option. This is either zero, one
 or more MRCA priors. For zero MRCA priors, NA is used. When two
-or more MRCA priors (see \link{create_rnd_two_mrca_priors}) are created,
+or more MRCA priors (see \code{\link{create_rnd_two_mrca_priors}})
+are created,
 those are checked to be compatible}
 \usage{
 create_rnd_mrca_priors(fasta_filename)
@@ -15,7 +16,8 @@ create_rnd_mrca_priors(fasta_filename)
 \description{
 Creates a random MRCA prior option. This is either zero, one
 or more MRCA priors. For zero MRCA priors, NA is used. When two
-or more MRCA priors (see \link{create_rnd_two_mrca_priors}) are created,
+or more MRCA priors (see \code{\link{create_rnd_two_mrca_priors}})
+are created,
 those are checked to be compatible
 }
 \author{

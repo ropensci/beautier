@@ -9,7 +9,7 @@ create_cbs_tree_prior(id = NA, group_sizes_dimension = 5)
 }
 \arguments{
 \item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
+An ID can be extracted from its FASTA filename
 with \code{\link{get_ids}})}
 
 \item{group_sizes_dimension}{the group sizes' dimension, as used
@@ -33,7 +33,7 @@ Create a Coalescent Bayesian Skyline tree prior
 }
 \seealso{
 An alignment ID can be extracted from
-  its FASTA filesname using \code{\link{get_id}}
+  its FASTA filename using \code{\link{get_id}}
 }
 \author{
 Richel J.C. Bilderbeek

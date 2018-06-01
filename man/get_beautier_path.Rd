@@ -10,7 +10,7 @@ get_beautier_path(filename)
 \item{filename}{the file's name, without the path}
 }
 \value{
-the filename's full path
+the full path of the filename
 }
 \description{
 Get the full path of a file in the 'inst/extdata' folder

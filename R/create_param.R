@@ -81,7 +81,7 @@ create_param <- function(
 #'   (as returned by \code{\link{create_beta_distr}})
 #' and gamma distribution
 #'   (as returned by \code{\link{create_gamma_distr}})
-#' and inverse gamma distribution
+#' and inverse-gamma distribution
 #'   (as returned by \code{\link{create_inv_gamma_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -129,7 +129,7 @@ create_alpha_param <- create_param_alpha <- function(
 #'   (as returned by \code{\link{create_beta_distr}})
 #' and gamma distribution
 #'   (as returned by \code{\link{create_gamma_distr}})
-#' and inverse gamma distribution
+#' and inverse-gamma distribution
 #'   (as returned by \code{\link{create_inv_gamma_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created

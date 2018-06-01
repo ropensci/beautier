@@ -13,20 +13,21 @@ create_rln_clock_model(id = NA,
 }
 \arguments{
 \item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
+An ID can be extracted from its FASTA filename
 with \code{\link{get_ids}})}
 
 \item{mean_rate_prior_distr}{the mean clock rate prior distribution,
 as created by a \code{\link{create_distr}} function}
 
-\item{ucldstdev_distr}{the uclstdev distribution,
+\item{ucldstdev_distr}{the standard deviation of the uncorrelated
+log-normal distribution,
 as created by a \code{\link{create_distr}} function}
 
-\item{mparam_id}{the ID of the M paramater in the branchRateModel,
+\item{mparam_id}{the ID of the M parameter in the branchRateModel,
 set to NA to have it initialized}
 
 \item{mean_clock_rate}{the mean clock rate, 1.0 by default
-(is called 'ucld_stdev' in XML, where 'ucld_stdev' is always 0.1)}
+(is called \code{ucld_stdev} in XML, where \code{ucld_stdev} is always 0.1)}
 
 \item{n_rate_categories}{the number of rate categories.
 -1 is default,

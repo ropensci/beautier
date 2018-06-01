@@ -25,7 +25,7 @@ create_gtr_site_model(id = NA, gamma_site_model = create_gamma_site_model(),
 }
 \arguments{
 \item{id}{the IDs of the alignment (can be extracted from
-the FASTA filesname using \code{\link{get_id}})}
+the FASTA filename using \code{\link{get_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}

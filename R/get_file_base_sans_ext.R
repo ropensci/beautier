@@ -1,4 +1,4 @@
-#' Get the filename's base without extension
+#' Get the base of the filename base without extension
 #' @param filename A filename
 #' @return That filename without its full path and extension
 #' @examples

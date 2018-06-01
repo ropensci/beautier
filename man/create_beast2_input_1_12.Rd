@@ -25,7 +25,7 @@ as returned by \code{\link{create_clock_model}}}
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
-\item{mcmc}{one mcmc object,
+\item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
 \item{misc_options}{one misc_options object,

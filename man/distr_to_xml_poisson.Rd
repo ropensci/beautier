@@ -2,19 +2,19 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_poisson}
 \alias{distr_to_xml_poisson}
-\title{Converts a poisson distribution to XML}
+\title{Converts a Poisson distribution to XML}
 \usage{
 distr_to_xml_poisson(distr)
 }
 \arguments{
-\item{distr}{a poisson distibution,
+\item{distr}{a Poisson distribution,
 as created by \code{\link{create_poisson_distr}})}
 }
 \value{
 the distribution as XML text
 }
 \description{
-Converts a poisson distribution to XML
+Converts a Poisson distribution to XML
 }
 \author{
 Richel J.C. Bilderbeek

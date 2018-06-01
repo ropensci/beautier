@@ -2,20 +2,20 @@
 % Please edit documentation in R/is_init_distr.R
 \name{is_init_inv_gamma_distr}
 \alias{is_init_inv_gamma_distr}
-\title{Determine if x is an initialized inv_gamma distribution object
+\title{Determine if x is an initialized inverse-gamma distribution
   as created by \code{\link{create_inv_gamma_distr}}}
 \usage{
 is_init_inv_gamma_distr(x)
 }
 \arguments{
 \item{x}{the object to check if it is an
-initialized inv_gamma distribution object}
+initialized inverse-gamma distribution}
 }
 \value{
-TRUE if x is an initialized inv_gamma distribution object
+TRUE if x is an initialized inverse-gamma distribution
 }
 \description{
-Determine if x is an initialized inv_gamma distribution object
+Determine if x is an initialized inverse-gamma distribution
   as created by \code{\link{create_inv_gamma_distr}}
 }
 \author{

@@ -10,7 +10,7 @@
 #'   as returned by \code{\link{create_cbs_tree_prior}}
 #' @param ccp_tree_prior a Coalescent Constant Population tree prior,
 #'   as returned by \code{\link{create_ccp_tree_prior}}
-#' @param cep_tree_prior a cep tree prior,
+#' @param cep_tree_prior a Coalescent Exponential Population tree prior,
 #'   as returned by \code{\link{create_cep_tree_prior}}
 #' @param clock_model a clock model,
 #'   as returned by \code{\link{create_clock_model}}
@@ -49,10 +49,10 @@
 #' @param gtr_site_model a GTR site model,
 #'   as returned by \code{\link{create_gtr_site_model}}
 #' @param id an alignment's IDs.
-#'   An ID can be extracted from its FASTA filesname
+#'   An ID can be extracted from its FASTA filename
 #'   with \code{\link{get_ids}})
 #' @param ids one or more alignments' IDs.
-#'   IDs can be extracted from their FASTA filesnames
+#'   IDs can be extracted from their FASTA filenames
 #'   with \code{\link{get_ids}})
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
 #'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
@@ -61,7 +61,7 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param is_first boolean to indicate if this is the first
 #'   out of many (one, two or more)
-#' @param mcmc one mcmc object,
+#' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
 #' @param misc_options one misc_options object,
 #'   as returned by \code{\link{create_misc_options}}

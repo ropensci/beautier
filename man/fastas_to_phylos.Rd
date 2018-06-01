@@ -14,7 +14,7 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 \item{crown_age}{the crown age of the phylogeny}
 }
 \value{
-a a random phylogy, with the same taxa names as the FASTA file
+a random phylogeny, with the same taxa names as the FASTA file
   and the desired crown age
 }
 \description{

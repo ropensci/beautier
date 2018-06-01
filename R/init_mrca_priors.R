@@ -1,8 +1,8 @@
-#' Initializes all mrca priors
+#' Initializes all MRCA priors
 #' @inheritParams default_params_doc
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
-#' @return a list of initialized mrca priors
+#' @return a list of initialized MRCA priors
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 init_mrca_priors <- function(

@@ -26,7 +26,7 @@ as returned by \code{\link{create_tree_prior}}}
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
 
-\item{mcmc}{one mcmc object,
+\item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
 \item{misc_options}{one misc_options object,

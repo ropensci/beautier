@@ -1,7 +1,7 @@
 #' Create a random phylogeny, with the same taxa names as the FASTA file
 #'   and the desired crown age
 #' @inheritParams default_params_doc
-#' @return a a random phylogy, with the same taxa names as the FASTA file
+#' @return a random phylogeny, with the same taxa names as the FASTA file
 #'   and the desired crown age
 #' @examples
 #'   # Create two random phylogies, with

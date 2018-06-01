@@ -2,7 +2,7 @@
 #' @param name the site model name. Valid
 #'   names can be found in \code{get_site_model_names}
 #' @param id the IDs of the alignment (can be extracted from
-#'   the FASTA filesname using \code{\link{get_id}})
+#'   the FASTA filename using \code{\link{get_id}})
 #' @param gamma_site_model a gamma site model, as created
 #'   by \code{\link{create_gamma_site_model}}
 #' @param ... specific site model parameters

@@ -26,7 +26,7 @@ this parameter is used in a beta distribution
   (as returned by \code{\link{create_beta_distr}})
 and gamma distribution
   (as returned by \code{\link{create_gamma_distr}})
-and inverse gamma distribution
+and inverse-gamma distribution
   (as returned by \code{\link{create_inv_gamma_distr}})
 }
 \examples{

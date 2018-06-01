@@ -46,7 +46,7 @@ Prefer using the named function
 }
 \seealso{
 An alignment ID can be extracted from
-  its FASTA filesname using \code{\link{get_id}}.
+  its FASTA filename using \code{\link{get_id}}.
   For more examples about creating a relaxed log-normal clock
   model, see \code{\link{create_rln_clock_model}}.
   For more examples about creating a strict clock

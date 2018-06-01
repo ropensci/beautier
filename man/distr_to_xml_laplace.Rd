@@ -2,19 +2,19 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_laplace}
 \alias{distr_to_xml_laplace}
-\title{Converts a laplace distibution to XML}
+\title{Converts a Laplace distribution to XML}
 \usage{
 distr_to_xml_laplace(distr)
 }
 \arguments{
-\item{distr}{a laplace distibution,
+\item{distr}{a Laplace distribution
 as created by \code{\link{create_laplace_distr}})}
 }
 \value{
 the distribution as XML text
 }
 \description{
-Converts a laplace distibution to XML
+Converts a Laplace distribution to XML
 }
 \author{
 Richel J.C. Bilderbeek

@@ -1,7 +1,7 @@
-#' Creates the mrca prior's XML for the tracelog section
+#' Creates the MRCA prior's XML for the tracelog section
 #' @inheritParams default_params_doc
 #' @param is_first is this the first MRCA prior?
-#' @seealso all mrca priors' tracelog section is created
+#' @seealso all MRCA priors' tracelog section is created
 #'   by \code{\link{mrca_priors_to_xml_tracelog}}
 #' @examples
 #' # <logger id="tracelog" ...>

@@ -143,7 +143,7 @@ test_that("abuse: two alignments", {
   )
   ids <- beautier:::get_ids(input_filenames)
 
-  # Two filesnames, one site model
+  # Two filenames, one site model
   testthat::expect_error(
     create_beast2_input_1_12(
       input_filenames = input_filenames,
@@ -152,7 +152,7 @@ test_that("abuse: two alignments", {
     "Must supply as much input_filenames as site_models"
   )
 
-  # Two filesnames, one clock model
+  # Two filenames, one clock model
   testthat::expect_error(
     create_beast2_input_1_12(
       input_filenames = input_filenames,
@@ -179,7 +179,7 @@ test_that("abuse: two alignments", {
     "Must supply as much input_filenames as fixed crown ages"
   )
 
-  # Two filesnames, one phylogeny
+  # Two filenames, one phylogeny
   testthat::expect_error(
     create_beast2_input_1_12(
       input_filenames = input_filenames,
@@ -189,7 +189,7 @@ test_that("abuse: two alignments", {
   )
 
 
-  # Two filesnames, two RLN clock models
+  # Two filenames, two RLN clock models
   testthat::expect_error(
     create_beast2_input_1_12(
       input_filenames = input_filenames,

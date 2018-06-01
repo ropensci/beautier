@@ -1,9 +1,9 @@
 #' Determine if the object is a valid
-#' poisson distribution
+#' Poisson distribution
 #' as created by \code{\link{create_poisson_distr}}
 #' @param x an object, to be determined if it is a valid
-#'   poisson distribution
-#' @return TRUE if x is a valid poisson distribution,
+#'   Poisson distribution
+#' @return TRUE if x is a valid Poisson distribution,
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution

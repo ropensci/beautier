@@ -29,7 +29,7 @@ as returned by \code{\link{create_cbs_tree_prior}}}
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as returned by \code{\link{create_ccp_tree_prior}}}
 
-\item{cep_tree_prior}{a cep tree prior,
+\item{cep_tree_prior}{a Coalescent Exponential Population tree prior,
 as returned by \code{\link{create_cep_tree_prior}}}
 
 \item{clock_model}{a clock model,
@@ -81,11 +81,11 @@ already at least one non-strict (i.e. relaxed log-normal) clock model}
 as returned by \code{\link{create_hky_site_model}}}
 
 \item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
+An ID can be extracted from its FASTA filename
 with \code{\link{get_ids}})}
 
 \item{ids}{one or more alignments' IDs.
-IDs can be extracted from their FASTA filesnames
+IDs can be extracted from their FASTA filenames
 with \code{\link{get_ids}})}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
@@ -105,7 +105,7 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{jc69_site_model}{a JC69 site model,
 as returned by \code{\link{create_jc69_site_model}}}
 
-\item{mcmc}{one mcmc object,
+\item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
 \item{misc_options}{one misc_options object,

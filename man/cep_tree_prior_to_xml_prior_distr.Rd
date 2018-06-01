@@ -10,7 +10,7 @@ Coalescent Exponential Population tree prior}
 cep_tree_prior_to_xml_prior_distr(cep_tree_prior)
 }
 \arguments{
-\item{cep_tree_prior}{a cep tree prior,
+\item{cep_tree_prior}{a Coalescent Exponential Population tree prior,
 as returned by \code{\link{create_cep_tree_prior}}}
 }
 \description{

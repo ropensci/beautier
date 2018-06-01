@@ -214,13 +214,13 @@ create_gamma_distr <- create_distr_gamma <- function(
   )
 }
 
-#' Create an inverse gamma distribution
+#' Create an inverse-gamma distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
 #'   as returned by \code{\link{create_alpha_param}}
 #' @param beta the beta shape parameter,
 #'   as returned by \code{\link{create_beta_param}}
-#' @return an inverse gamma distribution
+#' @return an inverse-gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
 #' @author Richel J.C. Bilderbeek

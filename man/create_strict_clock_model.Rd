@@ -11,7 +11,7 @@ create_strict_clock_model(id = NA,
 }
 \arguments{
 \item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filesname
+An ID can be extracted from its FASTA filename
 with \code{\link{get_ids}})}
 
 \item{clock_rate_param}{the clock rate's parameter,

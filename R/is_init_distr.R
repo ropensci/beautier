@@ -74,11 +74,11 @@ is_init_gamma_distr <- function(
   !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
-#' Determine if x is an initialized inv_gamma distribution object
+#' Determine if x is an initialized inverse-gamma distribution
 #'   as created by \code{\link{create_inv_gamma_distr}}
 #' @param x the object to check if it is an
-#'   initialized inv_gamma distribution object
-#' @return TRUE if x is an initialized inv_gamma distribution object
+#'   initialized inverse-gamma distribution
+#' @return TRUE if x is an initialized inverse-gamma distribution
 #' @author Richel J.C. Bilderbeek
 is_init_inv_gamma_distr <- function(
   x
@@ -87,11 +87,11 @@ is_init_inv_gamma_distr <- function(
   !is.na(x$alpha$id) && !is.na(x$beta$id)
 }
 
-#' Determine if x is an initialized laplace distribution object
+#' Determine if x is an initialized Laplace distribution
 #'   as created by \code{\link{create_laplace_distr}}
 #' @param x the object to check if it is an
-#'   initialized laplace distribution object
-#' @return TRUE if x is an initialized laplace distribution object
+#'   initialized Laplace distribution
+#' @return TRUE if x is an initialized Laplace distribution
 #' @author Richel J.C. Bilderbeek
 is_init_laplace_distr <- function(
   x
@@ -139,11 +139,11 @@ is_init_one_div_x_distr <- function(
   TRUE
 }
 
-#' Determine if x is an initialized poisson distribution object
+#' Determine if x is an initialized Poisson distribution object
 #'   as created by \code{\link{create_poisson_distr}}
 #' @param x the object to check if it is an
-#'   initialized poisson distribution object
-#' @return TRUE if x is an initialized poisson distribution object
+#'   initialized Poisson distribution object
+#' @return TRUE if x is an initialized Poisson distribution object
 #' @author Richel J.C. Bilderbeek
 is_init_poisson_distr <- function(
   x

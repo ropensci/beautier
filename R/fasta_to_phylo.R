@@ -1,10 +1,10 @@
 #' Create a random phylogeny, with the same taxa names as the FASTA file
 #'   and the desired crown age
 #' @inheritParams default_params_doc
-#' @return a a random phylogy, with the same taxa names as the FASTA file
+#' @return a a random phylogeny, with the same taxa names as the FASTA file
 #'   and the desired crown age
 #' @examples
-#'   # Create a random phylogy, with
+#'   # Create a random phylogeny, with
 #'   # - the same taxa names as the FASTA file
 #'   # - the desired crown age
 #'   fasta_filename <- get_fasta_filename()

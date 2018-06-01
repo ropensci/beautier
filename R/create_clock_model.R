@@ -8,7 +8,7 @@
 #' @param ... specific clock model parameters
 #' @return a valid clock model
 #' @seealso An alignment ID can be extracted from
-#'   its FASTA filesname using \code{\link{get_id}}.
+#'   its FASTA filename using \code{\link{get_id}}.
 #'   For more examples about creating a relaxed log-normal clock
 #'   model, see \code{\link{create_rln_clock_model}}.
 #'   For more examples about creating a strict clock
@@ -60,12 +60,13 @@ create_clock_model <- function(
 #' @inheritParams default_params_doc
 #' @param mean_rate_prior_distr the mean clock rate prior distribution,
 #'   as created by a \code{\link{create_distr}} function
-#' @param ucldstdev_distr the uclstdev distribution,
+#' @param ucldstdev_distr the standard deviation of the uncorrelated
+#'   log-normal distribution,
 #'   as created by a \code{\link{create_distr}} function
-#' @param mparam_id the ID of the M paramater in the branchRateModel,
+#' @param mparam_id the ID of the M parameter in the branchRateModel,
 #'   set to NA to have it initialized
 #' @param mean_clock_rate the mean clock rate, 1.0 by default
-#'   (is called 'ucld_stdev' in XML, where 'ucld_stdev' is always 0.1)
+#'   (is called \code{ucld_stdev} in XML, where \code{ucld_stdev} is always 0.1)
 #' @param n_rate_categories the number of rate categories.
 #'   -1 is default,
 #'   0 denotes as much rates as branches

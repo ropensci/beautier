@@ -1,8 +1,8 @@
 #' Function to create the MCMC options, as in the BEAUti MCMC tab.
-#' @param chain_length the MCMC's chain length
+#' @param chain_length length of the MCMC chain
 #' @param store_every number of states the posterior will be saved to file.
 #'   Use -1 or NA to use the default frequency
-#' @return an mcmc
+#' @return an MCMC
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   mcmc <- create_mcmc(chain_length = 50000)

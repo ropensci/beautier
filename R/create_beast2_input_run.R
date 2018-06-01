@@ -1,6 +1,6 @@
 #' Creates the state section of a BEAST2 XML parameter file
 #' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filesnames using \code{\link{get_ids}})
+#'   their FASTA filenames using \code{\link{get_ids}})
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
 #' @inheritParams default_params_doc

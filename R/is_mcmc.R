@@ -1,7 +1,7 @@
-#' Determine if the object is a valid mcmc object
-#' @param x an object, to be determined if it is a valid mcmc object
+#' Determine if the object is a valid MCMC
+#' @param x an object, to be determined if it is a valid MCMC
 #' @seealso Use \code{\link{create_mcmc}}
-#' @return TRUE if x is a valid mcmc object, FALSE otherwise
+#' @return TRUE if x is a valid MCMC, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 is_mcmc <- function(

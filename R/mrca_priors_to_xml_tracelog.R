@@ -1,4 +1,4 @@
-#' Creates the mrca priors' XML for the tracelog section
+#' Creates the MRCA priors' XML for the tracelog section
 #' @inheritParams default_params_doc
 #' @seealso the complete tracelog section is created
 #'   by \code{\link{create_beast2_input_tracelog}}

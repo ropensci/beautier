@@ -11,7 +11,7 @@ create_beast2_input_tracelog(ids, site_models = create_jc69_site_models(ids =
 }
 \arguments{
 \item{ids}{one or more alignments' IDs.
-IDs can be extracted from their FASTA filesnames
+IDs can be extracted from their FASTA filenames
 with \code{\link{get_ids}})}
 
 \item{site_models}{one or more site models,

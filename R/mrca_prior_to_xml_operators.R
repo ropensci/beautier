@@ -2,7 +2,7 @@
 #'   as used in the \code{operators} section
 #' @inheritParams default_params_doc
 #' @param is_first is this the first MRCA prior?
-#' @return the mrca prior as XML text
+#' @return the MRCA prior as XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 mrca_prior_to_xml_operators <- function(

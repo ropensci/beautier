@@ -12,7 +12,7 @@ create_hky_site_model(id = NA, kappa = "2.0",
 }
 \arguments{
 \item{id}{the IDs of the alignment (can be extracted from
-the FASTA filesname using \code{\link{get_id}})}
+the FASTA filename using \code{\link{get_id}})}
 
 \item{kappa}{the kappa}
 
