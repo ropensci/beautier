@@ -2,7 +2,9 @@ context("spell_check")
 
 test_that("no spelling errors", {
   ignore <- c(
+    "babette",
     "BD",
+    "beastier",
     "BEAUti",
     "beautier",
     "Bilderbeek",
@@ -28,6 +30,7 @@ test_that("no spelling errors", {
     "screenlog",
     "stdev",
     "tracelog",
+    "tracerer",
     "www"
   )
   errors <- devtools::spell_check(ignore = ignore)
