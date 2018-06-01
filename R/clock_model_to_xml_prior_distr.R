@@ -1,6 +1,7 @@
 #' Converts a clock model to the \code{prior} section of the
 #' XML as text
 #' @inheritParams default_params_doc
+#' @return a character vector of XML strings
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">

@@ -8,6 +8,7 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @inheritParams default_params_doc
+#' @return a character vector of XML strings
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 clock_models_to_xml_prior_distr <- function( # nolint internal function

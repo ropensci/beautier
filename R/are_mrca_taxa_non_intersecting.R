@@ -4,6 +4,8 @@
 #' MRCA prior with taxon 1 and 2 is incompatible with an MRCA prior
 #' with taxon 3 and 4
 #' @inheritParams default_params_doc
+#' @return TRUE if the MRCA priors are non-intersecting.
+#'   FALSE otherwise.
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 are_mrca_taxa_non_intersecting <- function(mrca_priors) {

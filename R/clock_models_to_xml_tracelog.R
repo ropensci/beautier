@@ -1,5 +1,6 @@
 #' Creates the clock models' XML for the tracelog section
 #' @inheritParams default_params_doc
+#' @return a character vector of XML strings
 #' @seealso the complete tracelog section is created
 #'   by \code{\link{create_beast2_input_tracelog}}
 #' @examples

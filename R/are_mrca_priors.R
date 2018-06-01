@@ -1,6 +1,7 @@
 #' Determine if x consists out of MRCA priors
 #' @param x the object to check if it consists out of MRCA priors
-#' @return TRUE if x, or all elements of x, are MRCA priors
+#' @return TRUE if x, or all elements of x, are MRCA priors.
+#'   Returns FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 are_mrca_priors <- function(
