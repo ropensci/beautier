@@ -1,10 +1,13 @@
 #' Create a BEAST2 XML input text
 #' @inheritParams default_params_doc
+#' @return a character vector of XML strings
 #' @examples
-#'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
-#'     "my_beast.xml"
+#'   text <- create_beast2_input(
+#'     input_filenames = get_fasta_filename()
 #'   )
+#'   testit::assert(substr(text[1], 1, 5) == "<?xml")
+#'   text[1]
+#'   testit::assert(tail(text, n = 1) == "</beast>")
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richel J.C. Bilderbeek
 #' @export

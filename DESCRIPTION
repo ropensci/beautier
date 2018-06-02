@@ -27,6 +27,7 @@ Imports:
     stringr,
     testit
 Suggests:
+    spelling,
     devtools,
     knitr,
     ggplot2,
@@ -34,3 +35,4 @@ Suggests:
     lintr,
     rmarkdown,
     testthat
+Language: en-US

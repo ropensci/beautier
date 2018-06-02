@@ -35,13 +35,15 @@ as returned by \code{\link{create_misc_options}}}
 \item{posterior_crown_age}{the crown age the posteriors'
 phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}
 }
+\value{
+a character vector of XML strings
+}
 \description{
 Create a BEAST2 XML input text
 }
 \examples{
-  create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
-    "my_beast.xml"
+  text <- create_beast2_input(
+    input_filenames = get_fasta_filename()
   )
 }
 \seealso{

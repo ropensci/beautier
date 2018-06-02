@@ -7,6 +7,11 @@
 #'   the) created lines are stored
 #' @param expected_lines_filename name of the file where the (section of
 #'   the) expected lines are stored
+#' @return nothing. Instead, two files are created, with the
+#'   names \code{created_lines_filename}
+#'   and \code{expected_lines_filename} that contain the
+#'   section under investigation, so that a diff tool
+#'   can compare these
 #' @noRd
 compare_lines <- function(
   lines,
