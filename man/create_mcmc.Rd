@@ -2,24 +2,29 @@
 % Please edit documentation in R/create_mcmc.R
 \name{create_mcmc}
 \alias{create_mcmc}
-\title{Function to create the MCMC options, as in the BEAUti MCMC tab.}
+\title{Create an MCMC configuration.}
 \usage{
 create_mcmc(chain_length = 1e+07, store_every = -1)
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}
 
-\item{store_every}{number of states the posterior will be saved to file.
-Use -1 or NA to use the default frequency}
+\item{store_every}{number of states the MCMC will process
+before the posterior's state will be saved to file.
+Use -1 or NA to use the default frequency.}
 }
 \value{
-an MCMC
+an MCMC configuration
 }
 \description{
-Function to create the MCMC options, as in the BEAUti MCMC tab.
+Create an MCMC configuration, as in the BEAUti MCMC tab.
+The number of states that will be saved equals the chain
+length (\code{chain_length}) divided by the number of
+states between each sampling event (\code{store_every})
 }
 \examples{
-  mcmc <- create_mcmc(chain_length = 50000)
+  # Create an MCMC chain with 50 states
+  mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
 
   create_beast2_input_file(
     get_fasta_filename(),

@@ -1,11 +1,18 @@
-#' Function to create the MCMC options, as in the BEAUti MCMC tab.
+#' Create an MCMC configuration.
+#'
+#' Create an MCMC configuration, as in the BEAUti MCMC tab.
+#' The number of states that will be saved equals the chain
+#' length (\code{chain_length}) divided by the number of
+#' states between each sampling event (\code{store_every})
 #' @param chain_length length of the MCMC chain
-#' @param store_every number of states the posterior will be saved to file.
-#'   Use -1 or NA to use the default frequency
-#' @return an MCMC
+#' @param store_every number of states the MCMC will process
+#'   before the posterior's state will be saved to file.
+#'   Use -1 or NA to use the default frequency.
+#' @return an MCMC configuration
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   mcmc <- create_mcmc(chain_length = 50000)
+#'   # Create an MCMC chain with 50 states
+#'   mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
 #'
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
