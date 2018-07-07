@@ -34,6 +34,18 @@ an MRCA prior
 \description{
 Create a Most Recent Common Ancestor prior
 }
+\examples{
+ fasta_filename <- get_beautier_path("anthus_aco.fas")
+
+ # The first two taxa are sister species
+ mrca_prior <- create_mrca_prior(
+   alignment_id = get_alignment_id(fasta_filename = fasta_filename),
+   taxa_names = get_taxa_names(filename = fasta_filename)[1:2],
+   is_monophyletic = TRUE
+ )
+
+ #
+}
 \author{
 Richel J.C. Bilderbeek
 }
