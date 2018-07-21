@@ -203,6 +203,7 @@ create_beast2_input <- function(
   }
 
   # Make a million show as 1000000 instead of 1e+06
+  old_scipen <- getOption("scipen")
   options(scipen = 20)
 
   # Convert from new to older interface
@@ -230,6 +231,9 @@ create_beast2_input <- function(
     initial_phylogenies = initial_phylogenies
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function
+
+  # Restore scipen
+  options(scipen = old_scipen)
 
   text
 }
