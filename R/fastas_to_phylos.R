@@ -1,8 +1,12 @@
-#' Create a random phylogeny, with the same taxa names as the FASTA file
-#'   and the desired crown age
+#' Create one or more random phylogenies.
+#' Per FASTA file, one random phylogeny is created,
+#' with the same taxa names as that FASTA file.
+#' All phylogenies have the same crown age.
 #' @inheritParams default_params_doc
-#' @return a random phylogeny, with the same taxa names as the FASTA file
-#'   and the desired crown age
+#' @return a \code{multiPhylo} with as much phylogenies
+#'   as there were FASTA filenames. Each phylogeny has
+#'   the same taxa names as its corresponding FASTA file.
+#'   All phylogenies have the same crown age.
 #' @examples
 #'   # Create two random phylogies, with
 #'   # - the same taxa names as the FASTA files
