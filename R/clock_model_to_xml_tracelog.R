@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
 #' @seealso all clock models' tracelog section is created
-#'   by \code{\link{clock_model_to_xml_tracelog}}
+#'   by \code{\link{clock_models_to_xml_tracelog}}
 #' @examples
 #' # <logger id="tracelog" ...>
 #' #'   # Here
