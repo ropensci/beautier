@@ -1,4 +1,4 @@
-#' Remove consequetive lines
+#' Remove consecutive lines
 #' @param text lines of characters
 #' @param lines_to_remove lines of character that need to be removed from text
 #' @author Richel J.C. Bilderbeek
