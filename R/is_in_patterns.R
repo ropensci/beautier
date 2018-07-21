@@ -1,4 +1,4 @@
-#' Create a random beta distribution
+#' Is there at least one regular expression having a match with the line?
 #' @param line a line of text
 #' @param patterns one or more regular expression patterns
 #' @return TRUE if there is at least one match found
