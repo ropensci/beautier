@@ -1,4 +1,4 @@
-#' Is an XML opening tag with value 'section' present amongst the lines of
+#' Is an XML closing tag with value 'section' present amongst the lines of
 #'   the text?
 #' @param lines lines of the XML text
 #' @param section the XML section
