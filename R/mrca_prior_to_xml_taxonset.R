@@ -1,6 +1,5 @@
-#' Creates the distribution section in the prior section of the
+#' Creates the \code{taxonset} section in the prior section of the
 #' distribution section of a BEAST2 XML parameter file.
-#' These lines start with '<distribution id='
 #' @inheritParams default_params_doc
 #' @param taxa_names_with_ids taxa names that already have received
 #'   an ID. Causes the XML to \code{idref} these
