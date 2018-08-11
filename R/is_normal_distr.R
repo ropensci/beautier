@@ -12,7 +12,6 @@
 is_normal_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "normal") return(FALSE)
   if (!"mean" %in% names(x)) return(FALSE)

@@ -12,7 +12,6 @@
 is_poisson_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "poisson") return(FALSE)
   if (!"lambda" %in% names(x)) return(FALSE)

@@ -24,7 +24,6 @@
 is_log_normal_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "log_normal") return(FALSE)
   if (!"m" %in% names(x)) return(FALSE)

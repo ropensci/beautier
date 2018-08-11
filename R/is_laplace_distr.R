@@ -15,7 +15,6 @@
 is_laplace_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "laplace") return(FALSE)
   if (!"mu" %in% names(x)) return(FALSE)

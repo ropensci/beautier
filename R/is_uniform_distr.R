@@ -12,6 +12,5 @@
 is_uniform_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "uniform")
+  "name" %in% names(x) && x$name == "uniform"
 }

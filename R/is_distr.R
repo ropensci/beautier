@@ -20,5 +20,15 @@
 is_distr <- function(
   x
 ) {
-  "name" %in% names(x)
+  if (is_beta_distr(x)) return(TRUE)
+  if (is_exp_distr(x)) return(TRUE)
+  if (is_gamma_distr(x)) return(TRUE)
+  if (is_inv_gamma_distr(x)) return(TRUE)
+  if (is_laplace_distr(x)) return(TRUE)
+  if (is_log_normal_distr(x)) return(TRUE)
+  if (is_normal_distr(x)) return(TRUE)
+  if (is_one_div_x_distr(x)) return(TRUE)
+  if (is_poisson_distr(x)) return(TRUE)
+  if (is_uniform_distr(x)) return(TRUE)
+  FALSE
 }

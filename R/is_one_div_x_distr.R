@@ -12,6 +12,5 @@
 is_one_div_x_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "one_div_x")
+  "name" %in% names(x) && x$name == "one_div_x"
 }

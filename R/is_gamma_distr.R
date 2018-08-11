@@ -12,7 +12,6 @@
 is_gamma_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "gamma") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
