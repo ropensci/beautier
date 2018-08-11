@@ -20,7 +20,7 @@ Creates n strict clock_models
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
   clock_models <- create_strict_clock_models(
-    ids = get_ids(fasta_filenames)
+    ids = get_alignment_ids(fasta_filenames)
   )
 
   create_beast2_input_file(

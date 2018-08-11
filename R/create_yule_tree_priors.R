@@ -6,7 +6,9 @@
 #'     c("anthus_aco.fas", "anthus_nd2.fas")
 #'   )
 #'
-#'   tree_priors <- create_yule_tree_priors(ids = get_ids(fasta_filenames))
+#'   tree_priors <- create_yule_tree_priors(
+#'     ids = get_alignment_ids(fasta_filenames)
+#'   )
 #'
 #'   create_beast2_input_file(
 #'     fasta_filenames,

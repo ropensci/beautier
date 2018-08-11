@@ -13,10 +13,15 @@
 #' @export
 create_beast2_input <- function(
   input_filenames,
-  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
+  site_models = create_jc69_site_models(
+    ids = get_alignment_ids(input_filenames)
+  ),
   clock_models = create_strict_clock_models(
-    ids = get_ids(input_filenames)),
-  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
+    ids = get_alignment_ids(input_filenames)
+  ),
+  tree_priors = create_yule_tree_priors(
+    ids = get_alignment_ids(input_filenames)
+  ),
   mrca_priors = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
@@ -171,7 +176,7 @@ create_beast2_input <- function(
   # Initialize all models and priors
   site_models <- init_site_models(
     site_models = site_models,
-    ids = get_ids(input_filenames),
+    ids = get_alignment_ids(input_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint internal function
@@ -183,7 +188,7 @@ create_beast2_input <- function(
   )  # nolint internal function
   tree_priors <- init_tree_priors( # nolint internal function
     tree_priors,
-    ids = get_ids(input_filenames),
+    ids = get_alignment_ids(input_filenames),
     distr_id = 100,
     param_id = 200
   )

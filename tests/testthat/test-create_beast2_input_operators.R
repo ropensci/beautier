@@ -66,7 +66,7 @@ test_that("Operators that change crown age are absent at fixed crown age", {
 
 test_that("Multiple fixed_crown_ages, interface", {
   input_filenames <- get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
-  ids <- get_ids(input_filenames)
+  ids <- get_alignment_ids(input_filenames)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_operators(

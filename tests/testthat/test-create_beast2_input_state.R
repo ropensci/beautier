@@ -192,7 +192,7 @@ test_that("two alignments, two initial phylogenies", {
 
   fasta_filename_1 <- beautier::get_beautier_path("anthus_aco.fas")
   fasta_filename_2 <- beautier::get_beautier_path("anthus_nd2.fas")
-  ids <- get_ids(c(fasta_filename_1, fasta_filename_2))
+  ids <- get_alignment_ids(c(fasta_filename_1, fasta_filename_2))
   phylo1 <- fasta_to_phylo(fasta_filename_1, crown_age = 314)
   phylo2 <- fasta_to_phylo(fasta_filename_2, crown_age = 42)
   initial_phylogenies <- c(phylo1, phylo2)
