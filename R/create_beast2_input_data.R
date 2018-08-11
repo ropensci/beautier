@@ -12,7 +12,7 @@ create_beast2_input_data <- function(
   n <- length(input_filenames)
   for (i in seq(1, n)) {
     input_fasta_filename <- input_filenames[i]
-    id <- beautier::get_id(
+    id <- beautier::get_alignment_id(
       input_fasta_filename,
       capitalize_first_char_id = misc_options$capitalize_first_char_id
     )

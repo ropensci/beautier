@@ -29,7 +29,7 @@ get_ids <- function(
 ) {
   ids <- fasta_filenames
   for (i in seq_along(ids)) {
-    ids[i] <- get_id(fasta_filenames[i],
+    ids[i] <- get_alignment_id(fasta_filenames[i],
       capitalize_first_char_id = capitalize_first_char_id)
   }
   ids

@@ -3,7 +3,7 @@ context("create_beast2_input_distr")
 test_that("use with one ID", {
 
   fasta_filename <- beautier::get_beautier_path("test_output_0.fas")
-  id <- beautier:::get_id(fasta_filename)
+  id <- beautier:::get_alignment_id(fasta_filename)
 
   xml <- beautier:::create_beast2_input_distr(
     site_models = create_jc69_site_models(ids = id),

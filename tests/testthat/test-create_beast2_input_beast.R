@@ -3,7 +3,7 @@ context("create_beast2_input_beast")
 test_that("use, one alignment", {
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
-  id <- beautier:::get_id(fasta_filename)
+  id <- beautier:::get_alignment_id(fasta_filename)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
@@ -30,7 +30,7 @@ test_that("use, two alignments", {
   fasta_filenames <- beautier::get_beautier_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
-  ids <- beautier:::get_id(fasta_filenames)
+  ids <- beautier:::get_alignment_id(fasta_filenames)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(
@@ -66,7 +66,7 @@ test_that("use, two alignments, fixed crown ages", {
   fasta_filenames <- beautier::get_beautier_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
-  ids <- beautier:::get_id(fasta_filenames)
+  ids <- beautier:::get_alignment_id(fasta_filenames)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_beast(

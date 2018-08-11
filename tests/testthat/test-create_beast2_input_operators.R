@@ -12,12 +12,11 @@ test_that("abuse", {
       fixed_crown_ages = FALSE
     )
   )
-
 })
 
 test_that("Operators that change crown age are absent at fixed crown age", {
   input_fasta_filename <- beautier::get_fasta_filename()
-  id <- get_id(input_fasta_filename)
+  id <- get_alignment_id(input_fasta_filename)
   testthat::expect_equal(file.exists(input_fasta_filename), TRUE)
 
   created_fixed <- beautier:::create_beast2_input_operators(

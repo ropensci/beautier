@@ -4,7 +4,7 @@
 \alias{get_alignment_id}
 \title{Get the alignment ID from a FASTA filename}
 \usage{
-get_alignment_id(fasta_filename)
+get_alignment_id(fasta_filename, capitalize_first_char_id = FALSE)
 }
 \arguments{
 \item{fasta_filename}{a FASTA filename.

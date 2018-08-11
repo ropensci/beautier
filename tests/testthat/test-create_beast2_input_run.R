@@ -3,7 +3,7 @@ context("create_beast2_input_run")
 test_that("usage, one fixed crown age", {
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
-  id <- beautier:::get_id(fasta_filename)
+  id <- beautier:::get_alignment_id(fasta_filename)
 
   testthat::expect_silent(
     beautier:::create_beast2_input_run(

@@ -28,7 +28,7 @@ create_beast2_input_beast <- function(
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
 
   # Alignment IDs
-  ids <- beautier::get_id(
+  ids <- beautier::get_alignment_id(
     input_filenames,
     capitalize_first_char_id = misc_options$capitalize_first_char_id
   )
