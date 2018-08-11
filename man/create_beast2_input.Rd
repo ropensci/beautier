@@ -4,8 +4,9 @@
 \alias{create_beast2_input}
 \title{Create a BEAST2 XML input text}
 \usage{
-create_beast2_input(input_filenames, site_models = create_jc69_site_models(ids
-  = get_ids(input_filenames)), clock_models = create_strict_clock_models(ids =
+create_beast2_input(input_filenames,
+  site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
+  clock_models = create_strict_clock_models(ids =
   get_ids(input_filenames)), tree_priors = create_yule_tree_priors(ids =
   get_ids(input_filenames)), mrca_priors = NA, mcmc = create_mcmc(),
   misc_options = create_misc_options(), posterior_crown_age = NA)

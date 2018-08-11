@@ -14,11 +14,11 @@ versions, this function in kept in.}
 \usage{
 create_beast2_input_file_1_12(input_filenames, output_filename,
   site_models = create_jc69_site_models(ids = get_ids(input_filenames)),
-  clock_models = create_strict_clock_models(ids = get_ids(input_filenames)),
-  tree_priors = create_yule_tree_priors(ids = get_ids(input_filenames)),
-  mcmc = create_mcmc(), fixed_crown_ages = rep(FALSE,
-  length(input_filenames)), initial_phylogenies = rep(NA,
-  length(input_filenames)))
+  clock_models = create_strict_clock_models(ids =
+  get_ids(input_filenames)), tree_priors = create_yule_tree_priors(ids =
+  get_ids(input_filenames)), mcmc = create_mcmc(),
+  fixed_crown_ages = rep(FALSE, length(input_filenames)),
+  initial_phylogenies = rep(NA, length(input_filenames)))
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
