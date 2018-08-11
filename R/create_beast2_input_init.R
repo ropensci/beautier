@@ -1,4 +1,4 @@
-#' Creates the map section of a BEAST2 XML parameter file
+#' Creates the \code{init} section of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @noRd

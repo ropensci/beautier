@@ -1,4 +1,4 @@
-#' Is the index the first of a series of clock models that are shared?
+#' Is the index a non-first in a series of clock models that are shared?
 #' @inheritParams default_params_doc
 #' @param i the index of the clock model within \code{clock_models}
 #' @author Richel J.C. Bilderbeek
