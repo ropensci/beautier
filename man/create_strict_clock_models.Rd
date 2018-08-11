@@ -32,5 +32,5 @@ Creates n strict clock_models
 }
 \seealso{
 The alignment IDs can be deduced from the FASTA filenames,
-  using \code{\link{get_ids}}
+  using \code{\link{get_alignment_ids}}
 }

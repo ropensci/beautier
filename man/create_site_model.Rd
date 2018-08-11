@@ -12,7 +12,7 @@ create_site_model(name, id, gamma_site_model = create_gamma_site_model(),
 names can be found in \code{get_site_model_names}}
 
 \item{id}{the IDs of the alignment (can be extracted from
-the FASTA filename using \code{\link{get_id}})}
+the FASTA filename using \code{\link{get_alignment_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}

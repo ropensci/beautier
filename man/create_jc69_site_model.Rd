@@ -10,7 +10,7 @@ create_jc69_site_model(id = NA,
 }
 \arguments{
 \item{id}{the IDs of the alignment (can be extracted from
-the FASTA filename using \code{\link{get_id}})}
+the FASTA filename using \code{\link{get_alignment_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
 by \code{\link{create_gamma_site_model}}}

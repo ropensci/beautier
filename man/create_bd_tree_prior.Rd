@@ -49,7 +49,7 @@ Create a Birth-Death tree prior
 }
 \seealso{
 An alignment ID can be extracted from
-  its FASTA filename using \code{\link{get_id}}
+  its FASTA filename using \code{\link{get_alignment_id}}
 }
 \author{
 Richel J.C. Bilderbeek

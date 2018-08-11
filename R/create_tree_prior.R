@@ -92,7 +92,7 @@ create_tree_prior <- function(
 #'   death_rate_distr = create_uniform_distr()
 #' )
 #' @seealso An alignment ID can be extracted from
-#'   its FASTA filename using \code{\link{get_id}}
+#'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   bd_tree_prior <- create_bd_tree_prior()
@@ -133,7 +133,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #' @inheritParams default_params_doc
 #' @return a Coalescent Bayesian Skyline tree_prior
 #' @seealso An alignment ID can be extracted from
-#'   its FASTA filename using \code{\link{get_id}}
+#'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   cbs_tree_prior <- create_cbs_tree_prior()
@@ -165,7 +165,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Constant Population tree_prior
 #' @seealso An alignment ID can be extracted from
-#'   its FASTA filename using \code{\link{get_id}}
+#'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   ccp_tree_prior <- create_ccp_tree_prior()
@@ -197,7 +197,7 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Coalescent Exponential Population tree_prior
 #' @seealso An alignment ID can be extracted from
-#'   its FASTA filename using \code{\link{get_id}}
+#'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   cep_tree_prior <- create_cep_tree_prior()
@@ -229,7 +229,7 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #'   as created by a \code{\link{create_distr}} function
 #' @return a Yule tree_prior
 #' @seealso An alignment ID can be extracted from
-#'   its FASTA filename using \code{\link{get_id}}
+#'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @usage
 #' create_yule_tree_prior(
 #'   id = NA,

@@ -13,7 +13,7 @@ create_beast2_input_tracelog(ids,
 \arguments{
 \item{ids}{one or more alignments' IDs.
 IDs can be extracted from their FASTA filenames
-with \code{\link{get_ids}})}
+with \code{\link{get_alignment_ids}})}
 
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}

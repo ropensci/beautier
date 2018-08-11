@@ -27,7 +27,7 @@ create_site_models <- function() {
 #' @inheritParams default_params_doc
 #' @return a list of site_models
 #' @seealso The alignment IDs can be deduced from the FASTA filenames,
-#'   using \code{\link{get_ids}}
+#'   using \code{\link{get_alignment_ids}}
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   fasta_filenames <- get_beautier_paths(

@@ -50,10 +50,10 @@
 #'   as returned by \code{\link{create_gtr_site_model}}
 #' @param id an alignment's IDs.
 #'   An ID can be extracted from its FASTA filename
-#'   with \code{\link{get_ids}})
+#'   with \code{\link{get_alignment_ids}})
 #' @param ids one or more alignments' IDs.
 #'   IDs can be extracted from their FASTA filenames
-#'   with \code{\link{get_ids}})
+#'   with \code{\link{get_alignment_ids}})
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
 #'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
 #'   the phylogeny is assumed to be of class ape::phylo.

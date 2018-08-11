@@ -21,7 +21,7 @@ create_clock_models <- function() {
 #' @param ids the alignment IDs
 #' @return a list of strict_clock objects
 #' @seealso The alignment IDs can be deduced from the FASTA filenames,
-#'   using \code{\link{get_ids}}
+#'   using \code{\link{get_alignment_ids}}
 #' @examples
 #'   fasta_filenames <- get_beautier_paths(
 #'     c("anthus_aco.fas", "anthus_nd2.fas")

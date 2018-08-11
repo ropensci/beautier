@@ -9,7 +9,7 @@ create_jc69_site_models(ids)
 \arguments{
 \item{ids}{one or more alignments' IDs.
 IDs can be extracted from their FASTA filenames
-with \code{\link{get_ids}})}
+with \code{\link{get_alignment_ids}})}
 }
 \value{
 a list of site_models
@@ -31,7 +31,7 @@ Creates a JC69_site_model for each ID
 }
 \seealso{
 The alignment IDs can be deduced from the FASTA filenames,
-  using \code{\link{get_ids}}
+  using \code{\link{get_alignment_ids}}
 }
 \author{
 Richel J.C. Bilderbeek
