@@ -1,4 +1,4 @@
-#' Get the alignment ID from a FASTA filename
+#' Conclude the ID from a FASTA filename, in the same way as BEAST2 will
 #' @inheritParams default_params_doc
 #' @examples
 #'   created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")

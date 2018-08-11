@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_alignment_id.R
 \name{get_alignment_id}
 \alias{get_alignment_id}
-\title{Get the alignment ID from a FASTA filename}
+\title{Conclude the ID from a FASTA filename, in the same way as BEAST2 will}
 \usage{
 get_alignment_id(fasta_filename, capitalize_first_char_id = FALSE)
 }
@@ -11,7 +11,7 @@ get_alignment_id(fasta_filename, capitalize_first_char_id = FALSE)
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 }
 \description{
-Get the alignment ID from a FASTA filename
+Conclude the ID from a FASTA filename, in the same way as BEAST2 will
 }
 \examples{
   created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
