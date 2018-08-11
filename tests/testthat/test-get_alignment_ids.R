@@ -3,7 +3,7 @@ context("get_alignment_ids")
 test_that("use", {
 
   testthat::expect_equal(
-    beautier:::get_alignment_ids(
+    get_alignment_ids(
       get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
     ),
     c(

@@ -141,7 +141,7 @@ test_that("abuse: two alignments", {
   input_filenames <- beautier::get_beautier_paths(
     c("anthus_aco.fas", "anthus_nd2.fas")
   )
-  ids <- beautier:::get_alignment_ids(input_filenames)
+  ids <- get_alignment_ids(input_filenames)
 
   # Two filenames, one site model
   testthat::expect_error(
