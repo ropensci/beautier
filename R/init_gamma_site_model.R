@@ -2,8 +2,15 @@
 #' @inheritParams default_params_doc
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
-#' @return a list of initialized site models
+#' @return an initialized gamma site model
 #' @author Richel J.C. Bilderbeek
+#' @examples
+#'   gamma_site_model <- create_gamma_site_model(
+#'     gamma_shape_prior_distr = create_one_div_x_distr(id = NA)
+#'   )
+#'  testit::assert(!beautier:::is_init_gamma_site_model(gamma_site_model))
+#'  gamma_site_model <- beautier:::init_gamma_site_model(gamma_site_model)
+#'  testit::assert(beautier:::is_init_gamma_site_model(gamma_site_model))
 #' @noRd
 init_gamma_site_model <- function(
   gamma_site_model,
