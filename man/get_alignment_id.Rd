@@ -9,6 +9,9 @@ get_alignment_id(fasta_filename, capitalize_first_char_id = FALSE)
 \arguments{
 \item{fasta_filename}{a FASTA filename.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{capitalize_first_char_id}{if TRUE, the first character will
+be capitalized}
 }
 \description{
 Conclude the ID from a FASTA filename, in the same way as BEAST2 will
