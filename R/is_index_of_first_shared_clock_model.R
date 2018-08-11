@@ -12,7 +12,7 @@ is_index_of_first_shared_clock_model <- function( # nolint internal function
   testit::assert(are_clock_models(clock_models))
   if (length(clock_models) <= 1) return(FALSE)
   # Collect all IDS
-  ids <- beautier:::get_clock_models_ids(clock_models) # nolint internal function
+  ids <- get_clock_models_ids(clock_models) # nolint internal function
   # Get our ID
   id <- clock_models[[i]]$id
   testit::assert(sum(id == ids) >= 1)
