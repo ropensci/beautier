@@ -4,10 +4,6 @@
 #' The number of states that will be saved equals the chain
 #' length (\code{chain_length}) divided by the number of
 #' states between each sampling event (\code{store_every})
-#' @param chain_length length of the MCMC chain
-#' @param store_every number of states the MCMC will process
-#'   before the posterior's state will be saved to file.
-#'   Use -1 or NA to use the default frequency.
 #' @return an MCMC configuration
 #' @author Richel J.C. Bilderbeek
 #' @examples

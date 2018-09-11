@@ -6,13 +6,6 @@
 \usage{
 create_mcmc(chain_length = 1e+07, store_every = -1)
 }
-\arguments{
-\item{chain_length}{length of the MCMC chain}
-
-\item{store_every}{number of states the MCMC will process
-before the posterior's state will be saved to file.
-Use -1 or NA to use the default frequency.}
-}
 \value{
 an MCMC configuration
 }

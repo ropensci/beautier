@@ -8,6 +8,12 @@ create_mcmc_nested_sampling(chain_length = 1e+07, store_every = -1,
   particle_count = 1, sub_chain_length = 5000, epsilon = "1e-12")
 }
 \arguments{
+\item{chain_length}{length of the MCMC chain}
+
+\item{store_every}{number of states the MCMC will process
+before the posterior's state will be saved to file.
+Use -1 or NA to use the default frequency.}
+
 \item{particle_count}{number of particles}
 
 \item{sub_chain_length}{sub-chain length}
@@ -21,7 +27,7 @@ an MCMC object
 Create an MCMC object that does nested sampling
 }
 \references{
-* Maturana, Patricio, et al. "Model selection and parameter inference
+* [1] Maturana, Patricio, et al. "Model selection and parameter inference
     in phylogenetics using Nested Sampling."
     arXiv preprint arXiv:1703.05471 (2017).
 }

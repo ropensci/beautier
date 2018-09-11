@@ -17,13 +17,13 @@ is_mcmc <- function(
 }
 
 #' Determine if the object is a valid Nested-Sampling MCMC,
-#'   as used in Maturana et al., 2017
+#'   as used in [1]
 #' @param x an object, to be determined if it is a valid MCMC
 #' @seealso Use \code{\link{create_mcmc_nested_sampling}}
 #' @return TRUE if x is a valid Nested-Sampling MCMC, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @references
-#'   * Maturana, Patricio, et al. "Model selection and parameter inference
+#'   * [1] Maturana, Patricio, et al. "Model selection and parameter inference
 #'     in phylogenetics using Nested Sampling."
 #'     arXiv preprint arXiv:1703.05471 (2017).
 #' @noRd
