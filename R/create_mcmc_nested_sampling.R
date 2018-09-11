@@ -1,5 +1,5 @@
 #' Create an MCMC object that does nested sampling
-#' @inherit default_params_doc
+#' @inheritParams default_params_doc
 #' @param particle_count number of particles
 #' @param sub_chain_length sub-chain length
 #' @param epsilon epsilon
