@@ -22,6 +22,11 @@ from its function arguments. In this way, a scientific pipeline using
  * [beastier](https://github.com/richelbilderbeek/beastier) runs BEAST2
  * [tracerer](https://github.com/richelbilderbeek/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
 
+Related R packages:
+
+ * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
+ * [mauricer](https://github.com/richelbilderbeek/mauricer): install BEAST2 packages
+
 ## Examples
 
 See [examples](examples.md).
