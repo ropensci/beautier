@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 1.13.4 (2018-09-11)
+
+### NEW FEATURES
+
+  * Support for [a Nested-Sampling MCMC run](https://github.com/BEAST2-Dev/nested-sampling)
+
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## beautier 1.13.3 (2018-05-17)
 
 ### NEW FEATURES
