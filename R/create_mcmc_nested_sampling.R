@@ -5,9 +5,9 @@
 #' @param epsilon epsilon
 #' @return an MCMC object
 #' @references
-#'   * [1] Maturana, Patricio, et al. "Model selection and parameter inference
-#'     in phylogenetics using Nested Sampling."
-#'     arXiv preprint arXiv:1703.05471 (2017).
+#'   * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
+#'     Model selection and parameter inference in phylogenetics
+#'     using Nested Sampling. arXiv preprint arXiv:1703.05471.
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_mcmc_nested_sampling <- function(

@@ -4,6 +4,7 @@
 #' The number of states that will be saved equals the chain
 #' length (\code{chain_length}) divided by the number of
 #' states between each sampling event (\code{store_every})
+#' @inheritParams default_params_doc
 #' @return an MCMC configuration
 #' @author Richel J.C. Bilderbeek
 #' @examples
