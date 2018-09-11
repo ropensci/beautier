@@ -40,3 +40,4 @@ Suggests:
     rmarkdown,
     testthat
 Language: en-US
+Encoding: UTF-8
