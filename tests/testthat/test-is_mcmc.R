@@ -13,7 +13,9 @@ test_that("is_mcmc, use", {
 
 test_that("is_mcmc_nested_sampling, use", {
 
-  testthat::expect_true(beautier:::is_mcmc_nested_sampling(create_mcmc_nested_sampling()))
+  testthat::expect_true(
+    beautier:::is_mcmc_nested_sampling(create_mcmc_nested_sampling())
+  )
   testthat::expect_false(beautier:::is_mcmc_nested_sampling(create_mcmc()))
   testthat::expect_false(is_mcmc_nested_sampling("nonsense"))
   testthat::expect_false(is_mcmc_nested_sampling(NA))
