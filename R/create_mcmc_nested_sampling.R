@@ -19,7 +19,7 @@
 #'     "create_mcmc_nested_sampling.xml",
 #'     mcmc = mcmc
 #'   )
-#'   testit::assert(file.exists("create_mcmc_nested_sampling"))
+#'   testit::assert(file.exists("create_mcmc_nested_sampling.xml"))
 #' @references
 #'   * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
 #'     Model selection and parameter inference in phylogenetics

@@ -41,7 +41,7 @@ Create an MCMC object that does nested sampling
     "create_mcmc_nested_sampling.xml",
     mcmc = mcmc
   )
-  testit::assert(file.exists("create_mcmc_nested_sampling"))
+  testit::assert(file.exists("create_mcmc_nested_sampling.xml"))
 }
 \references{
 * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
