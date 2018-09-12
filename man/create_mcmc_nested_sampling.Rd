@@ -26,6 +26,23 @@ an MCMC object
 \description{
 Create an MCMC object that does nested sampling
 }
+\examples{
+  # Create an MCMC chain with 50 states
+  mcmc <- create_mcmc_nested_sampling(
+    chain_length = 50000,
+    store_every = 1000,
+    particle_count = 1,
+    sub_chain_length = 5000,
+    epsilon = 1e-12
+  )
+
+  create_beast2_input_file(
+    get_fasta_filename(),
+    "create_mcmc_nested_sampling.xml",
+    mcmc = mcmc
+  )
+  testit::assert(file.exists("create_mcmc_nested_sampling"))
+}
 \references{
 * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
     Model selection and parameter inference in phylogenetics

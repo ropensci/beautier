@@ -1,3 +1,4 @@
+
 #' Converts an MCMC object to the run section's XML
 #' @inheritParams default_params_doc
 #' @return the XML as text
@@ -24,7 +25,7 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @examples
 #'   xml <- beautier:::mcmc_to_xml_run_default(create_mcmc())
 #'   testit::assert(xml ==
-#'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+#'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 #'   )
 #' @author Richel J.C. Bilderbeek
 #' @noRd
@@ -49,8 +50,11 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #'   xml <- beautier:::mcmc_to_xml_run_nested_sampling(
 #'     create_mcmc_nested_sampling()
 #'   )
-#'   testit::assert(xml !=
-#'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+#'   testit::assert(xml ==
+#'     paste0(
+#'       "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"1e+07\" ",
+#'       "particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">"
+#'     )
 #'   )
 #' @author Richel J.C. Bilderbeek
 #' @noRd
