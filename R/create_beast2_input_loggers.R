@@ -7,6 +7,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(ids = ids),
+  mcmc = create_mcmc(),
   mrca_priors = NA
 ) {
   testit::assert(length(ids) == length(site_models))
@@ -17,6 +18,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   testit::assert(are_clock_models(clock_models))
   testit::assert(are_tree_priors(tree_priors))
   testit::assert(are_mrca_priors(mrca_priors))
+  testit::assert(is_mcmc(mcmc))
 
   text <- NULL
   text <- c(
@@ -27,6 +29,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
         site_models = site_models,
         clock_models = clock_models,
         tree_priors = tree_priors,
+        mcmc = mcmc,
         mrca_priors = mrca_priors
       ),
       n_spaces = 4
@@ -76,6 +79,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   site_models = create_jc69_site_models(ids = ids),
   clock_models = create_strict_clock_models(ids = ids),
   tree_priors = create_yule_tree_priors(ids = ids),
+  mcmc = create_mcmc(),
   mrca_priors = NA
 ) {
   testit::assert(are_ids(ids))  # nolint internal function
@@ -83,6 +87,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(is_mcmc(mcmc))
 
   text <- NULL
   # 1 tracelog

@@ -15,3 +15,13 @@ test_that("use", {
   )
   expect_equal(created, expected)
 })
+
+test_that("Nested Sampling logger", {
+  skip("WIP")
+  created_default <- beautier:::create_beast2_input_tracelog(ids = 1)
+  created_ns <- beautier:::create_beast2_input_tracelog(
+    ids = 1,
+    mcmc = create_mcmc_nested_sampling()
+  )
+  expect_true(created_ns != created_default)
+})
