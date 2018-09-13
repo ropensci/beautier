@@ -55,19 +55,26 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text
 }
 
-
 #' Creates the tracelog section of the logger section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @examples
 #'   created <- beautier:::create_beast2_input_tracelog(ids = 1)
 #'   expected <- c(
-#'     "<logger id=\"tracelog\" fileName=\"1.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">",  # nolint
+#'     paste0(
+#'       "<logger id=\"tracelog\" fileName=\"1.log\" ",
+#'       "logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" ",
+#'       "sort=\"smart\">"
+#'     ),
 #'     "    <log idref=\"posterior\"/>",
 #'     "    <log idref=\"likelihood\"/>",
 #'     "    <log idref=\"prior\"/>",
 #'     "    <log idref=\"treeLikelihood.1\"/>",
-#'     "    <log id=\"TreeHeight.t:1\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:1\"/>", # nolint
+#'     paste0(
+#'       "    <log id=\"TreeHeight.t:1\" ",
+#'       "spec=\"beast.evolution.tree.TreeHeightLogger\" ",
+#'       "tree=\"@Tree.t:1\"/>"
+#'     ),
 #'     "    <log idref=\"YuleModel.t:1\"/>",
 #'     "    <log idref=\"birthRate.t:1\"/>",
 #'     "</logger>"
