@@ -23,9 +23,10 @@ is_mcmc <- function(
 #' @return TRUE if x is a valid Nested-Sampling MCMC, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @references
-#'   * [1] Maturana, P., Brewer, B. J., Klaere, S., & Bouckaert, R. (2017).
-#'     Model selection and parameter inference in phylogenetics
-#'     using Nested Sampling. arXiv preprint arXiv:1703.05471.
+#'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
+#'     Remco R Bouckaert; Model Selection and Parameter Inference in
+#'     Phylogenetics Using Nested Sampling, Systematic Biology, 2018,
+#'     syy050, https://doi.org/10.1093/sysbio/syy050
 #' @noRd
 is_mcmc_nested_sampling <- function(
   x
