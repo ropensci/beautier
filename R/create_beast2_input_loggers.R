@@ -120,9 +120,26 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   # Indent and surround the current text
   text <- indent(text, n_spaces = 4) # nolint internal function
 
-  text <- c(paste0("<logger id=\"tracelog\" fileName=\"",
-    filename, ".log\" logEvery=\"1000\" model=\"@posterior\" ",
-    "sanitiseHeaders=\"true\" sort=\"smart\">"), text)
+  log_every <- mcmc$store_every
+  if (log_every == -1) log_every <- 1000 # TODO: calc from mcmc$chain_length
+
+  top_line <- paste0(
+    "<logger ",
+    "id=\"tracelog\" "
+  )
+  if (is_mcmc_nested_sampling(mcmc)) {
+    top_line <- paste0(top_line, "spec=\"NSLogger\"")
+  }
+  top_line <- paste0(top_line,
+    "fileName=\"", filename, ".log\" ",
+    "logEvery=\"", log_every, "\" ",
+    "model=\"@posterior\" ",
+    "sanitiseHeaders=\"true\" ",
+    "sort=\"smart\"",
+    ">"
+  )
+
+  text <- c(top_line, text)
   c(text, "</logger>")
 }
 
