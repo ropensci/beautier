@@ -27,12 +27,18 @@ site_model_to_xml_subst_model <- function(
     text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
   } else if (is_tn93_site_model(site_model)) {
-    subst_model_line <- paste0("<substModel id=\"tn93.s:", id, "\" spec=\"TN93\"")
+    subst_model_line <- paste0(
+      "<substModel id=\"tn93.s:", id, "\" spec=\"TN93\""
+    )
     if (site_model$kappa_1_param$estimate == TRUE) {
-      subst_model_line <- paste0(subst_model_line, " kappa1=\"@kappa1.s:", id, "\" ")
+      subst_model_line <- paste0(
+        subst_model_line, " kappa1=\"@kappa1.s:", id, "\" "
+      )
     }
     if (site_model$kappa_2_param$estimate == TRUE) {
-      subst_model_line <- paste0(subst_model_line, "kappa2=\"@kappa2.s:", id, "\"")
+      subst_model_line <- paste0(
+        subst_model_line, "kappa2=\"@kappa2.s:", id, "\""
+      )
     }
     subst_model_line <- paste0(subst_model_line, ">")
     text <- c(text, subst_model_line)

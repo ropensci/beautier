@@ -7,12 +7,10 @@
 #' @noRd
 remove_empty_lines <- function(lines, trim = FALSE) {
   trimmed <- stringr::str_trim(lines)
-  if (trim == FALSE)
-  {
+  if (trim == FALSE) {
     lines[stringr::str_length(trimmed) > 0]
   }
-  else
-  {
+  else {
     trimmed[stringr::str_length(trimmed) > 0]
   }
 }
