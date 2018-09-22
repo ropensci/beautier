@@ -21,12 +21,16 @@ site_model_to_xml_operators <- function(
       "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
   } else if (is_tn93_site_model(site_model)) {
     testit::assert(is_id(id))
-    text <- c(text, paste0("<operator id=\"kappa1Scaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
-    text <- c(text, paste0("<operator id=\"kappa2Scaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    if (site_model$kappa_1_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"kappa1Scaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
+    if (site_model$kappa_2_param$estimate == TRUE) {
+      text <- c(text, paste0("<operator id=\"kappa2Scaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"))
+    }
   } else if (is_gtr_site_model(site_model)) {
     testit::assert(is_id(id))
     if (site_model$rate_ac_param$estimate == TRUE) {

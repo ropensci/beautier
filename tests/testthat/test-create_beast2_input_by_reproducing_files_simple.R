@@ -590,8 +590,8 @@ test_that("tn93_kappas_not_estimated.xml", {
     input_filenames = beautier::get_beautier_path("test_output_0.fas"),
     site_models = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
-      kappa_1_param = create_kappa_1_param(value = "2.0", estimated = FALSE),
-      kappa_2_param = create_kappa_2_param(value = "2.0", estimated = FALSE),
+      kappa_1_param = create_kappa_1_param(value = "2.0", estimate = FALSE),
+      kappa_2_param = create_kappa_2_param(value = "2.0", estimate = FALSE),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 1,
         m = create_m_param(id = 3, value = "1.0"),
@@ -611,8 +611,8 @@ test_that("tn93_kappas_not_estimated.xml", {
     "tn93_kappas_not_estimated.xml")
   )
   beautier:::compare_lines(
-    lines = remove_empty_lines(created, trim = TRUE),
-    expected = remove_empty_lines(expected, trim = TRUE),
+    lines = beautier:::remove_empty_lines(created, trim = TRUE),
+    expected = beautier:::remove_empty_lines(expected, trim = TRUE),
     created_lines_filename = "~/created.xml",
     expected_lines_filename = "~/expected.xml"
   )

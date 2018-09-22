@@ -27,9 +27,29 @@ site_model_to_xml_subst_model <- function(
     text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
   } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("<substModel ",
-      "id=\"tn93.s:", id, "\" spec=\"TN93\" kappa1=\"@kappa1.s:", id, "\" ",
-      "kappa2=\"@kappa2.s:", id, "\">"))
+    subst_model_line <- paste0("<substModel id=\"tn93.s:", id, "\" spec=\"TN93\"")
+    if (site_model$kappa_1_param$estimate == TRUE) {
+      subst_model_line <- paste0(subst_model_line, " kappa1=\"@kappa1.s:", id, "\" ")
+    }
+    if (site_model$kappa_2_param$estimate == TRUE) {
+      subst_model_line <- paste0(subst_model_line, "kappa2=\"@kappa2.s:", id, "\"")
+    }
+    subst_model_line <- paste0(subst_model_line, ">")
+    text <- c(text, subst_model_line)
+    if (site_model$kappa_1_param$estimate == FALSE) {
+      text <- c(text, paste0("<parameter id=\"kappa1.s:", id, "\" ",
+        "estimate=\"false\" ",
+        "lower=\"", site_model$kappa_1_param$lower, "\" ",
+        "name=\"kappa1\">", site_model$kappa_1_param$value, "</parameter>")
+      )
+    }
+    if (site_model$kappa_2_param$estimate == FALSE) {
+      text <- c(text, paste0("<parameter id=\"kappa2.s:", id, "\" ",
+        "estimate=\"false\" ",
+        "lower=\"", site_model$kappa_2_param$lower, "\" ",
+        "name=\"kappa2\">", site_model$kappa_2_param$value, "</parameter>")
+      )
+    }
   } else if (is_gtr_site_model(site_model)) {
     subst_model_xml <- paste0(
       "<substModel ", "id=\"gtr.s:", id, "\" spec=\"GTR\""

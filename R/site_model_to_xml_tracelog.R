@@ -18,8 +18,12 @@ site_model_to_xml_tracelog <- function(
   if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>"))
   } else if (is_tn93_site_model(site_model)) {
-    text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>"))
-    text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>"))
+    if (site_model$kappa_1_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>"))
+    }
+    if (site_model$kappa_2_param$estimate == TRUE) {
+      text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>"))
+    }
   } else if (is_gtr_site_model(site_model)) {
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>"))
