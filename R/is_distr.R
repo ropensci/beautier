@@ -197,3 +197,57 @@ is_normal_distr <- function(
   if (!"sigma" %in% names(x)) return(FALSE)
   TRUE
 }
+
+#' Determine if the object is a valid
+#' 1/x distribution,
+#' as created by \code{\link{create_one_div_x_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   1/x distribution
+#' @return TRUE if x is a valid 1/x distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_one_div_x_distr <- function(
+  x
+) {
+  "name" %in% names(x) && x$name == "one_div_x"
+}
+
+#' Determine if the object is a valid
+#' Poisson distribution
+#' as created by \code{\link{create_poisson_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   Poisson distribution
+#' @return TRUE if x is a valid Poisson distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_poisson_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "poisson") return(FALSE)
+  if (!"lambda" %in% names(x)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' uniform distribution
+#' as created by \code{\link{create_uniform_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   uniform distribution
+#' @return TRUE if x is a valid uniform distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_uniform_distr <- function(
+  x
+) {
+  "name" %in% names(x) && x$name == "uniform"
+}
