@@ -5,5 +5,5 @@
 #' @noRd
 remove_empty_lines <- function(lines) {
   trimmed <- stringr::str_trim(lines)
-  trimmed[stringr::str_length(trimmed) > 0]
+  lines[stringr::str_length(trimmed) > 0]
 }
