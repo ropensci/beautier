@@ -75,7 +75,13 @@ is_kappa_1_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  x$name == "kappa_1"
+  if (!"name" %in% names(x)) return(FALSE)
+  if (!"id" %in% names(x)) return(FALSE)
+  if (!"lower" %in% names(x)) return(FALSE)
+  if (!"value" %in% names(x)) return(FALSE)
+  if (!"estimate" %in% names(x)) return(FALSE)
+  if (x$name != "kappa_1") return(FALSE)
+  TRUE
 }
 
 #' Determine if the object is a valid kappa 2 parameter
@@ -94,7 +100,13 @@ is_kappa_2_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  x$name == "kappa_2"
+  if (!"name" %in% names(x)) return(FALSE)
+  if (!"id" %in% names(x)) return(FALSE)
+  if (!"lower" %in% names(x)) return(FALSE)
+  if (!"value" %in% names(x)) return(FALSE)
+  if (!"estimate" %in% names(x)) return(FALSE)
+  if (x$name != "kappa_2") return(FALSE)
+  TRUE
 }
 
 #' Determine if the object is a valid lambda parameter

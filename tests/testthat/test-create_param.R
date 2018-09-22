@@ -113,10 +113,10 @@ test_that("use, valid function arguments", {
     create_param_clock_rate(id = 1, estimate = TRUE, value = 0.5)
   )
   testthat::expect_silent(
-    create_param_kappa_1(id = 1, lower = 0.1, value = 0.5)
+    create_param_kappa_1(id = 1, lower = 0.1, value = 0.5, estimate = TRUE)
   )
   testthat::expect_silent(
-    create_param_kappa_2(id = 1, lower = 0.1, value = 0.5)
+    create_param_kappa_2(id = 1, lower = 0.1, value = 0.5, estimate = TRUE)
   )
   testthat::expect_silent(
     create_param_lambda(id = 1, value = 1.0)
