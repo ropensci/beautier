@@ -16,4 +16,10 @@ test_that("get_phylo_crown_age: abuse", {
     "phylogeny must be of class 'phylo'"
   )
 
+  expect_error(
+    beautier:::get_phylo_crown_age(
+     phylogeny = ape::read.tree(text = "(a:1,b:2):3;")
+    ),
+    "'phylogeny' must be ultrametric"
+  )
 })

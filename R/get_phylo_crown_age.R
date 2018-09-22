@@ -13,6 +13,10 @@ get_phylo_crown_age <- function(
   if (class(phylogeny) != "phylo" && class(phylogeny) != "multiPhylo") {
     stop("phylogeny must be of class 'phylo' or multiPhylo")
   }
+  if (!ape::is.ultrametric(phylogeny)) {
+    stop("'phylogeny' must be ultrametric")
+  }
+
   n_taxa <- length(phylogeny$tip.label)
   testit::assert(n_taxa > 0)
   crown_age <- ape::dist.nodes(phylogeny)[n_taxa + 1][1]
