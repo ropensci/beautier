@@ -1,4 +1,8 @@
 #' Create the \code{<beast ...>} XML
+#' @param beast2_version BEAST2 version
+#' @return the XML
+#' @author Richel J.C. Bilderbeek
+#' @noRd
 create_beast2_beast_xml <- function(beast2_version) {
   if (beast2_version == "2.5") {
     paste0(
