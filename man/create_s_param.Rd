@@ -11,12 +11,13 @@ create_s_param(id = NA, estimate = FALSE, value = 0, lower = 0,
 \arguments{
 \item{id}{the parameter's ID}
 
-\item{estimate}{TRUE if this parameter alpha be estimated by BEAST2,
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
 FALSE otherwise}
 
 \item{value}{value of the parameter}
 
-\item{lower}{lower value of the parameter}
+\item{lower}{lowest possible value of the parameter. If the parameter
+is estimated, \code{lower} must be less than \code{value}}
 
 \item{upper}{upper value of the parameter}
 }

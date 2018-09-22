@@ -22,4 +22,9 @@ test_that("use", {
     beautier:::remove_empty_lines(lines = c("  A", "B  ")),
     c("  A", "B  ")
   )
+
+  expect_equal(
+    beautier:::remove_empty_lines(lines = c("  A", "B  "), trim = TRUE),
+    c("A", "B")
+  )
 })

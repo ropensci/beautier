@@ -582,6 +582,42 @@ test_that("tn93_gcc_2_2_4.xml", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
+test_that("tn93_kappas_not_estimated.xml", {
+
+  skip("WIP")
+
+  created <- beautier::create_beast2_input(
+    input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+    site_models = create_tn93_site_model(
+      id = get_alignment_id(get_fasta_filename()),
+      kappa_1_param = create_kappa_1_param(value = "2.0", estimated = FALSE),
+      kappa_2_param = create_kappa_2_param(value = "2.0", estimated = FALSE),
+      kappa_1_prior_distr = create_log_normal_distr(
+        id = 1,
+        m = create_m_param(id = 3, value = "1.0"),
+        s = create_s_param(id = 4, value = "1.25", lower = NA, upper = NA)
+      ),
+      kappa_2_prior_distr = create_log_normal_distr(
+        id = 2,
+        m = create_m_param(id = 5, value = "1.0"),
+        s = create_s_param(id = 6, value = "1.25", lower = NA, upper = NA)
+      )
+    ),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1))
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "tn93_kappas_not_estimated.xml")
+  )
+  beautier:::compare_lines(
+    lines = remove_empty_lines(created, trim = TRUE),
+    expected = remove_empty_lines(expected, trim = TRUE),
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
 
 ################################################################################
 # Tree priors

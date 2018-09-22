@@ -1,8 +1,5 @@
 #' General function to create a parameter.
-#' @param name the parameters' name. Valid
-#'   names can be found in \code{get_param_names}
-#' @param id the parameter's ID
-#' @param ... specific parameter parameters
+#' @inheritParams default_parameters_doc
 #' @note Prefer using the
 #'   named functions
 #'   \code{\link{create_alpha_param}},
@@ -72,10 +69,7 @@ create_param <- function(
 }
 
 #' Create a parameter called alpha
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called alpha
 #' @note this parameter is used in a beta distribution
 #'   (as returned by \code{\link{create_beta_distr}})
@@ -120,10 +114,7 @@ create_alpha_param <- create_param_alpha <- function(
 }
 
 #' Create a parameter called beta
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called beta
 #' @note this parameter is used in a beta distribution
 #'   (as returned by \code{\link{create_beta_distr}})
@@ -169,10 +160,7 @@ create_beta_param <- create_param_beta <- function(
 
 #' Create a parameter called \code{clock_rate},
 #'   as needed by \code{\link{create_strict_clock_model}}
-#' @param id the alignment id
-#' @param estimate TRUE if this parameter is estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called rate
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -210,9 +198,7 @@ create_clock_rate_param <- create_param_clock_rate <- function(
 }
 
 #' Create a parameter called kappa 1
-#' @inheritParams create_param
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called kappa 1
 #' @author Richel J.C. Bilderbeek
 #' @aliases create_kappa_1_param create_param_kappa_1
@@ -220,20 +206,20 @@ create_clock_rate_param <- create_param_clock_rate <- function(
 create_kappa_1_param <- create_param_kappa_1 <- function(
   id = NA,
   lower = "0.0",
-  value = "2.0"
+  value = "2.0",
+  estimate = TRUE
 ) {
   beautier::create_param(
     name = "kappa_1",
     id = id,
     lower = lower,
-    value = value
+    value = value,
+    estimate = estimate
   )
 }
 
 #' Create a parameter called kappa 2
-#' @inheritParams create_param
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called kappa 2
 #' @author Richel J.C. Bilderbeek
 #' @aliases create_kappa_2_param create_param_kappa_2
@@ -241,19 +227,20 @@ create_kappa_1_param <- create_param_kappa_1 <- function(
 create_kappa_2_param <- create_param_kappa_2 <- function(
   id = NA,
   lower = "0.0",
-  value = "2.0"
+  value = "2.0",
+  estimate = TRUE
 ) {
   beautier::create_param(
     name = "kappa_2",
     id = id,
     lower = lower,
-    value = value
+    value = value,
+    estimate = estimate
   )
 }
 
 #' Create a parameter called lambda
-#' @inheritParams create_param
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called lambda
 #' @note this parameter is used in a Poisson distribution
 #'   (as returned by \code{\link{create_poisson_distr}})
@@ -292,10 +279,7 @@ create_lambda_param <- create_param_lambda <- function(
 }
 
 #' Create a parameter called m
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called m
 #' @note this parameter is used in a log-normal distribution
 #'   (as returned by \code{\link{create_log_normal_distr}})
@@ -336,10 +320,7 @@ create_m_param <- create_param_m <- function(
 }
 
 #' Create a parameter called mean
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called mean
 #' @note this parameter is used in an exponential distribution
 #'   (as returned by \code{\link{create_exp_distr}})
@@ -382,10 +363,7 @@ create_mean_param <- create_param_mean <- function(
 }
 
 #' Create a parameter called mu
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called mu
 #' @note this parameter is used in a Laplace distribution
 #'   (as returned by \code{\link{create_laplace_distr}})
@@ -426,11 +404,7 @@ create_mu_param <- create_param_mu <- function(
 }
 
 #' Create a parameter called 'rate AC'
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called 'rate AC'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -466,11 +440,7 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 }
 
 #' Create a parameter called 'rate AG'
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called 'rate AG'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -506,11 +476,7 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 }
 
 #' Create a parameter called 'rate AT'
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called 'rate AT'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -546,11 +512,7 @@ create_rate_at_param <- create_param_rate_at <- function(
 }
 
 #' Create a parameter called 'rate CG'
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called 'rate CG'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -586,11 +548,7 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 }
 
 #' Create a parameter called 'rate CT'
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called 'rate CT'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -626,11 +584,7 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 }
 
 #' Create a parameter called 'rate GT'
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter mu be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lowest possible value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called 'rate GT'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
@@ -666,12 +620,7 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 }
 
 #' Create a parameter called s
-#' @inheritParams create_param
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
-#' @param value value of the parameter
-#' @param lower lower value of the parameter
-#' @param upper upper value of the parameter
+#' @inheritParams default_parameters_doc
 #' @return a parameter called s
 #' @note this parameter is used in a log-normal distribution
 #'   (as returned by \code{\link{create_log_normal_distr}})
@@ -730,7 +679,7 @@ create_s_param <- create_param_s <- function(
 }
 
 #' Create a parameter called scale
-#' @inheritParams create_param
+#' @inheritParams default_parameters_doc
 #' @param estimate TRUE if this parameter scale be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter
@@ -774,7 +723,7 @@ create_scale_param <- create_param_scale <- function(
 }
 
 #' Create a parameter called sigma
-#' @inheritParams create_param
+#' @inheritParams default_parameters_doc
 #' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param value value of the parameter

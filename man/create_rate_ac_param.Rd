@@ -11,12 +11,13 @@ create_rate_ac_param(id = NA, estimate = TRUE, value = "1.0",
 \arguments{
 \item{id}{the parameter's ID}
 
-\item{estimate}{TRUE if this parameter mu be estimated by BEAST2,
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
 FALSE otherwise}
 
 \item{value}{value of the parameter}
 
-\item{lower}{lowest possible value of the parameter}
+\item{lower}{lowest possible value of the parameter. If the parameter
+is estimated, \code{lower} must be less than \code{value}}
 }
 \value{
 a parameter called 'rate AC'

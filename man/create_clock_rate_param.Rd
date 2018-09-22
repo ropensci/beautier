@@ -11,10 +11,10 @@ create_clock_rate_param(value = "1.0", estimate = FALSE, id = NA)
 \arguments{
 \item{value}{value of the parameter}
 
-\item{estimate}{TRUE if this parameter is estimated by BEAST2,
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
 FALSE otherwise}
 
-\item{id}{the alignment id}
+\item{id}{the parameter's ID}
 }
 \value{
 a parameter called rate

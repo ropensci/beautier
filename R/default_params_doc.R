@@ -1,5 +1,6 @@
-#' This function does nothing. It is intended to inherit is parameters'
-#' documentation.
+#' Documentation of general function arguments.
+#' This function does nothing.
+#' It is intended to inherit function argument documentation.
 #' @param alignment_id ID of the alignment,
 #'   as returned by \code{\link{get_alignment_id}}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
@@ -120,7 +121,8 @@ default_params_doc <- function(
   gtr_site_model,
   has_non_strict_clock_model,
   hky_site_model,
-  id, ids,
+  id,
+  ids,
   initial_phylogenies,
   input_filenames,
   is_first,
@@ -141,6 +143,34 @@ default_params_doc <- function(
   tree_prior, tree_priors,
   verbose,
   yule_tree_prior
+) {
+  # Nothing
+}
+
+#' Documentation of parameters (for example, \code{create_param}.
+#' This function does nothing. It is intended to inherit documentation from.
+#' @param estimate TRUE if this parameter is to be estimated by BEAST2,
+#'   FALSE otherwise
+#' @param id the parameter's ID
+#' @param lower lowest possible value of the parameter. If the parameter
+#'   is estimated, \code{lower} must be less than \code{value}
+#' @param name the parameters' name. Valid
+#'   names can be found in \code{get_param_names}
+#' @param upper upper value of the parameter
+#' @param value value of the parameter
+#' @param ... specific parameter parameters
+#' @author Richel J.C. Bilderbeek
+#' @note This is an internal function, so it should be marked with
+#'   \code{@noRd}. This is not done, as this will disallow all
+#'   functions to find the documentation parameters
+default_parameters_doc <- function(
+  estimate,
+  id,
+  lower,
+  name,
+  upper,
+  value,
+  ...
 ) {
   # Nothing
 }

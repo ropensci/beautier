@@ -10,7 +10,7 @@ create_mu_param(id = NA, estimate = FALSE, value = 0)
 \arguments{
 \item{id}{the parameter's ID}
 
-\item{estimate}{TRUE if this parameter mu be estimated by BEAST2,
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
 FALSE otherwise}
 
 \item{value}{value of the parameter}

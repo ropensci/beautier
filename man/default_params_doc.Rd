@@ -2,8 +2,9 @@
 % Please edit documentation in R/default_params_doc.R
 \name{default_params_doc}
 \alias{default_params_doc}
-\title{This function does nothing. It is intended to inherit is parameters'
-documentation.}
+\title{Documentation of general function arguments.
+This function does nothing.
+It is intended to inherit function argument documentation.}
 \usage{
 default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   ccp_tree_prior, cep_tree_prior, chain_length, clock_model, clock_models,
@@ -162,8 +163,9 @@ is potentially useful in debugging}
 as created by \code{\link{create_yule_tree_prior}}}
 }
 \description{
-This function does nothing. It is intended to inherit is parameters'
-documentation.
+Documentation of general function arguments.
+This function does nothing.
+It is intended to inherit function argument documentation.
 }
 \note{
 This is an internal function, so it should be marked with

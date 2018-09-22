@@ -5,14 +5,19 @@
 \alias{create_param_kappa_2}
 \title{Create a parameter called kappa 2}
 \usage{
-create_kappa_2_param(id = NA, lower = "0.0", value = "2.0")
+create_kappa_2_param(id = NA, lower = "0.0", value = "2.0",
+  estimate = TRUE)
 }
 \arguments{
 \item{id}{the parameter's ID}
 
-\item{lower}{lowest possible value of the parameter}
+\item{lower}{lowest possible value of the parameter. If the parameter
+is estimated, \code{lower} must be less than \code{value}}
 
 \item{value}{value of the parameter}
+
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
+FALSE otherwise}
 }
 \value{
 a parameter called kappa 2
