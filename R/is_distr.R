@@ -32,3 +32,168 @@ is_distr <- function(
   if (is_uniform_distr(x)) return(TRUE)
   FALSE
 }
+
+#' Determine if the object is a valid
+#' beta distribution,
+#' as created by \code{\link{create_beta_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   beta distribution,
+#' @return TRUE if x is a valid beta distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_beta_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "beta") return(FALSE)
+  if (!"alpha" %in% names(x)) return(FALSE)
+  if (!"beta" %in% names(x)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' exponential distribution
+#' as created by \code{\link{create_exp_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   exponential distribution
+#' @return TRUE if x is a valid exponential distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_exp_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "exponential") return(FALSE)
+  if (!"mean" %in% names(x)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' gamma distribution,
+#' as created by \code{\link{create_gamma_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   gamma distribution
+#' @return TRUE if x is a valid gamma distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_gamma_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "gamma") return(FALSE)
+  if (!"alpha" %in% names(x)) return(FALSE)
+  if (!"beta" %in% names(x)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' inverse-gamma distribution
+#' as created by \code{\link{create_inv_gamma_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   inverse-gamma distribution
+#' @return TRUE if x is a valid inverse-gamma distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_inv_gamma_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "inv_gamma") return(FALSE)
+  if (!"alpha" %in% names(x)) return(FALSE)
+  if (!"beta" %in% names(x)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' Laplace distribution,
+#' as created by \code{\link{create_laplace_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   Laplace distribution
+#' @return TRUE if x is a valid Laplace distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   laplace_distr <- create_laplace_distr()
+#'   testit::assert(beautier:::is_laplace_distr(laplace_distr))
+#' @noRd
+is_laplace_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "laplace") return(FALSE)
+  if (!"mu" %in% names(x)) return(FALSE)
+  if (!is_mu_param(x$mu)) return(FALSE)
+  if (!"scale" %in% names(x)) return(FALSE)
+  if (!is_scale_param(x$scale)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' log-normal distribution,
+#' as created by \code{\link{create_log_normal_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   log-normal distribution
+#' @return TRUE if x is a valid log-normal distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   log_normal_distr <- create_log_normal_distr()
+#'
+#'   input_fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
+#'   create_beast2_input_file(
+#'     input_filenames = input_fasta_filename,
+#'     "my_beast.xml",
+#'     tree_priors = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
+#'   )
+#'   testit::assert(file.exists("my_beast.xml"))
+#' @noRd
+is_log_normal_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "log_normal") return(FALSE)
+  if (!"m" %in% names(x)) return(FALSE)
+  if (!is_m_param(x$m)) return(FALSE)
+  if (!"s" %in% names(x)) return(FALSE)
+  if (!is_s_param(x$s)) return(FALSE)
+  TRUE
+}
+
+#' Determine if the object is a valid
+#' normal distribution
+#' as created by \code{\link{create_normal_distr}}
+#' @param x an object, to be determined if it is a valid
+#'   normal distribution
+#' @return TRUE if x is a valid normal distribution,
+#'   FALSE otherwise
+#' @seealso use \code{\link{is_distr}} to see if x is any
+#'   distribution
+#' @author Richel J.C. Bilderbeek
+#' @noRd
+is_normal_distr <- function(
+  x
+) {
+  if (!"name" %in% names(x)) return(FALSE)
+  if (x$name != "normal") return(FALSE)
+  if (!"mean" %in% names(x)) return(FALSE)
+  if (!"sigma" %in% names(x)) return(FALSE)
+  TRUE
+}
