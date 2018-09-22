@@ -8,10 +8,9 @@
 is_clock_model <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!is_clock_model_name(x$name)) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
-  TRUE
+  if (is_rln_clock_model(x)) return(TRUE)
+  if (is_strict_clock_model(x)) return(TRUE)
+  FALSE
 }
 
 #' Determine if the object is a valid relaxed log normal clock model
@@ -32,7 +31,8 @@ is_clock_model <- function(
 is_rln_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE)
+  if (!"name" %in% names(x)) return(FALSE)
+  if (!"id" %in% names(x)) return(FALSE)
   if (x$name != "relaxed_log_normal") return(FALSE)
   if (!"ucldstdev_distr" %in% names(x)) return(FALSE)
   if (!"mean_rate_prior_distr" %in% names(x)) return(FALSE)
@@ -61,7 +61,8 @@ is_rln_clock_model <- function(
 is_strict_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE)
+  if (!"name" %in% names(x)) return(FALSE)
+  if (!"id" %in% names(x)) return(FALSE)
   if (x$name != "strict") return(FALSE)
   if (!"clock_rate_param" %in% names(x)) return(FALSE)
   if (!is_param(x$clock_rate_param)) return(FALSE)
