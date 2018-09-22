@@ -16,13 +16,11 @@ create_beast2_input_data <- function(
       input_fasta_filename,
       capitalize_first_char_id = misc_options$capitalize_first_char_id
     )
-    if (i == 1) {
-      text <- c(text, "    <data")
-    } else {
-      text <- c(text, "<data")
-    }
-    text <- c(text, paste0("id=\"", id, "\""))
-    text <- c(text, "name=\"alignment\">")
+    text <- c(text, create_data_xml(
+      id = id,
+      is_first = i == 1,
+      beast2_version = misc_options$beast2_version)
+    )
     text <- c(
       text,
       create_beast2_input_data_sequences(

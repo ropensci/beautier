@@ -584,8 +584,6 @@ test_that("tn93_gcc_2_2_4.xml", {
 
 test_that("tn93_kappas_not_estimated.xml", {
 
-  skip("WIP")
-
   created <- beautier::create_beast2_input(
     input_filenames = beautier::get_beautier_path("test_output_0.fas"),
     site_models = create_tn93_site_model(
@@ -604,22 +602,17 @@ test_that("tn93_kappas_not_estimated.xml", {
       )
     ),
     tree_priors = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)),
+    misc_options = create_misc_options(beast2_version = "2.5")
   )
 
   expected <- readLines(beautier::get_beautier_path(
     "tn93_kappas_not_estimated.xml")
   )
-  beautier:::compare_lines(
-    lines = beautier:::remove_empty_lines(created, trim = TRUE),
-    expected = beautier:::remove_empty_lines(expected, trim = TRUE),
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
-  )
   testthat::expect_true(
     beautier:::are_equivalent_xml_lines(
-      lines_1 = beautier:::remove_empty_lines(created, trim = TRUE),
-      lines_2 = beautier:::remove_empty_lines(expected, trim = TRUE),
+      beautier:::remove_empty_lines(created, trim = TRUE),
+      beautier:::remove_empty_lines(expected, trim = TRUE),
       verbose = TRUE
     )
   )

@@ -7,7 +7,7 @@
   here, the created XML file will be valid.}
 \usage{
 create_misc_options(capitalize_first_char_id = FALSE,
-  nucleotides_uppercase = FALSE)
+  nucleotides_uppercase = FALSE, beast2_version = "2.4")
 }
 \arguments{
 \item{capitalize_first_char_id}{must the ID of alignment start with a
@@ -16,6 +16,8 @@ lowercase)}
 
 \item{nucleotides_uppercase}{must the nucleotides of the DNA sequence be
 in uppercase?}
+
+\item{beast2_version}{the BEAST2 version}
 }
 \value{
 a misc_options
@@ -29,7 +31,8 @@ Function to create a misc_options, containing miscellaneous options
   misc_options <- create_misc_options(nucleotides_uppercase = TRUE)
   xml <- create_beast2_input(
     get_fasta_filename(),
-    misc_options = misc_options
+    misc_options = misc_options,
+    beast2_version = "2.5"
   )
   testit::assert(is.character(xml))
   testit::assert(length(xml) > 1)

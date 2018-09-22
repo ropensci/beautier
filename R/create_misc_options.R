@@ -6,23 +6,27 @@
 #'   lowercase)
 #' @param nucleotides_uppercase must the nucleotides of the DNA sequence be
 #'   in uppercase?
+#' @param beast2_version the BEAST2 version
 #' @return a misc_options
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   misc_options <- create_misc_options(nucleotides_uppercase = TRUE)
 #'   xml <- create_beast2_input(
 #'     get_fasta_filename(),
-#'     misc_options = misc_options
+#'     misc_options = misc_options,
+#'     beast2_version = "2.5"
 #'   )
 #'   testit::assert(is.character(xml))
 #'   testit::assert(length(xml) > 1)
 #' @export
 create_misc_options <- function(
   capitalize_first_char_id = FALSE,
-  nucleotides_uppercase = FALSE
+  nucleotides_uppercase = FALSE,
+  beast2_version = "2.4"
 ) {
   list(
     capitalize_first_char_id = capitalize_first_char_id,
-    nucleotides_uppercase = nucleotides_uppercase
+    nucleotides_uppercase = nucleotides_uppercase,
+    beast2_version = beast2_version
   )
 }
