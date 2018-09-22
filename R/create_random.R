@@ -532,10 +532,16 @@ create_rnd_rln_clock_model <- function() {
 #' Create a random s parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_s_param <- function() {
+  lower <- stats::runif(n = 1, min = -10, max = 10)
+  value <- lower + stats::runif(n = 1, min = 0.1, max = 10)
+  upper <- value + stats::runif(n = 1, min = 0.1, max = 10)
+  testit::assert(lower < value)
+  testit::assert(value < upper)
   create_s_param(
     estimate = create_rnd_estimate(), # nolint internal function
-    value = stats::runif(n = 1, min = -10, max = 10),
-    lower = stats::runif(n = 1, min = -10, max = 10)
+    value = value,
+    lower = lower,
+    upper = upper
   )
 }
 

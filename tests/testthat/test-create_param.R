@@ -167,3 +167,26 @@ test_that("abuse", {
     "invalid parameter name, must be one these:"
   )
 })
+
+test_that("abuse, create_s_param", {
+  # https://github.com/richelbilderbeek/beautier/issues/46
+  # creating a TN93 model with the default settings
+  # creates two log-normal distributions
+  # as priors for kappa1 and kappa2,
+  # where the S parameter has lower=0, upper=0 and value=1.25.
+  # This works if S is not estimated,
+  # because BEAST2 only checks upper and lower
+  # when modifying the value (not when initialising it)
+  # but it will break if S is estimated.
+  expect_silent(
+    create_s_param(estimate = FALSE, lower = 0.0, upper = Inf, value = 1.25)
+  )
+  expect_error(
+    create_s_param(estimate = TRUE, lower = 2.0, upper = 1.0, value = 1.5),
+    "'lower' must be less than 'upper' when S is estimated"
+  )
+  expect_error(
+    create_s_param(estimate = TRUE, lower = 0.0, upper = 1.0, value = 1.25),
+    "'value' must be between 'lower' and 'upper' when S is estimated"
+  )
+})

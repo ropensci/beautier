@@ -703,8 +703,22 @@ create_s_param <- create_param_s <- function(
   estimate = FALSE,
   value = 0.0,
   lower = 0.0,
-  upper = 0.0
+  upper = Inf
 ) {
+  if (estimate == TRUE) {
+    if (lower >= upper) {
+      stop(
+       "'lower' must be less than 'upper' when S is estimated. ",
+        "lower: ", lower, ", upper: ", upper
+      )
+    }
+    if (value < lower || value > upper) {
+      stop(
+        "'value' must be between 'lower' and 'upper' when S is estimated. ",
+        "value: ", value, ", lower: ", lower, ", upper: ", upper
+      )
+    }
+  }
   beautier::create_param(
     name = "s",
     id = id,

@@ -6,7 +6,7 @@
 \title{Create a parameter called s}
 \usage{
 create_s_param(id = NA, estimate = FALSE, value = 0, lower = 0,
-  upper = 0)
+  upper = Inf)
 }
 \arguments{
 \item{id}{the parameter's ID}
