@@ -48,10 +48,14 @@ site_model_to_xml_state <- function(
       "lower=\"0.0\" name=\"stateNode\">",
       site_model$kappa, "</parameter>"))
   } else if (is_tn93_site_model(site_model)) {
+    if (site_model$kappa_1_param$estimate == TRUE) {
       site_model$kappa_1_param$id <- id
-      site_model$kappa_2_param$id <- id
       text <- c(text, parameter_to_xml(site_model$kappa_1_param)) # nolint internal function
+    }
+    if (site_model$kappa_2_param$estimate == TRUE) {
+      site_model$kappa_2_param$id <- id
       text <- c(text, parameter_to_xml(site_model$kappa_2_param)) # nolint internal function
+    }
   }
 
   if (!is_jc69_site_model(site_model)) {

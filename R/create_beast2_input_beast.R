@@ -38,16 +38,7 @@ create_beast2_input_beast <- function(
     capitalize_first_char_id = misc_options$capitalize_first_char_id
   )
 
-  text <- paste0(
-    "<beast beautitemplate='Standard' beautistatus='' ",
-    "namespace=\"beast.core:beast.evolution.alignment:",
-    "beast.evolution.tree.coalescent:beast.core.util:",
-    "beast.evolution.nuc:beast.evolution.operators:",
-    "beast.evolution.sitemodel:",
-    "beast.evolution.substitutionmodel:",
-    "beast.evolution.likelihood\" ",
-    "required=\"\" version=\"2.4\">"
-  )
+  text <- create_beast2_beautitemplate_xml()
 
   text <- c(text, "")
   text <- c(text, "")

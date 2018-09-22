@@ -616,7 +616,13 @@ test_that("tn93_kappas_not_estimated.xml", {
     created_lines_filename = "~/created.xml",
     expected_lines_filename = "~/expected.xml"
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(
+    beautier:::are_equivalent_xml_lines(
+      lines_1 = beautier:::remove_empty_lines(created, trim = TRUE),
+      lines_2 = beautier:::remove_empty_lines(expected, trim = TRUE),
+      verbose = TRUE
+    )
+  )
 })
 
 ################################################################################
