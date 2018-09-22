@@ -38,7 +38,7 @@ create_beast2_input_beast <- function(
     capitalize_first_char_id = misc_options$capitalize_first_char_id
   )
 
-  text <- create_beast2_beautitemplate_xml()
+  text <- create_beast2_beast_xml()
 
   text <- c(text, "")
   text <- c(text, "")
