@@ -491,7 +491,11 @@ parameter_to_xml_s <- function(
   }
   text <- paste0(text, " name=\"S\"")
   if (!is.na(upper)) {
-    text <- paste0(text, " upper=\"", upper, "\"")
+    upper_txt <- upper
+    if (is.infinite(upper)) {
+      upper_txt <- "Infinity"
+    }
+    text <- paste0(text, " upper=\"", upper_txt, "\"")
   }
   text <- paste0(text, ">", value, "</parameter>")
   text
