@@ -681,8 +681,6 @@ create_s_param <- create_param_s <- function(
 
 #' Create a parameter called scale
 #' @inheritParams default_parameters_doc
-#' @param estimate TRUE if this parameter scale be estimated by BEAST2,
-#'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called scale
 #' @note this parameter is used in a Laplace distribution
@@ -724,8 +722,6 @@ create_scale_param <- create_param_scale <- function(
 
 #' Create a parameter called sigma
 #' @inheritParams default_parameters_doc
-#' @param estimate TRUE if this parameter alpha be estimated by BEAST2,
-#'   FALSE otherwise
 #' @param value value of the parameter
 #' @return a parameter called sigma
 #' @note this parameter is used in a normal distribution
