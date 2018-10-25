@@ -513,18 +513,13 @@ parameter_to_xml_scale <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"scale\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"scale\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a sigma parameter to XML
@@ -539,16 +534,11 @@ parameter_to_xml_sigma <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"sigma\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"sigma\">", parameter$value,
+    "</parameter>"
   )
-  text
 }

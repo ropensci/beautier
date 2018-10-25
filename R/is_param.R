@@ -11,6 +11,7 @@ is_param <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (!x$name %in% get_param_names()) return(FALSE) # nolint internal function
   if (!"id" %in% names(x)) return(FALSE)
+  if (!"value" %in% names(x)) return(FALSE)
   TRUE
 }
 
