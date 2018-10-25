@@ -27,6 +27,9 @@ create_beast2_input <- function(
   misc_options = create_misc_options(),
   posterior_crown_age = NA
 ) {
+  # 2 site_models
+  check_site_models(site_models)
+
   # Convert possible-non-list input to lists and multiPhylo
   if (is_site_model(site_models)) {
     site_models <- list(site_models)
@@ -53,13 +56,7 @@ create_beast2_input <- function(
   }
 
   # 2 site_models
-  if (!are_site_models(site_models)) {
-    stop(
-      "'site_models' must be a valid site model, ",
-      "or a list of valid site models, ",
-      "as returned by 'create_site_model'"
-    )
-  }
+  # Already checked
 
   # 3 clock_models
   if (!are_clock_models(clock_models)) {
