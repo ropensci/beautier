@@ -167,7 +167,7 @@ create_beta_param <- create_param_beta <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   clock_rate_param <- create_clock_rate_param(
-#'     id = "anthus_aco", estimate = FALSE, value = 1.0
+#'     id = "anthus_aco", value = 1.0
 #'   )
 #'
 #'   # Use the parameter in a clock model
@@ -186,13 +186,12 @@ create_beta_param <- create_param_beta <- function(
 #' @export create_clock_rate_param create_param_clock_rate
 create_clock_rate_param <- create_param_clock_rate <- function(
   value = "1.0",
-  estimate = FALSE,
   id = NA
 ) {
   beautier::create_param(
     name = "clock_rate",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }
