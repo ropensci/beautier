@@ -283,7 +283,7 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
   id = NA,
-  mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
+  mu = create_mu_param(id = NA, value = 0.0),
   scale = create_scale_param(id = NA, value = 1.0)
 ) {
   if (!is_mu_param(mu)) {

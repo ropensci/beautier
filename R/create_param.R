@@ -368,7 +368,8 @@ create_mean_param <- create_param_mean <- function(
 #' @inheritParams default_parameters_doc
 #' @return a parameter called mu
 #' @note this parameter is used in a Laplace distribution
-#'   (as returned by \code{\link{create_laplace_distr}})
+#'   (as returned by \code{\link{create_laplace_distr}}).
+#'   It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -394,13 +395,12 @@ create_mean_param <- create_param_mean <- function(
 #' @export create_mu_param create_param_mu
 create_mu_param <- create_param_mu <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0
 ) {
   beautier::create_param(
     name = "mu",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }

@@ -379,7 +379,6 @@ create_rnd_two_mrca_priors <- function(fasta_filename) {
 #' @author Richel J.C. Bilderbeek
 create_rnd_mu_param <- function() {
   create_mu_param(
-    estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }

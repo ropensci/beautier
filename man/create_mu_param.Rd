@@ -5,13 +5,10 @@
 \alias{create_param_mu}
 \title{Create a parameter called mu}
 \usage{
-create_mu_param(id = NA, estimate = FALSE, value = 0)
+create_mu_param(id = NA, value = 0)
 }
 \arguments{
 \item{id}{the parameter's ID}
-
-\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
-FALSE otherwise}
 
 \item{value}{value of the parameter}
 }
@@ -23,7 +20,8 @@ Create a parameter called mu
 }
 \note{
 this parameter is used in a Laplace distribution
-  (as returned by \code{\link{create_laplace_distr}})
+  (as returned by \code{\link{create_laplace_distr}}).
+  It cannot be estimated (as a hyper parameter) yet.
 }
 \examples{
   # Create the parameter
