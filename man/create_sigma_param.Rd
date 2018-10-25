@@ -5,15 +5,15 @@
 \alias{create_param_sigma}
 \title{Create a parameter called sigma}
 \usage{
-create_sigma_param(id = NA, estimate = FALSE, value = 1)
+create_sigma_param(id = NA, value = 1)
 }
 \arguments{
 \item{id}{the parameter's ID}
 
+\item{value}{value of the parameter}
+
 \item{estimate}{TRUE if this parameter alpha be estimated by BEAST2,
 FALSE otherwise}
-
-\item{value}{value of the parameter}
 }
 \value{
 a parameter called sigma

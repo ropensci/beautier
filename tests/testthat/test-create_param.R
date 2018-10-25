@@ -99,7 +99,7 @@ test_that("use, valid function arguments", {
     create_scale_param(id = 1, estimate = TRUE, value = 0.5)
   )
   testthat::expect_silent(
-    create_sigma_param(id = 1, estimate = TRUE, value = 0.5)
+    create_sigma_param(id = 1, value = 0.5)
   )
 
   # Searchable name
@@ -155,7 +155,7 @@ test_that("use, valid function arguments", {
     create_param_scale(id = 1, estimate = TRUE, value = 0.5)
   )
   testthat::expect_silent(
-    create_param_sigma(id = 1, estimate = TRUE, value = 0.5)
+    create_param_sigma(id = 1, value = 0.5)
   )
 
 })

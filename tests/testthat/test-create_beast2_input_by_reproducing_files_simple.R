@@ -844,8 +844,8 @@ test_that("birth_rate_normal_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         id = 0,
-        mean = create_mean_param(id = 1, estimate = FALSE, value = "0.0"),
-        sigma = create_sigma_param(id = 2, estimate = FALSE, value = "1.0")
+        mean = create_mean_param(id = 1, value = "0.0"),
+        sigma = create_sigma_param(id = 2, value = "1.0")
       )
     )
   )

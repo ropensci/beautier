@@ -562,7 +562,6 @@ create_rnd_sigma_param <- function() {
   while (is_one_na(sigma_param)) {
     tryCatch(
       sigma_param <- create_sigma_param(
-        estimate = create_rnd_estimate(), # nolint internal function
         value = stats::runif(n = 1, min = -10, max = 10)
       ),
       error = function(error) {

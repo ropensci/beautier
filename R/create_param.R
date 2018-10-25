@@ -757,7 +757,6 @@ create_scale_param <- create_param_scale <- function(
 #' @export create_sigma_param create_param_sigma
 create_sigma_param <- create_param_sigma <- function(
   id = NA,
-  estimate = FALSE,
   value = 1.0
 ) {
   if (value <= 0.0) {
@@ -766,7 +765,7 @@ create_sigma_param <- create_param_sigma <- function(
   beautier::create_param(
     name = "sigma",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }
