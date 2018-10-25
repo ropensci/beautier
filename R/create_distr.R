@@ -189,7 +189,7 @@ create_exp_distr <- create_distr_exp <- function(
 create_gamma_distr <- create_distr_gamma <- function(
   id = NA,
   alpha = create_alpha_param(id = NA, value = "0.5396"),
-  beta = create_beta_param(id = NA, estimate = FALSE, value = "0.3819")
+  beta = create_beta_param(id = NA, value = "0.3819")
 ) {
   if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",

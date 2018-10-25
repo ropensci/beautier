@@ -44,7 +44,6 @@ create_rnd_beta_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_beta_param <- function() {
   create_beta_param(
-    estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }

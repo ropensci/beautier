@@ -6,8 +6,7 @@
 \title{Create a gamma distribution}
 \usage{
 create_gamma_distr(id = NA, alpha = create_alpha_param(id = NA, value =
-  "0.5396"), beta = create_beta_param(id = NA, estimate = FALSE, value =
-  "0.3819"))
+  "0.5396"), beta = create_beta_param(id = NA, value = "0.3819"))
 }
 \arguments{
 \item{id}{the distribution's ID}
