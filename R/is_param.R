@@ -26,7 +26,7 @@ is_alpha_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  "name" %in% names(x) && x$name == "alpha"
+  x$name == "alpha"
 }
 
 #' Determine if the object is a valid
@@ -41,7 +41,7 @@ is_beta_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  "name" %in% names(x) && x$name == "beta"
+  x$name == "beta"
 }
 
 #' Determine if the object is a valid
@@ -56,7 +56,7 @@ is_clock_rate_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  "name" %in% names(x) && x$name == "clock_rate"
+  x$name == "clock_rate"
 }
 
 #' Determine if the object is a valid kappa 1 parameter
@@ -75,12 +75,11 @@ is_kappa_1_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
+  if (x$name != "kappa_1") return(FALSE)
+
   if (!"lower" %in% names(x)) return(FALSE)
   if (!"value" %in% names(x)) return(FALSE)
   if (!"estimate" %in% names(x)) return(FALSE)
-  if (x$name != "kappa_1") return(FALSE)
   TRUE
 }
 
@@ -100,12 +99,11 @@ is_kappa_2_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
+  if (x$name != "kappa_2") return(FALSE)
+
   if (!"lower" %in% names(x)) return(FALSE)
   if (!"value" %in% names(x)) return(FALSE)
   if (!"estimate" %in% names(x)) return(FALSE)
-  if (x$name != "kappa_2") return(FALSE)
   TRUE
 }
 
@@ -139,7 +137,7 @@ is_m_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "m")
+  x$name == "m"
 }
 
 #' Determine if the object is a valid mean parameter
@@ -153,7 +151,7 @@ is_mean_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "mean")
+  x$name == "mean"
 }
 
 #' Determine if the object is a valid
@@ -300,7 +298,7 @@ is_s_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "s")
+  x$name == "s"
 }
 
 #' Determine if the object is a valid
@@ -315,7 +313,7 @@ is_scale_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "scale")
+  x$name == "scale"
 }
 
 #' Determine if the object is a valid
@@ -330,5 +328,5 @@ is_sigma_param <- function(
   x
 ) {
   if (!is_param(x)) return(FALSE)
-  return("name" %in% names(x) && x$name == "sigma")
+  x$name == "sigma"
 }
