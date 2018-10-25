@@ -74,6 +74,7 @@ parameter_to_xml_alpha <- function(
   testit::assert(is_alpha_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -95,6 +96,7 @@ parameter_to_xml_beta <- function(
   testit::assert(is_beta_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -116,6 +118,7 @@ parameter_to_xml_clock_rate <- function(
   testit::assert(is_clock_rate_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -193,6 +196,7 @@ parameter_to_xml_m <- function(
   testit::assert(is_m_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -214,6 +218,7 @@ parameter_to_xml_mean <- function(
   testit::assert(is_mean_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -235,6 +240,7 @@ parameter_to_xml_mu <- function(
   testit::assert(is_mu_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -436,6 +442,7 @@ parameter_to_xml_s <- function(
   testit::assert(is_s_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   lower <- parameter$lower
@@ -471,6 +478,7 @@ parameter_to_xml_scale <- function(
   testit::assert(is_scale_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -492,6 +500,7 @@ parameter_to_xml_sigma <- function(
   testit::assert(is_sigma_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
+  testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
