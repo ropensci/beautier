@@ -975,7 +975,6 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
         id = 0,
         alpha = create_alpha_param(
           id = 12,
-          estimate = FALSE,
           value = "2.0"
         ),
         beta = create_beta_param(

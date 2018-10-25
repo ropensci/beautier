@@ -5,13 +5,10 @@
 \alias{create_param_alpha}
 \title{Create a parameter called alpha}
 \usage{
-create_alpha_param(id = NA, estimate = FALSE, value = 0)
+create_alpha_param(id = NA, value = 0)
 }
 \arguments{
 \item{id}{the parameter's ID}
-
-\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
-FALSE otherwise}
 
 \item{value}{value of the parameter}
 }

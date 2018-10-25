@@ -104,13 +104,12 @@ create_param <- function(
 #' @export create_alpha_param create_param_alpha
 create_alpha_param <- create_param_alpha <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0
 ) {
   beautier::create_param(
     name = "alpha",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }
@@ -655,8 +654,9 @@ create_s_param <- create_param_s <- function(
   lower = 0.0,
   upper = Inf
 ) {
-  # No illusion of hyper parameters
+  # No illusion of hyper parameters, #45
   estimate <- FALSE
+
   if (estimate == TRUE) {
     if (lower >= upper) {
       stop(
