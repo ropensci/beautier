@@ -1,5 +1,7 @@
 #' Converts an MRCA prior to the \code{branchRateModel} section of the
-#' XML as text
+#' XML as text.
+#' This function will be called if and only if there are MRCA priors
+#' and only supports strict clocks at the moment.
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @examples

@@ -1,5 +1,6 @@
 #' Converts a clock model to the \code{branchRateModel} section of the
-#' XML as text
+#' XML as text.
+#' This function will be called only if there are no MRCA priors.
 #' @inheritParams default_params_doc
 #' @param is_non_first_shared is this clock model not the first of
 #'   multiple shared ones?
