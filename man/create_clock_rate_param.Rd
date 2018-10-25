@@ -20,6 +20,9 @@ a parameter called rate
 Create a parameter called \code{clock_rate},
   as needed by \code{\link{create_strict_clock_model}}
 }
+\note{
+It cannot be estimated (as a hyper parameter) yet.
+}
 \examples{
   clock_rate_param <- create_clock_rate_param(
     id = "anthus_aco", value = 1.0

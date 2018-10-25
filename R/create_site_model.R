@@ -278,11 +278,11 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
   kappa_1_param = create_kappa_1_param(),
   kappa_2_param = create_kappa_2_param(),
   kappa_1_prior_distr = create_log_normal_distr(
-    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
+    m = create_m_param(id = NA, value = "1.0"),
     s = create_s_param(id = NA, value = "1.25")
   ),
   kappa_2_prior_distr = create_log_normal_distr(
-    m = create_m_param(id = NA, estimate = FALSE, value = "1.0"),
+    m = create_m_param(id = NA, value = "1.0"),
     s = create_s_param(id = NA, value = "1.25")
   ),
   freq_equilibrium = "estimated"

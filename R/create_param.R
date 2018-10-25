@@ -78,7 +78,8 @@ create_param <- function(
 #' and gamma distribution
 #'   (as returned by \code{\link{create_gamma_distr}})
 #' and inverse-gamma distribution
-#'   (as returned by \code{\link{create_inv_gamma_distr}})
+#'   (as returned by \code{\link{create_inv_gamma_distr}}).
+#' It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -122,7 +123,8 @@ create_alpha_param <- create_param_alpha <- function(
 #' and gamma distribution
 #'   (as returned by \code{\link{create_gamma_distr}})
 #' and inverse-gamma distribution
-#'   (as returned by \code{\link{create_inv_gamma_distr}})
+#'   (as returned by \code{\link{create_inv_gamma_distr}}).
+#' It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -162,6 +164,7 @@ create_beta_param <- create_param_beta <- function(
 #'   as needed by \code{\link{create_strict_clock_model}}
 #' @inheritParams default_parameters_doc
 #' @return a parameter called rate
+#' @note It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -282,6 +285,7 @@ create_lambda_param <- create_param_lambda <- function(
 #' @return a parameter called m
 #' @note this parameter is used in a log-normal distribution
 #'   (as returned by \code{\link{create_log_normal_distr}})
+#'   It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -307,13 +311,12 @@ create_lambda_param <- create_param_lambda <- function(
 #' @export create_m_param create_param_m
 create_m_param <- create_param_m <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0
 ) {
   beautier::create_param(
     name = "m",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }

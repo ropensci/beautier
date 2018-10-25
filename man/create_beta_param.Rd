@@ -24,7 +24,8 @@ this parameter is used in a beta distribution
 and gamma distribution
   (as returned by \code{\link{create_gamma_distr}})
 and inverse-gamma distribution
-  (as returned by \code{\link{create_inv_gamma_distr}})
+  (as returned by \code{\link{create_inv_gamma_distr}}).
+It cannot be estimated (as a hyper parameter) yet.
 }
 \examples{
   # Create the parameter

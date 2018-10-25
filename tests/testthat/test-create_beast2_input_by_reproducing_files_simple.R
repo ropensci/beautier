@@ -877,7 +877,7 @@ test_that("birth_rate_log_normal_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_log_normal_distr(
         id = 0,
-        m = create_m_param(id = 3, estimate = FALSE, value = "1.0"),
+        m = create_m_param(id = 3, value = "1.0"),
         s = create_s_param(
           id = 4,
           value = "1.25",

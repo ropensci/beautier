@@ -314,7 +314,6 @@ create_rnd_log_normal_distr <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_m_param <- function() {
   create_m_param(
-    estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
