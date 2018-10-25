@@ -496,7 +496,6 @@ create_rnd_rate_cg_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_ct_param <- function() {
   create_rate_ct_param(
-    estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
   )

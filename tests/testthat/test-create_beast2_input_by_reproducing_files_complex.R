@@ -370,7 +370,7 @@ test_that("aco_nd2_nd3_nd4_complex_2_4.xml", {
         rate_ag_param = create_rate_ag_param(value = "1.2"),
         rate_at_param = create_rate_at_param(value = "1.3"),
         rate_cg_param = create_rate_cg_param(value = "1.4"),
-        rate_ct_param = create_rate_ct_param(value = "1.5", estimate = FALSE),
+        rate_ct_param = create_rate_ct_param(value = "1.5"),
         rate_gt_param = create_rate_gt_param(value = "1.6"),
         gamma_site_model = create_gamma_site_model(
           gamma_cat_count = 1,

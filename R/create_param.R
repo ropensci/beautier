@@ -557,7 +557,7 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
-#'   rate_ct_param <- create_rate_ct_param(value = 1, estimate = FALSE)
+#'   rate_ct_param <- create_rate_ct_param(value = 1)
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
@@ -572,14 +572,13 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #' @export create_rate_ct_param create_param_rate_ct
 create_rate_ct_param <- create_param_rate_ct <- function(
   id = NA,
-  estimate = TRUE,
   value = "1.0",
   lower = "0.0"
 ) {
   beautier::create_param(
     name = "rate_ct",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value,
     lower = lower
   )

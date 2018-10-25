@@ -254,7 +254,7 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
       rate_ag_param = create_rate_ag_param(value = "1.0", estimate = FALSE),
       rate_at_param = create_rate_at_param(value = "1.0", estimate = FALSE),
       rate_cg_param = create_rate_cg_param(value = "1.0", estimate = FALSE),
-      rate_ct_param = create_rate_ct_param(value = "1.0", estimate = FALSE),
+      rate_ct_param = create_rate_ct_param(value = "1.0"),
       rate_gt_param = create_rate_gt_param(value = "1.0", estimate = FALSE)
     ),
     tree_priors = create_yule_tree_prior(

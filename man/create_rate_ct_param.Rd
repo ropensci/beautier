@@ -5,14 +5,10 @@
 \alias{create_param_rate_ct}
 \title{Create a parameter called 'rate CT'}
 \usage{
-create_rate_ct_param(id = NA, estimate = TRUE, value = "1.0",
-  lower = "0.0")
+create_rate_ct_param(id = NA, value = "1.0", lower = "0.0")
 }
 \arguments{
 \item{id}{the parameter's ID}
-
-\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
-FALSE otherwise}
 
 \item{value}{value of the parameter}
 
@@ -27,7 +23,7 @@ Create a parameter called 'rate CT'
 }
 \examples{
   # Create parameter
-  rate_ct_param <- create_rate_ct_param(value = 1, estimate = FALSE)
+  rate_ct_param <- create_rate_ct_param(value = 1)
 
   # Use the parameter to create a BEAST2 input file
   create_beast2_input_file(
