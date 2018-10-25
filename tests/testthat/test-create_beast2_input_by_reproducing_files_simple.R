@@ -880,7 +880,6 @@ test_that("birth_rate_log_normal_2_4.xml", {
         m = create_m_param(id = 3, estimate = FALSE, value = "1.0"),
         s = create_s_param(
           id = 4,
-          estimate = FALSE,
           value = "1.25",
           lower = "0.0",
           upper = "5.0"

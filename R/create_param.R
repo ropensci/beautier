@@ -651,11 +651,12 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #' @export create_s_param create_param_s
 create_s_param <- create_param_s <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0,
   lower = 0.0,
   upper = Inf
 ) {
+  # No illusion of hyper parameters
+  estimate <- FALSE
   if (estimate == TRUE) {
     if (lower >= upper) {
       stop(

@@ -539,7 +539,6 @@ create_rnd_s_param <- function() {
   testit::assert(lower < value)
   testit::assert(value < upper)
   create_s_param(
-    estimate = create_rnd_estimate(), # nolint internal function
     value = value,
     lower = lower,
     upper = upper

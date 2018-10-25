@@ -5,14 +5,10 @@
 \alias{create_param_s}
 \title{Create a parameter called s}
 \usage{
-create_s_param(id = NA, estimate = FALSE, value = 0, lower = 0,
-  upper = Inf)
+create_s_param(id = NA, value = 0, lower = 0, upper = Inf)
 }
 \arguments{
 \item{id}{the parameter's ID}
-
-\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
-FALSE otherwise}
 
 \item{value}{value of the parameter}
 

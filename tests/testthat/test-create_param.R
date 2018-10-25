@@ -178,15 +178,18 @@ test_that("abuse, create_s_param", {
   # because BEAST2 only checks upper and lower
   # when modifying the value (not when initialising it)
   # but it will break if S is estimated.
-  expect_silent(
-    create_s_param(estimate = FALSE, lower = 0.0, upper = Inf, value = 1.25)
-  )
-  expect_error(
-    create_s_param(estimate = TRUE, lower = 2.0, upper = 1.0, value = 1.5),
-    "'lower' must be less than 'upper' when S is estimated"
-  )
-  expect_error(
-    create_s_param(estimate = TRUE, lower = 0.0, upper = 1.0, value = 1.25),
-    "'value' must be between 'lower' and 'upper' when S is estimated"
-  )
+  if (1 == 2) {
+    # S param does not facilitate a hyper parameter yet
+    expect_silent(
+      create_s_param(estimate = FALSE, lower = 0.0, upper = Inf, value = 1.25)
+    )
+    expect_error(
+      create_s_param(estimate = TRUE, lower = 2.0, upper = 1.0, value = 1.5),
+      "'lower' must be less than 'upper' when S is estimated"
+    )
+    expect_error(
+      create_s_param(estimate = TRUE, lower = 0.0, upper = 1.0, value = 1.25),
+      "'value' must be between 'lower' and 'upper' when S is estimated"
+    )
+  }
 })
