@@ -208,7 +208,9 @@ init_hky_site_model <- function(
 
   # Initialize gamma site model, if any
   if (!is_one_na(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
-    if (!is_init_distr(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+    if (!is_init_distr(
+      hky_site_model$gamma_site_model$gamma_shape_prior_distr
+    )) {
       hky_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
         hky_site_model$gamma_site_model$gamma_shape_prior_distr,
         distr_id = distr_id,
