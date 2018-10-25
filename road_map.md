@@ -6,6 +6,7 @@ Version | Goal
 ?| allow shared site model, clock model and tree prior (for two alignments) 
 ?| support three alignments
 ?| allow shared site model, clock model and tree prior (for three alignments) 
+?| allow tip dating
 
 There are some minor things that can be added, see 'How can I indicate a feature that I miss?'
 to request so.
