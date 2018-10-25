@@ -326,8 +326,9 @@ create_m_param <- create_param_m <- function(
 #' @return a parameter called mean
 #' @note this parameter is used in an exponential distribution
 #'   (as returned by \code{\link{create_exp_distr}})
-#' and normal distribution
-#'   (as returned by \code{\link{create_normal_distr}})
+#'   and normal distribution
+#'   (as returned by \code{\link{create_normal_distr}}).
+#'   It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
 #' @author Richel J.C. Bilderbeek
@@ -353,13 +354,12 @@ create_m_param <- create_param_m <- function(
 #' @export create_mean_param create_param_mean
 create_mean_param <- create_param_mean <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0
 ) {
   beautier::create_param(
     name = "mean",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }

@@ -900,7 +900,7 @@ test_that("birth_rate_exp_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_exp_distr(
         id = 1,
-        mean = create_mean_param(id = 5, estimate = FALSE, value = "1.0")
+        mean = create_mean_param(id = 5, value = "1.0")
       )
     )
   )
