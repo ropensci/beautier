@@ -1,6 +1,6 @@
 #' Get the number of distributions in a gamma site model
 #' @inheritParams default_params_doc
-#' @return the number of distributrion a gamma site model has
+#' @return the number of distributions a gamma site model has
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model()
 #'   n_distrs <- get_gamma_site_model_n_distrs(

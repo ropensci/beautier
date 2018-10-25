@@ -11,7 +11,7 @@ get_gamma_site_model_n_distrs(gamma_site_model)
 as returned by \code{\link{create_gamma_site_model}}}
 }
 \value{
-the number of distributrion a gamma site model has
+the number of distributions a gamma site model has
 }
 \description{
 Get the number of distributions in a gamma site model
