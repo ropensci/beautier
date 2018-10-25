@@ -200,6 +200,12 @@ create_gamma_distr <- create_distr_gamma <- function(
   alpha = create_alpha_param(id = NA, value = "0.5396"),
   beta = create_beta_param(id = NA, value = "0.3819")
 ) {
+  if (length(alpha) == 1 && is.numeric(alpha)) {
+    alpha <- create_alpha_param(value = alpha)
+  }
+  if (length(beta) == 1 && is.numeric(beta)) {
+    beta <- create_beta_param(value = beta)
+  }
   if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'")
@@ -251,6 +257,12 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   alpha = create_alpha_param(),
   beta = create_beta_param()
 ) {
+  if (length(alpha) == 1 && is.numeric(alpha)) {
+    alpha <- create_alpha_param(value = alpha)
+  }
+  if (length(beta) == 1 && is.numeric(beta)) {
+    beta <- create_beta_param(value = beta)
+  }
   if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'")
@@ -295,6 +307,13 @@ create_laplace_distr <- create_distr_laplace <- function(
   mu = create_mu_param(id = NA, value = 0.0),
   scale = create_scale_param(id = NA, value = 1.0)
 ) {
+  if (length(mu) == 1 && is.numeric(mu)) {
+    mu <- create_mu_param(value = mu)
+  }
+  if (length(scale) == 1 && is.numeric(scale)) {
+    scale <- create_scale_param(value = scale)
+  }
+
   if (!is_mu_param(mu)) {
     stop("'mu' must be a mu parameter, ",
       "as returned by 'create_mu_param'")

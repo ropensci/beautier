@@ -119,7 +119,7 @@ test_that("use, parameters", {
 })
 
 
-test_that("use, narrative interface, Issue #71", {
+test_that("use, simpler interface, Issue #71", {
 
   testthat::expect_silent(
     create_beta_distr(
@@ -134,20 +134,26 @@ test_that("use, narrative interface, Issue #71", {
       mean = 1.0
     )
   )
-  skip("TODO, Issue #71")
   testthat::expect_silent(
     create_gamma_distr(
-      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+      id = 1,
+      alpha = 1.2,
+      beta = 2.3
     )
   )
+  skip("TODO, Issue #71")
   testthat::expect_silent(
     create_inv_gamma_distr(
-      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+      id = 1,
+      alpha = 1.2,
+      beta = 2.3
     )
   )
   testthat::expect_silent(
     create_laplace_distr(
-      id = 1, mu = create_mu_param(), scale = create_scale_param()
+      id = 1,
+      mu = create_mu_param(),
+      scale = create_scale_param()
     )
   )
   testthat::expect_silent(
