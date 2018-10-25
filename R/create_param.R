@@ -44,6 +44,7 @@
 create_param <- function(
   name,
   id,
+  value,
   ...
 ) {
   if (!is_param_name(name)) {
@@ -63,6 +64,7 @@ create_param <- function(
   parameter <- list(
     name = name,
     id = id,
+    value = value,
     ...
   )
   parameter

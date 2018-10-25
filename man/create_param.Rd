@@ -4,13 +4,15 @@
 \alias{create_param}
 \title{General function to create a parameter.}
 \usage{
-create_param(name, id, ...)
+create_param(name, id, value, ...)
 }
 \arguments{
 \item{name}{the parameters' name. Valid
 names can be found in \code{get_param_names}}
 
 \item{id}{the parameter's ID}
+
+\item{value}{value of the parameter}
 
 \item{...}{specific parameter parameters}
 }
