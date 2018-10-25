@@ -73,17 +73,19 @@ init_gtr_site_model <- function(
 ) {
   testit::assert(is_gtr_site_model(gtr_site_model))
 
-  # Gamma site model
-  if (!is_init_distr(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
-    gtr_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
-      gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
-      distr_id = distr_id,
-      param_id = param_id
-    )
-    distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
-      gtr_site_model$gamma_site_model$gamma_shape_prior_distr
-    )
+  # Initialize gamma site model, if any
+  if (!is_one_na(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+    if (!is_init_distr(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
+      gtr_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+        gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+      distr_id <- distr_id + 1
+      param_id <- param_id + get_distr_n_params(
+        gtr_site_model$gamma_site_model$gamma_shape_prior_distr
+      )
+    }
   }
 
   if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) { # nolint internal function
@@ -204,17 +206,19 @@ init_hky_site_model <- function(
 ) {
   testit::assert(is_hky_site_model(hky_site_model))
 
-  # Initialize gamma site model
-  if (!is_init_distr(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
-    hky_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
-      hky_site_model$gamma_site_model$gamma_shape_prior_distr,
-      distr_id = distr_id,
-      param_id = param_id
-    )
-    distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
-      hky_site_model$gamma_site_model$gamma_shape_prior_distr
-    )
+  # Initialize gamma site model, if any
+  if (!is_one_na(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+    if (!is_init_distr(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+      hky_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+        hky_site_model$gamma_site_model$gamma_shape_prior_distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+      distr_id <- distr_id + 1
+      param_id <- param_id + get_distr_n_params(
+        hky_site_model$gamma_site_model$gamma_shape_prior_distr
+      )
+    }
   }
 
   # kappa_prior_distr
@@ -251,20 +255,24 @@ init_jc69_site_model <- function(
   param_id = 0
 ) {
   testit::assert(is_jc69_site_model(jc69_site_model))
-  # Initialize gamma site model
-  if (
-    !is_init_distr(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)
-  ) {
-    jc69_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
-      jc69_site_model$gamma_site_model$gamma_shape_prior_distr,
-      distr_id = distr_id,
-      param_id = param_id
-    )
-    distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
-      jc69_site_model$gamma_site_model$gamma_shape_prior_distr
-    )
+
+  # Initialize gamma site model, if any
+  if (!is_one_na(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+    if (
+      !is_init_distr(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)
+    ) {
+      jc69_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+        jc69_site_model$gamma_site_model$gamma_shape_prior_distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+      distr_id <- distr_id + 1
+      param_id <- param_id + get_distr_n_params(
+        jc69_site_model$gamma_site_model$gamma_shape_prior_distr
+      )
+    }
   }
+
   testit::assert(is_init_gamma_site_model(jc69_site_model$gamma_site_model)) # nolint internal function
   testit::assert(is_init_jc69_site_model(jc69_site_model)) # nolint internal function
   jc69_site_model
@@ -287,19 +295,22 @@ init_tn93_site_model <- function(
   param_id = 0
 ) {
   testit::assert(is_tn93_site_model(tn93_site_model))
-  # Initialize gamma site model
-  if (
-    !is_init_distr(tn93_site_model$gamma_site_model$gamma_shape_prior_distr)
-  ) {
-    tn93_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
-      tn93_site_model$gamma_site_model$gamma_shape_prior_distr,
-      distr_id = distr_id,
-      param_id = param_id
-    )
-    distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
-      tn93_site_model$gamma_site_model$gamma_shape_prior_distr
-    )
+
+  # Initialize gamma site model, if any
+  if (!is_one_na(tn93_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+    if (
+      !is_init_distr(tn93_site_model$gamma_site_model$gamma_shape_prior_distr)
+    ) {
+      tn93_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+        tn93_site_model$gamma_site_model$gamma_shape_prior_distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+      distr_id <- distr_id + 1
+      param_id <- param_id + get_distr_n_params(
+        tn93_site_model$gamma_site_model$gamma_shape_prior_distr
+      )
+    }
   }
 
   # kappa_1_prior_distr

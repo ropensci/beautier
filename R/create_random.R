@@ -193,7 +193,8 @@ create_rnd_gamma_site_model <- function() {
         whitelist <- c(
           "'gamma_cat_count' must be positive",
           "'gamma_shape' must be positive",
-          "'prop_invariant' must be in range \\[0\\.0, 1\\.0\\]"
+          "'prop_invariant' must be in range \\[0\\.0, 1\\.0\\]",
+          "'gamma_shape_prior_distr' must be NA for a 'gamma_cat_count' of less than two" # nolint indeed long error message, preferred this over using paste0
         )
         testit::assert(
           is_in_patterns(line = error$message, patterns = whitelist)

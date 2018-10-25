@@ -200,12 +200,12 @@ test_that("aco_nd2_strict_rln_2_4.xml, strict RLN, example 10", {
     site_models = list(
       create_jc69_site_model(
         gamma_site_model = create_gamma_site_model(
-          gamma_shape_prior_distr = create_exp_distr(id = 0)
+          gamma_cat_count = 0
         )
       ),
       create_jc69_site_model(
         gamma_site_model = create_gamma_site_model(
-          gamma_shape_prior_distr = create_exp_distr(id = 0)
+          gamma_cat_count = 0
         )
       )
     ),

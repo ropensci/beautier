@@ -10,6 +10,7 @@ test_that("hky site model", {
           s = create_s_param(id = 2)
         ),
         gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2,
           gamma_shape_prior_distr = create_one_div_x_distr(id = 3)
         )
       )
@@ -24,6 +25,7 @@ test_that("hky site model", {
             s = create_s_param(id = 2)
         ),
         gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2,
           gamma_shape_prior_distr = create_one_div_x_distr(id = 3)
         )
       )
@@ -38,6 +40,7 @@ test_that("hky site model", {
             s = create_s_param(id = 2)
         ),
         gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2,
           gamma_shape_prior_distr = create_one_div_x_distr(id = 3)
         )
       )
@@ -52,6 +55,7 @@ test_that("hky site model", {
             s = create_s_param(id = NA)
         ),
         gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2,
           gamma_shape_prior_distr = create_one_div_x_distr(id = 3)
         )
       )
@@ -66,6 +70,7 @@ test_that("hky site model", {
           s = create_s_param(id = 2)
         ),
         gamma_site_model = create_gamma_site_model(
+          gamma_cat_count = 2,
           gamma_shape_prior_distr = create_one_div_x_distr(id = NA)
         )
       )

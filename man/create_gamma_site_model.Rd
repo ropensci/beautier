@@ -5,8 +5,7 @@
 \title{Create a gamma site model, part of a site model}
 \usage{
 create_gamma_site_model(gamma_cat_count = "0", gamma_shape = "1.0",
-  prop_invariant = "0.0", gamma_shape_prior_distr = create_exp_distr(id
-  = NA, mean = create_mean_param(id = 0, value = "1.0")),
+  prop_invariant = "0.0", gamma_shape_prior_distr = NA,
   freq_equilibrium = "estimated")
 }
 \arguments{
@@ -18,7 +17,14 @@ be an integer with value zero or more}
 \item{prop_invariant}{the proportion invariant, must be a value
 from 0.0 to 1.0}
 
-\item{gamma_shape_prior_distr}{the distribution of the gamma shape prior}
+\item{gamma_shape_prior_distr}{the distribution of the gamma shape prior.
+\code{gamma_shape_prior_distr} must be \code{NA} for
+a \code{gamma_cat_count} of zero or one.
+For a \code{gamma_cat_count} of two or more,
+leaving \code{gamma_shape_prior_distr} equal to its default
+value of \code{NA}, a default distribution is used.
+Else \code{gamma_shape_prior_distr} must be a
+distribution, as can be created by \code{\link{create_distr}}}
 
 \item{freq_equilibrium}{the frequency in which the rates are at equilibrium
 are either \code{estimated}, \code{empirical} or \code{all_equal}.

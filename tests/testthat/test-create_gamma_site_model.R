@@ -17,6 +17,30 @@ test_that("Can specify HKY proportion invariant", {
 
 })
 
+test_that("zero gamma count categories has no distribution", {
+
+  gamma_site_model <- create_gamma_site_model(gamma_cat_count = 0)
+  expect_false(
+    is_distr(gamma_site_model$gamma_shape_prior_distr)
+  )
+})
+
+test_that("one gamma count categories has no distribution", {
+
+  gamma_site_model <- create_gamma_site_model(gamma_cat_count = 1)
+  expect_false(
+    is_distr(gamma_site_model$gamma_shape_prior_distr)
+  )
+})
+
+test_that("two gamma count categories has a distribution", {
+
+  gamma_site_model <- create_gamma_site_model(gamma_cat_count = 2)
+  expect_true(
+    is_distr(gamma_site_model$gamma_shape_prior_distr)
+  )
+})
+
 
 test_that("abuse", {
 
@@ -49,6 +73,27 @@ test_that("abuse", {
   testthat::expect_error(
     create_gamma_site_model(gamma_shape_prior_distr = "nonsense"),
     "'gamma_shape_prior_distr' must be a distribution"
+  )
+
+  testthat::expect_error(
+    create_gamma_site_model(
+      gamma_cat_count = 0,
+      gamma_shape_prior_distr = create_exp_distr()
+    ),
+    paste0(
+      "'gamma_shape_prior_distr' must be NA ",
+      "for a 'gamma_cat_count' of less than two"
+    )
+  )
+  testthat::expect_error(
+    create_gamma_site_model(
+      gamma_cat_count = 1,
+      gamma_shape_prior_distr = create_exp_distr()
+    ),
+    paste0(
+      "'gamma_shape_prior_distr' must be NA ",
+      "for a 'gamma_cat_count' of less than two"
+    )
   )
 
 })
