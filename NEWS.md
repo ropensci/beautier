@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## beautier 1.14.0 (2018-10-25)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * Cannot set parameters to be estimated, when the resulting
+    BEAST2 `.xml` would be incomplete
+
 ## beautier 1.13.4 (2018-09-11)
 
 ### NEW FEATURES
