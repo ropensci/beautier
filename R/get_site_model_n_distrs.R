@@ -29,7 +29,8 @@ get_site_model_n_distrs <- function(
   if (!is_site_model(site_model)) {
     stop("'site_model' must be a site model")
   }
-  gamma_site_model_n_distrs <- 1
+  gamma_site_model <- site_model$gamma_site_model
+  gamma_site_model_n_distrs <- get_gamma_site_model_n_distrs(gamma_site_model)
   if (is_gtr_site_model(site_model)) {
     return(5 + gamma_site_model_n_distrs)
   } else if (is_hky_site_model(site_model)) {

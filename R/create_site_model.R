@@ -73,9 +73,7 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  if (!is_gamma_site_model(gamma_site_model)) {
-    stop("'gamma_site_model' must be a valid gamma site model")
-  }
+  check_gamma_site_model(gamma_site_model)
   site_model <- list(
     name = name,
     id = id,
