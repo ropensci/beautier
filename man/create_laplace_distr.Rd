@@ -6,8 +6,7 @@
 \title{Create a Laplace distribution}
 \usage{
 create_laplace_distr(id = NA, mu = create_mu_param(id = NA, estimate =
-  FALSE, value = 0), scale = create_scale_param(id = NA, estimate =
-  FALSE, value = 1))
+  FALSE, value = 0), scale = create_scale_param(id = NA, value = 1))
 }
 \arguments{
 \item{id}{the distribution's ID}

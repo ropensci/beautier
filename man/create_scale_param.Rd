@@ -5,15 +5,15 @@
 \alias{create_param_scale}
 \title{Create a parameter called scale}
 \usage{
-create_scale_param(id = NA, estimate = FALSE, value = 0)
+create_scale_param(id = NA, value = 0)
 }
 \arguments{
 \item{id}{the parameter's ID}
 
+\item{value}{value of the parameter}
+
 \item{estimate}{TRUE if this parameter scale be estimated by BEAST2,
 FALSE otherwise}
-
-\item{value}{value of the parameter}
 }
 \value{
 a parameter called scale

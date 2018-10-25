@@ -550,7 +550,6 @@ create_rnd_s_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_scale_param <- function() {
   create_scale_param(
-    estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }

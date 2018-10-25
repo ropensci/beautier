@@ -713,13 +713,12 @@ create_s_param <- create_param_s <- function(
 #' @export create_scale_param create_param_scale
 create_scale_param <- create_param_scale <- function(
   id = NA,
-  estimate = FALSE,
   value = 0.0
 ) {
   beautier::create_param(
     name = "scale",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value
   )
 }

@@ -284,7 +284,7 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 create_laplace_distr <- create_distr_laplace <- function(
   id = NA,
   mu = create_mu_param(id = NA, estimate = FALSE, value = 0.0),
-  scale = create_scale_param(id = NA, estimate = FALSE, value = 1.0)
+  scale = create_scale_param(id = NA, value = 1.0)
 ) {
   if (!is_mu_param(mu)) {
     stop("'mu' must be a mu parameter, ",
