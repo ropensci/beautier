@@ -10,7 +10,14 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
-  * None
+  * Simplified interface for parameters:
+
+```
+# Old
+distr <- create_distr_poisson(id = 1, lambda = create_lambda_param(value = 1.2))
+# Added
+distr <- create_distr_poisson(id = 1, lambda = 1.2)
+```
 
 ### BUG FIXES
 
