@@ -28,7 +28,7 @@ create_beast2_input <- function(
   posterior_crown_age = NA
 ) {
   # 2 site_models
-  check_site_models(site_models)
+  check_site_models(site_models) # nolint internal function
 
   # Convert possible-non-list input to lists and multiPhylo
   if (is_site_model(site_models)) {
