@@ -100,6 +100,12 @@ create_beta_distr <- create_distr_beta <- function(
   alpha = create_alpha_param(),
   beta = create_beta_param()
 ) {
+  if (length(alpha) == 1 && is.numeric(alpha)) {
+    alpha <- create_alpha_param(value = alpha)
+  }
+  if (length(beta) == 1 && is.numeric(beta)) {
+    beta <- create_beta_param(value = beta)
+  }
   if (!is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'")
@@ -147,6 +153,9 @@ create_exp_distr <- create_distr_exp <- function(
   id = NA,
   mean = create_mean_param(value = 1.0)
 ) {
+  if (length(mean) == 1 && is.numeric(mean)) {
+    mean <- create_mean_param(value = mean)
+  }
   if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
       "as returned by 'create_mean_param'")

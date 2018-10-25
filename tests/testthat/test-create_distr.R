@@ -119,6 +119,58 @@ test_that("use, parameters", {
 })
 
 
+test_that("use, narrative interface, Issue #71", {
+
+  testthat::expect_silent(
+    create_beta_distr(
+      id = 1,
+      alpha = 1.2,
+      beta = 2.3
+    )
+  )
+  testthat::expect_silent(
+    create_exp_distr(
+      id = 1,
+      mean = 1.0
+    )
+  )
+  skip("TODO, Issue #71")
+  testthat::expect_silent(
+    create_gamma_distr(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_inv_gamma_distr(
+      id = 1, alpha = create_alpha_param(), beta = create_beta_param()
+    )
+  )
+  testthat::expect_silent(
+    create_laplace_distr(
+      id = 1, mu = create_mu_param(), scale = create_scale_param()
+    )
+  )
+  testthat::expect_silent(
+    create_log_normal_distr(id = 1, m = create_m_param(), s = create_s_param())
+  )
+  testthat::expect_silent(
+    create_normal_distr(
+      id = 1, mean = create_mean_param(), sigma = create_sigma_param()
+    )
+  )
+  testthat::expect_silent(
+    create_one_div_x_distr(id = 1)
+  )
+  testthat::expect_silent(
+    create_poisson_distr(id = 1, lambda = create_lambda_param())
+  )
+  testthat::expect_silent(
+    create_uniform_distr()
+  )
+
+})
+
+
 
 test_that("abuse", {
 
