@@ -75,19 +75,13 @@ parameter_to_xml_alpha <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"alpha\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"alpha\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a beta parameter to XML
@@ -102,18 +96,13 @@ parameter_to_xml_beta <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"beta\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"beta\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a \code{clockRate} parameter to XML
@@ -128,20 +117,14 @@ parameter_to_xml_clock_rate <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(
-    text,
-    paste0(
-      "<parameter ",
-      "id=\"clockRate.c:", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"clock.rate\">",
-      value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"clockRate.c:", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"clock.rate\">",
+    parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a kappa 1 parameter to XML
@@ -155,11 +138,9 @@ parameter_to_xml_kappa_1 <- function(
   testit::assert(is_kappa_1_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
-  value <- parameter$value
-  lower <- parameter$lower
   paste0("<parameter id=\"kappa1.s:", id, "\" ",
-    "lower=\"", lower, "\" ",
-    "name=\"stateNode\">", value, "</parameter>"
+    "lower=\"", parameter$lower, "\" ",
+    "name=\"stateNode\">", parameter$value, "</parameter>"
   )
 }
 
@@ -174,11 +155,9 @@ parameter_to_xml_kappa_2 <- function(
   testit::assert(is_kappa_2_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
-  value <- parameter$value
-  lower <- parameter$lower
   paste0("<parameter id=\"kappa2.s:", id, "\" ",
-    "lower=\"", lower, "\" ",
-    "name=\"stateNode\">", value, "</parameter>"
+    "lower=\"", parameter$lower, "\" ",
+    "name=\"stateNode\">", parameter$value, "</parameter>"
   )
 }
 
@@ -195,17 +174,12 @@ parameter_to_xml_lambda <- function(
   testit::assert(is_lambda_param(parameter))
   id <- parameter$id
   testit::assert(is_id(id))
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "name=\"lambda\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "name=\"lambda\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a m parameter to XML
@@ -220,18 +194,13 @@ parameter_to_xml_m <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"M\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"M\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a mean parameter to XML
@@ -246,18 +215,13 @@ parameter_to_xml_mean <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"mean\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"mean\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a mu parameter to XML
@@ -272,18 +236,13 @@ parameter_to_xml_mu <- function(
   id <- parameter$id
   testit::assert(is_id(id))
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  value <- parameter$value
-  text <- NULL
-  text <- c(text,
-    paste0(
-      "<parameter ",
-      "id=\"RealParameter.", id, "\" ",
-      "estimate=\"", estimate, "\" ",
-      "name=\"mu\">", value,
-      "</parameter>"
-    )
+  paste0(
+    "<parameter ",
+    "id=\"RealParameter.", id, "\" ",
+    "estimate=\"", estimate, "\" ",
+    "name=\"mu\">", parameter$value,
+    "</parameter>"
   )
-  text
 }
 
 #' Converts a 'rate AC' parameter to XML
