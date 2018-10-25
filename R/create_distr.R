@@ -358,6 +358,12 @@ create_log_normal_distr <- create_distr_log_normal <- function(
   m = create_m_param(),
   s = create_s_param()
 ) {
+  if (length(m) == 1 && is.numeric(m)) {
+    m <- create_m_param(value = m)
+  }
+  if (length(s) == 1 && is.numeric(s)) {
+    s <- create_s_param(value = s)
+  }
   if (!is_m_param(m)) {
     stop("'m' must be an m parameter, as returned by 'create_m_param'")
   }
@@ -403,6 +409,13 @@ create_normal_distr <- create_distr_normal <- function(
   mean = create_mean_param(),
   sigma = create_sigma_param()
 ) {
+  if (length(mean) == 1 && is.numeric(mean)) {
+    mean <- create_mean_param(value = mean)
+  }
+  if (length(sigma) == 1 && is.numeric(sigma)) {
+    sigma <- create_sigma_param(value = sigma)
+  }
+
   if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
       "as returned by 'create_mean_param'")
@@ -472,6 +485,10 @@ create_poisson_distr <- create_distr_poisson <- function(
   id = NA,
   lambda = create_lambda_param()
 ) {
+  if (length(lambda) == 1 && is.numeric(lambda)) {
+    lambda <- create_lambda_param(value = lambda)
+  }
+
   if (!is_lambda_param(lambda)) {
     stop("'lambda' must be a lambda parameter, ",
       "as returned by 'create_lambda_param'")

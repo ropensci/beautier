@@ -141,7 +141,6 @@ test_that("use, simpler interface, Issue #71", {
       beta = 2.3
     )
   )
-  skip("TODO, Issue #71")
   testthat::expect_silent(
     create_inv_gamma_distr(
       id = 1,
@@ -152,31 +151,31 @@ test_that("use, simpler interface, Issue #71", {
   testthat::expect_silent(
     create_laplace_distr(
       id = 1,
-      mu = create_mu_param(),
-      scale = create_scale_param()
+      mu = 1.2,
+      scale = 2.3
     )
   )
   testthat::expect_silent(
-    create_log_normal_distr(id = 1, m = create_m_param(), s = create_s_param())
+    create_log_normal_distr(
+      id = 1,
+      m = 1.2,
+      s = 2.3
+    )
   )
   testthat::expect_silent(
     create_normal_distr(
-      id = 1, mean = create_mean_param(), sigma = create_sigma_param()
+      id = 1,
+      mean = 1.2,
+      sigma = 2.3
     )
   )
   testthat::expect_silent(
-    create_one_div_x_distr(id = 1)
+    create_poisson_distr(
+      id = 1,
+      lambda = 1.2
+    )
   )
-  testthat::expect_silent(
-    create_poisson_distr(id = 1, lambda = create_lambda_param())
-  )
-  testthat::expect_silent(
-    create_uniform_distr()
-  )
-
 })
-
-
 
 test_that("abuse", {
 
