@@ -20,6 +20,39 @@ test_that("use", {
 
 })
 
+test_that("is_param, devious", {
+
+  g <- create_alpha_param()
+  testit::assert(is_param(g))
+
+  # No 'name'
+  h <- g[names(g) != "name"]
+  expect_false(is_param(h))
+
+  # Invalid 'name'
+  h <- g
+  h$name <- "nonsense"
+  expect_false(is_param(h))
+
+  # No 'id'
+  h <- g[names(g) != "id"]
+  expect_false(is_param(h))
+
+  # No 'value'
+  h <- g[names(g) != "value"]
+  expect_false(is_param(h))
+
+  # 'value' is NA
+  h <- g
+  h$value <- NA
+  expect_false(is_param(h))
+
+  # 'value' is NULL
+  h <- g
+  h$value <- NULL
+  expect_false(is_param(h))
+})
+
 test_that("is_alpha_param", {
 
   expect_true(is_alpha_param(create_alpha_param()))
@@ -45,7 +78,20 @@ test_that("is_kappa_1_param", {
 
   expect_true(is_kappa_1_param(create_kappa_1_param()))
   expect_false(is_kappa_1_param("nonsense"))
+})
 
+test_that("is_kappa_1_param, devious", {
+
+  g <- create_kappa_1_param()
+  testit::assert(is_kappa_1_param(g))
+
+  # No 'lower'
+  h <- g[names(g) != "lower"]
+  expect_false(is_kappa_1_param(h))
+
+  # No 'estimate'
+  h <- g[names(g) != "estimate"]
+  expect_false(is_kappa_1_param(h))
 })
 
 test_that("is_kappa_2_param", {
@@ -53,6 +99,20 @@ test_that("is_kappa_2_param", {
   expect_true(is_kappa_2_param(create_kappa_2_param()))
   expect_false(is_kappa_2_param("nonsense"))
 
+})
+
+test_that("is_kappa_2_param, devious", {
+
+  g <- create_kappa_2_param()
+  testit::assert(is_kappa_2_param(g))
+
+  # No 'lower'
+  h <- g[names(g) != "lower"]
+  expect_false(is_kappa_2_param(h))
+
+  # No 'estimate'
+  h <- g[names(g) != "estimate"]
+  expect_false(is_kappa_2_param(h))
 })
 
 test_that("is_lambda_param", {
