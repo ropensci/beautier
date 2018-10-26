@@ -46,11 +46,6 @@ test_that("is_param, devious", {
   h <- g
   h$value <- NA
   expect_false(is_param(h))
-
-  # 'value' is NULL
-  h <- g
-  h$value <- NULL
-  expect_false(is_param(h))
 })
 
 test_that("is_alpha_param", {

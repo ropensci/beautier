@@ -13,7 +13,6 @@ is_param <- function(
   if (!"id" %in% names(x)) return(FALSE)
   if (!"value" %in% names(x)) return(FALSE)
   if (is.na(x$value)) return(FALSE)
-  if (is.null(x$value)) return(FALSE)
   TRUE
 }
 
