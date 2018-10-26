@@ -36,11 +36,12 @@ is_init_site_model <- function(
 is_init_gtr_site_model <- function(
   x
 ) {
-  testit::assert(is_gtr_site_model(x))
+  if (!is_gtr_site_model(x)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_ac_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_ag_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_distr(x$rate_cg_prior_distr)) return(FALSE) # nolint internal function
+  # Indeed, no rate_ct_prior_distr yet
   if (!is_init_distr(x$rate_gt_prior_distr)) return(FALSE) # nolint internal function
   if (!is_init_param(x$rate_ac_param)) return(FALSE) # nolint internal function
   if (!is_init_param(x$rate_ag_param)) return(FALSE) # nolint internal function

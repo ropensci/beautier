@@ -76,7 +76,7 @@ is_gtr_site_model <- function(
 is_hky_site_model <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   if (x$name != "HKY") return(FALSE)
   if (!"kappa" %in% names(x)) return(FALSE)
   if (!"kappa_prior_distr" %in% names(x)) return(FALSE)
