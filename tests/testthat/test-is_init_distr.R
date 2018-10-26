@@ -1,19 +1,28 @@
 context("is_init_distr")
 
+test_that("basic", {
+
+  expect_false(
+    is_init_distr(
+      "nonsense"
+    )
+  )
+})
+
 test_that("use beta", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_beta_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_beta_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_beta_distr(
         id = 1,
         alpha = create_alpha_param(id = 2),
@@ -21,8 +30,8 @@ test_that("use beta", {
       )
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_beta_distr(
         id = 1,
         alpha = create_alpha_param(id = NA),
@@ -30,9 +39,9 @@ test_that("use beta", {
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_beta_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_beta_distr())
     )
   )
 
@@ -40,27 +49,27 @@ test_that("use beta", {
 
 test_that("use exponential", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_exp_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_exp_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_exp_distr(
         id = 1,
         mean = create_mean_param(id = NA)
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_exp_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_exp_distr())
     )
   )
 
@@ -68,18 +77,18 @@ test_that("use exponential", {
 
 test_that("use gamma", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_gamma_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_gamma_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_gamma_distr(
         id = 1,
         alpha = create_alpha_param(id = NA),
@@ -87,8 +96,8 @@ test_that("use gamma", {
       )
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_gamma_distr(
         id = 1,
         alpha = create_alpha_param(id = 2),
@@ -96,9 +105,9 @@ test_that("use gamma", {
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_gamma_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_gamma_distr())
     )
   )
 
@@ -106,18 +115,18 @@ test_that("use gamma", {
 
 test_that("use inv_gamma", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_inv_gamma_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_inv_gamma_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_inv_gamma_distr(
         id = 1,
         alpha = create_alpha_param(id = NA),
@@ -125,8 +134,8 @@ test_that("use inv_gamma", {
       )
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_inv_gamma_distr(
         id = 1,
         alpha = create_alpha_param(id = 2),
@@ -135,9 +144,9 @@ test_that("use inv_gamma", {
     )
   )
 
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_inv_gamma_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_inv_gamma_distr())
     )
   )
 
@@ -145,18 +154,18 @@ test_that("use inv_gamma", {
 
 test_that("use laplace", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_laplace_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_laplace_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_laplace_distr(
         id = 1,
         mu = create_mu_param(id = NA),
@@ -164,8 +173,8 @@ test_that("use laplace", {
       )
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_laplace_distr(
         id = 1,
         mu = create_mu_param(id = 2),
@@ -173,9 +182,9 @@ test_that("use laplace", {
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_laplace_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_laplace_distr())
     )
   )
 
@@ -183,18 +192,18 @@ test_that("use laplace", {
 
 test_that("use log_normal", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_log_normal_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_log_normal_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_log_normal_distr(
         id = 1,
         m = create_m_param(id = NA),
@@ -202,8 +211,8 @@ test_that("use log_normal", {
       )
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_log_normal_distr(
         id = 1,
         m = create_m_param(id = 2),
@@ -211,9 +220,9 @@ test_that("use log_normal", {
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_log_normal_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_log_normal_distr())
     )
   )
 
@@ -221,18 +230,18 @@ test_that("use log_normal", {
 
 test_that("use normal", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_normal_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_normal_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_normal_distr(
         id = 1,
         mean = create_mean_param(id = NA),
@@ -240,8 +249,8 @@ test_that("use normal", {
       )
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_normal_distr(
         id = 1,
         mean = create_mean_param(id = 2),
@@ -249,9 +258,9 @@ test_that("use normal", {
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_normal_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_normal_distr())
     )
   )
 
@@ -259,14 +268,14 @@ test_that("use normal", {
 
 test_that("use one_div_x", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_one_div_x_distr()
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_one_div_x_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_one_div_x_distr())
     )
   )
 
@@ -274,27 +283,27 @@ test_that("use one_div_x", {
 
 test_that("use poisson", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_poisson_distr()
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_poisson_distr(id = 1)
     )
   )
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_poisson_distr(
         id = 1,
         lambda = create_lambda_param(id = NA)
       )
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_poisson_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_poisson_distr())
     )
   )
 
@@ -302,19 +311,19 @@ test_that("use poisson", {
 
 test_that("use uniform", {
 
-  testthat::expect_false(
-    beautier:::is_init_distr(
+  expect_false(
+    is_init_distr(
       create_uniform_distr()
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
+  expect_true(
+    is_init_distr(
       create_uniform_distr(id = 1)
     )
   )
-  testthat::expect_true(
-    beautier:::is_init_distr(
-      beautier:::init_distr(create_uniform_distr())
+  expect_true(
+    is_init_distr(
+      init_distr(create_uniform_distr())
     )
   )
 
