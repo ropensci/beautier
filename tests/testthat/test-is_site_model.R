@@ -10,6 +10,21 @@ test_that("use", {
   expect_false(is_site_model(list(name = "nonsense")))
   expect_false(is_site_model(list(name = "JC69")))
 
+  expect_false(is_gtr_site_model(NA))
+  expect_false(is_gtr_site_model(NULL))
+  expect_false(is_gtr_site_model("nonsense"))
+
+  expect_false(is_hky_site_model(NA))
+  expect_false(is_hky_site_model(NULL))
+  expect_false(is_hky_site_model("nonsense"))
+
+  expect_false(is_jc69_site_model(NA))
+  expect_false(is_jc69_site_model(NULL))
+  expect_false(is_jc69_site_model("nonsense"))
+
+  expect_false(is_tn93_site_model(NA))
+  expect_false(is_tn93_site_model(NULL))
+  expect_false(is_tn93_site_model("nonsense"))
 })
 
 test_that("is_site_model: devious", {
@@ -151,4 +166,42 @@ test_that("is_gtr_site_model: devious", {
   h <- g
   h$freq_equilibrium <- "nonsense"
   expect_false(is_gtr_site_model(h))
+})
+
+test_that("is_hky_site_model: devious", {
+
+  g <- create_hky_site_model()
+  expect_true(is_hky_site_model(g))
+
+  # No site model
+  h <- g
+  h <- "nonsense"
+  expect_false(is_hky_site_model(h))
+
+  # Invalid name
+  h <- g
+  h$name <- "nonsense"
+  expect_false(is_hky_site_model(h))
+
+  # No 'kappa'
+  h <- g[names(g) != "kappa"]
+  expect_false(is_hky_site_model(h))
+
+  # No 'kappa_prior_distr'
+  h <- g[names(g) != "kappa_prior_distr"]
+  expect_false(is_hky_site_model(h))
+
+  # Invalid 'kappa_prior_distr'
+  h <- g
+  h$kappa_prior_distr <- "nonsense"
+  expect_false(is_hky_site_model(h))
+
+  # No 'freq_equilibrium'
+  h <- g[names(g) != "freq_equilibrium"]
+  expect_false(is_hky_site_model(h))
+
+  # Invalid 'freq_equilibrium'
+  h <- g
+  h$freq_equilibrium <- "nonsense"
+  expect_false(is_hky_site_model(h))
 })
