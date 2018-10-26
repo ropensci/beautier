@@ -249,7 +249,7 @@ beautier::create_beast2_input_file(
 )
 ```
 
-From `v1.14`, it will be supported to have two alignments with shared site models, clock models and tree priors.
+In a future version, it will be supported to have two alignments with shared site models, clock models and tree priors.
 
 Thanks to Yacine Ben Chehida for this use case.
 
