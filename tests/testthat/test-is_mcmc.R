@@ -58,7 +58,7 @@ test_that("is_mcmc_nested_sampling, use", {
   expect_false(is_mcmc_nested_sampling(list(chain_length = 0)))
 })
 
-test_that("is_mcmc: devious", {
+test_that("is_mcmc_nested_sampling: devious", {
 
   g <- create_mcmc_nested_sampling()
   expect_true(beautier:::is_mcmc_nested_sampling(g))
