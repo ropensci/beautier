@@ -390,7 +390,8 @@ test_that("create_rnd_sigma_param", {
 test_that("create_rnd_site_model", {
   set.seed(0)
   # Repeat often enough so all execution branches are hit
-  for (i in seq(1, 8)) {
+  # 8 is too few
+  for (i in seq(1, 16)) {
     testthat::expect_true(
       beautier:::is_site_model(
         beautier:::create_rnd_site_model()
