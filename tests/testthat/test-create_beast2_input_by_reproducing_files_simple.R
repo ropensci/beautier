@@ -1401,7 +1401,7 @@ test_that("Base point + all taxa + one_div_x", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "anthus_aco_sub_20181016_all_one_div_x_monophyletic.xml")
+    "anthus_aco_sub_20181016_all_one_div_x.xml")
   )
   compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
