@@ -1,5 +1,9 @@
 context("are_init_clock_models")
 
+test_that("use", {
+  expect_false(are_init_clock_models("nonsense"))
+})
+
 
 test_that("detect initialized RLN clock models", {
 
@@ -11,8 +15,8 @@ test_that("detect initialized RLN clock models", {
       dimension = 10
     )
   )
-  testthat::expect_true(
-    beautier:::are_init_clock_models(init_rln_models)
+  expect_true(
+    are_init_clock_models(init_rln_models)
   )
 })
 
@@ -25,8 +29,8 @@ test_that("detect uninitialized RLN clock models", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::are_init_clock_models(uninit_rln_models)
+  expect_false(
+    are_init_clock_models(uninit_rln_models)
   )
 
 })
