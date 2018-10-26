@@ -25,11 +25,8 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- NULL
   if (!has_non_strict_clock_model &&
       is_first &&
-      (
-        (mrca_prior$is_monophyletic && !is.na(mrca_prior$mrca_distr)) ||
-        (!mrca_prior$is_monophyletic && !is.na(mrca_prior$mrca_distr))
-      )
-    ) {
+      !is.na(mrca_prior$mrca_distr)
+  ) {
     text <- c(
       text,
       paste0(
