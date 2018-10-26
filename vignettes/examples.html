@@ -12,7 +12,7 @@
 
 <meta name="author" content="Richel J.C. Bilderbeek" />
 
-<meta name="date" content="2018-06-01" />
+<meta name="date" content="2018-10-26" />
 
 <title>Examples</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Examples</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
-<h4 class="date"><em>2018-06-01</em></h4>
+<h4 class="date"><em>2018-10-26</em></h4>
 
 
 
@@ -159,7 +159,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
   <span class="dt">clock_models =</span> <span class="kw">create_strict_clock_model</span>(
-    <span class="dt">clock_rate_param =</span> <span class="kw">create_clock_rate_param</span>(<span class="dt">value =</span> <span class="fl">0.5</span>)) 
+    <span class="dt">clock_rate_param =</span> <span class="fl">0.5</span>
+  ) 
 )</code></pre></div>
 <p>Thanks to Paul van Els and Yacine Ben Chehida for this use case.</p>
 </div>
@@ -181,8 +182,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="dt">alignment_id =</span> <span class="kw">get_alignment_id</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">taxa_names =</span> <span class="kw">get_taxa_names</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">mrca_distr =</span> <span class="kw">create_normal_distr</span>(
-      <span class="dt">mean =</span> <span class="kw">create_mean_param</span>(<span class="dt">value =</span> <span class="fl">10.0</span>),
-      <span class="dt">sigma =</span> <span class="kw">create_sigma_param</span>(<span class="dt">value =</span> <span class="fl">0.01</span>)
+      <span class="dt">mean =</span> <span class="fl">10.0</span>,
+      <span class="dt">sigma =</span> <span class="fl">0.01</span>
     )
   )
 )</code></pre></div>
@@ -200,8 +201,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="dt">taxa_names =</span> <span class="kw">get_taxa_names</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">is_monophyletic =</span> <span class="ot">TRUE</span>,
     <span class="dt">mrca_distr =</span> <span class="kw">create_normal_distr</span>(
-      <span class="dt">mean =</span> <span class="kw">create_mean_param</span>(<span class="dt">value =</span> crown_age),
-      <span class="dt">sigma =</span> <span class="kw">create_sigma_param</span>(<span class="dt">value =</span> <span class="fl">0.001</span>)
+      <span class="dt">mean =</span> crown_age,
+      <span class="dt">sigma =</span> <span class="fl">0.001</span>
     )
   )
 )</code></pre></div>
@@ -237,7 +238,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="kw">create_strict_clock_model</span>(<span class="dt">id =</span> <span class="st">&quot;anthus_aco&quot;</span>)
   )
 )</code></pre></div>
-<p>From <code>v1.14</code>, it will be supported to have two alignments with shared site models, clock models and tree priors.</p>
+<p>In a future version, it will be supported to have two alignments with shared site models, clock models and tree priors.</p>
 <p>Thanks to Yacine Ben Chehida for this use case.</p>
 </div>
 </div>
