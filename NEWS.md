@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 1.14.0 (2018-10-25)
+## beautier 1.14.0 (2018-10-26)
 
 ### NEW FEATURES
 
@@ -21,7 +21,8 @@ distr <- create_distr_poisson(id = 1, lambda = 1.2)
 
 ### BUG FIXES
 
-  * None
+  * When using MRCA priors with/without monophyly with/without
+    a distribution, resulted in incorrect BEAST2 `.xml` files
 
 ### DEPRECATED AND DEFUNCT
 

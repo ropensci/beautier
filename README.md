@@ -49,7 +49,8 @@ See [FAQ](Faq.md)
 
 Here are some missing or (yet) unsupported features:
 
- * Support for shared site or clock models (will be added in `v1.14`)
+ * [Support for tip dating](https://github.com/richelbilderbeek/babette/issues/27)
+ * Support for shared site or clock models
  * Support for amino acid sequences
  * Support for three or more alignments with a mix of linked site models, clock models and tree priors
  * Support for three or more MRCA priors
