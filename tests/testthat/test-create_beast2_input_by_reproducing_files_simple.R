@@ -1353,8 +1353,3 @@ test_that("anthus_aco_sub.xml", {
   compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
-
-
-
-
-

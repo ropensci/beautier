@@ -20,7 +20,11 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   text <- NULL
   text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
 
-  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic && is_first) {
+  if (!has_non_strict_clock_model &&
+    mrca_prior$is_monophyletic &&
+    !is.na(mrca_prior$mrca_distr) &&
+    is_first
+  ) {
     text <- c(
       text,
       paste0(
