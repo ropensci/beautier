@@ -2,6 +2,20 @@ context("is_misc_options")
 
 test_that("use", {
 
-  testthat::expect_true(is_misc_options(create_misc_options()))
+  expect_true(is_misc_options(create_misc_options()))
 
+})
+
+test_that("use, devious", {
+
+  g <- create_misc_options()
+  testit::assert(is_misc_options(g))
+
+  # No 'capitalize_first_char_id'
+  h <- g[names(g) != "capitalize_first_char_id"]
+  expect_false(is_misc_options(h))
+
+  # No 'nucleotides_uppercase'
+  h <- g[names(g) != "nucleotides_uppercase"]
+  expect_false(is_misc_options(h))
 })
