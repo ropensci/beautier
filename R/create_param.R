@@ -654,27 +654,10 @@ create_s_param <- create_param_s <- function(
   lower = 0.0,
   upper = Inf
 ) {
-  # No illusion of hyper parameters, #45
-  estimate <- FALSE
-
-  if (estimate == TRUE) {
-    if (lower >= upper) {
-      stop(
-       "'lower' must be less than 'upper' when S is estimated. ",
-        "lower: ", lower, ", upper: ", upper
-      )
-    }
-    if (value < lower || value > upper) {
-      stop(
-        "'value' must be between 'lower' and 'upper' when S is estimated. ",
-        "value: ", value, ", lower: ", lower, ", upper: ", upper
-      )
-    }
-  }
   beautier::create_param(
     name = "s",
     id = id,
-    estimate = estimate,
+    estimate = FALSE,
     value = value,
     lower = lower,
     upper = upper

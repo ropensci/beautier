@@ -81,7 +81,6 @@ is_kappa_1_param <- function(
   if (x$name != "kappa_1") return(FALSE)
 
   if (!"lower" %in% names(x)) return(FALSE)
-  if (!"value" %in% names(x)) return(FALSE)
   if (!"estimate" %in% names(x)) return(FALSE)
   TRUE
 }
@@ -105,7 +104,6 @@ is_kappa_2_param <- function(
   if (x$name != "kappa_2") return(FALSE)
 
   if (!"lower" %in% names(x)) return(FALSE)
-  if (!"value" %in% names(x)) return(FALSE)
   if (!"estimate" %in% names(x)) return(FALSE)
   TRUE
 }
