@@ -1329,7 +1329,7 @@ test_that("anthus_aco_sub.xml", {
 
 # Base point + all taxa + monophyletic
 test_that("anthus_aco_sub.xml", {
-  skip("WIP")
+
   created <- beautier::create_beast2_input(
     input_filenames = get_beautier_path("anthus_aco_sub.fas"),
     tree_priors = create_yule_tree_prior(
