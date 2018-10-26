@@ -1060,6 +1060,7 @@ test_that("anthus_aco_sub_calibration.xml", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_calibrated.xml")
   )
+  compare_lines(created, expected)
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
@@ -1276,3 +1277,84 @@ test_that("issue_30.xml, #30", {
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
+
+
+################################################################################
+# MRCA priors again 2018-10-26
+################################################################################
+# Base point
+test_that("anthus_aco_sub.xml", {
+  created <- beautier::create_beast2_input(
+    input_filenames = beautier::get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    misc_options = create_misc_options(
+      nucleotides_uppercase = TRUE,
+      beast2_version = "2.5"
+    )
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_20181016.xml")
+  )
+  compare_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+# Base point + all taxa
+test_that("anthus_aco_sub.xml", {
+  created <- beautier::create_beast2_input(
+    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mrca_priors = create_mrca_prior(
+      name = "all",
+      alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
+      taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
+      is_monophyletic = FALSE
+    ),
+    misc_options = create_misc_options(
+      nucleotides_uppercase = TRUE,
+      beast2_version = "2.5"
+    )
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_20181016_all.xml")
+  )
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+# Base point + all taxa + monophyletic
+test_that("anthus_aco_sub.xml", {
+  skip("WIP")
+  created <- beautier::create_beast2_input(
+    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    mrca_priors = create_mrca_prior(
+      name = "all",
+      alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
+      taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
+      is_monophyletic = TRUE
+    ),
+    misc_options = create_misc_options(
+      nucleotides_uppercase = TRUE,
+      beast2_version = "2.5"
+    )
+  )
+
+  expected <- readLines(beautier::get_beautier_path(
+    "anthus_aco_sub_20181016_all_monophyletic.xml")
+  )
+  compare_lines(created, expected)
+  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+})
+
+
+
+
+
