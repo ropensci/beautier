@@ -19,7 +19,9 @@ mrca_prior_to_xml_lh_distr <- function(
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
-  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic) {
+  if (!has_non_strict_clock_model && mrca_prior$is_monophyletic &&
+    !is.na(mrca_prior$mrca_distr)
+  ) {
     paste0(
       "<branchRateModel ",
       "id=\"StrictClock.c:", mrca_prior$alignment_id, "\" ",
@@ -27,7 +29,6 @@ mrca_prior_to_xml_lh_distr <- function(
       "clock.rate=\"@clockRate.c:", mrca_prior$alignment_id, "\"/>"
     )
   } else if (!has_non_strict_clock_model) {
-    testit::assert(!mrca_prior$is_monophyletic)
     text <- NULL
     text <- c(
       text,
