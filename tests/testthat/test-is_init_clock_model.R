@@ -1,9 +1,18 @@
 context("is_init_clock_model")
 
+test_that("on nonsense", {
+
+  expect_false(
+    is_init_clock_model(
+      "nonsense"
+    )
+  )
+})
+
 test_that("strict clock model", {
 
-  testthat::expect_true(
-    beautier:::is_init_clock_model(
+  expect_true(
+    is_init_clock_model(
       create_strict_clock_model(
         clock_rate_param = create_clock_rate_param(id = "OK"),
         clock_rate_distr = create_uniform_distr(id = "OK")
@@ -11,8 +20,8 @@ test_that("strict clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_strict_clock_model(
         clock_rate_param = create_clock_rate_param(id = NA),
         clock_rate_distr = create_uniform_distr(id = "OK")
@@ -20,8 +29,8 @@ test_that("strict clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_strict_clock_model(
         clock_rate_param = create_clock_rate_param(id = "OK"),
         clock_rate_distr = create_uniform_distr(id = NA)
@@ -32,8 +41,8 @@ test_that("strict clock model", {
 
 test_that("RLN clock model", {
 
-  testthat::expect_true(
-    beautier:::is_init_clock_model(
+  expect_true(
+    is_init_clock_model(
       create_rln_clock_model(
         mean_rate_prior_distr = create_uniform_distr(id = 1),
         ucldstdev_distr = create_uniform_distr(id = 2),
@@ -43,8 +52,8 @@ test_that("RLN clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_rln_clock_model(
         ucldstdev_distr = create_gamma_distr(
           id = 1,
@@ -57,8 +66,8 @@ test_that("RLN clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_rln_clock_model(
         ucldstdev_distr = create_gamma_distr(
           id = 1,
@@ -71,8 +80,8 @@ test_that("RLN clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_rln_clock_model(
         ucldstdev_distr = create_uniform_distr(id = NA),
         mparam_id = 2,
@@ -81,8 +90,8 @@ test_that("RLN clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_rln_clock_model(
         ucldstdev_distr = create_uniform_distr(id = 1),
         mparam_id = NA,
@@ -91,8 +100,8 @@ test_that("RLN clock model", {
     )
   )
 
-  testthat::expect_false(
-    beautier:::is_init_clock_model(
+  expect_false(
+    is_init_clock_model(
       create_rln_clock_model(
         ucldstdev_distr = create_uniform_distr(id = 1),
         mparam_id = 2,
