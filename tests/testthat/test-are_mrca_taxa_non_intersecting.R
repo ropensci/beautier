@@ -22,24 +22,24 @@ test_that("use, intersection, monophyly", {
   )
 
 
-  testthat::expect_true(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_true(
+    are_mrca_taxa_non_intersecting(
       list(prior_one_two, prior_three_four)
     )
   )
-  testthat::expect_true(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_true(
+    are_mrca_taxa_non_intersecting(
       list(prior_three_four, prior_one_two)
     )
   )
 
-  testthat::expect_false(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_false(
+    are_mrca_taxa_non_intersecting(
       list(prior_one_two, prior_two_three)
     )
   )
-  testthat::expect_false(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_false(
+    are_mrca_taxa_non_intersecting(
       list(prior_two_three, prior_one_two)
     )
   )
@@ -64,8 +64,8 @@ test_that("use, intersection, monophyly, setdiff problem", {
 
   non_intersecting_priors <- list(prior_one_to_five, prior_one_three)
 
-  testthat::expect_true(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_true(
+    are_mrca_taxa_non_intersecting(
       non_intersecting_priors
     )
   )
@@ -89,8 +89,8 @@ test_that("use, subset", {
   )
   non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
 
-  testthat::expect_true(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_true(
+    are_mrca_taxa_non_intersecting(
       non_intersecting_priors
     )
   )
@@ -117,8 +117,8 @@ test_that("use, one monophyly, issue #32", {
   )
   non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
 
-  testthat::expect_false(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_false(
+    are_mrca_taxa_non_intersecting(
       non_intersecting_priors
     )
   )
@@ -150,8 +150,8 @@ test_that("use, zero monophylies, issue #32", {
   )
   non_intersecting_priors <- list(prior_one_two_three, prior_two_three)
 
-  testthat::expect_false(
-    beautier:::are_mrca_taxa_non_intersecting(
+  expect_false(
+    are_mrca_taxa_non_intersecting(
       non_intersecting_priors
     )
   )
