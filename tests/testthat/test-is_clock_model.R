@@ -56,6 +56,7 @@ test_that("is_strict_clock_model: devious", {
   # Invalid 'clock_rate_distr'
   h <- g
   h$clock_rate_distr <- "nonsense"
+  expect_false(is_strict_clock_model(h))
 })
 
 test_that("is_rln_clock_model: devious", {
