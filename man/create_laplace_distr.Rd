@@ -12,9 +12,13 @@ create_laplace_distr(id = NA, mu = create_mu_param(id = NA, value = 0),
 \item{id}{the distribution's ID}
 
 \item{mu}{the mu parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_mu_param}}}
 
 \item{scale}{the scale parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_scale_param}}}
 }
 \value{

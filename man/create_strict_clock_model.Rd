@@ -15,6 +15,8 @@ An ID can be extracted from its FASTA filename
 with \code{\link{get_alignment_ids}})}
 
 \item{clock_rate_param}{the clock rate's parameter,
+a numeric value.
+For advanced usage, use the structure
 as created by the \code{\link{create_clock_rate_param}} function}
 
 \item{clock_rate_distr}{the clock rate's distribution,

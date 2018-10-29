@@ -1,5 +1,5 @@
 #' Converts a parameter to XML
-#' @param parameter a distibution,
+#' @param parameter a parameter,
 #'   as created by \code{\link{create_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -65,6 +65,8 @@ parameter_to_xml <- function(
 
 #' Converts an alpha parameter to XML
 #' @param parameter an alpha parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_alpha_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -87,6 +89,8 @@ parameter_to_xml_alpha <- function(
 
 #' Converts a beta parameter to XML
 #' @param parameter a beta parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_beta_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -109,6 +113,8 @@ parameter_to_xml_beta <- function(
 
 #' Converts a \code{clockRate} parameter to XML
 #' @param parameter a \code{clockRate} parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_clock_rate_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -132,6 +138,8 @@ parameter_to_xml_clock_rate <- function(
 
 #' Converts a kappa 1 parameter to XML
 #' @param parameter a kappa 1 parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_kappa_1_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -149,6 +157,8 @@ parameter_to_xml_kappa_1 <- function(
 
 #' Converts a kappa 2 parameter to XML
 #' @param parameter a kappa 2 parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_kappa_2_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -168,6 +178,8 @@ parameter_to_xml_kappa_2 <- function(
 
 #' Converts a lambda parameter to XML
 #' @param parameter a lambda parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_lambda_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -187,6 +199,8 @@ parameter_to_xml_lambda <- function(
 
 #' Converts a m parameter to XML
 #' @param parameter a m parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_m_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -209,6 +223,8 @@ parameter_to_xml_m <- function(
 
 #' Converts a mean parameter to XML
 #' @param parameter a mean parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_mean_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -231,6 +247,8 @@ parameter_to_xml_mean <- function(
 
 #' Converts a mu parameter to XML
 #' @param parameter a mu parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_mu_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -253,6 +271,8 @@ parameter_to_xml_mu <- function(
 
 #' Converts a 'rate AC' parameter to XML
 #' @param parameter a 'rate AC' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_rate_ac_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
@@ -283,6 +303,8 @@ parameter_to_xml_rate_ac <- function(
 
 #' Converts a 'rate AG' parameter to XML
 #' @param parameter a 'rate AG' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_rate_ag_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
@@ -313,6 +335,8 @@ parameter_to_xml_rate_ag <- function(
 
 #' Converts a 'rate AT' parameter to XML
 #' @param parameter a 'rate AT' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_rate_at_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
@@ -343,6 +367,8 @@ parameter_to_xml_rate_at <- function(
 
 #' Converts a 'rate CG' parameter to XML
 #' @param parameter a 'rate CG' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_rate_cg_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
@@ -373,6 +399,8 @@ parameter_to_xml_rate_cg <- function(
 
 #' Converts a 'rate CT' parameter to XML
 #' @param parameter a 'rate CT' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_rate_ct_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
@@ -403,6 +431,8 @@ parameter_to_xml_rate_ct <- function(
 
 #' Converts a 'rate GT' parameter to XML
 #' @param parameter a 'rate GT' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_rate_gt_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
@@ -433,6 +463,8 @@ parameter_to_xml_rate_gt <- function(
 
 #' Converts a s parameter to XML
 #' @param parameter a s parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_s_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -469,6 +501,8 @@ parameter_to_xml_s <- function(
 
 #' Converts a scale parameter to XML
 #' @param parameter a scale parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_scale_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek
@@ -491,6 +525,8 @@ parameter_to_xml_scale <- function(
 
 #' Converts a sigma parameter to XML
 #' @param parameter a sigma parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by \code{\link{create_sigma_param}})
 #' @return the parameter as XML text
 #' @author Richel J.C. Bilderbeek

@@ -73,11 +73,17 @@ create_distr <- function(
 #' Create a beta distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
-#'   as returned by \code{\link{create_alpha_param}}. The value
+#'   a numeric value.
+#'   The value
 #'   of alpha must be at least 0.0.
+#'   For advanced usage, use the structure
+#'   as returned by \code{\link{create_alpha_param}}.
 #' @param beta the beta shape parameter,
-#'   as returned by \code{\link{create_beta_param}}. The value
+#'   a numeric value.
+#'   The value
 #'   of beta must be at least 1.0.
+#'   For advanced usage, use the structure
+#'   as returned by \code{\link{create_beta_param}}.
 #' @return a beta distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
@@ -131,6 +137,8 @@ create_beta_distr <- create_distr_beta <- function(
 #' Create an exponential distribution
 #' @inheritParams create_distr
 #' @param mean the mean parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_mean_param}}
 #' @return an exponential distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
@@ -170,8 +178,12 @@ create_exp_distr <- create_distr_exp <- function(
 #' Create a gamma distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_alpha_param}}
 #' @param beta the beta shape parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_beta_param}}
 #' @return a gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
@@ -179,8 +191,8 @@ create_exp_distr <- create_distr_exp <- function(
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   gamma_distr <- create_gamma_distr(
-#'      alpha = create_alpha_param(value = 0.05),
-#'      beta = create_beta_param(value = 10.0)
+#'      alpha = 0.05,
+#'      beta = 10.0
 #'   )
 #'
 #'   gtr_site_model <- create_gtr_site_model(
@@ -232,8 +244,12 @@ create_gamma_distr <- create_distr_gamma <- function(
 #' Create an inverse-gamma distribution
 #' @inheritParams create_distr
 #' @param alpha the alpha shape parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_alpha_param}}
 #' @param beta the beta shape parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_beta_param}}
 #' @return an inverse-gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
@@ -282,8 +298,12 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #' Create a Laplace distribution
 #' @inheritParams create_distr
 #' @param mu the mu parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_mu_param}}
 #' @param scale the scale parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_scale_param}}
 #' @return a Laplace distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
@@ -333,8 +353,12 @@ create_laplace_distr <- create_distr_laplace <- function(
 #' Create a log-normal distribution
 #' @inheritParams create_distr
 #' @param m the m parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_m_param}}
 #' @param s the s parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_s_param}}
 #' @return a log-normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
@@ -383,9 +407,13 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 
 #' Create an normal distribution
 #' @inheritParams create_distr
-#' @param mean the mean parameter
+#' @param mean the mean parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_mean_param}}
-#' @param sigma the sigma parameter
+#' @param sigma the sigma parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_sigma_param}}
 #' @return a normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
@@ -462,7 +490,9 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 
 #' Create a Poisson distribution
 #' @inheritParams create_distr
-#' @param lambda the lambda parameter
+#' @param lambda the lambda parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_lambda_param}}
 #' @return a Poisson distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview

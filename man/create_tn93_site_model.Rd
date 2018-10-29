@@ -23,9 +23,13 @@ the FASTA filename using \code{\link{get_alignment_id}})}
 by \code{\link{create_gamma_site_model}}}
 
 \item{kappa_1_param}{the 'kappa 1' parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_kappa_1_param}}}
 
 \item{kappa_2_param}{the 'kappa 2' parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_kappa_2_param}}}
 
 \item{kappa_1_prior_distr}{the distribution of the kappa 1 prior,

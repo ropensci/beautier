@@ -96,16 +96,28 @@ create_site_model <- function(
 #' @param rate_gt_prior_distr the GT rate prior distribution,
 #'   as returned by \code{\link{create_distr}})
 #' @param rate_ac_param the 'rate AC' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_ac_param}})
 #' @param rate_ag_param the 'rate AG' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_ag_param}})
 #' @param rate_at_param the 'rate AT' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_at_param}})
 #' @param rate_cg_param the 'rate CG' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_cg_param}})
 #' @param rate_ct_param the 'rate CT' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_ct_param}})
 #' @param rate_gt_param the 'rate GT' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_gt_param}})
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
@@ -253,8 +265,12 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'   (as created by \code{\link{create_log_normal_distr}})
 #'   by default
 #' @param kappa_1_param the 'kappa 1' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_kappa_1_param}}
 #' @param kappa_2_param the 'kappa 2' parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_kappa_2_param}}
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.

@@ -11,6 +11,8 @@ create_exp_distr(id = NA, mean = create_mean_param(value = 1))
 \item{id}{the distribution's ID}
 
 \item{mean}{the mean parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_mean_param}}}
 }
 \value{

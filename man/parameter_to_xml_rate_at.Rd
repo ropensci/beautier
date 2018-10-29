@@ -8,6 +8,8 @@ parameter_to_xml_rate_at(parameter, which_name = "state_node")
 }
 \arguments{
 \item{parameter}{a 'rate AT' parameter,
+a numeric value.
+For advanced usage, use the structure
 as created by \code{\link{create_rate_at_param}})}
 
 \item{which_name}{the name, can be \code{state_node} or \code{rate_name}}

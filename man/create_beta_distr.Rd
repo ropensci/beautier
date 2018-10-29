@@ -12,12 +12,18 @@ create_beta_distr(id = NA, alpha = create_alpha_param(),
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
-as returned by \code{\link{create_alpha_param}}. The value
-of alpha must be at least 0.0.}
+a numeric value.
+The value
+of alpha must be at least 0.0.
+For advanced usage, use the structure
+as returned by \code{\link{create_alpha_param}}.}
 
 \item{beta}{the beta shape parameter,
-as returned by \code{\link{create_beta_param}}. The value
-of beta must be at least 1.0.}
+a numeric value.
+The value
+of beta must be at least 1.0.
+For advanced usage, use the structure
+as returned by \code{\link{create_beta_param}}.}
 }
 \value{
 a beta distribution

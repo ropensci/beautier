@@ -12,9 +12,13 @@ create_inv_gamma_distr(id = NA, alpha = create_alpha_param(),
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_alpha_param}}}
 
 \item{beta}{the beta shape parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_beta_param}}}
 }
 \value{
