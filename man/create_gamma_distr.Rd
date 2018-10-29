@@ -5,8 +5,7 @@
 \alias{create_distr_gamma}
 \title{Create a gamma distribution}
 \usage{
-create_gamma_distr(id = NA, alpha = create_alpha_param(id = NA, value =
-  "0.5396"), beta = create_beta_param(id = NA, value = "0.3819"))
+create_gamma_distr(id = NA, alpha = 0.5396, beta = 0.3819)
 }
 \arguments{
 \item{id}{the distribution's ID}

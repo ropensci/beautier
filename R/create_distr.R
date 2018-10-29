@@ -103,8 +103,8 @@ create_distr <- function(
 #' @export create_beta_distr create_distr_beta
 create_beta_distr <- create_distr_beta <- function(
   id = NA,
-  alpha = create_alpha_param(),
-  beta = create_beta_param()
+  alpha = 0.0,
+  beta = 1.0
 ) {
   if (length(alpha) == 1 && is.numeric(alpha)) {
     alpha <- create_alpha_param(value = alpha)
@@ -159,7 +159,7 @@ create_beta_distr <- create_distr_beta <- function(
 #' @export create_exp_distr create_distr_exp
 create_exp_distr <- create_distr_exp <- function(
   id = NA,
-  mean = create_mean_param(value = 1.0)
+  mean = 1.0
 ) {
   if (length(mean) == 1 && is.numeric(mean)) {
     mean <- create_mean_param(value = mean)
@@ -209,8 +209,8 @@ create_exp_distr <- create_distr_exp <- function(
 #' @export create_gamma_distr create_distr_gamma
 create_gamma_distr <- create_distr_gamma <- function(
   id = NA,
-  alpha = create_alpha_param(id = NA, value = "0.5396"),
-  beta = create_beta_param(id = NA, value = "0.3819")
+  alpha = 0.5396,
+  beta = 0.3819
 ) {
   if (length(alpha) == 1 && is.numeric(alpha)) {
     alpha <- create_alpha_param(value = alpha)
@@ -270,8 +270,8 @@ create_gamma_distr <- create_distr_gamma <- function(
 #' @export create_inv_gamma_distr create_distr_inv_gamma
 create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   id = NA,
-  alpha = create_alpha_param(),
-  beta = create_beta_param()
+  alpha = 0.0,
+  beta = 1.0
 ) {
   if (length(alpha) == 1 && is.numeric(alpha)) {
     alpha <- create_alpha_param(value = alpha)
@@ -324,8 +324,8 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
   id = NA,
-  mu = create_mu_param(id = NA, value = 0.0),
-  scale = create_scale_param(id = NA, value = 1.0)
+  mu = 0.0,
+  scale = 1.0
 ) {
   if (length(mu) == 1 && is.numeric(mu)) {
     mu <- create_mu_param(value = mu)
@@ -379,8 +379,8 @@ create_laplace_distr <- create_distr_laplace <- function(
 #' @export create_log_normal_distr create_distr_log_normal
 create_log_normal_distr <- create_distr_log_normal <- function(
   id = NA,
-  m = create_m_param(),
-  s = create_s_param()
+  m = 0.0,
+  s = 0.0
 ) {
   if (length(m) == 1 && is.numeric(m)) {
     m <- create_m_param(value = m)
@@ -434,8 +434,8 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #' @export create_normal_distr create_distr_normal
 create_normal_distr <- create_distr_normal <- function(
   id = NA,
-  mean = create_mean_param(),
-  sigma = create_sigma_param()
+  mean = 0.0,
+  sigma = 1.0
 ) {
   if (length(mean) == 1 && is.numeric(mean)) {
     mean <- create_mean_param(value = mean)
@@ -513,7 +513,7 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #' @export create_poisson_distr create_distr_poisson
 create_poisson_distr <- create_distr_poisson <- function(
   id = NA,
-  lambda = create_lambda_param()
+  lambda = 0.0
 ) {
   if (length(lambda) == 1 && is.numeric(lambda)) {
     lambda <- create_lambda_param(value = lambda)

@@ -5,7 +5,7 @@
 \alias{create_distr_exp}
 \title{Create an exponential distribution}
 \usage{
-create_exp_distr(id = NA, mean = create_mean_param(value = 1))
+create_exp_distr(id = NA, mean = 1)
 }
 \arguments{
 \item{id}{the distribution's ID}
