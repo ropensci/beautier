@@ -241,7 +241,7 @@ create_hky_site_model <- create_site_model_hky <- function(
   gamma_site_model = create_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
     m = create_m_param(value = "1.0"),
-    s = create_s_param(value = "1.25")
+    s = 1.25
   ),
   freq_equilibrium = "estimated"
 ) {
