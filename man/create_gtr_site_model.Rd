@@ -89,7 +89,14 @@ a GTR site_model
 Create a GTR site model
 }
 \examples{
-  gtr_site_model <- create_gtr_site_model()
+  gtr_site_model <- create_gtr_site_model(
+    rate_ac_param = 1.2,
+    rate_ag_param = 2.3,
+    rate_at_param = 3.4,
+    rate_cg_param = 4.5,
+    rate_ct_param = 5.6,
+    rate_gt_param = 6.7
+ )
 
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),

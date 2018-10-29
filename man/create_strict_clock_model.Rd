@@ -29,7 +29,10 @@ a strict clock_model
 Create a strict clock model
 }
 \examples{
-  strict_clock_model <- create_strict_clock_model()
+  strict_clock_model <- create_strict_clock_model(
+    clock_rate_param = 1.0,
+    clock_rate_distr = create_uniform_distr()
+  )
 
   create_beast2_input_file(
     get_fasta_filename(),

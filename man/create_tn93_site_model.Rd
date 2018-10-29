@@ -52,7 +52,10 @@ a TN93 site_model
 Create a TN93 site model
 }
 \examples{
- tn93_site_model <- create_tn93_site_model()
+ tn93_site_model <- create_tn93_site_model(
+   kappa_1_param = 2.0,
+   kappa_2_param = 2.0
+ )
 
  create_beast2_input_file(
    input_filenames = get_fasta_filename(),

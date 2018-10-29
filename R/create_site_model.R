@@ -126,7 +126,14 @@ create_site_model <- function(
 #' @return a GTR site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   gtr_site_model <- create_gtr_site_model()
+#'   gtr_site_model <- create_gtr_site_model(
+#'     rate_ac_param = 1.2,
+#'     rate_ag_param = 2.3,
+#'     rate_at_param = 3.4,
+#'     rate_cg_param = 4.5,
+#'     rate_ct_param = 5.6,
+#'     rate_gt_param = 6.7
+#'  )
 #'
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
@@ -167,6 +174,25 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   rate_gt_param = create_rate_gt_param(),
   freq_equilibrium = "estimated"
 ) {
+  if (length(rate_ac_param) == 1 && is.numeric(rate_ac_param)) {
+    rate_ac_param <- create_rate_ac_param(value = rate_ac_param)
+  }
+  if (length(rate_ag_param) == 1 && is.numeric(rate_ag_param)) {
+    rate_ag_param <- create_rate_ag_param(value = rate_ag_param)
+  }
+  if (length(rate_at_param) == 1 && is.numeric(rate_at_param)) {
+    rate_at_param <- create_rate_at_param(value = rate_at_param)
+  }
+  if (length(rate_cg_param) == 1 && is.numeric(rate_cg_param)) {
+    rate_cg_param <- create_rate_cg_param(value = rate_cg_param)
+  }
+  if (length(rate_ct_param) == 1 && is.numeric(rate_ct_param)) {
+    rate_ct_param <- create_rate_ct_param(value = rate_ct_param)
+  }
+  if (length(rate_gt_param) == 1 && is.numeric(rate_gt_param)) {
+    rate_gt_param <- create_rate_gt_param(value = rate_gt_param)
+  }
+
   beautier::create_site_model(
     name = "GTR",
     id = id,
@@ -279,7 +305,10 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #' @return a TN93 site_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'  tn93_site_model <- create_tn93_site_model()
+#'  tn93_site_model <- create_tn93_site_model(
+#'    kappa_1_param = 2.0,
+#'    kappa_2_param = 2.0
+#'  )
 #'
 #'  create_beast2_input_file(
 #'    input_filenames = get_fasta_filename(),
@@ -303,6 +332,12 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
   ),
   freq_equilibrium = "estimated"
 ) {
+  if (length(kappa_1_param) == 1 && is.numeric(kappa_1_param)) {
+    kappa_1_param <- create_kappa_1_param(value = kappa_1_param)
+  }
+  if (length(kappa_2_param) == 1 && is.numeric(kappa_2_param)) {
+    kappa_2_param <- create_kappa_2_param(value = kappa_2_param)
+  }
   beautier::create_site_model(
     name = "TN93",
     id = id,
