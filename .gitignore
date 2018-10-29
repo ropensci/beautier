@@ -68,3 +68,4 @@ beautier_*.tar.gz
 beautier.Rcheck/
 beautier.Rcheck/
 ..Rcheck/
+scripts/build/
