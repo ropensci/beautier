@@ -147,23 +147,23 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   id = NA,
   gamma_site_model = create_gamma_site_model(),
   rate_ac_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
+    alpha = 0.05,
     beta = create_beta_param(value = "10.0")
   ),
   rate_ag_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
+    alpha = 0.05,
     beta = create_beta_param(value = "20.0")
   ),
   rate_at_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
+    alpha = 0.05,
     beta = create_beta_param(value = "10.0")
   ),
   rate_cg_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
+    alpha = 0.05,
     beta = create_beta_param(value = "10.0")
   ),
   rate_gt_prior_distr = create_gamma_distr(
-    alpha = create_alpha_param(value = "0.05"),
+    alpha = 0.05,
     beta = create_beta_param(value = "10.0")
   ),
   rate_ac_param = create_rate_ac_param(),
