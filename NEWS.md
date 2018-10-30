@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 1.14.2 (2018-10-30)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Tested to build under macOS
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## beautier 1.14.1 (2018-10-29)
 
 ### NEW FEATURES
@@ -20,9 +38,6 @@ Newest versions at top.
 ### DEPRECATED AND DEFUNCT
 
   * None
-
-
-
 
 ## beautier 1.14.0 (2018-10-26)
 

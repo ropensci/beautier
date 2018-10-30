@@ -37,15 +37,15 @@ Submit an Issue. Or send an email to Richel Bilderbeek.
 Cite:
 
 ```
-Bilderbeek, Richel JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018). https://doi.org/10.1111/2041-210X.13032
+Bilderbeek, Richèl JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018).
 ```
 
-Or use the BibTeX:
+or
 
 ```
 @article{bilderbeek2018babette,
   title={babette: BEAUti 2, BEAST 2 and Tracer for R},
-  author={Bilderbeek, Richel JC and Etienne, Rampal S},
+  author={Bilderbeek, Richèl JC and Etienne, Rampal S},
   journal={Methods in Ecology and Evolution},
   year={2018},
   publisher={Wiley Online Library}
