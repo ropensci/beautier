@@ -20,8 +20,11 @@ r_github_packages:
   - ropensci/spelling
 
 before_script:
-  - sudo apt-get install -qq oracle-java8-installer # Java 8
-  - sudo apt-get install oracle-java8-set-default
+  - # Java
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew cask install java; fi
+  - # Java 8
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq oracle-java8-installer; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install oracle-java8-set-default; fi
   - ./install_beast2
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
