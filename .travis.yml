@@ -12,6 +12,7 @@ fortran: false
 r_packages:
   - devtools
   - hunspell
+  - rappdirs
 
 r_github_packages:
   - jimhester/covr
