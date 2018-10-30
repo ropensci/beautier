@@ -33,49 +33,49 @@ the FASTA filename using \code{\link{get_alignment_id}})}
 by \code{\link{create_gamma_site_model}}}
 
 \item{rate_ac_prior_distr}{the AC rate prior distribution,
-as returned by \code{\link{create_distr}})}
+as returned by \code{\link{create_distr}}}
 
 \item{rate_ag_prior_distr}{the AG rate prior distribution,
-as returned by \code{\link{create_distr}})}
+as returned by \code{\link{create_distr}}}
 
 \item{rate_at_prior_distr}{the AT rate prior distribution,
-as returned by \code{\link{create_distr}})}
+as returned by \code{\link{create_distr}}}
 
 \item{rate_cg_prior_distr}{the CG rate prior distribution,
-as returned by \code{\link{create_distr}})}
+as returned by \code{\link{create_distr}}}
 
 \item{rate_gt_prior_distr}{the GT rate prior distribution,
-as returned by \code{\link{create_distr}})}
+as returned by \code{\link{create_distr}}}
 
 \item{rate_ac_param}{the 'rate AC' parameter,
 a numeric value.
 For advanced usage, use the structure
-as returned by \code{\link{create_rate_ac_param}})}
+as returned by \code{\link{create_rate_ac_param}}}
 
 \item{rate_ag_param}{the 'rate AG' parameter,
 a numeric value.
 For advanced usage, use the structure
-as returned by \code{\link{create_rate_ag_param}})}
+as returned by \code{\link{create_rate_ag_param}}}
 
 \item{rate_at_param}{the 'rate AT' parameter,
 a numeric value.
 For advanced usage, use the structure
-as returned by \code{\link{create_rate_at_param}})}
+as returned by \code{\link{create_rate_at_param}}}
 
 \item{rate_cg_param}{the 'rate CG' parameter,
 a numeric value.
 For advanced usage, use the structure
-as returned by \code{\link{create_rate_cg_param}})}
+as returned by \code{\link{create_rate_cg_param}}}
 
 \item{rate_ct_param}{the 'rate CT' parameter,
 a numeric value.
 For advanced usage, use the structure
-as returned by \code{\link{create_rate_ct_param}})}
+as returned by \code{\link{create_rate_ct_param}}}
 
 \item{rate_gt_param}{the 'rate GT' parameter,
 a numeric value.
 For advanced usage, use the structure
-as returned by \code{\link{create_rate_gt_param}})}
+as returned by \code{\link{create_rate_gt_param}}}
 
 \item{freq_equilibrium}{the frequency in which the rates are at equilibrium
 are either \code{estimated}, \code{empirical} or \code{all_equal}.
