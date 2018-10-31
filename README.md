@@ -54,6 +54,7 @@ Here are some missing or (yet) unsupported features:
  * Support for amino acid sequences
  * Support for three or more alignments with a mix of linked site models, clock models and tree priors
  * Support for three or more MRCA priors
+ * Support for hyper parameters
  * Clock models
    * Relaxed exponential
    * Random local
