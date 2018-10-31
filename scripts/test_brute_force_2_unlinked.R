@@ -12,7 +12,7 @@ for (site_model_1 in beautier:::create_site_models()) {
       for (clock_model_2 in beautier:::create_clock_models()) {
         for (tree_prior in beautier:::create_tree_priors()) {
           cat(".")
-          output_filename <- "~/invalid.xml"
+          output_filename <- "invalid.xml"
           create_beast2_input_file(
             input_filenames = input_filenames,
             site_models = list(site_model_1, site_model_2),
@@ -42,7 +42,7 @@ for (site_model_1 in beautier:::create_site_models()) {
         for (tree_prior in beautier:::create_tree_priors()) {
           if (runif(n = 1) < 0.9) next
           cat(".")
-          output_filename <- "~/invalid.xml"
+          output_filename <- "invalid.xml"
           create_beast2_input_file(
             input_filenames = input_filenames,
             site_models = list(site_model_1, site_model_2),

@@ -17,8 +17,8 @@ compare_lines <- function(
   lines,
   expected,
   section = NA,
-  created_lines_filename = "~/created.xml",
-  expected_lines_filename = "~/expected.xml"
+  created_lines_filename = "created.xml",
+  expected_lines_filename = "expected.xml"
 ) {
   if (!is.na(section)) {
     lines <- extract_xml_section_from_lines(
