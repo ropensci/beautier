@@ -7,7 +7,7 @@
 are_init_clock_models <- function(
   x
 ) {
-  if (!are_clock_models(x)) return(FALSE)
+  if (!are_clock_models(x)) return(FALSE) # nolint internal function
   for (i in x) {
     if (!is_init_clock_model(i)) return(FALSE) # nolint internal function call
   }
