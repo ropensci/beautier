@@ -5,16 +5,19 @@
 \alias{create_distr_normal}
 \title{Create an normal distribution}
 \usage{
-create_normal_distr(id = NA, mean = create_mean_param(),
-  sigma = create_sigma_param())
+create_normal_distr(id = NA, mean = 0, sigma = 1)
 }
 \arguments{
 \item{id}{the distribution's ID}
 
-\item{mean}{the mean parameter
+\item{mean}{the mean parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_mean_param}}}
 
-\item{sigma}{the sigma parameter
+\item{sigma}{the sigma parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_sigma_param}}}
 }
 \value{

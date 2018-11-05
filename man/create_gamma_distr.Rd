@@ -5,16 +5,19 @@
 \alias{create_distr_gamma}
 \title{Create a gamma distribution}
 \usage{
-create_gamma_distr(id = NA, alpha = create_alpha_param(id = NA, value =
-  "0.5396"), beta = create_beta_param(id = NA, value = "0.3819"))
+create_gamma_distr(id = NA, alpha = 0.5396, beta = 0.3819)
 }
 \arguments{
 \item{id}{the distribution's ID}
 
 \item{alpha}{the alpha shape parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_alpha_param}}}
 
 \item{beta}{the beta shape parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_beta_param}}}
 }
 \value{
@@ -25,8 +28,8 @@ Create a gamma distribution
 }
 \examples{
   gamma_distr <- create_gamma_distr(
-     alpha = create_alpha_param(value = 0.05),
-     beta = create_beta_param(value = 10.0)
+     alpha = 0.05,
+     beta = 10.0
   )
 
   gtr_site_model <- create_gtr_site_model(

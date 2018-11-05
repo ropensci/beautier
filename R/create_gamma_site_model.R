@@ -49,10 +49,11 @@ create_gamma_site_model <- function(
     stop("'prop_invariant' must be in range [0.0, 1.0]")
   }
   if (gamma_cat_count >= 2 && is.na(gamma_shape_prior_distr)) {
+    # Cannot simplify, due to 1.0 becomes 1 in XML
     gamma_shape_prior_distr <- create_exp_distr(
         id = NA,
         mean = create_mean_param(
-          id = 0,  # TODO: id must be NA by default
+          id = NA,
           value = "1.0" # string to match XML
         )
       )

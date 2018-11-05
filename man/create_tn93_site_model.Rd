@@ -9,10 +9,8 @@ create_tn93_site_model(id = NA,
   gamma_site_model = create_gamma_site_model(),
   kappa_1_param = create_kappa_1_param(),
   kappa_2_param = create_kappa_2_param(),
-  kappa_1_prior_distr = create_log_normal_distr(m = create_m_param(id =
-  NA, value = "1.0"), s = create_s_param(id = NA, value = "1.25")),
-  kappa_2_prior_distr = create_log_normal_distr(m = create_m_param(id =
-  NA, value = "1.0"), s = create_s_param(id = NA, value = "1.25")),
+  kappa_1_prior_distr = create_log_normal_distr(m = 1, s = 1.25),
+  kappa_2_prior_distr = create_log_normal_distr(m = 1, s = 1.25),
   freq_equilibrium = "estimated")
 }
 \arguments{
@@ -23,9 +21,13 @@ the FASTA filename using \code{\link{get_alignment_id}})}
 by \code{\link{create_gamma_site_model}}}
 
 \item{kappa_1_param}{the 'kappa 1' parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_kappa_1_param}}}
 
 \item{kappa_2_param}{the 'kappa 2' parameter,
+a numeric value.
+For advanced usage, use the structure
 as returned by \code{\link{create_kappa_2_param}}}
 
 \item{kappa_1_prior_distr}{the distribution of the kappa 1 prior,
@@ -50,7 +52,10 @@ a TN93 site_model
 Create a TN93 site model
 }
 \examples{
- tn93_site_model <- create_tn93_site_model()
+ tn93_site_model <- create_tn93_site_model(
+   kappa_1_param = 2.0,
+   kappa_2_param = 2.0
+ )
 
  create_beast2_input_file(
    input_filenames = get_fasta_filename(),

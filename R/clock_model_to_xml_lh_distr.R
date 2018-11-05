@@ -20,9 +20,9 @@ clock_model_to_xml_lh_distr <- function(
   is_first = TRUE,
   is_non_first_shared = TRUE
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model)) # nolint internal function
   id <- clock_model$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) {

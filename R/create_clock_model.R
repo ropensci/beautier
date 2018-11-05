@@ -127,13 +127,18 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #' Create a strict clock model
 #' @inheritParams default_params_doc
 #' @param clock_rate_param the clock rate's parameter,
+#'   a numeric value.
+#'   For advanced usage, use the structure
 #'   as created by the \code{\link{create_clock_rate_param}} function
 #' @param clock_rate_distr the clock rate's distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a strict clock_model
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   strict_clock_model <- create_strict_clock_model()
+#'   strict_clock_model <- create_strict_clock_model(
+#'     clock_rate_param = 1.0,
+#'     clock_rate_distr = create_uniform_distr()
+#'   )
 #'
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),

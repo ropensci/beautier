@@ -15,6 +15,8 @@ An ID can be extracted from its FASTA filename
 with \code{\link{get_alignment_ids}})}
 
 \item{clock_rate_param}{the clock rate's parameter,
+a numeric value.
+For advanced usage, use the structure
 as created by the \code{\link{create_clock_rate_param}} function}
 
 \item{clock_rate_distr}{the clock rate's distribution,
@@ -27,7 +29,10 @@ a strict clock_model
 Create a strict clock model
 }
 \examples{
-  strict_clock_model <- create_strict_clock_model()
+  strict_clock_model <- create_strict_clock_model(
+    clock_rate_param = 1.0,
+    clock_rate_distr = create_uniform_distr()
+  )
 
   create_beast2_input_file(
     get_fasta_filename(),

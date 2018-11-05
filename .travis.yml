@@ -1,9 +1,18 @@
 language: r
 cache: packages
 
+os: 
+  - osx
+  - linux
+
+# Workaround to get OSX build working,
+# from https://github.com/travis-ci/travis-ci/issues/10295
+# fortran: false
+
 r_packages:
   - devtools
   - hunspell
+  - rappdirs
 
 r_github_packages:
   - jimhester/covr
@@ -12,8 +21,13 @@ r_github_packages:
   - ropensci/spelling
 
 before_script:
-  - sudo apt-get install -qq oracle-java8-installer # Java 8
-  - sudo apt-get install oracle-java8-set-default
+  - # Java
+  - # if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew cask install java; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R CMD javareconf; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R --quiet -e 'install.packages("rJava", type="source", repos="http://cran.us.r-project.org")'; fi
+  - # Java 8
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq oracle-java8-installer; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install oracle-java8-set-default; fi
   - ./install_beast2
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
@@ -23,15 +37,21 @@ before_script:
   #- sudo npm install -g markdown-link-check
 
 after_success:
+  - Rscript -e 'print(rappdirs::app_dir()$os)'
   - Rscript -e 'devtools::install_github("richelbilderbeek/babette")'
   - Rscript -e 'lintr::lint_package()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
+  - # No local files created
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi; fi
+  - # Do a CRAN build
+  - cd scripts; ./build_cran
   # does not work temporarily
   #- ./scripts/check_dead_links
 
 after_failure:
+  - Rscript -e 'print(rappdirs::app_dir()$os)'
   # - sudo Rscript install_this_r_package.R
   # - Rscript -e 'library(beautier); testit::assert(has_beast2())'
   - cat /home/travis/build/richelbilderbeek/beautier/..Rcheck/00install.out
