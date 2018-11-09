@@ -11,7 +11,8 @@ create_beast2_input_file(input_filenames, output_filename,
   get_alignment_ids(input_filenames)),
   tree_priors = create_yule_tree_priors(ids =
   get_alignment_ids(input_filenames)), mrca_priors = NA,
-  mcmc = create_mcmc(), posterior_crown_age = NA)
+  mcmc = create_mcmc(), misc_options = create_misc_options(),
+  posterior_crown_age = NA)
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -34,6 +35,9 @@ as returned by \code{\link{create_mrca_prior}}}
 
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
+
+\item{misc_options}{one misc_options object,
+as returned by \code{\link{create_misc_options}}}
 
 \item{posterior_crown_age}{the crown age the posteriors'
 phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}

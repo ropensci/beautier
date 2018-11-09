@@ -42,6 +42,7 @@ create_beast2_input_file <- function(
   ),
   mrca_priors = NA,
   mcmc = create_mcmc(),
+  misc_options = create_misc_options(),
   posterior_crown_age = NA
 ) {
   # Error handling done by create_beast2_input
@@ -52,7 +53,8 @@ create_beast2_input_file <- function(
     tree_priors = tree_priors,
     mrca_priors = mrca_priors,
     mcmc = mcmc,
-    posterior_crown_age = posterior_crown_age
+    posterior_crown_age = posterior_crown_age,
+    misc_options = misc_options
   )
 
   # Write to file
