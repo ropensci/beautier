@@ -1404,23 +1404,25 @@ test_that("Base point + all taxa + one_div_x", {
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
 })
 
-test_that("RLN + MRCA with distribution", {
+
+test_that("Base point + all taxa + one_div_x + RLN", {
 
   skip("WIP")
   # For https://github.com/richelbilderbeek/babette/issues/29
+
   created <- beautier::create_beast2_input(
     input_filenames = get_beautier_path("anthus_aco_sub.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    clock_models = create_rln_clock_model(
-      mparam_id = 1
-    ),
+    clock_models = create_rln_clock_model(),
     mrca_priors = create_mrca_prior(
-      name = "all_taxa",
+      name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
-      mrca_distr = create_one_div_x_distr(id = 1)
+      is_monophyletic = FALSE,
+      mrca_distr = create_one_div_x_distr(id = 1),
+      clock_prior_distr_id = 0
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
@@ -1429,8 +1431,9 @@ test_that("RLN + MRCA with distribution", {
   )
 
   expected <- readLines(beautier::get_beautier_path(
-    "anthus_aco_sub_rln_mrca_with_distr.xml")
+    "anthus_aco_sub_20181016_all_one_div_x_rln.xml")
   )
+
   compare_lines(
     created,
     expected,
@@ -1438,4 +1441,4 @@ test_that("RLN + MRCA with distribution", {
     expected_lines_filename = "~/expected.xml"
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  })
+})
