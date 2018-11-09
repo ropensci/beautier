@@ -6,8 +6,10 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 clock_models_to_xml_state <- function(
-  clock_models
+  clock_models,
+  mrca_priors = NA
 ) {
+  # the mrca_priors are supposed to be temporary :-)
   testit::assert(are_clock_models(clock_models))
 
   # Remove the clock models that share a same alignment
@@ -25,6 +27,7 @@ clock_models_to_xml_state <- function(
   # if no MRCA prior is used
   clock_model <- clock_models[[1]]
   line_to_remove <- clock_model_to_xml_state(clock_model) # nolint
+
   if (is_rln_clock_model(clock_model)) {
     # A RLN clock model returns three lines, only remove the first
     testit::assert(length(line_to_remove) == 3)

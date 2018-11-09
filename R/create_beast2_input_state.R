@@ -24,7 +24,7 @@ create_beast2_input_state <- function(
   }
 
   text <- c(text, site_models_to_xml_state(site_models)) # nolint internal function
-  text <- c(text, clock_models_to_xml_state(clock_models)) # nolint internal function
+  text <- c(text, clock_models_to_xml_state(clock_models, mrca_priors)) # nolint internal function
   text <- c(text, tree_priors_to_xml_state(tree_priors)) # nolint internal function
   text <- c(
     text,

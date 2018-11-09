@@ -1439,6 +1439,13 @@ test_that("Base point + all taxa + one_div_x + RLN", {
   expected <- readLines(beautier::get_beautier_path(
     "anthus_aco_sub_20181016_all_one_div_x_rln.xml")
   )
+  compare_lines(
+    created,
+    expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml",
+    section = "state"
+  )
 
   compare_lines(
     created,
