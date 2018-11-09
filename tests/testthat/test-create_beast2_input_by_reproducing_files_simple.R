@@ -1415,7 +1415,13 @@ test_that("Base point + all taxa + one_div_x + RLN", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    clock_models = create_rln_clock_model(),
+    clock_models = create_rln_clock_model(
+      ucldstdev_distr = create_gamma_distr(id = 6,
+        alpha = create_alpha_param(id = 21, value = "0.5396"),
+        beta = create_beta_param(id = 22, value = "0.3819")
+      ),
+      mparam_id = 20
+    ),
     mrca_priors = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
