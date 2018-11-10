@@ -43,6 +43,34 @@ devtools::install_github("richelbilderbeek/beautier")
 
 See [FAQ](Faq.md)
 
+## Features
+
+ * 1 DNA alignment
+ * Site models:
+    * JC69
+    * HKY
+    * TN93
+    * GTR
+ * Clock models:
+    * Strickt
+    * Relaxed log-normal
+ * Tree models:
+    * Yule
+    * Birth-Death
+    * Coalescent Bayesian Skyline 
+    * Coalescent Constant Population
+    * Coalescent Exponential Population
+
+## Experimental features
+
+These features are present, but insufficiently tested.
+
+ * Two or more DNA alignments
+ * Two or more site models
+ * Two or more clock models 
+ * Two or more tree models
+ * Two or more MRCA priors
+
 ## Missing features/unsupported
 
 `beautier` cannot do everything `BEAUti` can. 
@@ -53,7 +81,6 @@ Here are some missing or (yet) unsupported features:
  * Support for shared site or clock models
  * Support for amino acid sequences
  * Support for three or more alignments with a mix of linked site models, clock models and tree priors
- * Support for three or more MRCA priors
  * Support for hyper parameters
  * Clock models
    * Relaxed exponential

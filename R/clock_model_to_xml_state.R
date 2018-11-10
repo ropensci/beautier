@@ -28,8 +28,6 @@ clock_model_to_xml_state <- function(
     testit::assert(!is.na(clock_model$mean_clock_rate))
     testit::assert(!is.na(clock_model$dimension))
 
-    # ucldMean.c must be the first line, as it will be removed when
-    # the first clock model is an RLN clock model
     text <- c(text, paste0("<parameter id=\"ucldMean.c:", id, "\" ",
         "name=\"stateNode\">", clock_model$mean_clock_rate, "</parameter>")
     )

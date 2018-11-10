@@ -16,7 +16,12 @@ clock_models_to_xml_state <- function(
   clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
   testit::assert(are_clock_models(clock_models))
 
+  if (length(clock_models) == 1 && is_strict_clock_model(clock_models[[1]])) {
+    return(NULL)
+  }
+
   text <- NULL
+
   for (clock_model in clock_models) {
     text <- c(text,
       clock_model_to_xml_state(clock_model)
@@ -26,14 +31,18 @@ clock_models_to_xml_state <- function(
   # Remove the first line of the first clock model, if any
   # if no MRCA prior is used
   clock_model <- clock_models[[1]]
-  line_to_remove <- clock_model_to_xml_state(clock_model) # nolint
 
-  if (is_rln_clock_model(clock_model)) {
+  if (is_rln_clock_model(clock_model) &&
+      !is_mrca_prior_with_distr(mrca_priors)) {
     # A RLN clock model returns three lines, only remove the first
+    line_to_remove <- clock_model_to_xml_state(clock_model) # nolint
     testit::assert(length(line_to_remove) == 3)
-    line_to_remove <- line_to_remove[1]
+    # <parameter id=\"ucldMean.c:test_output_0\" name=\"stateNode\">1.0</parameter>
+    # line_to_remove <- line_to_remove[1]
+    text <- line_to_remove[ stringr::str_remove_all(string = line_to_remove, pattern = ".*ucldMean\\.c:.*") != "" ]
+    #print(paste0("line_to_remove: ", line_to_remove))
   }
-  testit::assert(!is.null(line_to_remove))
-  text <- text[text != line_to_remove]
+  #testit::assert(!is.null(line_to_remove))
+  #text <- text[text != line_to_remove]
   text
 }
