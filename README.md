@@ -63,13 +63,14 @@ See [FAQ](Faq.md)
 
 ## Experimental features
 
-These features are present, but insufficiently tested.
-
  * Two or more DNA alignments
  * Two or more site models
  * Two or more clock models 
  * Two or more tree models
  * Two or more MRCA priors
+
+The [babettes](https://github.com/richelbilderbeek/babettes)
+package tests these features, yet insufficiently.
 
 ## Missing features/unsupported
 
