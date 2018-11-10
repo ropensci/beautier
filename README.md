@@ -43,7 +43,7 @@ devtools::install_github("richelbilderbeek/beautier")
 
 See [FAQ](Faq.md)
 
-## Features
+## Supported
 
  * 1 DNA alignment
  * Site models:
@@ -61,27 +61,18 @@ See [FAQ](Faq.md)
     * Coalescent Constant Population
     * Coalescent Exponential Population
 
-## Experimental features
-
- * Two or more DNA alignments
- * Two or more site models
- * Two or more clock models 
- * Two or more tree models
- * Two or more MRCA priors
-
-The [babettes](https://github.com/richelbilderbeek/babettes)
-package tests these features, yet insufficiently.
-
 ## Missing features/unsupported
 
 `beautier` cannot do everything `BEAUti` can. 
 
 Here are some missing or (yet) unsupported features:
 
- * [Support for tip dating](https://github.com/richelbilderbeek/babette/issues/27)
- * Support for shared site or clock models
- * Support for amino acid sequences
- * Support for three or more alignments with a mix of linked site models, clock models and tree priors
+ * [Tip dating](https://github.com/richelbilderbeek/babette/issues/27)
+ * Two or more DNA alignments
+ * Two or more site, clock or tree models
+ * Two or more MRCA priors
+ * Shared site, clock and/or tree models
+ * Using an amino acid alignment
  * Support for hyper parameters
  * Clock models
    * Relaxed exponential
