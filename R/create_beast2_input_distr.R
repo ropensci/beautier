@@ -171,7 +171,8 @@ create_beast2_input_distr_lh <- function( # nolint internal function
           clock_model_to_xml_lh_distr(
             clock_model,
             is_first = is_first,
-            is_non_first_shared = is_non_first_shared
+            is_non_first_shared = is_non_first_shared,
+            mrca_priors = mrca_priors
           ),
           n_spaces = 4
         )

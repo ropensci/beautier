@@ -1407,7 +1407,6 @@ test_that("Base point + all taxa + one_div_x", {
 
 test_that("Base point + all taxa + one_div_x + RLN", {
 
-  skip("WIP")
   # For https://github.com/richelbilderbeek/babette/issues/29
 
   created <- create_beast2_input(
@@ -1439,12 +1438,6 @@ test_that("Base point + all taxa + one_div_x + RLN", {
 
   expected <- readLines(get_beautier_path(
     "anthus_aco_sub_20181016_all_one_div_x_rln.xml")
-  )
-  compare_lines(
-    created,
-    expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
