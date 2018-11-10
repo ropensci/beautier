@@ -14,11 +14,11 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(are_ids(ids))  # nolint internal function
-  testit::assert(are_site_models(site_models))
-  testit::assert(are_clock_models(clock_models))
-  testit::assert(are_tree_priors(tree_priors))
-  testit::assert(are_mrca_priors(mrca_priors))
-  testit::assert(is_mcmc(mcmc))
+  testit::assert(are_site_models(site_models)) # nolint internal function
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(is_mcmc(mcmc)) # nolint internal function
 
   text <- NULL
   text <- c(

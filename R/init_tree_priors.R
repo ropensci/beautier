@@ -11,42 +11,42 @@ init_tree_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    testit::assert(is_tree_prior(tree_prior))
+    testit::assert(is_tree_prior(tree_prior)) # nolint internal function
 
-    if (is_bd_tree_prior(tree_prior)) {
-      if (!is_init_bd_tree_prior(tree_prior)) {
+    if (is_bd_tree_prior(tree_prior)) { # nolint internal function
+      if (!is_init_bd_tree_prior(tree_prior)) { # nolint internal function
         tree_prior <- init_bd_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
-    } else if (is_cbs_tree_prior(tree_prior)) {
+    } else if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
       # Nothing to do
-    } else if (is_ccp_tree_prior(tree_prior)) {
-      if (!is_init_ccp_tree_prior(tree_prior)) {
+    } else if (is_ccp_tree_prior(tree_prior)) { # nolint internal function
+      if (!is_init_ccp_tree_prior(tree_prior)) { # nolint internal function
         tree_prior <- init_ccp_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
-    } else if (is_cep_tree_prior(tree_prior)) {
-      if (!is_init_cep_tree_prior(tree_prior)) {
+    } else if (is_cep_tree_prior(tree_prior)) { # nolint internal function
+      if (!is_init_cep_tree_prior(tree_prior)) { # nolint internal function
         tree_prior <- init_cep_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     } else {
-      testit::assert(is_yule_tree_prior(tree_prior))
-      if (!is_init_yule_tree_prior(tree_prior)) {
+      testit::assert(is_yule_tree_prior(tree_prior)) # nolint internal function
+      if (!is_init_yule_tree_prior(tree_prior)) { # nolint internal function
         tree_prior <- init_yule_tree_prior( # nolint internal function call
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     }
-    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior)
-    param_id <- param_id + get_tree_prior_n_params(tree_prior)
+    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior) # nolint internal function
+    param_id <- param_id + get_tree_prior_n_params(tree_prior) # nolint internal function
 
     if (is.na(tree_prior$id)) tree_prior$id <- ids[i]
     tree_priors[[i]] <- tree_prior

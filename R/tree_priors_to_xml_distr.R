@@ -15,7 +15,7 @@
 tree_priors_to_xml_prior_distr <- function( # nolint internal function
   tree_priors
 ) {
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
 
   text <- NULL
   for (tree_prior in tree_priors) {

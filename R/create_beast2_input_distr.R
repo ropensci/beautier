@@ -19,9 +19,9 @@ create_beast2_input_distr <- function( # nolint internal function
   tree_priors,
   mrca_priors = NA
 ) {
-  testit::assert(are_site_models(site_models))
-  testit::assert(are_clock_models(clock_models))
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_site_models(site_models)) # nolint internal function
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
   testit::assert(are_init_tree_priors(tree_priors)) # nolint internal function call
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function call
 

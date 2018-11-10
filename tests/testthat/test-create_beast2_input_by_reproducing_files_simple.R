@@ -1407,8 +1407,6 @@ test_that("Base point + all taxa + one_div_x", {
 
 test_that("Base point + all taxa + one_div_x + RLN", {
 
-  # For https://github.com/richelbilderbeek/babette/issues/29
-
   created <- create_beast2_input(
     input_filenames = get_beautier_path("anthus_aco_sub.fas"),
     tree_priors = create_yule_tree_prior(

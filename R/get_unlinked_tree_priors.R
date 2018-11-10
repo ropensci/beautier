@@ -3,7 +3,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 get_unlinked_tree_priors <- function(tree_priors) {
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
   results <- list()
   ids <- NULL
   for (tree_prior in tree_priors) {
@@ -14,6 +14,6 @@ get_unlinked_tree_priors <- function(tree_priors) {
     }
   }
 
-  testit::assert(are_tree_priors(results))
+  testit::assert(are_tree_priors(results)) # nolint internal function
   results
 }

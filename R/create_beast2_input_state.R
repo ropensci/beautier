@@ -12,8 +12,8 @@ create_beast2_input_state <- function(
   mrca_priors = NA
 ) {
   testit::assert(length(tree_priors) == length(initial_phylogenies))
-  testit::assert(are_initial_phylogenies(initial_phylogenies))
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
 
   text <- NULL
   for (i in seq_along(tree_priors)) {

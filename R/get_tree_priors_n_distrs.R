@@ -14,7 +14,7 @@
 get_tree_priors_n_distrs <- function(
   tree_priors
 ) {
-  if (!are_tree_priors(tree_priors)) {
+  if (!are_tree_priors(tree_priors)) { # nolint internal function
     stop("'tree_priors' must be a list of one or more tree priors")
   }
   n <- 0

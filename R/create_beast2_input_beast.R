@@ -25,9 +25,9 @@ create_beast2_input_beast <- function(
   testit::assert(length(input_filenames) == length(tree_priors))
   testit::assert(length(input_filenames) == length(initial_phylogenies))
   testit::assert(length(input_filenames) == length(fixed_crown_ages))
-  testit::assert(are_site_models(site_models))
-  testit::assert(are_clock_models(clock_models))
-  testit::assert(are_tree_priors(tree_priors))
+  testit::assert(are_site_models(site_models)) # nolint internal function
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   testit::assert(are_init_clock_models(clock_models)) # nolint internal function
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function

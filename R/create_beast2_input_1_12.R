@@ -67,7 +67,7 @@ create_beast2_input_1_12 <- function(
   }
 
   # 4 tree_priors
-  if (!are_tree_priors(tree_priors)) {
+  if (!are_tree_priors(tree_priors)) { # nolint internal function
     stop(
       "'tree_priors' must be a valid tree prior, ",
       "or a list of valid tree priors, ",

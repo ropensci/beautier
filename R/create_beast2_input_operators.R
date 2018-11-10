@@ -10,10 +10,10 @@ create_beast2_input_operators <- function( # nolint internal function
   mrca_priors = NA
 ) {
   testit::assert(is.logical(fixed_crown_ages))
-  testit::assert(are_site_models(site_models))
-  testit::assert(are_clock_models(clock_models))
-  testit::assert(are_tree_priors(tree_priors))
-  testit::assert(are_mrca_priors(mrca_priors))
+  testit::assert(are_site_models(site_models)) # nolint internal function
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   testit::assert(length(site_models) == length(fixed_crown_ages))
 
   text <- NULL

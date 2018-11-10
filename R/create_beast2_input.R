@@ -31,16 +31,16 @@ create_beast2_input <- function(
   check_site_models(site_models) # nolint internal function
 
   # Convert possible-non-list input to lists and multiPhylo
-  if (is_site_model(site_models)) {
+  if (is_site_model(site_models)) { # nolint internal function
     site_models <- list(site_models)
   }
-  if (is_clock_model(clock_models)) {
+  if (is_clock_model(clock_models)) { # nolint internal function
     clock_models <- list(clock_models)
   }
-  if (is_tree_prior(tree_priors)) {
+  if (is_tree_prior(tree_priors)) { # nolint internal function
     tree_priors <- list(tree_priors)
   }
-  if (is_mrca_prior(mrca_priors)) {
+  if (is_mrca_prior(mrca_priors)) { # nolint internal function
     mrca_priors <- list(mrca_priors)
     testit::assert(is_mrca_prior(mrca_priors[[1]]))
   }
@@ -48,7 +48,7 @@ create_beast2_input <- function(
   # Check input
 
   # 1 input_filenames
-  if (!files_exist(input_filenames)) {
+  if (!files_exist(input_filenames)) { # nolint internal function
     stop(
       "'input_filenames' must be the name ",
       "of one or more present files. "
@@ -59,7 +59,7 @@ create_beast2_input <- function(
   # Already checked
 
   # 3 clock_models
-  if (!are_clock_models(clock_models)) {
+  if (!are_clock_models(clock_models)) { # nolint internal function
     stop(
       "'clock_models' must be a valid clock model, ",
       "or a list of valid clock models, ",
@@ -68,7 +68,7 @@ create_beast2_input <- function(
   }
 
   # 4 tree_priors
-  if (!are_tree_priors(tree_priors)) {
+  if (!are_tree_priors(tree_priors)) { # nolint internal function
     stop(
       "'tree_priors' must be a valid tree prior, ",
       "or a list of valid tree priors, ",
@@ -77,7 +77,7 @@ create_beast2_input <- function(
   }
 
   # 5 MRCA priors
-  if (!are_mrca_priors(mrca_priors)) {
+  if (!are_mrca_priors(mrca_priors)) { # nolint internal function
     stop(
       "'mrca_priors' must be NA or a valid mrca object, ",
       "as returned by 'create_mrca_prior'"
@@ -85,7 +85,7 @@ create_beast2_input <- function(
   }
 
   # 6 mcmc
-  if (!is_mcmc(mcmc)) {
+  if (!is_mcmc(mcmc)) { # nolint internal function
     stop(
       "'mcmc' must be a valid mcmc object, ",
       "as returned by 'create_mcmc'"
@@ -93,7 +93,7 @@ create_beast2_input <- function(
   }
 
   # 7 misc_options
-  if (!is_misc_options(misc_options)) {
+  if (!is_misc_options(misc_options)) { # nolint internal function
     stop(
       "'misc_options' must be a valid misc options object, ",
       "as returned by 'create_misc_options'"
