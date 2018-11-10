@@ -14,14 +14,15 @@
 #' @noRd
 clock_model_to_xml_prior_distr <- function(
   clock_model,
-  is_first = TRUE
+  is_first = TRUE,
+  mrca_priors = NA
 ) {
   testit::assert(is_clock_model(clock_model))
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
 
-    if (is_first == FALSE) {
+    if (is_first == FALSE || is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(text, rln_clock_model_to_xml_mean_rate_prior(clock_model)) # nolint internal function
     }
 
