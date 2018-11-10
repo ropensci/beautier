@@ -2,6 +2,27 @@
 
 Newest versions at top.
 
+## beautier 1.15 (2018-11-10)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * Correct BEAST2 files are created when using a RLN clock
+    model, with an MRCA prior with a distribution, thanks @rscherrer
+    and Jana Riederer
+
+### DEPRECATED AND DEFUNCT
+
+  * Support for multiple alignments, site models, clock models,
+    tree models has decreased 
+
 ## beautier 1.14.2 (2018-10-30)
 
 ### NEW FEATURES
