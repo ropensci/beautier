@@ -38,7 +38,8 @@ create_beast2_input_operators <- function( # nolint internal function
   text <- c(
     text,
     mrca_priors_to_xml_operators( # nolint internal function
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      clock_models = clock_models
     )
   )
   text <- interspace(text) # nolint internal function

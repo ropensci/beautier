@@ -7,12 +7,16 @@
 #' @noRd
 mrca_prior_to_xml_operators <- function(
   mrca_prior,
-  fixed_crown_age = FALSE
+  fixed_crown_age = FALSE,
+  clock_models
 ) {
   testit::assert(is_mrca_prior(mrca_prior))
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
   if (!mrca_prior$is_monophyletic && is.na(mrca_prior$mrca_distr)) return(NULL)
   if (all(is.na(mrca_prior$mrca_distr))) return(NULL)
+  if (length(clock_models) == 1 && is_rln_clock_model(clock_models[[1]])) {
+    return(NULL)
+  }
 
   id <- mrca_prior$alignment_id
 
