@@ -6,12 +6,12 @@
 #' @noRd
 clock_model_to_xml_operators <- function(
   clock_model,
-  is_first
+  is_first,
+  mrca_priors
 ) {
   testit::assert(is_clock_model(clock_model))
 
   # May not need ID at all, if it is the first and strict clock model
-
   text <- NULL
   if (is_strict_clock_model(clock_model)) {
     if (is_first == FALSE) {
@@ -35,7 +35,21 @@ clock_model_to_xml_operators <- function(
 
     id <- clock_model$id
     testit::assert(is_id(id))
-    if (is_first == FALSE) {
+    text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"3.0\"/>"))
+    text <- c(text, paste0("<operator ",
+      "id=\"CategoriesRandomWalk.c:", id, "\" spec=\"IntRandomWalkOperator\" ",
+      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\" ",
+      "windowSize=\"1\"/>"))
+    text <- c(text, paste0("<operator ",
+      "id=\"CategoriesSwapOperator.c:", id, "\" spec=\"SwapOperator\" ",
+      "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"))
+    text <- c(text, paste0("<operator ",
+      "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
+      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>")
+    )
+    if (is_first == FALSE || is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(
         text,
         paste0(
@@ -53,19 +67,6 @@ clock_model_to_xml_operators <- function(
       text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
       text <- c(text, paste0("</operator>"))
     }
-    text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"3.0\"/>"))
-    text <- c(text, paste0("<operator ",
-      "id=\"CategoriesRandomWalk.c:", id, "\" spec=\"IntRandomWalkOperator\" ",
-      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\" ",
-      "windowSize=\"1\"/>"))
-    text <- c(text, paste0("<operator ",
-      "id=\"CategoriesSwapOperator.c:", id, "\" spec=\"SwapOperator\" ",
-      "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"))
-    text <- c(text, paste0("<operator ",
-      "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
-      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"))
   }
   testit::assert(is.null(text) || is_xml(text)) # nolint internal function
   text

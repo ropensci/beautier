@@ -4,7 +4,8 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 clock_models_to_xml_operators <- function(
-  clock_models
+  clock_models,
+  mrca_priors = NA
 ) {
   testit::assert(are_clock_models(clock_models))
 
@@ -15,7 +16,8 @@ clock_models_to_xml_operators <- function(
     clock_model <- clock_models[[i]]
     text <- c(
       text,
-      clock_model_to_xml_operators(clock_model, i == 1)
+      clock_model_to_xml_operators(
+        clock_model, i == 1, mrca_priors)
     )
   }
   text
