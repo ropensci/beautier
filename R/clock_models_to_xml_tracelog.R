@@ -10,7 +10,8 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 clock_models_to_xml_tracelog <- function(
-  clock_models
+  clock_models,
+  mrca_priors = NA
 ) {
   testit::assert(are_clock_models(clock_models))
 
@@ -20,7 +21,14 @@ clock_models_to_xml_tracelog <- function(
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
     testit::assert(is_clock_model(clock_model))
-    text <- c(text, clock_model_to_xml_tracelog(clock_model, i == 1)) # nolint internal function
+    text <- c(
+      text,
+      clock_model_to_xml_tracelog( # nolint internal function
+        clock_model = clock_model,
+        is_first = i == 1,
+        mrca_priors = mrca_priors
+      )
+    )
   }
   text
 }

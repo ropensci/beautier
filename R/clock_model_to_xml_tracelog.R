@@ -11,7 +11,8 @@
 #' @noRd
 clock_model_to_xml_tracelog <- function(
   clock_model,
-  is_first
+  is_first,
+  mrca_priors = NA
 ) {
   testit::assert(is_clock_model(clock_model))
   id <- clock_model$id
@@ -19,7 +20,7 @@ clock_model_to_xml_tracelog <- function(
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {
-    if (is_first == FALSE) {
+    if (is_first == FALSE || is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>"))
     }
     text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>"))
