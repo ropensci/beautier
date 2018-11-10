@@ -30,7 +30,7 @@ before_script:
 
 after_success:
   - Rscript -e 'print(rappdirs::app_dir()$os)'
-  - Rscript -e 'lintr::lint_package()'
+  - Rscript -e 'lintr::expect_lint_free()'
   - Rscript -e 'covr::codecov()'
   - Rscript -e 'goodpractice::gp()'
   - proselint *.md | egrep -v "typography\.symbols\.curly_quotes"
