@@ -73,4 +73,3 @@ test_that("rln + MRCA with distr", {
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
-

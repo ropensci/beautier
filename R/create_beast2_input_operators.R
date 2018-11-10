@@ -28,7 +28,13 @@ create_beast2_input_operators <- function( # nolint internal function
   )
 
   text <- c(text, site_models_to_xml_operators(site_models)) # nolint internal function
-  text <- c(text, clock_models_to_xml_operators(clock_models)) # nolint internal function
+  text <- c(
+    text,
+    clock_models_to_xml_operators( # nolint internal function
+      clock_models = clock_models,
+      mrca_priors = mrca_priors
+    )
+  )
   text <- c(
     text,
     mrca_priors_to_xml_operators( # nolint internal function

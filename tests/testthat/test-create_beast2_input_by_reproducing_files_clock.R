@@ -15,8 +15,8 @@ context(
 
 test_that("rln_2_4.xml", {
 
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("test_output_0.fas"),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
         id = 0,
@@ -29,32 +29,14 @@ test_that("rln_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
-  expected <- readLines(beautier::get_beautier_path("rln_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "operators")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "loggers")
-  )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  expected <- readLines(get_beautier_path("rln_2_4.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("rln_uclstdev_beta_2_4.xml", {
 
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("test_output_0.fas"),
     clock_models = create_rln_clock_model(
       ucldstdev_distr = create_beta_distr(
         id = 0,
@@ -66,21 +48,8 @@ test_that("rln_uclstdev_beta_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(beautier::get_beautier_path(
-    "rln_uclstdev_beta_2_4.xml")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(
-      created, expected, section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  expected <- readLines(get_beautier_path("rln_uclstdev_beta_2_4.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 ################################################################################
@@ -89,32 +58,19 @@ test_that("rln_uclstdev_beta_2_4.xml", {
 
 test_that("strict_clock_2_4.xml", {
 
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("test_output_0.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-
-  expected <- readLines(beautier::get_beautier_path("strict_clock_2_4.xml"))
-
-  compare_lines(created, expected, created_lines_filename = "~/created.xml", expected_lines_filename = "~/expected.xml")
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  expected <- readLines(get_beautier_path("strict_clock_2_4.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("strict_clock_rate_0_5_2_4.xml", {
 
-  created <- beautier::create_beast2_input(
-    input_filenames = beautier::get_beautier_path("test_output_0.fas"),
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("test_output_0.fas"),
     clock_models = create_strict_clock_model(
       clock_rate_param = create_clock_rate_param(
         id = "test_output_0.fas",
@@ -124,17 +80,6 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-
-  expected <- readLines(beautier::get_beautier_path(
-    "strict_clock_rate_0_5_2_4.xml"))
-
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "state")
-  )
-  testthat::expect_true(
-    beautier:::are_equivalent_xml_lines(created, expected,
-      section = "distribution")
-  )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  expected <- readLines(get_beautier_path("strict_clock_rate_0_5_2_4.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })

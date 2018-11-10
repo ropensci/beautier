@@ -1443,14 +1443,6 @@ test_that("Base point + all taxa + one_div_x + RLN", {
     created,
     expected,
     created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml",
-    section = "state"
-  )
-
-  compare_lines(
-    created,
-    expected,
-    created_lines_filename = "~/created.xml",
     expected_lines_filename = "~/expected.xml"
   )
   testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
