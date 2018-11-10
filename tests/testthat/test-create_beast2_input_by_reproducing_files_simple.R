@@ -1420,7 +1420,8 @@ test_that("Base point + all taxa + one_div_x + RLN", {
         alpha = create_alpha_param(id = 21, value = "0.5396"),
         beta = create_beta_param(id = 22, value = "0.3819")
       ),
-      mparam_id = 20
+      mparam_id = 20,
+      mean_rate_prior_distr = create_uniform_distr(id = 4)
     ),
     mrca_priors = create_mrca_prior(
       name = "all",

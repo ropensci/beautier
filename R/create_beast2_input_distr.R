@@ -88,7 +88,13 @@ create_beast2_input_distr_prior <- function( # nolint internal function
     mrca_priors,
     has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models))
   )
-  text <- c(text, clock_models_to_xml_prior_distr(clock_models)) # nolint internal function
+  text <- c(
+    text,
+    clock_models_to_xml_prior_distr( # nolint internal function
+      clock_models = clock_models,
+      mrca_priors = mrca_priors
+    )
+  )
 
   text <- indent(text, n_spaces = 4) # nolint internal function
 
