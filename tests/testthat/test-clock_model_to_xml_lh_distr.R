@@ -262,9 +262,9 @@ test_that("RLN + MRCA with distr", {
 
   # From 'rln_mrca_one_div_x_2_5.xml'
   expected <- c(
-    "<branchRateModel id=\"RelaxedClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" clock.rate=\"@ucldMean.c:anthus_aco_sub\" rateCategories=\"@rateCategories.c:anthus_aco_sub\" tree=\"@Tree.t:anthus_aco_sub\">",
-    "    <LogNormal id=\"LogNormalDistributionModel.c:anthus_aco_sub\" S=\"@ucldStdev.c:anthus_aco_sub\" meanInRealSpace=\"true\" name=\"distr\">",
-    "        <parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>",
+    "<branchRateModel id=\"RelaxedClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" clock.rate=\"@ucldMean.c:anthus_aco_sub\" rateCategories=\"@rateCategories.c:anthus_aco_sub\" tree=\"@Tree.t:anthus_aco_sub\">", # nolint XML
+    "    <LogNormal id=\"LogNormalDistributionModel.c:anthus_aco_sub\" S=\"@ucldStdev.c:anthus_aco_sub\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
+    "        <parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
     "    </LogNormal>",
     "</branchRateModel>"
   )
