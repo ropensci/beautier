@@ -18,7 +18,8 @@
 clock_model_to_xml_lh_distr <- function(
   clock_model,
   is_first = TRUE,
-  is_non_first_shared = TRUE
+  is_non_first_shared = TRUE,
+  mrca_priors = NA
 ) {
   testit::assert(is_clock_model(clock_model)) # nolint internal function
   id <- clock_model$id
@@ -55,7 +56,8 @@ clock_model_to_xml_lh_distr <- function(
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-      ifelse(is_first == TRUE, "",
+      ifelse(is_first == TRUE && !is_mrca_prior_with_distr(mrca_priors[[1]]),
+        "",
         paste0("clock.rate=\"@ucldMean.c:", id, "\" ")
       ),
       ifelse(clock_model$normalize_mean_clock_rate == TRUE,
@@ -77,7 +79,7 @@ clock_model_to_xml_lh_distr <- function(
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
-    if (is_first == TRUE) {
+    if (is_first == TRUE && !is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(text, paste0("    <parameter ",
         "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
         "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
