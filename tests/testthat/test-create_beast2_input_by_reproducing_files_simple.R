@@ -6,7 +6,7 @@ context(
 )
 
 ################################################################################
-# Reproduce files
+# Defaults
 ################################################################################
 
 test_that("2.4", {
@@ -1366,5 +1366,48 @@ test_that("Base point + all taxa + one_div_x + RLN", {
   expected <- readLines(get_beautier_path(
     "anthus_aco_sub_20181016_all_one_div_x_rln.xml")
   )
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
+
+################################################################################
+# Tip dating
+################################################################################
+test_that("No tip dating yet", {
+
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    misc_options = create_misc_options(
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0",
+      nucleotides_uppercase = TRUE
+    )
+  )
+
+  expected <- readLines(get_beautier_path("G_VII_pre2003_no_tip.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
+
+test_that("Tip dating", {
+
+  wip("babette Issue 27, #27")
+  # See https://github.com/richelbilderbeek/babette/issues/27
+
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    misc_options = create_misc_options(
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0",
+      nucleotides_uppercase = TRUE
+    )
+  )
+
+  expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
+  # Handy: compare_lines(created, expected, NA, "~/created.xml", "~/expected.xml")
   expect_true(are_equivalent_xml_lines(created, expected))
 })
