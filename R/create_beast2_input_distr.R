@@ -443,9 +443,9 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   yule_tree_prior
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior))
+  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint internal function
   id <- yule_tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
 

@@ -15,9 +15,9 @@
 site_model_to_xml_lh_distr <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(is_site_model(site_model)) # nolint internal function
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
 

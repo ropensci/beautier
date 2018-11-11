@@ -14,9 +14,9 @@ clock_model_to_xml_tracelog <- function(
   is_first,
   mrca_priors = NA
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model)) # nolint internal function
   id <- clock_model$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
   if (is_rln_clock_model(clock_model)) {

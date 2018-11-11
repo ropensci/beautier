@@ -9,14 +9,14 @@ clock_model_to_xml_operators <- function(
   is_first,
   mrca_priors
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model)) # nolint internal function
 
   # May not need ID at all, if it is the first and strict clock model
   text <- NULL
-  if (is_strict_clock_model(clock_model)) {
+  if (is_strict_clock_model(clock_model)) { # nolint internal function
     if (is_first == FALSE) {
       id <- clock_model$id
-      testit::assert(is_id(id))
+      testit::assert(is_id(id)) # nolint internal function
       text <- c(text, paste0("<operator ",
         "id=\"StrictClockRateScaler.c:", id, "\" ",
         "spec=\"ScaleOperator\" ",
@@ -31,10 +31,10 @@ clock_model_to_xml_operators <- function(
     }
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model))
+    testit::assert(is_rln_clock_model(clock_model)) # nolint internal function
 
     id <- clock_model$id
-    testit::assert(is_id(id))
+    testit::assert(is_id(id)) # nolint internal function
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"3.0\"/>"))

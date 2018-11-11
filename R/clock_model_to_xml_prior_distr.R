@@ -17,17 +17,19 @@ clock_model_to_xml_prior_distr <- function(
   is_first = TRUE,
   mrca_priors = NA
 ) {
-  testit::assert(is_clock_model(clock_model))
+  testit::assert(is_clock_model(clock_model)) # nolint internal function
 
   text <- NULL
-  if (is_rln_clock_model(clock_model)) {
+  if (is_rln_clock_model(clock_model)) { # nolint internal function
 
-    if (is_first == FALSE || is_mrca_prior_with_distr(mrca_priors[[1]])) {
+    if (is_first == FALSE ||
+        is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint internal function
+    ) {
       text <- c(text, rln_clock_model_to_xml_mean_rate_prior(clock_model)) # nolint internal function
     }
 
     id <- clock_model$id
-    testit::assert(is_id(id))
+    testit::assert(is_id(id)) # nolint internal function
     text <- c(text, paste0("<prior ",
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", id, "\">"))
@@ -42,11 +44,11 @@ clock_model_to_xml_prior_distr <- function(
     text <- c(text, paste0("</prior>"))
   } else {
     # Fails for unimplemented clock models
-    testit::assert(is_strict_clock_model(clock_model))
+    testit::assert(is_strict_clock_model(clock_model)) # nolint internal function
 
     if (is_first == FALSE) {
       id <- clock_model$id
-      testit::assert(is_id(id))
+      testit::assert(is_id(id)) # nolint internal function
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
         "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
       text <- c(text, indent(

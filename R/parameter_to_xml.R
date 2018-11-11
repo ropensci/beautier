@@ -13,7 +13,7 @@ parameter_to_xml <- function(
 ) {
   text <- NULL
   id <- parameter$id
-  if (!is_id(id)) {
+  if (!is_id(id)) { # nolint internal function
     stop("parameter must have an ID")
   }
   testit::assert(!is.na(id))
@@ -73,9 +73,9 @@ parameter_to_xml <- function(
 parameter_to_xml_alpha <- function(
   parameter
 ) {
-  testit::assert(is_alpha_param(parameter))
+  testit::assert(is_alpha_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -97,9 +97,9 @@ parameter_to_xml_alpha <- function(
 parameter_to_xml_beta <- function(
   parameter
 ) {
-  testit::assert(is_beta_param(parameter))
+  testit::assert(is_beta_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -121,9 +121,9 @@ parameter_to_xml_beta <- function(
 parameter_to_xml_clock_rate <- function(
   parameter
 ) {
-  testit::assert(is_clock_rate_param(parameter))
+  testit::assert(is_clock_rate_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -146,9 +146,9 @@ parameter_to_xml_clock_rate <- function(
 parameter_to_xml_kappa_1 <- function(
   parameter
 ) {
-  testit::assert(is_kappa_1_param(parameter))
+  testit::assert(is_kappa_1_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   paste0("<parameter id=\"kappa1.s:", id, "\" ",
     "lower=\"", parameter$lower, "\" ",
     "name=\"stateNode\">", parameter$value, "</parameter>"
@@ -165,9 +165,9 @@ parameter_to_xml_kappa_1 <- function(
 parameter_to_xml_kappa_2 <- function(
   parameter
 ) {
-  testit::assert(is_kappa_2_param(parameter))
+  testit::assert(is_kappa_2_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   paste0("<parameter id=\"kappa2.s:", id, "\" ",
     "lower=\"", parameter$lower, "\" ",
     "name=\"stateNode\">", parameter$value, "</parameter>"
@@ -186,9 +186,9 @@ parameter_to_xml_kappa_2 <- function(
 parameter_to_xml_lambda <- function(
   parameter
 ) {
-  testit::assert(is_lambda_param(parameter))
+  testit::assert(is_lambda_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   paste0(
     "<parameter ",
     "id=\"RealParameter.", id, "\" ",
@@ -207,9 +207,9 @@ parameter_to_xml_lambda <- function(
 parameter_to_xml_m <- function(
   parameter
 ) {
-  testit::assert(is_m_param(parameter))
+  testit::assert(is_m_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -231,9 +231,9 @@ parameter_to_xml_m <- function(
 parameter_to_xml_mean <- function(
   parameter
 ) {
-  testit::assert(is_mean_param(parameter))
+  testit::assert(is_mean_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -255,9 +255,9 @@ parameter_to_xml_mean <- function(
 parameter_to_xml_mu <- function(
   parameter
 ) {
-  testit::assert(is_mu_param(parameter))
+  testit::assert(is_mu_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -282,9 +282,9 @@ parameter_to_xml_rate_ac <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(is_rate_ac_param(parameter))
+  testit::assert(is_rate_ac_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateAC.s:", id, "\"")
@@ -314,9 +314,9 @@ parameter_to_xml_rate_ag <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(is_rate_ag_param(parameter))
+  testit::assert(is_rate_ag_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateAG.s:", id, "\"")
@@ -346,9 +346,9 @@ parameter_to_xml_rate_at <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(is_rate_at_param(parameter))
+  testit::assert(is_rate_at_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateAT.s:", id, "\"")
@@ -378,9 +378,9 @@ parameter_to_xml_rate_cg <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(is_rate_cg_param(parameter))
+  testit::assert(is_rate_cg_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateCG.s:", id, "\"")
@@ -410,9 +410,9 @@ parameter_to_xml_rate_ct <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(is_rate_ct_param(parameter))
+  testit::assert(is_rate_ct_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateCT.s:", id, "\"")
@@ -442,9 +442,9 @@ parameter_to_xml_rate_gt <- function(
   which_name = "state_node"
 ) {
   testit::assert(which_name %in% c("state_node", "rate_name"))
-  testit::assert(is_rate_gt_param(parameter))
+  testit::assert(is_rate_gt_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateGT.s:", id, "\"")
@@ -471,9 +471,9 @@ parameter_to_xml_rate_gt <- function(
 parameter_to_xml_s <- function(
   parameter
 ) {
-  testit::assert(is_s_param(parameter))
+  testit::assert(is_s_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
@@ -509,9 +509,9 @@ parameter_to_xml_s <- function(
 parameter_to_xml_scale <- function(
   parameter
 ) {
-  testit::assert(is_scale_param(parameter))
+  testit::assert(is_scale_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
@@ -533,9 +533,9 @@ parameter_to_xml_scale <- function(
 parameter_to_xml_sigma <- function(
   parameter
 ) {
-  testit::assert(is_sigma_param(parameter))
+  testit::assert(is_sigma_param(parameter)) # nolint internal function
   id <- parameter$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(

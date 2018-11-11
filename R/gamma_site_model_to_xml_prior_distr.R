@@ -6,9 +6,9 @@
 gamma_site_model_to_xml_prior_distr <- function( # nolint internal function
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(is_site_model(site_model)) # nolint internal function
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
   gamma_site_model <- site_model$gamma_site_model

@@ -9,7 +9,7 @@ phylo_to_xml_state <- function(
   phylo,
   id
 ) {
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
   if (!is_phylo(phylo)) {
     return(rnd_phylo_to_xml_state(id)) # nolint internal function
   }

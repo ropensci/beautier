@@ -9,10 +9,10 @@ find_clock_model <- function(
   clock_models,
   id
 ) {
-  if (!are_clock_models(clock_models)) {
+  if (!are_clock_models(clock_models)) { # nolint internal function
     stop("'clock_models' must be a list of clock models")
   }
-  if (!is_id(id)) {
+  if (!is_id(id)) { # nolint internal function
     stop("'id' must be an ID")
   }
   for (clock_model in clock_models) {

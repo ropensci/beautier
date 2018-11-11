@@ -7,9 +7,9 @@
 site_model_to_xml_subst_model <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  testit::assert(is_site_model(site_model)) # nolint internal function
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   if (is_jc69_site_model(site_model)) {
     return(

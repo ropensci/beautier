@@ -7,9 +7,9 @@
 tree_prior_to_xml_state <- function(
   tree_prior
 ) {
-  testit::assert(is_tree_prior(tree_prior))
+  testit::assert(is_tree_prior(tree_prior)) # nolint internal function
   id <- tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {

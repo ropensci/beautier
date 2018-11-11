@@ -8,9 +8,9 @@ tree_prior_to_xml_operators <- function(
   tree_prior,
   fixed_crown_age = FALSE
 ) {
-  testit::assert(is_tree_prior(tree_prior))
+  testit::assert(is_tree_prior(tree_prior)) # nolint internal function
   id <- tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
   operator_id_pre <- get_operator_id_pre(tree_prior)

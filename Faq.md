@@ -54,8 +54,8 @@ or
 
 ## What is the idea behind the logo?
 
-The logo consists of a rough redraw of Belle, from the Disney animated
-movie 'Beauty and the Beast', and the R logo. 
+The butterfly symbolizes beauty.
+The it was combined with an R logo. 
 
 ## What are the FASTA files?
 
