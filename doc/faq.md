@@ -10,7 +10,12 @@ does not add extra information.
 
 ## Which version of BEAUti do you use as a guideline?
 
-Version 2.5.0, as can be found in the [install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
+The first BEAST2 XML files created by `beautier`
+followed BEAST2 v2.4. `beautier` follows the
+BEAST2 versions, which is now at v2.5.1.
+
+The BEAST2 version actually used by `babette`
+can be found in the [beastier::install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
 
 ## What's the [road map](road_map.md)?
 
