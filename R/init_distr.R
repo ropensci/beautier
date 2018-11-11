@@ -97,7 +97,7 @@ init_distr <- function(
     }
 
   } else {
-    testit::assert(is_uniform_distr(distr))
+    testit::assert(is_uniform_distr(distr)) # nolint internal function
 
     # Always initialized
 

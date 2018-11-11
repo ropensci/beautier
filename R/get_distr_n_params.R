@@ -39,30 +39,30 @@
 get_distr_n_params <- function(
   distr
 ) {
-  if (!is_distr(distr)) {
+  if (!is_distr(distr)) { # nolint internal function
     stop("'distr' must be a distribution")
   }
 
-  if (is_beta_distr(distr)) {
+  if (is_beta_distr(distr)) { # nolint internal function
     return(2) # alpha and beta
-  } else if (is_exp_distr(distr)) {
+  } else if (is_exp_distr(distr)) { # nolint internal function
     return(1) # mean
-  } else if (is_gamma_distr(distr)) {
+  } else if (is_gamma_distr(distr)) { # nolint internal function
     return(2) # alpha and beta
-  } else if (is_inv_gamma_distr(distr)) {
+  } else if (is_inv_gamma_distr(distr)) { # nolint internal function
     return(2) # alpha and beta
-  } else if (is_laplace_distr(distr)) {
+  } else if (is_laplace_distr(distr)) { # nolint internal function
     return(2) # mu and scale
-  } else if (is_log_normal_distr(distr)) {
+  } else if (is_log_normal_distr(distr)) { # nolint internal function
     return(2) # m and s
-  } else if (is_normal_distr(distr)) {
+  } else if (is_normal_distr(distr)) { # nolint internal function
     return(2) # mean and sigma
-  } else if (is_one_div_x_distr(distr)) {
+  } else if (is_one_div_x_distr(distr)) { # nolint internal function
     return(0) # none
-  } else  if (is_poisson_distr(distr)) {
+  } else  if (is_poisson_distr(distr)) { # nolint internal function
     return(1) # lambda
   } else {
-    testit::assert(is_uniform_distr(distr))
+    testit::assert(is_uniform_distr(distr)) # nolint internal function
     return(0) # none
   }
 }

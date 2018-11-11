@@ -17,26 +17,26 @@ distr_to_xml <- function(
   if (!is_id(id)) { # nolint internal function
     stop("distribution must have an ID")
   }
-  if (is_beta_distr(distr)) {
+  if (is_beta_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_beta(distr)) # nolint internal function
-  } else if (is_exp_distr(distr)) {
+  } else if (is_exp_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_exp(distr)) # nolint internal function
-  } else if (is_gamma_distr(distr)) {
+  } else if (is_gamma_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_gamma(distr)) # nolint internal function
-  } else if (is_inv_gamma_distr(distr)) {
+  } else if (is_inv_gamma_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_inv_gamma(distr)) # nolint internal function
-  } else if (is_laplace_distr(distr)) {
+  } else if (is_laplace_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_laplace(distr)) # nolint internal function
-  } else if (is_log_normal_distr(distr)) {
+  } else if (is_log_normal_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_log_normal(distr)) # nolint internal function
-  } else if (is_normal_distr(distr)) {
+  } else if (is_normal_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_normal(distr)) # nolint internal function
-  } else if (is_one_div_x_distr(distr)) {
+  } else if (is_one_div_x_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_one_div_x(distr)) # nolint internal function
-  } else if (is_poisson_distr(distr)) {
+  } else if (is_poisson_distr(distr)) { # nolint internal function
     text <- c(text, distr_to_xml_poisson(distr)) # nolint internal function
   } else {
-    testit::assert(is_uniform_distr(distr))
+    testit::assert(is_uniform_distr(distr)) # nolint internal function
     text <- c(text, distr_to_xml_uniform(distr)) # nolint internal function
   }
   testit::assert(is_xml(text)) # nolint

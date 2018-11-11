@@ -73,7 +73,7 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  check_gamma_site_model(gamma_site_model)
+  check_gamma_site_model(gamma_site_model) # nolint internal function
   site_model <- list(
     name = name,
     id = id,
