@@ -31,19 +31,19 @@
 get_tree_prior_n_distrs <- function(
   tree_prior
 ) {
-  if (!is_tree_prior(tree_prior)) {
+  if (!is_tree_prior(tree_prior)) { # nolint internal function
     stop("'tree_prior' must be a tree prior")
   }
-  if (is_bd_tree_prior(tree_prior)) {
+  if (is_bd_tree_prior(tree_prior)) { # nolint internal function
     return(2)
-  } else if (is_cbs_tree_prior(tree_prior)) {
+  } else if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
     return(0)
-  } else if (is_ccp_tree_prior(tree_prior)) {
+  } else if (is_ccp_tree_prior(tree_prior)) { # nolint internal function
     return(1)
-  } else if (is_cep_tree_prior(tree_prior)) {
+  } else if (is_cep_tree_prior(tree_prior)) { # nolint internal function
     return(2)
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior))
+    testit::assert(is_yule_tree_prior(tree_prior)) # nolint internal function
     return(1)
   }
 }

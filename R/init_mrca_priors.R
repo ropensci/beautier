@@ -16,7 +16,7 @@ init_mrca_priors <- function(
 
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]
-    testit::assert(is_mrca_prior(mrca_prior))
+    testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
 
     if (is.na(mrca_prior$name)) {
       mrca_prior$name <- names[i]
@@ -37,7 +37,7 @@ init_mrca_priors <- function(
       param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr)
     }
 
-    testit::assert(is_mrca_prior(mrca_prior))
+    testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
     mrca_priors[[i]] <- mrca_prior
   }
   mrca_priors

@@ -3,7 +3,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 get_unlinked_clock_models <- function(clock_models) {
-  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
   results <- list()
   ids <- NULL
   for (clock_model in clock_models) {
@@ -14,6 +14,6 @@ get_unlinked_clock_models <- function(clock_models) {
     }
   }
 
-  testit::assert(are_clock_models(results))
+  testit::assert(are_clock_models(results)) # nolint internal function
   results
 }

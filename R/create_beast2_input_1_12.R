@@ -58,7 +58,7 @@ create_beast2_input_1_12 <- function(
   }
 
   # 3 clock_models
-  if (!are_clock_models(clock_models)) {
+  if (!are_clock_models(clock_models)) { # nolint internal function
     stop(
       "'clock_models' must be a valid clock model, ",
       "or a list of valid clock models, ",

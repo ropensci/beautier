@@ -14,7 +14,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   has_non_strict_clock_model = FALSE,
   is_first = TRUE
 ) {
-  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
 
   text <- NULL

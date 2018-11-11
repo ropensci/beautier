@@ -63,18 +63,18 @@ init_bd_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior))
+  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint internal function
 
   result <- create_bd_tree_prior(
-    birth_rate_distr = init_distr(
+    birth_rate_distr = init_distr( # nolint internal function
       bd_tree_prior$birth_rate_distr,
       distr_id,
       param_id
     ),
-    death_rate_distr = init_distr(
+    death_rate_distr = init_distr( # nolint internal function
       bd_tree_prior$death_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(bd_tree_prior$birth_rate_distr)
+      param_id + get_distr_n_params(bd_tree_prior$birth_rate_distr) # nolint internal function
     )
   )
 
@@ -91,7 +91,7 @@ init_ccp_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint internal function
 
   result <- create_ccp_tree_prior(
     pop_size_distr = init_distr(

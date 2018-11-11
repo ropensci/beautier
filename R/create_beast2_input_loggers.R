@@ -172,7 +172,7 @@ create_beast2_input_screenlog <- function() {
 create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   clock_models
 ) {
-  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
 
   text <- NULL
   for (clock_model in clock_models) {

@@ -21,7 +21,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   taxa_names_with_ids = NULL,
   is_first = TRUE
 ) {
-  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   text <- NULL
   if (!has_non_strict_clock_model &&
       is_first &&

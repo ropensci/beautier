@@ -183,12 +183,12 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     testit::assert(length(mrca_priors) >= 1)
     mrca_prior <- NA
     if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]] # nolint
-    testit::assert(is_mrca_prior(mrca_prior))
+    testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
     text <- c(text,
       indent(
         mrca_prior_to_xml_lh_distr(
           mrca_prior,
-          has_non_strict_clock_model = get_has_non_strict_clock_model(
+          has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint internal function
             clock_models
           )
         ),
@@ -232,9 +232,9 @@ create_beast2_input_distr_lh <- function( # nolint internal function
 bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   bd_tree_prior
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior))
+  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint internal function
   id <- bd_tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
 
@@ -293,9 +293,9 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   cbs_tree_prior
 ) {
-  testit::assert(is_cbs_tree_prior(cbs_tree_prior))
+  testit::assert(is_cbs_tree_prior(cbs_tree_prior)) # nolint internal function
   id <- cbs_tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
   text <- c(text, paste0("<distribution ",

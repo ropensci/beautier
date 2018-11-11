@@ -17,9 +17,9 @@ mrca_prior_to_xml_lh_distr <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE
 ) {
-  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
-  if (!has_non_strict_clock_model &&
+  if (!has_non_strict_clock_model && # nolint internal function
     !is.na(mrca_prior$mrca_distr)
   ) {
     paste0(

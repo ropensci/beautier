@@ -12,7 +12,7 @@ init_clock_models <- function(
   param_id = 0
 ) {
   testit::assert(files_exist(fasta_filenames)) # nolint internal function
-  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
   testit::assert(length(clock_models) == length(fasta_filenames))
   ids <- get_alignment_ids(fasta_filenames) # nolint internal function
   n_taxa <- get_n_taxa(fasta_filenames[1]) # nolint internal function

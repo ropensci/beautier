@@ -17,7 +17,7 @@ mrca_prior_to_xml_taxonset <- function(
   mrca_prior,
   taxa_names_with_ids = NULL
 ) {
-  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   text <- NULL
   for (taxon_name in mrca_prior$taxa_names) {
     if (taxon_name %in% taxa_names_with_ids) {

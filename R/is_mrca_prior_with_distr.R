@@ -8,7 +8,7 @@
 is_mrca_prior_with_distr <- function(
   x
 ) {
-  if (is_one_na(x)) return(FALSE)
-  if (!is_mrca_prior(x)) return(FALSE)
+  if (is_one_na(x)) return(FALSE) # nolint internal function
+  if (!is_mrca_prior(x)) return(FALSE) # nolint internal function
   is_distr(x$mrca_distr)
 }

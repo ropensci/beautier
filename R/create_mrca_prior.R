@@ -60,6 +60,6 @@ create_mrca_prior <- function(
     mrca_distr = mrca_distr,
     clock_prior_distr_id = clock_prior_distr_id
   )
-  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   mrca_prior
 }

@@ -42,7 +42,7 @@ create_beast2_input <- function(
   }
   if (is_mrca_prior(mrca_priors)) { # nolint internal function
     mrca_priors <- list(mrca_priors)
-    testit::assert(is_mrca_prior(mrca_priors[[1]]))
+    testit::assert(is_mrca_prior(mrca_priors[[1]])) # nolint internal function
   }
 
   # Check input
@@ -122,7 +122,7 @@ create_beast2_input <- function(
   for (i in seq_along(input_filenames)) {
     fasta_filename <- input_filenames[i]
     tree_prior <- tree_priors[[i]]
-    if (is_cbs_tree_prior(tree_prior)) {
+    if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
       n_taxa <- get_n_taxa(fasta_filename)
       group_sizes_dimension <- tree_prior$group_sizes_dimension
       if (n_taxa <= group_sizes_dimension) {

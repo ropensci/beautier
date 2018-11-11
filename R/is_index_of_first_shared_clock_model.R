@@ -9,7 +9,7 @@ is_index_of_first_shared_clock_model <- function( # nolint internal function
 ) {
   testit::assert(i >= 1)
   testit::assert(i <= length(clock_models))
-  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
   if (length(clock_models) <= 1) return(FALSE)
   # Collect all IDS
   ids <- get_clock_models_ids(clock_models) # nolint internal function

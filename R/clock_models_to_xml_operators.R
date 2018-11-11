@@ -7,7 +7,7 @@ clock_models_to_xml_operators <- function(
   clock_models,
   mrca_priors = NA
 ) {
-  testit::assert(are_clock_models(clock_models))
+  testit::assert(are_clock_models(clock_models)) # nolint internal function
 
   clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
 
