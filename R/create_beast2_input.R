@@ -137,9 +137,10 @@ create_beast2_input <- function(
   # All MRCA's taxa names must be in the FASTA files
 
   if (!is_one_na(mrca_priors)) {
-    testit::assert(are_mrca_priors(mrca_priors))
-    if (!are_mrca_align_ids_in_fastas(
-        mrca_priors = mrca_priors, fasta_filenames = input_filenames
+    testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+    if (!are_mrca_align_ids_in_fastas( # nolint internal function
+        mrca_priors = mrca_priors,
+        fasta_filenames = input_filenames
       )
     ) {
       mrca_ids <- NULL

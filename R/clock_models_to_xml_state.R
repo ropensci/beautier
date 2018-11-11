@@ -30,8 +30,8 @@ clock_models_to_xml_state <- function(
 
   # Remove the first line of the first clock model,
   # if no MRCA prior with a distribution is used
-  if (is_rln_clock_model(clock_models[[1]]) &&
-      !is_mrca_prior_with_distr(mrca_priors[[1]])) {
+  if (is_rln_clock_model(clock_models[[1]]) && # nolint internal function
+      !is_mrca_prior_with_distr(mrca_priors[[1]])) { # nolint internal function
     # A RLN clock model returns three lines, only remove the first
     line_to_remove <- clock_model_to_xml_state(clock_models[[1]]) # nolint
     testit::assert(length(line_to_remove) == 3)

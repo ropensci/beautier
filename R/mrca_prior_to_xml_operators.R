@@ -10,11 +10,13 @@ mrca_prior_to_xml_operators <- function(
   fixed_crown_age = FALSE,
   clock_models
 ) {
-  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
   if (!mrca_prior$is_monophyletic && is.na(mrca_prior$mrca_distr)) return(NULL)
   if (all(is.na(mrca_prior$mrca_distr))) return(NULL)
-  if (length(clock_models) == 1 && is_rln_clock_model(clock_models[[1]])) {
+  if (length(clock_models) == 1 &&
+      is_rln_clock_model(clock_models[[1]]) # nolint internal function
+  ) {
     return(NULL)
   }
 

@@ -19,8 +19,10 @@ clock_model_to_xml_tracelog <- function(
   testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
-  if (is_rln_clock_model(clock_model)) {
-    if (is_first == FALSE || is_mrca_prior_with_distr(mrca_priors[[1]])) {
+  if (is_rln_clock_model(clock_model)) { # nolint internal function
+    if (is_first == FALSE ||
+      is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint internal function
+    ) {
       text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>"))
     }
     text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>"))
@@ -31,7 +33,7 @@ clock_model_to_xml_tracelog <- function(
     )
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(is_strict_clock_model(clock_model))
+    testit::assert(is_strict_clock_model(clock_model)) # nolint internal function
 
     if (is_first == FALSE) {
       text <- c(text, paste0("<log idref=\"clockRate.c:", id, "\"/>"))

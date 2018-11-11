@@ -11,7 +11,7 @@ init_mrca_priors <- function(
   param_id = 0
 ) {
   if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NA)
-  testit::assert(are_mrca_priors(mrca_priors))
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   names <- paste0("auto_name_", seq_along(mrca_priors))
 
   for (i in seq_along(mrca_priors)) {

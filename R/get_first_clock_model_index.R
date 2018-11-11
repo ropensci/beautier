@@ -14,10 +14,10 @@ get_first_clock_model_index <- function(
   clock_model,
   clock_models
 ) {
-  if (!is_clock_model(clock_model)) {
+  if (!is_clock_model(clock_model)) { # nolint internal function
     stop("'clock_model' must be a clock model")
   }
-  if (!are_clock_models(clock_models)) {
+  if (!are_clock_models(clock_models)) { # nolint internal function
     stop("'clock_models' must be a list of clock models")
   }
   for (i in seq_along(clock_models)) {

@@ -120,7 +120,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
     normalize_mean_clock_rate = normalize_mean_clock_rate,
     dimension = dimension
   )
-  testit::assert(is_rln_clock_model(rln_clock_model))
+  testit::assert(is_rln_clock_model(rln_clock_model)) # nolint internal function
   rln_clock_model
 }
 

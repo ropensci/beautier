@@ -8,11 +8,11 @@
 is_init_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE)
-  if (is_strict_clock_model(x)) {
+  if (!is_clock_model(x)) return(FALSE) # nolint internal function
+  if (is_strict_clock_model(x)) { # nolint internal function
     return(is_init_strict_clock_model(x)) # nolint internal function call
   } else {
-    testit::assert(is_rln_clock_model(x))
+    testit::assert(is_rln_clock_model(x)) # nolint internal function
     return(is_init_rln_clock_model(x)) # nolint internal function call
   }
 }
@@ -26,7 +26,7 @@ is_init_clock_model <- function(
 is_init_rln_clock_model <- function(
   rln_clock_model
 ) {
-  testit::assert(is_rln_clock_model(rln_clock_model))
+  testit::assert(is_rln_clock_model(rln_clock_model)) # nolint internal function
   if (!is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE) # nolint internal function call
   if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) return(FALSE) # nolint internal function call
   !is.na(rln_clock_model$mparam_id) && !is.na(rln_clock_model$dimension)

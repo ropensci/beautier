@@ -8,8 +8,8 @@
 is_clock_model <- function(
   x
 ) {
-  if (is_rln_clock_model(x)) return(TRUE)
-  if (is_strict_clock_model(x)) return(TRUE)
+  if (is_rln_clock_model(x)) return(TRUE) # nolint internal function
+  if (is_strict_clock_model(x)) return(TRUE) # nolint internal function
   FALSE
 }
 

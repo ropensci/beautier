@@ -20,7 +20,7 @@ clock_models_to_xml_tracelog <- function(
   text <- NULL
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
-    testit::assert(is_clock_model(clock_model))
+    testit::assert(is_clock_model(clock_model)) # nolint internal function
     text <- c(
       text,
       clock_model_to_xml_tracelog( # nolint internal function

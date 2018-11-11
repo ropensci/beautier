@@ -26,7 +26,7 @@ clock_model_to_xml_lh_distr <- function(
   testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
-  if (is_strict_clock_model(clock_model)) {
+  if (is_strict_clock_model(clock_model)) { # nolint internal function
     if (is_first == TRUE) {
       text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
         id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
@@ -50,7 +50,7 @@ clock_model_to_xml_lh_distr <- function(
         )
       }
     }
-  } else if (is_rln_clock_model(clock_model)) {
+  } else if (is_rln_clock_model(clock_model)) { # nolint internal function
     n_discrete_rates <- clock_model$n_rate_categories
     mparam_id <- clock_model$mparam_id
     line <- paste0("<branchRateModel ",

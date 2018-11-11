@@ -28,15 +28,15 @@ create_beast2_input_1_12 <- function(
   if (is_site_model(site_models)) {
     site_models <- list(site_models)
   }
-  if (is_clock_model(clock_models)) {
+  if (is_clock_model(clock_models)) { # nolint internal function
     clock_models <- list(clock_models)
   }
-  if (is_tree_prior(tree_priors)) {
+  if (is_tree_prior(tree_priors)) { # nolint internal function
     tree_priors <- list(tree_priors)
   }
   if (class(initial_phylogenies) == "phylo") {
     initial_phylogenies <- c(initial_phylogenies)
-    testit::assert(are_initial_phylogenies(initial_phylogenies))
+    testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
   }
   # Check input
 

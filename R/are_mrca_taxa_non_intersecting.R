@@ -9,7 +9,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 are_mrca_taxa_non_intersecting <- function(mrca_priors) {
-  testit::assert(are_mrca_priors(mrca_priors))
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   if (is_one_na(mrca_priors)) return(TRUE) # nolint internal function
   # mrca_prior_1 must be monophyletic, mrca_prior_2 may be
   for (mrca_prior_1 in mrca_priors) {

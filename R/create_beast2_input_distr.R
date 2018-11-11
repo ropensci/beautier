@@ -179,7 +179,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
       )
     }
     # Can be either NA or a list of 1 element
-    testit::assert(are_mrca_priors(mrca_priors))
+    testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
     testit::assert(length(mrca_priors) >= 1)
     mrca_prior <- NA
     if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]] # nolint
