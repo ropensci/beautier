@@ -32,8 +32,8 @@ create_beast2_input_run <- function(
   text <- c(text, mcmc_to_xml_run(mcmc)) # nolint internal function
 
   text <- c(text,
-    indent(
-      create_beast2_input_state(
+    indent( # nolint internal function
+      create_beast2_input_state( # nolint internal function
         site_models = site_models,
         clock_models = clock_models,
         tree_priors = tree_priors,

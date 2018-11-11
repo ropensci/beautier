@@ -91,6 +91,6 @@ is_init_cep_tree_prior <- function(
 is_init_yule_tree_prior <- function(
   x
 ) {
-  testit::assert(is_yule_tree_prior(x))
+  testit::assert(is_yule_tree_prior(x)) # nolint internal function
   is_init_distr(x$birth_rate_distr) # nolint internal function
 }

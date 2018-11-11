@@ -34,8 +34,8 @@ clock_model_to_xml_lh_distr <- function(
       clock_model$clock_rate_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml(clock_model$clock_rate_param),
+        indent( # nolint internal function
+          parameter_to_xml(clock_model$clock_rate_param), # nolint internal function
           n_spaces = 4
         )
       )

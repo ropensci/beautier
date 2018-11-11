@@ -26,7 +26,7 @@ mrca_prior_to_xml_taxonset <- function(
       text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>"))
     }
   }
-  text <- indent(text, n_spaces = 4)
+  text <- indent(text, n_spaces = 4) # nolint internal function
   text <- c(
     paste0("<taxonset id=\"", mrca_prior$name, "\" spec=\"TaxonSet\">"),
     text

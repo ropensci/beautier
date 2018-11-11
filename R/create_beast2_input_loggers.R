@@ -23,8 +23,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text <- NULL
   text <- c(
     text,
-    indent(
-      create_beast2_input_tracelog(
+    indent( # nolint internal function
+      create_beast2_input_tracelog( # nolint internal function
         ids = ids,
         site_models = site_models,
         clock_models = clock_models,
@@ -39,15 +39,15 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text <- c(text, "")
 
   text <- c(text,
-    indent(
-      create_beast2_input_screenlog(),
+    indent( # nolint internal function
+      create_beast2_input_screenlog(), # nolint internal function
       n_spaces = 4
     )
   )
 
   text <- c(text,
-    indent(
-      create_beast2_input_treelogs(clock_models),
+    indent( # nolint internal function
+      create_beast2_input_treelogs(clock_models), # nolint internal function
       n_spaces = 4
     )
   )
@@ -183,7 +183,7 @@ create_beast2_input_treelogs <- function( # nolint keep long function name, as i
       "fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
     text <- c(
       text,
-      indent(clock_model_to_xml_treelogger(clock_model), n_spaces = 4)
+      indent(clock_model_to_xml_treelogger(clock_model), n_spaces = 4) # nolint internal function
     )
     text <- c(text, "</logger>")
   }

@@ -28,11 +28,11 @@ create_beast2_input_init <- function(
   for (i in seq(1, n)) {
     phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
-    if (!is_phylo(phylogeny)) {
+    if (!is_phylo(phylogeny)) { # nolint internal function
       text <- c(text, "")
       text <- c(
         text,
-        indent(rnd_phylo_to_xml_init(id), n_spaces = 4)
+        indent(rnd_phylo_to_xml_init(id), n_spaces = 4) # nolint internal function
       )
     }
   }

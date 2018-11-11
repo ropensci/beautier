@@ -18,8 +18,8 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint internal function
       "x=\"@gammaShape.s:", id, "\">"))
     text <- c(
       text,
-      indent(
-        distr_to_xml(
+      indent( # nolint internal function
+        distr_to_xml( # nolint internal function
           gamma_site_model$gamma_shape_prior_distr
         ),
         n_spaces = 4

@@ -34,8 +34,8 @@ clock_model_to_xml_prior_distr <- function(
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", id, "\">"))
     text <- c(text,
-      indent(
-        distr_to_xml(
+      indent( # nolint internal function
+        distr_to_xml( # nolint internal function
           distr = clock_model$ucldstdev_distr
         ),
         n_spaces = 4
@@ -51,8 +51,14 @@ clock_model_to_xml_prior_distr <- function(
       testit::assert(is_id(id)) # nolint internal function
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
         "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
-      text <- c(text, indent(
-        distr_to_xml(clock_model$clock_rate_distr), n_spaces = 4))
+      text <- c(text,
+        indent( # nolint internal function
+          distr_to_xml( # nolint internal function
+            clock_model$clock_rate_distr
+          ),
+          n_spaces = 4
+        )
+      )
       text <- c(text, paste0("</prior>"))
     }
   }

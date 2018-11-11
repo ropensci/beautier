@@ -37,7 +37,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
     )
     text <- c(
       text,
-      indent(
+      indent( # nolint internal function
         distr_to_xml(create_uniform_distr( # nolint internal function
           id = mrca_prior$clock_prior_distr_id)
         ),
@@ -62,7 +62,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(
     text,
     indent( # nolint internal function
-      mrca_prior_to_xml_taxonset(
+      mrca_prior_to_xml_taxonset( # nolint internal function
         mrca_prior,
         taxa_names_with_ids
       ),
@@ -70,7 +70,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
     )
   )
   if (is_distr(mrca_prior$mrca_distr)) { # nolint internal function
-    text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
+    text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4)) # nolint internal function
   }
   text <- c(text, paste0("</distribution>"))
 

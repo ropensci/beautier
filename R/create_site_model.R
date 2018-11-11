@@ -59,7 +59,7 @@ create_site_model <- function(
   gamma_site_model = create_gamma_site_model(),
   ...
 ) {
-  if (!is_site_model_name(name)) {
+  if (!is_site_model_name(name)) { # nolint internal function
     site_models_as_string <- function() {
       s <- NULL
       for (p in get_site_model_names()) {

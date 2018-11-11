@@ -38,10 +38,10 @@ create_clock_model <- function(
   id,
   ...
 ) {
-  if (!is_clock_model_name(name)) {
+  if (!is_clock_model_name(name)) { # nolint internal function
     clock_models_as_string <- function() {
       s <- NULL
-      for (p in get_clock_model_names()) {
+      for (p in get_clock_model_names()) { # nolint internal function
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))

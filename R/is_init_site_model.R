@@ -68,7 +68,7 @@ is_init_gtr_site_model <- function(
 is_init_hky_site_model <- function(
   x
 ) {
-  testit::assert(is_hky_site_model(x))
+  testit::assert(is_hky_site_model(x)) # nolint internal function
   if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
   is_init_distr(x$kappa_prior) # nolint internal function
 }
@@ -88,7 +88,7 @@ is_init_hky_site_model <- function(
 is_init_jc69_site_model <- function(
   x
 ) {
-  testit::assert(is_jc69_site_model(x))
+  testit::assert(is_jc69_site_model(x)) # nolint internal function
   if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
   TRUE
 }

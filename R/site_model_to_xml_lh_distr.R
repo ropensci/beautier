@@ -56,8 +56,8 @@ site_model_to_xml_lh_distr <- function(
     "</parameter>"))
 
   text <- c(text,
-    indent(
-      site_model_to_xml_subst_model(site_model),
+    indent( # nolint internal function
+      site_model_to_xml_subst_model(site_model), # nolint internal function
       n_spaces = 4
     )
   )

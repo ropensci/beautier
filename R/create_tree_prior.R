@@ -60,7 +60,7 @@ create_tree_prior <- function(
   id,
   ...
 ) {
-  if (!is_tree_prior_name(name)) {
+  if (!is_tree_prior_name(name)) { # nolint internal function
     tree_priors_as_string <- function() {
       s <- NULL
       for (p in get_tree_prior_names()) {

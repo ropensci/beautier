@@ -14,5 +14,5 @@
 is_freq_equilibrium_name <- function(
   name
 ) {
-  name %in% get_freq_equilibrium_names()
+  name %in% get_freq_equilibrium_names() # nolint internal function
 }

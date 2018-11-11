@@ -154,8 +154,8 @@ create_beast2_input_distr_lh <- function( # nolint internal function
       "data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
-      indent(
-        site_model_to_xml_lh_distr(site_model),
+      indent( # nolint internal function
+        site_model_to_xml_lh_distr(site_model), # nolint internal function
         n_spaces = 4
       )
     )
@@ -166,10 +166,10 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     if (length(mrca_priors) == 1 && is.na(mrca_priors)) {
       has_mrca_priors <- FALSE
     }
-    if (!has_mrca_priors || get_has_non_strict_clock_model(clock_models)) {
+    if (!has_mrca_priors || get_has_non_strict_clock_model(clock_models)) { # nolint internal function
       text <- c(text,
-        indent(
-          clock_model_to_xml_lh_distr(
+        indent( # nolint internal function
+          clock_model_to_xml_lh_distr( # nolint internal function
             clock_model,
             is_first = is_first,
             is_non_first_shared = is_non_first_shared,
@@ -186,8 +186,8 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]] # nolint
     testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
     text <- c(text,
-      indent(
-        mrca_prior_to_xml_lh_distr(
+      indent( # nolint internal function
+        mrca_prior_to_xml_lh_distr( # nolint internal function
           mrca_prior,
           has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint internal function
             clock_models
@@ -251,8 +251,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
-    indent(
-      distr_to_xml(
+    indent( # nolint internal function
+      distr_to_xml( # nolint internal function
         distr = bd_birth_rate_distr
       ),
       n_spaces = 4
@@ -266,8 +266,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
-    indent(
-      distr_to_xml(
+    indent( # nolint internal function
+      distr_to_xml( # nolint internal function
         distr = bd_death_rate_distr
       ),
       n_spaces = 4
@@ -354,8 +354,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "\" name=\"distribution\" x=\"@popSize.t:",
     id, "\">"))
   text <- c(text,
-    indent(
-      distr_to_xml(
+    indent( # nolint internal function
+      distr_to_xml( # nolint internal function
         distr = ccp_tree_prior$pop_size_distr
       ),
       n_spaces = 4
@@ -404,8 +404,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
-    indent(
-      distr_to_xml(
+    indent( # nolint internal function
+      distr_to_xml( # nolint internal function
         distr = cep_tree_prior$pop_size_distr
       ),
       n_spaces = 4
@@ -417,8 +417,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
-    indent(
-      distr_to_xml(
+    indent( # nolint internal function
+      distr_to_xml( # nolint internal function
         distr = cep_tree_prior$growth_rate_distr
       ),
       n_spaces = 4
@@ -462,8 +462,8 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     )
   )
   text <- c(text,
-    indent(
-      distr_to_xml(yule_tree_prior$birth_rate_distr),
+    indent( # nolint internal function
+      distr_to_xml(yule_tree_prior$birth_rate_distr), # nolint internal function
       n_spaces = 4
     )
   )

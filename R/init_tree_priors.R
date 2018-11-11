@@ -146,10 +146,10 @@ init_yule_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior))
+  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint internal function
 
-  result <- create_yule_tree_prior(
-    birth_rate_distr = init_distr(
+  result <- create_yule_tree_prior( # nolint internal function
+    birth_rate_distr = init_distr( # nolint internal function
       yule_tree_prior$birth_rate_distr,
       distr_id,
       param_id

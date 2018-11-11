@@ -58,14 +58,14 @@ distr_to_xml_beta <- function(
   text <- NULL
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$alpha),
+    indent( # nolint internal function
+      parameter_to_xml(distr$alpha), # nolint internal function
       n_spaces = 4
     )
   )
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$beta),
+    indent( # nolint internal function
+      parameter_to_xml(distr$beta), # nolint internal function
       n_spaces = 4
     )
   )
@@ -89,8 +89,8 @@ distr_to_xml_exp <- function(
   text <- c(text, paste0("<Exponential ",
     "id=\"Exponential.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$mean),
+    indent( # nolint internal function
+      parameter_to_xml(distr$mean), # nolint internal function
       n_spaces = 4
     )
   )
@@ -114,14 +114,14 @@ distr_to_xml_gamma <- function(
   text <- c(text, paste0("<Gamma ",
     "id=\"Gamma.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$alpha),
+    indent( # nolint internal function
+      parameter_to_xml(distr$alpha), # nolint internal function
       n_spaces = 4
     )
   )
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$beta),
+    indent( # nolint internal function
+      parameter_to_xml(distr$beta), # nolint internal function
       n_spaces = 4
     )
   )
@@ -145,14 +145,14 @@ distr_to_xml_inv_gamma <- function(
   text <- c(text, paste0("<InverseGamma ",
     "id=\"InverseGamma.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$alpha),
+    indent( # nolint internal function
+      parameter_to_xml(distr$alpha), # nolint internal function
       n_spaces = 4
     )
   )
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$beta),
+    indent( # nolint internal function
+      parameter_to_xml(distr$beta), # nolint internal function
       n_spaces = 4
     )
   )
@@ -176,14 +176,14 @@ distr_to_xml_laplace <- function(
   text <- c(text, paste0("<LaplaceDistribution ",
     "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$mu),
+    indent( # nolint internal function
+      parameter_to_xml(distr$mu), # nolint internal function
       n_spaces = 4
     )
   )
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$scale),
+    indent( # nolint internal function
+      parameter_to_xml(distr$scale), # nolint internal function
       n_spaces = 4
     )
   )
@@ -206,14 +206,14 @@ distr_to_xml_log_normal <- function(
   text <- c(text, paste0("<LogNormal ",
     "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$m),
+    indent( # nolint internal function
+      parameter_to_xml(distr$m), # nolint internal function
       n_spaces = 4
     )
   )
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$s),
+    indent( # nolint internal function
+      parameter_to_xml(distr$s), # nolint internal function
       n_spaces = 4
     )
   )
@@ -238,14 +238,14 @@ distr_to_xml_normal <- function(
   text <- c(text, paste0("<Normal ",
     "id=\"Normal.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$mean),
+    indent( # nolint internal function
+      parameter_to_xml(distr$mean), # nolint internal function
       n_spaces = 4
     )
   )
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$sigma),
+    indent( # nolint internal function
+      parameter_to_xml(distr$sigma), # nolint internal function
       n_spaces = 4
     )
   )
@@ -288,8 +288,8 @@ distr_to_xml_poisson <- function(
     "id=\"Poisson.", id, "\" ",
     "spec=\"beast.math.distributions.Poisson\">"))
   text <- c(text,
-    indent(
-      parameter_to_xml(distr$lambda),
+    indent( # nolint internal function
+      parameter_to_xml(distr$lambda), # nolint internal function
       n_spaces = 4
     )
   )

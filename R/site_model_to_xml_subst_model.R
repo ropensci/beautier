@@ -18,8 +18,8 @@ site_model_to_xml_subst_model <- function(
   }
 
   text <- NULL
-  freq_equilibrium_text <- indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id),
+  freq_equilibrium_text <- indent( # nolint internal function
+    freq_equilibrium_to_xml(site_model$freq_equilibrium, id), # nolint internal function
     n_spaces = 4
   )
 
@@ -92,8 +92,8 @@ site_model_to_xml_subst_model <- function(
       site_model$rate_ac_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml_rate_ac(
+        indent( # nolint internal function
+          parameter_to_xml_rate_ac( # nolint internal function
             site_model$rate_ac_param, which_name = "rate_name"
           ), n_spaces = 4
         )
@@ -105,8 +105,8 @@ site_model_to_xml_subst_model <- function(
       site_model$rate_ag_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml_rate_ag(
+        indent( # nolint internal function
+          parameter_to_xml_rate_ag( # nolint internal function
             site_model$rate_ag_param, which_name = "rate_name"
           ), n_spaces = 4
         )
@@ -118,8 +118,8 @@ site_model_to_xml_subst_model <- function(
       site_model$rate_at_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml_rate_at(
+        indent( # nolint internal function
+          parameter_to_xml_rate_at( # nolint internal function
             site_model$rate_at_param, which_name = "rate_name"
           ), n_spaces = 4
         )
@@ -131,8 +131,8 @@ site_model_to_xml_subst_model <- function(
       site_model$rate_cg_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml_rate_cg(
+        indent( # nolint internal function
+          parameter_to_xml_rate_cg( # nolint internal function
             site_model$rate_cg_param, which_name = "rate_name"
           ), n_spaces = 4
         )
@@ -143,8 +143,8 @@ site_model_to_xml_subst_model <- function(
       site_model$rate_ct_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml_rate_ct(
+        indent( # nolint internal function
+          parameter_to_xml_rate_ct( # nolint internal function
             site_model$rate_ct_param, which_name = "rate_name"
           ), n_spaces = 4
         )
@@ -154,9 +154,10 @@ site_model_to_xml_subst_model <- function(
       site_model$rate_gt_param$id <- id
       text <- c(
         text,
-        indent(
-          parameter_to_xml_rate_gt(
-            site_model$rate_gt_param, which_name = "rate_name"
+        indent( # nolint internal function
+          parameter_to_xml_rate_gt( # nolint internal function
+            site_model$rate_gt_param,
+            which_name = "rate_name"
           ), n_spaces = 4
         )
       )
