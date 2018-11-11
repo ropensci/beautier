@@ -4,7 +4,7 @@
 \alias{create_mcmc_nested_sampling}
 \title{Create an MCMC object that does nested sampling}
 \usage{
-create_mcmc_nested_sampling(chain_length = 1e+07, store_every = -1,
+create_mcmc_nested_sampling(chain_length = 10000000, store_every = -1,
   particle_count = 1, sub_chain_length = 5000, epsilon = "1e-12")
 }
 \arguments{
