@@ -76,7 +76,7 @@ create_beast2_input_1_12 <- function(
   }
 
   # 5 mcmc
-  if (!is_mcmc(mcmc)) {
+  if (!is_mcmc(mcmc)) { # nolint internal function
     stop(
       "'mcmc' must be a valid mcmc object, ",
       "as returned by 'create_mcmc'"
@@ -84,7 +84,7 @@ create_beast2_input_1_12 <- function(
   }
 
   # 6 misc_options
-  if (!is_misc_options(misc_options)) {
+  if (!is_misc_options(misc_options)) { # nolint internal function
     stop(
       "'misc_options' must be a valid misc options object, ",
       "as returned by 'create_misc_options'"

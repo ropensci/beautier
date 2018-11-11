@@ -74,6 +74,6 @@ create_gamma_site_model <- function(
     prop_invariant = prop_invariant,
     gamma_shape_prior_distr = gamma_shape_prior_distr
   )
-  testit::assert(is_gamma_site_model(gamma_site_model))
+  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint internal function
   gamma_site_model
 }

@@ -123,7 +123,7 @@ create_beast2_input <- function(
     fasta_filename <- input_filenames[i]
     tree_prior <- tree_priors[[i]]
     if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
-      n_taxa <- get_n_taxa(fasta_filename)
+      n_taxa <- get_n_taxa(fasta_filename) # nolint internal function
       group_sizes_dimension <- tree_prior$group_sizes_dimension
       if (n_taxa <= group_sizes_dimension) {
         stop(

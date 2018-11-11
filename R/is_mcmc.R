@@ -31,7 +31,7 @@ is_mcmc <- function(
 is_mcmc_nested_sampling <- function(
   x
 ) {
-  if (!is_mcmc(x)) return(FALSE)
+  if (!is_mcmc(x)) return(FALSE) # nolint internal function
   if (!"particle_count" %in% names(x)) return(FALSE)
   if (!"sub_chain_length" %in% names(x)) return(FALSE)
   if (!"epsilon" %in% names(x)) return(FALSE)

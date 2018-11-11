@@ -94,7 +94,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
-  testit::assert(is_mcmc(mcmc))
+  testit::assert(is_mcmc(mcmc)) # nolint internal function
 
   text <- NULL
   # 1 tracelog

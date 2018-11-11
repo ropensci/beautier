@@ -10,8 +10,8 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 mcmc_to_xml_run <- function(mcmc) {
-  testit::assert(is_mcmc(mcmc))
-  if (is_default_mcmc(mcmc)) {
+  testit::assert(is_mcmc(mcmc)) # nolint internal function
+  if (is_default_mcmc(mcmc)) { # nolint internal function
     mcmc_to_xml_run_default(mcmc) # nolint internal function
   } else {
     testit::assert(is_mcmc_nested_sampling(mcmc)) # nolint internal function
@@ -30,7 +30,7 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 mcmc_to_xml_run_default <- function(mcmc) {
-  testit::assert(is_mcmc(mcmc))
+  testit::assert(is_mcmc(mcmc)) # nolint internal function
   testit::assert(is_default_mcmc(mcmc)) # nolint internal function
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"MCMC\" ",
@@ -59,7 +59,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint internal function can be long
-  testit::assert(is_mcmc(mcmc))
+  testit::assert(is_mcmc(mcmc)) # nolint internal function
   testit::assert(is_mcmc_nested_sampling(mcmc)) # nolint internal function
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"beast.gss.NS\" ",

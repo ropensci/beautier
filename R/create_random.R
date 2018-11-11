@@ -1,7 +1,7 @@
 #' Create a random alpha parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_alpha_param <- function() {
-  create_alpha_param(
+  create_alpha_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -9,7 +9,7 @@ create_rnd_alpha_param <- function() {
 #' Create a random BD tree prior
 #' @author Richel J.C. Bilderbeek
 create_rnd_bd_tree_prior <- function() {
-  create_bd_tree_prior(
+  create_bd_tree_prior( # nolint internal function
     birth_rate_distr = create_rnd_distr(), # nolint internal function
     death_rate_distr = create_rnd_distr() # nolint internal function
   )
@@ -22,7 +22,7 @@ create_rnd_beta_distr <- function() {
   beta_distr <- NA
   while (is_one_na(beta_distr)) {
     tryCatch(
-      beta_distr <- create_beta_distr(
+      beta_distr <- create_beta_distr( # nolint internal function
         alpha = create_rnd_alpha_param(), # nolint internal function
         beta = create_rnd_beta_param() # nolint internal function
       ),
@@ -32,7 +32,7 @@ create_rnd_beta_distr <- function() {
           "'beta' must have a value of at least 1.0"
         )
         testit::assert(
-          is_in_patterns(line = error$message, patterns = whitelist)
+          is_in_patterns(line = error$message, patterns = whitelist) # nolint internal function
         )
       }
     )
@@ -43,7 +43,7 @@ create_rnd_beta_distr <- function() {
 #' Create a random beta parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_beta_param <- function() {
-  create_beta_param(
+  create_beta_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -57,13 +57,13 @@ create_rnd_bool <- function() {
 #' Create a random CBS tree prior
 #' @author Richel J.C. Bilderbeek
 create_rnd_cbs_tree_prior <- function() {
-  create_cbs_tree_prior()
+  create_cbs_tree_prior() # nolint internal function
 }
 
 #' Create a random CCP tree prior
 #' @author Richel J.C. Bilderbeek
 create_rnd_ccp_tree_prior <- function() {
-  create_ccp_tree_prior(
+  create_ccp_tree_prior( # nolint internal function
     pop_size_distr = create_rnd_distr() # nolint internal function
   )
 }
@@ -71,7 +71,7 @@ create_rnd_ccp_tree_prior <- function() {
 #' Create a random CEP tree prior
 #' @author Richel J.C. Bilderbeek
 create_rnd_cep_tree_prior <- function() {
-  create_cep_tree_prior(
+  create_cep_tree_prior( # nolint internal function
     pop_size_distr = create_rnd_distr(), # nolint internal function
     growth_rate_distr = create_rnd_distr() # nolint internal function
   )
@@ -92,7 +92,7 @@ create_rnd_clock_model <- function() {
 #' Create a random clock rate parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_clock_rate_param <- function() {
-  create_clock_rate_param(
+  create_clock_rate_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -155,7 +155,7 @@ create_rnd_gamma_distr <- function() {
   gamma_distr <- NA
   while (is_one_na(gamma_distr)) {
     tryCatch(
-        gamma_distr <- create_gamma_distr(
+        gamma_distr <- create_gamma_distr( # nolint internal function
         alpha = create_rnd_alpha_param(), # nolint internal function
         beta = create_rnd_beta_param() # nolint internal function
       ),
@@ -165,7 +165,7 @@ create_rnd_gamma_distr <- function() {
           "'value' of 'beta' must be positive"
         )
         testit::assert(
-          is_in_patterns(line = error$message, patterns = whitelist)
+          is_in_patterns(line = error$message, patterns = whitelist) # nolint internal function
         )
       }
     )
@@ -179,7 +179,7 @@ create_rnd_gamma_site_model <- function() {
   gamma_site_model <- NA
   while (is_one_na(gamma_site_model)) {
     tryCatch(
-      gamma_site_model <- create_gamma_site_model(
+      gamma_site_model <- create_gamma_site_model( # nolint internal function
         gamma_cat_count = sample(x = -1:4, size = 1),
         gamma_shape = stats::runif(n = 1, min = -1.0, max = 1.0),
         prop_invariant = stats::runif(n = 1, min = -1.0, max = 1.0),
@@ -194,7 +194,7 @@ create_rnd_gamma_site_model <- function() {
           "'gamma_shape_prior_distr' must be NA for a 'gamma_cat_count' of less than two" # nolint indeed long error message, preferred this over using paste0
         )
         testit::assert(
-          is_in_patterns(line = error$message, patterns = whitelist)
+          is_in_patterns(line = error$message, patterns = whitelist) # nolint internal function
         )
       }
     )
@@ -206,7 +206,7 @@ create_rnd_gamma_site_model <- function() {
 #' Create a random GTR site model
 #' @author Richel J.C. Bilderbeek
 create_rnd_gtr_site_model <- function() {
-  create_gtr_site_model(
+  create_gtr_site_model( # nolint internal function
     gamma_site_model = create_rnd_gamma_site_model(), # nolint internal function
     rate_ac_prior_distr = create_rnd_distr(), # nolint internal function
     rate_ag_prior_distr = create_rnd_distr(), # nolint internal function
@@ -226,7 +226,7 @@ create_rnd_gtr_site_model <- function() {
 #' Create a random HKY site model
 #' @author Richel J.C. Bilderbeek
 create_rnd_hky_site_model <- function() {
-  create_hky_site_model(
+  create_hky_site_model( # nolint internal function
     gamma_site_model = create_rnd_gamma_site_model(), # nolint internal function
     kappa = stats::runif(n = 1, min = -100.0, max = 100.0),
     kappa_prior_distr = create_rnd_distr(), # nolint internal function
@@ -237,7 +237,7 @@ create_rnd_hky_site_model <- function() {
 #' Create a random inverse-gamma distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_inv_gamma_distr <- function() {
-  create_inv_gamma_distr(
+  create_inv_gamma_distr( # nolint internal function
     alpha = create_rnd_alpha_param(), # nolint internal function
     beta = create_rnd_beta_param() # nolint internal function
   )
@@ -246,7 +246,7 @@ create_rnd_inv_gamma_distr <- function() {
 #' Create a random JC69 distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_jc69_site_model <- function() {
-  create_jc69_site_model(
+  create_jc69_site_model( # nolint internal function
     gamma_site_model = create_rnd_gamma_site_model() # nolint internal function
   )
 }
@@ -254,7 +254,7 @@ create_rnd_jc69_site_model <- function() {
 #' Create a random kappa 1 parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_kappa_1_param <- function() {
-  create_kappa_1_param(
+  create_kappa_1_param( # nolint internal function
     lower = stats::runif(n = 1, min = -10, max = 10),
     value = stats::runif(n = 1, min = -10, max = 10)
   )
@@ -263,7 +263,7 @@ create_rnd_kappa_1_param <- function() {
 #' Create a random kappa 2 parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_kappa_2_param <- function() {
-  create_kappa_2_param(
+  create_kappa_2_param( # nolint internal function
     lower = stats::runif(n = 1, min = -10, max = 10),
     value = stats::runif(n = 1, min = -10, max = 10)
   )
@@ -272,7 +272,7 @@ create_rnd_kappa_2_param <- function() {
 #' Create a random lambda parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_lambda_param <- function() {
-  create_lambda_param(
+  create_lambda_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -280,7 +280,7 @@ create_rnd_lambda_param <- function() {
 #' Create a random Laplace distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_laplace_distr <- function() {
-  create_laplace_distr(
+  create_laplace_distr( # nolint internal function
     mu = create_rnd_mu_param(), # nolint internal function
     scale = create_rnd_scale_param() # nolint internal function
   )
@@ -293,7 +293,7 @@ create_rnd_log_normal_distr <- function() {
   log_normal_distr <- NA
   while (is_one_na(log_normal_distr)) {
     tryCatch(
-      log_normal_distr <- create_log_normal_distr(
+      log_normal_distr <- create_log_normal_distr( # nolint internal function
         m = create_rnd_m_param(), # nolint internal function
         s = create_rnd_s_param() # nolint internal function
       ),
@@ -302,7 +302,7 @@ create_rnd_log_normal_distr <- function() {
           "'value' of 's' must be positive"
         )
         testit::assert(
-          is_in_patterns(line = error$message, patterns = whitelist)
+          is_in_patterns(line = error$message, patterns = whitelist) # nolint internal function
         )
       }
     )
@@ -313,7 +313,7 @@ create_rnd_log_normal_distr <- function() {
 #' Create a random m parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_m_param <- function() {
-  create_m_param(
+  create_m_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -321,7 +321,7 @@ create_rnd_m_param <- function() {
 #' Create a random mean parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_mean_param <- function() {
-  create_mean_param(
+  create_mean_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -330,10 +330,10 @@ create_rnd_mean_param <- function() {
 #' @param fasta_filename a FASTA filename
 #' @author Richel J.C. Bilderbeek
 create_rnd_mrca_prior <- function(fasta_filename) {
-  all_taxa_names <- get_taxa_names(fasta_filename)
+  all_taxa_names <- get_taxa_names(fasta_filename) # nolint internal function
   n_taxa <- stats::runif(min = 1, max = length(all_taxa_names), n = 1)
   taxa_names <- sample(x = all_taxa_names, size = n_taxa)
-  create_mrca_prior(
+  create_mrca_prior( # nolint internal function
     alignment_id = get_alignment_id(fasta_filename),
     taxa_names = taxa_names,
     is_monophyletic = create_rnd_bool(),
@@ -353,7 +353,7 @@ create_rnd_mrca_priors <- function(fasta_filename) {
   if (param_index == 1) {
     NA
   } else if (param_index == 2) {
-    create_rnd_mrca_prior(fasta_filename)
+    create_rnd_mrca_prior(fasta_filename) # nolint internal function
   } else {
     testit::assert(param_index == 3)
     create_rnd_two_mrca_priors(fasta_filename) # nolint internal function
@@ -366,10 +366,10 @@ create_rnd_mrca_priors <- function(fasta_filename) {
 create_rnd_two_mrca_priors <- function(fasta_filename) {
   while (1) {
     mrca_priors <- list(
-      create_rnd_mrca_prior(fasta_filename),
-      create_rnd_mrca_prior(fasta_filename)
+      create_rnd_mrca_prior(fasta_filename), # nolint internal function
+      create_rnd_mrca_prior(fasta_filename) # nolint internal function
     )
-    if (are_mrca_taxa_non_intersecting(mrca_priors)) {
+    if (are_mrca_taxa_non_intersecting(mrca_priors)) { # nolint internal function
       return(mrca_priors)
     }
   }
@@ -378,7 +378,7 @@ create_rnd_two_mrca_priors <- function(fasta_filename) {
 #' Create a random mu parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_mu_param <- function() {
-  create_mu_param(
+  create_mu_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -386,7 +386,7 @@ create_rnd_mu_param <- function() {
 #' Create a random normal distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_normal_distr <- function() {
-  create_normal_distr(
+  create_normal_distr( # nolint internal function
     mean = create_rnd_mean_param(), # nolint internal function
     sigma = create_rnd_sigma_param() # nolint internal function
   )
@@ -395,7 +395,7 @@ create_rnd_normal_distr <- function() {
 #' Create a random 1/x distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_one_div_x_distr <- function() {
-  create_one_div_x_distr()
+  create_one_div_x_distr() # nolint internal function
 }
 
 #' Create a random parameter
@@ -404,49 +404,49 @@ create_rnd_param <- function() {
 
   param_index <- sample(x = 1:18, size = 1)
   if (param_index == 1) {
-    create_alpha_param()
+    create_alpha_param() # nolint internal function
   } else if (param_index == 2) {
-    create_beta_param()
+    create_beta_param() # nolint internal function
   } else if (param_index == 3) {
-    create_clock_rate_param()
+    create_clock_rate_param() # nolint internal function
   } else if (param_index == 4) {
-    create_kappa_1_param()
+    create_kappa_1_param() # nolint internal function
   } else if (param_index == 5) {
-    create_kappa_2_param()
+    create_kappa_2_param() # nolint internal function
   } else if (param_index == 6) {
-    create_lambda_param()
+    create_lambda_param() # nolint internal function
   } else if (param_index == 7) {
-    create_m_param()
+    create_m_param() # nolint internal function
   } else if (param_index == 8) {
-    create_mean_param()
+    create_mean_param() # nolint internal function
   } else if (param_index == 9) {
-    create_mu_param()
+    create_mu_param() # nolint internal function
   } else if (param_index == 10) {
-    create_rate_ac_param()
+    create_rate_ac_param() # nolint internal function
   } else if (param_index == 11) {
-    create_rate_ag_param()
+    create_rate_ag_param() # nolint internal function
   } else if (param_index == 12) {
-    create_rate_at_param()
+    create_rate_at_param() # nolint internal function
   } else if (param_index == 13) {
-    create_rate_cg_param()
+    create_rate_cg_param() # nolint internal function
   } else if (param_index == 14) {
-    create_rate_ct_param()
+    create_rate_ct_param() # nolint internal function
   } else if (param_index == 15) {
-    create_rate_gt_param()
+    create_rate_gt_param() # nolint internal function
   } else if (param_index == 16) {
-    create_s_param()
+    create_s_param() # nolint internal function
   } else if (param_index == 17) {
-    create_scale_param()
+    create_scale_param() # nolint internal function
   } else {
     testit::assert(param_index == 18)
-    create_sigma_param()
+    create_sigma_param() # nolint internal function
   }
 }
 
 #' Create a random Poisson distribution
 #' @author Richel J.C. Bilderbeek
 create_rnd_poisson_distr <- function() {
-  create_poisson_distr(
+  create_poisson_distr( # nolint internal function
     lambda = create_rnd_lambda_param() # nolint internal function
   )
 }
@@ -454,7 +454,7 @@ create_rnd_poisson_distr <- function() {
 #' Create a random rate AC parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_ac_param <- function() {
-  create_rate_ac_param(
+  create_rate_ac_param( # nolint internal function
     estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
@@ -464,7 +464,7 @@ create_rnd_rate_ac_param <- function() {
 #' Create a random rate AG parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_ag_param <- function() {
-  create_rate_ag_param(
+  create_rate_ag_param( # nolint internal function
     estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
@@ -474,7 +474,7 @@ create_rnd_rate_ag_param <- function() {
 #' Create a random rate AT parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_at_param <- function() {
-  create_rate_at_param(
+  create_rate_at_param( # nolint internal function
     estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
@@ -484,7 +484,7 @@ create_rnd_rate_at_param <- function() {
 #' Create a random rate CG parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_cg_param <- function() {
-  create_rate_cg_param(
+  create_rate_cg_param( # nolint internal function
     estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
@@ -495,7 +495,7 @@ create_rnd_rate_cg_param <- function() {
 #' Create a random rate CT parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_ct_param <- function() {
-  create_rate_ct_param(
+  create_rate_ct_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
   )
@@ -504,7 +504,7 @@ create_rnd_rate_ct_param <- function() {
 #' Create a random rate GT parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_rate_gt_param <- function() {
-  create_rate_gt_param(
+  create_rate_gt_param( # nolint internal function
     estimate = create_rnd_estimate(), # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10),
     lower = stats::runif(n = 1, min = -10, max = 10)
@@ -514,7 +514,7 @@ create_rnd_rate_gt_param <- function() {
 #' Create a random RLN clock model
 #' @author Richel J.C. Bilderbeek
 create_rnd_rln_clock_model <- function() {
-  create_rln_clock_model(
+  create_rln_clock_model( # nolint internal function
     mean_rate_prior_distr = create_rnd_distr(), # nolint internal function
     ucldstdev_distr = create_rnd_distr(), # nolint internal function
     mean_clock_rate = stats::runif(n = 1, min = -100.0, max = 100.0),
@@ -531,7 +531,7 @@ create_rnd_s_param <- function() {
   upper <- value + stats::runif(n = 1, min = 0.1, max = 10)
   testit::assert(lower < value)
   testit::assert(value < upper)
-  create_s_param(
+  create_s_param( # nolint internal function
     value = value,
     lower = lower,
     upper = upper
@@ -541,7 +541,7 @@ create_rnd_s_param <- function() {
 #' Create a random scale parameter
 #' @author Richel J.C. Bilderbeek
 create_rnd_scale_param <- function() {
-  create_scale_param(
+  create_scale_param( # nolint internal function
     value = stats::runif(n = 1, min = -10, max = 10)
   )
 }
@@ -550,9 +550,9 @@ create_rnd_scale_param <- function() {
 #' @author Richel J.C. Bilderbeek
 create_rnd_sigma_param <- function() {
   sigma_param <- NA
-  while (is_one_na(sigma_param)) {
+  while (is_one_na(sigma_param)) { # nolint internal function
     tryCatch(
-      sigma_param <- create_sigma_param(
+      sigma_param <- create_sigma_param( # nolint internal function
         value = stats::runif(n = 1, min = -10, max = 10)
       ),
       error = function(error) {
@@ -560,7 +560,7 @@ create_rnd_sigma_param <- function() {
           "'value' must be non-zero and positive"
         )
         testit::assert(
-          is_in_patterns(line = error$message, patterns = whitelist)
+          is_in_patterns(line = error$message, patterns = whitelist) # nolint internal function
         )
       }
     )
@@ -588,7 +588,7 @@ create_rnd_site_model <- function() {
 #' Create a random strict clock model
 #' @author Richel J.C. Bilderbeek
 create_rnd_strict_clock_model <- function() {
-  create_strict_clock_model(
+  create_strict_clock_model( # nolint internal function
     clock_rate_param = create_rnd_clock_rate_param(), # nolint internal function
     clock_rate_distr = create_rnd_distr() # nolint internal function
   )
@@ -597,7 +597,7 @@ create_rnd_strict_clock_model <- function() {
 #' Create a random TN93 site model
 #' @author Richel J.C. Bilderbeek
 create_rnd_tn93_site_model <- function() {
-  create_tn93_site_model(
+  create_tn93_site_model( # nolint internal function
     gamma_site_model = create_rnd_gamma_site_model(), # nolint internal function
     kappa_1_param = create_rnd_kappa_1_param(), # nolint internal function
     kappa_2_param = create_rnd_kappa_2_param(), # nolint internal function
@@ -633,7 +633,7 @@ create_rnd_uniform_distr <- function() {
   uniform_distr <- NA
   while (is_one_na(uniform_distr)) {
     tryCatch(
-      uniform_distr <- create_uniform_distr(
+      uniform_distr <- create_uniform_distr( # nolint internal function
         upper = stats::runif(n = 1, min = -10, max = 10)
       ),
       error = function(error) {
@@ -641,7 +641,7 @@ create_rnd_uniform_distr <- function() {
           "'upper' must be non-zero and positive"
         )
         testit::assert(
-          is_in_patterns(line = error$message, patterns = whitelist)
+          is_in_patterns(line = error$message, patterns = whitelist) # nolint internal function
         )
       }
     )
@@ -652,7 +652,7 @@ create_rnd_uniform_distr <- function() {
 #' Create a random Yule tree prior
 #' @author Richel J.C. Bilderbeek
 create_rnd_yule_tree_prior <- function() {
-  create_yule_tree_prior(
+  create_yule_tree_prior( # nolint internal function
     birth_rate_distr = create_rnd_distr() # nolint internal function
   )
 }

@@ -8,7 +8,7 @@
 is_init_gamma_site_model <- function(
   x
 ) {
-  if (!is_gamma_site_model(x)) return(FALSE)
+  if (!is_gamma_site_model(x)) return(FALSE) # nolint internal function
   if (is_one_na(x$gamma_shape_prior_distr)) return(TRUE) # nolint internal function
   if (!is_init_distr(x$gamma_shape_prior_distr)) return(FALSE) # nolint internal function
   TRUE
