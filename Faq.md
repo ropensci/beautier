@@ -59,14 +59,17 @@ movie 'Beauty and the Beast', and the R logo.
 
 ## What are the FASTA files?
 
-FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
+Filename|Reference
+---|---
+`anthus_aco.fas`|[1]
+`anthus_nd2.fas`|[1]
+`G_VII_pre2003_msa.fas`|[2]
+Others|Artificial
+
+ * [1] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
+ * [2] Claudio L Afonso, Peter Andrew Durr, Sidna Artanto, Widya Asmara, Michael Haryadi Wibowo. Diagnostic and Characterization of Newcastle Diseases Virus Causing Lethal Poultry Disease Outbreaks in Indonesia. In progress. Author names sorted alphabetically. Title is working title
  
- * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
-
-Thanks to Paul van Els.
-
-FASTA files `test_output_0.fas`, `anthus_nd3.fas` and `anthus_nd4.fas`
-are artificially made FASTA files. 
+Thanks to Peter A. Durr and Paul van Els for supplying the FASTA files.
 
 ## If I set a fixed crown age with multiple alignments, only the first alignment has so
 
