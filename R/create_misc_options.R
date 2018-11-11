@@ -35,6 +35,6 @@ create_misc_options <- function(
     beast2_version = beast2_version,
     required = required
   )
-  testit::assert(is_misc_options(misc_options))
+  testit::assert(is_misc_options(misc_options)) # nolint internal function
   misc_options
 }
