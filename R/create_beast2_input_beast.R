@@ -4,14 +4,20 @@
 #' @noRd
 create_beast2_input_beast <- function(
   input_filenames,
-  site_models = create_jc69_site_models(
-    ids = get_alignment_ids(input_filenames)
+  site_models = list(
+    create_jc69_site_model(
+      id = get_alignment_id(input_filenames)
+    )
   ),
-  clock_models = create_strict_clock_models(
-    ids = get_alignment_ids(input_filenames)
+  clock_models = list(
+    create_strict_clock_model(
+      id = get_alignment_id(input_filenames)
+    )
   ),
-  tree_priors = create_yule_tree_priors(
-    ids = get_alignment_ids(input_filenames)
+  tree_priors = list(
+    create_yule_tree_prior(
+      id = get_alignment_id(input_filenames)
+    )
   ),
   mrca_priors = NA,
   mcmc = create_mcmc(),

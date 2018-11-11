@@ -18,7 +18,7 @@ test_that("use", {
 
   testthat::expect_equal(
     get_operator_id_pre(
-      tree_prior = create_yule_tree_priors(ids = "some_id")
+      tree_prior = list(create_yule_tree_prior(id = "some_id"))
     ),
     "YuleModel"
   )

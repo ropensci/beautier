@@ -5,12 +5,12 @@
 \title{Create a BEAST2 XML input text, interface of v1.12}
 \usage{
 create_beast2_input_1_12(input_filenames,
-  site_models = create_jc69_site_models(ids =
-  get_alignment_ids(input_filenames)),
-  clock_models = create_strict_clock_models(ids =
-  get_alignment_ids(input_filenames)),
-  tree_priors = create_yule_tree_priors(ids =
-  get_alignment_ids(input_filenames)), mcmc = create_mcmc(),
+  site_models = create_jc69_site_model(id =
+  get_alignment_id(input_filenames)),
+  clock_models = create_strict_clock_model(id =
+  get_alignment_id(input_filenames)),
+  tree_priors = create_yule_tree_prior(id =
+  get_alignment_id(input_filenames)), mcmc = create_mcmc(),
   misc_options = create_misc_options(), fixed_crown_ages = rep(FALSE,
   times = length(input_filenames)), initial_phylogenies = rep(NA,
   length(input_filenames)))

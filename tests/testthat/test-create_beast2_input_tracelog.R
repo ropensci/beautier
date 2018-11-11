@@ -1,7 +1,7 @@
 context("create_beast2_input_tracelog")
 
 test_that("use", {
-  created <- beautier:::create_beast2_input_tracelog(ids = 1)
+  created <- create_beast2_input_tracelog(ids = 1)
   expected <- c(
     "<logger id=\"tracelog\" fileName=\"1.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint
     "    <log idref=\"posterior\"/>",

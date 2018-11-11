@@ -10,14 +10,14 @@
 #' @export
 create_beast2_input_1_12 <- function(
   input_filenames,
-  site_models = create_jc69_site_models(
-    ids = get_alignment_ids(input_filenames)
+  site_models = create_jc69_site_model(
+    id = get_alignment_id(input_filenames)
   ),
-  clock_models = create_strict_clock_models(
-    ids = get_alignment_ids(input_filenames)
+  clock_models = create_strict_clock_model(
+    id = get_alignment_id(input_filenames)
   ),
-  tree_priors = create_yule_tree_priors(
-    ids = get_alignment_ids(input_filenames)
+  tree_priors = create_yule_tree_prior(
+    id = get_alignment_id(input_filenames)
   ),
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),

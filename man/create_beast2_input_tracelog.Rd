@@ -6,9 +6,9 @@
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_tracelog(ids,
-  site_models = create_jc69_site_models(ids = ids),
-  clock_models = create_strict_clock_models(ids = ids),
-  tree_priors = create_yule_tree_priors(ids = ids),
+  site_models = list(create_jc69_site_model(id = ids)),
+  clock_models = list(create_strict_clock_model(id = ids)),
+  tree_priors = list(create_yule_tree_prior(id = ids)),
   mcmc = create_mcmc(), mrca_priors = NA)
 }
 \arguments{

@@ -6,13 +6,13 @@ test_that("use with one ID", {
   id <- beautier:::get_alignment_id(fasta_filename)
 
   xml <- beautier:::create_beast2_input_distr(
-    site_models = create_jc69_site_models(ids = id),
+    site_models = list(create_jc69_site_model(id = id)),
     clock_models = beautier:::init_clock_models(
-      create_strict_clock_models(ids = NA),
+      list(create_strict_clock_model(id = NA)),
       fasta_filenames = fasta_filename
     ),
     tree_priors = beautier:::init_tree_priors(
-      create_yule_tree_priors(ids = id),
+      list(create_yule_tree_prior(id = id)),
       ids = id,
       distr_id = 1
     )

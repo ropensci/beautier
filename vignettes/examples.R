@@ -129,30 +129,39 @@ create_beast2_input_file(
 )
 
 ## ----example_11----------------------------------------------------------
-create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml"
-)
+# Deprecated support for now
+if (1 == 2) {
+  create_beast2_input_file(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    "my_beast.xml"
+  )
+}
 
 ## ----example_12----------------------------------------------------------
-beautier::create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml",
-  site_models = list(
-    create_hky_site_model(), 
-    create_tn93_site_model()
+# Deprecated support for now
+if (1 == 2) {
+  beautier::create_beast2_input_file(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    "my_beast.xml",
+    site_models = list(
+      create_hky_site_model(), 
+      create_tn93_site_model()
+    )
   )
-)
+}
 
 ## ----example_13----------------------------------------------------------
-beautier::create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml",
-  clock_models = list(
-    create_strict_clock_model(id = "anthus_aco"), 
-    create_strict_clock_model(id = "anthus_aco")
+# Deprecated support for now
+if (1 == 2) {
+  beautier::create_beast2_input_file(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    "my_beast.xml",
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"), 
+      create_strict_clock_model(id = "anthus_aco")
+    )
   )
-)
+}
 
 ## ----cleanup, include = FALSE--------------------------------------------
 # Cleaning up
