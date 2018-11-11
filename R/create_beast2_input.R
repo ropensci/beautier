@@ -46,7 +46,6 @@ create_beast2_input <- function(
   }
 
   # Check input
-
   # 1 input_filenames
   if (!files_exist(input_filenames)) { # nolint internal function
     stop(
@@ -108,14 +107,8 @@ create_beast2_input <- function(
   }
 
   # Lengths
-  if (length(input_filenames) != length(site_models)) {
-    stop("Must supply as much input_filenames as site_models")
-  }
-  if (length(input_filenames) != length(clock_models)) {
-    stop("Must supply as much input_filenames as clock_models")
-  }
-  if (length(input_filenames) != length(tree_priors)) {
-    stop("Must supply as much input_filenames as tree priors")
+  if (length(input_filenames) != 1) {
+    stop("Must use one alignment, site model, clock model and tree prior")
   }
 
   # Higher-level checks
