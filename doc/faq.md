@@ -67,7 +67,7 @@ Filename|Reference
 Others|Artificial
 
  * [1] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
- * [2] Claudio L Afonso, Peter Andrew Durr, Sidna Artanto, Widya Asmara, Michael Haryadi Wibowo. Diagnostic and Characterization of Newcastle Diseases Virus Causing Lethal Poultry Disease Outbreaks in Indonesia. In progress. Author names sorted alphabetically. Title is working title
+ * [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.
  
 Thanks to Peter A. Durr and Paul van Els for supplying the FASTA files.
 

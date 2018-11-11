@@ -114,4 +114,4 @@ FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
 
 FASTA file `G_VII_pre2003_msa.fas` from:
 
- * Claudio L Afonso, Peter Andrew Durr, Sidna Artanto, Widya Asmara, Michael Haryadi Wibowo. Diagnostic and Characterization of Newcastle Diseases Virus Causing Lethal Poultry Disease Outbreaks in Indonesia. In progress. Author names sorted alphabetically. Title is working title
+ * Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). Phylodynamics of Genotype VII Newcastle disease virus in Indonesia. 
