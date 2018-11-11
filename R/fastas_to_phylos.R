@@ -12,7 +12,7 @@
 #'   # - the same taxa names as the FASTA files
 #'   # - the desired crown age
 #'   fasta_filenames <- get_beautier_paths(
-#'     c("anthus_aco.fas", "anthus_nd2.fas")
+#'     c("anthus_aco.fas")
 #'   )
 #'   initial_phylogenies <- fastas_to_phylos(
 #'     fasta_filenames,
@@ -23,7 +23,7 @@
 #'   create_beast2_input_file_1_12(
 #'     input_filenames = fasta_filenames,
 #'     "fastas_to_phylos.xml",
-#'     fixed_crown_ages = c(TRUE, TRUE),
+#'     fixed_crown_ages = c(TRUE),
 #'     initial_phylogenies = initial_phylogenies
 #'   )
 #'   testthat::expect_true(file.exists("fastas_to_phylos.xml"))
