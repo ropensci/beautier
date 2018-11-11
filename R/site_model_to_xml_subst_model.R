@@ -11,7 +11,7 @@ site_model_to_xml_subst_model <- function(
   id <- site_model$id
   testit::assert(is_id(id)) # nolint internal function
 
-  if (is_jc69_site_model(site_model)) {
+  if (is_jc69_site_model(site_model)) { # nolint internal function
     return(
       paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>")
     )
@@ -23,10 +23,10 @@ site_model_to_xml_subst_model <- function(
     n_spaces = 4
   )
 
-  if (is_hky_site_model(site_model)) {
+  if (is_hky_site_model(site_model)) { # nolint internal function
     text <- c(text, paste0("<substModel ",
       "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"))
-  } else if (is_tn93_site_model(site_model)) {
+  } else if (is_tn93_site_model(site_model)) { # nolint internal function
     subst_model_line <- paste0(
       "<substModel id=\"tn93.s:", id, "\" spec=\"TN93\""
     )

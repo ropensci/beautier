@@ -12,18 +12,18 @@ site_model_to_xml_prior_distr <- function(
   testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
-  if (is_hky_site_model(site_model)) {
+  if (is_hky_site_model(site_model)) { # nolint internal function
     text <- c(text, paste0("<prior ",
       "id=\"KappaPrior.s:", id, "\" ",
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
     text <- c(text,
       indent(
-        distr_to_xml(site_model$kappa_prior),
+        distr_to_xml(site_model$kappa_prior), # nolint internal function
         n_spaces = 4
       )
     )
     text <- c(text, paste0("</prior>"))
-  } else if (is_tn93_site_model(site_model)) {
+  } else if (is_tn93_site_model(site_model)) { # nolint internal function
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",
         "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
@@ -40,13 +40,13 @@ site_model_to_xml_prior_distr <- function(
         "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
       text <- c(text,
         indent(
-          distr_to_xml(site_model$kappa_2_prior),
+          distr_to_xml(site_model$kappa_2_prior), # nolint internal function
           n_spaces = 4
         )
       )
       text <- c(text, paste0("</prior>"))
     }
-  } else if (is_gtr_site_model(site_model)) {
+  } else if (is_gtr_site_model(site_model)) { # nolint internal function
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(text, paste0("<prior id=\"RateACPrior.s:", id, "\" ",
         "name=\"distribution\" x=\"@rateAC.s:", id, "\">"))

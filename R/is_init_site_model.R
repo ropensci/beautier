@@ -8,15 +8,15 @@
 is_init_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
-  if (is_gtr_site_model(x)) {
+  if (!is_site_model(x)) return(FALSE) # nolint internal function
+  if (is_gtr_site_model(x)) { # nolint internal function
     return(is_init_gtr_site_model(x)) # nolint internal function call
-  } else if (is_hky_site_model(x)) {
+  } else if (is_hky_site_model(x)) { # nolint internal function
     return(is_init_hky_site_model(x)) # nolint internal function call
-  } else if (is_jc69_site_model(x)) {
+  } else if (is_jc69_site_model(x)) { # nolint internal function
     return(is_init_jc69_site_model(x)) # nolint internal function call
   } else {
-    testit::assert(is_tn93_site_model(x))
+    testit::assert(is_tn93_site_model(x)) # nolint internal function
     return(is_init_tn93_site_model(x)) # nolint internal function call
   }
 }
@@ -108,8 +108,8 @@ is_init_jc69_site_model <- function(
 is_init_tn93_site_model <- function(
   x
 ) {
-  testit::assert(is_tn93_site_model(x))
+  testit::assert(is_tn93_site_model(x)) # nolint internal function
   if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
-  is_init_distr(x$kappa_1_prior) &&
-    is_init_distr(x$kappa_2_prior)
+  is_init_distr(x$kappa_1_prior) && # nolint internal function
+    is_init_distr(x$kappa_2_prior) # nolint internal function
 }
