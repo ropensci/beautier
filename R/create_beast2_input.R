@@ -13,6 +13,7 @@
 #' @export
 create_beast2_input <- function(
   input_filenames,
+  tipdates_filename = NA,
   site_models = create_jc69_site_model(
     id = get_alignment_id(input_filenames)
   ),

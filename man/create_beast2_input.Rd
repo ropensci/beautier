@@ -4,7 +4,7 @@
 \alias{create_beast2_input}
 \title{Create a BEAST2 XML input text}
 \usage{
-create_beast2_input(input_filenames,
+create_beast2_input(input_filenames, tipdates_filename = NA,
   site_models = create_jc69_site_model(id =
   get_alignment_id(input_filenames)),
   clock_models = create_strict_clock_model(id =
@@ -17,6 +17,11 @@ create_beast2_input(input_filenames,
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, seperated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
 
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}

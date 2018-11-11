@@ -15,8 +15,8 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   is_monophyletic, jc69_site_model, mcmc, misc_options, mrca_prior,
   mrca_priors, output_filename, param_id, posterior_crown_age,
   rln_clock_model, sequence_length, site_model, site_models, store_every,
-  strict_clock_model, tn93_site_model, tree_prior, tree_priors, verbose,
-  yule_tree_prior)
+  strict_clock_model, tipdates_filename, tn93_site_model, tree_prior,
+  tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -146,6 +146,11 @@ Use -1 or NA to use the default frequency.}
 
 \item{strict_clock_model}{a strict clock model,
 as returned by \code{\link{create_strict_clock_model}}}
+
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, seperated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
 
 \item{tn93_site_model}{a TN93 site model,
 as returned by \code{\link{create_tn93_site_model}}}

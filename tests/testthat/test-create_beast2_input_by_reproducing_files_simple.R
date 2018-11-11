@@ -1392,14 +1392,16 @@ test_that("No tip dating yet", {
 
 test_that("Tip dating", {
 
-  wip("babette Issue 27, #27")
+  skip("babette Issue 27, #27")
   # See https://github.com/richelbilderbeek/babette/issues/27
+
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
+    tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt"),
     misc_options = create_misc_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.0",

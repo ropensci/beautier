@@ -94,6 +94,10 @@
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tree_priors one or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
+#' @param tipdates_filename name of the file containing the tip dates.
+#'   This file is assumed to have two columns, seperated by a tab.
+#'   The first column contains the taxa names, the second column contains
+#'   the date.
 #' @param verbose if TRUE, additional information is displayed, that
 #'   is potentially useful in debugging
 #' @param yule_tree_prior a Yule tree_prior,
@@ -139,6 +143,7 @@ default_params_doc <- function(
   site_model, site_models,
   store_every,
   strict_clock_model,
+  tipdates_filename,
   tn93_site_model,
   tree_prior, tree_priors,
   verbose,
