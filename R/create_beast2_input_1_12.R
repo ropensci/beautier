@@ -97,7 +97,7 @@ create_beast2_input_1_12 <- function(
   }
 
   # 8 initial_phylogenies
-  if (!are_initial_phylogenies(initial_phylogenies)) {
+  if (!are_initial_phylogenies(initial_phylogenies)) { # nolint internal function
     stop("initial_phylogenies must be a list of NAs and phylo objects")
   }
 
@@ -118,17 +118,17 @@ create_beast2_input_1_12 <- function(
     stop("Must supply as much input_filenames as initial_phylogenies")
   }
 
-  site_models <- init_site_models(
+  site_models <- init_site_models( # nolint internal function
     site_models = site_models,
     ids = get_alignment_ids(input_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint internal function
-  clock_models <- init_clock_models(
+  clock_models <- init_clock_models( # nolint internal function
     clock_models = clock_models,
     fasta_filenames = input_filenames,
-    distr_id = 0 + get_site_models_n_distrs(site_models),
-    param_id = 0 + get_site_models_n_params(site_models)
+    distr_id = 0 + get_site_models_n_distrs(site_models), # nolint internal function
+    param_id = 0 + get_site_models_n_params(site_models) # nolint internal function
   )  # nolint internal function
   tree_priors <- init_tree_priors( # nolint internal function
     tree_priors,
@@ -141,14 +141,14 @@ create_beast2_input_1_12 <- function(
   testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function
 
   # More complex
-  if (has_shared_rln_clock_models(clock_models)) {
+  if (has_shared_rln_clock_models(clock_models)) { # nolint internal function
     stop("Cannot have shared Relaxed Log-Normal clock models")
   }
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
 
-  text <- create_beast2_input_beast(
+  text <- create_beast2_input_beast( # nolint internal function
     input_filenames = input_filenames,
     site_models = site_models,
     clock_models = clock_models,

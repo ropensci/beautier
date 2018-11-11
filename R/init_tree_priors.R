@@ -112,11 +112,14 @@ init_cep_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior))
+  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint internal function
   testit::assert(!is.na(distr_id))
   testit::assert(!is.na(param_id))
-  testit::assert(!is.na(
-    get_distr_n_params(cep_tree_prior$pop_size_distr)))
+  testit::assert(
+    !is.na(
+      get_distr_n_params(cep_tree_prior$pop_size_distr) # nolint internal function
+    )
+  )
 
   result <- create_cep_tree_prior(
     pop_size_distr = init_distr(

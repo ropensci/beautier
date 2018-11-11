@@ -329,9 +329,9 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   ccp_tree_prior
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint internal function
   id <- ccp_tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
 
@@ -380,9 +380,9 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   cep_tree_prior
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior))
+  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint internal function
   id <- cep_tree_prior$id
-  testit::assert(is_id(id))
+  testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
 

@@ -6,7 +6,7 @@ create_beast2_input_init <- function(
   ids,
   initial_phylogenies
 ) {
-  testit::assert(are_initial_phylogenies(initial_phylogenies))
+  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
   testit::assert(are_ids(ids)) # nolint internal function
   testit::assert(length(ids) == length(initial_phylogenies))
 

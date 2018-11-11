@@ -77,8 +77,7 @@ is_init_ccp_tree_prior <- function(
 is_init_cep_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cep_tree_prior(x))
-
+  testit::assert(is_cep_tree_prior(x)) # nolint internal function
   is_init_distr(x$pop_size_distr) &&  # nolint internal function
   is_init_distr(x$growth_rate_distr)  # nolint internal function
 }
