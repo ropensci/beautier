@@ -121,16 +121,16 @@ init_cep_tree_prior <- function(
     )
   )
 
-  result <- create_cep_tree_prior(
-    pop_size_distr = init_distr(
+  result <- create_cep_tree_prior( # nolint internal function
+    pop_size_distr = init_distr( # nolint internal function
       cep_tree_prior$pop_size_distr,
       distr_id,
       param_id
     ),
-    growth_rate_distr = init_distr(
+    growth_rate_distr = init_distr( # nolint internal function
       cep_tree_prior$growth_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr)
+      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr) # nolint internal function
     )
   )
 

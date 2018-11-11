@@ -25,7 +25,7 @@ create_beast2_input_1_12 <- function(
   initial_phylogenies = rep(NA, length(input_filenames))
 ) {
   # Convert possible-non-list input to lists and multiPhylo
-  if (is_site_model(site_models)) {
+  if (is_site_model(site_models)) { # nolint internal function
     site_models <- list(site_models)
   }
   if (is_clock_model(clock_models)) { # nolint internal function

@@ -122,16 +122,16 @@ init_strict_clock_model <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_strict_clock_model(strict_clock_model))
+  testit::assert(is_strict_clock_model(strict_clock_model)) # nolint internal function
 
   # clock_rate_distr
-  strict_clock_model$clock_rate_distr <- init_distr(
+  strict_clock_model$clock_rate_distr <- init_distr( # nolint internal function
     strict_clock_model$clock_rate_distr,
     distr_id,
     param_id
   )
   distr_id <- distr_id + 1
-  param_id <- param_id + get_distr_n_params(
+  param_id <- param_id + get_distr_n_params( # nolint internal function
     strict_clock_model$clock_rate_distr)
 
   # clock_rate_param

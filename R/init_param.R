@@ -10,7 +10,7 @@ init_param <- function(
   param,
   id
 ) {
-  testit::assert(is_param(param))
+  testit::assert(is_param(param)) # nolint internal function
 
   if (is.na(param$id)) {
     param$id <- id

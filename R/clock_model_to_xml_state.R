@@ -13,7 +13,7 @@ clock_model_to_xml_state <- function(
   testit::assert(is_id(clock_model$id)) # nolint internal function
 
   text <- NULL
-  if (is_strict_clock_model(clock_model)) {
+  if (is_strict_clock_model(clock_model)) { # nolint internal function
     text <- c(
       text,
       paste0("<parameter id=\"clockRate.c:", clock_model$id, "\" ",

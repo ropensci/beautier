@@ -37,7 +37,7 @@ is_site_model <- function(
 is_gtr_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE) # nolint internal function
   if (x$name != "GTR") return(FALSE)
 
   expected_names <- c("rate_ac_prior_distr", "rate_ag_prior_distr",
@@ -51,16 +51,16 @@ is_gtr_site_model <- function(
   expected_distrs <- list(x$rate_ac_prior_distr, x$rate_ag_prior_distr,
     x$rate_at_prior_distr, x$rate_cg_prior_distr, x$rate_gt_prior_distr)
   for (expected_distr in expected_distrs) {
-    if (!is_distr(expected_distr)) return(FALSE)
+    if (!is_distr(expected_distr)) return(FALSE) # nolint internal function
   }
 
   expected_params <- list(x$rate_ac_param, x$rate_ag_param, x$rate_at_param,
     x$rate_cg_param, x$rate_ct_param, x$rate_gt_param)
   for (expected_param in expected_params) {
-    if (!is_param(expected_param)) return(FALSE)
+    if (!is_param(expected_param)) return(FALSE) # nolint internal function
   }
 
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint internal function
   TRUE
 }
 
@@ -76,13 +76,13 @@ is_gtr_site_model <- function(
 is_hky_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE) # nolint internal function
   if (x$name != "HKY") return(FALSE)
   if (!"kappa" %in% names(x)) return(FALSE)
   if (!"kappa_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_prior_distr)) return(FALSE)
+  if (!is_distr(x$kappa_prior_distr)) return(FALSE) # nolint internal function
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint internal function
   TRUE
 }
 
@@ -97,7 +97,7 @@ is_hky_site_model <- function(
 is_jc69_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE) # nolint internal function
   if (x$name != "JC69") return(FALSE)
   TRUE
 }

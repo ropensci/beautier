@@ -51,7 +51,7 @@ init_site_models <- function(
     param_id <- param_id + get_site_model_n_params(site_model) # nolint internal function
 
     if (is.na(site_model$id)) site_model$id <- ids[i]
-    testit::assert(is_init_site_model(site_model)) # Not yet
+    testit::assert(is_init_site_model(site_model)) # nolint internal function call
     site_models[[i]] <- site_model
   }
   site_models
@@ -71,75 +71,75 @@ init_gtr_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_gtr_site_model(gtr_site_model))
+  testit::assert(is_gtr_site_model(gtr_site_model)) # nolint internal function
 
   # Initialize gamma site model, if any
-  if (!is_one_na(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+  if (!is_one_na(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
     if (!is_init_distr(gtr_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
-      gtr_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+      gtr_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr( # nolint internal function
         gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(
+      param_id <- param_id + get_distr_n_params( # nolint internal function
         gtr_site_model$gamma_site_model$gamma_shape_prior_distr
       )
     }
   }
 
   if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) { # nolint internal function
-    gtr_site_model$rate_ac_prior_distr <- init_distr(
+    gtr_site_model$rate_ac_prior_distr <- init_distr( # nolint internal function
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
+    param_id <- param_id + get_distr_n_params( # nolint internal function
       gtr_site_model$rate_ac_prior_distr
     )
   }
   if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) { # nolint internal function
-    gtr_site_model$rate_ag_prior_distr <- init_distr(
+    gtr_site_model$rate_ag_prior_distr <- init_distr( # nolint internal function
       gtr_site_model$rate_ag_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
+    param_id <- param_id + get_distr_n_params( # nolint internal function
       gtr_site_model$rate_ag_prior_distr
     )
   }
   if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) { # nolint internal function
-    gtr_site_model$rate_at_prior_distr <- init_distr(
+    gtr_site_model$rate_at_prior_distr <- init_distr( # nolint internal function
       gtr_site_model$rate_at_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
+    param_id <- param_id + get_distr_n_params( # nolint internal function
       gtr_site_model$rate_at_prior_distr
     )
   }
   if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) { # nolint internal function
-    gtr_site_model$rate_cg_prior_distr <- init_distr(
+    gtr_site_model$rate_cg_prior_distr <- init_distr( # nolint internal function
       gtr_site_model$rate_cg_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
+    param_id <- param_id + get_distr_n_params( # nolint internal function
       gtr_site_model$rate_cg_prior_distr
     )
   }
   if (!is_init_distr(gtr_site_model$rate_gt_prior_distr)) { # nolint internal function
-    gtr_site_model$rate_gt_prior_distr <- init_distr(
+    gtr_site_model$rate_gt_prior_distr <- init_distr( # nolint internal function
       gtr_site_model$rate_gt_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
+    param_id <- param_id + get_distr_n_params( # nolint internal function
       gtr_site_model$rate_gt_prior_distr
     )
   }
@@ -204,34 +204,34 @@ init_hky_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_hky_site_model(hky_site_model))
+  testit::assert(is_hky_site_model(hky_site_model)) # nolint internal function
 
   # Initialize gamma site model, if any
-  if (!is_one_na(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
-    if (!is_init_distr(
+  if (!is_one_na(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
+    if (!is_init_distr( # nolint internal function
       hky_site_model$gamma_site_model$gamma_shape_prior_distr
     )) {
-      hky_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+      hky_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr( # nolint internal function
         hky_site_model$gamma_site_model$gamma_shape_prior_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(
+      param_id <- param_id + get_distr_n_params( # nolint internal function
         hky_site_model$gamma_site_model$gamma_shape_prior_distr
       )
     }
   }
 
   # kappa_prior_distr
-  if (!is_init_distr(hky_site_model$kappa_prior_distr)) {
-    hky_site_model$kappa_prior_distr <- init_distr(
+  if (!is_init_distr(hky_site_model$kappa_prior_distr)) { # nolint internal function
+    hky_site_model$kappa_prior_distr <- init_distr( # nolint internal function
       hky_site_model$kappa_prior_distr,
       distr_id = distr_id,
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params(
+    param_id <- param_id + get_distr_n_params( # nolint internal function
       hky_site_model$kappa_prior_distr
     )
   }
@@ -256,20 +256,20 @@ init_jc69_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_jc69_site_model(jc69_site_model))
+  testit::assert(is_jc69_site_model(jc69_site_model)) # nolint internal function
 
   # Initialize gamma site model, if any
-  if (!is_one_na(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+  if (!is_one_na(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint internal function
     if (
-      !is_init_distr(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)
+      !is_init_distr(jc69_site_model$gamma_site_model$gamma_shape_prior_distr) # nolint internal function
     ) {
-      jc69_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr(
+      jc69_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr( # nolint internal function
         jc69_site_model$gamma_site_model$gamma_shape_prior_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(
+      param_id <- param_id + get_distr_n_params( # nolint internal function
         jc69_site_model$gamma_site_model$gamma_shape_prior_distr
       )
     }

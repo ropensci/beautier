@@ -40,7 +40,7 @@ is_init_rln_clock_model <- function(
 is_init_strict_clock_model <- function(
   strict_clock_model
 ) {
-  testit::assert(is_strict_clock_model(strict_clock_model))
+  testit::assert(is_strict_clock_model(strict_clock_model)) # nolint internal function
   if (!is_init_distr(strict_clock_model$clock_rate_distr)) return(FALSE) # nolint internal function
   !is.na(strict_clock_model$clock_rate_param$id)
 }
