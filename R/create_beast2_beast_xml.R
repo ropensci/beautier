@@ -1,9 +1,13 @@
 #' Create the \code{<beast ...>} XML
 #' @param beast2_version BEAST2 version
+#' @param required requirement
 #' @return the XML
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-create_beast2_beast_xml <- function(beast2_version) {
+create_beast2_beast_xml <- function(
+  beast2_version,
+  required = ""
+) {
   if (beast2_version == "2.5") {
     paste0(
       "<beast beautitemplate='Standard' beautistatus='' ",
@@ -12,7 +16,7 @@ create_beast2_beast_xml <- function(beast2_version) {
       "beast.evolution.operators:beast.evolution.sitemodel:",
       "beast.evolution.substitutionmodel:",
       "beast.evolution.likelihood\" ",
-      "required=\"BEAST v2.5.0\" version=\"2.5\">"
+      "required=\"", required, "\" version=\"2.5\">"
     )
   } else {
     paste0(
@@ -23,7 +27,7 @@ create_beast2_beast_xml <- function(beast2_version) {
       "beast.evolution.sitemodel:",
       "beast.evolution.substitutionmodel:",
       "beast.evolution.likelihood\" ",
-      "required=\"\" version=\"2.4\">"
+      "required=\"", required, "\" version=\"2.4\">"
     )
   }
 }

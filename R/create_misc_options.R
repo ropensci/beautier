@@ -7,6 +7,8 @@
 #' @param nucleotides_uppercase must the nucleotides of the DNA sequence be
 #'   in uppercase?
 #' @param beast2_version the BEAST2 version
+#' @param required things that may be required,
+#'   for example \code{BEAST v2.5.0}
 #' @return a misc_options
 #' @author Richel J.C. Bilderbeek
 #' @examples
@@ -24,11 +26,15 @@
 create_misc_options <- function(
   capitalize_first_char_id = FALSE,
   nucleotides_uppercase = FALSE,
-  beast2_version = "2.4"
+  beast2_version = "2.4",
+  required = ""
 ) {
-  list(
+  misc_options <- list(
     capitalize_first_char_id = capitalize_first_char_id,
     nucleotides_uppercase = nucleotides_uppercase,
-    beast2_version = beast2_version
+    beast2_version = beast2_version,
+    required = required
   )
+  testit::assert(is_misc_options(misc_options))
+  misc_options
 }

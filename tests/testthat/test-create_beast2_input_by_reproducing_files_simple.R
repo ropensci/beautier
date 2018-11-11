@@ -9,7 +9,7 @@ context(
 # Reproduce files
 ################################################################################
 
-test_that("2_4.xml", {
+test_that("2.4", {
 
   created <- create_beast2_input(
     input_filenames = get_fasta_filename(),
@@ -18,6 +18,42 @@ test_that("2_4.xml", {
   )
 
   expected <- readLines(get_beautier_path("2_4.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
+
+test_that("v2.5", {
+
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    misc_options = create_misc_options(
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0",
+      nucleotides_uppercase = TRUE
+    )
+  )
+
+  expected <- readLines(get_beautier_path("anthus_aco_sub_20181016.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
+
+test_that("v2.5.1", {
+
+  created <- create_beast2_input(
+    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    tree_priors = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    misc_options = create_misc_options(
+      beast2_version = "2.5",
+      required = "BEAST v2.5.1",
+      nucleotides_uppercase = TRUE
+    )
+  )
+
+  expected <- readLines(get_beautier_path("anthus_aco_sub_2_5_1.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -603,7 +639,10 @@ test_that("tn93_kappas_not_estimated.xml", {
     ),
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)),
-    misc_options = create_misc_options(beast2_version = "2.5")
+    misc_options = create_misc_options(
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
+    )
   )
 
   expected <- readLines(get_beautier_path(
@@ -1173,7 +1212,8 @@ test_that("Base point: anthus_aco_sub.xml", {
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
-      beast2_version = "2.5"
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
     )
   )
 
@@ -1198,7 +1238,8 @@ test_that("Base point + all taxa", {
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
-      beast2_version = "2.5"
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
     )
   )
 
@@ -1224,7 +1265,8 @@ test_that("Base point + all taxa + monophyletic", {
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
-      beast2_version = "2.5"
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
     )
   )
 
@@ -1251,7 +1293,8 @@ test_that("Base point + all taxa + monophyletic + one_div_x", {
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
-      beast2_version = "2.5"
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
     )
   )
 
@@ -1278,7 +1321,8 @@ test_that("Base point + all taxa + one_div_x", {
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
-      beast2_version = "2.5"
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
     )
   )
 
@@ -1314,7 +1358,8 @@ test_that("Base point + all taxa + one_div_x + RLN", {
     ),
     misc_options = create_misc_options(
       nucleotides_uppercase = TRUE,
-      beast2_version = "2.5"
+      beast2_version = "2.5",
+      required = "BEAST v2.5.0"
     )
   )
 

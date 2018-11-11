@@ -45,7 +45,8 @@ create_beast2_input_beast <- function(
   )
 
   text <- create_beast2_beast_xml( # nolint internal function
-    beast2_version = misc_options$beast2_version
+    beast2_version = misc_options$beast2_version,
+    required = misc_options$required
   )
 
   text <- c(text, "")

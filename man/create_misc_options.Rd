@@ -7,7 +7,8 @@
   here, the created XML file will be valid.}
 \usage{
 create_misc_options(capitalize_first_char_id = FALSE,
-  nucleotides_uppercase = FALSE, beast2_version = "2.4")
+  nucleotides_uppercase = FALSE, beast2_version = "2.4",
+  required = "")
 }
 \arguments{
 \item{capitalize_first_char_id}{must the ID of alignment start with a
@@ -18,6 +19,9 @@ lowercase)}
 in uppercase?}
 
 \item{beast2_version}{the BEAST2 version}
+
+\item{required}{things that may be required,
+for example \code{BEAST v2.5.0}}
 }
 \value{
 a misc_options
