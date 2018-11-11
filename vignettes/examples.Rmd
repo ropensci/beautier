@@ -211,10 +211,13 @@ create_beast2_input_file(
 ## Example #11: Two alignments
 
 ```{r example_11}
-create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml"
-)
+# Deprecated support for now
+if (1 == 2) {
+  create_beast2_input_file(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    "my_beast.xml"
+  )
+}
 ```
 
 Thanks to Paul van Els for this use case and supplying these FASTA files.
@@ -222,14 +225,17 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 ## Example #12: Two alignments, different site models
 
 ```{r example_12}
-beautier::create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml",
-  site_models = list(
-    create_hky_site_model(), 
-    create_tn93_site_model()
+# Deprecated support for now
+if (1 == 2) {
+  beautier::create_beast2_input_file(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    "my_beast.xml",
+    site_models = list(
+      create_hky_site_model(), 
+      create_tn93_site_model()
+    )
   )
-)
+}
 ```
 
 Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.
@@ -239,14 +245,17 @@ Thanks to Paul van Els for this use case.
 ## Example #13: Two alignments, shared clock model
 
 ```{r example_13}
-beautier::create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml",
-  clock_models = list(
-    create_strict_clock_model(id = "anthus_aco"), 
-    create_strict_clock_model(id = "anthus_aco")
+# Deprecated support for now
+if (1 == 2) {
+  beautier::create_beast2_input_file(
+    c("anthus_aco.fas", "anthus_nd2.fas"),
+    "my_beast.xml",
+    clock_models = list(
+      create_strict_clock_model(id = "anthus_aco"), 
+      create_strict_clock_model(id = "anthus_aco")
+    )
   )
-)
+}
 ```
 
 In a future version, it will be supported to have two alignments with shared site models, clock models and tree priors.
