@@ -4,7 +4,7 @@
 \alias{create_mcmc}
 \title{Create an MCMC configuration.}
 \usage{
-create_mcmc(chain_length = 10000000, store_every = -1)
+create_mcmc(chain_length = 1e+07, store_every = -1)
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}
