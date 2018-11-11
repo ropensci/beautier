@@ -41,7 +41,7 @@ create_mrca_prior <- function(
   if (!is.logical(is_monophyletic)) {
     stop("'is_monophyletic' must be either TRUE or FALSE")
   }
-  if (!is_distr(mrca_distr) && !is.na(mrca_distr)) {
+  if (!is_distr(mrca_distr) && !is.na(mrca_distr)) { # nolint internal function
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   testit::assert(length(taxa_names) > 0)

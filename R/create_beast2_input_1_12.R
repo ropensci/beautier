@@ -49,7 +49,7 @@ create_beast2_input_1_12 <- function(
   }
 
   # 2 site_models
-  if (!are_site_models(site_models)) {
+  if (!are_site_models(site_models)) { # nolint internal function
     stop(
       "'site_models' must be a valid site model, ",
       "or a list of valid site models, ",
@@ -120,7 +120,7 @@ create_beast2_input_1_12 <- function(
 
   site_models <- init_site_models( # nolint internal function
     site_models = site_models,
-    ids = get_alignment_ids(input_filenames),
+    ids = get_alignment_ids(input_filenames), # nolint internal function
     distr_id = 0,
     param_id = 0
   )  # nolint internal function
@@ -132,7 +132,7 @@ create_beast2_input_1_12 <- function(
   )  # nolint internal function
   tree_priors <- init_tree_priors( # nolint internal function
     tree_priors,
-    ids = get_alignment_ids(input_filenames),
+    ids = get_alignment_ids(input_filenames), # nolint internal function
     distr_id = 100,
     param_id = 200
   )

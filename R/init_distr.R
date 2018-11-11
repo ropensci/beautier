@@ -11,13 +11,13 @@ init_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_distr(distr))
+  testit::assert(is_distr(distr)) # nolint internal function
 
   if (is.na(distr$id)) {
     distr$id <- distr_id
   }
 
-  if (is_beta_distr(distr)) {
+  if (is_beta_distr(distr)) { # nolint internal function
 
     if (is.na(distr$alpha$id)) {
       distr$alpha$id <- param_id
@@ -27,14 +27,14 @@ init_distr <- function(
       distr$beta$id <- param_id
     }
 
-  } else if (is_exp_distr(distr)) {
+  } else if (is_exp_distr(distr)) { # nolint internal function
 
     if (is.na(distr$mean$id)) {
       distr$mean$id <- param_id
       param_id <- param_id + 1
     }
 
-  } else if (is_gamma_distr(distr)) {
+  } else if (is_gamma_distr(distr)) { # nolint internal function
 
     if (is.na(distr$alpha$id)) {
       distr$alpha$id <- param_id
@@ -44,7 +44,7 @@ init_distr <- function(
       distr$beta$id <- param_id
     }
 
-  } else if (is_inv_gamma_distr(distr)) {
+  } else if (is_inv_gamma_distr(distr)) { # nolint internal function
 
     if (is.na(distr$alpha$id)) {
       distr$alpha$id <- param_id
@@ -54,7 +54,7 @@ init_distr <- function(
       distr$beta$id <- param_id
     }
 
-  } else if (is_laplace_distr(distr)) {
+  } else if (is_laplace_distr(distr)) { # nolint internal function
 
     if (is.na(distr$mu$id)) {
       distr$mu$id <- param_id
@@ -64,7 +64,7 @@ init_distr <- function(
       distr$scale$id <- param_id
     }
 
-  } else if (is_log_normal_distr(distr)) {
+  } else if (is_log_normal_distr(distr)) { # nolint internal function
 
     testit::assert("m" %in% names(distr))
     testit::assert("id" %in% names(distr$m))
@@ -76,7 +76,7 @@ init_distr <- function(
       distr$s$id <- param_id
     }
 
-  } else if (is_normal_distr(distr)) {
+  } else if (is_normal_distr(distr)) { # nolint internal function
 
     if (is.na(distr$mean$id)) {
       distr$mean$id <- param_id
@@ -86,11 +86,11 @@ init_distr <- function(
       distr$sigma$id <- param_id
     }
 
-  } else if (is_one_div_x_distr(distr)) {
+  } else if (is_one_div_x_distr(distr)) { # nolint internal function
 
     # Always initialized
 
-  } else  if (is_poisson_distr(distr)) {
+  } else  if (is_poisson_distr(distr)) { # nolint internal function
 
     if (is.na(distr$lambda$id)) {
       distr$lambda$id <- param_id

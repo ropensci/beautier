@@ -25,16 +25,16 @@ init_mrca_priors <- function(
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }
-    if (is_distr(mrca_prior$mrca_distr) &&
-        !is_init_distr(mrca_prior$mrca_distr)
+    if (is_distr(mrca_prior$mrca_distr) && # nolint internal function
+        !is_init_distr(mrca_prior$mrca_distr) # nolint internal function
     ) {
-      mrca_prior$mrca_distr <- init_distr(
+      mrca_prior$mrca_distr <- init_distr( # nolint internal function
         distr = mrca_prior$mrca_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr)
+      param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr) # nolint internal function
     }
 
     testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function

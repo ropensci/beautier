@@ -23,7 +23,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
 ) {
   testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   text <- NULL
-  if (!has_non_strict_clock_model &&
+  if (!has_non_strict_clock_model && # nolint internal function
       is_first &&
       !is.na(mrca_prior$mrca_distr)
   ) {
@@ -38,7 +38,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
     text <- c(
       text,
       indent(
-        distr_to_xml(create_uniform_distr(
+        distr_to_xml(create_uniform_distr( # nolint internal function
           id = mrca_prior$clock_prior_distr_id)
         ),
         n_spaces = 4
@@ -61,7 +61,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(text, opening_tag)
   text <- c(
     text,
-    indent(  # nolint internal function
+    indent( # nolint internal function
       mrca_prior_to_xml_taxonset(
         mrca_prior,
         taxa_names_with_ids
@@ -69,7 +69,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
       n_spaces = 4
     )
   )
-  if (is_distr(mrca_prior$mrca_distr)) {
+  if (is_distr(mrca_prior$mrca_distr)) { # nolint internal function
     text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4))
   }
   text <- c(text, paste0("</distribution>"))

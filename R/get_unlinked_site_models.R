@@ -3,7 +3,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 get_unlinked_site_models <- function(site_models) {
-  testit::assert(are_site_models(site_models))
+  testit::assert(are_site_models(site_models)) # nolint internal function
   results <- list()
   ids <- NULL
   for (site_model in site_models) {
@@ -14,6 +14,6 @@ get_unlinked_site_models <- function(site_models) {
     }
   }
 
-  testit::assert(are_site_models(results))
+  testit::assert(are_site_models(results)) # nolint internal function
   results
 }

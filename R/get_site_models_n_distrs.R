@@ -19,12 +19,12 @@
 get_site_models_n_distrs <- function(
   site_models
 ) {
-  if (!are_site_models(site_models)) {
+  if (!are_site_models(site_models)) { # nolint internal function
     stop("'site_models' must be a list of site models")
   }
   n <- 0
   for (site_model in site_models) {
-    testit::assert(is_site_model(site_model))
+    testit::assert(is_site_model(site_model)) # nolint internal function
     n <- n + get_site_model_n_distrs(site_model) # nolint internal function
   }
   n

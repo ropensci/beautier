@@ -16,5 +16,5 @@ has_xml_opening_tag <- function(
     tag <- get_xml_opening_tag(lines) # nolint
     return(!is.na(tag))
   }
-  !is.na(find_first_xml_opening_tag_line(lines, section))
+  !is.na(find_first_xml_opening_tag_line(lines, section)) # nolint internal function
 }

@@ -117,16 +117,16 @@ is_jc69_site_model <- function(
 is_tn93_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE) # nolint internal function
   if (!"kappa_1_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_1_prior_distr)) return(FALSE)
+  if (!is_distr(x$kappa_1_prior_distr)) return(FALSE) # nolint internal function
   if (!"kappa_2_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_2_prior_distr)) return(FALSE)
+  if (!is_distr(x$kappa_2_prior_distr)) return(FALSE) # nolint internal function
   if (!"kappa_1_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$kappa_1_param)) return(FALSE)
+  if (!is_param(x$kappa_1_param)) return(FALSE) # nolint internal function
   if (!"kappa_2_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$kappa_2_param)) return(FALSE)
+  if (!is_param(x$kappa_2_param)) return(FALSE) # nolint internal function
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint internal function
   TRUE
 }

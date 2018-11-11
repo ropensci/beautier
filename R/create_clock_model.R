@@ -167,13 +167,13 @@ create_strict_clock_model <- create_clock_model_strict <- function(
   if (length(clock_rate_param) == 1 && is.numeric(clock_rate_param)) {
     clock_rate_param <- create_clock_rate_param(clock_rate_param)
   }
-  if (!is_clock_rate_param(clock_rate_param)) {
+  if (!is_clock_rate_param(clock_rate_param)) { # nolint internal function
     stop(
       "'clock_rate_param' must be a clock rate parameter, ",
       "as can be created by 'create_clock_rate_param'"
     )
   }
-  if (!is_distr(clock_rate_distr)) {
+  if (!is_distr(clock_rate_distr)) { # nolint internal function
     stop(
       "'clock_rate_distr' must be a distribution, ",
       "as can be created by 'create_distr'"
@@ -185,6 +185,6 @@ create_strict_clock_model <- create_clock_model_strict <- function(
     clock_rate_param = clock_rate_param,
     clock_rate_distr = clock_rate_distr
   )
-  testit::assert(is_strict_clock_model(strict_clock_model))
+  testit::assert(is_strict_clock_model(strict_clock_model)) # nolint internal function
   strict_clock_model
 }

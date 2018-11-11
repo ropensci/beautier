@@ -7,7 +7,7 @@
 is_init_tree_prior <- function(
   x
 ) {
-  if (!is_tree_prior(x)) return(FALSE)
+  if (!is_tree_prior(x)) return(FALSE) # nolint internal function
   if (is_bd_tree_prior(x)) { # nolint internal function
     return(is_init_bd_tree_prior(x))  # nolint internal function call
   } else if (is_cbs_tree_prior(x)) { # nolint internal function

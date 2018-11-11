@@ -65,8 +65,8 @@ is_strict_clock_model <- function(
   if (!"id" %in% names(x)) return(FALSE)
   if (x$name != "strict") return(FALSE)
   if (!"clock_rate_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$clock_rate_param)) return(FALSE)
+  if (!is_param(x$clock_rate_param)) return(FALSE) # nolint internal function
   if (!"clock_rate_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$clock_rate_distr)) return(FALSE)
+  if (!is_distr(x$clock_rate_distr)) return(FALSE) # nolint internal function
   TRUE
 }
