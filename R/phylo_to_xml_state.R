@@ -10,10 +10,10 @@ phylo_to_xml_state <- function(
   id
 ) {
   testit::assert(is_id(id)) # nolint internal function
-  if (!is_phylo(phylo)) {
+  if (!is_phylo(phylo)) { # nolint internal function
     return(rnd_phylo_to_xml_state(id)) # nolint internal function
   }
-  testit::assert(is_phylo(phylo))
+  testit::assert(is_phylo(phylo)) # nolint internal function
   text <- NULL
   text <- c(text, paste0("<stateNode spec=\"beast.util.TreeParser\" ",
     "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",

@@ -56,7 +56,7 @@ parameter_to_xml <- function(
     text <- c(text, parameter_to_xml_scale(parameter)) # nolint internal function
   } else {
     # This assert will also fail for new parameter types
-    testit::assert(is_sigma_param(parameter))
+    testit::assert(is_sigma_param(parameter)) # nolint internal function
     text <- c(text, parameter_to_xml_sigma(parameter)) # nolint internal function
   }
   testit::assert(is_xml(text)) # nolint

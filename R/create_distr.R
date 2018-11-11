@@ -444,15 +444,15 @@ create_normal_distr <- create_distr_normal <- function(
     sigma <- create_sigma_param(value = sigma)
   }
 
-  if (!is_mean_param(mean)) {
+  if (!is_mean_param(mean)) { # nolint internal function
     stop("'mean' must be a mean parameter, ",
       "as returned by 'create_mean_param'")
   }
-  if (!is_sigma_param(sigma)) {
+  if (!is_sigma_param(sigma)) { # nolint internal function
     stop("'sigma' must be a sigma parameter, ",
       "as returned by 'create_sigma_param'")
   }
-  beautier::create_distr(
+  beautier::create_distr( # nolint internal function
     name = "normal",
     id = id,
     mean = mean,

@@ -13,7 +13,7 @@ tree_prior_to_xml_operators <- function(
   testit::assert(is_id(id)) # nolint internal function
 
   text <- NULL
-  operator_id_pre <- get_operator_id_pre(tree_prior)
+  operator_id_pre <- get_operator_id_pre(tree_prior) # nolint internal function
 
   if (is_bd_tree_prior(tree_prior)) { # nolint internal function
     text <- c(text, paste0("<operator id=\"BirthRateScaler.t:",
