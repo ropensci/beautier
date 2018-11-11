@@ -29,7 +29,7 @@ Related R packages:
 
 ## Examples
 
-See [examples](examples.md).
+See [examples](doc/examples.md).
 
 ## Installation
 
@@ -39,9 +39,9 @@ If you use the `devtools` R package, this is easy:
 devtools::install_github("richelbilderbeek/beautier")
 ```
 
-## FAQ
+## [FAQ](doc/faq.md)
 
-See [FAQ](Faq.md)
+See [FAQ](doc/faq.md).
 
 ## Supported
 
@@ -112,3 +112,6 @@ FASTA files `anthus_aco.fas` and `anthus_nd2.fas` from:
  
  * Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
 
+FASTA file `G_VII_pre2003_msa.fas` from:
+
+ * Claudio L Afonso, Peter Andrew Durr, Sidna Artanto, Widya Asmara, Michael Haryadi Wibowo. Diagnostic and Characterization of Newcastle Diseases Virus Causing Lethal Poultry Disease Outbreaks in Indonesia. In progress. Author names sorted alphabetically. Title is working title
