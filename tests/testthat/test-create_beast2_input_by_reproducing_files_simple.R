@@ -1410,6 +1410,5 @@ test_that("Tip dating", {
   )
 
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
-  # Handy: compare_lines(created, expected, NA, "~/created.xml", "~/expected.xml")
   expect_true(are_equivalent_xml_lines(created, expected))
 })
