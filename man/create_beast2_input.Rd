@@ -19,7 +19,7 @@ create_beast2_input(input_filenames, tipdates_filename = NA,
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, seperated by a tab.
+This file is assumed to have two columns, separated by a tab.
 The first column contains the taxa names, the second column contains
 the date.}
 

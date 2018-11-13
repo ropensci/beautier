@@ -95,7 +95,7 @@
 #' @param tree_priors one or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tipdates_filename name of the file containing the tip dates.
-#'   This file is assumed to have two columns, seperated by a tab.
+#'   This file is assumed to have two columns, separated by a tab.
 #'   The first column contains the taxa names, the second column contains
 #'   the date.
 #' @param verbose if TRUE, additional information is displayed, that

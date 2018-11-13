@@ -148,7 +148,7 @@ Use -1 or NA to use the default frequency.}
 as returned by \code{\link{create_strict_clock_model}}}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, seperated by a tab.
+This file is assumed to have two columns, separated by a tab.
 The first column contains the taxa names, the second column contains
 the date.}
 

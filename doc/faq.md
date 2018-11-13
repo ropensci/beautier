@@ -171,3 +171,52 @@ To prevent problems with Disney, a different logo was picked.
 The current logo shows a butterfly, an animal considered to be beautiful.
 The butterfly is drawn by Jose Scholte, who kindly allowed her work to
 be used for free, by attribution.
+
+## `BEAUti` problems
+
+### Not enough memory
+
+```
+./beauti
+```
+
+```
+Can't start up: not enough memory
+```
+
+On Artful Aardvark, remove `-Xms256m -Xmx4g` from the `bin/beauti` file's last line. Change:
+
+```
+"$JAVA" -Dlauncher.wait.for.exit=true -Xms256m -Xmx4g -Djava.library.path="$BEAST_LIB" -Duser.language=en -cp "$BEAST_LIB/launcher.jar" beast.app.beauti.BeautiLauncher -capture $*
+```
+
+to
+
+```
+"$JAVA" -Dlauncher.wait.for.exit=true -Djava.library.path="$BEAST_LIB" -Duser.language=en -cp "$BEAST_LIB/launcher.jar" beast.app.beauti.BeautiLauncher -capture $*
+```
+
+### BEAUti requires Java version at least 8
+
+![](beauti_requires_java_8_or_more.png)
+
+Do:
+
+```
+sudo update-alternatives --config java
+```
+
+Pick `/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java`:
+
+```
+There are 5 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-9-openjdk-amd64/bin/java       1091      auto mode
+  1            /usr/bin/gij-4.8                                 1048      manual mode
+  2            /usr/bin/gij-5                                   1050      manual mode
+  3            /usr/bin/gij-6                                   1060      manual mode
+* 4            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+  5            /usr/lib/jvm/java-9-openjdk-amd64/bin/java       1091      manual mode
+```
