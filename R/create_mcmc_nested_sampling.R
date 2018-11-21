@@ -1,16 +1,21 @@
-#' Create an MCMC object that does nested sampling
+#' Create an MCMC object to estimate the marginal likelihood
+#' using Nested Sampling.
+#' This will result in a BEAST run that estimates the marginal
+#' likelihood until convergence is achieved.
+#' In this context, \code{chain_length} is only an upper bound
+#' to the length of that run.
 #' @inheritParams default_params_doc
+#' @param chain_length upper bound to the length of the MCMC chain
 #' @param particle_count number of particles
 #' @param sub_chain_length sub-chain length
 #' @param epsilon epsilon
 #' @return an MCMC object
 #' @examples
-#'   # Create an MCMC chain with 50 states
 #'   mcmc <- create_mcmc_nested_sampling(
-#'     chain_length = 50000,
+#'     chain_length = 1e7,
 #'     store_every = 1000,
 #'     particle_count = 1,
-#'     sub_chain_length = 5000,
+#'     sub_chain_length = 1000,
 #'     epsilon = 1e-12
 #'   )
 #'

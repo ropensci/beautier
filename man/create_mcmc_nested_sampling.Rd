@@ -2,13 +2,18 @@
 % Please edit documentation in R/create_mcmc_nested_sampling.R
 \name{create_mcmc_nested_sampling}
 \alias{create_mcmc_nested_sampling}
-\title{Create an MCMC object that does nested sampling}
+\title{Create an MCMC object to estimate the marginal likelihood
+using Nested Sampling.
+This will result in a BEAST run that estimates the marginal
+likelihood until convergence is achieved.
+In this context, \code{chain_length} is only an upper bound
+to the length of that run.}
 \usage{
 create_mcmc_nested_sampling(chain_length = 1e+07, store_every = -1,
   particle_count = 1, sub_chain_length = 5000, epsilon = "1e-12")
 }
 \arguments{
-\item{chain_length}{length of the MCMC chain}
+\item{chain_length}{upper bound to the length of the MCMC chain}
 
 \item{store_every}{number of states the MCMC will process
 before the posterior's state will be saved to file.
@@ -24,15 +29,19 @@ Use -1 or NA to use the default frequency.}
 an MCMC object
 }
 \description{
-Create an MCMC object that does nested sampling
+Create an MCMC object to estimate the marginal likelihood
+using Nested Sampling.
+This will result in a BEAST run that estimates the marginal
+likelihood until convergence is achieved.
+In this context, \code{chain_length} is only an upper bound
+to the length of that run.
 }
 \examples{
-  # Create an MCMC chain with 50 states
   mcmc <- create_mcmc_nested_sampling(
-    chain_length = 50000,
+    chain_length = 1e7,
     store_every = 1000,
     particle_count = 1,
-    sub_chain_length = 5000,
+    sub_chain_length = 1000,
     epsilon = 1e-12
   )
 
