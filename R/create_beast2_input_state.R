@@ -10,18 +10,26 @@ create_beast2_input_state <- function(
   tree_priors,
   initial_phylogenies,
   mrca_priors = NA,
-  has_tip_dating = FALSE
+  tipdates_filename = NA
 ) {
   testit::assert(length(tree_priors) == length(initial_phylogenies))
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
   testit::assert(are_tree_priors(tree_priors)) # nolint internal function
+  has_tip_dating <- !is_one_na(tipdates_filename)
 
   text <- NULL
   for (i in seq_along(tree_priors)) {
     initial_phylo <- initial_phylogenies[[i]]
     tree_prior <- tree_priors[[i]]
     id <- tree_prior$id
-    text <- c(text, phylo_to_xml_state(id = id, phylo = initial_phylo)) # nolint internal function
+    text <- c(
+      text,
+      phylo_to_xml_state( # nolint internal function
+        id = id,
+        phylo = initial_phylo,
+        tipdates_filename = tipdates_filename
+      )
+    )
   }
 
   text <- c(text, site_models_to_xml_state(site_models)) # nolint internal function

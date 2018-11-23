@@ -24,7 +24,7 @@ create_beast2_input_beast <- function(
   misc_options = create_misc_options(),
   fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
   initial_phylogenies = rep(NA, length(input_filenames)),
-  has_tip_dating = FALSE
+  tipdates_filename = NA
 ) {
   testit::assert(files_exist(input_filenames)) # nolint internal function
   testit::assert(length(input_filenames) == length(site_models))
@@ -85,7 +85,7 @@ create_beast2_input_beast <- function(
       tree_priors = tree_priors,
       fixed_crown_ages = fixed_crown_ages,
       initial_phylogenies = initial_phylogenies,
-      has_tip_dating = has_tip_dating
+      tipdates_filename = tipdates_filename
     )
   )
 

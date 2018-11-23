@@ -13,7 +13,6 @@ test_that("use, default", {
 })
 
 test_that("use, dated tips", {
-  skip("WIP")
   created <- taxa_to_xml_tree(
     id = "G_VII_pre2003_msa",
     tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")

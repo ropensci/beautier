@@ -226,7 +226,7 @@ create_beast2_input <- function(
     misc_options = misc_options,
     fixed_crown_ages = fixed_crown_ages,
     initial_phylogenies = initial_phylogenies,
-    has_tip_dating = !is.na(tipdates_filename)
+    tipdates_filename = tipdates_filename
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function
 

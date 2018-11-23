@@ -1,5 +1,6 @@
 #' Creates the XML of a phylogeny,
 #'   as used in the \code{state} section
+#' @inheritParams default_params_doc
 #' @param phylo the phylogeny. If NA, a random phylogeny is used
 #' @param id the ID of the alignment
 #' @return the random phylogeny as XML text
@@ -7,11 +8,17 @@
 #' @noRd
 phylo_to_xml_state <- function(
   phylo,
-  id
+  id,
+  tipdates_filename = NA
 ) {
   testit::assert(is_id(id)) # nolint internal function
   if (!is_phylo(phylo)) { # nolint internal function
-    return(taxa_to_xml_tree(id)) # nolint internal function
+    return(
+      taxa_to_xml_tree( # nolint internal function
+        id = id,
+        tipdates_filename = tipdates_filename
+      )
+    )
   }
   testit::assert(is_phylo(phylo)) # nolint internal function
   text <- NULL

@@ -15,7 +15,7 @@ create_beast2_input_run <- function(
   mcmc = create_mcmc(),
   fixed_crown_ages = rep(FALSE, times = length(ids)),
   initial_phylogenies = rep(NA, length(ids)),
-  has_tip_dating = FALSE
+  tipdates_filename = NA
 ) {
   testit::assert(length(ids) == length(initial_phylogenies))
   testit::assert(length(ids) == length(site_models))
@@ -40,7 +40,7 @@ create_beast2_input_run <- function(
         tree_priors = tree_priors,
         initial_phylogenies = initial_phylogenies,
         mrca_priors = mrca_priors,
-        has_tip_dating = has_tip_dating
+        tipdates_filename = tipdates_filename
       ),
       n_spaces = 4
     )
