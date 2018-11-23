@@ -12,7 +12,7 @@ create_beast2_input_file(input_filenames, output_filename,
   tree_priors = create_yule_tree_prior(id =
   get_alignment_id(input_filenames)), mrca_priors = NA,
   mcmc = create_mcmc(), misc_options = create_misc_options(),
-  posterior_crown_age = NA)
+  posterior_crown_age = NA, tipdates_filename = NA)
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -41,6 +41,11 @@ as returned by \code{\link{create_misc_options}}}
 
 \item{posterior_crown_age}{the crown age the posteriors'
 phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}
+
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, separated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
 }
 \description{
 Create a BEAST2 input file

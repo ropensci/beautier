@@ -43,11 +43,13 @@ create_beast2_input_file <- function(
   mrca_priors = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  posterior_crown_age = NA
+  posterior_crown_age = NA,
+  tipdates_filename = NA
 ) {
   # Error handling done by create_beast2_input
   text <- create_beast2_input(
     input_filenames = input_filenames,
+    tipdates_filename = tipdates_filename,
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,

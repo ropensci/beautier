@@ -6,14 +6,15 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 clock_model_to_xml_state <- function(
-  clock_model
+  clock_model,
+  has_tip_dating = FALSE
 ) {
   testit::assert(is_clock_model(clock_model)) # nolint internal function
   id <- clock_model$id
   testit::assert(is_id(clock_model$id)) # nolint internal function
 
   text <- NULL
-  if (is_strict_clock_model(clock_model)) { # nolint internal function
+  if (is_strict_clock_model(clock_model) || has_tip_dating == TRUE) { # nolint internal function
     text <- c(
       text,
       paste0("<parameter id=\"clockRate.c:", clock_model$id, "\" ",

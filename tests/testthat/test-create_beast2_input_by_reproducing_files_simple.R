@@ -1404,11 +1404,13 @@ test_that("Tip dating", {
     tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt"),
     misc_options = create_misc_options(
       beast2_version = "2.5",
-      required = "BEAST v2.5.0",
+      required = "BEAST v2.5.1",
       nucleotides_uppercase = TRUE
     )
   )
 
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
+  compare_lines(created, expected, section = "state", "~/created.xml", "~/expected.xml")
+  compare_lines(created, expected, section = NA, "~/created.xml", "~/expected.xml")
   expect_true(are_equivalent_xml_lines(created, expected))
 })

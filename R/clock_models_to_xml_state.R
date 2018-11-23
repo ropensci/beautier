@@ -7,7 +7,8 @@
 #' @noRd
 clock_models_to_xml_state <- function(
   clock_models,
-  mrca_priors = NA
+  mrca_priors = NA,
+  has_tip_dating = FALSE
 ) {
   # the mrca_priors are supposed to be temporary :-)
   testit::assert(are_clock_models(clock_models)) # nolint internal function
@@ -16,7 +17,10 @@ clock_models_to_xml_state <- function(
   clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
   testit::assert(are_clock_models(clock_models)) # nolint internal function
 
-  if (length(clock_models) == 1 && is_strict_clock_model(clock_models[[1]])) { # nolint internal function
+  if (length(clock_models) == 1 &&
+      is_strict_clock_model(clock_models[[1]]) &&
+    has_tip_dating == FALSE
+  ) { # nolint internal function
     return(NULL)
   }
 
@@ -24,7 +28,10 @@ clock_models_to_xml_state <- function(
 
   for (clock_model in clock_models) {
     text <- c(text,
-      clock_model_to_xml_state(clock_model)
+      clock_model_to_xml_state(
+        clock_model = clock_model,
+        has_tip_dating = has_tip_dating
+      )
     )
   }
 

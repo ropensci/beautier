@@ -41,6 +41,8 @@
 #'   by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})
 #' @param has_non_strict_clock_model boolean to indicate that the is
 #'   already at least one non-strict (i.e. relaxed log-normal) clock model
+#' @param has_tip_dating TRUE if the user has supplied tip dates,
+#'   FALSE otherwise
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
 #' @param is_monophyletic boolean to indicate monophyly is assumed in
@@ -124,6 +126,7 @@ default_params_doc <- function(
   group_sizes_dimension,
   gtr_site_model,
   has_non_strict_clock_model,
+  has_tip_dating,
   hky_site_model,
   id,
   ids,

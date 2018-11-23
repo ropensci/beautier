@@ -1,9 +1,10 @@
-#' Creates the XML of a random phylogeny,
-#'   as used in the \code{state} section
+#' Creates the default XML of a phylogeny,
+#'   as used in the \code{state} section.
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd
+# TODO: Should be called create_default_xml_taxonset
 rnd_phylo_to_xml_state <- function(
   id
 ) {
