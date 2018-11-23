@@ -5,7 +5,8 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 taxa_to_xml_tree <- function(
-  id
+  id,
+  tipdates_filename = NA
 ) {
   testit::assert(is_id(id)) # nolint internal function
   text <- NULL
