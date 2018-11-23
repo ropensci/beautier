@@ -11,7 +11,7 @@ phylo_to_xml_state <- function(
 ) {
   testit::assert(is_id(id)) # nolint internal function
   if (!is_phylo(phylo)) { # nolint internal function
-    return(create_default_xml_taxonset(id)) # nolint internal function
+    return(taxa_to_xml_tree(id)) # nolint internal function
   }
   testit::assert(is_phylo(phylo)) # nolint internal function
   text <- NULL

@@ -1,10 +1,10 @@
-#' Creates the default XML of a phylogeny,
-#'   as used in the \code{state} section.
+#' Creates the \code{tree} section (part of the \code{state} section)
+#' of a phylogeny and/or taxa
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-create_default_xml_taxonset <- function(
+taxa_to_xml_tree <- function(
   id
 ) {
   testit::assert(is_id(id)) # nolint internal function
