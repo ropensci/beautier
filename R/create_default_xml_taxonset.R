@@ -4,8 +4,7 @@
 #' @return the random phylogeny as XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-# TODO: Should be called create_default_xml_taxonset
-rnd_phylo_to_xml_state <- function(
+create_default_xml_taxonset <- function(
   id
 ) {
   testit::assert(is_id(id)) # nolint internal function
