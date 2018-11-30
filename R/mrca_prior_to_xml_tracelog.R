@@ -21,7 +21,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
 
   if (is_strict_clock_model(clock_models[[1]]) &&
-    !is.na(mrca_prior$mrca_distr)
+      is_mrca_prior_with_distr(mrca_prior)
   ) {
     text <- c(
       text,
