@@ -155,8 +155,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
 
     # is_non_first_shared <- is_index_of_non_first_shared_clock_model(i, clock_models) # nolint internal function
     is_non_first_shared <- FALSE
-    has_mrca_priors <- !is_one_na(mrca_priors)
-    if (!has_mrca_priors || get_has_non_strict_clock_model(clock_models)) { # nolint internal function
+    if (is_one_na(mrca_priors) || get_has_non_strict_clock_model(clock_models)) { # nolint internal function
       text <- c(text,
         indent( # nolint internal function
           clock_model_to_xml_lh_distr( # nolint internal function
