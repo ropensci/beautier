@@ -29,5 +29,5 @@ create_beast2_input_data_sequences <- function( # nolint internal function
     text <- c(text, nextline)
   }
   text <- sort(text, method = "radix")
-  indent(text = text, n_spaces = misc_options$sequence_indent)
+  indent(text = text, n_spaces = misc_options$sequence_indent) # nolint internal function
 }
