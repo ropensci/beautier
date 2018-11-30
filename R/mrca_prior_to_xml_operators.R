@@ -13,11 +13,7 @@ mrca_prior_to_xml_operators <- function(
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
   if (!mrca_prior$is_monophyletic && is.na(mrca_prior$mrca_distr)) return(NULL)
   if (all(is.na(mrca_prior$mrca_distr))) return(NULL)
-  if (length(clock_models) == 1 &&
-      is_rln_clock_model(clock_models[[1]]) # nolint internal function
-  ) {
-    return(NULL)
-  }
+  if (is_rln_clock_model(clock_models[[1]])) return(NULL) # nolint
 
   id <- mrca_prior$alignment_id
 
