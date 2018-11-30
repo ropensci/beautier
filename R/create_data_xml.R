@@ -3,7 +3,7 @@
 #' @noRd
 create_data_xml <- function(
   id,
-  is_first,
+  is_first = TRUE,
   beast2_version
 ) {
   text <- NULL
