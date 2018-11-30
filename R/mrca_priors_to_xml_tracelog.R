@@ -12,16 +12,14 @@ mrca_priors_to_xml_tracelog <- function(
   clock_models,
   mrca_priors
 ) {
-  has_non_strict_clock_model <- is_rln_clock_model(clock_models[[1]]) # nolint internal function
-
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   text <- NULL
 
   for (mrca_prior in mrca_priors) {
     text <- c(text,
       mrca_prior_to_xml_tracelog(
-        mrca_prior = mrca_prior,
-        has_non_strict_clock_model = has_non_strict_clock_model
+        clock_models = clock_models,
+        mrca_prior = mrca_prior
       )
     )
   }
