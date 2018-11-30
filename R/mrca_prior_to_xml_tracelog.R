@@ -12,8 +12,6 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   clock_models,
   mrca_prior
 ) {
-  #has_non_strict_clock_model <- is_rln_clock_model(clock_models[[1]]) # nolint internal function
-
   testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) {
     return(NULL)
@@ -22,7 +20,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   text <- NULL
   text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
 
-  if (!is_rln_clock_model(clock_models[[1]]) &&
+  if (is_strict_clock_model(clock_models[[1]]) &&
     !is.na(mrca_prior$mrca_distr)
   ) {
     text <- c(
