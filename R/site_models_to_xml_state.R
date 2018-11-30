@@ -10,10 +10,6 @@ site_models_to_xml_state <- function(
 ) {
   testit::assert(are_site_models(site_models)) # nolint internal function
 
-  # Remove the clock models that share a same alignment
-  site_models <- get_unlinked_site_models(site_models) # nolint internal function
-  testit::assert(are_site_models(site_models)) # nolint internal function
-
   text <- NULL
   for (site_model in site_models) {
     text <- c(text,
