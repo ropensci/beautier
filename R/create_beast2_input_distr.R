@@ -141,16 +141,6 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     clock_model <- clock_models[[i]]
     id <- site_model$id
     brm_line <- ""
-    j <- get_first_clock_model_index(clock_model, clock_models) # nolint internal function
-    if (i != j) {
-      testit::assert(j < i)
-      branch_rate_model_ref <- clock_models[[j]]$id
-      clock_model_str <- get_clock_model_name(clock_models[[j]]) # nolint internal function
-      brm_line <- paste0(
-        "branchRateModel=\"@", clock_model_str, ".c:",
-        branch_rate_model_ref, "\" "
-      )
-    }
     text <- c(text, paste0("<distribution id=\"treeLikelihood.",
       id, "\" spec=\"ThreadedTreeLikelihood\" ",
       brm_line,

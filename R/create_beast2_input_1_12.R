@@ -129,12 +129,10 @@ create_beast2_input_1_12 <- function(
   )
   testit::assert(are_init_site_models(site_models))  # nolint internal function
   testit::assert(are_init_clock_models(clock_models))  # nolint internal function
-  testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function
+  testit::assert(are_init_tree_priors(tree_priors)) # nolint internal function
 
   # More complex
-  if (has_shared_rln_clock_models(clock_models)) { # nolint internal function
-    stop("Cannot have shared Relaxed Log-Normal clock models")
-  }
+  testit::assert(!has_shared_rln_clock_models(clock_models)) # nolint internal function
 
   # Make a million show as 1000000 instead of 1e+06
   options(scipen = 20)
