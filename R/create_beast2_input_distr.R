@@ -131,8 +131,8 @@ create_beast2_input_distr_lh <- function( # nolint internal function
   clock_models,
   mrca_priors = NA
 ) {
+  testit::assert(length(site_models) == 1)
   testit::assert(length(site_models) == length(clock_models))
-  testit::assert(!has_shared_rln_clock_models(clock_models)) # nolint internal function
 
   text <- NULL
   n <- length(site_models)

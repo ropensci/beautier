@@ -193,7 +193,6 @@ create_beast2_input <- function(
   testit::assert(are_init_clock_models(clock_models))  # nolint internal function
   testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function
   testit::assert(are_init_mrca_priors(mrca_priors))  # nolint internal function
-  testit::assert(!has_shared_rln_clock_models(clock_models)) # nolint internal function
 
   # Make a million show as 1000000 instead of 1e+06
   old_scipen <- getOption("scipen")
