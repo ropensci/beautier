@@ -8,7 +8,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   clock_models = list(create_strict_clock_model(id = ids)),
   tree_priors = list(create_yule_tree_prior(id = ids)),
   mcmc = create_mcmc(),
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
@@ -30,7 +31,8 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
         clock_models = clock_models,
         tree_priors = tree_priors,
         mcmc = mcmc,
-        mrca_priors = mrca_priors
+        mrca_priors = mrca_priors,
+        tipdates_filename = tipdates_filename
       ),
       n_spaces = 4
     )
@@ -87,7 +89,8 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   clock_models = list(create_strict_clock_model(id = ids)),
   tree_priors = list(create_yule_tree_prior(id = ids)),
   mcmc = create_mcmc(),
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   testit::assert(are_ids(ids))  # nolint internal function
   testit::assert(length(ids) == length(site_models))
@@ -123,7 +126,8 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
     text,
     mrca_priors_to_xml_tracelog( # nolint internal function
       clock_models = clock_models,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
 

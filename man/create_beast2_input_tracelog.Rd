@@ -9,7 +9,7 @@ create_beast2_input_tracelog(ids,
   site_models = list(create_jc69_site_model(id = ids)),
   clock_models = list(create_strict_clock_model(id = ids)),
   tree_priors = list(create_yule_tree_prior(id = ids)),
-  mcmc = create_mcmc(), mrca_priors = NA)
+  mcmc = create_mcmc(), mrca_priors = NA, tipdates_filename = NA)
 }
 \arguments{
 \item{ids}{one or more alignments' IDs.
@@ -30,6 +30,11 @@ as returned by \code{\link{create_mcmc}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, separated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
 }
 \description{
 Creates the tracelog section of the logger section

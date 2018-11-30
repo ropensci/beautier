@@ -10,7 +10,8 @@
 #' @noRd
 mrca_priors_to_xml_tracelog <- function(
   clock_models,
-  mrca_priors
+  mrca_priors,
+  tipdates_filename = NA
 ) {
   testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
   text <- NULL
@@ -19,7 +20,8 @@ mrca_priors_to_xml_tracelog <- function(
     text <- c(text,
       mrca_prior_to_xml_tracelog(
         clock_models = clock_models,
-        mrca_prior = mrca_prior
+        mrca_prior = mrca_prior,
+        tipdates_filename = tipdates_filename
       )
     )
   }

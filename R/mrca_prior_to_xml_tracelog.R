@@ -14,12 +14,16 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   tipdates_filename = NA
 ) {
   testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
-  if (length(mrca_prior) == 1 && is.na(mrca_prior)) {
+  if (length(mrca_prior) == 1 &&
+      is.na(mrca_prior) &&
+      is.na(tipdates_filename)) {
     return(NULL)
   }
 
   text <- NULL
-  text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
+  if (!is_one_na(mrca_prior)) {
+    text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
+  }
 
   if (
     (
@@ -31,7 +35,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
     text <- c(
       text,
       paste0(
-        "<log idref=\"clockRate.c:", mrca_prior$alignment_id, "\"/>"
+        "<log idref=\"clockRate.c:", clock_models[[1]]$id, "\"/>"
       )
     )
   }
