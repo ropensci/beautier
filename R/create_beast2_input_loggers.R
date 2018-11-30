@@ -122,8 +122,8 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   text <- c(
     text,
     mrca_priors_to_xml_tracelog( # nolint internal function
-      mrca_priors,
-      has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models) # nolint internal function
+      clock_models = clock_models,
+      mrca_priors = mrca_priors
     )
   )
 

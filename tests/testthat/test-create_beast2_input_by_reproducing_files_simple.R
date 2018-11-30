@@ -1415,8 +1415,6 @@ test_that("Tip dating", {
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
   expect_true(are_equivalent_xml_lines(created, expected, section = "state"))
   expect_true(are_equivalent_xml_lines(created, expected, section = "distribution")) # molint
-
-  compare_lines(created, expected, section = "operators", "~/created.xml", "~/expected.xml") # nolint
   expect_true(are_equivalent_xml_lines(created, expected, section = "operators")) # molint
 
   compare_lines(created, expected, section = "logger", "~/created.xml", "~/expected.xml") # nolint
