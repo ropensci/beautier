@@ -41,6 +41,7 @@ clock_model_to_xml_lh_distr <- function(
       )
       text <- c(text, "</branchRateModel>")
     } else {
+      stop("Should never get")
       testit::assert(is_first == FALSE)
 
       if (is_non_first_shared == FALSE) {
