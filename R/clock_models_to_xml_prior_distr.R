@@ -21,11 +21,13 @@ clock_models_to_xml_prior_distr <- function( # nolint internal function
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
+    is_first <- i == 1
+    testit::assert(is_first == TRUE)
     text <- c(
       text,
       clock_model_to_xml_prior_distr( # nolint internal function
         clock_model = clock_model,
-        is_first = i == 1,
+        is_first = is_first,
         mrca_priors = mrca_priors,
         tipdates_filename = tipdates_filename
       )
