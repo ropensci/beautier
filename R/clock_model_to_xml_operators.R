@@ -17,19 +17,6 @@ clock_model_to_xml_operators <- function(
     testit::assert(is_first == TRUE)
     if (is_first == FALSE) {
       testit::assert(is_first == TRUE)
-      id <- clock_model$id
-      testit::assert(is_id(id)) # nolint internal function
-      text <- c(text, paste0("<operator ",
-        "id=\"StrictClockRateScaler.c:", id, "\" ",
-        "spec=\"ScaleOperator\" ",
-        "parameter=\"@clockRate.c:", id, "\" ",
-        "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-      text <- c(text, paste0("<operator ",
-        "id=\"strictClockUpDownOperator.c:", id, "\" ",
-        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
-      text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>"))
-      text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
-      text <- c(text, paste0("</operator>"))
     }
   } else {
     # Will fail on unimplemented clock models

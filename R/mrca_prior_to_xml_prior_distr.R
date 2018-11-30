@@ -25,7 +25,6 @@ mrca_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- NULL
   testit::assert(is_first == TRUE)
   if (!has_non_strict_clock_model && # nolint internal function
-      is_first &&
       !is.na(mrca_prior$mrca_distr)
   ) {
     text <- c(

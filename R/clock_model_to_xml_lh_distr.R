@@ -40,16 +40,6 @@ clock_model_to_xml_lh_distr <- function(
         )
       )
       text <- c(text, "</branchRateModel>")
-    } else {
-      testit::assert(is_first == TRUE) # nolint should never get here
-      testit::assert(is_first == FALSE)
-
-      if (is_non_first_shared == FALSE) {
-        text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:", id,
-          "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-          "clock.rate=\"@clockRate.c:", id, "\"/>")
-        )
-      }
     }
   } else if (is_rln_clock_model(clock_model)) { # nolint internal function
     n_discrete_rates <- clock_model$n_rate_categories
@@ -58,7 +48,7 @@ clock_model_to_xml_lh_distr <- function(
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-      ifelse(is_first == TRUE && !is_mrca_prior_with_distr(mrca_priors[[1]]),
+      ifelse(!is_mrca_prior_with_distr(mrca_priors[[1]]),
         "",
         paste0("clock.rate=\"@ucldMean.c:", id, "\" ")
       ),
@@ -82,7 +72,7 @@ clock_model_to_xml_lh_distr <- function(
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
     testit::assert(is_first == TRUE)
-    if (is_first == TRUE && !is_mrca_prior_with_distr(mrca_priors[[1]])) {
+    if (!is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(text, paste0("    <parameter ",
         "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
         "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
