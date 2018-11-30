@@ -17,7 +17,6 @@
 #' @noRd
 clock_model_to_xml_lh_distr <- function(
   clock_model,
-  is_non_first_shared = TRUE,
   mrca_priors = NA
 ) {
   testit::assert(is_clock_model(clock_model)) # nolint internal function
