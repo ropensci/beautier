@@ -1393,9 +1393,6 @@ test_that("No tip dating yet", {
 
 test_that("Tip dating", {
 
-  skip("babette Issue 27, #27")
-  # See https://github.com/richelbilderbeek/babette/issues/27
-
   created <- create_beast2_input(
     input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
     tree_priors = create_yule_tree_prior(
@@ -1409,11 +1406,6 @@ test_that("Tip dating", {
       sequence_indent = 24
     )
   )
-
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
-  expect_true(are_equivalent_xml_lines(created, expected, section = "state"))
-  expect_true(are_equivalent_xml_lines(created, expected, section = "distribution")) # molint
-  expect_true(are_equivalent_xml_lines(created, expected, section = "operators")) # molint
-  expect_true(are_equivalent_xml_lines(created, expected, section = "logger")) # molint
   expect_true(are_equivalent_xml_lines(created, expected))
 })
