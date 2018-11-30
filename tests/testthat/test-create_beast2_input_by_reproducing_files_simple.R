@@ -1330,9 +1330,6 @@ test_that("Base point + all taxa + one_div_x", {
     "anthus_aco_sub_20181016_all_one_div_x.xml")
   )
 
-  compare_lines(created, expected, section = NA, "~/created.xml", "~/expected.xml") # nolint
-  expect_true(are_equivalent_xml_lines(created, expected))
-
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -1408,7 +1405,8 @@ test_that("Tip dating", {
     misc_options = create_misc_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.1",
-      nucleotides_uppercase = TRUE
+      nucleotides_uppercase = TRUE,
+      sequence_indent = 24
     )
   )
 
@@ -1417,7 +1415,5 @@ test_that("Tip dating", {
   expect_true(are_equivalent_xml_lines(created, expected, section = "distribution")) # molint
   expect_true(are_equivalent_xml_lines(created, expected, section = "operators")) # molint
   expect_true(are_equivalent_xml_lines(created, expected, section = "logger")) # molint
-
-  compare_lines(created, expected, section = NA, "~/created.xml", "~/expected.xml") # nolint
   expect_true(are_equivalent_xml_lines(created, expected))
 })

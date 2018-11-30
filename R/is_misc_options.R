@@ -11,5 +11,6 @@ is_misc_options <- function(
 ) {
   if (!"capitalize_first_char_id" %in% names(x)) return(FALSE)
   if (!"nucleotides_uppercase" %in% names(x)) return(FALSE)
+  if (!"sequence_indent" %in% names(x)) return(FALSE)
   TRUE
 }

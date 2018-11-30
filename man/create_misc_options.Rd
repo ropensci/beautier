@@ -8,7 +8,7 @@
 \usage{
 create_misc_options(capitalize_first_char_id = FALSE,
   nucleotides_uppercase = FALSE, beast2_version = "2.4",
-  required = "")
+  required = "", sequence_indent = 20)
 }
 \arguments{
 \item{capitalize_first_char_id}{must the ID of alignment start with a
@@ -22,6 +22,9 @@ in uppercase?}
 
 \item{required}{things that may be required,
 for example \code{BEAST v2.5.0}}
+
+\item{sequence_indent}{the number of spaces the XML \code{sequence}
+lines are indented}
 }
 \value{
 a misc_options

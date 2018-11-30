@@ -27,7 +27,8 @@ create_beast2_input_data <- function(
         misc_options = misc_options
       )
     )
-    text <- c(text, indent("</data>", n_spaces = 16)) # nolint internal function
+    testit::assert(misc_options$sequence_indent >= 20)
+    text <- c(text, indent("</data>", n_spaces = misc_options$sequence_indent - 4)) # nolint internal function
   }
   text
 }
