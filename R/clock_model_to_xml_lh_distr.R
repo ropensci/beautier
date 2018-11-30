@@ -2,8 +2,6 @@
 #' XML as text.
 #' This function will be called only if there are no MRCA priors.
 #' @inheritParams default_params_doc
-#' @param is_non_first_shared is this clock model not the first of
-#'   multiple shared ones?
 #' @return a character vector of XML strings
 #' @author Richel J.C. Bilderbeek
 #' @examples
