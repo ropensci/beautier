@@ -6,7 +6,7 @@
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_distr_prior(site_models, clock_models, tree_priors,
-  mrca_priors = NA)
+  mrca_priors = NA, tipdates_filename = NA)
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -20,6 +20,11 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, separated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
 }
 \description{
 Creates the prior section in the distribution section

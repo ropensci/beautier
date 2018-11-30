@@ -17,7 +17,8 @@ create_beast2_input_distr <- function( # nolint internal function
   site_models,
   clock_models,
   tree_priors,
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   testit::assert(are_site_models(site_models)) # nolint internal function
   testit::assert(are_clock_models(clock_models)) # nolint internal function
@@ -34,7 +35,8 @@ create_beast2_input_distr <- function( # nolint internal function
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
 
@@ -78,7 +80,8 @@ create_beast2_input_distr_prior <- function( # nolint internal function
   site_models,
   clock_models,
   tree_priors,
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   text <- NULL
   text <- c(text, tree_priors_to_xml_prior_distr(tree_priors)) # nolint internal function
@@ -92,7 +95,8 @@ create_beast2_input_distr_prior <- function( # nolint internal function
     text,
     clock_models_to_xml_prior_distr( # nolint internal function
       clock_models = clock_models,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
 

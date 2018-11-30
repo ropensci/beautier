@@ -15,7 +15,8 @@
 clock_model_to_xml_prior_distr <- function(
   clock_model,
   is_first = TRUE,
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   testit::assert(is_clock_model(clock_model)) # nolint internal function
 
@@ -46,7 +47,7 @@ clock_model_to_xml_prior_distr <- function(
     # Fails for unimplemented clock models
     testit::assert(is_strict_clock_model(clock_model)) # nolint internal function
 
-    if (is_first == FALSE) {
+    if (is_first == FALSE || !is.na(tipdates_filename)) {
       id <- clock_model$id
       testit::assert(is_id(id)) # nolint internal function
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",

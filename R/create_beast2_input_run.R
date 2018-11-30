@@ -60,7 +60,8 @@ create_beast2_input_run <- function(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
 

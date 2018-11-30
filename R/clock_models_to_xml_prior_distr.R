@@ -13,7 +13,8 @@
 #' @noRd
 clock_models_to_xml_prior_distr <- function( # nolint internal function
   clock_models,
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   clock_models <- get_unlinked_clock_models(clock_models)  # nolint internal function
   text <- NULL
@@ -25,7 +26,8 @@ clock_models_to_xml_prior_distr <- function( # nolint internal function
       clock_model_to_xml_prior_distr( # nolint internal function
         clock_model = clock_model,
         is_first = i == 1,
-        mrca_priors = mrca_priors
+        mrca_priors = mrca_priors,
+        tipdates_filename = tipdates_filename
       )
     )
   }
