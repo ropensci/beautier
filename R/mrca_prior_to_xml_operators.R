@@ -15,6 +15,10 @@ mrca_prior_to_xml_operators <- function(
   if (all(is.na(mrca_prior$mrca_distr))) return(NULL)
   if (is_rln_clock_model(clock_models[[1]])) return(NULL) # nolint
 
+  testit::assert(is_strict_clock_model(clock_models[[1]]))
+  testit::assert(is_mrca_prior(mrca_prior))
+  testit::assert(is_mrca_prior_with_distr(mrca_prior))
+
   id <- mrca_prior$alignment_id
 
   text <- NULL

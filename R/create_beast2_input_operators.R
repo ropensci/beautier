@@ -35,13 +35,13 @@ create_beast2_input_operators <- function( # nolint internal function
       mrca_priors = mrca_priors
     )
   )
-  text <- c(
-    text,
-    mrca_priors_to_xml_operators( # nolint internal function
-      mrca_priors = mrca_priors,
-      clock_models = clock_models
-    )
-  )
+  # text <- c(
+  #   text,
+  #   mrca_priors_to_xml_operators( # nolint internal function
+  #     mrca_priors = mrca_priors,
+  #     clock_models = clock_models
+  #   )
+  # )
   text <- interspace(text) # nolint internal function
 
   indent(text, n_spaces = 4) # nolint internal function
