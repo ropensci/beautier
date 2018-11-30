@@ -7,7 +7,8 @@ create_beast2_input_operators <- function( # nolint internal function
   clock_models,
   tree_priors,
   fixed_crown_ages = rep(FALSE, length(site_models)),
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   testit::assert(is.logical(fixed_crown_ages))
   testit::assert(are_site_models(site_models)) # nolint internal function
@@ -32,7 +33,8 @@ create_beast2_input_operators <- function( # nolint internal function
     text,
     clock_models_to_xml_operators( # nolint internal function
       clock_models = clock_models,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
   text <- interspace(text) # nolint internal function

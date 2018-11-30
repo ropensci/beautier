@@ -74,7 +74,8 @@ create_beast2_input_run <- function(
       clock_models = clock_models,
       tree_priors = tree_priors,
       fixed_crown_ages = fixed_crown_ages,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
 

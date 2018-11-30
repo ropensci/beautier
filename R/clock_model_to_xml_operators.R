@@ -6,7 +6,8 @@
 #' @noRd
 clock_model_to_xml_operators <- function(
   clock_model,
-  mrca_priors
+  mrca_priors,
+  tipdates_filename = NA
 ) {
   testit::assert(is_clock_model(clock_model)) # nolint internal function
   id <- clock_model$id
@@ -52,9 +53,7 @@ clock_model_to_xml_operators <- function(
     }
   }
 
-  if (is_strict_clock_model(clock_model) &&
-    is_mrca_prior_with_distr(mrca_priors[[1]])
-  ) {
+  if ( (is_strict_clock_model(clock_model) && is_mrca_prior_with_distr(mrca_priors[[1]])) || !is.na(tipdates_filename)) {
     text <- c(
       text,
       paste0(
