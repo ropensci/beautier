@@ -6,7 +6,7 @@
 #' @noRd
 clock_model_to_xml_operators <- function(
   clock_model,
-  is_first,
+  is_first = TRUE,
   mrca_priors
 ) {
   testit::assert(is_clock_model(clock_model)) # nolint internal function
@@ -14,7 +14,9 @@ clock_model_to_xml_operators <- function(
   # May not need ID at all, if it is the first and strict clock model
   text <- NULL
   if (is_strict_clock_model(clock_model)) { # nolint internal function
+    testit::assert(is_first == TRUE)
     if (is_first == FALSE) {
+      testit::assert(is_first == TRUE)
       id <- clock_model$id
       testit::assert(is_id(id)) # nolint internal function
       text <- c(text, paste0("<operator ",
@@ -49,7 +51,9 @@ clock_model_to_xml_operators <- function(
       "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>")
     )
+    testit::assert(is_first == TRUE)
     if (is_first == FALSE || is_mrca_prior_with_distr(mrca_priors[[1]])) {
+      testit::assert(is_first == TRUE)
       text <- c(
         text,
         paste0(
