@@ -15,8 +15,6 @@ clock_models_to_xml_tracelog <- function(
 ) {
   testit::assert(are_clock_models(clock_models)) # nolint internal function
 
-  clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
-
   text <- NULL
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]

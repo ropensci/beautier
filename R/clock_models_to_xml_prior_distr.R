@@ -16,7 +16,6 @@ clock_models_to_xml_prior_distr <- function( # nolint internal function
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  clock_models <- get_unlinked_clock_models(clock_models)  # nolint internal function
   text <- NULL
 
   for (i in seq_along(clock_models)) {

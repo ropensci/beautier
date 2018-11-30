@@ -13,10 +13,6 @@ clock_models_to_xml_state <- function(
   # the mrca_priors are supposed to be temporary :-)
   testit::assert(are_clock_models(clock_models)) # nolint internal function
 
-  # Remove the clock models that share a same alignment
-  clock_models <- get_unlinked_clock_models(clock_models) # nolint internal function
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
-
   if (length(clock_models) == 1 &&
       is_strict_clock_model(clock_models[[1]]) &&
     has_tip_dating == FALSE
