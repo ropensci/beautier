@@ -5,7 +5,8 @@
 \title{Creates the likelihood section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distr_lh(site_models, clock_models, mrca_priors = NA)
+create_beast2_input_distr_lh(site_models, clock_models, mrca_priors = NA,
+  tipdates_filename = NA)
 }
 \arguments{
 \item{site_models}{one or more site models,
@@ -16,6 +17,11 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, separated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
 }
 \description{
 Creates the likelihood section in the distribution section

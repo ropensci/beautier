@@ -55,7 +55,7 @@ tipdate_taxa_to_xml_tree <- function(
   testit::assert(is_id(id)) # nolint internal function
   testit::assert(!is_one_na(tipdates_filename)) # nolint internal function
   trait_set_str <- create_trait_set_string(
-    read.table(tipdates_filename, sep = "\t")
+    utils::read.table(tipdates_filename, sep = "\t")
   )
   c(
     paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"),
