@@ -16,11 +16,8 @@ create_beast2_input_data <- function(
       input_fasta_filename,
       capitalize_first_char_id = misc_options$capitalize_first_char_id
     )
-    is_first <- i == 1
-    testit::assert(is_first == TRUE)
     text <- c(text, create_data_xml(
       id = id,
-      is_first = is_first,
       beast2_version = misc_options$beast2_version)
     )
     text <- c(

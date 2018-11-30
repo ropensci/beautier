@@ -17,7 +17,9 @@ clock_models_to_xml_operators <- function(
     text <- c(
       text,
       clock_model_to_xml_operators(
-        clock_model, i == 1, mrca_priors)
+        clock_model = clock_model,
+        mrca_priors = mrca_priors
+      )
     )
   }
   text

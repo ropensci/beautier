@@ -3,11 +3,9 @@
 #' @noRd
 create_data_xml <- function(
   id,
-  is_first = TRUE,
   beast2_version
 ) {
   text <- NULL
-  testit::assert(is_first == TRUE)
   text <- c(text, "    <data")
   text <- c(text, paste0("id=\"", id, "\""))
   text <- c(text, "name=\"alignment\">")

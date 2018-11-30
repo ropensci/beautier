@@ -1,7 +1,6 @@
 #' Creates the XML of an MRCA prior,
 #'   as used in the \code{state} section
 #' @inheritParams default_params_doc
-#' @param is_first is this the first MRCA prior?
 #' @return the tree prior as XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd

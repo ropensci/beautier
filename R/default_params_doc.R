@@ -63,8 +63,6 @@
 #'   the phylogeny is assumed to be of class ape::phylo.
 #' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
-#' @param is_first boolean to indicate if this is the first
-#'   out of many (one, two or more)
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
 #' @param misc_options one misc_options object,
@@ -132,7 +130,6 @@ default_params_doc <- function(
   ids,
   initial_phylogenies,
   input_filenames,
-  is_first,
   is_monophyletic,
   jc69_site_model,
   mcmc,

@@ -17,7 +17,6 @@
 #' @noRd
 clock_model_to_xml_lh_distr <- function(
   clock_model,
-  is_first = TRUE,
   is_non_first_shared = TRUE,
   mrca_priors = NA
 ) {
@@ -27,24 +26,21 @@ clock_model_to_xml_lh_distr <- function(
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) { # nolint internal function
-    if (is_first == TRUE) {
-      text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
-        id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-      # initialization may happen here
-      clock_model$clock_rate_param$id <- id
-      text <- c(
-        text,
-        indent( # nolint internal function
-          parameter_to_xml(clock_model$clock_rate_param), # nolint internal function
-          n_spaces = 4
-        )
+    text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
+      id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
+    # initialization may happen here
+    clock_model$clock_rate_param$id <- id
+    text <- c(
+      text,
+      indent( # nolint internal function
+        parameter_to_xml(clock_model$clock_rate_param), # nolint internal function
+        n_spaces = 4
       )
-      text <- c(text, "</branchRateModel>")
-    }
+    )
+    text <- c(text, "</branchRateModel>")
   } else if (is_rln_clock_model(clock_model)) { # nolint internal function
     n_discrete_rates <- clock_model$n_rate_categories
     mparam_id <- clock_model$mparam_id
-    testit::assert(is_first == TRUE)
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
@@ -71,7 +67,6 @@ clock_model_to_xml_lh_distr <- function(
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
-    testit::assert(is_first == TRUE)
     if (!is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(text, paste0("    <parameter ",
         "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
