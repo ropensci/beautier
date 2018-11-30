@@ -46,7 +46,8 @@ create_beast2_input_distr <- function( # nolint internal function
     create_beast2_input_distr_lh(
       site_models = site_models,
       clock_models = clock_models,
-      mrca_priors = mrca_priors
+      mrca_priors = mrca_priors,
+      tipdates_filename = tipdates_filename
     )
   )
   text <- indent(text, n_spaces = 4) # nolint internal function
@@ -129,7 +130,8 @@ create_beast2_input_distr_prior <- function( # nolint internal function
 create_beast2_input_distr_lh <- function( # nolint internal function
   site_models,
   clock_models,
-  mrca_priors = NA
+  mrca_priors = NA,
+  tipdates_filename = NA
 ) {
   testit::assert(length(site_models) == 1)
   testit::assert(length(site_models) == length(clock_models))
@@ -158,7 +160,8 @@ create_beast2_input_distr_lh <- function( # nolint internal function
         indent( # nolint internal function
           clock_model_to_xml_lh_distr( # nolint internal function
             clock_model,
-            mrca_priors = mrca_priors
+            mrca_priors = mrca_priors,
+            tipdates_filename = tipdates_filename
           ),
           n_spaces = 4
         )
