@@ -5,14 +5,14 @@ test_that("use", {
   testthat::expect_silent(
     create_beast2_input_data_sequences(
       get_fasta_filename(),
-      nucleotides_uppercase = FALSE
+      misc_options = create_misc_options(nucleotides_uppercase = FALSE)
     )
   )
 
   testthat::expect_silent(
     create_beast2_input_data_sequences(
       get_fasta_filename(),
-      nucleotides_uppercase = TRUE
+      misc_options = create_misc_options(nucleotides_uppercase = TRUE)
     )
   )
 

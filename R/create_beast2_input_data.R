@@ -24,7 +24,7 @@ create_beast2_input_data <- function(
       text,
       create_beast2_input_data_sequences(
         input_fasta_filename = input_fasta_filename,
-        nucleotides_uppercase = misc_options$nucleotides_uppercase
+        misc_options = misc_options
       )
     )
     text <- c(text, indent("</data>", n_spaces = 16)) # nolint internal function

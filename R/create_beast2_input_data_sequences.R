@@ -6,8 +6,9 @@
 #' @noRd
 create_beast2_input_data_sequences <- function( # nolint internal function
   input_fasta_filename,
-  nucleotides_uppercase = FALSE
+  misc_options = create_misc_options()
 ) {
+  nucleotides_uppercase <- misc_options$nucleotides_uppercase
   testit::assert(file.exists(input_fasta_filename))
 
   sequences_table <- fasta_file_to_sequences(
