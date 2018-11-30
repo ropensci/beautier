@@ -102,21 +102,12 @@ create_beast2_input_1_12 <- function(
   }
 
   # Lengths
-  if (length(input_filenames) != length(site_models)) {
-    stop("Must supply as much input_filenames as site_models")
-  }
-  if (length(input_filenames) != length(clock_models)) {
-    stop("Must supply as much input_filenames as clock_models")
-  }
-  if (length(input_filenames) != length(tree_priors)) {
-    stop("Must supply as much input_filenames as tree priors")
-  }
-  if (length(input_filenames) != length(fixed_crown_ages)) {
-    stop("Must supply as much input_filenames as fixed crown ages")
-  }
-  if (length(input_filenames) != length(initial_phylogenies)) {
-    stop("Must supply as much input_filenames as initial_phylogenies")
-  }
+  testit::assert(length(input_filenames) == 1)
+  testit::assert(length(site_models) == 1)
+  testit::assert(length(clock_models) == 1)
+  testit::assert(length(tree_priors) == 1)
+  testit::assert(length(fixed_crown_ages) == 1)
+  testit::assert(length(initial_phylogenies) == 1)
 
   site_models <- init_site_models( # nolint internal function
     site_models = site_models,

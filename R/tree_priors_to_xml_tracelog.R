@@ -11,9 +11,9 @@
 tree_priors_to_xml_tracelog <- function(
   tree_priors
 ) {
-  if (length(tree_priors) != length(get_unlinked_tree_priors(tree_priors))) {
-    stop("Cannot have linked tree priors")
-  }
+  testit::assert(
+    length(tree_priors) == length(get_unlinked_tree_priors(tree_priors))
+  )
 
   text <- NULL
   for (tree_prior in tree_priors) {
