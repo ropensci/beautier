@@ -1416,8 +1416,6 @@ test_that("Tip dating", {
   expect_true(are_equivalent_xml_lines(created, expected, section = "state"))
   expect_true(are_equivalent_xml_lines(created, expected, section = "distribution")) # molint
   expect_true(are_equivalent_xml_lines(created, expected, section = "operators")) # molint
-
-  compare_lines(created, expected, section = "logger", "~/created.xml", "~/expected.xml") # nolint
   expect_true(are_equivalent_xml_lines(created, expected, section = "logger")) # molint
 
   compare_lines(created, expected, section = NA, "~/created.xml", "~/expected.xml") # nolint

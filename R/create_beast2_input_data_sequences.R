@@ -17,7 +17,7 @@ create_beast2_input_data_sequences <- function( # nolint internal function
   for (i in seq(1, nrow(sequences))) {
     row <- sequences[i, ]
     nextline <- paste0(
-      "                    <sequence id=\"seq_",
+      "<sequence id=\"seq_",
       trimws(row[1]),
       "\" taxon=\"",
       trimws(row[1]),
@@ -28,5 +28,5 @@ create_beast2_input_data_sequences <- function( # nolint internal function
     text <- c(text, nextline)
   }
   text <- sort(text, method = "radix")
-  text
+  indent(text = text, n_spaces = 20)
 }
