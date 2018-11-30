@@ -141,6 +141,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
     clock_model <- clock_models[[i]]
     id <- site_model$id
     is_first <- i == 1
+    testit::assert(is_first == TRUE)
     brm_line <- ""
     j <- get_first_clock_model_index(clock_model, clock_models) # nolint internal function
     if (i != j) {
@@ -171,6 +172,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
       has_mrca_priors <- FALSE
     }
     if (!has_mrca_priors || get_has_non_strict_clock_model(clock_models)) { # nolint internal function
+      testit::assert(is_first == TRUE)
       text <- c(text,
         indent( # nolint internal function
           clock_model_to_xml_lh_distr( # nolint internal function

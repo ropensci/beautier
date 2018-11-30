@@ -54,6 +54,7 @@ clock_model_to_xml_lh_distr <- function(
   } else if (is_rln_clock_model(clock_model)) { # nolint internal function
     n_discrete_rates <- clock_model$n_rate_categories
     mparam_id <- clock_model$mparam_id
+    testit::assert(is_first == TRUE)
     line <- paste0("<branchRateModel ",
       "id=\"RelaxedClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
@@ -80,6 +81,7 @@ clock_model_to_xml_lh_distr <- function(
       "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
       "upper=\"1.0\">1.0</parameter>"))
     text <- c(text, paste0("    </LogNormal>"))
+    testit::assert(is_first == TRUE)
     if (is_first == TRUE && !is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(text, paste0("    <parameter ",
         "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",

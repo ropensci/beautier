@@ -23,6 +23,7 @@ mrca_priors_to_xml_prior_distr <- function( # nolint internal function
   taxa_names_with_ids <- NULL
   is_first <- TRUE
   for (mrca_prior in mrca_priors) {
+    testit::assert(is_first == TRUE)
     text <- c(
       text,
       mrca_prior_to_xml_prior_distr(

@@ -21,11 +21,13 @@ clock_models_to_xml_tracelog <- function(
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
     testit::assert(is_clock_model(clock_model)) # nolint internal function
+    is_first <- i == 1
+    testit::assert(is_first == TRUE)
     text <- c(
       text,
       clock_model_to_xml_tracelog( # nolint internal function
         clock_model = clock_model,
-        is_first = i == 1,
+        is_first = is_first,
         mrca_priors = mrca_priors
       )
     )

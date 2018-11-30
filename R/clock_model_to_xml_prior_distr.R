@@ -23,9 +23,11 @@ clock_model_to_xml_prior_distr <- function(
   text <- NULL
   if (is_rln_clock_model(clock_model)) { # nolint internal function
 
+    testit::assert(is_first == TRUE)
     if (is_first == FALSE ||
         is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint internal function
     ) {
+      testit::assert(is_first == TRUE)
       text <- c(text, rln_clock_model_to_xml_mean_rate_prior(clock_model)) # nolint internal function
     }
 
@@ -47,6 +49,7 @@ clock_model_to_xml_prior_distr <- function(
     # Fails for unimplemented clock models
     testit::assert(is_strict_clock_model(clock_model)) # nolint internal function
 
+    testit::assert(is_first == TRUE)
     if (is_first == FALSE || !is.na(tipdates_filename)) {
       id <- clock_model$id
       testit::assert(is_id(id)) # nolint internal function

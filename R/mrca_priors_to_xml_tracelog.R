@@ -17,6 +17,7 @@ mrca_priors_to_xml_tracelog <- function(
   is_first <- TRUE
 
   for (mrca_prior in mrca_priors) {
+    testit::assert(is_first == TRUE)
     text <- c(text,
       mrca_prior_to_xml_tracelog(
         mrca_prior = mrca_prior,

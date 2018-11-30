@@ -20,6 +20,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint internal function
   text <- NULL
   text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
 
+  testit::assert(is_first == TRUE)
   if (!has_non_strict_clock_model &&
     !is.na(mrca_prior$mrca_distr) &&
     is_first

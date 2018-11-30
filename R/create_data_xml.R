@@ -7,6 +7,7 @@ create_data_xml <- function(
   beast2_version
 ) {
   text <- NULL
+  testit::assert(is_first == TRUE)
   if (is_first == TRUE) {
     text <- c(text, "    <data")
   } else {
