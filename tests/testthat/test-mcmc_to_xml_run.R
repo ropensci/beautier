@@ -18,7 +18,9 @@ test_that("use, 1K", {
 
 test_that("use, store every", {
 
-  created <- mcmc_to_xml_run(create_mcmc(chain_length = 2000, store_every = 1000))
+  created <- mcmc_to_xml_run(
+    create_mcmc(chain_length = 2000, store_every = 1000)
+  )
   expected <- "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"2000\" storeEvery=\"1000\">" # nolint XML can be long
   expect_equal(created, expected)
 })
