@@ -1395,7 +1395,6 @@ test_that("Tip dating", {
   skip("babette Issue 27, #27")
   # See https://github.com/richelbilderbeek/babette/issues/27
 
-
   created <- create_beast2_input(
     input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
     tree_priors = create_yule_tree_prior(
