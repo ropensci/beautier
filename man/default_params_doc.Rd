@@ -126,8 +126,7 @@ function. BEAST2 uses this file as input.}
 
 \item{param_id}{a parameter's ID}
 
-\item{posterior_crown_age}{the crown age the posteriors'
-phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}
+\item{posterior_crown_age}{deprecated}
 
 \item{rln_clock_model}{a Relaxed Log-Normal clock model,
 as returned by \code{\link{create_rln_clock_model}}}

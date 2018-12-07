@@ -44,7 +44,12 @@ Create a Most Recent Common Ancestor prior
    is_monophyletic = TRUE
  )
 
- #
+ # Set the crown age
+ mrca_prior <- create_mrca_prior(
+   alignment_id = get_alignment_id(fasta_filename = fasta_filename),
+   taxa_names = get_taxa_names(filename = fasta_filename),
+   is_monophyletic = TRUE
+ )
 }
 \author{
 Richel J.C. Bilderbeek

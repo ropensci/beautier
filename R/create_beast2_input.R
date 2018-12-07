@@ -26,8 +26,54 @@ create_beast2_input <- function(
   mrca_priors = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
-  posterior_crown_age = NA
+  posterior_crown_age = "deprecated"
 ) {
+  # Check for deprecated argument names
+  calls <- names(sapply(match.call(), deparse))[-1]
+  if (any("posterior_crown_age" %in% calls)) {
+    stop(
+      "'posterior_crown_age' is deprecated. \n",
+      "Tip: use an MRCA prior ",
+      "with a narrow distribution around the crown age instead. \n",
+      "See 'create_mrca_prior' or the example below:\n",
+      "\n",
+      "fasta_filename <- get_beautier_path(\"anthus_aco.fas\")\n",
+      "crown_age <- 15\n",
+      "\n",
+      "mrca_prior <- create_mrca_prior(\n",
+      "  alignment_id = get_alignment_id(fasta_filename = fasta_filename),\n",
+      "  taxa_names = get_taxa_names(filename = fasta_filename),\n",
+      "  mrca_distr = create_normal_distr(\n",
+      "    mean = crown_age,\n",
+      "    sigma = 0.0001\n",
+      "  ),\n",
+      "  is_monophyletic = TRUE\n",
+      ")\n",
+      "\n",
+      "create_beast2_input(\n",
+      "  input_filename = fasta_filename,\n",
+      "  mrca_prior = mrca_prior\n",
+      ")\n"
+    )
+  }
+  if (1 == 2) {
+    if (any("fasta_filenames" %in% calls)) {
+      stop("'fasta_filenames' is deprecated, use 'fasta_filename' instead.")
+    }
+    if (any("site_models" %in% calls)) {
+      stop("'site_models' is deprecated, use 'site_model' instead.")
+    }
+    if (any("clock_models" %in% calls)) {
+      stop("'clock_models' is deprecated, use 'clock_model' instead.")
+    }
+    if (any("tree_priors" %in% calls)) {
+      stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
+    }
+    if (any("mrca_priors" %in% calls)) {
+      stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
+    }
+  }
+
   # 2 site_models
   check_site_models(site_models) # nolint internal function
 
@@ -98,13 +144,6 @@ create_beast2_input <- function(
       "'misc_options' must be a valid misc options object, ",
       "as returned by 'create_misc_options'"
     )
-  }
-
-  if (!is.na(posterior_crown_age) && !is.numeric(posterior_crown_age)) {
-    stop("'posterior_crown_age' must be either NA or a non-zero postive value")
-  }
-  if (!is.na(posterior_crown_age) && posterior_crown_age <= 0.0) {
-    stop("'posterior_crown_age' must be either NA or a non-zero postive value")
   }
 
   # Lengths
@@ -199,15 +238,9 @@ create_beast2_input <- function(
   options(scipen = 20)
 
   # Convert from new to older interface
-  fixed_crown_ages <- rep(!is.na(posterior_crown_age),
-    times = length(input_filenames))
+  fixed_crown_ages <- rep(FALSE, times = length(input_filenames))
   initial_phylogenies <- rep(NA, time = length(input_filenames))
-  if (!is.na(posterior_crown_age)) {
-    initial_phylogenies <- fastas_to_phylos(
-      fasta_filenames = input_filenames,
-      crown_age = posterior_crown_age
-    )
-  }
+
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
   testit::assert(length(input_filenames) == length(initial_phylogenies)) # nolint internal function
 

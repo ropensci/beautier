@@ -6,8 +6,7 @@ test_that("use", {
     "'clock_models' must be a valid clock model",
     "'tree_priors' must be a valid tree prior",
     "'site_models' must be a valid site model",
-    "'mrca_priors' must be NA or a valid mrca object",
-    "'posterior_crown_age' must be either NA or a non-zero postive value"
+    "'mrca_priors' must be NA or a valid mrca object"
   )
   testthat::expect_true(
     beautier:::is_in_patterns(

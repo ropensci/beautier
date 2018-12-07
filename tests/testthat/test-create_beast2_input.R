@@ -10,20 +10,9 @@ context("create_beast2_input")
 
 test_that("use", {
 
-  testthat::expect_silent(
+  expect_silent(
     create_beast2_input(
       input_filenames = get_fasta_filename()
-    )
-  )
-
-})
-
-test_that("use with fixed crown age", {
-
-  testthat::expect_silent(
-    create_beast2_input(
-      input_filenames = get_fasta_filename(),
-      posterior_crown_age = 15
     )
   )
 
@@ -32,7 +21,7 @@ test_that("use with fixed crown age", {
 test_that("use with calibration node", {
 
   fasta_filename <- get_fasta_filename()
-  testthat::expect_silent(
+  expect_silent(
     create_beast2_input(
       input_filenames = fasta_filename,
       mrca_priors = create_mrca_prior(
@@ -58,7 +47,7 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
       is_monophyletic = TRUE
     )
   )
-  testthat::expect_equal(
+  expect_equal(
     1,
     sum(grepl(x = lines, pattern = " *<branchRateModel.*"))
   )
@@ -66,14 +55,14 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
 
 test_that("abuse: one alignment", {
 
-  testthat::expect_silent(
+  expect_silent(
     create_beast2_input(
       input_filenames = get_fasta_filename()
     )
   )
 
   # 1 input_filenames,
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = "nonexisting" # Error
     ),
@@ -81,7 +70,7 @@ test_that("abuse: one alignment", {
   )
 
   # 2 site_models
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       site_models = "nonsense"
@@ -94,7 +83,7 @@ test_that("abuse: one alignment", {
   )
 
   # 3 clock_models
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       clock_models = "nonsense"
@@ -107,7 +96,7 @@ test_that("abuse: one alignment", {
   )
 
   # 4 tree_priors
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       tree_priors = "nonsense"
@@ -120,7 +109,7 @@ test_that("abuse: one alignment", {
   )
 
   # mrca_priors
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       mrca_priors = "nonsense"
@@ -129,7 +118,7 @@ test_that("abuse: one alignment", {
   )
 
   # 5 mcmc
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       mcmc = "nonsense"
@@ -138,7 +127,7 @@ test_that("abuse: one alignment", {
   )
 
   # 6 misc_options
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       misc_options = "nonsense"
@@ -147,23 +136,16 @@ test_that("abuse: one alignment", {
   )
 
   # 7 posterior_crown_age
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       posterior_crown_age = "nonsense" # Error
     ),
-    "'posterior_crown_age' must be either NA or a non-zero postive value"
-  )
-  testthat::expect_error(
-    create_beast2_input(
-      input_filenames = get_fasta_filename(),
-      posterior_crown_age = -12.34 # Error
-    ),
-    "'posterior_crown_age' must be either NA or a non-zero postive value"
+    "'posterior_crown_age' is deprecated"
   )
 
   # Higher-level abuse
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_beautier_path("anthus_aco_sub.fas"),
       tree_priors = create_cbs_tree_prior(group_sizes_dimension = 5)
@@ -172,7 +154,7 @@ test_that("abuse: one alignment", {
   )
 
   fasta_filename <- get_fasta_filename()
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = fasta_filename,
       mrca_priors = create_mrca_prior(
@@ -183,7 +165,7 @@ test_that("abuse: one alignment", {
     "All MRCA prior's alignment IDs must match the FASTA file IDs"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = fasta_filename,
       mrca_priors = create_mrca_prior(
@@ -210,7 +192,7 @@ test_that("abuse: one alignment", {
 
   intersecting_mrca_priors <- list(prior_one_two, prior_two_three)
 
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       mrca_priors = intersecting_mrca_priors
@@ -227,7 +209,7 @@ test_that("abuse: two alignments", {
   ids <- get_alignment_ids(input_filenames)
 
   # Two filenames, one site model
-  testthat::expect_error(
+  expect_error(
     create_beast2_input(
       input_filenames = input_filenames
     ),

@@ -12,7 +12,7 @@ create_beast2_input_file(input_filenames, output_filename,
   tree_priors = create_yule_tree_prior(id =
   get_alignment_id(input_filenames)), mrca_priors = NA,
   mcmc = create_mcmc(), misc_options = create_misc_options(),
-  posterior_crown_age = NA, tipdates_filename = NA)
+  posterior_crown_age = "deprecated", tipdates_filename = NA)
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -39,8 +39,7 @@ as returned by \code{\link{create_mcmc}}}
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
 
-\item{posterior_crown_age}{the crown age the posteriors'
-phylogenies will be fixed at. If NA, crown age is estimated by BEAST2.}
+\item{posterior_crown_age}{deprecated}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
 This file is assumed to have two columns, separated by a tab.
@@ -60,17 +59,6 @@ Create a BEAST2 input file
     output_filename
   )
   testthat::expect_true(file.exists(output_filename))
-
-  # The file created by beautier, a BEAST2 input file
-  output_filename_fixed <- "create_beast2_input_file_fixed.xml"
-
-  # Birth-Death tree prior, crown age is fixed at 15 time units
-  create_beast2_input_file(
-    get_fasta_filename(),
-    output_filename_fixed,
-    posterior_crown_age = 15
-  )
-  testthat::expect_true(file.exists(output_filename_fixed))
 }
 \seealso{
 See \code{\link{create_site_model}} for examples with
