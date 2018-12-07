@@ -69,7 +69,8 @@ create_beast2_input_file_1_12(
 )
 ```
 
-```{r}
+```
+# Deprecated
 create_beast2_input_file(
   "my_fasta.fas",
   "my_beast.xml",
