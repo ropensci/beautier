@@ -32,16 +32,14 @@ Using all default settings, only specify a DNA alignment.
 [No screenshot, as this cannot be done in BEAUti yet]
 ```
 
-```{r example_2}
+```
+# Deprecated
 create_beast2_input_file(
   "my_fasta.fas",
   "my_beast.xml",
   posterior_crown_age = 15
 )
 ```
-
-`fasta_to_phylo` creates a random phylogeny from
-a FASTA file of a certain crown age. 
 
 ## Example #3: JC69 site model
 
@@ -51,7 +49,7 @@ a FASTA file of a certain crown age.
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  site_models = create_jc69_site_model()
+  site_model = create_jc69_site_model()
 )
 ```
 
@@ -63,7 +61,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  clock_models = create_rln_clock_model()
+  clock_model = create_rln_clock_model()
 )
 ```
 
@@ -75,7 +73,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  tree_priors = create_bd_tree_prior() 
+  tree_prior = create_bd_tree_prior() 
 )
 ```
 
@@ -87,7 +85,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr()
   ) 
 )
@@ -103,7 +101,7 @@ Thanks to Yacine Ben Chehida for this use case
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  site_models = create_hky_site_model(
+  site_model = create_hky_site_model(
     gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
   )
 )
@@ -119,7 +117,7 @@ Thanks to Yacine Ben Chehida for this use case
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  clock_models = create_strict_clock_model(
+  clock_model = create_strict_clock_model(
     clock_rate_param = create_clock_rate_param(value = 0.5)) 
 )
 ```
@@ -137,7 +135,7 @@ an MRCA ('Most Recent Common Ancestor') prior.
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id("my_alignment.fas"),
     taxa_names = get_taxa_names("my_alignment.fas")
   )
@@ -152,7 +150,7 @@ To use that MRCA prior to calibrate the crown age to 10 time units:
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id("my_alignment.fas"),
     taxa_names = get_taxa_names("my_alignment.fas"),
     mrca_distr = create_normal_distr(
@@ -167,7 +165,8 @@ create_beast2_input_file(
 
 ![Example 10: Two alignments](pics/anthus_2_4.png)
 
-```{r example_10}
+```
+# Deprecated
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml"
@@ -180,11 +179,12 @@ Thanks to Paul van Els for this use case and supplying these FASTA files.
 
 ![Example 11: Two alignments, different site models](pics/aco_hky_nd2_tn93.png)
 
-```{r example_11}
+```
+# Deprecated
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
-  site_models = list(
+  site_model = list(
     create_hky_site_model(), 
     create_tn93_site_model()
   )
@@ -199,11 +199,12 @@ Thanks to Paul van Els for this use case.
 
 [Example 12: shared clock model](aco_nd2_same_clock_model.png)
 
-```{r example_12}
+```
+# Deprecated
 create_beast2_input_file(
   c("anthus_aco.fas", "anthus_nd2.fas"),
   "my_beast.xml",
-  clock_models = list(
+  clock_model = list(
     create_strict_clock_model(id = "anthus_aco"), 
     create_strict_clock_model(id = "anthus_aco")
   )
