@@ -129,7 +129,7 @@ create_beast2_input_file(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">tree_priors =</span> <span class="kw">create_bd_tree_prior</span>() 
+  <span class="dt">tree_prior =</span> <span class="kw">create_bd_tree_prior</span>() 
 )</code></pre></div>
 </div>
 <div id="example-6-yule-tree-prior-with-a-normally-distributed-birth-rate" class="section level2">
@@ -137,7 +137,7 @@ create_beast2_input_file(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">tree_priors =</span> <span class="kw">create_yule_tree_prior</span>(
+  <span class="dt">tree_prior =</span> <span class="kw">create_yule_tree_prior</span>(
     <span class="dt">birth_rate_distr =</span> <span class="kw">create_normal_distr</span>()
   ) 
 )</code></pre></div>

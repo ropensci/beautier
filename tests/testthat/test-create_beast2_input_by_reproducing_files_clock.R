@@ -25,7 +25,7 @@ test_that("rln_2_4.xml", {
       ),
       mparam_id = 1
     ),
-    tree_priors = create_yule_tree_prior(
+    tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
@@ -45,7 +45,7 @@ test_that("rln_uclstdev_beta_2_4.xml", {
       ),
       mparam_id = 1
     ),
-    tree_priors = create_yule_tree_prior(
+    tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(get_beautier_path("rln_uclstdev_beta_2_4.xml"))
@@ -60,7 +60,7 @@ test_that("strict_clock_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    tree_priors = create_yule_tree_prior(
+    tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(get_beautier_path("strict_clock_2_4.xml"))
@@ -77,7 +77,7 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
         value = "0.5"
       )
     ),
-    tree_priors = create_yule_tree_prior(
+    tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
   expected <- readLines(get_beautier_path("strict_clock_rate_0_5_2_4.xml"))

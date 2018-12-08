@@ -28,7 +28,7 @@ Create a Yule tree prior
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
     "create_yule_tree_prior.xml",
-    tree_priors = yule_tree_prior
+    tree_prior = yule_tree_prior
   )
   testit::assert(file.exists("create_yule_tree_prior.xml"))
 }

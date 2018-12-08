@@ -166,7 +166,7 @@ is_laplace_distr <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = input_fasta_filename,
 #'     "my_beast.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )

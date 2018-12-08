@@ -51,14 +51,14 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  tree_priors = create_bd_tree_prior() 
+  tree_prior = create_bd_tree_prior() 
 )
 
 ## ----example_6-----------------------------------------------------------
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr()
   ) 
 )

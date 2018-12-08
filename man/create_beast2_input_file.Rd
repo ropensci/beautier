@@ -9,11 +9,10 @@ create_beast2_input_file(input_filenames, output_filename,
   get_alignment_id(input_filenames)),
   clock_models = create_strict_clock_model(id =
   get_alignment_id(input_filenames)),
-  tree_priors = create_yule_tree_prior(id =
-  get_alignment_id(input_filenames)), mrca_prior = NA,
+  tree_prior = create_yule_tree_prior(), mrca_prior = NA,
   mcmc = create_mcmc(), misc_options = create_misc_options(),
-  mrca_priors = "deprecated", posterior_crown_age = "deprecated",
-  tipdates_filename = NA)
+  tree_priors = "deprecated", mrca_priors = "deprecated",
+  posterior_crown_age = "deprecated", tipdates_filename = NA)
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -28,7 +27,7 @@ as returned by \code{\link{create_site_model}}}
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
 
-\item{tree_priors}{one or more tree priors,
+\item{tree_prior}{a tree priors,
 as returned by \code{\link{create_tree_prior}}}
 
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
@@ -39,6 +38,9 @@ as returned by \code{\link{create_mcmc}}}
 
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
+
+\item{tree_priors}{one or more tree priors,
+as returned by \code{\link{create_tree_prior}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}

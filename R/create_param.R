@@ -35,7 +35,7 @@
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_alpha_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
 #'     )
 #'   )
@@ -96,7 +96,7 @@ create_param <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_alpha_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
 #'     )
 #'   )
@@ -141,7 +141,7 @@ create_alpha_param <- create_param_alpha <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_beta_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = gamma_distr
 #'     )
 #'   )
@@ -262,7 +262,7 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_lambda_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
 #'     )
 #'   )
@@ -302,7 +302,7 @@ create_lambda_param <- create_param_lambda <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_m_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )
@@ -345,7 +345,7 @@ create_m_param <- create_param_m <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_mean_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
 #'     )
 #'   )
@@ -386,7 +386,7 @@ create_mean_param <- create_param_mean <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_mu_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
 #'     )
 #'   )
@@ -641,7 +641,7 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_s_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )
@@ -686,7 +686,7 @@ create_s_param <- create_param_s <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_scale_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
 #'     )
 #'   )
@@ -727,7 +727,7 @@ create_scale_param <- create_param_scale <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_sigma_param.xml",
-#'     tree_priors = create_yule_tree_prior(
+#'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
 #'     )
 #'   )

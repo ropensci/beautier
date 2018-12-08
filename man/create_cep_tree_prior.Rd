@@ -30,7 +30,7 @@ Create a Coalescent Exponential Population tree prior
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
     "create_cep_tree_prior.xml",
-    tree_priors = cep_tree_prior
+    tree_prior = cep_tree_prior
   )
   testit::assert(file.exists("create_cep_tree_prior.xml"))
 }

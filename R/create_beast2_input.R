@@ -20,12 +20,11 @@ create_beast2_input <- function(
   clock_models = create_strict_clock_model(
     id = get_alignment_id(input_filenames)
   ),
-  tree_priors = create_yule_tree_prior(
-    id = get_alignment_id(input_filenames)
-  ),
+  tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  tree_priors = "deprecated",
   mrca_priors = "deprecated",
   posterior_crown_age = "deprecated"
 ) {
@@ -67,9 +66,9 @@ create_beast2_input <- function(
     if (any("clock_models" %in% calls)) {
       stop("'clock_models' is deprecated, use 'clock_model' instead.")
     }
-    if (any("tree_priors" %in% calls)) {
-      stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
-    }
+  }
+  if (any("tree_priors" %in% calls)) {
+    stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
   }
   if (any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
@@ -85,6 +84,7 @@ create_beast2_input <- function(
   if (is_clock_model(clock_models)) { # nolint internal function
     clock_models <- list(clock_models)
   }
+  tree_priors <- tree_prior
   if (is_tree_prior(tree_priors)) { # nolint internal function
     tree_priors <- list(tree_priors)
   }

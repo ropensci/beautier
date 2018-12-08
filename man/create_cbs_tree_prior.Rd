@@ -27,7 +27,7 @@ Create a Coalescent Bayesian Skyline tree prior
   create_beast2_input_file(
     input_filenames = get_beautier_path("test_output_6.fas"),
     "create_cbs_tree_prior.xml",
-    tree_priors = cbs_tree_prior
+    tree_prior = cbs_tree_prior
   )
   testit::assert(file.exists("create_cbs_tree_prior.xml"))
 }

@@ -32,7 +32,7 @@ Create a Laplace distribution
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
     "create_laplace_distr.xml",
-    tree_priors = create_yule_tree_prior(
+    tree_prior = create_yule_tree_prior(
       birth_rate_distr = laplace_distr
     )
   )

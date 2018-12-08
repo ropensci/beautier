@@ -26,7 +26,7 @@ Create a Coalescent Constant Population tree prior
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
     "create_ccp_tree_prior.xml",
-    tree_priors = ccp_tree_prior
+    tree_prior = ccp_tree_prior
   )
   testit::assert(file.exists("create_ccp_tree_prior.xml"))
 }

@@ -40,7 +40,7 @@ this parameter is used in a log-normal distribution
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
     "create_s_param.xml",
-    tree_priors = create_yule_tree_prior(
+    tree_prior = create_yule_tree_prior(
       birth_rate_distr = log_normal_distr
     )
   )

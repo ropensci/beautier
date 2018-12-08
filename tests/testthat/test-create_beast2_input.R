@@ -40,7 +40,7 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
     input_filenames = fasta_filename,
     site_models = create_jc69_site_model(),
     clock_models = create_rln_clock_model(),
-    tree_priors = create_cep_tree_prior(),
+    tree_prior = create_cep_tree_prior(),
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -95,17 +95,25 @@ test_that("abuse: one alignment", {
     )
   )
 
-  # 4 tree_priors
+  # 4 tree_prior
   expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
-      tree_priors = "nonsense"
+      tree_prior = "nonsense"
     ),
     paste0(
       "'tree_priors' must be a valid tree prior, ",
       "or a list of valid tree priors, ",
       "as returned by 'create_tree_prior'"
     )
+  )
+  # tree_priors
+  expect_error(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      tree_priors = "nonsense"
+    ),
+    "'tree_priors' is deprecated, use 'tree_prior' instead"
   )
 
   # mrca_prior
@@ -156,7 +164,7 @@ test_that("abuse: one alignment", {
   expect_error(
     create_beast2_input(
       input_filenames = get_beautier_path("anthus_aco_sub.fas"),
-      tree_priors = create_cbs_tree_prior(group_sizes_dimension = 5)
+      tree_prior = create_cbs_tree_prior(group_sizes_dimension = 5)
     ),
     "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
   )
