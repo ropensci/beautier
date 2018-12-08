@@ -23,9 +23,10 @@ create_beast2_input <- function(
   tree_priors = create_yule_tree_prior(
     id = get_alignment_id(input_filenames)
   ),
-  mrca_priors = NA,
+  mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  mrca_priors = "deprecated",
   posterior_crown_age = "deprecated"
 ) {
   # Check for deprecated argument names
@@ -69,9 +70,9 @@ create_beast2_input <- function(
     if (any("tree_priors" %in% calls)) {
       stop("'tree_priors' is deprecated, use 'tree_prior' instead.")
     }
-    if (any("mrca_priors" %in% calls)) {
-      stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
-    }
+  }
+  if (any("mrca_priors" %in% calls)) {
+    stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
 
   # 2 site_models
@@ -87,6 +88,7 @@ create_beast2_input <- function(
   if (is_tree_prior(tree_priors)) { # nolint internal function
     tree_priors <- list(tree_priors)
   }
+  mrca_priors <- mrca_prior
   if (is_mrca_prior(mrca_priors)) { # nolint internal function
     mrca_priors <- list(mrca_priors)
     testit::assert(is_mrca_prior(mrca_priors[[1]])) # nolint internal function
@@ -125,7 +127,7 @@ create_beast2_input <- function(
   # 5 MRCA priors
   if (!are_mrca_priors(mrca_priors)) { # nolint internal function
     stop(
-      "'mrca_priors' must be NA or a valid mrca object, ",
+      "'mrca_prior' must be NA or a valid mrca object, ",
       "as returned by 'create_mrca_prior'"
     )
   }

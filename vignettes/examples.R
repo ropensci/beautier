@@ -35,13 +35,6 @@ create_beast2_input_file_1_12(
 
 ## ------------------------------------------------------------------------
 create_beast2_input_file(
-  "my_fasta.fas",
-  "my_beast.xml",
-  posterior_crown_age = 15
-)
-
-## ------------------------------------------------------------------------
-create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
   site_models = create_jc69_site_model()
@@ -92,7 +85,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id("my_alignment.fas"),
     taxa_names = get_taxa_names("my_alignment.fas")
   )
@@ -102,7 +95,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id("my_alignment.fas"),
     taxa_names = get_taxa_names("my_alignment.fas"),
     mrca_distr = create_normal_distr(
@@ -117,7 +110,7 @@ crown_age <- 15
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  mrca_priors = create_mrca_prior(
+  mrca_prior = create_mrca_prior(
     alignment_id = get_alignment_id("my_alignment.fas"),
     taxa_names = get_taxa_names("my_alignment.fas"),
     is_monophyletic = TRUE,

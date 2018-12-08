@@ -1081,7 +1081,7 @@ test_that("anthus_aco_sub_calibration.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     mcmc = create_mcmc(chain_length = 10000),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -1113,7 +1113,7 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     mcmc = create_mcmc(chain_length = 10000),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "every",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -1150,7 +1150,7 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
       mparam_id = 20
     ),
     mcmc = create_mcmc(chain_length = 10000),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "every",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -1186,7 +1186,7 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
       mparam_id = 20
     ),
     mcmc = create_mcmc(chain_length = 10000),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "every",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
@@ -1230,7 +1230,7 @@ test_that("Base point + all taxa", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
@@ -1257,7 +1257,7 @@ test_that("Base point + all taxa + monophyletic", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
@@ -1283,7 +1283,7 @@ test_that("Base point + all taxa + monophyletic + one_div_x", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
@@ -1311,7 +1311,7 @@ test_that("Base point + all taxa + one_div_x", {
     tree_priors = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
@@ -1349,7 +1349,7 @@ test_that("Base point + all taxa + one_div_x + RLN", {
       mparam_id = 20,
       mean_rate_prior_distr = create_uniform_distr(id = 4)
     ),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       name = "all",
       alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),

@@ -29,9 +29,10 @@ create_beast2_input_file <- function(
   tree_priors = create_yule_tree_prior(
     id = get_alignment_id(input_filenames)
   ),
-  mrca_priors = NA,
+  mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  mrca_priors = "deprecated",
   posterior_crown_age = "deprecated",
   tipdates_filename = NA
 ) {
@@ -63,6 +64,9 @@ create_beast2_input_file <- function(
       ")\n"
     )
   }
+  if (any("mrca_priors" %in% calls)) {
+    stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
+  }
 
   # Error handling done by create_beast2_input
   text <- create_beast2_input(
@@ -71,7 +75,7 @@ create_beast2_input_file <- function(
     site_models = site_models,
     clock_models = clock_models,
     tree_priors = tree_priors,
-    mrca_priors = mrca_priors,
+    mrca_prior = mrca_prior,
     mcmc = mcmc,
     misc_options = misc_options
   )

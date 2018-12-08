@@ -12,7 +12,7 @@
 
 <meta name="author" content="Richel J.C. Bilderbeek" />
 
-<meta name="date" content="2018-11-11" />
+<meta name="date" content="2018-12-08" />
 
 <title>Examples</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Examples</h1>
 <h4 class="author"><em>Richel J.C. Bilderbeek</em></h4>
-<h4 class="date"><em>2018-11-11</em></h4>
+<h4 class="date"><em>2018-12-08</em></h4>
 
 
 
@@ -100,11 +100,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="dt">fasta_filename =</span> <span class="st">&quot;my_fasta.fas&quot;</span>,
     <span class="dt">crown_age =</span> <span class="dv">15</span>)
 )</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
-  <span class="st">&quot;my_fasta.fas&quot;</span>,
-  <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">posterior_crown_age =</span> <span class="dv">15</span>
-)</code></pre></div>
+<pre><code># Deprecated
+create_beast2_input_file(
+  &quot;my_fasta.fas&quot;,
+  &quot;my_beast.xml&quot;,
+  posterior_crown_age = 15
+)</code></pre>
 <p><code>fasta_to_phylo</code> creates a random phylogeny from a FASTA file of a certain crown age.</p>
 </div>
 <div id="example-3-jc69-site-model" class="section level2">
@@ -170,7 +171,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">mrca_priors =</span> <span class="kw">create_mrca_prior</span>(
+  <span class="dt">mrca_prior =</span> <span class="kw">create_mrca_prior</span>(
     <span class="dt">alignment_id =</span> <span class="kw">get_alignment_id</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">taxa_names =</span> <span class="kw">get_taxa_names</span>(<span class="st">&quot;my_alignment.fas&quot;</span>)
   )
@@ -178,7 +179,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">mrca_priors =</span> <span class="kw">create_mrca_prior</span>(
+  <span class="dt">mrca_prior =</span> <span class="kw">create_mrca_prior</span>(
     <span class="dt">alignment_id =</span> <span class="kw">get_alignment_id</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">taxa_names =</span> <span class="kw">get_taxa_names</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">mrca_distr =</span> <span class="kw">create_normal_distr</span>(
@@ -196,7 +197,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">mrca_priors =</span> <span class="kw">create_mrca_prior</span>(
+  <span class="dt">mrca_prior =</span> <span class="kw">create_mrca_prior</span>(
     <span class="dt">alignment_id =</span> <span class="kw">get_alignment_id</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">taxa_names =</span> <span class="kw">get_taxa_names</span>(<span class="st">&quot;my_alignment.fas&quot;</span>),
     <span class="dt">is_monophyletic =</span> <span class="ot">TRUE</span>,

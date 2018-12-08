@@ -24,7 +24,7 @@ test_that("use with calibration node", {
   expect_silent(
     create_beast2_input(
       input_filenames = fasta_filename,
-      mrca_priors = create_mrca_prior(
+      mrca_prior = create_mrca_prior(
         alignment_id = get_alignment_id(fasta_filename),
         taxa_names = get_taxa_names(fasta_filename)
       )
@@ -41,7 +41,7 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
     site_models = create_jc69_site_model(),
     clock_models = create_rln_clock_model(),
     tree_priors = create_cep_tree_prior(),
-    mrca_priors = create_mrca_prior(
+    mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = TRUE
@@ -108,13 +108,21 @@ test_that("abuse: one alignment", {
     )
   )
 
+  # mrca_prior
+  expect_error(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      mrca_prior = "nonsense"
+    ),
+    "'mrca_prior' must be NA or a valid mrca object"
+  )
   # mrca_priors
   expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       mrca_priors = "nonsense"
     ),
-    "'mrca_priors' must be NA or a valid mrca object"
+    "'mrca_priors' is deprecated, use 'mrca_prior' instead."
   )
 
   # 5 mcmc
@@ -157,7 +165,7 @@ test_that("abuse: one alignment", {
   expect_error(
     create_beast2_input(
       input_filenames = fasta_filename,
-      mrca_priors = create_mrca_prior(
+      mrca_prior = create_mrca_prior(
         alignment_id = paste0("broken_", get_alignment_id(fasta_filename)),
         taxa_names = get_taxa_names(fasta_filename)
       )
@@ -168,7 +176,7 @@ test_that("abuse: one alignment", {
   expect_error(
     create_beast2_input(
       input_filenames = fasta_filename,
-      mrca_priors = create_mrca_prior(
+      mrca_prior = create_mrca_prior(
         alignment_id = get_alignment_id(fasta_filename),
         taxa_names = paste0("broken_", get_taxa_names(fasta_filename))
       )
@@ -195,7 +203,7 @@ test_that("abuse: one alignment", {
   expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
-      mrca_priors = intersecting_mrca_priors
+      mrca_prior = intersecting_mrca_priors
     ),
     "Monophyletic MRCA priors must have taxon sets without intersection"
   )
