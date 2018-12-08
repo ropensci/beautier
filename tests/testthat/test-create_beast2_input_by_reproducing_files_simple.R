@@ -70,7 +70,7 @@ test_that("gtr_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_fasta_filename(),
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       rate_ac_prior_distr = create_gamma_distr(
         id = 0,
@@ -110,7 +110,7 @@ test_that("gtr_gcc_1_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
@@ -152,7 +152,7 @@ test_that("gtr_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
@@ -194,7 +194,7 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -239,7 +239,7 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -284,7 +284,7 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_fasta_filename(),
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       rate_ac_param = create_rate_ac_param(value = "1.0", estimate = FALSE),
       rate_ag_param = create_rate_ag_param(value = "1.0", estimate = FALSE),
@@ -311,7 +311,7 @@ test_that("hky_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_hky_site_model(
+    site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
@@ -333,7 +333,7 @@ test_that("hky_kappa_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_hky_site_model(
+    site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa = 3.4,
       kappa_prior_distr = create_log_normal_distr(
@@ -354,7 +354,7 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_hky_site_model(
+    site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         prop_invariant = 0.5
@@ -378,7 +378,7 @@ test_that("hky_gcc_1_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_hky_site_model(
+    site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 1
@@ -401,7 +401,7 @@ test_that("hky_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_hky_site_model(
+    site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
@@ -424,7 +424,7 @@ test_that("hky_gcc_4_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_hky_site_model(
+    site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 4
@@ -454,7 +454,7 @@ test_that("jc69_2_4.xml", {
   id <- get_alignment_id(input_fasta_filename)
   created <- create_beast2_input(
     input_filenames = input_fasta_filename,
-    site_models = create_jc69_site_model(
+    site_model = create_jc69_site_model(
       id = id
     ),
     tree_prior = create_yule_tree_prior(
@@ -473,7 +473,7 @@ test_that("jc69_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = input_fasta_filename,
-    site_models = create_jc69_site_model(
+    site_model = create_jc69_site_model(
       id = id,
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2
@@ -494,7 +494,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = input_fasta_filename,
-    site_models = create_jc69_site_model(
+    site_model = create_jc69_site_model(
       id = id,
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -514,7 +514,7 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_jc69_site_model(
+    site_model = create_jc69_site_model(
       id = "test_output_0",
       gamma_site_model = create_gamma_site_model(
         gamma_cat_count = 2,
@@ -539,7 +539,7 @@ test_that("tn93_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_tn93_site_model(
+    site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa_1_prior_distr = create_log_normal_distr(
         id = 1,
@@ -566,7 +566,7 @@ test_that("tn93_gcc_1_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_tn93_site_model(
+    site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1),
       kappa_1_prior_distr = create_log_normal_distr(
@@ -594,7 +594,7 @@ test_that("tn93_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_tn93_site_model(
+    site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2),
       kappa_1_prior_distr = create_log_normal_distr(
@@ -622,7 +622,7 @@ test_that("tn93_kappas_not_estimated.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    site_models = create_tn93_site_model(
+    site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa_1_param = create_kappa_1_param(value = "2.0", estimate = FALSE),
       kappa_2_param = create_kappa_2_param(value = "2.0", estimate = FALSE),

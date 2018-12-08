@@ -33,7 +33,7 @@ Create a parameter called 'rate AC'
   create_beast2_input_file(
     input_filenames = get_fasta_filename(),
     "create_rate_ac_param.xml",
-    site_models = create_gtr_site_model(
+    site_model = create_gtr_site_model(
       rate_ac_param = rate_ac_param
     )
   )

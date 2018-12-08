@@ -111,7 +111,7 @@ is_jc69_site_model <- function(
 #'  create_beast2_input_file(
 #'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
-#'    site_models = create_tn93_site_model()
+#'    site_model = create_tn93_site_model()
 #'  )
 #' @noRd
 is_tn93_site_model <- function(

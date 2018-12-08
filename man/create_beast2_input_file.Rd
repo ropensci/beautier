@@ -5,14 +5,13 @@
 \title{Create a BEAST2 input file}
 \usage{
 create_beast2_input_file(input_filenames, output_filename,
-  site_models = create_jc69_site_model(id =
-  get_alignment_id(input_filenames)),
+  site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
   tree_prior = create_yule_tree_prior(), mrca_prior = NA,
   mcmc = create_mcmc(), misc_options = create_misc_options(),
-  clock_models = "deprecated", tree_priors = "deprecated",
-  mrca_priors = "deprecated", posterior_crown_age = "deprecated",
-  tipdates_filename = NA)
+  site_models = "deprecated", clock_models = "deprecated",
+  tree_priors = "deprecated", mrca_priors = "deprecated",
+  posterior_crown_age = "deprecated", tipdates_filename = NA)
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -21,7 +20,7 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 \item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
 
-\item{site_models}{one or more site models,
+\item{site_model}{a site model,
 as returned by \code{\link{create_site_model}}}
 
 \item{clock_model}{a clock model,
@@ -38,6 +37,9 @@ as returned by \code{\link{create_mcmc}}}
 
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
+
+\item{site_models}{one or more site models,
+as returned by \code{\link{create_site_model}}}
 
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}

@@ -113,7 +113,7 @@ create_beast2_input_file(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">site_models =</span> <span class="kw">create_jc69_site_model</span>()
+  <span class="dt">site_model =</span> <span class="kw">create_jc69_site_model</span>()
 )</code></pre></div>
 </div>
 <div id="example-4-relaxed-clock-log-normal" class="section level2">
@@ -148,7 +148,7 @@ create_beast2_input_file(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_beast2_input_file</span>(
   <span class="st">&quot;my_alignment.fas&quot;</span>,
   <span class="st">&quot;my_beast.xml&quot;</span>,
-  <span class="dt">site_models =</span> <span class="kw">create_hky_site_model</span>(
+  <span class="dt">site_model =</span> <span class="kw">create_hky_site_model</span>(
     <span class="dt">gamma_site_model =</span> <span class="kw">create_gamma_site_model</span>(<span class="dt">prop_invariant =</span> <span class="fl">0.5</span>)
   )
 )</code></pre></div>
@@ -221,17 +221,15 @@ create_beast2_input_file(
 </div>
 <div id="example-12-two-alignments-different-site-models" class="section level2">
 <h2>Example #12: Two alignments, different site models</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Deprecated support for now</span>
-<span class="cf">if</span> (<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>) {
-  beautier<span class="op">::</span><span class="kw">create_beast2_input_file</span>(
-    <span class="kw">c</span>(<span class="st">&quot;anthus_aco.fas&quot;</span>, <span class="st">&quot;anthus_nd2.fas&quot;</span>),
-    <span class="st">&quot;my_beast.xml&quot;</span>,
-    <span class="dt">site_models =</span> <span class="kw">list</span>(
-      <span class="kw">create_hky_site_model</span>(), 
-      <span class="kw">create_tn93_site_model</span>()
-    )
+<pre><code># Deprecated support for now
+beautier::create_beast2_input_file(
+  c(&quot;anthus_aco.fas&quot;, &quot;anthus_nd2.fas&quot;),
+  &quot;my_beast.xml&quot;,
+  site_models = list(
+    create_hky_site_model(), 
+    create_tn93_site_model()
   )
-}</code></pre></div>
+)</code></pre>
 <p>Since <code>v1.12</code> this it is supported to have two alignments with different site models, clock models and tree priors.</p>
 <p>Thanks to Paul van Els for this use case.</p>
 </div>

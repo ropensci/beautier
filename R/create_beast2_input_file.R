@@ -20,14 +20,13 @@
 create_beast2_input_file <- function(
   input_filenames,
   output_filename,
-  site_models = create_jc69_site_model(id = get_alignment_id(
-    input_filenames)
-  ),
+  site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
   tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
@@ -66,9 +65,9 @@ create_beast2_input_file <- function(
     if (any("fasta_filenames" %in% calls)) {
       stop("'fasta_filenames' is deprecated, use 'fasta_filename' instead.")
     }
-    if (any("site_models" %in% calls)) {
-      stop("'site_models' is deprecated, use 'site_model' instead.")
-    }
+  }
+  if (any("site_models" %in% calls)) {
+    stop("'site_models' is deprecated, use 'site_model' instead.")
   }
   if (any("clock_models" %in% calls)) {
     stop("'clock_models' is deprecated, use 'clock_model' instead.")
@@ -84,7 +83,7 @@ create_beast2_input_file <- function(
   text <- create_beast2_input(
     input_filenames = input_filenames,
     tipdates_filename = tipdates_filename,
-    site_models = site_models,
+    site_model = site_model,
     clock_model = clock_model,
     tree_prior = tree_prior,
     mrca_prior = mrca_prior,

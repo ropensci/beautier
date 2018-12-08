@@ -37,7 +37,7 @@ create_beast2_input_file_1_12(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  site_models = create_jc69_site_model()
+  site_model = create_jc69_site_model()
 )
 
 ## ----example_4-----------------------------------------------------------
@@ -67,7 +67,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  site_models = create_hky_site_model(
+  site_model = create_hky_site_model(
     gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
   )
 )
@@ -127,19 +127,6 @@ if (1 == 2) {
   create_beast2_input_file(
     c("anthus_aco.fas", "anthus_nd2.fas"),
     "my_beast.xml"
-  )
-}
-
-## ----example_12----------------------------------------------------------
-# Deprecated support for now
-if (1 == 2) {
-  beautier::create_beast2_input_file(
-    c("anthus_aco.fas", "anthus_nd2.fas"),
-    "my_beast.xml",
-    site_models = list(
-      create_hky_site_model(), 
-      create_tn93_site_model()
-    )
   )
 }
 

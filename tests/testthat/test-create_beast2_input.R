@@ -38,7 +38,7 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
   fasta_filename <- get_fasta_filename()
   lines <- create_beast2_input(
     input_filenames = fasta_filename,
-    site_models = create_jc69_site_model(),
+    site_model = create_jc69_site_model(),
     clock_model = create_rln_clock_model(),
     tree_prior = create_cep_tree_prior(),
     mrca_prior = create_mrca_prior(
@@ -69,17 +69,23 @@ test_that("abuse: one alignment", {
     "'input_filenames' must be the name of one or more present files"
   )
 
-  # 2 site_models
+  # 2 site_model
+  expect_error(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      site_model = "nonsense"
+    ),
+    paste0(
+      "'site_model' must be a valid site model, ",
+      "as returned by 'create_site_model'"
+    )
+  )
   expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
       site_models = "nonsense"
     ),
-    paste0(
-      "'site_models' must be a valid site model, ",
-      "or a list of valid site models, ",
-      "as returned by 'create_site_model'"
-    )
+    "'site_models' is deprecated, use 'site_model' instead"
   )
 
   # 3 clock_models

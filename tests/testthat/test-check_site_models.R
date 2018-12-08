@@ -21,8 +21,7 @@ test_that("use", {
       site_models = "nonsense"
     ),
     paste0(
-      "'site_models' must be a valid site model, ",
-      "or a list of valid site models, ",
+      "'site_model' must be a valid site model, ",
       "as returned by 'create_site_model'"
     )
   )

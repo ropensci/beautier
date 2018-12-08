@@ -419,7 +419,7 @@ create_mu_param <- create_param_mu <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_rate_ac_param.xml",
-#'     site_models = create_gtr_site_model(
+#'     site_model = create_gtr_site_model(
 #'       rate_ac_param = rate_ac_param
 #'     )
 #'   )
@@ -455,7 +455,7 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_rate_ag_param.xml",
-#'     site_models = create_gtr_site_model(
+#'     site_model = create_gtr_site_model(
 #'       rate_ag_param = rate_ag_param
 #'     )
 #'   )
@@ -491,7 +491,7 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_rate_at_param.xml",
-#'     site_models = create_gtr_site_model(
+#'     site_model = create_gtr_site_model(
 #'       rate_at_param = rate_at_param
 #'     )
 #'   )
@@ -527,7 +527,7 @@ create_rate_at_param <- create_param_rate_at <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_rate_cg_param.xml",
-#'     site_models = create_gtr_site_model(
+#'     site_model = create_gtr_site_model(
 #'       rate_cg_param = rate_cg_param
 #'     )
 #'   )
@@ -563,7 +563,7 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_rate_ct_param.xml",
-#'     site_models = create_gtr_site_model(
+#'     site_model = create_gtr_site_model(
 #'       rate_ct_param = rate_ct_param
 #'     )
 #'   )
@@ -598,7 +598,7 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_rate_gt_param.xml",
-#'     site_models = create_gtr_site_model(
+#'     site_model = create_gtr_site_model(
 #'       rate_gt_param = rate_gt_param
 #'     )
 #'   )

@@ -25,7 +25,7 @@
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     output_filename = "example_gtr.xml",
-#'     site_models = create_gtr_site_model()
+#'     site_model = create_gtr_site_model()
 #'   )
 #'   testthat::expect_true(file.exists("example_gtr.xml"))
 #'
@@ -33,7 +33,7 @@
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     output_filename = "example_hky.xml",
-#'     site_models = create_hky_site_model()
+#'     site_model = create_hky_site_model()
 #'   )
 #'   testthat::expect_true(file.exists("example_hky.xml"))
 #'
@@ -41,7 +41,7 @@
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     output_filename = "example_jc69.xml",
-#'     site_models = create_jc69_site_model()
+#'     site_model = create_jc69_site_model()
 #'   )
 #'   testthat::expect_true(file.exists("example_jc69.xml"))
 #'
@@ -49,7 +49,7 @@
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     output_filename = "example_tn93.xml",
-#'     site_models = create_tn93_site_model()
+#'     site_model = create_tn93_site_model()
 #'   )
 #'   testthat::expect_true(file.exists("example_tn93.xml"))
 #' @export
@@ -138,7 +138,7 @@ create_site_model <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_gtr_site_model.xml",
-#'     site_models = gtr_site_model
+#'     site_model = gtr_site_model
 #'   )
 #'   testit::assert(file.exists("create_gtr_site_model.xml"))
 #' @aliases create_gtr_site_model create_site_model_gtr
@@ -231,7 +231,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #'  create_beast2_input_file(
 #'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
-#'    site_models = hky_site_model
+#'    site_model = hky_site_model
 #'  )
 #' @aliases create_hky_site_model create_site_model_hky
 #' @export create_hky_site_model create_site_model_hky
@@ -265,7 +265,7 @@ create_hky_site_model <- create_site_model_hky <- function(
 #'  create_beast2_input_file(
 #'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
-#'    site_models = jc69_site_model
+#'    site_model = jc69_site_model
 #'  )
 #' @aliases create_jc69_site_model create_site_model_jc69
 #' @export create_jc69_site_model create_site_model_jc69
@@ -313,7 +313,7 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'  create_beast2_input_file(
 #'    input_filenames = get_fasta_filename(),
 #'    "beast.xml",
-#'    site_models = tn93_site_model
+#'    site_model = tn93_site_model
 #'  )
 #' @aliases create_tn93_site_model create_site_model_tn93
 #' @export create_tn93_site_model create_site_model_tn93

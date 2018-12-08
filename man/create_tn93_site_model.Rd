@@ -60,7 +60,7 @@ Create a TN93 site model
  create_beast2_input_file(
    input_filenames = get_fasta_filename(),
    "beast.xml",
-   site_models = tn93_site_model
+   site_model = tn93_site_model
  )
 }
 \author{

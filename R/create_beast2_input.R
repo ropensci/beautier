@@ -14,14 +14,13 @@
 create_beast2_input <- function(
   input_filenames,
   tipdates_filename = NA,
-  site_models = create_jc69_site_model(
-    id = get_alignment_id(input_filenames)
-  ),
+  site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
   tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
@@ -59,9 +58,9 @@ create_beast2_input <- function(
     if (any("fasta_filenames" %in% calls)) {
       stop("'fasta_filenames' is deprecated, use 'fasta_filename' instead.")
     }
-    if (any("site_models" %in% calls)) {
-      stop("'site_models' is deprecated, use 'site_model' instead.")
-    }
+  }
+  if (any("site_models" %in% calls)) {
+    stop("'site_models' is deprecated, use 'site_model' instead.")
   }
   if (any("clock_models" %in% calls)) {
     stop("'clock_models' is deprecated, use 'clock_model' instead.")
@@ -74,6 +73,7 @@ create_beast2_input <- function(
   }
 
   # 2 site_models
+  site_models <- site_model
   check_site_models(site_models) # nolint internal function
 
   # Convert possible-non-list input to lists and multiPhylo
