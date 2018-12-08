@@ -37,7 +37,7 @@ Create a strict clock model
   create_beast2_input_file(
     get_fasta_filename(),
     "create_strict_clock_model.xml",
-    clock_models = strict_clock_model
+    clock_model = strict_clock_model
   )
   testit::assert(file.exists("create_strict_clock_model.xml"))
 
@@ -48,7 +48,7 @@ Create a strict clock model
   create_beast2_input_file(
     get_fasta_filename(),
     "create_strict_clock_model_gamma.xml",
-    clock_models = strict_clock_model_gamma
+    clock_model = strict_clock_model_gamma
   )
   testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
 }

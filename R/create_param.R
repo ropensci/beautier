@@ -182,7 +182,7 @@ create_beta_param <- create_param_beta <- function(
 #'   create_beast2_input_file(
 #'     input_filenames = get_fasta_filename(),
 #'     "create_clock_rate_param.xml",
-#'     clock_models = strict_clock_model
+#'     clock_model = strict_clock_model
 #'   )
 #'   testit::assert(file.exists("create_clock_rate_param.xml"))
 #' @aliases create_clock_rate_param create_param_clock_rate

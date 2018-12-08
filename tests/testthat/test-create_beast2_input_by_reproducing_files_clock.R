@@ -17,7 +17,7 @@ test_that("rln_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    clock_models = create_rln_clock_model(
+    clock_model = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
         id = 0,
         alpha = create_alpha_param(id = 2, value = "0.5396"),
@@ -37,7 +37,7 @@ test_that("rln_uclstdev_beta_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    clock_models = create_rln_clock_model(
+    clock_model = create_rln_clock_model(
       ucldstdev_distr = create_beta_distr(
         id = 0,
         alpha = create_alpha_param(id = 4, value = "2.0"),
@@ -71,7 +71,7 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
 
   created <- create_beast2_input(
     input_filenames = get_beautier_path("test_output_0.fas"),
-    clock_models = create_strict_clock_model(
+    clock_model = create_strict_clock_model(
       clock_rate_param = create_clock_rate_param(
         id = "test_output_0.fas",
         value = "0.5"

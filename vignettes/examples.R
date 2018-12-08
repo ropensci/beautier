@@ -44,7 +44,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  clock_models = create_rln_clock_model()
+  clock_model = create_rln_clock_model()
 )
 
 ## ----example_5-----------------------------------------------------------
@@ -76,7 +76,7 @@ create_beast2_input_file(
 create_beast2_input_file(
   "my_alignment.fas",
   "my_beast.xml",
-  clock_models = create_strict_clock_model(
+  clock_model = create_strict_clock_model(
     clock_rate_param = 0.5
   ) 
 )

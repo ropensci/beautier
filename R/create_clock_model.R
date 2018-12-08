@@ -20,7 +20,7 @@
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
 #'     "create_clock_model_rln.xml",
-#'     clock_models = rln_clock_model
+#'     clock_model = rln_clock_model
 #'   )
 #'   testit::assert(file.exists("create_clock_model_rln.xml"))
 #'
@@ -29,7 +29,7 @@
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
 #'     "create_clock_model_strict.xml",
-#'     clock_models = strict_clock_model
+#'     clock_model = strict_clock_model
 #'   )
 #'   testit::assert(file.exists("create_clock_model_strict.xml"))
 #' @export
@@ -83,7 +83,7 @@ create_clock_model <- function(
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
 #'     "create_rln_clock_model.xml",
-#'     clock_models = rln_clock_model
+#'     clock_model = rln_clock_model
 #'   )
 #'   testit::assert(file.exists("create_rln_clock_model.xml"))
 #'
@@ -94,7 +94,7 @@ create_clock_model <- function(
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
 #'     "create_rln_clock_model_exp.xml",
-#'     clock_models = rln_clock_model_exp
+#'     clock_model = rln_clock_model_exp
 #'   )
 #'   testit::assert(file.exists("create_rln_clock_model_exp.xml"))
 #' @aliases create_rln_clock_model create_clock_model_rln
@@ -143,7 +143,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
 #'     "create_strict_clock_model.xml",
-#'     clock_models = strict_clock_model
+#'     clock_model = strict_clock_model
 #'   )
 #'   testit::assert(file.exists("create_strict_clock_model.xml"))
 #'
@@ -154,7 +154,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
 #'     "create_strict_clock_model_gamma.xml",
-#'     clock_models = strict_clock_model_gamma
+#'     clock_model = strict_clock_model_gamma
 #'   )
 #'   testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
 #' @aliases create_strict_clock_model create_clock_model_strict

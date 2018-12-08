@@ -52,7 +52,7 @@ Create a relaxed log-normal clock model
   create_beast2_input_file(
     get_fasta_filename(),
     "create_rln_clock_model.xml",
-    clock_models = rln_clock_model
+    clock_model = rln_clock_model
   )
   testit::assert(file.exists("create_rln_clock_model.xml"))
 
@@ -63,7 +63,7 @@ Create a relaxed log-normal clock model
   create_beast2_input_file(
     get_fasta_filename(),
     "create_rln_clock_model_exp.xml",
-    clock_models = rln_clock_model_exp
+    clock_model = rln_clock_model_exp
   )
   testit::assert(file.exists("create_rln_clock_model_exp.xml"))
 }

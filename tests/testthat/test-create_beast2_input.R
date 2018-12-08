@@ -39,7 +39,7 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
   lines <- create_beast2_input(
     input_filenames = fasta_filename,
     site_models = create_jc69_site_model(),
-    clock_models = create_rln_clock_model(),
+    clock_model = create_rln_clock_model(),
     tree_prior = create_cep_tree_prior(),
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
@@ -86,13 +86,19 @@ test_that("abuse: one alignment", {
   expect_error(
     create_beast2_input(
       input_filenames = get_fasta_filename(),
-      clock_models = "nonsense"
+      clock_model = "nonsense"
     ),
     paste0(
-      "'clock_models' must be a valid clock model, ",
-      "or a list of valid clock models, ",
+      "'clock_model' must be a valid clock model, ",
       "as returned by 'create_clock_model'"
     )
+  )
+  expect_error(
+    create_beast2_input(
+      input_filenames = get_fasta_filename(),
+      clock_models = "nonsense"
+    ),
+    "'clock_models' is deprecated, use 'clock_model' instead"
   )
 
   # 4 tree_prior
@@ -102,8 +108,7 @@ test_that("abuse: one alignment", {
       tree_prior = "nonsense"
     ),
     paste0(
-      "'tree_priors' must be a valid tree prior, ",
-      "or a list of valid tree priors, ",
+      "'tree_prior' must be a valid tree prior, ",
       "as returned by 'create_tree_prior'"
     )
   )

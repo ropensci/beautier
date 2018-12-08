@@ -1141,7 +1141,7 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    clock_models = create_rln_clock_model(
+    clock_model = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
         id = 6,
         alpha = create_alpha_param(id = 21, value = "0.5396"),
@@ -1177,7 +1177,7 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    clock_models = create_rln_clock_model(
+    clock_model = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
         id = 6,
         alpha = create_alpha_param(id = 21, value = "0.5396"),
@@ -1341,7 +1341,7 @@ test_that("Base point + all taxa + one_div_x + RLN", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    clock_models = create_rln_clock_model(
+    clock_model = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(id = 6,
         alpha = create_alpha_param(id = 21, value = "0.5396"),
         beta = create_beta_param(id = 22, value = "0.3819")
