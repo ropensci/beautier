@@ -34,7 +34,7 @@ Create a random phylogeny, with the same taxa names as the FASTA file
   # Crown age fixed to the crown age of the phylogeny
   # Note: prefer create_beast2_input_file
   create_beast2_input_file_1_12(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     "fasta_to_phylo.xml",
     fixed_crown_age = TRUE,
     initial_phylogenies = initial_phylogeny

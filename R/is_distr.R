@@ -164,7 +164,7 @@ is_laplace_distr <- function(
 #'
 #'   input_fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
 #'   create_beast2_input_file(
-#'     input_filenames = input_fasta_filename,
+#'     input_filename = input_fasta_filename,
 #'     "my_beast.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr

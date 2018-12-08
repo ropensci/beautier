@@ -17,7 +17,7 @@ Get the path of a FASTA file used in testing
   testit::assert(file.exists(filename))
 
   create_beast2_input_file(
-    input_filenames = filename,
+    input_filename = filename,
     "my_beast.xml"
   )
 }

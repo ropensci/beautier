@@ -65,7 +65,7 @@ Create a BEAST2 XML input text
 }
 \examples{
   text <- create_beast2_input(
-    input_filenames = get_fasta_filename()
+    input_filename = get_fasta_filename()
   )
   testit::assert(substr(text[1], 1, 5) == "<?xml")
   text[1]

@@ -58,7 +58,7 @@ Create a TN93 site model
  )
 
  create_beast2_input_file(
-   input_filenames = get_fasta_filename(),
+   input_filename = get_fasta_filename(),
    "beast.xml",
    site_model = tn93_site_model
  )
