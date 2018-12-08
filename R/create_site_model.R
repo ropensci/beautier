@@ -23,7 +23,7 @@
 #' @examples
 #'   # GTR
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     output_filename = "example_gtr.xml",
 #'     site_model = create_gtr_site_model()
 #'   )
@@ -31,7 +31,7 @@
 #'
 #'   # HKY
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     output_filename = "example_hky.xml",
 #'     site_model = create_hky_site_model()
 #'   )
@@ -39,7 +39,7 @@
 #'
 #'   # JC69
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     output_filename = "example_jc69.xml",
 #'     site_model = create_jc69_site_model()
 #'   )
@@ -47,7 +47,7 @@
 #'
 #'   # TN93
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     output_filename = "example_tn93.xml",
 #'     site_model = create_tn93_site_model()
 #'   )
@@ -136,7 +136,7 @@ create_site_model <- function(
 #'  )
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_gtr_site_model.xml",
 #'     site_model = gtr_site_model
 #'   )

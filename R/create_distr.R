@@ -33,7 +33,7 @@
 #'   distr <- create_beta_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_distr.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = distr
@@ -92,7 +92,7 @@ create_distr <- function(
 #'   beta_distr <- create_beta_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_beta_distr.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -148,7 +148,7 @@ create_beta_distr <- create_distr_beta <- function(
 #'   exp_distr <- create_exp_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
@@ -200,7 +200,7 @@ create_exp_distr <- create_distr_exp <- function(
 #'   )
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_gamma_distr.xml",
 #'     site_model = gtr_site_model
 #'   )
@@ -259,7 +259,7 @@ create_gamma_distr <- create_distr_gamma <- function(
 #'   inv_gamma_distr <- create_inv_gamma_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = inv_gamma_distr
@@ -313,7 +313,7 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #'   laplace_distr <- create_laplace_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_laplace_distr.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -368,7 +368,7 @@ create_laplace_distr <- create_distr_laplace <- function(
 #'   log_normal_distr <- create_log_normal_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -423,7 +423,7 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #'   normal_distr <- create_normal_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
@@ -470,7 +470,7 @@ create_normal_distr <- create_distr_normal <- function(
 #'   one_div_x_distr <- create_one_div_x_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "my_beast.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = one_div_x_distr
@@ -502,7 +502,7 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #'   poisson_distr <- create_poisson_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_poisson_distr.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
@@ -542,7 +542,7 @@ create_poisson_distr <- create_distr_poisson <- function(
 #'   uniform_distr <- create_uniform_distr()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_uniform_distr.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = uniform_distr

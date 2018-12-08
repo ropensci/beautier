@@ -30,7 +30,7 @@ Create a Birth-Death tree prior
   bd_tree_prior <- create_bd_tree_prior()
 
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_bd_tree_prior.xml",
     tree_prior = bd_tree_prior
   )
@@ -41,7 +41,7 @@ Create a Birth-Death tree prior
   )
 
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_bd_tree_prior_exp.xml",
     tree_prior = bd_tree_prior_exp
   )

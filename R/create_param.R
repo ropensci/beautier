@@ -33,7 +33,7 @@
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_alpha_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -94,7 +94,7 @@ create_param <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_alpha_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
@@ -139,7 +139,7 @@ create_alpha_param <- create_param_alpha <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_beta_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = gamma_distr
@@ -180,7 +180,7 @@ create_beta_param <- create_param_beta <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_clock_rate_param.xml",
 #'     clock_model = strict_clock_model
 #'   )
@@ -260,7 +260,7 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_lambda_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
@@ -300,7 +300,7 @@ create_lambda_param <- create_param_lambda <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_m_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -343,7 +343,7 @@ create_m_param <- create_param_m <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_mean_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
@@ -384,7 +384,7 @@ create_mean_param <- create_param_mean <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_mu_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -417,7 +417,7 @@ create_mu_param <- create_param_mu <- function(
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_rate_ac_param.xml",
 #'     site_model = create_gtr_site_model(
 #'       rate_ac_param = rate_ac_param
@@ -453,7 +453,7 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_rate_ag_param.xml",
 #'     site_model = create_gtr_site_model(
 #'       rate_ag_param = rate_ag_param
@@ -489,7 +489,7 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_rate_at_param.xml",
 #'     site_model = create_gtr_site_model(
 #'       rate_at_param = rate_at_param
@@ -525,7 +525,7 @@ create_rate_at_param <- create_param_rate_at <- function(
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_rate_cg_param.xml",
 #'     site_model = create_gtr_site_model(
 #'       rate_cg_param = rate_cg_param
@@ -561,7 +561,7 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_rate_ct_param.xml",
 #'     site_model = create_gtr_site_model(
 #'       rate_ct_param = rate_ct_param
@@ -596,7 +596,7 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #'
 #'   # Use the parameter to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_rate_gt_param.xml",
 #'     site_model = create_gtr_site_model(
 #'       rate_gt_param = rate_gt_param
@@ -639,7 +639,7 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_s_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
@@ -684,7 +684,7 @@ create_s_param <- create_param_s <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_scale_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
@@ -725,7 +725,7 @@ create_scale_param <- create_param_scale <- function(
 #'
 #'   # Use the distribution to create a BEAST2 input file
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_sigma_param.xml",
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr

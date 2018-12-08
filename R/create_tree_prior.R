@@ -21,35 +21,35 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_tree_prior_bd.xml",
 #'     tree_prior = create_bd_tree_prior()
 #'   )
 #'   testit::assert(file.exists("create_tree_prior_bd.xml"))
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_beautier_path("test_output_6.fas"),
+#'     input_filename = get_beautier_path("test_output_6.fas"),
 #'     "create_tree_prior_cbs.xml",
 #'     tree_prior = create_cbs_tree_prior()
 #'   )
 #'   testit::assert(file.exists("create_tree_prior_cbs.xml"))
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_tree_prior_ccp.xml",
 #'     tree_prior = create_ccp_tree_prior()
 #'   )
 #'   testit::assert(file.exists("create_tree_prior_ccp.xml"))
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_tree_prior_cep.xml",
 #'     tree_prior = create_cep_tree_prior()
 #'   )
 #'   testit::assert(file.exists("create_tree_prior_cep.xml"))
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_tree_prior_yule.xml",
 #'     tree_prior = create_yule_tree_prior()
 #'   )
@@ -98,7 +98,7 @@ create_tree_prior <- function(
 #'   bd_tree_prior <- create_bd_tree_prior()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_bd_tree_prior.xml",
 #'     tree_prior = bd_tree_prior
 #'   )
@@ -109,7 +109,7 @@ create_tree_prior <- function(
 #'   )
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_bd_tree_prior_exp.xml",
 #'     tree_prior = bd_tree_prior_exp
 #'   )
@@ -139,7 +139,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #'   cbs_tree_prior <- create_cbs_tree_prior()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_beautier_path("test_output_6.fas"),
+#'     input_filename = get_beautier_path("test_output_6.fas"),
 #'     "create_cbs_tree_prior.xml",
 #'     tree_prior = cbs_tree_prior
 #'   )
@@ -171,7 +171,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #'   ccp_tree_prior <- create_ccp_tree_prior()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_ccp_tree_prior.xml",
 #'     tree_prior = ccp_tree_prior
 #'   )
@@ -203,7 +203,7 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #'   cep_tree_prior <- create_cep_tree_prior()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_cep_tree_prior.xml",
 #'     tree_prior = cep_tree_prior
 #'   )
@@ -240,7 +240,7 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #'   yule_tree_prior <- create_yule_tree_prior()
 #'
 #'   create_beast2_input_file(
-#'     input_filenames = get_fasta_filename(),
+#'     input_filename = get_fasta_filename(),
 #'     "create_yule_tree_prior.xml",
 #'     tree_prior = yule_tree_prior
 #'   )

@@ -31,7 +31,7 @@ Create a parameter called 'rate AG'
 
   # Use the parameter to create a BEAST2 input file
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_rate_ag_param.xml",
     site_model = create_gtr_site_model(
       rate_ag_param = rate_ag_param

@@ -27,7 +27,7 @@ Create a parameter called 'rate CT'
 
   # Use the parameter to create a BEAST2 input file
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_rate_ct_param.xml",
     site_model = create_gtr_site_model(
       rate_ct_param = rate_ct_param

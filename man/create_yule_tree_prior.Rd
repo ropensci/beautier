@@ -26,7 +26,7 @@ Create a Yule tree prior
   yule_tree_prior <- create_yule_tree_prior()
 
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_yule_tree_prior.xml",
     tree_prior = yule_tree_prior
   )

@@ -25,7 +25,7 @@ Create a Coalescent Bayesian Skyline tree prior
   cbs_tree_prior <- create_cbs_tree_prior()
 
   create_beast2_input_file(
-    input_filenames = get_beautier_path("test_output_6.fas"),
+    input_filename = get_beautier_path("test_output_6.fas"),
     "create_cbs_tree_prior.xml",
     tree_prior = cbs_tree_prior
   )

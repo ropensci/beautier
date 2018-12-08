@@ -4,7 +4,7 @@ context("create_beast2_input_package")
 
 test_that("Nested-Sampling package", {
   normal <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco.fas"),
+    input_filename = get_beautier_path("anthus_aco.fas"),
     mcmc = create_mcmc_nested_sampling()
   )
   matches <- stringr::str_match(string = normal, pattern = ".*run id=.*")

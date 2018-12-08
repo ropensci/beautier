@@ -35,7 +35,7 @@ It cannot be estimated (as a hyper parameter) yet.
 
   # Use the distribution to create a BEAST2 input file
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_clock_rate_param.xml",
     clock_model = strict_clock_model
   )

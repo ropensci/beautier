@@ -12,7 +12,7 @@ context(
 test_that("2.4", {
 
   created <- create_beast2_input(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -24,7 +24,7 @@ test_that("2.4", {
 test_that("v2.5", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -42,7 +42,7 @@ test_that("v2.5", {
 test_that("v2.5.1", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -69,7 +69,7 @@ test_that("v2.5.1", {
 test_that("gtr_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       rate_ac_prior_distr = create_gamma_distr(
@@ -109,7 +109,7 @@ test_that("gtr_2_4.xml", {
 test_that("gtr_gcc_1_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -151,7 +151,7 @@ test_that("gtr_gcc_1_2_4.xml", {
 test_that("gtr_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -193,7 +193,7 @@ test_that("gtr_gcc_2_2_4.xml", {
 test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -238,7 +238,7 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
 test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -283,7 +283,7 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 test_that("gtr_no_rate_estimation_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     site_model = create_gtr_site_model(
       id = get_alignment_id(get_fasta_filename()),
       rate_ac_param = create_rate_ac_param(value = "1.0", estimate = FALSE),
@@ -310,7 +310,7 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
 test_that("hky_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa_prior_distr = create_log_normal_distr(
@@ -332,7 +332,7 @@ test_that("hky_2_4.xml", {
 test_that("hky_kappa_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa = 3.4,
@@ -353,7 +353,7 @@ test_that("hky_kappa_2_4.xml", {
 test_that("hky_prop_invariant_0_5_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -377,7 +377,7 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
 test_that("hky_gcc_1_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -400,7 +400,7 @@ test_that("hky_gcc_1_2_4.xml", {
 test_that("hky_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -423,7 +423,7 @@ test_that("hky_gcc_2_2_4.xml", {
 test_that("hky_gcc_4_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(
@@ -453,7 +453,7 @@ test_that("jc69_2_4.xml", {
   input_fasta_filename <- get_beautier_path("test_output_0.fas")
   id <- get_alignment_id(input_fasta_filename)
   created <- create_beast2_input(
-    input_filenames = input_fasta_filename,
+    input_filename = input_fasta_filename,
     site_model = create_jc69_site_model(
       id = id
     ),
@@ -472,7 +472,7 @@ test_that("jc69_gcc_2_2_4.xml", {
   id <- get_alignment_id(input_fasta_filename)
 
   created <- create_beast2_input(
-    input_filenames = input_fasta_filename,
+    input_filename = input_fasta_filename,
     site_model = create_jc69_site_model(
       id = id,
       gamma_site_model = create_gamma_site_model(
@@ -493,7 +493,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
   id <- get_alignment_id(input_fasta_filename)
 
   created <- create_beast2_input(
-    input_filenames = input_fasta_filename,
+    input_filename = input_fasta_filename,
     site_model = create_jc69_site_model(
       id = id,
       gamma_site_model = create_gamma_site_model(
@@ -513,7 +513,7 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
 test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_jc69_site_model(
       id = "test_output_0",
       gamma_site_model = create_gamma_site_model(
@@ -538,7 +538,7 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
 test_that("tn93_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa_1_prior_distr = create_log_normal_distr(
@@ -565,7 +565,7 @@ test_that("tn93_2_4.xml", {
 test_that("tn93_gcc_1_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 1),
@@ -593,7 +593,7 @@ test_that("tn93_gcc_1_2_4.xml", {
 test_that("tn93_gcc_2_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       gamma_site_model = create_gamma_site_model(gamma_cat_count = 2),
@@ -621,7 +621,7 @@ test_that("tn93_gcc_2_2_4.xml", {
 test_that("tn93_kappas_not_estimated.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_tn93_site_model(
       id = get_alignment_id(get_fasta_filename()),
       kappa_1_param = create_kappa_1_param(value = "2.0", estimate = FALSE),
@@ -668,7 +668,7 @@ test_that("tn93_kappas_not_estimated.xml", {
 test_that("bd_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_bd_tree_prior(
       birth_rate_distr = create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -685,7 +685,7 @@ test_that("bd_2_4.xml", {
 test_that("bd_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_6.fas"),
+    input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_bd_tree_prior(
       birth_rate_distr = create_uniform_distr(
         id = 3, upper = "1000.0"),
@@ -702,7 +702,7 @@ test_that("bd_6_taxa_2_4.xml", {
 test_that("cbs_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_6.fas"),
+    input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_cbs_tree_prior()
   )
   expected <- readLines(get_beautier_path(
@@ -714,7 +714,7 @@ test_that("cbs_6_taxa_2_4.xml", {
 test_that("ccp_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_6.fas"),
+    input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_ccp_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
@@ -728,7 +728,7 @@ test_that("ccp_6_taxa_2_4.xml", {
 test_that("cep_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_6.fas"),
+    input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_cep_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 2),
       growth_rate_distr = create_laplace_distr(
@@ -752,7 +752,7 @@ test_that("cbs_2_4.xml", {
 
   expect_error(
     create_beast2_input(
-      input_filenames = get_beautier_path("test_output_0.fas"),
+      input_filename = get_beautier_path("test_output_0.fas"),
       tree_prior = create_cbs_tree_prior()
     ),
     "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
@@ -762,7 +762,7 @@ test_that("cbs_2_4.xml", {
 test_that("cbs_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_6.fas"),
+    input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_cbs_tree_prior()
   )
   expected <- readLines(get_beautier_path(
@@ -774,7 +774,7 @@ test_that("cbs_6_taxa_2_4.xml", {
 test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_cbs_tree_prior(
       group_sizes_dimension = 4
     ),
@@ -795,7 +795,7 @@ test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
 test_that("ccp_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_ccp_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
@@ -809,7 +809,7 @@ test_that("ccp_2_4.xml", {
 test_that("ccp_pop_size_gamma_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_ccp_tree_prior(
       pop_size_distr = create_gamma_distr(
         id = 2,
@@ -831,7 +831,7 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
 test_that("cep_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_cep_tree_prior(
       pop_size_distr = create_one_div_x_distr(id = 1),
       growth_rate_distr = create_laplace_distr(
@@ -852,7 +852,7 @@ test_that("cep_2_4.xml", {
 test_that("yule_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -866,7 +866,7 @@ test_that("yule_2_4.xml", {
 test_that("birth_rate_uniform_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
@@ -879,7 +879,7 @@ test_that("birth_rate_uniform_2_4.xml", {
 test_that("birth_rate_normal_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_normal_distr(
         id = 0,
@@ -897,7 +897,7 @@ test_that("birth_rate_normal_2_4.xml", {
 test_that("birth_rate_one_div_x_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_one_div_x_distr(id = 1)
     )
@@ -912,7 +912,7 @@ test_that("birth_rate_one_div_x_2_4.xml", {
 test_that("birth_rate_log_normal_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_log_normal_distr(
         id = 0,
@@ -935,7 +935,7 @@ test_that("birth_rate_log_normal_2_4.xml", {
 test_that("birth_rate_exp_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_exp_distr(
         id = 1,
@@ -954,7 +954,7 @@ test_that("birth_rate_exp_2_4.xml", {
 test_that("birth_rate_gamma_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_gamma_distr(
         id = 0,
@@ -972,7 +972,7 @@ test_that("birth_rate_gamma_2_4.xml", {
 test_that("birth_rate_beta_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_beta_distr(
         id = 0,
@@ -990,7 +990,7 @@ test_that("birth_rate_beta_2_4.xml", {
 test_that("birth_rate_laplace_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_laplace_distr(
         id = 0,
@@ -1008,7 +1008,7 @@ test_that("birth_rate_laplace_2_4.xml", {
 test_that("birth_rate_inv_gamma_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_inv_gamma_distr(
         id = 0,
@@ -1032,7 +1032,7 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
 test_that("birth_rate_poisson_2_4.xml", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_poisson_distr(
         id = 0,
@@ -1056,7 +1056,7 @@ test_that("birth_rate_poisson_2_4.xml", {
 # No calibration yet
 test_that("anthus_aco_sub.xml", {
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1076,7 +1076,7 @@ test_that("anthus_aco_sub_calibration.xml", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
   created <- create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1108,7 +1108,7 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
   created <- create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1137,7 +1137,7 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
   created <- create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1173,7 +1173,7 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
   created <- create_beast2_input(
-    input_filenames = fasta_filename,
+    input_filename = fasta_filename,
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1206,7 +1206,7 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
 ################################################################################
 test_that("Base point: anthus_aco_sub.xml", {
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1226,7 +1226,7 @@ test_that("Base point: anthus_aco_sub.xml", {
 
 test_that("Base point + all taxa", {
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1253,7 +1253,7 @@ test_that("Base point + all taxa", {
 test_that("Base point + all taxa + monophyletic", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1279,7 +1279,7 @@ test_that("Base point + all taxa + monophyletic", {
 test_that("Base point + all taxa + monophyletic + one_div_x", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1307,7 +1307,7 @@ test_that("Base point + all taxa + monophyletic + one_div_x", {
 test_that("Base point + all taxa + one_div_x", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1337,7 +1337,7 @@ test_that("Base point + all taxa + one_div_x", {
 test_that("Base point + all taxa + one_div_x + RLN", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("anthus_aco_sub.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1376,7 +1376,7 @@ test_that("Base point + all taxa + one_div_x + RLN", {
 test_that("No tip dating yet", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
+    input_filename = get_beautier_path("G_VII_pre2003_msa.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1394,7 +1394,7 @@ test_that("No tip dating yet", {
 test_that("Tip dating", {
 
   created <- create_beast2_input(
-    input_filenames = get_beautier_path("G_VII_pre2003_msa.fas"),
+    input_filename = get_beautier_path("G_VII_pre2003_msa.fas"),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),

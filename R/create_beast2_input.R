@@ -12,7 +12,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 create_beast2_input <- function(
-  input_filenames,
+  input_filename,
   tipdates_filename = NA,
   site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
@@ -20,6 +20,7 @@ create_beast2_input <- function(
   mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  input_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
@@ -54,10 +55,8 @@ create_beast2_input <- function(
       ")\n"
     )
   }
-  if (1 == 2) {
-    if (any("fasta_filenames" %in% calls)) {
-      stop("'fasta_filenames' is deprecated, use 'fasta_filename' instead.")
-    }
+  if (any("input_filenames" %in% calls)) {
+    stop("'input_filenames' is deprecated, use 'input_filename' instead.")
   }
   if (any("site_models" %in% calls)) {
     stop("'site_models' is deprecated, use 'site_model' instead.")
@@ -96,11 +95,9 @@ create_beast2_input <- function(
 
   # Check input
   # 1 input_filenames
+  input_filenames <- input_filename
   if (!files_exist(input_filenames)) { # nolint internal function
-    stop(
-      "'input_filenames' must be the name ",
-      "of one or more present files. "
-    )
+    stop("'input_filename' must be the name of one present file.")
   }
 
   # 2 site_models

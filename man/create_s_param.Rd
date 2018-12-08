@@ -38,7 +38,7 @@ this parameter is used in a log-normal distribution
 
   # Use the distribution to create a BEAST2 input file
   create_beast2_input_file(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     "create_s_param.xml",
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = log_normal_distr
