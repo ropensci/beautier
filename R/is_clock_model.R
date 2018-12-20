@@ -4,7 +4,7 @@
 #' @seealso see \code{\link{create_clock_model}} for an overview of functions
 #'   to create valid clock model
 #' @author Richel J.C. Bilderbeek
-#' @noRd
+#' @export
 is_clock_model <- function(
   x
 ) {
