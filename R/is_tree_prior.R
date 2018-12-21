@@ -3,7 +3,11 @@
 #' @return TRUE if x is a valid tree_prior, FALSE otherwise
 #' @seealso tree priors can be created by \code{\link{create_tree_prior}})
 #' @author Richel J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   testit::assert(is_tree_prior(create_bd_tree_prior()))
+#'   testit::assert(is_tree_prior(create_yule_tree_prior()))
+#'   testit::assert(is_tree_prior("nonsense"))
+#' @export
 is_tree_prior <- function(
   x
 ) {
