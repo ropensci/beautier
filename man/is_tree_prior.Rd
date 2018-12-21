@@ -18,7 +18,7 @@ Determine if an object is a valid tree prior
 \examples{
   testit::assert(is_tree_prior(create_bd_tree_prior()))
   testit::assert(is_tree_prior(create_yule_tree_prior()))
-  testit::assert(is_tree_prior("nonsense"))
+  testit::assert(!is_tree_prior("nonsense"))
 }
 \seealso{
 tree priors can be created by \code{\link{create_tree_prior}})

@@ -6,7 +6,7 @@
 #' @examples
 #'   testit::assert(is_tree_prior(create_bd_tree_prior()))
 #'   testit::assert(is_tree_prior(create_yule_tree_prior()))
-#'   testit::assert(is_tree_prior("nonsense"))
+#'   testit::assert(!is_tree_prior("nonsense"))
 #' @export
 is_tree_prior <- function(
   x
