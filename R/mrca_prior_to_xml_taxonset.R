@@ -20,11 +20,7 @@ mrca_prior_to_xml_taxonset <- function(
   testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   text <- NULL
   for (taxon_name in mrca_prior$taxa_names) {
-    if (taxon_name %in% taxa_names_with_ids) {
-      text <- c(text, paste0("<taxon idref=\"", taxon_name, "\"/>"))
-    } else {
-      text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>"))
-    }
+    text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>"))
   }
   text <- indent(text, n_spaces = 4) # nolint internal function
   text <- c(

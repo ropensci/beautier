@@ -18,4 +18,8 @@ test_that("use, devious", {
   # No 'nucleotides_uppercase'
   h <- g[names(g) != "nucleotides_uppercase"]
   expect_false(is_misc_options(h))
+
+  # No 'sequence_indent'
+  h <- g[names(g) != "sequence_indent"]
+  expect_false(is_misc_options(h))
 })
