@@ -4,8 +4,8 @@
 
 Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
 ---|---|---|---
-master |[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=master)](https://travis-ci.org/ropensci/beautier)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/beautier?branch=master&svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beautier/branch/master)
-develop|[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=develop)](https://travis-ci.org/ropensci/beautier)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/beautier?branch=develop&svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://codecov.io/github/ropensci/beautier/branch/develop)
+master |[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=master)](https://travis-ci.org/ropensci/beautier)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/beautier?branch=master&svg=true)](https://ci.appveyor.com/project/ropensci/beautier)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beautier/branch/master)
+develop|[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=develop)](https://travis-ci.org/ropensci/beautier)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/beautier?branch=develop&svg=true)](https://ci.appveyor.com/project/ropensci/beautier)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://codecov.io/github/ropensci/beautier/branch/develop)
 
 [![DOI](https://zenodo.org/badge/53443354.svg)](https://zenodo.org/badge/latestdoi/53443354)
 
