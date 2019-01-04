@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/beautier",
   "issueTracker": "https://github.com/ropensci/beautier/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "2.0",
+  "version": "2.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -220,7 +220,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/beautier/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/beautier/blob/master/README.md",
-  "fileSize": "215.087KB",
+  "fileSize": "215.082KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",
