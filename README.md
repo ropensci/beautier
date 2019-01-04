@@ -4,8 +4,8 @@
 
 Branch|[![Travis CI logo](pics/TravisCI.png)](https://travis-ci.org)|[![AppVeyor logo](pics/AppVeyor.png)](https://www.appveyor.com)|[![Codecov logo](pics/Codecov.png)](https://www.codecov.io)
 ---|---|---|---
-master|[![Build Status](https://travis-ci.org/richelbilderbeek/beautier.svg?branch=master)](https://travis-ci.org/richelbilderbeek/beautier)|[![Build status](https://ci.appveyor.com/api/projects/status/qlahq0nofnpg3i8j/branch/master?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier/branch/master)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beautier/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/beautier/branch/master)
-develop|[![Build Status](https://travis-ci.org/richelbilderbeek/beautier.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/beautier)|[![Build status](https://ci.appveyor.com/api/projects/status/qlahq0nofnpg3i8j/branch/develop?svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier/branch/develop)|[![codecov.io](https://codecov.io/github/richelbilderbeek/beautier/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/beautier/branch/develop)
+master |[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=master)](https://travis-ci.org/ropensci/beautier)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/pkgname?branch=master&svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://codecov.io/github/ropensci/beautier/branch/master)
+develop|[![Build Status](https://travis-ci.org/ropensci/beautier.svg?branch=develop)](https://travis-ci.org/ropensci/beautier)|[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ropensci/pkgname?branch=develop&svg=true)](https://ci.appveyor.com/project/richelbilderbeek/beautier)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://codecov.io/github/ropensci/beautier/branch/develop)
 
 [![DOI](https://zenodo.org/badge/53443354.svg)](https://zenodo.org/badge/latestdoi/53443354)
 
@@ -18,16 +18,16 @@ The purpose of `beautier` is to create
 from its function arguments. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-`beautier` is part of the [babette](https://github.com/richelbilderbeek/babette) package suite:
+`beautier` is part of the [babette](https://github.com/ropensci/babette) package suite:
 
- * [beautier](https://github.com/richelbilderbeek/beautier) creates BEAST2 input (`.xml`) files.
- * [beastier](https://github.com/richelbilderbeek/beastier) runs BEAST2
- * [tracerer](https://github.com/richelbilderbeek/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
+ * [beautier](https://github.com/ropensci/beautier) creates BEAST2 input (`.xml`) files.
+ * [beastier](https://github.com/ropensci/beastier) runs BEAST2
+ * [tracerer](https://github.com/ropensci/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
 
 Related R packages:
 
- * [lumier](https://github.com/richelbilderbeek/lumier): Shiny app to help create the function call needed
- * [mauricer](https://github.com/richelbilderbeek/mauricer): install BEAST2 packages
+ * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
+ * [mauricer](https://github.com/ropensci/mauricer): install BEAST2 packages
 
 ## Examples
 
@@ -38,7 +38,7 @@ See [examples](doc/examples.md).
 If you use the `devtools` R package, this is easy:
 
 ```
-devtools::install_github("richelbilderbeek/beautier")
+devtools::install_github("ropensci/beautier")
 ```
 
 ## [FAQ](doc/faq.md)
@@ -69,7 +69,7 @@ See [FAQ](doc/faq.md).
 
 Here are some missing or (yet) unsupported features:
 
- * [Tip dating](https://github.com/richelbilderbeek/babette/issues/27)
+ * [Tip dating](https://github.com/ropensci/babette/issues/27)
  * Two or more DNA alignments
  * Two or more site, clock or tree models
  * Two or more MRCA priors

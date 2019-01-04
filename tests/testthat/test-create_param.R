@@ -169,7 +169,7 @@ test_that("abuse", {
 })
 
 test_that("abuse, create_s_param", {
-  # https://github.com/richelbilderbeek/beautier/issues/46
+  # https://github.com/ropensci/beautier/issues/46
   # creating a TN93 model with the default settings
   # creates two log-normal distributions
   # as priors for kappa1 and kappa2,

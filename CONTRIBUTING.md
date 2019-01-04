@@ -64,7 +64,7 @@ Pull Requests should follow the same guidelines as 'Submitting code'.
 To get started working on `beautier` do:
 
 ```
-git clone https://github.com/richelbilderbeek/beautier
+git clone https://github.com/ropensci/beautier
 ```
 
 Development is done on the `develop` branch. 

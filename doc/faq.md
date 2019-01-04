@@ -15,7 +15,7 @@ followed BEAST2 v2.4. `beautier` follows the
 BEAST2 versions, which is now at v2.5.1.
 
 The BEAST2 version actually used by `babette`
-can be found in the [beastier::install_beast2](https://github.com/richelbilderbeek/beastier/blob/master/R/install_beast2.R) function.
+can be found in the [beastier::install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
 
 ## What's the [road map](road_map.md)?
 
