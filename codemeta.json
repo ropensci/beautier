@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "beautier",
   "description": "'BEAST2' (<http://www.beast2.org>) is a widely used\n  Bayesian phylogenetic tool, that uses DNA/RNA/protein data\n  and many model priors to create a posterior of jointly estimated \n  phylogenies and parameters.\n  'BEAUti 2' (which is part of 'BEAST2') is a GUI tool \n  that allows users to specify the many possible setups\n  and generates the XML file 'BEAST2' needs to run.\n  This package provides a way to create 'BEAST2' input\n  files without active user input, but using\n  R function calls instead.",
@@ -7,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/beautier",
   "issueTracker": "https://github.com/ropensci/beautier/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.15",
+  "version": "2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -217,8 +220,18 @@
   ],
   "releaseNotes": "https://github.com/ropensci/beautier/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/beautier/blob/master/README.md",
-  "fileSize": "215.07KB",
-  "contIntegration": ["https://travis-ci.org", "https://www.appveyor.com", "https://www.codecov.io", "https://travis-ci.org/ropensci/beautier", "https://ci.appveyor.com/project/richelbilderbeek/beautier", "https://codecov.io/github/ropensci/beautier/branch/master", "https://travis-ci.org/ropensci/beautier", "https://ci.appveyor.com/project/richelbilderbeek/beautier", "https://codecov.io/github/ropensci/beautier/branch/develop"],
+  "fileSize": "215.087KB",
+  "contIntegration": [
+    "https://travis-ci.org",
+    "https://www.appveyor.com",
+    "https://www.codecov.io",
+    "https://travis-ci.org/ropensci/beautier",
+    "https://ci.appveyor.com/project/richelbilderbeek/beautier",
+    "https://codecov.io/github/ropensci/beautier/branch/master",
+    "https://travis-ci.org/ropensci/beautier",
+    "https://ci.appveyor.com/project/richelbilderbeek/beautier",
+    "https://codecov.io/github/ropensci/beautier/branch/develop"
+  ],
   "citation": [
     {
       "@type": "ScholarlyArticle",
