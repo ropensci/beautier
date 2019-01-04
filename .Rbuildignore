@@ -1,3 +1,4 @@
+^codemeta\.json$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^install_r_packages.R$
