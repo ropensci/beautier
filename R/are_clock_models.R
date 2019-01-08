@@ -2,7 +2,14 @@
 #' @param x the object to check if it consists out of clock_models objects
 #' @return TRUE if x, or all elements of x, are clock_model objects
 #' @author Richel J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   rln_clock_model <- create_rln_clock_model()
+#'   strict_clock_model <- create_strict_clock_model()
+#'   both_clock_models <- list(rln_clock_model, strict_clock_model)
+#'   testit::assert(are_clock_models(rln_clock_model))
+#'   testit::assert(are_clock_models(strict_clock_model))
+#'   testit::assert(are_clock_models(both_clock_models))
+#' @export
 are_clock_models <- function(
   x
 ) {
