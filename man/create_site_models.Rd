@@ -3,7 +3,7 @@
 \name{create_site_models}
 \alias{create_site_models}
 \title{Creates all supported site models
-  which is just a list of the types returned by
+  which is a list of the types returned by
   \code{\link{create_gtr_site_model}},
   \code{\link{create_hky_site_model}},
   \code{\link{create_jc69_site_model}}
@@ -16,7 +16,7 @@ a list of site_models
 }
 \description{
 Creates all supported site models
-  which is just a list of the types returned by
+  which is a list of the types returned by
   \code{\link{create_gtr_site_model}},
   \code{\link{create_hky_site_model}},
   \code{\link{create_jc69_site_model}}
