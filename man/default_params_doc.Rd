@@ -168,6 +168,15 @@ is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
+
+\item{clock_model_name}{name of a clock model,
+must be a name as returned by \code{\link{get_clock_model_names}}}
+
+\item{site_model_name}{name of a site model,
+must be a name as returned by \code{\link{get_site_model_names}}}
+
+\item{tree_prior_name}{name of a tree prior,
+must be a name as returned by \code{\link{get_tree_prior_names}}}
 }
 \description{
 Documentation of general function arguments.

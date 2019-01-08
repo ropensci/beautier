@@ -16,6 +16,8 @@
 #' @param chain_length length of the MCMC chain
 #' @param clock_model a clock model,
 #'   as returned by \code{\link{create_clock_model}}
+#' @param clock_model_name name of a clock model,
+#'   must be a name as returned by \code{\link{get_clock_model_names}}
 #' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
 #' @param crown_age the crown age of the phylogeny
@@ -82,6 +84,8 @@
 #' @param sequence_length a DNA sequence length, in base pairs
 #' @param site_model a site model,
 #'   as returned by \code{\link{create_site_model}}
+#' @param site_model_name name of a site model,
+#'   must be a name as returned by \code{\link{get_site_model_names}}
 #' @param site_models one or more site models,
 #'   as returned by \code{\link{create_site_model}}
 #' @param store_every number of states the MCMC will process
@@ -93,6 +97,8 @@
 #'   as returned by \code{\link{create_tn93_site_model}}
 #' @param tree_prior a tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
+#' @param tree_prior_name name of a tree prior,
+#'   must be a name as returned by \code{\link{get_tree_prior_names}}
 #' @param tree_priors one or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tipdates_filename name of the file containing the tip dates.

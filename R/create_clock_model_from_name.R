@@ -5,7 +5,7 @@
 #'   clock_model_names <- get_clock_model_names()
 #'   for (clock_model_name in clock_model_names) {
 #'     clock_model <- create_clock_model_from_name(clock_model_name)
-#'     expect_equal(clock_model_name, clock_model$name)
+#'     testthat::expect_equal(clock_model_name, clock_model$name)
 #'   }
 #' @export
 create_clock_model_from_name <- function(clock_model_name) {

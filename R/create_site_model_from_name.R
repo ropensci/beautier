@@ -4,7 +4,7 @@
 #'   site_model_names <- get_site_model_names()
 #'   for (site_model_name in site_model_names) {
 #'     site_model <- create_site_model_from_name(site_model_name)
-#'     expect_equal(site_model_name, site_model$name)
+#'     testthat::expect_equal(site_model_name, site_model$name)
 #'   }
 #' @author Richel J.C. Bilderbeek
 #' @export

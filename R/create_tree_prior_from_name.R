@@ -5,7 +5,7 @@
 #'   tree_prior_names <- get_tree_prior_names()
 #'   for (tree_prior_name in tree_prior_names) {
 #'     tree_prior <- create_tree_prior_from_name(tree_prior_name)
-#'     expect_equal(tree_prior_name, tree_prior$name)
+#'     testthat::expect_equal(tree_prior_name, tree_prior$name)
 #'   }
 #' @export
 create_tree_prior_from_name <- function(tree_prior_name) {
