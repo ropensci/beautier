@@ -20,6 +20,9 @@ r_github_packages:
   - MangoTheCat/goodpractice
   - ropensci/spelling
 
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
+
 before_script:
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
   # proselint
