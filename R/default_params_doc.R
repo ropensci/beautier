@@ -18,6 +18,8 @@
 #'   as returned by \code{\link{create_clock_model}}
 #' @param clock_model_name name of a clock model,
 #'   must be a name as returned by \code{\link{get_clock_model_names}}
+#' @param clock_model_names one or more names of a clock model,
+#'   must be name among those returned by \code{\link{get_clock_model_names}}
 #' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
 #' @param crown_age the crown age of the phylogeny
@@ -86,6 +88,8 @@
 #'   as returned by \code{\link{create_site_model}}
 #' @param site_model_name name of a site model,
 #'   must be a name as returned by \code{\link{get_site_model_names}}
+#' @param site_model_names one or more names of a site model,
+#'   must be name among those returned by \code{\link{get_site_model_names}}
 #' @param site_models one or more site models,
 #'   as returned by \code{\link{create_site_model}}
 #' @param store_every number of states the MCMC will process
@@ -99,6 +103,8 @@
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tree_prior_name name of a tree prior,
 #'   must be a name as returned by \code{\link{get_tree_prior_names}}
+#' @param tree_prior_names one or more names of a tree prior,
+#'   must be a name among those returned by \code{\link{get_tree_prior_names}}
 #' @param tree_priors one or more tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tipdates_filename name of the file containing the tip dates.
@@ -122,6 +128,7 @@ default_params_doc <- function(
   chain_length,
   clock_model,
   clock_model_name,
+  clock_model_names,
   clock_models,
   clock_prior_distr_id,
   crown_age, crown_ages,
@@ -151,6 +158,7 @@ default_params_doc <- function(
   sequence_length,
   site_model,
   site_model_name,
+  site_model_names,
   site_models,
   store_every,
   strict_clock_model,
@@ -158,6 +166,7 @@ default_params_doc <- function(
   tn93_site_model,
   tree_prior,
   tree_prior_name,
+  tree_prior_names,
   tree_priors,
   verbose,
   yule_tree_prior

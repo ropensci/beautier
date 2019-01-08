@@ -6,6 +6,10 @@
 \usage{
 create_site_models_from_names(site_model_names)
 }
+\arguments{
+\item{site_model_names}{one or more names of a site model,
+must be name among those returned by \code{\link{get_site_model_names}}}
+}
 \description{
 Create site models from their names
 }

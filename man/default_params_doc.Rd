@@ -8,17 +8,17 @@ It is intended to inherit function argument documentation.}
 \usage{
 default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   ccp_tree_prior, cep_tree_prior, chain_length, clock_model,
-  clock_model_name, clock_models, clock_prior_distr_id, crown_age,
-  crown_ages, distr_id, fasta_filename, fasta_filenames, fixed_crown_age,
-  fixed_crown_ages, gamma_site_model, group_sizes_dimension,
-  gtr_site_model, has_non_strict_clock_model, has_tip_dating,
-  hky_site_model, id, ids, initial_phylogenies, input_filename,
-  input_filenames, is_monophyletic, jc69_site_model, mcmc, misc_options,
-  mrca_prior, mrca_priors, output_filename, param_id, posterior_crown_age,
-  rln_clock_model, sequence_length, site_model, site_model_name,
-  site_models, store_every, strict_clock_model, tipdates_filename,
-  tn93_site_model, tree_prior, tree_prior_name, tree_priors, verbose,
-  yule_tree_prior)
+  clock_model_name, clock_model_names, clock_models, clock_prior_distr_id,
+  crown_age, crown_ages, distr_id, fasta_filename, fasta_filenames,
+  fixed_crown_age, fixed_crown_ages, gamma_site_model,
+  group_sizes_dimension, gtr_site_model, has_non_strict_clock_model,
+  has_tip_dating, hky_site_model, id, ids, initial_phylogenies,
+  input_filename, input_filenames, is_monophyletic, jc69_site_model, mcmc,
+  misc_options, mrca_prior, mrca_priors, output_filename, param_id,
+  posterior_crown_age, rln_clock_model, sequence_length, site_model,
+  site_model_name, site_model_names, site_models, store_every,
+  strict_clock_model, tipdates_filename, tn93_site_model, tree_prior,
+  tree_prior_name, tree_prior_names, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -43,6 +43,9 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{clock_model_name}{name of a clock model,
 must be a name as returned by \code{\link{get_clock_model_names}}}
+
+\item{clock_model_names}{one or more names of a clock model,
+must be name among those returned by \code{\link{get_clock_model_names}}}
 
 \item{clock_models}{a list of one or more clock models,
 as returned by \code{\link{create_clock_model}}}
@@ -147,6 +150,9 @@ as returned by \code{\link{create_site_model}}}
 \item{site_model_name}{name of a site model,
 must be a name as returned by \code{\link{get_site_model_names}}}
 
+\item{site_model_names}{one or more names of a site model,
+must be name among those returned by \code{\link{get_site_model_names}}}
+
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 
@@ -170,6 +176,9 @@ as returned by \code{\link{create_tree_prior}}}
 
 \item{tree_prior_name}{name of a tree prior,
 must be a name as returned by \code{\link{get_tree_prior_names}}}
+
+\item{tree_prior_names}{one or more names of a tree prior,
+must be a name among those returned by \code{\link{get_tree_prior_names}}}
 
 \item{tree_priors}{one or more tree priors,
 as returned by \code{\link{create_tree_prior}}}
