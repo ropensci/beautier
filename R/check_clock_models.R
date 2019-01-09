@@ -1,0 +1,36 @@
+#' Check if the object is a list of one or more clock models.
+#' Will \link{stop} if the object is not a list of one or more clock models.
+#' @param clock_models the object to be checked if it is a list of one
+#'   or more valid clock models
+#' @return nothing.
+#'   Will \link{stop} if the object is not a list of one or more clock models.
+#' @seealso Use \link{create_clock_model} to create a valid clock model
+#' @examples
+#'   testthat::expect_silent(check_clock_models(create_strict_clock_model()))
+#'   testthat::expect_silent(check_clock_models(list(create_strict_clock_model())))
+#'   testthat::expect_silent(
+#'     check_clock_models(
+#'       list(create_strict_clock_model(), create_rln_clock_model())
+#'     )
+#'   )
+#'
+#'   testthat::expect_error(check_clock_models("nonsense"))
+#'   testthat::expect_error(check_clock_models(3.14))
+#'   testthat::expect_error(check_clock_models(42))
+#'   testthat::expect_error(check_clock_models(NA))
+#'   testthat::expect_error(check_clock_models(NULL))
+#' @author Richel J.C. Bilderbeek
+#' @export
+check_clock_models <- function(clock_models) {
+
+  if (is_clock_model(clock_models)) { # nolint internal function
+    clock_models <- list(clock_models)
+  }
+  if (!are_clock_models(clock_models)) { # nolint internal function
+    stop(
+      "'clock_models' must be a list of one or more valid clock models. ",
+      "Actual value(s): ", clock_models
+    )
+  }
+
+}
