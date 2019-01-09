@@ -72,8 +72,8 @@ create_beast2_input <- function(
   }
 
   # 2 site_models
+  check_site_model(site_model) # nolint internal function
   site_models <- site_model
-  check_site_models(site_models) # nolint internal function
 
   # Convert possible-non-list input to lists and multiPhylo
   if (is_site_model(site_models)) { # nolint internal function

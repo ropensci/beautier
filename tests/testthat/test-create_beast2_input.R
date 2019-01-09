@@ -82,10 +82,7 @@ test_that("abuse: one alignment", {
       input_filename = get_fasta_filename(),
       site_model = "nonsense"
     ),
-    paste0(
-      "'site_model' must be a valid site model, ",
-      "as returned by 'create_site_model'"
-    )
+    "'site_model' must be a valid site model"
   )
   expect_error(
     create_beast2_input(
