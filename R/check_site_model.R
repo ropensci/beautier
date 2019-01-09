@@ -14,9 +14,9 @@
 #'
 #'  # List of two site models is not a/one site model
 #'  testthat::expect_error(
-#'   check_site_model(
-#'     list(create_jc69_site_model(), create_jc69_site_model())
-#'   )
+#'    check_site_model(
+#'      list(create_jc69_site_model(), create_jc69_site_model())
+#'    )
 #'  )
 #'
 #'  # Must stop on non-site models

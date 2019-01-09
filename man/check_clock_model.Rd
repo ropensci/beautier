@@ -19,19 +19,17 @@ Check if the clock model is a valid clock model
 Calls \code{stop} if the clock models are invalid
 }
 \examples{
- testthat::expect_silent(check_clock_model(create_jc69_clock_model()))
- testthat::expect_silent(check_clock_model(create_hky_clock_model()))
- testthat::expect_silent(check_clock_model(create_tn93_clock_model()))
- testthat::expect_silent(check_clock_model(create_gtr_clock_model()))
+ testthat::expect_silent(check_clock_model(create_strict_clock_model()))
+ testthat::expect_silent(check_clock_model(create_rln_clock_model()))
 
  # Can use list of one clock model
- testthat::expect_silent(check_clock_model(list(create_jc69_clock_model())))
+ testthat::expect_silent(check_clock_model(list(create_strict_clock_model())))
 
  # List of two clock models is not a/one clock model
  testthat::expect_error(
-  check_clock_model(
-    list(create_jc69_clock_model(), create_jc69_clock_model())
-  )
+   check_clock_model(
+     list(create_strict_clock_model(), create_rln_clock_model())
+   )
  )
 
  # Must stop on non-clock models
