@@ -18,14 +18,14 @@ test_that("use", {
   )
   expect_error(
     check_site_models("nonsense"),
-    "Object must be a list of one or more valid site models"
+    "'site_models' must be a list of one or more valid site models"
   )
   expect_error(
     check_site_models(NULL),
-    "Object must be a list of one or more valid site models"
+    "'site_models' must be a list of one or more valid site models"
   )
   expect_error(
     check_site_models(NA),
-    "Object must be a list of one or more valid site models"
+    "'site_models' must be a list of one or more valid site models"
   )
 })
