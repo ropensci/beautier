@@ -5,11 +5,11 @@
 \title{Check if the site model is a valid site model
 Calls \code{stop} if the site models are invalid}
 \usage{
-check_site_model(x)
+check_site_model(site_model)
 }
 \arguments{
-\item{x}{object to be determined of, if it is a valid site model,
-as can be created by \link{create_site_model}}
+\item{site_model}{a site model,
+as returned by \code{\link{create_site_model}}}
 }
 \value{
 nothing
@@ -38,6 +38,9 @@ Calls \code{stop} if the site models are invalid
  testthat::expect_error(check_site_model(site_model = "nonsense"))
  testthat::expect_error(check_site_model(site_model = NULL))
  testthat::expect_error(check_site_model(site_model = NA))
+}
+\seealso{
+Use \link{create_site_model} to create a valid site model
 }
 \author{
 Richel J.C. Bilderbeek

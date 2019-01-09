@@ -1,9 +1,8 @@
 #' Check if the site model is a valid site model
 #' Calls \code{stop} if the site models are invalid
 #' @inheritParams default_params_doc
-#' @param x object to be determined of, if it is a valid site model,
-#'   as can be created by \link{create_site_model}
 #' @return nothing
+#' @seealso Use \link{create_site_model} to create a valid site model
 #' @examples
 #'  testthat::expect_silent(check_site_model(create_jc69_site_model()))
 #'  testthat::expect_silent(check_site_model(create_hky_site_model()))
@@ -26,18 +25,17 @@
 #'  testthat::expect_error(check_site_model(site_model = NA))
 #' @author Richel J.C. Bilderbeek
 #' @export
-check_site_model <- function(x) {
+check_site_model <- function(site_model) {
 
-  if (is_site_model(x)) { # nolint internal function
+  if (is_site_model(site_model)) { # nolint internal function
     return()
   }
-  if (length(x) == 1 && is_site_model(x[[1]])) { # nolint internal function
+  if (length(site_model) == 1 && is_site_model(site_model[[1]])) { # nolint internal function
     return()
   }
   stop(
-    "Object must be a valid site model, ",
-    "as returned by 'create_site_model'.\n",
-    "Actual value: ", x
+    "'site_model' must be a valid site model.\n",
+    "Actual value: ", site_model
   )
 
 }
