@@ -13,30 +13,30 @@ test_that("use", {
   expect_error(
     check_site_model(list(create_jc69_site_model(), create_jc69_site_model())),
     paste0(
-      "'site_model' must be a valid site model, ",
+      "Object must be a valid site model, ",
       "as returned by 'create_site_model'"
     )
   )
 
   # Must be a site model
   expect_error(
-    check_site_model(site_model = "nonsense"),
+    check_site_model(x = "nonsense"),
     paste0(
-      "'site_model' must be a valid site model, ",
+      "Object must be a valid site model, ",
       "as returned by 'create_site_model'"
     )
   )
   expect_error(
-    check_site_model(site_model = NULL),
+    check_site_model(x = NULL),
     paste0(
-      "'site_model' must be a valid site model, ",
+      "Object must be a valid site model, ",
       "as returned by 'create_site_model'"
     )
   )
   expect_error(
-    check_site_model(site_model = NA),
+    check_site_model(x = NA),
     paste0(
-      "'site_model' must be a valid site model, ",
+      "Object must be a valid site model, ",
       "as returned by 'create_site_model'"
     )
   )
