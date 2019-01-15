@@ -1,7 +1,8 @@
-#' Determine of the object is an MRCA prior,
-#'   as returned by \code{\link{create_mrca_prior}}
+#' Determine of the object is an empty (\code{NA}) or valid MRCA prior.
+#'
 #' @inheritParams default_params_doc
-#' @param x object to be determined if it is an MRCA prior
+#' @param x object to be determined if it is an MRCA prior,
+#'   as created by \code{\link{create_mrca_prior}}
 #' @return TRUE if \code{x} is an MRCA prior, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @noRd
