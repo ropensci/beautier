@@ -28,7 +28,7 @@ Calls \code{stop} if the MRCA prior is invalid.
    alignment_id = get_alignment_id(fasta_filename = fasta_filename),
    taxa_names = get_taxa_names(filename = fasta_filename)
   )
-  expect_silent(check_mrca_prior(mrca_prior))
+  testthat::expect_silent(check_mrca_prior(mrca_prior))
 
   # NA is a valid MRCA prior
   testthat::expect_silent(check_mrca_prior(mrca_prior = NA))
