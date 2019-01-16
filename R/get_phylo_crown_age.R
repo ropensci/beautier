@@ -1,4 +1,4 @@
-#' Obtain the crown age of a phylony.
+#' Obtain the crown age of a phylogeny.
 #'
 #' The crown age of a phylogeny is the time between
 #' the present and the moment of at which the first
@@ -7,7 +7,7 @@
 #' @return the crown age of the phylogeny
 #' @examples
 #'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-#'   created <- beautier:::get_phylo_crown_age(phylogeny = phylogeny)
+#'   created <- get_phylo_crown_age(phylogeny = phylogeny)
 #'   testit::assert(created == 15)
 #' @author Richel J.C. Bilderbeek
 #' @export

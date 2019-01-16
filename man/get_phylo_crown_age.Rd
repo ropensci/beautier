@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_phylo_crown_age.R
 \name{get_phylo_crown_age}
 \alias{get_phylo_crown_age}
-\title{Obtain the crown age of a phylony.}
+\title{Obtain the crown age of a phylogeny.}
 \usage{
 get_phylo_crown_age(phylogeny)
 }
@@ -19,7 +19,7 @@ diversification (resulting in two lineages) happened.
 }
 \examples{
   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-  created <- beautier:::get_phylo_crown_age(phylogeny = phylogeny)
+  created <- get_phylo_crown_age(phylogeny = phylogeny)
   testit::assert(created == 15)
 }
 \author{
