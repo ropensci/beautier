@@ -1,12 +1,16 @@
-#' Obtain the crown age of a phylony
+#' Obtain the crown age of a phylony.
+#'
+#' The crown age of a phylogeny is the time between
+#' the present and the moment of at which the first
+#' diversification (resulting in two lineages) happened.
 #' @param phylogeny The phylogeny to obtain the crown age of
-#' @return the age of the phylogeny
+#' @return the crown age of the phylogeny
 #' @examples
 #'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
 #'   created <- beautier:::get_phylo_crown_age(phylogeny = phylogeny)
 #'   testit::assert(created == 15)
 #' @author Richel J.C. Bilderbeek
-#' @noRd
+#' @export
 get_phylo_crown_age <- function(
   phylogeny
 ) {
@@ -19,6 +23,5 @@ get_phylo_crown_age <- function(
 
   n_taxa <- length(phylogeny$tip.label)
   testit::assert(n_taxa > 0)
-  crown_age <- ape::dist.nodes(phylogeny)[n_taxa + 1][1]
-  crown_age
+  ape::dist.nodes(phylogeny)[n_taxa + 1][1]
 }
