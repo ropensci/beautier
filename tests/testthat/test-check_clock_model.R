@@ -9,7 +9,12 @@ test_that("use", {
 
   # Must be one clock model
   expect_error(
-    check_clock_model(list(create_strict_clock_model(), create_strict_clock_model())),
+    check_clock_model(
+      list(
+        create_strict_clock_model(),
+        create_strict_clock_model()
+      )
+    ),
     "'clock_model' must be a valid clock model"
   )
 
