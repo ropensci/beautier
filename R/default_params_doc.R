@@ -80,6 +80,7 @@
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
+#' @param phylogeny a phylogeny of type \code{\link[ape]{phylo}}
 #' @param posterior_crown_age deprecated
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
@@ -153,6 +154,7 @@ default_params_doc <- function(
   mrca_prior, mrca_priors,
   output_filename,
   param_id,
+  phylogeny,
   posterior_crown_age,
   rln_clock_model,
   sequence_length,

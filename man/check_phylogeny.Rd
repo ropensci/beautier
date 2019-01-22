@@ -6,6 +6,9 @@
 \usage{
 check_phylogeny(phylogeny)
 }
+\arguments{
+\item{phylogeny}{a phylogeny of type \code{\link[ape]{phylo}}}
+}
 \value{
 nothing
 }

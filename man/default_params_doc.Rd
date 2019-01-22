@@ -15,8 +15,8 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   has_tip_dating, hky_site_model, id, ids, initial_phylogenies,
   input_filename, input_filenames, is_monophyletic, jc69_site_model, mcmc,
   misc_options, mrca_prior, mrca_priors, output_filename, param_id,
-  posterior_crown_age, rln_clock_model, sequence_length, site_model,
-  site_model_name, site_model_names, site_models, store_every,
+  phylogeny, posterior_crown_age, rln_clock_model, sequence_length,
+  site_model, site_model_name, site_model_names, site_models, store_every,
   strict_clock_model, tipdates_filename, tn93_site_model, tree_prior,
   tree_prior_name, tree_prior_names, tree_priors, verbose, yule_tree_prior)
 }
@@ -136,6 +136,8 @@ as returned by \code{\link{create_mrca_prior}}}
 function. BEAST2 uses this file as input.}
 
 \item{param_id}{a parameter's ID}
+
+\item{phylogeny}{a phylogeny of type \code{\link[ape]{phylo}}}
 
 \item{posterior_crown_age}{deprecated}
 
