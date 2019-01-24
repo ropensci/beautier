@@ -164,8 +164,19 @@ create_beast2_input <- function(
     }
   }
 
-  # All MRCA's taxa names must be in the FASTA files
+  # Fill in MRCA prior's taxa names and alignment ID if those are NA
+  if (!is_one_na(mrca_priors[[1]])) {
+    for (i in seq_along(mrca_priors)) {
+      if (is_one_na(mrca_priors[[i]]$alignment_id)) {
+        mrca_priors[[i]]$alignment_id <- get_alignment_id(input_filename)
+      }
+      if (is_one_na(mrca_priors[[i]]$taxa_names)) {
+        mrca_priors[[i]]$taxa_names <- get_taxa_names(input_filename)
+      }
+    }
+  }
 
+  # All MRCA's taxa names must be in the FASTA files
   if (!is_one_na(mrca_priors)) {
     testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
     if (!are_mrca_align_ids_in_fastas( # nolint internal function
