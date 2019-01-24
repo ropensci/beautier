@@ -53,6 +53,20 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
   )
 })
 
+test_that("Run with default MRCA, beautier issue #75", {
+
+  skip("TODO: Fix #75")
+  expect_silent(
+    create_beast2_input(
+      input_filename = get_fasta_filename(),
+      site_model = create_jc69_site_model(),
+      clock_model = create_rln_clock_model(),
+      tree_prior = create_cep_tree_prior(),
+      mrca_prior = create_mrca_prior()
+    )
+  )
+})
+
 test_that("abuse: one alignment", {
 
   expect_silent(
