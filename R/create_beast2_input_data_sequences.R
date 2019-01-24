@@ -4,7 +4,7 @@
 #'   Yes if TRUE, no if FALSE
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-create_beast2_input_data_sequences <- function( # nolint internal function
+create_beast2_input_data_sequences <- function( # nolint beautier function
   input_fasta_filename,
   misc_options = create_misc_options()
 ) {
@@ -29,5 +29,5 @@ create_beast2_input_data_sequences <- function( # nolint internal function
     text <- c(text, nextline)
   }
   text <- sort(text, method = "radix")
-  indent(text = text, n_spaces = misc_options$sequence_indent) # nolint internal function
+  indent(text = text, n_spaces = misc_options$sequence_indent) # nolint beautier function
 }

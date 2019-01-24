@@ -17,7 +17,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 get_gamma_site_model_n_distrs <- function(gamma_site_model) {
-  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint internal function
+  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint beautier function
   if (gamma_site_model$gamma_cat_count < 2) {
     0
   } else {

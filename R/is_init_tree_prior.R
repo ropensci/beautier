@@ -7,18 +7,18 @@
 is_init_tree_prior <- function(
   x
 ) {
-  if (!is_tree_prior(x)) return(FALSE) # nolint internal function
-  if (is_bd_tree_prior(x)) { # nolint internal function
-    return(is_init_bd_tree_prior(x))  # nolint internal function call
-  } else if (is_cbs_tree_prior(x)) { # nolint internal function
-    return(is_init_cbs_tree_prior(x))  # nolint internal function call
-  } else if (is_ccp_tree_prior(x)) { # nolint internal function
-    return(is_init_ccp_tree_prior(x))  # nolint internal function call
-  } else if (is_cep_tree_prior(x)) { # nolint internal function
-    return(is_init_cep_tree_prior(x))  # nolint internal function call
+  if (!is_tree_prior(x)) return(FALSE) # nolint beautier function
+  if (is_bd_tree_prior(x)) { # nolint beautier function
+    return(is_init_bd_tree_prior(x))  # nolint beautier function call
+  } else if (is_cbs_tree_prior(x)) { # nolint beautier function
+    return(is_init_cbs_tree_prior(x))  # nolint beautier function call
+  } else if (is_ccp_tree_prior(x)) { # nolint beautier function
+    return(is_init_ccp_tree_prior(x))  # nolint beautier function call
+  } else if (is_cep_tree_prior(x)) { # nolint beautier function
+    return(is_init_cep_tree_prior(x))  # nolint beautier function call
   } else {
-    testit::assert(is_yule_tree_prior(x)) # nolint internal function
-    return(is_init_yule_tree_prior(x))  # nolint internal function call
+    testit::assert(is_yule_tree_prior(x)) # nolint beautier function
+    return(is_init_yule_tree_prior(x))  # nolint beautier function call
   }
 }
 
@@ -31,9 +31,9 @@ is_init_tree_prior <- function(
 is_init_bd_tree_prior <- function(
   x
 ) {
-  testit::assert(is_bd_tree_prior(x)) # nolint internal function
-  is_init_distr(x$birth_rate_distr) && # nolint internal function
-    is_init_distr(x$death_rate_distr) # nolint internal function
+  testit::assert(is_bd_tree_prior(x)) # nolint beautier function
+  is_init_distr(x$birth_rate_distr) && # nolint beautier function
+    is_init_distr(x$death_rate_distr) # nolint beautier function
 }
 
 #' Determine if x is an initialized Coalescent Bayesian Skyline
@@ -47,7 +47,7 @@ is_init_bd_tree_prior <- function(
 is_init_cbs_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cbs_tree_prior(x)) # nolint internal function
+  testit::assert(is_cbs_tree_prior(x)) # nolint beautier function
 
   # Yup, is always initialized
   TRUE
@@ -64,7 +64,7 @@ is_init_cbs_tree_prior <- function(
 is_init_ccp_tree_prior <- function(
   x
 ) {
-  is_init_distr(x$pop_size_distr) # nolint internal function
+  is_init_distr(x$pop_size_distr) # nolint beautier function
 }
 
 #' Determine if x is an initialized Coalescent Exponential Population
@@ -77,9 +77,9 @@ is_init_ccp_tree_prior <- function(
 is_init_cep_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cep_tree_prior(x)) # nolint internal function
-  is_init_distr(x$pop_size_distr) &&  # nolint internal function
-  is_init_distr(x$growth_rate_distr)  # nolint internal function
+  testit::assert(is_cep_tree_prior(x)) # nolint beautier function
+  is_init_distr(x$pop_size_distr) &&  # nolint beautier function
+  is_init_distr(x$growth_rate_distr)  # nolint beautier function
 }
 
 #' Determine if x is an initialized Yule tree_prior object
@@ -91,6 +91,6 @@ is_init_cep_tree_prior <- function(
 is_init_yule_tree_prior <- function(
   x
 ) {
-  testit::assert(is_yule_tree_prior(x)) # nolint internal function
-  is_init_distr(x$birth_rate_distr) # nolint internal function
+  testit::assert(is_yule_tree_prior(x)) # nolint beautier function
+  is_init_distr(x$birth_rate_distr) # nolint beautier function
 }

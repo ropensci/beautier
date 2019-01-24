@@ -12,6 +12,6 @@
 #'   ))
 #' @noRd
 is_default_mcmc <- function(mcmc) {
-  if (!is_mcmc(mcmc)) return(FALSE) # nolint internal function
+  if (!is_mcmc(mcmc)) return(FALSE) # nolint beautier function
   length(names(mcmc)) == 2
 }

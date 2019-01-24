@@ -25,10 +25,10 @@
 #' @export
 check_clock_model <- function(clock_model) {
 
-  if (is_clock_model(clock_model)) { # nolint internal function
+  if (is_clock_model(clock_model)) { # nolint beautier function
     return()
   }
-  if (length(clock_model) == 1 && is_clock_model(clock_model[[1]])) { # nolint internal function
+  if (length(clock_model) == 1 && is_clock_model(clock_model[[1]])) { # nolint beautier function
     return()
   }
   stop(

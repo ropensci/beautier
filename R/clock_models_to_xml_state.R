@@ -11,12 +11,12 @@ clock_models_to_xml_state <- function(
   has_tip_dating = FALSE
 ) {
   # the mrca_priors are supposed to be temporary :-)
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_clock_models(clock_models)) # nolint beautier function
 
   if (length(clock_models) == 1 &&
       is_strict_clock_model(clock_models[[1]]) &&
     has_tip_dating == FALSE
-  ) { # nolint internal function
+  ) { # nolint beautier function
     return(NULL)
   }
 
@@ -33,8 +33,8 @@ clock_models_to_xml_state <- function(
 
   # Remove the first line of the first clock model,
   # if no MRCA prior with a distribution is used
-  if (is_rln_clock_model(clock_models[[1]]) && # nolint internal function
-      !is_mrca_prior_with_distr(mrca_priors[[1]])) { # nolint internal function
+  if (is_rln_clock_model(clock_models[[1]]) && # nolint beautier function
+      !is_mrca_prior_with_distr(mrca_priors[[1]])) { # nolint beautier function
     # A RLN clock model returns three lines, only remove the first
     line_to_remove <- clock_model_to_xml_state(clock_models[[1]]) # nolint
     testit::assert(length(line_to_remove) == 3)

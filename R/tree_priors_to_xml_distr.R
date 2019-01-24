@@ -12,14 +12,14 @@
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-tree_priors_to_xml_prior_distr <- function( # nolint internal function
+tree_priors_to_xml_prior_distr <- function( # nolint beautier function
   tree_priors
 ) {
-  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
+  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
 
   text <- NULL
   for (tree_prior in tree_priors) {
-    text <- c(text, tree_prior_to_xml_prior_distr(tree_prior)) # nolint internal function
+    text <- c(text, tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
   }
   text
 }

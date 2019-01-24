@@ -16,6 +16,6 @@ is_mrca_prior <- function(
   if (!"is_monophyletic" %in% names(x)) return(FALSE)
   if (!"mrca_distr" %in% names(x)) return(FALSE)
   if (!"clock_prior_distr_id" %in% names(x)) return(FALSE)
-  if (!is_distr(x$mrca_distr) && !is.na(x$mrca_distr)) return(FALSE) # nolint internal function
+  if (!is_distr(x$mrca_distr) && !is.na(x$mrca_distr)) return(FALSE) # nolint beautier function
   TRUE
 }

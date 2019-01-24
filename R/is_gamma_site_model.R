@@ -17,6 +17,6 @@ is_gamma_site_model <- function(x) {
   if (x$prop_invariant > 1.0) return(FALSE)
   if (!"gamma_shape_prior_distr" %in% names(x)) return(FALSE)
   if (!is.na(x$gamma_shape_prior_distr) &&
-      !is_distr(x$gamma_shape_prior_distr)) return(FALSE) # nolint internal function
+      !is_distr(x$gamma_shape_prior_distr)) return(FALSE) # nolint beautier function
   TRUE
 }

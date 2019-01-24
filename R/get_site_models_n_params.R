@@ -19,13 +19,13 @@
 get_site_models_n_params <- function(
   site_models
 ) {
-  if (!are_site_models(site_models)) { # nolint internal function
+  if (!are_site_models(site_models)) { # nolint beautier function
     stop("'site_models' must be a list of site models")
   }
   n <- 0
   for (site_model in site_models) {
-    testit::assert(is_site_model(site_model)) # nolint internal function
-    n <- n + get_site_model_n_params(site_model) # nolint internal function
+    testit::assert(is_site_model(site_model)) # nolint beautier function
+    n <- n + get_site_model_n_params(site_model) # nolint beautier function
   }
   n
 }

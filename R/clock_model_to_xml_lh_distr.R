@@ -18,12 +18,12 @@ clock_model_to_xml_lh_distr <- function(
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(is_clock_model(clock_model)) # nolint internal function
+  testit::assert(is_clock_model(clock_model)) # nolint beautier function
   id <- clock_model$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
-  if (is_strict_clock_model(clock_model)) { # nolint internal function
+  if (is_strict_clock_model(clock_model)) { # nolint beautier function
     if (is.na(tipdates_filename)) {
       text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
         id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
@@ -31,8 +31,8 @@ clock_model_to_xml_lh_distr <- function(
       clock_model$clock_rate_param$id <- id
       text <- c(
         text,
-        indent( # nolint internal function
-          parameter_to_xml(clock_model$clock_rate_param), # nolint internal function
+        indent( # nolint beautier function
+          parameter_to_xml(clock_model$clock_rate_param), # nolint beautier function
           n_spaces = 4
         )
       )
@@ -48,7 +48,7 @@ clock_model_to_xml_lh_distr <- function(
         )
       )
     }
-  } else if (is_rln_clock_model(clock_model)) { # nolint internal function
+  } else if (is_rln_clock_model(clock_model)) { # nolint beautier function
     n_discrete_rates <- clock_model$n_rate_categories
     mparam_id <- clock_model$mparam_id
     line <- paste0("<branchRateModel ",
@@ -86,6 +86,6 @@ clock_model_to_xml_lh_distr <- function(
   }
 
 
-  testit::assert(is.null(text) || is_xml(text)) # nolint internal function
+  testit::assert(is.null(text) || is_xml(text)) # nolint beautier function
   text
 }

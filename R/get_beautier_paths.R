@@ -15,7 +15,7 @@
 get_beautier_paths <- function(filenames) {
 
   for (i in seq_along(filenames)) {
-    filenames[i] <- get_beautier_path(filenames[i]) # nolint internal function
+    filenames[i] <- get_beautier_path(filenames[i]) # nolint beautier function
   }
 
   filenames

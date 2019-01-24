@@ -8,12 +8,12 @@
 #' # </logger>
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-mrca_prior_to_xml_tracelog <- function( # nolint internal function
+mrca_prior_to_xml_tracelog <- function( # nolint beautier function
   clock_models,
   mrca_prior,
   tipdates_filename = NA
 ) {
-  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   if (length(mrca_prior) == 1 &&
       is.na(mrca_prior) &&
       is.na(tipdates_filename)) {

@@ -34,27 +34,27 @@
 get_tree_prior_n_params <- function(
   tree_prior
 ) {
-  if (!is_tree_prior(tree_prior)) { # nolint internal function
+  if (!is_tree_prior(tree_prior)) { # nolint beautier function
     stop("'tree_prior' must be a tree prior")
   }
-  if (is_bd_tree_prior(tree_prior)) { # nolint internal function
+  if (is_bd_tree_prior(tree_prior)) { # nolint beautier function
     return(
-      get_distr_n_params(tree_prior$birth_rate_distr) + # nolint internal function
-      get_distr_n_params(tree_prior$death_rate_distr) # nolint internal function
+      get_distr_n_params(tree_prior$birth_rate_distr) + # nolint beautier function
+      get_distr_n_params(tree_prior$death_rate_distr) # nolint beautier function
     )
-  } else if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
+  } else if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
     return(0)
-  } else if (is_ccp_tree_prior(tree_prior)) { # nolint internal function
-    return(get_distr_n_params(tree_prior$pop_size_distr)) # nolint internal function
-  } else if (is_cep_tree_prior(tree_prior)) { # nolint internal function
+  } else if (is_ccp_tree_prior(tree_prior)) { # nolint beautier function
+    return(get_distr_n_params(tree_prior$pop_size_distr)) # nolint beautier function
+  } else if (is_cep_tree_prior(tree_prior)) { # nolint beautier function
     return(
-      get_distr_n_params(tree_prior$pop_size_distr) + # nolint internal function
-      get_distr_n_params(tree_prior$growth_rate_distr) # nolint internal function
+      get_distr_n_params(tree_prior$pop_size_distr) + # nolint beautier function
+      get_distr_n_params(tree_prior$growth_rate_distr) # nolint beautier function
     )
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior)) # nolint internal function
+    testit::assert(is_yule_tree_prior(tree_prior)) # nolint beautier function
     return(
-      get_distr_n_params(tree_prior$birth_rate_distr) # nolint internal function
+      get_distr_n_params(tree_prior$birth_rate_distr) # nolint beautier function
     )
   }
 }

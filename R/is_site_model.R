@@ -18,10 +18,10 @@ is_site_model <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (!is_site_model_name(x$name)) return(FALSE) # nolint internal function
+  if (!is_site_model_name(x$name)) return(FALSE) # nolint beautier function
   if (!"id" %in% names(x)) return(FALSE)
   if (!"gamma_site_model" %in% names(x)) return(FALSE)
-  if (!is_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint internal function
+  if (!is_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -37,7 +37,7 @@ is_site_model <- function(
 is_gtr_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE) # nolint internal function
+  if (!is_site_model(x)) return(FALSE) # nolint beautier function
   if (x$name != "GTR") return(FALSE)
 
   expected_names <- c("rate_ac_prior_distr", "rate_ag_prior_distr",
@@ -51,16 +51,16 @@ is_gtr_site_model <- function(
   expected_distrs <- list(x$rate_ac_prior_distr, x$rate_ag_prior_distr,
     x$rate_at_prior_distr, x$rate_cg_prior_distr, x$rate_gt_prior_distr)
   for (expected_distr in expected_distrs) {
-    if (!is_distr(expected_distr)) return(FALSE) # nolint internal function
+    if (!is_distr(expected_distr)) return(FALSE) # nolint beautier function
   }
 
   expected_params <- list(x$rate_ac_param, x$rate_ag_param, x$rate_at_param,
     x$rate_cg_param, x$rate_ct_param, x$rate_gt_param)
   for (expected_param in expected_params) {
-    if (!is_param(expected_param)) return(FALSE) # nolint internal function
+    if (!is_param(expected_param)) return(FALSE) # nolint beautier function
   }
 
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint internal function
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -76,13 +76,13 @@ is_gtr_site_model <- function(
 is_hky_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE) # nolint internal function
+  if (!is_site_model(x)) return(FALSE) # nolint beautier function
   if (x$name != "HKY") return(FALSE)
   if (!"kappa" %in% names(x)) return(FALSE)
   if (!"kappa_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_distr(x$kappa_prior_distr)) return(FALSE) # nolint beautier function
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint internal function
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -97,7 +97,7 @@ is_hky_site_model <- function(
 is_jc69_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE) # nolint internal function
+  if (!is_site_model(x)) return(FALSE) # nolint beautier function
   if (x$name != "JC69") return(FALSE)
   TRUE
 }
@@ -117,16 +117,16 @@ is_jc69_site_model <- function(
 is_tn93_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE) # nolint internal function
+  if (!is_site_model(x)) return(FALSE) # nolint beautier function
   if (!"kappa_1_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_1_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_distr(x$kappa_1_prior_distr)) return(FALSE) # nolint beautier function
   if (!"kappa_2_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_2_prior_distr)) return(FALSE) # nolint internal function
+  if (!is_distr(x$kappa_2_prior_distr)) return(FALSE) # nolint beautier function
   if (!"kappa_1_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$kappa_1_param)) return(FALSE) # nolint internal function
+  if (!is_param(x$kappa_1_param)) return(FALSE) # nolint beautier function
   if (!"kappa_2_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$kappa_2_param)) return(FALSE) # nolint internal function
+  if (!is_param(x$kappa_2_param)) return(FALSE) # nolint beautier function
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint internal function
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint beautier function
   TRUE
 }

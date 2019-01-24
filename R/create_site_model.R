@@ -59,7 +59,7 @@ create_site_model <- function(
   gamma_site_model = create_gamma_site_model(),
   ...
 ) {
-  if (!is_site_model_name(name)) { # nolint internal function
+  if (!is_site_model_name(name)) { # nolint beautier function
     site_models_as_string <- function() {
       s <- NULL
       for (p in get_site_model_names()) {
@@ -73,7 +73,7 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  check_gamma_site_model(gamma_site_model) # nolint internal function
+  check_gamma_site_model(gamma_site_model) # nolint beautier function
   site_model <- list(
     name = name,
     id = id,

@@ -11,7 +11,7 @@
 #' @return a character vector of XML strings
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-clock_models_to_xml_prior_distr <- function( # nolint internal function
+clock_models_to_xml_prior_distr <- function( # nolint beautier function
   clock_models,
   mrca_priors = NA,
   tipdates_filename = NA
@@ -22,7 +22,7 @@ clock_models_to_xml_prior_distr <- function( # nolint internal function
     clock_model <- clock_models[[i]]
     text <- c(
       text,
-      clock_model_to_xml_prior_distr( # nolint internal function
+      clock_model_to_xml_prior_distr( # nolint beautier function
         clock_model = clock_model,
         mrca_priors = mrca_priors,
         tipdates_filename = tipdates_filename

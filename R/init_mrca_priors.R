@@ -11,12 +11,12 @@ init_mrca_priors <- function(
   param_id = 0
 ) {
   if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NA)
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
   names <- paste0("auto_name_", seq_along(mrca_priors))
 
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]
-    testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
+    testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
 
     if (is.na(mrca_prior$name)) {
       mrca_prior$name <- names[i]
@@ -25,19 +25,19 @@ init_mrca_priors <- function(
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }
-    if (is_distr(mrca_prior$mrca_distr) && # nolint internal function
-        !is_init_distr(mrca_prior$mrca_distr) # nolint internal function
+    if (is_distr(mrca_prior$mrca_distr) && # nolint beautier function
+        !is_init_distr(mrca_prior$mrca_distr) # nolint beautier function
     ) {
-      mrca_prior$mrca_distr <- init_distr( # nolint internal function
+      mrca_prior$mrca_distr <- init_distr( # nolint beautier function
         distr = mrca_prior$mrca_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr) # nolint internal function
+      param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr) # nolint beautier function
     }
 
-    testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
+    testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
     mrca_priors[[i]] <- mrca_prior
   }
   mrca_priors

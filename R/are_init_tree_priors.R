@@ -7,9 +7,9 @@
 are_init_tree_priors <- function(
   x
 ) {
-  if (!are_tree_priors(x)) return(FALSE) # nolint internal function
+  if (!are_tree_priors(x)) return(FALSE) # nolint beautier function
   for (i in x) {
-    if (!is_init_tree_prior(i)) return(FALSE)   # nolint internal function call
+    if (!is_init_tree_prior(i)) return(FALSE)   # nolint beautier function call
   }
   TRUE
 }

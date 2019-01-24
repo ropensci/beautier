@@ -14,9 +14,9 @@ are_clock_models <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_clock_model(x)) return(TRUE) # nolint internal function
+  if (is_clock_model(x)) return(TRUE) # nolint beautier function
   for (i in x) {
-    if (!is_clock_model(i)) return(FALSE) # nolint internal function
+    if (!is_clock_model(i)) return(FALSE) # nolint beautier function
   }
   TRUE
 }
@@ -33,10 +33,10 @@ are_clock_models <- function(
 are_rln_clock_models <- function(
   clock_models
 ) {
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
+  testit::assert(are_clock_models(clock_models)) # nolint beautier function
   rlns <- rep(NA, length(clock_models))
   for (i in seq_along(clock_models)) {
-    rlns[i] <- is_rln_clock_model(clock_models[[i]]) # nolint internal function
+    rlns[i] <- is_rln_clock_model(clock_models[[i]]) # nolint beautier function
   }
   rlns
 }

@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-create_beast2_input_operators <- function( # nolint internal function
+create_beast2_input_operators <- function( # nolint beautier function
   site_models,
   clock_models,
   tree_priors,
@@ -11,10 +11,10 @@ create_beast2_input_operators <- function( # nolint internal function
   tipdates_filename = NA
 ) {
   testit::assert(is.logical(fixed_crown_ages))
-  testit::assert(are_site_models(site_models)) # nolint internal function
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
-  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(are_site_models(site_models)) # nolint beautier function
+  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
   testit::assert(length(site_models) == length(fixed_crown_ages))
 
   text <- NULL
@@ -28,16 +28,16 @@ create_beast2_input_operators <- function( # nolint internal function
     )
   )
 
-  text <- c(text, site_models_to_xml_operators(site_models)) # nolint internal function
+  text <- c(text, site_models_to_xml_operators(site_models)) # nolint beautier function
   text <- c(
     text,
-    clock_models_to_xml_operators( # nolint internal function
+    clock_models_to_xml_operators( # nolint beautier function
       clock_models = clock_models,
       mrca_priors = mrca_priors,
       tipdates_filename = tipdates_filename
     )
   )
-  text <- interspace(text) # nolint internal function
+  text <- interspace(text) # nolint beautier function
 
-  indent(text, n_spaces = 4) # nolint internal function
+  indent(text, n_spaces = 4) # nolint beautier function
 }

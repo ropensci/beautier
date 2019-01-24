@@ -3,11 +3,11 @@
 #' @return lines of text from the first to and including the last operators line
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-extract_xml_loggers_from_lines <- function( # nolint internal function
+extract_xml_loggers_from_lines <- function( # nolint beautier function
   lines
 ) {
-  first_line <- find_first_regex_line(lines, "<logger id=\"") # nolint internal function
+  first_line <- find_first_regex_line(lines, "<logger id=\"") # nolint beautier function
   testit::assert(!is.na(first_line))
-  last_line <- find_last_regex_line(lines, "</logger>") # nolint internal function
+  last_line <- find_last_regex_line(lines, "</logger>") # nolint beautier function
   lines[first_line:last_line]
 }

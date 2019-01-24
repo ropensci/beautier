@@ -10,11 +10,11 @@
 get_clock_model_name <- function(
   clock_model
 ) {
-  if (is_strict_clock_model(clock_model)) { # nolint internal function
+  if (is_strict_clock_model(clock_model)) { # nolint beautier function
     return("StrictClock")
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model)) # nolint internal function
+    testit::assert(is_rln_clock_model(clock_model)) # nolint beautier function
     return("RelaxedClock")
   }
 }

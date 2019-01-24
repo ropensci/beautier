@@ -7,7 +7,7 @@
 rnd_phylo_to_xml_init <- function(
   id
 ) {
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
   text <- NULL
   text <- c(text, paste0("<init id=\"RandomTree.t:", id,
     "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",

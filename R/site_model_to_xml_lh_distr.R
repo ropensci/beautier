@@ -15,9 +15,9 @@
 site_model_to_xml_lh_distr <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint internal function
+  testit::assert(is_site_model(site_model)) # nolint beautier function
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
 
@@ -56,8 +56,8 @@ site_model_to_xml_lh_distr <- function(
     "</parameter>"))
 
   text <- c(text,
-    indent( # nolint internal function
-      site_model_to_xml_subst_model(site_model), # nolint internal function
+    indent( # nolint beautier function
+      site_model_to_xml_subst_model(site_model), # nolint beautier function
       n_spaces = 4
     )
   )

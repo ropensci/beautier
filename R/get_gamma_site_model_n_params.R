@@ -25,10 +25,10 @@
 get_gamma_site_model_n_params <- function(
   gamma_site_model
 ) {
-  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint internal function
+  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint beautier function
   if (gamma_site_model$gamma_cat_count < 2) {
     0
   } else {
-    get_distr_n_params(gamma_site_model$gamma_shape_prior_distr) # nolint internal function
+    get_distr_n_params(gamma_site_model$gamma_shape_prior_distr) # nolint beautier function
   }
 }

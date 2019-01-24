@@ -13,13 +13,13 @@ clock_model_to_xml_tracelog <- function(
   clock_model,
   mrca_priors = NA
 ) {
-  testit::assert(is_clock_model(clock_model)) # nolint internal function
+  testit::assert(is_clock_model(clock_model)) # nolint beautier function
   id <- clock_model$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
-  if (is_rln_clock_model(clock_model)) { # nolint internal function
-    if (is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint internal function
+  if (is_rln_clock_model(clock_model)) { # nolint beautier function
+    if (is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint beautier function
     ) {
       text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>"))
     }
@@ -31,8 +31,8 @@ clock_model_to_xml_tracelog <- function(
     )
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(is_strict_clock_model(clock_model)) # nolint internal function
+    testit::assert(is_strict_clock_model(clock_model)) # nolint beautier function
   }
-  testit::assert(is.null(text) || is_xml(text)) # nolint internal function
+  testit::assert(is.null(text) || is_xml(text)) # nolint beautier function
   text
 }

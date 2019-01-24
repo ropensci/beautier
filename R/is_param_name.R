@@ -23,5 +23,5 @@
 #'   testit::assert(beautier:::is_param_name("sigma"))
 #' @noRd
 is_param_name <- function(name) {
-  name %in% get_param_names() # nolint internal function
+  name %in% get_param_names() # nolint beautier function
 }

@@ -12,8 +12,8 @@
 is_clock_model <- function(
   x
 ) {
-  if (is_rln_clock_model(x)) return(TRUE) # nolint internal function
-  if (is_strict_clock_model(x)) return(TRUE) # nolint internal function
+  if (is_rln_clock_model(x)) return(TRUE) # nolint beautier function
+  if (is_strict_clock_model(x)) return(TRUE) # nolint beautier function
   FALSE
 }
 
@@ -69,8 +69,8 @@ is_strict_clock_model <- function(
   if (!"id" %in% names(x)) return(FALSE)
   if (x$name != "strict") return(FALSE)
   if (!"clock_rate_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$clock_rate_param)) return(FALSE) # nolint internal function
+  if (!is_param(x$clock_rate_param)) return(FALSE) # nolint beautier function
   if (!"clock_rate_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$clock_rate_distr)) return(FALSE) # nolint internal function
+  if (!is_distr(x$clock_rate_distr)) return(FALSE) # nolint beautier function
   TRUE
 }

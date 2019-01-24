@@ -13,18 +13,18 @@
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-create_beast2_input_distr <- function( # nolint internal function
+create_beast2_input_distr <- function( # nolint beautier function
   site_models,
   clock_models,
   tree_priors,
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(are_site_models(site_models)) # nolint internal function
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
-  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
-  testit::assert(are_init_tree_priors(tree_priors)) # nolint internal function call
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function call
+  testit::assert(are_site_models(site_models)) # nolint beautier function
+  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
+  testit::assert(are_init_tree_priors(tree_priors)) # nolint beautier function call
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function call
 
   text <- NULL
 
@@ -50,13 +50,13 @@ create_beast2_input_distr <- function( # nolint internal function
       tipdates_filename = tipdates_filename
     )
   )
-  text <- indent(text, n_spaces = 4) # nolint internal function
+  text <- indent(text, n_spaces = 4) # nolint beautier function
   text <- c(
     "<distribution id=\"posterior\" spec=\"util.CompoundDistribution\">",
     text
   )
   text <- c(text, "</distribution>") # posterior distribution
-  text <- indent(text, n_spaces = 4) # nolint internal function
+  text <- indent(text, n_spaces = 4) # nolint beautier function
   text
 }
 
@@ -77,7 +77,7 @@ create_beast2_input_distr <- function( # nolint internal function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_prior <- function( # nolint internal function
+create_beast2_input_distr_prior <- function( # nolint beautier function
   site_models,
   clock_models,
   tree_priors,
@@ -85,23 +85,23 @@ create_beast2_input_distr_prior <- function( # nolint internal function
   tipdates_filename = NA
 ) {
   text <- NULL
-  text <- c(text, tree_priors_to_xml_prior_distr(tree_priors)) # nolint internal function
-  text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint internal function
-  text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint internal function
-  text <- c(text, mrca_priors_to_xml_prior_distr( # nolint internal function
+  text <- c(text, tree_priors_to_xml_prior_distr(tree_priors)) # nolint beautier function
+  text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint beautier function
+  text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint beautier function
+  text <- c(text, mrca_priors_to_xml_prior_distr( # nolint beautier function
     mrca_priors,
     has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models))
   )
   text <- c(
     text,
-    clock_models_to_xml_prior_distr( # nolint internal function
+    clock_models_to_xml_prior_distr( # nolint beautier function
       clock_models = clock_models,
       mrca_priors = mrca_priors,
       tipdates_filename = tipdates_filename
     )
   )
 
-  text <- indent(text, n_spaces = 4) # nolint internal function
+  text <- indent(text, n_spaces = 4) # nolint beautier function
 
   # Surround text by prior distribution tag
   text <- c(
@@ -127,7 +127,7 @@ create_beast2_input_distr_prior <- function( # nolint internal function
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_lh <- function( # nolint internal function
+create_beast2_input_distr_lh <- function( # nolint beautier function
   site_models,
   clock_models,
   mrca_priors = NA,
@@ -149,16 +149,16 @@ create_beast2_input_distr_lh <- function( # nolint internal function
       "data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
-      indent( # nolint internal function
-        site_model_to_xml_lh_distr(site_model), # nolint internal function
+      indent( # nolint beautier function
+        site_model_to_xml_lh_distr(site_model), # nolint beautier function
         n_spaces = 4
       )
     )
 
-    if (is_one_na(mrca_priors) || get_has_non_strict_clock_model(clock_models)) { # nolint internal function
+    if (is_one_na(mrca_priors) || get_has_non_strict_clock_model(clock_models)) { # nolint beautier function
       text <- c(text,
-        indent( # nolint internal function
-          clock_model_to_xml_lh_distr( # nolint internal function
+        indent( # nolint beautier function
+          clock_model_to_xml_lh_distr( # nolint beautier function
             clock_model,
             mrca_priors = mrca_priors,
             tipdates_filename = tipdates_filename
@@ -168,16 +168,16 @@ create_beast2_input_distr_lh <- function( # nolint internal function
       )
     }
     # Can be either NA or a list of 1 element
-    testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+    testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
     testit::assert(length(mrca_priors) >= 1)
     mrca_prior <- NA
     if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]] # nolint
-    testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
+    testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
     text <- c(text,
-      indent( # nolint internal function
-        mrca_prior_to_xml_lh_distr( # nolint internal function
+      indent( # nolint beautier function
+        mrca_prior_to_xml_lh_distr( # nolint beautier function
           mrca_prior,
-          has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint internal function
+          has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint beautier function
             clock_models
           )
         ),
@@ -189,7 +189,7 @@ create_beast2_input_distr_lh <- function( # nolint internal function
   }
 
 
-  text <- indent(text, n_spaces = 4) # nolint internal function
+  text <- indent(text, n_spaces = 4) # nolint beautier function
 
   # Surround by likelihood distribution tags
   text <- c(paste0(
@@ -218,12 +218,12 @@ create_beast2_input_distr_lh <- function( # nolint internal function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
+bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   bd_tree_prior
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint internal function
+  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint beautier function
   id <- bd_tree_prior$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
 
@@ -239,8 +239,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint internal function
-      distr_to_xml( # nolint internal function
+    indent( # nolint beautier function
+      distr_to_xml( # nolint beautier function
         distr = bd_birth_rate_distr
       ),
       n_spaces = 4
@@ -254,8 +254,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
   text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint internal function
-      distr_to_xml( # nolint internal function
+    indent( # nolint beautier function
+      distr_to_xml( # nolint beautier function
         distr = bd_death_rate_distr
       ),
       n_spaces = 4
@@ -279,12 +279,12 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
+cbs_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   cbs_tree_prior
 ) {
-  testit::assert(is_cbs_tree_prior(cbs_tree_prior)) # nolint internal function
+  testit::assert(is_cbs_tree_prior(cbs_tree_prior)) # nolint beautier function
   id <- cbs_tree_prior$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
   text <- c(text, paste0("<distribution ",
@@ -315,12 +315,12 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
+ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   ccp_tree_prior
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint internal function
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint beautier function
   id <- ccp_tree_prior$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
 
@@ -342,8 +342,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "\" name=\"distribution\" x=\"@popSize.t:",
     id, "\">"))
   text <- c(text,
-    indent( # nolint internal function
-      distr_to_xml( # nolint internal function
+    indent( # nolint beautier function
+      distr_to_xml( # nolint beautier function
         distr = ccp_tree_prior$pop_size_distr
       ),
       n_spaces = 4
@@ -366,12 +366,12 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
+cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   cep_tree_prior
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint internal function
+  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint beautier function
   id <- cep_tree_prior$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
 
@@ -392,8 +392,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint internal function
-      distr_to_xml( # nolint internal function
+    indent( # nolint beautier function
+      distr_to_xml( # nolint beautier function
         distr = cep_tree_prior$pop_size_distr
       ),
       n_spaces = 4
@@ -405,8 +405,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint internal function
-      distr_to_xml( # nolint internal function
+    indent( # nolint beautier function
+      distr_to_xml( # nolint beautier function
         distr = cep_tree_prior$growth_rate_distr
       ),
       n_spaces = 4
@@ -429,12 +429,12 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint internal function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
+yule_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   yule_tree_prior
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint internal function
+  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint beautier function
   id <- yule_tree_prior$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
 
@@ -450,8 +450,8 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint internal function
     )
   )
   text <- c(text,
-    indent( # nolint internal function
-      distr_to_xml(yule_tree_prior$birth_rate_distr), # nolint internal function
+    indent( # nolint beautier function
+      distr_to_xml(yule_tree_prior$birth_rate_distr), # nolint beautier function
       n_spaces = 4
     )
   )

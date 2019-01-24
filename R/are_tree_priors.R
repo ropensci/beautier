@@ -14,11 +14,11 @@ are_tree_priors <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_tree_prior(x)) { # nolint internal function
+  if (is_tree_prior(x)) { # nolint beautier function
     return(TRUE)
   }
   for (i in x) {
-    if (!is_tree_prior(i)) return(FALSE) # nolint internal function
+    if (!is_tree_prior(i)) return(FALSE) # nolint beautier function
   }
   return(TRUE)
 }

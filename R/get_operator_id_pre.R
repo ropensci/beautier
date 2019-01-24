@@ -8,19 +8,19 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 get_operator_id_pre <- function(tree_prior) {
-  if (is_bd_tree_prior(tree_prior)) { # nolint internal function
+  if (is_bd_tree_prior(tree_prior)) { # nolint beautier function
     return("BirthDeath")
   }
-    if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
+    if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
     return("BayesianSkyline")
   }
-  if (is_ccp_tree_prior(tree_prior)) { # nolint internal function
+  if (is_ccp_tree_prior(tree_prior)) { # nolint beautier function
     return("CoalescentConstant")
   }
-  if (is_cep_tree_prior(tree_prior)) { # nolint internal function
+  if (is_cep_tree_prior(tree_prior)) { # nolint beautier function
     return("CoalescentExponential")
   }
-  if (is_yule_tree_prior(tree_prior)) { # nolint internal function
+  if (is_yule_tree_prior(tree_prior)) { # nolint beautier function
     return("YuleModel")
   }
   stop("Unknown tree prior")

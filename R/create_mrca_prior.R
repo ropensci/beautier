@@ -46,7 +46,7 @@ create_mrca_prior <- function(
   if (!is.logical(is_monophyletic)) {
     stop("'is_monophyletic' must be either TRUE or FALSE")
   }
-  if (!is_distr(mrca_distr) && !is.na(mrca_distr)) { # nolint internal function
+  if (!is_distr(mrca_distr) && !is.na(mrca_distr)) { # nolint beautier function
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   testit::assert(length(taxa_names) > 0)
@@ -67,6 +67,6 @@ create_mrca_prior <- function(
     mrca_distr = mrca_distr,
     clock_prior_distr_id = clock_prior_distr_id
   )
-  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   mrca_prior
 }

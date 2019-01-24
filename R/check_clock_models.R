@@ -23,10 +23,10 @@
 #' @export
 check_clock_models <- function(clock_models) {
 
-  if (is_clock_model(clock_models)) { # nolint internal function
+  if (is_clock_model(clock_models)) { # nolint beautier function
     clock_models <- list(clock_models)
   }
-  if (!are_clock_models(clock_models)) { # nolint internal function
+  if (!are_clock_models(clock_models)) { # nolint beautier function
     stop(
       "'clock_models' must be a list of one or more valid clock models. ",
       "Actual value(s): ", clock_models

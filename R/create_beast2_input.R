@@ -72,31 +72,31 @@ create_beast2_input <- function(
   }
 
   # 2 site_models
-  check_site_model(site_model) # nolint internal function
+  check_site_model(site_model) # nolint beautier function
   site_models <- site_model
 
   # Convert possible-non-list input to lists and multiPhylo
-  if (is_site_model(site_models)) { # nolint internal function
+  if (is_site_model(site_models)) { # nolint beautier function
     site_models <- list(site_models)
   }
   clock_models <- clock_model
-  if (is_clock_model(clock_models)) { # nolint internal function
+  if (is_clock_model(clock_models)) { # nolint beautier function
     clock_models <- list(clock_models)
   }
   tree_priors <- tree_prior
-  if (is_tree_prior(tree_priors)) { # nolint internal function
+  if (is_tree_prior(tree_priors)) { # nolint beautier function
     tree_priors <- list(tree_priors)
   }
   mrca_priors <- mrca_prior
-  if (is_mrca_prior(mrca_priors)) { # nolint internal function
+  if (is_mrca_prior(mrca_priors)) { # nolint beautier function
     mrca_priors <- list(mrca_priors)
-    testit::assert(is_mrca_prior(mrca_priors[[1]])) # nolint internal function
+    testit::assert(is_mrca_prior(mrca_priors[[1]])) # nolint beautier function
   }
 
   # Check input
   # 1 input_filenames
   input_filenames <- input_filename
-  if (!files_exist(input_filenames)) { # nolint internal function
+  if (!files_exist(input_filenames)) { # nolint beautier function
     stop("'input_filename' must be the name of one present file.")
   }
 
@@ -104,7 +104,7 @@ create_beast2_input <- function(
   # Already checked
 
   # 3 clock_models
-  if (!are_clock_models(clock_models)) { # nolint internal function
+  if (!are_clock_models(clock_models)) { # nolint beautier function
     stop(
       "'clock_model' must be a valid clock model, ",
       "as returned by 'create_clock_model'"
@@ -112,7 +112,7 @@ create_beast2_input <- function(
   }
 
   # 4 tree_priors
-  if (!are_tree_priors(tree_priors)) { # nolint internal function
+  if (!are_tree_priors(tree_priors)) { # nolint beautier function
     stop(
       "'tree_prior' must be a valid tree prior, ",
       "as returned by 'create_tree_prior'"
@@ -120,7 +120,7 @@ create_beast2_input <- function(
   }
 
   # 5 MRCA priors
-  if (!are_mrca_priors(mrca_priors)) { # nolint internal function
+  if (!are_mrca_priors(mrca_priors)) { # nolint beautier function
     stop(
       "'mrca_prior' must be NA or a valid mrca object, ",
       "as returned by 'create_mrca_prior'"
@@ -128,7 +128,7 @@ create_beast2_input <- function(
   }
 
   # 6 mcmc
-  if (!is_mcmc(mcmc)) { # nolint internal function
+  if (!is_mcmc(mcmc)) { # nolint beautier function
     stop(
       "'mcmc' must be a valid mcmc object, ",
       "as returned by 'create_mcmc'"
@@ -136,7 +136,7 @@ create_beast2_input <- function(
   }
 
   # 7 misc_options
-  if (!is_misc_options(misc_options)) { # nolint internal function
+  if (!is_misc_options(misc_options)) { # nolint beautier function
     stop(
       "'misc_options' must be a valid misc options object, ",
       "as returned by 'create_misc_options'"
@@ -152,8 +152,8 @@ create_beast2_input <- function(
   for (i in seq_along(input_filenames)) {
     fasta_filename <- input_filenames[i]
     tree_prior <- tree_priors[[i]]
-    if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
-      n_taxa <- get_n_taxa(fasta_filename) # nolint internal function
+    if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
+      n_taxa <- get_n_taxa(fasta_filename) # nolint beautier function
       group_sizes_dimension <- tree_prior$group_sizes_dimension
       if (n_taxa <= group_sizes_dimension) {
         stop(
@@ -178,8 +178,8 @@ create_beast2_input <- function(
 
   # All MRCA's taxa names must be in the FASTA files
   if (!is_one_na(mrca_priors)) {
-    testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
-    if (!are_mrca_align_ids_in_fastas( # nolint internal function
+    testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
+    if (!are_mrca_align_ids_in_fastas( # nolint beautier function
         mrca_priors = mrca_priors,
         fasta_filenames = input_filenames
       )
@@ -218,28 +218,28 @@ create_beast2_input <- function(
     ids = get_alignment_ids(input_filenames),
     distr_id = 0,
     param_id = 0
-  )  # nolint internal function
+  )  # nolint beautier function
   clock_models <- init_clock_models(
     clock_models = clock_models,
     fasta_filenames = input_filenames,
     distr_id = 0 + get_site_models_n_distrs(site_models),
     param_id = 0 + get_site_models_n_params(site_models)
-  )  # nolint internal function
-  tree_priors <- init_tree_priors( # nolint internal function
+  )  # nolint beautier function
+  tree_priors <- init_tree_priors( # nolint beautier function
     tree_priors,
     ids = get_alignment_ids(input_filenames),
     distr_id = 100,
     param_id = 200
   )
-  mrca_priors <- init_mrca_priors( # nolint internal function
+  mrca_priors <- init_mrca_priors( # nolint beautier function
     mrca_priors,
     distr_id = 150,
     param_id = 300
   )
-  testit::assert(are_init_site_models(site_models))  # nolint internal function
-  testit::assert(are_init_clock_models(clock_models))  # nolint internal function
-  testit::assert(are_init_tree_priors(tree_priors))  # nolint internal function
-  testit::assert(are_init_mrca_priors(mrca_priors))  # nolint internal function
+  testit::assert(are_init_site_models(site_models))  # nolint beautier function
+  testit::assert(are_init_clock_models(clock_models))  # nolint beautier function
+  testit::assert(are_init_tree_priors(tree_priors))  # nolint beautier function
+  testit::assert(are_init_mrca_priors(mrca_priors))  # nolint beautier function
 
   # Make a million show as 1000000 instead of 1e+06
   old_scipen <- getOption("scipen")
@@ -249,8 +249,8 @@ create_beast2_input <- function(
   fixed_crown_ages <- rep(FALSE, times = length(input_filenames))
   initial_phylogenies <- rep(NA, time = length(input_filenames))
 
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
-  testit::assert(length(input_filenames) == length(initial_phylogenies)) # nolint internal function
+  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
+  testit::assert(length(input_filenames) == length(initial_phylogenies)) # nolint beautier function
 
   text <- create_beast2_input_beast(
     input_filenames = input_filenames,
@@ -264,7 +264,7 @@ create_beast2_input <- function(
     initial_phylogenies = initial_phylogenies,
     tipdates_filename = tipdates_filename
   )
-  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint internal function
+  text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint beautier function
 
   # Restore scipen
   options(scipen = old_scipen)

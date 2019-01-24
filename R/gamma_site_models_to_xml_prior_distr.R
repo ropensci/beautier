@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-gamma_site_models_to_xml_prior_distr <- function( # nolint internal function
+gamma_site_models_to_xml_prior_distr <- function( # nolint beautier function
   site_models
 ) {
   text <- NULL

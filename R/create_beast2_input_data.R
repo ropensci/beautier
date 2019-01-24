@@ -6,7 +6,7 @@ create_beast2_input_data <- function(
   input_filenames,
   misc_options = create_misc_options()
 ) {
-  testit::assert(files_exist(input_filenames)) # nolint internal function
+  testit::assert(files_exist(input_filenames)) # nolint beautier function
 
   text <- NULL
   n <- length(input_filenames)
@@ -28,7 +28,7 @@ create_beast2_input_data <- function(
       )
     )
     testit::assert(misc_options$sequence_indent >= 20)
-    text <- c(text, indent("</data>", n_spaces = misc_options$sequence_indent - 4)) # nolint internal function
+    text <- c(text, indent("</data>", n_spaces = misc_options$sequence_indent - 4)) # nolint beautier function
   }
   text
 }

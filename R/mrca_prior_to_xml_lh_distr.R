@@ -17,12 +17,12 @@ mrca_prior_to_xml_lh_distr <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE
 ) {
-  testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
+  testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   if (length(mrca_prior) == 1 && is.na(mrca_prior)) return(NULL)
-  if (!has_non_strict_clock_model && # nolint internal function
+  if (!has_non_strict_clock_model && # nolint beautier function
     !is.na(mrca_prior$mrca_distr)
   ) {
-    testit::assert(!is_one_na(mrca_prior$alignment_id))
+    testit::assert(!is_one_na(mrca_prior$alignment_id)) # nolint beautier function
     paste0(
       "<branchRateModel ",
       "id=\"StrictClock.c:", mrca_prior$alignment_id, "\" ",
@@ -31,7 +31,7 @@ mrca_prior_to_xml_lh_distr <- function(
     )
   } else if (!has_non_strict_clock_model) {
     text <- NULL
-    testit::assert(!is_one_na(mrca_prior$alignment_id))
+    testit::assert(!is_one_na(mrca_prior$alignment_id)) # nolint beautier function
     text <- c(
       text,
       paste0(
@@ -39,7 +39,7 @@ mrca_prior_to_xml_lh_distr <- function(
         "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"
       )
     )
-    testit::assert(!is_one_na(mrca_prior$alignment_id))
+    testit::assert(!is_one_na(mrca_prior$alignment_id)) # nolint beautier function
     text <- c(
       text,
       paste0(

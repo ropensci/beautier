@@ -114,10 +114,10 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
     stop("'section' must be a word")
   }
   if (section == "operators") {
-    return(are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)) # nolint internal function
+    return(are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)) # nolint beautier function
   }
   if (section == "loggers") {
-    return(are_equivalent_xml_lines_loggers(lines_1, lines_2, verbose)) # nolint internal function
+    return(are_equivalent_xml_lines_loggers(lines_1, lines_2, verbose)) # nolint beautier function
   }
   if (!has_xml_opening_tag(lines = lines_1, section = section)) {
     stop(
@@ -147,7 +147,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
     lines = lines_1, section = section)
   section_2 <- extract_xml_section_from_lines(
     lines = lines_2, section = section)
-  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint internal function
+  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint beautier function
 }
 
 #' Determine if XML operator lines result in equivalent trees
@@ -162,9 +162,9 @@ are_equivalent_xml_lines_operators <- function( # nolint don't care about intern
   lines_2,
   verbose = FALSE
 ) {
-  section_1 <- extract_xml_operators_from_lines(lines_1) # nolint internal function
-  section_2 <- extract_xml_operators_from_lines(lines_2) # nolint internal function
-  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint internal function
+  section_1 <- extract_xml_operators_from_lines(lines_1) # nolint beautier function
+  section_2 <- extract_xml_operators_from_lines(lines_2) # nolint beautier function
+  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint beautier function
 }
 
 #' Determine if XML operator lines result in equivalent trees
@@ -179,7 +179,7 @@ are_equivalent_xml_lines_loggers <- function( # nolint don't care about internal
   lines_2,
   verbose = FALSE
 ) {
-  section_1 <- extract_xml_loggers_from_lines(lines_1) # nolint internal function
-  section_2 <- extract_xml_loggers_from_lines(lines_2) # nolint internal function
-  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint internal function
+  section_1 <- extract_xml_loggers_from_lines(lines_1) # nolint beautier function
+  section_2 <- extract_xml_loggers_from_lines(lines_2) # nolint beautier function
+  are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint beautier function
 }

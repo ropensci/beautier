@@ -8,14 +8,14 @@ tree_prior_to_xml_operators <- function(
   tree_prior,
   fixed_crown_age = FALSE
 ) {
-  testit::assert(is_tree_prior(tree_prior)) # nolint internal function
+  testit::assert(is_tree_prior(tree_prior)) # nolint beautier function
   id <- tree_prior$id
-  testit::assert(is_id(id)) # nolint internal function
+  testit::assert(is_id(id)) # nolint beautier function
 
   text <- NULL
-  operator_id_pre <- get_operator_id_pre(tree_prior) # nolint internal function
+  operator_id_pre <- get_operator_id_pre(tree_prior) # nolint beautier function
 
-  if (is_bd_tree_prior(tree_prior)) { # nolint internal function
+  if (is_bd_tree_prior(tree_prior)) { # nolint beautier function
     text <- c(text, paste0("<operator id=\"BirthRateScaler.t:",
       id, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
       id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
@@ -23,11 +23,11 @@ tree_prior_to_xml_operators <- function(
       id,
       "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
       id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-  } else if (is_ccp_tree_prior(tree_prior)) { # nolint internal function
+  } else if (is_ccp_tree_prior(tree_prior)) { # nolint beautier function
     text <- c(text, paste0("<operator id=\"PopSizeScaler.t:",
       id, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", id,
       "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"))
-  } else if (is_cbs_tree_prior(tree_prior)) { # nolint internal function
+  } else if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
     text <- c(text, paste0("<operator id=\"popSizesScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", id, "\" ",
       "scaleFactor=\"0.75\" weight=\"15.0\"/>"))
@@ -36,7 +36,7 @@ tree_prior_to_xml_operators <- function(
     text <- c(text, paste0("    <intparameter ",
       "idref=\"bGroupSizes.t:", id, "\"/>"))
     text <- c(text, paste0("</operator>"))
-  } else if (is_cep_tree_prior(tree_prior)) { # nolint internal function
+  } else if (is_cep_tree_prior(tree_prior)) { # nolint beautier function
     text <- c(text, paste0("<operator id=\"ePopSizeScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ePopSize.t:", id, "\" ",
       "scaleFactor=\"0.75\" weight=\"3.0\"/>"))
@@ -46,7 +46,7 @@ tree_prior_to_xml_operators <- function(
       "weight=\"3.0\" windowSize=\"1.0\"/>"))
   } else {
     # Will fail on unimplemented tree priors
-    testit::assert(is_yule_tree_prior(tree_prior)) # nolint internal function
+    testit::assert(is_yule_tree_prior(tree_prior)) # nolint beautier function
 
     text <- c(text,
       paste0(

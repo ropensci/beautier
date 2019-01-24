@@ -9,16 +9,16 @@ clock_model_to_xml_operators <- function(
   mrca_priors,
   tipdates_filename = NA
 ) {
-  testit::assert(is_clock_model(clock_model)) # nolint internal function
+  testit::assert(is_clock_model(clock_model)) # nolint beautier function
   id <- clock_model$id
 
   # May not need ID at all, if it is the first and strict clock model
   text <- NULL
-  if (!is_strict_clock_model(clock_model)) { # nolint internal function
+  if (!is_strict_clock_model(clock_model)) { # nolint beautier function
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model)) # nolint internal function
+    testit::assert(is_rln_clock_model(clock_model)) # nolint beautier function
 
-    testit::assert(is_id(id)) # nolint internal function
+    testit::assert(is_id(id)) # nolint beautier function
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"3.0\"/>"))

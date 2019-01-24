@@ -20,16 +20,16 @@
 is_distr <- function(
   x
 ) {
-  if (is_beta_distr(x)) return(TRUE) # nolint internal function
-  if (is_exp_distr(x)) return(TRUE) # nolint internal function
-  if (is_gamma_distr(x)) return(TRUE) # nolint internal function
-  if (is_inv_gamma_distr(x)) return(TRUE) # nolint internal function
-  if (is_laplace_distr(x)) return(TRUE) # nolint internal function
-  if (is_log_normal_distr(x)) return(TRUE) # nolint internal function
-  if (is_normal_distr(x)) return(TRUE) # nolint internal function
-  if (is_one_div_x_distr(x)) return(TRUE) # nolint internal function
-  if (is_poisson_distr(x)) return(TRUE) # nolint internal function
-  if (is_uniform_distr(x)) return(TRUE) # nolint internal function
+  if (is_beta_distr(x)) return(TRUE) # nolint beautier function
+  if (is_exp_distr(x)) return(TRUE) # nolint beautier function
+  if (is_gamma_distr(x)) return(TRUE) # nolint beautier function
+  if (is_inv_gamma_distr(x)) return(TRUE) # nolint beautier function
+  if (is_laplace_distr(x)) return(TRUE) # nolint beautier function
+  if (is_log_normal_distr(x)) return(TRUE) # nolint beautier function
+  if (is_normal_distr(x)) return(TRUE) # nolint beautier function
+  if (is_one_div_x_distr(x)) return(TRUE) # nolint beautier function
+  if (is_poisson_distr(x)) return(TRUE) # nolint beautier function
+  if (is_uniform_distr(x)) return(TRUE) # nolint beautier function
   FALSE
 }
 
@@ -50,9 +50,9 @@ is_beta_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "beta") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
-  if (!is_alpha_param(x$alpha)) return(FALSE) # nolint internal function
+  if (!is_alpha_param(x$alpha)) return(FALSE) # nolint beautier function
   if (!"beta" %in% names(x)) return(FALSE)
-  if (!is_beta_param(x$beta)) return(FALSE) # nolint internal function
+  if (!is_beta_param(x$beta)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -73,7 +73,7 @@ is_exp_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "exponential") return(FALSE)
   if (!"mean" %in% names(x)) return(FALSE)
-  if (!is_mean_param(x$mean)) return(FALSE) # nolint internal function
+  if (!is_mean_param(x$mean)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -94,9 +94,9 @@ is_gamma_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "gamma") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
-  if (!is_alpha_param(x$alpha)) return(FALSE) # nolint internal function
+  if (!is_alpha_param(x$alpha)) return(FALSE) # nolint beautier function
   if (!"beta" %in% names(x)) return(FALSE)
-  if (!is_beta_param(x$beta)) return(FALSE) # nolint internal function
+  if (!is_beta_param(x$beta)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -117,9 +117,9 @@ is_inv_gamma_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "inv_gamma") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
-  if (!is_alpha_param(x$alpha)) return(FALSE) # nolint internal function
+  if (!is_alpha_param(x$alpha)) return(FALSE) # nolint beautier function
   if (!"beta" %in% names(x)) return(FALSE)
-  if (!is_beta_param(x$beta)) return(FALSE) # nolint internal function
+  if (!is_beta_param(x$beta)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -143,9 +143,9 @@ is_laplace_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "laplace") return(FALSE)
   if (!"mu" %in% names(x)) return(FALSE)
-  if (!is_mu_param(x$mu)) return(FALSE) # nolint internal function
+  if (!is_mu_param(x$mu)) return(FALSE) # nolint beautier function
   if (!"scale" %in% names(x)) return(FALSE)
-  if (!is_scale_param(x$scale)) return(FALSE) # nolint internal function
+  if (!is_scale_param(x$scale)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -178,9 +178,9 @@ is_log_normal_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "log_normal") return(FALSE)
   if (!"m" %in% names(x)) return(FALSE)
-  if (!is_m_param(x$m)) return(FALSE) # nolint internal function
+  if (!is_m_param(x$m)) return(FALSE) # nolint beautier function
   if (!"s" %in% names(x)) return(FALSE)
-  if (!is_s_param(x$s)) return(FALSE) # nolint internal function
+  if (!is_s_param(x$s)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -201,9 +201,9 @@ is_normal_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "normal") return(FALSE)
   if (!"mean" %in% names(x)) return(FALSE)
-  if (!is_mean_param(x$mean)) return(FALSE) # nolint internal function
+  if (!is_mean_param(x$mean)) return(FALSE) # nolint beautier function
   if (!"sigma" %in% names(x)) return(FALSE)
-  if (!is_sigma_param(x$sigma)) return(FALSE) # nolint internal function
+  if (!is_sigma_param(x$sigma)) return(FALSE) # nolint beautier function
   TRUE
 }
 
@@ -241,7 +241,7 @@ is_poisson_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "poisson") return(FALSE)
   if (!"lambda" %in% names(x)) return(FALSE)
-  if (!is_lambda_param(x$lambda)) return(FALSE) # nolint internal function
+  if (!is_lambda_param(x$lambda)) return(FALSE) # nolint beautier function
   TRUE
 }
 

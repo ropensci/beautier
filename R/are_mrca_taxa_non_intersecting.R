@@ -9,17 +9,17 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 are_mrca_taxa_non_intersecting <- function(mrca_priors) {
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
-  if (is_one_na(mrca_priors)) return(TRUE) # nolint internal function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
+  if (is_one_na(mrca_priors)) return(TRUE) # nolint beautier function
   # mrca_prior_1 must be monophyletic, mrca_prior_2 may be
   for (mrca_prior_1 in mrca_priors) {
-    testit::assert(is_mrca_prior(mrca_prior_1)) # nolint internal function
-    testit::assert(!is_one_na(mrca_prior_1)) # nolint internal function
+    testit::assert(is_mrca_prior(mrca_prior_1)) # nolint beautier function
+    testit::assert(!is_one_na(mrca_prior_1)) # nolint beautier function
     testit::assert(!is_one_na(mrca_prior_1$taxa_names)) # nolint beautier function
     taxa_names_1 <- mrca_prior_1$taxa_names
     for (mrca_prior_2 in mrca_priors) {
-      testit::assert(is_mrca_prior(mrca_prior_2)) # nolint internal function
-      testit::assert(!is_one_na(mrca_prior_2)) # nolint internal function
+      testit::assert(is_mrca_prior(mrca_prior_2)) # nolint beautier function
+      testit::assert(!is_one_na(mrca_prior_2)) # nolint beautier function
       testit::assert(!is_one_na(mrca_prior_2$taxa_names)) # nolint beautier function
       taxa_names_2 <- mrca_prior_2$taxa_names
       if (all(taxa_names_2 %in% taxa_names_1)) next

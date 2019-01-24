@@ -38,6 +38,6 @@ create_mcmc <- function(
   )
 
   # Postcondition
-  testit::assert(is_mcmc(mcmc)) # nolint internal function
+  testit::assert(is_mcmc(mcmc)) # nolint beautier function
   mcmc
 }

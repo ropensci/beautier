@@ -8,9 +8,9 @@ are_mrca_taxa_names_in_fastas <- function(
   mrca_priors,
   fasta_filenames
 ) {
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
   testit::assert(
-    are_mrca_align_ids_in_fastas( # nolint internal function
+    are_mrca_align_ids_in_fastas( # nolint beautier function
       mrca_priors = mrca_priors,
       fasta_filenames = fasta_filenames
     )

@@ -14,7 +14,7 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 check_mcmc <- function(mcmc) {
-  if (is_mcmc(mcmc)) { # nolint internal function
+  if (is_mcmc(mcmc)) { # nolint beautier function
     return()
   }
   stop(

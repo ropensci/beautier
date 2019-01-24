@@ -22,19 +22,19 @@ create_beast2_input_run <- function(
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
   testit::assert(length(ids) == length(fixed_crown_ages))
-  testit::assert(are_ids(ids))  # nolint internal function
-  testit::assert(are_site_models(site_models)) # nolint internal function
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
-  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(are_ids(ids))  # nolint beautier function
+  testit::assert(are_site_models(site_models)) # nolint beautier function
+  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
 
   text <- NULL
 
-  text <- c(text, mcmc_to_xml_run(mcmc)) # nolint internal function
+  text <- c(text, mcmc_to_xml_run(mcmc)) # nolint beautier function
 
   text <- c(text,
-    indent( # nolint internal function
-      create_beast2_input_state( # nolint internal function
+    indent( # nolint beautier function
+      create_beast2_input_state( # nolint beautier function
         site_models = site_models,
         clock_models = clock_models,
         tree_priors = tree_priors,

@@ -16,7 +16,7 @@
 #'   )
 #' @noRd
 check_gamma_site_model <- function(gamma_site_model) {
-  if (!is_gamma_site_model(gamma_site_model)) { # nolint internal function
+  if (!is_gamma_site_model(gamma_site_model)) { # nolint beautier function
     stop("'gamma_site_model' must be a valid gamma site model")
   }
 }

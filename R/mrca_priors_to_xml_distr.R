@@ -12,11 +12,11 @@
 #'  # </distribution>
 #' @author Richel J.C. Bilderbeek
 #' @noRd
-mrca_priors_to_xml_prior_distr <- function( # nolint internal function
+mrca_priors_to_xml_prior_distr <- function( # nolint beautier function
   mrca_priors,
   has_non_strict_clock_model
 ) {
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
   if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NULL)
 
   text <- NULL

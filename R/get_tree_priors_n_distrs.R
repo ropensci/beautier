@@ -14,13 +14,13 @@
 get_tree_priors_n_distrs <- function(
   tree_priors
 ) {
-  if (!are_tree_priors(tree_priors)) { # nolint internal function
+  if (!are_tree_priors(tree_priors)) { # nolint beautier function
     stop("'tree_priors' must be a list of one or more tree priors")
   }
   n <- 0
   for (tree_prior in tree_priors) {
-    testit::assert(is_tree_prior(tree_prior)) # nolint internal function
-    n <- n + get_tree_prior_n_distrs(tree_prior) # nolint internal function
+    testit::assert(is_tree_prior(tree_prior)) # nolint beautier function
+    n <- n + get_tree_prior_n_distrs(tree_prior) # nolint beautier function
   }
   n
 }

@@ -8,9 +8,9 @@ are_mrca_priors <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_mrca_prior(x)) return(TRUE) # nolint internal function
+  if (is_mrca_prior(x)) return(TRUE) # nolint beautier function
   for (i in x) {
-    if (!is_mrca_prior(i)) return(FALSE) # nolint internal function
+    if (!is_mrca_prior(i)) return(FALSE) # nolint beautier function
   }
   TRUE
 }

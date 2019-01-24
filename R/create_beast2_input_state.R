@@ -13,9 +13,9 @@ create_beast2_input_state <- function(
   tipdates_filename = NA
 ) {
   testit::assert(length(tree_priors) == length(initial_phylogenies))
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
-  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
-  has_tip_dating <- !is_one_na(tipdates_filename) # nolint internal function
+  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
+  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
+  has_tip_dating <- !is_one_na(tipdates_filename) # nolint beautier function
 
   text <- NULL
   for (i in seq_along(tree_priors)) {
@@ -24,7 +24,7 @@ create_beast2_input_state <- function(
     id <- tree_prior$id
     text <- c(
       text,
-      phylo_to_xml_state( # nolint internal function
+      phylo_to_xml_state( # nolint beautier function
         id = id,
         phylo = initial_phylo,
         tipdates_filename = tipdates_filename
@@ -32,25 +32,25 @@ create_beast2_input_state <- function(
     )
   }
 
-  text <- c(text, site_models_to_xml_state(site_models)) # nolint internal function
+  text <- c(text, site_models_to_xml_state(site_models)) # nolint beautier function
   text <- c(
     text,
-    clock_models_to_xml_state(# nolint internal function
+    clock_models_to_xml_state(# nolint beautier function
       clock_models = clock_models,
       mrca_priors = mrca_priors,
       has_tip_dating = has_tip_dating
     )
   )
-  text <- c(text, tree_priors_to_xml_state(tree_priors)) # nolint internal function
+  text <- c(text, tree_priors_to_xml_state(tree_priors)) # nolint beautier function
   text <- c(
     text,
-    mrca_priors_to_xml_state( # nolint internal function
+    mrca_priors_to_xml_state( # nolint beautier function
       mrca_priors,
-      has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models) # nolint internal function
+      has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models) # nolint beautier function
     )
   )
 
-  text <- indent(text, n_spaces = 4) # nolint internal function
+  text <- indent(text, n_spaces = 4) # nolint beautier function
   text <- c("<state id=\"state\" storeEvery=\"5000\">", text)
   text <- c(text, "</state>")
   text

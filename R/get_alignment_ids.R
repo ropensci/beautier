@@ -13,5 +13,5 @@
 #' @export
 get_alignment_ids <- function(fasta_filenames) {
   ids <- fasta_filenames
-  unlist(lapply(ids, get_alignment_id)) # nolint internal function
+  unlist(lapply(ids, get_alignment_id)) # nolint beautier function
 }

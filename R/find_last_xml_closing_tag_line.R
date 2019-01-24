@@ -12,5 +12,5 @@ find_last_xml_closing_tag_line <- function(
   if (!is.character(section)) {
     stop("'section' must be a word")
   }
-  find_last_regex_line(lines, paste0("</", section, ">")) # nolint internal function
+  find_last_regex_line(lines, paste0("</", section, ">")) # nolint beautier function
 }

@@ -8,7 +8,7 @@ freq_equilibrium_to_xml <- function(
   freq_equilibrium,
   id
 ) {
-  testit::assert(is_freq_equilibrium_name(freq_equilibrium)) # nolint internal function
+  testit::assert(is_freq_equilibrium_name(freq_equilibrium)) # nolint beautier function
   if (freq_equilibrium == "estimated") {
     paste0("<frequencies ", "id=\"estimatedFreqs.s:", id, "\" ",
       "spec=\"Frequencies\" ",

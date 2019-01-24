@@ -9,5 +9,5 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 is_site_model_name <- function(name) {
-  name %in% get_site_model_names() # nolint internal function
+  name %in% get_site_model_names() # nolint beautier function
 }

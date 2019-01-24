@@ -26,19 +26,19 @@
 get_site_model_n_distrs <- function(
   site_model
 ) {
-  if (!is_site_model(site_model)) { # nolint internal function
+  if (!is_site_model(site_model)) { # nolint beautier function
     stop("'site_model' must be a site model")
   }
   gamma_site_model <- site_model$gamma_site_model
-  gamma_site_model_n_distrs <- get_gamma_site_model_n_distrs(gamma_site_model) # nolint internal function
-  if (is_gtr_site_model(site_model)) { # nolint internal function
+  gamma_site_model_n_distrs <- get_gamma_site_model_n_distrs(gamma_site_model) # nolint beautier function
+  if (is_gtr_site_model(site_model)) { # nolint beautier function
     return(5 + gamma_site_model_n_distrs)
-  } else if (is_hky_site_model(site_model)) { # nolint internal function
+  } else if (is_hky_site_model(site_model)) { # nolint beautier function
     return(1 + gamma_site_model_n_distrs)
-  } else if (is_jc69_site_model(site_model)) { # nolint internal function
+  } else if (is_jc69_site_model(site_model)) { # nolint beautier function
     return(0 + gamma_site_model_n_distrs)
   } else {
-    testit::assert(is_tn93_site_model(site_model)) # nolint internal function
+    testit::assert(is_tn93_site_model(site_model)) # nolint beautier function
     return(2 + gamma_site_model_n_distrs)
   }
 }

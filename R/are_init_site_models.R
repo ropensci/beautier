@@ -7,9 +7,9 @@
 are_init_site_models <- function(
   x
 ) {
-  if (!are_site_models(x)) return(FALSE) # nolint internal function
+  if (!are_site_models(x)) return(FALSE) # nolint beautier function
   for (i in x) {
-    if (!is_init_site_model(i)) return(FALSE) # nolint internal function call
+    if (!is_init_site_model(i)) return(FALSE) # nolint beautier function call
   }
   return(TRUE)
 }

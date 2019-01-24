@@ -8,10 +8,10 @@ are_ids <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_id(x)) return(TRUE) # nolint internal function
+  if (is_id(x)) return(TRUE) # nolint beautier function
   if (!is.vector(x)) return(FALSE)
   for (i in x) {
-    if (!is_id(i)) return(FALSE) # nolint internal function
+    if (!is_id(i)) return(FALSE) # nolint beautier function
   }
   return(TRUE)
 }

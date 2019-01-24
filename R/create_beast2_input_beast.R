@@ -26,18 +26,18 @@ create_beast2_input_beast <- function(
   initial_phylogenies = rep(NA, length(input_filenames)),
   tipdates_filename = NA
 ) {
-  testit::assert(files_exist(input_filenames)) # nolint internal function
+  testit::assert(files_exist(input_filenames)) # nolint beautier function
   testit::assert(length(input_filenames) == length(site_models))
   testit::assert(length(input_filenames) == length(clock_models))
   testit::assert(length(input_filenames) == length(tree_priors))
   testit::assert(length(input_filenames) == length(initial_phylogenies))
   testit::assert(length(input_filenames) == length(fixed_crown_ages))
-  testit::assert(are_site_models(site_models)) # nolint internal function
-  testit::assert(are_clock_models(clock_models)) # nolint internal function
-  testit::assert(are_tree_priors(tree_priors)) # nolint internal function
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint internal function
-  testit::assert(are_init_clock_models(clock_models)) # nolint internal function
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint internal function
+  testit::assert(are_site_models(site_models)) # nolint beautier function
+  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
+  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
+  testit::assert(are_init_clock_models(clock_models)) # nolint beautier function
+  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
 
   # Alignment IDs
   ids <- beautier::get_alignment_id(
@@ -45,7 +45,7 @@ create_beast2_input_beast <- function(
     capitalize_first_char_id = misc_options$capitalize_first_char_id
   )
 
-  text <- create_beast2_beast_xml( # nolint internal function
+  text <- create_beast2_beast_xml( # nolint beautier function
     beast2_version = misc_options$beast2_version,
     required = misc_options$required
   )
@@ -70,7 +70,7 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, create_beast2_input_map()) # nolint internal function call
+  text <- c(text, create_beast2_input_map()) # nolint beautier function call
 
   text <- c(text, "")
   text <- c(text, "")

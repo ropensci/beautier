@@ -7,7 +7,7 @@ are_initial_phylogenies <- function(
   phylos
 ) {
   for (x in phylos) {
-    if (!is.na(x) && !is_phylo(x)) return(FALSE) # nolint internal function
+    if (!is.na(x) && !is_phylo(x)) return(FALSE) # nolint beautier function
   }
   TRUE
 }
