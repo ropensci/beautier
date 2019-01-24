@@ -70,8 +70,6 @@ test_that("rln + mrca with distr", {
     ),
     mrca_priors = list(
         create_mrca_prior(
-        alignment_id = get_alignment_id(fasta_filename),
-        taxa_names = get_taxa_names(fasta_filename),
         mrca_distr = create_one_div_x_distr()
       )
     )
