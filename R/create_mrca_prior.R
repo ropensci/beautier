@@ -53,7 +53,9 @@ create_mrca_prior <- function(
   if (!is_one_na(taxa_names) && sum(taxa_names == "") > 0) {
     stop("'taxa_names' must be NA or have at least one taxon name")
   }
-  if (!is_one_na(taxa_names) && length(unique(taxa_names)) != length(taxa_names)) {
+  if (!is_one_na(taxa_names) &&
+      length(unique(taxa_names)) != length(taxa_names)
+  ) {
     stop("'taxa_names' must be NA or all names must be unique")
   }
 
