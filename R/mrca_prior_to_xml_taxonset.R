@@ -19,6 +19,7 @@ mrca_prior_to_xml_taxonset <- function(
 ) {
   testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
   text <- NULL
+  testit::assert(!is_one_na(mrca_prior$taxa_names)) # nolint beautier function
   for (taxon_name in mrca_prior$taxa_names) {
     text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>"))
   }

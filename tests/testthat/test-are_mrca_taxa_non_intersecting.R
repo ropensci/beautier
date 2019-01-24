@@ -20,8 +20,6 @@ test_that("use, intersection, monophyly", {
     taxa_names = all_taxa_names[3:4],
     is_monophyletic = TRUE
   )
-
-
   expect_true(
     are_mrca_taxa_non_intersecting(
       list(prior_one_two, prior_three_four)

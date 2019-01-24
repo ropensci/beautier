@@ -30,6 +30,7 @@ mrca_priors_to_xml_prior_distr <- function( # nolint internal function
         taxa_names_with_ids = taxa_names_with_ids
       )
     )
+    testit::assert(!is_one_na(mrca_prior$taxa_names)) # nolint beautier function
     taxa_names_with_ids <- unique(
       c(taxa_names_with_ids, mrca_prior$taxa_names)
     )
