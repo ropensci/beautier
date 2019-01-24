@@ -17,7 +17,7 @@ create_mcmc_nested_sampling(chain_length = 1e+07, store_every = -1,
 
 \item{store_every}{number of states the MCMC will process
 before the posterior's state will be saved to file.
-Use -1 or NA to use the default frequency.}
+Use -1 or \code{NA} to use the default frequency.}
 
 \item{particle_count}{number of particles}
 

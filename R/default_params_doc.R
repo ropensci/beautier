@@ -2,11 +2,12 @@
 #' This function does nothing.
 #' It is intended to inherit function argument documentation.
 #' @param alignment_id ID of the alignment,
-#'   as returned by \code{\link{get_alignment_id}}
+#'   as returned by \code{\link{get_alignment_id}}.
+#'   Keep at \code{NA} to have it initialized automatically
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
 #' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
-#'   Keep at NA to have it initialized automatically
+#'   Keep at \code{NA} to have it initialized automatically
 #' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
 #'   as returned by \code{\link{create_cbs_tree_prior}}
 #' @param ccp_tree_prior a Coalescent Constant Population tree prior,
@@ -63,7 +64,7 @@
 #'   IDs can be extracted from their FASTA filenames
 #'   with \code{\link{get_alignment_ids}})
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
-#'   Each one set to NA will result in BEAST2 using a random phylogeny. Else
+#'   Each one set to \code{NA} will result in BEAST2 using a random phylogeny. Else
 #'   the phylogeny is assumed to be of class ape::phylo.
 #' @param input_filename A FASTA filename.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
@@ -95,7 +96,7 @@
 #'   as returned by \code{\link{create_site_model}}
 #' @param store_every number of states the MCMC will process
 #'   before the posterior's state will be saved to file.
-#'   Use -1 or NA to use the default frequency.
+#'   Use -1 or \code{NA} to use the default frequency.
 #' @param strict_clock_model a strict clock model,
 #'   as returned by \code{\link{create_strict_clock_model}}
 #' @param tn93_site_model a TN93 site model,

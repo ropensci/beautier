@@ -22,7 +22,8 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
-as returned by \code{\link{get_alignment_id}}}
+as returned by \code{\link{get_alignment_id}}.
+Keep at \code{NA} to have it initialized automatically}
 
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
 by \code{\link{create_bd_tree_prior}}}
@@ -51,7 +52,7 @@ must be name among those returned by \code{\link{get_clock_model_names}}}
 as returned by \code{\link{create_clock_model}}}
 
 \item{clock_prior_distr_id}{ID of an MRCA clock model's distribution.
-Keep at NA to have it initialized automatically}
+Keep at \code{NA} to have it initialized automatically}
 
 \item{crown_age}{the crown age of the phylogeny}
 
@@ -104,7 +105,7 @@ IDs can be extracted from their FASTA filenames
 with \code{\link{get_alignment_ids}})}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
-Each one set to NA will result in BEAST2 using a random phylogeny. Else
+Each one set to \code{NA} will result in BEAST2 using a random phylogeny. Else
 the phylogeny is assumed to be of class ape::phylo.}
 
 \item{input_filename}{A FASTA filename.
@@ -160,7 +161,7 @@ as returned by \code{\link{create_site_model}}}
 
 \item{store_every}{number of states the MCMC will process
 before the posterior's state will be saved to file.
-Use -1 or NA to use the default frequency.}
+Use -1 or \code{NA} to use the default frequency.}
 
 \item{strict_clock_model}{a strict clock model,
 as returned by \code{\link{create_strict_clock_model}}}

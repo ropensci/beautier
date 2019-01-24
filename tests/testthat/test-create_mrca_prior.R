@@ -1,5 +1,12 @@
 context("create_mrca_prior")
 
+test_that("use, minimal", {
+
+  mrca_prior <- create_mrca_prior()
+
+  expect_true(is_mrca_prior(mrca_prior))
+})
+
 test_that("use, no MRCA distr", {
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
@@ -9,7 +16,7 @@ test_that("use, no MRCA distr", {
     taxa_names = get_taxa_names(fasta_filename)
   )
 
-  testthat::expect_true(is_mrca_prior(mrca_prior))
+  expect_true(is_mrca_prior(mrca_prior))
 })
 
 test_that("use, with MRCA distr", {
@@ -22,14 +29,14 @@ test_that("use, with MRCA distr", {
     mrca_distr = create_normal_distr()
   )
 
-  testthat::expect_true(is_mrca_prior(mrca_prior))
+  expect_true(is_mrca_prior(mrca_prior))
 })
 
 test_that("abuse", {
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = NULL,
       alignment_id = get_alignment_id(fasta_filename),
@@ -39,17 +46,17 @@ test_that("abuse", {
     "'name' must be NA or characters"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = NULL,
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr()
     ),
-    "'alignment_id' must be characters"
+    "'alignment_id' must be NA or characters"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
@@ -59,7 +66,7 @@ test_that("abuse", {
     "'taxa_names' must a character vector"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
@@ -70,7 +77,7 @@ test_that("abuse", {
     "'is_monophyletic' must be either TRUE or FALSE"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
@@ -80,7 +87,7 @@ test_that("abuse", {
     "'mrca_distr' must a distribution, as created by 'create_distr'"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
@@ -89,16 +96,16 @@ test_that("abuse", {
         get_taxa_names(fasta_filename)[1]
       )
     ),
-    "All names of 'taxa_names' must be unique"
+    "'taxa_names' must be NA or all names must be unique"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = ""
     ),
-    "'taxa_names' must have at least one taxon name"
+    "'taxa_names' must be NA or have at least one taxon name"
   )
 
 })

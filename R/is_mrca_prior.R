@@ -9,7 +9,7 @@
 is_mrca_prior <- function(
   x
 ) {
-  if (is_one_na(x)) return(TRUE) # nolint internal function
+  if (is_one_na(x)) return(TRUE) # nolint beautier function
   if (!"name" %in% names(x)) return(FALSE)
   if (!"alignment_id" %in% names(x)) return(FALSE)
   if (!"taxa_names" %in% names(x)) return(FALSE)
