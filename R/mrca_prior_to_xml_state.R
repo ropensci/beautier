@@ -14,6 +14,7 @@ mrca_prior_to_xml_state <- function(
   if (mrca_prior$is_monophyletic == TRUE &&
     is.na(mrca_prior$mrca_distr)) return(NULL)
   if (!has_non_strict_clock_model) {
+    testit::assert(!is_one_na(mrca_prior$alignment_id))
     paste0(
       "<parameter ",
       "id=\"clockRate.c:", mrca_prior$alignment_id, "\" ",

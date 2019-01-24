@@ -15,6 +15,7 @@ are_mrca_align_ids_in_fastas <- function(
     testit::assert(is_mrca_prior(mrca_prior)) # nolint internal function
     testit::assert(!is_one_na(mrca_prior)) # nolint internal function
     testit::assert("alignment_id" %in% names(mrca_prior))
+    testit::assert(!is_one_na(mrca_prior$alignment_id))
     if (!mrca_prior$alignment_id %in% ids) { # nolint internal function
       return(FALSE)
     }
