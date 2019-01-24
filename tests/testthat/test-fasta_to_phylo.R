@@ -7,7 +7,7 @@ test_that("example", {
   phylos <- beautier::fasta_to_phylo(fasta_filename, crown_age = crown_age)
   expect_equal(5, length(phylos$tip.label))
   expect_equal(crown_age,
-    get_phylo_crown_age(phylos)
+    get_crown_age(phylos)
   )
 })
 

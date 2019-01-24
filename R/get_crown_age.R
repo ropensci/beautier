@@ -7,11 +7,11 @@
 #' @return the crown age of the phylogeny
 #' @examples
 #'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-#'   created <- get_phylo_crown_age(phylogeny = phylogeny)
+#'   created <- get_crown_age(phylogeny = phylogeny)
 #'   testit::assert(created == 15)
 #' @author Richel J.C. Bilderbeek
 #' @export
-get_phylo_crown_age <- function(
+get_crown_age <- function(
   phylogeny
 ) {
   if (class(phylogeny) != "phylo" && class(phylogeny) != "multiPhylo") {
