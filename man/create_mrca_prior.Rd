@@ -15,7 +15,8 @@ Keep at \code{NA} to have it initialized automatically}
 
 \item{taxa_names}{names of the taxa,
 as returned by \code{\link{get_taxa_names}}.
-Keep at \code{NA} to have it initialized automatically}
+Keep at \code{NA} to have it initialized automatically,
+using all taxa in the alignment}
 
 \item{is_monophyletic}{boolean to indicate monophyly is assumed in
 a Most Recent Common Ancestor prior,
