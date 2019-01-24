@@ -167,11 +167,11 @@ create_beast2_input <- function(
   # Fill in MRCA prior's taxa names and alignment ID if those are NA
   if (!is_one_na(mrca_priors[[1]])) {
     for (i in seq_along(mrca_priors)) {
-      if (is_one_na(mrca_priors[[i]]$alignment_id)) {
-        mrca_priors[[i]]$alignment_id <- get_alignment_id(input_filename)
+      if (is_one_na(mrca_priors[[i]]$alignment_id)) { # nolint beautier function
+        mrca_priors[[i]]$alignment_id <- get_alignment_id(input_filename) # nolint beautier function
       }
       if (is_one_na(mrca_priors[[i]]$taxa_names)) {
-        mrca_priors[[i]]$taxa_names <- get_taxa_names(input_filename)
+        mrca_priors[[i]]$taxa_names <- get_taxa_names(input_filename) # nolint beautier function
       }
     }
   }
