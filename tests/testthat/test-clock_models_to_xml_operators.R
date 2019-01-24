@@ -41,10 +41,7 @@ test_that("rln + mrca", {
     clock_models = list(
       create_rln_clock_model(id = "anthus_aco_sub")
     ),
-    mrca_priors = create_mrca_prior(
-      alignment_id = get_alignment_id(fasta_filename),
-      taxa_names = get_taxa_names(fasta_filename)
-    )
+    mrca_priors = create_mrca_prior()
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

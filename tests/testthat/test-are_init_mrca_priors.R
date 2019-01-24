@@ -5,8 +5,6 @@ test_that("use", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   g <- create_mrca_prior(
     name = "prior_name",
-    alignment_id = get_alignment_id(fasta_filename),
-    taxa_names = get_taxa_names(fasta_filename),
     mrca_distr = create_one_div_x_distr(id = 123),
     clock_prior_distr_id = 42
   )

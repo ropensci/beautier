@@ -55,7 +55,6 @@ test_that("Run MRCA, need one branchRateModel, beautier issue #26", {
 
 test_that("Run with default MRCA, beautier issue #75", {
 
-  skip("TODO: Fix #75")
   expect_silent(
     create_beast2_input(
       input_filename = get_fasta_filename(),
@@ -214,7 +213,6 @@ test_that("abuse: one alignment", {
     create_beast2_input(
       input_filename = fasta_filename,
       mrca_prior = create_mrca_prior(
-        alignment_id = get_alignment_id(fasta_filename),
         taxa_names = paste0("broken_", get_taxa_names(fasta_filename))
       )
     ),
@@ -225,12 +223,10 @@ test_that("abuse: one alignment", {
   fasta_filename <- get_beautier_path("test_output_0.fas")
   all_taxa_names <- get_taxa_names(fasta_filename)
   prior_one_two <- create_mrca_prior(
-    alignment_id = get_alignment_id(fasta_filename),
     taxa_names = all_taxa_names[1:2],
     is_monophyletic = TRUE
   )
   prior_two_three <- create_mrca_prior(
-    alignment_id = get_alignment_id(fasta_filename),
     taxa_names = all_taxa_names[2:3],
     is_monophyletic = TRUE
   )
