@@ -1,149 +1,149 @@
-context("test-check_misc_options")
+context("test-check_beauti_options")
 
 test_that("use", {
-  expect_silent(check_misc_options(create_misc_options()))
+  expect_silent(check_beauti_options(create_beauti_options()))
 
   # required can be both empty and a string
   expect_silent(
-    check_misc_options(
-      create_misc_options(
+    check_beauti_options(
+      create_beauti_options(
         required = ""
     )
   )
 )
   expect_silent(
-    check_misc_options(
-      create_misc_options(
+    check_beauti_options(
+      create_beauti_options(
         required = "valid input"
     )
   )
 )
 
   # Must stop on nonsense
-  expect_error(check_misc_options(misc_options = "nonsense"))
-  expect_error(check_misc_options(misc_options = NULL))
-  expect_error(check_misc_options(misc_options = NA))
+  expect_error(check_beauti_options(beauti_options = "nonsense"))
+  expect_error(check_beauti_options(beauti_options = NULL))
+  expect_error(check_beauti_options(beauti_options = NA))
 })
 
 test_that("in-depth use", {
 
-  good_misc_options <- create_misc_options()
+  good_beauti_options <- create_beauti_options()
 
   # OK
   expect_silent(
-    check_misc_options(
-      good_misc_options
+    check_beauti_options(
+      good_beauti_options
     )
   )
 
   # Wrong parameter names
-  misc_options <- good_misc_options
-  misc_options$capitalize_first_char_id <- NULL
+  beauti_options <- good_beauti_options
+  beauti_options$capitalize_first_char_id <- NULL
   expect_error(
-    check_misc_options(
-      misc_options
+    check_beauti_options(
+      beauti_options
     ),
-    "'capitalize_first_char_id' must be an element of an 'misc_options'"
+    "'capitalize_first_char_id' must be an element of an 'beauti_options'"
   )
 
-  misc_options <- good_misc_options
-  misc_options$nucleotides_uppercase <- NULL
+  beauti_options <- good_beauti_options
+  beauti_options$nucleotides_uppercase <- NULL
   expect_error(
-    check_misc_options(
-      misc_options
+    check_beauti_options(
+      beauti_options
     ),
-    "'nucleotides_uppercase' must be an element of an 'misc_options'"
+    "'nucleotides_uppercase' must be an element of an 'beauti_options'"
   )
 
-  misc_options <- good_misc_options
-  misc_options$beast2_version <- NULL
+  beauti_options <- good_beauti_options
+  beauti_options$beast2_version <- NULL
   expect_error(
-    check_misc_options(misc_options),
-    "'beast2_version' must be an element of an 'misc_options'"
+    check_beauti_options(beauti_options),
+    "'beast2_version' must be an element of an 'beauti_options'"
   )
 
-  misc_options <- good_misc_options
-  misc_options$required <- NULL
+  beauti_options <- good_beauti_options
+  beauti_options$required <- NULL
   expect_error(
-    check_misc_options(misc_options),
-    "'required' must be an element of an 'misc_options'"
+    check_beauti_options(beauti_options),
+    "'required' must be an element of an 'beauti_options'"
   )
 
-  misc_options <- good_misc_options
-  misc_options$sequence_indent <- NULL
+  beauti_options <- good_beauti_options
+  beauti_options$sequence_indent <- NULL
   expect_error(
-    check_misc_options(misc_options),
-    "'sequence_indent' must be an element of an 'misc_options'"
+    check_beauti_options(beauti_options),
+    "'sequence_indent' must be an element of an 'beauti_options'"
   )
 
 
   # Wrong parameter values
   # capitalize_first_char_id
   expect_error(
-    check_misc_options(
-      create_misc_options(capitalize_first_char_id = "nonsense")
+    check_beauti_options(
+      create_beauti_options(capitalize_first_char_id = "nonsense")
     ),
     "'capitalize_first_char_id' must be one boolean"
   )
   expect_error(
-    check_misc_options(
-      create_misc_options(capitalize_first_char_id = NA)
+    check_beauti_options(
+      create_beauti_options(capitalize_first_char_id = NA)
     ),
     "'capitalize_first_char_id' must be one boolean"
   )
 
   # nucleotides_uppercase
   expect_error(
-    check_misc_options(
-      create_misc_options(nucleotides_uppercase = "nonsense")
+    check_beauti_options(
+      create_beauti_options(nucleotides_uppercase = "nonsense")
     ),
     "'nucleotides_uppercase' must be one boolean"
   )
   expect_error(
-    check_misc_options(
-      create_misc_options(nucleotides_uppercase = NA)
+    check_beauti_options(
+      create_beauti_options(nucleotides_uppercase = NA)
     ),
     "'nucleotides_uppercase' must be one boolean"
   )
 
   # beast2_version
   expect_error(
-    check_misc_options(
-      create_misc_options(beast2_version = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    check_beauti_options(
+      create_beauti_options(beast2_version = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
     ),
     "'beast2_version' must be one character string"
   )
   expect_error(
-    check_misc_options(
-      create_misc_options(beast2_version = NA)
+    check_beauti_options(
+      create_beauti_options(beast2_version = NA)
     ),
     "'beast2_version' must be one character string"
   )
 
   # beast2_version
   expect_error(
-    check_misc_options(
-      create_misc_options(required = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    check_beauti_options(
+      create_beauti_options(required = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
     ),
     "'required' must be one character string"
   )
   expect_error(
-    check_misc_options(
-      create_misc_options(required = NA)
+    check_beauti_options(
+      create_beauti_options(required = NA)
     ),
     "'required' must be one character string"
   )
 
   # sequence_indent
   expect_error(
-    check_misc_options(
-      create_misc_options(sequence_indent = "nonsense")
+    check_beauti_options(
+      create_beauti_options(sequence_indent = "nonsense")
     ),
     "'sequence_indent' must be one number"
   )
   expect_error(
-    check_misc_options(
-      create_misc_options(sequence_indent = NA)
+    check_beauti_options(
+      create_beauti_options(sequence_indent = NA)
     ),
     "'sequence_indent' must be one number"
   )

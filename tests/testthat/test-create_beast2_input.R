@@ -170,13 +170,13 @@ test_that("abuse: one alignment", {
     "'mcmc' must be a valid mcmc object, as returned by 'create_mcmc'"
   )
 
-  # 6 misc_options
+  # 6 beauti_options
   expect_error(
     create_beast2_input(
       input_filename = get_fasta_filename(),
-      misc_options = "nonsense"
+      beauti_options = "nonsense"
     ),
-    "'misc_options' must be a valid misc options object"
+    "'beauti_options' must be a valid misc options object"
   )
 
   # 7 posterior_crown_age

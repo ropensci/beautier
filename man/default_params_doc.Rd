@@ -14,7 +14,7 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   group_sizes_dimension, gtr_site_model, has_non_strict_clock_model,
   has_tip_dating, hky_site_model, id, ids, inference_model,
   initial_phylogenies, input_filename, input_filenames, is_monophyletic,
-  jc69_site_model, mcmc, misc_options, mrca_prior, mrca_priors,
+  jc69_site_model, mcmc, beauti_options, mrca_prior, mrca_priors,
   output_filename, param_id, phylogeny, posterior_crown_age,
   rln_clock_model, sequence_length, site_model, site_model_name,
   site_model_names, site_models, store_every, strict_clock_model,
@@ -130,8 +130,8 @@ as returned by \code{\link{create_jc69_site_model}}}
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
-\item{misc_options}{one misc_options object,
-as returned by \code{\link{create_misc_options}}}
+\item{beauti_options}{one beauti_options object,
+as returned by \code{\link{create_beauti_options}}}
 
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}

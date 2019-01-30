@@ -19,7 +19,7 @@ create_beast2_input <- function(
   tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
-  misc_options = create_misc_options(),
+  beauti_options = create_beauti_options(),
   input_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
@@ -135,11 +135,11 @@ create_beast2_input <- function(
     )
   }
 
-  # 7 misc_options
-  if (!is_misc_options(misc_options)) { # nolint beautier function
+  # 7 beauti_options
+  if (!is_beauti_options(beauti_options)) { # nolint beautier function
     stop(
-      "'misc_options' must be a valid misc options object, ",
-      "as returned by 'create_misc_options'"
+      "'beauti_options' must be a valid misc options object, ",
+      "as returned by 'create_beauti_options'"
     )
   }
 
@@ -259,7 +259,7 @@ create_beast2_input <- function(
     tree_priors = tree_priors,
     mrca_priors = mrca_priors,
     mcmc = mcmc,
-    misc_options = misc_options,
+    beauti_options = beauti_options,
     fixed_crown_ages = fixed_crown_ages,
     initial_phylogenies = initial_phylogenies,
     tipdates_filename = tipdates_filename

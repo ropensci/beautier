@@ -1,12 +1,12 @@
-#' Determine if the object is a valid misc_options
-#' @param x an object, to be determined if it is a misc_options
-#' @return TRUE if the object is a valid misc_options, FALSE otherwise
+#' Determine if the object is a valid beauti_options
+#' @param x an object, to be determined if it is a beauti_options
+#' @return TRUE if the object is a valid beauti_options, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @examples
-#'   misc_options <- create_misc_options()
-#'   testit::assert(beautier:::is_misc_options(misc_options))
+#'   beauti_options <- create_beauti_options()
+#'   testit::assert(beautier:::is_beauti_options(beauti_options))
 #' @noRd
-is_misc_options <- function(
+is_beauti_options <- function(
   x
 ) {
   if (!"capitalize_first_char_id" %in% names(x)) return(FALSE)

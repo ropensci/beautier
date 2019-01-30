@@ -27,7 +27,7 @@ create_beast2_input_file <- function(
   tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
-  misc_options = create_misc_options(),
+  beauti_options = create_beauti_options(),
   tipdates_filename = NA,
   input_filenames = "deprecated",
   site_models = "deprecated",
@@ -89,7 +89,7 @@ create_beast2_input_file <- function(
     tree_prior = tree_prior,
     mrca_prior = mrca_prior,
     mcmc = mcmc,
-    misc_options = misc_options
+    beauti_options = beauti_options
   )
 
   # Write to file

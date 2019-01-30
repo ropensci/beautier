@@ -4,7 +4,7 @@
 #' @noRd
 create_beast2_input_data <- function(
   input_filenames,
-  misc_options = create_misc_options()
+  beauti_options = create_beauti_options()
 ) {
   testit::assert(files_exist(input_filenames)) # nolint beautier function
 
@@ -14,21 +14,21 @@ create_beast2_input_data <- function(
     input_fasta_filename <- input_filenames[i]
     id <- beautier::get_alignment_id(
       input_fasta_filename,
-      capitalize_first_char_id = misc_options$capitalize_first_char_id
+      capitalize_first_char_id = beauti_options$capitalize_first_char_id
     )
     text <- c(text, create_data_xml(
       id = id,
-      beast2_version = misc_options$beast2_version)
+      beast2_version = beauti_options$beast2_version)
     )
     text <- c(
       text,
       create_beast2_input_data_sequences(
         input_fasta_filename = input_fasta_filename,
-        misc_options = misc_options
+        beauti_options = beauti_options
       )
     )
-    testit::assert(misc_options$sequence_indent >= 20)
-    text <- c(text, indent("</data>", n_spaces = misc_options$sequence_indent - 4)) # nolint beautier function
+    testit::assert(beauti_options$sequence_indent >= 20)
+    text <- c(text, indent("</data>", n_spaces = beauti_options$sequence_indent - 4)) # nolint beautier function
   }
   text
 }

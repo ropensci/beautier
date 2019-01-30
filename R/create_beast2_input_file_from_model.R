@@ -46,7 +46,7 @@ create_beast2_input_file_from_model <- function( # nolint indeed a long name, bu
     tree_prior = inference_model$tree_prior,
     mrca_prior = inference_model$mrca_prior,
     mcmc = inference_model$mcmc,
-    misc_options = inference_model$misc_options,
+    beauti_options = inference_model$beauti_options,
     tipdates_filename = inference_model$tipdates_filename
   )
 }

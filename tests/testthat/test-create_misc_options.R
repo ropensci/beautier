@@ -1,6 +1,6 @@
-context("create_misc_options")
+context("create_beauti_options")
 
 test_that("use", {
 
-  testthat::expect_silent(create_misc_options())
+  testthat::expect_silent(create_beauti_options())
 })

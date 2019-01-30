@@ -28,7 +28,7 @@ test_that("v2.5", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.0",
       nucleotides_uppercase = TRUE
@@ -46,7 +46,7 @@ test_that("v2.5.1", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.1",
       nucleotides_uppercase = TRUE
@@ -639,7 +639,7 @@ test_that("tn93_kappas_not_estimated.xml", {
     ),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
     )
@@ -778,7 +778,7 @@ test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
     tree_prior = create_cbs_tree_prior(
       group_sizes_dimension = 4
     ),
-    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+    beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
   expected <- readLines(get_beautier_path(
     "anthus_aco_sub_cbs_groupsize_4_dim.xml")
@@ -1061,7 +1061,7 @@ test_that("anthus_aco_sub.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     mcmc = create_mcmc(chain_length = 10000),
-    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+    beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
 
   expected <- readLines(get_beautier_path(
@@ -1093,7 +1093,7 @@ test_that("anthus_aco_sub_calibration.xml", {
       is_monophyletic = TRUE,
       clock_prior_distr_id = 0
     ),
-    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+    beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
 
   expected <- readLines(get_beautier_path(
@@ -1119,7 +1119,7 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
       taxa_names = get_taxa_names(fasta_filename),
       clock_prior_distr_id = 0
     ),
-    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+    beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
 
   expected <- readLines(get_beautier_path(
@@ -1156,7 +1156,7 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
       taxa_names = get_taxa_names(fasta_filename),
       clock_prior_distr_id = 0
     ),
-    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+    beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
   expected <- readLines(get_beautier_path(
     "anthus_aco_sub_calibrated_rln.xml")
@@ -1193,7 +1193,7 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
       clock_prior_distr_id = 0,
       is_monophyletic = TRUE
     ),
-    misc_options = create_misc_options(nucleotides_uppercase = TRUE)
+    beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
   expected <- readLines(get_beautier_path(
     "anthus_aco_sub_calibrated_rln_monophyletic.xml")
@@ -1210,7 +1210,7 @@ test_that("Base point: anthus_aco_sub.xml", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       nucleotides_uppercase = TRUE,
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
@@ -1236,7 +1236,7 @@ test_that("Base point + all taxa", {
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
       is_monophyletic = FALSE
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       nucleotides_uppercase = TRUE,
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
@@ -1263,7 +1263,7 @@ test_that("Base point + all taxa + monophyletic", {
       taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
       is_monophyletic = TRUE
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       nucleotides_uppercase = TRUE,
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
@@ -1291,7 +1291,7 @@ test_that("Base point + all taxa + monophyletic + one_div_x", {
       mrca_distr = create_one_div_x_distr(id = 1),
       clock_prior_distr_id = 0
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       nucleotides_uppercase = TRUE,
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
@@ -1319,7 +1319,7 @@ test_that("Base point + all taxa + one_div_x", {
       mrca_distr = create_one_div_x_distr(id = 1),
       clock_prior_distr_id = 0
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       nucleotides_uppercase = TRUE,
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
@@ -1357,7 +1357,7 @@ test_that("Base point + all taxa + one_div_x + RLN", {
       mrca_distr = create_one_div_x_distr(id = 1),
       clock_prior_distr_id = 0
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       nucleotides_uppercase = TRUE,
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
@@ -1380,7 +1380,7 @@ test_that("No tip dating yet", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.0",
       nucleotides_uppercase = TRUE
@@ -1399,7 +1399,7 @@ test_that("Tip dating", {
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt"),
-    misc_options = create_misc_options(
+    beauti_options = create_beauti_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.1",
       nucleotides_uppercase = TRUE,

@@ -20,7 +20,7 @@ create_beast2_input_1_12 <- function(
     id = get_alignment_id(input_filenames)
   ),
   mcmc = create_mcmc(),
-  misc_options = create_misc_options(),
+  beauti_options = create_beauti_options(),
   fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
   initial_phylogenies = rep(NA, length(input_filenames))
 ) {
@@ -83,11 +83,11 @@ create_beast2_input_1_12 <- function(
     )
   }
 
-  # 6 misc_options
-  if (!is_misc_options(misc_options)) { # nolint beautier function
+  # 6 beauti_options
+  if (!is_beauti_options(beauti_options)) { # nolint beautier function
     stop(
-      "'misc_options' must be a valid misc options object, ",
-      "as returned by 'create_misc_options'"
+      "'beauti_options' must be a valid misc options object, ",
+      "as returned by 'create_beauti_options'"
     )
   }
 
@@ -140,7 +140,7 @@ create_beast2_input_1_12 <- function(
     clock_models = clock_models,
     tree_priors = tree_priors,
     mcmc = mcmc,
-    misc_options = misc_options,
+    beauti_options = beauti_options,
     fixed_crown_ages = fixed_crown_ages,
     initial_phylogenies = initial_phylogenies
   )

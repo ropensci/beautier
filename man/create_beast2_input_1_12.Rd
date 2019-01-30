@@ -11,9 +11,9 @@ create_beast2_input_1_12(input_filenames,
   get_alignment_id(input_filenames)),
   tree_priors = create_yule_tree_prior(id =
   get_alignment_id(input_filenames)), mcmc = create_mcmc(),
-  misc_options = create_misc_options(), fixed_crown_ages = rep(FALSE,
-  times = length(input_filenames)), initial_phylogenies = rep(NA,
-  length(input_filenames)))
+  beauti_options = create_beauti_options(),
+  fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
+  initial_phylogenies = rep(NA, length(input_filenames)))
 }
 \arguments{
 \item{input_filenames}{One or more FASTA filenames.
@@ -31,8 +31,8 @@ as returned by \code{\link{create_tree_prior}}}
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
-\item{misc_options}{one misc_options object,
-as returned by \code{\link{create_misc_options}}}
+\item{beauti_options}{one beauti_options object,
+as returned by \code{\link{create_beauti_options}}}
 
 \item{fixed_crown_ages}{one or more booleans to determine if the
 phylogenies' crown ages are fixed.

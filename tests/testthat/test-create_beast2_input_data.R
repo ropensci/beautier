@@ -27,7 +27,7 @@ test_that("alignment start with a capital", {
 
   lines <- create_beast2_input_data(
     input_filenames = c(fasta_filename),
-    create_misc_options(
+    create_beauti_options(
       capitalize_first_char_id = TRUE
     )
   )

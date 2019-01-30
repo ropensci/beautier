@@ -7,7 +7,7 @@
 create_inference_model(site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
   tree_prior = create_bd_tree_prior(), mrca_prior = NA,
-  mcmc = create_mcmc(), misc_options = create_misc_options(),
+  mcmc = create_mcmc(), beauti_options = create_beauti_options(),
   tipdates_filename = NA)
 }
 \arguments{
@@ -26,8 +26,8 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
-\item{misc_options}{one misc_options object,
-as returned by \code{\link{create_misc_options}}}
+\item{beauti_options}{one beauti_options object,
+as returned by \code{\link{create_beauti_options}}}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
 This file is assumed to have two columns, separated by a tab.

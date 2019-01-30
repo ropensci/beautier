@@ -18,7 +18,7 @@ check_inference_model <- function(
 ) {
   argument_names <- c(
     "site_model", "clock_model", "tree_prior",
-    "mrca_prior", "mcmc", "misc_options", "tipdates_filename"
+    "mrca_prior", "mcmc", "beauti_options", "tipdates_filename"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(inference_model)) {
@@ -34,12 +34,12 @@ check_inference_model <- function(
   check_mrca_prior(inference_model$mrca_prior) # nolint beautier function
   check_mcmc(inference_model$mcmc) # nolint beautier function
   tryCatch(
-    check_misc_options(inference_model$misc_options), # nolint beautier function
+    check_beauti_options(inference_model$beauti_options), # nolint beautier function
     error = function(msg) {
       stop(
-        "'misc_options' must be a valid misc option.\n",
+        "'beauti_options' must be a valid misc option.\n",
         "Error: ", msg, "\n",
-        "Value: ", inference_model$misc_options
+        "Value: ", inference_model$beauti_options
       )
     }
   )

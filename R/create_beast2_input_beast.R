@@ -21,7 +21,7 @@ create_beast2_input_beast <- function(
   ),
   mrca_priors = NA,
   mcmc = create_mcmc(),
-  misc_options = create_misc_options(),
+  beauti_options = create_beauti_options(),
   fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
   initial_phylogenies = rep(NA, length(input_filenames)),
   tipdates_filename = NA
@@ -42,12 +42,12 @@ create_beast2_input_beast <- function(
   # Alignment IDs
   ids <- beautier::get_alignment_id(
     input_filenames,
-    capitalize_first_char_id = misc_options$capitalize_first_char_id
+    capitalize_first_char_id = beauti_options$capitalize_first_char_id
   )
 
   text <- create_beast2_beast_xml( # nolint beautier function
-    beast2_version = misc_options$beast2_version,
-    required = misc_options$required
+    beast2_version = beauti_options$beast2_version,
+    required = beauti_options$required
   )
 
   text <- c(text, "")
@@ -56,7 +56,7 @@ create_beast2_input_beast <- function(
   text <- c(text,
     create_beast2_input_data(
       input_filenames = input_filenames,
-      misc_options = misc_options
+      beauti_options = beauti_options
     )
   )
 

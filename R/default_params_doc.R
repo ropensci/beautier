@@ -76,8 +76,8 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
-#' @param misc_options one misc_options object,
-#'   as returned by \code{\link{create_misc_options}}
+#' @param beauti_options one beauti_options object,
+#'   as returned by \code{\link{create_beauti_options}}
 #' @param mrca_prior a Most Recent Common Ancestor prior,
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
@@ -156,7 +156,7 @@ default_params_doc <- function(
   is_monophyletic,
   jc69_site_model,
   mcmc,
-  misc_options,
+  beauti_options,
   mrca_prior, mrca_priors,
   output_filename,
   param_id,

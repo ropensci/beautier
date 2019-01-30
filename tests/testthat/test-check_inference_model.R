@@ -84,10 +84,10 @@ test_that("in-depth use", {
   )
 
   inference_model <- good_inference_model
-  inference_model$misc_options <- NULL
+  inference_model$beauti_options <- NULL
   expect_error(
     check_inference_model(inference_model),
-    "'misc_options' must be an element of an 'inference_model'"
+    "'beauti_options' must be an element of an 'inference_model'"
   )
 
   inference_model <- good_inference_model
@@ -131,9 +131,9 @@ test_that("in-depth use", {
   )
   expect_error(
     check_inference_model(
-      create_inference_model(misc_options = "nonsense")
+      create_inference_model(beauti_options = "nonsense")
     ),
-    "'misc_options' must be a valid misc option"
+    "'beauti_options' must be a valid misc option"
   )
   expect_error(
     check_inference_model(

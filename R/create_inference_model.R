@@ -26,7 +26,7 @@ create_inference_model <- function(
   tree_prior = create_bd_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
-  misc_options = create_misc_options(),
+  beauti_options = create_beauti_options(),
   tipdates_filename = NA
 ) {
   inference_model <- list(
@@ -35,7 +35,7 @@ create_inference_model <- function(
     tree_prior = tree_prior,
     mrca_prior = mrca_prior,
     mcmc = mcmc,
-    misc_options = misc_options,
+    beauti_options = beauti_options,
     tipdates_filename = tipdates_filename
   )
   check_inference_model(inference_model) # nolint beautier function

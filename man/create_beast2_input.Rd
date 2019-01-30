@@ -8,7 +8,7 @@ create_beast2_input(input_filename, tipdates_filename = NA,
   site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
   tree_prior = create_yule_tree_prior(), mrca_prior = NA,
-  mcmc = create_mcmc(), misc_options = create_misc_options(),
+  mcmc = create_mcmc(), beauti_options = create_beauti_options(),
   input_filenames = "deprecated", site_models = "deprecated",
   clock_models = "deprecated", tree_priors = "deprecated",
   mrca_priors = "deprecated", posterior_crown_age = "deprecated")
@@ -37,8 +37,8 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
-\item{misc_options}{one misc_options object,
-as returned by \code{\link{create_misc_options}}}
+\item{beauti_options}{one beauti_options object,
+as returned by \code{\link{create_beauti_options}}}
 
 \item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
