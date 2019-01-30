@@ -1,6 +1,9 @@
-#' Function to create a beauti_options, containing miscellaneous options
-#'   to fine-tune the created BEAST2 XML file. Whatever option chosen
-#'   here, the created XML file will be valid.
+#' Function to create a set of BEAUti options.
+#'
+#' BEAUti options are settings that differ between BEAUti
+#' version. The use of these options is mostly for testing
+#' older versions
+#' Whatever option chosen here, the created XML file will be valid.
 #' @param capitalize_first_char_id must the ID of alignment start with a
 #'   capital? TRUE if yes, FALSE if it can be left lower case (if it is
 #'   lowercase)

@@ -1,13 +1,14 @@
-#' Check if the misc options is a valid misc options object.
+#' Check if the \code{beauti_options} is a valid \code{beauti_options} object.
 #'
-#' Calls \code{stop} if the misc options object is invalid
+#' Calls \code{stop} if the \code{beauti_options} object is invalid
 #' @inheritParams default_params_doc
 #' @return nothing
-#' @seealso Use \link{create_beauti_options} to create a valid MCMC
+#' @seealso Use \link{create_beauti_options} to create a valid
+#'   BEAUti options setup
 #' @examples
 #'  testthat::expect_silent(check_beauti_options(create_beauti_options()))
 #'
-#'  # Must stop on non-MCMCs
+#'  # Must stop on nonsense
 #'  testthat::expect_error(check_beauti_options(beauti_options = "nonsense"))
 #'  testthat::expect_error(check_beauti_options(beauti_options = NULL))
 #'  testthat::expect_error(check_beauti_options(beauti_options = NA))
