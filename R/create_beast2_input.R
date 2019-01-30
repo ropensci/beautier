@@ -97,7 +97,7 @@ create_beast2_input <- function(
   # 1 input_filenames
   input_filenames <- input_filename
   if (!files_exist(input_filenames)) { # nolint beautier function
-    stop("'input_filename' must be the name of one present file.")
+    stop("'input_filename' not found. Value: ", input_filenames)
   }
 
   # 2 site_models

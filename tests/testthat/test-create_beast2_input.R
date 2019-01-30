@@ -79,7 +79,7 @@ test_that("abuse: one alignment", {
     create_beast2_input(
       input_filename = "nonexisting" # Error
     ),
-    "'input_filename' must be the name of one present file"
+    "'input_filename' not found"
   )
   # input_filenames
   expect_error(
