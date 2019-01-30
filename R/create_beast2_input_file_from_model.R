@@ -1,0 +1,43 @@
+#' Create a BEAST2 input file from an inference model
+#' @inheritParams default_params_doc
+#' @examples
+#'   # Get an example FASTA file
+#'   input_filename <- get_fasta_filename()
+#'
+#'   # The file created by beautier, a BEAST2 input file
+#'   output_filename <- tempfile()
+#'
+#'   create_beast2_input_file_from_model(
+#'     input_filename,
+#'     output_filename
+#'   )
+#'   testthat::expect_true(file.exists(output_filename))
+#' @author Richel J.C. Bilderbeek
+#' @seealso
+#'   See \code{\link{create_site_model}} for examples with
+#'   different site models.
+#'   See \code{\link{create_clock_model}} for examples
+#'   with clock models.
+#'   See \code{\link{create_tree_prior}} for examples with
+#'   different tree priors.
+#'   See \code{\link{create_mcmc}} for examples with
+#'   a different MCMC setup.
+#' @export
+create_beast2_input_file_from_model <- function(
+  input_filename,
+  output_filename,
+  inference_model = create_inference_model()
+) {
+  check_inference_model(inference_model)
+  create_beast2_input_file(
+    input_filename = input_filename,
+    output_filename = output_filename,
+    site_model = inference_model$site_model,
+    clock_model = inference_model$clock_model,
+    tree_prior = inference_model$tree_prior,
+    mrca_prior = inference_model$mrca_prior,
+    mcmc = inference_model$mcmc,
+    misc_options = inference_model$misc_options,
+    tipdates_filename = inference_model$tipdates_filename
+  )
+}

@@ -39,6 +39,6 @@ create_misc_options <- function(
     required = required,
     sequence_indent = sequence_indent
   )
-  testit::assert(is_misc_options(misc_options)) # nolint beautier function
+  check_misc_options(misc_options) # nolint beautier function
   misc_options
 }

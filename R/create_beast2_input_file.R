@@ -1,12 +1,14 @@
 #' Create a BEAST2 input file
 #' @inheritParams default_params_doc
 #' @examples
+#'   # Get an example FASTA file
+#'   input_filename <- get_fasta_filename()
+#'
 #'   # The file created by beautier, a BEAST2 input file
 #'   output_filename <- "create_beast2_input_file.xml"
 #'
-#'   # Birth-Death tree prior, crown age is estimated
 #'   create_beast2_input_file(
-#'     get_fasta_filename(),
+#'     input_filename,
 #'     output_filename
 #'   )
 #'   testthat::expect_true(file.exists(output_filename))
@@ -26,13 +28,13 @@ create_beast2_input_file <- function(
   mrca_prior = NA,
   mcmc = create_mcmc(),
   misc_options = create_misc_options(),
+  tipdates_filename = NA,
   input_filenames = "deprecated",
   site_models = "deprecated",
   clock_models = "deprecated",
   tree_priors = "deprecated",
   mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated",
-  tipdates_filename = NA
+  posterior_crown_age = "deprecated"
 ) {
   # Check for deprecated argument names
   calls <- names(sapply(match.call(), deparse))[-1]

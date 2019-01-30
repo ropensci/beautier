@@ -12,13 +12,14 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   crown_age, crown_ages, distr_id, fasta_filename, fasta_filenames,
   fixed_crown_age, fixed_crown_ages, gamma_site_model,
   group_sizes_dimension, gtr_site_model, has_non_strict_clock_model,
-  has_tip_dating, hky_site_model, id, ids, initial_phylogenies,
-  input_filename, input_filenames, is_monophyletic, jc69_site_model, mcmc,
-  misc_options, mrca_prior, mrca_priors, output_filename, param_id,
-  phylogeny, posterior_crown_age, rln_clock_model, sequence_length,
-  site_model, site_model_name, site_model_names, site_models, store_every,
-  strict_clock_model, tipdates_filename, tn93_site_model, tree_prior,
-  tree_prior_name, tree_prior_names, tree_priors, verbose, yule_tree_prior)
+  has_tip_dating, hky_site_model, id, ids, inference_model,
+  initial_phylogenies, input_filename, input_filenames, is_monophyletic,
+  jc69_site_model, mcmc, misc_options, mrca_prior, mrca_priors,
+  output_filename, param_id, phylogeny, posterior_crown_age,
+  rln_clock_model, sequence_length, site_model, site_model_name,
+  site_model_names, site_models, store_every, strict_clock_model,
+  tipdates_filename, tn93_site_model, tree_prior, tree_prior_name,
+  tree_prior_names, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -103,6 +104,11 @@ with \code{\link{get_alignment_ids}})}
 \item{ids}{one or more alignments' IDs.
 IDs can be extracted from their FASTA filenames
 with \code{\link{get_alignment_ids}})}
+
+\item{inference_model}{an Bayesian phylogenetic inference model,
+as can be created by \code{\link{create_inference_model}}.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
 Each one set to \code{NA} will result in BEAST2 using a random phylogeny. Else

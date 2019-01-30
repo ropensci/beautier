@@ -9,10 +9,10 @@ create_beast2_input_file(input_filename, output_filename,
   clock_model = create_strict_clock_model(),
   tree_prior = create_yule_tree_prior(), mrca_prior = NA,
   mcmc = create_mcmc(), misc_options = create_misc_options(),
-  input_filenames = "deprecated", site_models = "deprecated",
-  clock_models = "deprecated", tree_priors = "deprecated",
-  mrca_priors = "deprecated", posterior_crown_age = "deprecated",
-  tipdates_filename = NA)
+  tipdates_filename = NA, input_filenames = "deprecated",
+  site_models = "deprecated", clock_models = "deprecated",
+  tree_priors = "deprecated", mrca_priors = "deprecated",
+  posterior_crown_age = "deprecated")
 }
 \arguments{
 \item{input_filename}{A FASTA filename.
@@ -39,6 +39,11 @@ as returned by \code{\link{create_mcmc}}}
 \item{misc_options}{one misc_options object,
 as returned by \code{\link{create_misc_options}}}
 
+\item{tipdates_filename}{name of the file containing the tip dates.
+This file is assumed to have two columns, separated by a tab.
+The first column contains the taxa names, the second column contains
+the date.}
+
 \item{input_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
@@ -55,22 +60,19 @@ as returned by \code{\link{create_tree_prior}}}
 as returned by \code{\link{create_mrca_prior}}}
 
 \item{posterior_crown_age}{deprecated}
-
-\item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, separated by a tab.
-The first column contains the taxa names, the second column contains
-the date.}
 }
 \description{
 Create a BEAST2 input file
 }
 \examples{
+  # Get an example FASTA file
+  input_filename <- get_fasta_filename()
+
   # The file created by beautier, a BEAST2 input file
   output_filename <- "create_beast2_input_file.xml"
 
-  # Birth-Death tree prior, crown age is estimated
   create_beast2_input_file(
-    get_fasta_filename(),
+    input_filename,
     output_filename
   )
   testthat::expect_true(file.exists(output_filename))

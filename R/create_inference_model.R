@@ -1,0 +1,41 @@
+#' Create an MCMC inference model.
+#'
+#' Create an MCMC configuration, as in the BEAUti MCMC tab.
+#' The number of states that will be saved equals the chain
+#' length (\code{chain_length}) divided by the number of
+#' states between each sampling event (\code{store_every})
+#' @inheritParams default_params_doc
+#' @return an MCMC configuration
+#' @author Richel J.C. Bilderbeek
+#' @examples
+#'   # Create an MCMC chain with 50 states
+#'   inference_model <- create_inference_model(chain_length = 50000, store_every = 1000)
+#'
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     "create_inference_model.xml",
+#'     inference_model = inference_model
+#'   )
+#'   testit::assert(file.exists("create_inference_model.xml"))
+#' @export
+create_inference_model <- function(
+  site_model = create_jc69_site_model(),
+  clock_model = create_strict_clock_model(),
+  tree_prior = create_bd_tree_prior(),
+  mrca_prior = NA,
+  mcmc = create_mcmc(),
+  misc_options = create_misc_options(),
+  tipdates_filename = NA
+) {
+  inference_model <- list(
+    site_model = site_model,
+    clock_model = clock_model,
+    tree_prior = tree_prior,
+    mrca_prior = mrca_prior,
+    mcmc = mcmc,
+    misc_options = misc_options,
+    tipdates_filename = tipdates_filename
+  )
+  check_inference_model(inference_model) # nolint beautier function
+  inference_model
+}

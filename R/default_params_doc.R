@@ -63,6 +63,10 @@
 #' @param ids one or more alignments' IDs.
 #'   IDs can be extracted from their FASTA filenames
 #'   with \code{\link{get_alignment_ids}})
+#' @param inference_model an Bayesian phylogenetic inference model,
+#'   as can be created by \code{\link{create_inference_model}}.
+#'   An inference model is the complete model setup in which a site model,
+#'   clock model, tree prior and more are specified.
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
 #'   Each one set to \code{NA} will result in BEAST2 using a random phylogeny. Else
 #'   the phylogeny is assumed to be of class ape::phylo.
@@ -146,6 +150,7 @@ default_params_doc <- function(
   hky_site_model,
   id,
   ids,
+  inference_model,
   initial_phylogenies,
   input_filename, input_filenames,
   is_monophyletic,
