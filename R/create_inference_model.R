@@ -9,9 +9,11 @@
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   # Create an MCMC chain with 50 states
-#'   inference_model <- create_inference_model(chain_length = 50000, store_every = 1000)
+#'   inference_model <- create_inference_model(
+#'     mcmc = create_mcmc(chain_length = 50000, store_every = 1000)
+#'   )
 #'
-#'   create_beast2_input_file(
+#'   create_beast2_input_file_from_model(
 #'     get_fasta_filename(),
 #'     "create_inference_model.xml",
 #'     inference_model = inference_model
