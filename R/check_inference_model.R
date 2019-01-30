@@ -28,13 +28,13 @@ check_inference_model <- function(
       )
     }
   }
-  check_site_model(inference_model$site_model)
-  check_clock_model(inference_model$clock_model)
-  check_tree_prior(inference_model$tree_prior)
-  check_mrca_prior(inference_model$mrca_prior)
-  check_mcmc(inference_model$mcmc)
+  check_site_model(inference_model$site_model) # nolint beautier function
+  check_clock_model(inference_model$clock_model) # nolint beautier function
+  check_tree_prior(inference_model$tree_prior) # nolint beautier function
+  check_mrca_prior(inference_model$mrca_prior) # nolint beautier function
+  check_mcmc(inference_model$mcmc) # nolint beautier function
   tryCatch(
-    check_misc_options(inference_model$misc_options),
+    check_misc_options(inference_model$misc_options), # nolint beautier function
     error = function(msg) {
       stop(
         "'misc_options' must be a valid misc option.\n",
