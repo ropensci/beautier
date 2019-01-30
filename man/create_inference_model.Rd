@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_inference_model.R
 \name{create_inference_model}
 \alias{create_inference_model}
-\title{Create a Bayesian phylogentic inference model.}
+\title{Create a Bayesian phylogenetic inference model.}
 \usage{
 create_inference_model(site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
@@ -38,7 +38,7 @@ the date.}
 an MCMC configuration
 }
 \description{
-Create a Bayesian phylogentic inference model,
+Create a Bayesian phylogenetic inference model,
 as can be done by BEAUti.
 }
 \examples{

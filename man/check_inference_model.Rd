@@ -2,7 +2,8 @@
 % Please edit documentation in R/check_inference_model.R
 \name{check_inference_model}
 \alias{check_inference_model}
-\title{Check if the supplied object is a valid Bayesian phylogentic inference model.}
+\title{Check if the supplied object is a valid
+Bayesian phylogenetic inference model.}
 \usage{
 check_inference_model(inference_model)
 }
@@ -17,7 +18,7 @@ nothing
 }
 \description{
 Calls \code{stop} if the supplied object is not a valid
-  Bayesian phylogentic inference model.
+  Bayesian phylogenetic inference model.
 }
 \examples{
  testthat::expect_silent(check_inference_model(create_inference_model()))
@@ -29,7 +30,7 @@ Calls \code{stop} if the supplied object is not a valid
 }
 \seealso{
 Use \link{create_inference_model} to create a valid Bayesian
-  phylogentic inference model
+  phylogenetic inference model
 }
 \author{
 Richel J.C. Bilderbeek

@@ -1,6 +1,6 @@
-#' Create a Bayesian phylogentic inference model.
+#' Create a Bayesian phylogenetic inference model.
 #'
-#' Create a Bayesian phylogentic inference model,
+#' Create a Bayesian phylogenetic inference model,
 #' as can be done by BEAUti.
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration

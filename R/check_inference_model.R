@@ -1,11 +1,12 @@
-#' Check if the supplied object is a valid Bayesian phylogentic inference model.
+#' Check if the supplied object is a valid
+#' Bayesian phylogenetic inference model.
 #'
 #' Calls \code{stop} if the supplied object is not a valid
-#'   Bayesian phylogentic inference model.
+#'   Bayesian phylogenetic inference model.
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @seealso Use \link{create_inference_model} to create a valid Bayesian
-#'   phylogentic inference model
+#'   phylogenetic inference model
 #' @examples
 #'  testthat::expect_silent(check_inference_model(create_inference_model()))
 #'
