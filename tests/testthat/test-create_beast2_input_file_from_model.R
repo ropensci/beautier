@@ -2,7 +2,6 @@ context("create_beast2_input_file_from_model")
 
 test_that("use", {
 
-  skip("WIP, #76")
   output_filename <- tempfile()
   testit::assert(!file.exists(output_filename))
 
@@ -18,13 +17,12 @@ test_that("use", {
 
 test_that("abuse", {
 
-  skip("WIP, #76")
   output_filename <- tempfile()
 
   # input_filenames
   expect_error(
     create_beast2_input_file_from_model(
-      input_filenames = "nonexisting", # Error
+      input_filename = "nonexisting", # Error
       output_filename
     ),
     "'input_filename' not found"

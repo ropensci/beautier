@@ -28,7 +28,16 @@ create_beast2_input_file_from_model <- function(
   output_filename,
   inference_model = create_inference_model()
 ) {
-  check_inference_model(inference_model)
+  tryCatch(
+    check_inference_model(inference_model),
+    error = function(msg) {
+      stop(
+        "'inference_model' must be an inference model.\n",
+        "Error: ", msg$message, "\n",
+        "Value: ", inference_model
+      )
+    }
+  )
   create_beast2_input_file(
     input_filename = input_filename,
     output_filename = output_filename,
