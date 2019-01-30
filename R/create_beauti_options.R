@@ -14,7 +14,7 @@
 #'   for example \code{BEAST v2.5.0}
 #' @param sequence_indent the number of spaces the XML \code{sequence}
 #'   lines are indented
-#' @return a beauti_options
+#' @return a BEAUti options structure
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   beauti_options <- create_beauti_options(

@@ -25,7 +25,7 @@ for example \code{BEAST v2.5.0}}
 lines are indented}
 }
 \value{
-a beauti_options
+a BEAUti options structure
 }
 \description{
 BEAUti options are settings that differ between BEAUti

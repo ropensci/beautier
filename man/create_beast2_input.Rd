@@ -37,7 +37,7 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
-\item{beauti_options}{one beauti_options object,
+\item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
 
 \item{input_filenames}{One or more FASTA filenames.

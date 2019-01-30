@@ -130,7 +130,7 @@ as returned by \code{\link{create_jc69_site_model}}}
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
 
-\item{beauti_options}{one beauti_options object,
+\item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
 
 \item{mrca_prior}{a Most Recent Common Ancestor prior,

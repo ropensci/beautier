@@ -76,7 +76,7 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
-#' @param beauti_options one beauti_options object,
+#' @param beauti_options one BEAUti options object,
 #'   as returned by \code{\link{create_beauti_options}}
 #' @param mrca_prior a Most Recent Common Ancestor prior,
 #'   as returned by \code{\link{create_mrca_prior}}

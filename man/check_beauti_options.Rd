@@ -7,7 +7,7 @@
 check_beauti_options(beauti_options)
 }
 \arguments{
-\item{beauti_options}{one beauti_options object,
+\item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
 }
 \value{
