@@ -148,4 +148,3 @@ test_that("in-depth use", {
     "'tipdates_filename' must have one element"
   )
 })
-

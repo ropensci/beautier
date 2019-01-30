@@ -23,7 +23,7 @@
 #'   See \code{\link{create_mcmc}} for examples with
 #'   a different MCMC setup.
 #' @export
-create_beast2_input_file_from_model <- function(
+create_beast2_input_file_from_model <- function( # nolint indeed a long name, but I preferred this over 'create_beast2_input_file2'
   input_filename,
   output_filename,
   inference_model = create_inference_model()

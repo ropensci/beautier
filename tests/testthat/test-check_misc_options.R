@@ -148,4 +148,3 @@ test_that("in-depth use", {
     "'sequence_indent' must be one number"
   )
 })
-
