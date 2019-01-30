@@ -1,9 +1,7 @@
-#' Create an MCMC inference model.
+#' Create a Bayesian phylogentic inference model.
 #'
-#' Create an MCMC configuration, as in the BEAUti MCMC tab.
-#' The number of states that will be saved equals the chain
-#' length (\code{chain_length}) divided by the number of
-#' states between each sampling event (\code{store_every})
+#' Create a Bayesian phylogentic inference model,
+#' as can be done by BEAUti.
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration
 #' @author Richel J.C. Bilderbeek

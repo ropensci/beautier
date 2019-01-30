@@ -6,6 +6,8 @@
 #'   Keep at \code{NA} to have it initialized automatically
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
+#' @param beauti_options one BEAUti options object,
+#'   as returned by \code{\link{create_beauti_options}}
 #' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
 #'   Keep at \code{NA} to have it initialized automatically
 #' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
@@ -76,8 +78,6 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
-#' @param beauti_options one BEAUti options object,
-#'   as returned by \code{\link{create_beauti_options}}
 #' @param mrca_prior a Most Recent Common Ancestor prior,
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
@@ -129,6 +129,7 @@ default_params_doc <- function(
   alignment_id,
   bd_tree_prior,
   cbs_tree_prior,
+  beauti_options,
   ccp_tree_prior,
   cep_tree_prior,
   chain_length,
@@ -156,7 +157,6 @@ default_params_doc <- function(
   is_monophyletic,
   jc69_site_model,
   mcmc,
-  beauti_options,
   mrca_prior, mrca_priors,
   output_filename,
   param_id,

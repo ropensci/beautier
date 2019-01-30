@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_inference_model.R
 \name{create_inference_model}
 \alias{create_inference_model}
-\title{Create an MCMC inference model.}
+\title{Create a Bayesian phylogentic inference model.}
 \usage{
 create_inference_model(site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
@@ -38,10 +38,8 @@ the date.}
 an MCMC configuration
 }
 \description{
-Create an MCMC configuration, as in the BEAUti MCMC tab.
-The number of states that will be saved equals the chain
-length (\code{chain_length}) divided by the number of
-states between each sampling event (\code{store_every})
+Create a Bayesian phylogentic inference model,
+as can be done by BEAUti.
 }
 \examples{
   # Create an MCMC chain with 50 states

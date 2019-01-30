@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_inference_model.R
 \name{check_inference_model}
 \alias{check_inference_model}
-\title{Check if the MCMC is a valid MCMC object.}
+\title{Check if the supplied object is a valid Bayesian phylogentic inference model.}
 \usage{
 check_inference_model(inference_model)
 }
@@ -16,7 +16,8 @@ clock model, tree prior and more are specified.}
 nothing
 }
 \description{
-Calls \code{stop} if the MCMC is invalid
+Calls \code{stop} if the supplied object is not a valid
+  Bayesian phylogentic inference model.
 }
 \examples{
  testthat::expect_silent(check_inference_model(create_inference_model()))
@@ -27,7 +28,8 @@ Calls \code{stop} if the MCMC is invalid
  testthat::expect_error(check_inference_model(inference_model = NA))
 }
 \seealso{
-Use \link{create_inference_model} to create a valid MCMC
+Use \link{create_inference_model} to create a valid Bayesian
+  phylogentic inference model
 }
 \author{
 Richel J.C. Bilderbeek

@@ -7,19 +7,19 @@ This function does nothing.
 It is intended to inherit function argument documentation.}
 \usage{
 default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
-  ccp_tree_prior, cep_tree_prior, chain_length, clock_model,
-  clock_model_name, clock_model_names, clock_models, clock_prior_distr_id,
-  crown_age, crown_ages, distr_id, fasta_filename, fasta_filenames,
-  fixed_crown_age, fixed_crown_ages, gamma_site_model,
+  beauti_options, ccp_tree_prior, cep_tree_prior, chain_length,
+  clock_model, clock_model_name, clock_model_names, clock_models,
+  clock_prior_distr_id, crown_age, crown_ages, distr_id, fasta_filename,
+  fasta_filenames, fixed_crown_age, fixed_crown_ages, gamma_site_model,
   group_sizes_dimension, gtr_site_model, has_non_strict_clock_model,
   has_tip_dating, hky_site_model, id, ids, inference_model,
   initial_phylogenies, input_filename, input_filenames, is_monophyletic,
-  jc69_site_model, mcmc, beauti_options, mrca_prior, mrca_priors,
-  output_filename, param_id, phylogeny, posterior_crown_age,
-  rln_clock_model, sequence_length, site_model, site_model_name,
-  site_model_names, site_models, store_every, strict_clock_model,
-  tipdates_filename, tn93_site_model, tree_prior, tree_prior_name,
-  tree_prior_names, tree_priors, verbose, yule_tree_prior)
+  jc69_site_model, mcmc, mrca_prior, mrca_priors, output_filename,
+  param_id, phylogeny, posterior_crown_age, rln_clock_model,
+  sequence_length, site_model, site_model_name, site_model_names,
+  site_models, store_every, strict_clock_model, tipdates_filename,
+  tn93_site_model, tree_prior, tree_prior_name, tree_prior_names,
+  tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -31,6 +31,9 @@ by \code{\link{create_bd_tree_prior}}}
 
 \item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
 as returned by \code{\link{create_cbs_tree_prior}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as returned by \code{\link{create_ccp_tree_prior}}}
@@ -129,9 +132,6 @@ as returned by \code{\link{create_jc69_site_model}}}
 
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
-
-\item{beauti_options}{one BEAUti options object,
-as returned by \code{\link{create_beauti_options}}}
 
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}

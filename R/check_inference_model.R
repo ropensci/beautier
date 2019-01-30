@@ -1,9 +1,11 @@
-#' Check if the MCMC is a valid MCMC object.
+#' Check if the supplied object is a valid Bayesian phylogentic inference model.
 #'
-#' Calls \code{stop} if the MCMC is invalid
+#' Calls \code{stop} if the supplied object is not a valid
+#'   Bayesian phylogentic inference model.
 #' @inheritParams default_params_doc
 #' @return nothing
-#' @seealso Use \link{create_inference_model} to create a valid MCMC
+#' @seealso Use \link{create_inference_model} to create a valid Bayesian
+#'   phylogentic inference model
 #' @examples
 #'  testthat::expect_silent(check_inference_model(create_inference_model()))
 #'
