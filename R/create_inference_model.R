@@ -21,7 +21,7 @@
 create_inference_model <- function(
   site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
-  tree_prior = create_bd_tree_prior(),
+  tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_mcmc(),
   beauti_options = create_beauti_options(),
