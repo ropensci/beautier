@@ -29,10 +29,12 @@ test_that("has same defaults as BEAUti", {
   # Tree prior
   expect_equal("yule", inference_model$tree_prior$name)
   expect_equal("uniform", inference_model$tree_prior$birth_rate_distr$name)
-  # TODO: add lower value of minus infinity
-  # expect_equal(-Inf, inference_model$tree_prior$birth_rate_distr$lower)
-  # TODO: add initial value of one, as a string
-  # expect_equal("1.0", inference_model$tree_prior$birth_rate_distr$init_value)
+  if (1 == 2) {
+    # TODO: add lower value of minus infinity
+    expect_equal(-Inf, inference_model$tree_prior$birth_rate_distr$lower)
+    # TODO: add initial value of one, as a string
+    expect_equal("1.0", inference_model$tree_prior$birth_rate_distr$init_value)
+  }
   expect_equal(Inf, inference_model$tree_prior$birth_rate_distr$upper)
 
   # MCMC
