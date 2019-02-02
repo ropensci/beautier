@@ -6,6 +6,10 @@
 \usage{
 check_inference_models(inference_models)
 }
+\arguments{
+\item{inference_models}{a list of one or more inference models,
+as can be created by \link{create_inference_model}}
+}
 \value{
 nothing
 }
