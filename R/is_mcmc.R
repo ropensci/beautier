@@ -3,7 +3,7 @@
 #' @seealso Use \code{\link{create_mcmc}}
 #' @return TRUE if x is a valid MCMC, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
-#' @noRd
+#' @export
 is_mcmc <- function(
   x
 ) {
@@ -27,8 +27,10 @@ is_mcmc <- function(
 #'     Remco R Bouckaert; Model Selection and Parameter Inference in
 #'     Phylogenetics Using Nested Sampling, Systematic Biology, 2018,
 #'     syy050, https://doi.org/10.1093/sysbio/syy050
-#' @noRd
-is_mcmc_nested_sampling <- function(
+#' @export
+#' @aliases is_mcmc_nested_sampling is_nested_sampling_mcmc
+#' @export is_mcmc_nested_sampling is_nested_sampling_mcmc
+is_mcmc_nested_sampling <- is_nested_sampling_mcmc<- function(
   x
 ) {
   if (!is_mcmc(x)) return(FALSE) # nolint beautier function
