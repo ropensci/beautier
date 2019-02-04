@@ -49,9 +49,9 @@ test_that("is_mcmc: devious", {
 test_that("is_mcmc_nested_sampling, use", {
 
   expect_true(
-    beautier:::is_mcmc_nested_sampling(create_mcmc_nested_sampling())
+    is_mcmc_nested_sampling(create_mcmc_nested_sampling())
   )
-  expect_false(beautier:::is_mcmc_nested_sampling(create_mcmc()))
+  expect_false(is_mcmc_nested_sampling(create_mcmc()))
   expect_false(is_mcmc_nested_sampling("nonsense"))
   expect_false(is_mcmc_nested_sampling(NA))
   expect_false(is_mcmc_nested_sampling(NULL))
@@ -61,32 +61,32 @@ test_that("is_mcmc_nested_sampling, use", {
 test_that("is_mcmc_nested_sampling: devious", {
 
   g <- create_mcmc_nested_sampling()
-  expect_true(beautier:::is_mcmc_nested_sampling(g))
+  expect_true(is_mcmc_nested_sampling(g))
 
   # No 'particle_count'
   h <- g[names(g) != "particle_count"]
-  expect_false(beautier:::is_mcmc_nested_sampling(h))
+  expect_false(is_mcmc_nested_sampling(h))
 
   # Invalid 'particle_count'
   h <- g
   h$particle_count <- 0
-  expect_false(beautier:::is_mcmc_nested_sampling(h))
+  expect_false(is_mcmc_nested_sampling(h))
 
   # No 'sub_chain_length'
   h <- g[names(g) != "sub_chain_length"]
-  expect_false(beautier:::is_mcmc_nested_sampling(h))
+  expect_false(is_mcmc_nested_sampling(h))
 
   # Invalid 'sub_chain_length'
   h <- g
   h$sub_chain_length <- 0
-  expect_false(beautier:::is_mcmc_nested_sampling(h))
+  expect_false(is_mcmc_nested_sampling(h))
 
   # No 'epsilon'
   h <- g[names(g) != "epsilon"]
-  expect_false(beautier:::is_mcmc_nested_sampling(h))
+  expect_false(is_mcmc_nested_sampling(h))
 
   # Invalid 'epsilon'
   h <- g
   h$epsilon <- 0.0
-  expect_false(beautier:::is_mcmc_nested_sampling(h))
+  expect_false(is_mcmc_nested_sampling(h))
 })
