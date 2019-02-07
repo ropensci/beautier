@@ -33,6 +33,11 @@ states between each sampling event (\code{store_every})
   )
   testit::assert(file.exists("create_mcmc.xml"))
 }
+\seealso{
+\itemize{
+    \item \link{are_equal_mcmcs} to check if two MCMCs are equal
+  }
+}
 \author{
 Richel J.C. Bilderbeek
 }

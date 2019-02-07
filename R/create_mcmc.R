@@ -6,6 +6,10 @@
 #' states between each sampling event (\code{store_every})
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration
+#' @seealso
+#'   \itemize{
+#'     \item \link{are_equal_mcmcs} to check if two MCMCs are equal
+#'   }
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   # Create an MCMC chain with 50 states
