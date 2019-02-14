@@ -2,12 +2,9 @@ language: r
 cache: packages
 
 os: 
-  - osx
   - linux
-
-# Workaround to get OSX build working,
-# from https://github.com/travis-ci/travis-ci/issues/10295
-# fortran: false
+  - osx
+  - windows
 
 r_packages:
   - devtools
