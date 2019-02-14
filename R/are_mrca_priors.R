@@ -7,7 +7,7 @@
 are_mrca_priors <- function(
   mrca_priors
 ) {
-  if (is_one_na(mrca_priors)) return(TRUE)
+  if (is_one_na(mrca_priors)) return(TRUE) # nolint beautier function
   if (!is.list(mrca_priors)) return(FALSE)
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]
