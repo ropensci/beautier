@@ -21,7 +21,9 @@ Will \link{stop} if the object is not a list of one or more clock models.
 }
 \examples{
   testthat::expect_silent(check_clock_models(create_strict_clock_model()))
-  testthat::expect_silent(check_clock_models(list(create_strict_clock_model())))
+  testthat::expect_silent(
+    check_clock_models(list(create_strict_clock_model()))
+  )
   testthat::expect_silent(
     check_clock_models(
       list(create_strict_clock_model(), create_rln_clock_model())

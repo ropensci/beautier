@@ -8,7 +8,9 @@
 #'  testthat::expect_silent(check_clock_model(create_rln_clock_model()))
 #'
 #'  # Can use list of one clock model
-#'  testthat::expect_silent(check_clock_model(list(create_strict_clock_model())))
+#'  testthat::expect_silent(
+#'    check_clock_model(list(create_strict_clock_model()))
+#'  )
 #'
 #'  # List of two clock models is not a/one clock model
 #'  testthat::expect_error(
