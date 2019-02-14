@@ -48,8 +48,8 @@ the crown age is fixed to the crown age
 of the initial phylogeny.}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
-Each one set to \code{NA} will result in BEAST2 using a random phylogeny. Else
-the phylogeny is assumed to be of class ape::phylo.}
+Each one set to \code{NA} will result in BEAST2 using a random phylogeny.
+Else the phylogeny is assumed to be of class \link[ape]{phylo}}
 }
 \description{
 Create a BEAST2 input file, interface of v1.12.

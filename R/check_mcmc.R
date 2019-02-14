@@ -1,5 +1,5 @@
 #' Check if the MCMC is a valid MCMC object.
-#' 
+#'
 #' Calls \code{stop} if the MCMC is invalid
 #' @inheritParams default_params_doc
 #' @return nothing

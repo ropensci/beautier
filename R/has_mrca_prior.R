@@ -5,6 +5,6 @@
 has_mrca_prior <- function(
   inference_model
 ) {
-  check_inference_model(inference_model)
-  !is_one_na(inference_model$mrca_prior)
+  check_inference_model(inference_model) # nolint beautier function
+  !is_one_na(inference_model$mrca_prior) # nolint beautier function
 }

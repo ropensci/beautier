@@ -117,8 +117,8 @@ clock model, tree prior and more are specified.}
 as can be created by \link{create_inference_model}}
 
 \item{initial_phylogenies}{one or more MCMC chain's initial phylogenies.
-Each one set to \code{NA} will result in BEAST2 using a random phylogeny. Else
-the phylogeny is assumed to be of class ape::phylo.}
+Each one set to \code{NA} will result in BEAST2 using a random phylogeny.
+Else the phylogeny is assumed to be of class \link[ape]{phylo}}
 
 \item{input_filename}{A FASTA filename.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}

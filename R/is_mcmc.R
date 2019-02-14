@@ -30,7 +30,7 @@ is_mcmc <- function(
 #' @export
 #' @aliases is_mcmc_nested_sampling is_nested_sampling_mcmc
 #' @export is_mcmc_nested_sampling is_nested_sampling_mcmc
-is_mcmc_nested_sampling <- is_nested_sampling_mcmc<- function(
+is_mcmc_nested_sampling <- is_nested_sampling_mcmc <- function(
   x
 ) {
   if (!is_mcmc(x)) return(FALSE) # nolint beautier function
