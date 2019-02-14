@@ -5,5 +5,6 @@
 has_mrca_prior <- function(
   inference_model
 ) {
-  FALSE
+  check_inference_model(inference_model)
+  !is_one_na(inference_model$mrca_prior)
 }

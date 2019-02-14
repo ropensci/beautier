@@ -5,12 +5,16 @@
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 are_mrca_priors <- function(
-  x
+  mrca_priors
 ) {
-  if (is.null(x)) return(FALSE)
-  if (is_mrca_prior(x)) return(TRUE) # nolint beautier function
-  for (i in x) {
-    if (!is_mrca_prior(i)) return(FALSE) # nolint beautier function
+  if (is_one_na(mrca_priors)) return (TRUE)
+  if (!is.list(mrca_priors)) return (FALSE)
+  for (i in seq_along(mrca_priors)) {
+    mrca_prior <- mrca_priors[[i]]
+    tryCatch(
+      check_mrca_prior(mrca_prior), # nolint beautier function
+      error = function(e) return (FALSE) # nolint indeed ignore e
+    )
   }
   TRUE
 }

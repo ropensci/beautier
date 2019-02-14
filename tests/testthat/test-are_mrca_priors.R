@@ -8,17 +8,15 @@ test_that("use", {
     taxa_names = c("a", "b"),
     mrca_distr = create_one_div_x_distr()
   )
+  expect_true(is_mrca_prior(mrca_prior))
   mrca_priors <- list(mrca_prior, mrca_prior)
-
-  testthat::expect_true(beautier:::are_mrca_priors(mrca_prior))
-  testthat::expect_true(beautier:::are_mrca_priors(mrca_priors))
+  expect_true(are_mrca_priors(mrca_priors))
 
   # Also NA is allowed
-  testthat::expect_true(beautier:::are_mrca_priors(NA))
+  expect_true(are_mrca_priors(NA))
 
-  testthat::expect_false(beautier:::are_mrca_priors("nonsense"))
-  testthat::expect_false(beautier:::are_mrca_priors(rep("nonsense", 2)))
+  expect_false(are_mrca_priors("nonsense"))
+  expect_false(are_mrca_priors(rep("nonsense", 2)))
 
-  testthat::expect_false(beautier:::are_mrca_priors(NULL))
-
+  expect_false(are_mrca_priors(NULL))
 })

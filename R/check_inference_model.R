@@ -34,14 +34,23 @@ check_inference_model <- function(
   check_site_model(inference_model$site_model) # nolint beautier function
   check_clock_model(inference_model$clock_model) # nolint beautier function
   check_tree_prior(inference_model$tree_prior) # nolint beautier function
-  check_mrca_prior(inference_model$mrca_prior) # nolint beautier function
   check_mcmc(inference_model$mcmc) # nolint beautier function
   tryCatch(
+    check_mrca_prior(inference_model$mrca_prior), # nolint beautier function
+    error = function(e) {
+      stop(
+        "'mrca_prior' must be a valid MRCA prior.\n",
+        "Error: ", e$message, "\n",
+        "Value: ", inference_model$beauti_options
+      )
+    }
+  )
+  tryCatch(
     check_beauti_options(inference_model$beauti_options), # nolint beautier function
-    error = function(msg) {
+    error = function(e) {
       stop(
         "'beauti_options' must be a valid misc option.\n",
-        "Error: ", msg, "\n",
+        "Error: ", e$message, "\n",
         "Value: ", inference_model$beauti_options
       )
     }

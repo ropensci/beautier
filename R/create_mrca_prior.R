@@ -35,31 +35,6 @@ create_mrca_prior <- function(
   name = NA,
   clock_prior_distr_id = NA
 ) {
-  if (length(name) != 1 || (!is.character(name) && !is.na(name))) {
-    stop("'name' must be NA or characters")
-  }
-  if (!is_one_na(alignment_id) && !is.character(alignment_id)) {
-    stop("'alignment_id' must be NA or characters")
-  }
-  if (!is_one_na(taxa_names) && !is.vector(taxa_names, mode = "character")) {
-    stop("'taxa_names' must a character vector")
-  }
-  if (!is.logical(is_monophyletic)) {
-    stop("'is_monophyletic' must be either TRUE or FALSE")
-  }
-  if (!is_distr(mrca_distr) && !is.na(mrca_distr)) { # nolint beautier function
-    stop("'mrca_distr' must a distribution, as created by 'create_distr'")
-  }
-  testit::assert(length(taxa_names) > 0)
-  if (!is_one_na(taxa_names) && sum(taxa_names == "") > 0) {
-    stop("'taxa_names' must be NA or have at least one taxon name")
-  }
-  if (!is_one_na(taxa_names) &&
-      length(unique(taxa_names)) != length(taxa_names)
-  ) {
-    stop("'taxa_names' must be NA or all names must be unique")
-  }
-
   mrca_prior <- list(
     name = name,
     alignment_id = alignment_id,
@@ -68,6 +43,6 @@ create_mrca_prior <- function(
     mrca_distr = mrca_distr,
     clock_prior_distr_id = clock_prior_distr_id
   )
-  testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
+  check_mrca_prior(mrca_prior)
   mrca_prior
 }

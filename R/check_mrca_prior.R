@@ -25,11 +25,56 @@
 #' @author Richel J.C. Bilderbeek
 #' @export
 check_mrca_prior <- function(mrca_prior) {
-  if (is_mrca_prior(mrca_prior)) { # nolint beautier function
-    return()
-  }
-  stop(
-    "'mrca_prior' must be a valid MRCA prior.\n",
-    "Actual value: ", mrca_prior
+
+  # An MRCA prior can be NA
+  if (is_one_na(mrca_prior)) return() # nolint beautier function
+
+  argument_names <- c(
+    "name", "alignment_id", "taxa_names", "is_monophyletic", "mrca_distr",
+    "clock_prior_distr_id"
   )
+  for (arg_name in argument_names) {
+    if (!arg_name %in% names(mrca_prior)) {
+      stop(
+        "'", arg_name, "' must be an element of an 'mrca_prior'. ",
+        "Tip: use 'create_mrca_prior'"
+      )
+    }
+  }
+  if (length(mrca_prior$name) != 1 ||
+      (!is.character(mrca_prior$name) && !is.na(mrca_prior$name))) {
+    stop("'name' must be NA or characters")
+  }
+  if (!is_one_na(mrca_prior$alignment_id) &&
+      !is.character(mrca_prior$alignment_id)) {
+    stop("'alignment_id' must be NA or characters")
+  }
+  if (!is_one_na(mrca_prior$taxa_names) &&
+      !is.vector(mrca_prior$taxa_names, mode = "character")) {
+    stop("'taxa_names' must a character vector")
+  }
+  if (!is.logical(mrca_prior$is_monophyletic)) {
+    stop("'is_monophyletic' must be either TRUE or FALSE")
+  }
+  if (!is_distr(mrca_prior$mrca_distr) &&
+      !is.na(mrca_prior$mrca_distr)) { # nolint beautier function
+    stop("'mrca_distr' must a distribution, as created by 'create_distr'")
+  }
+  testit::assert(length(mrca_prior$taxa_names) > 0)
+  if (!is_one_na(mrca_prior$taxa_names) &&
+      sum(mrca_prior$taxa_names == "") > 0) {
+    stop("'taxa_names' must be NA or have at least one taxon name")
+  }
+  if (!is_one_na(mrca_prior$taxa_names) &&
+      length(unique(mrca_prior$taxa_names)) != length(mrca_prior$taxa_names)
+  ) {
+    stop("'taxa_names' must be NA or all names must be unique")
+  }
+
+  if (!is_distr(mrca_prior$mrca_distr) && !is.na(mrca_prior$mrca_distr)) {
+    stop(
+      "'mrca_distr' must be NA or a valid distribution. ",
+      "Tip: use 'create_distr'"
+    )
+  }
 }

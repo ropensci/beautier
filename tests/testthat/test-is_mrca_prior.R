@@ -43,34 +43,34 @@ test_that("devious", {
     taxa_names = get_taxa_names(fasta_filename),
     mrca_distr = create_normal_distr()
   )
-  expect_true(beautier:::is_mrca_prior(g))
+  expect_true(is_mrca_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 
   # No 'alignment_id'
   h <- g[names(g) != "alignment_id"]
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 
   # No 'taxa_names'
   h <- g[names(g) != "taxa_names"]
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 
   # No 'is_monophyletic'
   h <- g[names(g) != "is_monophyletic"]
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 
   # No 'mrca_distr'
   h <- g[names(g) != "mrca_distr"]
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 
   # No 'clock_prior_distr_id'
   h <- g[names(g) != "clock_prior_distr_id"]
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 
   # mrca_distr is not a distribution
   h <- g
   h$mrca_distr <- "nonsense"
-  expect_false(beautier:::is_mrca_prior(h))
+  expect_false(is_mrca_prior(h))
 })
