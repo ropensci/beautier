@@ -147,4 +147,10 @@ test_that("in-depth use", {
     ),
     "'tipdates_filename' must have one element"
   )
+  expect_error(
+    check_inference_model(
+      create_inference_model(tipdates_filename = 1)
+    ),
+    "'tipdates_filename' must be one NA or one character string"
+  )
 })
