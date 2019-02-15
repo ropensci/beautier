@@ -2,6 +2,7 @@
 #' distribution section of a BEAST2 XML parameter file.
 #' These lines start with '<distribution id='
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">

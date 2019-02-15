@@ -1,4 +1,5 @@
 #' Create a BEAST2 input file, interface of v1.12.
+#'
 #' This interface is obsoleted, use \code{\link{create_beast2_input_file}}
 #' instead. The reason this function is present, is that it allows for
 #' providing a different initial phylogeny per alignment. These initial
@@ -8,6 +9,7 @@
 #' is a feature or not yet implemented. To be able to measure this for later
 #' versions, this function in kept in.
 #' @inheritParams default_params_doc
+#' @return nothing
 #' @examples
 #'   # The file created by beautier, a BEAST2 input file
 #'   output_filename_fixed <- "create_beast2_input_file_1_12.xml"

@@ -1,5 +1,6 @@
 #' Used by \code{\link{clock_models_to_xml_prior_distr}}
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint beautier function

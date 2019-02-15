@@ -1,5 +1,6 @@
 #' Creates the distribution section of a BEAST2 XML parameter file.
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @seealso \code{\link{create_beast2_input}}

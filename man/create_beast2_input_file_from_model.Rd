@@ -19,6 +19,9 @@ as can be created by \code{\link{create_inference_model}}.
 An inference model is the complete model setup in which a site model,
 clock model, tree prior and more are specified.}
 }
+\value{
+nothing
+}
 \description{
 Create a BEAST2 input file from an inference model
 }

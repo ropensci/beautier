@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_alignment_id.R
 \name{get_alignment_id}
 \alias{get_alignment_id}
-\title{Conclude the ID from a FASTA filename, in the same way as BEAST2 will}
+\title{Conclude the ID from a FASTA filename.}
 \usage{
 get_alignment_id(fasta_filename, capitalize_first_char_id = FALSE)
 }
@@ -13,8 +13,11 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 \item{capitalize_first_char_id}{if TRUE, the first character will
 be capitalized}
 }
+\value{
+an alignment's ID
+}
 \description{
-Conclude the ID from a FASTA filename, in the same way as BEAST2 will
+This is done in the same way as BEAST2 will do so.
 }
 \examples{
   created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")

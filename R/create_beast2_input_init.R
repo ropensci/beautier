@@ -1,5 +1,6 @@
 #' Creates the \code{init} section of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 create_beast2_input_init <- function(

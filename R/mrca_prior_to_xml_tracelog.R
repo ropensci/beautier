@@ -1,5 +1,6 @@
 #' Creates the MRCA prior's XML for the tracelog section
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @seealso all MRCA priors' tracelog section is created
 #'   by \code{\link{mrca_priors_to_xml_tracelog}}
 #' @examples

@@ -1,7 +1,10 @@
-#' Conclude the ID from a FASTA filename, in the same way as BEAST2 will
+#' Conclude the ID from a FASTA filename.
+#'
+#' This is done in the same way as BEAST2 will do so.
 #' @inheritParams default_params_doc
 #' @param capitalize_first_char_id if TRUE, the first character will
 #'   be capitalized
+#' @return an alignment's ID
 #' @examples
 #'   created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
 #'   expected <- "anthus_aco_sub"

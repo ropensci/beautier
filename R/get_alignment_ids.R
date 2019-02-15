@@ -1,5 +1,8 @@
-#' Get the alignment ID from one or more FASTA filenames
+#' Get the alignment ID from one or more FASTA filenames.
+#'
+#' This is done in the same way as BEAST2 does by default
 #' @inheritParams default_params_doc
+#' @return the IDs from one or more FASTA files
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   created <- get_alignment_ids(

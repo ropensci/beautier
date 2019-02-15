@@ -1,5 +1,6 @@
 #' Create a BEAST2 XML input text, interface of v1.12
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @examples
 #'   create_beast2_input_file_1_12(
 #'     input_filenames = get_fasta_filename(),

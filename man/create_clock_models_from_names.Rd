@@ -10,6 +10,9 @@ create_clock_models_from_names(clock_model_names)
 \item{clock_model_names}{one or more names of a clock model,
 must be name among those returned by \code{\link{get_clock_model_names}}}
 }
+\value{
+a list of one or more clock models
+}
 \description{
 Create clock models from their names
 }

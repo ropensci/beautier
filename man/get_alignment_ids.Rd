@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_alignment_ids.R
 \name{get_alignment_ids}
 \alias{get_alignment_ids}
-\title{Get the alignment ID from one or more FASTA filenames}
+\title{Get the alignment ID from one or more FASTA filenames.}
 \usage{
 get_alignment_ids(fasta_filenames)
 }
@@ -10,8 +10,11 @@ get_alignment_ids(fasta_filenames)
 \item{fasta_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 }
+\value{
+the IDs from one or more FASTA files
+}
 \description{
-Get the alignment ID from one or more FASTA filenames
+This is done in the same way as BEAST2 does by default
 }
 \examples{
   created <- get_alignment_ids(

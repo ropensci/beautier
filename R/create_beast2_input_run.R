@@ -3,6 +3,7 @@
 #'   their FASTA filenames using \code{\link{get_alignment_ids}})
 #' @param initial_phylogenies initial phylogenies, can be NAs if random
 #'   phylogenies are desired
+#' @return lines of XML text
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek
 #' @noRd

@@ -1,5 +1,6 @@
 #' Create tree priors from their names
 #' @inheritParams default_params_doc
+#' @return a tree prior, as can be created by using \link{create_tree_prior}
 #' @examples
 #'   names <- get_tree_prior_names()
 #'   tree_priors <- create_tree_priors_from_names(names)

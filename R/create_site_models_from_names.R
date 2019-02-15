@@ -1,5 +1,6 @@
 #' Create site models from their names
 #' @inheritParams default_params_doc
+#' @return one or more site models
 #' @examples
 #'   names <- get_site_model_names()
 #'   site_models <- create_site_models_from_names(names)

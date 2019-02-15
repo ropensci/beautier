@@ -3,6 +3,7 @@
 #' This function will be called if and only if there are MRCA priors
 #' and only supports strict clocks at the moment.
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">

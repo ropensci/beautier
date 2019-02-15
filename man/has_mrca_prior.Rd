@@ -2,7 +2,7 @@
 % Please edit documentation in R/has_mrca_prior.R
 \name{has_mrca_prior}
 \alias{has_mrca_prior}
-\title{Determines if the inference model has an MRCA prior}
+\title{Determines if the inference model has an MRCA prior.}
 \usage{
 has_mrca_prior(inference_model)
 }
@@ -12,8 +12,12 @@ as can be created by \code{\link{create_inference_model}}.
 An inference model is the complete model setup in which a site model,
 clock model, tree prior and more are specified.}
 }
+\value{
+TRUE if the inference model has an MRCA prior,
+  FALSE otherwise
+}
 \description{
-Determines if the inference model has an MRCA prior
+Will \link{stop} if the inference model is invalid
 }
 \author{
 Richel J.C. Bilderbeek

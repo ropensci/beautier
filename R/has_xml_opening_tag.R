@@ -4,6 +4,7 @@
 #' @param section if NA, this function returns TRUE if there is any
 #'   XML opening tag. If \code{section} is set to a certain word,
 #'   this function returns TRUE if that tag matches \code{section}
+#' @return lines of XML text
 #' @noRd
 has_xml_opening_tag <- function(
   lines,

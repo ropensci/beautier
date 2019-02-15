@@ -1,5 +1,6 @@
 #' Get the prefix of operator IDs
 #' @inheritParams default_params_doc
+#' @return the prefix of operator IDs, similar to the name of a tree prior
 #' @examples
 #'   bd_pre <- beautier:::get_operator_id_pre(
 #'     tree_prior = create_bd_tree_prior()

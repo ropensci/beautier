@@ -1,7 +1,10 @@
-#' Is an XML closing tag with value 'section' present amongst the lines of
+#' Is an XML closing tag with the value of \code{section} 
+#'   present amongst the lines of
 #'   the text?
 #' @param lines lines of the XML text
 #' @param section the XML section
+#' @return TRUE if there is an XML closing tag with the value of
+#'   \code{section} present. FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 has_xml_closing_tag <- function(

@@ -61,6 +61,9 @@ as returned by \code{\link{create_mrca_prior}}}
 
 \item{posterior_crown_age}{deprecated}
 }
+\value{
+nothing
+}
 \description{
 Create a BEAST2 input file
 }

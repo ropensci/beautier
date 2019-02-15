@@ -1,5 +1,6 @@
 #' Represent the site models as XML
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">

@@ -44,6 +44,9 @@ of the initial phylogeny.}
 Each one set to \code{NA} will result in BEAST2 using a random phylogeny.
 Else the phylogeny is assumed to be of class \link[ape]{phylo}}
 }
+\value{
+lines of XML text
+}
 \description{
 Create a BEAST2 XML input text, interface of v1.12
 }

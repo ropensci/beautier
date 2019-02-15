@@ -1,6 +1,8 @@
 #' Is an XML closing tag with short closing text in
 #' one of the lines of the text?
 #' @param lines lines of an XML text
+#' @return TRUE if there is an XML tag that also closes present in the lines
+#'   of text, FALSE otherwise
 #' @examples
 #'   testit::assert(beautier:::has_xml_short_closing_tag("<my_tag id=1/>"))
 #'   testit::assert(

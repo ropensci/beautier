@@ -10,6 +10,9 @@ create_tree_priors_from_names(tree_prior_names)
 \item{tree_prior_names}{one or more names of a tree prior,
 must be a name among those returned by \code{\link{get_tree_prior_names}}}
 }
+\value{
+a tree prior, as can be created by using \link{create_tree_prior}
+}
 \description{
 Create tree priors from their names
 }

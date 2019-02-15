@@ -3,6 +3,7 @@
 #' @inheritParams default_params_doc
 #' @param taxa_names_with_ids taxa names that already have received
 #'   an ID. Causes the XML to \code{idref} these
+#' @return lines of XML text
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   # <taxonset id="all" spec="TaxonSet">

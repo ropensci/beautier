@@ -6,6 +6,9 @@
 \usage{
 create_beast2_input_xml()
 }
+\value{
+lines of XML text
+}
 \description{
 Creates the xml section of a BEAST2 XML parameter file
 }

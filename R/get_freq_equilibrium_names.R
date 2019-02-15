@@ -3,6 +3,7 @@
 #'   \code{\link{create_gtr_site_model}},
 #'   \code{\link{create_hky_site_model}},
 #'   and \code{\link{create_tn93_site_model}}
+#' @return the valid values for the \code{freq_equilibrium} argument
 #' @author Richel J.C. Bilderbeek
 #' @examples
 #'   names <- beautier:::get_freq_equilibrium_names()

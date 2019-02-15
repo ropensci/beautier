@@ -1,5 +1,8 @@
 #' Get the BEAUti name for a clock model
+#'
+#' Will \link{stop} if the clock model is an invalid clock model
 #' @inheritParams default_params_doc
+#' @return name of the clock model
 #' @examples
 #'   strict <- create_strict_clock_model()
 #'   testit::assert(beautier:::get_clock_model_name(strict) == "StrictClock")

@@ -1,5 +1,6 @@
 #' Creates the site model's XML for the tracelog section
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @seealso all site models' tracelog section is created
 #'   by \code{\link{site_models_to_xml_tracelog}}
 #' @examples

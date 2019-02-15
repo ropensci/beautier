@@ -1,5 +1,6 @@
 #' Creates the tree prior's XML for the tracelog section
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @seealso all tree priors' tracelog section is created
 #'   by \code{\link{tree_priors_to_xml_tracelog}}
 #' @examples

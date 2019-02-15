@@ -2,6 +2,7 @@
 #' it has a opening and matching closing tag
 #' @inheritParams default_params_doc
 #' @param text text to be determined to be valid
+#' @return TRUE if the text is valid XML, FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @noRd
 is_xml <- function(text) {

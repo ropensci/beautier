@@ -1,5 +1,6 @@
 #' Creates the tree models' XML for the tracelog section
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @note use site_models just because it contains all IDs
 #' @seealso the complete tracelog section is created
 #'   by \code{\link{create_beast2_input_tracelog}}

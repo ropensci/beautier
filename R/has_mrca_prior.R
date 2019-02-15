@@ -1,5 +1,9 @@
-#' Determines if the inference model has an MRCA prior
+#' Determines if the inference model has an MRCA prior.
+#'
+#' Will \link{stop} if the inference model is invalid
 #' @inheritParams default_params_doc
+#' @return TRUE if the inference model has an MRCA prior,
+#'   FALSE otherwise
 #' @author Richel J.C. Bilderbeek
 #' @export
 has_mrca_prior <- function(

@@ -10,6 +10,9 @@ create_site_models_from_names(site_model_names)
 \item{site_model_names}{one or more names of a site model,
 must be name among those returned by \code{\link{get_site_model_names}}}
 }
+\value{
+one or more site models
+}
 \description{
 Create site models from their names
 }

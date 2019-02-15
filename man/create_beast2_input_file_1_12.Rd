@@ -2,15 +2,7 @@
 % Please edit documentation in R/create_beast2_input_file_1_12.R
 \name{create_beast2_input_file_1_12}
 \alias{create_beast2_input_file_1_12}
-\title{Create a BEAST2 input file, interface of v1.12.
-This interface is obsoleted, use \code{\link{create_beast2_input_file}}
-instead. The reason this function is present, is that it allows for
-providing a different initial phylogeny per alignment. These initial
-phylogenies are used for setting a fixed crown age to these phylogenies'
-age. The reason this interface is obsoleted is that BEAST2 only fixes the
-crown age of the first alignment's phylogeny anyways. It is unknown if this
-is a feature or not yet implemented. To be able to measure this for later
-versions, this function in kept in.}
+\title{Create a BEAST2 input file, interface of v1.12.}
 \usage{
 create_beast2_input_file_1_12(input_filenames, output_filename,
   site_models = list(create_jc69_site_model(id =
@@ -51,8 +43,10 @@ of the initial phylogeny.}
 Each one set to \code{NA} will result in BEAST2 using a random phylogeny.
 Else the phylogeny is assumed to be of class \link[ape]{phylo}}
 }
+\value{
+nothing
+}
 \description{
-Create a BEAST2 input file, interface of v1.12.
 This interface is obsoleted, use \code{\link{create_beast2_input_file}}
 instead. The reason this function is present, is that it allows for
 providing a different initial phylogeny per alignment. These initial

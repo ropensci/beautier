@@ -10,6 +10,9 @@ create_tree_prior_from_name(tree_prior_name)
 \item{tree_prior_name}{name of a tree prior,
 must be a name as returned by \code{\link{get_tree_prior_names}}}
 }
+\value{
+a tree prior
+}
 \description{
 Create a tree prior from name
 }
