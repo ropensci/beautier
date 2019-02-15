@@ -1,3 +1,4 @@
+doc
 Meta
 .Rproj.user
 .Rhistory
@@ -17,7 +18,6 @@ vignettes/*.fas
 vignettes/my_beast.xml
 my_beast.xml
 beast.xml
-inst/doc
 create_alpha_param.xml
 create_bd_tree_prior_exp.xml
 create_bd_tree_prior.xml
