@@ -220,7 +220,6 @@
   ],
   "releaseNotes": "https://github.com/ropensci/beautier/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/beautier/blob/master/README.md",
-  "fileSize": "238.049KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",
@@ -260,5 +259,9 @@
       }
     }
   ],
-  "keywords": ["r", "r-package", "rstats"]
+  "keywords": [
+    "r",
+    "r-package",
+    "rstats"
+  ]
 }
