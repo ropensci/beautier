@@ -1,6 +1,6 @@
 #' Create the \code{<data ..>} XML
 #' @return lines of XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_data_xml <- function(
   id,

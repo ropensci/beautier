@@ -2,7 +2,7 @@
 #' @param distr a distribution,
 #'   as created by \code{\link{create_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   xml <- beautier:::distr_to_xml(create_uniform_distr(id = 1))
 #'   testit::assert(is.character(xml))
@@ -47,7 +47,7 @@ distr_to_xml <- function(
 #' @param distr a beta distribution,
 #'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_beta <- function(
   distr
 ) {
@@ -77,7 +77,7 @@ distr_to_xml_beta <- function(
 #' @param distr an exponential distribution,
 #'   as created by \code{\link{create_exp_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_exp <- function(
   distr
 ) {
@@ -102,7 +102,7 @@ distr_to_xml_exp <- function(
 #' @param distr a gamma distribution,
 #'   as created by \code{\link{create_gamma_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_gamma <- function(
   distr
 ) {
@@ -133,7 +133,7 @@ distr_to_xml_gamma <- function(
 #' @param distr an inverse-gamma distribution,
 #'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_inv_gamma <- function(
   distr
 ) {
@@ -164,7 +164,7 @@ distr_to_xml_inv_gamma <- function(
 #' @param distr a Laplace distribution
 #'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_laplace <- function(
   distr
 ) {
@@ -194,7 +194,7 @@ distr_to_xml_laplace <- function(
 #' @param distr a log-normal distribution,
 #'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_log_normal <- function(
   distr
 ) {
@@ -226,7 +226,7 @@ distr_to_xml_log_normal <- function(
 #' @param distr a normal distribution,
 #'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_normal <- function(
   distr
 ) {
@@ -257,7 +257,7 @@ distr_to_xml_normal <- function(
 #' @param distr a 1/x distribution,
 #'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_one_div_x <- function(
   distr
 ) {
@@ -275,7 +275,7 @@ distr_to_xml_one_div_x <- function(
 #' @param distr a Poisson distribution,
 #'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_poisson <- function(
   distr
 ) {
@@ -301,7 +301,7 @@ distr_to_xml_poisson <- function(
 #' @param distr a uniform distribution,
 #'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 distr_to_xml_uniform <- function(
   distr
 ) {

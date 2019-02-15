@@ -6,7 +6,7 @@
 #' @return lines of XML text
 #' @param taxa_names_with_ids taxa names that already have received
 #'   an ID. Causes the XML to \code{idref} these
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">

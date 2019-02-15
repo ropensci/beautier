@@ -21,7 +21,7 @@
 #'     \item \code{\link{create_inference_model}}: create an inference model
 #'     \item \code{\link{create_mrca_prior}}: create an MRCA prior
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 has_mrca_prior <- function(
   inference_model

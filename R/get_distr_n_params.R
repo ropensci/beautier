@@ -34,7 +34,7 @@
 #'   testit::assert(
 #'     beautier:::get_distr_n_params(create_uniform_distr()) == 0
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_distr_n_params <- function(
   distr

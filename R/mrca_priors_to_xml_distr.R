@@ -12,7 +12,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 mrca_priors_to_xml_prior_distr <- function( # nolint beautier function
   mrca_priors,

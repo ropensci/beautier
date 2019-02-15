@@ -1,7 +1,7 @@
 #' Collect the IDs of the list of clock models
 #' @inheritParams default_params_doc
 #' @return IDs of the clock models
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_clock_models_ids <- function(
   clock_models

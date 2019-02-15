@@ -35,5 +35,5 @@ These are packages associated with \code{beautier}:
 }
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

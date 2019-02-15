@@ -38,5 +38,5 @@ Will \link{stop} if the object is not a list of one or more clock models.
 Use \link{create_clock_model} to create a valid clock model
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

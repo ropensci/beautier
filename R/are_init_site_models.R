@@ -2,7 +2,7 @@
 #' @param x the object to check if it consists out of
 #'   initialized site_models objects
 #' @return TRUE if x, or all elements of x, are initialized site_model objects
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_init_site_models <- function(
   x

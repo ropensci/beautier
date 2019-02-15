@@ -24,5 +24,5 @@ Determine if x consists out of site_models objects
   testit::assert(are_site_models(both_site_models))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

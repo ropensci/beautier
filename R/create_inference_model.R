@@ -4,7 +4,7 @@
 #' as can be done by BEAUti.
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create an MCMC chain with 50 states
 #'   inference_model <- create_inference_model(

@@ -53,5 +53,5 @@ An alignment ID can be extracted from
   model, see \code{\link{create_strict_clock_model}}.
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

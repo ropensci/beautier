@@ -8,7 +8,7 @@
 #' @return TRUE if the two sections of the XML files are equal,
 #'   FALSE otherwise
 #' @seealso to check for equivalence, use \code{\link{are_equivalent_xml_files}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_equal_xml_files <- function(
   filename_1,

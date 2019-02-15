@@ -29,7 +29,7 @@ is_site_model <- function(
 #' as created by \code{\link{create_gtr_site_model}}
 #' @param x an object, to be determined if it is a valid GTR site model
 #' @return TRUE if x is a valid GTR site model, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gtr_site_model <- create_gtr_site_model()
 #'   testit::assert(beautier:::is_gtr_site_model(gtr_site_model))
@@ -68,7 +68,7 @@ is_gtr_site_model <- function(
 #' as created by \code{\link{create_hky_site_model}}
 #' @param x an object, to be determined if it is a valid HKY site model
 #' @return TRUE if x is a valid HKY site model, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   hky_site_model <- create_hky_site_model()
 #'   testit::assert(beautier:::is_hky_site_model(hky_site_model))
@@ -89,7 +89,7 @@ is_hky_site_model <- function(
 #' Determine if the object is a valid JC69 site model
 #' @param x an object, to be determined if it is a valid JC69 site model
 #' @return TRUE if x is a valid JC69 site model, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   jc69_site_model <- create_jc69_site_model()
 #'   testit::assert(beautier:::is_jc69_site_model(jc69_site_model))
@@ -106,7 +106,7 @@ is_jc69_site_model <- function(
 #' @param x an object, to be determined if it is a valid TN93 site model,
 #'   as created by \code{\link{create_tn93_site_model}}
 #' @return TRUE if x is a valid TN93 site model, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),

@@ -31,5 +31,5 @@ Get the number of distributions in a gamma site model
   testit::assert(n_distrs == 1)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

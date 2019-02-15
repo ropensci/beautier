@@ -1,7 +1,7 @@
 #' Create a tree prior from name
 #' @inheritParams default_params_doc
 #' @return a tree prior
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   tree_prior_names <- get_tree_prior_names()
 #'   for (tree_prior_name in tree_prior_names) {

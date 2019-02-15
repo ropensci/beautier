@@ -5,7 +5,7 @@
 #' @return TRUE if the two XML files result in equivalent trees,
 #'   FALSE otherwise
 #' @seealso to check for equality, use \code{are_equal_xml_files}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_equivalent_xml_files <- function(
   filename_1,
@@ -38,7 +38,7 @@ are_equivalent_xml_files <- function(
 #' @param section the name of the XML section
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 are_equivalent_xml_lines <- function(
   lines_1,
   lines_2,
@@ -72,7 +72,7 @@ are_equivalent_xml_lines <- function(
 #' @param lines_2 lines of a second XML file
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 are_equivalent_xml_lines_all <- function(
   lines_1,
   lines_2,
@@ -103,7 +103,7 @@ are_equivalent_xml_lines_all <- function(
 #' @param section the name of the XML section
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 are_equivalent_xml_lines_section <- function( # nolint don't care about internal function length
   lines_1,
   lines_2,
@@ -156,7 +156,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
 #' @param lines_2 lines of a second XML file
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 are_equivalent_xml_lines_operators <- function( # nolint don't care about internal function length
   lines_1,
   lines_2,
@@ -173,7 +173,7 @@ are_equivalent_xml_lines_operators <- function( # nolint don't care about intern
 #' @param lines_2 lines of a second XML file
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 are_equivalent_xml_lines_loggers <- function( # nolint don't care about internal function length
   lines_1,
   lines_2,

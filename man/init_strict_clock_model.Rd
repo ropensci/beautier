@@ -24,5 +24,5 @@ Initializes a strict clock model
   strict_clock_model <- create_strict_clock_model()
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

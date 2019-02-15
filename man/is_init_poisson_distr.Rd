@@ -19,5 +19,5 @@ Determine if x is an initialized Poisson distribution object
   as created by \code{\link{create_poisson_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

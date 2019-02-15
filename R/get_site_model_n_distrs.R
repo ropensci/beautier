@@ -1,7 +1,7 @@
 #' Get the number of distributions a site model has
 #' @inheritParams default_params_doc
 #' @return the number of distributions a site model has
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # gamma site model, rates AC, AG, AT, CG and GT
 #'   testit::assert(

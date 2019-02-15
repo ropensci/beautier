@@ -1,7 +1,7 @@
 #' Get the number of distributions a site model has
 #' @inheritParams default_params_doc
 #' @return the number of parameters a site model has
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(
 #'     beautier:::get_gamma_site_model_n_params(

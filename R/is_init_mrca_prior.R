@@ -2,7 +2,7 @@
 #' @param x the object to check if it is an
 #'   initialized MRCA prior
 #' @return TRUE if x is an initialized MRCA prior
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_init_mrca_prior <- function(
   x

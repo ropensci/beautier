@@ -25,7 +25,7 @@
 #'    taxa_names = get_taxa_names(filename = fasta_filename),
 #'    is_monophyletic = TRUE
 #'  )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_mrca_prior <- function(
   alignment_id = NA,

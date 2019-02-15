@@ -12,7 +12,7 @@
 #'   testit::assert("laplace" %in% names)
 #'   testit::assert("inv_gamma" %in% names)
 #'   testit::assert("poisson" %in% names)
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_distr_names <- function() {
   c(

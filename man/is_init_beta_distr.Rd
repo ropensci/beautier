@@ -19,5 +19,5 @@ Determine if x is an initialized beta distribution object
   as created by \code{\link{create_beta_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

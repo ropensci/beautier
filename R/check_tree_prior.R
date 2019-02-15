@@ -25,7 +25,7 @@
 #'  testthat::expect_error(check_tree_prior(tree_prior = "nonsense"))
 #'  testthat::expect_error(check_tree_prior(tree_prior = NULL))
 #'  testthat::expect_error(check_tree_prior(tree_prior = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_tree_prior <- function(tree_prior) {
 

@@ -1,7 +1,7 @@
 #' Get the number of distributions a site model has
 #' @inheritParams default_params_doc
 #' @return the number of distributions the site models have
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(
 #'     beautier:::get_site_models_n_distrs(list(create_gtr_site_model())) == 6

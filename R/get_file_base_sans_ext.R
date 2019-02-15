@@ -6,7 +6,7 @@
 #'     beautier:::get_file_base_sans_ext("/home/richel/test.txt")
 #'     == "test"
 #'  )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_file_base_sans_ext <- function(filename) {
   basename(tools::file_path_sans_ext(filename))

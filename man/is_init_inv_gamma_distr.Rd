@@ -19,5 +19,5 @@ Determine if x is an initialized inverse-gamma distribution
   as created by \code{\link{create_inv_gamma_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

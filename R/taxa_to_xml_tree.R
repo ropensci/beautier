@@ -2,7 +2,7 @@
 #' of a phylogeny and/or taxa
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 taxa_to_xml_tree <- function(
   id,
@@ -24,7 +24,7 @@ taxa_to_xml_tree <- function(
 #' when there is no tip-dating
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 no_taxa_to_xml_tree <- function(
   id
@@ -46,7 +46,7 @@ no_taxa_to_xml_tree <- function(
 #' when there is tip-dating
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 tipdate_taxa_to_xml_tree <- function(
   id,

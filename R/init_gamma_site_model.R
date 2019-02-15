@@ -3,7 +3,7 @@
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return an initialized gamma site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model(
 #'     gamma_shape_prior_distr = create_one_div_x_distr(id = NA)

@@ -49,5 +49,5 @@ See \code{\link{create_site_model}} for examples with
   a different MCMC setup.
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

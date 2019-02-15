@@ -3,7 +3,7 @@
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized tree priors
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 init_tree_priors <- function(
   tree_priors,
@@ -57,7 +57,7 @@ init_tree_priors <- function(
 #' Initializes a Birth-Death tree prior
 #' @inheritParams default_params_doc
 #' @return an initialized Birth-Death tree prior
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 init_bd_tree_prior <- function(
   bd_tree_prior,
   distr_id,
@@ -85,7 +85,7 @@ init_bd_tree_prior <- function(
 #' Initializes a Coalescent Constant Population tree prior
 #' @inheritParams default_params_doc
 #' @return an initialized Coalescent Constant Population tree prior
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 init_ccp_tree_prior <- function(
   ccp_tree_prior,
   distr_id,
@@ -106,7 +106,7 @@ init_ccp_tree_prior <- function(
 #' Initializes a Coalescent Exponential Population tree prior
 #' @inheritParams default_params_doc
 #' @return an initialized Coalescent Exponential Population tree prior
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 init_cep_tree_prior <- function(
   cep_tree_prior,
   distr_id,
@@ -140,7 +140,7 @@ init_cep_tree_prior <- function(
 #' Initializes a Yule tree prior
 #' @inheritParams default_params_doc
 #' @return an initialized Yule tree prior
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 init_yule_tree_prior <- function(
   yule_tree_prior,
   distr_id,

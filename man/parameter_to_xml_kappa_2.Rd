@@ -19,5 +19,5 @@ the parameter as XML text
 Converts a kappa 2 parameter to XML
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

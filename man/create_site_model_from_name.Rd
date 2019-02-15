@@ -24,5 +24,5 @@ Create a site model from name
   }
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

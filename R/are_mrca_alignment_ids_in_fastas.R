@@ -3,7 +3,7 @@
 #' @return TRUE if all the MRCA priors' alignment IDs
 #'   are present in the FASTA files.
 #'   Returns FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_mrca_align_ids_in_fastas <- function(
   mrca_priors,

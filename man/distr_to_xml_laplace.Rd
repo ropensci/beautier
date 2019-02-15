@@ -17,5 +17,5 @@ the distribution as XML text
 Converts a Laplace distribution to XML
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -2,7 +2,7 @@
 #' @param lines lines of text
 #' @param regex regex string
 #' @return index of the line
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 find_last_regex_line <- function(lines, regex) {
 

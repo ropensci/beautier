@@ -1,7 +1,7 @@
 #' Convert a FASTA file to a table of sequences
 #' @param fasta_filename One existing FASTA filenames
 #' @return a table of sequences
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 fasta_file_to_sequences <- function(fasta_filename) {
 

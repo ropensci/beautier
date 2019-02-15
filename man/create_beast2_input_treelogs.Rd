@@ -16,5 +16,5 @@ Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

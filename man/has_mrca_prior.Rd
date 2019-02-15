@@ -39,5 +39,5 @@ Will \link{stop} if the inference model is invalid
   }
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

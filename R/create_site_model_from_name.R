@@ -7,7 +7,7 @@
 #'     site_model <- create_site_model_from_name(site_model_name)
 #'     testthat::expect_equal(site_model_name, site_model$name)
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_site_model_from_name <- function(site_model_name) {
   if (site_model_name == "JC69") {

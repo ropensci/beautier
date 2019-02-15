@@ -5,7 +5,7 @@
 #'   phylogenies are desired
 #' @return lines of XML text
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_run <- function(
   ids,

@@ -37,5 +37,5 @@ An alignment ID can be extracted from
   its FASTA filename using \code{\link{get_alignment_id}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

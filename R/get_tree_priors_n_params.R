@@ -1,7 +1,7 @@
 #' Get the number of parameters a list of tree priors has
 #' @inheritParams default_params_doc
 #' @return the number of parameters the tree priors have
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  testit::assert(
 #'    beautier:::get_tree_priors_n_params(

@@ -6,7 +6,7 @@
 #'     tree_prior = create_bd_tree_prior()
 #'   )
 #'   testthat::expect_equal(bd_pre, "BirthDeath")
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_operator_id_pre <- function(tree_prior) {
   if (is_bd_tree_prior(tree_prior)) { # nolint beautier function

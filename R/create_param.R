@@ -21,7 +21,7 @@
 #'   \code{\link{create_scale_param}},
 #'   and \code{\link{create_sigma_param}}
 #' @return a parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create an alpha parameter
 #'   alpha_param <- create_alpha_param()
@@ -82,7 +82,7 @@ create_param <- function(
 #' It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   alpha_param <- create_alpha_param()
@@ -127,7 +127,7 @@ create_alpha_param <- create_param_alpha <- function(
 #' It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   beta_param <- create_beta_param()
@@ -167,7 +167,7 @@ create_beta_param <- create_param_beta <- function(
 #' @note It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   clock_rate_param <- create_clock_rate_param(
 #'     id = "anthus_aco", value = 1.0
@@ -202,7 +202,7 @@ create_clock_rate_param <- create_param_clock_rate <- function(
 #' Create a parameter called kappa 1
 #' @inheritParams default_parameters_doc
 #' @return a parameter called kappa 1
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @aliases create_kappa_1_param create_param_kappa_1
 #' @export create_kappa_1_param create_param_kappa_1
 create_kappa_1_param <- create_param_kappa_1 <- function(
@@ -223,7 +223,7 @@ create_kappa_1_param <- create_param_kappa_1 <- function(
 #' Create a parameter called kappa 2
 #' @inheritParams default_parameters_doc
 #' @return a parameter called kappa 2
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @aliases create_kappa_2_param create_param_kappa_2
 #' @export create_kappa_2_param create_param_kappa_2
 create_kappa_2_param <- create_param_kappa_2 <- function(
@@ -248,7 +248,7 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'   (as returned by \code{\link{create_poisson_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   lambda_param <- create_lambda_param()
@@ -288,7 +288,7 @@ create_lambda_param <- create_param_lambda <- function(
 #'   It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   m_param <- create_m_param()
@@ -331,7 +331,7 @@ create_m_param <- create_param_m <- function(
 #'   It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   mean_param <- create_mean_param(value = 1.0)
@@ -372,7 +372,7 @@ create_mean_param <- create_param_mean <- function(
 #'   It cannot be estimated (as a hyper parameter) yet.
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   mu_param <- create_mu_param()
@@ -410,7 +410,7 @@ create_mu_param <- create_param_mu <- function(
 #' @return a parameter called 'rate AC'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
 #'   rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
@@ -446,7 +446,7 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #' @return a parameter called 'rate AG'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
 #'   rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
@@ -482,7 +482,7 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #' @return a parameter called 'rate AT'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
 #'   rate_at_param <- create_rate_at_param(value = 1, estimate = FALSE)
@@ -518,7 +518,7 @@ create_rate_at_param <- create_param_rate_at <- function(
 #' @return a parameter called 'rate CG'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
 #'   rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
@@ -554,7 +554,7 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #' @return a parameter called 'rate CT'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
 #'   rate_ct_param <- create_rate_ct_param(value = 1)
@@ -589,7 +589,7 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #' @return a parameter called 'rate GT'
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create parameter
 #'   rate_gt_param <- create_rate_gt_param(value = 1, estimate = FALSE)
@@ -627,7 +627,7 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'   (as returned by \code{\link{create_log_normal_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   s_param <- create_s_param()
@@ -672,7 +672,7 @@ create_s_param <- create_param_s <- function(
 #'   (as returned by \code{\link{create_laplace_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   scale_param <- create_scale_param()
@@ -713,7 +713,7 @@ create_scale_param <- create_param_scale <- function(
 #'   (as returned by \code{\link{create_normal_distr}})
 #' @seealso the function \code{\link{create_param}} contains a list
 #'   of all parameters that can be created
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create the parameter
 #'   sigma_param <- create_sigma_param()

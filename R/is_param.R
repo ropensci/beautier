@@ -3,7 +3,7 @@
 #'   as created by \code{\link{create_param}})
 #' @return TRUE if x is a valid parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_param <- function(
   x
@@ -22,7 +22,7 @@ is_param <- function(
 #'   alpha parameter
 #' @return TRUE if x is a valid alpha parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_alpha_param <- function(
   x
@@ -37,7 +37,7 @@ is_alpha_param <- function(
 #'   beta parameter
 #' @return TRUE if x is a valid beta parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_beta_param <- function(
   x
@@ -52,7 +52,7 @@ is_beta_param <- function(
 #'   clock_rate parameter
 #' @return TRUE if x is a valid clock_rate parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_clock_rate_param <- function(
   x
@@ -68,7 +68,7 @@ is_clock_rate_param <- function(
 #'   FALSE otherwise
 #' @seealso kappa 1 parameters are returned by
 #'   \code{\link{create_kappa_1_param}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   kappa_1_param <- create_kappa_1_param()
 #'   testit::assert(beautier:::is_kappa_1_param(kappa_1_param))
@@ -91,7 +91,7 @@ is_kappa_1_param <- function(
 #'   FALSE otherwise
 #' @seealso kappa 2 parameters are returned by
 #'   \code{\link{create_kappa_2_param}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   kappa_2_param <- create_kappa_2_param()
 #'   testit::assert(beautier:::is_kappa_2_param(kappa_2_param))
@@ -113,7 +113,7 @@ is_kappa_2_param <- function(
 #' @return TRUE if x is a valid lambda parameter,
 #'   FALSE otherwise
 #' @seealso lambda parameters are returned by \code{\link{create_lambda_param}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   lambda_param <- create_lambda_param()
 #'   testit::assert(beautier:::is_lambda_param(lambda_param))
@@ -131,7 +131,7 @@ is_lambda_param <- function(
 #'   m parameter
 #' @return TRUE if x is a valid m parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_m_param <- function(
   x
@@ -145,7 +145,7 @@ is_m_param <- function(
 #'   as created by \code{\link{create_mean_param}})
 #' @return TRUE if x is a valid mean parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_mean_param <- function(
   x
@@ -161,7 +161,7 @@ is_mean_param <- function(
 #' @return TRUE if x is a valid mu parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_mu_param}} creates a mu parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   mu_param <- create_mu_param()
 #'   testit::assert(beautier:::is_mu_param(mu_param))
@@ -180,7 +180,7 @@ is_mu_param <- function(
 #' @return TRUE if x is a valid 'rate AC' parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_rate_ac_param}} creates a 'rate AC' parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rate_ac_param <- create_rate_ac_param()
 #'   testit::assert(beautier:::is_rate_ac_param(rate_ac_param))
@@ -199,7 +199,7 @@ is_rate_ac_param <- function(
 #' @return TRUE if x is a valid 'rate AG' parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_rate_ag_param}} creates a 'rate AG' parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rate_ag_param <- create_rate_ag_param()
 #' @noRd
@@ -217,7 +217,7 @@ is_rate_ag_param <- function(
 #' @return TRUE if x is a valid 'rate AT' parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_rate_at_param}} creates a 'rate AT' parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rate_at_param <- create_rate_at_param()
 #'   testit::assert(beautier:::is_rate_at_param(rate_at_param))
@@ -236,7 +236,7 @@ is_rate_at_param <- function(
 #' @return TRUE if x is a valid 'rate CG' parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_rate_cg_param}} creates a 'rate CG' parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rate_cg_param <- create_rate_cg_param()
 #'   testit::assert(beautier:::is_rate_cg_param(rate_cg_param))
@@ -255,7 +255,7 @@ is_rate_cg_param <- function(
 #' @return TRUE if x is a valid 'rate CG' parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_rate_ct_param}} creates a 'rate CT' parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rate_ct_param <- create_rate_ct_param()
 #'   testit::assert(beautier:::is_rate_ct_param(rate_ct_param))
@@ -274,7 +274,7 @@ is_rate_ct_param <- function(
 #' @return TRUE if x is a valid 'rate GT' parameter,
 #'   FALSE otherwise
 #' @seealso \code{\link{create_rate_gt_param}} creates a 'rate GT' parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rate_gt_param <- create_rate_gt_param()
 #'   testit::assert(beautier:::is_rate_gt_param(rate_gt_param))
@@ -292,7 +292,7 @@ is_rate_gt_param <- function(
 #'   s parameter
 #' @return TRUE if x is a valid s parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_s_param <- function(
   x
@@ -307,7 +307,7 @@ is_s_param <- function(
 #'   scale parameter
 #' @return TRUE if x is a valid scale parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_scale_param <- function(
   x
@@ -322,7 +322,7 @@ is_scale_param <- function(
 #'   sigma parameter
 #' @return TRUE if x is a valid sigma parameter,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_sigma_param <- function(
   x

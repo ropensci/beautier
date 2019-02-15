@@ -45,5 +45,5 @@ this function is called by \code{create_beast2_input_distr},
   together with \code{create_beast2_input_distr_prior}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

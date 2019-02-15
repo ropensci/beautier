@@ -25,5 +25,5 @@ Create clock models from their names
   }
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -13,7 +13,7 @@
 #'     output_filename
 #'   )
 #'   testthat::expect_true(file.exists(output_filename))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @seealso See \code{\link{create_site_model}} for examples with
 #'   different site models. See \code{\link{create_clock_model}} for examples
 #'   with clock models. See \code{\link{create_tree_prior}} for examples with

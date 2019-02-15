@@ -75,5 +75,5 @@ See \code{\link{create_gtr_site_model}} for more examples
   examples with a TN93 site model
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

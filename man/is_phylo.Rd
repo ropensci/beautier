@@ -24,5 +24,5 @@ Checks if the input is a phylogeny
   testit::assert(!is_phylo(NULL))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

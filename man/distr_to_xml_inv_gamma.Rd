@@ -17,5 +17,5 @@ the distribution as XML text
 Converts an inverse-gamma distribution to XML
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

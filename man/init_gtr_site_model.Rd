@@ -27,5 +27,5 @@ Initializes a GTR site model
   testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

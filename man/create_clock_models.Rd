@@ -24,5 +24,5 @@ Creates all supported clock models,
  testit::assert(beautier:::is_strict_clock_model(clock_models[[2]]))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

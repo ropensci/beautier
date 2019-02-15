@@ -3,7 +3,7 @@
 #' This is done in the same way as BEAST2 does by default
 #' @inheritParams default_params_doc
 #' @return the IDs from one or more FASTA files
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   created <- get_alignment_ids(
 #'     get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))

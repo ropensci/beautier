@@ -54,5 +54,5 @@ to the length of that run.
     syy050, https://doi.org/10.1093/sysbio/syy050
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

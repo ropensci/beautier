@@ -19,7 +19,7 @@
 #'   site model. See \code{\link{create_tn93_site_model}} for more
 #'   examples with a TN93 site model
 #' @return a site_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # GTR
 #'   create_beast2_input_file(
@@ -124,7 +124,7 @@ create_site_model <- function(
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a GTR site_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gtr_site_model <- create_gtr_site_model(
 #'     rate_ac_param = 1.2,
@@ -224,7 +224,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return an HKY site_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  hky_site_model <- create_hky_site_model()
 #'
@@ -258,7 +258,7 @@ create_hky_site_model <- create_site_model_hky <- function(
 #' Create a JC69 site model
 #' @inheritParams create_site_model
 #' @return a JC69 site_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  jc69_site_model <- create_jc69_site_model()
 #'
@@ -303,7 +303,7 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a TN93 site_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  tn93_site_model <- create_tn93_site_model(
 #'    kappa_1_param = 2.0,

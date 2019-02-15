@@ -21,5 +21,5 @@ Get the tree prior names
   testit::assert("yule" \%in\% names)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

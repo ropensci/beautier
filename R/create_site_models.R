@@ -17,7 +17,7 @@
 #'  for (site_model in site_models) {
 #'    testit::assert(site_model$name %in% get_site_model_names())
 #'  }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_site_models <- function() {
   list(

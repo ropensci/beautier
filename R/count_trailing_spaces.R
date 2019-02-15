@@ -1,7 +1,7 @@
 #' Count the number of spaces before the first character
 #' @param line line of text
 #' @return the number of spaces before the first character
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 count_trailing_spaces <- function(
   line

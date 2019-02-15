@@ -24,5 +24,5 @@ Will \link{stop} if the arguments are not MCMCs.
   testthat::expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -26,5 +26,5 @@ a parameter called kappa 1
 Create a parameter called kappa 1
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

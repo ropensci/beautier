@@ -33,5 +33,5 @@ Creates all supported tree priors,
   testit::assert(beautier:::is_yule_tree_prior(tree_priors[[5]]))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

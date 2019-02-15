@@ -3,7 +3,7 @@
 #' @param x the object to check if it is an
 #'   initialized gamma site_models object
 #' @return TRUE if x is an initialized gamma site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_init_gamma_site_model <- function(
   x

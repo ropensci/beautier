@@ -64,5 +64,5 @@ Prefer using the
   testit::assert(file.exists("create_alpha_param.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

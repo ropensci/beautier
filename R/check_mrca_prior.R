@@ -22,7 +22,7 @@
 #'   # Must stop on non-MRCA priors
 #'   testthat::expect_error(check_mrca_prior(mrca_prior = "nonsense"))
 #'   testthat::expect_error(check_mrca_prior(mrca_prior = NULL))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_mrca_prior <- function(mrca_prior) {
 

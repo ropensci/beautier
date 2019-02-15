@@ -14,7 +14,7 @@
 #'  testthat::expect_error(check_inference_model(inference_model = "nonsense"))
 #'  testthat::expect_error(check_inference_model(inference_model = NULL))
 #'  testthat::expect_error(check_inference_model(inference_model = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_inference_model <- function(
   inference_model

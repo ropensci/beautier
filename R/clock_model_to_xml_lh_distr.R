@@ -4,7 +4,7 @@
 #' This function will be called only if there are no MRCA priors.
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">

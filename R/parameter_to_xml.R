@@ -2,7 +2,7 @@
 #' @param parameter a parameter,
 #'   as created by \code{\link{create_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   xml <- beautier:::parameter_to_xml(create_alpha_param(id = 1))
 #'   testit::assert(length(xml) == 1)
@@ -69,7 +69,7 @@ parameter_to_xml <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_alpha_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_alpha <- function(
   parameter
 ) {
@@ -93,7 +93,7 @@ parameter_to_xml_alpha <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_beta_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_beta <- function(
   parameter
 ) {
@@ -117,7 +117,7 @@ parameter_to_xml_beta <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_clock_rate_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_clock_rate <- function(
   parameter
 ) {
@@ -142,7 +142,7 @@ parameter_to_xml_clock_rate <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_kappa_1_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_kappa_1 <- function(
   parameter
 ) {
@@ -161,7 +161,7 @@ parameter_to_xml_kappa_1 <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_kappa_2_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_kappa_2 <- function(
   parameter
 ) {
@@ -182,7 +182,7 @@ parameter_to_xml_kappa_2 <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_lambda_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_lambda <- function(
   parameter
 ) {
@@ -203,7 +203,7 @@ parameter_to_xml_lambda <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_m_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_m <- function(
   parameter
 ) {
@@ -227,7 +227,7 @@ parameter_to_xml_m <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_mean_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_mean <- function(
   parameter
 ) {
@@ -251,7 +251,7 @@ parameter_to_xml_mean <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_mu_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_mu <- function(
   parameter
 ) {
@@ -276,7 +276,7 @@ parameter_to_xml_mu <- function(
 #'   as created by \code{\link{create_rate_ac_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_rate_ac <- function(
   parameter,
   which_name = "state_node"
@@ -308,7 +308,7 @@ parameter_to_xml_rate_ac <- function(
 #'   as created by \code{\link{create_rate_ag_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_rate_ag <- function(
   parameter,
   which_name = "state_node"
@@ -340,7 +340,7 @@ parameter_to_xml_rate_ag <- function(
 #'   as created by \code{\link{create_rate_at_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_rate_at <- function(
   parameter,
   which_name = "state_node"
@@ -372,7 +372,7 @@ parameter_to_xml_rate_at <- function(
 #'   as created by \code{\link{create_rate_cg_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_rate_cg <- function(
   parameter,
   which_name = "state_node"
@@ -404,7 +404,7 @@ parameter_to_xml_rate_cg <- function(
 #'   as created by \code{\link{create_rate_ct_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_rate_ct <- function(
   parameter,
   which_name = "state_node"
@@ -436,7 +436,7 @@ parameter_to_xml_rate_ct <- function(
 #'   as created by \code{\link{create_rate_gt_param}})
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_rate_gt <- function(
   parameter,
   which_name = "state_node"
@@ -467,7 +467,7 @@ parameter_to_xml_rate_gt <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_s_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_s <- function(
   parameter
 ) {
@@ -505,7 +505,7 @@ parameter_to_xml_s <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_scale_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_scale <- function(
   parameter
 ) {
@@ -529,7 +529,7 @@ parameter_to_xml_scale <- function(
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_sigma_param}})
 #' @return the parameter as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 parameter_to_xml_sigma <- function(
   parameter
 ) {

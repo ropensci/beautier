@@ -1,7 +1,7 @@
 #' Creates the operators section of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @return lines of XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_operators <- function( # nolint beautier function
   site_models,

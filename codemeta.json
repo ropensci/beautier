@@ -21,7 +21,7 @@
   "author": [
     {
       "@type": "Person",
-      "givenName": "Richel J.C.",
+      "givenName": "Richèl J.C.",
       "familyName": "Bilderbeek",
       "email": "richel@richelbilderbeek.nl",
       "@id": "https://orcid.org/0000-0003-1107-7049"
@@ -52,7 +52,7 @@
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Richel J.C.",
+      "givenName": "Richèl J.C.",
       "familyName": "Bilderbeek",
       "email": "richel@richelbilderbeek.nl",
       "@id": "https://orcid.org/0000-0003-1107-7049"
@@ -220,7 +220,7 @@
   ],
   "releaseNotes": "https://github.com/ropensci/beautier/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/beautier/blob/master/README.md",
-  "fileSize": "215.082KB",
+  "fileSize": "238.049KB",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",
@@ -239,7 +239,7 @@
       "author": [
         {
           "@type": "Person",
-          "givenName": ["Richel", "JC"],
+          "givenName": ["Richèl", "JC"],
           "familyName": "Bilderbeek"
         },
         {
@@ -259,5 +259,6 @@
         }
       }
     }
-  ]
+  ],
+  "keywords": ["r", "r-package", "rstats"]
 }

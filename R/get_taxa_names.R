@@ -1,7 +1,7 @@
 #' Extract the names of taxa from a file
 #' @param filename name of a FASTA file
 #' @return the taxa names
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   created <- get_taxa_names(get_beautier_path("anthus_aco_sub.fas"))
 #'   expected <- c(

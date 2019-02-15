@@ -4,7 +4,7 @@
 #' @param gamma_site_model a gamma site model,
 #'   as created by \code{\link{create_gamma_site_model}})
 #' @return the gamma_site model as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 gamma_site_model_to_xml_state <- function(
   gamma_site_model,

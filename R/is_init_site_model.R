@@ -3,7 +3,7 @@
 #' @param x the object to check if it is an
 #'   initialized site_models object
 #' @return TRUE if x is an initialized site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_init_site_model <- function(
   x
@@ -26,7 +26,7 @@ is_init_site_model <- function(
 #' @param x the object to check if it is an
 #'   initialized GTR site model
 #' @return TRUE if x is an initialized GTR site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gtr_site_model <- create_gtr_site_model()
 #'   testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
@@ -58,7 +58,7 @@ is_init_gtr_site_model <- function(
 #' @param x the object to check if it is an
 #'   initialized HKY site model
 #' @return TRUE if x is an initialized HKY site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   hky_site_model <- create_hky_site_model()
 #'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
@@ -78,7 +78,7 @@ is_init_hky_site_model <- function(
 #' @param x the object to check if it is an
 #'   initialized JC69 site model
 #' @return TRUE if x is an initialized JC69 site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   jc69_site_model <- create_jc69_site_model()
 #'   testit::assert(!beautier:::is_init_jc69_site_model(jc69_site_model))
@@ -98,7 +98,7 @@ is_init_jc69_site_model <- function(
 #' @param x the object to check if it is an
 #'   initialized TN93 site model
 #' @return TRUE if x is an initialized TN93 site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   tn93_site_model <- create_tn93_site_model()
 #'   testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))

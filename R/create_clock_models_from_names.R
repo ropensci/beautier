@@ -8,7 +8,7 @@
 #'   for (i in seq_along(names)) {
 #'     testthat::expect_equal(names[i], clock_models[[i]]$name)
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_clock_models_from_names <- function(clock_model_names) {
   clock_models <- list()

@@ -41,5 +41,5 @@ Calls \code{stop} if the site models are invalid
 Use \link{create_site_model} to create a valid site model
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

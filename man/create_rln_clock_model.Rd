@@ -68,5 +68,5 @@ Create a relaxed log-normal clock model
   testit::assert(file.exists("create_rln_clock_model_exp.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

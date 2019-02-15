@@ -8,7 +8,7 @@
 #'   for (i in seq_along(names)) {
 #'     testthat::expect_equal(names[i], tree_priors[[i]]$name)
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_tree_priors_from_names <- function(tree_prior_names) {
   tree_priors <- list()

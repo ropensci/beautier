@@ -24,5 +24,5 @@ Determine if the object is a valid MCMC
 Use \code{\link{create_mcmc}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

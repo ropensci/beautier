@@ -25,5 +25,5 @@ Calls \code{stop} if the phylogeny is invalid
  testthat::expect_error(check_phylogeny(phylo = NA))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

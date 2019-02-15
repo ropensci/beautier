@@ -3,7 +3,7 @@
 #' @param text the text to indent
 #' @param n_spaces the number of spaces to add before the text
 #' @return the indented text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 indent <- function(
   text,

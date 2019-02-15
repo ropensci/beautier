@@ -21,5 +21,5 @@ an initialized Coalescent Exponential Population tree prior
 Initializes a Coalescent Exponential Population tree prior
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

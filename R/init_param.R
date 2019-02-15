@@ -4,7 +4,7 @@
 #' @param id the parameter's ID. Will be ignored if the parameter already
 #'   has an ID
 #' @return an initialized parameter
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 init_param <- function(
   param,

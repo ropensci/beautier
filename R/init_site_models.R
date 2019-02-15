@@ -3,7 +3,7 @@
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized site models
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 init_site_models <- function(
   site_models,
@@ -60,7 +60,7 @@ init_site_models <- function(
 #' Initializes a GTR site model
 #' @inheritParams default_params_doc
 #' @return an initialized GTR site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gtr_site_model <- create_gtr_site_model()
 #'   testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
@@ -193,7 +193,7 @@ init_gtr_site_model <- function(
 #' Initializes an HKY site model
 #' @inheritParams default_params_doc
 #' @return an initialized HKY site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   hky_site_model <- create_hky_site_model()
 #'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
@@ -245,7 +245,7 @@ init_hky_site_model <- function(
 #' Initializes a JC69 site model
 #' @inheritParams default_params_doc
 #' @return an initialized HKY site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   hky_site_model <- create_hky_site_model()
 #'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
@@ -285,7 +285,7 @@ init_jc69_site_model <- function(
 #' Initializes a TN93 site model
 #' @inheritParams default_params_doc
 #' @return an initialized TN93 site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   tn93_site_model <- create_tn93_site_model()
 #'   testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))

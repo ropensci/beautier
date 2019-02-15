@@ -19,5 +19,5 @@ Determine if x is an initialized one_div_x distribution object
   as created by \code{\link{create_one_div_x_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

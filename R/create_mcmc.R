@@ -10,7 +10,7 @@
 #'   \itemize{
 #'     \item \link{are_equal_mcmcs} to check if two MCMCs are equal
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create an MCMC chain with 50 states
 #'   mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)

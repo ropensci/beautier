@@ -2,7 +2,7 @@
 #' @param x the object to check if it consists out of
 #'   initialized MRCA priors
 #' @return TRUE if x, or all elements of x, are initialized MRCA priors
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_init_mrca_priors <- function(
   x

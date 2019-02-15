@@ -8,7 +8,7 @@
 #'   testit::assert(beautier:::get_clock_model_name(strict) == "StrictClock")
 #'   rln <- create_rln_clock_model()
 #'   testit::assert(beautier:::get_clock_model_name(rln) == "RelaxedClock")
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_clock_model_name <- function(
   clock_model

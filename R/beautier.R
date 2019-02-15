@@ -27,7 +27,7 @@
 #'     into a single workflow
 #'   }
 #' }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @docType package
 #' @name beautier
 NULL

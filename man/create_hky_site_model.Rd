@@ -45,5 +45,5 @@ Create an HKY site model
  )
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

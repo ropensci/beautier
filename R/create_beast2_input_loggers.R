@@ -1,5 +1,5 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @inheritParams default_params_doc
 #' @noRd
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
@@ -82,7 +82,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 #'     "</logger>"
 #'    )
 #'    testthat::expect_equal(created, expected)
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 create_beast2_input_tracelog <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
   site_models = list(create_jc69_site_model(id = ids)),
@@ -156,7 +156,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 #' of a BEAST2 XML parameter file
 #' @return the XML text
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 create_beast2_input_screenlog <- function() {
   text <- NULL
   text <- c(text, "<logger id=\"screenlog\" logEvery=\"1000\">")
@@ -172,7 +172,7 @@ create_beast2_input_screenlog <- function() {
 #' Creates the \code{tracelog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   clock_models
 ) {

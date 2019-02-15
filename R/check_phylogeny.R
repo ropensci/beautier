@@ -11,7 +11,7 @@
 #'  testthat::expect_error(check_phylogeny(phylo = "nonsense"))
 #'  testthat::expect_error(check_phylogeny(phylo = NULL))
 #'  testthat::expect_error(check_phylogeny(phylo = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_phylogeny <- function(phylogeny) {
   if (class(phylogeny) == "phylo") {

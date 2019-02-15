@@ -22,5 +22,5 @@ TRUE if the two XML lines result in equivalent trees,
 Determine if XML operator lines result in equivalent trees
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

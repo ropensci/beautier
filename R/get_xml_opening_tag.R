@@ -8,7 +8,7 @@
 #'     == "my_tag"
 #'   )
 #'   testit::assert(is.na(beautier:::get_xml_opening_tag("no_xml")))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_xml_opening_tag <- function(text) {
   first_line <- stringr::str_trim(text[1])

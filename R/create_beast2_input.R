@@ -9,7 +9,7 @@
 #'   text[1]
 #'   testit::assert(tail(text, n = 1) == "</beast>")
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input <- function(
   input_filename,

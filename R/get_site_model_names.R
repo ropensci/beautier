@@ -7,7 +7,7 @@
 #'   testit::assert("HKY" %in% names)
 #'   testit::assert("TN93" %in% names)
 #'   testit::assert("GTR" %in% names)
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_site_model_names <- function() {
   c("JC69", "HKY", "TN93", "GTR")

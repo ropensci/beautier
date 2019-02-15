@@ -8,7 +8,7 @@
 #'     input_filename = filename,
 #'     "my_beast.xml"
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_fasta_filename <- function() {
   get_beautier_path("test_output_0.fas") # nolint beautier function

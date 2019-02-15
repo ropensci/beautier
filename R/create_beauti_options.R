@@ -15,7 +15,7 @@
 #' @param sequence_indent the number of spaces the XML \code{sequence}
 #'   lines are indented
 #' @return a BEAUti options structure
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   beauti_options <- create_beauti_options(
 #'     nucleotides_uppercase = TRUE,

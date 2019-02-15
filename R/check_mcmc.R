@@ -11,7 +11,7 @@
 #'  testthat::expect_error(check_mcmc(mcmc = "nonsense"))
 #'  testthat::expect_error(check_mcmc(mcmc = NULL))
 #'  testthat::expect_error(check_mcmc(mcmc = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_mcmc <- function(mcmc) {
   if (is_mcmc(mcmc)) { # nolint beautier function

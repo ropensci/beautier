@@ -2,7 +2,7 @@
 #'   as used in the \code{state} section
 #' @inheritParams default_params_doc
 #' @return the tree prior as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 mrca_prior_to_xml_state <- function(
   mrca_prior,

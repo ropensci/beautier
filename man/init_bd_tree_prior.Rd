@@ -21,5 +21,5 @@ an initialized Birth-Death tree prior
 Initializes a Birth-Death tree prior
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

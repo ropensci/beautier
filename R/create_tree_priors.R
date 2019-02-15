@@ -13,7 +13,7 @@
 #'   testit::assert(beautier:::is_ccp_tree_prior(tree_priors[[3]]))
 #'   testit::assert(beautier:::is_cep_tree_prior(tree_priors[[4]]))
 #'   testit::assert(beautier:::is_yule_tree_prior(tree_priors[[5]]))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_tree_priors <- function() {
   list(

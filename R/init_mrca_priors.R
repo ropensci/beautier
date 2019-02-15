@@ -3,7 +3,7 @@
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized MRCA priors
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 init_mrca_priors <- function(
   mrca_priors,

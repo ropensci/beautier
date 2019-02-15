@@ -1,7 +1,7 @@
 #' Determines if the name is a valid parameter name
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid parameter name, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(beautier:::is_param_name("alpha"))
 #'   testit::assert(beautier:::is_param_name("beta"))

@@ -2,7 +2,7 @@
 #' @param x the object to be determined if it is a valid gamma site object
 #' @return nothing. Will call \code{stop} if the argument is not a valid
 #'   gamma site model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testthat::expect_silent(
 #'     beautier:::check_gamma_site_model(

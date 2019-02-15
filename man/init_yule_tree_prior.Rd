@@ -21,5 +21,5 @@ an initialized Yule tree prior
 Initializes a Yule tree prior
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

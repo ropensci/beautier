@@ -4,7 +4,7 @@
 #' @param taxa_names_with_ids taxa names that already have received
 #'   an ID. Causes the XML to \code{idref} these
 #' @return lines of XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # <taxonset id="all" spec="TaxonSet">
 #'   #     <taxon id="626029_aco" spec="Taxon"/>

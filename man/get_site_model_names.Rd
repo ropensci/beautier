@@ -21,5 +21,5 @@ Get the site models' names
   testit::assert("GTR" \%in\% names)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

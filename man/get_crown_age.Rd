@@ -23,5 +23,5 @@ diversification (resulting in two lineages) happened.
   testit::assert(created == 15)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

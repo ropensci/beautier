@@ -21,5 +21,5 @@ the parameter as XML text
 Converts a 'rate AT' parameter to XML
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

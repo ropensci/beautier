@@ -1,7 +1,7 @@
 #' Extract everything between first loggers and last loggers line
 #' @param lines lines of text
 #' @return lines of text from the first to and including the last operators line
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 extract_xml_loggers_from_lines <- function( # nolint beautier function
   lines

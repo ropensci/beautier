@@ -12,7 +12,7 @@
 #'   testit::assert(beautier:::is_distr_name("laplace"))
 #'   testit::assert(beautier:::is_distr_name("inv_gamma"))
 #'   testit::assert(beautier:::is_distr_name("poisson"))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_distr_name <- function(name) {
   name %in% get_distr_names() # nolint beautier function

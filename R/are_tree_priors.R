@@ -8,7 +8,7 @@
 #'   testit::assert(are_tree_priors(yule_tree_prior))
 #'   testit::assert(are_tree_priors(bd_tree_prior))
 #'   testit::assert(are_tree_priors(both_tree_priors))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 are_tree_priors <- function(
   x

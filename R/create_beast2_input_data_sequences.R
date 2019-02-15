@@ -3,7 +3,7 @@
 #' @param nucleotides_uppercase are the nucleotides written in uppercase?
 #'   Yes if TRUE, no if FALSE
 #' @return lines of XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_data_sequences <- function( # nolint beautier function
   input_fasta_filename,

@@ -1,7 +1,7 @@
 #' Get the number of distributions a tree prior has
 #' @inheritParams default_params_doc
 #' @return the number of distributions a tree prior has
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # birth_rate_distr and death_rate_distr
 #'  testit::assert(

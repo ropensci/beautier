@@ -27,5 +27,5 @@ Initializes a JC69 site model
   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

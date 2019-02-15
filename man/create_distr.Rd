@@ -61,5 +61,5 @@ See
   testit::assert(file.exists("create_distr.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

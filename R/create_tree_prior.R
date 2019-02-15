@@ -18,7 +18,7 @@
 #'   \code{\link{create_cep_tree_prior}}
 #'   and \code{\link{create_yule_tree_prior}}
 #'   for more examples using those functions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
@@ -93,7 +93,7 @@ create_tree_prior <- function(
 #' )
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filename using \code{\link{get_alignment_id}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   bd_tree_prior <- create_bd_tree_prior()
 #'
@@ -134,7 +134,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #' @return a Coalescent Bayesian Skyline tree_prior
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filename using \code{\link{get_alignment_id}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   cbs_tree_prior <- create_cbs_tree_prior()
 #'
@@ -166,7 +166,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #' @return a Coalescent Constant Population tree_prior
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filename using \code{\link{get_alignment_id}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   ccp_tree_prior <- create_ccp_tree_prior()
 #'
@@ -198,7 +198,7 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #' @return a Coalescent Exponential Population tree_prior
 #' @seealso An alignment ID can be extracted from
 #'   its FASTA filename using \code{\link{get_alignment_id}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   cep_tree_prior <- create_cep_tree_prior()
 #'
@@ -235,7 +235,7 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #'   id = NA,
 #'   birth_rate_distr = create_uniform_distr()
 #' )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   yule_tree_prior <- create_yule_tree_prior()
 #'

@@ -64,5 +64,5 @@ of a BEAST2 XML parameter file
    testthat::expect_equal(created, expected)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

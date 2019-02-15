@@ -2,7 +2,7 @@
 #' @param x an object
 #' @return TRUE if x is a valid tree_prior, FALSE otherwise
 #' @seealso tree priors can be created by \code{\link{create_tree_prior}})
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(is_tree_prior(create_bd_tree_prior()))
 #'   testit::assert(is_tree_prior(create_yule_tree_prior()))
@@ -21,7 +21,7 @@ is_tree_prior <- function(
 #'   as returned by \code{\link{create_bd_tree_prior}}
 #' @param x an object, to be determined if it is a valid birth death tree prior
 #' @return TRUE if x is a valid birth death tree prior, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_bd_tree_prior <- function(
   x
@@ -39,7 +39,7 @@ is_bd_tree_prior <- function(
 #'   Bayesian skyline prior
 #' @return TRUE if x is a valid constant coalescent Bayesian skyline prior,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_cbs_tree_prior <- function(
   x
@@ -57,7 +57,7 @@ is_cbs_tree_prior <- function(
 #'   constant coalescence population tree prior
 #' @return TRUE if x is a valid constant coalescence population tree prior,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_ccp_tree_prior <- function(
   x
@@ -75,7 +75,7 @@ is_ccp_tree_prior <- function(
 #'   constant coalescent exponential population tree prior
 #' @return TRUE if x is a valid coalescent exponentialpopulation tree prior,
 #'   FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_cep_tree_prior <- function(
   x
@@ -91,7 +91,7 @@ is_cep_tree_prior <- function(
 #'   as returned by \code{\link{create_yule_tree_prior}}
 #' @param x an object, to be determined if it is a valid Yule tree prior
 #' @return TRUE if x is a valid Yule tree prior, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_yule_tree_prior <- function(
   x

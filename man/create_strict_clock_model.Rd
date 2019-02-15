@@ -53,5 +53,5 @@ Create a strict clock model
   testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

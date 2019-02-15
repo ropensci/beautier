@@ -1,7 +1,7 @@
 #' Determine if x consists out of clock_models objects
 #' @param x the object to check if it consists out of clock_models objects
 #' @return TRUE if x, or all elements of x, are clock_model objects
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
 #'   strict_clock_model <- create_strict_clock_model()
@@ -28,7 +28,7 @@ are_clock_models <- function(
 #'   Each nth element is TRUE if the nth element
 #'   in \code{clock_models} is a relaxed log-normal
 #'   clock model, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_rln_clock_models <- function(
   clock_models

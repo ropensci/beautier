@@ -2,7 +2,7 @@
 #'
 #' @inheritParams default_params_doc
 #' @return TRUE if \code{x} is an MRCA prior, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_mrca_prior <- function(
   mrca_prior

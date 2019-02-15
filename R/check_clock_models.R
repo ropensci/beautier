@@ -22,7 +22,7 @@
 #'   testthat::expect_error(check_clock_models(42))
 #'   testthat::expect_error(check_clock_models(NA))
 #'   testthat::expect_error(check_clock_models(NULL))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_clock_models <- function(clock_models) {
 

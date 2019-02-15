@@ -32,5 +32,5 @@ Create a random phylogeny, with the same taxa names as the FASTA file
   )
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

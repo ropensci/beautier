@@ -18,5 +18,5 @@ Get the clock model names
   testit::assert("strict" \%in\% names)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

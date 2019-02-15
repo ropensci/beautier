@@ -8,7 +8,7 @@
 #' @inheritParams default_params_doc
 #' @return TRUE if the MRCA priors are non-intersecting.
 #'   FALSE otherwise.
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_mrca_taxa_non_intersecting <- function(mrca_priors) {
   testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function

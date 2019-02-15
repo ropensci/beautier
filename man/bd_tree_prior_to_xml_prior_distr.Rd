@@ -27,5 +27,5 @@ of a BEAST2 XML parameter file for a Birth-Death tree prior
  # </distribution>
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

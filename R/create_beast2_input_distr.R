@@ -12,7 +12,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_distr <- function( # nolint beautier function
   site_models,
@@ -69,7 +69,7 @@ create_beast2_input_distr <- function( # nolint beautier function
 #'   together with \code{create_beast2_input_distr_lh}
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -117,7 +117,7 @@ create_beast2_input_distr_prior <- function( # nolint beautier function
 #' @inheritParams default_params_doc
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @seealso this function is called by \code{create_beast2_input_distr},
 #'   together with \code{create_beast2_input_distr_prior}
 #' @examples
@@ -210,7 +210,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -271,7 +271,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -307,7 +307,7 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Constant Population tree prior
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -358,7 +358,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Exponential Population tree prior
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
@@ -421,7 +421,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Yule tree prior
 #' @inheritParams default_params_doc
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">

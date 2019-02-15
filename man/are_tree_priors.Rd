@@ -24,5 +24,5 @@ Determine if x consists out of tree_priors objects
   testit::assert(are_tree_priors(both_tree_priors))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

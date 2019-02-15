@@ -5,7 +5,7 @@
 #' @param section the XML section
 #' @return TRUE if there is an XML closing tag with the value of
 #'   \code{section} present. FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 has_xml_closing_tag <- function(
   lines,

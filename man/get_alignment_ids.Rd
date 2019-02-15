@@ -27,5 +27,5 @@ This is done in the same way as BEAST2 does by default
   testit::assert(created == expected)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

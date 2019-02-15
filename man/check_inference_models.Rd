@@ -34,5 +34,5 @@ Use \link{create_inference_model} to create a valid
   BEAST2 options object
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

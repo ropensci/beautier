@@ -49,5 +49,5 @@ the function \code{\link{create_param}} contains a list
   of all parameters that can be created
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -12,7 +12,7 @@
 #'  testthat::expect_error(check_beauti_options(beauti_options = "nonsense"))
 #'  testthat::expect_error(check_beauti_options(beauti_options = NULL))
 #'  testthat::expect_error(check_beauti_options(beauti_options = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_beauti_options <- function(
   beauti_options

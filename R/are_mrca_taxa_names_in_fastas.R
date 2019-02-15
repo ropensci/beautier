@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return TRUE if the MRCA priors' taxa names are
 #'   present in the FASTA files. FALSE otherwise.
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 are_mrca_taxa_names_in_fastas <- function(
   mrca_priors,

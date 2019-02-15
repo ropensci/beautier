@@ -28,5 +28,5 @@ Calls \code{stop} if the MCMC is invalid
 Use \link{create_mcmc} to create a valid MCMC
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

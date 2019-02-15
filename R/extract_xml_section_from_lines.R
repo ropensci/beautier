@@ -2,7 +2,7 @@
 #' @param lines lines of the XML text
 #' @param section the XML section name
 #' @return the section's lines of XML text, including the tags
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 extract_xml_section_from_lines <- function(
   lines,

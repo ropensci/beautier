@@ -13,7 +13,7 @@
 #'   model, see \code{\link{create_rln_clock_model}}.
 #'   For more examples about creating a strict clock
 #'   model, see \code{\link{create_strict_clock_model}}.
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
 #'
@@ -76,7 +76,7 @@ create_clock_model <- function(
 #'   Else, the dimensionality of the clock
 #'   equals twice the number of taxa minus two.
 #' @return a relaxed log-normal clock_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
 #'
@@ -133,7 +133,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #' @param clock_rate_distr the clock rate's distribution,
 #'   as created by a \code{\link{create_distr}} function
 #' @return a strict clock_model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model(
 #'     clock_rate_param = 1.0,

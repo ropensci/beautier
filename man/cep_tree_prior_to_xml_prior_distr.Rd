@@ -29,5 +29,5 @@ Coalescent Exponential Population tree prior
  # </distribution>
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

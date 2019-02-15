@@ -23,5 +23,5 @@ Extract the names of taxa from a file
   testit::assert(created == expected)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

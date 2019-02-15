@@ -2,7 +2,7 @@
 #'   used in the \code{substModel} section
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 site_model_to_xml_subst_model <- function(
   site_model

@@ -14,7 +14,7 @@
 #'   )
 #'   n_distrs <- get_gamma_site_model_n_distrs(gamma_site_model)
 #'   testit::assert(n_distrs == 1)
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_gamma_site_model_n_distrs <- function(gamma_site_model) {
   testit::assert(is_gamma_site_model(gamma_site_model)) # nolint beautier function

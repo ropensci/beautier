@@ -39,5 +39,5 @@ states between each sampling event (\code{store_every})
   }
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

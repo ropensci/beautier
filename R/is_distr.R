@@ -15,7 +15,7 @@
 #'  \code{\link{is_poisson_distr}},
 #'  or \code{\link{is_uniform_distr}},
 #'  to check for more specific distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_distr <- function(
   x
@@ -42,7 +42,7 @@ is_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_beta_distr <- function(
   x
@@ -65,7 +65,7 @@ is_beta_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_exp_distr <- function(
   x
@@ -86,7 +86,7 @@ is_exp_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_gamma_distr <- function(
   x
@@ -109,7 +109,7 @@ is_gamma_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_inv_gamma_distr <- function(
   x
@@ -132,7 +132,7 @@ is_inv_gamma_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'   testit::assert(beautier:::is_laplace_distr(laplace_distr))
@@ -158,7 +158,7 @@ is_laplace_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   log_normal_distr <- create_log_normal_distr()
 #'
@@ -193,7 +193,7 @@ is_log_normal_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_normal_distr <- function(
   x
@@ -216,7 +216,7 @@ is_normal_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_one_div_x_distr <- function(
   x
@@ -233,7 +233,7 @@ is_one_div_x_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_poisson_distr <- function(
   x
@@ -254,7 +254,7 @@ is_poisson_distr <- function(
 #'   FALSE otherwise
 #' @seealso use \code{\link{is_distr}} to see if x is any
 #'   distribution
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_uniform_distr <- function(
   x

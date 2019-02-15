@@ -22,5 +22,5 @@ Get the path of a FASTA file used in testing
   )
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -75,5 +75,5 @@ Create a BEAST2 XML input text
 \code{\link{create_beast2_input_file}} shows more examples
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

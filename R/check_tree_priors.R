@@ -20,7 +20,7 @@
 #'   testthat::expect_error(check_tree_priors(42))
 #'   testthat::expect_error(check_tree_priors(NA))
 #'   testthat::expect_error(check_tree_priors(NULL))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_tree_priors <- function(tree_priors) {
 

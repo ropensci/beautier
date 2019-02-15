@@ -27,5 +27,5 @@ Initializes a TN93 site model
   testit::assert(beautier:::is_init_tn93_site_model(tn93_site_model))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

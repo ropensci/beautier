@@ -1,6 +1,6 @@
 #' Determine if the MCMC is a default MCMC
 #' @return TRUE if the MCMC is a default MCMC
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # An MCMC created by 'create_mcmc' is default
 #'   testthat::expect_true(beautier:::is_default_mcmc(

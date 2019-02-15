@@ -8,7 +8,7 @@
 #'   testit::assert(are_site_models(jc69_site_model))
 #'   testit::assert(are_site_models(gtr_site_model))
 #'   testit::assert(are_site_models(both_site_models))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 are_site_models <- function(
   x

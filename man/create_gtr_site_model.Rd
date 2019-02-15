@@ -106,5 +106,5 @@ Create a GTR site model
   testit::assert(file.exists("create_gtr_site_model.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -3,7 +3,7 @@
 #' @param distr_id the first distributions' ID
 #' @param param_id the first parameter's ID
 #' @return a list of initialized clock models
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 init_clock_models <- function(
   fasta_filenames,
@@ -69,7 +69,7 @@ init_clock_models <- function(
 #' Initializes a Relaxed Log-Normal clock model
 #' @inheritParams default_params_doc
 #' @return an initialized Relaxed Log-Normal clock model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 init_rln_clock_model <- function(
   rln_clock_model,
   distr_id,
@@ -114,7 +114,7 @@ init_rln_clock_model <- function(
 #' Initializes a strict clock model
 #' @inheritParams default_params_doc
 #' @return an initialized strict clock model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   strict_clock_model <- create_strict_clock_model()
 init_strict_clock_model <- function(

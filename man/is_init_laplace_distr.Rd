@@ -19,5 +19,5 @@ Determine if x is an initialized Laplace distribution
   as created by \code{\link{create_laplace_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

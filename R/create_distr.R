@@ -40,7 +40,7 @@
 #'     )
 #'   )
 #'   testit::assert(file.exists("create_distr.xml"))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_distr <- function(
   name,
@@ -87,7 +87,7 @@ create_distr <- function(
 #' @return a beta distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   beta_distr <- create_beta_distr()
 #'
@@ -143,7 +143,7 @@ create_beta_distr <- create_distr_beta <- function(
 #' @return an exponential distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   exp_distr <- create_exp_distr()
 #'
@@ -188,7 +188,7 @@ create_exp_distr <- create_distr_exp <- function(
 #' @return a gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gamma_distr <- create_gamma_distr(
 #'      alpha = 0.05,
@@ -254,7 +254,7 @@ create_gamma_distr <- create_distr_gamma <- function(
 #' @return an inverse-gamma distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   inv_gamma_distr <- create_inv_gamma_distr()
 #'
@@ -308,7 +308,7 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #' @return a Laplace distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'
@@ -363,7 +363,7 @@ create_laplace_distr <- create_distr_laplace <- function(
 #' @return a log-normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   log_normal_distr <- create_log_normal_distr()
 #'
@@ -418,7 +418,7 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #' @return a normal distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   normal_distr <- create_normal_distr()
 #'
@@ -465,7 +465,7 @@ create_normal_distr <- create_distr_normal <- function(
 #' @return a 1/x distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   one_div_x_distr <- create_one_div_x_distr()
 #'
@@ -497,7 +497,7 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #' @return a Poisson distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   poisson_distr <- create_poisson_distr()
 #'
@@ -537,7 +537,7 @@ create_poisson_distr <- create_distr_poisson <- function(
 #' @return a uniform distribution
 #' @seealso the function \code{\link{create_distr}} shows an overview
 #'   of all supported distributions
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   uniform_distr <- create_uniform_distr()
 #'

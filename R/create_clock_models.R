@@ -7,7 +7,7 @@
 #'  clock_models <- create_clock_models()
 #'  testit::assert(beautier:::is_rln_clock_model(clock_models[[1]]))
 #'  testit::assert(beautier:::is_strict_clock_model(clock_models[[2]]))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_clock_models <- function() {
   list(

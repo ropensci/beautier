@@ -1,7 +1,7 @@
 #' Is object x a gamma site model?
 #' @param x the object to be determined if it is a valid gamma site object
 #' @return TRUE if x is a valid gamma site object, FALSE otherwise
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model()
 #'   testit::assert(beautier:::is_gamma_site_model(gamma_site_model))

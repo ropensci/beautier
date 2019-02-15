@@ -3,7 +3,7 @@
 #' @param section the name of the XML section
 #' @return the line number's index (which is 1 for the first line) if the
 #'   opening tag is found, else NA
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 find_first_xml_opening_tag_line <- function( # nolint beautier functions may be long
   lines,

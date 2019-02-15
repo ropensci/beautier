@@ -2,7 +2,7 @@
 #' @param freq_equilibrium a \code{freq_equilibrium} name
 #' @param id a site model's name
 #' @return the \code{freq_equilibrium} as XML
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 freq_equilibrium_to_xml <- function(
   freq_equilibrium,

@@ -39,5 +39,5 @@ Calls \code{stop} if the MRCA prior is invalid.
 Use \link{create_mrca_prior} to create a valid MRCA prior
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

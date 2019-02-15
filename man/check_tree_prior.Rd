@@ -42,5 +42,5 @@ Calls \code{stop} if the tree priors are invalid
 Use \link{create_tree_prior} to create a valid tree prior
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

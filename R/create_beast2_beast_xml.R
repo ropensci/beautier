@@ -2,7 +2,7 @@
 #' @param beast2_version BEAST2 version
 #' @param required requirement
 #' @return the XML
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_beast_xml <- function(
   beast2_version,

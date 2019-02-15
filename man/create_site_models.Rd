@@ -36,5 +36,5 @@ Creates all supported site models
  }
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

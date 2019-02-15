@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return a clock model,
 #'   as can be created by \link{create_clock_model}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   clock_model_names <- get_clock_model_names()
 #'   for (clock_model_name in clock_model_names) {

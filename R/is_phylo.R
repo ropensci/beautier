@@ -8,7 +8,7 @@
 #'   testit::assert(!is_phylo("nonsense"))
 #'   testit::assert(!is_phylo(NA))
 #'   testit::assert(!is_phylo(NULL))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 is_phylo <- function(x) {
   class(x) == "phylo"

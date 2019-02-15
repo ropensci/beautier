@@ -17,5 +17,5 @@ TRUE if x is an initialized gamma distribution object
 Determine if x is an initialized gamma distribution object
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

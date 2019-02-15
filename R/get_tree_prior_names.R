@@ -7,7 +7,7 @@
 #'   testit::assert("coalescent_constant_population" %in% names)
 #'   testit::assert("coalescent_exp_population" %in% names)
 #'   testit::assert("yule" %in% names)
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_tree_prior_names <- function() {
   c(

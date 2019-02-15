@@ -1,6 +1,6 @@
 #' Get the parameter names
 #' @return the parameter names
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   names <- beautier:::get_param_names()
 #'   testit::assert("alpha" %in% names)

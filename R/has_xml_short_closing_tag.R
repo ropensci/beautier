@@ -10,7 +10,7 @@
 #'       "<my_tag id=1>text</my_tag>"
 #'     )
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 has_xml_short_closing_tag <- function(
   lines

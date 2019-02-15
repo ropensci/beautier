@@ -6,7 +6,7 @@
 #'   testit::assert(xml ==
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 mcmc_to_xml_run <- function(mcmc) {
   testit::assert(is_mcmc(mcmc)) # nolint beautier function
@@ -26,7 +26,7 @@ mcmc_to_xml_run <- function(mcmc) {
 #'   testit::assert(xml ==
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 mcmc_to_xml_run_default <- function(mcmc) {
   testit::assert(is_mcmc(mcmc)) # nolint beautier function
@@ -55,7 +55,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #'       "particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">"
 #'     )
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint beautier function can be long
   testit::assert(is_mcmc(mcmc)) # nolint beautier function

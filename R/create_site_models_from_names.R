@@ -8,7 +8,7 @@
 #'   for (i in seq_along(names)) {
 #'     testthat::expect_equal(names[i], site_models[[i]]$name)
 #'   }
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_site_models_from_names <- function(site_model_names) {
   site_models <- list()

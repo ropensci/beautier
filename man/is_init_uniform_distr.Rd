@@ -19,5 +19,5 @@ Determine if x is an initialized uniform distribution object
   as created by \code{\link{create_uniform_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

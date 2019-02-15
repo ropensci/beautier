@@ -2,7 +2,7 @@
 #' @param line a line of text
 #' @param patterns one or more regular expression patterns
 #' @return TRUE if there is at least one match found
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_in_patterns <- function(line, patterns) {
 

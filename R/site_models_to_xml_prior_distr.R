@@ -9,7 +9,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 site_models_to_xml_prior_distr <- function(site_models) {
   text <- NULL

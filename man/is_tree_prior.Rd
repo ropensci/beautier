@@ -24,5 +24,5 @@ Determine if an object is a valid tree prior
 tree priors can be created by \code{\link{create_tree_prior}})
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

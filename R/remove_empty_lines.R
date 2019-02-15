@@ -3,7 +3,7 @@
 #' @param trim FALSE if indentation must be preserved,
 #'   TRUE will remove all surrounding whitespace
 #' @return the lines with text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 remove_empty_lines <- function(lines, trim = FALSE) {
   trimmed <- stringr::str_trim(lines)

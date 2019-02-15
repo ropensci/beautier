@@ -1,7 +1,7 @@
 #' Convert a clock model to the XML of the TreeLogger
 #' @inherit default_params_doc
 #' @return a character vector of XML strings
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 clock_model_to_xml_treelogger <- function(
   clock_model

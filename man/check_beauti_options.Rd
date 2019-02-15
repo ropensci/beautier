@@ -29,5 +29,5 @@ Use \link{create_beauti_options} to create a valid
   BEAUti options setup
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

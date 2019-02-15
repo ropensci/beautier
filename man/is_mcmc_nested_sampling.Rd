@@ -35,5 +35,5 @@ Determine if the object is a valid Nested-Sampling MCMC,
 Use \code{\link{create_mcmc_nested_sampling}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

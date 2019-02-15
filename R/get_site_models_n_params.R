@@ -1,7 +1,7 @@
 #' Get the number of distributions one or more site models have
 #' @inheritParams default_params_doc
 #' @return the number of parameters the site models have
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(
 #'     beautier:::get_site_models_n_params(list(create_gtr_site_model())) == 11

@@ -12,7 +12,7 @@
 #'  testthat::expect_error(check_clock_model(clock_model = "nonsense"))
 #'  testthat::expect_error(check_clock_model(clock_model = NULL))
 #'  testthat::expect_error(check_clock_model(clock_model = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_clock_model <- function(clock_model) {
   argument_names <- c(
@@ -55,7 +55,7 @@ check_clock_model <- function(clock_model) {
 #'  testthat::expect_error(
 #'    check_rln_clock_model(create_strict_clock_model())
 #'  )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_rln_clock_model <- function(clock_model) {
   argument_names <- c(
@@ -109,7 +109,7 @@ check_rln_clock_model <- function(clock_model) {
 #'  testthat::expect_error(
 #'    check_strict_clock_model(create_rln_clock_model())
 #'  )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_strict_clock_model <- function(clock_model) {
   argument_names <- c(

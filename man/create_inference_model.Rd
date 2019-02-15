@@ -55,5 +55,5 @@ as can be done by BEAUti.
   testit::assert(file.exists("create_inference_model.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

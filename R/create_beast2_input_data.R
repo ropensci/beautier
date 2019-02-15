@@ -1,7 +1,7 @@
 #' Creates the data section of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @return lines of XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_data <- function(
   input_filenames,

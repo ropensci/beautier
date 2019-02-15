@@ -20,5 +20,5 @@ Determine if x is an initialized Coalescent Exponential Population
   tree_prior object
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

@@ -2,7 +2,7 @@
 #' @param lines lines of tex
 #' @param regex the regex as text
 #' @return index of the line
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 find_first_regex_line <- function(lines, regex) {
   for (i in seq_along(lines)) {

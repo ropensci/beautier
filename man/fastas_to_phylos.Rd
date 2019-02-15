@@ -36,5 +36,5 @@ All phylogenies have the same crown age.
   )
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

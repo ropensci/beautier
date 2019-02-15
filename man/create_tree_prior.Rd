@@ -75,5 +75,5 @@ See
   for more examples using those functions
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

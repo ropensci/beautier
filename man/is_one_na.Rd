@@ -24,5 +24,5 @@ Determines if x is one NA
   testit::assert(!is_one_na(c(NA, NA)))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

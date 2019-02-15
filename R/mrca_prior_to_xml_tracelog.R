@@ -7,7 +7,7 @@
 #' # <logger id="tracelog" ...>
 #' #'   # Here
 #' # </logger>
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 mrca_prior_to_xml_tracelog <- function( # nolint beautier function
   clock_models,

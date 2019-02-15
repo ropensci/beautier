@@ -21,5 +21,5 @@ an initialized Coalescent Constant Population tree prior
 Initializes a Coalescent Constant Population tree prior
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

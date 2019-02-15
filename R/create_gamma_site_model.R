@@ -30,7 +30,7 @@
 #'     site_model = site_model
 #'   )
 #'   testit::assert(file.exists("create_gamma_site_model.xml"))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_gamma_site_model <- function(
   gamma_cat_count = "0",

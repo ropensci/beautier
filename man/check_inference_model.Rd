@@ -33,5 +33,5 @@ Use \link{create_inference_model} to create a valid Bayesian
   phylogenetic inference model
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

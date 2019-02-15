@@ -6,7 +6,7 @@
 #'   testthat::expect_true(is_mcmc(create_mcmc()))
 #'   testthat::expect_true(is_mcmc(create_nested_sampling_mcmc()))
 #'   testthat::expect_false(is_mcmc("nonsense"))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 is_mcmc <- function(
   x
@@ -31,7 +31,7 @@ is_mcmc <- function(
 #'     is_nested_sampling_mcmc(create_nested_sampling_mcmc())
 #'   )
 #'   testthat::expect_false(is_nested_sampling_mcmc("nonsense"))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @references
 #'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
 #'     Remco R Bouckaert; Model Selection and Parameter Inference in

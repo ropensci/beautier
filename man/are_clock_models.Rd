@@ -24,5 +24,5 @@ Determine if x consists out of clock_models objects
   testit::assert(are_clock_models(both_clock_models))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

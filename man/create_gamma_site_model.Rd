@@ -54,5 +54,5 @@ Use \code{\link{create_site_model}} to create a site model
   testit::assert(file.exists("create_gamma_site_model.xml"))
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

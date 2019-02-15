@@ -5,7 +5,7 @@
 #' \code{A=1,B=2}
 #' @param df a data frame with two columns
 #' @return the trait set string
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_trait_set_string <- function(
   df

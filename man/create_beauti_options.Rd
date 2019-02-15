@@ -46,5 +46,5 @@ Whatever option chosen here, the created XML file will be valid.
   testit::assert(length(xml) > 1)
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

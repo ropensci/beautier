@@ -12,7 +12,7 @@
 #'     fasta_filename,
 #'     crown_age = 15
 #'   )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 fasta_to_phylo <- function(fasta_filename, crown_age) {
 

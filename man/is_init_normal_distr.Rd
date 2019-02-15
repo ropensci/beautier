@@ -19,5 +19,5 @@ Determine if x is an initialized normal distribution object
   as created by \code{\link{create_normal_distr}}
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

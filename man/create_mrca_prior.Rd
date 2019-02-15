@@ -55,5 +55,5 @@ Create a Most Recent Common Ancestor prior
  )
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

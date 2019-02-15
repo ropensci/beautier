@@ -21,5 +21,5 @@ an initialized Relaxed Log-Normal clock model
 Initializes a Relaxed Log-Normal clock model
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

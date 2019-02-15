@@ -9,7 +9,7 @@
 #'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
 #'   created <- get_crown_age(phylogeny = phylogeny)
 #'   testit::assert(created == 15)
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_crown_age <- function(
   phylogeny

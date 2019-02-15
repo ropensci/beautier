@@ -3,7 +3,7 @@
 #' @return TRUE if the clock_model is a valid clock_model, FALSE otherwise
 #' @seealso see \code{\link{create_clock_model}} for an overview of functions
 #'   to create valid clock model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(is_clock_model(create_strict_clock_model()))
 #'   testit::assert(is_clock_model(create_rln_clock_model()))
@@ -24,7 +24,7 @@ is_clock_model <- function(
 #' @return TRUE if x is a valid relaxed log normal clock model, FALSE otherwise
 #' @seealso \code{\link{create_clock_model}} shows an overview of
 #'   functions to create a clock model
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   rln_clock_model <- create_rln_clock_model()
 #'   testit::assert(beautier:::is_rln_clock_model(rln_clock_model))
@@ -55,7 +55,7 @@ is_rln_clock_model <- function(
 #'   # rln: Relaxed Log-Normal
 #'   rln_clock_model <- create_rln_clock_model()
 #'   testit::assert(!beautier:::is_strict_clock_model(rln_clock_model))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_strict_clock_model <- function(
   x

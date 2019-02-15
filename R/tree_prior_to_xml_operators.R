@@ -2,7 +2,7 @@
 #'   as used in the \code{operators} section
 #' @inheritParams default_params_doc
 #' @return the tree prior as XML text
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 tree_prior_to_xml_operators <- function(
   tree_prior,

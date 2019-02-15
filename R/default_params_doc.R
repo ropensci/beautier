@@ -123,7 +123,7 @@
 #'   is potentially useful in debugging
 #' @param yule_tree_prior a Yule tree_prior,
 #'   as created by \code{\link{create_yule_tree_prior}}
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
@@ -196,7 +196,7 @@ default_params_doc <- function(
 #' @param upper upper value of the parameter
 #' @param value value of the parameter
 #' @param ... specific parameter parameters
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters

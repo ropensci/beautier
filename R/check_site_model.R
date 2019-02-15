@@ -24,7 +24,7 @@
 #'  testthat::expect_error(check_site_model(site_model = "nonsense"))
 #'  testthat::expect_error(check_site_model(site_model = NULL))
 #'  testthat::expect_error(check_site_model(site_model = NA))
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_site_model <- function(site_model) {
 
