@@ -19,6 +19,25 @@ TRUE if the inference model has an MRCA prior,
 \description{
 Will \link{stop} if the inference model is invalid
 }
+\examples{
+  # No MRCA prior
+  inference_model <- create_inference_model(
+    mrca_prior = NA
+  )
+  testthat::expect_false(has_mrca_prior(inference_model))
+
+  # A default MRCA prior
+  inference_model <- create_inference_model(
+    mrca_prior = create_mrca_prior()
+  )
+  testthat::expect_true(has_mrca_prior(inference_model))
+}
+\seealso{
+\itemize{
+    \item \link{create_inference_model}: create an inference model
+    \item \link{create_mrca_prior}: create an MRCA prior
+  }
+}
 \author{
 Richel J.C. Bilderbeek
 }

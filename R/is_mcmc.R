@@ -2,6 +2,10 @@
 #' @param x an object, to be determined if it is a valid MCMC
 #' @seealso Use \code{\link{create_mcmc}}
 #' @return TRUE if x is a valid MCMC, FALSE otherwise
+#' @examples
+#'   testthat::expect_true(is_mcmc(create_mcmc()))
+#'   testthat::expect_true(is_mcmc(create_nested_sampling_mcmc()))
+#'   testthat::expect_false(is_mcmc("nonsense"))
 #' @author Richel J.C. Bilderbeek
 #' @export
 is_mcmc <- function(
@@ -21,13 +25,18 @@ is_mcmc <- function(
 #' @param x an object, to be determined if it is a valid MCMC
 #' @seealso Use \code{\link{create_mcmc_nested_sampling}}
 #' @return TRUE if x is a valid Nested-Sampling MCMC, FALSE otherwise
+#' @examples
+#'   testthat::expect_false(is_nested_sampling_mcmc(create_mcmc()))
+#'   testthat::expect_true(
+#'     is_nested_sampling_mcmc(create_nested_sampling_mcmc())
+#'   )
+#'   testthat::expect_false(is_nested_sampling_mcmc("nonsense"))
 #' @author Richel J.C. Bilderbeek
 #' @references
 #'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
 #'     Remco R Bouckaert; Model Selection and Parameter Inference in
 #'     Phylogenetics Using Nested Sampling, Systematic Biology, 2018,
 #'     syy050, https://doi.org/10.1093/sysbio/syy050
-#' @export
 #' @aliases is_mcmc_nested_sampling is_nested_sampling_mcmc
 #' @export is_mcmc_nested_sampling is_nested_sampling_mcmc
 is_mcmc_nested_sampling <- is_nested_sampling_mcmc <- function(

@@ -18,6 +18,13 @@ TRUE if x is a valid Nested-Sampling MCMC, FALSE otherwise
 Determine if the object is a valid Nested-Sampling MCMC,
   as used in [1]
 }
+\examples{
+  testthat::expect_false(is_nested_sampling_mcmc(create_mcmc()))
+  testthat::expect_true(
+    is_nested_sampling_mcmc(create_nested_sampling_mcmc())
+  )
+  testthat::expect_false(is_nested_sampling_mcmc("nonsense"))
+}
 \references{
 * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
     Remco R Bouckaert; Model Selection and Parameter Inference in

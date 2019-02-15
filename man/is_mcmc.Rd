@@ -15,6 +15,11 @@ TRUE if x is a valid MCMC, FALSE otherwise
 \description{
 Determine if the object is a valid MCMC
 }
+\examples{
+  testthat::expect_true(is_mcmc(create_mcmc()))
+  testthat::expect_true(is_mcmc(create_nested_sampling_mcmc()))
+  testthat::expect_false(is_mcmc("nonsense"))
+}
 \seealso{
 Use \code{\link{create_mcmc}}
 }
