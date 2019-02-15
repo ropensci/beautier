@@ -17,19 +17,20 @@
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a gamma site model
-#' @seealso Use \code{\link{create_gamma_site_model}} 
+#' @seealso Use \code{\link{create_gamma_site_model}}
 #'   to create a gamma site model
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
 #'
 #'   site_model <- create_hky_site_model(gamma_site_model = gamma_site_model)
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     get_fasta_filename(),
-#'     "create_gamma_site_model.xml",
+#'     beast2_input_file,
 #'     site_model = site_model
 #'   )
-#'   testit::assert(file.exists("create_gamma_site_model.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_gamma_site_model <- function(

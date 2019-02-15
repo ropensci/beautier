@@ -34,12 +34,13 @@ It cannot be estimated (as a hyper parameter) yet.
   )
 
   # Use the distribution to create a BEAST2 input file
+  beast2_input_file <- tempfile(fileext = ".xml")
   create_beast2_input_file(
     input_filename = get_fasta_filename(),
-    "create_clock_rate_param.xml",
+    beast2_input_file,
     clock_model = strict_clock_model
   )
-  testit::assert(file.exists("create_clock_rate_param.xml"))
+  testit::assert(file.exists(beast2_input_file))
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

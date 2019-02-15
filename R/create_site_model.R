@@ -135,12 +135,13 @@ create_site_model <- function(
 #'     rate_gt_param = 6.7
 #'  )
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_gtr_site_model.xml",
+#'     beast2_input_file,
 #'     site_model = gtr_site_model
 #'   )
-#'   testit::assert(file.exists("create_gtr_site_model.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_gtr_site_model create_site_model_gtr
 #' @export create_gtr_site_model create_site_model_gtr
 create_gtr_site_model <- create_site_model_gtr <- function(

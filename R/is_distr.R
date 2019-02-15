@@ -163,6 +163,7 @@ is_laplace_distr <- function(
 #'   log_normal_distr <- create_log_normal_distr()
 #'
 #'   input_fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = input_fasta_filename,
 #'     "my_beast.xml",
@@ -170,7 +171,7 @@ is_laplace_distr <- function(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @noRd
 is_log_normal_distr <- function(
   x

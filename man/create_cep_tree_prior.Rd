@@ -27,12 +27,13 @@ Create a Coalescent Exponential Population tree prior
 \examples{
   cep_tree_prior <- create_cep_tree_prior()
 
+  beast2_input_file <- tempfile(fileext = ".xml")
   create_beast2_input_file(
     input_filename = get_fasta_filename(),
-    "create_cep_tree_prior.xml",
+    beast2_input_file,
     tree_prior = cep_tree_prior
   )
-  testit::assert(file.exists("create_cep_tree_prior.xml"))
+  testit::assert(file.exists(beast2_input_file))
 }
 \seealso{
 An alignment ID can be extracted from

@@ -20,40 +20,45 @@
 #'   for more examples using those functions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_tree_prior_bd.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_bd_tree_prior()
 #'   )
-#'   testit::assert(file.exists("create_tree_prior_bd.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_beautier_path("test_output_6.fas"),
-#'     "create_tree_prior_cbs.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_cbs_tree_prior()
 #'   )
-#'   testit::assert(file.exists("create_tree_prior_cbs.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_tree_prior_ccp.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_ccp_tree_prior()
 #'   )
-#'   testit::assert(file.exists("create_tree_prior_ccp.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_tree_prior_cep.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_cep_tree_prior()
 #'   )
-#'   testit::assert(file.exists("create_tree_prior_cep.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_tree_prior_yule.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior()
 #'   )
-#'   testit::assert(file.exists("create_tree_prior_yule.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @export
 create_tree_prior <- function(
   name,
@@ -97,23 +102,25 @@ create_tree_prior <- function(
 #' @examples
 #'   bd_tree_prior <- create_bd_tree_prior()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_bd_tree_prior.xml",
+#'     beast2_input_file,
 #'     tree_prior = bd_tree_prior
 #'   )
-#'   testit::assert(file.exists("create_bd_tree_prior.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #'
 #'   bd_tree_prior_exp <- create_bd_tree_prior(
 #'     birth_rate_distr = create_exp_distr()
 #'   )
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_bd_tree_prior_exp.xml",
+#'     beast2_input_file,
 #'     tree_prior = bd_tree_prior_exp
 #'   )
-#'   testit::assert(file.exists("create_bd_tree_prior_exp.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_bd_tree_prior create_tree_prior_bd
 #' @export create_bd_tree_prior create_tree_prior_bd
 create_bd_tree_prior <- create_tree_prior_bd <- function(
@@ -138,12 +145,13 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #' @examples
 #'   cbs_tree_prior <- create_cbs_tree_prior()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_beautier_path("test_output_6.fas"),
-#'     "create_cbs_tree_prior.xml",
+#'     beast2_input_file,
 #'     tree_prior = cbs_tree_prior
 #'   )
-#'   testit::assert(file.exists("create_cbs_tree_prior.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_cbs_tree_prior create_tree_prior_cbs
 #' @export create_cbs_tree_prior create_tree_prior_cbs
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
@@ -170,12 +178,13 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #' @examples
 #'   ccp_tree_prior <- create_ccp_tree_prior()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_ccp_tree_prior.xml",
+#'     beast2_input_file,
 #'     tree_prior = ccp_tree_prior
 #'   )
-#'   testit::assert(file.exists("create_ccp_tree_prior.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_ccp_tree_prior create_tree_prior_ccp
 #' @export create_ccp_tree_prior create_tree_prior_ccp
 create_ccp_tree_prior <- create_tree_prior_ccp <- function(
@@ -202,12 +211,13 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #' @examples
 #'   cep_tree_prior <- create_cep_tree_prior()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_cep_tree_prior.xml",
+#'     beast2_input_file,
 #'     tree_prior = cep_tree_prior
 #'   )
-#'   testit::assert(file.exists("create_cep_tree_prior.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_cep_tree_prior create_tree_prior_cep
 #' @export create_cep_tree_prior create_tree_prior_cep
 create_cep_tree_prior <- create_tree_prior_cep <- function(
@@ -239,12 +249,13 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #' @examples
 #'   yule_tree_prior <- create_yule_tree_prior()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_yule_tree_prior.xml",
+#'     beast2_input_file,
 #'     tree_prior = yule_tree_prior
 #'   )
-#'   testit::assert(file.exists("create_yule_tree_prior.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_yule_tree_prior create_tree_prior_yule
 #' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(

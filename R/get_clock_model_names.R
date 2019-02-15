@@ -1,6 +1,7 @@
 #' Get the clock model names
 #' @return the clock model names
-#' @seealso Use \link{get_clock_models} to get all clock models
+#' @seealso Use \link{create_clock_models} to create a list
+#'   with all clock models
 #' @examples
 #'   names <- beautier:::get_clock_model_names()
 #'   testit::assert("relaxed_log_normal" %in% names)

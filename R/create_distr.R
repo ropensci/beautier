@@ -32,14 +32,15 @@
 #'   # Use any distribution
 #'   distr <- create_beta_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_distr.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("create_distr.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_distr <- function(
@@ -91,14 +92,15 @@ create_distr <- function(
 #' @examples
 #'   beta_distr <- create_beta_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_beta_distr.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = beta_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("create_beta_distr.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_beta_distr create_distr_beta
 #' @export create_beta_distr create_distr_beta
 create_beta_distr <- create_distr_beta <- function(
@@ -147,14 +149,15 @@ create_beta_distr <- create_distr_beta <- function(
 #' @examples
 #'   exp_distr <- create_exp_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = exp_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_exp_distr create_distr_exp
 #' @export create_exp_distr create_distr_exp
 create_exp_distr <- create_distr_exp <- function(
@@ -199,12 +202,13 @@ create_exp_distr <- create_distr_exp <- function(
 #'     rate_ac_prior_distr = gamma_distr
 #'   )
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_gamma_distr.xml",
+#'     beast2_input_file,
 #'     site_model = gtr_site_model
 #'   )
-#'   testit::assert(file.exists("create_gamma_distr.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_gamma_distr create_distr_gamma
 #' @export create_gamma_distr create_distr_gamma
 create_gamma_distr <- create_distr_gamma <- function(
@@ -258,14 +262,15 @@ create_gamma_distr <- create_distr_gamma <- function(
 #' @examples
 #'   inv_gamma_distr <- create_inv_gamma_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = inv_gamma_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_inv_gamma_distr create_distr_inv_gamma
 #' @export create_inv_gamma_distr create_distr_inv_gamma
 create_inv_gamma_distr <- create_distr_inv_gamma <- function(
@@ -312,14 +317,15 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #' @examples
 #'   laplace_distr <- create_laplace_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_laplace_distr.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = laplace_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("create_laplace_distr.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_laplace_distr create_distr_laplace
 #' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
@@ -367,14 +373,15 @@ create_laplace_distr <- create_distr_laplace <- function(
 #' @examples
 #'   log_normal_distr <- create_log_normal_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = log_normal_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_log_normal_distr create_distr_log_normal
 #' @export create_log_normal_distr create_distr_log_normal
 create_log_normal_distr <- create_distr_log_normal <- function(
@@ -422,14 +429,15 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #' @examples
 #'   normal_distr <- create_normal_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = normal_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_normal_distr create_distr_normal
 #' @export create_normal_distr create_distr_normal
 create_normal_distr <- create_distr_normal <- function(
@@ -469,14 +477,15 @@ create_normal_distr <- create_distr_normal <- function(
 #' @examples
 #'   one_div_x_distr <- create_one_div_x_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "my_beast.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = one_div_x_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("my_beast.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_one_div_x_distr create_distr_one_div_x
 #' @export create_one_div_x_distr create_distr_one_div_x
 create_one_div_x_distr <- create_distr_one_div_x <- function(
@@ -501,14 +510,15 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #' @examples
 #'   poisson_distr <- create_poisson_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_poisson_distr.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = poisson_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("create_poisson_distr.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_poisson_distr create_distr_poisson
 #' @export create_poisson_distr create_distr_poisson
 create_poisson_distr <- create_distr_poisson <- function(
@@ -541,14 +551,15 @@ create_poisson_distr <- create_distr_poisson <- function(
 #' @examples
 #'   uniform_distr <- create_uniform_distr()
 #'
+#'   beast2_input_file <- tempfile(fileext = ".xml")
 #'   create_beast2_input_file(
 #'     input_filename = get_fasta_filename(),
-#'     "create_uniform_distr.xml",
+#'     beast2_input_file,
 #'     tree_prior = create_yule_tree_prior(
 #'       birth_rate_distr = uniform_distr
 #'     )
 #'   )
-#'   testit::assert(file.exists("create_uniform_distr.xml"))
+#'   testit::assert(file.exists(beast2_input_file))
 #' @aliases create_uniform_distr create_distr_uniform
 #' @export create_uniform_distr create_distr_uniform
 create_uniform_distr <- create_distr_uniform <- function(

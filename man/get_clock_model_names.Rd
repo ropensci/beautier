@@ -18,7 +18,8 @@ Get the clock model names
   testit::assert("strict" \%in\% names)
 }
 \seealso{
-Use \link{get_clock_models} to get all clock models
+Use \link{create_clock_models} to create a list
+  with all clock models
 }
 \author{
 Richèl J.C. Bilderbeek

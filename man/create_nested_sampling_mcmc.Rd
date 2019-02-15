@@ -40,12 +40,13 @@ to the length of that run.
     epsilon = 1e-12
   )
 
+  beast2_input_file <- tempfile(fileext = ".xml")
   create_beast2_input_file(
     get_fasta_filename(),
-    "create_mcmc_nested_sampling.xml",
+    beast2_input_file,
     mcmc = mcmc
   )
-  testit::assert(file.exists("create_mcmc_nested_sampling.xml"))
+  testit::assert(file.exists(beast2_input_file))
 }
 \references{
 * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
@@ -54,7 +55,7 @@ to the length of that run.
     syy050, https://doi.org/10.1093/sysbio/syy050
 }
 \seealso{
-Use \code{\link{create_nested_sampling_mcmc}} to create a 
+Use \code{\link{create_nested_sampling_mcmc}} to create a
   nested sampling MCMC
 }
 \author{

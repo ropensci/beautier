@@ -34,23 +34,25 @@ Create a strict clock model
     clock_rate_distr = create_uniform_distr()
   )
 
+  beast2_input_file <- tempfile(fileext = ".xml")
   create_beast2_input_file(
     get_fasta_filename(),
-    "create_strict_clock_model.xml",
+    beast2_input_file,
     clock_model = strict_clock_model
   )
-  testit::assert(file.exists("create_strict_clock_model.xml"))
+  testit::assert(file.exists(beast2_input_file))
 
   strict_clock_model_gamma <- create_strict_clock_model(
     clock_rate_distr = create_gamma_distr()
   )
 
+  beast2_input_file <- tempfile(fileext = ".xml")
   create_beast2_input_file(
     get_fasta_filename(),
-    "create_strict_clock_model_gamma.xml",
+    beast2_input_file,
     clock_model = strict_clock_model_gamma
   )
-  testit::assert(file.exists("create_strict_clock_model_gamma.xml"))
+  testit::assert(file.exists(beast2_input_file))
 }
 \author{
 Richèl J.C. Bilderbeek

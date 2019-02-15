@@ -36,12 +36,13 @@ Create a gamma distribution
     rate_ac_prior_distr = gamma_distr
   )
 
+  beast2_input_file <- tempfile(fileext = ".xml")
   create_beast2_input_file(
     input_filename = get_fasta_filename(),
-    "create_gamma_distr.xml",
+    beast2_input_file,
     site_model = gtr_site_model
   )
-  testit::assert(file.exists("create_gamma_distr.xml"))
+  testit::assert(file.exists(beast2_input_file))
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview
