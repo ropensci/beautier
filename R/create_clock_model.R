@@ -63,7 +63,7 @@ create_clock_model <- function(
 #' @param ucldstdev_distr the standard deviation of the uncorrelated
 #'   log-normal distribution,
 #'   as created by a \code{\link{create_distr}} function
-#' @param mparam_id the ID of the M parameter in the branchRateModel,
+#' @param mparam_id the ID of the M parameter in the \code{branchRateModel},
 #'   set to NA to have it initialized
 #' @param mean_clock_rate the mean clock rate, 1.0 by default
 #'   (is called \code{ucld_stdev} in XML, where \code{ucld_stdev} is always 0.1)

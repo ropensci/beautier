@@ -1,4 +1,4 @@
-#' Get the full path of a file in the 'inst/extdata' folder
+#' Get the full path of a file in the \code{inst/extdata} folder
 #' @param filename the file's name, without the path
 #' @return the full path of the filename
 #' @author Richel J.C. Bilderbeek

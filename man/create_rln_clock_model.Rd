@@ -23,7 +23,7 @@ as created by a \code{\link{create_distr}} function}
 log-normal distribution,
 as created by a \code{\link{create_distr}} function}
 
-\item{mparam_id}{the ID of the M parameter in the branchRateModel,
+\item{mparam_id}{the ID of the M parameter in the \code{branchRateModel},
 set to NA to have it initialized}
 
 \item{mean_clock_rate}{the mean clock rate, 1.0 by default

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_beautier_path.R
 \name{get_beautier_path}
 \alias{get_beautier_path}
-\title{Get the full path of a file in the 'inst/extdata' folder}
+\title{Get the full path of a file in the \code{inst/extdata} folder}
 \usage{
 get_beautier_path(filename)
 }
@@ -13,7 +13,7 @@ get_beautier_path(filename)
 the full path of the filename
 }
 \description{
-Get the full path of a file in the 'inst/extdata' folder
+Get the full path of a file in the \code{inst/extdata} folder
 }
 \examples{
   testit::assert(is.character(get_beautier_path("test_output_0.fas")))

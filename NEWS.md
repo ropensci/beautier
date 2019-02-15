@@ -113,7 +113,7 @@ distr <- create_distr_poisson(id = 1, lambda = 1.2)
 
 ### MINOR IMPROVEMENTS
 
-  * Tagged for [the academic article about babette](https://github.com/ropensci/babette_article)
+  * Tagged for [the academic article](https://github.com/ropensci/babette_article) about `babette`
 
 ### BUG FIXES
 

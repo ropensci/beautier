@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_beast2_input_loggers.R
 \name{create_beast2_input_screenlog}
 \alias{create_beast2_input_screenlog}
-\title{Creates the screenlog section of the logger section
+\title{Creates the \code{screenlog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_screenlog()
@@ -11,7 +11,7 @@ create_beast2_input_screenlog()
 the XML text
 }
 \description{
-Creates the screenlog section of the logger section
+Creates the \code{screenlog} section of the \code{logger} section
 of a BEAST2 XML parameter file
 }
 \author{

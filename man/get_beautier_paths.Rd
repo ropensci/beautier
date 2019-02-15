@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_beautier_paths.R
 \name{get_beautier_paths}
 \alias{get_beautier_paths}
-\title{Get the full paths of files in the 'inst/extdata' folder}
+\title{Get the full paths of files in the \code{inst/extdata} folder}
 \usage{
 get_beautier_paths(filenames)
 }
@@ -13,7 +13,7 @@ get_beautier_paths(filenames)
 the filenames' full paths
 }
 \description{
-Get the full paths of files in the 'inst/extdata' folder
+Get the full paths of files in the \code{inst/extdata} folder
 }
 \examples{
   testit::assert(

@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_beast2_input_loggers.R
 \name{create_beast2_input_tracelog}
 \alias{create_beast2_input_tracelog}
-\title{Creates the tracelog section of the logger section
+\title{Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_tracelog(ids,
@@ -37,7 +37,7 @@ The first column contains the taxa names, the second column contains
 the date.}
 }
 \description{
-Creates the tracelog section of the logger section
+Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file
 }
 \examples{

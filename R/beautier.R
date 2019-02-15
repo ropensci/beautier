@@ -1,25 +1,29 @@
-#' beautier: A package to create a BEAST2 input file,
+#' \code{beautier}: A package to create a \code{BEAST2} input file.
 #'
-#' 'beautier' allows to create a BEAST2 input file, using
-#' an R interface. 'beautier' closely follows the interface
-#' of BEAUti 2, a GUI tool bundled with BEAST2, including
+#' \code{beautier} allows to create a \code{BEAST2} input file, using
+#' an R interface. \code{beautier} closely follows the interface
+#' of \code{BEAUti 2}, a GUI tool bundled with \code{BEAST2}, including
 #' its default settings.
 #'
 #' @seealso
-#' These are packages associated with 'beautier':
+#' These are packages associated with \code{beautier}:
 #' \itemize{
 #'   \item{
-#'     The package 'beastier' can run
+#'     The package \code{beastier} can run
 #'     BEAST2 from R
 #'   }
 #'   \item{
-#'     The package 'tracerer' can parse
+#'     The package \code{tracerer} can parse
 #'     BEAST2 output files from R
 #'   }
 #'   \item{
-#'     The package 'babette' combines the
-#'     functionality of 'beautier',
-#'     'beastier' and 'tracerer'
+#'     The package \code{mauricer} manages
+#'     BEAST2 packages from R
+#'   }
+#'   \item{
+#'     The package \code{babette} combines the
+#'     functionality of \code{beautier},
+#'     \code{beastier}, \code{mauricer} and \code{tracerer}
 #'     into a single workflow
 #'   }
 #' }

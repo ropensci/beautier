@@ -57,7 +57,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text
 }
 
-#' Creates the tracelog section of the logger section
+#' Creates the \code{tracelog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @examples
@@ -152,7 +152,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   c(text, "</logger>")
 }
 
-#' Creates the screenlog section of the logger section
+#' Creates the \code{screenlog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @return the XML text
 #' @inheritParams default_params_doc
@@ -169,7 +169,7 @@ create_beast2_input_screenlog <- function() {
   text
 }
 
-#' Creates the tracelog section of the logger section
+#' Creates the \code{tracelog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richel J.C. Bilderbeek

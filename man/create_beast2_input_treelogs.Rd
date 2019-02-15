@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_beast2_input_loggers.R
 \name{create_beast2_input_treelogs}
 \alias{create_beast2_input_treelogs}
-\title{Creates the tracelog section of the logger section
+\title{Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_treelogs(clock_models)
@@ -12,7 +12,7 @@ create_beast2_input_treelogs(clock_models)
 as returned by \code{\link{create_clock_model}}}
 }
 \description{
-Creates the tracelog section of the logger section
+Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file
 }
 \author{
