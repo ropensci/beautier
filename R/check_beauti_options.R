@@ -35,23 +35,38 @@ check_beauti_options <- function(
   if (length(beauti_options$capitalize_first_char_id) != 1 ||
     is.na(beauti_options$capitalize_first_char_id) ||
     !is.logical(beauti_options$capitalize_first_char_id)) {
-    stop("'capitalize_first_char_id' must be one boolean")
+    stop(
+      "'capitalize_first_char_id' must be one boolean. \n",
+      "Actual value: ", beauti_options$capitalize_first_char_id
+    )
   }
   if (length(beauti_options$nucleotides_uppercase) != 1 ||
     is.na(beauti_options$nucleotides_uppercase) ||
     !is.logical(beauti_options$nucleotides_uppercase)) {
-    stop("'nucleotides_uppercase' must be one boolean")
+    stop(
+      "'nucleotides_uppercase' must be one boolean. \n",
+      "Actual value: ", beauti_options$nucleotides_uppercase
+    )
   }
   if (length(beauti_options$beast2_version) != 1 ||
     !is.character(beauti_options$beast2_version)) {
-    stop("'beast2_version' must be one character string")
+    stop(
+      "'beast2_version' must be one character string. \n",
+      "Actual value: ", beauti_options$beast2_version
+    )
   }
   if (length(beauti_options$required) != 1 ||
     !is.character(beauti_options$required)) {
-    stop("'required' must be one character string")
+    stop(
+      "'required' must be one character string. \n",
+      "Actual value: ", beauti_options$required
+    )
   }
   if (length(beauti_options$sequence_indent) != 1 ||
     !is.numeric(beauti_options$sequence_indent)) {
-    stop("'sequence_indent' must be one number")
+    stop(
+      "'sequence_indent' must be one number. \n",
+      "Actual value: ", beauti_options$sequence_indent
+    )
   }
 }

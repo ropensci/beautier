@@ -3,7 +3,7 @@ context("mcmc_to_xml_run")
 test_that("use, default", {
 
   created <- mcmc_to_xml_run(create_mcmc())
-  expected <- "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+  expected <- "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
   expect_equal(created, expected)
 
 })

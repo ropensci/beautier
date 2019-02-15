@@ -26,22 +26,31 @@ check_inference_model <- function(
   for (arg_name in argument_names) {
     if (!arg_name %in% names(inference_model)) {
       stop(
-        "'", arg_name, "' must be an element of an 'inference_model'. ",
+        "'", arg_name, "' must be an element of an 'inference_model'. \n",
         "Tip: use 'create_inference_model'"
       )
     }
   }
   check_site_model(inference_model$site_model) # nolint beautier function
-  check_clock_model(inference_model$clock_model) # nolint beautier function
+  tryCatch(
+    check_clock_model(inference_model$clock_model), # nolint beautier function
+    error = function(e) {
+      stop(
+        "'clock_model' must be a valid clock model. \n",
+        "Error: ", e$message, "\n",
+        "Value: ", inference_model$clock_model
+      )
+    }
+  )
   check_tree_prior(inference_model$tree_prior) # nolint beautier function
   check_mcmc(inference_model$mcmc) # nolint beautier function
   tryCatch(
     check_mrca_prior(inference_model$mrca_prior), # nolint beautier function
     error = function(e) {
       stop(
-        "'mrca_prior' must be a valid MRCA prior.\n",
+        "'mrca_prior' must be a valid MRCA prior. \n",
         "Error: ", e$message, "\n",
-        "Value: ", inference_model$beauti_options
+        "Value: ", inference_model$mrca_prior
       )
     }
   )
@@ -49,7 +58,7 @@ check_inference_model <- function(
     check_beauti_options(inference_model$beauti_options), # nolint beautier function
     error = function(e) {
       stop(
-        "'beauti_options' must be a valid misc option.\n",
+        "'beauti_options' must be a valid misc option. \n",
         "Error: ", e$message, "\n",
         "Value: ", inference_model$beauti_options
       )
