@@ -53,6 +53,10 @@ to the length of that run.
     Phylogenetics Using Nested Sampling, Systematic Biology, 2018,
     syy050, https://doi.org/10.1093/sysbio/syy050
 }
+\seealso{
+Use \code{\link{create_nested_sampling_mcmc}} to create a 
+  nested sampling MCMC
+}
 \author{
 Richèl J.C. Bilderbeek
 }

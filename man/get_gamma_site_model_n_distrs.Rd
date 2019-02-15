@@ -30,6 +30,9 @@ Get the number of distributions in a gamma site model
   n_distrs <- get_gamma_site_model_n_distrs(gamma_site_model)
   testit::assert(n_distrs == 1)
 }
+\seealso{
+Use \link{create_gamma_site_model} to create a gamma site model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

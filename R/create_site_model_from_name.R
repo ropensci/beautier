@@ -1,6 +1,7 @@
 #' Create a site model from name
 #' @inheritParams default_params_doc
 #' @return a site model
+#' @seealso Use \link{create_site_model} to create a site model
 #' @examples
 #'   site_model_names <- get_site_model_names()
 #'   for (site_model_name in site_model_names) {

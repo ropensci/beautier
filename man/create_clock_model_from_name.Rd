@@ -24,6 +24,9 @@ Create a clock model from name
     testthat::expect_equal(clock_model_name, clock_model$name)
   }
 }
+\seealso{
+Use \code{\link{create_clock_model}} to create a clock model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

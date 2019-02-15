@@ -23,6 +23,9 @@ Will \link{stop} if the arguments are not MCMCs.
   testthat::expect_true(are_equal_mcmcs(mcmc_1, mcmc_1))
   testthat::expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 }
+\seealso{
+Use \link{create_mcmc} to create an MCMC
+}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -23,6 +23,9 @@ Determine if x consists out of site_models objects
   testit::assert(are_site_models(gtr_site_model))
   testit::assert(are_site_models(both_site_models))
 }
+\seealso{
+Use \link{create_site_model} to create a site model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

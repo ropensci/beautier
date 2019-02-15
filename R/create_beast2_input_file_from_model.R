@@ -23,6 +23,8 @@
 #'   different tree priors.
 #'   See \code{\link{create_mcmc}} for examples with
 #'   a different MCMC setup.
+#'   Use \link{create_beast2_input_file} to do the same with the elements
+#'   of an inference model.
 #' @export
 create_beast2_input_file_from_model <- function( # nolint indeed a long name, but I preferred this over 'create_beast2_input_file2'
   input_filename,

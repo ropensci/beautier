@@ -35,6 +35,9 @@ Creates all supported site models
    testit::assert(site_model$name \%in\% get_site_model_names())
  }
 }
+\seealso{
+Use \link{create_site_model} to create a site model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

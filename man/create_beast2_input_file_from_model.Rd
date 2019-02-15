@@ -47,6 +47,8 @@ See \code{\link{create_site_model}} for examples with
   different tree priors.
   See \code{\link{create_mcmc}} for examples with
   a different MCMC setup.
+  Use \link{create_beast2_input_file} to do the same with the elements
+  of an inference model.
 }
 \author{
 Richèl J.C. Bilderbeek

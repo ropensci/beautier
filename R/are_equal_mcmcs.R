@@ -4,6 +4,7 @@
 #' @param mcmc_1 an MCMC, as created by \link{create_mcmc}
 #' @param mcmc_2 an MCMC, as created by \link{create_mcmc}
 #' @return TRUE if the two MCMCs are equal
+#' @seealso Use \link{create_mcmc} to create an MCMC
 #' @examples
 #'   mcmc_1 <- create_mcmc(chain_length = 1000)
 #'   mcmc_2 <- create_mcmc(chain_length = 314)

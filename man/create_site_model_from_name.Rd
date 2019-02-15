@@ -23,6 +23,9 @@ Create a site model from name
     testthat::expect_equal(site_model_name, site_model$name)
   }
 }
+\seealso{
+Use \link{create_site_model} to create a site model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

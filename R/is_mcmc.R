@@ -1,6 +1,6 @@
 #' Determine if the object is a valid MCMC
 #' @param x an object, to be determined if it is a valid MCMC
-#' @seealso Use \code{\link{create_mcmc}}
+#' @seealso Use \code{\link{create_mcmc}} to create an MCMC
 #' @return TRUE if x is a valid MCMC, FALSE otherwise
 #' @examples
 #'   testthat::expect_true(is_mcmc(create_mcmc()))

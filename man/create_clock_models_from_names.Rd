@@ -24,6 +24,9 @@ Create clock models from their names
     testthat::expect_equal(names[i], clock_models[[i]]$name)
   }
 }
+\seealso{
+Use \link{create_clock_models} to get all clock models
+}
 \author{
 Richèl J.C. Bilderbeek
 }

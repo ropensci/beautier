@@ -17,6 +17,9 @@ Get the clock model names
   testit::assert("relaxed_log_normal" \%in\% names)
   testit::assert("strict" \%in\% names)
 }
+\seealso{
+Use \link{get_clock_models} to get all clock models
+}
 \author{
 Richèl J.C. Bilderbeek
 }

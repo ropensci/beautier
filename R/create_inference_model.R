@@ -4,6 +4,7 @@
 #' as can be done by BEAUti.
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration
+#' @seealso Use \link{create_inference_model} to create an inference model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   # Create an MCMC chain with 50 states

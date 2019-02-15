@@ -2,6 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return a clock model,
 #'   as can be created by \link{create_clock_model}
+#' @seealso Use \code{\link{create_clock_model}} to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   clock_model_names <- get_clock_model_names()

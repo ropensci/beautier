@@ -54,6 +54,9 @@ as can be done by BEAUti.
   )
   testit::assert(file.exists("create_inference_model.xml"))
 }
+\seealso{
+Use \link{create_inference_model} to create an inference model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

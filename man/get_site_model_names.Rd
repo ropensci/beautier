@@ -20,6 +20,9 @@ Get the site models' names
   testit::assert("TN93" \%in\% names)
   testit::assert("GTR" \%in\% names)
 }
+\seealso{
+Use \link{create_site_models} to get all site models
+}
 \author{
 Richèl J.C. Bilderbeek
 }

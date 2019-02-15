@@ -23,6 +23,9 @@ Create a tree prior from name
     testthat::expect_equal(tree_prior_name, tree_prior$name)
   }
 }
+\seealso{
+Use \link{create_tree_prior} to create a tree prior
+}
 \author{
 Richèl J.C. Bilderbeek
 }

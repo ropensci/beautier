@@ -24,6 +24,9 @@ Create site models from their names
     testthat::expect_equal(names[i], site_models[[i]]$name)
   }
 }
+\seealso{
+Use \link{create_site_model} to create a site model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -3,6 +3,7 @@
 #' Calls \code{stop} if the phylogeny is invalid
 #' @inheritParams default_params_doc
 #' @return nothing
+#' @seealso Use \link[ape]{read.tree} to create a phylogeny
 #' @examples
 #'  phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")
 #'  testthat::expect_silent(check_phylogeny(phylogeny))

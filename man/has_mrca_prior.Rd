@@ -19,6 +19,9 @@ TRUE if the inference model has an MRCA prior,
 \description{
 Will \link{stop} if the inference model is invalid
 }
+\note{
+MRCA: 'Most Recent Common Ancestor'
+}
 \examples{
   # No MRCA prior
   inference_model <- create_inference_model(

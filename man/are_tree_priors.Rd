@@ -23,6 +23,9 @@ Determine if x consists out of tree_priors objects
   testit::assert(are_tree_priors(bd_tree_prior))
   testit::assert(are_tree_priors(both_tree_priors))
 }
+\seealso{
+Use \link{create_yule_tree_prior} to create a Yule tree prior
+}
 \author{
 Richèl J.C. Bilderbeek
 }

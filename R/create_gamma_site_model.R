@@ -17,8 +17,8 @@
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
 #' @return a gamma site model
-#' @note Use \code{\link{create_site_model}} to create a site model
-#'   that has both a gamma site model and substitution model
+#' @seealso Use \code{\link{create_gamma_site_model}} 
+#'   to create a gamma site model
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
 #'

@@ -37,10 +37,6 @@ a gamma site model
 \description{
 Create a gamma site model, part of a site model
 }
-\note{
-Use \code{\link{create_site_model}} to create a site model
-  that has both a gamma site model and substitution model
-}
 \examples{
   gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
 
@@ -52,6 +48,10 @@ Use \code{\link{create_site_model}} to create a site model
     site_model = site_model
   )
   testit::assert(file.exists("create_gamma_site_model.xml"))
+}
+\seealso{
+Use \code{\link{create_gamma_site_model}} 
+  to create a gamma site model
 }
 \author{
 Richèl J.C. Bilderbeek

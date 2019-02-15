@@ -23,6 +23,9 @@ Creates all supported clock models,
  testit::assert(beautier:::is_rln_clock_model(clock_models[[1]]))
  testit::assert(beautier:::is_strict_clock_model(clock_models[[2]]))
 }
+\seealso{
+Use \link{create_clock_model} to create a clock model
+}
 \author{
 Richèl J.C. Bilderbeek
 }

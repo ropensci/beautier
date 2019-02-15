@@ -2,6 +2,7 @@
 #'
 #' Will \link{stop} if the inference model is invalid
 #' @inheritParams default_params_doc
+#' @note MRCA: 'Most Recent Common Ancestor'
 #' @return TRUE if the inference model has an MRCA prior,
 #'   FALSE otherwise
 #' @examples

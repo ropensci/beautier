@@ -21,7 +21,7 @@ Determine if the object is a valid MCMC
   testthat::expect_false(is_mcmc("nonsense"))
 }
 \seealso{
-Use \code{\link{create_mcmc}}
+Use \code{\link{create_mcmc}} to create an MCMC
 }
 \author{
 Richèl J.C. Bilderbeek

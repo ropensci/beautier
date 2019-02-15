@@ -3,6 +3,7 @@
 #'   \code{\link{create_rln_clock_model}},
 #'   and \code{\link{create_strict_clock_model}}
 #' @return a list of site_models
+#' @seealso Use \link{create_clock_model} to create a clock model
 #' @examples
 #'  clock_models <- create_clock_models()
 #'  testit::assert(beautier:::is_rln_clock_model(clock_models[[1]]))

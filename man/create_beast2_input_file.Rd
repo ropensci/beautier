@@ -81,7 +81,9 @@ Create a BEAST2 input file
   testthat::expect_true(file.exists(output_filename))
 }
 \seealso{
-See \code{\link{create_site_model}} for examples with
+Use \link{create_beast2_input_file_from_model} to do the same with an
+  inference model.
+  See \code{\link{create_site_model}} for examples with
   different site models. See \code{\link{create_clock_model}} for examples
   with clock models. See \code{\link{create_tree_prior}} for examples with
   different tree priors. See \code{\link{create_mcmc}} for examples with

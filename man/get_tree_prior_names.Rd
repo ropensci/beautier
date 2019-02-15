@@ -20,6 +20,9 @@ Get the tree prior names
   testit::assert("coalescent_exp_population" \%in\% names)
   testit::assert("yule" \%in\% names)
 }
+\seealso{
+Use \link{create_tree_priors} to get all tree priors
+}
 \author{
 Richèl J.C. Bilderbeek
 }

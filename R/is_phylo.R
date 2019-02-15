@@ -1,6 +1,7 @@
 #' Checks if the input is a phylogeny
 #' @param x input to be checked
 #' @return TRUE or FALSE
+#' @seealso Use \link{check_phylo} to check for a phylogeny
 #' @examples
 #'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
 #'   testit::assert(is_phylo(phylogeny))

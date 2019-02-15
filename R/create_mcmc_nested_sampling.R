@@ -11,6 +11,8 @@
 #' @param sub_chain_length sub-chain length
 #' @param epsilon epsilon
 #' @return an MCMC object
+#' @seealso Use \code{\link{create_nested_sampling_mcmc}} to create a 
+#'   nested sampling MCMC
 #' @examples
 #'   mcmc <- create_mcmc_nested_sampling(
 #'     chain_length = 1e7,

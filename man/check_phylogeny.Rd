@@ -24,6 +24,9 @@ Calls \code{stop} if the phylogeny is invalid
  testthat::expect_error(check_phylogeny(phylo = NULL))
  testthat::expect_error(check_phylogeny(phylo = NA))
 }
+\seealso{
+Use \link[ape]{read.tree} to create a phylogeny
+}
 \author{
 Richèl J.C. Bilderbeek
 }

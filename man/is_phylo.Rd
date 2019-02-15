@@ -23,6 +23,9 @@ Checks if the input is a phylogeny
   testit::assert(!is_phylo(NA))
   testit::assert(!is_phylo(NULL))
 }
+\seealso{
+Use \link{check_phylo} to check for a phylogeny
+}
 \author{
 Richèl J.C. Bilderbeek
 }
