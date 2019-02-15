@@ -13,12 +13,12 @@
 are_clock_models <- function(
   x
 ) {
-  if (is.null(x)) return(FALSE)
-  if (is_clock_model(x)) return(TRUE) # nolint beautier function
-  for (i in x) {
-    if (!is_clock_model(i)) return(FALSE) # nolint beautier function
-  }
-  TRUE
+  tryCatch({
+      check_clock_models(x)
+      TRUE
+    },
+    error = function(e) FALSE
+  )
 }
 
 #' Are the clock models Relaxed Log-Normal clock models?
