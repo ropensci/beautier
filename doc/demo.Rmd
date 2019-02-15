@@ -1,0 +1,59 @@
+---
+title: "beautier demo"
+author: "Richèl J.C. Bilderbeek"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{beautier demo}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+The purpose of `beautier` is to create a valid `BEAST2` XML input file
+from its function argument. In this way, a scientific pipeline using 
+`BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
+
+# Demonstration
+
+First, `beautier` is loaded:
+
+```{r}
+library(beautier)
+```
+
+A BEAST2 XML input file needs an alignment (as BEAST2 infers
+phylogenies and parameters on DNA sequences). This demonstration uses
+a testing FASTA file used by `beautier`:
+
+```{r}
+fasta_filename <- get_beautier_path("test_output_0.fas")
+```
+
+We can display the alignment in the file:
+
+
+```{r}
+image(ape::read.FASTA(fasta_filename))
+```
+
+Now we can create our XML file:
+
+```{r}
+# The name of the file you intend to let BEAST2 run
+output_filename <- tempfile(pattern = "beeast2", fileext = ".xml")
+
+create_beast2_input_file(
+  fasta_filename,
+  output_filename
+)
+```
+
+The file indeed is a BEAST2 input file:
+
+```{r}
+cat(readLines(output_filename), quote = FALSE, sep = '\n')
+```
+
+This XML input file can be read by BEAST2.

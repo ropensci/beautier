@@ -1,3 +1,4 @@
+Meta
 .Rproj.user
 .Rhistory
 .RData
@@ -65,7 +66,6 @@ test.txt
 vignettes/*.xml
 *.xml
 beautier_*.tar.gz
-beautier.Rcheck/
 beautier.Rcheck/
 ..Rcheck/
 scripts/build/
