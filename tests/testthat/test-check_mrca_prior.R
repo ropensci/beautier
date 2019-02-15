@@ -78,13 +78,21 @@ test_that("use", {
   )
   expect_error(
     check_mrca_prior(
+      create_mrca_prior(clock_prior_distr_id = "nonsense")
+    ),
+    "'clock_prior_distr_id' must be one NA or one number"
+  )
+  expect_error(
+    check_mrca_prior(
       create_mrca_prior(clock_prior_distr_id = c(1, 2))
-    )
+    ),
+    "'clock_prior_distr_id' must be one NA or one number"
   )
   expect_error(
     check_mrca_prior(
       create_mrca_prior(clock_prior_distr_id = NULL)
-    )
+    ),
+    "'clock_prior_distr_id' must be one NA or one number"
   )
 })
 
