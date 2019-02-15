@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_clock_models.R
 \name{check_clock_models}
 \alias{check_clock_models}
-\title{Check if the object is a list of one or more clock models.
-Will \link{stop} if the object is not a list of one or more clock models.}
+\title{Check if the object is a list of one or more clock models.}
 \usage{
 check_clock_models(clock_models)
 }
@@ -16,7 +15,6 @@ nothing.
   Will \link{stop} if the object is not a list of one or more clock models.
 }
 \description{
-Check if the object is a list of one or more clock models.
 Will \link{stop} if the object is not a list of one or more clock models.
 }
 \examples{

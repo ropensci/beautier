@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_site_models.R
 \name{check_site_models}
 \alias{check_site_models}
-\title{Check if the object is a list of one or more site models.
-Will \link{stop} if the object is not a list of one or more site models.}
+\title{Check if the object is a list of one or more site models.}
 \usage{
 check_site_models(site_models)
 }
@@ -16,7 +15,6 @@ nothing.
   Will \link{stop} if the object is not a list of one or more site models.
 }
 \description{
-Check if the object is a list of one or more site models.
 Will \link{stop} if the object is not a list of one or more site models.
 }
 \examples{

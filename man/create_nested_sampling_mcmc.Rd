@@ -4,11 +4,7 @@
 \alias{create_nested_sampling_mcmc}
 \alias{create_mcmc_nested_sampling}
 \title{Create an MCMC object to estimate the marginal likelihood
-using Nested Sampling.
-This will result in a BEAST run that estimates the marginal
-likelihood until convergence is achieved.
-In this context, \code{chain_length} is only an upper bound
-to the length of that run.}
+using Nested Sampling.}
 \usage{
 create_nested_sampling_mcmc(chain_length = 1e+07, store_every = -1,
   particle_count = 1, sub_chain_length = 5000, epsilon = "1e-12")
@@ -30,8 +26,6 @@ Use -1 or \code{NA} to use the default frequency.}
 an MCMC object
 }
 \description{
-Create an MCMC object to estimate the marginal likelihood
-using Nested Sampling.
 This will result in a BEAST run that estimates the marginal
 likelihood until convergence is achieved.
 In this context, \code{chain_length} is only an upper bound

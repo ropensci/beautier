@@ -1,5 +1,6 @@
 #' Creates the the \code{distribution}'s prior section (which is part of
 #' a posterior distribution section) of a BEAST2 XML parameter file.
+#'
 #' These lines start with '\code{<distribution id="prior"}'
 #' @inheritParams default_params_doc
 #' @return lines of XML text

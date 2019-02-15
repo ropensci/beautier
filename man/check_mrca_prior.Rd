@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_mrca_prior.R
 \name{check_mrca_prior}
 \alias{check_mrca_prior}
-\title{Check if the MRCA prior is a valid MRCA prior.
-Calls \code{stop} if the MRCA prior is invalid.}
+\title{Check if the MRCA prior is a valid MRCA prior.}
 \usage{
 check_mrca_prior(mrca_prior)
 }
@@ -15,7 +14,6 @@ as returned by \code{\link{create_mrca_prior}}}
 nothing
 }
 \description{
-Check if the MRCA prior is a valid MRCA prior.
 Calls \code{stop} if the MRCA prior is invalid.
 }
 \examples{

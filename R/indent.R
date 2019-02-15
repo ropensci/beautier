@@ -1,4 +1,4 @@
-#' Indent text for a certain number of spaces
+#' Indent text for a certain number of spaces.
 #' If the text is only whitespace, leave it as such
 #' @param text the text to indent
 #' @param n_spaces the number of spaces to add before the text

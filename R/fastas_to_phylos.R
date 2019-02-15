@@ -1,4 +1,5 @@
 #' Create one or more random phylogenies.
+#'
 #' Per FASTA file, one random phylogeny is created,
 #' with the same taxa names as that FASTA file.
 #' All phylogenies have the same crown age.

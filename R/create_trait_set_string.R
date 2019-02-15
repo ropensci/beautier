@@ -1,4 +1,5 @@
 #' Create a trait set string.
+#'
 #' For example, a data frame with row \code{A 1}
 #' and another row \code{B 2}, the trait set string will be
 #' \code{A=1,B=2}

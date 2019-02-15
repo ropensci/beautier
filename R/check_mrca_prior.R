@@ -1,5 +1,5 @@
 #' Check if the MRCA prior is a valid MRCA prior.
-#"
+#'
 #' Calls \code{stop} if the MRCA prior is invalid.
 #' @inheritParams default_params_doc
 #' @return nothing

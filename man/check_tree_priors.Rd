@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_tree_priors.R
 \name{check_tree_priors}
 \alias{check_tree_priors}
-\title{Check if the object is a list of one or more tree priors.
-Will \link{stop} if the object is not a list of one or more tree priors.}
+\title{Check if the object is a list of one or more tree priors.}
 \usage{
 check_tree_priors(tree_priors)
 }
@@ -16,7 +15,6 @@ nothing.
   Will \link{stop} if the object is not a list of one or more tree priors.
 }
 \description{
-Check if the object is a list of one or more tree priors.
 Will \link{stop} if the object is not a list of one or more tree priors.
 }
 \examples{

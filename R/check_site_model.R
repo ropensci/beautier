@@ -1,4 +1,5 @@
 #' Check if the site model is a valid site model
+#'
 #' Calls \code{stop} if the site models are invalid
 #' @inheritParams default_params_doc
 #' @return nothing

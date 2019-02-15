@@ -2,10 +2,7 @@
 % Please edit documentation in R/fastas_to_phylos.R
 \name{fastas_to_phylos}
 \alias{fastas_to_phylos}
-\title{Create one or more random phylogenies.
-Per FASTA file, one random phylogeny is created,
-with the same taxa names as that FASTA file.
-All phylogenies have the same crown age.}
+\title{Create one or more random phylogenies.}
 \usage{
 fastas_to_phylos(fasta_filenames, crown_age)
 }
@@ -22,7 +19,6 @@ a \code{multiPhylo} with as much phylogenies
   All phylogenies have the same crown age.
 }
 \description{
-Create one or more random phylogenies.
 Per FASTA file, one random phylogeny is created,
 with the same taxa names as that FASTA file.
 All phylogenies have the same crown age.

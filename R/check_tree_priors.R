@@ -1,4 +1,5 @@
 #' Check if the object is a list of one or more tree priors.
+#'
 #' Will \link{stop} if the object is not a list of one or more tree priors.
 #' @param tree_priors the object to be checked if it is a list of one
 #'   or more valid tree priors

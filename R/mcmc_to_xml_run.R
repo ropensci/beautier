@@ -1,4 +1,3 @@
-
 #' Converts an MCMC object to the run section's XML
 #' @inheritParams default_params_doc
 #' @return the XML as text

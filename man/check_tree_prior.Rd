@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_tree_prior.R
 \name{check_tree_prior}
 \alias{check_tree_prior}
-\title{Check if the tree prior is a valid tree prior
-Calls \code{stop} if the tree priors are invalid}
+\title{Check if the tree prior is a valid tree prior}
 \usage{
 check_tree_prior(tree_prior)
 }
@@ -15,7 +14,6 @@ as returned by \code{\link{create_tree_prior}}}
 nothing
 }
 \description{
-Check if the tree prior is a valid tree prior
 Calls \code{stop} if the tree priors are invalid
 }
 \examples{

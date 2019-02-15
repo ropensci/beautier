@@ -1,4 +1,5 @@
 #' Check if the object is a list of one or more site models.
+#'
 #' Will \link{stop} if the object is not a list of one or more site models.
 #' @param site_models the object to be checked if it is a list of one
 #'   or more valid site models

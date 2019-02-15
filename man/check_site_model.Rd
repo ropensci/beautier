@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_site_model.R
 \name{check_site_model}
 \alias{check_site_model}
-\title{Check if the site model is a valid site model
-Calls \code{stop} if the site models are invalid}
+\title{Check if the site model is a valid site model}
 \usage{
 check_site_model(site_model)
 }
@@ -15,7 +14,6 @@ as returned by \code{\link{create_site_model}}}
 nothing
 }
 \description{
-Check if the site model is a valid site model
 Calls \code{stop} if the site models are invalid
 }
 \examples{

@@ -1,5 +1,6 @@
 #' Create an MCMC object to estimate the marginal likelihood
 #' using Nested Sampling.
+#'
 #' This will result in a BEAST run that estimates the marginal
 #' likelihood until convergence is achieved.
 #' In this context, \code{chain_length} is only an upper bound

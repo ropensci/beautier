@@ -1,4 +1,5 @@
 #' Check if the tree prior is a valid tree prior
+#'
 #' Calls \code{stop} if the tree priors are invalid
 #' @inheritParams default_params_doc
 #' @return nothing
