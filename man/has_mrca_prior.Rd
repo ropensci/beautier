@@ -34,8 +34,8 @@ Will \link{stop} if the inference model is invalid
 }
 \seealso{
 \itemize{
-    \item \link{create_inference_model}: create an inference model
-    \item \link{create_mrca_prior}: create an MRCA prior
+    \item \code{\link{create_inference_model}}: create an inference model
+    \item \code{\link{create_mrca_prior}}: create an MRCA prior
   }
 }
 \author{
