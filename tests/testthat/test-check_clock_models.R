@@ -28,4 +28,10 @@ test_that("use", {
     check_clock_models(NA),
     "'clock_models' must be a list of one or more valid clock models"
   )
+  expect_error(
+    check_clock_models(
+      list(create_strict_clock_model(), "nonsense")
+    ),
+    "'clock_models' must be a list of one or more valid clock models"
+  )
 })

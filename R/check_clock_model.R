@@ -29,7 +29,7 @@ check_clock_model <- function(clock_model) {
   }
   if (!clock_model$name %in% get_clock_model_names()) {
     stop(
-      "clock_model$name must be one of the clock model names (",
+      "'clock_model$name' must be one of the clock model names (",
       paste0(get_clock_model_names(), collapse = ", "), "). \n",
       "Actual value: ", clock_model$name
     )
