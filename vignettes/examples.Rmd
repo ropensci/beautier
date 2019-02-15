@@ -50,37 +50,6 @@ create_beast2_input_file(
 
 All other parameters are set to their defaults, as in BEAUti.
 
-## Example #2: fixed crown age
-
-Using all default settings, only specify a DNA alignment.
-
-```
-[No screenshot, as this cannot be done in BEAUti yet]
-```
-
-```{r}
-create_beast2_input_file_1_12(
-  "my_fasta.fas",
-  "my_beast.xml",
-  fixed_crown_age = TRUE,
-  initial_phylogenies = fasta_to_phylo(
-    fasta_filename = "my_fasta.fas",
-    crown_age = 15)
-)
-```
-
-```
-# Deprecated
-create_beast2_input_file(
-  "my_fasta.fas",
-  "my_beast.xml",
-  posterior_crown_age = 15
-)
-```
-
-`fasta_to_phylo` creates a random phylogeny from
-a FASTA file of a certain crown age. 
-
 ## Example #3: JC69 site model
 
 ```{r}

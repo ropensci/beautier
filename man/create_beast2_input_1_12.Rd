@@ -50,12 +50,6 @@ lines of XML text
 \description{
 Create a BEAST2 XML input text, interface of v1.12
 }
-\examples{
-  create_beast2_input_file_1_12(
-    input_filenames = get_fasta_filename(),
-    "my_beast.xml"
-  )
-}
 \seealso{
 \code{\link{create_beast2_input_file}} shows more examples
 }

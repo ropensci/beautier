@@ -37,16 +37,7 @@ All phylogenies have the same crown age.
   initial_phylogenies <- fastas_to_phylos(
     fasta_filenames,
     crown_age = 15
-   )
-
-  # Crown age fixed to the crown age of the phylogeny
-  create_beast2_input_file_1_12(
-    input_filenames = fasta_filenames,
-    "fastas_to_phylos.xml",
-    fixed_crown_ages = c(TRUE),
-    initial_phylogenies = initial_phylogenies
   )
-  testthat::expect_true(file.exists("fastas_to_phylos.xml"))
 }
 \author{
 Richel J.C. Bilderbeek
