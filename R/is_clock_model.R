@@ -36,7 +36,7 @@ is_rln_clock_model <- function(
   x
 ) {
   tryCatch({
-      check_rln_clock_model(x)
+      check_rln_clock_model(x) # nolint beautier function
       TRUE
     },
     error = function(e) FALSE
@@ -61,7 +61,7 @@ is_strict_clock_model <- function(
   x
 ) {
   tryCatch({
-      check_strict_clock_model(x)
+      check_strict_clock_model(x) # nolint beautier function
       TRUE
     },
     error = function(e) FALSE

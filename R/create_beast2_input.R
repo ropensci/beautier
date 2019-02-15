@@ -1,7 +1,7 @@
 #' Create a BEAST2 XML input text
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
-#' @seealso 
+#' @seealso
 #'   Use \link{create_beast2_input_file} to also save it to file.
 #'   Use \link{create_beast2_input_file_from_model} to use an inference model
 #'     as an input argument.

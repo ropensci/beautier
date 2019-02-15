@@ -1,4 +1,4 @@
-#' Is an XML closing tag with the value of \code{section} 
+#' Is an XML closing tag with the value of \code{section}
 #'   present amongst the lines of
 #'   the text?
 #' @param lines lines of the XML text

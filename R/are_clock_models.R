@@ -14,7 +14,7 @@ are_clock_models <- function(
   x
 ) {
   tryCatch({
-      check_clock_models(x)
+      check_clock_models(x) # nolint beautier function
       TRUE
     },
     error = function(e) FALSE

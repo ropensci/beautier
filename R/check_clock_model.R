@@ -35,10 +35,10 @@ check_clock_model <- function(clock_model) {
     )
   }
   if (clock_model$name == "strict") {
-    check_strict_clock_model(clock_model)
+    check_strict_clock_model(clock_model) # nolint beautier function
   } else {
     testit::assert(clock_model$name == "relaxed_log_normal")
-    check_rln_clock_model(clock_model)
+    check_rln_clock_model(clock_model) # nolint beautier function
   }
 }
 
