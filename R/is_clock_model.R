@@ -35,17 +35,12 @@ is_clock_model <- function(
 is_rln_clock_model <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
-  if (x$name != "relaxed_log_normal") return(FALSE)
-  if (!"ucldstdev_distr" %in% names(x)) return(FALSE)
-  if (!"mean_rate_prior_distr" %in% names(x)) return(FALSE)
-  if (!"mparam_id" %in% names(x)) return(FALSE)
-  if (!"mean_clock_rate" %in% names(x)) return(FALSE)
-  if (!"n_rate_categories" %in% names(x)) return(FALSE)
-  if (!"normalize_mean_clock_rate" %in% names(x)) return(FALSE)
-  if (!"dimension" %in% names(x)) return(FALSE)
-  TRUE
+  tryCatch({
+      check_rln_clock_model(x)
+      TRUE
+    },
+    error = function(e) FALSE
+  )
 }
 
 #' Determine if the object is a valid strict clock model,
@@ -65,12 +60,10 @@ is_rln_clock_model <- function(
 is_strict_clock_model <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
-  if (x$name != "strict") return(FALSE)
-  if (!"clock_rate_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$clock_rate_param)) return(FALSE) # nolint beautier function
-  if (!"clock_rate_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$clock_rate_distr)) return(FALSE) # nolint beautier function
-  TRUE
+  tryCatch({
+      check_strict_clock_model(x)
+      TRUE
+    },
+    error = function(e) FALSE
+  )
 }

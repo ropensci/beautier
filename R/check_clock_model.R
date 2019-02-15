@@ -80,6 +80,20 @@ check_rln_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$name
     )
   }
+  if (!is_distr(clock_model$ucldstdev_distr)) {
+    stop(
+      "'clock_model$ucldstdev_distr' must be a distribution. \n",
+      "Tip: use create_distr. \n",
+      "Actual value: ", clock_model$ucldstdev_distr
+    )
+  }
+  if (!is_distr(clock_model$mean_rate_prior_distr)) {
+    stop(
+      "'clock_model$mean_rate_prior_distr' must be a distribution. \n",
+      "Tip: use create_distr. \n",
+      "Actual value: ", clock_model$mean_rate_prior_distr
+    )
+  }
 }
 
 #' Check if the clock model is a valid clock model.
@@ -116,6 +130,20 @@ check_strict_clock_model <- function(clock_model) {
       "clock model. \n",
       "Tip: use create_strict_clock_model. \n",
       "Actual value: ", clock_model$name
+    )
+  }
+  if (!is_distr(clock_model$clock_rate_distr)) {
+    stop(
+      "'clock_model$clock_rate_distr' must be a distribution. \n",
+      "Tip: use create_distr. \n",
+      "Actual value: ", clock_model$clock_rate_distr
+    )
+  }
+  if (!is_param(clock_model$clock_rate_param)) {
+    stop(
+      "'clock_model$clock_rate_param' must be a parameter. \n",
+      "Tip: use create_param. \n",
+      "Actual value: ", clock_model$clock_rate_param
     )
   }
 }
