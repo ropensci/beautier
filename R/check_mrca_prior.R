@@ -70,11 +70,9 @@ check_mrca_prior <- function(mrca_prior) {
   ) {
     stop("'taxa_names' must be NA or all names must be unique")
   }
-
-  if (!is_distr(mrca_prior$mrca_distr) && !is.na(mrca_prior$mrca_distr)) {
-    stop(
-      "'mrca_distr' must be NA or a valid distribution. ",
-      "Tip: use 'create_distr'"
-    )
+  if (!is_one_na(mrca_prior$clock_prior_distr_id) &&
+      !is.character(mrca_prior$clock_prior_distr_id)) {
+    stop("'clock_prior_distr_id' must be NA or characters")
   }
+
 }

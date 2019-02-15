@@ -76,11 +76,9 @@ test_that("use", {
       create_mrca_prior(name = NULL)
     )
   )
-
-  skip("Issue 81, #81")
   expect_error(
     check_mrca_prior(
-      create_mrca_prior(clock_prior_distr_id = "nonsense")
+      create_mrca_prior(clock_prior_distr_id = c(1, 2))
     )
   )
   expect_error(
@@ -88,7 +86,6 @@ test_that("use", {
       create_mrca_prior(clock_prior_distr_id = NULL)
     )
   )
-
 })
 
 test_that("in-depth use", {
