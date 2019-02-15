@@ -48,3 +48,6 @@ All phylogenies have the same crown age.
   )
   testthat::expect_true(file.exists("fastas_to_phylos.xml"))
 }
+\author{
+Richel J.C. Bilderbeek
+}

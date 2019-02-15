@@ -30,3 +30,6 @@ These are packages associated with 'beautier':
   }
 }
 }
+\author{
+Richel J.C. Bilderbeek
+}

@@ -12,6 +12,7 @@
 #'   and \code{expected_lines_filename} that contain the
 #'   section under investigation, so that a diff tool
 #'   can compare these
+#' @author Richel J.C. Bilderbeek
 #' @noRd
 compare_lines <- function(
   lines,

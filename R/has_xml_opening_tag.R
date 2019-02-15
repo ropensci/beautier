@@ -5,6 +5,7 @@
 #'   XML opening tag. If \code{section} is set to a certain word,
 #'   this function returns TRUE if that tag matches \code{section}
 #' @return lines of XML text
+#' @author Richel J.C. Bilderbeek
 #' @noRd
 has_xml_opening_tag <- function(
   lines,

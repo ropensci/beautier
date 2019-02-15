@@ -22,6 +22,7 @@
 #'     initial_phylogenies = initial_phylogeny
 #'   )
 #'   testthat::expect_true(file.exists("fasta_to_phylo.xml"))
+#' @author Richel J.C. Bilderbeek
 #' @export
 fasta_to_phylo <- function(fasta_filename, crown_age) {
 

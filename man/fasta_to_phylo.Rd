@@ -41,3 +41,6 @@ Create a random phylogeny, with the same taxa names as the FASTA file
   )
   testthat::expect_true(file.exists("fasta_to_phylo.xml"))
 }
+\author{
+Richel J.C. Bilderbeek
+}
