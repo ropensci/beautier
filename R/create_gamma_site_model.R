@@ -75,6 +75,7 @@ create_gamma_site_model <- function(
     prop_invariant = prop_invariant,
     gamma_shape_prior_distr = gamma_shape_prior_distr
   )
+  check_gamma_site_model(gamma_site_model) # nolint beautier function
   testit::assert(is_gamma_site_model(gamma_site_model)) # nolint beautier function
   gamma_site_model
 }
