@@ -5,6 +5,8 @@ matrix:
   - r: oldrel
     os: linux
   - r: release
+    os: oldrel
+  - r: release
     os: linux
   - r: release
     os: osx
@@ -12,7 +14,6 @@ matrix:
     os: linux
 
 cache: packages
-
 
 r_packages:
   - devtools
