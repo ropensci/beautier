@@ -1,9 +1,13 @@
-language: r
 cache: packages
 
-os: 
-  - linux
-  - osx
+matrix:
+  include:
+  - r: release
+    os: linux
+  - r: devel
+    os: linux
+  - r: release
+    os: osx
 
 r_packages:
   - devtools
