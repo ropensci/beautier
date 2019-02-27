@@ -10,8 +10,8 @@ is_init_mrca_prior <- function(
   if (!is_mrca_prior(x)) return(FALSE) # nolint beautier function
   # Just an NA
   if (length(x) == 1 && is_one_na(x)) return(TRUE) # nolint beautier function
-  if (is_one_na(x$name)) return(FALSE)
-  if (is_one_na(x$clock_prior_distr_id)) return(FALSE)
+  if (is_one_na(x$name)) return(FALSE) # nolint beautier function
+  if (is_one_na(x$clock_prior_distr_id)) return(FALSE) # nolint beautier function
   if (is_distr(x$mrca_distr) &&  # nolint beautier function
       !is_init_distr(x$mrca_distr) # nolint beautier function
   ) return(FALSE)

@@ -22,7 +22,7 @@ mrca_prior_to_xml_taxonset <- function(
   text <- NULL
   testit::assert(!is_one_na(mrca_prior$taxa_names)) # nolint beautier function
   for (taxon_name in mrca_prior$taxa_names) {
-    text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>"))
+    text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>")) # nolint this is no absolute path
   }
   text <- indent(text, n_spaces = 4) # nolint beautier function
   text <- c(

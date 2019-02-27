@@ -19,10 +19,10 @@ has_xml_short_closing_tag <- function(
     match <- stringr::str_trim(
       stringr::str_extract(
         string = line,
-        pattern = "/>"
+        pattern = "/>" # nolint this is no absolute path
       )
     )
-    if (!is_one_na(match)) return(TRUE)
+    if (!is_one_na(match)) return(TRUE) # nolint beautier function
   }
   FALSE
 }

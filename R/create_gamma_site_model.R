@@ -64,7 +64,7 @@ create_gamma_site_model <- function(
   ) {
     stop("'gamma_shape_prior_distr' must be a distribution")
   }
-  if (gamma_cat_count < 2 && !is_one_na(gamma_shape_prior_distr)) {
+  if (gamma_cat_count < 2 && !is_one_na(gamma_shape_prior_distr)) { # nolint beautier function
     stop(
       "'gamma_shape_prior_distr' must be NA ",
       "for a 'gamma_cat_count' of less than two"

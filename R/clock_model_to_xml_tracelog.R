@@ -21,13 +21,13 @@ clock_model_to_xml_tracelog <- function(
   if (is_rln_clock_model(clock_model)) { # nolint beautier function
     if (is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint beautier function
     ) {
-      text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>")) # nolint this is no absolute path
     }
-    text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"ucldStdev.c:", id, "\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("<log id=\"rate.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.RateStatistic\" ",
       "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
-      "tree=\"@Tree.t:", id, "\"/>")
+      "tree=\"@Tree.t:", id, "\"/>") # nolint this is no absolute path # nolint this is no absolute path
     )
   } else {
     # Will fail on unimplemented clock models

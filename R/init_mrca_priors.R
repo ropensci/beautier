@@ -18,10 +18,10 @@ init_mrca_priors <- function(
     mrca_prior <- mrca_priors[[i]]
     testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
 
-    if (is_one_na(mrca_prior$name)) {
+    if (is_one_na(mrca_prior$name)) { # nolint beautier function
       mrca_prior$name <- names[i]
     }
-    if (is_one_na(mrca_prior$clock_prior_distr_id)) {
+    if (is_one_na(mrca_prior$clock_prior_distr_id)) { # nolint beautier function
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }

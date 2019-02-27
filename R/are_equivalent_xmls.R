@@ -45,7 +45,7 @@ are_equivalent_xml_lines <- function(
   section = NA,
   verbose = FALSE
 ) {
-  if (is_one_na(section)) {
+  if (is_one_na(section)) { # nolint beautier function
     return(
       are_equivalent_xml_lines_all(
         lines_1 = lines_1,
@@ -54,7 +54,7 @@ are_equivalent_xml_lines <- function(
       )
     )
   } else {
-    testit::assert(!is_one_na(section))
+    testit::assert(!is_one_na(section)) # nolint beautier function
     return(
       are_equivalent_xml_lines_section(
         lines_1 = lines_1,

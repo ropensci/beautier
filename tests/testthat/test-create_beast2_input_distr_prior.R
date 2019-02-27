@@ -6,7 +6,7 @@ test_that("RLN", {
     "<distribution id=\"prior\" spec=\"util.CompoundDistribution\">",
     "    <distribution id=\"YuleModel.t:test_output_0\" spec=\"beast.evolution.speciation.YuleModel\" birthDiffRate=\"@birthRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
     "    <prior id=\"YuleBirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@birthRate.t:test_output_0\">", # nolint XML
-    "        <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>",
+    "        <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>", # nolint this is no absolute path
     "    </prior>",
     "    <prior id=\"ucldStdevPrior.c:test_output_0\" name=\"distribution\" x=\"@ucldStdev.c:test_output_0\">", # nolint XML
     "        <Gamma id=\"Gamma.0\" name=\"distr\">",

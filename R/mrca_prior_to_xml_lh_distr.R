@@ -29,7 +29,7 @@ mrca_prior_to_xml_lh_distr <- function(
       "<branchRateModel ",
       "id=\"StrictClock.c:", mrca_prior$alignment_id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-      "clock.rate=\"@clockRate.c:", mrca_prior$alignment_id, "\"/>"
+      "clock.rate=\"@clockRate.c:", mrca_prior$alignment_id, "\"/>" # nolint this is no absolute path
     )
   } else if (!has_non_strict_clock_model) {
     text <- NULL

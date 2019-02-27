@@ -25,7 +25,7 @@ clock_model_to_xml_lh_distr <- function(
 
   text <- NULL
   if (is_strict_clock_model(clock_model)) { # nolint beautier function
-    if (is_one_na(tipdates_filename)) {
+    if (is_one_na(tipdates_filename)) { # nolint beautier function
       text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
         id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
       # initialization may happen here
@@ -45,7 +45,7 @@ clock_model_to_xml_lh_distr <- function(
         paste0(
           "<branchRateModel id=\"StrictClock.c:", id, "\" ",
           "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-          "clock.rate=\"@clockRate.c:", id, "\"/>"
+          "clock.rate=\"@clockRate.c:", id, "\"/>" # nolint this is no absolute path
         )
       )
     }

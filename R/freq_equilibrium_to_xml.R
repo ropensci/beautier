@@ -12,15 +12,15 @@ freq_equilibrium_to_xml <- function(
   if (freq_equilibrium == "estimated") {
     paste0("<frequencies ", "id=\"estimatedFreqs.s:", id, "\" ",
       "spec=\"Frequencies\" ",
-      "frequencies=\"@freqParameter.s:", id, "\"/>"
+      "frequencies=\"@freqParameter.s:", id, "\"/>" # nolint this is no absolute path
     )
   } else if (freq_equilibrium == "empirical") {
     paste0("<frequencies id=\"empiricalFreqs.s:", id, "\" ",
-      "spec=\"Frequencies\" data=\"@", id, "\"/>"
+      "spec=\"Frequencies\" data=\"@", id, "\"/>" # nolint this is no absolute path
     )
   } else {
     testit::assert(freq_equilibrium == "all_equal")
     paste0("<frequencies id=\"equalFreqs.s:", id, "\" ",
-      "spec=\"Frequencies\" data=\"@", id, "\" estimate=\"false\"/>")
+      "spec=\"Frequencies\" data=\"@", id, "\" estimate=\"false\"/>") # nolint this is no absolute path
   }
 }

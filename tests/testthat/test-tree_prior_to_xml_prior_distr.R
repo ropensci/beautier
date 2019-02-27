@@ -5,10 +5,10 @@ test_that("BD", {
   expected <- c(
     "<distribution id=\"BirthDeath.t:test_output_0\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" birthDiffRate=\"@BDBirthRate.t:test_output_0\" relativeDeathRate=\"@BDDeathRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
     "<prior id=\"BirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDBirthRate.t:test_output_0\">", # nolint XML
-    "    <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>",
+    "    <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"1000.0\"/>", # nolint this is no absolute path
     "</prior>",
     "<prior id=\"DeathRatePrior.t:test_output_0\" name=\"distribution\" x=\"@BDDeathRate.t:test_output_0\">", # nolint XML
-    "    <Uniform id=\"Uniform.4\" name=\"distr\"/>",
+    "    <Uniform id=\"Uniform.4\" name=\"distr\"/>", # nolint this is no absolute path
     "</prior>"
   )
   created <- beautier:::tree_prior_to_xml_prior_distr(
@@ -44,7 +44,7 @@ test_that("CCP", {
     "    <treeIntervals id=\"TreeIntervals.t:test_output_0\" spec=\"TreeIntervals\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
     "</distribution>", # nolint XML
     "<prior id=\"PopSizePrior.t:test_output_0\" name=\"distribution\" x=\"@popSize.t:test_output_0\">", # nolint XML
-    "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>",
+    "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>", # nolint this is no absolute path
     "</prior>"
   )
   created <- beautier:::tree_prior_to_xml_prior_distr(
@@ -64,7 +64,7 @@ test_that("CEP", {
     "    <treeIntervals id=\"TreeIntervals.t:test_output_0\" spec=\"TreeIntervals\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
     "</distribution>",
     "<prior id=\"ePopSizePrior.t:test_output_0\" name=\"distribution\" x=\"@ePopSize.t:test_output_0\">", # nolint XML
-    "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>",
+    "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>", # nolint this is no absolute path
     "</prior>",
     "<prior id=\"GrowthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@growthRate.t:test_output_0\">", # nolint XML
     "    <LaplaceDistribution id=\"LaplaceDistribution.0\" name=\"distr\">",
@@ -92,7 +92,7 @@ test_that("Yule", {
   expected <- c(
     "<distribution id=\"YuleModel.t:test_output_0\" spec=\"beast.evolution.speciation.YuleModel\" birthDiffRate=\"@birthRate.t:test_output_0\" tree=\"@Tree.t:test_output_0\"/>", # nolint XML
     "<prior id=\"YuleBirthRatePrior.t:test_output_0\" name=\"distribution\" x=\"@birthRate.t:test_output_0\">", # nolint XML
-    "    <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>",
+    "    <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>", # nolint this is no absolute path
     "</prior>"
   )
   created <- beautier:::tree_prior_to_xml_prior_distr(

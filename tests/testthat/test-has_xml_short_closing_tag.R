@@ -4,7 +4,7 @@ test_that("use", {
 
   testthat::expect_true(
     beautier:::has_xml_short_closing_tag(
-      "<text content=\"Hello\"/>"
+      "<text content=\"Hello\"/>" # nolint this is no absolute path
     )
   )
   testthat::expect_false(

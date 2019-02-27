@@ -35,7 +35,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
     "<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
-  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) { # nolint beautier function
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }
   xml <- paste0(xml, ">")
@@ -64,7 +64,7 @@ mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint beautier function c
     "<run id=\"mcmc\" spec=\"beast.gss.NS\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
-  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) { # nolint beautier function
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }
   xml <- paste0(xml,

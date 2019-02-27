@@ -30,10 +30,10 @@ create_mcmc <- function(
   if (chain_length <= 0) {
     stop("'chain_length' must be positive and non-zero")
   }
-  if (!is_one_na(store_every) && store_every != -1 && store_every < 1000) {
+  if (!is_one_na(store_every) && store_every != -1 && store_every < 1000) { # nolint beautier function
     stop("'store_every' must be at least 1000, NA or -1")
   }
-  if (!is_one_na(store_every) && store_every > chain_length) {
+  if (!is_one_na(store_every) && store_every > chain_length) { # nolint beautier function
     stop("'store_every' must be equal or lower to 'chain_length'")
   }
 

@@ -267,7 +267,7 @@ distr_to_xml_one_div_x <- function(
 
   text <- NULL
   text <- c(text, paste0("<OneOnX ",
-    "id=\"OneOnX.", id, "\" name=\"distr\"/>"))
+    "id=\"OneOnX.", id, "\" name=\"distr\"/>")) # nolint this is no absolute path
   text
 }
 
@@ -311,9 +311,9 @@ distr_to_xml_uniform <- function(
 
   text <- NULL
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")
-  line_end <- "/>"
+  line_end <- "/>" # nolint this is no absolute path
   upper <- distr$upper
-  if (is_one_na(upper)) {
+  if (is_one_na(upper)) { # nolint beautier function
     text <- c(text, paste0(line_begin, line_end))
   } else if (is.infinite(upper)) {
     text <- c(text, paste0(line_begin, " upper=\"Infinity\"", line_end))

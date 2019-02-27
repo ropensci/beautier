@@ -232,7 +232,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
     "birthDiffRate=\"@BDBirthRate.t:", id, "\" ",
     "relativeDeathRate=\"@BDDeathRate.t:", id, "\" ",
-    "tree=\"@Tree.t:", id, "\"/>"))
+    "tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
 
   # BDBirthRate
   bd_birth_rate_distr <- bd_tree_prior$birth_rate_distr
@@ -294,11 +294,11 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" popSizes=\"@bPopSizes.t:", id, "\">"))
   text <- c(text, paste0("    ",
     "<treeIntervals id=\"BSPTreeIntervals.t:", id, "\" ",
-    "spec=\"TreeIntervals\" tree=\"@Tree.t:", id, "\"/>"))
+    "spec=\"TreeIntervals\" tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
   text <- c(text, paste0("</distribution>"))
   text <- c(text, paste0("<distribution id=\"MarkovChainedPopSizes.t:", id,
     "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
-    "jeffreys=\"true\" parameter=\"@bPopSizes.t:", id, "\"/>"))
+    "jeffreys=\"true\" parameter=\"@bPopSizes.t:", id, "\"/>")) # nolint this is no absolute path
   text
 }
 
@@ -330,11 +330,11 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" spec=\"Coalescent\">"))
   text <- c(text, paste0("    ",
     "<populationModel id=\"ConstantPopulation.t:", id,
-    "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", id, "\"/>"))
+    "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", id, "\"/>")) # nolint this is no absolute path
   text <- c(text, paste0(
     "    <treeIntervals id=\"TreeIntervals.t:",
     id, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
-    id, "\"/>"))
+    id, "\"/>")) # nolint this is no absolute path
   text <- c(text, "</distribution>")
 
   # pop size
@@ -382,10 +382,10 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   text <- c(text, paste0("    <populationModel ",
     "id=\"ExponentialGrowth.t:", id, "\" spec=\"ExponentialGrowth\" ",
     "growthRate=\"@growthRate.t:", id, "\" ",
-    "popSize=\"@ePopSize.t:", id, "\"/>"))
+    "popSize=\"@ePopSize.t:", id, "\"/>")) # nolint this is no absolute path
   text <- c(text, paste0("    <treeIntervals ",
     "id=\"TreeIntervals.t:", id, "\" spec=\"TreeIntervals\" ",
-    "tree=\"@Tree.t:", id, "\"/>"))
+    "tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
   text <- c(text, paste0("</distribution>"))
 
   # prior
@@ -442,7 +442,7 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   # distribution
   text <- c(text, paste0("<distribution id=\"YuleModel.t:", id,
     "\" spec=\"beast.evolution.speciation.YuleModel\" ",
-    "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>"))
+    "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
 
   # prior
   text <- c(text, paste0(

@@ -103,9 +103,9 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   # 1 tracelog
   filename <- utils::head(ids, n = 1)
 
-  text <- c(text, "<log idref=\"posterior\"/>")
-  text <- c(text, "<log idref=\"likelihood\"/>")
-  text <- c(text, "<log idref=\"prior\"/>")
+  text <- c(text, "<log idref=\"posterior\"/>") # nolint this is no absolute path
+  text <- c(text, "<log idref=\"likelihood\"/>") # nolint this is no absolute path
+  text <- c(text, "<log idref=\"prior\"/>") # nolint this is no absolute path
   text <- c(text, tree_models_to_xml_tracelog(site_models)) # nolint beautier function
 
   site_models_xml <- site_models_to_xml_tracelog(site_models) # nolint beautier function
@@ -160,11 +160,11 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 create_beast2_input_screenlog <- function() {
   text <- NULL
   text <- c(text, "<logger id=\"screenlog\" logEvery=\"1000\">")
-  text <- c(text, "    <log idref=\"posterior\"/>")
+  text <- c(text, "    <log idref=\"posterior\"/>") # nolint this is no absolute path
   text <- c(text, paste0("    <log id=\"ESS.0\" spec=\"util.ESS\" ",
-    "arg=\"@posterior\"/>"))
-  text <- c(text, "    <log idref=\"likelihood\"/>")
-  text <- c(text, "    <log idref=\"prior\"/>")
+    "arg=\"@posterior\"/>")) # nolint this is no absolute path
+  text <- c(text, "    <log idref=\"likelihood\"/>") # nolint this is no absolute path
+  text <- c(text, "    <log idref=\"prior\"/>") # nolint this is no absolute path
   text <- c(text, "</logger>")
   text
 }

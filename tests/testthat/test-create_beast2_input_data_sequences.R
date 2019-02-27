@@ -25,7 +25,7 @@ test_that("sequences are sorted", {
     )
   expected <- paste0("                    <sequence id=\"seq_t1\" ",
     "taxon=\"t1\" ",
-    "totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>")
+    "totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>") # nolint this is no absolute path
   created <- lines[1]
   testthat::expect_equal(expected, created)
 })

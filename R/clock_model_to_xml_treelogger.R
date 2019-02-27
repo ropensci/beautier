@@ -15,7 +15,7 @@ clock_model_to_xml_treelogger <- function(
         "<log ",
         "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
         "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-        "tree=\"@Tree.t:", id, "\"/>"
+        "tree=\"@Tree.t:", id, "\"/>" # nolint this is no absolute path
       )
     )
   } else {
@@ -28,7 +28,7 @@ clock_model_to_xml_treelogger <- function(
         "<log id=\"TreeWithMetaDataLogger.t:", id, "\" ",
         "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
         "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
-        "tree=\"@Tree.t:", id, "\"/>"
+        "tree=\"@Tree.t:", id, "\"/>" # nolint this is no absolute path
       )
     )
   }
