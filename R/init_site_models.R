@@ -50,7 +50,7 @@ init_site_models <- function(
     distr_id <- distr_id + get_site_model_n_distrs(site_model) # nolint beautier function
     param_id <- param_id + get_site_model_n_params(site_model) # nolint beautier function
 
-    if (is_one_na(site_model$id)) site_model$id <- ids[i]
+    if (is_one_na(site_model$id)) site_model$id <- ids[i] # nolint beautier function call
     testit::assert(is_init_site_model(site_model)) # nolint beautier function call
     site_models[[i]] <- site_model
   }
