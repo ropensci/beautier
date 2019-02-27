@@ -313,7 +313,7 @@ distr_to_xml_uniform <- function(
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")
   line_end <- "/>"
   upper <- distr$upper
-  if (is.na(upper)) {
+  if (is_one_na(upper)) {
     text <- c(text, paste0(line_begin, line_end))
   } else if (is.infinite(upper)) {
     text <- c(text, paste0(line_begin, " upper=\"Infinity\"", line_end))

@@ -32,7 +32,7 @@ test_that("use", {
   )
 
   testthat::expect_true(
-    is.na(
+    is_one_na(
       beautier:::find_last_xml_closing_tag_line(
         lines = lines,
         section = "absent"

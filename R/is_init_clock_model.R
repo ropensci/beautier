@@ -27,9 +27,9 @@ is_init_rln_clock_model <- function(
   rln_clock_model
 ) {
   testit::assert(is_rln_clock_model(rln_clock_model)) # nolint beautier function
-  if (!is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE) # nolint beautier function call
-  if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) return(FALSE) # nolint beautier function call
-  !is.na(rln_clock_model$mparam_id) && !is.na(rln_clock_model$dimension)
+  if (!is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE) # nolint beautier function
+  if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) return(FALSE) # nolint beautier function
+  !is_one_na(rln_clock_model$mparam_id) && !is_one_na(rln_clock_model$dimension) # nolint beautier function
 }
 
 #' Determine if x is an initialized strict clock_model object
@@ -42,5 +42,5 @@ is_init_strict_clock_model <- function(
 ) {
   testit::assert(is_strict_clock_model(strict_clock_model)) # nolint beautier function
   if (!is_init_distr(strict_clock_model$clock_rate_distr)) return(FALSE) # nolint beautier function
-  !is.na(strict_clock_model$clock_rate_param$id)
+  !is_one_na(strict_clock_model$clock_rate_param$id) # nolint beautier function
 }

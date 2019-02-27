@@ -11,12 +11,12 @@ has_xml_opening_tag <- function(
   lines,
   section = NA
 ) {
-  if (is.null(section) || (!is.character(section) && !is.na(section))) {
+  if (is.null(section) || (!is.character(section) && !is_one_na(section))) {
     stop("'section' must be NA or a word")
   }
-  if (is.na(section)) {
+  if (is_one_na(section)) {
     tag <- get_xml_opening_tag(lines) # nolint
-    return(!is.na(tag))
+    return(!is_one_na(tag))
   }
-  !is.na(find_first_xml_opening_tag_line(lines, section)) # nolint beautier function
+  !is_one_na(find_first_xml_opening_tag_line(lines, section)) # nolint beautier function
 }

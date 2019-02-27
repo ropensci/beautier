@@ -14,14 +14,14 @@ test_that("use '<tag text=hello/>'", {
 
   xml <- "<taxon id=\"630116_aco\" spec=\"Taxon\"/>"
   created <- beautier:::get_xml_closing_tag(xml)
-  testthat::expect_true(is.na(created))
+  testthat::expect_true(is_one_na(created))
 
 })
 
 test_that("No tag gives NA", {
 
   testthat::expect_true(
-    is.na(
+    is_one_na(
       beautier:::get_xml_closing_tag("no xml")
     )
   )

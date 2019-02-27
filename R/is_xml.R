@@ -11,8 +11,8 @@ is_xml <- function(text) {
   if (has_xml_short_closing_tag(text)) return(TRUE) # nolint beautier function
   opening_tag <- get_xml_opening_tag(text) # nolint beautier function
   closing_tag <- get_xml_closing_tag(text) # nolint beautier function
-  if (is.na(closing_tag)) return(FALSE)
-  testit::assert(!is.na(closing_tag))
+  if (is_one_na(closing_tag)) return(FALSE)
+  testit::assert(!is_one_na(closing_tag))
   if (opening_tag != closing_tag) return(FALSE)
   TRUE
 }

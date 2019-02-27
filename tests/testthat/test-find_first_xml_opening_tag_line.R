@@ -32,7 +32,7 @@ test_that("use", {
   )
 
   testthat::expect_true(
-    is.na(
+    is_one_na(
       beautier:::find_first_xml_opening_tag_line(
         lines = lines,
         section = "nonsense"

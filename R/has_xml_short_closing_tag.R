@@ -22,7 +22,7 @@ has_xml_short_closing_tag <- function(
         pattern = "/>"
       )
     )
-    if (!is.na(match)) return(TRUE)
+    if (!is_one_na(match)) return(TRUE)
   }
   FALSE
 }

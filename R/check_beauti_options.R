@@ -33,7 +33,7 @@ check_beauti_options <- function(
     }
   }
   if (length(beauti_options$capitalize_first_char_id) != 1 ||
-    is.na(beauti_options$capitalize_first_char_id) ||
+    is_one_na(beauti_options$capitalize_first_char_id) ||
     !is.logical(beauti_options$capitalize_first_char_id)) {
     stop(
       "'capitalize_first_char_id' must be one boolean. \n",
@@ -41,7 +41,7 @@ check_beauti_options <- function(
     )
   }
   if (length(beauti_options$nucleotides_uppercase) != 1 ||
-    is.na(beauti_options$nucleotides_uppercase) ||
+    is_one_na(beauti_options$nucleotides_uppercase) ||
     !is.logical(beauti_options$nucleotides_uppercase)) {
     stop(
       "'nucleotides_uppercase' must be one boolean. \n",

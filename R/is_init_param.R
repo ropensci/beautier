@@ -11,5 +11,5 @@ is_init_param <- function(
   if (!is_param(x)) { # nolint beautier function
     stop("'x' must be a parameter")
   }
-  !is.na(x$id)
+  !is_one_na(x$id)
 }

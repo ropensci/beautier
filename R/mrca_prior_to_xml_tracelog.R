@@ -16,8 +16,8 @@ mrca_prior_to_xml_tracelog <- function( # nolint beautier function
 ) {
   testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   if (length(mrca_prior) == 1 &&
-      is.na(mrca_prior) &&
-      is.na(tipdates_filename)) {
+      is_one_na(mrca_prior) &&
+      is_one_na(tipdates_filename)) {
     return(NULL)
   }
 
@@ -31,7 +31,7 @@ mrca_prior_to_xml_tracelog <- function( # nolint beautier function
       is_strict_clock_model(clock_models[[1]]) &&
       is_mrca_prior_with_distr(mrca_prior)
     ) ||
-      !is.na(tipdates_filename)
+      !is_one_na(tipdates_filename)
   ) {
     text <- c(
       text,

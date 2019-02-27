@@ -566,7 +566,7 @@ create_uniform_distr <- create_distr_uniform <- function(
   id = NA,
   upper = Inf
 ) {
-  if (!is.na(upper) && upper <= 0.0) {
+  if (!is_one_na(upper) && upper <= 0.0) {
     stop("'upper' must be non-zero and positive")
   }
   beautier::create_distr(

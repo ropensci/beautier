@@ -14,7 +14,7 @@ has_xml_closing_tag <- function(
   if (!is.character(section)) {
     stop("'section' must be a word")
   }
-  !is.na(
+  !is_one_na(
     find_last_xml_closing_tag_line(
       lines = lines,
       section = section

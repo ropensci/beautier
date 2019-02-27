@@ -54,7 +54,7 @@ clock_model_to_xml_operators <- function(
   }
 
   if ((is_strict_clock_model(clock_model) && is_mrca_prior_with_distr(mrca_priors[[1]])) || # nolint
-      !is.na(tipdates_filename)
+      !is_one_na(tipdates_filename)
   ) {
     text <- c(
       text,

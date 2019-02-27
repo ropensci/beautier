@@ -22,7 +22,7 @@ test_that("use '<tag text=hello/>'", {
 test_that("No tag gives NA", {
 
   testthat::expect_true(
-    is.na(
+    is_one_na(
       beautier:::get_xml_opening_tag("no xml")
     )
   )
