@@ -59,10 +59,12 @@ create_gamma_site_model <- function(
         )
       )
   }
-  if (!is.na(gamma_shape_prior_distr) && !is_distr(gamma_shape_prior_distr)) { # nolint beautier function
+  if (!is_one_na(gamma_shape_prior_distr) && # nolint beautier function
+      !is_distr(gamma_shape_prior_distr) # nolint beautier function
+  ) {
     stop("'gamma_shape_prior_distr' must be a distribution")
   }
-  if (gamma_cat_count < 2 && !is.na(gamma_shape_prior_distr)) {
+  if (gamma_cat_count < 2 && !is_one_na(gamma_shape_prior_distr)) {
     stop(
       "'gamma_shape_prior_distr' must be NA ",
       "for a 'gamma_cat_count' of less than two"
