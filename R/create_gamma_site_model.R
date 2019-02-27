@@ -49,7 +49,7 @@ create_gamma_site_model <- function(
   if (prop_invariant < 0.0 || prop_invariant > 1.0) {
     stop("'prop_invariant' must be in range [0.0, 1.0]")
   }
-  if (gamma_cat_count >= 2 && is.na(gamma_shape_prior_distr)) {
+  if (gamma_cat_count >= 2 && is_one_na(gamma_shape_prior_distr)) { # nolint beautier function
     # Cannot simplify, due to 1.0 becomes 1 in XML
     gamma_shape_prior_distr <- create_exp_distr(
         id = NA,

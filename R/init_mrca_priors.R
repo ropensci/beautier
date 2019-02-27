@@ -10,7 +10,7 @@ init_mrca_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NA)
+  if (length(mrca_priors) == 1 && is_one_na(mrca_priors)) return(NA)
   testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
   names <- paste0("auto_name_", seq_along(mrca_priors))
 
