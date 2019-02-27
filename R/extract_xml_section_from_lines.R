@@ -37,7 +37,7 @@ extract_xml_section_from_lines <- function(
     lines = lines,
     section = section
   )
-  testit::assert(!is.na(from_index))
-  testit::assert(!is.na(to_index))
+  testit::assert(!is_one_na(from_index)) # nolint beautier function
+  testit::assert(!is_one_na(to_index)) # nolint beautier function
   lines[from_index:to_index]
 }

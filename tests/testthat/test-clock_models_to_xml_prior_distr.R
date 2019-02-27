@@ -44,7 +44,7 @@ test_that("rln + mrca with distr", {
   # From 'rln_mrca_one_div_x_2_5.xml'
   expected <- c(
     "<prior id=\"MeanRatePrior.c:anthus_aco_sub\" name=\"distribution\" x=\"@ucldMean.c:anthus_aco_sub\">", # nolint XML can be long
-    "    <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"Infinity\"/>",
+    "    <Uniform id=\"Uniform.3\" name=\"distr\" upper=\"Infinity\"/>", # nolint this is no absolute path
     "</prior>",
     "<prior id=\"ucldStdevPrior.c:anthus_aco_sub\" name=\"distribution\" x=\"@ucldStdev.c:anthus_aco_sub\">", # nolint XML can be long
     "    <Gamma id=\"Gamma.0\" name=\"distr\">",

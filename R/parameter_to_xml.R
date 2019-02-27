@@ -16,8 +16,8 @@ parameter_to_xml <- function(
   if (!is_id(id)) { # nolint beautier function
     stop("parameter must have an ID")
   }
-  testit::assert(!is.na(id))
-  if (is.na(parameter$value)) {
+  testit::assert(!is_one_na(id)) # nolint beautier function
+  if (is_one_na(parameter$value)) { # nolint beautier function
     stop("parameter must have a value")
   }
   if (is_alpha_param(parameter)) {
@@ -484,11 +484,11 @@ parameter_to_xml_s <- function(
       "id=\"RealParameter.", id, "\" ",
       "estimate=\"", estimate, "\""
     )
-  if (!is.na(lower)) {
+  if (!is_one_na(lower)) { # nolint beautier function
     text <- paste0(text, " lower=\"", lower, "\"")
   }
   text <- paste0(text, " name=\"S\"")
-  if (!is.na(upper)) {
+  if (!is_one_na(upper)) { # nolint beautier function
     upper_txt <- upper
     if (is.infinite(upper)) {
       upper_txt <- "Infinity"

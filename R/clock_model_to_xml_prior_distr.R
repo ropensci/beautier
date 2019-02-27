@@ -46,7 +46,7 @@ clock_model_to_xml_prior_distr <- function(
     # Fails for unimplemented clock models
     testit::assert(is_strict_clock_model(clock_model)) # nolint beautier function
 
-    if (!is.na(tipdates_filename)) {
+    if (!is_one_na(tipdates_filename)) { # nolint beautier function
       id <- clock_model$id
       testit::assert(is_id(id)) # nolint beautier function
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",

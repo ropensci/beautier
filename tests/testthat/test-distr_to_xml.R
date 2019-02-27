@@ -5,19 +5,19 @@ test_that("add upper", {
   testthat::expect_equal(
     distr_to_xml(
         distr = create_uniform_distr(id = 1, upper = NA)),
-    "<Uniform id=\"Uniform.1\" name=\"distr\"/>"
+    "<Uniform id=\"Uniform.1\" name=\"distr\"/>" # nolint this is no absolute path
   )
 
   testthat::expect_equal(
     distr_to_xml(
       distr = create_uniform_distr(id = 1, upper = "1000.0")),
-    "<Uniform id=\"Uniform.1\" name=\"distr\" upper=\"1000.0\"/>"
+    "<Uniform id=\"Uniform.1\" name=\"distr\" upper=\"1000.0\"/>" # nolint this is no absolute path
   )
 
   testthat::expect_equal(
     distr_to_xml(
       distr = create_uniform_distr(id = 1, upper = Inf)),
-    "<Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>"
+    "<Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>" # nolint this is no absolute path
   )
 
 })

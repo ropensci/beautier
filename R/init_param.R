@@ -12,7 +12,7 @@ init_param <- function(
 ) {
   testit::assert(is_param(param)) # nolint beautier function
 
-  if (is.na(param$id)) {
+  if (is_one_na(param$id)) { # nolint beautier function
     param$id <- id
   }
 

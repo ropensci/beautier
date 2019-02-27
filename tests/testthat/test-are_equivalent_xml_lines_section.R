@@ -13,7 +13,7 @@ test_that("use", {
     "    </init>",
     "",
     "    <logger id=\"tracelog\" fileName=\"anthus_aco_sub.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint XML can be long
-    "        <log idref=\"posterior\"/>",
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
     "    </logger>",
     "",
     "</run>",
@@ -32,7 +32,7 @@ test_that("use", {
     "    </init>",
     "",
     "    <logger id=\"tracelog\" fileName=\"anthus_aco_sub.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint XML can be long
-    "        <log idref=\"not_a_posterior_at_all\"/>", # different value
+    "        <log idref=\"not_a_posterior_at_all\"/>", # different value  # nolint this is no absolute path
     "    </logger>",
     "",
     "</run>",

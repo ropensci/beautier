@@ -42,35 +42,35 @@ check_mrca_prior <- function(mrca_prior) {
     }
   }
   if (length(mrca_prior$name) != 1 ||
-      (!is.character(mrca_prior$name) && !is.na(mrca_prior$name))) {
+      (!is.character(mrca_prior$name) && !is_one_na(mrca_prior$name))) { # nolint beautier function
     stop("'name' must be NA or characters")
   }
-  if (!is_one_na(mrca_prior$alignment_id) &&
+  if (!is_one_na(mrca_prior$alignment_id) && # nolint beautier function
       !is.character(mrca_prior$alignment_id)) {
     stop("'alignment_id' must be NA or characters")
   }
-  if (!is_one_na(mrca_prior$taxa_names) &&
+  if (!is_one_na(mrca_prior$taxa_names) && # nolint beautier function
       !is.vector(mrca_prior$taxa_names, mode = "character")) {
     stop("'taxa_names' must a character vector")
   }
   if (!is.logical(mrca_prior$is_monophyletic)) {
     stop("'is_monophyletic' must be either TRUE or FALSE")
   }
-  if (!is_distr(mrca_prior$mrca_distr) &&
-      !is.na(mrca_prior$mrca_distr)) { # nolint beautier function
+  if (!is_distr(mrca_prior$mrca_distr) && # nolint beautier function
+      !is_one_na(mrca_prior$mrca_distr)) { # nolint beautier function
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   testit::assert(length(mrca_prior$taxa_names) > 0)
-  if (!is_one_na(mrca_prior$taxa_names) &&
+  if (!is_one_na(mrca_prior$taxa_names) && # nolint beautier function
       sum(mrca_prior$taxa_names == "") > 0) {
     stop("'taxa_names' must be NA or have at least one taxon name")
   }
-  if (!is_one_na(mrca_prior$taxa_names) &&
+  if (!is_one_na(mrca_prior$taxa_names) && # nolint beautier function
       length(unique(mrca_prior$taxa_names)) != length(mrca_prior$taxa_names)
   ) {
     stop("'taxa_names' must be NA or all names must be unique")
   }
-  if (!is_one_na(mrca_prior$clock_prior_distr_id) &&
+  if (!is_one_na(mrca_prior$clock_prior_distr_id) && # nolint beautier function
       (length(mrca_prior$clock_prior_distr_id) != 1 ||
       !is.numeric(mrca_prior$clock_prior_distr_id))) {
     stop("'clock_prior_distr_id' must be one NA or one number")

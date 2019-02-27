@@ -8,11 +8,11 @@
 #'     == "my_tag"
 #'   )
 #'   testit::assert(
-#'     is.na(
+#'     is_one_na(
 #'       beautier:::get_xml_closing_tag("<my_tag text=something/>")
 #'     )
 #'   )
-#'   testit::assert(is.na(beautier:::get_xml_closing_tag("no_xml")))
+#'   testit::assert(is_one_na(beautier:::get_xml_closing_tag("no_xml")))
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_xml_closing_tag <- function(text) {

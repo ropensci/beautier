@@ -19,7 +19,7 @@ mrca_priors_to_xml_prior_distr <- function( # nolint beautier function
   has_non_strict_clock_model
 ) {
   testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
-  if (length(mrca_priors) == 1 && is.na(mrca_priors)) return(NULL)
+  if (length(mrca_priors) == 1 && is_one_na(mrca_priors)) return(NULL) # nolint beautier function
 
   text <- NULL
   taxa_names_with_ids <- NULL

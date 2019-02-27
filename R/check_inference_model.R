@@ -67,7 +67,7 @@ check_inference_model <- function(
   if (length(inference_model$tipdates_filename) != 1) {
     stop("'tipdates_filename' must have one element")
   }
-  if (!is.na(inference_model$tipdates_filename) &&
+  if (!is_one_na(inference_model$tipdates_filename) && # nolint beautier function
     !is.character(inference_model$tipdates_filename)
   ) {
     stop("'tipdates_filename' must be one NA or one character string")

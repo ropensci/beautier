@@ -3,7 +3,7 @@ context("is_xml")
 test_that("use", {
 
   expect_false(is_xml(NA))
-  expect_true(is_xml("<text content=\"Hello\"/>"))
+  expect_true(is_xml("<text content=\"Hello\"/>")) # nolint this is no absolute path
   expect_true(is_xml(
     parameter_to_xml(create_param_alpha(id = 1)))
   )

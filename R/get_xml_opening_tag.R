@@ -7,7 +7,7 @@
 #'     beautier:::get_xml_opening_tag("<my_tag text=something/>")
 #'     == "my_tag"
 #'   )
-#'   testit::assert(is.na(beautier:::get_xml_opening_tag("no_xml")))
+#'   testit::assert(is_one_na(beautier:::get_xml_opening_tag("no_xml")))
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_xml_opening_tag <- function(text) {

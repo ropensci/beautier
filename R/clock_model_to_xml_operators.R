@@ -21,17 +21,17 @@ clock_model_to_xml_operators <- function(
     testit::assert(is_id(id)) # nolint beautier function
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"3.0\"/>"))
+      "scaleFactor=\"0.5\" weight=\"3.0\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("<operator ",
       "id=\"CategoriesRandomWalk.c:", id, "\" spec=\"IntRandomWalkOperator\" ",
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\" ",
-      "windowSize=\"1\"/>"))
+      "windowSize=\"1\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("<operator ",
       "id=\"CategoriesSwapOperator.c:", id, "\" spec=\"SwapOperator\" ",
-      "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"))
+      "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("<operator ",
       "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
-      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>")
+      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>") # nolint this is no absolute path
     )
     if (is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(
@@ -39,7 +39,7 @@ clock_model_to_xml_operators <- function(
         paste0(
           "<operator id=\"ucldMeanScaler.c:", id, "\" ",
           "spec=\"ScaleOperator\" parameter=\"@ucldMean.c:", id, "\" ",
-          "scaleFactor=\"0.5\" weight=\"1.0\"/>"
+          "scaleFactor=\"0.5\" weight=\"1.0\"/>" # nolint this is no absolute path
         )
       )
 
@@ -47,21 +47,21 @@ clock_model_to_xml_operators <- function(
         text,
         paste0("<operator id=\"relaxedUpDownOperator.c:", id, "\" ",
           "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
-      text <- c(text, paste0("    <up idref=\"ucldMean.c:", id, "\"/>"))
-      text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
+      text <- c(text, paste0("    <up idref=\"ucldMean.c:", id, "\"/>")) # nolint this is no absolute path
+      text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>")) # nolint this is no absolute path
       text <- c(text, paste0("</operator>"))
     }
   }
 
   if ((is_strict_clock_model(clock_model) && is_mrca_prior_with_distr(mrca_priors[[1]])) || # nolint
-      !is.na(tipdates_filename)
+      !is_one_na(tipdates_filename) # nolint beautier function
   ) {
     text <- c(
       text,
       paste0(
         "<operator id=\"StrictClockRateScaler.c:", id, "\" ",
         "spec=\"ScaleOperator\" parameter=\"@clockRate.c:", id, "\" ",
-        "scaleFactor=\"0.75\" weight=\"3.0\"/>"
+        "scaleFactor=\"0.75\" weight=\"3.0\"/>" # nolint this is no absolute path
       )
     )
     text <- c(
@@ -71,8 +71,8 @@ clock_model_to_xml_operators <- function(
         "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"
       )
     )
-    text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>"))
-    text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>"))
+    text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>")) # nolint this is no absolute path
+    text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("</operator>"))
   }
   text

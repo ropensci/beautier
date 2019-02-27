@@ -12,7 +12,7 @@ test_that("use '<tag text=hello</tag>'", {
 
 test_that("use '<tag text=hello/>'", {
 
-  xml <- "<taxon id=\"630116_aco\" spec=\"Taxon\"/>"
+  xml <- "<taxon id=\"630116_aco\" spec=\"Taxon\"/>" # nolint this is no absolute path
   created <- beautier:::get_xml_opening_tag(xml)
   expected <- "taxon"
   testthat::expect_equal(created, expected)
@@ -22,7 +22,7 @@ test_that("use '<tag text=hello/>'", {
 test_that("No tag gives NA", {
 
   testthat::expect_true(
-    is.na(
+    is_one_na(
       beautier:::get_xml_opening_tag("no xml")
     )
   )

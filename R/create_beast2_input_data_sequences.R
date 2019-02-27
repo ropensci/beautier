@@ -25,7 +25,7 @@ create_beast2_input_data_sequences <- function( # nolint beautier function
       trimws(row[1]),
       "\" totalcount=\"4\" value=\"",
       ifelse(nucleotides_uppercase == TRUE, toupper(row[2]), row[2]),
-      "\"/>"
+      "\"/>" # nolint this is no absolute path
     )
     text <- c(text, nextline)
   }

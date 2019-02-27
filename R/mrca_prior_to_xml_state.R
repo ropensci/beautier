@@ -10,9 +10,9 @@ mrca_prior_to_xml_state <- function(
 ) {
   testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   if (mrca_prior$is_monophyletic == FALSE &&
-      is.na(mrca_prior$mrca_distr)) return(NULL)
+      is_one_na(mrca_prior$mrca_distr)) return(NULL) # nolint beautier function
   if (mrca_prior$is_monophyletic == TRUE &&
-    is.na(mrca_prior$mrca_distr)) return(NULL)
+    is_one_na(mrca_prior$mrca_distr)) return(NULL) # nolint beautier function
   if (!has_non_strict_clock_model) {
     testit::assert(!is_one_na(mrca_prior$alignment_id)) # nolint beautier function
     paste0(

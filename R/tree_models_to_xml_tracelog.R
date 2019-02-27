@@ -16,10 +16,10 @@ tree_models_to_xml_tracelog <- function(
   text <- NULL
   for (site_model in site_models) {
     id <- site_model$id
-    text <- c(text, paste0("<log idref=\"treeLikelihood.", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"treeLikelihood.", id, "\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("<log id=\"TreeHeight.t:", id, "\" ",
       "spec=\"beast.evolution.tree.TreeHeightLogger\" ",
-      "tree=\"@Tree.t:", id, "\"/>")
+      "tree=\"@Tree.t:", id, "\"/>") # nolint this is no absolute path
     )
   }
   text

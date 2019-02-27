@@ -13,7 +13,7 @@ site_model_to_xml_subst_model <- function(
 
   if (is_jc69_site_model(site_model)) { # nolint beautier function
     return(
-      paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>")
+      paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>") # nolint this is no absolute path
     )
   }
 

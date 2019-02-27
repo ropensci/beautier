@@ -17,36 +17,36 @@ site_model_to_xml_tracelog <- function(
 
   text <- NULL
   if (is_hky_site_model(site_model)) { # nolint beautier function
-    text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>")) # nolint this is no absolute path
   } else if (is_tn93_site_model(site_model)) { # nolint beautier function
     if (site_model$kappa_1_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>")) # nolint this is no absolute path
     }
     if (site_model$kappa_2_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>")) # nolint this is no absolute path
     }
   } else if (is_gtr_site_model(site_model)) { # nolint beautier function
     if (site_model$rate_ac_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>")) # nolint this is no absolute path
     }
     if (site_model$rate_ag_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"rateAG.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"rateAG.s:", id, "\"/>")) # nolint this is no absolute path
     }
     if (site_model$rate_at_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"rateAT.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"rateAT.s:", id, "\"/>")) # nolint this is no absolute path
     }
     if (site_model$rate_cg_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"rateCG.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"rateCG.s:", id, "\"/>")) # nolint this is no absolute path
     }
     if (site_model$rate_gt_param$estimate == TRUE) {
-      text <- c(text, paste0("<log idref=\"rateGT.s:", id, "\"/>"))
+      text <- c(text, paste0("<log idref=\"rateGT.s:", id, "\"/>")) # nolint this is no absolute path
     }
   }
   if (!is_jc69_site_model(site_model)) { # nolint beautier function
-    text <- c(text, paste0("<log idref=\"freqParameter.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"freqParameter.s:", id, "\"/>")) # nolint this is no absolute path
   }
   if (site_model$gamma_site_model$gamma_cat_count > 1) {
-    text <- c(text, paste0("<log idref=\"gammaShape.s:", id, "\"/>"))
+    text <- c(text, paste0("<log idref=\"gammaShape.s:", id, "\"/>")) # nolint this is no absolute path
   }
   text
 }

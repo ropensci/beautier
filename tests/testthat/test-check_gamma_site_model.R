@@ -10,6 +10,6 @@ test_that("use", {
     check_gamma_site_model(
       "nonsense"
     ),
-    "'gamma_site_model' must be a valid gamma site model"
+    "'gamma_cat_count' must be an element of a 'gamma_site_model'"
   )
 })

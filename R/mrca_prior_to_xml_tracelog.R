@@ -16,14 +16,14 @@ mrca_prior_to_xml_tracelog <- function( # nolint beautier function
 ) {
   testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   if (length(mrca_prior) == 1 &&
-      is.na(mrca_prior) &&
-      is.na(tipdates_filename)) {
+      is_one_na(mrca_prior) && # nolint beautier function
+      is_one_na(tipdates_filename)) { # nolint beautier function
     return(NULL)
   }
 
   text <- NULL
-  if (!is_one_na(mrca_prior)) {
-    text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>"))
+  if (!is_one_na(mrca_prior)) { # nolint beautier function
+    text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>")) # nolint this is no absolute path
   }
 
   if (
@@ -31,12 +31,12 @@ mrca_prior_to_xml_tracelog <- function( # nolint beautier function
       is_strict_clock_model(clock_models[[1]]) &&
       is_mrca_prior_with_distr(mrca_prior)
     ) ||
-      !is.na(tipdates_filename)
+      !is_one_na(tipdates_filename) # nolint beautier function
   ) {
     text <- c(
       text,
       paste0(
-        "<log idref=\"clockRate.c:", clock_models[[1]]$id, "\"/>"
+        "<log idref=\"clockRate.c:", clock_models[[1]]$id, "\"/>" # nolint this is no absolute path
       )
     )
   }

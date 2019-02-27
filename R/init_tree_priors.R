@@ -48,7 +48,7 @@ init_tree_priors <- function(
     distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior) # nolint beautier function
     param_id <- param_id + get_tree_prior_n_params(tree_prior) # nolint beautier function
 
-    if (is.na(tree_prior$id)) tree_prior$id <- ids[i]
+    if (is_one_na(tree_prior$id)) tree_prior$id <- ids[i] # nolint beautier function
     tree_priors[[i]] <- tree_prior
   }
   tree_priors
@@ -113,10 +113,10 @@ init_cep_tree_prior <- function(
   param_id
 ) {
   testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint beautier function
-  testit::assert(!is.na(distr_id))
-  testit::assert(!is.na(param_id))
+  testit::assert(!is_one_na(distr_id)) # nolint beautier function
+  testit::assert(!is_one_na(param_id)) # nolint beautier function
   testit::assert(
-    !is.na(
+    !is_one_na( # nolint beautier function
       get_distr_n_params(cep_tree_prior$pop_size_distr) # nolint beautier function
     )
   )

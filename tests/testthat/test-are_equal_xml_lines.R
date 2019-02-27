@@ -31,18 +31,18 @@ test_that("use", {
 
   lines_1 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"posterior\"/>",
-    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>",
-    "        <log idref=\"likelihood\"/>",
-    "        <log idref=\"prior\"/>",
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
+    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>", # nolint this is no absolute path
+    "        <log idref=\"likelihood\"/>", # nolint this is no absolute path
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
   lines_2 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>",
-    "        <log idref=\"likelihood\"/>",
-    "        <log idref=\"posterior\"/>",
-    "        <log idref=\"prior\"/>",
+    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>", # nolint this is no absolute path
+    "        <log idref=\"likelihood\"/>", # nolint this is no absolute path
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
 
@@ -59,12 +59,12 @@ test_that("abuse: section must be a word", {
 
   lines_1 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"posterior\"/>",
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
   lines_2 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"prior\"/>",
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
 
@@ -79,7 +79,7 @@ test_that("abuse: opening tag of lines 1 not found", {
 
   lines_1 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"posterior\"/>",
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
 
@@ -95,7 +95,7 @@ test_that("abuse: closing tag of lines 1 not found", {
 
   lines_1 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"prior\"/>",
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </logger_oops_incorrect_closing_tag>"
   )
 
@@ -111,12 +111,12 @@ test_that("abuse: opening tag of lines 2 not found", {
 
   lines_1 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"prior\"/>",
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
   lines_2 <- c(
     "    <no_logger_at_all_oops id=\"screenlog\" logEvery=\"1000\">",
-    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>",
+    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>", # nolint this is no absolute path
     "    </no_logger_at_all_oops>"
   )
 
@@ -130,18 +130,18 @@ test_that("abuse: closing tag of lines 2 not found", {
 
   lines_1 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log idref=\"posterior\"/>",
-    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>",
-    "        <log idref=\"likelihood\"/>",
-    "        <log idref=\"prior\"/>",
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
+    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>", # nolint this is no absolute path
+    "        <log idref=\"likelihood\"/>", # nolint this is no absolute path
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </logger>"
   )
   lines_2 <- c(
     "    <logger id=\"screenlog\" logEvery=\"1000\">",
-    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>",
-    "        <log idref=\"likelihood\"/>",
-    "        <log idref=\"posterior\"/>",
-    "        <log idref=\"prior\"/>",
+    "        <log id=\"ESS.0\" spec=\"util.ESS\" arg=\"@posterior\"/>", # nolint this is no absolute path
+    "        <log idref=\"likelihood\"/>", # nolint this is no absolute path
+    "        <log idref=\"posterior\"/>", # nolint this is no absolute path
+    "        <log idref=\"prior\"/>", # nolint this is no absolute path
     "    </no_logger_oops>"
   )
 

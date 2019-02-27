@@ -31,7 +31,7 @@ init_clock_models <- function(
           distr_id = distr_id,
           param_id = param_id
         )
-        if (is.na(clock_model$dimension)) {
+        if (is_one_na(clock_model$dimension)) { # nolint beautier function
           clock_model$dimension <- (2 * n_taxa) - 2
         }
 
@@ -59,7 +59,7 @@ init_clock_models <- function(
       testit::assert(is_init_strict_clock_model(clock_model)) # nolint beautier function call
     }
 
-    if (is.na(clock_model$id)) clock_model$id <- ids[i]
+    if (is_one_na(clock_model$id)) clock_model$id <- ids[i] # nolint beautier function
 
     clock_models[[i]] <- clock_model
   }
@@ -92,7 +92,7 @@ init_rln_clock_model <- function(
   param_id <- param_id + get_distr_n_params(mean_rate_prior_distr) # nolint beautier function
 
   mparam_id <- rln_clock_model$mparam_id
-  if (is.na(mparam_id)) {
+  if (is_one_na(mparam_id)) { # nolint beautier function
     mparam_id <- param_id
     param_id <- param_id + 1
   }

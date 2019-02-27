@@ -10,7 +10,7 @@ find_first_regex_line <- function(lines, regex) {
       str = lines[i],
       pattern = regex
     )
-    if (!is.na(match)) return(i)
+    if (!is_one_na(match)) return(i) # nolint beautier function
   }
   NA
 }

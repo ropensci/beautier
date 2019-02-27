@@ -29,16 +29,16 @@ test_that("two operators", {
     beautier:::extract_xml_operators_from_lines(
       c(
       "not",
-      "<operator id=\"a\"/>",
+      "<operator id=\"a\"/>", # nolint this is no absolute path
       "",
-      "<operator id=\"b\"/>",
+      "<operator id=\"b\"/>", # nolint this is no absolute path
       "neither too"
       )
     ),
     c(
-      "<operator id=\"a\"/>",
+      "<operator id=\"a\"/>", # nolint this is no absolute path
       "",
-      "<operator id=\"b\"/>"
+      "<operator id=\"b\"/>" # nolint this is no absolute path
     )
   )
 })
@@ -49,14 +49,14 @@ test_that("multiline operators", {
     beautier:::extract_xml_operators_from_lines(
       c(
       "not",
-      "<operator id=\"a\"/>",
+      "<operator id=\"a\"/>", # nolint this is no absolute path
       "  <something/>",
       "</operator>",
       "neither too"
       )
     ),
     c(
-      "<operator id=\"a\"/>",
+      "<operator id=\"a\"/>", # nolint this is no absolute path
       "  <something/>",
       "</operator>"
     )

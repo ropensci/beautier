@@ -13,54 +13,54 @@ init_distr <- function(
 ) {
   testit::assert(is_distr(distr)) # nolint beautier function
 
-  if (is.na(distr$id)) {
+  if (is_one_na(distr$id)) { # nolint beautier function
     distr$id <- distr_id
   }
 
   if (is_beta_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$alpha$id)) {
+    if (is_one_na(distr$alpha$id)) { # nolint beautier function
       distr$alpha$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distr$beta$id)) {
+    if (is_one_na(distr$beta$id)) { # nolint beautier function
       distr$beta$id <- param_id
     }
 
   } else if (is_exp_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$mean$id)) {
+    if (is_one_na(distr$mean$id)) { # nolint beautier function
       distr$mean$id <- param_id
       param_id <- param_id + 1
     }
 
   } else if (is_gamma_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$alpha$id)) {
+    if (is_one_na(distr$alpha$id)) { # nolint beautier function
       distr$alpha$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distr$beta$id)) {
+    if (is_one_na(distr$beta$id)) { # nolint beautier function
       distr$beta$id <- param_id
     }
 
   } else if (is_inv_gamma_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$alpha$id)) {
+    if (is_one_na(distr$alpha$id)) { # nolint beautier function
       distr$alpha$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distr$beta$id)) {
+    if (is_one_na(distr$beta$id)) { # nolint beautier function
       distr$beta$id <- param_id
     }
 
   } else if (is_laplace_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$mu$id)) {
+    if (is_one_na(distr$mu$id)) { # nolint beautier function
       distr$mu$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distr$scale$id)) {
+    if (is_one_na(distr$scale$id)) { # nolint beautier function
       distr$scale$id <- param_id
     }
 
@@ -68,21 +68,21 @@ init_distr <- function(
 
     testit::assert("m" %in% names(distr))
     testit::assert("id" %in% names(distr$m))
-    if (is.na(distr$m$id)) {
+    if (is_one_na(distr$m$id)) { # nolint beautier function
       distr$m$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distr$s$id)) {
+    if (is_one_na(distr$s$id)) { # nolint beautier function
       distr$s$id <- param_id
     }
 
   } else if (is_normal_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$mean$id)) {
+    if (is_one_na(distr$mean$id)) { # nolint beautier function
       distr$mean$id <- param_id
       param_id <- param_id + 1
     }
-    if (is.na(distr$sigma$id)) {
+    if (is_one_na(distr$sigma$id)) { # nolint beautier function
       distr$sigma$id <- param_id
     }
 
@@ -92,7 +92,7 @@ init_distr <- function(
 
   } else  if (is_poisson_distr(distr)) { # nolint beautier function
 
-    if (is.na(distr$lambda$id)) {
+    if (is_one_na(distr$lambda$id)) { # nolint beautier function
       distr$lambda$id <- param_id
     }
 
@@ -102,6 +102,6 @@ init_distr <- function(
     # Always initialized
 
   }
-  testit::assert(!is.na(distr$id))
+  testit::assert(!is_one_na(distr$id)) # nolint beautier function
   distr
 }

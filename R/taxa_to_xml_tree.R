@@ -34,7 +34,7 @@ no_taxa_to_xml_tree <- function(
   text <- c(text, paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"))
   text <- c(text, paste0("    <taxonset id=\"TaxonSet.", id, "\" ",
                          "spec=\"TaxonSet\">"))
-  text <- c(text, paste0("        <alignment idref=\"", id, "\"/>"))
+  text <- c(text, paste0("        <alignment idref=\"", id, "\"/>")) # nolint this is no absolute path
   text <- c(text, "    </taxonset>")
   text <- c(text, "</tree>")
   text
@@ -61,10 +61,10 @@ tipdate_taxa_to_xml_tree <- function(
     paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"),
     paste0("    <trait id=\"dateTrait.t:", id, "\" spec=\"beast.evolution.tree.TraitSet\" traitname=\"date-forward\" value=\"", trait_set_str, "\">"), # nolint indeed a long line
     paste0("        <taxa id=\"TaxonSet.", id, "\" spec=\"TaxonSet\">"),
-    paste0("            <alignment idref=\"", id, "\"/>"),
+    paste0("            <alignment idref=\"", id, "\"/>"), # nolint this is no absolute path
     "        </taxa>",
     "    </trait>",
-    "    <taxonset idref=\"TaxonSet.G_VII_pre2003_msa\"/>",
+    "    <taxonset idref=\"TaxonSet.G_VII_pre2003_msa\"/>", # nolint this is no absolute path
     "</tree>"
   )
 }

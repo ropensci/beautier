@@ -6,7 +6,7 @@ test_that("sequences are sorted, as per v2.4", {
       input_filenames = beautier::get_fasta_filename()
     )
   expected <- paste0("                    <sequence id=\"seq_t1\" ",
-    "taxon=\"t1\" totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>")
+    "taxon=\"t1\" totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>") # nolint this is no absolute path
   created <- lines[4]
   testthat::expect_equal(expected, created)
 
