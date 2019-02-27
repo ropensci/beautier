@@ -18,11 +18,18 @@ is_tree_prior <- function(
 }
 
 #' Determine if the object is a valid Birth Death tree prior
-#'   as returned by \code{\link{create_bd_tree_prior}}
 #' @param x an object, to be determined if it is a valid birth death tree prior
 #' @return TRUE if x is a valid birth death tree prior, FALSE otherwise
+#' @seealso Use \code{\link{create_bd_tree_prior}} to create a valid
+#'   Birth-Death tree prior
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   testit::assert(is_bd_tree_prior(create_bd_tree_prior()))
+#'   testit::assert(!is_bd_tree_prior(create_cbs_tree_prior()))
+#'   testit::assert(!is_bd_tree_prior(create_ccp_tree_prior()))
+#'   testit::assert(!is_bd_tree_prior(create_cep_tree_prior()))
+#'   testit::assert(!is_bd_tree_prior(create_yule_tree_prior()))
+#' @export
 is_bd_tree_prior <- function(
   x
 ) {
@@ -34,13 +41,20 @@ is_bd_tree_prior <- function(
 }
 
 #' Determine if the object is a valid constant coalescent Bayesian skyline prior
-#'   as returned by \code{\link{create_cbs_tree_prior}}
 #' @param x an object, to be determined if it is a valid constant coalescent
 #'   Bayesian skyline prior
 #' @return TRUE if x is a valid constant coalescent Bayesian skyline prior,
 #'   FALSE otherwise
+#' @seealso Use \code{\link{create_cbs_tree_prior}} to create a valid
+#'   coalescent Bayes skyline tree prior
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   testit::assert(!is_cbs_tree_prior(create_bd_tree_prior()))
+#'   testit::assert( is_cbs_tree_prior(create_cbs_tree_prior()))
+#'   testit::assert(!is_cbs_tree_prior(create_ccp_tree_prior()))
+#'   testit::assert(!is_cbs_tree_prior(create_cep_tree_prior()))
+#'   testit::assert(!is_cbs_tree_prior(create_yule_tree_prior()))
+#' @export
 is_cbs_tree_prior <- function(
   x
 ) {
@@ -51,14 +65,21 @@ is_cbs_tree_prior <- function(
 }
 
 #' Determine if the object is a valid
-#'   constant coalescence population tree prior,
-#'   as returned by \code{\link{create_ccp_tree_prior}}
+#'   constant coalescence population tree prior
 #' @param x an object, to be determined if it is a valid
 #'   constant coalescence population tree prior
 #' @return TRUE if x is a valid constant coalescence population tree prior,
 #'   FALSE otherwise
+#' @seealso Use \code{\link{create_ccp_tree_prior}} to create a valid
+#'   constant coalescence population tree prior
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   testit::assert(!is_ccp_tree_prior(create_bd_tree_prior()))
+#'   testit::assert(!is_ccp_tree_prior(create_cbs_tree_prior()))
+#'   testit::assert( is_ccp_tree_prior(create_ccp_tree_prior()))
+#'   testit::assert(!is_ccp_tree_prior(create_cep_tree_prior()))
+#'   testit::assert(!is_ccp_tree_prior(create_yule_tree_prior()))
+#' @export
 is_ccp_tree_prior <- function(
   x
 ) {
@@ -70,13 +91,20 @@ is_ccp_tree_prior <- function(
 
 #' Determine if the object is a valid
 #' coalescent exponential population tree prior
-#'   as returned by \code{\link{create_cep_tree_prior}}
 #' @param x an object, to be determined if it is a valid
 #'   constant coalescent exponential population tree prior
-#' @return TRUE if x is a valid coalescent exponentialpopulation tree prior,
+#' @return TRUE if x is a valid coalescent exponential population tree prior,
 #'   FALSE otherwise
+#' @seealso Use \code{\link{create_cep_tree_prior}} to create a valid
+#'   coalescent exponential population tree prior
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   testit::assert(!is_cep_tree_prior(create_bd_tree_prior()))
+#'   testit::assert(!is_cep_tree_prior(create_cbs_tree_prior()))
+#'   testit::assert(!is_cep_tree_prior(create_ccp_tree_prior()))
+#'   testit::assert( is_cep_tree_prior(create_cep_tree_prior()))
+#'   testit::assert(!is_cep_tree_prior(create_yule_tree_prior()))
+#' @export
 is_cep_tree_prior <- function(
   x
 ) {
@@ -88,11 +116,18 @@ is_cep_tree_prior <- function(
 }
 
 #' Determine if the object is a valid Yule tree prior,
-#'   as returned by \code{\link{create_yule_tree_prior}}
 #' @param x an object, to be determined if it is a valid Yule tree prior
 #' @return TRUE if x is a valid Yule tree prior, FALSE otherwise
+#' @seealso Use \code{\link{create_yule_tree_prior}} to create a valid
+#'   Yule tree prior
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @examples
+#'   testit::assert(!is_yule_tree_prior(create_bd_tree_prior()))
+#'   testit::assert(!is_yule_tree_prior(create_cbs_tree_prior()))
+#'   testit::assert(!is_yule_tree_prior(create_ccp_tree_prior()))
+#'   testit::assert(!is_yule_tree_prior(create_cep_tree_prior()))
+#'   testit::assert( is_yule_tree_prior(create_yule_tree_prior()))
+#' @export
 is_yule_tree_prior <- function(
   x
 ) {
