@@ -8,7 +8,7 @@
 #' @noRd
 is_gamma_site_model <- function(x) {
   tryCatch({
-      check_gamma_site_model(x)
+      check_gamma_site_model(x) # nolint beautier function
       TRUE
     },
     error = function(e) { # nolint indeed ignore e
