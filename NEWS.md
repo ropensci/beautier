@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## beautier 2.2.1 (2019-03-08)
+
+### NEW FEATURES
+
+  * beautier has passed rOpenSci peer review
+  * beautier is on CRAN
+
+### MINOR IMPROVEMENTS
+
+  * Exported multiple `is_x` and `check_x` functions
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+
 ## beautier 1.15 (2018-11-10)
 
 ### NEW FEATURES
