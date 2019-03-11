@@ -6,8 +6,8 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * beautier has passed rOpenSci peer review
-  * beautier is on CRAN
+  * `beautier` has passed rOpenSci peer review
+  * `beautier` is on CRAN
 
 ### MINOR IMPROVEMENTS
 
@@ -20,7 +20,6 @@ Newest versions at top.
 ### DEPRECATED AND DEFUNCT
 
   * None
-
 
 ## beautier 1.15 (2018-11-10)
 
