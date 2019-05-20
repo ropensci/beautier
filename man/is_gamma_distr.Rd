@@ -21,12 +21,7 @@ Determine if the object is a valid
 gamma distribution,
 as created by \code{\link{create_gamma_distr}}
 }
-\seealso{
-use \code{\link{is_distr}} to see if x is any
-  distribution
-}
-\author{
-Richèl J.C. Bilderbeek
+\examples{
 library(testthat)
 
 expect_true(is_gamma_distr(create_gamma_distr()))
@@ -35,4 +30,11 @@ expect_false(is_gamma_distr(create_inv_gamma_distr()))
 expect_false(is_gamma_distr(NA))
 expect_false(is_gamma_distr(NULL))
 expect_false(is_gamma_distr("nonsense"))
+}
+\seealso{
+use \code{\link{is_distr}} to see if x is any
+  distribution
+}
+\author{
+Richèl J.C. Bilderbeek
 }

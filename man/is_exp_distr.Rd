@@ -21,12 +21,7 @@ Determine if the object is a valid
 exponential distribution
 as created by \code{\link{create_exp_distr}}
 }
-\seealso{
-use \code{\link{is_distr}} to see if x is any
-  distribution
-}
-\author{
-Richèl J.C. Bilderbeek
+\examples{
 library(testthat)
 
 expect_true(is_exp_distr(create_exp_distr()))
@@ -34,4 +29,11 @@ expect_false(is_exp_distr(create_gamma_distr()))
 expect_false(is_exp_distr(NA))
 expect_false(is_exp_distr(NULL))
 expect_false(is_exp_distr("nonsense"))
+}
+\seealso{
+use \code{\link{is_distr}} to see if x is any
+  distribution
+}
+\author{
+Richèl J.C. Bilderbeek
 }

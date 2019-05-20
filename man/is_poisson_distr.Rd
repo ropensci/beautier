@@ -21,12 +21,7 @@ Determine if the object is a valid
 Poisson distribution
 as created by \code{\link{create_poisson_distr}}
 }
-\seealso{
-use \code{\link{is_distr}} to see if x is any
-  distribution
-}
-\author{
-Richèl J.C. Bilderbeek
+\examples{
 library(testthat)
 
 expect_true(is_poisson_distr(create_poisson_distr()))
@@ -35,4 +30,11 @@ expect_false(is_poisson_distr(create_uniform_distr()))
 expect_false(is_distr(NA))
 expect_false(is_distr(NULL))
 expect_false(is_distr("nonsense"))
+}
+\seealso{
+use \code{\link{is_distr}} to see if x is any
+  distribution
+}
+\author{
+Richèl J.C. Bilderbeek
 }

@@ -21,12 +21,7 @@ Determine if the object is a valid
 log-normal distribution,
 as created by \code{\link{create_log_normal_distr}}
 }
-\seealso{
-use \code{\link{is_distr}} to see if x is any
-  distribution
-}
-\author{
-Richèl J.C. Bilderbeek
+\examples{
 library(testthat)
 
 expect_true(is_log_normal_distr(create_log_normal_distr()))
@@ -35,4 +30,11 @@ expect_false(is_log_normal_distr(create_normal_distr()))
 expect_false(is_distr(NA))
 expect_false(is_distr(NULL))
 expect_false(is_distr("nonsense"))
+}
+\seealso{
+use \code{\link{is_distr}} to see if x is any
+  distribution
+}
+\author{
+Richèl J.C. Bilderbeek
 }
