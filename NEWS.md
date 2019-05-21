@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## beautier 2.2.2 (Unreleased)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Exported and documented more `is_` functions
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+
 ## beautier 2.2.1 (2019-03-08)
 
 ### NEW FEATURES

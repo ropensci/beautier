@@ -173,7 +173,7 @@ is_beta_param <- function(
 is_clock_rate_param <- function(
   x
 ) {
-  if (!is_clock_rate_param(x)) return(FALSE) # nolint beautier function
+  if (!is_param(x)) return(FALSE) # nolint beautier function
   x$name == "clock_rate"
 }
 
