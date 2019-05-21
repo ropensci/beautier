@@ -3,16 +3,21 @@
 #' @return TRUE if the site_model is a valid site_model, FALSE otherwise
 #' @seealso  A site model can be created using \code{\link{create_site_model}}
 #' @examples
-#'   # site models
-#'   testit::assert(is_site_model(create_gtr_site_model()))
-#'   testit::assert(is_site_model(create_hky_site_model()))
-#'   testit::assert(is_site_model(create_jc69_site_model()))
-#'   testit::assert(is_site_model(create_tn93_site_model()))
+#' library(testthat)
 #'
-#'   # other models
-#'   testit::assert(!is_site_model(create_strict_clock_model()))
-#'   testit::assert(!is_site_model(create_bd_tree_prior()))
-#'   testit::assert(!is_site_model(create_mcmc()))
+#' # site models
+#' expect_true(is_site_model(create_gtr_site_model()))
+#' expect_true(is_site_model(create_hky_site_model()))
+#' expect_true(is_site_model(create_jc69_site_model()))
+#' expect_true(is_site_model(create_tn93_site_model()))
+#'
+#' # other models
+#' expect_false(is_site_model(NA))
+#' expect_false(is_site_model(NULL))
+#' expect_false(is_site_model("nonsense"))
+#' expect_false(is_site_model(create_strict_clock_model()))
+#' expect_false(is_site_model(create_bd_tree_prior()))
+#' expect_false(is_site_model(create_mcmc()))
 #' @export
 is_site_model <- function(
   x
@@ -31,9 +36,22 @@ is_site_model <- function(
 #' @return TRUE if x is a valid GTR site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   gtr_site_model <- create_gtr_site_model()
-#'   testit::assert(beautier:::is_gtr_site_model(gtr_site_model))
-#' @noRd
+#' library(testthat)
+#'
+#' # site models
+#' expect_true(is_gtr_site_model(create_gtr_site_model()))
+#' expect_false(is_gtr_site_model(create_hky_site_model()))
+#' expect_false(is_gtr_site_model(create_jc69_site_model()))
+#' expect_false(is_gtr_site_model(create_tn93_site_model()))
+#'
+#' # other models
+#' expect_false(is_gtr_site_model(NA))
+#' expect_false(is_gtr_site_model(NULL))
+#' expect_false(is_gtr_site_model("nonsense"))
+#' expect_false(is_gtr_site_model(create_strict_clock_model()))
+#' expect_false(is_gtr_site_model(create_bd_tree_prior()))
+#' expect_false(is_gtr_site_model(create_mcmc()))
+#' @export
 is_gtr_site_model <- function(
   x
 ) {
@@ -70,9 +88,22 @@ is_gtr_site_model <- function(
 #' @return TRUE if x is a valid HKY site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   hky_site_model <- create_hky_site_model()
-#'   testit::assert(beautier:::is_hky_site_model(hky_site_model))
-#' @noRd
+#' library(testthat)
+#'
+#' # site models
+#' expect_true(is_hky_site_model(create_hky_site_model()))
+#' expect_false(is_hky_site_model(create_gtr_site_model()))
+#' expect_false(is_hky_site_model(create_jc69_site_model()))
+#' expect_false(is_hky_site_model(create_tn93_site_model()))
+#'
+#' # other models
+#' expect_false(is_hky_site_model(NA))
+#' expect_false(is_hky_site_model(NULL))
+#' expect_false(is_hky_site_model("nonsense"))
+#' expect_false(is_hky_site_model(create_strict_clock_model()))
+#' expect_false(is_hky_site_model(create_bd_tree_prior()))
+#' expect_false(is_hky_site_model(create_mcmc()))
+#' @export
 is_hky_site_model <- function(
   x
 ) {
@@ -91,9 +122,22 @@ is_hky_site_model <- function(
 #' @return TRUE if x is a valid JC69 site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   jc69_site_model <- create_jc69_site_model()
-#'   testit::assert(beautier:::is_jc69_site_model(jc69_site_model))
-#' @noRd
+#' library(testthat)
+#'
+#' # site models
+#' expect_false(is_jc69_site_model(create_gtr_site_model()))
+#' expect_false(is_jc69_site_model(create_hky_site_model()))
+#' expect_true(is_jc69_site_model(create_jc69_site_model()))
+#' expect_false(is_jc69_site_model(create_tn93_site_model()))
+#'
+#' # other models
+#' expect_false(is_jc69_site_model(NA))
+#' expect_false(is_jc69_site_model(NULL))
+#' expect_false(is_jc69_site_model("nonsense"))
+#' expect_false(is_jc69_site_model(create_strict_clock_model()))
+#' expect_false(is_jc69_site_model(create_bd_tree_prior()))
+#' expect_false(is_jc69_site_model(create_mcmc()))
+#' @export
 is_jc69_site_model <- function(
   x
 ) {
@@ -108,12 +152,22 @@ is_jc69_site_model <- function(
 #' @return TRUE if x is a valid TN93 site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  create_beast2_input_file(
-#'    input_filename = get_fasta_filename(),
-#'    "beast.xml",
-#'    site_model = create_tn93_site_model()
-#'  )
-#' @noRd
+#' library(testthat)
+#'
+#' # site models
+#' expect_false(is_tn93_site_model(create_gtr_site_model()))
+#' expect_false(is_tn93_site_model(create_hky_site_model()))
+#' expect_false(is_tn93_site_model(create_jc69_site_model()))
+#' expect_true(is_tn93_site_model(create_tn93_site_model()))
+#'
+#' # other models
+#' expect_false(is_tn93_site_model(NA))
+#' expect_false(is_tn93_site_model(NULL))
+#' expect_false(is_tn93_site_model("nonsense"))
+#' expect_false(is_tn93_site_model(create_strict_clock_model()))
+#' expect_false(is_tn93_site_model(create_bd_tree_prior()))
+#' expect_false(is_tn93_site_model(create_mcmc()))
+#' @export
 is_tn93_site_model <- function(
   x
 ) {

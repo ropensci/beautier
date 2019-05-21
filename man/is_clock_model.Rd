@@ -16,9 +16,16 @@ TRUE if the clock_model is a valid clock_model, FALSE otherwise
 Determine if the object is a valid clock_model
 }
 \examples{
-  testit::assert(is_clock_model(create_strict_clock_model()))
-  testit::assert(is_clock_model(create_rln_clock_model()))
-  testit::assert(!is_clock_model("nonsense"))
+library(testthat)
+
+expect_true(is_clock_model(create_strict_clock_model()))
+expect_true(is_clock_model(create_rln_clock_model()))
+
+expect_false(is_clock_model(NA))
+expect_false(is_clock_model(NULL))
+expect_false(is_clock_model("nonsense"))
+expect_false(is_clock_model(create_jc69_site_model()))
+expect_false(is_clock_model(create_mcmc()))
 }
 \seealso{
 see \code{\link{create_clock_model}} for an overview of functions
