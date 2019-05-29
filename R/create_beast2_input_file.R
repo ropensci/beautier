@@ -83,6 +83,15 @@ create_beast2_input_file <- function(
   if (any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
+  # Create the folder where to write the file
+  folder_name <- dirname(output_filename)
+  dir.create(path = folder_name, recursive = TRUE, showWarnings = FALSE)
+  if (!dir.exists(folder_name)) {
+    stop(
+      "Cannot create folder to store file with name '", output_filename,"' \n",
+      "Perhaps no permission to create folders there there? \n"
+    )
+  }
 
   # Error handling done by create_beast2_input
   text <- create_beast2_input(
