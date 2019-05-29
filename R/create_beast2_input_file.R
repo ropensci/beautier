@@ -88,7 +88,7 @@ create_beast2_input_file <- function(
   dir.create(path = folder_name, recursive = TRUE, showWarnings = FALSE)
   if (!dir.exists(folder_name)) {
     stop(
-      "Cannot create folder to store file with name '", output_filename,"' \n",
+      "Cannot create folder to store file with name '", output_filename, "' \n",
       "Perhaps no permission to create folders there there? \n"
     )
   }
@@ -112,7 +112,7 @@ create_beast2_input_file <- function(
     ),
     error = function(e) {
       stop(
-        "Cannot write to file with name '", output_filename,"' \n",
+        "Cannot write to file with name '", output_filename, "' \n",
         "Perhaps no permission to write there? \n",
         "Error message: ", e$message, " \n"
       )
