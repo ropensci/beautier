@@ -97,7 +97,16 @@ create_beast2_input_file <- function(
   )
 
   # Write to file
-  my_file <- file(output_filename)
-  writeLines(text, my_file)
-  close(my_file)
+  tryCatch(
+    suppressWarnings(
+      writeLines(text, con = output_filename)
+    ),
+    error = function(e) {
+      stop(
+        "Cannot write to file with name '", output_filename,"' \n",
+        "Perhaps no permission to write there? \n",
+        "Error message: ", e$message, " \n"
+      )
+    }
+  )
 }

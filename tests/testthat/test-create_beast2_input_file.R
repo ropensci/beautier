@@ -75,4 +75,14 @@ test_that("abuse", {
     ),
     "'posterior_crown_age' is deprecated"
   )
+
+  # output filename is invalid
+  expect_error(
+    create_beast2_input_file(
+      input_filename = get_fasta_filename(),
+      output_filename = "/no/way",
+    ),
+    "Cannot write to file with name '/no/way"
+  )
+
 })
