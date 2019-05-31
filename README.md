@@ -1,7 +1,6 @@
 # beautier
 
 [![Peer Review Status](https://badges.ropensci.org/209_status.svg)](https://github.com/ropensci/onboarding/issues/209)
-
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/beautier)](https://cran.r-project.org/package=beautier)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/beautier)]( https://CRAN.R-project.org/package=beautier)
 [![](http://cranlogs.r-pkg.org/badges/beautier)](https://CRAN.R-project.org/package=beautier)
