@@ -21,5 +21,5 @@ test_that("NS, deep", {
   # We cannot deeply test if the BEAST2 input file is valid:
   # for that, we need beastier.
   # Therefore, this test is done in
-  # beastier's tests/testthat/test-create_beast2_input_package.R
+  # mauricer's tests/testthat/test-create_beast2_input_package.R
 })
