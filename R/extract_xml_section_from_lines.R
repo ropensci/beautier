@@ -8,8 +8,8 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  if (!is.character(section)) {
-    stop("'section' must be a word")
+  if (!is_one_string(section)) {
+    stop("'section' must be one string")
   }
   if (section == "operators") {
     return(extract_xml_operators_from_lines(lines)) # nolint beautier function

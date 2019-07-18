@@ -13,7 +13,7 @@ test_that("use", {
     "</b>"
   )
 
-  testthat::expect_equal(
+  expect_equal(
     beautier:::extract_xml_section_from_lines(lines = lines, section = "a"),
     c(
       "<a>",
@@ -22,7 +22,7 @@ test_that("use", {
     )
   )
 
-  testthat::expect_equal(
+  expect_equal(
     beautier:::extract_xml_section_from_lines(lines = lines, section = "c"),
     c(
       "  <c>",
@@ -35,7 +35,7 @@ test_that("use", {
 
 test_that("use: operators", {
 
-  testthat::expect_silent(
+  expect_silent(
     beautier:::extract_xml_section_from_lines(
       lines = readLines(beautier::get_beautier_path("2_4.xml")),
       section = "operators")
@@ -45,7 +45,7 @@ test_that("use: operators", {
 
 test_that("use: loggers", {
 
-  testthat::expect_silent(
+  expect_silent(
     beautier:::extract_xml_section_from_lines(
       lines = readLines(beautier::get_beautier_path("2_4.xml")),
       section = "loggers")
@@ -53,16 +53,16 @@ test_that("use: loggers", {
 
 })
 
-test_that("abuse: section must be a word", {
+test_that("abuse: section must be one string", {
 
-  testthat::expect_error(
+  expect_error(
     beautier:::extract_xml_section_from_lines(lines = lines, section = NA),
-    "'section' must be a word"
+    "'section' must be one string"
   )
 
-  testthat::expect_error(
+  expect_error(
     beautier:::extract_xml_section_from_lines(lines = lines, section = NULL),
-    "'section' must be a word"
+    "'section' must be one string"
   )
 })
 
@@ -74,7 +74,7 @@ test_that("abuse: opening tag absent", {
     "</a>"
   )
 
-  testthat::expect_error(
+  expect_error(
     beautier:::extract_xml_section_from_lines(
       lines = lines, section = "nonsense"
     ),
@@ -90,7 +90,7 @@ test_that("abuse: closing tag absent", {
     "<no_slash_a>"
   )
 
-  testthat::expect_error(
+  expect_error(
     beautier:::extract_xml_section_from_lines(
       lines = lines, section = "a"
     ),
