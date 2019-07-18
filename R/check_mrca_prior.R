@@ -53,7 +53,7 @@ check_mrca_prior <- function(mrca_prior) {
       !is.vector(mrca_prior$taxa_names, mode = "character")) {
     stop("'taxa_names' must a character vector")
   }
-  if (!is.logical(mrca_prior$is_monophyletic)) {
+  if (!is_one_bool(mrca_prior$is_monophyletic)) { # nolint beautier function
     stop("'is_monophyletic' must be either TRUE or FALSE")
   }
   if (!is_distr(mrca_prior$mrca_distr) && # nolint beautier function

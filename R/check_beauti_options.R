@@ -32,17 +32,13 @@ check_beauti_options <- function(
       )
     }
   }
-  if (length(beauti_options$capitalize_first_char_id) != 1 ||
-    is_one_na(beauti_options$capitalize_first_char_id) || # nolint beautier function
-    !is.logical(beauti_options$capitalize_first_char_id)) {
+  if (!is_one_bool(beauti_options$capitalize_first_char_id)) { # nolint beautier function
     stop(
       "'capitalize_first_char_id' must be one boolean. \n",
       "Actual value: ", beauti_options$capitalize_first_char_id
     )
   }
-  if (length(beauti_options$nucleotides_uppercase) != 1 ||
-    is_one_na(beauti_options$nucleotides_uppercase) || # nolint beautier function
-    !is.logical(beauti_options$nucleotides_uppercase)) {
+  if (!is_one_bool(beauti_options$nucleotides_uppercase)) { # nolint beautier function
     stop(
       "'nucleotides_uppercase' must be one boolean. \n",
       "Actual value: ", beauti_options$nucleotides_uppercase
