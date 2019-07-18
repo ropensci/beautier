@@ -11,8 +11,8 @@ has_xml_closing_tag <- function(
   lines,
   section
 ) {
-  if (!is.character(section)) {
-    stop("'section' must be a word")
+  if (!is_one_string(section)) { # nolint beautier function
+    stop("'section' must be one string")
   }
   !is_one_na( # nolint beautier function
     find_last_xml_closing_tag_line(

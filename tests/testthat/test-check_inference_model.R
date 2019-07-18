@@ -151,6 +151,6 @@ test_that("in-depth use", {
     check_inference_model(
       create_inference_model(tipdates_filename = 1)
     ),
-    "'tipdates_filename' must be one NA or one character string"
+    "'tipdates_filename' must be one NA or one string"
   )
 })

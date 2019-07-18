@@ -11,11 +11,11 @@ test_that("use", {
     "  </b>"
   )
 
-  testthat::expect_true(beautier:::has_xml_closing_tag(text, section = "a"))
-  testthat::expect_true(beautier:::has_xml_closing_tag(text, section = "b"))
-  testthat::expect_false(
+  expect_true(beautier:::has_xml_closing_tag(text, section = "a"))
+  expect_true(beautier:::has_xml_closing_tag(text, section = "b"))
+  expect_false(
     beautier:::has_xml_closing_tag(text, section = "nonsense"))
-  testthat::expect_false(
+  expect_false(
     beautier:::has_xml_closing_tag("", section = "nonsense"))
 
 })
@@ -31,13 +31,13 @@ test_that("abuse", {
     "</b>"
   )
 
-  testthat::expect_error(
-    beautier:::has_xml_closing_tag(text, section = NA),
-    "'section' must be a word"
+  expect_error(
+    has_xml_closing_tag(text, section = NA),
+    "'section' must be one string"
   )
-  testthat::expect_error(
-    beautier:::has_xml_closing_tag(text, section = NULL),
-    "'section' must be a word"
+  expect_error(
+    has_xml_closing_tag(text, section = NULL),
+    "'section' must be one string"
   )
 
 })

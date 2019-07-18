@@ -9,8 +9,8 @@ find_first_xml_opening_tag_line <- function( # nolint beautier functions may be 
   lines,
   section
 ) {
-  if (!is.character(section)) {
-    stop("'section' must be a word")
+  if (!is_one_string(section)) { # nolint beautier function
+    stop("'section' must be one string")
   }
   find_first_regex_line(lines, paste0("<", section, ".*>")) # nolint beautier function
 }

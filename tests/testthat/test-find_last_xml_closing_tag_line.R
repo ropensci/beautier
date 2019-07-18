@@ -52,12 +52,12 @@ test_that("abuse", {
 
   testthat::expect_error(
     beautier:::find_last_xml_closing_tag_line(lines = lines, section = NA),
-    "'section' must be a word"
+    "'section' must be one string"
   )
 
   testthat::expect_error(
     beautier:::find_last_xml_closing_tag_line(lines = lines, section = NULL),
-    "'section' must be a word"
+    "'section' must be one string"
   )
 
 })

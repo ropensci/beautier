@@ -9,8 +9,8 @@ find_last_xml_closing_tag_line <- function(
   lines,
   section
 ) {
-  if (!is.character(section)) {
-    stop("'section' must be a word")
+  if (!is_one_string(section)) { # nolint beautier function
+    stop("'section' must be one string")
   }
   find_last_regex_line(lines, paste0("</", section, ">")) # nolint beautier function
 }

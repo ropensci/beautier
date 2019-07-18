@@ -44,17 +44,15 @@ check_beauti_options <- function(
       "Actual value: ", beauti_options$nucleotides_uppercase
     )
   }
-  if (length(beauti_options$beast2_version) != 1 ||
-    !is.character(beauti_options$beast2_version)) {
+  if (!is_one_string(beauti_options$beast2_version)) {
     stop(
-      "'beast2_version' must be one character string. \n",
+      "'beast2_version' must be one string. \n",
       "Actual value: ", beauti_options$beast2_version
     )
   }
-  if (length(beauti_options$required) != 1 ||
-    !is.character(beauti_options$required)) {
+  if (!is_one_string(beauti_options$required)) { # nolint beautier function
     stop(
-      "'required' must be one character string. \n",
+      "'required' must be one string. \n",
       "Actual value: ", beauti_options$required
     )
   }
