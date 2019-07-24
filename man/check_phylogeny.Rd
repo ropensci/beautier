@@ -16,13 +16,18 @@ nothing
 Calls \code{stop} if the phylogeny is invalid
 }
 \examples{
- phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")
- testthat::expect_silent(check_phylogeny(phylogeny))
+library(testthat)
 
- # Must stop on non-phylogenies
- testthat::expect_error(check_phylogeny(phylo = "nonsense"))
- testthat::expect_error(check_phylogeny(phylo = NULL))
- testthat::expect_error(check_phylogeny(phylo = NA))
+# Must do nothing on phylogenies
+phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")
+expect_silent(check_phylogeny(phylogeny))
+
+# Must stop on non-phylogenies
+expect_error(check_phylogeny("nonsense"))
+expect_error(check_phylogeny(NULL))
+expect_error(check_phylogeny(NA))
+expect_error(check_phylogeny(c()))
+expect_error(check_phylogeny(c(3, 1, 4)))
 }
 \seealso{
 Use \link[ape]{read.tree} to create a phylogeny
