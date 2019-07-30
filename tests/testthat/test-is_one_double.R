@@ -1,0 +1,12 @@
+test_that("use", {
+  expect_true(is_one_double(314))
+  expect_true(is_one_double(0))
+  expect_true(is_one_double(-314))
+  expect_true(is_one_double(3.14))
+  expect_false(is_one_double(NULL))
+  expect_false(is_one_double(NA))
+  expect_false(is_one_double(Inf))
+  expect_false(is_one_double("nonsense"))
+  expect_false(is_one_double(c()))
+  expect_false(is_one_double(c(1, 2)))
+})
