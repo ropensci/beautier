@@ -56,8 +56,7 @@ check_beauti_options <- function(
       "Actual value: ", beauti_options$required
     )
   }
-  if (length(beauti_options$sequence_indent) != 1 ||
-    !is.numeric(beauti_options$sequence_indent)) {
+  if (!is_one_int(beauti_options$sequence_indent)) { #  nolint beautier function
     stop(
       "'sequence_indent' must be one number. \n",
       "Actual value: ", beauti_options$sequence_indent

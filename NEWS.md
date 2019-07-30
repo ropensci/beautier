@@ -12,6 +12,7 @@ Newest versions at top.
 
   * Exported and documented more `is_` functions
   * Added `check_file_exists` function
+  * Added `is_one_int` function
 
 ### BUG FIXES
 

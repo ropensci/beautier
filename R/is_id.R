@@ -7,5 +7,5 @@
 is_id <- function(
   x
 ) {
-  is.character(x) || is.numeric(x)
+  is_one_string(x) || is_one_int(x) # nolint beautier function
 }

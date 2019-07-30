@@ -71,8 +71,7 @@ check_mrca_prior <- function(mrca_prior) {
     stop("'taxa_names' must be NA or all names must be unique")
   }
   if (!is_one_na(mrca_prior$clock_prior_distr_id) && # nolint beautier function
-      (length(mrca_prior$clock_prior_distr_id) != 1 ||
-      !is.numeric(mrca_prior$clock_prior_distr_id))) {
+      !is_one_int(mrca_prior$clock_prior_distr_id)) { # nolint beautier function
     stop("'clock_prior_distr_id' must be one NA or one number")
   }
 
