@@ -4,12 +4,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_n_taxa <- function(filename) {
-
-  if (!file.exists(filename)) {
-    stop(
-      "'filename' must be the name of a file that is present. ",
-      "File '", filename, "' not found"
-    )
-  }
+  check_file_exists(filename, "filename") # nolint beautier function
   length(seqinr::read.fasta(filename))
 }

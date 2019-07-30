@@ -15,13 +15,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 fasta_to_phylo <- function(fasta_filename, crown_age) {
-
-  if (!file.exists(fasta_filename)) {
-    stop(
-      "'fasta_filename' must be the name of a present file, ",
-      "file '", fasta_filename, "' not found"
-    )
-  }
+  check_file_exists(fasta_filename, "fasta_filename") # nolint beautier function
   if (crown_age <= 0.0) {
     stop("'crown_age' must be nonzero and positive")
   }

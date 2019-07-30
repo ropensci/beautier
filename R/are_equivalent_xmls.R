@@ -12,18 +12,8 @@ are_equivalent_xml_files <- function(
   filename_2,
   section = NA
 ) {
-  if (!file.exists(filename_1)) {
-    stop(
-      "'filename_1' must be the name of a present file. ",
-      "File name '", filename_1, "' not found"
-    )
-  }
-  if (!file.exists(filename_2)) {
-    stop(
-      "'filename_2' must be the name of a present file. ",
-      "File name '", filename_2, "' not found"
-    )
-  }
+  check_file_exists(filename_1, "filename_1") # nolint beautier function
+  check_file_exists(filename_2, "filename_2") # nolint beautier function
   are_equivalent_xml_lines(
     readLines(filename_1),
     readLines(filename_2),
