@@ -43,5 +43,5 @@ expect_error(
 )
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

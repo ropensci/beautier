@@ -25,7 +25,7 @@
 #'   check_file_exists(absent_filename, "absent_filename"),
 #'   "File 'absent_filename' not found. Could not find file with path 'absent'"
 #' )
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_file_exists <- function(
   filename,
