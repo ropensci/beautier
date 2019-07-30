@@ -6,6 +6,7 @@ test_that("use", {
   expect_false(is_one_int(NULL))
   expect_false(is_one_int(NA))
   expect_false(is_one_int(Inf))
+  expect_false(is_one_int("nonsense"))
   expect_false(is_one_int(c()))
   expect_false(is_one_int(c(1, 2)))
 })

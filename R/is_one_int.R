@@ -1,4 +1,4 @@
-#' Determines if the argument is one int
+#' Determines if the argument is a whole number
 #' @param x the object to be determined of if it is one integer
 #' @param tolerance tolerance to rounding errors
 #' @author Richèl J.C. Bilderbeek
@@ -12,6 +12,7 @@
 #' expect_false(is_one_int(NULL))
 #' expect_false(is_one_int(NA))
 #' expect_false(is_one_int(Inf))
+#' expect_false(is_one_int("nonsense"))
 #' expect_false(is_one_int(c()))
 #' expect_false(is_one_int(c(1, 2)))
 #' @export
@@ -19,5 +20,6 @@ is_one_int <- function(x, tolerance = .Machine$double.eps^0.5) {
   if (length(x) != 1) return(FALSE)
   if (is.na(x)) return(FALSE)
   if (is.infinite(x)) return(FALSE)
+  if (!is.numeric(x)) return(FALSE)
   abs(x - round(x)) < tolerance
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_one_int.R
 \name{is_one_int}
 \alias{is_one_int}
-\title{Determines if the argument is one int}
+\title{Determines if the argument is a whole number}
 \usage{
 is_one_int(x, tolerance = .Machine$double.eps^0.5)
 }
@@ -12,7 +12,7 @@ is_one_int(x, tolerance = .Machine$double.eps^0.5)
 \item{tolerance}{tolerance to rounding errors}
 }
 \description{
-Determines if the argument is one int
+Determines if the argument is a whole number
 }
 \examples{
 library(testthat)
@@ -23,6 +23,8 @@ expect_true(is_one_int(-314))
 expect_false(is_one_int(3.14))
 expect_false(is_one_int(NULL))
 expect_false(is_one_int(NA))
+expect_false(is_one_int(Inf))
+expect_false(is_one_int("nonsense"))
 expect_false(is_one_int(c()))
 expect_false(is_one_int(c(1, 2)))
 }
