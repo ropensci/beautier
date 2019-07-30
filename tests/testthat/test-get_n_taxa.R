@@ -40,9 +40,9 @@ test_that("use", {
 
 test_that("abuse", {
 
-  testthat::expect_error(
-    beautier:::get_n_taxa("abs.end"),
-    "'filename' must be the name of a file that is present"
+  expect_error(
+    beautier:::get_n_taxa("abs.ent"),
+    "File 'filename' not found. Could not find file with path 'abs.ent'"
   )
 
 })

@@ -6,27 +6,27 @@ test_that("use", {
   filename2 <- beautier::get_beautier_path("jc69_2_4.xml")
 
   testthat::expect_true(
-    beautier:::are_equivalent_xml_files(filename1, filename1)
+    are_equivalent_xml_files(filename1, filename1)
   )
 
   testthat::expect_false(
-    beautier:::are_equivalent_xml_files(filename1, filename2)
+    are_equivalent_xml_files(filename1, filename2)
   )
 
 })
 
 test_that("abuse", {
 
-  filename <- beautier::get_beautier_path("gtr_gcc_2_2_4.xml")
+  filename <- get_beautier_path("gtr_gcc_2_2_4.xml")
 
-  testthat::expect_error(
-    beautier:::are_equivalent_xml_files("nonse.nse", filename),
-    "'filename_1' must be the name of a present file"
+  expect_error(
+    are_equivalent_xml_files("nonse.nse", filename),
+    "File 'filename_1' not found. Could not find file with path 'nonse.nse'"
   )
 
-  testthat::expect_error(
-    beautier:::are_equivalent_xml_files(filename, "nonse.nse"),
-    "'filename_2' must be the name of a present file"
+  expect_error(
+    are_equivalent_xml_files(filename, "nonse.nse"),
+    "File 'filename_2' not found. Could not find file with path 'nonse.nse'"
   )
 
 })
