@@ -11,6 +11,7 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
   * Exported and documented more `is_` functions
+  * Added `check_file_exists` function
 
 ### BUG FIXES
 
