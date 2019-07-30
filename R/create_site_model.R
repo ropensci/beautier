@@ -175,22 +175,22 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   rate_gt_param = create_rate_gt_param(),
   freq_equilibrium = "estimated"
 ) {
-  if (length(rate_ac_param) == 1 && is.numeric(rate_ac_param)) {
+  if (is_one_double(rate_ac_param)) { # nolint beautier function
     rate_ac_param <- create_rate_ac_param(value = rate_ac_param)
   }
-  if (length(rate_ag_param) == 1 && is.numeric(rate_ag_param)) {
+  if (is_one_double(rate_ag_param)) { # nolint beautier function
     rate_ag_param <- create_rate_ag_param(value = rate_ag_param)
   }
-  if (length(rate_at_param) == 1 && is.numeric(rate_at_param)) {
+  if (is_one_double(rate_at_param)) { # nolint beautier function
     rate_at_param <- create_rate_at_param(value = rate_at_param)
   }
-  if (length(rate_cg_param) == 1 && is.numeric(rate_cg_param)) {
+  if (is_one_double(rate_cg_param)) { # nolint beautier function
     rate_cg_param <- create_rate_cg_param(value = rate_cg_param)
   }
-  if (length(rate_ct_param) == 1 && is.numeric(rate_ct_param)) {
+  if (is_one_double(rate_ct_param)) { # nolint beautier function
     rate_ct_param <- create_rate_ct_param(value = rate_ct_param)
   }
-  if (length(rate_gt_param) == 1 && is.numeric(rate_gt_param)) {
+  if (is_one_double(rate_gt_param)) { # nolint beautier function
     rate_gt_param <- create_rate_gt_param(value = rate_gt_param)
   }
 
@@ -333,10 +333,10 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
   ),
   freq_equilibrium = "estimated"
 ) {
-  if (length(kappa_1_param) == 1 && is.numeric(kappa_1_param)) {
+  if (is_one_double(kappa_1_param)) { # nolint beautier function
     kappa_1_param <- create_kappa_1_param(value = kappa_1_param)
   }
-  if (length(kappa_2_param) == 1 && is.numeric(kappa_2_param)) {
+  if (is_one_double(kappa_2_param)) { # nolint beautier function
     kappa_2_param <- create_kappa_2_param(value = kappa_2_param)
   }
   beautier::create_site_model(

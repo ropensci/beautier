@@ -170,7 +170,7 @@ create_strict_clock_model <- create_clock_model_strict <- function(
   clock_rate_param = create_clock_rate_param(),
   clock_rate_distr = create_uniform_distr()
 ) {
-  if (length(clock_rate_param) == 1 && is.numeric(clock_rate_param)) {
+  if (is_one_double(clock_rate_param)) { # nolint beautier function
     clock_rate_param <- create_clock_rate_param(clock_rate_param)
   }
   if (!is_clock_rate_param(clock_rate_param)) { # nolint beautier function

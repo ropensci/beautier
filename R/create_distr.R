@@ -108,10 +108,10 @@ create_beta_distr <- create_distr_beta <- function(
   alpha = 0.0,
   beta = 1.0
 ) {
-  if (length(alpha) == 1 && is.numeric(alpha)) {
+  if (is_one_double(alpha)) { # nolint beautier function
     alpha <- create_alpha_param(value = alpha)
   }
-  if (length(beta) == 1 && is.numeric(beta)) {
+  if (is_one_double(beta)) { # nolint beautier function
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -164,7 +164,7 @@ create_exp_distr <- create_distr_exp <- function(
   id = NA,
   mean = 1.0
 ) {
-  if (length(mean) == 1 && is.numeric(mean)) {
+  if (is_one_double(mean)) { # nolint beautier function
     mean <- create_mean_param(value = mean)
   }
   if (!is_mean_param(mean)) {
@@ -216,10 +216,10 @@ create_gamma_distr <- create_distr_gamma <- function(
   alpha = 0.5396,
   beta = 0.3819
 ) {
-  if (length(alpha) == 1 && is.numeric(alpha)) {
+  if (is_one_double(alpha)) { # nolint beautier function
     alpha <- create_alpha_param(value = alpha)
   }
-  if (length(beta) == 1 && is.numeric(beta)) {
+  if (is_one_double(beta)) { # nolint beautier function
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -278,10 +278,10 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   alpha = 0.0,
   beta = 1.0
 ) {
-  if (length(alpha) == 1 && is.numeric(alpha)) {
+  if (is_one_double(alpha)) { # nolint beautier function
     alpha <- create_alpha_param(value = alpha)
   }
-  if (length(beta) == 1 && is.numeric(beta)) {
+  if (is_one_double(beta)) { # nolint beautier function
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -333,10 +333,10 @@ create_laplace_distr <- create_distr_laplace <- function(
   mu = 0.0,
   scale = 1.0
 ) {
-  if (length(mu) == 1 && is.numeric(mu)) {
+  if (is_one_double(mu)) { # nolint beautier function
     mu <- create_mu_param(value = mu)
   }
-  if (length(scale) == 1 && is.numeric(scale)) {
+  if (is_one_double(scale)) { # nolint beautier function
     scale <- create_scale_param(value = scale)
   }
 
@@ -389,10 +389,10 @@ create_log_normal_distr <- create_distr_log_normal <- function(
   m = 0.0,
   s = 0.0
 ) {
-  if (length(m) == 1 && is.numeric(m)) {
+  if (is_one_double(m)) { # nolint beautier function
     m <- create_m_param(value = m)
   }
-  if (length(s) == 1 && is.numeric(s)) {
+  if (is_one_double(s)) { # nolint beautier function
     s <- create_s_param(value = s)
   }
   if (!is_m_param(m)) {
@@ -445,10 +445,10 @@ create_normal_distr <- create_distr_normal <- function(
   mean = 0.0,
   sigma = 1.0
 ) {
-  if (length(mean) == 1 && is.numeric(mean)) {
+  if (is_one_double(mean)) { # nolint beautier function
     mean <- create_mean_param(value = mean)
   }
-  if (length(sigma) == 1 && is.numeric(sigma)) {
+  if (is_one_double(sigma)) { # nolint beautier function
     sigma <- create_sigma_param(value = sigma)
   }
 
@@ -525,7 +525,7 @@ create_poisson_distr <- create_distr_poisson <- function(
   id = NA,
   lambda = 0.0
 ) {
-  if (length(lambda) == 1 && is.numeric(lambda)) {
+  if (is_one_double(lambda)) { # nolint beautier function
     lambda <- create_lambda_param(value = lambda)
   }
 
