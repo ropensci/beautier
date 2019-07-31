@@ -11,5 +11,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_one_na <- function(x) {
+  if (is.function(x)) return(FALSE)
   length(x) == 1 && is.na(x)
 }

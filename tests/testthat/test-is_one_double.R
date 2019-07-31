@@ -7,6 +7,7 @@ test_that("use", {
   expect_false(is_one_double(NA))
   expect_false(is_one_double(Inf))
   expect_false(is_one_double("nonsense"))
+  expect_false(is_one_double(is_one_double))
   expect_false(is_one_double(c()))
   expect_false(is_one_double(c(1, 2)))
 })

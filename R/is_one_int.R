@@ -18,6 +18,7 @@
 #' @export
 is_one_int <- function(x, tolerance = .Machine$double.eps^0.5) {
   if (length(x) != 1) return(FALSE)
+  if (is.function(x)) return(FALSE)
   if (is.na(x)) return(FALSE)
   if (is.infinite(x)) return(FALSE)
   if (!is.numeric(x)) return(FALSE)

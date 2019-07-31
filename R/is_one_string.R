@@ -13,6 +13,7 @@
 #' @export
 is_one_string <- function(x) {
   if (length(x) != 1) return(FALSE)
+  if (is.function(x)) return(FALSE)
   if (is.na(x)) return(FALSE)
   is.character(x)
 }

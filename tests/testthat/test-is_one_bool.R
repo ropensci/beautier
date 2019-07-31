@@ -6,5 +6,6 @@ test_that("use", {
   expect_false(is_one_bool(NA))
   expect_false(is_one_bool(c()))
   expect_false(is_one_bool("nonsense"))
+  expect_false(is_one_bool(is_one_bool))
   expect_false(is_one_bool(c(TRUE, FALSE)))
 })
