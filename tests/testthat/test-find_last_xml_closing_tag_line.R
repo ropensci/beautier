@@ -16,24 +16,24 @@ test_that("use", {
     "</b>"
   )
 
-  testthat::expect_equal(
-    beautier:::find_last_xml_closing_tag_line(lines = lines, section = "a"),
+  expect_equal(
+    find_last_xml_closing_tag_line(lines = lines, section = "a"),
     3
   )
 
-  testthat::expect_equal(
-    beautier:::find_last_xml_closing_tag_line(lines = lines, section = "b"),
+  expect_equal(
+    find_last_xml_closing_tag_line(lines = lines, section = "b"),
     11
   )
 
-  testthat::expect_equal(
-    beautier:::find_last_xml_closing_tag_line(lines = lines, section = "c"),
+  expect_equal(
+    find_last_xml_closing_tag_line(lines = lines, section = "c"),
     10
   )
 
-  testthat::expect_true(
+  expect_true(
     is_one_na(
-      beautier:::find_last_xml_closing_tag_line(
+      find_last_xml_closing_tag_line(
         lines = lines,
         section = "absent"
       )
@@ -50,14 +50,14 @@ test_that("abuse", {
     "</a>"
   )
 
-  testthat::expect_error(
-    beautier:::find_last_xml_closing_tag_line(lines = lines, section = NA),
-    "'section' must be one string"
+  expect_error(
+    find_last_xml_closing_tag_line(lines = lines, section = NA),
+    "section is not of class 'character'"
   )
 
-  testthat::expect_error(
-    beautier:::find_last_xml_closing_tag_line(lines = lines, section = NULL),
-    "'section' must be one string"
+  expect_error(
+    find_last_xml_closing_tag_line(lines = lines, section = NULL),
+    "section is not of class 'character'"
   )
 
 })

@@ -40,7 +40,7 @@ check_file_exists <- function(
         "'"
       )
     } else {
-      testit::assert(assertive::is_a_string(filename_description)) # nolint beautier function
+      assertive::assert_is_a_string(filename_description)
       stop(
         "File '", filename_description, "' not found. ",
         "Could not find file with path '",

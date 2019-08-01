@@ -14,7 +14,7 @@ test_that("use", {
   )
 
   expect_equal(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = "a"),
+    extract_xml_section_from_lines(lines = lines, section = "a"),
     c(
       "<a>",
       "  text",
@@ -23,7 +23,7 @@ test_that("use", {
   )
 
   expect_equal(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = "c"),
+    extract_xml_section_from_lines(lines = lines, section = "c"),
     c(
       "  <c>",
       "    some other text",
@@ -36,8 +36,8 @@ test_that("use", {
 test_that("use: operators", {
 
   expect_silent(
-    beautier:::extract_xml_section_from_lines(
-      lines = readLines(beautier::get_beautier_path("2_4.xml")),
+    extract_xml_section_from_lines(
+      lines = readLines(get_beautier_path("2_4.xml")),
       section = "operators")
   )
 
@@ -46,8 +46,8 @@ test_that("use: operators", {
 test_that("use: loggers", {
 
   expect_silent(
-    beautier:::extract_xml_section_from_lines(
-      lines = readLines(beautier::get_beautier_path("2_4.xml")),
+    extract_xml_section_from_lines(
+      lines = readLines(get_beautier_path("2_4.xml")),
       section = "loggers")
   )
 
@@ -56,13 +56,13 @@ test_that("use: loggers", {
 test_that("abuse: section must be one string", {
 
   expect_error(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = NA),
-    "'section' must be one string"
+    extract_xml_section_from_lines(lines = lines, section = NA),
+    "section is not of class 'character'"
   )
 
   expect_error(
-    beautier:::extract_xml_section_from_lines(lines = lines, section = NULL),
-    "'section' must be one string"
+    extract_xml_section_from_lines(lines = lines, section = NULL),
+    "section is not of class 'character'"
   )
 })
 
@@ -75,7 +75,7 @@ test_that("abuse: opening tag absent", {
   )
 
   expect_error(
-    beautier:::extract_xml_section_from_lines(
+    extract_xml_section_from_lines(
       lines = lines, section = "nonsense"
     ),
     "Opening tag for 'section' could not be found in 'lines'"
@@ -91,7 +91,7 @@ test_that("abuse: closing tag absent", {
   )
 
   expect_error(
-    beautier:::extract_xml_section_from_lines(
+    extract_xml_section_from_lines(
       lines = lines, section = "a"
     ),
     "Closing tag for 'section' could not be found in 'lines'"

@@ -16,24 +16,24 @@ test_that("use", {
     "</b>"
   )
 
-  testthat::expect_equal(
-    beautier:::find_first_xml_opening_tag_line(lines = lines, section = "a"),
+  expect_equal(
+    find_first_xml_opening_tag_line(lines = lines, section = "a"),
     1
   )
 
-  testthat::expect_equal(
-    beautier:::find_first_xml_opening_tag_line(lines = lines, section = "b"),
+  expect_equal(
+    find_first_xml_opening_tag_line(lines = lines, section = "b"),
     4
   )
 
-  testthat::expect_equal(
-    beautier:::find_first_xml_opening_tag_line(lines = lines, section = "c"),
+  expect_equal(
+    find_first_xml_opening_tag_line(lines = lines, section = "c"),
     5
   )
 
-  testthat::expect_true(
+  expect_true(
     is_one_na(
-      beautier:::find_first_xml_opening_tag_line(
+      find_first_xml_opening_tag_line(
         lines = lines,
         section = "nonsense"
       )
@@ -50,14 +50,14 @@ test_that("abuse", {
     "</a>"
   )
 
-  testthat::expect_error(
-    beautier:::find_first_xml_opening_tag_line(lines = lines, section = NA),
-    "'section' must be one string"
+  expect_error(
+    find_first_xml_opening_tag_line(lines = lines, section = NA),
+    "section is not of class 'character'"
   )
 
-  testthat::expect_error(
-    beautier:::find_first_xml_opening_tag_line(lines = lines, section = NULL),
-    "'section' must be one string"
+  expect_error(
+    find_first_xml_opening_tag_line(lines = lines, section = NULL),
+    "section is not of class 'character'"
   )
 
 })

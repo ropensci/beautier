@@ -9,8 +9,6 @@ find_first_xml_opening_tag_line <- function( # nolint beautier functions may be 
   lines,
   section
 ) {
-  if (!assertive::is_a_string(section)) { # nolint beautier function
-    stop("'section' must be one string")
-  }
+  assertive::assert_is_a_string(section)
   find_first_regex_line(lines, paste0("<", section, ".*>")) # nolint beautier function
 }

@@ -56,8 +56,8 @@ test_that("use", {
 test_that("abuse: section must be a word", {
 
   expect_error(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2, section = NA),
-    "'section' must be one string"
+    are_equivalent_xml_lines_section(lines_1, lines_2, section = NA),
+    "is_a_string : section is not of class 'character'"
   )
 
 })

@@ -33,11 +33,11 @@ test_that("abuse", {
 
   expect_error(
     has_xml_closing_tag(text, section = NA),
-    "'section' must be one string"
+    "section is not of class 'character'"
   )
   expect_error(
     has_xml_closing_tag(text, section = NULL),
-    "'section' must be one string"
+    "section is not of class 'character'"
   )
 
 })

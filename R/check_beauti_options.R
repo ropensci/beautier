@@ -44,18 +44,8 @@ check_beauti_options <- function(
       "Actual value: ", beauti_options$nucleotides_uppercase
     )
   }
-  if (!assertive::is_a_string(beauti_options$beast2_version)) {
-    stop(
-      "'beast2_version' must be one string. \n",
-      "Actual value: ", beauti_options$beast2_version
-    )
-  }
-  if (!assertive::is_a_string(beauti_options$required)) { # nolint beautier function
-    stop(
-      "'required' must be one string. \n",
-      "Actual value: ", beauti_options$required
-    )
-  }
+  assertive::assert_is_a_string(beauti_options$beast2_version)
+  assertive::assert_is_a_string(beauti_options$required)
   if (!is_one_int(beauti_options$sequence_indent)) { #  nolint beautier function
     stop(
       "'sequence_indent' must be one number. \n",

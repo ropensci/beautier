@@ -8,9 +8,7 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  if (!assertive::is_a_string(section)) {
-    stop("'section' must be one string")
-  }
+  assertive::assert_is_a_string(section)
   if (section == "operators") {
     return(extract_xml_operators_from_lines(lines)) # nolint beautier function
   }
