@@ -44,13 +44,13 @@ check_beauti_options <- function(
       "Actual value: ", beauti_options$nucleotides_uppercase
     )
   }
-  if (!is_one_string(beauti_options$beast2_version)) {
+  if (!assertive::is_a_string(beauti_options$beast2_version)) {
     stop(
       "'beast2_version' must be one string. \n",
       "Actual value: ", beauti_options$beast2_version
     )
   }
-  if (!is_one_string(beauti_options$required)) { # nolint beautier function
+  if (!assertive::is_a_string(beauti_options$required)) { # nolint beautier function
     stop(
       "'required' must be one string. \n",
       "Actual value: ", beauti_options$required

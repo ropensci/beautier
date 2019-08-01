@@ -68,7 +68,7 @@ check_inference_model <- function(
     stop("'tipdates_filename' must have one element")
   }
   if (!is_one_na(inference_model$tipdates_filename) && # nolint beautier function
-    !is_one_string(inference_model$tipdates_filename) # nolint beautier function
+    !assertive::is_a_string(inference_model$tipdates_filename) # nolint beautier function
   ) {
     stop("'tipdates_filename' must be one NA or one string")
   }

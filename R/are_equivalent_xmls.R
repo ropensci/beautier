@@ -100,7 +100,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
   section,
   verbose = FALSE
 ) {
-  if (!is_one_string(section)) { # nolint beautier function
+  if (!assertive::is_a_string(section)) { # nolint beautier function
     stop("'section' must be one string")
   }
   if (section == "operators") {

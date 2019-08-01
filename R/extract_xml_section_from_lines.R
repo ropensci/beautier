@@ -8,7 +8,7 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  if (!is_one_string(section)) {
+  if (!assertive::is_a_string(section)) {
     stop("'section' must be one string")
   }
   if (section == "operators") {

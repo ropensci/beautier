@@ -9,7 +9,7 @@ find_last_xml_closing_tag_line <- function(
   lines,
   section
 ) {
-  if (!is_one_string(section)) { # nolint beautier function
+  if (!assertive::is_a_string(section)) {
     stop("'section' must be one string")
   }
   find_last_regex_line(lines, paste0("</", section, ">")) # nolint beautier function
