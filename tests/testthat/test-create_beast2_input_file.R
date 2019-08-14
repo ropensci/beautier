@@ -92,5 +92,16 @@ test_that("abuse", {
     ),
     "Cannot create folder to store file with name '/no/way'"
   )
+})
 
+test_that("cannot create CBS with less than 6 taxa", {
+
+  expect_error(
+    create_beast2_input_file(
+      input_filename = beautier::get_beautier_path("test_output_2.fas"),
+      output_filename = tempfile(),
+      tree_prior = create_cbs_tree_prior()
+    ),
+    "'group_sizes_dimension' .* must be less than the number of taxa"
+  )
 })
