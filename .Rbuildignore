@@ -21,4 +21,4 @@
 ^doc$
 ^scripts$
 ^road_map\.md$
-^appveyor\.yml$
+^\.appveyor\.yml$
