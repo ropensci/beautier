@@ -25,11 +25,13 @@ from its function arguments. In this way, a scientific pipeline using
  * [`beautier`](https://github.com/ropensci/beautier) creates BEAST2 input (`.xml`) files.
  * [`beastier`](https://github.com/ropensci/beastier) runs BEAST2
  * [`tracerer`](https://github.com/ropensci/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
+ * [`mauricer`](https://github.com/ropensci/mauricer) install BEAST2 packages
 
 Related R packages:
 
+ * [`beautier_on_windows`](https://github.com/richelbilderbeek/beautier_on_windows): verifies
+   `beautier` builds on Windows
  * [`lumier`](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
- * [`mauricer`](https://github.com/ropensci/mauricer): install BEAST2 packages
 
 ## Examples
 
