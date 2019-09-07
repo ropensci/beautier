@@ -3,6 +3,7 @@
 #' This is done in the same way as BEAST2 does by default
 #' The file extension will be used to determine which
 #' type of file is worked on.
+#' @param filenames names of the files to be checked
 #' @inheritParams default_params_doc
 #' @return the IDs extracted from the one or more files
 #' @seealso Use \link{get_alignment_ids_from_fasta_filenames} to

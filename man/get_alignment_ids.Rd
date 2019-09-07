@@ -6,6 +6,9 @@
 \usage{
 get_alignment_ids(filenames)
 }
+\arguments{
+\item{filenames}{names of the files to be checked}
+}
 \value{
 the IDs extracted from the one or more files
 }
