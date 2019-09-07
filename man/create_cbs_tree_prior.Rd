@@ -10,7 +10,7 @@ create_cbs_tree_prior(id = NA, group_sizes_dimension = 5)
 \arguments{
 \item{id}{an alignment's IDs.
 An ID can be extracted from its FASTA filename
-with \code{\link{get_alignment_ids}})}
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 
 \item{group_sizes_dimension}{the group sizes' dimension, as used
 by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})}

@@ -10,7 +10,7 @@ are_mrca_align_ids_in_fastas <- function(
   fasta_filenames
 ) {
   testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
-  ids <- get_alignment_ids(fasta_filenames) # nolint beautier function
+  ids <- get_alignment_ids_from_fasta_filenames(fasta_filenames) # nolint beautier function
   for (mrca_prior in mrca_priors) {
     testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
     testit::assert(!is_one_na(mrca_prior)) # nolint beautier function

@@ -14,7 +14,7 @@ create_rln_clock_model(id = NA,
 \arguments{
 \item{id}{an alignment's IDs.
 An ID can be extracted from its FASTA filename
-with \code{\link{get_alignment_ids}})}
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 
 \item{mean_rate_prior_distr}{the mean clock rate prior distribution,
 as created by a \code{\link{create_distr}} function}

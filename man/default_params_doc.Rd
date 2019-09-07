@@ -102,11 +102,11 @@ as returned by \code{\link{create_hky_site_model}}}
 
 \item{id}{an alignment's IDs.
 An ID can be extracted from its FASTA filename
-with \code{\link{get_alignment_ids}})}
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 
 \item{ids}{one or more alignments' IDs.
 IDs can be extracted from their FASTA filenames
-with \code{\link{get_alignment_ids}})}
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 
 \item{inference_model}{an Bayesian phylogenetic inference model,
 as can be created by \code{\link{create_inference_model}}.

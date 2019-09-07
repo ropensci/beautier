@@ -2,19 +2,17 @@
 % Please edit documentation in R/get_alignment_ids.R
 \name{get_alignment_ids}
 \alias{get_alignment_ids}
-\title{Get the alignment ID from one or more FASTA filenames.}
+\title{Get the alignment IDs from one or more files.}
 \usage{
-get_alignment_ids(fasta_filenames)
-}
-\arguments{
-\item{fasta_filenames}{One or more FASTA filenames.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+get_alignment_ids(filenames)
 }
 \value{
-the IDs from one or more FASTA files
+the IDs extracted from the one or more files
 }
 \description{
 This is done in the same way as BEAST2 does by default
+The file extension will be used to determine which
+type of file is worked on.
 }
 \examples{
   created <- get_alignment_ids(
@@ -25,6 +23,10 @@ This is done in the same way as BEAST2 does by default
     get_alignment_id(get_beautier_path("anthus_nd2.fas"))
   )
   testit::assert(created == expected)
+}
+\seealso{
+Use \link{get_alignment_ids_from_fasta_filenames} to
+get the alignment IDs from files known to be FASTA files
 }
 \author{
 Richèl J.C. Bilderbeek

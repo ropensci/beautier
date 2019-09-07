@@ -198,7 +198,8 @@ create_beast2_input <- function(
           "All MRCA prior's alignment IDs must match the FASTA file IDs. ",
           "Use 'get_alignment_id' on the FASTA filename ",
           "to get the correct alignment ID. ",
-          "Alignment IDs: ", get_alignment_ids(input_filenames),
+          "Alignment IDs: ",
+            get_alignment_ids_from_fasta_filenames(input_filenames),
           ". MRCA alignment IDs: ", mrca_ids
         )
       )
@@ -219,7 +220,7 @@ create_beast2_input <- function(
   # Initialize all models and priors
   site_models <- init_site_models(
     site_models = site_models,
-    ids = get_alignment_ids(input_filenames),
+    ids = get_alignment_ids_from_fasta_filenames(fasta_filenames = input_filenames),
     distr_id = 0,
     param_id = 0
   )  # nolint beautier function
@@ -231,7 +232,7 @@ create_beast2_input <- function(
   )  # nolint beautier function
   tree_priors <- init_tree_priors( # nolint beautier function
     tree_priors,
-    ids = get_alignment_ids(input_filenames),
+    ids = get_alignment_ids_from_fasta_filenames(fasta_filenames = input_filenames),
     distr_id = 100,
     param_id = 200
   )
