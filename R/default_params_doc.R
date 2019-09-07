@@ -87,7 +87,7 @@
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
-#' @param phylogeny a phylogeny of type \code{\link[ape]{phylo}}
+#' @param phylogeny a phylogeny of type \link[ape]{phylo}
 #' @param posterior_crown_age deprecated
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}

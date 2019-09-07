@@ -147,7 +147,7 @@ function. BEAST2 uses this file as input.}
 
 \item{param_id}{a parameter's ID}
 
-\item{phylogeny}{a phylogeny of type \code{\link[ape]{phylo}}}
+\item{phylogeny}{a phylogeny of type \link[ape]{phylo}}
 
 \item{posterior_crown_age}{deprecated}
 

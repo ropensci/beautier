@@ -7,7 +7,7 @@
 check_phylogeny(phylogeny)
 }
 \arguments{
-\item{phylogeny}{a phylogeny of type \code{\link[ape]{phylo}}}
+\item{phylogeny}{a phylogeny of type \link[ape]{phylo}}
 }
 \value{
 nothing

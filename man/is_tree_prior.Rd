@@ -21,7 +21,7 @@ Determine if an object is a valid tree prior
   testit::assert(!is_tree_prior("nonsense"))
 }
 \seealso{
-tree priors can be created by \code{\link{create_tree_prior}})
+tree priors can be created by \code{\link{create_tree_prior}}
 }
 \author{
 Richèl J.C. Bilderbeek
