@@ -12,10 +12,17 @@ does not add extra information.
 
 The first BEAST2 XML files created by `beautier`
 followed BEAST2 v2.4. `beautier` follows the
-BEAST2 versions, which is now at v2.5.1.
+BEAST2 versions, which is now at v2.6.0.
 
 The BEAST2 version actually used by `babette`
 can be found in the [beastier::install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
+
+## Why does AppVeyor only check the `master` branch?
+
+Because `ropensci` does not have AppVeyor.
+
+To do check for Windows, [the beautier_on_windows repo](https://github.com/richelbilderbeek/beautier_on_windows)
+is created. That repo only checks the `master` branch of `beautier`.
 
 ## What's the [road map](road_map.md)?
 
