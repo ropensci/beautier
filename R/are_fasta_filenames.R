@@ -18,6 +18,8 @@
 #'
 #' expect_false(are_fasta_filenames(c("1.fas", "2.exe")))
 #' expect_false(are_fasta_filenames(c("1.bat", "2.exe")))
+#' @author Richèl J.C. Bilderbeek
+#' @export
 are_fasta_filenames <- function(filenames) {
   matches <- stringr::str_match(
     string = filenames,

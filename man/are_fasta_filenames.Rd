@@ -33,3 +33,6 @@ expect_false(are_fasta_filenames("1.fasX"))
 expect_false(are_fasta_filenames(c("1.fas", "2.exe")))
 expect_false(are_fasta_filenames(c("1.bat", "2.exe")))
 }
+\author{
+Richèl J.C. Bilderbeek
+}
