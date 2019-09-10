@@ -29,13 +29,13 @@ site_model_to_xml_subst_model <- function(
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-jc69_site_model_to_xml_subst_model <- function(
+jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
   testit::assert(is_site_model(site_model)) # nolint beautier function
   id <- site_model$id
   testit::assert(is_id(id)) # nolint beautier function
-  testit::assert(is_jc69_site_model(site_model))
+  testit::assert(is_jc69_site_model(site_model)) # nolint beautier function
   paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>") # nolint this is no absolute path
 }
 
@@ -45,7 +45,7 @@ jc69_site_model_to_xml_subst_model <- function(
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-hky_site_model_to_xml_subst_model <- function(
+hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
   testit::assert(is_site_model(site_model)) # nolint beautier function
@@ -57,7 +57,7 @@ hky_site_model_to_xml_subst_model <- function(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id), # nolint beautier function
     n_spaces = 4
   )
-  testit::assert(is_hky_site_model(site_model))
+  testit::assert(is_hky_site_model(site_model)) # nolint beautier function
   text <- c(
     text,
     paste0("<substModel ",
@@ -74,7 +74,7 @@ hky_site_model_to_xml_subst_model <- function(
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-tn93_site_model_to_xml_subst_model <- function(
+tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
   testit::assert(is_site_model(site_model)) # nolint beautier function
@@ -87,7 +87,7 @@ tn93_site_model_to_xml_subst_model <- function(
     n_spaces = 4
   )
 
-  testit::assert(is_tn93_site_model(site_model))
+  testit::assert(is_tn93_site_model(site_model)) # nolint beautier function
   subst_model_line <- paste0(
     "<substModel id=\"tn93.s:", id, "\" spec=\"TN93\""
   )
@@ -128,7 +128,7 @@ tn93_site_model_to_xml_subst_model <- function(
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-gtr_site_model_to_xml_subst_model <- function(
+gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
   testit::assert(is_site_model(site_model)) # nolint beautier function
@@ -141,7 +141,7 @@ gtr_site_model_to_xml_subst_model <- function(
     n_spaces = 4
   )
 
-  testit::assert(is_gtr_site_model(site_model))
+  testit::assert(is_gtr_site_model(site_model)) # nolint beautier function
 
   subst_model_xml <- paste0(
     "<substModel ", "id=\"gtr.s:", id, "\" spec=\"GTR\""
