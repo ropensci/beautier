@@ -2,7 +2,25 @@
 
 Newest versions at top.
 
-## beautier 2.2.2 (Unreleased)
+## beautier 2.2.3 (unreleased)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Added `check_mcmc_nested_sampling` function
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+## beautier 2.2.2 (2019-09-10)
 
 ### NEW FEATURES
 
@@ -21,7 +39,6 @@ Newest versions at top.
 ### DEPRECATED AND DEFUNCT
 
   * None
-
 
 ## beautier 2.2.1 (2019-03-08)
 
