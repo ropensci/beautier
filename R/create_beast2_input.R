@@ -220,7 +220,9 @@ create_beast2_input <- function(
   # Initialize all models and priors
   site_models <- init_site_models(
     site_models = site_models,
-    ids = get_alignment_ids_from_fasta_filenames(fasta_filenames = input_filenames),
+    ids = get_alignment_ids_from_fasta_filenames(
+      fasta_filenames = input_filenames
+    ),
     distr_id = 0,
     param_id = 0
   )  # nolint beautier function
@@ -232,7 +234,9 @@ create_beast2_input <- function(
   )  # nolint beautier function
   tree_priors <- init_tree_priors( # nolint beautier function
     tree_priors,
-    ids = get_alignment_ids_from_fasta_filenames(fasta_filenames = input_filenames),
+    ids = get_alignment_ids_from_fasta_filenames(
+      fasta_filenames = input_filenames
+    ),
     distr_id = 100,
     param_id = 200
   )
