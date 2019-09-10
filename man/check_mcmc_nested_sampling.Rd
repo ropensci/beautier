@@ -2,10 +2,15 @@
 % Please edit documentation in R/check_mcmc_nested_sampling.R
 \name{check_mcmc_nested_sampling}
 \alias{check_mcmc_nested_sampling}
+\alias{check_nested_sampling_mcmc}
 \title{Check if this an MCMC that uses Nested Sampling
 to estimate a marginal likelihood.}
 \usage{
 check_mcmc_nested_sampling(mcmc)
+}
+\arguments{
+\item{mcmc}{one MCMC
+as returned by \code{\link{create_mcmc}}}
 }
 \description{
 Will \link{stop} if not, else will do nothing

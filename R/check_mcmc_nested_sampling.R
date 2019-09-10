@@ -2,12 +2,15 @@
 #' to estimate a marginal likelihood.
 #'
 #' Will \link{stop} if not, else will do nothing
+#' @inheritParams default_params_doc
 #' @seealso use \link{create_nested_sampling_mcmc}
 #' to create an MCMC that uses Nested Sampling
 #' to estimate a marginal likelihood
 #' @author Richel J.C. Bilderbeek
 #' @export
-check_mcmc_nested_sampling <- function(mcmc) {
+#' @aliases check_mcmc_nested_sampling check_nested_sampling_mcmc
+#' @export check_mcmc_nested_sampling check_nested_sampling_mcmc
+check_mcmc_nested_sampling <- check_nested_sampling_mcmc <- function(mcmc) {
   check_mcmc(mcmc) # nolint beautier function
 
   # The arguments 'chain_length' and 'store_every' are checked
