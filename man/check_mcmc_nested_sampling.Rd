@@ -21,5 +21,5 @@ to create an MCMC that uses Nested Sampling
 to estimate a marginal likelihood
 }
 \author{
-Richel J.C. Bilderbeek
+Richèl J.C. Bilderbeek
 }

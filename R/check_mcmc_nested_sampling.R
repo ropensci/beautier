@@ -6,7 +6,7 @@
 #' @seealso use \link{create_nested_sampling_mcmc}
 #' to create an MCMC that uses Nested Sampling
 #' to estimate a marginal likelihood
-#' @author Richel J.C. Bilderbeek
+#' @author Richèl J.C. Bilderbeek
 #' @export
 #' @aliases check_mcmc_nested_sampling check_nested_sampling_mcmc
 #' @export check_mcmc_nested_sampling check_nested_sampling_mcmc
