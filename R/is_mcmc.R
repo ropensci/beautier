@@ -42,12 +42,11 @@ is_mcmc <- function(
 is_mcmc_nested_sampling <- is_nested_sampling_mcmc <- function(
   x
 ) {
-  if (!is_mcmc(x)) return(FALSE) # nolint beautier function
-  if (!"particle_count" %in% names(x)) return(FALSE)
-  if (!"sub_chain_length" %in% names(x)) return(FALSE)
-  if (!"epsilon" %in% names(x)) return(FALSE)
-  if (x$particle_count < 1) return(FALSE)
-  if (x$sub_chain_length < 1) return(FALSE)
-  if (x$epsilon <= 0.0) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    check_mcmc_nested_sampling(x)
+    result <- TRUE
+  }, error = function(e) {} # nolint ignore error result
+  )
+  result
 }
