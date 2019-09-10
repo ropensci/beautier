@@ -29,18 +29,8 @@ check_mrca_prior <- function(mrca_prior) {
   # An MRCA prior can be NA
   if (is_one_na(mrca_prior)) return() # nolint beautier function
 
-  argument_names <- c(
-    "name", "alignment_id", "taxa_names", "is_monophyletic", "mrca_distr",
-    "clock_prior_distr_id"
-  )
-  for (arg_name in argument_names) {
-    if (!arg_name %in% names(mrca_prior)) {
-      stop(
-        "'", arg_name, "' must be an element of an 'mrca_prior'. ",
-        "Tip: use 'create_mrca_prior'"
-      )
-    }
-  }
+  check_mrca_prior_elements(mrca_prior)
+
   if (length(mrca_prior$name) != 1 ||
       (!is.character(mrca_prior$name) && !is_one_na(mrca_prior$name))) { # nolint beautier function
     stop("'name' must be NA or characters")
@@ -75,4 +65,29 @@ check_mrca_prior <- function(mrca_prior) {
     stop("'clock_prior_distr_id' must be one NA or one number")
   }
 
+}
+
+#' Check if the MRCA prior, which is a list, has all the elements needed
+#'
+#' Calls \code{stop} if not.
+#' @inheritParams default_params_doc
+#' @return nothing
+#' @seealso Use \link{check_mrca_prior} to check the entire MRCA prior
+#' @author Richèl J.C. Bilderbeek
+#' @noRd
+check_mrca_prior_elements <- function(
+  mrca_prior
+) {
+  argument_names <- c(
+    "name", "alignment_id", "taxa_names", "is_monophyletic", "mrca_distr",
+    "clock_prior_distr_id"
+  )
+  for (arg_name in argument_names) {
+    if (!arg_name %in% names(mrca_prior)) {
+      stop(
+        "'", arg_name, "' must be an element of an 'mrca_prior'. ",
+        "Tip: use 'create_mrca_prior'"
+      )
+    }
+  }
 }
