@@ -15,10 +15,7 @@ are_clock_models <- function(
 ) {
   tryCatch({
       # We check four times. Just to check lintr-bot
-      # lintr-bot does not like: check_clock_models(x)
-      beautier::check_clock_models(x) # would lintr-bot like this one?
-      check_clock_models(x) # nolint beautier function, would lintr-bot like this one?
-      beautier::check_clock_models(x) # nolint beautier function, would lintr-bot like this one?
+      beautier::check_clock_models(x)
       TRUE
     },
     error = function(e) FALSE
