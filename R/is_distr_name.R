@@ -15,5 +15,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_distr_name <- function(name) {
-  name %in% get_distr_names() # nolint beautier function
+  name %in% beautier::get_distr_names()
 }

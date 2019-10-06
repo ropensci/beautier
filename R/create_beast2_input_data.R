@@ -7,7 +7,7 @@ create_beast2_input_data <- function(
   input_filenames,
   beauti_options = create_beauti_options()
 ) {
-  testit::assert(files_exist(input_filenames)) # nolint beautier function
+  testit::assert(beautier::files_exist(input_filenames))
 
   text <- NULL
   n <- length(input_filenames)

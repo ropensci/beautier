@@ -13,7 +13,7 @@ are_initial_phylogenies <- function(
   phylos
 ) {
   for (x in phylos) {
-    if (!is_one_na(x) && !is_phylo(x)) return(FALSE) # nolint beautier function
+    if (!beautier::is_one_na(x) && !beautier::is_phylo(x)) return(FALSE)
   }
   TRUE
 }

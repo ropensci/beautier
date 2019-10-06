@@ -15,8 +15,8 @@
 are_equal_mcmcs <- function(
   mcmc_1, mcmc_2
 ) {
-  check_mcmc(mcmc_1) # nolint beautier function
-  check_mcmc(mcmc_2) # nolint beautier function
+  beautier::check_mcmc(mcmc_1)
+  beautier::check_mcmc(mcmc_2)
   mcmc_1$chain_length == mcmc_2$chain_length &&
     mcmc_1$store_every == mcmc_2$store_every
 }
