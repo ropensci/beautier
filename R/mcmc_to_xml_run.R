@@ -7,14 +7,14 @@
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
 #'   )
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 mcmc_to_xml_run <- function(mcmc) {
-  testit::assert(is_mcmc(mcmc)) # nolint beautier function
-  if (is_default_mcmc(mcmc)) { # nolint beautier function
-    mcmc_to_xml_run_default(mcmc) # nolint beautier function
+  testit::assert(beautier::is_mcmc(mcmc))
+  if (beautier::is_default_mcmc(mcmc)) {
+    beautier::mcmc_to_xml_run_default(mcmc)
   } else {
-    testit::assert(is_mcmc_nested_sampling(mcmc)) # nolint beautier function
-    mcmc_to_xml_run_nested_sampling(mcmc) # nolint beautier function
+    testit::assert(beautier::is_mcmc_nested_sampling(mcmc))
+    beautier::mcmc_to_xml_run_nested_sampling(mcmc)
   }
 }
 
@@ -27,15 +27,15 @@ mcmc_to_xml_run <- function(mcmc) {
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 #'   )
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 mcmc_to_xml_run_default <- function(mcmc) {
-  testit::assert(is_mcmc(mcmc)) # nolint beautier function
-  testit::assert(is_default_mcmc(mcmc)) # nolint beautier function
+  testit::assert(beautier::is_mcmc(mcmc))
+  testit::assert(beautier::is_default_mcmc(mcmc))
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
-  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) { # nolint beautier function
+  if (!beautier::is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }
   xml <- paste0(xml, ">")
@@ -56,15 +56,15 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #'     )
 #'   )
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint beautier function can be long
-  testit::assert(is_mcmc(mcmc)) # nolint beautier function
-  testit::assert(is_mcmc_nested_sampling(mcmc)) # nolint beautier function
+  testit::assert(beautier::is_mcmc(mcmc))
+  testit::assert(beautier::is_mcmc_nested_sampling(mcmc))
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"beast.gss.NS\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
-  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) { # nolint beautier function
+  if (!beautier::is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }
   xml <- paste0(xml,

@@ -7,12 +7,12 @@
 tree_prior_to_xml_state <- function(
   tree_prior
 ) {
-  testit::assert(is_tree_prior(tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
-  if (is_bd_tree_prior(tree_prior)) { # nolint beautier function
+  if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(text, paste0("<parameter id=\"BDBirthRate.t:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"))
     text <- c(text, paste0("<parameter id=\"BDDeathRate.t:", id, "\" ",

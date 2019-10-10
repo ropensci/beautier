@@ -49,7 +49,7 @@ create_gamma_site_model <- function(
   if (prop_invariant < 0.0 || prop_invariant > 1.0) {
     stop("'prop_invariant' must be in range [0.0, 1.0]")
   }
-  if (gamma_cat_count >= 2 && is_one_na(gamma_shape_prior_distr)) { # nolint beautier function
+  if (gamma_cat_count >= 2 && beautier::is_one_na(gamma_shape_prior_distr)) {
     # Cannot simplify, due to 1.0 becomes 1 in XML
     gamma_shape_prior_distr <- create_exp_distr(
         id = NA,
@@ -59,12 +59,12 @@ create_gamma_site_model <- function(
         )
       )
   }
-  if (!is_one_na(gamma_shape_prior_distr) && # nolint beautier function
-      !is_distr(gamma_shape_prior_distr) # nolint beautier function
+  if (!beautier::is_one_na(gamma_shape_prior_distr) &&
+      !beautier::is_distr(gamma_shape_prior_distr)
   ) {
     stop("'gamma_shape_prior_distr' must be a distribution")
   }
-  if (gamma_cat_count < 2 && !is_one_na(gamma_shape_prior_distr)) { # nolint beautier function
+  if (gamma_cat_count < 2 && !beautier::is_one_na(gamma_shape_prior_distr)) {
     stop(
       "'gamma_shape_prior_distr' must be NA ",
       "for a 'gamma_cat_count' of less than two"
@@ -77,7 +77,7 @@ create_gamma_site_model <- function(
     prop_invariant = prop_invariant,
     gamma_shape_prior_distr = gamma_shape_prior_distr
   )
-  check_gamma_site_model(gamma_site_model) # nolint beautier function
-  testit::assert(is_gamma_site_model(gamma_site_model)) # nolint beautier function
+  beautier::check_gamma_site_model(gamma_site_model)
+  testit::assert(beautier::is_gamma_site_model(gamma_site_model))
   gamma_site_model
 }

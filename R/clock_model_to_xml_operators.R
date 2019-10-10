@@ -9,7 +9,7 @@ clock_model_to_xml_operators <- function(
   mrca_priors,
   tipdates_filename = NA
 ) {
-  testit::assert(is_clock_model(clock_model)) # nolint beautier function
+  testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
 
   # May not need ID at all, if it is the first and strict clock model
@@ -54,7 +54,7 @@ clock_model_to_xml_operators <- function(
   }
 
   if ((is_strict_clock_model(clock_model) && is_mrca_prior_with_distr(mrca_priors[[1]])) || # nolint
-      !is_one_na(tipdates_filename) # nolint beautier function
+      !beautier::is_one_na(tipdates_filename)
   ) {
     text <- c(
       text,

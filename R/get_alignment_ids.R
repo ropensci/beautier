@@ -53,5 +53,5 @@ get_alignment_ids <- function(filenames) {
 get_alignment_ids_from_fasta_filenames <- function(fasta_filenames) { #nolint indeed a long function name
   # Do not check if the files are actually FASTA filenames
   ids <- fasta_filenames
-  unlist(lapply(ids, get_alignment_id)) # nolint beautier function
+  unlist(lapply(ids, beautier::get_alignment_id))
 }

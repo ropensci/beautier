@@ -15,8 +15,8 @@ create_beast2_input_state <- function(
 ) {
   testit::assert(length(tree_priors) == length(initial_phylogenies))
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
-  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
-  has_tip_dating <- !is_one_na(tipdates_filename) # nolint beautier function
+  testit::assert(beautier::are_tree_priors(tree_priors))
+  has_tip_dating <- !beautier::is_one_na(tipdates_filename)
 
   text <- NULL
   for (i in seq_along(tree_priors)) {

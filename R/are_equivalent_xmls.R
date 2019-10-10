@@ -12,8 +12,8 @@ are_equivalent_xml_files <- function(
   filename_2,
   section = NA
 ) {
-  check_file_exists(filename_1, "filename_1") # nolint beautier function
-  check_file_exists(filename_2, "filename_2") # nolint beautier function
+  beautier::check_file_exists(filename_1, "filename_1")
+  beautier::check_file_exists(filename_2, "filename_2")
   are_equivalent_xml_lines(
     readLines(filename_1),
     readLines(filename_2),
@@ -35,7 +35,7 @@ are_equivalent_xml_lines <- function(
   section = NA,
   verbose = FALSE
 ) {
-  if (is_one_na(section)) { # nolint beautier function
+  if (beautier::is_one_na(section)) {
     return(
       are_equivalent_xml_lines_all(
         lines_1 = lines_1,
@@ -44,7 +44,7 @@ are_equivalent_xml_lines <- function(
       )
     )
   } else {
-    testit::assert(!is_one_na(section)) # nolint beautier function
+    testit::assert(!beautier::is_one_na(section))
     return(
       are_equivalent_xml_lines_section(
         lines_1 = lines_1,

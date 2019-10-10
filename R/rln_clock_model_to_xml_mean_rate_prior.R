@@ -5,9 +5,9 @@
 #' @noRd
 rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint beautier function
 
-  testit::assert(is_rln_clock_model(rln_clock_model)) # nolint beautier function
+  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   id <- rln_clock_model$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
 

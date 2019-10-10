@@ -10,11 +10,11 @@
 #'     )
 #'   )
 #'   testthat::expect_error(
-#'     beautier:::check_gamma_site_model(
+#'     check_gamma_site_model(
 #'       "not a gamma site model"
 #'     )
 #'   )
-#' @noRd
+#' @export
 check_gamma_site_model <- function(gamma_site_model) {
 
   argument_names <- c(

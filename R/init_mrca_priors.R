@@ -11,17 +11,17 @@ init_mrca_priors <- function(
   param_id = 0
 ) {
   if (length(mrca_priors) == 1 && is_one_na(mrca_priors)) return(NA) # nolint beautier function
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
   names <- paste0("auto_name_", seq_along(mrca_priors))
 
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]
-    testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
+    testit::assert(beautier::is_mrca_prior(mrca_prior))
 
-    if (is_one_na(mrca_prior$name)) { # nolint beautier function
+    if (beautier::is_one_na(mrca_prior$name)) {
       mrca_prior$name <- names[i]
     }
-    if (is_one_na(mrca_prior$clock_prior_distr_id)) { # nolint beautier function
+    if (beautier::is_one_na(mrca_prior$clock_prior_distr_id)) {
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }

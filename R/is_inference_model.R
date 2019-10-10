@@ -5,7 +5,7 @@
 is_inference_model <- function(x) {
   result <- FALSE
   tryCatch({
-    check_inference_model(x) # nolint beautier function
+    beautier::check_inference_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e

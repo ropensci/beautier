@@ -5,7 +5,7 @@
 #' @examples
 #'   gamma_site_model <- create_gamma_site_model()
 #'   testit::assert(beautier:::is_gamma_site_model(gamma_site_model))
-#' @noRd
+#' @export
 is_gamma_site_model <- function(x) {
   tryCatch({
       check_gamma_site_model(x) # nolint beautier function

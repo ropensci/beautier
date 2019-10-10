@@ -59,7 +59,7 @@ create_site_model <- function(
   gamma_site_model = create_gamma_site_model(),
   ...
 ) {
-  if (!is_site_model_name(name)) { # nolint beautier function
+  if (!beautier::is_site_model_name(name)) {
     site_models_as_string <- function() {
       s <- NULL
       for (p in get_site_model_names()) {
@@ -73,7 +73,7 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  check_gamma_site_model(gamma_site_model) # nolint beautier function
+  beautier::check_gamma_site_model(gamma_site_model)
   site_model <- list(
     name = name,
     id = id,
@@ -175,22 +175,22 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   rate_gt_param = create_rate_gt_param(),
   freq_equilibrium = "estimated"
 ) {
-  if (is_one_double(rate_ac_param)) { # nolint beautier function
+  if (beautier::is_one_double(rate_ac_param)) {
     rate_ac_param <- create_rate_ac_param(value = rate_ac_param)
   }
-  if (is_one_double(rate_ag_param)) { # nolint beautier function
+  if (beautier::is_one_double(rate_ag_param)) {
     rate_ag_param <- create_rate_ag_param(value = rate_ag_param)
   }
-  if (is_one_double(rate_at_param)) { # nolint beautier function
+  if (beautier::is_one_double(rate_at_param)) {
     rate_at_param <- create_rate_at_param(value = rate_at_param)
   }
-  if (is_one_double(rate_cg_param)) { # nolint beautier function
+  if (beautier::is_one_double(rate_cg_param)) {
     rate_cg_param <- create_rate_cg_param(value = rate_cg_param)
   }
-  if (is_one_double(rate_ct_param)) { # nolint beautier function
+  if (beautier::is_one_double(rate_ct_param)) {
     rate_ct_param <- create_rate_ct_param(value = rate_ct_param)
   }
-  if (is_one_double(rate_gt_param)) { # nolint beautier function
+  if (beautier::is_one_double(rate_gt_param)) {
     rate_gt_param <- create_rate_gt_param(value = rate_gt_param)
   }
 
@@ -333,10 +333,10 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
   ),
   freq_equilibrium = "estimated"
 ) {
-  if (is_one_double(kappa_1_param)) { # nolint beautier function
+  if (beautier::is_one_double(kappa_1_param)) {
     kappa_1_param <- create_kappa_1_param(value = kappa_1_param)
   }
-  if (is_one_double(kappa_2_param)) { # nolint beautier function
+  if (beautier::is_one_double(kappa_2_param)) {
     kappa_2_param <- create_kappa_2_param(value = kappa_2_param)
   }
   beautier::create_site_model(
