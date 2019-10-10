@@ -25,7 +25,7 @@ expect_false(is_id(NULL))
 expect_false(is_id(NA))
 }
 \seealso{
-to check multiple IDs, use \code{\link{are_ids}}
+to check multiple IDs, use \link{are_ids}
 }
 \author{
 Richèl J.C. Bilderbeek

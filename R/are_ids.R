@@ -2,8 +2,8 @@
 #' @param x the object to check if it consists out of IDs
 #' @return TRUE if x, or all elements of x, are IDs
 #' @author Richèl J.C. Bilderbeek
-#' @seealso to check one ID, use \code{\link{is_id}}
-#' @noRd
+#' @seealso to check one ID, use \link{is_id}
+#' @export
 are_ids <- function(
   x
 ) {

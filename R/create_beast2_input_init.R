@@ -8,7 +8,7 @@ create_beast2_input_init <- function(
   initial_phylogenies
 ) {
   testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
-  testit::assert(are_ids(ids)) # nolint beautier function
+  testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(initial_phylogenies))
 
   text <- NULL

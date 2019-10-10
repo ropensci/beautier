@@ -3,6 +3,7 @@
 export(are_clock_models)
 export(are_equal_mcmcs)
 export(are_fasta_filenames)
+export(are_ids)
 export(are_mrca_priors)
 export(are_site_models)
 export(are_tree_priors)

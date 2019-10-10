@@ -92,12 +92,12 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(are_ids(ids))  # nolint beautier function
+  testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
-  testit::assert(is_mcmc(mcmc)) # nolint beautier function
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
+  testit::assert(beautier::is_mcmc(mcmc))
 
   text <- NULL
   # 1 tracelog
