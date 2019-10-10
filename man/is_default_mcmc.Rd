@@ -6,6 +6,10 @@
 \usage{
 is_default_mcmc(mcmc)
 }
+\arguments{
+\item{mcmc}{one MCMC
+as returned by \code{\link{create_mcmc}}}
+}
 \value{
 TRUE if the MCMC is a default MCMC
 }

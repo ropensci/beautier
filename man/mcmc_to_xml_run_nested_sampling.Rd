@@ -17,7 +17,7 @@ the XML as text
 Converts an MCMC object to the run section's XML for a Nested-Sampling MCMC
 }
 \examples{
-  xml <- beautier:::mcmc_to_xml_run_nested_sampling(
+  xml <- mcmc_to_xml_run_nested_sampling(
     create_mcmc_nested_sampling()
   )
   testit::assert(xml ==

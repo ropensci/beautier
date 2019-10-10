@@ -1,4 +1,5 @@
 #' Determine if the MCMC is a default MCMC
+#' @inheritParams default_params_doc
 #' @return TRUE if the MCMC is a default MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples

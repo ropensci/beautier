@@ -1,5 +1,5 @@
 #' Checks if the parameter is a valid gamma site model
-#' @param x the object to be determined if it is a valid gamma site object
+#' @inheritParams default_params_doc
 #' @return nothing. Will call \code{stop} if the argument is not a valid
 #'   gamma site model
 #' @author Richèl J.C. Bilderbeek

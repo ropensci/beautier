@@ -17,7 +17,7 @@ the XML as text
 Converts an MCMC object to the run section's XML for a default MCMC
 }
 \examples{
-  xml <- beautier:::mcmc_to_xml_run_default(create_mcmc())
+  xml <- mcmc_to_xml_run_default(create_mcmc())
   testit::assert(xml ==
     "<run id=\\"mcmc\\" spec=\\"MCMC\\" chainLength=\\"1e+07\\">"
   )

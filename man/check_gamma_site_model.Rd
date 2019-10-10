@@ -7,7 +7,8 @@
 check_gamma_site_model(gamma_site_model)
 }
 \arguments{
-\item{x}{the object to be determined if it is a valid gamma site object}
+\item{gamma_site_model}{a site model's gamma site model,
+as returned by \code{\link{create_gamma_site_model}}}
 }
 \value{
 nothing. Will call \code{stop} if the argument is not a valid

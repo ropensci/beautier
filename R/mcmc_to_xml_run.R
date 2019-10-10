@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'   xml <- beautier:::mcmc_to_xml_run(create_mcmc())
+#'   xml <- mcmc_to_xml_run(create_mcmc())
 #'   testit::assert(xml ==
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
 #'   )
@@ -22,7 +22,7 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'   xml <- beautier:::mcmc_to_xml_run_default(create_mcmc())
+#'   xml <- mcmc_to_xml_run_default(create_mcmc())
 #'   testit::assert(xml ==
 #'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 #'   )
@@ -46,7 +46,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'   xml <- beautier:::mcmc_to_xml_run_nested_sampling(
+#'   xml <- mcmc_to_xml_run_nested_sampling(
 #'     create_mcmc_nested_sampling()
 #'   )
 #'   testit::assert(xml ==

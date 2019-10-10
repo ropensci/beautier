@@ -7,7 +7,8 @@
 are_mrca_priors(mrca_priors)
 }
 \arguments{
-\item{x}{the object to check if it consists out of MRCA priors}
+\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
+as returned by \code{\link{create_mrca_prior}}}
 }
 \value{
 TRUE if x, or all elements of x, are MRCA priors.
