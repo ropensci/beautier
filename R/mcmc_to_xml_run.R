@@ -2,10 +2,10 @@
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'   xml <- mcmc_to_xml_run(create_mcmc())
-#'   testit::assert(xml ==
-#'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
-#'   )
+#' xml <- mcmc_to_xml_run(create_mcmc())
+#' testit::assert(xml ==
+#'    "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run <- function(mcmc) {
