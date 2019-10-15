@@ -4,18 +4,19 @@
 #' @seealso
 #'   Use \link{create_beast2_input_file_from_model} to also save it to file.
 #' @examples
-#'   text <- create_beast2_input_from_model(
-#'     input_filename = get_fasta_filename()
-#'   )
-#'   testit::assert(substr(text[1], 1, 5) == "<?xml")
-#'   text[1]
-#'   testit::assert(tail(text, n = 1) == "</beast>")
-#' @seealso \code{\link{create_beast2_input_file}} shows more examples
+#' library(testthat)
+#'
+#' text <- create_beast2_input_from_model(
+#'   input_filename = get_fasta_filename(),
+#'   inference_model = create_inference_model()
+#' )
+#' expect_true(substr(text[1], 1, 5) == "<?xml")
+#' expect_true(tail(text, n = 1) == "</beast>")
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_from_model <- function(
   input_filename,
-  inference_model = create_inference_model()
+  inference_model
 ) {
   beautier::check_inference_model(inference_model)
 

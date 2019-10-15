@@ -4,7 +4,16 @@
 \alias{create_beast2_input_from_model}
 \title{Create a BEAST2 XML input text from an inference model}
 \usage{
-create_beast2_input_from_model()
+create_beast2_input_from_model(input_filename, inference_model)
+}
+\arguments{
+\item{input_filename}{A FASTA filename.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{inference_model}{an Bayesian phylogenetic inference model,
+as can be created by \code{\link{create_inference_model}}.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.}
 }
 \value{
 a character vector of XML strings
@@ -13,8 +22,10 @@ a character vector of XML strings
 Create a BEAST2 XML input text from an inference model
 }
 \examples{
-  input_filename = get_fasta_filename()
+
   text <- create_beast2_input_from_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_inference_model()
   )
   testit::assert(substr(text[1], 1, 5) == "<?xml")
   text[1]
@@ -22,8 +33,6 @@ Create a BEAST2 XML input text from an inference model
 }
 \seealso{
 Use \link{create_beast2_input_file_from_model} to also save it to file.
-
-\code{\link{create_beast2_input_file}} shows more examples
 }
 \author{
 Richèl J.C. Bilderbeek
