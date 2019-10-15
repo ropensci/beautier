@@ -72,9 +72,9 @@ Create a BEAST2 XML input text
   testit::assert(tail(text, n = 1) == "</beast>")
 }
 \seealso{
-Use \link{create_beast2_input_file} to also save it to file.
-  Use \link{create_beast2_input_file_from_model} to use an inference model
-    as an input argument.
+Use \link{create_beast2_input_from_model} to create the BEAST2 XML
+  input text from an inference model
+  Use \link{create_beast2_input_file} to also save it to file.
 
 \code{\link{create_beast2_input_file}} shows more examples
 }

@@ -1,6 +1,8 @@
 #' Create a BEAST2 input file from an inference model
 #' @inheritParams default_params_doc
 #' @return nothing
+#' @seealso use \link{create_beast2_input_from_model} to
+#' get the BEAST2 input file as text
 #' @examples
 #'   # Get an example FASTA file
 #'   input_filename <- get_fasta_filename()

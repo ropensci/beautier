@@ -2,9 +2,9 @@
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
 #' @seealso
+#'   Use \link{create_beast2_input_from_model} to create the BEAST2 XML
+#'   input text from an inference model
 #'   Use \link{create_beast2_input_file} to also save it to file.
-#'   Use \link{create_beast2_input_file_from_model} to use an inference model
-#'     as an input argument.
 #' @examples
 #'   text <- create_beast2_input(
 #'     input_filename = get_fasta_filename()

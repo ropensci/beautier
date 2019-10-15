@@ -39,6 +39,9 @@ Create a BEAST2 input file from an inference model
   testthat::expect_true(file.exists(output_filename))
 }
 \seealso{
+use \link{create_beast2_input_from_model} to
+get the BEAST2 input file as text
+
 See \code{\link{create_site_model}} for examples with
 different site models.
 See \code{\link{create_clock_model}} for examples

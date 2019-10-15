@@ -1,12 +1,4 @@
 context("create_beast2_input")
-# Does
-# * check the interface
-# * check if XML created is valid with minimal tests
-# Does not
-# * check if valid XML files are reproduced.
-#   'test-create_beast2_input_by_reproducing_files.R' does that
-# * check if XML created is valid with thorough tests.
-#   'test-create_beast2_input_file.R' does that
 
 test_that("use", {
 
