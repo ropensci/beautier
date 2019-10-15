@@ -5,7 +5,7 @@ test_that("use, MCMC store every of 2k", {
     mcmc = create_mcmc(chain_length = 6000, store_every = 2000)
   )
   text <- create_beast2_input_from_model(
-    input_filename = get_beautier_path("anthus_aco.fas"),
+    input_filename = get_fasta_filename(),
     inference_model = inference_model
   )
   store_every <- as.numeric(
