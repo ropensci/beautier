@@ -58,7 +58,7 @@ check_inference_model <- function(
     check_beauti_options(inference_model$beauti_options), # nolint beautier function
     error = function(e) {
       stop(
-        "'beauti_options' must be a valid misc option. \n",
+        "'beauti_options' must be a valid BEAUti options. \n",
         "Error: ", e$message, "\n",
         "Value: ", inference_model$beauti_options
       )

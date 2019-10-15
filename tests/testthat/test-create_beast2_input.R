@@ -103,10 +103,7 @@ test_that("abuse: one alignment", {
       input_filename = get_fasta_filename(),
       clock_model = "nonsense"
     ),
-    paste0(
-      "'clock_model' must be a valid clock model, ",
-      "as returned by 'create_clock_model'"
-    )
+    "'clock_model' must be a valid clock model"
   )
   expect_error(
     create_beast2_input(
@@ -122,10 +119,7 @@ test_that("abuse: one alignment", {
       input_filename = get_fasta_filename(),
       tree_prior = "nonsense"
     ),
-    paste0(
-      "'tree_prior' must be a valid tree prior, ",
-      "as returned by 'create_tree_prior'"
-    )
+    "'tree_prior' must be a valid tree prior"
   )
   # tree_priors
   expect_error(
@@ -142,7 +136,7 @@ test_that("abuse: one alignment", {
       input_filename = get_fasta_filename(),
       mrca_prior = "nonsense"
     ),
-    "'mrca_prior' must be NA or a valid mrca object"
+    "'mrca_prior' must be a valid MRCA prior"
   )
   # mrca_priors
   expect_error(
@@ -159,7 +153,7 @@ test_that("abuse: one alignment", {
       input_filename = get_fasta_filename(),
       mcmc = "nonsense"
     ),
-    "'mcmc' must be a valid mcmc object, as returned by 'create_mcmc'"
+    "'mcmc' must be a valid MCMC"
   )
 
   # 6 beauti_options
@@ -168,7 +162,7 @@ test_that("abuse: one alignment", {
       input_filename = get_fasta_filename(),
       beauti_options = "nonsense"
     ),
-    "'beauti_options' must be a valid misc options object"
+    "'beauti_options' must be a valid BEAUti options"
   )
 
   # 7 posterior_crown_age
@@ -221,16 +215,6 @@ test_that("abuse: one alignment", {
   prior_two_three <- create_mrca_prior(
     taxa_names = all_taxa_names[2:3],
     is_monophyletic = TRUE
-  )
-
-  intersecting_mrca_priors <- list(prior_one_two, prior_two_three)
-
-  expect_error(
-    create_beast2_input(
-      input_filename = get_fasta_filename(),
-      mrca_prior = intersecting_mrca_priors
-    ),
-    "Monophyletic MRCA priors must have taxon sets without intersection"
   )
 })
 

@@ -133,7 +133,7 @@ test_that("in-depth use", {
     check_inference_model(
       create_inference_model(beauti_options = "nonsense")
     ),
-    "'beauti_options' must be a valid misc option"
+    "'beauti_options' must be a valid BEAUti options"
   )
   expect_error(
     check_inference_model(
