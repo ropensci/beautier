@@ -34,37 +34,45 @@ Prefer using the
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
-  # GTR
-  create_beast2_input_file(
-    input_filename = get_fasta_filename(),
-    output_filename = "example_gtr.xml",
-    site_model = create_gtr_site_model()
-  )
-  testthat::expect_true(file.exists("example_gtr.xml"))
+library(testthat)
 
-  # HKY
-  create_beast2_input_file(
-    input_filename = get_fasta_filename(),
-    output_filename = "example_hky.xml",
-    site_model = create_hky_site_model()
-  )
-  testthat::expect_true(file.exists("example_hky.xml"))
+input_filename <- get_fasta_filename()
 
-  # JC69
-  create_beast2_input_file(
-    input_filename = get_fasta_filename(),
-    output_filename = "example_jc69.xml",
-    site_model = create_jc69_site_model()
-  )
-  testthat::expect_true(file.exists("example_jc69.xml"))
+# GTR
+output_filename <- tempfile(pattern = "example_gtr", fileext = ".xml")
+create_beast2_input_file(
+  input_filename = input_filename,
+  output_filename = output_filename,
+  site_model = create_gtr_site_model()
+)
+expect_true(file.exists(output_filename))
 
-  # TN93
-  create_beast2_input_file(
-    input_filename = get_fasta_filename(),
-    output_filename = "example_tn93.xml",
-    site_model = create_tn93_site_model()
-  )
-  testthat::expect_true(file.exists("example_tn93.xml"))
+# HKY
+output_filename <- tempfile(pattern = "example_hky", fileext = ".xml")
+create_beast2_input_file(
+  input_filename = input_filename,
+  output_filename = output_filename,
+  site_model = create_hky_site_model()
+)
+expect_true(file.exists(output_filename))
+
+# JC69
+output_filename <- tempfile(pattern = "example_jc69", fileext = ".xml")
+create_beast2_input_file(
+  input_filename = input_filename,
+  output_filename = output_filename,
+  site_model = create_jc69_site_model()
+)
+expect_true(file.exists(output_filename))
+
+# TN93
+output_filename <- tempfile(pattern = "example_tn93", fileext = ".xml")
+create_beast2_input_file(
+  input_filename = input_filename,
+  output_filename = output_filename,
+  site_model = create_tn93_site_model()
+)
+expect_true(file.exists(output_filename))
 }
 \seealso{
 See \code{\link{create_gtr_site_model}} for more examples

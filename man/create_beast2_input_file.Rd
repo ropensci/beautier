@@ -68,17 +68,19 @@ nothing
 Create a BEAST2 input file
 }
 \examples{
-  # Get an example FASTA file
-  input_filename <- get_fasta_filename()
+library(testthat)
 
-  # The file created by beautier, a BEAST2 input file
-  output_filename <- "create_beast2_input_file.xml"
+# Get an example FASTA file
+input_filename <- get_fasta_filename()
 
-  create_beast2_input_file(
-    input_filename,
-    output_filename
-  )
-  testthat::expect_true(file.exists(output_filename))
+# The file created by beautier, a BEAST2 input file
+output_filename <- tempfile(pattern = "beast2", fileext = ".xml")
+
+create_beast2_input_file(
+  input_filename,
+  output_filename
+)
+expect_true(file.exists(output_filename))
 }
 \seealso{
 Use \link{create_beast2_input_file_from_model} to do the same with an
