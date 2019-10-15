@@ -1,5 +1,4 @@
 test_that("use, MCMC store every of 2k", {
-  if (!beastier::is_beast2_installed()) return()
 
   inference_model <- create_inference_model(
     mcmc = create_mcmc(chain_length = 6000, store_every = 2000)
