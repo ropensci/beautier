@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## beautier 2.2.4 (2019-10-15)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Added `create_beast2_input_from_model` function
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+
+
 ## beautier 2.2.3 (2019-09-10)
 
 ### NEW FEATURES
