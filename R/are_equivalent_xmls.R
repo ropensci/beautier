@@ -150,7 +150,8 @@ are_equivalent_xml_lines_operators <- function( # nolint don't care about intern
   lines_2,
   verbose = FALSE
 ) {
-  section_1 <- extract_xml_operators_from_lines(lines_1) # nolint beautier function
+  # Let's see if @lintr-bot likes the syntax below
+  section_1 <- beautier:::extract_xml_operators_from_lines(lines_1)
   section_2 <- extract_xml_operators_from_lines(lines_2) # nolint beautier function
   are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose) # nolint beautier function
 }

@@ -3,7 +3,7 @@
 #' @return lines of text from the first to and including the last operators line
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-extract_xml_operators_from_lines <- function( # nolint beautier function
+extract_xml_operators_from_lines <- function( # nolint indeed a long function name
   lines
 ) {
   first_line <- find_first_regex_line(lines, "<operator id=\"") # nolint beautier function
