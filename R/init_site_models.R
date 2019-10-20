@@ -270,7 +270,11 @@ init_jc69_site_model <- function(
   testit::assert(is_jc69_site_model(jc69_site_model)) # nolint beautier function
 
   # Initialize gamma site model, if any
-  if (!is_one_na(jc69_site_model$gamma_site_model$gamma_shape_prior_distr)) { # nolint beautier function
+  if (
+    !beautier::is_one_na(
+      jc69_site_model$gamma_site_model$gamma_shape_prior_distr
+    )
+  ) {
     if (
       !is_init_distr(jc69_site_model$gamma_site_model$gamma_shape_prior_distr) # nolint beautier function
     ) {

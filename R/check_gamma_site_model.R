@@ -51,8 +51,8 @@ check_gamma_site_model <- function(gamma_site_model) {
   if (gamma_site_model$prop_invariant > 1.0) {
     stop("'prop_invariant' must at most be one")
   }
-  if (!is_one_na(gamma_site_model$gamma_shape_prior_distr) && # nolint beautier function
-      !is_distr(gamma_site_model$gamma_shape_prior_distr)) {
+  if (!beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr) &&
+      !beautier::is_distr(gamma_site_model$gamma_shape_prior_distr)) {
     stop("'gamma_site_model' must be NA or one distribution")
   }
 }

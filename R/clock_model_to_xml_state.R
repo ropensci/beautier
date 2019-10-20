@@ -26,8 +26,8 @@ clock_model_to_xml_state <- function(
     # Fails on unimplemented clock models
     testit::assert(is_rln_clock_model(clock_model)) # nolint beautier function
 
-    testit::assert(!is_one_na(clock_model$mean_clock_rate)) # nolint beautier function
-    testit::assert(!is_one_na(clock_model$dimension)) # nolint beautier function
+    testit::assert(!beautier::is_one_na(clock_model$mean_clock_rate))
+    testit::assert(!beautier::is_one_na(clock_model$dimension))
 
     text <- c(text, paste0("<parameter id=\"ucldMean.c:", id, "\" ",
         "name=\"stateNode\">", clock_model$mean_clock_rate, "</parameter>")

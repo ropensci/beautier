@@ -24,9 +24,9 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
   testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
   text <- NULL
   if (!has_non_strict_clock_model && # nolint beautier function
-      !is_one_na(mrca_prior$mrca_distr) # nolint beautier function
+      !beautier::is_one_na(mrca_prior$mrca_distr)
   ) {
-    testit::assert(!is_one_na(mrca_prior$alignment_id)) # nolint beautier function
+    testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
     text <- c(
       text,
       paste0(
@@ -54,7 +54,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
   if (mrca_prior$is_monophyletic) {
     opening_tag <- paste0(opening_tag, "monophyletic=\"true\" ")
   }
-  testit::assert(!is_one_na(mrca_prior$alignment_id)) # nolint beautier function
+  testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
   opening_tag <- paste0(
     opening_tag, "tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"
   )

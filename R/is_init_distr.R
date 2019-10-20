@@ -44,8 +44,8 @@ is_init_distr <- function(
 is_init_beta_distr <- function(
   x
 ) {
-  testit::assert(is_beta_distr(x)) # nolint beautier function
-  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id) # nolint beautier function
+  testit::assert(beautier::is_beta_distr(x))
+  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized exponential distribution object
@@ -57,8 +57,8 @@ is_init_beta_distr <- function(
 is_init_exp_distr <- function(
   x
 ) {
-  testit::assert(is_exp_distr(x)) # nolint beautier function
-  !is_one_na(x$mean$id) # nolint beautier function
+  testit::assert(beautier::is_exp_distr(x))
+  !beautier::is_one_na(x$mean$id)
 }
 
 #' Determine if x is an initialized gamma distribution object
@@ -69,8 +69,8 @@ is_init_exp_distr <- function(
 is_init_gamma_distr <- function(
   x
 ) {
-  testit::assert(is_gamma_distr(x)) # nolint beautier function
-  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id) # nolint beautier function
+  testit::assert(beautier::is_gamma_distr(x))
+  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized inverse-gamma distribution
@@ -82,8 +82,8 @@ is_init_gamma_distr <- function(
 is_init_inv_gamma_distr <- function(
   x
 ) {
-  testit::assert(is_inv_gamma_distr(x)) # nolint beautier function
-  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id) # nolint beautier function
+  testit::assert(beautier::is_inv_gamma_distr(x))
+  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized Laplace distribution
@@ -95,8 +95,8 @@ is_init_inv_gamma_distr <- function(
 is_init_laplace_distr <- function(
   x
 ) {
-  testit::assert(is_laplace_distr(x)) # nolint beautier function
-  !is_one_na(x$mu$id) && !is_one_na(x$scale$id) # nolint beautier function
+  testit::assert(beautier::is_laplace_distr(x))
+  !beautier::is_one_na(x$mu$id) && !beautier::is_one_na(x$scale$id)
 }
 
 #' Determine if x is an initialized log_normal distribution object
@@ -108,8 +108,8 @@ is_init_laplace_distr <- function(
 is_init_log_normal_distr <- function(
   x
 ) {
-  testit::assert(is_log_normal_distr(x)) # nolint beautier function
-  !is_one_na(x$m$id) && !is_one_na(x$s$id) # nolint beautier function
+  testit::assert(beautier::is_log_normal_distr(x))
+  !beautier::is_one_na(x$m$id) && !beautier::is_one_na(x$s$id)
 }
 
 #' Determine if x is an initialized normal distribution object

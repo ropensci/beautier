@@ -12,7 +12,7 @@ has_xml_closing_tag <- function(
   section
 ) {
   assertive::assert_is_a_string(section)
-  !is_one_na( # nolint beautier function
+  !beautier::is_one_na(
     find_last_xml_closing_tag_line(
       lines = lines,
       section = section

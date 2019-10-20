@@ -32,36 +32,40 @@ check_mrca_prior <- function(mrca_prior) {
   check_mrca_prior_elements(mrca_prior) # nolint beautier function
 
   if (length(mrca_prior$name) != 1 ||
-      (!is.character(mrca_prior$name) && !is_one_na(mrca_prior$name))) { # nolint beautier function
+      (!is.character(mrca_prior$name) &&
+          !beautier::is_one_na(mrca_prior$name))
+  ) {
     stop("'name' must be NA or characters")
   }
   if (!is_one_na(mrca_prior$alignment_id) && # nolint beautier function
       !is.character(mrca_prior$alignment_id)) {
     stop("'alignment_id' must be NA or characters")
   }
-  if (!is_one_na(mrca_prior$taxa_names) && # nolint beautier function
+  if (!beautier::is_one_na(mrca_prior$taxa_names) &&
       !is.vector(mrca_prior$taxa_names, mode = "character")) {
     stop("'taxa_names' must a character vector")
   }
-  if (!is_one_bool(mrca_prior$is_monophyletic)) { # nolint beautier function
+  if (!beautier::is_one_bool(mrca_prior$is_monophyletic)) {
     stop("'is_monophyletic' must be either TRUE or FALSE")
   }
-  if (!is_distr(mrca_prior$mrca_distr) && # nolint beautier function
-      !is_one_na(mrca_prior$mrca_distr)) { # nolint beautier function
+  if (!beautier::is_distr(mrca_prior$mrca_distr) &&
+      !beautier::is_one_na(mrca_prior$mrca_distr)) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   testit::assert(length(mrca_prior$taxa_names) > 0)
-  if (!is_one_na(mrca_prior$taxa_names) && # nolint beautier function
-      sum(mrca_prior$taxa_names == "") > 0) {
+  if (!beautier::is_one_na(mrca_prior$taxa_names) &&
+      sum(mrca_prior$taxa_names == "") > 0
+  ) {
     stop("'taxa_names' must be NA or have at least one taxon name")
   }
-  if (!is_one_na(mrca_prior$taxa_names) && # nolint beautier function
+  if (!beautier::is_one_na(mrca_prior$taxa_names) &&
       length(unique(mrca_prior$taxa_names)) != length(mrca_prior$taxa_names)
   ) {
     stop("'taxa_names' must be NA or all names must be unique")
   }
-  if (!is_one_na(mrca_prior$clock_prior_distr_id) && # nolint beautier function
-      !is_one_int(mrca_prior$clock_prior_distr_id)) { # nolint beautier function
+  if (!beautier::is_one_na(mrca_prior$clock_prior_distr_id) &&
+      !beautier::is_one_int(mrca_prior$clock_prior_distr_id)
+  ) {
     stop("'clock_prior_distr_id' must be one NA or one number")
   }
 

@@ -8,8 +8,8 @@
 is_init_param <- function(
   x
 ) {
-  if (!is_param(x)) { # nolint beautier function
+  if (!beautier::is_param(x)) {
     stop("'x' must be a parameter")
   }
-  !is_one_na(x$id) # nolint beautier function
+  !beautier::is_one_na(x$id)
 }
