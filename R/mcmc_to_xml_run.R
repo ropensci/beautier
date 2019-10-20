@@ -42,6 +42,9 @@ mcmc_to_xml_run_default <- function(mcmc) {
     "<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
+  if (mcmc$pre_burnin > 0) {
+    xml <- paste0(xml, " preBurnin=\"", mcmc$pre_burnin, "\"")
+  }
   if (!beautier::is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }

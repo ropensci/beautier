@@ -49,7 +49,6 @@ test_that("mcmc$pre_burning", {
     input_filename = get_fasta_filename(),
     inference_model = inference_model
   )
-  skip("Expose #98")
   the_line <- as.character(
     na.omit(
       stringr::str_match(
@@ -58,19 +57,20 @@ test_that("mcmc$pre_burning", {
       )[, 1]
     )
   )
-  the_line
+  testit::assert(nchar(the_line) > 0)
   pre_burnin <- as.numeric(
     na.omit(
       stringr::str_match(
         string = text,
-        pattern = ".*MCMC.*preBurnin=.(.*).>"
+        pattern = ".*preBurnin=.(.*). "
       )[, 2]
     )
   )
-  pre_burnin
   expect_equal(
     inference_model$mcmc$pre_burnin,
     pre_burnin
   )
+
+
 })
 
