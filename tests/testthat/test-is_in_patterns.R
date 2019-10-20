@@ -8,14 +8,14 @@ test_that("use", {
     "'site_models' must be a valid site model",
     "'mrca_priors' must be NA or a valid mrca object"
   )
-  testthat::expect_true(
-    beautier:::is_in_patterns(
+  expect_true(
+    is_in_patterns(
       line = "'clock_models' must be a valid clock model",
       patterns = patterns
     )
   )
-  testthat::expect_false(
-    beautier:::is_in_patterns(
+  expect_false(
+    is_in_patterns(
       line = "absent",
       patterns = patterns
     )

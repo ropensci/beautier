@@ -3,7 +3,7 @@
 #' @param patterns one or more regular expression patterns
 #' @return TRUE if there is at least one match found
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_in_patterns <- function(line, patterns) {
 
   for (pattern in patterns) {
