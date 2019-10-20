@@ -9,9 +9,9 @@ clock_model_to_xml_state <- function(
   clock_model,
   has_tip_dating = FALSE
 ) {
-  testit::assert(is_clock_model(clock_model)) # nolint beautier function
+  testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(is_id(clock_model$id)) # nolint beautier function
+  testit::assert(beautier::is_id(clock_model$id))
 
   text <- NULL
   if (is_strict_clock_model(clock_model) || has_tip_dating == TRUE) { # nolint beautier function

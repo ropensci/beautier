@@ -7,18 +7,18 @@
 site_model_to_xml_subst_model <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
-  if (is_jc69_site_model(site_model)) { # nolint beautier function
+  if (beautier::is_jc69_site_model(site_model)) {
     return(jc69_site_model_to_xml_subst_model(site_model)) # nolint beautier function
-  } else if (is_hky_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_hky_site_model(site_model)) {
     return(hky_site_model_to_xml_subst_model(site_model)) # nolint beautier function
-  } else if (is_tn93_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_tn93_site_model(site_model)) {
     return(tn93_site_model_to_xml_subst_model(site_model)) # nolint beautier function
   } else {
-    testit::assert(is_gtr_site_model(site_model)) # nolint beautier function
+    testit::assert(beautier::is_gtr_site_model(site_model))
     return(gtr_site_model_to_xml_subst_model(site_model)) # nolint beautier function
   }
 }
@@ -32,10 +32,10 @@ site_model_to_xml_subst_model <- function(
 jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint beautier function
-  testit::assert(is_jc69_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
+  testit::assert(is_jc69_site_model(site_model))
   paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>") # nolint this is no absolute path
 }
 
@@ -48,9 +48,9 @@ jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- indent( # nolint beautier function
@@ -79,7 +79,7 @@ tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 ) {
   testit::assert(is_site_model(site_model)) # nolint beautier function
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- indent( # nolint beautier function
@@ -131,9 +131,9 @@ tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- indent( # nolint beautier function

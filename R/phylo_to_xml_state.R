@@ -11,8 +11,8 @@ phylo_to_xml_state <- function(
   id,
   tipdates_filename = NA
 ) {
-  testit::assert(is_id(id)) # nolint beautier function
-  if (!is_phylo(phylo)) { # nolint beautier function
+  testit::assert(beautier::is_id(id))
+  if (!beautier::is_phylo(phylo)) {
     return(
       taxa_to_xml_tree( # nolint beautier function
         id = id,

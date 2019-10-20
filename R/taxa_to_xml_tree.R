@@ -8,8 +8,8 @@ taxa_to_xml_tree <- function(
   id,
   tipdates_filename = NA
 ) {
-  testit::assert(is_id(id)) # nolint beautier function
-  if (is_one_na(tipdates_filename)) { # nolint beautier function
+  testit::assert(beautier::is_id(id))
+  if (beautier::is_one_na(tipdates_filename)) {
     no_taxa_to_xml_tree(id = id) # nolint beautier function
   } else {
     tipdate_taxa_to_xml_tree( # nolint beautier function
@@ -29,7 +29,7 @@ taxa_to_xml_tree <- function(
 no_taxa_to_xml_tree <- function(
   id
 ) {
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
   text <- NULL
   text <- c(text, paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"))
   text <- c(text, paste0("    <taxonset id=\"TaxonSet.", id, "\" ",
@@ -52,8 +52,8 @@ tipdate_taxa_to_xml_tree <- function(
   id,
   tipdates_filename
 ) {
-  testit::assert(is_id(id)) # nolint beautier function
-  testit::assert(!is_one_na(tipdates_filename)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
+  testit::assert(!beautier::is_one_na(tipdates_filename))
   trait_set_str <- create_trait_set_string(
     utils::read.table(tipdates_filename, sep = "\t")
   )

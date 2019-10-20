@@ -19,8 +19,8 @@ site_model_to_xml_operators <- function(
     text <- c(text, paste0("<operator id=\"KappaScaler.s:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa.s:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>")) # nolint this is no absolute path
-  } else if (is_tn93_site_model(site_model)) { # nolint beautier function
-    testit::assert(is_id(id)) # nolint beautier function
+  } else if (beautier::is_tn93_site_model(site_model)) {
+    testit::assert(beautier::is_id(id))
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(text, paste0("<operator id=\"kappa1Scaler.s:", id, "\" ",
         "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
@@ -31,8 +31,8 @@ site_model_to_xml_operators <- function(
         "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
         "scaleFactor=\"0.5\" weight=\"0.1\"/>")) # nolint this is no absolute path
     }
-  } else if (is_gtr_site_model(site_model)) { # nolint beautier function
-    testit::assert(is_id(id)) # nolint beautier function
+  } else if (beautier::is_gtr_site_model(site_model)) {
+    testit::assert(beautier::is_id(id))
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(text, paste0("<operator id=\"RateACScaler.s:", id, "\" ",
         "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
@@ -59,8 +59,8 @@ site_model_to_xml_operators <- function(
         "scaleFactor=\"0.5\" weight=\"0.1\"/>")) # nolint this is no absolute path
     }
   }
-  if (!is_jc69_site_model(site_model)) { # nolint beautier function
-    testit::assert(is_id(id)) # nolint beautier function
+  if (!beautier::is_jc69_site_model(site_model)) {
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<operator ",
       "id=\"FrequenciesExchanger.s:", id, "\" spec=\"DeltaExchangeOperator\" ",
       "delta=\"0.01\" weight=\"0.1\">"))
@@ -70,7 +70,7 @@ site_model_to_xml_operators <- function(
   }
 
   if (site_model$gamma_site_model$gamma_cat_count > 1) {
-    testit::assert(is_id(id)) # nolint beautier function
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<operator ",
       "id=\"gammaShapeScaler.s:", id, "\" spec=\"ScaleOperator\" ",
       "parameter=\"@gammaShape.s:", id, "\" scaleFactor=\"0.5\" ",

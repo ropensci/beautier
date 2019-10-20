@@ -13,7 +13,7 @@ extract_xml_section_from_lines <- function(
     return(extract_xml_operators_from_lines(lines)) # nolint beautier function
   }
   if (section == "loggers") {
-    return(extract_xml_loggers_from_lines(lines)) # nolint beautier function
+    return(beautier::extract_xml_loggers_from_lines(lines))
   }
   if (!has_xml_opening_tag(lines = lines, section = section)) { # nolint beautier function
     stop(

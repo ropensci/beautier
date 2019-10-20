@@ -29,7 +29,7 @@ clock_model_to_xml_prior_distr <- function(
     }
 
     id <- clock_model$id
-    testit::assert(is_id(id)) # nolint beautier function
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<prior ",
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", id, "\">"))
@@ -44,11 +44,11 @@ clock_model_to_xml_prior_distr <- function(
     text <- c(text, paste0("</prior>"))
   } else {
     # Fails for unimplemented clock models
-    testit::assert(is_strict_clock_model(clock_model)) # nolint beautier function
+    testit::assert(beautier::is_strict_clock_model(clock_model))
 
-    if (!is_one_na(tipdates_filename)) { # nolint beautier function
+    if (!beautier::is_one_na(tipdates_filename)) {
       id <- clock_model$id
-      testit::assert(is_id(id)) # nolint beautier function
+      testit::assert(beautier::is_id(id))
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
         "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
       text <- c(text,

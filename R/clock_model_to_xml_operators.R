@@ -18,7 +18,7 @@ clock_model_to_xml_operators <- function(
     # Will fail on unimplemented clock models
     testit::assert(is_rln_clock_model(clock_model)) # nolint beautier function
 
-    testit::assert(is_id(id)) # nolint beautier function
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"3.0\"/>")) # nolint this is no absolute path

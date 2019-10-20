@@ -7,9 +7,9 @@
 site_model_to_xml_state <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
   text <- NULL
   if (is_gtr_site_model(site_model)) { # nolint beautier function
     site_model$rate_ac_param$id <- id

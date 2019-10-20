@@ -3,6 +3,7 @@
 #' @return lines of text from the first to and including the last operators line
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
+#' @export
 extract_xml_loggers_from_lines <- function( # nolint beautier function
   lines
 ) {

@@ -12,9 +12,9 @@
 tree_prior_to_xml_tracelog <- function( # nolint beautier function
   tree_prior
 ) {
-  testit::assert(is_tree_prior(tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   if (is_yule_tree_prior(tree_prior)) { # nolint beautier function

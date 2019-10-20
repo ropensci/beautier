@@ -5,6 +5,7 @@
 #' @return TRUE if the text is valid XML, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
+#' @export
 is_xml <- function(text) {
   if (is_one_na(text)) return(FALSE) # nolint beautier function
   if (!has_xml_opening_tag(text)) return(FALSE) # nolint beautier function
