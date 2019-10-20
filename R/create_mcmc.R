@@ -26,6 +26,9 @@
 create_mcmc <- function(
   chain_length = 10000000,
   store_every = -1
+  # pre_burnin = 0,
+  # num_init_attempts = 10,
+  # sample_from_prior = FALSE
 ) {
   if (chain_length <= 0) {
     stop("'chain_length' must be positive and non-zero")
