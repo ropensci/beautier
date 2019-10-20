@@ -31,7 +31,7 @@ mcmc_to_xml_run <- function(mcmc) {
 #'
 #' expect_equal(
 #'   xml,
-#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -65,7 +65,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' expect_equal(
 #'   xml,
 #'   paste0(
-#'     "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"10000000\" ",
+#'     "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"1e+07\" ",
 #'     "particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">"
 #'   )
 #' )

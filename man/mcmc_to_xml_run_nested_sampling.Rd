@@ -26,7 +26,7 @@ xml <- mcmc_to_xml_run_nested_sampling(
 expect_equal(
   xml,
   paste0(
-    "<run id=\\"mcmc\\" spec=\\"beast.gss.NS\\" chainLength=\\"10000000\\" ",
+    "<run id=\\"mcmc\\" spec=\\"beast.gss.NS\\" chainLength=\\"1e+07\\" ",
     "particleCount=\\"1\\" subChainLength=\\"5000\\" epsilon=\\"1e-12\\">"
   )
 )
