@@ -4,7 +4,7 @@
 #'   are present in the FASTA files.
 #'   Returns FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_mrca_align_ids_in_fastas <- function(
   mrca_priors,
   fasta_filenames

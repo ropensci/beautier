@@ -3,7 +3,7 @@
 #' @return TRUE if the MRCA priors' taxa names are
 #'   present in the FASTA files. FALSE otherwise.
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_mrca_taxa_names_in_fastas <- function(
   mrca_priors,
   fasta_filenames

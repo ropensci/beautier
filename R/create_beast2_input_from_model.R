@@ -138,7 +138,7 @@ create_beast2_input_from_model <- function(
   # All MRCA's taxa names must be in the FASTA files
   if (!beautier::is_one_na(mrca_priors)) {
     testit::assert(beautier::are_mrca_priors(mrca_priors))
-    if (!are_mrca_align_ids_in_fastas( # nolint beautier function
+    if (!beautier::are_mrca_align_ids_in_fastas(
         mrca_priors = mrca_priors,
         fasta_filenames = input_filenames
       )
@@ -160,7 +160,7 @@ create_beast2_input_from_model <- function(
       )
     }
 
-    if (!are_mrca_taxa_names_in_fastas(
+    if (!beautier::are_mrca_taxa_names_in_fastas(
         mrca_priors = mrca_priors, fasta_filenames = input_filenames
       )
     ) {
@@ -168,7 +168,7 @@ create_beast2_input_from_model <- function(
     }
   }
 
-  if (!are_mrca_taxa_non_intersecting(mrca_priors = mrca_priors)) {
+  if (!beautier::are_mrca_taxa_non_intersecting(mrca_priors)) {
     stop("Monophyletic MRCA priors must have taxon sets without intersection")
   }
 
@@ -200,10 +200,10 @@ create_beast2_input_from_model <- function(
     distr_id = 150,
     param_id = 300
   )
-  testit::assert(are_init_site_models(site_models))  # nolint beautier function
-  testit::assert(are_init_clock_models(clock_models))  # nolint beautier function
-  testit::assert(are_init_tree_priors(tree_priors))  # nolint beautier function
-  testit::assert(are_init_mrca_priors(mrca_priors))  # nolint beautier function
+  testit::assert(beautier::are_init_site_models(site_models))
+  testit::assert(beautier::are_init_clock_models(clock_models))
+  testit::assert(beautier::are_init_tree_priors(tree_priors))
+  testit::assert(beautier::are_init_mrca_priors(mrca_priors))
 
   # Make a million show as 1000000 instead of 1e+06
   old_scipen <- getOption("scipen")

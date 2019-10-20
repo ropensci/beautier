@@ -24,10 +24,10 @@
 #' @export
 check_tree_priors <- function(tree_priors) {
 
-  if (is_tree_prior(tree_priors)) { # nolint beautier function
+  if (beautier::is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
-  if (!are_tree_priors(tree_priors)) { # nolint beautier function
+  if (!beautier::are_tree_priors(tree_priors)) {
     stop(
       "'tree_priors' must be a list of one or more valid tree priors. ",
       "Actual value(s): ", tree_priors

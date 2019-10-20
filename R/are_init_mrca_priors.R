@@ -3,11 +3,11 @@
 #'   initialized MRCA priors
 #' @return TRUE if x, or all elements of x, are initialized MRCA priors
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_init_mrca_priors <- function(
   x
 ) {
-  if (!are_mrca_priors(x)) return(FALSE) # nolint beautier function
+  if (!beautier::are_mrca_priors(x)) return(FALSE)
   for (i in x) {
     if (!beautier::is_init_mrca_prior(i)) return(FALSE)
   }

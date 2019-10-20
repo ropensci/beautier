@@ -4,28 +4,28 @@
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'   testit::assert(
-#'     beautier:::get_site_models_n_params(list(create_gtr_site_model())) == 11
+#'     get_site_models_n_params(list(create_gtr_site_model())) == 10
 #'   )
 #'   testit::assert(
-#'     beautier:::get_site_models_n_params(list(create_hky_site_model())) == 3
+#'     get_site_models_n_params(list(create_hky_site_model())) == 2
 #'   )
 #'   testit::assert(
-#'     beautier:::get_site_models_n_params(list(create_jc69_site_model())) == 1
+#'     get_site_models_n_params(list(create_jc69_site_model())) == 0
 #'   )
 #'   testit::assert(
-#'     beautier:::get_site_models_n_params(list(create_tn93_site_model())) == 5
+#'     get_site_models_n_params(list(create_tn93_site_model())) == 4
 #'   )
-#' @noRd
+#' @export
 get_site_models_n_params <- function(
   site_models
 ) {
-  if (!are_site_models(site_models)) { # nolint beautier function
+  if (!beautier::are_site_models(site_models)) {
     stop("'site_models' must be a list of site models")
   }
   n <- 0
   for (site_model in site_models) {
-    testit::assert(is_site_model(site_model)) # nolint beautier function
-    n <- n + get_site_model_n_params(site_model) # nolint beautier function
+    testit::assert(beautier::is_site_model(site_model))
+    n <- n + beautier::get_site_model_n_params(site_model)
   }
   n
 }

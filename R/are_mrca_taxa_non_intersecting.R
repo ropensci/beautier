@@ -9,7 +9,7 @@
 #' @return TRUE if the MRCA priors are non-intersecting.
 #'   FALSE otherwise.
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_mrca_taxa_non_intersecting <- function(mrca_priors) {
   testit::assert(beautier::are_mrca_priors(mrca_priors))
   if (beautier::is_one_na(mrca_priors)) return(TRUE)
