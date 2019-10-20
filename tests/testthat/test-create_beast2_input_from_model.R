@@ -109,3 +109,38 @@ test_that("mcmc$n_init_attempts", {
     n_init_attempts
   )
 })
+
+test_that("mcmc$sample_from_prior", {
+
+  inference_model <- create_inference_model(
+    mcmc = create_mcmc(
+      sample_from_prior = TRUE
+    )
+  )
+  text <- create_beast2_input_from_model(
+    input_filename = get_fasta_filename(),
+    inference_model = inference_model
+  )
+  the_line <- as.character(
+    na.omit(
+      stringr::str_match(
+        string = text,
+        pattern = ".*MCMC.*"
+      )[, 1]
+    )
+  )
+  the_line
+  testit::assert(nchar(the_line) > 0)
+  sample_from_prior <- as.logical(
+    na.omit(
+      stringr::str_match(
+        string = text,
+        pattern = ".*sampleFromPrior=.(.*).."
+      )[, 2]
+    )
+  )
+  expect_equal(
+    inference_model$mcmc$sample_from_prior,
+    sample_from_prior
+  )
+})

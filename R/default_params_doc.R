@@ -94,6 +94,7 @@
 #'   the main loop
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
+#' @param sample_from_prior set to \link{TRUE} to sample from the prior
 #' @param sequence_length a DNA sequence length, in base pairs
 #' @param site_model a site model,
 #'   as returned by \code{\link{create_site_model}}
@@ -170,6 +171,7 @@ default_params_doc <- function(
   posterior_crown_age,
   pre_burnin,
   rln_clock_model,
+  sample_from_prior,
   sequence_length,
   site_model,
   site_model_name,

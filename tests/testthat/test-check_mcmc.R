@@ -40,6 +40,13 @@ test_that("use", {
     )
   )
 
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        sample_from_prior = TRUE
+      )
+    )
+  )
 })
 
 test_that("missing list elements", {
@@ -78,6 +85,24 @@ test_that("missing list elements", {
       mcmc
     ),
     "'pre_burnin' must be an element of an 'mcmc'"
+  )
+
+  mcmc <- good_mcmc
+  mcmc$n_init_attempts <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'n_init_attempts' must be an element of an 'mcmc'"
+  )
+
+  mcmc <- good_mcmc
+  mcmc$sample_from_prior <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'sample_from_prior' must be an element of an 'mcmc'"
   )
 
 })
@@ -145,6 +170,15 @@ test_that("invalid list element values", {
       )
     ),
     "mcmc.n_init_attempts"
+  )
+
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        sample_from_prior = -1234
+      )
+    ),
+    "mcmc.sample_from_prior"
   )
 
 })
