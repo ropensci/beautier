@@ -4,7 +4,7 @@
 #' @param text text to be determined to be valid
 #' @return TRUE if the text is valid XML, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_xml <- function(text) {
   if (beautier::is_one_na(text)) return(FALSE)
   if (!has_xml_opening_tag(text)) return(FALSE) # nolint beautier function
