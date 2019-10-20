@@ -10,3 +10,34 @@ test_that("use", {
   expect_error(check_mcmc(mcmc = NULL))
   expect_error(check_mcmc(mcmc = NA))
 })
+
+test_that("missing list elements", {
+
+  good_mcmc <- create_mcmc()
+
+  # OK
+  expect_silent(
+    check_mcmc(
+      good_mcmc
+    )
+  )
+
+  # Wrong parameter names
+  mcmc <- good_mcmc
+  mcmc$chain_length <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'chain_length' must be an element of an 'mcmc'"
+  )
+
+  mcmc <- good_mcmc
+  mcmc$store_every <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'store_every' must be an element of an 'mcmc'"
+  )
+})
