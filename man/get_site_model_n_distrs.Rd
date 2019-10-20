@@ -17,25 +17,31 @@ the number of distributions a site model has
 Get the number of distributions a site model has
 }
 \examples{
-  # gamma site model, rates AC, AG, AT, CG and GT
-  testit::assert(
-    beautier:::get_site_model_n_distrs(create_gtr_site_model()) == 6
-  )
+library(testthat)
 
-  # gamma site model, kappa
-  testit::assert(
-    beautier:::get_site_model_n_distrs(create_hky_site_model()) == 2
-  )
+# gamma site model, rates AC, AG, AT, CG and GT
+expect_equal(
+  get_site_model_n_distrs(create_gtr_site_model()),
+  5
+)
 
-  # gamma site model
-  testit::assert(
-    beautier:::get_site_model_n_distrs(create_jc69_site_model()) == 1
-  )
+# gamma site model, kappa
+expect_equal(
+  get_site_model_n_distrs(create_hky_site_model()),
+  1
+)
 
-  # gamma site model, kappa 1 and kappa 2
-  testit::assert(
-    beautier:::get_site_model_n_distrs(create_tn93_site_model()) == 3
-  )
+# gamma site model
+expect_equal(
+  get_site_model_n_distrs(create_jc69_site_model()),
+  0
+)
+
+# gamma site model, kappa 1 and kappa 2
+expect_equal(
+  get_site_model_n_distrs(create_tn93_site_model()),
+  2
+)
 }
 \author{
 Richèl J.C. Bilderbeek

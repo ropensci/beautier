@@ -17,9 +17,12 @@ the XML as text
 Converts an MCMC object to the run section's XML
 }
 \examples{
+library(testthat)
+
 xml <- mcmc_to_xml_run(create_mcmc())
-testit::assert(xml ==
-   "<run id=\\"mcmc\\" spec=\\"MCMC\\" chainLength=\\"1e+07\\">"
+expect_equal(
+  xml,
+  "<run id=\\"mcmc\\" spec=\\"MCMC\\" chainLength=\\"10000000\\">"
 )
 }
 \author{

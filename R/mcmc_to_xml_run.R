@@ -2,9 +2,12 @@
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
+#' library(testthat)
+#'
 #' xml <- mcmc_to_xml_run(create_mcmc())
-#' testit::assert(xml ==
-#'    "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
+#' expect_equal(
+#'   xml,
+#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -22,10 +25,14 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'   xml <- mcmc_to_xml_run_default(create_mcmc())
-#'   testit::assert(xml ==
-#'     "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
-#'   )
+#' library(testthat)
+#'
+#' xml <- mcmc_to_xml_run_default(create_mcmc())
+#'
+#' expect_equal(
+#'   xml,
+#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_default <- function(mcmc) {
@@ -46,15 +53,19 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'   xml <- mcmc_to_xml_run_nested_sampling(
-#'     create_mcmc_nested_sampling()
+#' library(testthat)
+#'
+#' xml <- mcmc_to_xml_run_nested_sampling(
+#'   create_mcmc_nested_sampling()
+#' )
+#'
+#' expect_equal(
+#'   xml,
+#'   paste0(
+#'     "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"10000000\" ",
+#'     "particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">"
 #'   )
-#'   testit::assert(xml ==
-#'     paste0(
-#'       "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"1e+07\" ",
-#'       "particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">"
-#'     )
-#'   )
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint beautier function can be long

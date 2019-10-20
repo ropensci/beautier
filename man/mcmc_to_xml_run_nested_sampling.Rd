@@ -17,15 +17,19 @@ the XML as text
 Converts an MCMC object to the run section's XML for a Nested-Sampling MCMC
 }
 \examples{
-  xml <- mcmc_to_xml_run_nested_sampling(
-    create_mcmc_nested_sampling()
+library(testthat)
+
+xml <- mcmc_to_xml_run_nested_sampling(
+  create_mcmc_nested_sampling()
+)
+
+expect_equal(
+  xml,
+  paste0(
+    "<run id=\\"mcmc\\" spec=\\"beast.gss.NS\\" chainLength=\\"10000000\\" ",
+    "particleCount=\\"1\\" subChainLength=\\"5000\\" epsilon=\\"1e-12\\">"
   )
-  testit::assert(xml ==
-    paste0(
-      "<run id=\\"mcmc\\" spec=\\"beast.gss.NS\\" chainLength=\\"1e+07\\" ",
-      "particleCount=\\"1\\" subChainLength=\\"5000\\" epsilon=\\"1e-12\\">"
-    )
-  )
+)
 }
 \author{
 Richèl J.C. Bilderbeek
