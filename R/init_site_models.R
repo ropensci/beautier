@@ -262,12 +262,13 @@ init_hky_site_model <- function(
 #'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
 #'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
 #'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
+#' @export
 init_jc69_site_model <- function(
   jc69_site_model,
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_jc69_site_model(jc69_site_model)) # nolint beautier function
+  testit::assert(beautier::is_jc69_site_model(jc69_site_model))
 
   # Initialize gamma site model, if any
   if (
@@ -276,9 +277,12 @@ init_jc69_site_model <- function(
     )
   ) {
     if (
-      !is_init_distr(jc69_site_model$gamma_site_model$gamma_shape_prior_distr) # nolint beautier function
+      !beautier::is_init_distr(
+        jc69_site_model$gamma_site_model$gamma_shape_prior_distr
+      )
     ) {
-      jc69_site_model$gamma_site_model$gamma_shape_prior_distr <- init_distr( # nolint beautier function
+      jc69_site_model$gamma_site_model$gamma_shape_prior_distr <-
+        beautier::init_distr(
         jc69_site_model$gamma_site_model$gamma_shape_prior_distr,
         distr_id = distr_id,
         param_id = param_id
@@ -290,8 +294,8 @@ init_jc69_site_model <- function(
     }
   }
 
-  testit::assert(is_init_gamma_site_model(jc69_site_model$gamma_site_model)) # nolint beautier function
-  testit::assert(is_init_jc69_site_model(jc69_site_model)) # nolint beautier function
+  testit::assert(beautier::is_init_gamma_site_model(jc69_site_model$gamma_site_model))
+  testit::assert(beautier::is_init_jc69_site_model(jc69_site_model))
   jc69_site_model
 }
 

@@ -1,10 +1,11 @@
 #' Determine if x is an initialized parameter,
-#'   as created by \code{\link{create_param}}
+#'   as created by \link{create_param}
 #' @param x the object to check if it is an
 #'   initialized parameter
-#' @return TRUE if x is an initialized parameter, FALSE otherwise
+#' @return \link{TRUE} if x is an initialized parameter,
+#' \link{FALSE} otherwise
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_init_param <- function(
   x
 ) {
