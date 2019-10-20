@@ -7,7 +7,7 @@ create_beast2_input_init <- function(
   ids,
   initial_phylogenies
 ) {
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
+  testit::assert(beautier::are_initial_phylogenies(initial_phylogenies))
   testit::assert(beautier::are_ids(ids))
   testit::assert(length(ids) == length(initial_phylogenies))
 
@@ -29,11 +29,11 @@ create_beast2_input_init <- function(
   for (i in seq(1, n)) {
     phylogeny <- initial_phylogenies[[i]]
     id <- ids[i]
-    if (!is_phylo(phylogeny)) { # nolint beautier function
+    if (!beautier::is_phylo(phylogeny)) {
       text <- c(text, "")
       text <- c(
         text,
-        indent(rnd_phylo_to_xml_init(id), n_spaces = 4) # nolint beautier function
+        beautier::indent(rnd_phylo_to_xml_init(id), n_spaces = 4)
       )
     }
   }

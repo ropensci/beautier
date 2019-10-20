@@ -12,20 +12,20 @@
 site_model_to_xml_tracelog <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
 
   text <- NULL
-  if (is_hky_site_model(site_model)) { # nolint beautier function
+  if (beautier::is_hky_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>")) # nolint this is no absolute path
-  } else if (is_tn93_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>")) # nolint this is no absolute path
     }
     if (site_model$kappa_2_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>")) # nolint this is no absolute path
     }
-  } else if (is_gtr_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_gtr_site_model(site_model)) {
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>")) # nolint this is no absolute path
     }
@@ -42,7 +42,7 @@ site_model_to_xml_tracelog <- function(
       text <- c(text, paste0("<log idref=\"rateGT.s:", id, "\"/>")) # nolint this is no absolute path
     }
   }
-  if (!is_jc69_site_model(site_model)) { # nolint beautier function
+  if (!beautier::is_jc69_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"freqParameter.s:", id, "\"/>")) # nolint this is no absolute path
   }
   if (site_model$gamma_site_model$gamma_cat_count > 1) {

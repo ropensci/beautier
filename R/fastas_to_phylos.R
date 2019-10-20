@@ -32,7 +32,7 @@ fastas_to_phylos <- function(fasta_filenames, crown_age) {
   phylos <- list()
   for (i in seq_along(fasta_filenames)) {
     fasta_filename <- fasta_filenames[i]
-    phylos[[i]] <- fasta_to_phylo(fasta_filename, crown_age) # nolint beautier function
+    phylos[[i]] <- beautier::fasta_to_phylo(fasta_filename, crown_age)
   }
   testit::assert(length(phylos) == length(fasta_filenames))
   phylos

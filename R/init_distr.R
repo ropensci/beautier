@@ -5,7 +5,7 @@
 #' @param param_id the first parameter's ID
 #' @return an initialized distribution
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 init_distr <- function(
   distr,
   distr_id = 0,

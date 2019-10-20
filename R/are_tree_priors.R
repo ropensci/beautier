@@ -15,11 +15,11 @@ are_tree_priors <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_tree_prior(x)) { # nolint beautier function
+  if (beautier::is_tree_prior(x)) {
     return(TRUE)
   }
   for (i in x) {
-    if (!is_tree_prior(i)) return(FALSE) # nolint beautier function
+    if (!beautier::is_tree_prior(i)) return(FALSE)
   }
   return(TRUE)
 }

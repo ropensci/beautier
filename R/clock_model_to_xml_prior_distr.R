@@ -34,7 +34,7 @@ clock_model_to_xml_prior_distr <- function(
       "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
       "x=\"@ucldStdev.c:", id, "\">"))
     text <- c(text,
-      indent( # nolint beautier function
+      beautier::indent(
         distr_to_xml( # nolint beautier function
           distr = clock_model$ucldstdev_distr
         ),
@@ -52,7 +52,7 @@ clock_model_to_xml_prior_distr <- function(
       text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
         "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
       text <- c(text,
-        indent( # nolint beautier function
+        beautier::indent(
           distr_to_xml( # nolint beautier function
             clock_model$clock_rate_distr
           ),

@@ -5,9 +5,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 get_has_non_strict_clock_model <- function(clock_models) {
-  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(beautier::are_clock_models(clock_models))
   for (clock_model in clock_models) {
-    if (!is_strict_clock_model(clock_model)) { # nolint beautier function
+    if (!beautier::is_strict_clock_model(clock_model)) {
       return(TRUE)
     }
   }

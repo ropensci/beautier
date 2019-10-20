@@ -35,34 +35,34 @@
 #'     beautier:::get_distr_n_params(create_uniform_distr()) == 0
 #'   )
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_distr_n_params <- function(
   distr
 ) {
-  if (!is_distr(distr)) { # nolint beautier function
+  if (!beautier::is_distr(distr)) {
     stop("'distr' must be a distribution")
   }
 
-  if (is_beta_distr(distr)) { # nolint beautier function
+  if (beautier::is_beta_distr(distr)) {
     return(2) # alpha and beta
-  } else if (is_exp_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_exp_distr(distr)) {
     return(1) # mean
-  } else if (is_gamma_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_gamma_distr(distr)) {
     return(2) # alpha and beta
-  } else if (is_inv_gamma_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_inv_gamma_distr(distr)) {
     return(2) # alpha and beta
-  } else if (is_laplace_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_laplace_distr(distr)) {
     return(2) # mu and scale
-  } else if (is_log_normal_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_log_normal_distr(distr)) {
     return(2) # m and s
-  } else if (is_normal_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_normal_distr(distr)) {
     return(2) # mean and sigma
-  } else if (is_one_div_x_distr(distr)) { # nolint beautier function
+  } else if (beautier::is_one_div_x_distr(distr)) {
     return(0) # none
-  } else  if (is_poisson_distr(distr)) { # nolint beautier function
+  } else  if (beautier::is_poisson_distr(distr)) {
     return(1) # lambda
   } else {
-    testit::assert(is_uniform_distr(distr)) # nolint beautier function
+    testit::assert(beautier::is_uniform_distr(distr))
     return(0) # none
   }
 }

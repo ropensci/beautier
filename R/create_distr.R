@@ -108,10 +108,10 @@ create_beta_distr <- create_distr_beta <- function(
   alpha = 0.0,
   beta = 1.0
 ) {
-  if (is_one_double(alpha)) { # nolint beautier function
+  if (beautier::is_one_double(alpha)) {
     alpha <- create_alpha_param(value = alpha)
   }
-  if (is_one_double(beta)) { # nolint beautier function
+  if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -164,7 +164,7 @@ create_exp_distr <- create_distr_exp <- function(
   id = NA,
   mean = 1.0
 ) {
-  if (is_one_double(mean)) { # nolint beautier function
+  if (beautier::is_one_double(mean)) {
     mean <- create_mean_param(value = mean)
   }
   if (!is_mean_param(mean)) {
@@ -216,10 +216,10 @@ create_gamma_distr <- create_distr_gamma <- function(
   alpha = 0.5396,
   beta = 0.3819
 ) {
-  if (is_one_double(alpha)) { # nolint beautier function
+  if (beautier::is_one_double(alpha)) {
     alpha <- create_alpha_param(value = alpha)
   }
-  if (is_one_double(beta)) { # nolint beautier function
+  if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -278,17 +278,17 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   alpha = 0.0,
   beta = 1.0
 ) {
-  if (is_one_double(alpha)) { # nolint beautier function
+  if (beautier::is_one_double(alpha)) {
     alpha <- create_alpha_param(value = alpha)
   }
-  if (is_one_double(beta)) { # nolint beautier function
+  if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
-  if (!is_alpha_param(alpha)) {
+  if (!beautier::is_alpha_param(alpha)) {
     stop("'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'")
   }
-  if (!is_beta_param(beta)) {
+  if (!beautier::is_beta_param(beta)) {
     stop("'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'")
   }
@@ -333,18 +333,18 @@ create_laplace_distr <- create_distr_laplace <- function(
   mu = 0.0,
   scale = 1.0
 ) {
-  if (is_one_double(mu)) { # nolint beautier function
+  if (beautier::is_one_double(mu)) {
     mu <- create_mu_param(value = mu)
   }
-  if (is_one_double(scale)) { # nolint beautier function
+  if (beautier::is_one_double(scale)) {
     scale <- create_scale_param(value = scale)
   }
 
-  if (!is_mu_param(mu)) {
+  if (!beautier::is_mu_param(mu)) {
     stop("'mu' must be a mu parameter, ",
       "as returned by 'create_mu_param'")
   }
-  if (!is_scale_param(scale)) {
+  if (!beautier::is_scale_param(scale)) {
     stop("'scale' must be a scale parameter, ",
       "as returned by 'create_scale_param'")
   }
@@ -389,16 +389,16 @@ create_log_normal_distr <- create_distr_log_normal <- function(
   m = 0.0,
   s = 0.0
 ) {
-  if (is_one_double(m)) { # nolint beautier function
+  if (beautier::is_one_double(m)) {
     m <- create_m_param(value = m)
   }
-  if (is_one_double(s)) { # nolint beautier function
+  if (beautier::is_one_double(s)) {
     s <- create_s_param(value = s)
   }
-  if (!is_m_param(m)) {
+  if (!beautier::is_m_param(m)) {
     stop("'m' must be an m parameter, as returned by 'create_m_param'")
   }
-  if (!is_s_param(s)) {
+  if (!beautier::is_s_param(s)) {
     stop("'s' must be an s parameter, as returned by 'create_s_param'")
   }
   if (s$value < 0.0) {
@@ -445,22 +445,22 @@ create_normal_distr <- create_distr_normal <- function(
   mean = 0.0,
   sigma = 1.0
 ) {
-  if (is_one_double(mean)) { # nolint beautier function
+  if (beautier::is_one_double(mean)) {
     mean <- create_mean_param(value = mean)
   }
-  if (is_one_double(sigma)) { # nolint beautier function
+  if (beautier::is_one_double(sigma)) {
     sigma <- create_sigma_param(value = sigma)
   }
 
-  if (!is_mean_param(mean)) { # nolint beautier function
+  if (!beautier::is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
       "as returned by 'create_mean_param'")
   }
-  if (!is_sigma_param(sigma)) { # nolint beautier function
+  if (!beautier::is_sigma_param(sigma)) {
     stop("'sigma' must be a sigma parameter, ",
       "as returned by 'create_sigma_param'")
   }
-  beautier::create_distr( # nolint beautier function
+  beautier::create_distr(
     name = "normal",
     id = id,
     mean = mean,
@@ -525,7 +525,7 @@ create_poisson_distr <- create_distr_poisson <- function(
   id = NA,
   lambda = 0.0
 ) {
-  if (is_one_double(lambda)) { # nolint beautier function
+  if (beautier::is_one_double(lambda)) {
     lambda <- create_lambda_param(value = lambda)
   }
 
@@ -566,7 +566,7 @@ create_uniform_distr <- create_distr_uniform <- function(
   id = NA,
   upper = Inf
 ) {
-  if (!is_one_na(upper) && upper <= 0.0) { # nolint beautier function
+  if (!beautier::is_one_na(upper) && upper <= 0.0) {
     stop("'upper' must be non-zero and positive")
   }
   beautier::create_distr(

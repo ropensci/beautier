@@ -11,11 +11,11 @@ create_beast2_input_operators <- function( # nolint beautier function
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(is_one_bool(fixed_crown_ages)) # nolint beautier function
-  testit::assert(are_site_models(site_models)) # nolint beautier function
-  testit::assert(are_clock_models(clock_models)) # nolint beautier function
-  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
+  testit::assert(beautier::is_one_bool(fixed_crown_ages))
+  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
   testit::assert(length(site_models) == length(fixed_crown_ages))
 
   text <- NULL

@@ -14,7 +14,7 @@ rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint b
   text <- c(text, paste0("<prior id=\"MeanRatePrior.c:", id, "\" ",
     "name=\"distribution\" x=\"@ucldMean.c:", id, "\">"))
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = rln_clock_model$mean_rate_prior_distr
       ),

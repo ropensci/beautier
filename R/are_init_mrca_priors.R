@@ -9,7 +9,7 @@ are_init_mrca_priors <- function(
 ) {
   if (!are_mrca_priors(x)) return(FALSE) # nolint beautier function
   for (i in x) {
-    if (!is_init_mrca_prior(i)) return(FALSE) # nolint beautier function call
+    if (!beautier::is_init_mrca_prior(i)) return(FALSE)
   }
   return(TRUE)
 }

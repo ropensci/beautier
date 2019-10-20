@@ -22,23 +22,25 @@
 #'   testit::assert(
 #'     beautier:::get_site_model_n_distrs(create_tn93_site_model()) == 3
 #'   )
-#' @noRd
+#' @export
 get_site_model_n_distrs <- function(
   site_model
 ) {
-  if (!is_site_model(site_model)) { # nolint beautier function
+  if (!beautier::is_site_model(site_model)) {
     stop("'site_model' must be a site model")
   }
   gamma_site_model <- site_model$gamma_site_model
-  gamma_site_model_n_distrs <- get_gamma_site_model_n_distrs(gamma_site_model) # nolint beautier function
-  if (is_gtr_site_model(site_model)) { # nolint beautier function
+  gamma_site_model_n_distrs <- beautier::get_gamma_site_model_n_distrs(
+    gamma_site_model
+  )
+  if (beautier::is_gtr_site_model(site_model)) {
     return(5 + gamma_site_model_n_distrs)
-  } else if (is_hky_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_hky_site_model(site_model)) {
     return(1 + gamma_site_model_n_distrs)
-  } else if (is_jc69_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_jc69_site_model(site_model)) {
     return(0 + gamma_site_model_n_distrs)
   } else {
-    testit::assert(is_tn93_site_model(site_model)) # nolint beautier function
+    testit::assert(beautier::is_tn93_site_model(site_model))
     return(2 + gamma_site_model_n_distrs)
   }
 }

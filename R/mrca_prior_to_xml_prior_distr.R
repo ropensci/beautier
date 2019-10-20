@@ -37,7 +37,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
     )
     text <- c(
       text,
-      indent( # nolint beautier function
+      beautier::indent(
         distr_to_xml(create_uniform_distr( # nolint beautier function
           id = mrca_prior$clock_prior_distr_id)
         ),
@@ -62,7 +62,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
   text <- c(text, opening_tag)
   text <- c(
     text,
-    indent( # nolint beautier function
+    beautier::indent(
       mrca_prior_to_xml_taxonset( # nolint beautier function
         mrca_prior,
         taxa_names_with_ids
@@ -71,7 +71,10 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
     )
   )
   if (is_distr(mrca_prior$mrca_distr)) { # nolint beautier function
-    text <- c(text, indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4)) # nolint beautier function
+    text <- c(
+      text,
+      beautier::indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4)
+    )
   }
   text <- c(text, paste0("</distribution>"))
 

@@ -4,15 +4,15 @@
 #'   initialized clock_models object
 #' @return TRUE if x is an initialized clock_model object
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_init_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE) # nolint beautier function
-  if (is_strict_clock_model(x)) { # nolint beautier function
+  if (!beautier::is_clock_model(x)) return(FALSE)
+  if (beautier::is_strict_clock_model(x)) {
     return(is_init_strict_clock_model(x)) # nolint beautier function call
   } else {
-    testit::assert(is_rln_clock_model(x)) # nolint beautier function
+    testit::assert(beautier::is_rln_clock_model(x))
     return(is_init_rln_clock_model(x)) # nolint beautier function call
   }
 }

@@ -23,10 +23,10 @@ is_site_model <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (!is_site_model_name(x$name)) return(FALSE) # nolint beautier function
+  if (!beautier::is_site_model_name(x$name)) return(FALSE)
   if (!"id" %in% names(x)) return(FALSE)
   if (!"gamma_site_model" %in% names(x)) return(FALSE)
-  if (!is_gamma_site_model(x$gamma_site_model)) return(FALSE) # nolint beautier function
+  if (!beautier::is_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }
 
@@ -171,16 +171,16 @@ is_jc69_site_model <- function(
 is_tn93_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_site_model(x)) return(FALSE)
   if (!"kappa_1_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_1_prior_distr)) return(FALSE) # nolint beautier function
+  if (!beautier::is_distr(x$kappa_1_prior_distr)) return(FALSE)
   if (!"kappa_2_prior_distr" %in% names(x)) return(FALSE)
-  if (!is_distr(x$kappa_2_prior_distr)) return(FALSE) # nolint beautier function
+  if (!beautier::is_distr(x$kappa_2_prior_distr)) return(FALSE)
   if (!"kappa_1_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$kappa_1_param)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x$kappa_1_param)) return(FALSE)
   if (!"kappa_2_param" %in% names(x)) return(FALSE)
-  if (!is_param(x$kappa_2_param)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x$kappa_2_param)) return(FALSE)
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE) # nolint beautier function
+  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 }

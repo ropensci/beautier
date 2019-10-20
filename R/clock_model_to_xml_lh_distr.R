@@ -32,7 +32,7 @@ clock_model_to_xml_lh_distr <- function(
       clock_model$clock_rate_param$id <- id
       text <- c(
         text,
-        indent( # nolint beautier function
+        beautier::indent(
           parameter_to_xml(clock_model$clock_rate_param), # nolint beautier function
           n_spaces = 4
         )

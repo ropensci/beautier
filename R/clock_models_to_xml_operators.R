@@ -8,7 +8,7 @@ clock_models_to_xml_operators <- function(
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(beautier::are_clock_models(clock_models))
 
   text <- NULL
   for (i in seq_along(clock_models)) {

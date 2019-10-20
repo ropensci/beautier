@@ -35,7 +35,7 @@ create_beast2_input_run <- function(
   text <- c(text, mcmc_to_xml_run(mcmc)) # nolint beautier function
 
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       create_beast2_input_state( # nolint beautier function
         site_models = site_models,
         clock_models = clock_models,

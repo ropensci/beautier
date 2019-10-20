@@ -5,14 +5,14 @@
 #'   has an ID
 #' @return an initialized parameter
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 init_param <- function(
   param,
   id
 ) {
-  testit::assert(is_param(param)) # nolint beautier function
+  testit::assert(beautier::is_param(param))
 
-  if (is_one_na(param$id)) { # nolint beautier function
+  if (beautier::is_one_na(param$id)) {
     param$id <- id
   }
 

@@ -14,18 +14,18 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
-  testit::assert(are_ids(ids))  # nolint beautier function
-  testit::assert(are_site_models(site_models)) # nolint beautier function
-  testit::assert(are_clock_models(clock_models)) # nolint beautier function
-  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
-  testit::assert(is_mcmc(mcmc)) # nolint beautier function
+  testit::assert(beautier::are_ids(ids))
+  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
+  testit::assert(beautier::is_mcmc(mcmc))
 
   text <- NULL
   text <- c(
     text,
-    indent( # nolint beautier function
-      create_beast2_input_tracelog( # nolint beautier function
+    beautier::indent(
+      create_beast2_input_tracelog(
         ids = ids,
         site_models = site_models,
         clock_models = clock_models,
@@ -41,14 +41,14 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   text <- c(text, "")
 
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       create_beast2_input_screenlog(), # nolint beautier function
       n_spaces = 4
     )
   )
 
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       create_beast2_input_treelogs(clock_models), # nolint beautier function
       n_spaces = 4
     )
@@ -61,7 +61,7 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @examples
-#'   created <- beautier:::create_beast2_input_tracelog(ids = 1)
+#'   created <- create_beast2_input_tracelog(ids = 1)
 #'   expected <- c(
 #'     paste0(
 #'       "<logger id=\"tracelog\" fileName=\"1.log\" ",
@@ -83,12 +83,13 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
 #'    )
 #'    testthat::expect_equal(created, expected)
 #' @author Richèl J.C. Bilderbeek
+#' @export
 create_beast2_input_tracelog <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   ids,
   site_models = list(create_jc69_site_model(id = ids)),
   clock_models = list(create_strict_clock_model(id = ids)),
   tree_priors = list(create_yule_tree_prior(id = ids)),
-  mcmc = create_mcmc(),
+  mcmc = beautier::create_mcmc(),
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
@@ -132,7 +133,7 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
   )
 
   # Indent and surround the current text
-  text <- indent(text, n_spaces = 4) # nolint beautier function
+  text <- beautier::indent(text, n_spaces = 4)
 
   log_every <- mcmc$store_every
   if (log_every == -1) log_every <- 1000 # TODO: calc from mcmc$chain_length
@@ -176,7 +177,7 @@ create_beast2_input_screenlog <- function() {
 create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   clock_models
 ) {
-  testit::assert(are_clock_models(clock_models)) # nolint beautier function
+  testit::assert(beautier::are_clock_models(clock_models))
 
   text <- NULL
   for (clock_model in clock_models) {
@@ -187,7 +188,7 @@ create_beast2_input_treelogs <- function( # nolint keep long function name, as i
       "fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
     text <- c(
       text,
-      indent(clock_model_to_xml_treelogger(clock_model), n_spaces = 4) # nolint beautier function
+      beautier::indent(clock_model_to_xml_treelogger(clock_model), n_spaces = 4)
     )
     text <- c(text, "</logger>")
   }

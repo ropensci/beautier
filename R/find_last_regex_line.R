@@ -11,7 +11,7 @@ find_last_regex_line <- function(lines, regex) {
       str = lines[i],
       pattern = regex
     )
-    if (!is_one_na(match)) return(i) # nolint beautier function
+    if (!beautier::is_one_na(match)) return(i)
   }
   NA
 }

@@ -3,11 +3,11 @@
 #'   initialized tree_priors objects
 #' @return TRUE if x, or all elements of x, are initialized tree_prior objects
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_init_tree_priors <- function(
   x
 ) {
-  if (!are_tree_priors(x)) return(FALSE) # nolint beautier function
+  if (!beautier::are_tree_priors(x)) return(FALSE)
   for (i in x) {
     if (!is_init_tree_prior(i)) return(FALSE)   # nolint beautier function call
   }

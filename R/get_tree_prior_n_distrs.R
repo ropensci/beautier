@@ -27,23 +27,23 @@
 #'  testit::assert(
 #'    beautier:::get_tree_prior_n_distrs(create_yule_tree_prior()) == 1
 #'  )
-#' @noRd
+#' @export
 get_tree_prior_n_distrs <- function(
   tree_prior
 ) {
-  if (!is_tree_prior(tree_prior)) { # nolint beautier function
+  if (!beautier::is_tree_prior(tree_prior)) {
     stop("'tree_prior' must be a tree prior")
   }
-  if (is_bd_tree_prior(tree_prior)) { # nolint beautier function
+  if (beautier::is_bd_tree_prior(tree_prior)) {
     return(2)
-  } else if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
+  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
     return(0)
-  } else if (is_ccp_tree_prior(tree_prior)) { # nolint beautier function
+  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     return(1)
-  } else if (is_cep_tree_prior(tree_prior)) { # nolint beautier function
+  } else if (beautier::is_cep_tree_prior(tree_prior)) {
     return(2)
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior)) # nolint beautier function
+    testit::assert(beautier::is_yule_tree_prior(tree_prior))
     return(1)
   }
 }

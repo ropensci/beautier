@@ -12,5 +12,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_site_model_name <- function(name) {
-  name %in% get_site_model_names() # nolint beautier function
+  name %in% beautier::get_site_model_names()
 }

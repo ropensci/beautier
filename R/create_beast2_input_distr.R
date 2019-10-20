@@ -21,11 +21,11 @@ create_beast2_input_distr <- function( # nolint beautier function
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(are_site_models(site_models)) # nolint beautier function
-  testit::assert(are_clock_models(clock_models)) # nolint beautier function
-  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
-  testit::assert(are_init_tree_priors(tree_priors)) # nolint beautier function call
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function call
+  testit::assert(beautier::are_site_models(site_models))
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(beautier::are_init_tree_priors(tree_priors))
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
 
   text <- NULL
 
@@ -150,7 +150,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
       "data=\"@", id,
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
-      indent( # nolint beautier function
+      beautier::indent(
         site_model_to_xml_lh_distr(site_model), # nolint beautier function
         n_spaces = 4
       )
@@ -158,7 +158,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
 
     if (is_one_na(mrca_priors) || get_has_non_strict_clock_model(clock_models)) { # nolint beautier function
       text <- c(text,
-        indent( # nolint beautier function
+        beautier::indent(
           clock_model_to_xml_lh_distr( # nolint beautier function
             clock_model,
             mrca_priors = mrca_priors,
@@ -175,7 +175,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
     if (!is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]] # nolint
     testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
     text <- c(text,
-      indent( # nolint beautier function
+      beautier::indent(
         mrca_prior_to_xml_lh_distr( # nolint beautier function
           mrca_prior,
           has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint beautier function
@@ -240,7 +240,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = bd_birth_rate_distr
       ),
@@ -255,7 +255,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = bd_death_rate_distr
       ),
@@ -343,7 +343,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@popSize.t:",
     id, "\">"))
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = ccp_tree_prior$pop_size_distr
       ),
@@ -393,7 +393,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = cep_tree_prior$pop_size_distr
       ),
@@ -406,7 +406,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = cep_tree_prior$growth_rate_distr
       ),
@@ -451,7 +451,7 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     )
   )
   text <- c(text,
-    indent( # nolint beautier function
+    beautier::indent(
       distr_to_xml(yule_tree_prior$birth_rate_distr), # nolint beautier function
       n_spaces = 4
     )

@@ -8,7 +8,7 @@
 site_models_to_xml_state <- function(
   site_models
 ) {
-  testit::assert(are_site_models(site_models)) # nolint beautier function
+  testit::assert(beautier::are_site_models(site_models))
 
   text <- NULL
   for (site_model in site_models) {

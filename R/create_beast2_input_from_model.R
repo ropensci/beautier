@@ -63,7 +63,7 @@ create_beast2_input_from_model <- function(
   # Already checked
 
   # 3 clock_models
-  if (!are_clock_models(clock_models)) { # nolint beautier function
+  if (!beautier::are_clock_models(clock_models)) {
     stop(
       "'clock_model' must be a valid clock model, ",
       "as returned by 'create_clock_model'"
@@ -71,7 +71,7 @@ create_beast2_input_from_model <- function(
   }
 
   # 4 tree_priors
-  if (!are_tree_priors(tree_priors)) { # nolint beautier function
+  if (!beautier::are_tree_priors(tree_priors)) {
     stop(
       "'tree_prior' must be a valid tree prior, ",
       "as returned by 'create_tree_prior'"
@@ -79,7 +79,7 @@ create_beast2_input_from_model <- function(
   }
 
   # 5 MRCA priors
-  if (!are_mrca_priors(mrca_priors)) { # nolint beautier function
+  if (!beautier::are_mrca_priors(mrca_priors)) {
     stop(
       "'mrca_prior' must be NA or a valid mrca object, ",
       "as returned by 'create_mrca_prior'"
@@ -87,7 +87,7 @@ create_beast2_input_from_model <- function(
   }
 
   # 6 mcmc
-  if (!is_mcmc(mcmc)) { # nolint beautier function
+  if (!beautier::is_mcmc(mcmc)) {
     stop(
       "'mcmc' must be a valid mcmc object, ",
       "as returned by 'create_mcmc'"
@@ -95,7 +95,7 @@ create_beast2_input_from_model <- function(
   }
 
   # 7 beauti_options
-  if (!is_beauti_options(beauti_options)) { # nolint beautier function
+  if (!beautier::is_beauti_options(beauti_options)) {
     stop(
       "'beauti_options' must be a valid 'beauti_options', ",
       "as returned by 'create_beauti_options'"

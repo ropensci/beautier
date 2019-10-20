@@ -9,7 +9,8 @@ create_beast2_input_tracelog(ids,
   site_models = list(create_jc69_site_model(id = ids)),
   clock_models = list(create_strict_clock_model(id = ids)),
   tree_priors = list(create_yule_tree_prior(id = ids)),
-  mcmc = create_mcmc(), mrca_priors = NA, tipdates_filename = NA)
+  mcmc = beautier::create_mcmc(), mrca_priors = NA,
+  tipdates_filename = NA)
 }
 \arguments{
 \item{ids}{one or more alignments' IDs.
@@ -41,7 +42,7 @@ Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file
 }
 \examples{
-  created <- beautier:::create_beast2_input_tracelog(ids = 1)
+  created <- create_beast2_input_tracelog(ids = 1)
   expected <- c(
     paste0(
       "<logger id=\\"tracelog\\" fileName=\\"1.log\\" ",

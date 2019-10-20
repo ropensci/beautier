@@ -31,5 +31,5 @@ create_beast2_input_data_sequences <- function( # nolint beautier function
     text <- c(text, nextline)
   }
   text <- sort(text, method = "radix")
-  indent(text = text, n_spaces = beauti_options$sequence_indent) # nolint beautier function
+  beautier::indent(text = text, n_spaces = beauti_options$sequence_indent)
 }
