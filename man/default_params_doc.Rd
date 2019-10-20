@@ -15,7 +15,7 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   has_tip_dating, hky_site_model, id, ids, inference_model,
   inference_models, initial_phylogenies, input_filename, input_filenames,
   is_monophyletic, jc69_site_model, mcmc, mrca_prior, mrca_priors,
-  output_filename, param_id, phylogeny, posterior_crown_age,
+  output_filename, param_id, phylogeny, posterior_crown_age, pre_burnin,
   rln_clock_model, sequence_length, site_model, site_model_name,
   site_model_names, site_models, store_every, strict_clock_model,
   tipdates_filename, tn93_site_model, tree_prior, tree_prior_name,
@@ -150,6 +150,9 @@ function. BEAST2 uses this file as input.}
 \item{phylogeny}{a phylogeny of type \link[ape]{phylo}}
 
 \item{posterior_crown_age}{deprecated}
+
+\item{pre_burnin}{number of burn in samples taken before entering
+the main loop}
 
 \item{rln_clock_model}{a Relaxed Log-Normal clock model,
 as returned by \code{\link{create_rln_clock_model}}}

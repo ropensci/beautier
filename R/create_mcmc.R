@@ -25,14 +25,15 @@
 #' @export
 create_mcmc <- function(
   chain_length = 10000000,
-  store_every = -1
-  # pre_burnin = 0,
+  store_every = -1,
+  pre_burnin = 0
   # num_init_attempts = 10,
   # sample_from_prior = FALSE
 ) {
   mcmc <- list(
     chain_length = chain_length,
-    store_every = store_every
+    store_every = store_every,
+    pre_burnin = pre_burnin
   )
 
   # Postcondition

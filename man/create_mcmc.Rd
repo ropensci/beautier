@@ -4,7 +4,7 @@
 \alias{create_mcmc}
 \title{Create an MCMC configuration.}
 \usage{
-create_mcmc(chain_length = 1e+07, store_every = -1)
+create_mcmc(chain_length = 1e+07, store_every = -1, pre_burnin = 0)
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}
@@ -12,6 +12,9 @@ create_mcmc(chain_length = 1e+07, store_every = -1)
 \item{store_every}{number of states the MCMC will process
 before the posterior's state will be saved to file.
 Use -1 or \code{NA} to use the default frequency.}
+
+\item{pre_burnin}{number of burn in samples taken before entering
+the main loop}
 }
 \value{
 an MCMC configuration

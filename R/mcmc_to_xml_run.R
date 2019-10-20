@@ -7,7 +7,7 @@
 #' xml <- mcmc_to_xml_run(create_mcmc())
 #' expect_equal(
 #'   xml,
-#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export

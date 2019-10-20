@@ -40,13 +40,15 @@
 create_nested_sampling_mcmc <- create_mcmc_nested_sampling <- function(
   chain_length = 10000000,
   store_every = -1,
+  pre_burnin = 0,
   particle_count = 1,
   sub_chain_length = 5000,
   epsilon = "1e-12"
 ) {
   mcmc <- create_mcmc(
     chain_length = chain_length,
-    store_every = store_every
+    store_every = store_every,
+    pre_burnin = pre_burnin
   )
   if (particle_count < 1) {
     stop("'particle_count' must be a non-zero amount")

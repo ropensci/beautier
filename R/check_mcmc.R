@@ -32,7 +32,7 @@ check_mcmc <- function(mcmc) {
 check_mcmc_list_element_names <- function(mcmc) {
 
   list_element_names <- c(
-    "chain_length", "store_every"
+    "chain_length", "store_every", "pre_burnin"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(mcmc)) {
@@ -83,5 +83,13 @@ check_mcmc_list_element_values <- function(mcmc) {
   if (!beautier::is_one_na(mcmc$store_every) &&
       mcmc$store_every != -1 && mcmc$store_every < 1000) {
     stop("'mcmc$store_every' must be at least 1000, NA or -1")
+  }
+
+  if (mcmc$chain_length < mcmc$pre_burnin) {
+    stop(
+      "'mcmc$pre_burnin' must be less than 'mcmc$chain_length'",
+      "Actual value 'mcmc$pre_burnin': '", mcmc$pre_burnin, "'. \n",
+      "Actual value 'mcmc$chain_length': '", mcmc$chain_length, "'"
+    )
   }
 }

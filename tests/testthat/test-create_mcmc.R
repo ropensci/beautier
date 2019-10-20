@@ -2,30 +2,37 @@ context("create_mcmc")
 
 test_that("use", {
 
-  testthat::expect_silent(
+  expect_silent(
     create_mcmc()
   )
 
-  testthat::expect_silent(
+  expect_silent(
     create_mcmc(chain_length = 10000)
   )
 
-  testthat::expect_silent(
+  expect_silent(
     create_mcmc(
       chain_length = 10000,
       store_every = 1000
     )
   )
-  testthat::expect_silent(
+  expect_silent(
     create_mcmc(
       chain_length = 10000,
       store_every = -1
     )
   )
-  testthat::expect_silent(
+  expect_silent(
     create_mcmc(
       chain_length = 10000,
       store_every = NA
+    )
+  )
+  expect_silent(
+    create_mcmc(
+      chain_length = 1e7,
+      store_every = 1e3,
+      pre_burnin = 1e6
     )
   )
 

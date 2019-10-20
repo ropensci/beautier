@@ -39,6 +39,16 @@ test_that("missing list elements", {
     ),
     "'store_every' must be an element of an 'mcmc'"
   )
+
+  mcmc <- good_mcmc
+  mcmc$pre_burnin <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'pre_burnin' must be an element of an 'mcmc'"
+  )
+
 })
 
 test_that("invalid list element values", {
@@ -86,4 +96,14 @@ test_that("invalid list element values", {
     "'mcmc.store_every' must be at least 1000, NA or -1"
   )
 
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        chain_length = 1e7,
+        store_every = 1e3,
+        pre_burnin = 1e123
+      )
+    ),
+    "'mcmc.pre_burnin' must be less than 'mcmc.chain_length'"
+  )
 })

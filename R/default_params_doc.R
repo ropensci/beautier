@@ -89,6 +89,8 @@
 #' @param param_id a parameter's ID
 #' @param phylogeny a phylogeny of type \link[ape]{phylo}
 #' @param posterior_crown_age deprecated
+#' @param pre_burnin number of burn in samples taken before entering
+#'   the main loop
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
 #' @param sequence_length a DNA sequence length, in base pairs
@@ -164,6 +166,7 @@ default_params_doc <- function(
   param_id,
   phylogeny,
   posterior_crown_age,
+  pre_burnin,
   rln_clock_model,
   sequence_length,
   site_model,
