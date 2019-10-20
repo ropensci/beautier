@@ -147,13 +147,13 @@ test_that("abuse: one alignment", {
     "'mrca_priors' is deprecated, use 'mrca_prior' instead."
   )
 
-  # 5 mcmc
+  # 5 mcmc, tested in-depth by 'check_mcmc'
   expect_error(
     create_beast2_input(
       input_filename = get_fasta_filename(),
       mcmc = "nonsense"
     ),
-    "'mcmc' must be a valid MCMC"
+    "mcmc"
   )
 
   # 6 beauti_options

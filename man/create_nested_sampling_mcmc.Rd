@@ -6,7 +6,7 @@
 \title{Create an MCMC object to estimate the marginal likelihood
 using Nested Sampling.}
 \usage{
-create_nested_sampling_mcmc(chain_length = 10000000, store_every = -1,
+create_nested_sampling_mcmc(chain_length = 1e+07, store_every = -1,
   particle_count = 1, sub_chain_length = 5000, epsilon = "1e-12")
 }
 \arguments{

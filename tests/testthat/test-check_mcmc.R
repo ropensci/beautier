@@ -22,7 +22,6 @@ test_that("missing list elements", {
     )
   )
 
-  # Wrong parameter names
   mcmc <- good_mcmc
   mcmc$chain_length <- NULL
   expect_error(
@@ -40,4 +39,51 @@ test_that("missing list elements", {
     ),
     "'store_every' must be an element of an 'mcmc'"
   )
+})
+
+test_that("invalid list element values", {
+
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        chain_length = -12345
+      )
+    ),
+    "'mcmc.chain_length' must be non-zero and positive"
+  )
+
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        store_every = -12345
+      )
+    ),
+    "'mcmc.store_every' must be either -1 or a non-zero positive value"
+  )
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        store_every = 0
+      )
+    ),
+    "'mcmc.store_every' must be either -1 or a non-zero positive value"
+  )
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        chain_length = 1000,
+        store_every = 1000000
+      )
+    ),
+    "'mcmc.store_every' must be less than 'mcmc.chain_length'"
+  )
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        store_every = 1
+      )
+    ),
+    "'mcmc.store_every' must be at least 1000, NA or -1"
+  )
+
 })

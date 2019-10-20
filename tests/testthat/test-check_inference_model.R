@@ -123,12 +123,15 @@ test_that("in-depth use", {
     ),
     "'mrca_prior' must be a valid MRCA prior"
   )
+
+  # Tested in-depth by check_mcmc
   expect_error(
     check_inference_model(
       create_inference_model(mcmc = "nonsense")
     ),
-    "'mcmc' must be a valid MCMC"
+    "mcmc"
   )
+
   expect_error(
     check_inference_model(
       create_inference_model(beauti_options = "nonsense")

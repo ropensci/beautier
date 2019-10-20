@@ -11,13 +11,14 @@
 is_mcmc <- function(
   x
 ) {
-  if (!"chain_length" %in% names(x)) return(FALSE)
-  if (x$chain_length <= 0) return(FALSE)
-  if (!"store_every" %in% names(x)) return(FALSE)
-  if (!is_one_na(x$store_every) && x$store_every < -1) return(FALSE) # nolint beautier function
-  if (!is_one_na(x$store_every) && x$store_every == 0) return(FALSE) # nolint beautier function
-  if (!is_one_na(x$store_every) && x$store_every > x$chain_length) return(FALSE) # nolint beautier function
-  TRUE
+  result <- FALSE
+  tryCatch({
+    beautier::check_mcmc(x)
+    result <- TRUE
+  },
+    error = function(e) {} # nolint do not care about e
+  )
+  result
 }
 
 #' Determine if the object is a valid Nested-Sampling MCMC,

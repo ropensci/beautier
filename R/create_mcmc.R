@@ -30,23 +30,12 @@ create_mcmc <- function(
   # num_init_attempts = 10,
   # sample_from_prior = FALSE
 ) {
-  if (chain_length <= 0) {
-    stop("'chain_length' must be positive and non-zero")
-  }
-  if (!beautier::is_one_na(store_every) &&
-      store_every != -1 && store_every < 1000) {
-    stop("'store_every' must be at least 1000, NA or -1")
-  }
-  if (!beautier::is_one_na(store_every) &&  store_every > chain_length) {
-    stop("'store_every' must be equal or lower to 'chain_length'")
-  }
-
   mcmc <- list(
     chain_length = chain_length,
     store_every = store_every
   )
 
   # Postcondition
-  testit::assert(beautier::is_mcmc(mcmc))
+  beautier::check_mcmc(mcmc)
   mcmc
 }

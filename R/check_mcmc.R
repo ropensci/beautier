@@ -18,20 +18,10 @@
 check_mcmc <- function(mcmc) {
 
   check_mcmc_list_element_names(mcmc)
-
-  if (is_mcmc(mcmc)) { # nolint beautier function
-    return()
-  }
-  stop(
-    "'mcmc' must be a valid MCMC.\n",
-    "Actual value: ", mcmc
-  )
+  check_mcmc_list_element_values(mcmc)
 }
 
-
-
-
-#' Check if the MCMC has the lst elements of a valid MCMC object.
+#' Check if the MCMC has the list elements of a valid MCMC object.
 #'
 #' Calls \code{stop} if an element is missing
 #' @inheritParams default_params_doc
@@ -51,5 +41,47 @@ check_mcmc_list_element_names <- function(mcmc) {
         "Tip: use 'create_mcmc'"
       )
     }
+  }
+}
+
+#' Check if the MCMC has the list elements with valid values
+#' for being a valid MCMC object.
+#'
+#' Calls \code{stop} if a value is invalid
+#' @inheritParams default_params_doc
+#' @return nothing
+#' @seealso Use \link{create_mcmc} to create a valid MCMC
+#' @author Richèl J.C. Bilderbeek
+#' @noRd
+check_mcmc_list_element_values <- function(mcmc) {
+
+  if (mcmc$chain_length <= 0) {
+    stop(
+      "'mcmc$chain_length' must be non-zero and positive. \n",
+      "'Actual value: ", mcmc$chain_length
+    )
+  }
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every < -1) {
+    stop(
+      "'mcmc$store_every' must be either -1 or a non-zero positive value. \n",
+      "'Actual value: ", mcmc$chain_length
+    )
+  }
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every == 0) {
+    stop(
+      "'mcmc$store_every' must be either -1 or a non-zero positive value. \n",
+      "'Actual value: ", mcmc$chain_length
+    )
+  }
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every > mcmc$chain_length) {
+    stop(
+      "'mcmc$store_every' must be less than 'mcmc$chain_length'. \n",
+      "Actual value of 'mcmc$chain_length': ", mcmc$chain_length, "'. \n",
+      "Actual value of 'mcmc$store_every': ", mcmc$store_every, "'"
+    )
+  }
+  if (!beautier::is_one_na(mcmc$store_every) &&
+      mcmc$store_every != -1 && mcmc$store_every < 1000) {
+    stop("'mcmc$store_every' must be at least 1000, NA or -1")
   }
 }

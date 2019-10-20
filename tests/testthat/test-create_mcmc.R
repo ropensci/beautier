@@ -33,9 +33,11 @@ test_that("use", {
 
 test_that("abuse", {
 
+  # Tested in-depth by 'check_mcmc'
+
   testthat::expect_error(
     create_mcmc(chain_length = -1234),
-    "'chain_length' must be positive and non-zero"
+    "chain_length"
   )
 
   testthat::expect_error(
@@ -43,14 +45,14 @@ test_that("abuse", {
       chain_length = 10,
       store_every = -2
     ),
-    "'store_every' must be at least 1000, NA or -1"
+    "store_every"
   )
   testthat::expect_error(
     create_mcmc(
       chain_length = 10000,
       store_every = 11000
     ),
-    "'store_every' must be equal or lower to 'chain_length'"
+    "store_every.*chain_length"
   )
 
 })

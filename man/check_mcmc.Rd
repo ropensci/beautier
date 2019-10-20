@@ -17,12 +17,14 @@ nothing
 Calls \code{stop} if the MCMC is invalid
 }
 \examples{
- testthat::expect_silent(check_mcmc(create_mcmc()))
+library(testthat)
+
+expect_silent(check_mcmc(create_mcmc()))
 
  # Must stop on non-MCMCs
- testthat::expect_error(check_mcmc(mcmc = "nonsense"))
- testthat::expect_error(check_mcmc(mcmc = NULL))
- testthat::expect_error(check_mcmc(mcmc = NA))
+expect_error(check_mcmc(mcmc = "nonsense"))
+expect_error(check_mcmc(mcmc = NULL))
+expect_error(check_mcmc(mcmc = NA))
 }
 \seealso{
 Use \link{create_mcmc} to create a valid MCMC
