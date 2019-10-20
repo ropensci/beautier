@@ -7,8 +7,8 @@
 using Nested Sampling.}
 \usage{
 create_nested_sampling_mcmc(chain_length = 1e+07, store_every = -1,
-  pre_burnin = 0, particle_count = 1, sub_chain_length = 5000,
-  epsilon = "1e-12")
+  pre_burnin = 0, n_init_attempts = 3, particle_count = 1,
+  sub_chain_length = 5000, epsilon = "1e-12")
 }
 \arguments{
 \item{chain_length}{upper bound to the length of the MCMC chain}
@@ -19,6 +19,8 @@ Use -1 or \code{NA} to use the default frequency.}
 
 \item{pre_burnin}{number of burn in samples taken before entering
 the main loop}
+
+\item{n_init_attempts}{number of initialization attempts before failing}
 
 \item{particle_count}{number of particles}
 

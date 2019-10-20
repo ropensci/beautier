@@ -84,6 +84,7 @@
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
 #'   as returned by \code{\link{create_mrca_prior}}
+#' @param n_init_attempts number of initialization attempts before failing
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
 #' @param param_id a parameter's ID
@@ -162,6 +163,7 @@ default_params_doc <- function(
   jc69_site_model,
   mcmc,
   mrca_prior, mrca_priors,
+  n_init_attempts,
   output_filename,
   param_id,
   phylogeny,

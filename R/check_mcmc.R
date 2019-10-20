@@ -32,7 +32,7 @@ check_mcmc <- function(mcmc) {
 check_mcmc_list_element_names <- function(mcmc) {
 
   list_element_names <- c(
-    "chain_length", "store_every", "pre_burnin"
+    "chain_length", "store_every", "pre_burnin", "n_init_attempts"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(mcmc)) {
@@ -92,4 +92,8 @@ check_mcmc_list_element_values <- function(mcmc) {
       "Actual value 'mcmc$chain_length': '", mcmc$chain_length, "'"
     )
   }
+  assertive::assert_all_are_whole_numbers(mcmc$n_init_attempts)
+  assertive::assert_all_are_positive(mcmc$n_init_attempts)
+
+
 }

@@ -9,6 +9,37 @@ test_that("use", {
   expect_error(check_mcmc(mcmc = "nonsense"))
   expect_error(check_mcmc(mcmc = NULL))
   expect_error(check_mcmc(mcmc = NA))
+
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        chain_length = 1e7
+      )
+    )
+  )
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        store_every = 1e3
+      )
+    )
+  )
+
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        pre_burnin = 1e6
+      )
+    )
+  )
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        n_init_attempts = 3
+      )
+    )
+  )
+
 })
 
 test_that("missing list elements", {
@@ -106,4 +137,14 @@ test_that("invalid list element values", {
     ),
     "'mcmc.pre_burnin' must be less than 'mcmc.chain_length'"
   )
+
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        n_init_attempts = -1234
+      )
+    ),
+    "mcmc.n_init_attempts"
+  )
+
 })

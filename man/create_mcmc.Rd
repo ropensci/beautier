@@ -4,7 +4,8 @@
 \alias{create_mcmc}
 \title{Create an MCMC configuration.}
 \usage{
-create_mcmc(chain_length = 1e+07, store_every = -1, pre_burnin = 0)
+create_mcmc(chain_length = 1e+07, store_every = -1, pre_burnin = 0,
+  n_init_attempts = 10)
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}
@@ -15,6 +16,8 @@ Use -1 or \code{NA} to use the default frequency.}
 
 \item{pre_burnin}{number of burn in samples taken before entering
 the main loop}
+
+\item{n_init_attempts}{number of initialization attempts before failing}
 }
 \value{
 an MCMC configuration

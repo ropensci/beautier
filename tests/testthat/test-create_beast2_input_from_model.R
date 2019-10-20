@@ -74,3 +74,38 @@ test_that("mcmc$pre_burning", {
 
 })
 
+
+test_that("mcmc$n_init_attempts", {
+
+  inference_model <- create_inference_model(
+    mcmc = create_mcmc(
+      n_init_attempts = 314
+    )
+  )
+  text <- create_beast2_input_from_model(
+    input_filename = get_fasta_filename(),
+    inference_model = inference_model
+  )
+  the_line <- as.character(
+    na.omit(
+      stringr::str_match(
+        string = text,
+        pattern = ".*MCMC.*"
+      )[, 1]
+    )
+  )
+  the_line
+  testit::assert(nchar(the_line) > 0)
+  n_init_attempts <- as.numeric(
+    na.omit(
+      stringr::str_match(
+        string = text,
+        pattern = ".*numInitializationAttempts=.(.*).."
+      )[, 2]
+    )
+  )
+  expect_equal(
+    inference_model$mcmc$n_init_attempts,
+    n_init_attempts
+  )
+})

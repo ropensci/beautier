@@ -42,6 +42,11 @@ mcmc_to_xml_run_default <- function(mcmc) {
     "<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
+
+  if (mcmc$n_init_attempts != 10) {
+    xml <- paste0(xml, " numInitializationAttempts=\"", mcmc$n_init_attempts, "\"")
+  }
+
   if (mcmc$pre_burnin > 0) {
     xml <- paste0(xml, " preBurnin=\"", mcmc$pre_burnin, "\"")
   }
