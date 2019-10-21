@@ -750,6 +750,7 @@ test_that("cep_6_taxa_2_4.xml", {
 
 test_that("cbs_2_4.xml", {
 
+  # Tested in detail by 'check_fasta_file_and_inference_model'
   expect_error(
     create_beast2_input(
       input_filename = get_beautier_path("test_output_0.fas"),

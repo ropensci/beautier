@@ -175,13 +175,7 @@ test_that("abuse: one alignment", {
   )
 
   # Higher-level abuse
-  expect_error(
-    create_beast2_input(
-      input_filename = get_beautier_path("anthus_aco_sub.fas"),
-      tree_prior = create_cbs_tree_prior(group_sizes_dimension = 5)
-    ),
-    "'group_sizes_dimension' \\(5\\) must be less than the number of taxa \\(5\\)" # nolint
-  )
+  # Tested by 'check_fasta_file_and_inference_model'
 
   fasta_filename <- get_fasta_filename()
   expect_error(
