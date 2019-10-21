@@ -47,6 +47,32 @@ test_that("use", {
       )
     )
   )
+
+  skip("#99")
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        treelog = create_treelog()
+      )
+    )
+  )
+  skip("#100")
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        screenlog = create_screenlog()
+      )
+    )
+  )
+  skip("#101")
+  expect_silent(
+    check_mcmc(
+      create_mcmc(
+        tracelog = create_tracelog()
+      )
+    )
+  )
+
 })
 
 test_that("missing list elements", {
@@ -105,6 +131,35 @@ test_that("missing list elements", {
     "'sample_from_prior' must be an element of an 'mcmc'"
   )
 
+  skip("#99")
+  mcmc <- good_mcmc
+  mcmc$treelog <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'treelog' must be an element of an 'mcmc'"
+  )
+
+  skip("#100")
+  mcmc <- good_mcmc
+  mcmc$screenlog <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'screenlog' must be an element of an 'mcmc'"
+  )
+
+    skip("#101")
+  mcmc <- good_mcmc
+  mcmc$tracelog <- NULL
+  expect_error(
+    check_mcmc(
+      mcmc
+    ),
+    "'tracelog' must be an element of an 'mcmc'"
+  )
 })
 
 test_that("invalid list element values", {
@@ -179,6 +234,36 @@ test_that("invalid list element values", {
       )
     ),
     "mcmc.sample_from_prior"
+  )
+
+  skip("#99")
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        treelog = "nonsense"
+      )
+    ),
+    "treelog"
+  )
+
+  skip("#100")
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        screenlog = "nonsense"
+      )
+    ),
+    "screenlog"
+  )
+
+    skip("#101")
+  expect_error(
+    check_mcmc(
+      create_mcmc(
+        tracelog = "nonsense"
+      )
+    ),
+    "tracelog"
   )
 
 })
