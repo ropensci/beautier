@@ -50,21 +50,11 @@ create_beast2_input_from_model <- function(
   # Lengths
   testit::assert(length(input_filenames) == 1)
 
-  # Higher-level checks
-  for (i in seq_along(input_filenames)) {
-    fasta_filename <- input_filenames[i]
-    tree_prior <- tree_priors[[i]]
-    if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
-      n_taxa <- get_n_taxa(fasta_filename) # nolint beautier function
-      group_sizes_dimension <- tree_prior$group_sizes_dimension
-      if (n_taxa <= group_sizes_dimension) {
-        stop(
-          "'group_sizes_dimension' (", group_sizes_dimension,
-          ") must be less than the number of taxa (", n_taxa, ")"
-        )
-      }
-    }
-  }
+  # Check if the combination of FASTA file and inference model agrees
+  check_fasta_file_and_inference_model(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
 
   # Fill in MRCA prior's taxa names and alignment ID if those are NA
   if (!beautier::is_one_na(mrca_priors[[1]])) {
