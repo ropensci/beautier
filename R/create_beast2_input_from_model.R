@@ -18,6 +18,12 @@ create_beast2_input_from_model <- function(
   input_filename,
   inference_model
 ) {
+  if (length(input_filename) != 1) {
+    stop("Must use one alignment, site model, clock model and tree prior")
+  }
+  if (!beautier::files_exist(input_filename)) {
+    stop("'input_filename' not found. Value: ", input_filename)
+  }
   beautier::check_inference_model(inference_model)
 
   # Don't be smart now
@@ -29,83 +35,20 @@ create_beast2_input_from_model <- function(
   mcmc <- inference_model$mcmc
   beauti_options <- inference_model$beauti_options
 
-
-  # 2 site_models
-  check_site_model(site_model) # nolint beautier function
-  site_models <- site_model
-
-  # Convert possible-non-list input to lists and multiPhylo
-  if (is_site_model(site_models)) { # nolint beautier function
-    site_models <- list(site_models)
-  }
-  clock_models <- clock_model
-  if (is_clock_model(clock_models)) { # nolint beautier function
-    clock_models <- list(clock_models)
-  }
-  tree_priors <- tree_prior
-  if (is_tree_prior(tree_priors)) { # nolint beautier function
-    tree_priors <- list(tree_priors)
-  }
-  mrca_priors <- mrca_prior
-  if (is_mrca_prior(mrca_priors)) { # nolint beautier function
-    mrca_priors <- list(mrca_priors)
-    testit::assert(is_mrca_prior(mrca_priors[[1]])) # nolint beautier function
-  }
-
-  # Check input
-  # 1 input_filenames
+  # COnvert to lists
+  site_models <- list(site_model)
+  clock_models <- list(clock_model)
+  tree_priors <- list(tree_prior)
+  mrca_priors <- list(mrca_prior)
   input_filenames <- input_filename
-  if (!files_exist(input_filenames)) { # nolint beautier function
-    stop("'input_filename' not found. Value: ", input_filenames)
-  }
 
-  # 2 site_models
-  # Already checked
-
-  # 3 clock_models
-  if (!beautier::are_clock_models(clock_models)) {
-    stop(
-      "'clock_model' must be a valid clock model, ",
-      "as returned by 'create_clock_model'"
-    )
-  }
-
-  # 4 tree_priors
-  if (!beautier::are_tree_priors(tree_priors)) {
-    stop(
-      "'tree_prior' must be a valid tree prior, ",
-      "as returned by 'create_tree_prior'"
-    )
-  }
-
-  # 5 MRCA priors
-  if (!beautier::are_mrca_priors(mrca_priors)) {
-    stop(
-      "'mrca_prior' must be NA or a valid mrca object, ",
-      "as returned by 'create_mrca_prior'"
-    )
-  }
-
-  # 6 mcmc
-  if (!beautier::is_mcmc(mcmc)) {
-    stop(
-      "'mcmc' must be a valid mcmc object, ",
-      "as returned by 'create_mcmc'"
-    )
-  }
-
-  # 7 beauti_options
-  if (!beautier::is_beauti_options(beauti_options)) {
-    stop(
-      "'beauti_options' must be a valid 'beauti_options', ",
-      "as returned by 'create_beauti_options'"
-    )
-  }
-
+  testit::assert(beautier::are_clock_models(clock_models))
+  testit::assert(beautier::are_tree_priors(tree_priors))
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
+  testit::assert(beautier::is_mcmc(mcmc))
+  testit::assert(beautier::is_beauti_options(beauti_options))
   # Lengths
-  if (length(input_filenames) != 1) {
-    stop("Must use one alignment, site model, clock model and tree prior")
-  }
+  testit::assert(length(input_filenames) == 1)
 
   # Higher-level checks
   for (i in seq_along(input_filenames)) {
