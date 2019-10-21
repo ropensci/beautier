@@ -17,10 +17,10 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   is_monophyletic, jc69_site_model, mcmc, mrca_prior, mrca_priors,
   n_init_attempts, output_filename, param_id, phylogeny,
   posterior_crown_age, pre_burnin, rln_clock_model, sample_from_prior,
-  sequence_length, site_model, site_model_name, site_model_names,
-  site_models, store_every, strict_clock_model, tipdates_filename,
-  tn93_site_model, tree_prior, tree_prior_name, tree_prior_names,
-  tree_priors, verbose, yule_tree_prior)
+  screenlog, sequence_length, site_model, site_model_name,
+  site_model_names, site_models, store_every, strict_clock_model,
+  tipdates_filename, tn93_site_model, tracelog, treelog, tree_prior,
+  tree_prior_name, tree_prior_names, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -162,6 +162,9 @@ as returned by \code{\link{create_rln_clock_model}}}
 
 \item{sample_from_prior}{set to \link{TRUE} to sample from the prior}
 
+\item{screenlog}{a \code{screenlog},
+as created by \link{create_screenlog}}
+
 \item{sequence_length}{a DNA sequence length, in base pairs}
 
 \item{site_model}{a site model,
@@ -190,6 +193,12 @@ the date.}
 
 \item{tn93_site_model}{a TN93 site model,
 as returned by \code{\link{create_tn93_site_model}}}
+
+\item{tracelog}{a \code{tracelog},
+as created by \link{create_tracelog}}
+
+\item{treelog}{a \code{treelog},
+as created by \link{create_treelog}}
 
 \item{tree_prior}{a tree priors,
 as returned by \code{\link{create_tree_prior}}}

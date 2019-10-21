@@ -33,7 +33,7 @@ check_mcmc_list_element_names <- function(mcmc) {
 
   list_element_names <- c(
     "chain_length", "store_every", "pre_burnin", "n_init_attempts",
-    "sample_from_prior"
+    "sample_from_prior", "treelog"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(mcmc)) {
@@ -102,7 +102,7 @@ check_mcmc_list_element_values <- function(mcmc) {
   assertive::assert_all_are_whole_numbers(mcmc$n_init_attempts)
   assertive::assert_all_are_positive(mcmc$n_init_attempts)
   assertive::assert_is_if_condition(mcmc$sample_from_prior)
-
+  check_treelog(mcmc$treelog)
 
 
 }

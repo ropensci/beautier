@@ -95,6 +95,8 @@
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
 #' @param sample_from_prior set to \link{TRUE} to sample from the prior
+#' @param screenlog a \code{screenlog},
+#'   as created by \link{create_screenlog}
 #' @param sequence_length a DNA sequence length, in base pairs
 #' @param site_model a site model,
 #'   as returned by \code{\link{create_site_model}}
@@ -111,6 +113,10 @@
 #'   as returned by \code{\link{create_strict_clock_model}}
 #' @param tn93_site_model a TN93 site model,
 #'   as returned by \code{\link{create_tn93_site_model}}
+#' @param tracelog a \code{tracelog},
+#'   as created by \link{create_tracelog}
+#' @param treelog a \code{treelog},
+#'   as created by \link{create_treelog}
 #' @param tree_prior a tree priors,
 #'   as returned by \code{\link{create_tree_prior}}
 #' @param tree_prior_name name of a tree prior,
@@ -172,6 +178,7 @@ default_params_doc <- function(
   pre_burnin,
   rln_clock_model,
   sample_from_prior,
+  screenlog,
   sequence_length,
   site_model,
   site_model_name,
@@ -181,6 +188,8 @@ default_params_doc <- function(
   strict_clock_model,
   tipdates_filename,
   tn93_site_model,
+  tracelog,
+  treelog,
   tree_prior,
   tree_prior_name,
   tree_prior_names,
