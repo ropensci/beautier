@@ -12,30 +12,34 @@
 #'   }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create an MCMC chain with 50 states
-#'   mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
+#' library(testthat)
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     mcmc = mcmc
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' # Create an MCMC chain with 50 states
+#' mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
+#'
+#'  beast2_input_file <- tempfile(fileext = ".xml")
+#'  create_beast2_input_file(
+#'    get_fasta_filename(),
+#'    beast2_input_file,
+#'    mcmc = mcmc
+#' )
+#' expect_true(file.exists(beast2_input_file))
 #' @export
 create_mcmc <- function(
   chain_length = 10000000,
   store_every = -1,
   pre_burnin = 0,
   n_init_attempts = 10,
-  sample_from_prior = FALSE
+  sample_from_prior = FALSE,
+  treelog = create_treelog()
 ) {
   mcmc <- list(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,
     n_init_attempts = n_init_attempts,
-    sample_from_prior = sample_from_prior
+    sample_from_prior = sample_from_prior,
+    treelog = treelog
   )
 
   # Postcondition
