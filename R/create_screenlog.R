@@ -4,5 +4,9 @@
 create_screenlog <- function(
   filename = ""
 ) {
-
+  screenlog <- list(
+    filename = filename
+  )
+  beautier::check_screenlog(screenlog)
+  screenlog
 }

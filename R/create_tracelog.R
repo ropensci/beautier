@@ -5,5 +5,9 @@
 create_tracelog <- function(
   filename = "tracelog.log"
 ) {
-
+  tracelog <- list(
+    filename = filename
+  )
+  beautier::check_tracelog(tracelog)
+  tracelog
 }
