@@ -177,39 +177,6 @@ test_that("abuse: one alignment", {
   # Higher-level abuse
   # Tested by 'check_fasta_file_and_inference_model'
 
-  fasta_filename <- get_fasta_filename()
-  expect_error(
-    create_beast2_input(
-      input_filename = fasta_filename,
-      mrca_prior = create_mrca_prior(
-        alignment_id = paste0("broken_", get_alignment_id(fasta_filename)),
-        taxa_names = get_taxa_names(fasta_filename)
-      )
-    ),
-    "All MRCA prior's alignment IDs must match the FASTA file IDs"
-  )
-
-  expect_error(
-    create_beast2_input(
-      input_filename = fasta_filename,
-      mrca_prior = create_mrca_prior(
-        taxa_names = paste0("broken_", get_taxa_names(fasta_filename))
-      )
-    ),
-    "All MRCA prior's taxa names must be FASTA file taxa names"
-  )
-
-  # Detect intersecting monophyletic MRCA priors
-  fasta_filename <- get_beautier_path("test_output_0.fas")
-  all_taxa_names <- get_taxa_names(fasta_filename)
-  prior_one_two <- create_mrca_prior(
-    taxa_names = all_taxa_names[1:2],
-    is_monophyletic = TRUE
-  )
-  prior_two_three <- create_mrca_prior(
-    taxa_names = all_taxa_names[2:3],
-    is_monophyletic = TRUE
-  )
 })
 
 test_that("abuse: two alignments", {
