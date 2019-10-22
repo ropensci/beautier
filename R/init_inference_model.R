@@ -22,6 +22,14 @@ init_inference_model <- function(input_filename, inference_model) {
   )[[1]]
 
   # Tree prior. TODO: remove plurals
+  inference_model$tree_prior <- init_tree_priors( # nolint beautier function
+    list(inference_model$tree_prior),
+    ids = get_alignment_ids_from_fasta_filenames(
+      fasta_filenames = input_filename
+    ),
+    distr_id = 100,
+    param_id = 200
+  )[[1]]
 
   # Set the alignment ID and taxon names
   inference_model <- init_mrca_prior(input_filename, inference_model)
