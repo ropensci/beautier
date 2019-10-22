@@ -21,24 +21,15 @@ check_fasta_file_and_inference_model <- function(
     }
   }
 
-
-  # All MRCA's taxa names must be in the FASTA files
+  # All MRCA prior's alignment IDs must match the FASTA file IDs
   if (!beautier::is_one_na(inference_model$mrca_prior)) {
     testit::assert(beautier::is_mrca_prior(inference_model$mrca_prior))
-
-    # Be not smart for now
-    mrca_priors <- list(inference_model$mrca_prior)
 
     if (!beautier::is_mrca_align_ids_in_fasta(
         mrca_prior = inference_model$mrca_prior,
         fasta_filename = input_filename
       )
     ) {
-      mrca_ids <- NULL
-      for (mrca_prior in mrca_priors) {
-        mrca_ids <- paste(mrca_ids, mrca_prior$alignment_id)
-      }
-
       stop(
         paste0(
           "All MRCA prior's alignment IDs must match the FASTA file IDs. ",
@@ -46,13 +37,16 @@ check_fasta_file_and_inference_model <- function(
           "to get the correct alignment ID. ",
           "Alignment IDs: ",
             get_alignment_id(input_filename),
-          ". MRCA alignment IDs: ", mrca_ids
+          ". MRCA alignment ID: ", inference_model$mrca_prior$alignment_id
         )
       )
     }
+  }
 
+  # All MRCA prior's taxa names must be FASTA file taxa names
+  if (!beautier::is_one_na(inference_model$mrca_prior)) {
     if (!beautier::are_mrca_taxa_names_in_fastas(
-        mrca_priors = mrca_priors,
+        mrca_priors = list(inference_model$mrca_prior),
         fasta_filenames = input_filename
       )
     ) {
