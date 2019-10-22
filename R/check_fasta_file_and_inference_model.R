@@ -43,22 +43,18 @@ check_fasta_file_and_inference_model <- function(
           "Use 'get_alignment_id' on the FASTA filename ",
           "to get the correct alignment ID. ",
           "Alignment IDs: ",
-            get_alignment_ids_from_fasta_filenames(input_filename),
+            get_alignment_id(input_filename),
           ". MRCA alignment IDs: ", mrca_ids
         )
       )
     }
 
     if (!beautier::are_mrca_taxa_names_in_fastas(
-        mrca_priors = mrca_priors, fasta_filenames = input_filename
+        mrca_priors = mrca_priors,
+        fasta_filenames = input_filename
       )
     ) {
       stop("All MRCA prior's taxa names must be FASTA file taxa names")
     }
   }
-
-  if (!beautier::are_mrca_taxa_non_intersecting(mrca_priors)) {
-    stop("Monophyletic MRCA priors must have taxon sets without intersection")
-  }
-
 }
