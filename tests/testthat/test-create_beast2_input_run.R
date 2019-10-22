@@ -1,30 +1,31 @@
 context("create_beast2_input_run")
 
-test_that("usage, one fixed crown age", {
+test_that("usage", {
 
-  fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
-  id <- beautier:::get_alignment_id(fasta_filename)
-
-  testthat::expect_silent(
-    beautier:::create_beast2_input_run(
-      ids = id,
-      tree_priors = list(
-        create_yule_tree_prior(
-          id = id,
-          birth_rate_distr = create_uniform_distr(id = 1)
-        )
-      ),
-      clock_models = list(create_strict_clock_model(id = id))
+  input_filename <- beautier::get_beautier_path("anthus_aco.fas")
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model()
+  )
+  expect_silent(
+    create_beast2_input_run(
+      input_filename = input_filename,
+      inference_model = inference_model
     )
   )
 })
 
 test_that("abuse", {
 
-  testthat::expect_error(
+  expect_error(
     create_beast2_input_run(
-      ids = c("a", "b"),
-      initial_phylogenies = c(ape::rcoal(4))
+      input_filename = c("a", "b")
+    )
+  )
+  expect_error(
+    create_beast2_input_run(
+      input_filename = beautier::get_beautier_path("anthus_aco.fas"),
+      inference_model = "nonsense"
     )
   )
 })

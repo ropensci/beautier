@@ -9,16 +9,28 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_run <- function(
-  ids,
-  site_models = list(create_jc69_site_model(id = ids)),
-  clock_models = list(create_strict_clock_model(id = ids)),
-  tree_priors = list(create_yule_tree_prior(id = ids)),
-  mrca_priors = NA,
-  mcmc = create_mcmc(),
-  fixed_crown_ages = rep(FALSE, times = length(ids)),
-  initial_phylogenies = rep(NA, length(ids)),
-  tipdates_filename = NA
+  input_filename,
+  inference_model = create_inference_model()
 ) {
+  testit::assert(length(input_filename) == 1)
+
+  # Alignment IDs
+  ids <- beautier::get_alignment_id(
+    input_filename,
+    capitalize_first_char_id =
+      inference_model$beauti_options$capitalize_first_char_id
+  )
+
+  # Do not be smart yet
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  mcmc <- inference_model$mcmc
+  fixed_crown_ages <- FALSE
+  initial_phylogenies <- NA
+  tipdates_filename <- inference_model$tipdates_filename
+
   testit::assert(length(ids) == length(initial_phylogenies))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
