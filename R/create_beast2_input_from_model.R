@@ -63,14 +63,6 @@ create_beast2_input_from_model <- function(
 
 
   # Initialize all models and priors
-  site_models <- init_site_models(
-    site_models = site_models,
-    ids = get_alignment_ids_from_fasta_filenames(
-      fasta_filenames = input_filenames
-    ),
-    distr_id = 0,
-    param_id = 0
-  )  # nolint beautier function
   clock_models <- init_clock_models(
     clock_models = clock_models,
     fasta_filenames = input_filenames,
