@@ -7,7 +7,7 @@
 create_tracelog(filename = "tracelog.log")
 }
 \arguments{
-\item{filename}{name of the file to store the tracelog to.
+\item{filename}{name of the file to store the \code{tracelog} to.
 Defaults to \code{[alignment_name].log}}
 }
 \description{

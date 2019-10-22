@@ -7,7 +7,7 @@
 create_screenlog(filename = "")
 }
 \arguments{
-\item{filename}{name of the file to store the screenlog to}
+\item{filename}{name of the file to store the \code{screenlog} to}
 }
 \description{
 Create a \code{screenlog} object
