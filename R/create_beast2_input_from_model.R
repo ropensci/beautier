@@ -26,8 +26,10 @@ create_beast2_input_from_model <- function(
   }
   beautier::check_inference_model(inference_model)
 
-  # Set the alignment ID and taxon names
-  inference_model <- init_mrca_prior(input_filename, inference_model)
+  inference_model <- beautier::init_inference_model(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
 
   # Check if the combination of FASTA file and inference model agrees
   check_fasta_file_and_inference_model(
