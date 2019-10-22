@@ -32,15 +32,9 @@ create_beast2_input_from_model <- function(
     inference_model = inference_model
   )
 
-  # Fill in MRCA prior's taxa names and alignment ID if those are NA
-  if (!beautier::is_one_na(inference_model$mrca_prior)) {
-    if (beautier::is_one_na(inference_model$mrca_prior$alignment_id)) {
-      inference_model$mrca_prior$alignment_id <- get_alignment_id(input_filename) # nolint beautier function
-    }
-    if (beautier::is_one_na(inference_model$mrca_prior$taxa_names)) {
-      inference_model$mrca_prior$taxa_names <- get_taxa_names(input_filename) # nolint beautier function
-    }
-  }
+  # Set the alignment ID and taxon names
+  inference_model <- init_mrca_prior(input_filename, inference_model)
+
 
   # Don't be smart now
   tipdates_filename <- inference_model$tipdates_filename
