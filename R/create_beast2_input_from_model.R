@@ -72,13 +72,6 @@ create_beast2_input_from_model <- function(
   old_scipen <- getOption("scipen")
   options(scipen = 20)
 
-  # Convert from new to older interface
-  fixed_crown_ages <- rep(FALSE, times = length(input_filenames))
-  initial_phylogenies <- rep(NA, time = length(input_filenames))
-
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
-  testit::assert(length(input_filenames) == length(initial_phylogenies)) # nolint beautier function
-
   text <- create_beast2_input_beast(
     input_filenames = input_filenames,
     site_models = site_models,
@@ -87,8 +80,6 @@ create_beast2_input_from_model <- function(
     mrca_priors = mrca_priors,
     mcmc = mcmc,
     beauti_options = beauti_options,
-    fixed_crown_ages = fixed_crown_ages,
-    initial_phylogenies = initial_phylogenies,
     tipdates_filename = tipdates_filename
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint beautier function
