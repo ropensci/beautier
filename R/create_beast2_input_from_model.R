@@ -37,50 +37,19 @@ create_beast2_input_from_model <- function(
     inference_model = inference_model
   )
 
-  # Don't be smart now
-  tipdates_filename <- inference_model$tipdates_filename
-  site_model <- inference_model$site_model
-  clock_model <- inference_model$clock_model
-  tree_prior <- inference_model$tree_prior
-  mrca_prior <- inference_model$mrca_prior
-  mcmc <- inference_model$mcmc
-  beauti_options <- inference_model$beauti_options
-
-  # Convert to lists
-  site_models <- list(site_model)
-  clock_models <- list(clock_model)
-  tree_priors <- list(tree_prior)
-  mrca_priors <- list(mrca_prior)
-  input_filenames <- input_filename
-
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
-  testit::assert(beautier::is_mcmc(mcmc))
-  testit::assert(beautier::is_beauti_options(beauti_options))
-  # Lengths
-  testit::assert(length(input_filenames) == 1)
-
-
-  # Initialize all models and priors
-  testit::assert(beautier::are_init_site_models(site_models))
-  testit::assert(beautier::are_init_clock_models(clock_models))
-  testit::assert(beautier::are_init_tree_priors(tree_priors))
-  testit::assert(beautier::are_init_mrca_priors(mrca_priors))
-
   # Make a million show as 1000000 instead of 1e+06
   old_scipen <- getOption("scipen")
   options(scipen = 20)
 
   text <- create_beast2_input_beast(
-    input_filenames = input_filenames,
-    site_models = site_models,
-    clock_models = clock_models,
-    tree_priors = tree_priors,
-    mrca_priors = mrca_priors,
-    mcmc = mcmc,
-    beauti_options = beauti_options,
-    tipdates_filename = tipdates_filename
+    input_filenames = input_filename,
+    site_models = list(inference_model$site_model),
+    clock_models = list(inference_model$clock_model),
+    tree_priors = list(inference_model$tree_prior),
+    mrca_priors = list(inference_model$mrca_prior),
+    mcmc = inference_model$mcmc,
+    beauti_options = inference_model$beauti_options,
+    tipdates_filename = inference_model$tipdates_filename
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint beautier function
 
