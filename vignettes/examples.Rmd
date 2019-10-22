@@ -25,10 +25,11 @@ For all examples, do load `beautier`:
 library(beautier)
 ```
 
-All examples read the alignment from a FASTA file called `my_alignment.fas`:
+All examples read the alignment from a FASTA file called `anthus_aco_sub.fas`,
+which is part of the files supplied with `beautier`:
 
 ```{r}
-input_filename <- "my_alignment.fas"
+input_filename <- get_beautier_path("anthus_aco_sub.fas")
 ```
 
 In this vignette, the generated BEAST2 XML is shown.
