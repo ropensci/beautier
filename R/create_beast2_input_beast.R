@@ -4,29 +4,20 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_beast <- function(
-  input_filenames,
-  site_models = list(
-    create_jc69_site_model(
-      id = get_alignment_id(input_filenames)
-    )
-  ),
-  clock_models = list(
-    create_strict_clock_model(
-      id = get_alignment_id(input_filenames)
-    )
-  ),
-  tree_priors = list(
-    create_yule_tree_prior(
-      id = get_alignment_id(input_filenames)
-    )
-  ),
-  mrca_priors = NA,
-  mcmc = create_mcmc(),
-  beauti_options = create_beauti_options(),
-  fixed_crown_ages = rep(FALSE, times = length(input_filenames)),
-  initial_phylogenies = rep(NA, length(input_filenames)),
-  tipdates_filename = NA
+  input_filename,
+  inference_model = create_inference_model()
 ) {
+  # Do not be smart now
+  input_filenames <- input_filename
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  mcmc <- inference_model$mcmc
+  beauti_options <- inference_model$beauti_options
+  tipdates_filename <- inference_model$tipdates_filename
+  initial_phylogenies <- NA
+  fixed_crown_ages <- FALSE
   testit::assert(files_exist(input_filenames)) # nolint beautier function
   testit::assert(length(input_filenames) == length(site_models))
   testit::assert(length(input_filenames) == length(clock_models))

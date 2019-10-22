@@ -42,14 +42,8 @@ create_beast2_input_from_model <- function(
   options(scipen = 20)
 
   text <- create_beast2_input_beast(
-    input_filenames = input_filename,
-    site_models = list(inference_model$site_model),
-    clock_models = list(inference_model$clock_model),
-    tree_priors = list(inference_model$tree_prior),
-    mrca_priors = list(inference_model$mrca_prior),
-    mcmc = inference_model$mcmc,
-    beauti_options = inference_model$beauti_options,
-    tipdates_filename = inference_model$tipdates_filename
+    input_filename = input_filename,
+    inference_model = inference_model
   )
   text[1] <- paste0(create_beast2_input_xml(), text[1]) # nolint beautier function
 
