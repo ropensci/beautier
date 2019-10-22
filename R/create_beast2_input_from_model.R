@@ -44,7 +44,7 @@ create_beast2_input_from_model <- function(
   mcmc <- inference_model$mcmc
   beauti_options <- inference_model$beauti_options
 
-  # COnvert to lists
+  # Convert to lists
   site_models <- list(site_model)
   clock_models <- list(clock_model)
   tree_priors <- list(tree_prior)
@@ -59,42 +59,6 @@ create_beast2_input_from_model <- function(
   # Lengths
   testit::assert(length(input_filenames) == 1)
 
-  # All MRCA's taxa names must be in the FASTA files
-  if (!beautier::is_one_na(mrca_priors)) {
-    testit::assert(beautier::are_mrca_priors(mrca_priors))
-    if (!beautier::are_mrca_align_ids_in_fastas(
-        mrca_priors = mrca_priors,
-        fasta_filenames = input_filenames
-      )
-    ) {
-      mrca_ids <- NULL
-      for (mrca_prior in mrca_priors) {
-        mrca_ids <- paste(mrca_ids, mrca_prior$alignment_id)
-      }
-
-      stop(
-        paste0(
-          "All MRCA prior's alignment IDs must match the FASTA file IDs. ",
-          "Use 'get_alignment_id' on the FASTA filename ",
-          "to get the correct alignment ID. ",
-          "Alignment IDs: ",
-            get_alignment_ids_from_fasta_filenames(input_filenames),
-          ". MRCA alignment IDs: ", mrca_ids
-        )
-      )
-    }
-
-    if (!beautier::are_mrca_taxa_names_in_fastas(
-        mrca_priors = mrca_priors, fasta_filenames = input_filenames
-      )
-    ) {
-      stop("All MRCA prior's taxa names must be FASTA file taxa names")
-    }
-  }
-
-  if (!beautier::are_mrca_taxa_non_intersecting(mrca_priors)) {
-    stop("Monophyletic MRCA priors must have taxon sets without intersection")
-  }
 
   # Initialize all models and priors
   site_models <- init_site_models(
