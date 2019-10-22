@@ -63,12 +63,6 @@ create_beast2_input_from_model <- function(
 
 
   # Initialize all models and priors
-  clock_models <- init_clock_models(
-    clock_models = clock_models,
-    fasta_filenames = input_filenames,
-    distr_id = 0 + get_site_models_n_distrs(site_models),
-    param_id = 0 + get_site_models_n_params(site_models)
-  )  # nolint beautier function
   tree_priors <- init_tree_priors( # nolint beautier function
     tree_priors,
     ids = get_alignment_ids_from_fasta_filenames(
