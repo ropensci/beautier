@@ -31,6 +31,13 @@ init_inference_model <- function(input_filename, inference_model) {
     param_id = 200
   )[[1]]
 
+  # MRCA prior. TODO: remove plurals
+  inference_model$mrca_prior <- init_mrca_priors( # nolint beautier function
+    list(inference_model$mrca_prior),
+    distr_id = 150,
+    param_id = 300
+  )[[1]]
+
   # Set the alignment ID and taxon names
   inference_model <- init_mrca_prior(input_filename, inference_model)
 

@@ -63,11 +63,6 @@ create_beast2_input_from_model <- function(
 
 
   # Initialize all models and priors
-  mrca_priors <- init_mrca_priors( # nolint beautier function
-    mrca_priors,
-    distr_id = 150,
-    param_id = 300
-  )
   testit::assert(beautier::are_init_site_models(site_models))
   testit::assert(beautier::are_init_clock_models(clock_models))
   testit::assert(beautier::are_init_tree_priors(tree_priors))
