@@ -239,7 +239,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #'
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),
-#'    "beast.xml",
+#'    output_filename = tempfile(pattern = "beast", fileext = ".xml"),
 #'    site_model = hky_site_model
 #'  )
 #' @aliases create_hky_site_model create_site_model_hky
@@ -273,7 +273,7 @@ create_hky_site_model <- create_site_model_hky <- function(
 #'
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),
-#'    "beast.xml",
+#'    output_filename = tempfile(pattern = "beast", fileext = ".xml"),
 #'    site_model = jc69_site_model
 #'  )
 #' @aliases create_jc69_site_model create_site_model_jc69
@@ -321,7 +321,7 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),
-#'    "beast.xml",
+#'    output_filename = tempfile(pattern = "beast", fileext = ".xml"),
 #'    site_model = tn93_site_model
 #'  )
 #' @aliases create_tn93_site_model create_site_model_tn93

@@ -26,7 +26,7 @@ Create a JC69 site model
 
  create_beast2_input_file(
    input_filename = get_fasta_filename(),
-   "beast.xml",
+   output_filename = tempfile(pattern = "beast", fileext = ".xml"),
    site_model = jc69_site_model
  )
 }

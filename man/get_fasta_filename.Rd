@@ -18,7 +18,7 @@ Get the path of a FASTA file used in testing
 
   create_beast2_input_file(
     input_filename = filename,
-    "my_beast.xml"
+    output_filename = tempfile(pattern = "beast", fileext = ".xml")
   )
 }
 \author{

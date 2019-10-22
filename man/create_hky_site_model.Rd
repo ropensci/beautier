@@ -40,7 +40,7 @@ Create an HKY site model
 
  create_beast2_input_file(
    input_filename = get_fasta_filename(),
-   "beast.xml",
+   output_filename = tempfile(pattern = "beast", fileext = ".xml"),
    site_model = hky_site_model
  )
 }
