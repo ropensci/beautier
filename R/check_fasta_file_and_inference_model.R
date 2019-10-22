@@ -29,9 +29,9 @@ check_fasta_file_and_inference_model <- function(
     # Be not smart for now
     mrca_priors <- list(inference_model$mrca_prior)
 
-    if (!beautier::are_mrca_align_ids_in_fastas(
-        mrca_priors = mrca_priors,
-        fasta_filenames = input_filename
+    if (!beautier::is_mrca_align_ids_in_fasta(
+        mrca_prior = inference_model$mrca_prior,
+        fasta_filename = input_filename
       )
     ) {
       mrca_ids <- NULL
