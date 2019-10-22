@@ -4,12 +4,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_init <- function(
-  ids,
-  initial_phylogenies
+  ids
 ) {
-  testit::assert(beautier::are_initial_phylogenies(initial_phylogenies))
+  testit::assert(length(ids) == 1)
   testit::assert(beautier::are_ids(ids))
-  testit::assert(length(ids) == length(initial_phylogenies))
 
   text <- NULL
 
@@ -27,7 +25,7 @@ create_beast2_input_init <- function(
   # In other words: bluntly remove it
   n <- length(ids)
   for (i in seq(1, n)) {
-    phylogeny <- initial_phylogenies[[i]]
+    phylogeny <- NA
     id <- ids[i]
     if (!beautier::is_phylo(phylogeny)) {
       text <- c(text, "")

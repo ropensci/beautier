@@ -1,9 +1,5 @@
 #' Creates the '\code{run}' section of a BEAST2 XML parameter file
-#' @param ids the IDs of the alignments (can be extracted from
-#'   their FASTA filenames
-#'   using \code{\link{get_alignment_ids_from_fasta_filenames}})
-#' @param initial_phylogenies initial phylogenies, can be NAs if random
-#'   phylogenies are desired
+#' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
@@ -28,10 +24,8 @@ create_beast2_input_run <- function(
   mrca_priors <- list(inference_model$mrca_prior)
   mcmc <- inference_model$mcmc
   fixed_crown_ages <- FALSE
-  initial_phylogenies <- NA
   tipdates_filename <- inference_model$tipdates_filename
 
-  testit::assert(length(ids) == length(initial_phylogenies))
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))
@@ -52,7 +46,6 @@ create_beast2_input_run <- function(
         site_models = site_models,
         clock_models = clock_models,
         tree_priors = tree_priors,
-        initial_phylogenies = initial_phylogenies,
         mrca_priors = mrca_priors,
         tipdates_filename = tipdates_filename
       ),
@@ -62,8 +55,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_init(
-      ids = ids,
-      initial_phylogenies = initial_phylogenies
+      ids = ids
     )
   )
 

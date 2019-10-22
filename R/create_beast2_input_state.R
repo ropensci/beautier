@@ -9,25 +9,21 @@ create_beast2_input_state <- function(
   site_models,
   clock_models,
   tree_priors,
-  initial_phylogenies,
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(length(tree_priors) == length(initial_phylogenies))
-  testit::assert(are_initial_phylogenies(initial_phylogenies)) # nolint beautier function
   testit::assert(beautier::are_tree_priors(tree_priors))
   has_tip_dating <- !beautier::is_one_na(tipdates_filename)
 
   text <- NULL
   for (i in seq_along(tree_priors)) {
-    initial_phylo <- initial_phylogenies[[i]]
     tree_prior <- tree_priors[[i]]
     id <- tree_prior$id
     text <- c(
       text,
       phylo_to_xml_state( # nolint beautier function
         id = id,
-        phylo = initial_phylo,
+        phylo = NA,
         tipdates_filename = tipdates_filename
       )
     )
