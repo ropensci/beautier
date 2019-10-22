@@ -15,15 +15,6 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-# Create files
-for (filename in c("my_fasta.fas", "my_alignment.fas")) {
-  file.copy(from = beautier::get_beautier_path("anthus_aco_sub.fas"), to = filename)
-}
-
-# Copy to local
-for (filename in c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")) {
-  file.copy(from = beautier::get_beautier_path(filename), to = filename)
-}
 ```
 
 # Examples
@@ -34,17 +25,27 @@ For all examples, do load `beautier`:
 library(beautier)
 ```
 
-All examples read the alignment from a FASTA file (usually `my_fasta.fas`) 
-and create a BEAST2 input file called `my_beast.xml`.
+All examples read the alignment from a FASTA file called `my_alignment.fas`:
+
+```{r}
+input_filename <- "my_alignment.fas"
+```
+
+In this vignette, the generated BEAST2 XML is shown.
+
+Use `create_beast2_input_file_from_model` to save the resulting
+XML directly to file.
 
 ## Example #1: all default
 
 Using all default settings, only specify a DNA alignment.
 
 ```{r}
-create_beast2_input_file(
-  "test_output_0.fas",
-  "my_beast.xml"
+inference_model <- create_inference_model()
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
@@ -53,42 +54,54 @@ All other parameters are set to their defaults, as in BEAUti.
 ## Example #3: JC69 site model
 
 ```{r}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   site_model = create_jc69_site_model()
+)
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
 ## Example #4: Relaxed clock log normal
 
 ```{r example_4}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   clock_model = create_rln_clock_model()
+)
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
 ## Example #5: Birth-Death tree prior
 
 ```{r example_5}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   tree_prior = create_bd_tree_prior() 
+)
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
 ## Example #6: Yule tree prior with a normally distributed birth rate
 
 ```{r example_6}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr()
   ) 
+)
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
@@ -97,12 +110,15 @@ Thanks to Yacine Ben Chehida for this use case
 ## Example #7: HKY site model with a non-zero proportion of invariants
 
 ```{r example_7}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   site_model = create_hky_site_model(
     gamma_site_model = create_gamma_site_model(prop_invariant = 0.5)
   )
+)
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
@@ -111,12 +127,15 @@ Thanks to Yacine Ben Chehida for this use case
 ## Example #8: Strict clock with a known clock rate
 
 ```{r example_8}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   clock_model = create_strict_clock_model(
     clock_rate_param = 0.5
   ) 
+)
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
@@ -128,39 +147,25 @@ Since `v1.13` it is supported to specify
 an MRCA ('Most Recent Common Ancestor') prior.
 
 ```{r example_9}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   mrca_prior = create_mrca_prior()
 )
-```
 
-```{r example_9_fixed_crown_age}
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
-  mrca_prior = create_mrca_prior(
-    mrca_distr = create_normal_distr(
-      mean = 10.0,
-      sigma = 0.01
-    )
-  )
+
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
 ```
 
 ## Example #10: Use MRCA prior to specify a close-to-fixed crown age
-
-Since `v1.13` it is supported to specify 
-an MRCA ('Most Recent Common Ancestor') prior.
 
 With an MRCA  prior, it is possible
 to specify a close-to-fixed crown age:
 
 ```{r example_10}
 crown_age <- 15
-create_beast2_input_file(
-  "my_alignment.fas",
-  "my_beast.xml",
+inference_model <- create_inference_model(
   mrca_prior = create_mrca_prior(
     is_monophyletic = TRUE,
     mrca_distr = create_normal_distr(
@@ -169,71 +174,9 @@ create_beast2_input_file(
     )
   )
 )
-```
 
-## Example #11: Two alignments
-
-```{r example_11}
-# Deprecated support for now
-if (1 == 2) {
-  create_beast2_input_file(
-    c("anthus_aco.fas", "anthus_nd2.fas"),
-    "my_beast.xml"
-  )
-}
-```
-
-Thanks to Paul van Els for this use case and supplying these FASTA files.
-
-## Example #12: Two alignments, different site models
-
-```
-# Deprecated support for now
-beautier::create_beast2_input_file(
-  c("anthus_aco.fas", "anthus_nd2.fas"),
-  "my_beast.xml",
-  site_models = list(
-    create_hky_site_model(), 
-    create_tn93_site_model()
-  )
+create_beast2_input_from_model(
+  input_filename,
+  inference_model
 )
-```
-
-Since `v1.12` this it is supported to have two alignments with different site models, clock models and tree priors.
-
-Thanks to Paul van Els for this use case.
-
-## Example #13: Two alignments, shared clock model
-
-```{r example_13}
-# Deprecated support for now
-if (1 == 2) {
-  beautier::create_beast2_input_file(
-    c("anthus_aco.fas", "anthus_nd2.fas"),
-    "my_beast.xml",
-    clock_models = list(
-      create_strict_clock_model(id = "anthus_aco"), 
-      create_strict_clock_model(id = "anthus_aco")
-    )
-  )
-}
-```
-
-In a future version, it will be supported to have two alignments with shared site models, clock models and tree priors.
-
-Thanks to Yacine Ben Chehida for this use case.
-
-```{r cleanup, include = FALSE}
-# Cleaning up
-filenames <- c(
-  "my_fasta.fas", 
-  "my_alignment.fas",
-  "test_output_0.fas", 
-  "anthus_aco.fas", 
-  "anthus_nd2.fas",
-  "my_beast.xml"
-)
-for (filename in filenames) {
-  if (file.exists(filename)) file.remove(filename)
-}
 ```
