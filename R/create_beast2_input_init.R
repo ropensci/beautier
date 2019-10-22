@@ -25,15 +25,12 @@ create_beast2_input_init <- function(
   # In other words: bluntly remove it
   n <- length(ids)
   for (i in seq(1, n)) {
-    phylogeny <- NA
     id <- ids[i]
-    if (!beautier::is_phylo(phylogeny)) {
-      text <- c(text, "")
-      text <- c(
-        text,
-        beautier::indent(rnd_phylo_to_xml_init(id), n_spaces = 4)
-      )
-    }
+    text <- c(text, "")
+    text <- c(
+      text,
+      beautier::indent(rnd_phylo_to_xml_init(id), n_spaces = 4)
+    )
   }
   text
 }
