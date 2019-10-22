@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## beautier 2.3 (unreleased)
+
+### NEW FEATURES
+
+  * `create_mcmc` has more options
+
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
+
 ## beautier 2.2.4 (2019-10-15)
 
 ### NEW FEATURES
