@@ -26,6 +26,22 @@ create_beast2_input_from_model <- function(
   }
   beautier::check_inference_model(inference_model)
 
+  # Check if the combination of FASTA file and inference model agrees
+  check_fasta_file_and_inference_model(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+
+  # Fill in MRCA prior's taxa names and alignment ID if those are NA
+  if (!beautier::is_one_na(inference_model$mrca_prior)) {
+    if (beautier::is_one_na(inference_model$mrca_prior$alignment_id)) {
+      inference_model$mrca_prior$alignment_id <- get_alignment_id(input_filename) # nolint beautier function
+    }
+    if (beautier::is_one_na(inference_model$mrca_prior$taxa_names)) {
+      inference_model$mrca_prior$taxa_names <- get_taxa_names(input_filename) # nolint beautier function
+    }
+  }
+
   # Don't be smart now
   tipdates_filename <- inference_model$tipdates_filename
   site_model <- inference_model$site_model
@@ -49,24 +65,6 @@ create_beast2_input_from_model <- function(
   testit::assert(beautier::is_beauti_options(beauti_options))
   # Lengths
   testit::assert(length(input_filenames) == 1)
-
-  # Check if the combination of FASTA file and inference model agrees
-  check_fasta_file_and_inference_model(
-    input_filename = input_filename,
-    inference_model = inference_model
-  )
-
-  # Fill in MRCA prior's taxa names and alignment ID if those are NA
-  if (!beautier::is_one_na(mrca_priors[[1]])) {
-    for (i in seq_along(mrca_priors)) {
-      if (beautier::is_one_na(mrca_priors[[i]]$alignment_id)) {
-        mrca_priors[[i]]$alignment_id <- get_alignment_id(input_filename) # nolint beautier function
-      }
-      if (beautier::is_one_na(mrca_priors[[i]]$taxa_names)) {
-        mrca_priors[[i]]$taxa_names <- get_taxa_names(input_filename) # nolint beautier function
-      }
-    }
-  }
 
   # All MRCA's taxa names must be in the FASTA files
   if (!beautier::is_one_na(mrca_priors)) {
