@@ -13,7 +13,7 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_beast2_input_distr <- function( # nolint beautier function
   site_models,
   clock_models,

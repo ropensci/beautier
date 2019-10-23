@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_beast2_input_operators <- function( # nolint beautier function
   site_models,
   clock_models,

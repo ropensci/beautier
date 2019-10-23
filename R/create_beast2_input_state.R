@@ -4,7 +4,7 @@
 #' @return lines of XML text
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_beast2_input_state <- function(
   site_models,
   clock_models,
