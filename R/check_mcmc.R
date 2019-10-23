@@ -33,7 +33,7 @@ check_mcmc_list_element_names <- function(mcmc) {
 
   list_element_names <- c(
     "chain_length", "store_every", "pre_burnin", "n_init_attempts",
-    "sample_from_prior", "treelog", "screenlog"
+    "sample_from_prior", "treelog", "screenlog", "tracelog"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(mcmc)) {
@@ -104,6 +104,5 @@ check_mcmc_list_element_values <- function(mcmc) {
   assertive::assert_is_if_condition(mcmc$sample_from_prior)
   check_treelog(mcmc$treelog)
   check_screenlog(mcmc$screenlog)
-
-
+  check_tracelog(mcmc$tracelog)
 }

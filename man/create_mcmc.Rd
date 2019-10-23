@@ -6,7 +6,8 @@
 \usage{
 create_mcmc(chain_length = 1e+07, store_every = -1, pre_burnin = 0,
   n_init_attempts = 10, sample_from_prior = FALSE,
-  treelog = create_treelog(), screenlog = create_screenlog())
+  tracelog = create_tracelog, screenlog = create_screenlog(),
+  treelog = create_treelog())
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}
@@ -22,11 +23,14 @@ the main loop}
 
 \item{sample_from_prior}{set to \link{TRUE} to sample from the prior}
 
-\item{treelog}{a \code{treelog},
-as created by \link{create_treelog}}
+\item{tracelog}{a \code{tracelog},
+as created by \link{create_tracelog}}
 
 \item{screenlog}{a \code{screenlog},
 as created by \link{create_screenlog}}
+
+\item{treelog}{a \code{treelog},
+as created by \link{create_treelog}}
 }
 \value{
 an MCMC configuration

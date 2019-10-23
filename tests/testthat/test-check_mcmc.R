@@ -62,7 +62,6 @@ test_that("use", {
       )
     )
   )
-  skip("#101")
   expect_silent(
     check_mcmc(
       create_mcmc(
@@ -147,7 +146,6 @@ test_that("missing list elements", {
     "'screenlog' must be an element of an 'mcmc'"
   )
 
-  skip("#101")
   mcmc <- good_mcmc
   mcmc$tracelog <- NULL
   expect_error(
@@ -249,8 +247,6 @@ test_that("invalid list element values", {
     ),
     "screenlog"
   )
-
-  skip("#101")
   expect_error(
     check_mcmc(
       create_mcmc(
@@ -259,5 +255,4 @@ test_that("invalid list element values", {
     ),
     "tracelog"
   )
-
 })
