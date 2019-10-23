@@ -201,6 +201,7 @@ create_beast2_input_screenlog <- function() {
 #' }
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
+#' @export
 create_beast2_input_treelogs <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
   inference_model
 ) {
