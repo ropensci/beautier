@@ -71,7 +71,7 @@ create_beast2_input_loggers <- function(# nolint keep long function name, as it 
 
   text <- c(text,
     beautier::indent(
-      create_beast2_input_treelogs(clock_models), # nolint beautier function
+      beautier::create_beast2_input_treelogs(inference_model),
       n_spaces = 4
     )
   )
@@ -196,10 +196,13 @@ create_beast2_input_screenlog <- function() {
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
-create_beast2_input_treelogs <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
-  clock_models
+create_beast2_input_treelogs <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
+  inference_model
 ) {
+  # Do not be smart yet
+  clock_models <- list(inference_model$clock_model)
   testit::assert(beautier::are_clock_models(clock_models))
+
 
   text <- NULL
   for (clock_model in clock_models) {

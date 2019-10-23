@@ -5,11 +5,13 @@
 \title{Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_treelogs(clock_models)
+create_beast2_input_treelogs(inference_model)
 }
 \arguments{
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
+\item{inference_model}{an Bayesian phylogenetic inference model,
+as can be created by \code{\link{create_inference_model}}.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.}
 }
 \description{
 Creates the \code{tracelog} section of the \code{logger} section

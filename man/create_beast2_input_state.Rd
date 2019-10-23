@@ -24,9 +24,6 @@ as returned by \code{\link{create_mrca_prior}}}
 This file is assumed to have two columns, separated by a tab.
 The first column contains the taxa names, the second column contains
 the date.}
-
-\item{initial_phylogenies}{initial phylogenies, can be NAs if random
-phylogenies are desired}
 }
 \value{
 lines of XML text
