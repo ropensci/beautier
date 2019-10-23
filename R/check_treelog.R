@@ -21,7 +21,7 @@ check_treelog <- function(treelog) {
 check_treelog_list_element_names <- function(treelog) {
 
   list_element_names <- c(
-    "filename", "log_every"
+    "filename", "log_every", "mode"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(treelog)) {
@@ -48,5 +48,5 @@ check_treelog_list_element_values <- function(treelog) {
   assertive::assert_is_a_non_empty_string(treelog$filename)
   assertive::assert_is_numeric(treelog$log_every)
   assertive::assert_all_are_positive(treelog$log_every)
-
+  check_log_mode(treelog$mode)
 }
