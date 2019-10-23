@@ -106,14 +106,11 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
   # Indent and surround the current text
   text <- beautier::indent(text, n_spaces = 4)
 
-  log_every <- mcmc$store_every
-  if (log_every == -1) log_every <- 1000 # TODO: calc from mcmc$chain_length
-
   top_line <- paste0(
     "<logger ",
     "id=\"tracelog\" ",
     "fileName=\"", filename, ".log\" ",
-    "logEvery=\"", log_every, "\" ",
+    "logEvery=\"", inference_model$mcmc$tracelog$log_every, "\" ",
     "model=\"@posterior\" ",
     "sanitiseHeaders=\"true\" ",
     "sort=\"smart\"",
