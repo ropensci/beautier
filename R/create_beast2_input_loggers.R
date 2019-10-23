@@ -214,7 +214,7 @@ create_beast2_input_treelogs <- function(# nolint keep long function name, as it
       "<logger id=\"treelog.t:", id, "\" ",
       "fileName=\"", inference_model$mcmc$treelog$filename, "\" ",
       "logEvery=\"", inference_model$mcmc$treelog$log_every, "\" ",
-      "mode=\"tree\">"
+      "mode=\"", inference_model$mcmc$treelog$mode, "\">"
     )
   )
   text <- c(
