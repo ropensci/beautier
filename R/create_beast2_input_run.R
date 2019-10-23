@@ -1,9 +1,37 @@
 #' Creates the '\code{run}' section of a BEAST2 XML parameter file
+#'
+#' The \code{run} tag has these elements:
+#' \preformatted{
+#'    <run[...]>
+#'        <state[...]>
+#'        [...]
+#'        </state>
+#'        <init[...]>
+#'        [...]
+#'        </init>
+#'        <distribution[...]>
+#'        [...]
+#'        </distribution>
+#'        [operator ids]
+#'        [loggers]
+#'     </run>
+#' }
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @inheritParams default_params_doc
+#' @seealso
+#' Use \link{create_beast2_input_state}
+#' to create the XML text of the \code{state} tag.
+#' Use \link{create_beast2_input_init}
+#' to create the XML text of the \code{init} tag.
+#' Use \link{create_beast2_input_distr}
+#' to create the XML text of the \code{distribution} tag.
+#' Use \link{create_beast2_input_operators}
+#' to create the XML text of the \code{[operator ids]} section.
+#' Use \link{create_beast2_input_loggers}
+#' to create the XML text of the \code{[loggers]} part.
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_beast2_input_run <- function(
   input_filename,
   inference_model = create_inference_model()

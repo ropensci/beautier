@@ -19,7 +19,12 @@ clock model, tree prior and more are specified.}
 a character vector of XML strings
 }
 \description{
-Create a BEAST2 XML input text from an inference model
+The main two XML tags are these:
+\preformatted{
+  <?xml[...]?><beast[...]>
+  [...]
+  </beast>
+}
 }
 \examples{
 library(testthat)
@@ -33,6 +38,10 @@ expect_true(tail(text, n = 1) == "</beast>")
 }
 \seealso{
 Use \link{create_beast2_input_file_from_model} to also save it to file.
+Use \link{create_beast2_input_xml}
+to create the XML text of the main XML tag.
+Use \link{create_beast2_input_beast} to create
+to create the XML text of the \code{beast} tag.
 }
 \author{
 Richèl J.C. Bilderbeek

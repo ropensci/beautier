@@ -1,8 +1,29 @@
-#' Creates the beast section of a BEAST2 XML parameter file
+#' Creates the XML text for the \code{beast} tag of a BEAST2 parameter file.
+#'
+#' The \code{beast} tag has these elements:
+#' \preformatted{
+#'   <beast[...]>
+#'       <data
+#'       [...]
+#'       </data>
+#'       [map names]
+#'       <run[...]>
+#'       [...]
+#'       </run>
+#'   </beast>
+#' }
 #' @inheritParams default_params_doc
 #' @return lines of XML text
+#' @seealso
+#' Use \link{create_beast2_input_from_model} to create the complete XML text.
+#' Use \link{create_beast2_input_data} to create the XML text for
+#'   the \code{data} tag only.
+#' Use \link{create_beast2_input_map} to create the XML text for
+#'   the \code{[map names]} part.
+#' Use \link{create_beast2_input_run} to create the XML text for
+#'   the \code{run} tag only.
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_beast2_input_beast <- function(
   input_filename,
   inference_model = create_inference_model()
