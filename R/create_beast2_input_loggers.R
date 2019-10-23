@@ -192,30 +192,39 @@ create_beast2_input_screenlog <- function() {
   text
 }
 
-#' Creates the \code{tracelog} section of the \code{logger} section
-#' of a BEAST2 XML parameter file
+#' Creates the XML text for the \code{logger} tag with ID \code{treelog}.
+#' This section has these elements:
+#' \preformatted{
+#' <logger id="treelog.t:test_output_0" spec="Logger" fileName="my_treelog.trees" logEvery="345000" mode="tree" sanitiseHeaders="true" sort="smart">
+#'     <log id="TreeWithMetaDataLogger.t:test_output_0" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:test_output_0"/>
+#' </logger>
+#' }
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 create_beast2_input_treelogs <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
   inference_model
 ) {
-  # Do not be smart yet
-  clock_models <- list(inference_model$clock_model)
-  testit::assert(beautier::are_clock_models(clock_models))
-
-
   text <- NULL
-  for (clock_model in clock_models) {
-
-    text <- c(text, "")
-    id <- clock_model$id
-    text <- c(text, paste0("<logger id=\"treelog.t:", id, "\" ",
-      "fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">"))
-    text <- c(
-      text,
-      beautier::indent(clock_model_to_xml_treelogger(clock_model), n_spaces = 4)
+  text <- c(text, "")
+  id <- inference_model$clock_model$id
+  text <- c(
+    text,
+    paste0(
+      "<logger id=\"treelog.t:", id, "\" ",
+      "fileName=\"", inference_model$mcmc$treelog$filename, "\" ",
+      "logEvery=\"1000\" ",
+      "mode=\"tree\">"
     )
-    text <- c(text, "</logger>")
-  }
+  )
+  text <- c(
+    text,
+    beautier::indent(
+      clock_model_to_xml_treelogger(
+        inference_model$clock_model
+      ),
+      n_spaces = 4
+    )
+  )
+  text <- c(text, "</logger>")
   text
 }
