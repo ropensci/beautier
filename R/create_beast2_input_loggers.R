@@ -1,8 +1,28 @@
-#' Creates the two logger sections of a BEAST2 XML parameter file
+#' Creates the three logger sections of a BEAST2 XML parameter file
+#'
+#' The logger section has these elements:
+#' \preformatted{
+#'  <logger id="tracelog" [...]>
+#'      [...]
+#'  </logger>
+#'  <logger id="screenlog" [...]>
+#'      [...]
+#'  </logger>
+#'  <logger id="treelog.t:test_output_0"  [...]>
+#'      [...]
+#'  </logger>
+#' }
 #' @inheritParams default_params_doc
+#' @seealso
+#' Use \link{create_beast2_input_tracelog} to create the XML text
+#' of the logger with the \code{tracelog} ID.
+#' Use \link{create_beast2_input_screenlog} to create the XML text
+#' of the logger with the \code{screenlog} ID.
+#' Use \link{create_beast2_input_treelogs} to create the XML text
+#' of the loggers with the \code{treelog} ID.
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
-create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
+#' @export
+create_beast2_input_loggers <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
   input_filename,
   inference_model = create_inference_model()
 ) {
