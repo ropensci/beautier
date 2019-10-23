@@ -29,7 +29,31 @@ test_that("use", {
 
 })
 
-test_that("abuse", {
+test_that("abuse, by removing elements", {
+  good_treelog <- create_treelog()
+
+  treelog <- good_treelog
+  treelog$filename <- NULL
+  expect_error(check_treelog(treelog), "filename")
+
+  treelog <- good_treelog
+  treelog$log_every <- NULL
+  expect_error(check_treelog(treelog), "log_every")
+
+  treelog <- good_treelog
+  treelog$mode <- NULL
+  expect_error(check_treelog(treelog), "mode")
+
+  treelog <- good_treelog
+  treelog$sanitize_headers <- NULL
+  expect_error(check_treelog(treelog), "sanitize_headers")
+
+  treelog <- good_treelog
+  treelog$sort <- NULL
+  expect_error(check_treelog(treelog), "sort")
+})
+
+test_that("abuse, by wrong values", {
   expect_error(
     check_treelog(
       create_treelog(
@@ -63,6 +87,16 @@ test_that("abuse", {
     ),
     "log_every"
   )
+
+  expect_error(
+    check_treelog(
+      create_treelog(
+        mode = "nonsense"
+      )
+    ),
+    "mode"
+  )
+
   expect_error(
     check_treelog(
       create_treelog(
@@ -70,6 +104,15 @@ test_that("abuse", {
       )
     ),
     "sanitize_headers"
+  )
+
+  expect_error(
+    check_treelog(
+      create_treelog(
+        sort = "nonsense"
+      )
+    ),
+    "sort"
   )
 
 })
