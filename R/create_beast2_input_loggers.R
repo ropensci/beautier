@@ -1,9 +1,10 @@
 #' Creates the two logger sections of a BEAST2 XML parameter file
-#' @author Richèl J.C. Bilderbeek
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @noRd
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
-  ids,
+  input_filename,
+  inference_model = create_inference_model(),
   site_models = list(create_jc69_site_model(id = ids)),
   clock_models = list(create_strict_clock_model(id = ids)),
   tree_priors = list(create_yule_tree_prior(id = ids)),
@@ -11,6 +12,15 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
+  check_inference_model(inference_model)
+  testit::assert(length(input_filename) == 1)
+  # Alignment IDs
+  ids <- beautier::get_alignment_id(
+    input_filename,
+    capitalize_first_char_id =
+      inference_model$beauti_options$capitalize_first_char_id
+  )
+
   testit::assert(length(ids) == length(site_models))
   testit::assert(length(ids) == length(clock_models))
   testit::assert(length(ids) == length(tree_priors))

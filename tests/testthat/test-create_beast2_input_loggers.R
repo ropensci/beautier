@@ -1,10 +1,14 @@
-context("create_beast2_input_loggers")
-
 test_that("use", {
+  expect_silent(
+    create_beast2_input_loggers(
+      input_filename = get_fasta_filename()
+    )
+  )
 
-  testthat::expect_silent(
-    beautier:::create_beast2_input_loggers(
-      ids = "test_output_0"
+  # File can be absent
+  expect_silent(
+    create_beast2_input_loggers(
+      input_filename = "abs.ent"
     )
   )
 
@@ -12,30 +16,18 @@ test_that("use", {
 
 test_that("abuse", {
 
-  ids <- c("anthus_nd2", "anthus_aco.fas")
-
-  # Two filenames, one site model
-  testthat::expect_error(
+  expect_error(
     create_beast2_input_loggers(
-      ids = ids,
-      site_models = list(create_jc69_site_model())
-    )
+      input_filename = c("one_too", "many_filenames")
+    ),
+    "input_filename"
   )
-
-  # Two filenames, one clock model
-  testthat::expect_error(
+  expect_error(
     create_beast2_input_loggers(
-      ids = ids,
-      clock_models = list(create_strict_clock_model())
-    )
-  )
-
-  # Two filenames, one tree prior
-  testthat::expect_error(
-    create_beast2_input_loggers(
-      ids = ids,
-      tree_priors = list(create_yule_tree_prior())
-    )
+      input_filename = get_fasta_filename(),
+      inference_model = "nonsense"
+    ),
+    "inference_model"
   )
 
 })
