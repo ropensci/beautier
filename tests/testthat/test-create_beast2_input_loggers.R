@@ -1,17 +1,15 @@
 test_that("use", {
+
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    create_inference_model()
+  )
   expect_silent(
     create_beast2_input_loggers(
-      input_filename = get_fasta_filename()
+      input_filename = get_fasta_filename(),
+      inference_model = inference_model
     )
   )
-
-  # File can be absent
-  expect_silent(
-    create_beast2_input_loggers(
-      input_filename = "abs.ent"
-    )
-  )
-
 })
 
 test_that("abuse", {

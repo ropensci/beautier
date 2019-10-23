@@ -54,20 +54,7 @@ create_beast2_input_run <- function(
   fixed_crown_ages <- FALSE
   tipdates_filename <- inference_model$tipdates_filename
 
-  testit::assert(length(ids) == length(site_models))
-  testit::assert(length(ids) == length(clock_models))
-  testit::assert(length(ids) == length(tree_priors))
-  testit::assert(length(ids) == length(fixed_crown_ages))
-  testit::assert(beautier::are_ids(ids))
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
-
-  text <- NULL
-
-  text <- c(text, mcmc_to_xml_run(mcmc)) # nolint beautier function
-
+  text <- mcmc_to_xml_run(mcmc) # nolint beautier function
   text <- c(text,
     beautier::indent(
       create_beast2_input_state( # nolint beautier function
@@ -119,13 +106,7 @@ create_beast2_input_run <- function(
     text,
     create_beast2_input_loggers(
       input_filename = input_filename,
-      inference_model = inference_model,
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors,
-      mcmc = mcmc,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+      inference_model = inference_model
     )
   )
 

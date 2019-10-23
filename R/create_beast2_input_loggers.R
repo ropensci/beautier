@@ -4,13 +4,7 @@
 #' @noRd
 create_beast2_input_loggers <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
   input_filename,
-  inference_model = create_inference_model(),
-  site_models = list(create_jc69_site_model(id = ids)),
-  clock_models = list(create_strict_clock_model(id = ids)),
-  tree_priors = list(create_yule_tree_prior(id = ids)),
-  mcmc = create_mcmc(),
-  mrca_priors = NA,
-  tipdates_filename = NA
+  inference_model = create_inference_model()
 ) {
   check_inference_model(inference_model)
   testit::assert(length(input_filename) == 1)
@@ -21,15 +15,13 @@ create_beast2_input_loggers <- function( # nolint keep long function name, as it
       inference_model$beauti_options$capitalize_first_char_id
   )
 
-  testit::assert(length(ids) == length(site_models))
-  testit::assert(length(ids) == length(clock_models))
-  testit::assert(length(ids) == length(tree_priors))
-  testit::assert(beautier::are_ids(ids))
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
-  testit::assert(beautier::is_mcmc(mcmc))
+  # Do not be smart yet
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  mcmc <- inference_model$mcmc
+  tipdates_filename <- inference_model$tipdates_filename
 
   text <- NULL
   text <- c(
