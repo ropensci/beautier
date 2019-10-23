@@ -64,7 +64,7 @@ create_beast2_input_loggers <- function(# nolint keep long function name, as it 
 
   text <- c(text,
     beautier::indent(
-      create_beast2_input_screenlog(), # nolint beautier function
+      beautier::create_beast2_input_screenlog(inference_model),
       n_spaces = 4
     )
   )
@@ -177,10 +177,12 @@ create_beast2_input_tracelog <- function( # nolint keep long function name, as i
 
 #' Creates the \code{screenlog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
-#' @return the XML text
 #' @inheritParams default_params_doc
+#' @return the XML text
 #' @author Richèl J.C. Bilderbeek
-create_beast2_input_screenlog <- function() {
+create_beast2_input_screenlog <- function(
+  inference_model
+) {
   text <- NULL
   text <- c(text, "<logger id=\"screenlog\" logEvery=\"1000\">")
   text <- c(text, "    <log idref=\"posterior\"/>") # nolint this is no absolute path
@@ -202,7 +204,7 @@ create_beast2_input_screenlog <- function() {
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_treelogs <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
+create_beast2_input_treelogs <- function(
   inference_model
 ) {
   top_line <- paste0(
