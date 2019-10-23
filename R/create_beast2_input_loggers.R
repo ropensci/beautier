@@ -29,35 +29,22 @@ create_beast2_input_loggers <- function(# nolint keep long function name, as it 
   testit::assert(length(input_filename) == 1)
   check_inference_model(inference_model)
 
-  text <- NULL
-  text <- c(
-    text,
-    beautier::indent(
-      create_beast2_input_tracelog(
-        input_filename = input_filename,
-        inference_model = inference_model
-      ),
-      n_spaces = 4
-    )
+  tracelog_text <- create_beast2_input_tracelog(
+    input_filename = input_filename,
+    inference_model = inference_model
   )
 
-  text <- c(text, "")
+  screenlog_text <- beautier::create_beast2_input_screenlog(inference_model)
 
-  text <- c(text,
-    beautier::indent(
-      beautier::create_beast2_input_screenlog(inference_model),
-      n_spaces = 4
-    )
+  treelogs_text <- beautier::create_beast2_input_treelogs(inference_model)
+
+
+  c(
+    beautier::indent(tracelog_text, n_spaces = 4),
+    "",
+    beautier::indent(screenlog_text, n_spaces = 4),
+    beautier::indent(treelogs_text, n_spaces = 4)
   )
-
-  text <- c(text,
-    beautier::indent(
-      beautier::create_beast2_input_treelogs(inference_model),
-      n_spaces = 4
-    )
-  )
-
-  text
 }
 
 #' Creates the \code{tracelog} section of the \code{logger} section
