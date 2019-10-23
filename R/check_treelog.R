@@ -44,8 +44,9 @@ check_treelog_list_element_names <- function(treelog) {
 #' @noRd
 check_treelog_list_element_values <- function(treelog) {
 
+  assertive::assert_is_character(treelog$filename)
   assertive::assert_is_a_non_empty_string(treelog$filename)
-  assertive::assert_all_are_positive(treelog$log_every)
   assertive::assert_is_numeric(treelog$log_every)
+  assertive::assert_all_are_positive(treelog$log_every)
 
 }

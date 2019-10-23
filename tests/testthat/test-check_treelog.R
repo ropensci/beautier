@@ -21,3 +21,39 @@ test_that("use", {
   )
 
 })
+
+test_that("abuse", {
+  expect_error(
+    check_treelog(
+      create_treelog(
+        filename = ""
+      )
+    ),
+    "filename"
+  )
+  expect_error(
+    check_treelog(
+      create_treelog(
+        filename = 1234
+      )
+    ),
+    "filename"
+  )
+
+  expect_error(
+    check_treelog(
+      create_treelog(
+        log_every = "nonsense"
+      )
+    ),
+    "log_every"
+  )
+  expect_error(
+    check_treelog(
+      create_treelog(
+        log_every = -1234
+      )
+    ),
+    "log_every"
+  )
+})
