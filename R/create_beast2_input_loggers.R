@@ -126,6 +126,7 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
 #' @inheritParams default_params_doc
 #' @return the XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 create_beast2_input_screenlog <- function(
   inference_model
 ) {
