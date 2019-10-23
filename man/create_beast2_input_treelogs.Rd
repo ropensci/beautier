@@ -2,8 +2,13 @@
 % Please edit documentation in R/create_beast2_input_loggers.R
 \name{create_beast2_input_treelogs}
 \alias{create_beast2_input_treelogs}
-\title{Creates the \code{tracelog} section of the \code{logger} section
-of a BEAST2 XML parameter file}
+\title{Creates the XML text for the \code{logger} tag with ID \code{treelog}.
+This section has these elements:
+\preformatted{
+<logger id="treelog.t:test_output_0" spec="Logger" fileName="my_treelog.trees" logEvery="345000" mode="tree" sanitiseHeaders="true" sort="smart">
+    <log id="TreeWithMetaDataLogger.t:test_output_0" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:test_output_0"/>
+</logger>
+}}
 \usage{
 create_beast2_input_treelogs(inference_model)
 }
@@ -14,8 +19,13 @@ An inference model is the complete model setup in which a site model,
 clock model, tree prior and more are specified.}
 }
 \description{
-Creates the \code{tracelog} section of the \code{logger} section
-of a BEAST2 XML parameter file
+Creates the XML text for the \code{logger} tag with ID \code{treelog}.
+This section has these elements:
+\preformatted{
+<logger id="treelog.t:test_output_0" spec="Logger" fileName="my_treelog.trees" logEvery="345000" mode="tree" sanitiseHeaders="true" sort="smart">
+    <log id="TreeWithMetaDataLogger.t:test_output_0" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:test_output_0"/>
+</logger>
+}
 }
 \author{
 Richèl J.C. Bilderbeek

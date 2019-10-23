@@ -4,10 +4,12 @@
 \alias{create_treelog}
 \title{Create a \code{treelog} object}
 \usage{
-create_treelog(filename = "$(tree).trees")
+create_treelog(filename = "$(tree).trees", log_every = 1000)
 }
 \arguments{
-\item{filename}{name of the file to store the posterior
+\item{filename}{name of the file to store the posterior trees}
+
+\item{log_every}{number of MCMC states between the logging of that state
 phylogenies to. By default, this is \code{$(tree).trees}}
 }
 \description{

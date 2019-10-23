@@ -4,4 +4,20 @@ test_that("use", {
       create_treelog()
     )
   )
+
+  expect_silent(
+    check_treelog(
+      create_treelog(
+        filename = "something"
+      )
+    )
+  )
+  expect_silent(
+    check_treelog(
+      create_treelog(
+        log_every = 1234
+      )
+    )
+  )
+
 })
