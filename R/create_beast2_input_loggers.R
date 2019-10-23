@@ -214,6 +214,12 @@ create_beast2_input_treelogs <- function(# nolint keep long function name, as it
   if (inference_model$mcmc$treelog$sanitize_headers == TRUE) {
     top_line <- paste0(top_line, "sanitiseHeaders=\"true\"")
   }
+  if (inference_model$mcmc$treelog$sort != "none") {
+    top_line <- paste0(
+      top_line,
+      "sort=\"", inference_model$mcmc$treelog$sort, "\""
+    )
+  }
   top_line <- paste0(top_line, ">")
 
   text <- ""
