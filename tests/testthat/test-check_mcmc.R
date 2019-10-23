@@ -48,7 +48,6 @@ test_that("use", {
     )
   )
 
-  skip("#99")
   expect_silent(
     check_mcmc(
       create_mcmc(
@@ -56,7 +55,6 @@ test_that("use", {
       )
     )
   )
-  skip("#100")
   expect_silent(
     check_mcmc(
       create_mcmc(
@@ -131,7 +129,6 @@ test_that("missing list elements", {
     "'sample_from_prior' must be an element of an 'mcmc'"
   )
 
-  skip("#99")
   mcmc <- good_mcmc
   mcmc$treelog <- NULL
   expect_error(
@@ -141,7 +138,6 @@ test_that("missing list elements", {
     "'treelog' must be an element of an 'mcmc'"
   )
 
-  skip("#100")
   mcmc <- good_mcmc
   mcmc$screenlog <- NULL
   expect_error(
@@ -151,7 +147,7 @@ test_that("missing list elements", {
     "'screenlog' must be an element of an 'mcmc'"
   )
 
-    skip("#101")
+  skip("#101")
   mcmc <- good_mcmc
   mcmc$tracelog <- NULL
   expect_error(
@@ -236,7 +232,6 @@ test_that("invalid list element values", {
     "mcmc.sample_from_prior"
   )
 
-  skip("#99")
   expect_error(
     check_mcmc(
       create_mcmc(
@@ -246,7 +241,6 @@ test_that("invalid list element values", {
     "treelog"
   )
 
-  skip("#100")
   expect_error(
     check_mcmc(
       create_mcmc(
@@ -256,7 +250,7 @@ test_that("invalid list element values", {
     "screenlog"
   )
 
-    skip("#101")
+  skip("#101")
   expect_error(
     check_mcmc(
       create_mcmc(

@@ -31,7 +31,8 @@ create_mcmc <- function(
   pre_burnin = 0,
   n_init_attempts = 10,
   sample_from_prior = FALSE,
-  treelog = create_treelog()
+  treelog = create_treelog(),
+  screenlog = create_screenlog()
 ) {
   mcmc <- list(
     chain_length = chain_length,
@@ -39,7 +40,8 @@ create_mcmc <- function(
     pre_burnin = pre_burnin,
     n_init_attempts = n_init_attempts,
     sample_from_prior = sample_from_prior,
-    treelog = treelog
+    treelog = treelog,
+    screenlog = screenlog
   )
 
   # Postcondition
