@@ -14,7 +14,13 @@ create_treelog(filename = "$(tree).trees", log_every = 1000,
 phylogenies to. By default, this is \code{$(tree).trees}}
 
 \item{mode}{mode how to log.
-Valid are \code{tree}, \code{autodetect} and \code{compound}}
+Valid values are the ones returned by \link{get_log_modes}}
+
+\item{sanitize_headers}{set to \link{TRUE} to sanitize the headers of the
+log file}
+
+\item{sort}{how to sort the log.
+Valid values are the ones returned by \link{get_log_sorts}}
 }
 \description{
 Create a \code{treelog} object
