@@ -4,11 +4,23 @@
 \alias{create_tracelog}
 \title{Create a \code{tracelog} object}
 \usage{
-create_tracelog(filename = "tracelog.log")
+create_tracelog(filename = "test_output_0.log", log_every = 1000,
+  mode = "autodetect", sanitize_headers = TRUE, sort = "smart")
 }
 \arguments{
-\item{filename}{name of the file to store the \code{tracelog} to.
-Defaults to \code{[alignment_name].log}}
+\item{filename}{name of the file to store the posterior traces}
+
+\item{log_every}{number of MCMC states between the logging of that state
+phylogenies to. By default, this is \code{$(trace).traces}}
+
+\item{mode}{mode how to log.
+Valid values are the ones returned by \link{get_log_modes}}
+
+\item{sanitize_headers}{set to \link{TRUE} to sanitize the headers of the
+log file}
+
+\item{sort}{how to sort the log.
+Valid values are the ones returned by \link{get_log_sorts}}
 }
 \description{
 Create a \code{tracelog} object

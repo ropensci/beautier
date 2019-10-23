@@ -1,6 +1,11 @@
 test_that("use", {
-  skip("#101")
   expect_silent(
-    create_tracelog()
+    create_tracelog(
+      filename = "my.trees",
+      log_every = 1234,
+      mode = "compound",
+      sort = "alphabetic",
+      sanitize_headers = TRUE
+    )
   )
 })

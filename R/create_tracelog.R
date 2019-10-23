@@ -1,12 +1,27 @@
 #' Create a \code{tracelog} object
-#' @param filename name of the file to store the \code{tracelog} to.
-#' Defaults to \code{[alignment_name].log}
+#' @param filename name of the file to store the posterior traces
+#' @param log_every number of MCMC states between the logging of that state
+#' phylogenies to. By default, this is \code{$(trace).traces}
+#' @param mode mode how to log.
+#' Valid values are the ones returned by \link{get_log_modes}
+#' @param sanitize_headers set to \link{TRUE} to sanitize the headers of the
+#' log file
+#' @param sort how to sort the log.
+#' Valid values are the ones returned by \link{get_log_sorts}
 #' @export
 create_tracelog <- function(
-  filename = "tracelog.log"
+  filename = "test_output_0.log",
+  log_every = 1000,
+  mode = "autodetect",
+  sanitize_headers = TRUE,
+  sort = "smart"
 ) {
   tracelog <- list(
-    filename = filename
+    filename = filename,
+    log_every = log_every,
+    mode = mode,
+    sanitize_headers = sanitize_headers,
+    sort = sort
   )
   beautier::check_tracelog(tracelog)
   tracelog
