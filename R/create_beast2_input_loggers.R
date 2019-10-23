@@ -8,7 +8,7 @@
 #'  <logger id="screenlog" [...]>
 #'      [...]
 #'  </logger>
-#'  <logger id="treelog.t:test_output_0"  [...]>
+#'  <logger id="treelog.t:[alignment ID]"  [...]>
 #'      [...]
 #'  </logger>
 #' }
@@ -24,37 +24,18 @@
 #' @export
 create_beast2_input_loggers <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
   input_filename,
-  inference_model = create_inference_model()
+  inference_model
 ) {
-  check_inference_model(inference_model)
   testit::assert(length(input_filename) == 1)
-  # Alignment IDs
-  ids <- beautier::get_alignment_id(
-    input_filename,
-    capitalize_first_char_id =
-      inference_model$beauti_options$capitalize_first_char_id
-  )
-
-  # Do not be smart yet
-  site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
-  tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
-  mcmc <- inference_model$mcmc
-  tipdates_filename <- inference_model$tipdates_filename
+  check_inference_model(inference_model)
 
   text <- NULL
   text <- c(
     text,
     beautier::indent(
       create_beast2_input_tracelog(
-        ids = ids,
-        site_models = site_models,
-        clock_models = clock_models,
-        tree_priors = tree_priors,
-        mcmc = mcmc,
-        mrca_priors = mrca_priors,
-        tipdates_filename = tipdates_filename
+        input_filename = input_filename,
+        inference_model = inference_model
       ),
       n_spaces = 4
     )
@@ -82,45 +63,26 @@ create_beast2_input_loggers <- function(# nolint keep long function name, as it 
 #' Creates the \code{tracelog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
-#' @examples
-#'   created <- create_beast2_input_tracelog(ids = 1)
-#'   expected <- c(
-#'     paste0(
-#'       "<logger id=\"tracelog\" fileName=\"1.log\" ",
-#'       "logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" ",
-#'       "sort=\"smart\">"
-#'     ),
-#'     "    <log idref=\"posterior\"/>",
-#'     "    <log idref=\"likelihood\"/>",
-#'     "    <log idref=\"prior\"/>",
-#'     "    <log idref=\"treeLikelihood.1\"/>",
-#'     paste0(
-#'       "    <log id=\"TreeHeight.t:1\" ",
-#'       "spec=\"beast.evolution.tree.TreeHeightLogger\" ",
-#'       "tree=\"@Tree.t:1\"/>"
-#'     ),
-#'     "    <log idref=\"YuleModel.t:1\"/>",
-#'     "    <log idref=\"birthRate.t:1\"/>",
-#'     "</logger>"
-#'    )
-#'    testthat::expect_equal(created, expected)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_tracelog <- function( # nolint keep long function name, as it extends the 'create_beast2_input' name
-  ids,
-  site_models = list(create_jc69_site_model(id = ids)),
-  clock_models = list(create_strict_clock_model(id = ids)),
-  tree_priors = list(create_yule_tree_prior(id = ids)),
-  mcmc = beautier::create_mcmc(),
-  mrca_priors = NA,
-  tipdates_filename = NA
+create_beast2_input_tracelog <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
+  input_filename,
+  inference_model
 ) {
-  testit::assert(beautier::are_ids(ids))
-  testit::assert(length(ids) == length(site_models))
-  testit::assert(length(ids) == length(clock_models))
-  testit::assert(length(ids) == length(tree_priors))
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
-  testit::assert(beautier::is_mcmc(mcmc))
+  # Alignment IDs
+  ids <- beautier::get_alignment_id(
+    input_filename,
+    capitalize_first_char_id =
+      inference_model$beauti_options$capitalize_first_char_id
+  )
+
+  # Do not be smart yet
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  mcmc <- inference_model$mcmc
+  tipdates_filename <- inference_model$tipdates_filename
 
   text <- NULL
   # 1 tracelog

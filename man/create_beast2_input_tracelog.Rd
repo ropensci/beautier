@@ -5,64 +5,20 @@
 \title{Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_tracelog(ids,
-  site_models = list(create_jc69_site_model(id = ids)),
-  clock_models = list(create_strict_clock_model(id = ids)),
-  tree_priors = list(create_yule_tree_prior(id = ids)),
-  mcmc = beautier::create_mcmc(), mrca_priors = NA,
-  tipdates_filename = NA)
+create_beast2_input_tracelog(input_filename, inference_model)
 }
 \arguments{
-\item{ids}{one or more alignments' IDs.
-IDs can be extracted from their FASTA filenames
-with \code{\link{get_alignment_ids_from_fasta_filenames}})}
+\item{input_filename}{A FASTA filename.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{tree_priors}{one or more tree priors,
-as returned by \code{\link{create_tree_prior}}}
-
-\item{mcmc}{one MCMC
-as returned by \code{\link{create_mcmc}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, separated by a tab.
-The first column contains the taxa names, the second column contains
-the date.}
+\item{inference_model}{an Bayesian phylogenetic inference model,
+as can be created by \code{\link{create_inference_model}}.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.}
 }
 \description{
 Creates the \code{tracelog} section of the \code{logger} section
 of a BEAST2 XML parameter file
-}
-\examples{
-  created <- create_beast2_input_tracelog(ids = 1)
-  expected <- c(
-    paste0(
-      "<logger id=\\"tracelog\\" fileName=\\"1.log\\" ",
-      "logEvery=\\"1000\\" model=\\"@posterior\\" sanitiseHeaders=\\"true\\" ",
-      "sort=\\"smart\\">"
-    ),
-    "    <log idref=\\"posterior\\"/>",
-    "    <log idref=\\"likelihood\\"/>",
-    "    <log idref=\\"prior\\"/>",
-    "    <log idref=\\"treeLikelihood.1\\"/>",
-    paste0(
-      "    <log id=\\"TreeHeight.t:1\\" ",
-      "spec=\\"beast.evolution.tree.TreeHeightLogger\\" ",
-      "tree=\\"@Tree.t:1\\"/>"
-    ),
-    "    <log idref=\\"YuleModel.t:1\\"/>",
-    "    <log idref=\\"birthRate.t:1\\"/>",
-    "</logger>"
-   )
-   testthat::expect_equal(created, expected)
 }
 \author{
 Richèl J.C. Bilderbeek
