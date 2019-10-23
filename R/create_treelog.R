@@ -8,12 +8,14 @@
 create_treelog <- function(
   filename = "$(tree).trees",
   log_every = 1000,
-  mode = "tree"
+  mode = "tree",
+  sanitize_headers = FALSE
 ) {
   treelog <- list(
     filename = filename,
     log_every = log_every,
-    mode = mode
+    mode = mode,
+    sanitize_headers = sanitize_headers
   )
   beautier::check_treelog(treelog)
   treelog

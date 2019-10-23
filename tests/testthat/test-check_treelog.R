@@ -19,6 +19,13 @@ test_that("use", {
       )
     )
   )
+  expect_silent(
+    check_treelog(
+      create_treelog(
+        sanitize_headers = TRUE
+      )
+    )
+  )
 
 })
 
@@ -56,4 +63,13 @@ test_that("abuse", {
     ),
     "log_every"
   )
+  expect_error(
+    check_treelog(
+      create_treelog(
+        sanitize_headers = "nonsense"
+      )
+    ),
+    "sanitize_headers"
+  )
+
 })

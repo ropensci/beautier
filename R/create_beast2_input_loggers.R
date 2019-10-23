@@ -205,18 +205,19 @@ create_beast2_input_screenlog <- function() {
 create_beast2_input_treelogs <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
   inference_model
 ) {
-  text <- NULL
-  text <- c(text, "")
-  id <- inference_model$clock_model$id
-  text <- c(
-    text,
-    paste0(
-      "<logger id=\"treelog.t:", id, "\" ",
-      "fileName=\"", inference_model$mcmc$treelog$filename, "\" ",
-      "logEvery=\"", inference_model$mcmc$treelog$log_every, "\" ",
-      "mode=\"", inference_model$mcmc$treelog$mode, "\">"
-    )
+  top_line <- paste0(
+    "<logger id=\"treelog.t:", inference_model$clock_model$id, "\" ",
+    "fileName=\"", inference_model$mcmc$treelog$filename, "\" ",
+    "logEvery=\"", inference_model$mcmc$treelog$log_every, "\" ",
+    "mode=\"", inference_model$mcmc$treelog$mode, "\""
   )
+  if (inference_model$mcmc$treelog$sanitize_headers == TRUE) {
+    top_line <- paste0(top_line, "sanitiseHeaders=\"true\"")
+  }
+  top_line <- paste0(top_line, ">")
+
+  text <- ""
+  text <- c(text, top_line)
   text <- c(
     text,
     beautier::indent(
