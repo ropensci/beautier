@@ -29,7 +29,7 @@
 #' @export
 check_tree_prior <- function(tree_prior) {
 
-  if (is_tree_prior(tree_prior)) { # nolint beautier function
+  if (beautier::is_tree_prior(tree_prior)) {
     return()
   }
   if (length(tree_prior) == 1 && is_tree_prior(tree_prior[[1]])) { # nolint beautier function

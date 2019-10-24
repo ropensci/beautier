@@ -38,10 +38,10 @@ is_param <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (!x$name %in% get_param_names()) return(FALSE) # nolint beautier function
+  if (!x$name %in% beautier::get_param_names()) return(FALSE)
   if (!"id" %in% names(x)) return(FALSE)
   if (!"value" %in% names(x)) return(FALSE)
-  if (is_one_na(x$value)) return(FALSE) # nolint beautier function
+  if (beautier::is_one_na(x$value)) return(FALSE)
   TRUE
 }
 

@@ -57,7 +57,7 @@ hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id), # nolint beautier function
     n_spaces = 4
   )
-  testit::assert(is_hky_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_hky_site_model(site_model))
   text <- c(
     text,
     paste0("<substModel ",
@@ -77,7 +77,7 @@ hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
 tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(is_id(id))
 

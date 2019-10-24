@@ -156,7 +156,9 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
       )
     )
 
-    if (is_one_na(mrca_priors) || get_has_non_strict_clock_model(clock_models)) { # nolint beautier function
+    if (beautier::is_one_na(mrca_priors) ||
+        get_has_non_strict_clock_model(clock_models)
+    ) {
       text <- c(text,
         beautier::indent(
           clock_model_to_xml_lh_distr( # nolint beautier function

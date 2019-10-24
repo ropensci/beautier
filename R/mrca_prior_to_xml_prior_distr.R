@@ -21,7 +21,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
   has_non_strict_clock_model = FALSE,
   taxa_names_with_ids = NULL
 ) {
-  testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
+  testit::assert(beautier::is_mrca_prior(mrca_prior))
   text <- NULL
   if (!has_non_strict_clock_model && # nolint beautier function
       !beautier::is_one_na(mrca_prior$mrca_distr)
@@ -70,7 +70,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
       n_spaces = 4
     )
   )
-  if (is_distr(mrca_prior$mrca_distr)) { # nolint beautier function
+  if (beautier::is_distr(mrca_prior$mrca_distr)) {
     text <- c(
       text,
       beautier::indent(distr_to_xml(mrca_prior$mrca_distr), n_spaces = 4)

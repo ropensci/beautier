@@ -27,7 +27,7 @@
 check_mrca_prior <- function(mrca_prior) {
 
   # An MRCA prior can be NA
-  if (is_one_na(mrca_prior)) return() # nolint beautier function
+  if (beautier::is_one_na(mrca_prior)) return()
 
   check_mrca_prior_elements(mrca_prior) # nolint beautier function
 

@@ -20,7 +20,7 @@ phylo_to_xml_state <- function(
       )
     )
   }
-  testit::assert(is_phylo(phylo)) # nolint beautier function
+  testit::assert(beautier::is_phylo(phylo))
   text <- NULL
   text <- c(text, paste0("<stateNode spec=\"beast.util.TreeParser\" ",
     "id=\"Tree.t:", id, "\" IsLabelledNewick=\"true\" ",

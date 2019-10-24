@@ -17,7 +17,7 @@
 tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   tree_prior
 ) {
-  testit::assert(is_tree_prior(tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_tree_prior(tree_prior))
   text <- NULL
   if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(text, bd_tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function

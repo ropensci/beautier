@@ -10,7 +10,7 @@ init_mrca_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  if (length(mrca_priors) == 1 && is_one_na(mrca_priors)) return(NA) # nolint beautier function
+  if (length(mrca_priors) == 1 && beautier::is_one_na(mrca_priors)) return(NA)
   testit::assert(beautier::are_mrca_priors(mrca_priors))
   names <- paste0("auto_name_", seq_along(mrca_priors))
 
@@ -25,19 +25,19 @@ init_mrca_priors <- function(
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }
-    if (is_distr(mrca_prior$mrca_distr) && # nolint beautier function
-        !is_init_distr(mrca_prior$mrca_distr) # nolint beautier function
+    if (beautier::is_distr(mrca_prior$mrca_distr) &&
+        !beautier::is_init_distr(mrca_prior$mrca_distr)
     ) {
-      mrca_prior$mrca_distr <- init_distr( # nolint beautier function
+      mrca_prior$mrca_distr <- beautier::init_distr(
         distr = mrca_prior$mrca_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr) # nolint beautier function
+      param_id <- param_id + beautier::get_distr_n_params(mrca_prior$mrca_distr)
     }
 
-    testit::assert(is_mrca_prior(mrca_prior)) # nolint beautier function
+    testit::assert(beautier::is_mrca_prior(mrca_prior))
     mrca_priors[[i]] <- mrca_prior
   }
   mrca_priors

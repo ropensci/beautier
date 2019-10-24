@@ -7,15 +7,15 @@
 site_model_to_xml_operators <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model)) # nolint beautier function
+  testit::assert(beautier::is_site_model(site_model))
 
   # May be NA for JC69 model
   id <- site_model$id
 
   text <- NULL
 
-  if (is_hky_site_model(site_model)) { # nolint beautier function
-    testit::assert(is_id(id)) # nolint beautier function
+  if (beautier::is_hky_site_model(site_model)) {
+    testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<operator id=\"KappaScaler.s:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@kappa.s:", id, "\" ",
       "scaleFactor=\"0.5\" weight=\"0.1\"/>")) # nolint this is no absolute path

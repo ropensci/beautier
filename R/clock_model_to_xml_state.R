@@ -14,7 +14,7 @@ clock_model_to_xml_state <- function(
   testit::assert(beautier::is_id(clock_model$id))
 
   text <- NULL
-  if (is_strict_clock_model(clock_model) || has_tip_dating == TRUE) { # nolint beautier function
+  if (beautier::is_strict_clock_model(clock_model) || has_tip_dating == TRUE) {
     text <- c(
       text,
       paste0("<parameter id=\"clockRate.c:", clock_model$id, "\" ",
@@ -24,8 +24,7 @@ clock_model_to_xml_state <- function(
     )
   } else {
     # Fails on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model)) # nolint beautier function
-
+    testit::assert(beautier::is_rln_clock_model(clock_model))
     testit::assert(!beautier::is_one_na(clock_model$mean_clock_rate))
     testit::assert(!beautier::is_one_na(clock_model$dimension))
 

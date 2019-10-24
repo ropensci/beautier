@@ -14,9 +14,9 @@ clock_model_to_xml_operators <- function(
 
   # May not need ID at all, if it is the first and strict clock model
   text <- NULL
-  if (!is_strict_clock_model(clock_model)) { # nolint beautier function
+  if (!beautier::is_strict_clock_model(clock_model)) {
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model)) # nolint beautier function
+    testit::assert(beautier::is_rln_clock_model(clock_model))
 
     testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
@@ -53,7 +53,8 @@ clock_model_to_xml_operators <- function(
     }
   }
 
-  if ((is_strict_clock_model(clock_model) && is_mrca_prior_with_distr(mrca_priors[[1]])) || # nolint
+  if ((beautier::is_strict_clock_model(clock_model)
+    && beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) ||
       !beautier::is_one_na(tipdates_filename)
   ) {
     text <- c(

@@ -11,7 +11,7 @@ site_model_to_xml_state <- function(
   id <- site_model$id
   testit::assert(beautier::is_id(id))
   text <- NULL
-  if (is_gtr_site_model(site_model)) { # nolint beautier function
+  if (beautier::is_gtr_site_model(site_model)) {
     site_model$rate_ac_param$id <- id
     site_model$rate_ag_param$id <- id
     site_model$rate_at_param$id <- id
@@ -42,12 +42,12 @@ site_model_to_xml_state <- function(
     if (site_model$rate_gt_param$estimate == TRUE) {
       text <- c(text, parameter_to_xml(site_model$rate_gt_param)) # nolint beautier function
     }
-  } else if (is_hky_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_hky_site_model(site_model)) {
     site_model$kappa_param$id <- id
     text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
       "lower=\"0.0\" name=\"stateNode\">",
       site_model$kappa, "</parameter>"))
-  } else if (is_tn93_site_model(site_model)) { # nolint beautier function
+  } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       site_model$kappa_1_param$id <- id
       text <- c(text, parameter_to_xml(site_model$kappa_1_param)) # nolint beautier function

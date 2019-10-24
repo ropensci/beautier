@@ -28,10 +28,10 @@
 #' @export
 check_site_model <- function(site_model) {
 
-  if (is_site_model(site_model)) { # nolint beautier function
+  if (beautier::is_site_model(site_model)) {
     return()
   }
-  if (length(site_model) == 1 && is_site_model(site_model[[1]])) { # nolint beautier function
+  if (length(site_model) == 1 && beautier::is_site_model(site_model[[1]])) {
     return()
   }
   stop(

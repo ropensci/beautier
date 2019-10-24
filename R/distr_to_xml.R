@@ -39,7 +39,7 @@ distr_to_xml <- function(
     testit::assert(beautier::is_uniform_distr(distr))
     text <- c(text, distr_to_xml_uniform(distr)) # nolint beautier function
   }
-  testit::assert(is_xml(text)) # nolint
+  testit::assert(beautier::is_xml(text))
   text
 }
 
@@ -106,9 +106,9 @@ distr_to_xml_exp <- function(
 distr_to_xml_gamma <- function(
   distr
 ) {
-  testit::assert(is_gamma_distr(distr)) # nolint beautier function
+  testit::assert(beautier::is_gamma_distr(distr))
   id <- distr$id
-  testit::assert(is_id(id)) # nolint beautier function
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Gamma ",

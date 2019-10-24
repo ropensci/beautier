@@ -163,7 +163,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
     id = id,
     group_sizes_dimension = group_sizes_dimension
   )
-  testit::assert(is_cbs_tree_prior(cbs_tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
   cbs_tree_prior
 }
 

@@ -17,10 +17,10 @@ clock_model_to_xml_prior_distr <- function(
   mrca_priors = NA,
   tipdates_filename = NA
 ) {
-  testit::assert(is_clock_model(clock_model)) # nolint beautier function
+  testit::assert(beautier::is_clock_model(clock_model))
 
   text <- NULL
-  if (is_rln_clock_model(clock_model)) { # nolint beautier function
+  if (beautier::is_rln_clock_model(clock_model)) {
 
     if (
       is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint beautier function

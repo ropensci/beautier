@@ -11,44 +11,46 @@ init_tree_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(are_tree_priors(tree_priors)) # nolint beautier function
+  testit::assert(beautier::are_tree_priors(tree_priors))
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    testit::assert(is_tree_prior(tree_prior)) # nolint beautier function
+    testit::assert(beautier::is_tree_prior(tree_prior))
 
-    if (is_bd_tree_prior(tree_prior)) { # nolint beautier function
-      if (!is_init_bd_tree_prior(tree_prior)) { # nolint beautier function
-        tree_prior <- init_bd_tree_prior( # nolint beautier function call
+    if (beautier::is_bd_tree_prior(tree_prior)) {
+      if (!beautier::is_init_bd_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_bd_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
-    } else if (is_cbs_tree_prior(tree_prior)) { # nolint beautier function
+    } else if (beautier::is_cbs_tree_prior(tree_prior)) {
       # Nothing to do
-    } else if (is_ccp_tree_prior(tree_prior)) { # nolint beautier function
-      if (!is_init_ccp_tree_prior(tree_prior)) { # nolint beautier function
-        tree_prior <- init_ccp_tree_prior( # nolint beautier function call
+    } else if (beautier::is_ccp_tree_prior(tree_prior)) {
+      if (!beautier::is_init_ccp_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_ccp_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
-    } else if (is_cep_tree_prior(tree_prior)) { # nolint beautier function
-      if (!is_init_cep_tree_prior(tree_prior)) { # nolint beautier function
-        tree_prior <- init_cep_tree_prior( # nolint beautier function call
+    } else if (beautier::is_cep_tree_prior(tree_prior)) {
+      if (!beautier::is_init_cep_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_cep_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     } else {
-      testit::assert(is_yule_tree_prior(tree_prior)) # nolint beautier function
-      if (!is_init_yule_tree_prior(tree_prior)) { # nolint beautier function
-        tree_prior <- init_yule_tree_prior( # nolint beautier function call
-          tree_prior, distr_id = distr_id, param_id = param_id
+      testit::assert(beautier::is_yule_tree_prior(tree_prior))
+      if (!beautier::is_init_yule_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_yule_tree_prior(
+          tree_prior,
+          distr_id = distr_id,
+          param_id = param_id
         )
       }
     }
-    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior) # nolint beautier function
-    param_id <- param_id + get_tree_prior_n_params(tree_prior) # nolint beautier function
+    distr_id <- distr_id + beautier::get_tree_prior_n_distrs(tree_prior)
+    param_id <- param_id + beautier::get_tree_prior_n_params(tree_prior)
 
-    if (is_one_na(tree_prior$id)) tree_prior$id <- ids[i] # nolint beautier function
+    if (beautier::is_one_na(tree_prior$id)) tree_prior$id <- ids[i]
     tree_priors[[i]] <- tree_prior
   }
   tree_priors
@@ -63,18 +65,18 @@ init_bd_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
 
   result <- create_bd_tree_prior(
-    birth_rate_distr = init_distr( # nolint beautier function
+    birth_rate_distr = beautier::init_distr(
       bd_tree_prior$birth_rate_distr,
       distr_id,
       param_id
     ),
-    death_rate_distr = init_distr( # nolint beautier function
+    death_rate_distr = beautier::init_distr(
       bd_tree_prior$death_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(bd_tree_prior$birth_rate_distr) # nolint beautier function
+      param_id + beautier::get_distr_n_params(bd_tree_prior$birth_rate_distr)
     )
   )
 
@@ -91,7 +93,7 @@ init_ccp_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
 
   result <- create_ccp_tree_prior(
     pop_size_distr = init_distr(
@@ -112,25 +114,25 @@ init_cep_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior)) # nolint beautier function
-  testit::assert(!is_one_na(distr_id)) # nolint beautier function
-  testit::assert(!is_one_na(param_id)) # nolint beautier function
+  testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
+  testit::assert(!beautier::is_one_na(distr_id))
+  testit::assert(!beautier::is_one_na(param_id))
   testit::assert(
-    !is_one_na( # nolint beautier function
-      get_distr_n_params(cep_tree_prior$pop_size_distr) # nolint beautier function
+    !beautier::is_one_na(
+      beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )
 
-  result <- create_cep_tree_prior( # nolint beautier function
-    pop_size_distr = init_distr( # nolint beautier function
+  result <- beautier::create_cep_tree_prior(
+    pop_size_distr = beautier::init_distr(
       cep_tree_prior$pop_size_distr,
       distr_id,
       param_id
     ),
-    growth_rate_distr = init_distr( # nolint beautier function
+    growth_rate_distr = beautier::init_distr(
       cep_tree_prior$growth_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr) # nolint beautier function
+      param_id + beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )
 
@@ -146,10 +148,10 @@ init_yule_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior)) # nolint beautier function
+  testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
 
-  result <- create_yule_tree_prior( # nolint beautier function
-    birth_rate_distr = init_distr( # nolint beautier function
+  result <- beautier::create_yule_tree_prior(
+    birth_rate_distr = beautier::init_distr(
       yule_tree_prior$birth_rate_distr,
       distr_id,
       param_id
