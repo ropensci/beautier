@@ -2,8 +2,23 @@
 #' @param filename name of a FASTA file
 #' @return the number of taxa
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @examples
+#' library(testthat)
+#'
+#' fasta_filename <- get_beautier_path("test_output_5.fas")
+#' expect_equal(get_n_taxa(fasta_filename), 5)
+#' @export
 get_n_taxa <- function(filename) {
-  check_file_exists(filename, "filename") # nolint beautier function
-  length(seqinr::read.fasta(filename))
+  assertive::assert_is_a_string(filename)
+  assertive::assert_all_are_existing_files(filename)
+  tryCatch(
+    {
+      return(length(seqinr::read.fasta(filename)))
+    },
+    error = function(e) {
+      stop(
+        "'filename' must be a valid FASTA file: ", e$message
+      )
+    }
+  )
 }
