@@ -143,6 +143,7 @@ init_cep_tree_prior <- function(
 #' @inheritParams default_params_doc
 #' @return an initialized Yule tree prior
 #' @author Richèl J.C. Bilderbeek
+#' @export
 init_yule_tree_prior <- function(
   yule_tree_prior,
   distr_id,
