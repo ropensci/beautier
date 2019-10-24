@@ -100,7 +100,7 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     "<logger ",
     "id=\"tracelog\" "
   )
-  if (inference_model$mcmc$tracelog$filename != "") {
+  if (is.na(inference_model$mcmc$tracelog$filename)) {
     # Alignment IDs
     ids <- beautier::get_alignment_id(
       input_filename,
@@ -111,6 +111,12 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     top_line <- paste0(
       top_line,
       "fileName=\"", filename, ".log\" "
+    )
+  } else {
+    testit::assert(!is.na(inference_model$mcmc$tracelog$filename))
+    top_line <- paste0(
+      top_line,
+      "fileName=\"", inference_model$mcmc$tracelog$filename, "\" "
     )
   }
   top_line <- paste0(

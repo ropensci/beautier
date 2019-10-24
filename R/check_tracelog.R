@@ -44,8 +44,10 @@ check_tracelog_list_element_names <- function(tracelog) {
 #' @noRd
 check_tracelog_list_element_values <- function(tracelog) {
 
-  assertive::assert_is_character(tracelog$filename)
-  assertive::assert_is_a_string(tracelog$filename)
+  if (!beautier::is_one_na(tracelog$filename)) {
+    assertive::assert_is_character(tracelog$filename)
+    assertive::assert_is_a_string(tracelog$filename)
+  }
   assertive::assert_is_numeric(tracelog$log_every)
   assertive::assert_all_are_positive(tracelog$log_every)
   beautier::check_log_mode(tracelog$mode)

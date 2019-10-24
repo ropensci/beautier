@@ -4,11 +4,13 @@
 \alias{create_tracelog}
 \title{Create a \code{tracelog} object}
 \usage{
-create_tracelog(filename = "test_output_0.log", log_every = 1000,
-  mode = "autodetect", sanitise_headers = TRUE, sort = "smart")
+create_tracelog(filename = NA, log_every = 1000, mode = "autodetect",
+  sanitise_headers = TRUE, sort = "smart")
 }
 \arguments{
-\item{filename}{name of the file to store the posterior traces}
+\item{filename}{name of the file to store the posterior traces.
+Use \link{NA} to use the filename \code{[alignment_id].log},
+where \code{alignment_id} is obtained using \link{get_alignment_id}}
 
 \item{log_every}{number of MCMC states between the logging of that state
 phylogenies to. By default, this is \code{$(trace).traces}}

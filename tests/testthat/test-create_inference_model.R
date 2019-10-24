@@ -44,7 +44,7 @@ test_that("has same defaults as BEAUti", {
   expect_equal(10, inference_model$mcmc$n_init_attempts)
 
   # TODO: improve this test
-  expect_equal("test_output_0.log", inference_model$mcmc$tracelog$filename)
+  expect_true(is.na(inference_model$mcmc$tracelog$filename))
   # TODO: tracelog defaults
   # TODO: screenlog defaults
   # TODO: treelog defaults
