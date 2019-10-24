@@ -60,6 +60,7 @@ init_tree_priors <- function(
 #' @inheritParams default_params_doc
 #' @return an initialized Birth-Death tree prior
 #' @author Richèl J.C. Bilderbeek
+#' @export
 init_bd_tree_prior <- function(
   bd_tree_prior,
   distr_id,
@@ -88,6 +89,7 @@ init_bd_tree_prior <- function(
 #' @inheritParams default_params_doc
 #' @return an initialized Coalescent Constant Population tree prior
 #' @author Richèl J.C. Bilderbeek
+#' @export
 init_ccp_tree_prior <- function(
   ccp_tree_prior,
   distr_id,
@@ -109,6 +111,7 @@ init_ccp_tree_prior <- function(
 #' @inheritParams default_params_doc
 #' @return an initialized Coalescent Exponential Population tree prior
 #' @author Richèl J.C. Bilderbeek
+#' @export
 init_cep_tree_prior <- function(
   cep_tree_prior,
   distr_id,
