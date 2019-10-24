@@ -5,7 +5,8 @@
 \title{Creates the \code{screenlog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_screenlog(inference_model)
+
+  create_beast2_input_screenlog(inference_model = create_inference_model())
 }
 \arguments{
 \item{inference_model}{an Bayesian phylogenetic inference model,

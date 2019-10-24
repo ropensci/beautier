@@ -137,10 +137,30 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_screenlog <- function(
-  inference_model
+  inference_model = create_inference_model()
 ) {
+  top_line <- "<logger id=\"screenlog\""
+  if (nchar(inference_model$mcmc$screenlog$filename) > 0) {
+    top_line <- paste0(
+      top_line,
+      " fileName=\"", inference_model$mcmc$screenlog$filename, "\""
+    )
+  }
+  top_line <- paste0(
+    top_line,
+    " logEvery=\"", inference_model$mcmc$screenlog$log_every
+  )
+  if (inference_model$mcmc$screenlog$mode != "autodetect") {
+    top_line <- paste0(
+      top_line,
+      "mode=\"", inference_model$mcmc$screenlog$mode, "\""
+    )
+  }
+
+  top_line <- paste0(top_line, "\">")
+
   text <- NULL
-  text <- c(text, "<logger id=\"screenlog\" logEvery=\"1000\">")
+  text <- c(text, top_line)
   text <- c(text, "    <log idref=\"posterior\"/>") # nolint this is no absolute path
   text <- c(text, paste0("    <log id=\"ESS.0\" spec=\"util.ESS\" ",
     "arg=\"@posterior\"/>")) # nolint this is no absolute path
