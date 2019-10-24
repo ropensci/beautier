@@ -103,7 +103,7 @@ test_that("abuse, by wrong values", {
         sanitise_headers = "nonsense"
       )
     ),
-    "sanitizs_headers"
+    "sanitise_headers"
   )
 
   expect_error(
