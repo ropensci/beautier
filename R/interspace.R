@@ -2,7 +2,7 @@
 #' @param lines lines of text
 #' @return interspaced lines of text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 interspace <- function(lines) {
 
   if (length(lines) == 0) return(lines)

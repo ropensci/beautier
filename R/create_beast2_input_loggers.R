@@ -27,9 +27,9 @@ create_beast2_input_loggers <- function(# nolint keep long function name, as it 
   inference_model
 ) {
   testit::assert(length(input_filename) == 1)
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
 
-  tracelog_text <- create_beast2_input_tracelog(
+  tracelog_text <- beautier::create_beast2_input_tracelog(
     input_filename = input_filename,
     inference_model = inference_model
   )

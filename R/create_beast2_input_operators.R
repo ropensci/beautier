@@ -38,7 +38,7 @@ create_beast2_input_operators <- function( # nolint beautier function
       tipdates_filename = tipdates_filename
     )
   )
-  text <- interspace(text) # nolint beautier function
+  text <- beautier::interspace(text)
 
-  indent(text, n_spaces = 4) # nolint beautier function
+  beautier::indent(text, n_spaces = 4)
 }
