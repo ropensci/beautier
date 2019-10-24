@@ -21,7 +21,7 @@ check_screenlog <- function(screenlog) {
 check_screenlog_list_element_names <- function(screenlog) {
 
   list_element_names <- c(
-    "filename", "log_every", "mode", "sanitize_headers", "sort"
+    "filename", "log_every", "mode", "sanitise_headers", "sort"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(screenlog)) {
@@ -49,6 +49,6 @@ check_screenlog_list_element_values <- function(screenlog) {
   assertive::assert_is_numeric(screenlog$log_every)
   assertive::assert_all_are_positive(screenlog$log_every)
   beautier::check_log_mode(screenlog$mode)
-  assertive::assert_is_if_condition(screenlog$sanitize_headers)
+  assertive::assert_is_if_condition(screenlog$sanitise_headers)
   beautier::check_log_sort(screenlog$sort)
 }

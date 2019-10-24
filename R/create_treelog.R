@@ -4,7 +4,7 @@
 #' phylogenies to. By default, this is \code{$(tree).trees}
 #' @param mode mode how to log.
 #' Valid values are the ones returned by \link{get_log_modes}
-#' @param sanitize_headers set to \link{TRUE} to sanitize the headers of the
+#' @param sanitise_headers set to \link{TRUE} to sanitize the headers of the
 #' log file
 #' @param sort how to sort the log.
 #' Valid values are the ones returned by \link{get_log_sorts}
@@ -13,14 +13,14 @@ create_treelog <- function(
   filename = "$(tree).trees",
   log_every = 1000,
   mode = "tree",
-  sanitize_headers = FALSE,
+  sanitise_headers = FALSE,
   sort = "none"
 ) {
   treelog <- list(
     filename = filename,
     log_every = log_every,
     mode = mode,
-    sanitize_headers = sanitize_headers,
+    sanitise_headers = sanitise_headers,
     sort = sort
   )
   beautier::check_treelog(treelog)

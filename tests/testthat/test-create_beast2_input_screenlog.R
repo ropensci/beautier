@@ -53,3 +53,37 @@ test_that("mode in XML", {
     )
   )
 })
+
+test_that("sanitise_headers in XML", {
+  xml <- create_beast2_input_screenlog(
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        screenlog = create_screenlog(
+          sanitise_headers = TRUE
+        )
+      )
+    )
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "sanitiseHeaders=\"true\"")[1, 1]
+    )
+  )
+})
+
+test_that("sort in XML", {
+  xml <- create_beast2_input_screenlog(
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        screenlog = create_screenlog(
+          sort = "smart"
+        )
+      )
+    )
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "sort=\"smart\"")[1, 1]
+    )
+  )
+})

@@ -5,7 +5,7 @@
 \title{Create a \code{tracelog} object}
 \usage{
 create_tracelog(filename = "test_output_0.log", log_every = 1000,
-  mode = "autodetect", sanitize_headers = TRUE, sort = "smart")
+  mode = "autodetect", sanitise_headers = TRUE, sort = "smart")
 }
 \arguments{
 \item{filename}{name of the file to store the posterior traces}
@@ -16,7 +16,7 @@ phylogenies to. By default, this is \code{$(trace).traces}}
 \item{mode}{mode how to log.
 Valid values are the ones returned by \link{get_log_modes}}
 
-\item{sanitize_headers}{set to \link{TRUE} to sanitize the headers of the
+\item{sanitise_headers}{set to \link{TRUE} to sanitize the headers of the
 log file}
 
 \item{sort}{how to sort the log.

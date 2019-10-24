@@ -21,7 +21,7 @@ check_tracelog <- function(tracelog) {
 check_tracelog_list_element_names <- function(tracelog) {
 
   list_element_names <- c(
-    "filename", "log_every", "mode", "sanitize_headers", "sort"
+    "filename", "log_every", "mode", "sanitise_headers", "sort"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(tracelog)) {
@@ -49,6 +49,6 @@ check_tracelog_list_element_values <- function(tracelog) {
   assertive::assert_is_numeric(tracelog$log_every)
   assertive::assert_all_are_positive(tracelog$log_every)
   beautier::check_log_mode(tracelog$mode)
-  assertive::assert_is_if_condition(tracelog$sanitize_headers)
+  assertive::assert_is_if_condition(tracelog$sanitise_headers)
   beautier::check_log_sort(tracelog$sort)
 }

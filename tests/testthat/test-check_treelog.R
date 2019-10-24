@@ -22,7 +22,7 @@ test_that("use", {
   expect_silent(
     check_treelog(
       create_treelog(
-        sanitize_headers = TRUE
+        sanitise_headers = TRUE
       )
     )
   )
@@ -45,8 +45,8 @@ test_that("abuse, by removing elements", {
   expect_error(check_treelog(treelog), "mode")
 
   treelog <- good_treelog
-  treelog$sanitize_headers <- NULL
-  expect_error(check_treelog(treelog), "sanitize_headers")
+  treelog$sanitise_headers <- NULL
+  expect_error(check_treelog(treelog), "sanitise_headers")
 
   treelog <- good_treelog
   treelog$sort <- NULL
@@ -100,10 +100,10 @@ test_that("abuse, by wrong values", {
   expect_error(
     check_treelog(
       create_treelog(
-        sanitize_headers = "nonsense"
+        sanitise_headers = "nonsense"
       )
     ),
-    "sanitize_headers"
+    "sanitise_headers"
   )
 
   expect_error(

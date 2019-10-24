@@ -21,7 +21,7 @@ check_treelog <- function(treelog) {
 check_treelog_list_element_names <- function(treelog) {
 
   list_element_names <- c(
-    "filename", "log_every", "mode", "sanitize_headers", "sort"
+    "filename", "log_every", "mode", "sanitise_headers", "sort"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(treelog)) {
@@ -49,6 +49,6 @@ check_treelog_list_element_values <- function(treelog) {
   assertive::assert_is_numeric(treelog$log_every)
   assertive::assert_all_are_positive(treelog$log_every)
   beautier::check_log_mode(treelog$mode)
-  assertive::assert_is_if_condition(treelog$sanitize_headers)
+  assertive::assert_is_if_condition(treelog$sanitise_headers)
   beautier::check_log_sort(treelog$sort)
 }

@@ -22,7 +22,7 @@ test_that("use", {
   expect_silent(
     check_tracelog(
       create_tracelog(
-        sanitize_headers = TRUE
+        sanitise_headers = TRUE
       )
     )
   )
@@ -45,8 +45,8 @@ test_that("abuse, by removing elements", {
   expect_error(check_tracelog(tracelog), "mode")
 
   tracelog <- good_tracelog
-  tracelog$sanitize_headers <- NULL
-  expect_error(check_tracelog(tracelog), "sanitize_headers")
+  tracelog$sanitise_headers <- NULL
+  expect_error(check_tracelog(tracelog), "sanitise_headers")
 
   tracelog <- good_tracelog
   tracelog$sort <- NULL
@@ -100,10 +100,10 @@ test_that("abuse, by wrong values", {
   expect_error(
     check_tracelog(
       create_tracelog(
-        sanitize_headers = "nonsense"
+        sanitise_headers = "nonsense"
       )
     ),
-    "sanitize_headers"
+    "sanitise_headers"
   )
 
   expect_error(

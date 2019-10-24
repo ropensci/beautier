@@ -5,7 +5,7 @@ test_that("use", {
       log_every = 1234,
       mode = "autodetect",
       sort = "alphabetic",
-      sanitize_headers = TRUE
+      sanitise_headers = TRUE
     )
   )
 })

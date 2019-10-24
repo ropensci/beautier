@@ -22,7 +22,7 @@ test_that("use", {
   expect_silent(
     check_screenlog(
       create_screenlog(
-        sanitize_headers = TRUE
+        sanitise_headers = TRUE
       )
     )
   )
@@ -45,8 +45,8 @@ test_that("abuse, by removing elements", {
   expect_error(check_screenlog(screenlog), "mode")
 
   screenlog <- good_screenlog
-  screenlog$sanitize_headers <- NULL
-  expect_error(check_screenlog(screenlog), "sanitize_headers")
+  screenlog$sanitise_headers <- NULL
+  expect_error(check_screenlog(screenlog), "sanitise_headers")
 
   screenlog <- good_screenlog
   screenlog$sort <- NULL
@@ -100,10 +100,10 @@ test_that("abuse, by wrong values", {
   expect_error(
     check_screenlog(
       create_screenlog(
-        sanitize_headers = "nonsense"
+        sanitise_headers = "nonsense"
       )
     ),
-    "sanitize_headers"
+    "sanitizs_headers"
   )
 
   expect_error(

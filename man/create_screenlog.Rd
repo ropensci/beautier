@@ -5,7 +5,7 @@
 \title{Create a \code{screenlog} object}
 \usage{
 create_screenlog(filename = "", log_every = 1000,
-  mode = "autodetect", sanitize_headers = FALSE, sort = "none")
+  mode = "autodetect", sanitise_headers = FALSE, sort = "none")
 }
 \arguments{
 \item{filename}{name of the file to store the posterior screens}
@@ -16,7 +16,7 @@ phylogenies to. By default, this is \code{$(screen).screens}}
 \item{mode}{mode how to log.
 Valid values are the ones returned by \link{get_log_modes}}
 
-\item{sanitize_headers}{set to \link{TRUE} to sanitize the headers of the
+\item{sanitise_headers}{set to \link{TRUE} to sanitise the headers of the
 log file}
 
 \item{sort}{how to sort the log.

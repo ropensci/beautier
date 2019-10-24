@@ -112,7 +112,7 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     "logEvery=\"", inference_model$mcmc$tracelog$log_every, "\" ",
     "model=\"@posterior\""
   )
-  if (inference_model$mcmc$tracelog$sanitize_headers == TRUE) {
+  if (inference_model$mcmc$tracelog$sanitise_headers == TRUE) {
     top_line <- paste0(
       top_line,
       " sanitiseHeaders=\"true\""
@@ -156,6 +156,15 @@ create_beast2_input_screenlog <- function(
       "mode=\"", inference_model$mcmc$screenlog$mode, "\""
     )
   }
+  if (inference_model$mcmc$screenlog$sanitise_headers == TRUE) {
+    top_line <- paste0(top_line, " sanitiseHeaders=\"true\"")
+  }
+  if (inference_model$mcmc$screenlog$sort != "none") {
+    top_line <- paste0(
+      top_line,
+      "sort=\"", inference_model$mcmc$screenlog$sort, "\""
+    )
+  }
 
   top_line <- paste0(top_line, "\">")
 
@@ -189,8 +198,8 @@ create_beast2_input_treelogs <- function(
     "logEvery=\"", inference_model$mcmc$treelog$log_every, "\" ",
     "mode=\"", inference_model$mcmc$treelog$mode, "\""
   )
-  if (inference_model$mcmc$treelog$sanitize_headers == TRUE) {
-    top_line <- paste0(top_line, "sanitiseHeaders=\"true\"")
+  if (inference_model$mcmc$treelog$sanitise_headers == TRUE) {
+    top_line <- paste0(top_line, " sanitiseHeaders=\"true\"")
   }
   if (inference_model$mcmc$treelog$sort != "none") {
     top_line <- paste0(

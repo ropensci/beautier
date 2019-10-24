@@ -5,7 +5,7 @@
 \title{Create a \code{treelog} object}
 \usage{
 create_treelog(filename = "$(tree).trees", log_every = 1000,
-  mode = "tree", sanitize_headers = FALSE, sort = "none")
+  mode = "tree", sanitise_headers = FALSE, sort = "none")
 }
 \arguments{
 \item{filename}{name of the file to store the posterior trees}
@@ -16,7 +16,7 @@ phylogenies to. By default, this is \code{$(tree).trees}}
 \item{mode}{mode how to log.
 Valid values are the ones returned by \link{get_log_modes}}
 
-\item{sanitize_headers}{set to \link{TRUE} to sanitize the headers of the
+\item{sanitise_headers}{set to \link{TRUE} to sanitize the headers of the
 log file}
 
 \item{sort}{how to sort the log.
