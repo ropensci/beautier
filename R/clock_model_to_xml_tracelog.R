@@ -33,6 +33,6 @@ clock_model_to_xml_tracelog <- function(
     # Will fail on unimplemented clock models
     testit::assert(beautier::is_strict_clock_model(clock_model))
   }
-  testit::assert(is.null(text) || is_xml(text)) # nolint beautier function
+  testit::assert(is.null(text) || beautier::is_xml(text))
   text
 }

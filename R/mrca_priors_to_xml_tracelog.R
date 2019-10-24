@@ -14,7 +14,7 @@ mrca_priors_to_xml_tracelog <- function(
   mrca_priors,
   tipdates_filename = NA
 ) {
-  testit::assert(are_mrca_priors(mrca_priors)) # nolint beautier function
+  testit::assert(beautier::are_mrca_priors(mrca_priors))
   text <- NULL
 
   for (mrca_prior in mrca_priors) {

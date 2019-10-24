@@ -40,7 +40,7 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
 
   text <- c(text,
-    create_beast2_input_data(
+    beautier::create_beast2_input_data(
       input_filenames = input_filename,
       beauti_options = inference_model$beauti_options
     )
@@ -56,13 +56,13 @@ create_beast2_input_beast <- function(
   text <- c(text, "")
   text <- c(text, "    ")
 
-  text <- c(text, create_beast2_input_map()) # nolint beautier function call
+  text <- c(text, beautier::create_beast2_input_map())
 
   text <- c(text, "")
   text <- c(text, "")
 
   text <- c(text,
-    create_beast2_input_run(
+    beautier::create_beast2_input_run(
       input_filename = input_filename,
       inference_model = inference_model
     )

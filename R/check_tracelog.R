@@ -48,7 +48,7 @@ check_tracelog_list_element_values <- function(tracelog) {
   assertive::assert_is_a_string(tracelog$filename)
   assertive::assert_is_numeric(tracelog$log_every)
   assertive::assert_all_are_positive(tracelog$log_every)
-  check_log_mode(tracelog$mode)
+  beautier::check_log_mode(tracelog$mode)
   assertive::assert_is_if_condition(tracelog$sanitize_headers)
-  check_log_sort(tracelog$sort)
+  beautier::check_log_sort(tracelog$sort)
 }

@@ -11,7 +11,7 @@ check_fasta_file_and_inference_model <- function(
   # If there is a CBS tree prior, the number of groups it has
   # must be equals or more than the number of taxa in the alignment
   if (beautier::is_cbs_tree_prior(inference_model$tree_prior)) {
-    n_taxa <- get_n_taxa(input_filename) # nolint beautier function
+    n_taxa <- beautier::get_n_taxa(input_filename)
     group_sizes_dimension <- inference_model$tree_prior$group_sizes_dimension
     if (n_taxa <= group_sizes_dimension) {
       stop(

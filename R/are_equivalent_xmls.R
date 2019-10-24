@@ -165,12 +165,16 @@ are_equivalent_xml_lines_operators <- function( # nolint don't care about intern
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
-are_equivalent_xml_lines_loggers <- function( # nolint don't care about internal function length
+are_equivalent_xml_lines_loggers <- function(# nolint don't care about internal function length
   lines_1,
   lines_2,
   verbose = FALSE
 ) {
   section_1 <- beautier::extract_xml_loggers_from_lines(lines_1)
   section_2 <- beautier::extract_xml_loggers_from_lines(lines_2)
-  beautier::are_equivalent_xml_lines_all(section_1, section_2, verbose = verbose)
+  beautier::are_equivalent_xml_lines_all(
+    section_1,
+    section_2,
+    verbose = verbose
+  )
 }

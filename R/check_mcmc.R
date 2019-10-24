@@ -102,7 +102,7 @@ check_mcmc_list_element_values <- function(mcmc) {
   assertive::assert_all_are_whole_numbers(mcmc$n_init_attempts)
   assertive::assert_all_are_positive(mcmc$n_init_attempts)
   assertive::assert_is_if_condition(mcmc$sample_from_prior)
-  check_treelog(mcmc$treelog)
-  check_screenlog(mcmc$screenlog)
-  check_tracelog(mcmc$tracelog)
+  beautier::check_treelog(mcmc$treelog)
+  beautier::check_screenlog(mcmc$screenlog)
+  beautier::check_tracelog(mcmc$tracelog)
 }

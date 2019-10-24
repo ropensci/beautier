@@ -9,7 +9,7 @@ create_beast2_input_data_sequences <- function( # nolint beautier function
   input_fasta_filename,
   beauti_options = create_beauti_options()
 ) {
-  check_file_exists(input_fasta_filename, "input_fasta_filename") # nolint beautier function
+  beautier::check_file_exists(input_fasta_filename, "input_fasta_filename")
 
   nucleotides_uppercase <- beauti_options$nucleotides_uppercase
 

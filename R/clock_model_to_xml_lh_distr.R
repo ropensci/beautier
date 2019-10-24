@@ -87,6 +87,6 @@ clock_model_to_xml_lh_distr <- function(
   }
 
 
-  testit::assert(is.null(text) || is_xml(text)) # nolint beautier function
+  testit::assert(is.null(text) || beautier::is_xml(text))
   text
 }
