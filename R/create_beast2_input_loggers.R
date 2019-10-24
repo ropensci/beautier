@@ -56,13 +56,6 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
   input_filename,
   inference_model
 ) {
-  # Alignment IDs
-  ids <- beautier::get_alignment_id(
-    input_filename,
-    capitalize_first_char_id =
-      inference_model$beauti_options$capitalize_first_char_id
-  )
-
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
   clock_models <- list(inference_model$clock_model)
@@ -71,8 +64,6 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
   tipdates_filename <- inference_model$tipdates_filename
 
   text <- NULL
-  # 1 tracelog
-  filename <- utils::head(ids, n = 1)
 
   text <- c(text, "<log idref=\"posterior\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"likelihood\"/>") # nolint this is no absolute path
@@ -107,8 +98,23 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
 
   top_line <- paste0(
     "<logger ",
-    "id=\"tracelog\" ",
-    "fileName=\"", filename, ".log\" ",
+    "id=\"tracelog\" "
+  )
+  if (inference_model$mcmc$tracelog$filename != "") {
+    # Alignment IDs
+    ids <- beautier::get_alignment_id(
+      input_filename,
+      capitalize_first_char_id =
+        inference_model$beauti_options$capitalize_first_char_id
+    )
+    filename <- utils::head(ids, n = 1)
+    top_line <- paste0(
+      top_line,
+      "fileName=\"", filename, ".log\" "
+    )
+  }
+  top_line <- paste0(
+    top_line,
     "logEvery=\"", inference_model$mcmc$tracelog$log_every, "\" ",
     "model=\"@posterior\""
   )
