@@ -68,7 +68,6 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
   clock_models <- list(inference_model$clock_model)
   tree_priors <- list(inference_model$tree_prior)
   mrca_priors <- list(inference_model$mrca_prior)
-  mcmc <- inference_model$mcmc
   tipdates_filename <- inference_model$tipdates_filename
 
   text <- NULL
@@ -112,10 +111,15 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     "fileName=\"", filename, ".log\" ",
     "logEvery=\"", inference_model$mcmc$tracelog$log_every, "\" ",
     "model=\"@posterior\" ",
-    "sanitiseHeaders=\"true\" ",
-    "sort=\"smart\"",
-    ">"
+    "sanitiseHeaders=\"true\""
   )
+  if (inference_model$mcmc$tracelog$sort != "none") {
+    top_line <- paste0(
+      top_line,
+      " sort=\"", inference_model$mcmc$tracelog$sort, "\""
+    )
+  }
+  top_line <- paste0(top_line, ">")
 
   text <- c(top_line, text)
   c(text, "</logger>")

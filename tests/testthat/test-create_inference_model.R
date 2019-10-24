@@ -40,8 +40,11 @@ test_that("has same defaults as BEAUti", {
   # MCMC
   expect_equal(10000000, inference_model$mcmc$chain_length)
   expect_equal(-1, inference_model$mcmc$store_every)
-  # TODO: pre burnin on zero
-  # TODO: number of initialization attempts 10
+  expect_equal(0, inference_model$mcmc$pre_burnin)
+  expect_equal(10, inference_model$mcmc$n_init_attempts)
+
+  # TODO: improve this test
+  expect_equal("test_output_0.log", inference_model$mcmc$tracelog$filename)
   # TODO: tracelog defaults
   # TODO: screenlog defaults
   # TODO: treelog defaults
