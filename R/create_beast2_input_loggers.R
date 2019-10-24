@@ -110,9 +110,14 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     "id=\"tracelog\" ",
     "fileName=\"", filename, ".log\" ",
     "logEvery=\"", inference_model$mcmc$tracelog$log_every, "\" ",
-    "model=\"@posterior\" ",
-    "sanitiseHeaders=\"true\""
+    "model=\"@posterior\""
   )
+  if (inference_model$mcmc$tracelog$sanitize_headers == TRUE) {
+    top_line <- paste0(
+      top_line,
+      " sanitiseHeaders=\"true\""
+    )
+  }
   if (inference_model$mcmc$tracelog$sort != "none") {
     top_line <- paste0(
       top_line,
