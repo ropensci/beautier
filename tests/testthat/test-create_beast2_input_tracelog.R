@@ -22,3 +22,147 @@ test_that("use", {
   )
   expect_equal(created, expected)
 })
+
+test_that("use", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model()
+  )
+
+
+  expect_silent(
+    create_beast2_input_tracelog(
+      input_filename = input_filename,
+      inference_model = inference_model
+    )
+  )
+  expect_true(
+    is_xml(
+      create_beast2_input_tracelog(
+        input_filename = input_filename,
+        inference_model = inference_model
+      )
+    )
+  )
+})
+
+test_that("file_name in XML", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        tracelog = create_tracelog(
+          filename = "my_file.txt"
+        )
+      )
+    )
+  )
+
+  xml <- create_beast2_input_tracelog(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "fileName=\"my_file.txt\"")[1, 1]
+    )
+  )
+})
+
+test_that("log_every in XML", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        tracelog = create_tracelog(
+          log_every = 1234
+        )
+      )
+    )
+  )
+
+  xml <- create_beast2_input_tracelog(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "logEvery=\"1234\"")[1, 1]
+    )
+  )
+})
+
+test_that("mode in XML", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        tracelog = create_tracelog(
+          mode = "compound"
+        )
+      )
+    )
+  )
+
+  xml <- create_beast2_input_tracelog(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "mode=\"compound\"")[1, 1]
+    )
+  )
+})
+
+test_that("sanitise_headers in XML", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        tracelog = create_tracelog(
+          sanitise_headers = TRUE
+        )
+      )
+    )
+  )
+
+  xml <- create_beast2_input_tracelog(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "sanitiseHeaders=\"true\"")[1, 1]
+    )
+  )
+})
+
+test_that("sort in XML", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model(
+      mcmc = create_mcmc(
+        tracelog = create_tracelog(
+          sort = "smart"
+        )
+      )
+    )
+  )
+
+  xml <- create_beast2_input_tracelog(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+  expect_true(
+    !is.na(
+      stringr::str_match(xml, pattern = "sort=\"smart\"")[1, 1]
+    )
+  )
+})

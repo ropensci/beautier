@@ -124,6 +124,12 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     "logEvery=\"", inference_model$mcmc$tracelog$log_every, "\" ",
     "model=\"@posterior\""
   )
+  if (inference_model$mcmc$tracelog$mode != "autodetect") {
+    top_line <- paste0(
+      top_line,
+      " mode=\"", inference_model$mcmc$tracelog$mode, "\""
+    )
+  }
   if (inference_model$mcmc$tracelog$sanitise_headers == TRUE) {
     top_line <- paste0(
       top_line,
