@@ -4,8 +4,7 @@
 \alias{create_beast2_input_loggers}
 \title{Creates the three logger sections of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_loggers(input_filename,
-  inference_model = create_inference_model())
+create_beast2_input_loggers(input_filename, inference_model)
 }
 \arguments{
 \item{input_filename}{A FASTA filename.
@@ -25,7 +24,7 @@ The logger section has these elements:
  <logger id="screenlog" [...]>
      [...]
  </logger>
- <logger id="treelog.t:test_output_0"  [...]>
+ <logger id="treelog.t:[alignment ID]"  [...]>
      [...]
  </logger>
 }
