@@ -48,7 +48,7 @@ check_screenlog_list_element_values <- function(screenlog) {
   assertive::assert_is_a_string(screenlog$filename)
   assertive::assert_is_numeric(screenlog$log_every)
   assertive::assert_all_are_positive(screenlog$log_every)
-  check_log_mode(screenlog$mode)
+  beautier::check_log_mode(screenlog$mode)
   assertive::assert_is_if_condition(screenlog$sanitize_headers)
-  check_log_sort(screenlog$sort)
+  beautier::check_log_sort(screenlog$sort)
 }

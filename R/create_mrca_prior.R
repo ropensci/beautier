@@ -43,6 +43,6 @@ create_mrca_prior <- function(
     mrca_distr = mrca_distr,
     clock_prior_distr_id = clock_prior_distr_id
   )
-  check_mrca_prior(mrca_prior) # nolint beautier function
+  beautier::check_mrca_prior(mrca_prior)
   mrca_prior
 }

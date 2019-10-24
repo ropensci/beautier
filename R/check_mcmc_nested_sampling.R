@@ -11,7 +11,7 @@
 #' @aliases check_mcmc_nested_sampling check_nested_sampling_mcmc
 #' @export check_mcmc_nested_sampling check_nested_sampling_mcmc
 check_mcmc_nested_sampling <- check_nested_sampling_mcmc <- function(mcmc) {
-  check_mcmc(mcmc) # nolint beautier function
+  beautier::check_mcmc(mcmc)
 
   # The arguments 'chain_length' and 'store_every' are checked
   # by check_mcmc

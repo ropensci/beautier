@@ -4,7 +4,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 fasta_file_to_sequences <- function(fasta_filename) {
-  check_file_exists(fasta_filename, "fasta_filename") # nolint beautier function
+  beautier::check_file_exists(fasta_filename, "fasta_filename")
 
   # Read the file
   sequences_dnabin <- ape::read.FASTA(fasta_filename)

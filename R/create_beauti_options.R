@@ -42,6 +42,6 @@ create_beauti_options <- function(
     required = required,
     sequence_indent = sequence_indent
   )
-  check_beauti_options(beauti_options) # nolint beautier function
+  beautier::check_beauti_options(beauti_options)
   beauti_options
 }

@@ -48,7 +48,7 @@ check_treelog_list_element_values <- function(treelog) {
   assertive::assert_is_a_non_empty_string(treelog$filename)
   assertive::assert_is_numeric(treelog$log_every)
   assertive::assert_all_are_positive(treelog$log_every)
-  check_log_mode(treelog$mode)
+  beautier::check_log_mode(treelog$mode)
   assertive::assert_is_if_condition(treelog$sanitize_headers)
-  check_log_sort(treelog$sort)
+  beautier::check_log_sort(treelog$sort)
 }
