@@ -5,7 +5,7 @@
 #'   Returns FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @export
-is_mrca_align_ids_in_fasta <- function(
+is_mrca_align_id_in_fasta <- function(
   mrca_prior,
   fasta_filename
 ) {

@@ -25,7 +25,7 @@ check_fasta_file_and_inference_model <- function(
   if (!beautier::is_one_na(inference_model$mrca_prior)) {
     testit::assert(beautier::is_mrca_prior(inference_model$mrca_prior))
 
-    if (!beautier::is_mrca_align_ids_in_fasta(
+    if (!beautier::is_mrca_align_id_in_fasta(
         mrca_prior = inference_model$mrca_prior,
         fasta_filename = input_filename
       )
