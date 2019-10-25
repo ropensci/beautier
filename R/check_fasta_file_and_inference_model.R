@@ -45,9 +45,9 @@ check_fasta_file_and_inference_model <- function(
 
   # All MRCA prior's taxa names must be FASTA file taxa names
   if (!beautier::is_one_na(inference_model$mrca_prior)) {
-    if (!beautier::are_mrca_taxa_names_in_fastas(
-        mrca_priors = list(inference_model$mrca_prior),
-        fasta_filenames = input_filename
+    if (!beautier::are_mrca_taxon_names_in_fasta(
+        mrca_prior = inference_model$mrca_prior,
+        fasta_filename = input_filename
       )
     ) {
       stop("All MRCA prior's taxa names must be FASTA file taxa names")

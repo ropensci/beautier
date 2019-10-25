@@ -2,7 +2,7 @@ test_that("use", {
 
   fasta_filename <- get_fasta_filename()
 
-expect_true(
+  expect_true(
     are_mrca_taxon_names_in_fasta(
       mrca_prior = create_mrca_prior(
         alignment_id = get_alignment_id(fasta_filename),
