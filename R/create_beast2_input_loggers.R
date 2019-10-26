@@ -199,8 +199,8 @@ create_beast2_input_screenlog <- function(
 #' Creates the XML text for the \code{logger} tag with ID \code{treelog}.
 #' This section has these elements:
 #' \preformatted{
-#' <logger id="treelog.t:test_output_0" spec="Logger" fileName="my_treelog.trees" logEvery="345000" mode="tree" sanitiseHeaders="true" sort="smart">
-#'     <log id="TreeWithMetaDataLogger.t:test_output_0" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:test_output_0"/>
+#' <logger id="treelog.t:test_output_0" spec="Logger" fileName="my_treelog.trees" logEvery="345000" mode="tree" sanitiseHeaders="true" sort="smart"> # nolint indeed long
+#'     <log id="TreeWithMetaDataLogger.t:test_output_0" spec="beast.evolution.tree.TreeWithMetaDataLogger" tree="@Tree.t:test_output_0"/> # nolint indeed long
 #' </logger>
 #' }
 #' @inheritParams default_params_doc

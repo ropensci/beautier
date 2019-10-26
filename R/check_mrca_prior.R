@@ -37,7 +37,7 @@ check_mrca_prior <- function(mrca_prior) {
   ) {
     stop("'name' must be NA or characters")
   }
-  if (!is_one_na(mrca_prior$alignment_id) && # nolint beautier function
+  if (!beautier::is_one_na(mrca_prior$alignment_id) &&
       !is.character(mrca_prior$alignment_id)) {
     stop("'alignment_id' must be NA or characters")
   }

@@ -38,8 +38,8 @@ expect_true(tail(text, n = 1) == "</beast>")
 }
 \seealso{
 Use \link{create_beast2_input_file_from_model} to also save it to file.
-Use \link{create_beast2_input_xml}
-to create the XML text of the main XML tag.
+Use \link{create_xml_declaration}
+to create the XML text of the XML declaration.
 Use \link{create_beast2_input_beast} to create
 to create the XML text of the \code{beast} tag.
 }

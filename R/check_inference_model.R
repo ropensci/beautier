@@ -72,5 +72,10 @@ check_inference_model <- function(
   ) {
     stop("'tipdates_filename' must be one NA or one string")
   }
-
+  if (is.na(inference_model$mcmc$tracelog$filename)) {
+    stop(
+      "'inference_model$mcmc$tracelog$filename' not initialized. \n",
+      "Tip: use 'create_inference_model' to do this initialization"
+    )
+  }
 }

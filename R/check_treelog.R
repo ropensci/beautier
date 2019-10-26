@@ -5,8 +5,8 @@
 #' @export
 check_treelog <- function(treelog) {
 
-  check_treelog_list_element_names(treelog)
-  check_treelog_list_element_values(treelog)
+  check_treelog_names(treelog)
+  check_treelog_values(treelog)
 }
 
 #' Check if the \code{treelog} has the list elements
@@ -18,7 +18,7 @@ check_treelog <- function(treelog) {
 #' @seealso Use \link{create_treelog} to create a valid \code{treelog}
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_treelog_list_element_names <- function(treelog) {
+check_treelog_names <- function(treelog) {
 
   list_element_names <- c(
     "filename", "log_every", "mode", "sanitise_headers", "sort"
@@ -42,7 +42,7 @@ check_treelog_list_element_names <- function(treelog) {
 #' @seealso Use \link{create_treelog} to create a valid treelog
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_treelog_list_element_values <- function(treelog) {
+check_treelog_values <- function(treelog) {
 
   assertive::assert_is_character(treelog$filename)
   assertive::assert_is_a_non_empty_string(treelog$filename)

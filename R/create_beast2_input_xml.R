@@ -1,8 +1,8 @@
-#' Creates the xml section of a BEAST2 XML parameter file
+#' Create the XML declaration as XML text
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_xml <- function() {
+create_xml_declaration <- function() {
   "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
 }

@@ -21,7 +21,7 @@ compare_lines <- function(
   created_lines_filename = "created.xml",
   expected_lines_filename = "expected.xml"
 ) {
-  if (!is_one_na(section)) { # nolint beautier function
+  if (!beautier::is_one_na(section)) {
     lines <- extract_xml_section_from_lines(
       lines = lines, section = section)
     expected <- extract_xml_section_from_lines(
