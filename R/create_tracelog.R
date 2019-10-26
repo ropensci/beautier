@@ -1,16 +1,9 @@
 #' Create a \code{tracelog} object
+#' @inheritParams default_params_doc
 #' @param filename
 #'   name of the file to store the posterior traces.
 #'   Use \link{NA} to use the filename \code{[alignment_id].log},
 #'   where \code{alignment_id} is obtained using \link{get_alignment_id}
-#' @param log_every number of MCMC states between the logging of that state
-#' phylogenies to. By default, this is \code{$(trace).traces}
-#' @param mode mode how to log.
-#' Valid values are the ones returned by \link{get_log_modes}
-#' @param sanitise_headers set to \link{TRUE} to sanitize the headers of the
-#' log file
-#' @param sort how to sort the log.
-#' Valid values are the ones returned by \link{get_log_sorts}
 #' @export
 create_tracelog <- function(
   filename = NA,

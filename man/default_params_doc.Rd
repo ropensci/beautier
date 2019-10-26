@@ -14,13 +14,14 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   group_sizes_dimension, gtr_site_model, has_non_strict_clock_model,
   has_tip_dating, hky_site_model, id, ids, inference_model,
   inference_models, initial_phylogenies, input_filename, input_filenames,
-  is_monophyletic, jc69_site_model, mcmc, mrca_prior, mrca_priors,
-  n_init_attempts, output_filename, param_id, phylogeny,
+  is_monophyletic, jc69_site_model, log_every, mcmc, mode, mrca_prior,
+  mrca_priors, n_init_attempts, output_filename, param_id, phylogeny,
   posterior_crown_age, pre_burnin, rln_clock_model, sample_from_prior,
-  screenlog, sequence_length, site_model, site_model_name,
-  site_model_names, site_models, store_every, strict_clock_model,
-  tipdates_filename, tn93_site_model, tracelog, treelog, tree_prior,
-  tree_prior_name, tree_prior_names, tree_priors, verbose, yule_tree_prior)
+  sanitise_headers, screenlog, sequence_length, site_model,
+  site_model_name, site_model_names, site_models, sort, store_every,
+  strict_clock_model, tipdates_filename, tn93_site_model, tracelog,
+  treelog, tree_prior, tree_prior_name, tree_prior_names, tree_priors,
+  verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -134,8 +135,13 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{jc69_site_model}{a JC69 site model,
 as returned by \code{\link{create_jc69_site_model}}}
 
+\item{log_every}{number of MCMC states between writing to file}
+
 \item{mcmc}{one MCMC
 as returned by \code{\link{create_mcmc}}}
+
+\item{mode}{mode how to log.
+Valid values are the ones returned by \link{get_log_modes}}
 
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
@@ -162,6 +168,9 @@ as returned by \code{\link{create_rln_clock_model}}}
 
 \item{sample_from_prior}{set to \link{TRUE} to sample from the prior}
 
+\item{sanitise_headers}{set to \link{TRUE} to sanitise the headers of the
+log file}
+
 \item{screenlog}{a \code{screenlog},
 as created by \link{create_screenlog}}
 
@@ -178,6 +187,9 @@ must be name among those returned by \code{\link{get_site_model_names}}}
 
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
+
+\item{sort}{how to sort the log.
+Valid values are the ones returned by \link{get_log_sorts}}
 
 \item{store_every}{number of states the MCMC will process
 before the posterior's state will be saved to file.

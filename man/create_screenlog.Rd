@@ -8,10 +8,10 @@ create_screenlog(filename = "", log_every = 1000,
   mode = "autodetect", sanitise_headers = FALSE, sort = "none")
 }
 \arguments{
-\item{filename}{name of the file to store the posterior screens}
-
-\item{log_every}{number of MCMC states between the logging of that state
+\item{filename}{name of the file to store the posterior screens
 phylogenies to. By default, this is \code{$(screen).screens}}
+
+\item{log_every}{number of MCMC states between writing to file}
 
 \item{mode}{mode how to log.
 Valid values are the ones returned by \link{get_log_modes}}

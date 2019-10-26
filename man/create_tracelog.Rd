@@ -12,13 +12,12 @@ create_tracelog(filename = NA, log_every = 1000, mode = "autodetect",
 Use \link{NA} to use the filename \code{[alignment_id].log},
 where \code{alignment_id} is obtained using \link{get_alignment_id}}
 
-\item{log_every}{number of MCMC states between the logging of that state
-phylogenies to. By default, this is \code{$(trace).traces}}
+\item{log_every}{number of MCMC states between writing to file}
 
 \item{mode}{mode how to log.
 Valid values are the ones returned by \link{get_log_modes}}
 
-\item{sanitise_headers}{set to \link{TRUE} to sanitize the headers of the
+\item{sanitise_headers}{set to \link{TRUE} to sanitise the headers of the
 log file}
 
 \item{sort}{how to sort the log.

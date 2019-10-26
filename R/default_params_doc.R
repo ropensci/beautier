@@ -78,8 +78,11 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' @param log_every number of MCMC states between writing to file
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
+#' @param mode mode how to log.
+#' Valid values are the ones returned by \link{get_log_modes}
 #' @param mrca_prior a Most Recent Common Ancestor prior,
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
@@ -95,6 +98,8 @@
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
 #' @param sample_from_prior set to \link{TRUE} to sample from the prior
+#' @param sanitise_headers set to \link{TRUE} to sanitise the headers of the
+#' log file
 #' @param screenlog a \code{screenlog},
 #'   as created by \link{create_screenlog}
 #' @param sequence_length a DNA sequence length, in base pairs
@@ -106,6 +111,8 @@
 #'   must be name among those returned by \code{\link{get_site_model_names}}
 #' @param site_models one or more site models,
 #'   as returned by \code{\link{create_site_model}}
+#' @param sort how to sort the log.
+#' Valid values are the ones returned by \link{get_log_sorts}
 #' @param store_every number of states the MCMC will process
 #'   before the posterior's state will be saved to file.
 #'   Use -1 or \code{NA} to use the default frequency.
@@ -168,7 +175,9 @@ default_params_doc <- function(
   input_filename, input_filenames,
   is_monophyletic,
   jc69_site_model,
+  log_every,
   mcmc,
+  mode,
   mrca_prior, mrca_priors,
   n_init_attempts,
   output_filename,
@@ -178,12 +187,14 @@ default_params_doc <- function(
   pre_burnin,
   rln_clock_model,
   sample_from_prior,
+  sanitise_headers,
   screenlog,
   sequence_length,
   site_model,
   site_model_name,
   site_model_names,
   site_models,
+  sort,
   store_every,
   strict_clock_model,
   tipdates_filename,

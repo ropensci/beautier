@@ -10,13 +10,12 @@ create_test_treelog(filename = tempfile(), log_every = 1000,
 \arguments{
 \item{filename}{name of the file to store the posterior trees}
 
-\item{log_every}{number of MCMC states between the logging of that state
-phylogenies to. By default, this is \code{$(tree).trees}}
+\item{log_every}{number of MCMC states between writing to file}
 
 \item{mode}{mode how to log.
 Valid values are the ones returned by \link{get_log_modes}}
 
-\item{sanitise_headers}{set to \link{TRUE} to sanitize the headers of the
+\item{sanitise_headers}{set to \link{TRUE} to sanitise the headers of the
 log file}
 
 \item{sort}{how to sort the log.
