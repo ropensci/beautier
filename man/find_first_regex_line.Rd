@@ -7,7 +7,7 @@
 find_first_regex_line(lines, regex)
 }
 \arguments{
-\item{lines}{lines of tex}
+\item{lines}{lines of text}
 
 \item{regex}{the regex as text}
 }

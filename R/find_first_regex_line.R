@@ -1,5 +1,5 @@
 #' Find the first line that satisfies a regex
-#' @param lines lines of tex
+#' @param lines lines of text
 #' @param regex the regex as text
 #' @return index of the line
 #' @author Richèl J.C. Bilderbeek
