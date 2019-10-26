@@ -5,12 +5,13 @@
 \title{Indent text for a certain number of spaces.
 If the text is only whitespace, leave it as such}
 \usage{
-indent(text, n_spaces)
+indent(text, n_spaces = 4)
 }
 \arguments{
 \item{text}{the text to indent}
 
-\item{n_spaces}{the number of spaces to add before the text}
+\item{n_spaces}{the number of spaces to add before the text. BEAUti uses
+four spaces by default}
 }
 \value{
 the indented text

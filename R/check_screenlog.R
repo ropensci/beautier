@@ -5,8 +5,8 @@
 #' @export
 check_screenlog <- function(screenlog) {
 
-  check_screenlog_list_element_names(screenlog)
-  check_screenlog_list_element_values(screenlog)
+  check_screenlog_names(screenlog)
+  check_screenlog_values(screenlog)
 }
 
 #' Check if the \code{screenlog} has the list elements
@@ -18,7 +18,7 @@ check_screenlog <- function(screenlog) {
 #' @seealso Use \link{create_screenlog} to create a valid \code{screenlog}
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_screenlog_list_element_names <- function(screenlog) {
+check_screenlog_names <- function(screenlog) {
 
   list_element_names <- c(
     "filename", "log_every", "mode", "sanitise_headers", "sort"
@@ -42,7 +42,7 @@ check_screenlog_list_element_names <- function(screenlog) {
 #' @seealso Use \link{create_screenlog} to create a valid screenlog
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_screenlog_list_element_values <- function(screenlog) {
+check_screenlog_values <- function(screenlog) {
 
   assertive::assert_is_character(screenlog$filename)
   assertive::assert_is_a_string(screenlog$filename)

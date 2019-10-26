@@ -6,7 +6,13 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * `create_mcmc` has more options
+  * Added `create_tracelog`, `create_screenlog`, `create_treelog`, that
+    indicate where BEAST2 will store its output file
+  * `create_mcmc` has all elements that BEAUti has
+  * Added testing functions, that use a short MCMC chain length and/or
+    a simple inference model: `create_test_mcmc`, `create_test_tracelog`,
+    `create_test_screenlog`, `create_test_treelog`
+    and `create_test_inference_model`
 
 ### MINOR IMPROVEMENTS
 

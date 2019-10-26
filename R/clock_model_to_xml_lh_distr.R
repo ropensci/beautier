@@ -33,8 +33,7 @@ clock_model_to_xml_lh_distr <- function(
       text <- c(
         text,
         beautier::indent(
-          parameter_to_xml(clock_model$clock_rate_param), # nolint beautier function
-          n_spaces = 4
+          beautier::parameter_to_xml(clock_model$clock_rate_param)
         )
       )
       text <- c(text, "</branchRateModel>")

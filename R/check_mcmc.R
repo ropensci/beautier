@@ -18,7 +18,7 @@
 check_mcmc <- function(mcmc) {
 
   check_mcmc_list_element_names(mcmc)
-  check_mcmc_list_element_values(mcmc)
+  check_mcmc_values(mcmc)
 }
 
 #' Check if the MCMC has the list elements of a valid MCMC object.
@@ -54,7 +54,7 @@ check_mcmc_list_element_names <- function(mcmc) {
 #' @seealso Use \link{create_mcmc} to create a valid MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_mcmc_list_element_values <- function(mcmc) {
+check_mcmc_values <- function(mcmc) {
 
   if (mcmc$chain_length <= 0) {
     stop(

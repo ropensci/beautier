@@ -40,10 +40,10 @@ create_beast2_input_loggers <- function(# nolint keep long function name, as it 
 
 
   c(
-    beautier::indent(tracelog_text, n_spaces = 4),
+    beautier::indent(tracelog_text),
     "",
-    beautier::indent(screenlog_text, n_spaces = 4),
-    beautier::indent(treelogs_text, n_spaces = 4)
+    beautier::indent(screenlog_text),
+    beautier::indent(treelogs_text)
   )
 }
 
@@ -93,8 +93,7 @@ create_beast2_input_tracelog <- function(# nolint keep long function name, as it
     )
   )
 
-  # Indent and surround the current text
-  text <- beautier::indent(text, n_spaces = 4)
+  text <- beautier::indent(text)
 
   top_line <- paste0(
     "<logger ",
@@ -234,8 +233,7 @@ create_beast2_input_treelogs <- function(
     beautier::indent(
       clock_model_to_xml_treelogger(
         inference_model$clock_model
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, "</logger>")

@@ -63,8 +63,7 @@ create_beast2_input_run <- function(
         tree_priors = tree_priors,
         mrca_priors = mrca_priors,
         tipdates_filename = tipdates_filename
-      ),
-      n_spaces = 4
+      )
     )
   )
 

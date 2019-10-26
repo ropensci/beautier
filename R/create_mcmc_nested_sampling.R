@@ -44,13 +44,21 @@ create_nested_sampling_mcmc <- create_mcmc_nested_sampling <- function(
   n_init_attempts = 3,
   particle_count = 1,
   sub_chain_length = 5000,
-  epsilon = "1e-12"
+  epsilon = "1e-12",
+  tracelog = create_tracelog(),
+  screenlog = create_screenlog(),
+  treelog = create_treelog()
 ) {
+  # Unsure about 'sample_from_prior' in NS MCMC, Issue #108
   mcmc <- create_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,
-    n_init_attempts = n_init_attempts
+    n_init_attempts = n_init_attempts,
+    sample_from_prior = FALSE,
+    tracelog = tracelog,
+    screenlog = screenlog,
+    treelog = treelog
   )
   if (particle_count < 1) {
     stop("'particle_count' must be a non-zero amount")

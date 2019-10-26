@@ -37,8 +37,7 @@ clock_model_to_xml_prior_distr <- function(
       beautier::indent(
         distr_to_xml( # nolint beautier function
           distr = clock_model$ucldstdev_distr
-        ),
-        n_spaces = 4
+        )
       )
     )
     text <- c(text, paste0("</prior>"))
@@ -55,8 +54,7 @@ clock_model_to_xml_prior_distr <- function(
         beautier::indent(
           distr_to_xml( # nolint beautier function
             clock_model$clock_rate_distr
-          ),
-          n_spaces = 4
+          )
         )
       )
       text <- c(text, paste0("</prior>"))

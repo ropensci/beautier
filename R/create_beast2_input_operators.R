@@ -40,5 +40,5 @@ create_beast2_input_operators <- function( # nolint beautier function
   )
   text <- beautier::interspace(text)
 
-  beautier::indent(text, n_spaces = 4)
+  beautier::indent(text)
 }

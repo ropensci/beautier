@@ -22,8 +22,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint beautier function
       beautier::indent(
         beautier::distr_to_xml(
           gamma_site_model$gamma_shape_prior_distr
-        ),
-        n_spaces = 4
+        )
       )
     )
     text <- c(text, paste0("</prior>"))

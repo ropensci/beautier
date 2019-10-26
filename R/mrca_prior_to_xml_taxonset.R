@@ -24,7 +24,7 @@ mrca_prior_to_xml_taxonset <- function(
   for (taxon_name in mrca_prior$taxa_names) {
     text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>")) # nolint this is no absolute path
   }
-  text <- beautier::indent(text, n_spaces = 4)
+  text <- beautier::indent(text)
   text <- c(
     paste0("<taxonset id=\"", mrca_prior$name, "\" spec=\"TaxonSet\">"),
     text

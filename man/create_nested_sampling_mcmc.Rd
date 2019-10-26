@@ -8,7 +8,9 @@ using Nested Sampling.}
 \usage{
 create_nested_sampling_mcmc(chain_length = 1e+07, store_every = -1,
   pre_burnin = 0, n_init_attempts = 3, particle_count = 1,
-  sub_chain_length = 5000, epsilon = "1e-12")
+  sub_chain_length = 5000, epsilon = "1e-12",
+  tracelog = create_tracelog(), screenlog = create_screenlog(),
+  treelog = create_treelog())
 }
 \arguments{
 \item{chain_length}{upper bound to the length of the MCMC chain}
@@ -27,6 +29,15 @@ the main loop}
 \item{sub_chain_length}{sub-chain length}
 
 \item{epsilon}{epsilon}
+
+\item{tracelog}{a \code{tracelog},
+as created by \link{create_tracelog}}
+
+\item{screenlog}{a \code{screenlog},
+as created by \link{create_screenlog}}
+
+\item{treelog}{a \code{treelog},
+as created by \link{create_treelog}}
 }
 \value{
 an MCMC object

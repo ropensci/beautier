@@ -17,8 +17,7 @@ rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint b
     beautier::indent(
       distr_to_xml( # nolint beautier function
         distr = rln_clock_model$mean_rate_prior_distr
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, paste0("</prior>"))

@@ -59,14 +59,12 @@ distr_to_xml_beta <- function(
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$alpha), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$alpha)
     )
   )
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$beta), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$beta)
     )
   )
   text <- c(text, paste0("</Beta>"))
@@ -90,8 +88,7 @@ distr_to_xml_exp <- function(
     "id=\"Exponential.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$mean), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$mean)
     )
   )
   text <- c(text, paste0("</Exponential>"))
@@ -115,14 +112,12 @@ distr_to_xml_gamma <- function(
     "id=\"Gamma.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$alpha), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$alpha)
     )
   )
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$beta), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$beta)
     )
   )
   text <- c(text, paste0("</Gamma>"))
@@ -146,14 +141,12 @@ distr_to_xml_inv_gamma <- function(
     "id=\"InverseGamma.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$alpha), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$alpha)
     )
   )
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$beta), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$beta)
     )
   )
   text <- c(text, paste0("</InverseGamma>"))
@@ -177,14 +170,12 @@ distr_to_xml_laplace <- function(
     "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$mu), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$mu)
     )
   )
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$scale), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$scale)
     )
   )
   text <- c(text, paste0("</LaplaceDistribution>"))
@@ -207,14 +198,12 @@ distr_to_xml_log_normal <- function(
     "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$m), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$m)
     )
   )
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$s), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$s)
     )
   )
   text <- c(text, paste0("</LogNormal>"))
@@ -239,14 +228,12 @@ distr_to_xml_normal <- function(
     "id=\"Normal.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$mean), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$mean)
     )
   )
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$sigma), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$sigma)
     )
   )
   text <- c(text, paste0("</Normal>"))
@@ -289,8 +276,7 @@ distr_to_xml_poisson <- function(
     "spec=\"beast.math.distributions.Poisson\">"))
   text <- c(text,
     beautier::indent(
-      parameter_to_xml(distr$lambda), # nolint beautier function
-      n_spaces = 4
+      beautier::parameter_to_xml(distr$lambda),
     )
   )
   text <- c(text, paste0("</distr>"))

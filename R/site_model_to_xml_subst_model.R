@@ -54,8 +54,7 @@ hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id), # nolint beautier function
-    n_spaces = 4
+    beautier::freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
   testit::assert(beautier::is_hky_site_model(site_model))
   text <- c(
@@ -83,8 +82,7 @@ tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id), # nolint beautier function
-    n_spaces = 4
+    beautier::freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
   testit::assert(beautier::is_tn93_site_model(site_model))
@@ -137,8 +135,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id), # nolint beautier function
-    n_spaces = 4
+    beautier::freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
   testit::assert(beautier::is_gtr_site_model(site_model))
@@ -181,7 +178,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
       beautier::indent(
         parameter_to_xml_rate_ac( # nolint beautier function
           site_model$rate_ac_param, which_name = "rate_name"
-        ), n_spaces = 4
+        )
       )
     )
   }
@@ -194,7 +191,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
       beautier::indent(
         parameter_to_xml_rate_ag( # nolint beautier function
           site_model$rate_ag_param, which_name = "rate_name"
-        ), n_spaces = 4
+        )
       )
     )
   }
@@ -207,7 +204,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
       beautier::indent(
         parameter_to_xml_rate_at( # nolint beautier function
           site_model$rate_at_param, which_name = "rate_name"
-        ), n_spaces = 4
+        )
       )
     )
   }
@@ -220,7 +217,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
       beautier::indent(
         parameter_to_xml_rate_cg( # nolint beautier function
           site_model$rate_cg_param, which_name = "rate_name"
-        ), n_spaces = 4
+        )
       )
     )
   }
@@ -232,7 +229,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
       beautier::indent(
         parameter_to_xml_rate_ct( # nolint beautier function
           site_model$rate_ct_param, which_name = "rate_name"
-        ), n_spaces = 4
+        )
       )
     )
   }
@@ -244,7 +241,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
         parameter_to_xml_rate_gt( # nolint beautier function
           site_model$rate_gt_param,
           which_name = "rate_name"
-        ), n_spaces = 4
+        )
       )
     )
   }

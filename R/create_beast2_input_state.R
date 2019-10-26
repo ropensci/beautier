@@ -45,7 +45,7 @@ create_beast2_input_state <- function(
     )
   )
 
-  text <- beautier::indent(text, n_spaces = 4)
+  text <- beautier::indent(text)
   text <- c("<state id=\"state\" storeEvery=\"5000\">", text)
   text <- c(text, "</state>")
   text

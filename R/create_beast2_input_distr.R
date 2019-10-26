@@ -51,13 +51,13 @@ create_beast2_input_distr <- function( # nolint beautier function
       tipdates_filename = tipdates_filename
     )
   )
-  text <- indent(text, n_spaces = 4) # nolint beautier function
+  text <- beautier::indent(text)
   text <- c(
     "<distribution id=\"posterior\" spec=\"util.CompoundDistribution\">",
     text
   )
   text <- c(text, "</distribution>") # posterior distribution
-  text <- indent(text, n_spaces = 4) # nolint beautier function
+  text <- beautier::indent(text)
   text
 }
 
@@ -102,7 +102,7 @@ create_beast2_input_distr_prior <- function( # nolint beautier function
     )
   )
 
-  text <- indent(text, n_spaces = 4) # nolint beautier function
+  text <- beautier::indent(text)
 
   # Surround text by prior distribution tag
   text <- c(
@@ -151,8 +151,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
       beautier::indent(
-        site_model_to_xml_lh_distr(site_model), # nolint beautier function
-        n_spaces = 4
+        site_model_to_xml_lh_distr(site_model) # nolint beautier function
       )
     )
 
@@ -165,8 +164,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
             clock_model,
             mrca_priors = mrca_priors,
             tipdates_filename = tipdates_filename
-          ),
-          n_spaces = 4
+          )
         )
       )
     }
@@ -183,8 +181,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
           has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint beautier function
             clock_models
           )
-        ),
-        n_spaces = 4
+        )
       )
     )
     # Close of '<distribution id="treeLikelihood.test_output_0"...'
@@ -192,7 +189,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
   }
 
 
-  text <- indent(text, n_spaces = 4) # nolint beautier function
+  text <- beautier::indent(text)
 
   # Surround by likelihood distribution tags
   text <- c(paste0(
@@ -243,10 +240,9 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml( # nolint beautier function
         distr = bd_birth_rate_distr
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, paste0("</prior>"))
@@ -258,10 +254,9 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml( # nolint beautier function
         distr = bd_death_rate_distr
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, paste0("</prior>"))
@@ -346,10 +341,9 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml( # nolint beautier function
         distr = ccp_tree_prior$pop_size_distr
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, paste0("</prior>"))
@@ -396,10 +390,9 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml( # nolint beautier function
         distr = cep_tree_prior$pop_size_distr
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, paste0("</prior>"))
@@ -409,10 +402,9 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml( # nolint beautier function
         distr = cep_tree_prior$growth_rate_distr
-      ),
-      n_spaces = 4
+      )
     )
   )
   text <- c(text, paste0("</prior>"))
@@ -454,8 +446,7 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(yule_tree_prior$birth_rate_distr), # nolint beautier function
-      n_spaces = 4
+      beautier::distr_to_xml(yule_tree_prior$birth_rate_distr)
     )
   )
   text <- c(text, paste0("</prior>"))
