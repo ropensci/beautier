@@ -1,7 +1,7 @@
 #' Create a simple inference model with a short MCMC chain
 #' @inheritParams default_params_doc
 #' @return an inference model
-#' @seealso Use \link{create_inference_model} to create the 
+#' @seealso Use \link{create_inference_model} to create the
 #'   BEAST2 default inference model
 #' @author Richèl J.C. Bilderbeek
 #' @examples

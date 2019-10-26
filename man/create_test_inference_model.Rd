@@ -54,7 +54,7 @@ create_beast2_input_file_from_model(
 expect_true(file.exists(beast2_input_file))
 }
 \seealso{
-Use \link{create_inference_model} to create the 
+Use \link{create_inference_model} to create the
   BEAST2 default inference model
 }
 \author{

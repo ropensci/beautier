@@ -5,8 +5,8 @@
 #' @export
 check_tracelog <- function(tracelog) {
 
-  check_tracelog_list_element_names(tracelog)
-  check_tracelog_list_element_values(tracelog)
+  check_tracelog_names(tracelog)
+  check_tracelog_values(tracelog)
 }
 
 #' Check if the \code{tracelog} has the list elements
@@ -18,7 +18,7 @@ check_tracelog <- function(tracelog) {
 #' @seealso Use \link{create_tracelog} to create a valid \code{tracelog}
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_tracelog_list_element_names <- function(tracelog) {
+check_tracelog_names <- function(tracelog) {
 
   list_element_names <- c(
     "filename", "log_every", "mode", "sanitise_headers", "sort"
@@ -42,7 +42,7 @@ check_tracelog_list_element_names <- function(tracelog) {
 #' @seealso Use \link{create_tracelog} to create a valid tracelog
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_tracelog_list_element_values <- function(tracelog) {
+check_tracelog_values <- function(tracelog) {
 
   if (!beautier::is_one_na(tracelog$filename)) {
     assertive::assert_is_character(tracelog$filename)
