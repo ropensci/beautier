@@ -5,7 +5,7 @@ test_that("use", {
     create_inference_model()
   )
   expect_silent(
-    create_beast2_input_loggers(
+    create_loggers_xml(
       input_filename = get_fasta_filename(),
       inference_model = inference_model
     )
@@ -15,13 +15,13 @@ test_that("use", {
 test_that("abuse", {
 
   expect_error(
-    create_beast2_input_loggers(
+    create_loggers_xml(
       input_filename = c("one_too", "many_filenames")
     ),
     "input_filename"
   )
   expect_error(
-    create_beast2_input_loggers(
+    create_loggers_xml(
       input_filename = get_fasta_filename(),
       inference_model = "nonsense"
     ),

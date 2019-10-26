@@ -28,7 +28,7 @@
 #' to create the XML text of the \code{distribution} tag.
 #' Use \link{create_beast2_input_operators}
 #' to create the XML text of the \code{[operator ids]} section.
-#' Use \link{create_beast2_input_loggers}
+#' Use \link{create_loggers_xml}
 #' to create the XML text of the \code{[loggers]} part.
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -103,7 +103,7 @@ create_beast2_input_run <- function(
 
   text <- c(
     text,
-    create_beast2_input_loggers(
+    create_loggers_xml(
       input_filename = input_filename,
       inference_model = inference_model
     )

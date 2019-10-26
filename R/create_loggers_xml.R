@@ -22,7 +22,7 @@
 #' of the loggers with the \code{treelog} ID.
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_loggers <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name
+create_loggers_xml <- function(
   input_filename,
   inference_model
 ) {

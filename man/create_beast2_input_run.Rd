@@ -46,7 +46,7 @@ Use \link{create_beast2_input_distr}
 to create the XML text of the \code{distribution} tag.
 Use \link{create_beast2_input_operators}
 to create the XML text of the \code{[operator ids]} section.
-Use \link{create_beast2_input_loggers}
+Use \link{create_loggers_xml}
 to create the XML text of the \code{[loggers]} part.
 }
 \author{
