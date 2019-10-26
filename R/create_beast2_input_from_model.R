@@ -43,7 +43,7 @@ create_beast2_input_from_model <- function(
   )
 
   # Check if the combination of FASTA file and inference model agrees
-  check_fasta_file_and_inference_model(
+  check_file_and_model_agree(
     input_filename = input_filename,
     inference_model = inference_model
   )

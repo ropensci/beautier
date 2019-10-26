@@ -175,7 +175,7 @@ test_that("abuse: one alignment", {
   )
 
   # Higher-level abuse
-  # Tested by 'check_fasta_file_and_inference_model'
+  # Tested by 'check_file_and_model_agree'
 
 })
 

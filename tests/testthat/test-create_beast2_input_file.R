@@ -95,5 +95,5 @@ test_that("abuse", {
 })
 
 test_that("cannot create CBS with less than 6 taxa", {
-  # Tested by 'check_fasta_file_and_inference_model'
+  # Tested by 'check_file_and_model_agree'
 })

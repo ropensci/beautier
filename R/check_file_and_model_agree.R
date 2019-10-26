@@ -2,7 +2,8 @@
 #'
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
-check_fasta_file_and_inference_model <- function(
+#' @export
+check_file_and_model_agree <- function(
   input_filename,
   inference_model
 ) {

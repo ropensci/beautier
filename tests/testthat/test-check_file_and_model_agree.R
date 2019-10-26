@@ -1,7 +1,7 @@
 test_that("cannot create CBS with less than 6 taxa", {
 
   expect_error(
-    check_fasta_file_and_inference_model(
+    check_file_and_model_agree(
       input_filename = get_beautier_path("test_output_2.fas"),
       inference_model = create_inference_model(
         tree_prior = create_cbs_tree_prior()
@@ -21,7 +21,7 @@ test_that("MRCA prior's alignment ID must match the FASTA file ID", {
   )
 
   expect_error(
-    check_fasta_file_and_inference_model(
+    check_file_and_model_agree(
       input_filename = fasta_filename,
       inference_model = inference_model
     ),
@@ -39,7 +39,7 @@ test_that("MRCA prior's taxa names must be FASTA file taxa names", {
     )
   )
   expect_error(
-    check_fasta_file_and_inference_model(
+    check_file_and_model_agree(
       input_filename = fasta_filename,
       inference_model = inference_model
     ),
