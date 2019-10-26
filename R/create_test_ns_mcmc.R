@@ -1,42 +1,28 @@
-#' Create an MCMC object to estimate the marginal likelihood
-#' using Nested Sampling.
-#'
-#' This will result in a BEAST run that estimates the marginal
-#' likelihood until convergence is achieved.
-#' In this context, \code{chain_length} is only an upper bound
-#' to the length of that run.
+#' Create an NS MCMC object for testing
 #' @inheritParams default_params_doc
 #' @param chain_length upper bound to the length of the MCMC chain
 #' @param particle_count number of particles
 #' @param sub_chain_length sub-chain length
 #' @param epsilon epsilon
 #' @return an MCMC object
-#' @seealso Use \code{\link{create_nested_sampling_mcmc}} to create a
-#'   nested sampling MCMC
+#' @seealso Use \code{\link{create_ns_mcmc}} to create a default
+#' nested sampling MCMC
 #' @examples
-#'   mcmc <- create_ns_mcmc(
-#'     chain_length = 1e7,
-#'     store_every = 1000,
-#'     particle_count = 1,
-#'     sub_chain_length = 1000,
-#'     epsilon = 1e-12
-#'   )
+#' library(testthat)
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     mcmc = mcmc
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
-#' @references
-#'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
-#'     Remco R Bouckaert; Model Selection and Parameter Inference in
-#'     Phylogenetics Using Nested Sampling, Systematic Biology, 2018,
-#'     syy050, https://doi.org/10.1093/sysbio/syy050
+#' mcmc <- create_test_ns_mcmc()
+#'
+#' beast2_input_file <- tempfile(fileext = ".xml")
+#'
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   mcmc = mcmc
+#' )
+#'
+#' expect_true(file.exists(beast2_input_file))
 #' @author Richèl J.C. Bilderbeek
-#' @aliases create_ns_mcmc create_nested_sampling_mcmc create_mcmc_nested_sampling
-#' @export create_ns_mcmc create_nested_sampling_mcmc create_mcmc_nested_sampling
+#' @export
 create_test_ns_mcmc <- function(
   chain_length = 2000,
   store_every = 1000,
