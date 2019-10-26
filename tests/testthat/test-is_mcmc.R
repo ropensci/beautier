@@ -3,7 +3,7 @@ context("is_mcmc")
 test_that("is_mcmc, use", {
 
   expect_true(is_mcmc(create_mcmc()))
-  expect_true(is_mcmc(create_mcmc_nested_sampling()))
+  expect_true(is_mcmc(create_ns_mcmc()))
   expect_false(is_mcmc("nonsense"))
   expect_false(is_mcmc(NA))
   expect_false(is_mcmc(NULL))
@@ -49,7 +49,7 @@ test_that("is_mcmc: devious", {
 test_that("is_mcmc_nested_sampling, use", {
 
   expect_true(
-    is_mcmc_nested_sampling(create_mcmc_nested_sampling())
+    is_mcmc_nested_sampling(create_ns_mcmc())
   )
   expect_false(is_mcmc_nested_sampling(create_mcmc()))
   expect_false(is_mcmc_nested_sampling("nonsense"))

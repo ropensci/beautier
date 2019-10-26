@@ -24,7 +24,7 @@ is_mcmc <- function(
 #' Determine if the object is a valid Nested-Sampling MCMC,
 #'   as used in [1]
 #' @param x an object, to be determined if it is a valid MCMC
-#' @seealso Use \code{\link{create_mcmc_nested_sampling}}
+#' @seealso Use \link{create_ns_mcmc} to create an NS MCMC
 #' @return TRUE if x is a valid Nested-Sampling MCMC, FALSE otherwise
 #' @examples
 #'   testthat::expect_false(is_nested_sampling_mcmc(create_mcmc()))

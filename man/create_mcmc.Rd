@@ -56,9 +56,8 @@ mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
 expect_true(file.exists(beast2_input_file))
 }
 \seealso{
-\itemize{
-    \item \link{are_equal_mcmcs} to check if two MCMCs are equal
-  }
+Use \link{create_ns_mcmc} to create an MCMC for a Nested Sampling run.
+Use \link{check_mcmc} to check that an MCMC object is valid.
 }
 \author{
 Richèl J.C. Bilderbeek

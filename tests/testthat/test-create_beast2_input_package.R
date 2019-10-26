@@ -7,7 +7,7 @@ context("create_beast2_input_package")
 test_that("NS, shallow", {
   normal <- create_beast2_input(
     input_filename = get_beautier_path("anthus_aco.fas"),
-    mcmc = create_mcmc_nested_sampling()
+    mcmc = create_ns_mcmc()
   )
   matches <- stringr::str_match(string = normal, pattern = ".*run id=.*")
   expect_equal(

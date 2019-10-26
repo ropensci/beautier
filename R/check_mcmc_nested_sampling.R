@@ -8,9 +8,11 @@
 #' to estimate a marginal likelihood
 #' @author Richèl J.C. Bilderbeek
 #' @export
-#' @aliases check_mcmc_nested_sampling check_nested_sampling_mcmc
-#' @export check_mcmc_nested_sampling check_nested_sampling_mcmc
-check_mcmc_nested_sampling <- check_nested_sampling_mcmc <- function(mcmc) {
+#' @aliases check_ns_mcmc check_mcmc_nested_sampling check_nested_sampling_mcmc
+#' @export check_ns_mcmc check_mcmc_nested_sampling check_nested_sampling_mcmc
+check_ns_mcmc <- check_mcmc_nested_sampling <-
+check_nested_sampling_mcmc <- function(mcmc) {
+
   beautier::check_mcmc(mcmc)
 
   # The arguments 'chain_length' and 'store_every' are checked

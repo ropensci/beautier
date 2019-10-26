@@ -32,7 +32,7 @@ Determine if the object is a valid Nested-Sampling MCMC,
     syy050, https://doi.org/10.1093/sysbio/syy050
 }
 \seealso{
-Use \code{\link{create_mcmc_nested_sampling}}
+Use \link{create_ns_mcmc} to create an NS MCMC
 }
 \author{
 Richèl J.C. Bilderbeek

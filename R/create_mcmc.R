@@ -7,9 +7,8 @@
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration
 #' @seealso
-#'   \itemize{
-#'     \item \link{are_equal_mcmcs} to check if two MCMCs are equal
-#'   }
+#' Use \link{create_ns_mcmc} to create an MCMC for a Nested Sampling run.
+#' Use \link{check_mcmc} to check that an MCMC object is valid.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' library(testthat)

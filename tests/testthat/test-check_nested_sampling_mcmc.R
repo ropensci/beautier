@@ -1,7 +1,7 @@
 test_that("check_mcmc_nested_sampling, use", {
 
   expect_silent(
-    check_mcmc_nested_sampling(create_mcmc_nested_sampling())
+    check_mcmc_nested_sampling(create_ns_mcmc())
   )
   expect_error(check_mcmc_nested_sampling(create_mcmc()))
   expect_error(check_mcmc_nested_sampling("nonsense"))
@@ -12,7 +12,7 @@ test_that("check_mcmc_nested_sampling, use", {
 
 test_that("check_mcmc_nested_sampling: devious", {
 
-  g <- create_mcmc_nested_sampling()
+  g <- create_ns_mcmc()
   expect_silent(check_mcmc_nested_sampling(g))
 
   # No 'particle_count'

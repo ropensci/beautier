@@ -71,7 +71,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' library(testthat)
 #'
 #' xml <- mcmc_to_xml_run_nested_sampling(
-#'   create_mcmc_nested_sampling()
+#'   create_ns_mcmc()
 #' )
 #'
 #' expect_equal(

@@ -22,8 +22,8 @@ library(testthat)
  # An MCMC created by 'create_mcmc' is default
 expect_true(is_default_mcmc(create_mcmc()))
 
-# An MCMC created by 'create_mcmc_nested_sampling' is not
-expect_false(is_default_mcmc(create_mcmc_nested_sampling()))
+# An MCMC created by 'create_ns_mcmc' is not
+expect_false(is_default_mcmc(create_ns_mcmc()))
 }
 \author{
 Richèl J.C. Bilderbeek
