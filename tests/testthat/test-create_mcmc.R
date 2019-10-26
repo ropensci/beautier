@@ -42,19 +42,19 @@ test_that("abuse", {
 
   # Tested in-depth by 'check_mcmc'
 
-  testthat::expect_error(
+  expect_error(
     create_mcmc(chain_length = -1234),
     "chain_length"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_mcmc(
       chain_length = 10,
       store_every = -2
     ),
     "store_every"
   )
-  testthat::expect_error(
+  expect_error(
     create_mcmc(
       chain_length = 10000,
       store_every = 11000
