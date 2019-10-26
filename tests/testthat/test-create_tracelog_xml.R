@@ -5,7 +5,7 @@ test_that("use", {
     input_filename = input_filename,
     create_inference_model()
   )
-  created <- create_beast2_input_tracelog(
+  created <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
@@ -32,14 +32,14 @@ test_that("use", {
 
 
   expect_silent(
-    create_beast2_input_tracelog(
+    create_tracelog_xml(
       input_filename = input_filename,
       inference_model = inference_model
     )
   )
   expect_true(
     is_xml(
-      create_beast2_input_tracelog(
+      create_tracelog_xml(
         input_filename = input_filename,
         inference_model = inference_model
       )
@@ -60,7 +60,7 @@ test_that("file_name in XML", {
     )
   )
 
-  xml <- create_beast2_input_tracelog(
+  xml <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
@@ -84,7 +84,7 @@ test_that("log_every in XML", {
     )
   )
 
-  xml <- create_beast2_input_tracelog(
+  xml <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
@@ -108,7 +108,7 @@ test_that("mode in XML", {
     )
   )
 
-  xml <- create_beast2_input_tracelog(
+  xml <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
@@ -132,7 +132,7 @@ test_that("sanitise_headers in XML", {
     )
   )
 
-  xml <- create_beast2_input_tracelog(
+  xml <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
@@ -156,7 +156,7 @@ test_that("sort in XML", {
     )
   )
 
-  xml <- create_beast2_input_tracelog(
+  xml <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )

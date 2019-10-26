@@ -30,11 +30,11 @@ The logger section has these elements:
 }
 }
 \seealso{
-Use \link{create_beast2_input_tracelog} to create the XML text
+Use \link{create_tracelog_xml} to create the XML text
 of the logger with the \code{tracelog} ID.
 Use \link{create_beast2_input_screenlog} to create the XML text
 of the logger with the \code{screenlog} ID.
-Use \link{create_beast2_input_treelogs} to create the XML text
+Use \link{create_treelog_xml} to create the XML text
 of the loggers with the \code{treelog} ID.
 }
 \author{

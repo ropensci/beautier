@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @seealso the complete tracelog section is created
-#'   by \code{\link{create_beast2_input_tracelog}}
+#'   by \code{\link{create_tracelog_xml}}
 #' @examples
 #' # <logger id="tracelog" ...>
 #' #'   # Here
