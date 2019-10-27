@@ -2,7 +2,7 @@
 #' @inheritParams create_tracelog
 #' @export
 create_test_tracelog <- function(
-  filename = tempfile(tmpdir = rappdirs::user_cache_dir()),
+  filename = create_temp_tracelog_filename(),
   log_every = 1000,
   mode = "autodetect",
   sanitise_headers = TRUE,

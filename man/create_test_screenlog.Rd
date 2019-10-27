@@ -4,9 +4,9 @@
 \alias{create_test_screenlog}
 \title{Create a \code{screenlog} object}
 \usage{
-create_test_screenlog(filename = tempfile(tmpdir =
-  rappdirs::user_cache_dir()), log_every = 1000, mode = "autodetect",
-  sanitise_headers = FALSE, sort = "none")
+create_test_screenlog(filename = create_temp_screenlog_filename(),
+  log_every = 1000, mode = "autodetect", sanitise_headers = FALSE,
+  sort = "none")
 }
 \arguments{
 \item{filename}{name of the file to store the posterior screens

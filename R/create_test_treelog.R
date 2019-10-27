@@ -2,7 +2,7 @@
 #' @inheritParams create_treelog
 #' @export
 create_test_treelog <- function(
-  filename = tempfile(tmpdir = rappdirs::user_cache_dir()),
+  filename = create_temp_treelog_filename(),
   log_every = 1000,
   mode = "tree",
   sanitise_headers = FALSE,
