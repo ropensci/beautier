@@ -2,7 +2,7 @@
 #' @inheritParams create_screenlog
 #' @export
 create_test_screenlog <- function(
-  filename = tempfile(),
+  filename = tempfile(tmpdir = rappdirs::user_cache_dir()),
   log_every = 1000,
   mode = "autodetect",
   sanitise_headers = FALSE,

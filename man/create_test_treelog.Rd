@@ -4,8 +4,9 @@
 \alias{create_test_treelog}
 \title{Create a \code{treelog} object}
 \usage{
-create_test_treelog(filename = tempfile(), log_every = 1000,
-  mode = "tree", sanitise_headers = FALSE, sort = "none")
+create_test_treelog(filename = tempfile(tmpdir =
+  rappdirs::user_cache_dir()), log_every = 1000, mode = "tree",
+  sanitise_headers = FALSE, sort = "none")
 }
 \arguments{
 \item{filename}{name of the file to store the posterior trees}
