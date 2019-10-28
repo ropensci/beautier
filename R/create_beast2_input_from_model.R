@@ -32,7 +32,7 @@ create_beast2_input_from_model <- function(
   if (length(input_filename) != 1) {
     stop("Must use one alignment, site model, clock model and tree prior")
   }
-  if (!beautier::files_exist(input_filename)) {
+  if (!file.exists(input_filename)) {
     stop("'input_filename' not found. Value: ", input_filename)
   }
   beautier::check_inference_model(inference_model)
