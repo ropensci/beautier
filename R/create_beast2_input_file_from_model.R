@@ -43,15 +43,22 @@ create_beast2_input_file_from_model <- function( # nolint indeed a long name, bu
       )
     }
   )
-  create_beast2_input_file( # nolint beautier function
+  text <- beastier::create_beast2_input_from_model(
     input_filename = input_filename,
-    output_filename = output_filename,
-    site_model = inference_model$site_model,
-    clock_model = inference_model$clock_model,
-    tree_prior = inference_model$tree_prior,
-    mrca_prior = inference_model$mrca_prior,
-    mcmc = inference_model$mcmc,
-    beauti_options = inference_model$beauti_options,
-    tipdates_filename = inference_model$tipdates_filename
+    inference_model = inference_model
+  )
+
+  # Write to file
+  tryCatch(
+    suppressWarnings(
+      writeLines(text, con = output_filename)
+    ),
+    error = function(e) {
+      stop(
+        "Cannot write to file with name '", output_filename, "' \n",
+        "Perhaps no permission to write there? \n",
+        "Error message: ", e$message, " \n"
+      )
+    }
   )
 }

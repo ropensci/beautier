@@ -33,9 +33,6 @@ before_script:
   # markdown-link-check, does not work temporarily
   #- sudo apt-get install npm
   #- sudo npm install -g markdown-link-check
-  # From https://stackoverflow.com/a/14719448
-  - ulimit -s
-  - ulimit -s 16384
 
 after_success:
   - Rscript -e 'print(rappdirs::app_dir()$os)'
