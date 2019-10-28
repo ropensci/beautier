@@ -85,39 +85,18 @@ create_beast2_input_file <- function(
   if (any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
-  # Create the folder where to write the file
-  folder_name <- dirname(output_filename)
-  dir.create(path = folder_name, recursive = TRUE, showWarnings = FALSE)
-  if (!dir.exists(folder_name)) {
-    stop(
-      "Cannot create folder to store file with name '", output_filename, "' \n",
-      "Perhaps no permission to create folders there there? \n"
-    )
-  }
-
-  # Error handling done by create_beast2_input
-  text <- create_beast2_input(
-    input_filename = input_filename,
-    tipdates_filename = tipdates_filename,
+  inference_model <- create_inference_model(
     site_model = site_model,
     clock_model = clock_model,
     tree_prior = tree_prior,
     mrca_prior = mrca_prior,
     mcmc = mcmc,
-    beauti_options = beauti_options
+    beauti_options = beauti_options,
+    tipdates_filename = tipdates_filename
   )
-
-  # Write to file
-  tryCatch(
-    suppressWarnings(
-      writeLines(text, con = output_filename)
-    ),
-    error = function(e) {
-      stop(
-        "Cannot write to file with name '", output_filename, "' \n",
-        "Perhaps no permission to write there? \n",
-        "Error message: ", e$message, " \n"
-      )
-    }
+  create_beast2_input_file_from_model(
+    input_filename = input_filename,
+    output_filename = output_filename,
+    inference_model = inference_model
   )
 }
