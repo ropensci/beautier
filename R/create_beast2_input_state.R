@@ -21,7 +21,6 @@ create_beast2_input_state <- function(
       text,
       phylo_to_xml_state( # nolint beautier function
         id = id,
-        phylo = NA,
         tipdates_filename = tipdates_filename
       )
     )
