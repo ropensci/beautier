@@ -53,7 +53,10 @@ check_gamma_site_model <- function(gamma_site_model) {
   }
   if (!beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr) &&
       !beautier::is_distr(gamma_site_model$gamma_shape_prior_distr)) {
-    stop("'gamma_site_model' must be NA or one distribution")
+    stop(
+      "'gamma_site_model$gamma_shape_prior_distr' must be NA ",
+      "or one distribution"
+    )
   }
 
   if (!beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr) &&

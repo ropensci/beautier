@@ -3,8 +3,8 @@ context("create_gamma_site_model")
 test_that("Can specify HKY gamma category count", {
 
   gamma_site_model <- beautier::create_gamma_site_model(gamma_cat_count = 1)
-  testthat::expect_true(is_gamma_site_model(gamma_site_model))
-  testthat::expect_equal(gamma_site_model$gamma_cat_count, 1)
+  expect_true(is_gamma_site_model(gamma_site_model))
+  expect_equal(gamma_site_model$gamma_cat_count, 1)
 
 })
 
@@ -12,8 +12,8 @@ test_that("Can specify HKY proportion invariant", {
 
   gamma_site_model <- beautier::create_gamma_site_model(
     prop_invariant = 0.2)
-  testthat::expect_true(beautier:::is_gamma_site_model(gamma_site_model))
-  testthat::expect_equal(gamma_site_model$prop_invariant, 0.2)
+  expect_true(beautier:::is_gamma_site_model(gamma_site_model))
+  expect_equal(gamma_site_model$prop_invariant, 0.2)
 
 })
 
@@ -44,38 +44,38 @@ test_that("two gamma count categories has a distribution", {
 
 test_that("abuse", {
 
-  testthat::expect_silent(
+  expect_silent(
     create_gamma_site_model()
   )
 
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(gamma_cat_count = -1),
-    "'gamma_cat_count' must be positive"
+    "'gamma_cat_count' must be zero or positive"
 
   )
 
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(gamma_shape = -1),
-    "'gamma_shape' must be positive"
+    "'gamma_shape' must be zero or positive"
 
   )
 
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(prop_invariant = -0.5),
-    "'prop_invariant' must be in range \\[0.0, 1.0\\]"
+    "'prop_invariant' must at least be zero"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(prop_invariant = 1.5),
-    "'prop_invariant' must be in range \\[0.0, 1.0\\]"
+    "'prop_invariant' must at most be one"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(gamma_shape_prior_distr = "nonsense"),
-    "'gamma_shape_prior_distr' must be a distribution"
+    "'gamma_site_model.gamma_shape_prior_distr' must be NA or one distribution"
   )
 
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(
       gamma_cat_count = 0,
       gamma_shape_prior_distr = create_exp_distr()
@@ -85,7 +85,7 @@ test_that("abuse", {
       "for a 'gamma_cat_count' of less than two"
     )
   )
-  testthat::expect_error(
+  expect_error(
     create_gamma_site_model(
       gamma_cat_count = 1,
       gamma_shape_prior_distr = create_exp_distr()
