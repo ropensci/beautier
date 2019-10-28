@@ -48,6 +48,9 @@ create_beast2_input_file_from_model <- function( # nolint indeed a long name, bu
     inference_model = inference_model
   )
 
+  # Create sub-sub-sub-foler if needed
+  dir.create(dirname(output_filename), showWarnings = FALSE, recursive = TRUE)
+
   # Write to file
   tryCatch(
     suppressWarnings(

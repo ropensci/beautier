@@ -90,7 +90,7 @@ test_that("abuse", {
       input_filename = get_fasta_filename(),
       output_filename = "/no/way",
     ),
-    "Cannot create folder to store file with name '/no/way'"
+    "Cannot write to file with name '/no/way'"
   )
 })
 
