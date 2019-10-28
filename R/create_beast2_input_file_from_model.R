@@ -43,7 +43,7 @@ create_beast2_input_file_from_model <- function( # nolint indeed a long name, bu
       )
     }
   )
-  text <- beastier::create_beast2_input_from_model(
+  text <- beautier::create_beast2_input_from_model(
     input_filename = input_filename,
     inference_model = inference_model
   )
