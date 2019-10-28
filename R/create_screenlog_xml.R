@@ -4,7 +4,7 @@
 #' @return the XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_screenlog <- function(
+create_screenlog_xml <- function(
   inference_model = create_inference_model()
 ) {
   top_line <- "<logger id=\"screenlog\""
