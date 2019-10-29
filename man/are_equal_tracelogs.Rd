@@ -20,8 +20,8 @@ Will \link{stop} if the arguments are not tracelogs.
 \examples{
 library(testthat)
 
-tracelog_1 <- create_tracelog(chain_length = 1000)
-tracelog_2 <- create_tracelog(chain_length = 314)
+tracelog_1 <- create_tracelog(log_every = 1000)
+tracelog_2 <- create_tracelog(log_every = 314)
 expect_true(are_equal_tracelogs(tracelog_1, tracelog_1))
 expect_false(are_equal_tracelogs(tracelog_1, tracelog_2))
 }

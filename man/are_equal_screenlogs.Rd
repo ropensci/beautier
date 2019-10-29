@@ -20,8 +20,8 @@ Will \link{stop} if the arguments are not screenlogs.
 \examples{
 library(testthat)
 
-screenlog_1 <- create_screenlog(chain_length = 1000)
-screenlog_2 <- create_screenlog(chain_length = 314)
+screenlog_1 <- create_screenlog(log_every = 1000)
+screenlog_2 <- create_screenlog(log_every = 314)
 expect_true(are_equal_screenlogs(screenlog_1, screenlog_1))
 expect_false(are_equal_screenlogs(screenlog_1, screenlog_2))
 }

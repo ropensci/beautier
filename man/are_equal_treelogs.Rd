@@ -20,8 +20,8 @@ Will \link{stop} if the arguments are not treelogs.
 \examples{
 library(testthat)
 
-treelog_1 <- create_treelog(chain_length = 1000)
-treelog_2 <- create_treelog(chain_length = 314)
+treelog_1 <- create_treelog(log_every = 1000)
+treelog_2 <- create_treelog(log_every = 314)
 expect_true(are_equal_treelogs(treelog_1, treelog_1))
 expect_false(are_equal_treelogs(treelog_1, treelog_2))
 }
