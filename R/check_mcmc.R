@@ -62,22 +62,7 @@ check_mcmc_values <- function(mcmc) {
       "'Actual value: ", mcmc$chain_length
     )
   }
-  if (!beautier::is_one_na(mcmc$store_every) &&
-      mcmc$store_every < -1
-  ) {
-    stop(
-      "'mcmc$store_every' must be either -1 or a non-zero positive value. \n",
-      "'Actual value: ", mcmc$chain_length
-    )
-  }
-  if (!beautier::is_one_na(mcmc$store_every) &&
-      mcmc$store_every == 0
-  ) {
-    stop(
-      "'mcmc$store_every' must be either -1 or a non-zero positive value. \n",
-      "'Actual value: ", mcmc$chain_length
-    )
-  }
+  check_store_every(mcmc$store_every)
   if (!beautier::is_one_na(mcmc$store_every) &&
       mcmc$store_every > mcmc$chain_length
   ) {

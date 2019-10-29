@@ -172,7 +172,7 @@ test_that("invalid list element values", {
         store_every = -12345
       )
     ),
-    "'mcmc.store_every' must be either -1 or a non-zero positive value"
+    "store_every' must be either NA, -1 or a non-zero positive value"
   )
   expect_error(
     check_mcmc(
@@ -180,7 +180,7 @@ test_that("invalid list element values", {
         store_every = 0
       )
     ),
-    "'mcmc.store_every' must be either -1 or a non-zero positive value"
+    "store_every' must be either NA, -1 or a non-zero positive value"
   )
   expect_error(
     check_mcmc(
