@@ -2,6 +2,9 @@
 
 export(are_clock_models)
 export(are_equal_mcmcs)
+export(are_equal_screenlogs)
+export(are_equal_tracelogs)
+export(are_equal_treelogs)
 export(are_equivalent_xml_lines_all)
 export(are_fasta_filenames)
 export(are_ids)

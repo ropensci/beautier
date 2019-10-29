@@ -6,10 +6,12 @@
 #' @return TRUE if the two MCMCs are equal
 #' @seealso Use \link{create_mcmc} to create an MCMC
 #' @examples
-#'   mcmc_1 <- create_mcmc(chain_length = 1000)
-#'   mcmc_2 <- create_mcmc(chain_length = 314)
-#'   testthat::expect_true(are_equal_mcmcs(mcmc_1, mcmc_1))
-#'   testthat::expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
+#' library(testtat)
+#'
+#' mcmc_1 <- create_mcmc(chain_length = 1000)
+#' mcmc_2 <- create_mcmc(chain_length = 314)
+#' expect_true(are_equal_mcmcs(mcmc_1, mcmc_1))
+#' expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_mcmcs <- function(
@@ -18,5 +20,11 @@ are_equal_mcmcs <- function(
   beautier::check_mcmc(mcmc_1)
   beautier::check_mcmc(mcmc_2)
   mcmc_1$chain_length == mcmc_2$chain_length &&
-    mcmc_1$store_every == mcmc_2$store_every
+    mcmc_1$store_every == mcmc_2$store_every &&
+    mcmc_1$pre_burnin == mcmc_2$pre_burnin &&
+    mcmc_1$n_init_attempts == mcmc_2$n_init_attempts &&
+    mcmc_1$sample_from_prior == mcmc_2$sample_from_prior &&
+    are_equal_tracelogs(mcmc_1$tracelog, mcmc_2$tracelog) &&
+    are_equal_screenlogs(mcmc_1$screenlog, mcmc_2$screenlog) &&
+    are_equal_treelogs(mcmc_1$treelog, mcmc_2$treelog)
 }

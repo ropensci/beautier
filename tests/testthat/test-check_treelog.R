@@ -57,14 +57,6 @@ test_that("abuse, by wrong values", {
   expect_error(
     check_treelog(
       create_treelog(
-        filename = ""
-      )
-    ),
-    "filename"
-  )
-  expect_error(
-    check_treelog(
-      create_treelog(
         filename = 1234
       )
     ),

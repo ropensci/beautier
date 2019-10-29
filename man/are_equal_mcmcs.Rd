@@ -18,10 +18,12 @@ TRUE if the two MCMCs are equal
 Will \link{stop} if the arguments are not MCMCs.
 }
 \examples{
-  mcmc_1 <- create_mcmc(chain_length = 1000)
-  mcmc_2 <- create_mcmc(chain_length = 314)
-  testthat::expect_true(are_equal_mcmcs(mcmc_1, mcmc_1))
-  testthat::expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
+library(testtat)
+
+mcmc_1 <- create_mcmc(chain_length = 1000)
+mcmc_2 <- create_mcmc(chain_length = 314)
+expect_true(are_equal_mcmcs(mcmc_1, mcmc_1))
+expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 }
 \seealso{
 Use \link{create_mcmc} to create an MCMC

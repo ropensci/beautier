@@ -44,8 +44,10 @@ check_treelog_names <- function(treelog) {
 #' @noRd
 check_treelog_values <- function(treelog) {
 
-  assertive::assert_is_character(treelog$filename)
-  assertive::assert_is_a_non_empty_string(treelog$filename)
+  if (!beautier::is_one_na(treelog$filename)) {
+    assertive::assert_is_character(treelog$filename)
+    assertive::assert_is_a_string(treelog$filename)
+  }
   assertive::assert_is_numeric(treelog$log_every)
   assertive::assert_all_are_positive(treelog$log_every)
   beautier::check_log_mode(treelog$mode)
