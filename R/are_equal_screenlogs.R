@@ -6,7 +6,7 @@
 #' @return TRUE if the two screenlogs are equal
 #' @seealso Use \link{create_screenlog} to create an screenlog
 #' @examples
-#' library(testtat)
+#' library(testthat)
 #'
 #' screenlog_1 <- create_screenlog(chain_length = 1000)
 #' screenlog_2 <- create_screenlog(chain_length = 314)

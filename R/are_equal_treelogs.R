@@ -6,7 +6,7 @@
 #' @return TRUE if the two treelogs are equal
 #' @seealso Use \link{create_treelog} to create an treelog
 #' @examples
-#' library(testtat)
+#' library(testthat)
 #'
 #' treelog_1 <- create_treelog(chain_length = 1000)
 #' treelog_2 <- create_treelog(chain_length = 314)

@@ -18,7 +18,7 @@ TRUE if the two treelogs are equal
 Will \link{stop} if the arguments are not treelogs.
 }
 \examples{
-library(testtat)
+library(testthat)
 
 treelog_1 <- create_treelog(chain_length = 1000)
 treelog_2 <- create_treelog(chain_length = 314)

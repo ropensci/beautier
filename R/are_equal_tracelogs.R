@@ -6,7 +6,7 @@
 #' @return TRUE if the two tracelogs are equal
 #' @seealso Use \link{create_tracelog} to create an tracelog
 #' @examples
-#' library(testtat)
+#' library(testthat)
 #'
 #' tracelog_1 <- create_tracelog(chain_length = 1000)
 #' tracelog_2 <- create_tracelog(chain_length = 314)
