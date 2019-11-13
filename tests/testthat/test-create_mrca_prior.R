@@ -43,7 +43,7 @@ test_that("abuse", {
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr()
     ),
-    "'name' must be NA or characters"
+    "'name' must be one NA or one character string"
   )
 
   expect_error(
@@ -107,5 +107,4 @@ test_that("abuse", {
     ),
     "'taxa_names' must be NA or have at least one taxon name"
   )
-
 })
