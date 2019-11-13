@@ -62,7 +62,7 @@ check_mcmc_values <- function(mcmc) {
       "'Actual value: ", mcmc$chain_length
     )
   }
-  pirouette::check_store_every(mcmc$store_every)
+  beautier::check_store_every(mcmc$store_every)
   if (!beautier::is_one_na(mcmc$store_every) &&
       mcmc$store_every > mcmc$chain_length
   ) {
