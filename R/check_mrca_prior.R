@@ -71,7 +71,7 @@ check_mrca_prior <- function(mrca_prior) {
 #' @return nothing
 #' @seealso Use \link{check_mrca_prior} to check the entire MRCA prior
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_mrca_prior_names <- function(
   mrca_prior
 ) {
