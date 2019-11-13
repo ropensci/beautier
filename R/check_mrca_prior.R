@@ -29,7 +29,9 @@ check_mrca_prior <- function(mrca_prior) {
   # An MRCA prior can be NA
   if (beautier::is_one_na(mrca_prior)) return()
 
+  # If not, it should have all list elements needed
   beautier::check_mrca_prior_names(mrca_prior)
+
   beautier::check_is_monophyletic(mrca_prior$is_monophyletic)
   beautier::check_mrca_prior_name(mrca_prior$name)
   if (!beautier::is_one_na(mrca_prior$alignment_id) &&
