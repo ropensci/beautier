@@ -1,7 +1,8 @@
 #' Create a Most Recent Common Ancestor prior
 #' @inheritParams default_params_doc
 #' @param name the unique name of the MRCA prior, for example a genus, family,
-#'   order or even class name. Leave at NA to have it named automatically
+#' order or even class name.
+#' Leave at \link{NA} to have it named automatically.
 #' @param taxa_names names of the taxa,
 #'   as returned by \code{\link{get_taxa_names}}.
 #'   Keep at \code{NA} to have it initialized automatically,

@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_mrca_prior_name(NA))
+  expect_silent(check_mrca_prior_name("some_name"))
+  expect_error(check_mrca_prior_name(NULL))
+  expect_error(check_mrca_prior_name(""))
+  expect_error(check_mrca_prior_name(Inf))
+  expect_error(check_mrca_prior_name(3.14))
+  expect_error(check_mrca_prior_name(c(NA, NA)))
+  expect_error(check_mrca_prior_name(c("some", "name")))
+})

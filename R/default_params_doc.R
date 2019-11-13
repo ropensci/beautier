@@ -87,6 +87,10 @@
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param mrca_priors a list of one or more Most Recent Common Ancestor priors,
 #'   as returned by \code{\link{create_mrca_prior}}
+#' @param mrca_prior_name the unique name of the MRCA prior,
+#' for example a genus, family,
+#' order or even class name.
+#' Leave at \link{NA} to have it named automatically.
 #' @param n_init_attempts number of initialization attempts before failing
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
@@ -179,6 +183,7 @@ default_params_doc <- function(
   mcmc,
   mode,
   mrca_prior, mrca_priors,
+  mrca_prior_name,
   n_init_attempts,
   output_filename,
   param_id,

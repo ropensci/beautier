@@ -15,13 +15,13 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   has_tip_dating, hky_site_model, id, ids, inference_model,
   inference_models, initial_phylogenies, input_filename, input_filenames,
   is_monophyletic, jc69_site_model, log_every, mcmc, mode, mrca_prior,
-  mrca_priors, n_init_attempts, output_filename, param_id, phylogeny,
-  posterior_crown_age, pre_burnin, rln_clock_model, sample_from_prior,
-  sanitise_headers, screenlog, sequence_length, site_model,
-  site_model_name, site_model_names, site_models, sort, store_every,
-  strict_clock_model, tipdates_filename, tn93_site_model, tracelog,
-  treelog, tree_prior, tree_prior_name, tree_prior_names, tree_priors,
-  verbose, yule_tree_prior)
+  mrca_priors, mrca_prior_name, n_init_attempts, output_filename, param_id,
+  phylogeny, posterior_crown_age, pre_burnin, rln_clock_model,
+  sample_from_prior, sanitise_headers, screenlog, sequence_length,
+  site_model, site_model_name, site_model_names, site_models, sort,
+  store_every, strict_clock_model, tipdates_filename, tn93_site_model,
+  tracelog, treelog, tree_prior, tree_prior_name, tree_prior_names,
+  tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -148,6 +148,11 @@ as returned by \code{\link{create_mrca_prior}}}
 
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
+
+\item{mrca_prior_name}{the unique name of the MRCA prior,
+for example a genus, family,
+order or even class name.
+Leave at \link{NA} to have it named automatically.}
 
 \item{n_init_attempts}{number of initialization attempts before failing}
 

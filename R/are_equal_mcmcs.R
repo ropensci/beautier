@@ -14,7 +14,7 @@
 #' expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 #' @author Richèl J.C. Bilderbeek
 #' @export
-are_equal_mcmcs <- function(
+are_equal_mcmcs <- function( # nolint cannot lower cyclomatic complexity
   mcmc_1, mcmc_2
 ) {
   beautier::check_mcmc(mcmc_1)

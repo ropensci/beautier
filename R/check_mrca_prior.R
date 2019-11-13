@@ -29,14 +29,9 @@ check_mrca_prior <- function(mrca_prior) {
   # An MRCA prior can be NA
   if (beautier::is_one_na(mrca_prior)) return()
 
-  check_mrca_prior_elements(mrca_prior) # nolint beautier function
-
-  if (length(mrca_prior$name) != 1 ||
-      (!is.character(mrca_prior$name) &&
-          !beautier::is_one_na(mrca_prior$name))
-  ) {
-    stop("'name' must be NA or characters")
-  }
+  beautier::check_mrca_prior_names(mrca_prior)
+  beautier::check_is_monophyletic(mrca_prior$is_monophyletic)
+  beautier::check_mrca_prior_name(mrca_prior$name)
   if (!beautier::is_one_na(mrca_prior$alignment_id) &&
       !is.character(mrca_prior$alignment_id)) {
     stop("'alignment_id' must be NA or characters")
@@ -44,9 +39,6 @@ check_mrca_prior <- function(mrca_prior) {
   if (!beautier::is_one_na(mrca_prior$taxa_names) &&
       !is.vector(mrca_prior$taxa_names, mode = "character")) {
     stop("'taxa_names' must a character vector")
-  }
-  if (!beautier::is_one_bool(mrca_prior$is_monophyletic)) {
-    stop("'is_monophyletic' must be either TRUE or FALSE")
   }
   if (!beautier::is_distr(mrca_prior$mrca_distr) &&
       !beautier::is_one_na(mrca_prior$mrca_distr)) {
@@ -71,7 +63,8 @@ check_mrca_prior <- function(mrca_prior) {
 
 }
 
-#' Check if the MRCA prior, which is a list, has all the elements needed
+#' Check if the MRCA prior,
+#' which is a list, has all the named elements.
 #'
 #' Calls \code{stop} if not.
 #' @inheritParams default_params_doc
@@ -79,7 +72,7 @@ check_mrca_prior <- function(mrca_prior) {
 #' @seealso Use \link{check_mrca_prior} to check the entire MRCA prior
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-check_mrca_prior_elements <- function(
+check_mrca_prior_names <- function(
   mrca_prior
 ) {
   argument_names <- c(
