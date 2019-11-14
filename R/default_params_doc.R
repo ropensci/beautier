@@ -2,7 +2,7 @@
 #' This function does nothing.
 #' It is intended to inherit function argument documentation.
 #' @param alignment_id ID of the alignment,
-#'   as returned by \code{\link{get_alignment_id}}.
+#'   as returned by \link{get_alignment_id}.
 #'   Keep at \code{NA} to have it initialized automatically
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}

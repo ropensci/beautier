@@ -46,14 +46,14 @@ test_that("abuse", {
     "'name' must be one NA or one character string"
   )
 
+  # Checked in more detail by 'check_alignment_id'
   expect_error(
     create_mrca_prior(
       name = "my_prior_name",
       alignment_id = NULL,
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr()
-    ),
-    "'alignment_id' must be NA or characters"
+    )
   )
 
   expect_error(

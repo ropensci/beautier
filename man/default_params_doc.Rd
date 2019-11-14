@@ -25,7 +25,7 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
-as returned by \code{\link{get_alignment_id}}.
+as returned by \link{get_alignment_id}.
 Keep at \code{NA} to have it initialized automatically}
 
 \item{bd_tree_prior}{a Birth-Death tree prior, as created

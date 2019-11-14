@@ -10,7 +10,7 @@ create_mrca_prior(alignment_id = NA, taxa_names = NA,
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
-as returned by \code{\link{get_alignment_id}}.
+as returned by \link{get_alignment_id}.
 Keep at \code{NA} to have it initialized automatically}
 
 \item{taxa_names}{names of the taxa,

@@ -34,10 +34,8 @@ check_mrca_prior <- function(mrca_prior) {
 
   beautier::check_is_monophyletic(mrca_prior$is_monophyletic)
   beautier::check_mrca_prior_name(mrca_prior$name)
-  if (!beautier::is_one_na(mrca_prior$alignment_id) &&
-      !is.character(mrca_prior$alignment_id)) {
-    stop("'alignment_id' must be NA or characters")
-  }
+  beautier::check_alignment_id(mrca_prior$alignment_id)
+
   if (!beautier::is_one_na(mrca_prior$taxa_names) &&
       !is.vector(mrca_prior$taxa_names, mode = "character")) {
     stop("'taxa_names' must a character vector")

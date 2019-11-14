@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_alignment_id(NA))
+  expect_silent(check_alignment_id("test_output_0"))
+  expect_error(check_alignment_id(NULL))
+  expect_error(check_alignment_id(Inf))
+  expect_error(check_alignment_id(""))
+  expect_error(check_alignment_id(42))
+  expect_error(check_alignment_id(3.14))
+  expect_error(check_alignment_id(c(NA, NA)))
+  expect_error(check_alignment_id(c("test_output_0", "test_output_0")))
+})
