@@ -29,7 +29,7 @@ expect_equal(created, expected)
 expect_silent(check_alignment_id(created))
 }
 \seealso{
-Use \link{check_alignment_id} to check if an alignmnet
+Use \link{check_alignment_id} to check if an alignment
 ID is valid.
 }
 \author{

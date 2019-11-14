@@ -5,7 +5,7 @@
 #' @param capitalize_first_char_id if TRUE, the first character will
 #'   be capitalized
 #' @return an alignment's ID
-#' @seealso Use \link{check_alignment_id} to check if an alignmnet
+#' @seealso Use \link{check_alignment_id} to check if an alignment
 #' ID is valid.
 #' @examples
 #' library(testthat)
