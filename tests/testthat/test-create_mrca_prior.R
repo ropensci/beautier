@@ -56,6 +56,7 @@ test_that("abuse", {
     )
   )
 
+  # Checked in more detail by 'check_mrca_prior_taxa_names'
   expect_error(
     create_mrca_prior(
       name = "my_prior_name",
@@ -63,7 +64,7 @@ test_that("abuse", {
       taxa_names = NULL,
       mrca_distr = create_normal_distr()
     ),
-    "'taxa_names' must a character vector"
+    "'taxa_names'.*NA.*name"
   )
 
   expect_error(
