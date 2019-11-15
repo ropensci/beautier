@@ -3,10 +3,6 @@
 #' @param name the unique name of the MRCA prior, for example a genus, family,
 #' order or even class name.
 #' Leave at \link{NA} to have it named automatically.
-#' @param taxa_names names of the taxa,
-#'   as returned by \code{\link{get_taxa_names}}.
-#'   Keep at \code{NA} to have it initialized automatically,
-#'   using all taxa in the alignment
 #' @param mrca_distr the distribution used by the MRCA prior.
 #'   Can be NA (the default) or any distribution
 #'   returned by \code{\link{create_distr}}

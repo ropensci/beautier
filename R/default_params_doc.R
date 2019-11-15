@@ -122,6 +122,10 @@
 #'   Use -1 or \code{NA} to use the default frequency.
 #' @param strict_clock_model a strict clock model,
 #'   as returned by \code{\link{create_strict_clock_model}}
+#' @param taxa_names names of the taxa,
+#'   as returned by \code{\link{get_taxa_names}}.
+#'   Keep at \code{NA} to have it initialized automatically,
+#'   using all taxa in the alignment
 #' @param tn93_site_model a TN93 site model,
 #'   as returned by \code{\link{create_tn93_site_model}}
 #' @param tracelog a \code{tracelog},
@@ -202,6 +206,7 @@ default_params_doc <- function(
   sort,
   store_every,
   strict_clock_model,
+  taxa_names,
   tipdates_filename,
   tn93_site_model,
   tracelog,

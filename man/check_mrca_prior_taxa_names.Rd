@@ -6,6 +6,12 @@
 \usage{
 check_mrca_prior_taxa_names(taxa_names)
 }
+\arguments{
+\item{taxa_names}{names of the taxa,
+as returned by \code{\link{get_taxa_names}}.
+Keep at \code{NA} to have it initialized automatically,
+using all taxa in the alignment}
+}
 \description{
 Will \link{stop} if not.
 }

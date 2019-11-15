@@ -19,9 +19,9 @@ default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
   phylogeny, posterior_crown_age, pre_burnin, rln_clock_model,
   sample_from_prior, sanitise_headers, screenlog, sequence_length,
   site_model, site_model_name, site_model_names, site_models, sort,
-  store_every, strict_clock_model, tipdates_filename, tn93_site_model,
-  tracelog, treelog, tree_prior, tree_prior_name, tree_prior_names,
-  tree_priors, verbose, yule_tree_prior)
+  store_every, strict_clock_model, taxa_names, tipdates_filename,
+  tn93_site_model, tracelog, treelog, tree_prior, tree_prior_name,
+  tree_prior_names, tree_priors, verbose, yule_tree_prior)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -202,6 +202,11 @@ Use -1 or \code{NA} to use the default frequency.}
 
 \item{strict_clock_model}{a strict clock model,
 as returned by \code{\link{create_strict_clock_model}}}
+
+\item{taxa_names}{names of the taxa,
+as returned by \code{\link{get_taxa_names}}.
+Keep at \code{NA} to have it initialized automatically,
+using all taxa in the alignment}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
 This file is assumed to have two columns, separated by a tab.
