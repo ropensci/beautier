@@ -87,6 +87,7 @@ test_that("abuse", {
     "'mrca_distr' must a distribution, as created by 'create_distr'"
   )
 
+  # Checked in more detail by 'check_mrca_prior_taxon_names'
   expect_error(
     create_mrca_prior(
       name = "my_prior_name",

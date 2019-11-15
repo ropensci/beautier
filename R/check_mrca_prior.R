@@ -35,25 +35,11 @@ check_mrca_prior <- function(mrca_prior) {
   beautier::check_is_monophyletic(mrca_prior$is_monophyletic)
   beautier::check_mrca_prior_name(mrca_prior$name)
   beautier::check_alignment_id(mrca_prior$alignment_id)
+  beautier::check_mrca_prior_taxon_names(mrca_prior$taxa_names)
 
-  if (!beautier::is_one_na(mrca_prior$taxa_names) &&
-      !is.vector(mrca_prior$taxa_names, mode = "character")) {
-    stop("'taxa_names' must a character vector")
-  }
   if (!beautier::is_distr(mrca_prior$mrca_distr) &&
       !beautier::is_one_na(mrca_prior$mrca_distr)) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
-  }
-  testit::assert(length(mrca_prior$taxa_names) > 0)
-  if (!beautier::is_one_na(mrca_prior$taxa_names) &&
-      sum(mrca_prior$taxa_names == "") > 0
-  ) {
-    stop("'taxa_names' must be NA or have at least one taxon name")
-  }
-  if (!beautier::is_one_na(mrca_prior$taxa_names) &&
-      length(unique(mrca_prior$taxa_names)) != length(mrca_prior$taxa_names)
-  ) {
-    stop("'taxa_names' must be NA or all names must be unique")
   }
   if (!beautier::is_one_na(mrca_prior$clock_prior_distr_id) &&
       !beautier::is_one_int(mrca_prior$clock_prior_distr_id)
