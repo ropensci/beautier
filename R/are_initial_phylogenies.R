@@ -3,7 +3,6 @@
 #' @return TRUE if x is exactly one phylogeny
 #' @examples
 #'   phylogeny <- ape::read.tree(text = "(A:1,B:1);")
-#'   testthat::expect_false(are_initial_phylogenies(phylogeny))
 #'   testthat::expect_true(are_initial_phylogenies(NA))
 #'   testthat::expect_true(are_initial_phylogenies(c(phylogeny)))
 #'   testthat::expect_true(are_initial_phylogenies(c(phylogeny, phylogeny)))
