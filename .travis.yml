@@ -3,12 +3,12 @@ dist: bionic
 
 matrix:
   include:
-  - r: release
-    os: linux
   - r: devel
     os: linux
-  - r: release
-    os: osx
+  #- r: release
+  #  os: linux
+  #- r: release
+  #  os: osx
 
 cache: packages
 
@@ -20,7 +20,6 @@ r_packages:
 r_github_packages:
   - jimhester/covr
   - jimhester/lintr
-  - MangoTheCat/goodpractice
   - ropensci/spelling
 
 before_install:
@@ -35,10 +34,8 @@ before_script:
   #- sudo npm install -g markdown-link-check
 
 after_success:
-  - Rscript -e 'print(rappdirs::app_dir()$os)'
   - Rscript -e 'lintr::expect_lint_free()'
   - Rscript -e 'covr::codecov()'
-  - Rscript -e 'goodpractice::gp()'
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then proselint *.md | egrep -v "typography\.symbols\.curly_quotes"; fi
   - # No local files created
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi; fi
@@ -49,3 +46,4 @@ after_success:
 
 after_failure:
   - Rscript -e 'print(rappdirs::app_dir()$os)'
+
