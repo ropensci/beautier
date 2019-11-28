@@ -64,4 +64,5 @@ create_beast2_input_file_from_model <- function( # nolint indeed a long name, bu
       )
     }
   )
+  invisible()
 }

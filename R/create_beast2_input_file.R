@@ -99,4 +99,5 @@ create_beast2_input_file <- function(
     output_filename = output_filename,
     inference_model = inference_model
   )
+  invisible()
 }
