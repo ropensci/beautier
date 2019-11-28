@@ -18,7 +18,9 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-![](beautier_logo.png)
+```{r echo=FALSE}
+knitr::include_graphics(beautier::get_beautier_path("beautier_logo.png"))
+```
 
 The purpose of `beautier` is to create a valid `BEAST2` XML input file
 from its function argument. In this way, a scientific pipeline using 

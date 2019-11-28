@@ -4,7 +4,6 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^install_beast2$
-^.*\.png$
 ^code_of_conduct\.md$
 ^CONTRIBUTING\.md$
 ^pics$
