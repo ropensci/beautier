@@ -50,7 +50,7 @@ We can display the alignment in the file:
 image(ape::read.FASTA(fasta_filename))
 ```
 
-Specify the filename for our XML file, here I use a temporay filename,
+Specify the filename for our XML file, here I use a temporary filename,
 so there is no need to clean up afterwards:
 
 ```{r create_output_filename}
