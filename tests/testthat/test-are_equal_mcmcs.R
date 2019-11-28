@@ -54,4 +54,3 @@ test_that("treelog", {
   mcmc_2$treelog <- create_test_treelog()
   expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 })
-

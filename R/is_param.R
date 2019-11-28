@@ -85,7 +85,7 @@ is_param <- function(
 is_alpha_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "alpha"
 }
 
@@ -129,7 +129,7 @@ is_alpha_param <- function(
 is_beta_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "beta"
 }
 
@@ -173,7 +173,7 @@ is_beta_param <- function(
 is_clock_rate_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "clock_rate"
 }
 
@@ -221,7 +221,7 @@ is_clock_rate_param <- function(
 is_kappa_1_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   if (x$name != "kappa_1") return(FALSE)
 
   if (!"lower" %in% names(x)) return(FALSE)
@@ -270,7 +270,7 @@ is_kappa_1_param <- function(
 is_kappa_2_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   if (x$name != "kappa_2") return(FALSE)
 
   if (!"lower" %in% names(x)) return(FALSE)
@@ -318,7 +318,7 @@ is_kappa_2_param <- function(
 is_lambda_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "lambda"
 }
 
@@ -362,7 +362,7 @@ is_lambda_param <- function(
 is_m_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "m"
 }
 
@@ -405,7 +405,7 @@ is_m_param <- function(
 is_mean_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "mean"
 }
 
@@ -450,7 +450,7 @@ is_mean_param <- function(
 is_mu_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "mu"
 }
 
@@ -495,7 +495,7 @@ is_mu_param <- function(
 is_rate_ac_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "rate_ac"
 }
 
@@ -540,7 +540,7 @@ is_rate_ac_param <- function(
 is_rate_ag_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "rate_ag"
 }
 
@@ -585,7 +585,7 @@ is_rate_ag_param <- function(
 is_rate_at_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "rate_at"
 }
 
@@ -630,7 +630,7 @@ is_rate_at_param <- function(
 is_rate_cg_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "rate_cg"
 }
 
@@ -675,7 +675,7 @@ is_rate_cg_param <- function(
 is_rate_ct_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "rate_ct"
 }
 
@@ -720,7 +720,7 @@ is_rate_ct_param <- function(
 is_rate_gt_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "rate_gt"
 }
 
@@ -764,7 +764,7 @@ is_rate_gt_param <- function(
 is_s_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "s"
 }
 
@@ -808,7 +808,7 @@ is_s_param <- function(
 is_scale_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "scale"
 }
 
@@ -852,6 +852,6 @@ is_scale_param <- function(
 is_sigma_param <- function(
   x
 ) {
-  if (!is_param(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_param(x)) return(FALSE)
   x$name == "sigma"
 }

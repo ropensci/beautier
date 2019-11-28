@@ -35,7 +35,7 @@ jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
-  testit::assert(is_jc69_site_model(site_model))
+  testit::assert(beautier::is_jc69_site_model(site_model))
   paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>") # nolint this is no absolute path
 }
 
@@ -78,7 +78,7 @@ tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id))
+  testit::assert(beautier::is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(

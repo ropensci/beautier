@@ -20,5 +20,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
 is_tree_prior_name <- function(name) {
-  name %in% get_tree_prior_names() # nolint beautier function
+  name %in% beautier::get_tree_prior_names()
 }

@@ -195,7 +195,9 @@ init_gtr_site_model <- function(
     param_id <- param_id + 1
   }
   testit::assert(beautier::is_gtr_site_model(gtr_site_model))
-  testit::assert(beautier::is_init_gamma_site_model(gtr_site_model$gamma_site_model))
+  testit::assert(
+    beautier::is_init_gamma_site_model(gtr_site_model$gamma_site_model)
+  )
   testit::assert(beautier::is_init_gtr_site_model(gtr_site_model))
   gtr_site_model
 }
@@ -217,7 +219,11 @@ init_hky_site_model <- function(
   testit::assert(beautier::is_hky_site_model(hky_site_model))
 
   # Initialize gamma site model, if any
-  if (!beautier::is_one_na(hky_site_model$gamma_site_model$gamma_shape_prior_distr)) {
+  if (
+    !beautier::is_one_na(
+      hky_site_model$gamma_site_model$gamma_shape_prior_distr
+    )
+  ) {
     if (!beautier::is_init_distr(
       hky_site_model$gamma_site_model$gamma_shape_prior_distr
     )) {
@@ -296,7 +302,9 @@ init_jc69_site_model <- function(
     }
   }
 
-  testit::assert(beautier::is_init_gamma_site_model(jc69_site_model$gamma_site_model))
+  testit::assert(
+    beautier::is_init_gamma_site_model(jc69_site_model$gamma_site_model)
+  )
   testit::assert(beautier::is_init_jc69_site_model(jc69_site_model))
   jc69_site_model
 }
@@ -324,7 +332,9 @@ init_tn93_site_model <- function(
 
   # Initialize gamma site model, if any
   if (
-    !beautier::is_one_na(tn93_site_model$gamma_site_model$gamma_shape_prior_distr)
+    !beautier::is_one_na(
+      tn93_site_model$gamma_site_model$gamma_shape_prior_distr
+    )
   ) {
     if (
       !beautier::is_init_distr(

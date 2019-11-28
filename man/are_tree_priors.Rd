@@ -16,12 +16,14 @@ TRUE if x, or all elements of x, are tree_prior objects
 Determine if x consists out of tree_priors objects
 }
 \examples{
-  yule_tree_prior <- create_yule_tree_prior()
-  bd_tree_prior <- create_bd_tree_prior()
-  both_tree_priors <- list(yule_tree_prior, bd_tree_prior)
-  testit::assert(are_tree_priors(yule_tree_prior))
-  testit::assert(are_tree_priors(bd_tree_prior))
-  testit::assert(are_tree_priors(both_tree_priors))
+library(testthat)
+
+yule_tree_prior <- create_yule_tree_prior()
+bd_tree_prior <- create_bd_tree_prior()
+both_tree_priors <- list(yule_tree_prior, bd_tree_prior)
+expect_true(are_tree_priors(yule_tree_prior))
+expect_true(are_tree_priors(bd_tree_prior))
+expect_true(are_tree_priors(both_tree_priors))
 }
 \seealso{
 Use \link{create_yule_tree_prior} to create a Yule tree prior

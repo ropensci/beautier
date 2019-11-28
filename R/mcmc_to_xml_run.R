@@ -44,7 +44,10 @@ mcmc_to_xml_run_default <- function(mcmc) {
   )
 
   if (mcmc$n_init_attempts != 10) {
-    xml <- paste0(xml, " numInitializationAttempts=\"", mcmc$n_init_attempts, "\"")
+    xml <- paste0(
+      xml,
+      " numInitializationAttempts=\"", mcmc$n_init_attempts, "\""
+    )
   }
 
   if (mcmc$pre_burnin > 0) {

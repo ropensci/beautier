@@ -13,7 +13,7 @@ test_that("cannot create CBS with less than 6 taxa", {
 
 test_that("MRCA prior's alignment ID must match the FASTA file ID", {
   fasta_filename <- get_fasta_filename()
-  inference_model = create_inference_model(
+  inference_model <- create_inference_model(
     mrca_prior = create_mrca_prior(
       alignment_id = paste0("broken_", get_alignment_id(fasta_filename)),
       taxa_names = get_taxa_names(fasta_filename)
@@ -32,7 +32,7 @@ test_that("MRCA prior's alignment ID must match the FASTA file ID", {
 test_that("MRCA prior's taxa names must be FASTA file taxa names", {
 
   fasta_filename <- get_fasta_filename()
-  inference_model = create_inference_model(
+  inference_model <- create_inference_model(
     mrca_prior = create_mrca_prior(
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = paste0("broken_", get_taxa_names(fasta_filename))

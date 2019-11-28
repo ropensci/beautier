@@ -139,7 +139,7 @@ check_strict_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$clock_rate_distr
     )
   }
-  if (!is_param(clock_model$clock_rate_param)) {
+  if (!beautier::is_param(clock_model$clock_rate_param)) {
     stop(
       "'clock_model$clock_rate_param' must be a parameter. \n",
       "Tip: use create_param. \n",

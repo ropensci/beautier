@@ -30,7 +30,7 @@ is_init_distr <- function(
   } else if (beautier::is_poisson_distr(x)) {
     return(beautier::is_init_poisson_distr(x))
   } else {
-    testit::assert(is_uniform_distr(x))
+    testit::assert(beautier::is_uniform_distr(x))
     return(beautier::is_init_uniform_distr(x))
   }
 }

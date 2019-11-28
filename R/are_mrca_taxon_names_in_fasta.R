@@ -15,7 +15,7 @@ are_mrca_taxon_names_in_fasta <- function(
       fasta_filename = fasta_filename
     )
   )
-  if (get_alignment_id(fasta_filename) == mrca_prior$alignment_id) {
+  if (beautier::get_alignment_id(fasta_filename) == mrca_prior$alignment_id) {
     for (name in mrca_prior$taxa_names) {
       if (!name %in% get_taxa_names(fasta_filename)) {
         return(FALSE)

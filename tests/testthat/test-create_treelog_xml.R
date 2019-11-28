@@ -12,7 +12,7 @@ test_that("use", {
   expected <- c(
     "",
     "<logger id=\"treelog.t:test_output_0\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">", # nolint
-    "    <log id=\"TreeWithMetaDataLogger.t:test_output_0\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" tree=\"@Tree.t:test_output_0\"/>",
+    "    <log id=\"TreeWithMetaDataLogger.t:test_output_0\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" tree=\"@Tree.t:test_output_0\"/>", # nolint long line indeed
     "</logger>"
   )
   expect_equal(created, expected)

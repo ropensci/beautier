@@ -10,6 +10,9 @@ extract_xml_operators_from_lines <- function(# nolint indeed a long function nam
   if (beautier::is_one_na(first_line)) {
     return("")
   }
-  last_line <- beautier::find_last_regex_line(lines, "(<operator id=\")|(</operator>)")
+  last_line <- beautier::find_last_regex_line(
+    lines,
+    "(<operator id=\")|(</operator>)"
+  )
   lines[first_line:last_line]
 }

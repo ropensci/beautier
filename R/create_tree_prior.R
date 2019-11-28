@@ -68,7 +68,7 @@ create_tree_prior <- function(
   if (!is_tree_prior_name(name)) { # nolint beautier function
     tree_priors_as_string <- function() {
       s <- NULL
-      for (p in get_tree_prior_names()) {
+      for (p in beautier::get_tree_prior_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))

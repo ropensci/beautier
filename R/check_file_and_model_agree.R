@@ -37,7 +37,7 @@ check_file_and_model_agree <- function(
           "Use 'get_alignment_id' on the FASTA filename ",
           "to get the correct alignment ID. ",
           "Alignment IDs: ",
-            get_alignment_id(input_filename),
+            beautier::get_alignment_id(input_filename),
           ". MRCA alignment ID: ", inference_model$mrca_prior$alignment_id
         )
       )

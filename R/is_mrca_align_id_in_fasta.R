@@ -10,7 +10,7 @@ is_mrca_align_id_in_fasta <- function(
   fasta_filename
 ) {
   testit::assert(beautier::is_mrca_prior(mrca_prior))
-  id <- get_alignment_id(fasta_filename)
+  id <- beautier::get_alignment_id(fasta_filename)
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   testit::assert(!beautier::is_one_na(mrca_prior))
   testit::assert("alignment_id" %in% names(mrca_prior))
