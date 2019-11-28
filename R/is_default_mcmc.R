@@ -12,6 +12,6 @@
 #' expect_false(is_default_mcmc(create_ns_mcmc()))
 #' @export
 is_default_mcmc <- function(mcmc) {
-  if (!is_mcmc(mcmc)) return(FALSE) # nolint beautier function
-  length(names(mcmc)) == length(names(create_mcmc()))
+  if (!beautier::is_mcmc(mcmc)) return(FALSE)
+  length(names(mcmc)) == length(names(beautier::create_mcmc()))
 }
