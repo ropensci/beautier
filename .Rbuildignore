@@ -10,3 +10,4 @@
 ^pics$
 ^scripts$
 ^\.appveyor\.yml$
+^doc$
