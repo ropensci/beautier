@@ -21,7 +21,8 @@ can be found in the [beastier::install_beast2](https://github.com/ropensci/beast
 
 Because `ropensci` does not have AppVeyor.
 
-To do check for Windows, [the beautier_on_windows repo](https://github.com/richelbilderbeek/beautier_on_windows)
+To do check for Windows, 
+[the beautier_on_windows repo](https://github.com/richelbilderbeek/beautier_on_windows)
 is created. That repo only checks the `master` branch of `beautier`.
 
 ## What's the [road map](road_map.md)?
@@ -74,7 +75,7 @@ or
 ## What is the idea behind the logo?
 
 The butterfly symbolizes beauty.
-The it was combined with an R logo. 
+Then it was combined with an R logo. 
 
 ## What are the FASTA files?
 
@@ -90,10 +91,6 @@ Others|Artificial
  
 Thanks to Peter A. Durr and Paul van Els for supplying the FASTA files.
 
-## If I set a fixed crown age with multiple alignments, only the first alignment has so
-
-Correct. This is a feature of BEAST2, which is assumed to be correct. 
-
 ## Why are the functions prefixed with `create_`?
 
 Or, why is this chosen:
@@ -101,7 +98,7 @@ Or, why is this chosen:
 ```{r}
 out <- create_beast2_input(
   "alignment.fas",
-  tree_priors = create_yule_tree_prior(
+  tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_exp_distr()    
   )
 )
@@ -112,62 +109,14 @@ over this:
 ```{r}
 out <- create_beast2_input(
   "alignment.fas",
-  tree_priors = yule_tree_prior(
+  tree_prior = yule_tree_prior(
     birth_rate_distr = exp_distr()    
   )
 )
 ```
 
-Answer: because of readability. 
-
-In this example, one could argue that prefixing `create_` 
-hinders readability, as it makes the code unnecessarily
-long. Additionally, `ggplot2` also omits the creation of `geom`s.
-
-There are arguments against this line of thought: a function
-'does' something, thus should contain a verb (as that would reflect its
-meaning). The `create` or `make` prefix has its place in a Factory
-Method Design Pattern. 
-
-In the example above, however, the people involved in `beautier`
-felt removing `create_` would be preferable. 
-
-Yet, when doing so consistently throughout the package, problems
-turn up.
-
-When removing the `create_` prefix, this code:
-
-```{r}
-site_model <- list(
-  gamma_site_model = create_gamma_site_model(),
-  # ..
-)
-```
-
-becomes:
-
-```{r}
-site_model <- list(
-  gamma_site_model = gamma_site_model(),
-  # ..
-)
-```
-
-which cannot be interpreted. A workaround would be use an abbreviation
-of the `gamma_site_model` argument:
-
-```{r}
-site_model <- list(
-  gsm = gamma_site_model(),
-  # ..
-)
-```
-
-This abbreviation hurt readability. The `beautier` team felt is a
-bad idea to be inconsistent in prefixing functions with `create_`.
-
-In the end, it was decided to keep `create_`. Yes, it is more 
-typing (auto-complete will fix that), but clarity comes first.
+Answer: because function names should start with a 
+verb (see e.g. [https://style.tidyverse.org/functions.html#naming](The Tidyverse Style Guide))
 
 ## Why the name?
 
