@@ -3,12 +3,19 @@
 #' @return TRUE if x, or all elements of x, are clock_model objects
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   rln_clock_model <- create_rln_clock_model()
-#'   strict_clock_model <- create_strict_clock_model()
-#'   both_clock_models <- list(rln_clock_model, strict_clock_model)
-#'   testit::assert(are_clock_models(rln_clock_model))
-#'   testit::assert(are_clock_models(strict_clock_model))
-#'   testit::assert(are_clock_models(both_clock_models))
+#' library(testthat)
+#'
+#' rln_clock_model <- create_rln_clock_model()
+#' strict_clock_model <- create_strict_clock_model()
+#' both_clock_models <- list(rln_clock_model, strict_clock_model)
+#' expect_true(are_clock_models(rln_clock_model))
+#' expect_true(are_clock_models(strict_clock_model))
+#' expect_true(are_clock_models(both_clock_models))
+#'
+#' expect_false(are_clock_models(NA))
+#' expect_false(are_clock_models(NULL))
+#' expect_false(are_clock_models("nonsense"))
+#' expect_false(are_clock_models(create_jc69_site_model()))
 #' @export
 are_clock_models <- function(
   x
