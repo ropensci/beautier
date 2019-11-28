@@ -38,12 +38,9 @@
 #'     Phylogenetics Using Nested Sampling, Systematic Biology, 2018,
 #'     syy050, https://doi.org/10.1093/sysbio/syy050
 #' @author Richèl J.C. Bilderbeek
-#' @aliases create_ns_mcmc create_nested_sampling_mcmc
-#' @aliases create_mcmc_nested_sampling
-#' @export create_ns_mcmc create_nested_sampling_mcmc
-#' @export create_mcmc_nested_sampling
-create_ns_mcmc <- create_nested_sampling_mcmc <-
-create_mcmc_nested_sampling <- function(
+#' @aliases create_ns_mcmc create_mcmc_nested_sampling
+#' @export create_ns_mcmc create_mcmc_nested_sampling
+create_ns_mcmc <- create_mcmc_nested_sampling <- function(
   chain_length = 10000000,
   store_every = -1,
   pre_burnin = 0,

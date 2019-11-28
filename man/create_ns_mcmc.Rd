@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_mcmc_nested_sampling.R
 \name{create_ns_mcmc}
 \alias{create_ns_mcmc}
-\alias{create_nested_sampling_mcmc}
+\alias{create_mcmc_nested_sampling}
 \title{Create an MCMC object to estimate the marginal likelihood
 using Nested Sampling.}
 \usage{

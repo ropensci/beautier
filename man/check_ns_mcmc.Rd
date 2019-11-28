@@ -17,7 +17,7 @@ as returned by \code{\link{create_mcmc}}}
 Will \link{stop} if not, else will do nothing
 }
 \seealso{
-use \link{create_nested_sampling_mcmc}
+use \link{create_ns_mcmc}
 to create an MCMC that uses Nested Sampling
 to estimate a marginal likelihood
 }

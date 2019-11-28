@@ -3,7 +3,7 @@
 #'
 #' Will \link{stop} if not, else will do nothing
 #' @inheritParams default_params_doc
-#' @seealso use \link{create_nested_sampling_mcmc}
+#' @seealso use \link{create_ns_mcmc}
 #' to create an MCMC that uses Nested Sampling
 #' to estimate a marginal likelihood
 #' @author Richèl J.C. Bilderbeek
@@ -25,7 +25,7 @@ check_nested_sampling_mcmc <- function(mcmc) {
       stop(
         "'", arg_name, "' must be an element of an MCMC ",
         "that uses Nested Sampling. \n",
-        "Tip: use 'create_nested_sampling_mcmc'"
+        "Tip: use 'create_ns_mcmc'"
       )
     }
   }

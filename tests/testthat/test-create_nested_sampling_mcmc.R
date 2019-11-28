@@ -1,5 +1,5 @@
 test_that("can create default silently", {
-  expect_silent(create_nested_sampling_mcmc())
+  expect_silent(create_ns_mcmc())
 })
 
 test_that("set and get is symmetric", {
@@ -8,7 +8,7 @@ test_that("set and get is symmetric", {
   particle_count <- 42
   sub_chain_length <- 3000
   epsilon <- 3.14
-  mcmc <- create_nested_sampling_mcmc(
+  mcmc <- create_ns_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     particle_count = particle_count,
@@ -28,7 +28,7 @@ test_that("elements can be retrieved from BEAST2 XML", {
   particle_count <- 42
   sub_chain_length <- 7000
   epsilon <- 3.14
-  nested_sampling_mcmc <- create_nested_sampling_mcmc(
+  nested_sampling_mcmc <- create_ns_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     particle_count = particle_count,

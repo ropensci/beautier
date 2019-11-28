@@ -17,7 +17,7 @@ Determine if the object is a valid MCMC
 }
 \examples{
   testthat::expect_true(is_mcmc(create_mcmc()))
-  testthat::expect_true(is_mcmc(create_nested_sampling_mcmc()))
+  testthat::expect_true(is_mcmc(create_ns_mcmc()))
   testthat::expect_false(is_mcmc("nonsense"))
 }
 \seealso{
