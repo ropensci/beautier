@@ -4,13 +4,15 @@
 #' @param filename A filename
 #' @return That filename without its full path and extension
 #' @examples
-#'   # Path need not exist, use UNIX path as example
-#'   testit::assert(
-#'     beautier:::get_file_base_sans_ext("/home/homer/test.txt")
-#'     == "test"
-#'  )
+#' library(testthat)
+#'
+#' # Path need not exist, use UNIX path as example
+#' expect_equal(
+#'   get_file_base_sans_ext("/home/homer/test.txt"),
+#'   "test"
+#' )
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_file_base_sans_ext <- function(filename) {
   basename(tools::file_path_sans_ext(filename))
 }

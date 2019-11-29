@@ -6,11 +6,13 @@
 #' @return the valid values for the \code{freq_equilibrium} argument
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   names <- beautier:::get_freq_equilibrium_names()
-#'   testit::assert("estimated" %in% names)
-#'   testit::assert("empirical" %in% names)
-#'   testit::assert("all_equal" %in% names)
-#' @noRd
+#' library(testthat)
+#'
+#' names <- beautier:::get_freq_equilibrium_names()
+#' expect_true("estimated" %in% names)
+#' expect_true("empirical" %in% names)
+#' expect_true("all_equal" %in% names)
+#' @export
 get_freq_equilibrium_names <- function() {
   c("estimated", "empirical", "all_equal")
 }

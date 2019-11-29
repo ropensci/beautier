@@ -19,7 +19,8 @@ init_mrca_prior <- function(
         beautier::get_alignment_id(input_filename)
     }
     if (beautier::is_one_na(inference_model$mrca_prior$taxa_names)) {
-      inference_model$mrca_prior$taxa_names <- get_taxa_names(input_filename) # nolint beautier function
+      inference_model$mrca_prior$taxa_names <-
+        beautier::get_taxa_names(input_filename)
     }
   }
   inference_model

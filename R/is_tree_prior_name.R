@@ -2,23 +2,15 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid tree_prior name, FALSE otherwise
 #' @examples
-#'   testit::assert(
-#'     beautier:::is_tree_prior_name("birth_death")
-#'   )
-#'   testit::assert(
-#'     beautier:::is_tree_prior_name("coalescent_bayesian_skyline")
-#'   )
-#'   testit::assert(
-#'     beautier:::is_tree_prior_name("coalescent_constant_population")
-#'   )
-#'   testit::assert(
-#'     beautier:::is_tree_prior_name("coalescent_exp_population")
-#'   )
-#'   testit::assert(
-#'     beautier:::is_tree_prior_name("yule")
-#'   )
+#' library(testthat)
+#'
+#' expect_true(is_tree_prior_name("birth_death"))
+#' expect_true(is_tree_prior_name("coalescent_bayesian_skyline"))
+#' expect_true(is_tree_prior_name("coalescent_constant_population"))
+#' expect_true(is_tree_prior_name("coalescent_exp_population"))
+#' expect_true(is_tree_prior_name("yule"))
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_tree_prior_name <- function(name) {
   name %in% beautier::get_tree_prior_names()
 }

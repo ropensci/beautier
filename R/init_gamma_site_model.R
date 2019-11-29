@@ -26,7 +26,7 @@ init_gamma_site_model <- function(
       param_id = param_id
     )
     distr_id <- distr_id + 1
-    param_id <- param_id + get_distr_n_params( # nolint beautier function
+    param_id <- param_id + beautier::get_distr_n_params(
       gamma_site_model$gamma_shape_prior_distr
     )
   }

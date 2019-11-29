@@ -2,10 +2,12 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid clock_model name, FALSE otherwise
 #' @examples
-#'   testit::assert(beautier:::is_clock_model_name("relaxed_log_normal"))
-#'   testit::assert(beautier:::is_clock_model_name("strict"))
+#' library(testthat)
+#'
+#' expect_true(is_clock_model_name("relaxed_log_normal"))
+#' expect_true(is_clock_model_name("strict"))
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_clock_model_name <- function(name) {
-  name %in% get_clock_model_names() # nolint beautier function
+  name %in% beautier::get_clock_model_names()
 }

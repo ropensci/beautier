@@ -13,9 +13,11 @@ the clock model names
 Get the clock model names
 }
 \examples{
-  names <- beautier:::get_clock_model_names()
-  testit::assert("relaxed_log_normal" \%in\% names)
-  testit::assert("strict" \%in\% names)
+library(testthat)
+
+names <- get_clock_model_names()
+expect_true("relaxed_log_normal" \%in\% names)
+expect_true("strict" \%in\% names)
 }
 \seealso{
 Use \link{create_clock_models} to create a list
