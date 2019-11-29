@@ -1,6 +1,6 @@
 Package: beautier
 Title: 'BEAUti' from R
-Version: 2.3
+Version: 2.3.1
 Authors@R: c(
   person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
   person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
@@ -20,7 +20,7 @@ Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
   This package provides a way to create 'BEAST2' input
   files without active user input, but using
   R function calls instead.
-License: GPL-3 | file LICENSE
+License: GPL-3
 LazyData: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr

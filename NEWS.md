@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.3.1 (2019-11-29)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Use `testthat` in documentation, instead of the less known `testit`
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## beautier 2.3 (2019-10-27)
 
 ### NEW FEATURES
