@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.3.2 (2019-11-30)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * None
+
+### BUG FIXES
+
+  * Remove files for CRAN submission
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## beautier 2.3.1 (2019-11-29)
 
 ### NEW FEATURES
