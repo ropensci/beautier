@@ -12,7 +12,7 @@ is_tree_prior <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (!is_tree_prior_name(x$name)) return(FALSE) # nolint beautier function
+  if (!beautier::is_tree_prior_name(x$name)) return(FALSE)
   if (!"id" %in% names(x)) return(FALSE)
   TRUE
 }

@@ -99,7 +99,7 @@ init_gtr_site_model <- function(
   }
 
   if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_ac_prior_distr <- init_distr( # nolint beautier function
+    gtr_site_model$rate_ac_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -110,7 +110,7 @@ init_gtr_site_model <- function(
     )
   }
   if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_ag_prior_distr <- init_distr( # nolint beautier function
+    gtr_site_model$rate_ag_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ag_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -121,7 +121,7 @@ init_gtr_site_model <- function(
     )
   }
   if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_at_prior_distr <- init_distr( # nolint beautier function
+    gtr_site_model$rate_at_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_at_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -132,7 +132,7 @@ init_gtr_site_model <- function(
     )
   }
   if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_cg_prior_distr <- init_distr( # nolint beautier function
+    gtr_site_model$rate_cg_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_cg_prior_distr,
       distr_id = distr_id,
       param_id = param_id

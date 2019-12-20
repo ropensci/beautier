@@ -173,13 +173,13 @@ create_strict_clock_model <- create_clock_model_strict <- function(
   if (beautier::is_one_double(clock_rate_param)) {
     clock_rate_param <- create_clock_rate_param(clock_rate_param)
   }
-  if (!is_clock_rate_param(clock_rate_param)) { # nolint beautier function
+  if (!beautier::is_clock_rate_param(clock_rate_param)) {
     stop(
       "'clock_rate_param' must be a clock rate parameter, ",
       "as can be created by 'create_clock_rate_param'"
     )
   }
-  if (!is_distr(clock_rate_distr)) { # nolint beautier function
+  if (!beautier::is_distr(clock_rate_distr)) {
     stop(
       "'clock_rate_distr' must be a distribution, ",
       "as can be created by 'create_distr'"

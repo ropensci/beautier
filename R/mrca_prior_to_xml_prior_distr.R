@@ -23,7 +23,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
 ) {
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   text <- NULL
-  if (!has_non_strict_clock_model && # nolint beautier function
+  if (!has_non_strict_clock_model &&
       !beautier::is_one_na(mrca_prior$mrca_distr)
   ) {
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))

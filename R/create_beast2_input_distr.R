@@ -240,7 +240,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = bd_birth_rate_distr
       )
     )
@@ -254,7 +254,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml
         distr = bd_death_rate_distr
       )
     )
@@ -341,7 +341,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = ccp_tree_prior$pop_size_distr
       )
     )
@@ -390,7 +390,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = cep_tree_prior$pop_size_distr
       )
     )
@@ -402,7 +402,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = cep_tree_prior$growth_rate_distr
       )
     )

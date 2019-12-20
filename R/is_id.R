@@ -15,5 +15,5 @@
 is_id <- function(
   x
 ) {
-  assertive::is_a_string(x) || beautier::is_one_int(x) # nolint beautier function
+  assertive::is_a_string(x) || beautier::is_one_int(x)
 }

@@ -19,8 +19,8 @@ init_gamma_site_model <- function(
 ) {
   testit::assert(beautier::is_gamma_site_model(gamma_site_model))
 
-  if (!is_init_distr(gamma_site_model$gamma_shape_prior_distr)) { # nolint beautier function
-    gamma_site_model$gamma_shape_prior_distr <- init_distr( # nolint beautier function
+  if (!beautier::is_init_distr(gamma_site_model$gamma_shape_prior_distr)) {
+    gamma_site_model$gamma_shape_prior_distr <- beautier::init_distr(
       gamma_site_model$gamma_shape_prior_distr,
       distr_id = distr_id,
       param_id = param_id

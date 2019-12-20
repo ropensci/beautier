@@ -55,7 +55,7 @@ is_site_model <- function(
 is_gtr_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE) # nolint beautier function
+  if (!beautier::is_site_model(x)) return(FALSE)
   if (x$name != "GTR") return(FALSE)
 
   expected_names <- c("rate_ac_prior_distr", "rate_ag_prior_distr",

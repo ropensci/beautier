@@ -65,7 +65,7 @@ create_tree_prior <- function(
   id,
   ...
 ) {
-  if (!is_tree_prior_name(name)) { # nolint beautier function
+  if (!beautier::is_tree_prior_name(name)) {
     tree_priors_as_string <- function() {
       s <- NULL
       for (p in beautier::get_tree_prior_names()) {
