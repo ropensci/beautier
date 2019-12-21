@@ -5,9 +5,11 @@
 \alias{create_tree_prior_cep}
 \title{Create a Coalescent Exponential Population tree prior}
 \usage{
-create_cep_tree_prior(id = NA,
+create_cep_tree_prior(
+  id = NA,
   pop_size_distr = create_one_div_x_distr(),
-  growth_rate_distr = create_laplace_distr())
+  growth_rate_distr = create_laplace_distr()
+)
 }
 \arguments{
 \item{id}{the ID of the alignment}

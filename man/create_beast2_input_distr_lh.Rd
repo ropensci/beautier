@@ -5,8 +5,12 @@
 \title{Creates the likelihood section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_distr_lh(site_models, clock_models, mrca_priors = NA,
-  tipdates_filename = NA)
+create_beast2_input_distr_lh(
+  site_models,
+  clock_models,
+  mrca_priors = NA,
+  tipdates_filename = NA
+)
 }
 \arguments{
 \item{site_models}{one or more site models,

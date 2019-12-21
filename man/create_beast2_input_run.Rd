@@ -4,8 +4,10 @@
 \alias{create_beast2_input_run}
 \title{Creates the '\code{run}' section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_run(input_filename,
-  inference_model = create_inference_model())
+create_beast2_input_run(
+  input_filename,
+  inference_model = create_inference_model()
+)
 }
 \arguments{
 \item{input_filename}{A FASTA filename.

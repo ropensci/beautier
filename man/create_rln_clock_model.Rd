@@ -5,11 +5,16 @@
 \alias{create_clock_model_rln}
 \title{Create a relaxed log-normal clock model}
 \usage{
-create_rln_clock_model(id = NA,
+create_rln_clock_model(
+  id = NA,
   mean_rate_prior_distr = create_uniform_distr(),
-  ucldstdev_distr = create_gamma_distr(), mparam_id = NA,
-  mean_clock_rate = "1.0", n_rate_categories = -1,
-  normalize_mean_clock_rate = FALSE, dimension = NA)
+  ucldstdev_distr = create_gamma_distr(),
+  mparam_id = NA,
+  mean_clock_rate = "1.0",
+  n_rate_categories = -1,
+  normalize_mean_clock_rate = FALSE,
+  dimension = NA
+)
 }
 \arguments{
 \item{id}{an alignment's IDs.

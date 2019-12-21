@@ -4,8 +4,10 @@
 \alias{create_beast2_input_beast}
 \title{Creates the XML text for the \code{beast} tag of a BEAST2 parameter file.}
 \usage{
-create_beast2_input_beast(input_filename,
-  inference_model = create_inference_model())
+create_beast2_input_beast(
+  input_filename,
+  inference_model = create_inference_model()
+)
 }
 \arguments{
 \item{input_filename}{A FASTA filename.

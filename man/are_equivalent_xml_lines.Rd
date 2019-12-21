@@ -4,8 +4,7 @@
 \alias{are_equivalent_xml_lines}
 \title{Determine if XML lines result in equivalent trees}
 \usage{
-are_equivalent_xml_lines(lines_1, lines_2, section = NA,
-  verbose = FALSE)
+are_equivalent_xml_lines(lines_1, lines_2, section = NA, verbose = FALSE)
 }
 \arguments{
 \item{lines_1}{lines of a first XML file}

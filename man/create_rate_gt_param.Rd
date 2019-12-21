@@ -5,8 +5,7 @@
 \alias{create_param_rate_gt}
 \title{Create a parameter called 'rate GT'}
 \usage{
-create_rate_gt_param(id = NA, estimate = TRUE, value = "1.0",
-  lower = "0.0")
+create_rate_gt_param(id = NA, estimate = TRUE, value = "1.0", lower = "0.0")
 }
 \arguments{
 \item{id}{the parameter's ID}

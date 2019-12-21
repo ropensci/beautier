@@ -4,11 +4,15 @@
 \alias{create_test_inference_model}
 \title{Create a simple inference model with a short MCMC chain}
 \usage{
-create_test_inference_model(site_model = create_jc69_site_model(),
+create_test_inference_model(
+  site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
-  tree_prior = create_yule_tree_prior(), mrca_prior = NA,
-  mcmc = create_test_mcmc(), beauti_options = create_beauti_options(),
-  tipdates_filename = NA)
+  tree_prior = create_yule_tree_prior(),
+  mrca_prior = NA,
+  mcmc = create_test_mcmc(),
+  beauti_options = create_beauti_options(),
+  tipdates_filename = NA
+)
 }
 \arguments{
 \item{site_model}{a site model,

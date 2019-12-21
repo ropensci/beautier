@@ -5,8 +5,10 @@
 \alias{create_tree_prior_ccp}
 \title{Create a Coalescent Constant Population tree prior}
 \usage{
-create_ccp_tree_prior(id = NA,
-  pop_size_distr = beautier::create_one_div_x_distr())
+create_ccp_tree_prior(
+  id = NA,
+  pop_size_distr = beautier::create_one_div_x_distr()
+)
 }
 \arguments{
 \item{id}{the ID of the alignment}

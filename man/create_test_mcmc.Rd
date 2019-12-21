@@ -4,10 +4,16 @@
 \alias{create_test_mcmc}
 \title{Create an MCMC configuration for testing.}
 \usage{
-create_test_mcmc(chain_length = 3000, store_every = 1000,
-  pre_burnin = 0, n_init_attempts = 10, sample_from_prior = FALSE,
+create_test_mcmc(
+  chain_length = 3000,
+  store_every = 1000,
+  pre_burnin = 0,
+  n_init_attempts = 10,
+  sample_from_prior = FALSE,
   tracelog = create_test_tracelog(),
-  screenlog = create_test_screenlog(), treelog = create_test_treelog())
+  screenlog = create_test_screenlog(),
+  treelog = create_test_treelog()
+)
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}

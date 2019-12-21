@@ -4,8 +4,13 @@
 \alias{create_tracelog}
 \title{Create a \code{tracelog} object}
 \usage{
-create_tracelog(filename = NA, log_every = 1000, mode = "autodetect",
-  sanitise_headers = TRUE, sort = "smart")
+create_tracelog(
+  filename = NA,
+  log_every = 1000,
+  mode = "autodetect",
+  sanitise_headers = TRUE,
+  sort = "smart"
+)
 }
 \arguments{
 \item{filename}{name of the file to store the posterior traces.

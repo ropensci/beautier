@@ -4,9 +4,13 @@
 \alias{create_beauti_options}
 \title{Function to create a set of BEAUti options.}
 \usage{
-create_beauti_options(capitalize_first_char_id = FALSE,
-  nucleotides_uppercase = FALSE, beast2_version = "2.4",
-  required = "", sequence_indent = 20)
+create_beauti_options(
+  capitalize_first_char_id = FALSE,
+  nucleotides_uppercase = FALSE,
+  beast2_version = "2.4",
+  required = "",
+  sequence_indent = 20
+)
 }
 \arguments{
 \item{capitalize_first_char_id}{must the ID of alignment start with a

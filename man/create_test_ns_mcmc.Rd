@@ -4,11 +4,18 @@
 \alias{create_test_ns_mcmc}
 \title{Create an NS MCMC object for testing}
 \usage{
-create_test_ns_mcmc(chain_length = 2000, store_every = 1000,
-  pre_burnin = 0, n_init_attempts = 3, particle_count = 1,
-  sub_chain_length = 500, epsilon = 1e-12,
+create_test_ns_mcmc(
+  chain_length = 2000,
+  store_every = 1000,
+  pre_burnin = 0,
+  n_init_attempts = 3,
+  particle_count = 1,
+  sub_chain_length = 500,
+  epsilon = 1e-12,
   tracelog = create_test_tracelog(),
-  screenlog = create_test_screenlog(), treelog = create_test_treelog())
+  screenlog = create_test_screenlog(),
+  treelog = create_test_treelog()
+)
 }
 \arguments{
 \item{chain_length}{upper bound to the length of the MCMC chain}

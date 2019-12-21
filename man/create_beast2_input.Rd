@@ -4,14 +4,22 @@
 \alias{create_beast2_input}
 \title{Create a BEAST2 XML input text}
 \usage{
-create_beast2_input(input_filename, tipdates_filename = NA,
+create_beast2_input(
+  input_filename,
+  tipdates_filename = NA,
   site_model = create_jc69_site_model(),
   clock_model = create_strict_clock_model(),
-  tree_prior = create_yule_tree_prior(), mrca_prior = NA,
-  mcmc = create_mcmc(), beauti_options = create_beauti_options(),
-  input_filenames = "deprecated", site_models = "deprecated",
-  clock_models = "deprecated", tree_priors = "deprecated",
-  mrca_priors = "deprecated", posterior_crown_age = "deprecated")
+  tree_prior = create_yule_tree_prior(),
+  mrca_prior = NA,
+  mcmc = create_mcmc(),
+  beauti_options = create_beauti_options(),
+  input_filenames = "deprecated",
+  site_models = "deprecated",
+  clock_models = "deprecated",
+  tree_priors = "deprecated",
+  mrca_priors = "deprecated",
+  posterior_crown_age = "deprecated"
+)
 }
 \arguments{
 \item{input_filename}{A FASTA filename.
