@@ -254,7 +254,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml
+      beautier::distr_to_xml(
         distr = bd_death_rate_distr
       )
     )
