@@ -23,7 +23,7 @@ clock_model_to_xml_prior_distr <- function(
   if (beautier::is_rln_clock_model(clock_model)) {
 
     if (
-      is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint beautier function
+      beautier::is_mrca_prior_with_distr(mrca_priors[[1]])
     ) {
       text <- c(text, beautier::rln_clock_model_to_xml_mean_rate_prior(clock_model))
     }

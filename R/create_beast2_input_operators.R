@@ -3,7 +3,7 @@
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_operators <- function( # nolint beautier function
+create_beast2_input_operators <- function(
   site_models,
   clock_models,
   tree_priors,
@@ -29,10 +29,10 @@ create_beast2_input_operators <- function( # nolint beautier function
     )
   )
 
-  text <- c(text, site_models_to_xml_operators(site_models)) # nolint beautier function
+  text <- c(text, beautier::site_models_to_xml_operators(site_models))
   text <- c(
     text,
-    clock_models_to_xml_operators( # nolint beautier function
+    beautier::clock_models_to_xml_operators(
       clock_models = clock_models,
       mrca_priors = mrca_priors,
       tipdates_filename = tipdates_filename

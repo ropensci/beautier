@@ -10,9 +10,9 @@ taxa_to_xml_tree <- function(
 ) {
   testit::assert(beautier::is_id(id))
   if (beautier::is_one_na(tipdates_filename)) {
-    no_taxa_to_xml_tree(id = id) # nolint beautier function
+    beautier::no_taxa_to_xml_tree(id = id)
   } else {
-    tipdate_taxa_to_xml_tree( # nolint beautier function
+    beautier::tipdate_taxa_to_xml_tree(
       id = id,
       tipdates_filename = tipdates_filename
     )

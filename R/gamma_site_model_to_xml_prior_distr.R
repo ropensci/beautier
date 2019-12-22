@@ -4,7 +4,7 @@
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-gamma_site_model_to_xml_prior_distr <- function( # nolint beautier function
+gamma_site_model_to_xml_prior_distr <- function(
   site_model
 ) {
   testit::assert(beautier::is_site_model(site_model))

@@ -16,7 +16,7 @@ site_models_to_xml_prior_distr <- function(site_models) {
   for (site_model in site_models) {
     text <- c(
       text,
-      site_model_to_xml_prior_distr(site_model) # nolint beautier function
+      beautier::site_model_to_xml_prior_distr(site_model)
     )
   }
   text

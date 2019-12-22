@@ -5,7 +5,7 @@
 #'   opening tag is found, else NA
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-find_first_xml_opening_tag_line <- function( # nolint beautier functions may be long
+find_first_xml_opening_tag_line <- function(
   lines,
   section
 ) {

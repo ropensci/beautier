@@ -10,7 +10,7 @@ are_mrca_taxon_names_in_fasta <- function(
 ) {
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   testit::assert(
-    is_mrca_align_id_in_fasta( # nolint beautier function
+    beautier::is_mrca_align_id_in_fasta(
       mrca_prior = mrca_prior,
       fasta_filename = fasta_filename
     )

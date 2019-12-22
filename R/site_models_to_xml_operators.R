@@ -9,7 +9,7 @@ site_models_to_xml_operators <- function(
 
   text <- NULL
   for (site_model in site_models) {
-    text <- c(text, site_model_to_xml_operators(site_model)) # nolint beautier function
+    text <- c(text, beautier::site_model_to_xml_operators(site_model))
   }
   text
 }

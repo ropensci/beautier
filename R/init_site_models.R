@@ -26,21 +26,21 @@ init_site_models <- function(
       )
     } else if (beautier::is_hky_site_model(site_model)) {
       # HKY
-      site_model <- init_hky_site_model( # nolint beautier function call
+      site_model <- beautier::init_hky_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
       )
     } else if (beautier::is_jc69_site_model(site_model)) {
       # JC69
-      site_model <- init_jc69_site_model( # nolint beautier function call
+      site_model <- beautier::init_jc69_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
       )
     } else {
       testit::assert(beautier::is_tn93_site_model(site_model))
-      site_model <- init_tn93_site_model( # nolint beautier function call
+      site_model <- beautier::init_tn93_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
@@ -98,7 +98,7 @@ init_gtr_site_model <- function(
     }
   }
 
-  if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) { # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_ac_prior_distr)) {
     gtr_site_model$rate_ac_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
@@ -109,7 +109,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_ac_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) { # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_ag_prior_distr)) {
     gtr_site_model$rate_ag_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ag_prior_distr,
       distr_id = distr_id,
@@ -120,7 +120,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_ag_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) { # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_at_prior_distr)) {
     gtr_site_model$rate_at_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_at_prior_distr,
       distr_id = distr_id,
@@ -131,7 +131,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_at_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) { # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_cg_prior_distr)) {
     gtr_site_model$rate_cg_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_cg_prior_distr,
       distr_id = distr_id,

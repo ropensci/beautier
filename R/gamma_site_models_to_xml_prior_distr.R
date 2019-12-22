@@ -4,14 +4,14 @@
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-gamma_site_models_to_xml_prior_distr <- function( # nolint beautier function
+gamma_site_models_to_xml_prior_distr <- function(
   site_models
 ) {
   text <- NULL
   for (site_model in site_models) {
     text <- c(
       text,
-      gamma_site_model_to_xml_prior_distr(site_model) # nolint
+      beautier::gamma_site_model_to_xml_prior_distr(site_model)
     )
   }
   text

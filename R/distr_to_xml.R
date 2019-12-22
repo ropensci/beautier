@@ -18,26 +18,26 @@ distr_to_xml <- function(
     stop("distribution must have an ID")
   }
   if (beautier::is_beta_distr(distr)) {
-    text <- c(text, distr_to_xml_beta(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_beta(distr))
   } else if (beautier::is_exp_distr(distr)) {
-    text <- c(text, distr_to_xml_exp(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_exp(distr))
   } else if (beautier::is_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_gamma(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_gamma(distr))
   } else if (beautier::is_inv_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_inv_gamma(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_inv_gamma(distr))
   } else if (beautier::is_laplace_distr(distr)) {
-    text <- c(text, distr_to_xml_laplace(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_laplace(distr))
   } else if (beautier::is_log_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_log_normal(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_log_normal(distr))
   } else if (beautier::is_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_normal(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_normal(distr))
   } else if (beautier::is_one_div_x_distr(distr)) {
-    text <- c(text, distr_to_xml_one_div_x(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_one_div_x(distr))
   } else if (beautier::is_poisson_distr(distr)) {
-    text <- c(text, distr_to_xml_poisson(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_poisson(distr))
   } else {
     testit::assert(beautier::is_uniform_distr(distr))
-    text <- c(text, distr_to_xml_uniform(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_uniform(distr))
   }
   testit::assert(beautier::is_xml(text))
   text

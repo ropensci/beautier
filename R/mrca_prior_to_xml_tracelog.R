@@ -9,7 +9,7 @@
 #' # </logger>
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-mrca_prior_to_xml_tracelog <- function( # nolint beautier function
+mrca_prior_to_xml_tracelog <- function(
   clock_models,
   mrca_prior,
   tipdates_filename = NA

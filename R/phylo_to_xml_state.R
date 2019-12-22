@@ -10,7 +10,7 @@ phylo_to_xml_state <- function(
   tipdates_filename = NA
 ) {
   testit::assert(beautier::is_id(id))
-  taxa_to_xml_tree( # nolint beautier function
+  beautier::taxa_to_xml_tree(
     id = id,
     tipdates_filename = tipdates_filename
   )

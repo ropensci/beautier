@@ -14,7 +14,7 @@ init_clock_models <- function(
   testit::assert(all(file.exists(fasta_filenames)))
   testit::assert(beautier::are_clock_models(clock_models))
   testit::assert(length(clock_models) == length(fasta_filenames))
-  ids <- get_alignment_ids_from_fasta_filenames(fasta_filenames) # nolint beautier function
+  ids <- beautier::get_alignment_ids_from_fasta_filenames(fasta_filenames)
   n_taxa <- beautier::get_n_taxa(fasta_filenames[1])
 
   for (i in seq_along(clock_models)) {
@@ -24,9 +24,9 @@ init_clock_models <- function(
     if (beautier::is_rln_clock_model(clock_model)) {
       # RLN
 
-      if (!is_init_rln_clock_model(clock_model)) { # nolint beautier function
+      if (!beautier::is_init_rln_clock_model(clock_model)) {
 
-        clock_model <- init_rln_clock_model( # nolint beautier function call
+        clock_model <- beautier::init_rln_clock_model(
           clock_model,
           distr_id = distr_id,
           param_id = param_id
@@ -44,9 +44,9 @@ init_clock_models <- function(
     } else {
       testit::assert(beautier::is_strict_clock_model(clock_model))
 
-      if (!is_init_strict_clock_model(clock_model)) { # nolint beautier function
+      if (!beautier::is_init_strict_clock_model(clock_model)) {
 
-        clock_model <- init_strict_clock_model( # nolint beautier function call
+        clock_model <- beautier::init_strict_clock_model(
           clock_model,
           distr_id = distr_id,
           param_id = param_id

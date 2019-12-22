@@ -9,7 +9,7 @@
 #' # </logger>
 #' @author Richèl J.C. Bilderbeek
 #' @noRd
-tree_prior_to_xml_tracelog <- function( # nolint beautier function
+tree_prior_to_xml_tracelog <- function(
   tree_prior
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
