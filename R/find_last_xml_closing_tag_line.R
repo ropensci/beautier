@@ -4,7 +4,7 @@
 #' @return the line number's index (which is 1 for the first line) if the
 #'   opening tag is found, else NA
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 find_last_xml_closing_tag_line <- function(
   lines,
   section

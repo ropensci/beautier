@@ -4,7 +4,7 @@
 #'   TRUE will remove all surrounding whitespace
 #' @return the lines with text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 remove_empty_lines <- function(lines, trim = FALSE) {
   trimmed <- stringr::str_trim(lines)
   if (trim == FALSE) {

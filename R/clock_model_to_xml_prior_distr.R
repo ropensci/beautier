@@ -11,7 +11,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 clock_model_to_xml_prior_distr <- function(
   clock_model,
   mrca_priors = NA,

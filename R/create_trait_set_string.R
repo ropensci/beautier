@@ -6,7 +6,7 @@
 #' @param df a data frame with two columns
 #' @return the trait set string
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_trait_set_string <- function(
   df
 ) {

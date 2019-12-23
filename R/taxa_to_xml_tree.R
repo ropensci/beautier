@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 taxa_to_xml_tree <- function(
   id,
   tipdates_filename = NA
@@ -25,7 +25,7 @@ taxa_to_xml_tree <- function(
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 no_taxa_to_xml_tree <- function(
   id
 ) {
@@ -47,7 +47,7 @@ no_taxa_to_xml_tree <- function(
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tipdate_taxa_to_xml_tree <- function(
   id,
   tipdates_filename

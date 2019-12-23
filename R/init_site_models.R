@@ -4,7 +4,7 @@
 #' @param param_id the first parameter's ID
 #' @return a list of initialized site models
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 init_site_models <- function(
   site_models,
   ids,

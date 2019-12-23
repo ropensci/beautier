@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the tree prior as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tree_prior_to_xml_state <- function(
   tree_prior
 ) {

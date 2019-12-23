@@ -13,7 +13,7 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tree_priors_to_xml_prior_distr <- function(
   tree_priors
 ) {

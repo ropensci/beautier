@@ -21,7 +21,7 @@
 #'   testit::assert(beautier:::is_param_name("s"))
 #'   testit::assert(beautier:::is_param_name("scale"))
 #'   testit::assert(beautier:::is_param_name("sigma"))
-#' @noRd
+#' @export
 is_param_name <- function(name) {
   name %in% beautier::get_param_names()
 }

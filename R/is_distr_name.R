@@ -13,7 +13,7 @@
 #'   testit::assert(beautier:::is_distr_name("inv_gamma"))
 #'   testit::assert(beautier:::is_distr_name("poisson"))
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 is_distr_name <- function(name) {
   name %in% beautier::get_distr_names()
 }

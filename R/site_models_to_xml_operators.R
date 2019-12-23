@@ -1,7 +1,8 @@
+#' Write the XML \code{operators} section from the site models.
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_models_to_xml_operators <- function(
   site_models
 ) {

@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_model_to_xml_operators <- function(
   site_model
 ) {

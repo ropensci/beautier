@@ -8,7 +8,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 clock_models_to_xml_tracelog <- function(
   clock_models,
   mrca_priors = NA

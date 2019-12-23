@@ -13,7 +13,7 @@
 #'   section under investigation, so that a diff tool
 #'   can compare these
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 compare_lines <- function(
   lines,
   expected,

@@ -150,7 +150,7 @@
 #'   as created by \code{\link{create_yule_tree_prior}}
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
-#'   \code{@noRd}. This is not done, as this will disallow all
+#'   \code{@export}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   alignment_id,
@@ -235,7 +235,7 @@ default_params_doc <- function(
 #' @param ... specific parameter parameters
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
-#'   \code{@noRd}. This is not done, as this will disallow all
+#'   \code{@export}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_parameters_doc <- function(
   estimate,

@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the tree prior as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 mrca_prior_to_xml_state <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE

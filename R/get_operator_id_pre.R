@@ -7,7 +7,7 @@
 #'   )
 #'   testthat::expect_equal(bd_pre, "BirthDeath")
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_operator_id_pre <- function(tree_prior) {
   if (beautier::is_bd_tree_prior(tree_prior)) {
     return("BirthDeath")

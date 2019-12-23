@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_model_to_xml_subst_model <- function(
   site_model
 ) {
@@ -28,7 +28,7 @@ site_model_to_xml_subst_model <- function(
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -44,7 +44,7 @@ jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -72,7 +72,7 @@ hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -125,7 +125,7 @@ tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {

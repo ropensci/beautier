@@ -4,7 +4,7 @@
 \alias{init_rln_clock_model}
 \title{Initializes a Relaxed Log-Normal clock model}
 \usage{
-init_rln_clock_model(rln_clock_model, distr_id, param_id)
+init_rln_clock_model(rln_clock_model, distr_id = 0, param_id = 0)
 }
 \arguments{
 \item{rln_clock_model}{a Relaxed Log-Normal clock model,
@@ -19,6 +19,18 @@ an initialized Relaxed Log-Normal clock model
 }
 \description{
 Initializes a Relaxed Log-Normal clock model
+}
+\examples{
+library(testthat)
+
+rln_clock_model <- create_rln_clock_model()
+expect_false(is_init_rln_clock_model(rln_clock_model))
+rln_clock_model <- init_rln_clock_model(rln_clock_model)
+# Dimension is set to NA by default, for unknown reasons.
+# Because 'init_rln_clock_model' does not initialize it (for
+# unknown reasons), set it manually
+rln_clock_model$dimension <- 42
+expect_true(is_init_rln_clock_model(rln_clock_model))
 }
 \author{
 Richèl J.C. Bilderbeek

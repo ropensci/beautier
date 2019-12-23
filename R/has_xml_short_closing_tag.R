@@ -11,7 +11,7 @@
 #'     )
 #'   )
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 has_xml_short_closing_tag <- function(
   lines
 ) {

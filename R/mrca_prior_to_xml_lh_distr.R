@@ -14,7 +14,7 @@
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 mrca_prior_to_xml_lh_distr <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE

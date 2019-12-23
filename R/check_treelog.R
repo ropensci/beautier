@@ -17,7 +17,7 @@ check_treelog <- function(treelog) {
 #' @return nothing
 #' @seealso Use \link{create_treelog} to create a valid \code{treelog}
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_treelog_names <- function(treelog) {
 
   list_element_names <- c(
@@ -41,7 +41,7 @@ check_treelog_names <- function(treelog) {
 #' @return nothing
 #' @seealso Use \link{create_treelog} to create a valid treelog
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_treelog_values <- function(treelog) {
 
   if (!beautier::is_one_na(treelog$filename)) {

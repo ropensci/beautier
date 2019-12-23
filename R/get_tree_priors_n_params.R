@@ -11,7 +11,7 @@
 #'      )
 #'    ) == 2
 #'  )
-#' @noRd
+#' @export
 get_tree_priors_n_params <- function(
   tree_priors
 ) {

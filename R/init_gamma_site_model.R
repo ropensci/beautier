@@ -11,7 +11,7 @@
 #'  testit::assert(!beautier:::is_init_gamma_site_model(gamma_site_model))
 #'  gamma_site_model <- beautier:::init_gamma_site_model(gamma_site_model)
 #'  testit::assert(beautier:::is_init_gamma_site_model(gamma_site_model))
-#' @noRd
+#' @export
 init_gamma_site_model <- function(
   gamma_site_model,
   distr_id = 0,

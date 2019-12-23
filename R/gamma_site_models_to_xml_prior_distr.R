@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 gamma_site_models_to_xml_prior_distr <- function(
   site_models
 ) {

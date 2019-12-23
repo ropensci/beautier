@@ -17,7 +17,7 @@ check_tracelog <- function(tracelog) {
 #' @return nothing
 #' @seealso Use \link{create_tracelog} to create a valid \code{tracelog}
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_tracelog_names <- function(tracelog) {
 
   list_element_names <- c(
@@ -41,7 +41,7 @@ check_tracelog_names <- function(tracelog) {
 #' @return nothing
 #' @seealso Use \link{create_tracelog} to create a valid tracelog
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_tracelog_values <- function(tracelog) {
 
   if (!beautier::is_one_na(tracelog$filename)) {

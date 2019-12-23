@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 clock_models_to_xml_operators <- function(
   clock_models,
   mrca_priors = NA,

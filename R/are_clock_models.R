@@ -37,7 +37,7 @@ are_clock_models <- function(
 #'   in \code{clock_models} is a relaxed log-normal
 #'   clock model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_rln_clock_models <- function(
   clock_models
 ) {

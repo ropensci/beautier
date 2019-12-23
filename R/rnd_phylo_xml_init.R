@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 rnd_phylo_to_xml_init <- function(
   id
 ) {

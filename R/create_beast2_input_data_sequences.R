@@ -4,7 +4,7 @@
 #'   Yes if TRUE, no if FALSE
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_beast2_input_data_sequences <- function(
   input_fasta_filename,
   beauti_options = create_beauti_options()

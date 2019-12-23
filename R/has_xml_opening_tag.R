@@ -6,7 +6,7 @@
 #'   this function returns TRUE if that tag matches \code{section}
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 has_xml_opening_tag <- function(
   lines,
   section = NA

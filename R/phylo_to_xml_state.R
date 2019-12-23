@@ -4,7 +4,7 @@
 #' @param id the ID of the alignment
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 phylo_to_xml_state <- function(
   id,
   tipdates_filename = NA

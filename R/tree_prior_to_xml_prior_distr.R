@@ -13,7 +13,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 tree_prior_to_xml_prior_distr <- function(
   tree_prior
 ) {

@@ -1,5 +1,4 @@
 #' Get the XML opening tag
-#' @inheritParams default_params_doc
 #' @param text text to be determined to be valid
 #' @return the openin tag if found, else NA
 #' @examples
@@ -9,7 +8,7 @@
 #'   )
 #'   testit::assert(is_one_na(beautier:::get_xml_opening_tag("no_xml")))
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_xml_opening_tag <- function(text) {
   first_line <- stringr::str_trim(text[1])
 

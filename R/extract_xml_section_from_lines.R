@@ -3,7 +3,7 @@
 #' @param section the XML section name
 #' @return the section's lines of XML text, including the tags
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 extract_xml_section_from_lines <- function(
   lines,
   section
