@@ -78,6 +78,7 @@ create_beast2_input_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 create_beast2_input_distr_prior <- function(
   site_models,
   clock_models,
@@ -128,6 +129,7 @@ create_beast2_input_distr_prior <- function(
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 create_beast2_input_distr_lh <- function(
   site_models,
   clock_models,
@@ -218,6 +220,7 @@ create_beast2_input_distr_lh <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 bd_tree_prior_to_xml_prior_distr <- function(
   bd_tree_prior
 ) {
@@ -277,6 +280,7 @@ bd_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 cbs_tree_prior_to_xml_prior_distr <- function(
   cbs_tree_prior
 ) {
@@ -313,6 +317,7 @@ cbs_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 ccp_tree_prior_to_xml_prior_distr <- function(
   ccp_tree_prior
 ) {
@@ -363,6 +368,7 @@ ccp_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 cep_tree_prior_to_xml_prior_distr <- function(
   cep_tree_prior
 ) {
@@ -424,6 +430,7 @@ cep_tree_prior_to_xml_prior_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' @export
 yule_tree_prior_to_xml_prior_distr <- function(
   yule_tree_prior
 ) {
