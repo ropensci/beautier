@@ -48,6 +48,7 @@ distr_to_xml <- function(
 #'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_beta <- function(
   distr
 ) {
@@ -76,6 +77,7 @@ distr_to_xml_beta <- function(
 #'   as created by \code{\link{create_exp_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_exp <- function(
   distr
 ) {
@@ -100,6 +102,7 @@ distr_to_xml_exp <- function(
 #'   as created by \code{\link{create_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_gamma <- function(
   distr
 ) {
@@ -129,6 +132,7 @@ distr_to_xml_gamma <- function(
 #'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_inv_gamma <- function(
   distr
 ) {
@@ -158,6 +162,7 @@ distr_to_xml_inv_gamma <- function(
 #'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_laplace <- function(
   distr
 ) {
@@ -186,6 +191,7 @@ distr_to_xml_laplace <- function(
 #'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_log_normal <- function(
   distr
 ) {
@@ -216,6 +222,7 @@ distr_to_xml_log_normal <- function(
 #'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_normal <- function(
   distr
 ) {
@@ -245,6 +252,7 @@ distr_to_xml_normal <- function(
 #'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_one_div_x <- function(
   distr
 ) {
@@ -263,6 +271,7 @@ distr_to_xml_one_div_x <- function(
 #'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_poisson <- function(
   distr
 ) {
@@ -288,6 +297,7 @@ distr_to_xml_poisson <- function(
 #'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_uniform <- function(
   distr
 ) {
