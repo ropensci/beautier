@@ -3,7 +3,7 @@
 \name{has_xml_closing_tag}
 \alias{has_xml_closing_tag}
 \title{Is an XML closing tag with the value of \code{section}
-  present amongst the lines of
+  present among the lines of
   the text?}
 \usage{
 has_xml_closing_tag(lines, section)
@@ -19,7 +19,7 @@ TRUE if there is an XML closing tag with the value of
 }
 \description{
 Is an XML closing tag with the value of \code{section}
-  present amongst the lines of
+  present among the lines of
   the text?
 }
 \author{

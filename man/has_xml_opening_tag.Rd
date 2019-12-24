@@ -2,7 +2,7 @@
 % Please edit documentation in R/has_xml_opening_tag.R
 \name{has_xml_opening_tag}
 \alias{has_xml_opening_tag}
-\title{Is an XML opening tag with value 'section' present amongst the lines of
+\title{Is an XML opening tag with value 'section' present among the lines of
   the text?}
 \usage{
 has_xml_opening_tag(lines, section = NA)
@@ -18,7 +18,7 @@ this function returns TRUE if that tag matches \code{section}}
 lines of XML text
 }
 \description{
-Is an XML opening tag with value 'section' present amongst the lines of
+Is an XML opening tag with value 'section' present among the lines of
   the text?
 }
 \author{

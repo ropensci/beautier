@@ -1,6 +1,6 @@
 #' Get the XML opening tag
 #' @param text text to be determined to be valid
-#' @return the openin tag if found, else NA
+#' @return the opening tag if found, else NA
 #' @examples
 #'   testit::assert(
 #'     beautier:::get_xml_opening_tag("<my_tag text=something/>")

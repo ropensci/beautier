@@ -10,7 +10,7 @@ get_xml_opening_tag(text)
 \item{text}{text to be determined to be valid}
 }
 \value{
-the openin tag if found, else NA
+the opening tag if found, else NA
 }
 \description{
 Get the XML opening tag

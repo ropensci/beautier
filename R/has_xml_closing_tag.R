@@ -1,5 +1,5 @@
 #' Is an XML closing tag with the value of \code{section}
-#'   present amongst the lines of
+#'   present among the lines of
 #'   the text?
 #' @param lines lines of the XML text
 #' @param section the XML section

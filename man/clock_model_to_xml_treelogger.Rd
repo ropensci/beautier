@@ -2,7 +2,7 @@
 % Please edit documentation in R/clock_model_to_xml_treelogger.R
 \name{clock_model_to_xml_treelogger}
 \alias{clock_model_to_xml_treelogger}
-\title{Convert a clock model to the XML of the TreeLogger}
+\title{Convert a clock model to the XML of the \code{TreeLogger}}
 \usage{
 clock_model_to_xml_treelogger(clock_model)
 }
@@ -14,7 +14,7 @@ as returned by \code{\link{create_clock_model}}}
 a character vector of XML strings
 }
 \description{
-Convert a clock model to the XML of the TreeLogger
+Convert a clock model to the XML of the \code{TreeLogger}
 }
 \author{
 Richèl J.C. Bilderbeek

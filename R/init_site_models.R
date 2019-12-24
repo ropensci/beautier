@@ -211,7 +211,7 @@ init_gtr_site_model <- function(
 #'
 #' hky_site_model <- create_hky_site_model()
 #' expect_false(is_init_hky_site_model(hky_site_model))
-#' hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
+#' hky_site_model <- init_hky_site_model(hky_site_model)
 #' expect_true(is_init_hky_site_model(hky_site_model))
 #' @export
 init_hky_site_model <- function(
@@ -269,10 +269,12 @@ init_hky_site_model <- function(
 #' @return an initialized HKY site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   hky_site_model <- create_hky_site_model()
-#'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
-#'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
-#'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
+#' library(testthat)
+#'
+#' hky_site_model <- create_hky_site_model()
+#' expect_false(is_init_hky_site_model(hky_site_model))
+#' hky_site_model <- init_hky_site_model(hky_site_model)
+#' expect_true(is_init_hky_site_model(hky_site_model))
 #' @export
 init_jc69_site_model <- function(
   jc69_site_model,

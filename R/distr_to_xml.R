@@ -7,9 +7,9 @@
 #' library(testthat)
 #'
 #' xml <- distr_to_xml(create_uniform_distr(id = 1))
-#' assert(is.character(xml))
-#' assert(length(xml) == 1)
-#' assert(nchar(xml) > 1)
+#' expect_true(is.character(xml))
+#' expect_true(length(xml) == 1)
+#' expect_true(nchar(xml) > 1)
 #' @export
 distr_to_xml <- function(
   distr

@@ -1,4 +1,4 @@
-#' Convert a clock model to the XML of the TreeLogger
+#' Convert a clock model to the XML of the \code{TreeLogger}
 #' @inherit default_params_doc
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
