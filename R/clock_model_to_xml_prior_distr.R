@@ -25,7 +25,10 @@ clock_model_to_xml_prior_distr <- function(
     if (
       beautier::is_mrca_prior_with_distr(mrca_priors[[1]])
     ) {
-      text <- c(text, beautier::rln_clock_model_to_xml_mean_rate_prior(clock_model))
+      text <- c(
+        text,
+        beautier::rln_clock_model_to_xml_mean_rate_prior(clock_model)
+      )
     }
 
     id <- clock_model$id

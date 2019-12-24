@@ -153,7 +153,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @export
-are_equivalent_xml_lines_operators <- function(
+are_equivalent_xml_lines_operators <- function( # nolint indeed long function name
   lines_1,
   lines_2,
   verbose = FALSE

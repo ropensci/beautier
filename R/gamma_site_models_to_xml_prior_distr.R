@@ -4,7 +4,7 @@
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-gamma_site_models_to_xml_prior_distr <- function(
+gamma_site_models_to_xml_prior_distr <- function( # nolint indeed long function name
   site_models
 ) {
   text <- NULL

@@ -4,7 +4,7 @@
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_data_sequences <- function(
+create_beast2_input_data_sequences <- function( # nolint indeed long function name
   input_fasta_filename,
   beauti_options = create_beauti_options()
 ) {

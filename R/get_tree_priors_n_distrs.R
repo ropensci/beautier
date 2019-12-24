@@ -5,7 +5,7 @@
 #' @examples
 #' library(testthat)
 #'
-#' expect_equal
+#' expect_equal(
 #'   get_tree_priors_n_distrs(
 #'     list(
 #'       create_bd_tree_prior(), # has two distributions

@@ -17,8 +17,10 @@ has_xml_opening_tag <- function(
     stop("'section' must be NA or a word")
   }
   if (beautier::is_one_na(section)) {
-    tag <- get_xml_opening_tag(lines) # nolint
+    tag <- beautier::get_xml_opening_tag(lines)
     return(!beautier::is_one_na(tag))
   }
-  !beautier::is_one_na(find_first_xml_opening_tag_line(lines, section))
+  !beautier::is_one_na(
+    beautier::find_first_xml_opening_tag_line(lines, section)
+  )
 }

@@ -11,7 +11,7 @@
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
 #' @export
-clock_models_to_xml_prior_distr <- function(
+clock_models_to_xml_prior_distr <- function( # nolint indeed long function name
   clock_models,
   mrca_priors = NA,
   tipdates_filename = NA

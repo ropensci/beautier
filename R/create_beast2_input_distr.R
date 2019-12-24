@@ -79,7 +79,7 @@ create_beast2_input_distr <- function(
 #'  #     </distribution>
 #'  # </distribution>
 #' @export
-create_beast2_input_distr_prior <- function(
+create_beast2_input_distr_prior <- function( # nolint indeed long function name
   site_models,
   clock_models,
   tree_priors,
@@ -221,7 +221,7 @@ create_beast2_input_distr_lh <- function(
 #'  #     </distribution>
 #'  # </distribution>
 #' @export
-bd_tree_prior_to_xml_prior_distr <- function(
+bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
@@ -281,7 +281,7 @@ bd_tree_prior_to_xml_prior_distr <- function(
 #'  #     </distribution>
 #'  # </distribution>
 #' @export
-cbs_tree_prior_to_xml_prior_distr <- function(
+cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cbs_tree_prior
 ) {
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
@@ -318,7 +318,7 @@ cbs_tree_prior_to_xml_prior_distr <- function(
 #'  #     </distribution>
 #'  # </distribution>
 #' @export
-ccp_tree_prior_to_xml_prior_distr <- function(
+ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   ccp_tree_prior
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
@@ -369,7 +369,7 @@ ccp_tree_prior_to_xml_prior_distr <- function(
 #'  #     </distribution>
 #'  # </distribution>
 #' @export
-cep_tree_prior_to_xml_prior_distr <- function(
+cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cep_tree_prior
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
@@ -431,7 +431,7 @@ cep_tree_prior_to_xml_prior_distr <- function(
 #'  #     </distribution>
 #'  # </distribution>
 #' @export
-yule_tree_prior_to_xml_prior_distr <- function(
+yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   yule_tree_prior
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
