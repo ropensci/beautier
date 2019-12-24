@@ -19,7 +19,7 @@ Get the XML opening tag
 library(testthat)
 
 expect_equal(
-  beautier:::get_xml_opening_tag("<my_tag text=something/>"),
+  get_xml_opening_tag("<my_tag text=something/>"),
   "my_tag"
 )
 expect_true(is_one_na(get_xml_opening_tag("no_xml")))

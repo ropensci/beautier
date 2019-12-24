@@ -28,10 +28,12 @@ is_init_site_model <- function(
 #' @return TRUE if x is an initialized GTR site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   gtr_site_model <- create_gtr_site_model()
-#'   testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
-#'   gtr_site_model <- beautier:::init_gtr_site_model(gtr_site_model)
-#'   testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
+#' library(testthat)
+#'
+#' gtr_site_model <- create_gtr_site_model()
+#' expect_false(is_init_gtr_site_model(gtr_site_model))
+#' gtr_site_model <- init_gtr_site_model(gtr_site_model)
+#' expect_true(is_init_gtr_site_model(gtr_site_model))
 #' @export
 is_init_gtr_site_model <- function(
   x
