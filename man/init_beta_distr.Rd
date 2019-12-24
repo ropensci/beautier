@@ -15,7 +15,7 @@ using \link{create_beta_distr}}
 \item{param_id}{the first parameter's ID}
 }
 \value{
-an initialized distribution
+an initialized beta distribution
 }
 \description{
 Initializes a beta distribution

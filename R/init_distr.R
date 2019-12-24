@@ -33,25 +33,21 @@ init_distr <- function(
     }
 
   } else if (beautier::is_gamma_distr(distr)) {
-
-    if (beautier::is_one_na(distr$alpha$id)) {
-      distr$alpha$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (beautier::is_one_na(distr$beta$id)) {
-      distr$beta$id <- param_id
-    }
-
+    return(
+      init_gamma_distr(
+        gamma_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   } else if (beautier::is_inv_gamma_distr(distr)) {
-
-    if (beautier::is_one_na(distr$alpha$id)) {
-      distr$alpha$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (beautier::is_one_na(distr$beta$id)) {
-      distr$beta$id <- param_id
-    }
-
+    return(
+      init_inv_gamma_distr(
+        inv_gamma_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   } else if (beautier::is_laplace_distr(distr)) {
 
     if (beautier::is_one_na(distr$mu$id)) {
@@ -109,7 +105,7 @@ init_distr <- function(
 #' @inheritParams init_distr
 #' @param beta_distr a beta distribution,
 #' using \link{create_beta_distr}
-#' @return an initialized distribution
+#' @return an initialized beta distribution
 #' @author Richèl J.C. Bilderbeek
 #' @export
 init_beta_distr <- function(
@@ -129,4 +125,56 @@ init_beta_distr <- function(
     beta_distr$beta$id <- param_id
   }
   beta_distr
+}
+
+#' Initializes a gamma distribution
+#' @inheritParams init_distr
+#' @param gamma_distr a gamma distribution,
+#' using \link{create_gamma_distr}
+#' @return an initialized gamma distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_gamma_distr <- function(
+  gamma_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(is_gamma_distr(gamma_distr))
+  if (beautier::is_one_na(gamma_distr$id)) {
+    gamma_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(gamma_distr$alpha$id)) {
+    gamma_distr$alpha$id <- param_id
+    param_id <- param_id + 1
+  }
+  if (beautier::is_one_na(gamma_distr$beta$id)) {
+    gamma_distr$beta$id <- param_id
+  }
+  gamma_distr
+}
+
+#' Initializes an inverse gamma distribution
+#' @inheritParams init_distr
+#' @param inv_gamma_distr an inverse gamma distribution,
+#' using \link{create_inv_gamma_distr}
+#' @return an initialized inverse gamma distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_inv_gamma_distr <- function(
+  inv_gamma_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(is_inv_gamma_distr(inv_gamma_distr))
+  if (beautier::is_one_na(inv_gamma_distr$id)) {
+    inv_gamma_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(inv_gamma_distr$alpha$id)) {
+    inv_gamma_distr$alpha$id <- param_id
+    param_id <- param_id + 1
+  }
+  if (beautier::is_one_na(inv_gamma_distr$beta$id)) {
+    inv_gamma_distr$beta$id <- param_id
+  }
+  inv_gamma_distr
 }
