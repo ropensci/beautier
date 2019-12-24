@@ -113,7 +113,8 @@ init_beta_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_beta_distr(beta_distr))
+  testit::assert(beautier::is_beta_distr(beta_distr))
+
   if (beautier::is_one_na(beta_distr$id)) {
     beta_distr$id <- distr_id
   }
@@ -139,7 +140,8 @@ init_gamma_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_gamma_distr(gamma_distr))
+  testit::assert(beautier::is_gamma_distr(gamma_distr))
+
   if (beautier::is_one_na(gamma_distr$id)) {
     gamma_distr$id <- distr_id
   }
@@ -165,7 +167,8 @@ init_inv_gamma_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_inv_gamma_distr(inv_gamma_distr))
+  testit::assert(beautier::is_inv_gamma_distr(inv_gamma_distr))
+
   if (beautier::is_one_na(inv_gamma_distr$id)) {
     inv_gamma_distr$id <- distr_id
   }

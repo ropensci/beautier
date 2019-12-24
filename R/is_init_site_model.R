@@ -35,7 +35,7 @@ is_init_site_model <- function(
 #' gtr_site_model <- init_gtr_site_model(gtr_site_model)
 #' expect_true(is_init_gtr_site_model(gtr_site_model))
 #' @export
-is_init_gtr_site_model <- function(
+is_init_gtr_site_model <- function( # nolint simplification of this hurts readability
   x
 ) {
   if (!beautier::is_gtr_site_model(x)) return(FALSE)
