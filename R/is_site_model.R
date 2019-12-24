@@ -57,34 +57,14 @@ is_site_model <- function(
 is_gtr_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
-  if (x$name != "GTR") return(FALSE)
-
-  # Check if all list elements have the right names
-  expected_names <- c("rate_ac_prior_distr", "rate_ag_prior_distr",
-    "rate_at_prior_distr", "rate_cg_prior_distr", "rate_gt_prior_distr",
-    "rate_ac_param", "rate_ag_param", "rate_at_param", "rate_cg_param",
-    "rate_ct_param", "rate_gt_param", "freq_equilibrium")
-  for (expected_name in expected_names) {
-    if (!expected_name %in% names(x)) return(FALSE)
-  }
-
-  # Check if all distributions are valid distributions
-  expected_distrs <- list(x$rate_ac_prior_distr, x$rate_ag_prior_distr,
-    x$rate_at_prior_distr, x$rate_cg_prior_distr, x$rate_gt_prior_distr)
-  for (expected_distr in expected_distrs) {
-    if (!beautier::is_distr(expected_distr)) return(FALSE)
-  }
-
-  # Check if all parameters are valid parameters
-  expected_params <- list(x$rate_ac_param, x$rate_ag_param, x$rate_at_param,
-    x$rate_cg_param, x$rate_ct_param, x$rate_gt_param)
-  for (expected_param in expected_params) {
-    if (!beautier::is_param(expected_param)) return(FALSE)
-  }
-
-  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    beautier::check_gtr_site_model(x)
+    result <- TRUE
+  },
+    error = function(e) {} # nolint do not care about e
+  )
+  result
 }
 
 #' Determine if the object is a valid HKY site model,
