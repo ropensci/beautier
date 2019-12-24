@@ -12,8 +12,8 @@ create_beast2_input_data_sequences(
 \arguments{
 \item{input_fasta_filename}{one FASTA filename}
 
-\item{nucleotides_uppercase}{are the nucleotides written in uppercase?
-Yes if TRUE, no if FALSE}
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 lines of XML text

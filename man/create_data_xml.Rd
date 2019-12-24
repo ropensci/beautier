@@ -6,6 +6,11 @@
 \usage{
 create_data_xml(id, beast2_version)
 }
+\arguments{
+\item{id}{an alignment's IDs.
+An ID can be extracted from its FASTA filename
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
+}
 \value{
 lines of XML text
 }

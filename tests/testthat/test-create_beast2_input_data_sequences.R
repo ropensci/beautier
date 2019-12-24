@@ -1,15 +1,13 @@
-context("create_beast2_input_data_sequences")
-
 test_that("use", {
 
-  testthat::expect_silent(
+  expect_silent(
     create_beast2_input_data_sequences(
       get_fasta_filename(),
       beauti_options = create_beauti_options(nucleotides_uppercase = FALSE)
     )
   )
 
-  testthat::expect_silent(
+  expect_silent(
     create_beast2_input_data_sequences(
       get_fasta_filename(),
       beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)

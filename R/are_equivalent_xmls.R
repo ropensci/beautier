@@ -152,6 +152,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
+#' @export
 are_equivalent_xml_lines_operators <- function(
   lines_1,
   lines_2,
@@ -171,6 +172,7 @@ are_equivalent_xml_lines_operators <- function(
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
+#' @export
 are_equivalent_xml_lines_loggers <- function(# nolint don't care about internal function length
   lines_1,
   lines_2,
