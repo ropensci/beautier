@@ -17,7 +17,7 @@ test_that("use", {
 
   # Exposing bug of https://github.com/ropensci/babette/issues/26
   testthat::expect_equal(
-    beautier:::parameter_to_xml(parameter = create_s_param(id = 1)),
+    parameter_to_xml(parameter = create_s_param(id = 1)),
     "<parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0\" name=\"S\" upper=\"Infinity\">0</parameter>" # nolint
   )
 })

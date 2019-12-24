@@ -8,27 +8,27 @@ test_that("use, default gamma site model", {
   # rate_cg_prior_distr
   # rate_gt_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(
+    get_site_model_n_distrs(
       create_gtr_site_model()),
     5
   )
 
   # kappa_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(create_hky_site_model()),
+    get_site_model_n_distrs(create_hky_site_model()),
     1
   )
 
   # no other distributions
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(create_jc69_site_model()),
+    get_site_model_n_distrs(create_jc69_site_model()),
     0
   )
 
   # kappa_1_prior_distr
   # kappa_2_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(create_tn93_site_model()),
+    get_site_model_n_distrs(create_tn93_site_model()),
     2
   )
 })
@@ -47,7 +47,7 @@ test_that("use, gamma site model with 1 distr", {
   # rate_gt_prior_distr
   # gamma_site_model$gamma_shape_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(
+    get_site_model_n_distrs(
       create_gtr_site_model(
         gamma_site_model = gamma_site_model
       )),
@@ -57,7 +57,7 @@ test_that("use, gamma site model with 1 distr", {
   # kappa_prior_distr
   # gamma_site_model$gamma_shape_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(create_hky_site_model(
+    get_site_model_n_distrs(create_hky_site_model(
       gamma_site_model = gamma_site_model
     )),
     2
@@ -66,7 +66,7 @@ test_that("use, gamma site model with 1 distr", {
   # only:
   # gamma_site_model$gamma_shape_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(create_jc69_site_model(
+    get_site_model_n_distrs(create_jc69_site_model(
       gamma_site_model = gamma_site_model
     )),
     1
@@ -76,7 +76,7 @@ test_that("use, gamma site model with 1 distr", {
   # kappa_2_prior_distr
   # gamma_site_model$gamma_shape_prior_distr
   testthat::expect_equal(
-    beautier:::get_site_model_n_distrs(create_tn93_site_model(
+    get_site_model_n_distrs(create_tn93_site_model(
       gamma_site_model = gamma_site_model
     )),
     3

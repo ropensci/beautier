@@ -41,12 +41,12 @@ test_that("use", {
   )
 
   expect_true(
-    beautier:::are_equivalent_xml_lines_section(
+    are_equivalent_xml_lines_section(
       lines_1, lines_2, section = "init"
     )
   )
   expect_false(
-    beautier:::are_equivalent_xml_lines_section(
+    are_equivalent_xml_lines_section(
       lines_1, lines_2, section = "logger"
     )
   )
@@ -73,7 +73,7 @@ test_that("abuse: opening tag of lines 1 not found", {
   lines_2 <- lines_1
 
   expect_error(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+    are_equivalent_xml_lines_section(lines_1, lines_2,
       section = "nonsense"),
     "Opening tag for 'section' could not be found in 'lines_1'"
   )
@@ -90,7 +90,7 @@ test_that("abuse: closing tag of lines 1 not found", {
   lines_2 <- lines_1
 
   expect_error(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+    are_equivalent_xml_lines_section(lines_1, lines_2,
       section = "a"),
     "Closing tag for 'section' could not be found in 'lines_1'"
   )
@@ -117,7 +117,7 @@ test_that("abuse: opening tag of lines 2 not found", {
   )
 
   expect_error(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+    are_equivalent_xml_lines_section(lines_1, lines_2,
       section = "a"),
     "Opening tag for 'section' could not be found in 'lines_2'"
   )
@@ -138,7 +138,7 @@ test_that("abuse: closing tag of lines 2 not found", {
   )
 
   expect_error(
-    beautier:::are_equivalent_xml_lines_section(lines_1, lines_2,
+    are_equivalent_xml_lines_section(lines_1, lines_2,
       section = "a"),
     "Closing tag for 'section' could not be found in 'lines_2'"
   )

@@ -11,12 +11,12 @@ test_that("use", {
     "  </b>"
   )
 
-  expect_true(beautier:::has_xml_closing_tag(text, section = "a"))
-  expect_true(beautier:::has_xml_closing_tag(text, section = "b"))
+  expect_true(has_xml_closing_tag(text, section = "a"))
+  expect_true(has_xml_closing_tag(text, section = "b"))
   expect_false(
-    beautier:::has_xml_closing_tag(text, section = "nonsense"))
+    has_xml_closing_tag(text, section = "nonsense"))
   expect_false(
-    beautier:::has_xml_closing_tag("", section = "nonsense"))
+    has_xml_closing_tag("", section = "nonsense"))
 
 })
 

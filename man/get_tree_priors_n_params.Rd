@@ -17,14 +17,17 @@ the number of parameters the tree priors have
 Get the number of parameters a list of tree priors has
 }
 \examples{
- testit::assert(
-   beautier:::get_tree_priors_n_params(
-     list(
-       create_bd_tree_prior(), # zero
-       create_cep_tree_prior() # two
-     )
-   ) == 2
- )
+library(testthat)
+
+expect_equal(
+  get_tree_priors_n_params(
+    list(
+      create_bd_tree_prior(), # zero
+      create_cep_tree_prior() # two
+    )
+  ),
+  2
+)
 }
 \author{
 Richèl J.C. Bilderbeek

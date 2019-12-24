@@ -9,16 +9,16 @@ test_that("use on known tag", {
   )
 
   testthat::expect_true(
-    beautier:::has_xml_opening_tag(text)
+    has_xml_opening_tag(text)
   )
   testthat::expect_true(
-    beautier:::has_xml_opening_tag(text, section = "a")
+    has_xml_opening_tag(text, section = "a")
   )
   testthat::expect_false(
-    beautier:::has_xml_opening_tag(text, section = "nonsense")
+    has_xml_opening_tag(text, section = "nonsense")
   )
   testthat::expect_false(
-    beautier:::has_xml_opening_tag("", section = "nonsense")
+    has_xml_opening_tag("", section = "nonsense")
   )
 
 })
@@ -34,7 +34,7 @@ test_that("abuse", {
   )
 
   testthat::expect_error(
-    beautier:::has_xml_opening_tag(text, section = NULL),
+    has_xml_opening_tag(text, section = NULL),
     "'section' must be NA or a word"
   )
 

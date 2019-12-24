@@ -12,12 +12,12 @@ test_that("Yule", {
     "<operator id=\"YuleModelWide.t:test_output_0\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:test_output_0\" weight=\"3.0\"/>", # nolint XML
     "<operator id=\"YuleModelWilsonBalding.t:test_output_0\" spec=\"WilsonBalding\" tree=\"@Tree.t:test_output_0\" weight=\"3.0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_operators(
+  created <- tree_priors_to_xml_operators(
     tree_priors = list(
       create_yule_tree_prior(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("Yule Yule", {
@@ -40,19 +40,19 @@ test_that("Yule Yule", {
     "<operator id=\"YuleModelWide.t:anthus_nd2\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:anthus_nd2\" weight=\"3.0\"/>", # nolint XML
     "<operator id=\"YuleModelWilsonBalding.t:anthus_nd2\" spec=\"WilsonBalding\" tree=\"@Tree.t:anthus_nd2\" weight=\"3.0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_operators(
+  created <- tree_priors_to_xml_operators(
     tree_prior = list(
       create_yule_tree_prior(id = "anthus_aco"),
       create_yule_tree_prior(id = "anthus_nd2")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("interface: support multiple fixed_crown_ages", {
 
   testthat::expect_silent(
-    beautier:::tree_priors_to_xml_operators(
+    tree_priors_to_xml_operators(
       tree_prior = list(
         create_yule_tree_prior(id = "anthus_aco"),
         create_yule_tree_prior(id = "anthus_nd2")

@@ -17,7 +17,7 @@ test_that("RLN", {
     "</distribution>"
 
   )
-  created <- beautier:::create_beast2_input_distr_prior(
+  created <- create_beast2_input_distr_prior(
     site_models = list(
       create_jc69_site_model(id = "test_output_0")
     ),
@@ -40,7 +40,7 @@ test_that("RLN", {
       )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 
@@ -56,7 +56,7 @@ test_that("Yule", {
     "    </prior>", # nolint XML
     "</distribution>" # nolint XML
   )
-  created <- beautier:::create_beast2_input_distr_prior(
+  created <- create_beast2_input_distr_prior(
     site_models = list(
       create_jc69_site_model(id = "anthus_aco")
     ),
@@ -70,5 +70,5 @@ test_that("Yule", {
       )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })

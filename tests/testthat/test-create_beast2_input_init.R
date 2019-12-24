@@ -3,7 +3,7 @@ context("create_beast2_input_init")
 test_that("use", {
 
   expect_silent(
-    beautier:::create_beast2_input_init(
+    create_beast2_input_init(
       ids = "test_output_0"
     )
   )

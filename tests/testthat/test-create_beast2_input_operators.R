@@ -5,7 +5,7 @@ test_that("abuse", {
   id <- "test_output_0"
 
   testthat::expect_silent(
-    beautier:::create_beast2_input_operators(
+    create_beast2_input_operators(
       site_models = list(create_jc69_site_model(id = id)),
       clock_models = list(create_strict_clock_model(id = id)),
       tree_priors = list(create_yule_tree_prior(id = id)),
