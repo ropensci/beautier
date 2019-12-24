@@ -18,16 +18,18 @@ nothing. Will call \code{stop} if the argument is not a valid
 Checks if the parameter is a valid gamma site model
 }
 \examples{
-  testthat::expect_silent(
-    beautier:::check_gamma_site_model(
-      create_gamma_site_model()
-    )
+library(testthat)
+
+expect_silent(
+  check_gamma_site_model(
+    create_gamma_site_model()
   )
-  testthat::expect_error(
-    check_gamma_site_model(
-      "not a gamma site model"
-    )
+)
+expect_error(
+  check_gamma_site_model(
+    "not a gamma site model"
   )
+)
 }
 \author{
 Richèl J.C. Bilderbeek

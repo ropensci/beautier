@@ -4,10 +4,12 @@
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   xml <- beautier:::distr_to_xml(create_uniform_distr(id = 1))
-#'   testit::assert(is.character(xml))
-#'   testit::assert(length(xml) == 1)
-#'   testit::assert(nchar(xml) > 1)
+#' library(testthat)
+#'
+#' xml <- distr_to_xml(create_uniform_distr(id = 1))
+#' assert(is.character(xml))
+#' assert(length(xml) == 1)
+#' assert(nchar(xml) > 1)
 #' @export
 distr_to_xml <- function(
   distr
