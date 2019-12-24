@@ -18,15 +18,13 @@ init_distr <- function(
   }
 
   if (beautier::is_beta_distr(distr)) {
-
-    if (beautier::is_one_na(distr$alpha$id)) {
-      distr$alpha$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (beautier::is_one_na(distr$beta$id)) {
-      distr$beta$id <- param_id
-    }
-
+    return(
+      init_beta_distr(
+        beta_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   } else if (beautier::is_exp_distr(distr)) {
 
     if (beautier::is_one_na(distr$mean$id)) {
@@ -105,4 +103,30 @@ init_distr <- function(
   }
   testit::assert(!beautier::is_one_na(distr$id))
   distr
+}
+
+#' Initializes a beta distribution
+#' @inheritParams init_distr
+#' @param beta_distr a beta distribution,
+#' using \link{create_beta_distr}
+#' @return an initialized distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_beta_distr <- function(
+  beta_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(is_beta_distr(beta_distr))
+  if (beautier::is_one_na(beta_distr$id)) {
+    beta_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(beta_distr$alpha$id)) {
+    beta_distr$alpha$id <- param_id
+    param_id <- param_id + 1
+  }
+  if (beautier::is_one_na(beta_distr$beta$id)) {
+    beta_distr$beta$id <- param_id
+  }
+  beta_distr
 }
