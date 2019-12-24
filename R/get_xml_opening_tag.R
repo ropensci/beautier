@@ -2,11 +2,13 @@
 #' @param text text to be determined to be valid
 #' @return the opening tag if found, else NA
 #' @examples
-#'   testit::assert(
-#'     beautier:::get_xml_opening_tag("<my_tag text=something/>")
-#'     == "my_tag"
-#'   )
-#'   testit::assert(is_one_na(beautier:::get_xml_opening_tag("no_xml")))
+#' library(testthat)
+#'
+#' expect_equal(
+#'   beautier:::get_xml_opening_tag("<my_tag text=something/>"),
+#'   "my_tag"
+#' )
+#' expect_true(is_one_na(get_xml_opening_tag("no_xml")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_xml_opening_tag <- function(text) {

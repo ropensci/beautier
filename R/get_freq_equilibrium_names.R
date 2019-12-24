@@ -8,7 +8,7 @@
 #' @examples
 #' library(testthat)
 #'
-#' names <- beautier:::get_freq_equilibrium_names()
+#' names <- get_freq_equilibrium_names()
 #' expect_true("estimated" %in% names)
 #' expect_true("empirical" %in% names)
 #' expect_true("all_equal" %in% names)

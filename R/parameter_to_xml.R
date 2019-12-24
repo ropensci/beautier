@@ -6,7 +6,7 @@
 #' @examples
 #' library(testthat)
 #'
-#' xml <- beautier:::parameter_to_xml(create_alpha_param(id = 1))
+#' xml <- parameter_to_xml(create_alpha_param(id = 1))
 #' expect_equal(length(xml), 1)
 #' expect_true(nchar(xml) > 1)
 #' @export
