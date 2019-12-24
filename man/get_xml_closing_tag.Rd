@@ -19,7 +19,7 @@ Get the XML closing tag
 library(testthat)
 
 expect_equal(
-  get_xml_closing_tag("<my_tag text=something></my_tag>")
+  get_xml_closing_tag("<my_tag text=something></my_tag>"),
   "my_tag"
 )
 expect_true(

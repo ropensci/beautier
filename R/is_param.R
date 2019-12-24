@@ -186,8 +186,15 @@ is_clock_rate_param <- function(
 #'   \code{\link{create_kappa_1_param}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   kappa_1_param <- create_kappa_1_param()
-#'   testit::assert(beautier:::is_kappa_1_param(kappa_1_param))
+#' library(testthat(
+#'
+#' expect_true(is_kappa_1_param(create_kappa_1_param()))
+#'
+#' expect_false(is_kappa_1_param("nonsense"))
+#' expect_false(is_kappa_1_param(NA))
+#' expect_false(is_kappa_1_param(NULL))
+#' expect_false(is_kappa_1_param(""))
+#' expect_false(is_kappa_1_param(c()))
 #' @examples
 #' library(testthat)
 #'
