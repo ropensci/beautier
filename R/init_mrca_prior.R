@@ -8,6 +8,7 @@
 #'     these are set by reading these from the alignment file
 #' }
 #' @inheritParams default_params_doc
+#' @export
 init_mrca_prior <- function(
   input_filename,
   inference_model

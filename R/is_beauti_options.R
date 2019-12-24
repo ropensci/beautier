@@ -4,8 +4,15 @@
 #'   \link{FALSE} otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   beauti_options <- create_beauti_options()
-#'   testit::assert(beautier:::is_beauti_options(beauti_options))
+#' library(testthat)
+#'
+#' expect_true(is_beauti_options(create_beauti_options()))
+#'
+#' expect_false(is_beauti_options("nonsense"))
+#' expect_false(is_beauti_options(NA))
+#' expect_false(is_beauti_options(NULL))
+#' expect_false(is_beauti_options(""))
+#' expect_false(is_beauti_options(c()))
 #' @seealso use \link{create_beauti_options} to create a valid
 #' \code{beauti_options} object
 #' @export
