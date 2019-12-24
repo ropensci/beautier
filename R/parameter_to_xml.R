@@ -72,6 +72,7 @@ parameter_to_xml <- function(
 #'   as created by \code{\link{create_alpha_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_alpha <- function(
   parameter
 ) {
@@ -96,6 +97,7 @@ parameter_to_xml_alpha <- function(
 #'   as created by \code{\link{create_beta_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_beta <- function(
   parameter
 ) {
