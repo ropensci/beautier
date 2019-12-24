@@ -31,7 +31,17 @@ check_inference_model <- function(
       )
     }
   }
-  beautier::check_site_model(inference_model$site_model)
+  tryCatch(
+    beautier::check_site_model(inference_model$site_model),
+    error = function(e) {
+      stop(
+        "'site_model' must be a valid site model. \n",
+        "Error: ", e$message, "\n",
+        "Value: ", inference_model$site_model
+      )
+    }
+  )
+
   tryCatch(
     beautier::check_clock_model(inference_model$clock_model),
     error = function(e) {
