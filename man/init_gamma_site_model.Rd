@@ -2,7 +2,7 @@
 % Please edit documentation in R/init_gamma_site_model.R
 \name{init_gamma_site_model}
 \alias{init_gamma_site_model}
-\title{Initializes all site models}
+\title{Initializes a gamma site model}
 \usage{
 init_gamma_site_model(gamma_site_model, distr_id = 0, param_id = 0)
 }
@@ -18,15 +18,18 @@ as returned by \code{\link{create_gamma_site_model}}}
 an initialized gamma site model
 }
 \description{
-Initializes all site models
+Initializes a gamma site model
 }
 \examples{
-  gamma_site_model <- create_gamma_site_model(
-    gamma_shape_prior_distr = create_one_div_x_distr(id = NA)
-  )
- testit::assert(!beautier:::is_init_gamma_site_model(gamma_site_model))
- gamma_site_model <- beautier:::init_gamma_site_model(gamma_site_model)
- testit::assert(beautier:::is_init_gamma_site_model(gamma_site_model))
+library(testthat)
+
+gamma_site_model <- create_gamma_site_model(
+  gamma_cat_count = 2,
+  gamma_shape_prior_distr = create_one_div_x_distr(id = NA)
+)
+expect_false(is_init_gamma_site_model(gamma_site_model))
+gamma_site_model <- init_gamma_site_model(gamma_site_model)
+expect_true(is_init_gamma_site_model(gamma_site_model))
 }
 \author{
 Richèl J.C. Bilderbeek

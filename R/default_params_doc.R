@@ -6,6 +6,7 @@
 #'   Keep at \code{NA} to have it initialized automatically
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
+#' @param beast2_version BEAST2 version, for example, code{"2.5"}
 #' @param beauti_options one BEAUti options object,
 #'   as returned by \code{\link{create_beauti_options}}
 #' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
@@ -156,6 +157,7 @@ default_params_doc <- function(
   alignment_id,
   bd_tree_prior,
   cbs_tree_prior,
+  beast2_version,
   beauti_options,
   ccp_tree_prior,
   cep_tree_prior,

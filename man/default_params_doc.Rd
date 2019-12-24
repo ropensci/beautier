@@ -10,6 +10,7 @@ default_params_doc(
   alignment_id,
   bd_tree_prior,
   cbs_tree_prior,
+  beast2_version,
   beauti_options,
   ccp_tree_prior,
   cep_tree_prior,
@@ -88,6 +89,8 @@ by \code{\link{create_bd_tree_prior}}}
 
 \item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
 as returned by \code{\link{create_cbs_tree_prior}}}
+
+\item{beast2_version}{BEAST2 version, for example, code{"2.5"}}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
