@@ -65,14 +65,13 @@ init_distr <- function(
       )
     )
   } else if (beautier::is_normal_distr(distr)) {
-
-    if (beautier::is_one_na(distr$mean$id)) {
-      distr$mean$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (beautier::is_one_na(distr$sigma$id)) {
-      distr$sigma$id <- param_id
-    }
+    return(
+      init_normal_distr(
+        normal_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
 
   } else if (beautier::is_one_div_x_distr(distr)) {
 
@@ -228,4 +227,31 @@ init_log_normal_distr <- function(
     log_normal_distr$s$id <- param_id
   }
   log_normal_distr
+}
+
+#' Initializes an normal distribution
+#' @inheritParams init_distr
+#' @param normal_distr a normal distribution,
+#' using \link{create_normal_distr}
+#' @return an initialized normal distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_normal_distr <- function(
+  normal_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(beautier::is_normal_distr(normal_distr))
+
+  if (beautier::is_one_na(normal_distr$id)) {
+    normal_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(normal_distr$mean$id)) {
+    normal_distr$mean$id <- param_id
+    param_id <- param_id + 1
+  }
+  if (beautier::is_one_na(normal_distr$sigma$id)) {
+    normal_distr$sigma$id <- param_id
+  }
+  normal_distr
 }

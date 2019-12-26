@@ -10,7 +10,7 @@
 #' expect_equal(length(xml), 1)
 #' expect_true(nchar(xml) > 1)
 #' @export
-parameter_to_xml <- function(
+parameter_to_xml <- function( # nolint simplifying further hurts readability
   parameter
 ) {
   beautier::check_param(parameter)
@@ -52,7 +52,7 @@ parameter_to_xml <- function(
   }
   # This assert will also fail for new parameter types
   testit::assert(beautier::is_sigma_param(parameter))
-  return(beautier::parameter_to_xml_sigma(parameter))
+  beautier::parameter_to_xml_sigma(parameter)
 }
 
 #' Converts an alpha parameter to XML
