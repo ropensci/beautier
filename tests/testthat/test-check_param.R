@@ -22,7 +22,7 @@ test_that("use", {
 test_that("check_param, devious", {
 
   g <- create_alpha_param()
-  testit::assert(check_param(g))
+  expect_silent(check_param(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
