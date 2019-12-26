@@ -2,12 +2,14 @@
 #' @inheritParams default_params_doc
 #' @return the prefix of operator IDs, similar to the name of a tree prior
 #' @examples
-#'   bd_pre <- beautier:::get_operator_id_pre(
-#'     tree_prior = create_bd_tree_prior()
-#'   )
-#'   testthat::expect_equal(bd_pre, "BirthDeath")
+#' library(testthat)
+#'
+#' bd_pre <- get_operator_id_pre(
+#'   tree_prior = create_bd_tree_prior()
+#' )
+#' expect_equal(bd_pre, "BirthDeath")
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_operator_id_pre <- function(tree_prior) {
   if (beautier::is_bd_tree_prior(tree_prior)) {
     return("BirthDeath")

@@ -11,7 +11,7 @@
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 site_model_to_xml_lh_distr <- function(
   site_model
 ) {

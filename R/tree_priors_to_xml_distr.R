@@ -13,15 +13,15 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
-tree_priors_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+tree_priors_to_xml_prior_distr <- function(
   tree_priors
 ) {
   testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
   for (tree_prior in tree_priors) {
-    text <- c(text, tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
+    text <- c(text, beautier::tree_prior_to_xml_prior_distr(tree_prior))
   }
   text
 }

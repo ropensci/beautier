@@ -12,12 +12,12 @@ test_that("GTR", {
     "    <parameter idref=\"freqParameter.s:test_output_0\"/>", # nolint XML
     "</operator>"
   )
-  created <- beautier:::site_models_to_xml_operators(
+  created <- site_models_to_xml_operators(
     site_model = list(
       create_gtr_site_model(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("HKY", {
@@ -28,19 +28,19 @@ test_that("HKY", {
     "    <parameter idref=\"freqParameter.s:test_output_0\"/>", # nolint XML
     "</operator>"
   )
-  created <- beautier:::site_models_to_xml_operators(
+  created <- site_models_to_xml_operators(
     site_models = list(
       create_hky_site_model(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("JC69", {
 
   testthat::expect_true(
     is.null(
-      beautier:::site_models_to_xml_operators(
+      site_models_to_xml_operators(
         site_models = list(create_jc69_site_model()) # No ID needed
       )
     )
@@ -56,10 +56,10 @@ test_that("TN93", {
     "    <parameter idref=\"freqParameter.s:test_output_0\"/>", # nolint XML
     "</operator>"
   )
-  created <- beautier:::site_models_to_xml_operators(
+  created <- site_models_to_xml_operators(
     site_models = list(
       create_tn93_site_model(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })

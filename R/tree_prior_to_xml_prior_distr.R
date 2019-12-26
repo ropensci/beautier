@@ -13,23 +13,23 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
-tree_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+tree_prior_to_xml_prior_distr <- function(
   tree_prior
 ) {
   testit::assert(beautier::is_tree_prior(tree_prior))
   text <- NULL
   if (beautier::is_bd_tree_prior(tree_prior)) {
-    text <- c(text, bd_tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
+    text <- c(text, beautier::bd_tree_prior_to_xml_prior_distr(tree_prior))
   } else if (beautier::is_cbs_tree_prior(tree_prior)) {
-    text <- c(text, cbs_tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
+    text <- c(text, beautier::cbs_tree_prior_to_xml_prior_distr(tree_prior))
   } else if (beautier::is_ccp_tree_prior(tree_prior)) {
-    text <- c(text, ccp_tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
+    text <- c(text, beautier::ccp_tree_prior_to_xml_prior_distr(tree_prior))
   } else if (beautier::is_cep_tree_prior(tree_prior)) {
-    text <- c(text, cep_tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
+    text <- c(text, beautier::cep_tree_prior_to_xml_prior_distr(tree_prior))
   } else {
     testit::assert(beautier::is_yule_tree_prior(tree_prior))
-    text <- c(text, yule_tree_prior_to_xml_prior_distr(tree_prior)) # nolint beautier function
+    text <- c(text, beautier::yule_tree_prior_to_xml_prior_distr(tree_prior))
   }
   text
 }

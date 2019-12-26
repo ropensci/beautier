@@ -22,7 +22,7 @@ library(testthat)
 xml <- mcmc_to_xml_run(create_mcmc())
 expect_equal(
   xml,
-  "<run id=\\"mcmc\\" spec=\\"MCMC\\" chainLength=\\"1e+07\\">"
+  "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
 )
 }
 \author{

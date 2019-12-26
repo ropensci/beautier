@@ -4,7 +4,7 @@
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 clock_models_to_xml_state <- function(
   clock_models,
   mrca_priors = NA,
@@ -36,7 +36,7 @@ clock_models_to_xml_state <- function(
   if (beautier::is_rln_clock_model(clock_models[[1]]) &&
       !beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
     # A RLN clock model returns three lines, only remove the first
-    line_to_remove <- clock_model_to_xml_state(clock_models[[1]]) # nolint
+    line_to_remove <- beautier::clock_model_to_xml_state(clock_models[[1]])
     testit::assert(length(line_to_remove) == 3)
     text <- line_to_remove[
       stringr::str_remove_all(

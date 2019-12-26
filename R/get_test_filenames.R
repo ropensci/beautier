@@ -11,5 +11,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_fasta_filename <- function() {
-  beautier::get_beautier_path("test_output_0.fas") # nolint beautier function
+  beautier::get_beautier_path("test_output_0.fas")
 }

@@ -3,16 +3,16 @@
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 taxa_to_xml_tree <- function(
   id,
   tipdates_filename = NA
 ) {
   testit::assert(beautier::is_id(id))
   if (beautier::is_one_na(tipdates_filename)) {
-    no_taxa_to_xml_tree(id = id) # nolint beautier function
+    beautier::no_taxa_to_xml_tree(id = id)
   } else {
-    tipdate_taxa_to_xml_tree( # nolint beautier function
+    beautier::tipdate_taxa_to_xml_tree(
       id = id,
       tipdates_filename = tipdates_filename
     )
@@ -25,7 +25,7 @@ taxa_to_xml_tree <- function(
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 no_taxa_to_xml_tree <- function(
   id
 ) {
@@ -47,7 +47,7 @@ no_taxa_to_xml_tree <- function(
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tipdate_taxa_to_xml_tree <- function(
   id,
   tipdates_filename

@@ -32,13 +32,13 @@ check_beauti_options <- function(
       )
     }
   }
-  if (!is_one_bool(beauti_options$capitalize_first_char_id)) { # nolint beautier function
+  if (!beautier::is_one_bool(beauti_options$capitalize_first_char_id)) {
     stop(
       "'capitalize_first_char_id' must be one boolean. \n",
       "Actual value: ", beauti_options$capitalize_first_char_id
     )
   }
-  if (!is_one_bool(beauti_options$nucleotides_uppercase)) { # nolint beautier function
+  if (!beautier::is_one_bool(beauti_options$nucleotides_uppercase)) {
     stop(
       "'nucleotides_uppercase' must be one boolean. \n",
       "Actual value: ", beauti_options$nucleotides_uppercase

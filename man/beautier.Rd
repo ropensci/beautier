@@ -3,7 +3,6 @@
 \docType{package}
 \name{beautier}
 \alias{beautier}
-\alias{beautier-package}
 \title{\code{beautier}: A package to create a \code{BEAST2} input file.}
 \description{
 \code{beautier} allows to create a \code{BEAST2} input file, using

@@ -11,14 +11,14 @@ test_that("BD", {
     "    <Uniform id=\"Uniform.4\" name=\"distr\"/>", # nolint this is no absolute path
     "</prior>"
   )
-  created <- beautier:::tree_prior_to_xml_prior_distr(
+  created <- tree_prior_to_xml_prior_distr(
     tree_prior = create_bd_tree_prior(
       id = "test_output_0",
       birth_rate_distr = create_uniform_distr(id = 3, upper = "1000.0"),
       death_rate_distr = create_uniform_distr(id = 4, upper = NA)
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CBS", {
@@ -29,10 +29,10 @@ test_that("CBS", {
     "</distribution>",
     "<distribution id=\"MarkovChainedPopSizes.t:anthus_aco\" spec=\"beast.math.distributions.MarkovChainDistribution\" jeffreys=\"true\" parameter=\"@bPopSizes.t:anthus_aco\"/>" # nolint XML is long
   )
-  created <- beautier:::tree_prior_to_xml_prior_distr(
+  created <- tree_prior_to_xml_prior_distr(
     tree_prior = create_cbs_tree_prior(id = "anthus_aco")
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -47,13 +47,13 @@ test_that("CCP", {
     "    <OneOnX id=\"OneOnX.1\" name=\"distr\"/>", # nolint this is no absolute path
     "</prior>"
   )
-  created <- beautier:::tree_prior_to_xml_prior_distr(
+  created <- tree_prior_to_xml_prior_distr(
     tree_prior = create_ccp_tree_prior(
       id = "test_output_0",
       pop_size_distr = create_one_div_x_distr(id = 1)
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CEP", {
@@ -73,7 +73,7 @@ test_that("CEP", {
     "    </LaplaceDistribution>",
     "</prior>"
   )
-  created <- beautier:::tree_prior_to_xml_prior_distr(
+  created <- tree_prior_to_xml_prior_distr(
     tree_prior = create_cep_tree_prior(
       id = "test_output_0",
       pop_size_distr = create_one_div_x_distr(id = 1),
@@ -84,7 +84,7 @@ test_that("CEP", {
       )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("Yule", {
@@ -95,12 +95,12 @@ test_that("Yule", {
     "    <Uniform id=\"Uniform.1\" name=\"distr\" upper=\"Infinity\"/>", # nolint this is no absolute path
     "</prior>"
   )
-  created <- beautier:::tree_prior_to_xml_prior_distr(
+  created <- tree_prior_to_xml_prior_distr(
     tree_prior = create_yule_tree_prior(
       id = "test_output_0",
       birth_rate_distr = create_uniform_distr(id = 1, upper = Inf)
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 
 })

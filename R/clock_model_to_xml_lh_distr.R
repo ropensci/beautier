@@ -13,7 +13,7 @@
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 clock_model_to_xml_lh_distr <- function(
   clock_model,
   mrca_priors = NA,

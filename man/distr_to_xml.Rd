@@ -17,10 +17,12 @@ the distribution as XML text
 Converts a distribution to XML
 }
 \examples{
-  xml <- beautier:::distr_to_xml(create_uniform_distr(id = 1))
-  testit::assert(is.character(xml))
-  testit::assert(length(xml) == 1)
-  testit::assert(nchar(xml) > 1)
+library(testthat)
+
+xml <- distr_to_xml(create_uniform_distr(id = 1))
+expect_true(is.character(xml))
+expect_true(length(xml) == 1)
+expect_true(nchar(xml) > 1)
 }
 \author{
 Richèl J.C. Bilderbeek

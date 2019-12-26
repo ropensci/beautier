@@ -8,7 +8,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_model_to_xml_tracelog <- function(
   site_model
 ) {

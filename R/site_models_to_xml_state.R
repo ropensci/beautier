@@ -4,7 +4,7 @@
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_models_to_xml_state <- function(
   site_models
 ) {
@@ -13,7 +13,7 @@ site_models_to_xml_state <- function(
   text <- NULL
   for (site_model in site_models) {
     text <- c(text,
-      site_model_to_xml_state(site_model) # nolint beautier function
+      beautier::site_model_to_xml_state(site_model)
     )
   }
   text

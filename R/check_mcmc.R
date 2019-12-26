@@ -28,7 +28,7 @@ check_mcmc <- function(mcmc) {
 #' @return nothing
 #' @seealso Use \link{create_mcmc} to create a valid MCMC
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_mcmc_list_element_names <- function(mcmc) {
 
   list_element_names <- c(
@@ -53,7 +53,7 @@ check_mcmc_list_element_names <- function(mcmc) {
 #' @return nothing
 #' @seealso Use \link{create_mcmc} to create a valid MCMC
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 check_mcmc_values <- function(mcmc) {
 
   if (mcmc$chain_length <= 0) {

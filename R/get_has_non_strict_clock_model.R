@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return TRUE if there is at least one non-strict clock model
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_has_non_strict_clock_model <- function(clock_models) {
   testit::assert(beautier::are_clock_models(clock_models))
   for (clock_model in clock_models) {

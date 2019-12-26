@@ -6,6 +6,7 @@
 #'   Keep at \code{NA} to have it initialized automatically
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
+#' @param beast2_version BEAST2 version, for example, code{"2.5"}
 #' @param beauti_options one BEAUti options object,
 #'   as returned by \code{\link{create_beauti_options}}
 #' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
@@ -44,21 +45,16 @@
 #'   of the initial phylogeny.
 #' @param gamma_site_model a site model's gamma site model,
 #'   as returned by \code{\link{create_gamma_site_model}}
-#' @param group_sizes_dimension the group sizes' dimension, as used
-#'   by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})
+#' @param group_sizes_dimension the group sizes' dimension,
+#'   as used by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})
+#' @param gtr_site_model a GTR site model,
+#'   as returned by \code{\link{create_gtr_site_model}}
 #' @param has_non_strict_clock_model boolean to indicate that the is
 #'   already at least one non-strict (i.e. relaxed log-normal) clock model
 #' @param has_tip_dating TRUE if the user has supplied tip dates,
 #'   FALSE otherwise
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
-#' @param is_monophyletic boolean to indicate monophyly is assumed in
-#'   a Most Recent Common Ancestor prior,
-#'   as returned by \code{\link{create_mrca_prior}}
-#' @param jc69_site_model a JC69 site model,
-#'   as returned by \code{\link{create_jc69_site_model}}
-#' @param gtr_site_model a GTR site model,
-#'   as returned by \code{\link{create_gtr_site_model}}
 #' @param id an alignment's IDs.
 #'   An ID can be extracted from its FASTA filename
 #'   with \code{\link{get_alignment_ids_from_fasta_filenames}})
@@ -78,6 +74,11 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' @param is_monophyletic boolean to indicate monophyly is assumed in
+#'   a Most Recent Common Ancestor prior,
+#'   as returned by \code{\link{create_mrca_prior}}
+#' @param jc69_site_model a JC69 site model,
+#'   as returned by \code{\link{create_jc69_site_model}}
 #' @param log_every number of MCMC states between writing to file
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
@@ -94,6 +95,7 @@
 #' @param n_init_attempts number of initialization attempts before failing
 #' @param output_filename Name of the XML parameter file created by this
 #'   function. BEAST2 uses this file as input.
+#' @param param a parameter, as can be created by \code{\link{create_param}}.
 #' @param param_id a parameter's ID
 #' @param phylogeny a phylogeny of type \link[ape]{phylo}
 #' @param posterior_crown_age deprecated
@@ -150,12 +152,13 @@
 #'   as created by \code{\link{create_yule_tree_prior}}
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
-#'   \code{@noRd}. This is not done, as this will disallow all
+#'   \code{@export}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   alignment_id,
   bd_tree_prior,
   cbs_tree_prior,
+  beast2_version,
   beauti_options,
   ccp_tree_prior,
   cep_tree_prior,
@@ -190,6 +193,7 @@ default_params_doc <- function(
   mrca_prior_name,
   n_init_attempts,
   output_filename,
+  param,
   param_id,
   phylogeny,
   posterior_crown_age,
@@ -235,7 +239,7 @@ default_params_doc <- function(
 #' @param ... specific parameter parameters
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
-#'   \code{@noRd}. This is not done, as this will disallow all
+#'   \code{@export}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_parameters_doc <- function(
   estimate,

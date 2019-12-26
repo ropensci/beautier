@@ -32,7 +32,7 @@ check_tree_prior <- function(tree_prior) {
   if (beautier::is_tree_prior(tree_prior)) {
     return()
   }
-  if (length(tree_prior) == 1 && is_tree_prior(tree_prior[[1]])) { # nolint beautier function
+  if (length(tree_prior) == 1 && beautier::is_tree_prior(tree_prior[[1]])) {
     return()
   }
   stop(

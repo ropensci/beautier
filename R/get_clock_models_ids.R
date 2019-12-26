@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return IDs of the clock models
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 get_clock_models_ids <- function(
   clock_models
 ) {

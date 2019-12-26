@@ -25,12 +25,14 @@ Creates all supported tree priors,
   and \code{\link{create_yule_tree_prior}}
 }
 \examples{
-  tree_priors <- create_tree_priors()
-  testit::assert(beautier:::is_bd_tree_prior(tree_priors[[1]]))
-  testit::assert(beautier:::is_cbs_tree_prior(tree_priors[[2]]))
-  testit::assert(beautier:::is_ccp_tree_prior(tree_priors[[3]]))
-  testit::assert(beautier:::is_cep_tree_prior(tree_priors[[4]]))
-  testit::assert(beautier:::is_yule_tree_prior(tree_priors[[5]]))
+library(testthat)
+
+tree_priors <- create_tree_priors()
+expect_true(is_bd_tree_prior(tree_priors[[1]]))
+expect_true(is_cbs_tree_prior(tree_priors[[2]]))
+expect_true(is_ccp_tree_prior(tree_priors[[3]]))
+expect_true(is_cep_tree_prior(tree_priors[[4]]))
+expect_true(is_yule_tree_prior(tree_priors[[5]]))
 }
 \author{
 Richèl J.C. Bilderbeek

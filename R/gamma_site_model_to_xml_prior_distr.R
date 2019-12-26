@@ -3,8 +3,8 @@
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
-gamma_site_model_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function name
   site_model
 ) {
   testit::assert(beautier::is_site_model(site_model))

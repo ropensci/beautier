@@ -4,10 +4,16 @@
 \alias{create_mcmc}
 \title{Create an MCMC configuration.}
 \usage{
-create_mcmc(chain_length = 1e+07, store_every = -1, pre_burnin = 0,
-  n_init_attempts = 10, sample_from_prior = FALSE,
-  tracelog = create_tracelog(), screenlog = create_screenlog(),
-  treelog = create_treelog())
+create_mcmc(
+  chain_length = 1e+07,
+  store_every = -1,
+  pre_burnin = 0,
+  n_init_attempts = 10,
+  sample_from_prior = FALSE,
+  tracelog = create_tracelog(),
+  screenlog = create_screenlog(),
+  treelog = create_treelog()
+)
 }
 \arguments{
 \item{chain_length}{length of the MCMC chain}

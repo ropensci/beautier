@@ -6,7 +6,7 @@ test_that("use", {
   b <- create_rln_clock_model(id = "b")
 
   testthat::expect_equal(
-    beautier:::get_clock_models_ids(list(a, b)),
+    get_clock_models_ids(list(a, b)),
     c("a", "b")
   )
 

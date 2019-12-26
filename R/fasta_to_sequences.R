@@ -2,7 +2,7 @@
 #' @param fasta_filename One existing FASTA filenames
 #' @return a table of sequences
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 fasta_file_to_sequences <- function(fasta_filename) {
   beautier::check_file_exists(fasta_filename, "fasta_filename")
 

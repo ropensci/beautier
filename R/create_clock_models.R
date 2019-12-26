@@ -5,9 +5,11 @@
 #' @return a list of site_models
 #' @seealso Use \link{create_clock_model} to create a clock model
 #' @examples
-#'  clock_models <- create_clock_models()
-#'  testit::assert(beautier:::is_rln_clock_model(clock_models[[1]]))
-#'  testit::assert(beautier:::is_strict_clock_model(clock_models[[2]]))
+#' library(testthat)
+#'
+#' clock_models <- create_clock_models()
+#' expect_true(is_rln_clock_model(clock_models[[1]]))
+#' expect_true(is_strict_clock_model(clock_models[[2]]))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_clock_models <- function() {

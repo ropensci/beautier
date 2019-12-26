@@ -4,13 +4,13 @@
 #' @param id the ID of the alignment
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 phylo_to_xml_state <- function(
   id,
   tipdates_filename = NA
 ) {
   testit::assert(beautier::is_id(id))
-  taxa_to_xml_tree( # nolint beautier function
+  beautier::taxa_to_xml_tree(
     id = id,
     tipdates_filename = tipdates_filename
   )

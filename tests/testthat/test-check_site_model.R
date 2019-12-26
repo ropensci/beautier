@@ -12,20 +12,20 @@ test_that("use", {
   # Must be one site model
   expect_error(
     check_site_model(list(create_jc69_site_model(), create_jc69_site_model())),
-    "'site_model' must be a valid site model"
+    "'name' must be an element of an 'site_model'"
   )
 
   # Must be a site model
   expect_error(
     check_site_model("nonsense"),
-    "'site_model' must be a valid site model"
+    "'name' must be an element of an 'site_model'"
   )
   expect_error(
     check_site_model(NULL),
-    "'site_model' must be a valid site model"
+    "'name' must be an element of an 'site_model'"
   )
   expect_error(
     check_site_model(NA),
-    "'site_model' must be a valid site model"
+    "'name' must be an element of an 'site_model'"
   )
 })

@@ -18,7 +18,7 @@ test_that("strict", {
     "</distribution>"
   )
 
-  created <- beautier:::create_beast2_input_distr_lh(
+  created <- create_beast2_input_distr_lh(
     site_models = list(
       create_jc69_site_model(id = "test_output_0")
     ),
@@ -26,9 +26,9 @@ test_that("strict", {
       create_strict_clock_model(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
-  testthat::expect_true(beautier:::is_xml(created))
-  testthat::expect_true(beautier:::is_xml(expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(is_xml(created))
+  testthat::expect_true(is_xml(expected))
 })
 
 
@@ -52,7 +52,7 @@ test_that("RLN", {
     "    </distribution>",
     "</distribution>"
   )
-  created <- beautier:::create_beast2_input_distr_lh(
+  created <- create_beast2_input_distr_lh(
     site_models = list(
       create_jc69_site_model(id = "test_output_0")
     ),
@@ -69,5 +69,5 @@ test_that("RLN", {
       )
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })

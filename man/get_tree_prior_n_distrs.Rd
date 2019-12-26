@@ -17,30 +17,22 @@ the number of distributions a tree prior has
 Get the number of distributions a tree prior has
 }
 \examples{
- # birth_rate_distr and death_rate_distr
- testit::assert(
-   beautier:::get_tree_prior_n_distrs(create_bd_tree_prior()) == 2
- )
+library(testthat)
 
- # none
- testit::assert(
-   beautier:::get_tree_prior_n_distrs(create_cbs_tree_prior()) == 0
- )
+# birth_rate_distr and death_rate_distr
+expect_equal(get_tree_prior_n_distrs(create_bd_tree_prior()), 2)
+
+# none
+expect_equal(get_tree_prior_n_distrs(create_cbs_tree_prior()), 0)
 
  # pop_size_distr
- testit::assert(
-   beautier:::get_tree_prior_n_distrs(create_ccp_tree_prior()) == 1
- )
+expect_equal(get_tree_prior_n_distrs(create_ccp_tree_prior()), 1)
 
  # pop_size_distr and growth_rate_distr
- testit::assert(
-   beautier:::get_tree_prior_n_distrs(create_cep_tree_prior()) == 2
- )
+expect_equal(get_tree_prior_n_distrs(create_cep_tree_prior()), 2)
 
  # birth_rate_distr
- testit::assert(
-   beautier:::get_tree_prior_n_distrs(create_yule_tree_prior()) == 1
- )
+expect_equal(get_tree_prior_n_distrs(create_yule_tree_prior()), 1)
 }
 \author{
 Richèl J.C. Bilderbeek

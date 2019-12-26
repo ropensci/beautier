@@ -9,7 +9,7 @@
 #'   FALSE otherwise
 #' @seealso to check for equivalence, use \code{\link{are_equivalent_xml_files}}
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 are_equal_xml_files <- function(
   filename_1,
   filename_2,

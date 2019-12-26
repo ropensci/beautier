@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_model_to_xml_subst_model <- function(
   site_model
 ) {
@@ -12,14 +12,14 @@ site_model_to_xml_subst_model <- function(
   testit::assert(beautier::is_id(id))
 
   if (beautier::is_jc69_site_model(site_model)) {
-    return(jc69_site_model_to_xml_subst_model(site_model)) # nolint beautier function
+    return(beautier::jc69_site_model_to_xml_subst_model(site_model))
   } else if (beautier::is_hky_site_model(site_model)) {
-    return(hky_site_model_to_xml_subst_model(site_model)) # nolint beautier function
+    return(beautier::hky_site_model_to_xml_subst_model(site_model))
   } else if (beautier::is_tn93_site_model(site_model)) {
-    return(tn93_site_model_to_xml_subst_model(site_model)) # nolint beautier function
+    return(beautier::tn93_site_model_to_xml_subst_model(site_model))
   } else {
     testit::assert(beautier::is_gtr_site_model(site_model))
-    return(gtr_site_model_to_xml_subst_model(site_model)) # nolint beautier function
+    return(beautier::gtr_site_model_to_xml_subst_model(site_model))
   }
 }
 
@@ -28,7 +28,7 @@ site_model_to_xml_subst_model <- function(
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -44,7 +44,7 @@ jc69_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -72,7 +72,7 @@ hky_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -125,7 +125,7 @@ tn93_site_model_to_xml_subst_model <- function( # nolint indeed a long function 
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
@@ -176,7 +176,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     text <- c(
       text,
       beautier::indent(
-        parameter_to_xml_rate_ac( # nolint beautier function
+        beautier::parameter_to_xml_rate_ac(
           site_model$rate_ac_param, which_name = "rate_name"
         )
       )
@@ -189,7 +189,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     text <- c(
       text,
       beautier::indent(
-        parameter_to_xml_rate_ag( # nolint beautier function
+        beautier::parameter_to_xml_rate_ag(
           site_model$rate_ag_param, which_name = "rate_name"
         )
       )
@@ -202,7 +202,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     text <- c(
       text,
       beautier::indent(
-        parameter_to_xml_rate_at( # nolint beautier function
+        beautier::parameter_to_xml_rate_at(
           site_model$rate_at_param, which_name = "rate_name"
         )
       )
@@ -215,7 +215,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     text <- c(
       text,
       beautier::indent(
-        parameter_to_xml_rate_cg( # nolint beautier function
+        beautier::parameter_to_xml_rate_cg(
           site_model$rate_cg_param, which_name = "rate_name"
         )
       )
@@ -227,7 +227,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     text <- c(
       text,
       beautier::indent(
-        parameter_to_xml_rate_ct( # nolint beautier function
+        beautier::parameter_to_xml_rate_ct(
           site_model$rate_ct_param, which_name = "rate_name"
         )
       )
@@ -238,7 +238,7 @@ gtr_site_model_to_xml_subst_model <- function( # nolint indeed a long function n
     text <- c(
       text,
       beautier::indent(
-        parameter_to_xml_rate_gt( # nolint beautier function
+        beautier::parameter_to_xml_rate_gt(
           site_model$rate_gt_param,
           which_name = "rate_name"
         )

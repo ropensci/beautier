@@ -14,7 +14,7 @@
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 mrca_prior_to_xml_lh_distr <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE
@@ -23,7 +23,7 @@ mrca_prior_to_xml_lh_distr <- function(
   if (length(mrca_prior) == 1 && beautier::is_one_na(mrca_prior)) {
     return(NULL)
   }
-  if (!has_non_strict_clock_model && # nolint beautier function
+  if (!has_non_strict_clock_model &&
     !beautier::is_one_na(mrca_prior$mrca_distr)
   ) {
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))

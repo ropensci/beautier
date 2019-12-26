@@ -5,9 +5,11 @@
 \alias{create_clock_model_strict}
 \title{Create a strict clock model}
 \usage{
-create_strict_clock_model(id = NA,
+create_strict_clock_model(
+  id = NA,
   clock_rate_param = create_clock_rate_param(),
-  clock_rate_distr = create_uniform_distr())
+  clock_rate_distr = create_uniform_distr()
+)
 }
 \arguments{
 \item{id}{an alignment's IDs.

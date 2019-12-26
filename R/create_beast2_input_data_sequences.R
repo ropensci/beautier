@@ -1,11 +1,10 @@
 #' Creates the data section of a BEAST2 XML parameter file
+#' @inheritParams default_params_doc
 #' @param input_fasta_filename one FASTA filename
-#' @param nucleotides_uppercase are the nucleotides written in uppercase?
-#'   Yes if TRUE, no if FALSE
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
-create_beast2_input_data_sequences <- function( # nolint beautier function
+#' @export
+create_beast2_input_data_sequences <- function( # nolint indeed long function name
   input_fasta_filename,
   beauti_options = create_beauti_options()
 ) {

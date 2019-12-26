@@ -6,63 +6,53 @@
 #' @examples
 #' library(testthat)
 #'
-#' xml <- beautier:::parameter_to_xml(create_alpha_param(id = 1))
+#' xml <- parameter_to_xml(create_alpha_param(id = 1))
 #' expect_equal(length(xml), 1)
 #' expect_true(nchar(xml) > 1)
 #' @export
-parameter_to_xml <- function(
+parameter_to_xml <- function( # nolint simplifying further hurts readability
   parameter
 ) {
-  text <- NULL
-  id <- parameter$id
-  if (!beautier::is_id(id)) {
-    stop("parameter must have an ID")
-  }
-  testit::assert(!beautier::is_one_na(id))
-  if (beautier::is_one_na(parameter$value)) {
-    stop("parameter must have a value")
-  }
+  beautier::check_param(parameter)
+  testit::assert(beautier::is_id(parameter$id))
   if (beautier::is_alpha_param(parameter)) {
-    text <- c(text, parameter_to_xml_alpha(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_alpha(parameter))
   } else if (beautier::is_beta_param(parameter)) {
-    text <- c(text, parameter_to_xml_beta(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_beta(parameter))
   } else if (beautier::is_clock_rate_param(parameter)) {
-    text <- c(text, parameter_to_xml_clock_rate(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_clock_rate(parameter))
   } else if (beautier::is_kappa_1_param(parameter)) {
-    text <- c(text, parameter_to_xml_kappa_1(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_kappa_1(parameter))
   } else if (beautier::is_kappa_2_param(parameter)) {
-    text <- c(text, parameter_to_xml_kappa_2(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_kappa_2(parameter))
   } else if (beautier::is_lambda_param(parameter)) {
-    text <- c(text, parameter_to_xml_lambda(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_lambda(parameter))
   } else if (beautier::is_m_param(parameter)) {
-    text <- c(text, parameter_to_xml_m(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_m(parameter))
   } else if (beautier::is_mean_param(parameter)) {
-    text <- c(text, parameter_to_xml_mean(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_mean(parameter))
   } else if (beautier::is_mu_param(parameter)) {
-    text <- c(text, parameter_to_xml_mu(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_mu(parameter))
   } else if (beautier::is_rate_ac_param(parameter)) {
-    text <- c(text, parameter_to_xml_rate_ac(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_rate_ac(parameter))
   } else if (beautier::is_rate_ag_param(parameter)) {
-    text <- c(text, parameter_to_xml_rate_ag(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_rate_ag(parameter))
   } else if (beautier::is_rate_at_param(parameter)) {
-    text <- c(text, parameter_to_xml_rate_at(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_rate_at(parameter))
   } else if (beautier::is_rate_cg_param(parameter)) {
-    text <- c(text, parameter_to_xml_rate_cg(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_rate_cg(parameter))
   } else if (beautier::is_rate_ct_param(parameter)) {
-    text <- c(text, parameter_to_xml_rate_ct(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_rate_ct(parameter))
   } else if (beautier::is_rate_gt_param(parameter)) {
-    text <- c(text, parameter_to_xml_rate_gt(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_rate_gt(parameter))
   } else if (beautier::is_s_param(parameter)) {
-    text <- c(text, parameter_to_xml_s(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_s(parameter))
   } else if (beautier::is_scale_param(parameter)) {
-    text <- c(text, parameter_to_xml_scale(parameter)) # nolint beautier function
-  } else {
-    # This assert will also fail for new parameter types
-    testit::assert(beautier::is_sigma_param(parameter)) # nolint beautier function
-    text <- c(text, parameter_to_xml_sigma(parameter)) # nolint beautier function
+    return(beautier::parameter_to_xml_scale(parameter))
   }
-  testit::assert(beautier::is_xml(text))
-  text
+  # This assert will also fail for new parameter types
+  testit::assert(beautier::is_sigma_param(parameter))
+  beautier::parameter_to_xml_sigma(parameter)
 }
 
 #' Converts an alpha parameter to XML
@@ -72,6 +62,7 @@ parameter_to_xml <- function(
 #'   as created by \code{\link{create_alpha_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_alpha <- function(
   parameter
 ) {
@@ -96,6 +87,7 @@ parameter_to_xml_alpha <- function(
 #'   as created by \code{\link{create_beta_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_beta <- function(
   parameter
 ) {
@@ -120,6 +112,7 @@ parameter_to_xml_beta <- function(
 #'   as created by \code{\link{create_clock_rate_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_clock_rate <- function(
   parameter
 ) {
@@ -145,6 +138,7 @@ parameter_to_xml_clock_rate <- function(
 #'   as created by \code{\link{create_kappa_1_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_kappa_1 <- function(
   parameter
 ) {
@@ -164,6 +158,7 @@ parameter_to_xml_kappa_1 <- function(
 #'   as created by \code{\link{create_kappa_2_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_kappa_2 <- function(
   parameter
 ) {
@@ -185,6 +180,7 @@ parameter_to_xml_kappa_2 <- function(
 #'   as created by \code{\link{create_lambda_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_lambda <- function(
   parameter
 ) {
@@ -206,6 +202,7 @@ parameter_to_xml_lambda <- function(
 #'   as created by \code{\link{create_m_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_m <- function(
   parameter
 ) {
@@ -230,6 +227,7 @@ parameter_to_xml_m <- function(
 #'   as created by \code{\link{create_mean_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_mean <- function(
   parameter
 ) {
@@ -254,6 +252,7 @@ parameter_to_xml_mean <- function(
 #'   as created by \code{\link{create_mu_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_mu <- function(
   parameter
 ) {
@@ -279,6 +278,7 @@ parameter_to_xml_mu <- function(
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_rate_ac <- function(
   parameter,
   which_name = "state_node"
@@ -311,6 +311,7 @@ parameter_to_xml_rate_ac <- function(
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_rate_ag <- function(
   parameter,
   which_name = "state_node"
@@ -343,6 +344,7 @@ parameter_to_xml_rate_ag <- function(
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_rate_at <- function(
   parameter,
   which_name = "state_node"
@@ -375,6 +377,7 @@ parameter_to_xml_rate_at <- function(
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_rate_cg <- function(
   parameter,
   which_name = "state_node"
@@ -407,6 +410,7 @@ parameter_to_xml_rate_cg <- function(
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_rate_ct <- function(
   parameter,
   which_name = "state_node"
@@ -439,6 +443,7 @@ parameter_to_xml_rate_ct <- function(
 #' @param which_name the name, can be \code{state_node} or \code{rate_name}
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_rate_gt <- function(
   parameter,
   which_name = "state_node"
@@ -470,6 +475,7 @@ parameter_to_xml_rate_gt <- function(
 #'   as created by \code{\link{create_s_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_s <- function(
   parameter
 ) {
@@ -508,6 +514,7 @@ parameter_to_xml_s <- function(
 #'   as created by \code{\link{create_scale_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_scale <- function(
   parameter
 ) {
@@ -532,6 +539,7 @@ parameter_to_xml_scale <- function(
 #'   as created by \code{\link{create_sigma_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 parameter_to_xml_sigma <- function(
   parameter
 ) {

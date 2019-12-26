@@ -13,8 +13,8 @@
 #'  #     </distribution>
 #'  # </distribution>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
-mrca_priors_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+mrca_priors_to_xml_prior_distr <- function(
   mrca_priors,
   has_non_strict_clock_model
 ) {

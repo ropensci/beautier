@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the tree prior as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tree_prior_to_xml_operators <- function(
   tree_prior,
   fixed_crown_age = FALSE
@@ -13,7 +13,7 @@ tree_prior_to_xml_operators <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  operator_id_pre <- get_operator_id_pre(tree_prior) # nolint beautier function
+  operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(text, paste0("<operator id=\"BirthRateScaler.t:",

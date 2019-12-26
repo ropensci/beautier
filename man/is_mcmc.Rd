@@ -16,9 +16,16 @@ TRUE if x is a valid MCMC, FALSE otherwise
 Determine if the object is a valid MCMC
 }
 \examples{
-  testthat::expect_true(is_mcmc(create_mcmc()))
-  testthat::expect_true(is_mcmc(create_ns_mcmc()))
-  testthat::expect_false(is_mcmc("nonsense"))
+library(testthat)
+
+expect_true(is_mcmc(create_mcmc()))
+expect_true(is_mcmc(create_ns_mcmc()))
+
+expect_false(is_mcmc("nonsense"))
+expect_false(is_mcmc(NULL))
+expect_false(is_mcmc(NA))
+expect_false(is_mcmc(""))
+expect_false(is_mcmc(c()))
 }
 \seealso{
 Use \code{\link{create_mcmc}} to create an MCMC

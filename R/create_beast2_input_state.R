@@ -19,28 +19,30 @@ create_beast2_input_state <- function(
     id <- tree_prior$id
     text <- c(
       text,
-      phylo_to_xml_state( # nolint beautier function
+      beautier::phylo_to_xml_state(
         id = id,
         tipdates_filename = tipdates_filename
       )
     )
   }
 
-  text <- c(text, site_models_to_xml_state(site_models)) # nolint beautier function
+  text <- c(text, beautier::site_models_to_xml_state(site_models))
   text <- c(
     text,
-    clock_models_to_xml_state(# nolint beautier function
+    beautier::clock_models_to_xml_state(
       clock_models = clock_models,
       mrca_priors = mrca_priors,
       has_tip_dating = has_tip_dating
     )
   )
-  text <- c(text, tree_priors_to_xml_state(tree_priors)) # nolint beautier function
+  text <- c(text, beautier::tree_priors_to_xml_state(tree_priors))
   text <- c(
     text,
-    mrca_priors_to_xml_state( # nolint beautier function
+    beautier::mrca_priors_to_xml_state(
       mrca_priors,
-      has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models) # nolint beautier function
+      has_non_strict_clock_model = beautier::get_has_non_strict_clock_model(
+        clock_models
+      )
     )
   )
 

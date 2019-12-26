@@ -4,10 +4,12 @@
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   xml <- beautier:::distr_to_xml(create_uniform_distr(id = 1))
-#'   testit::assert(is.character(xml))
-#'   testit::assert(length(xml) == 1)
-#'   testit::assert(nchar(xml) > 1)
+#' library(testthat)
+#'
+#' xml <- distr_to_xml(create_uniform_distr(id = 1))
+#' expect_true(is.character(xml))
+#' expect_true(length(xml) == 1)
+#' expect_true(nchar(xml) > 1)
 #' @export
 distr_to_xml <- function(
   distr
@@ -18,26 +20,26 @@ distr_to_xml <- function(
     stop("distribution must have an ID")
   }
   if (beautier::is_beta_distr(distr)) {
-    text <- c(text, distr_to_xml_beta(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_beta(distr))
   } else if (beautier::is_exp_distr(distr)) {
-    text <- c(text, distr_to_xml_exp(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_exp(distr))
   } else if (beautier::is_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_gamma(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_gamma(distr))
   } else if (beautier::is_inv_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_inv_gamma(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_inv_gamma(distr))
   } else if (beautier::is_laplace_distr(distr)) {
-    text <- c(text, distr_to_xml_laplace(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_laplace(distr))
   } else if (beautier::is_log_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_log_normal(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_log_normal(distr))
   } else if (beautier::is_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_normal(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_normal(distr))
   } else if (beautier::is_one_div_x_distr(distr)) {
-    text <- c(text, distr_to_xml_one_div_x(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_one_div_x(distr))
   } else if (beautier::is_poisson_distr(distr)) {
-    text <- c(text, distr_to_xml_poisson(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_poisson(distr))
   } else {
     testit::assert(beautier::is_uniform_distr(distr))
-    text <- c(text, distr_to_xml_uniform(distr)) # nolint beautier function
+    text <- c(text, beautier::distr_to_xml_uniform(distr))
   }
   testit::assert(beautier::is_xml(text))
   text
@@ -48,6 +50,7 @@ distr_to_xml <- function(
 #'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_beta <- function(
   distr
 ) {
@@ -76,6 +79,7 @@ distr_to_xml_beta <- function(
 #'   as created by \code{\link{create_exp_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_exp <- function(
   distr
 ) {
@@ -100,6 +104,7 @@ distr_to_xml_exp <- function(
 #'   as created by \code{\link{create_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_gamma <- function(
   distr
 ) {
@@ -129,6 +134,7 @@ distr_to_xml_gamma <- function(
 #'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_inv_gamma <- function(
   distr
 ) {
@@ -158,6 +164,7 @@ distr_to_xml_inv_gamma <- function(
 #'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_laplace <- function(
   distr
 ) {
@@ -186,6 +193,7 @@ distr_to_xml_laplace <- function(
 #'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_log_normal <- function(
   distr
 ) {
@@ -216,6 +224,7 @@ distr_to_xml_log_normal <- function(
 #'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_normal <- function(
   distr
 ) {
@@ -245,6 +254,7 @@ distr_to_xml_normal <- function(
 #'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_one_div_x <- function(
   distr
 ) {
@@ -263,6 +273,7 @@ distr_to_xml_one_div_x <- function(
 #'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_poisson <- function(
   distr
 ) {
@@ -288,6 +299,7 @@ distr_to_xml_poisson <- function(
 #'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
+#' @export
 distr_to_xml_uniform <- function(
   distr
 ) {

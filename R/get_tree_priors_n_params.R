@@ -3,15 +3,18 @@
 #' @return the number of parameters the tree priors have
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  testit::assert(
-#'    beautier:::get_tree_priors_n_params(
-#'      list(
-#'        create_bd_tree_prior(), # zero
-#'        create_cep_tree_prior() # two
-#'      )
-#'    ) == 2
-#'  )
-#' @noRd
+#' library(testthat)
+#'
+#' expect_equal(
+#'   get_tree_priors_n_params(
+#'     list(
+#'       create_bd_tree_prior(), # zero
+#'       create_cep_tree_prior() # two
+#'     )
+#'   ),
+#'   2
+#' )
+#' @export
 get_tree_priors_n_params <- function(
   tree_priors
 ) {

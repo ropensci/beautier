@@ -15,15 +15,15 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
-mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+mrca_prior_to_xml_prior_distr <- function(
   mrca_prior,
   has_non_strict_clock_model = FALSE,
   taxa_names_with_ids = NULL
 ) {
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   text <- NULL
-  if (!has_non_strict_clock_model && # nolint beautier function
+  if (!has_non_strict_clock_model &&
       !beautier::is_one_na(mrca_prior$mrca_distr)
   ) {
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
@@ -38,7 +38,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
     text <- c(
       text,
       beautier::indent(
-        distr_to_xml(create_uniform_distr( # nolint beautier function
+        beautier::distr_to_xml(beautier::create_uniform_distr(
           id = mrca_prior$clock_prior_distr_id)
         )
       )
@@ -62,7 +62,7 @@ mrca_prior_to_xml_prior_distr <- function( # nolint beautier function
   text <- c(
     text,
     beautier::indent(
-      mrca_prior_to_xml_taxonset( # nolint beautier function
+      beautier::mrca_prior_to_xml_taxonset(
         mrca_prior,
         taxa_names_with_ids
       )

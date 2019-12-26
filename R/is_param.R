@@ -37,12 +37,14 @@
 is_param <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!x$name %in% beautier::get_param_names()) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
-  if (!"value" %in% names(x)) return(FALSE)
-  if (beautier::is_one_na(x$value)) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    beautier::check_param(x)
+    result <- TRUE
+  },
+    error = function(e) {} # nolint do not care about e
+  )
+  result
 }
 
 #' Determine if the object is a valid
@@ -185,9 +187,6 @@ is_clock_rate_param <- function(
 #' @seealso kappa 1 parameters are returned by
 #'   \code{\link{create_kappa_1_param}}
 #' @author Richèl J.C. Bilderbeek
-#' @examples
-#'   kappa_1_param <- create_kappa_1_param()
-#'   testit::assert(beautier:::is_kappa_1_param(kappa_1_param))
 #' @examples
 #' library(testthat)
 #'

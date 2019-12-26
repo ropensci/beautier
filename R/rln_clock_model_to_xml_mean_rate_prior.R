@@ -2,8 +2,8 @@
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
-rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint beautier function
+#' @export
+rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint indeed long function name
 
   testit::assert(beautier::is_rln_clock_model(rln_clock_model))
   id <- rln_clock_model$id
@@ -15,7 +15,7 @@ rln_clock_model_to_xml_mean_rate_prior <- function(rln_clock_model) { # nolint b
     "name=\"distribution\" x=\"@ucldMean.c:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = rln_clock_model$mean_rate_prior_distr
       )
     )

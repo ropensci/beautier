@@ -10,11 +10,11 @@ test_that("use", {
   ss <- list(create_strict_clock_model(), create_strict_clock_model())
 
   # true if there is an n in the name
-  testthat::expect_true(beautier:::get_has_non_strict_clock_model(n))
-  testthat::expect_false(beautier:::get_has_non_strict_clock_model(s))
-  testthat::expect_true(beautier:::get_has_non_strict_clock_model(nn))
-  testthat::expect_true(beautier:::get_has_non_strict_clock_model(ns))
-  testthat::expect_true(beautier:::get_has_non_strict_clock_model(sn))
-  testthat::expect_false(beautier:::get_has_non_strict_clock_model(ss))
+  testthat::expect_true(get_has_non_strict_clock_model(n))
+  testthat::expect_false(get_has_non_strict_clock_model(s))
+  testthat::expect_true(get_has_non_strict_clock_model(nn))
+  testthat::expect_true(get_has_non_strict_clock_model(ns))
+  testthat::expect_true(get_has_non_strict_clock_model(sn))
+  testthat::expect_false(get_has_non_strict_clock_model(ss))
 
 })

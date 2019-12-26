@@ -4,8 +4,13 @@
 \alias{create_beast2_input_distr}
 \title{Creates the distribution section of a BEAST2 XML parameter file.}
 \usage{
-create_beast2_input_distr(site_models, clock_models, tree_priors,
-  mrca_priors = NA, tipdates_filename = NA)
+create_beast2_input_distr(
+  site_models,
+  clock_models,
+  tree_priors,
+  mrca_priors = NA,
+  tipdates_filename = NA
+)
 }
 \arguments{
 \item{site_models}{one or more site models,

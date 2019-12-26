@@ -1,6 +1,5 @@
 #' See if x is one MRCA prior with a distribution
 #' @param x the object to be tested
-#' @inheritParams default_params_doc
 #' @return TRUE if x is one MRCA prior with a distribution,
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek

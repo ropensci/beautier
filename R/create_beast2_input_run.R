@@ -54,10 +54,10 @@ create_beast2_input_run <- function(
   fixed_crown_ages <- FALSE
   tipdates_filename <- inference_model$tipdates_filename
 
-  text <- mcmc_to_xml_run(mcmc) # nolint beautier function
+  text <- beautier::mcmc_to_xml_run(mcmc)
   text <- c(text,
     beautier::indent(
-      create_beast2_input_state( # nolint beautier function
+      beautier::create_beast2_input_state(
         site_models = site_models,
         clock_models = clock_models,
         tree_priors = tree_priors,

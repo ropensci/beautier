@@ -3,7 +3,7 @@
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 site_model_to_xml_state <- function(
   site_model
 ) {
@@ -25,22 +25,22 @@ site_model_to_xml_state <- function(
     testit::assert("estimate" %in% names(site_model$rate_ct_param))
     testit::assert("estimate" %in% names(site_model$rate_gt_param))
     if (site_model$rate_ac_param$estimate == TRUE) {
-      text <- c(text, parameter_to_xml(site_model$rate_ac_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$rate_ac_param))
     }
     if (site_model$rate_ag_param$estimate == TRUE) {
-      text <- c(text, parameter_to_xml(site_model$rate_ag_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$rate_ag_param))
     }
     if (site_model$rate_at_param$estimate == TRUE) {
-      text <- c(text, parameter_to_xml(site_model$rate_at_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$rate_at_param))
     }
     if (site_model$rate_cg_param$estimate == TRUE) {
-      text <- c(text, parameter_to_xml(site_model$rate_cg_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$rate_cg_param))
     }
     if (site_model$rate_ct_param$estimate == TRUE) {
-      text <- c(text, parameter_to_xml(site_model$rate_ct_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$rate_ct_param))
     }
     if (site_model$rate_gt_param$estimate == TRUE) {
-      text <- c(text, parameter_to_xml(site_model$rate_gt_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$rate_gt_param))
     }
   } else if (beautier::is_hky_site_model(site_model)) {
     site_model$kappa_param$id <- id
@@ -50,15 +50,15 @@ site_model_to_xml_state <- function(
   } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       site_model$kappa_1_param$id <- id
-      text <- c(text, parameter_to_xml(site_model$kappa_1_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$kappa_1_param))
     }
     if (site_model$kappa_2_param$estimate == TRUE) {
       site_model$kappa_2_param$id <- id
-      text <- c(text, parameter_to_xml(site_model$kappa_2_param)) # nolint beautier function
+      text <- c(text, beautier::parameter_to_xml(site_model$kappa_2_param))
     }
   }
 
-  if (!is_jc69_site_model(site_model)) { # nolint beautier function
+  if (!beautier::is_jc69_site_model(site_model)) {
     text <- c(
       text,
       paste0(
@@ -72,7 +72,7 @@ site_model_to_xml_state <- function(
 
   text <- c(
     text,
-    gamma_site_model_to_xml_state(site_model$gamma_site_model, id) # nolint beautier function
+    beautier::gamma_site_model_to_xml_state(site_model$gamma_site_model, id)
   )
   text
 }

@@ -8,7 +8,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 tree_priors_to_xml_tracelog <- function(
   tree_priors
 ) {

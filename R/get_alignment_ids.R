@@ -4,7 +4,6 @@
 #' The file extension will be used to determine which
 #' type of file is worked on.
 #' @param filenames names of the files to be checked
-#' @inheritParams default_params_doc
 #' @return the IDs extracted from the one or more files
 #' @seealso Use \link{get_alignment_ids_from_fasta_filenames} to
 #' get the alignment IDs from files known to be FASTA files

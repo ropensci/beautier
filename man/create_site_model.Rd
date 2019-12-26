@@ -4,8 +4,7 @@
 \alias{create_site_model}
 \title{General function to create a site model.}
 \usage{
-create_site_model(name, id, gamma_site_model = create_gamma_site_model(),
-  ...)
+create_site_model(name, id, gamma_site_model = create_gamma_site_model(), ...)
 }
 \arguments{
 \item{name}{the site model name. Valid

@@ -86,7 +86,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint beautier function can be long
+mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint indeed long function name
   testit::assert(beautier::is_mcmc(mcmc))
   testit::assert(beautier::is_mcmc_nested_sampling(mcmc))
   xml <- paste0(

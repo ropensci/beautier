@@ -4,7 +4,7 @@
 #' @return lines of XML text, without indentation nor \code{state}
 #'   tags
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 mrca_priors_to_xml_state <- function(
   mrca_priors,
   has_non_strict_clock_model = FALSE

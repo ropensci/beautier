@@ -4,9 +4,14 @@
 \alias{create_mrca_prior}
 \title{Create a Most Recent Common Ancestor prior}
 \usage{
-create_mrca_prior(alignment_id = NA, taxa_names = NA,
-  is_monophyletic = FALSE, mrca_distr = NA, name = NA,
-  clock_prior_distr_id = NA)
+create_mrca_prior(
+  alignment_id = NA,
+  taxa_names = NA,
+  is_monophyletic = FALSE,
+  mrca_distr = NA,
+  name = NA,
+  clock_prior_distr_id = NA
+)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,

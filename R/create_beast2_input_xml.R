@@ -1,5 +1,4 @@
 #' Create the XML declaration as XML text
-#' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export

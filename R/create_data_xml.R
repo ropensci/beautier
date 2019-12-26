@@ -1,7 +1,8 @@
 #' Create the \code{<data ..>} XML
+#' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 create_data_xml <- function(
   id,
   beast2_version

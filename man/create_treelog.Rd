@@ -4,8 +4,13 @@
 \alias{create_treelog}
 \title{Create a \code{treelog} object}
 \usage{
-create_treelog(filename = "$(tree).trees", log_every = 1000,
-  mode = "tree", sanitise_headers = FALSE, sort = "none")
+create_treelog(
+  filename = "$(tree).trees",
+  log_every = 1000,
+  mode = "tree",
+  sanitise_headers = FALSE,
+  sort = "none"
+)
 }
 \arguments{
 \item{filename}{name of the file to store the posterior trees}

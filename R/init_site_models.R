@@ -4,7 +4,7 @@
 #' @param param_id the first parameter's ID
 #' @return a list of initialized site models
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 init_site_models <- function(
   site_models,
   ids,
@@ -26,21 +26,21 @@ init_site_models <- function(
       )
     } else if (beautier::is_hky_site_model(site_model)) {
       # HKY
-      site_model <- init_hky_site_model( # nolint beautier function call
+      site_model <- beautier::init_hky_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
       )
     } else if (beautier::is_jc69_site_model(site_model)) {
       # JC69
-      site_model <- init_jc69_site_model( # nolint beautier function call
+      site_model <- beautier::init_jc69_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
       )
     } else {
       testit::assert(beautier::is_tn93_site_model(site_model))
-      site_model <- init_tn93_site_model( # nolint beautier function call
+      site_model <- beautier::init_tn93_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
@@ -98,8 +98,8 @@ init_gtr_site_model <- function(
     }
   }
 
-  if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_ac_prior_distr <- init_distr( # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_ac_prior_distr)) {
+    gtr_site_model$rate_ac_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -109,8 +109,8 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_ac_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_ag_prior_distr <- init_distr( # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_ag_prior_distr)) {
+    gtr_site_model$rate_ag_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ag_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -120,8 +120,8 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_ag_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_at_prior_distr <- init_distr( # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_at_prior_distr)) {
+    gtr_site_model$rate_at_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_at_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -131,8 +131,8 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_at_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) { # nolint beautier function
-    gtr_site_model$rate_cg_prior_distr <- init_distr( # nolint beautier function
+  if (!beautier::is_init_distr(gtr_site_model$rate_cg_prior_distr)) {
+    gtr_site_model$rate_cg_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_cg_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -207,10 +207,13 @@ init_gtr_site_model <- function(
 #' @return an initialized HKY site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   hky_site_model <- create_hky_site_model()
-#'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
-#'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
-#'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
+#' library(testthat)
+#'
+#' hky_site_model <- create_hky_site_model()
+#' expect_false(is_init_hky_site_model(hky_site_model))
+#' hky_site_model <- init_hky_site_model(hky_site_model)
+#' expect_true(is_init_hky_site_model(hky_site_model))
+#' @export
 init_hky_site_model <- function(
   hky_site_model,
   distr_id = 0,
@@ -266,10 +269,12 @@ init_hky_site_model <- function(
 #' @return an initialized HKY site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   hky_site_model <- create_hky_site_model()
-#'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
-#'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
-#'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
+#' library(testthat)
+#'
+#' hky_site_model <- create_hky_site_model()
+#' expect_false(is_init_hky_site_model(hky_site_model))
+#' hky_site_model <- init_hky_site_model(hky_site_model)
+#' expect_true(is_init_hky_site_model(hky_site_model))
 #' @export
 init_jc69_site_model <- function(
   jc69_site_model,

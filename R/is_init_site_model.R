@@ -28,12 +28,14 @@ is_init_site_model <- function(
 #' @return TRUE if x is an initialized GTR site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   gtr_site_model <- create_gtr_site_model()
-#'   testit::assert(!beautier:::is_init_gtr_site_model(gtr_site_model))
-#'   gtr_site_model <- beautier:::init_gtr_site_model(gtr_site_model)
-#'   testit::assert(beautier:::is_init_gtr_site_model(gtr_site_model))
+#' library(testthat)
+#'
+#' gtr_site_model <- create_gtr_site_model()
+#' expect_false(is_init_gtr_site_model(gtr_site_model))
+#' gtr_site_model <- init_gtr_site_model(gtr_site_model)
+#' expect_true(is_init_gtr_site_model(gtr_site_model))
 #' @export
-is_init_gtr_site_model <- function(
+is_init_gtr_site_model <- function( # nolint simplification of this hurts readability
   x
 ) {
   if (!beautier::is_gtr_site_model(x)) return(FALSE)
@@ -60,10 +62,12 @@ is_init_gtr_site_model <- function(
 #' @return TRUE if x is an initialized HKY site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   hky_site_model <- create_hky_site_model()
-#'   testit::assert(!beautier:::is_init_hky_site_model(hky_site_model))
-#'   hky_site_model <- beautier:::init_hky_site_model(hky_site_model)
-#'   testit::assert(beautier:::is_init_hky_site_model(hky_site_model))
+#' library(testthat)
+#'
+#' hky_site_model <- create_hky_site_model()
+#' expect_false(is_init_hky_site_model(hky_site_model))
+#' hky_site_model <- init_hky_site_model(hky_site_model)
+#' expect_true(is_init_hky_site_model(hky_site_model))
 #' @export
 is_init_hky_site_model <- function(
   x
@@ -80,15 +84,17 @@ is_init_hky_site_model <- function(
 #' @return TRUE if x is an initialized JC69 site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' library(testthat)
+#'
 #' jc69_site_model <- create_jc69_site_model(
 #'   gamma_site_model = create_gamma_site_model(
 #'     gamma_cat_count = 2,
 #'     gamma_shape_prior_distr = create_normal_distr()
 #'   )
 #' )
-#' testit::assert(!is_init_jc69_site_model(jc69_site_model))
+#' expect_false(is_init_jc69_site_model(jc69_site_model))
 #' jc69_site_model <- init_jc69_site_model(jc69_site_model)
-#' testit::assert(is_init_jc69_site_model(jc69_site_model))
+#' expect_true(is_init_jc69_site_model(jc69_site_model))
 #' @export
 is_init_jc69_site_model <- function(
   x
@@ -105,10 +111,12 @@ is_init_jc69_site_model <- function(
 #' @return TRUE if x is an initialized TN93 site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   tn93_site_model <- create_tn93_site_model()
-#'   testit::assert(!beautier:::is_init_tn93_site_model(tn93_site_model))
-#'   tn93_site_model <- beautier:::init_tn93_site_model(tn93_site_model)
-#'   testit::assert(beautier:::is_init_tn93_site_model(tn93_site_model))
+#' library(testthat)
+#'
+#' tn93_site_model <- create_tn93_site_model()
+#' expect_false(is_init_tn93_site_model(tn93_site_model))
+#' tn93_site_model <- init_tn93_site_model(tn93_site_model)
+#' expect_true(is_init_tn93_site_model(tn93_site_model))
 #' @export
 is_init_tn93_site_model <- function(
   x

@@ -6,22 +6,79 @@
 This function does nothing.
 It is intended to inherit function argument documentation.}
 \usage{
-default_params_doc(alignment_id, bd_tree_prior, cbs_tree_prior,
-  beauti_options, ccp_tree_prior, cep_tree_prior, chain_length,
-  clock_model, clock_model_name, clock_model_names, clock_models,
-  clock_prior_distr_id, crown_age, crown_ages, distr_id, fasta_filename,
-  fasta_filenames, fixed_crown_age, fixed_crown_ages, gamma_site_model,
-  group_sizes_dimension, gtr_site_model, has_non_strict_clock_model,
-  has_tip_dating, hky_site_model, id, ids, inference_model,
-  inference_models, initial_phylogenies, input_filename, input_filenames,
-  is_monophyletic, jc69_site_model, log_every, mcmc, mode, mrca_prior,
-  mrca_priors, mrca_prior_name, n_init_attempts, output_filename, param_id,
-  phylogeny, posterior_crown_age, pre_burnin, rln_clock_model,
-  sample_from_prior, sanitise_headers, screenlog, sequence_length,
-  site_model, site_model_name, site_model_names, site_models, sort,
-  store_every, strict_clock_model, taxa_names, tipdates_filename,
-  tn93_site_model, tracelog, treelog, tree_prior, tree_prior_name,
-  tree_prior_names, tree_priors, verbose, yule_tree_prior)
+default_params_doc(
+  alignment_id,
+  bd_tree_prior,
+  cbs_tree_prior,
+  beast2_version,
+  beauti_options,
+  ccp_tree_prior,
+  cep_tree_prior,
+  chain_length,
+  clock_model,
+  clock_model_name,
+  clock_model_names,
+  clock_models,
+  clock_prior_distr_id,
+  crown_age,
+  crown_ages,
+  distr_id,
+  fasta_filename,
+  fasta_filenames,
+  fixed_crown_age,
+  fixed_crown_ages,
+  gamma_site_model,
+  group_sizes_dimension,
+  gtr_site_model,
+  has_non_strict_clock_model,
+  has_tip_dating,
+  hky_site_model,
+  id,
+  ids,
+  inference_model,
+  inference_models,
+  initial_phylogenies,
+  input_filename,
+  input_filenames,
+  is_monophyletic,
+  jc69_site_model,
+  log_every,
+  mcmc,
+  mode,
+  mrca_prior,
+  mrca_priors,
+  mrca_prior_name,
+  n_init_attempts,
+  output_filename,
+  param,
+  param_id,
+  phylogeny,
+  posterior_crown_age,
+  pre_burnin,
+  rln_clock_model,
+  sample_from_prior,
+  sanitise_headers,
+  screenlog,
+  sequence_length,
+  site_model,
+  site_model_name,
+  site_model_names,
+  site_models,
+  sort,
+  store_every,
+  strict_clock_model,
+  taxa_names,
+  tipdates_filename,
+  tn93_site_model,
+  tracelog,
+  treelog,
+  tree_prior,
+  tree_prior_name,
+  tree_prior_names,
+  tree_priors,
+  verbose,
+  yule_tree_prior
+)
 }
 \arguments{
 \item{alignment_id}{ID of the alignment,
@@ -33,6 +90,8 @@ by \code{\link{create_bd_tree_prior}}}
 
 \item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
 as returned by \code{\link{create_cbs_tree_prior}}}
+
+\item{beast2_version}{BEAST2 version, for example, code{"2.5"}}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
@@ -87,8 +146,8 @@ of the initial phylogeny.}
 \item{gamma_site_model}{a site model's gamma site model,
 as returned by \code{\link{create_gamma_site_model}}}
 
-\item{group_sizes_dimension}{the group sizes' dimension, as used
-by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})}
+\item{group_sizes_dimension}{the group sizes' dimension,
+as used by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})}
 
 \item{gtr_site_model}{a GTR site model,
 as returned by \code{\link{create_gtr_site_model}}}
@@ -158,6 +217,8 @@ Leave at \link{NA} to have it named automatically.}
 
 \item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
+
+\item{param}{a parameter, as can be created by \code{\link{create_param}}.}
 
 \item{param_id}{a parameter's ID}
 
@@ -247,7 +308,7 @@ It is intended to inherit function argument documentation.
 }
 \note{
 This is an internal function, so it should be marked with
-  \code{@noRd}. This is not done, as this will disallow all
+  \code{@export}. This is not done, as this will disallow all
   functions to find the documentation parameters
 }
 \author{

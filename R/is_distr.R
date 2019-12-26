@@ -34,7 +34,7 @@
 #' expect_false(is_distr(NULL))
 #' expect_false(is_distr("nonsense"))
 #' @export
-is_distr <- function(
+is_distr <- function( # nolint simplification of this will hurt readablity
   x
 ) {
   if (beautier::is_beta_distr(x)) return(TRUE)

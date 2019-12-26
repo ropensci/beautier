@@ -8,7 +8,7 @@
 #' #'   # Here
 #' # </logger>
 #' @author Richèl J.C. Bilderbeek
-#' @noRd
+#' @export
 clock_models_to_xml_tracelog <- function(
   clock_models,
   mrca_priors = NA
@@ -21,7 +21,7 @@ clock_models_to_xml_tracelog <- function(
     testit::assert(beautier::is_clock_model(clock_model))
     text <- c(
       text,
-      clock_model_to_xml_tracelog( # nolint beautier function
+      beautier::clock_model_to_xml_tracelog(
         clock_model = clock_model,
         mrca_priors = mrca_priors
       )

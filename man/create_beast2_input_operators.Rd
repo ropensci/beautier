@@ -4,9 +4,14 @@
 \alias{create_beast2_input_operators}
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators(site_models, clock_models, tree_priors,
-  fixed_crown_ages = rep(FALSE, length(site_models)), mrca_priors = NA,
-  tipdates_filename = NA)
+create_beast2_input_operators(
+  site_models,
+  clock_models,
+  tree_priors,
+  fixed_crown_ages = rep(FALSE, length(site_models)),
+  mrca_priors = NA,
+  tipdates_filename = NA
+)
 }
 \arguments{
 \item{site_models}{one or more site models,

@@ -14,7 +14,7 @@
 #'  # </distribution>
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_beast2_input_distr <- function( # nolint beautier function
+create_beast2_input_distr <- function(
   site_models,
   clock_models,
   tree_priors,
@@ -78,7 +78,8 @@ create_beast2_input_distr <- function( # nolint beautier function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_prior <- function( # nolint beautier function
+#' @export
+create_beast2_input_distr_prior <- function( # nolint indeed long function name
   site_models,
   clock_models,
   tree_priors,
@@ -86,16 +87,16 @@ create_beast2_input_distr_prior <- function( # nolint beautier function
   tipdates_filename = NA
 ) {
   text <- NULL
-  text <- c(text, tree_priors_to_xml_prior_distr(tree_priors)) # nolint beautier function
-  text <- c(text, gamma_site_models_to_xml_prior_distr(site_models)) # nolint beautier function
-  text <- c(text, site_models_to_xml_prior_distr(site_models)) # nolint beautier function
-  text <- c(text, mrca_priors_to_xml_prior_distr( # nolint beautier function
+  text <- c(text, beautier::tree_priors_to_xml_prior_distr(tree_priors))
+  text <- c(text, beautier::gamma_site_models_to_xml_prior_distr(site_models))
+  text <- c(text, beautier::site_models_to_xml_prior_distr(site_models))
+  text <- c(text, beautier::mrca_priors_to_xml_prior_distr(
     mrca_priors,
     has_non_strict_clock_model = get_has_non_strict_clock_model(clock_models))
   )
   text <- c(
     text,
-    clock_models_to_xml_prior_distr( # nolint beautier function
+    beautier::clock_models_to_xml_prior_distr(
       clock_models = clock_models,
       mrca_priors = mrca_priors,
       tipdates_filename = tipdates_filename
@@ -128,7 +129,8 @@ create_beast2_input_distr_prior <- function( # nolint beautier function
 #'  #       HERE, where the ID of the distribution is 'likelihood'
 #'  #     </distribution>
 #'  # </distribution>
-create_beast2_input_distr_lh <- function( # nolint beautier function
+#' @export
+create_beast2_input_distr_lh <- function(
   site_models,
   clock_models,
   mrca_priors = NA,
@@ -151,7 +153,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
       beautier::indent(
-        site_model_to_xml_lh_distr(site_model) # nolint beautier function
+        beautier::site_model_to_xml_lh_distr(site_model)
       )
     )
 
@@ -160,7 +162,7 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
     ) {
       text <- c(text,
         beautier::indent(
-          clock_model_to_xml_lh_distr( # nolint beautier function
+          beautier::clock_model_to_xml_lh_distr(
             clock_model,
             mrca_priors = mrca_priors,
             tipdates_filename = tipdates_filename
@@ -176,9 +178,9 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
     testit::assert(beautier::is_mrca_prior(mrca_prior))
     text <- c(text,
       beautier::indent(
-        mrca_prior_to_xml_lh_distr( # nolint beautier function
+        beautier::mrca_prior_to_xml_lh_distr(
           mrca_prior,
-          has_non_strict_clock_model = get_has_non_strict_clock_model( # nolint beautier function
+          has_non_strict_clock_model = beautier::get_has_non_strict_clock_model(
             clock_models
           )
         )
@@ -218,7 +220,8 @@ create_beast2_input_distr_lh <- function( # nolint beautier function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
@@ -240,7 +243,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = bd_birth_rate_distr
       )
     )
@@ -254,7 +257,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = bd_death_rate_distr
       )
     )
@@ -277,7 +280,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-cbs_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cbs_tree_prior
 ) {
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
@@ -313,7 +317,8 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   ccp_tree_prior
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
@@ -341,7 +346,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = ccp_tree_prior$pop_size_distr
       )
     )
@@ -363,7 +368,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cep_tree_prior
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
@@ -390,7 +396,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "x=\"@ePopSize.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = cep_tree_prior$pop_size_distr
       )
     )
@@ -402,7 +408,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
     "x=\"@growthRate.t:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml( # nolint beautier function
+      beautier::distr_to_xml(
         distr = cep_tree_prior$growth_rate_distr
       )
     )
@@ -424,7 +430,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-yule_tree_prior_to_xml_prior_distr <- function( # nolint beautier function
+#' @export
+yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   yule_tree_prior
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))

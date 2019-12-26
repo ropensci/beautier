@@ -15,7 +15,7 @@ Get the tree prior names
 \examples{
 library(testthat)
 
-names <- beautier:::get_tree_prior_names()
+names <- get_tree_prior_names()
 expect_true("birth_death" \%in\% names)
 expect_true("coalescent_bayesian_skyline" \%in\% names)
 expect_true("coalescent_constant_population" \%in\% names)

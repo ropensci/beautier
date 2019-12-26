@@ -11,7 +11,7 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
-#' @noRd
+#' @export
 clock_model_to_xml_prior_distr <- function(
   clock_model,
   mrca_priors = NA,
@@ -23,9 +23,12 @@ clock_model_to_xml_prior_distr <- function(
   if (beautier::is_rln_clock_model(clock_model)) {
 
     if (
-      is_mrca_prior_with_distr(mrca_priors[[1]]) # nolint beautier function
+      beautier::is_mrca_prior_with_distr(mrca_priors[[1]])
     ) {
-      text <- c(text, rln_clock_model_to_xml_mean_rate_prior(clock_model)) # nolint beautier function
+      text <- c(
+        text,
+        beautier::rln_clock_model_to_xml_mean_rate_prior(clock_model)
+      )
     }
 
     id <- clock_model$id
@@ -35,7 +38,7 @@ clock_model_to_xml_prior_distr <- function(
       "x=\"@ucldStdev.c:", id, "\">"))
     text <- c(text,
       beautier::indent(
-        distr_to_xml( # nolint beautier function
+        beautier::distr_to_xml(
           distr = clock_model$ucldstdev_distr
         )
       )
@@ -52,7 +55,7 @@ clock_model_to_xml_prior_distr <- function(
         "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
       text <- c(text,
         beautier::indent(
-          distr_to_xml( # nolint beautier function
+          beautier::distr_to_xml(
             clock_model$clock_rate_distr
           )
         )

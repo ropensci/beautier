@@ -3,7 +3,7 @@
 #' @return lines of text from the first to and including the last operators line
 #' @author Richèl J.C. Bilderbeek
 #' @export
-extract_xml_loggers_from_lines <- function( # nolint beautier function
+extract_xml_loggers_from_lines <- function(
   lines
 ) {
   first_line <- beautier::find_first_regex_line(lines, "<logger id=\"")

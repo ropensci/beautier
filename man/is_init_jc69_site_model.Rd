@@ -19,15 +19,17 @@ Determine if x is an initialized JC69 site model
 as created by \code{\link{create_jc69_site_model}}
 }
 \examples{
+library(testthat)
+
 jc69_site_model <- create_jc69_site_model(
   gamma_site_model = create_gamma_site_model(
     gamma_cat_count = 2,
     gamma_shape_prior_distr = create_normal_distr()
   )
 )
-testit::assert(!is_init_jc69_site_model(jc69_site_model))
+expect_false(is_init_jc69_site_model(jc69_site_model))
 jc69_site_model <- init_jc69_site_model(jc69_site_model)
-testit::assert(is_init_jc69_site_model(jc69_site_model))
+expect_true(is_init_jc69_site_model(jc69_site_model))
 }
 \author{
 Richèl J.C. Bilderbeek

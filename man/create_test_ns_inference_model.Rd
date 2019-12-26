@@ -4,11 +4,12 @@
 \alias{create_test_ns_inference_model}
 \title{Create an inference model to be tested by Nested Sampling}
 \usage{
-
-  create_test_ns_inference_model(site_model = beautier::create_jc69_site_model(),
+create_test_ns_inference_model(
+  site_model = beautier::create_jc69_site_model(),
   clock_model = beautier::create_strict_clock_model(),
   tree_prior = beautier::create_yule_tree_prior(),
-  mcmc = beautier::create_test_ns_mcmc())
+  mcmc = beautier::create_test_ns_mcmc()
+)
 }
 \arguments{
 \item{site_model}{a site model,

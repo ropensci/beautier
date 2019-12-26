@@ -10,7 +10,7 @@ test_that("use, one file", {
   filename <- "temp_are_equal_xml_files.xml"
   writeLines(xml, filename)
   testthat::expect_true(
-    beautier:::are_equal_xml_files(filename, filename, section = "taxonset")
+    are_equal_xml_files(filename, filename, section = "taxonset")
   )
   file.remove(filename)
 })
@@ -39,7 +39,7 @@ test_that("use, two files", {
   writeLines(xml_2, filename_2)
 
   testthat::expect_false(
-    beautier:::are_equal_xml_files(
+    are_equal_xml_files(
       filename_1 = filename_1,
       filename_2 = filename_2,
       section = "logger"

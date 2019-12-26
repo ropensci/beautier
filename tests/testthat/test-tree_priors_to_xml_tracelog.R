@@ -4,7 +4,7 @@ test_that("creates a text", {
 
   testthat::expect_true(
     is.character(
-      beautier:::tree_priors_to_xml_tracelog(
+      tree_priors_to_xml_tracelog(
         list(create_yule_tree_prior(id = "anthus_aco"))
       )
     )
@@ -18,12 +18,12 @@ test_that("BD", {
     "<log idref=\"BDBirthRate.t:test_output_0\"/>", # nolint XML
     "<log idref=\"BDDeathRate.t:test_output_0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_tracelog(
+  created <- tree_priors_to_xml_tracelog(
     list(
       create_bd_tree_prior(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CBS", {
@@ -33,12 +33,12 @@ test_that("CBS", {
     "<log idref=\"bPopSizes.t:test_output_0\"/>", # nolint XML
     "<log idref=\"bGroupSizes.t:test_output_0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_tracelog(
+  created <- tree_priors_to_xml_tracelog(
     list(
       create_cbs_tree_prior(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CCP", {
@@ -47,12 +47,12 @@ test_that("CCP", {
     "<log idref=\"popSize.t:test_output_0\"/>", # nolint XML
     "<log idref=\"CoalescentConstant.t:test_output_0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_tracelog(
+  created <- tree_priors_to_xml_tracelog(
     list(
       create_ccp_tree_prior(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CEP", {
@@ -62,12 +62,12 @@ test_that("CEP", {
     "<log idref=\"ePopSize.t:test_output_0\"/>", # nolint XML
     "<log idref=\"growthRate.t:test_output_0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_tracelog(
+  created <- tree_priors_to_xml_tracelog(
     list(
       create_cep_tree_prior(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("Yule", {
@@ -76,10 +76,10 @@ test_that("Yule", {
     "<log idref=\"YuleModel.t:test_output_0\"/>", # nolint XML
     "<log idref=\"birthRate.t:test_output_0\"/>" # nolint XML
   )
-  created <- beautier:::tree_priors_to_xml_tracelog(
+  created <- tree_priors_to_xml_tracelog(
     list(
       create_yule_tree_prior(id = "test_output_0")
     )
   )
-  testthat::expect_true(beautier:::are_equivalent_xml_lines(created, expected))
+  testthat::expect_true(are_equivalent_xml_lines(created, expected))
 })
