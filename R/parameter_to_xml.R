@@ -15,48 +15,44 @@ parameter_to_xml <- function(
 ) {
   beautier::check_param(parameter)
   testit::assert(beautier::is_id(parameter$id))
-  text <- NULL
   if (beautier::is_alpha_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_alpha(parameter))
+    return(beautier::parameter_to_xml_alpha(parameter))
   } else if (beautier::is_beta_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_beta(parameter))
+    return(beautier::parameter_to_xml_beta(parameter))
   } else if (beautier::is_clock_rate_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_clock_rate(parameter))
+    return(beautier::parameter_to_xml_clock_rate(parameter))
   } else if (beautier::is_kappa_1_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_kappa_1(parameter))
+    return(beautier::parameter_to_xml_kappa_1(parameter))
   } else if (beautier::is_kappa_2_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_kappa_2(parameter))
+    return(beautier::parameter_to_xml_kappa_2(parameter))
   } else if (beautier::is_lambda_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_lambda(parameter))
+    return(beautier::parameter_to_xml_lambda(parameter))
   } else if (beautier::is_m_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_m(parameter))
+    return(beautier::parameter_to_xml_m(parameter))
   } else if (beautier::is_mean_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_mean(parameter))
+    return(beautier::parameter_to_xml_mean(parameter))
   } else if (beautier::is_mu_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_mu(parameter))
+    return(beautier::parameter_to_xml_mu(parameter))
   } else if (beautier::is_rate_ac_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_rate_ac(parameter))
+    return(beautier::parameter_to_xml_rate_ac(parameter))
   } else if (beautier::is_rate_ag_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_rate_ag(parameter))
+    return(beautier::parameter_to_xml_rate_ag(parameter))
   } else if (beautier::is_rate_at_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_rate_at(parameter))
+    return(beautier::parameter_to_xml_rate_at(parameter))
   } else if (beautier::is_rate_cg_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_rate_cg(parameter))
+    return(beautier::parameter_to_xml_rate_cg(parameter))
   } else if (beautier::is_rate_ct_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_rate_ct(parameter))
+    return(beautier::parameter_to_xml_rate_ct(parameter))
   } else if (beautier::is_rate_gt_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_rate_gt(parameter))
+    return(beautier::parameter_to_xml_rate_gt(parameter))
   } else if (beautier::is_s_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_s(parameter))
+    return(beautier::parameter_to_xml_s(parameter))
   } else if (beautier::is_scale_param(parameter)) {
-    text <- c(text, beautier::parameter_to_xml_scale(parameter))
-  } else {
-    # This assert will also fail for new parameter types
-    testit::assert(beautier::is_sigma_param(parameter))
-    text <- c(text, beautier::parameter_to_xml_sigma(parameter))
+    return(beautier::parameter_to_xml_scale(parameter))
   }
-  testit::assert(beautier::is_xml(text))
-  text
+  # This assert will also fail for new parameter types
+  testit::assert(beautier::is_sigma_param(parameter))
+  return(beautier::parameter_to_xml_sigma(parameter))
 }
 
 #' Converts an alpha parameter to XML
