@@ -46,22 +46,15 @@
 #' @param gamma_site_model a site model's gamma site model,
 #'   as returned by \code{\link{create_gamma_site_model}}
 #' @param group_sizes_dimension the group sizes' dimension,
-#'   as used by the CBS tree prior (see \link{create_cbs_tree_prior})
-#' @param gtr_site_model a GTR nucleotide substitution model,
-#'   as created by \link{create_gtr_site_model}
+#'   as used by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})
+#' @param gtr_site_model a GTR site model,
+#'   as returned by \code{\link{create_gtr_site_model}}
 #' @param has_non_strict_clock_model boolean to indicate that the is
 #'   already at least one non-strict (i.e. relaxed log-normal) clock model
 #' @param has_tip_dating TRUE if the user has supplied tip dates,
 #'   FALSE otherwise
 #' @param hky_site_model an HKY site model,
 #'   as returned by \code{\link{create_hky_site_model}}
-#' @param is_monophyletic boolean to indicate monophyly is assumed in
-#'   a Most Recent Common Ancestor prior,
-#'   as returned by \code{\link{create_mrca_prior}}
-#' @param jc69_site_model a JC69 site model,
-#'   as returned by \code{\link{create_jc69_site_model}}
-#' @param gtr_site_model a GTR site model,
-#'   as returned by \code{\link{create_gtr_site_model}}
 #' @param id an alignment's IDs.
 #'   An ID can be extracted from its FASTA filename
 #'   with \code{\link{get_alignment_ids_from_fasta_filenames}})
@@ -81,6 +74,11 @@
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param input_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' @param is_monophyletic boolean to indicate monophyly is assumed in
+#'   a Most Recent Common Ancestor prior,
+#'   as returned by \code{\link{create_mrca_prior}}
+#' @param jc69_site_model a JC69 site model,
+#'   as returned by \code{\link{create_jc69_site_model}}
 #' @param log_every number of MCMC states between writing to file
 #' @param mcmc one MCMC
 #'   as returned by \code{\link{create_mcmc}}
