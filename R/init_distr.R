@@ -12,29 +12,25 @@ init_distr <- function(
   param_id = 0
 ) {
   testit::assert(beautier::is_distr(distr))
-
-  if (beautier::is_one_na(distr$id)) {
-    distr$id <- distr_id
-  }
-
   if (beautier::is_beta_distr(distr)) {
     return(
-      init_beta_distr(
+      beautier::init_beta_distr(
         beta_distr = distr,
         distr_id = distr_id,
         param_id = param_id
       )
     )
   } else if (beautier::is_exp_distr(distr)) {
-
-    if (beautier::is_one_na(distr$mean$id)) {
-      distr$mean$id <- param_id
-      param_id <- param_id + 1
-    }
-
+    return(
+      beautier::init_exp_distr(
+        exp_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   } else if (beautier::is_gamma_distr(distr)) {
     return(
-      init_gamma_distr(
+      beautier::init_gamma_distr(
         gamma_distr = distr,
         distr_id = distr_id,
         param_id = param_id
@@ -42,7 +38,7 @@ init_distr <- function(
     )
   } else if (beautier::is_inv_gamma_distr(distr)) {
     return(
-      init_inv_gamma_distr(
+      beautier::init_inv_gamma_distr(
         inv_gamma_distr = distr,
         distr_id = distr_id,
         param_id = param_id
@@ -50,7 +46,7 @@ init_distr <- function(
     )
   } else if (beautier::is_laplace_distr(distr)) {
     return(
-      init_laplace_distr(
+      beautier::init_laplace_distr(
         laplace_distr = distr,
         distr_id = distr_id,
         param_id = param_id
@@ -58,7 +54,7 @@ init_distr <- function(
     )
   } else if (beautier::is_log_normal_distr(distr)) {
     return(
-      init_log_normal_distr(
+      beautier::init_log_normal_distr(
         log_normal_distr = distr,
         distr_id = distr_id,
         param_id = param_id
@@ -66,7 +62,7 @@ init_distr <- function(
     )
   } else if (beautier::is_normal_distr(distr)) {
     return(
-      init_normal_distr(
+      beautier::init_normal_distr(
         normal_distr = distr,
         distr_id = distr_id,
         param_id = param_id
@@ -74,24 +70,26 @@ init_distr <- function(
     )
 
   } else if (beautier::is_one_div_x_distr(distr)) {
-
-    # Always initialized
-
+    return(
+      beautier::init_one_div_x_distr(
+        one_div_x_distr = distr,
+        distr_id = distr_id
+      )
+    )
   } else if (beautier::is_poisson_distr(distr)) {
-
-    if (beautier::is_one_na(distr$lambda$id)
-    ) {
-      distr$lambda$id <- param_id
-    }
-
-  } else {
-    testit::assert(beautier::is_uniform_distr(distr))
-
-    # Always initialized
-
+    return(
+      beautier::init_poisson_distr(
+        poisson_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   }
-  testit::assert(!beautier::is_one_na(distr$id))
-  distr
+  testit::assert(beautier::is_uniform_distr(distr))
+  beautier::init_uniform_distr(
+    uniform_distr = distr,
+    distr_id = distr_id
+  )
 }
 
 #' Initializes a beta distribution
@@ -119,6 +117,29 @@ init_beta_distr <- function(
     beta_distr$beta$id <- param_id
   }
   beta_distr
+}
+
+#' Initializes an exponential distribution
+#' @inheritParams init_distr
+#' @param exp_distr a exponential distribution,
+#' using \link{create_exp_distr}
+#' @return an initialized exponential distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_exp_distr <- function(
+  exp_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(beautier::is_exp_distr(exp_distr))
+
+  if (beautier::is_one_na(exp_distr$id)) {
+    exp_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(exp_distr$mean$id)) {
+    exp_distr$mean$id <- param_id
+  }
+  exp_distr
 }
 
 #' Initializes a gamma distribution
@@ -254,4 +275,65 @@ init_normal_distr <- function(
     normal_distr$sigma$id <- param_id
   }
   normal_distr
+}
+
+#' Initializes an one-divided-by-x distribution
+#' @inheritParams init_distr
+#' @param one_div_x_distr a one-divided-by-x distribution,
+#' using \link{create_one_div_x_distr}
+#' @return an initialized one-divided-by-x distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_one_div_x_distr <- function(
+  one_div_x_distr,
+  distr_id = 0
+) {
+  testit::assert(beautier::is_one_div_x_distr(one_div_x_distr))
+
+  if (beautier::is_one_na(one_div_x_distr$id)) {
+    one_div_x_distr$id <- distr_id
+  }
+  one_div_x_distr
+}
+
+#' Initializes an Poisson distribution
+#' @inheritParams init_distr
+#' @param poisson_distr a Poisson distribution,
+#' using \link{create_poisson_distr}
+#' @return an initialized Poisson distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_poisson_distr <- function(
+  poisson_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(beautier::is_poisson_distr(poisson_distr))
+
+  if (beautier::is_one_na(poisson_distr$id)) {
+    poisson_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(poisson_distr$lambda$id)) {
+    poisson_distr$lambda$id <- param_id
+  }
+  poisson_distr
+}
+
+#' Initializes a uniform distribution
+#' @inheritParams init_distr
+#' @param uniform_distr a uniform distribution,
+#' using \link{create_uniform_distr}
+#' @return an initialized uniform distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_uniform_distr <- function(
+  uniform_distr,
+  distr_id = 0
+) {
+  testit::assert(beautier::is_uniform_distr(uniform_distr))
+
+  if (beautier::is_one_na(uniform_distr$id)) {
+    uniform_distr$id <- distr_id
+  }
+  uniform_distr
 }
