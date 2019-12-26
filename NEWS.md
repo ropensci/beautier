@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.3.3 (2019-12-26)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Implemented all @lintr-bot's suggestions
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## beautier 2.3.2 (2019-11-30)
 
 ### NEW FEATURES
