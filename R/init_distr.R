@@ -49,15 +49,13 @@ init_distr <- function(
       )
     )
   } else if (beautier::is_laplace_distr(distr)) {
-
-    if (beautier::is_one_na(distr$mu$id)) {
-      distr$mu$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (beautier::is_one_na(distr$scale$id)) {
-      distr$scale$id <- param_id
-    }
-
+    return(
+      init_laplace_distr(
+        laplace_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   } else if (beautier::is_log_normal_distr(distr)) {
 
     testit::assert("m" %in% names(distr))
@@ -180,4 +178,31 @@ init_inv_gamma_distr <- function(
     inv_gamma_distr$beta$id <- param_id
   }
   inv_gamma_distr
+}
+
+#' Initializes an Laplace distribution
+#' @inheritParams init_distr
+#' @param laplace_distr a Laplace distribution,
+#' using \link{create_laplace_distr}
+#' @return an initialized Laplace distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_laplace_distr <- function(
+  laplace_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(beautier::is_laplace_distr(laplace_distr))
+
+  if (beautier::is_one_na(laplace_distr$id)) {
+    laplace_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(laplace_distr$mu$id)) {
+    laplace_distr$mu$id <- param_id
+    param_id <- param_id + 1
+  }
+  if (beautier::is_one_na(laplace_distr$scale$id)) {
+    laplace_distr$scale$id <- param_id
+  }
+  laplace_distr
 }
