@@ -14,6 +14,7 @@ parameter_to_xml <- function(
   parameter
 ) {
   beautier::check_param(parameter)
+  testit::assert(beautier::is_id(parameter$id))
   text <- NULL
   if (beautier::is_alpha_param(parameter)) {
     text <- c(text, beautier::parameter_to_xml_alpha(parameter))
