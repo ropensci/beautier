@@ -50,6 +50,7 @@ default_params_doc(
   mrca_prior_name,
   n_init_attempts,
   output_filename,
+  param,
   param_id,
   phylogeny,
   posterior_crown_age,
@@ -216,6 +217,8 @@ Leave at \link{NA} to have it named automatically.}
 
 \item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}
+
+\item{param}{a parameter, as can be created by \code{\link{create_param}}.}
 
 \item{param_id}{a parameter's ID}
 

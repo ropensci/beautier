@@ -6,6 +6,9 @@
 \usage{
 check_param(param)
 }
+\arguments{
+\item{param}{a parameter, as can be created by \code{\link{create_param}}.}
+}
 \value{
 nothing
 }

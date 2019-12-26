@@ -7,6 +7,9 @@ of a valid \code{param} object.}
 \usage{
 check_param_names(param)
 }
+\arguments{
+\item{param}{a parameter, as can be created by \code{\link{create_param}}.}
+}
 \value{
 nothing
 }
