@@ -208,8 +208,7 @@ test_that("is_hky_site_model: devious", {
 
 test_that("is_tn93_site_model: devious", {
 
-  g <- create_tn93_site_model()
-  expect_true(is_tn93_site_model(g))
+  expect_true(is_tn93_site_model(create_tn93_site_model()))
 
   # No site model
   h <- g

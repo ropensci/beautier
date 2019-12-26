@@ -149,6 +149,8 @@ is_jc69_site_model <- function(
 #' expect_false(is_tn93_site_model(NA))
 #' expect_false(is_tn93_site_model(NULL))
 #' expect_false(is_tn93_site_model("nonsense"))
+#' expect_false(is_tn93_site_model(""))
+#' expect_false(is_tn93_site_model(c()))
 #' expect_false(is_tn93_site_model(create_strict_clock_model()))
 #' expect_false(is_tn93_site_model(create_bd_tree_prior()))
 #' expect_false(is_tn93_site_model(create_mcmc()))
@@ -156,16 +158,12 @@ is_jc69_site_model <- function(
 is_tn93_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
-  if (!"kappa_1_prior_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$kappa_1_prior_distr)) return(FALSE)
-  if (!"kappa_2_prior_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$kappa_2_prior_distr)) return(FALSE)
-  if (!"kappa_1_param" %in% names(x)) return(FALSE)
-  if (!beautier::is_param(x$kappa_1_param)) return(FALSE)
-  if (!"kappa_2_param" %in% names(x)) return(FALSE)
-  if (!beautier::is_param(x$kappa_2_param)) return(FALSE)
-  if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    beautier::check_tn93_site_model(x)
+    result <- TRUE
+  },
+    error = function(e) {} # nolint do not care about e
+  )
+  result
 }
