@@ -6,7 +6,7 @@
 #' @return an initialized distribution
 #' @author Richèl J.C. Bilderbeek
 #' @export
-init_distr <- function(
+init_distr <- function( # nolint simplifying this more hurts readability
   distr,
   distr_id = 0,
   param_id = 0
