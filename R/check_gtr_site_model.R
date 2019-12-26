@@ -33,7 +33,9 @@ check_gtr_site_model <- function(gtr_site_model) {
     gtr_site_model$rate_gt_prior_distr
   )
   for (expected_distr in expected_distrs) {
-    if (!beautier::is_distr(expected_distr)) return(FALSE)
+    if (!beautier::is_distr(expected_distr)) {
+      stop("Invalid gtr_site_model$distr")
+    }
   }
 
   # Check if all parameters are valid parameters
@@ -46,10 +48,14 @@ check_gtr_site_model <- function(gtr_site_model) {
     gtr_site_model$rate_gt_param
   )
   for (expected_param in expected_params) {
-    if (!beautier::is_param(expected_param)) return(FALSE)
+    if (!beautier::is_param(expected_param)) {
+      stop("Invalid gtr_site_model$param")
+    }
   }
 
-  if (!beautier::is_freq_equilibrium_name(gtr_site_model$freq_equilibrium)) return(FALSE)
+  if (!beautier::is_freq_equilibrium_name(gtr_site_model$freq_equilibrium)) {
+    stop("Invalid gtr_site_model$freq_equilibrium")
+  }
   TRUE
 
 }
