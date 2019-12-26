@@ -57,17 +57,13 @@ init_distr <- function(
       )
     )
   } else if (beautier::is_log_normal_distr(distr)) {
-
-    testit::assert("m" %in% names(distr))
-    testit::assert("id" %in% names(distr$m))
-    if (beautier::is_one_na(distr$m$id)) {
-      distr$m$id <- param_id
-      param_id <- param_id + 1
-    }
-    if (beautier::is_one_na(distr$s$id)) {
-      distr$s$id <- param_id
-    }
-
+    return(
+      init_log_normal_distr(
+        log_normal_distr = distr,
+        distr_id = distr_id,
+        param_id = param_id
+      )
+    )
   } else if (beautier::is_normal_distr(distr)) {
 
     if (beautier::is_one_na(distr$mean$id)) {
@@ -205,4 +201,31 @@ init_laplace_distr <- function(
     laplace_distr$scale$id <- param_id
   }
   laplace_distr
+}
+
+#' Initializes an log-normal distribution
+#' @inheritParams init_distr
+#' @param log_normal_distr a log-normal distribution,
+#' using \link{create_log_normal_distr}
+#' @return an initialized log-normal distribution
+#' @author Richèl J.C. Bilderbeek
+#' @export
+init_log_normal_distr <- function(
+  log_normal_distr,
+  distr_id = 0,
+  param_id = 0
+) {
+  testit::assert(beautier::is_log_normal_distr(log_normal_distr))
+
+  if (beautier::is_one_na(log_normal_distr$id)) {
+    log_normal_distr$id <- distr_id
+  }
+  if (beautier::is_one_na(log_normal_distr$m$id)) {
+    log_normal_distr$m$id <- param_id
+    param_id <- param_id + 1
+  }
+  if (beautier::is_one_na(log_normal_distr$s$id)) {
+    log_normal_distr$s$id <- param_id
+  }
+  log_normal_distr
 }

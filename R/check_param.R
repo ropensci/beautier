@@ -71,4 +71,3 @@ check_param_types <- function(param) {
     stop("'param$value' must not be NA")
   }
 }
-
