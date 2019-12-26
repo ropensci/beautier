@@ -3,9 +3,16 @@
 #' @seealso Use \code{\link{create_mcmc}} to create an MCMC
 #' @return TRUE if x is a valid MCMC, FALSE otherwise
 #' @examples
-#'   testthat::expect_true(is_mcmc(create_mcmc()))
-#'   testthat::expect_true(is_mcmc(create_ns_mcmc()))
-#'   testthat::expect_false(is_mcmc("nonsense"))
+#' library(testthat)
+#'
+#' expect_true(is_mcmc(create_mcmc()))
+#' expect_true(is_mcmc(create_ns_mcmc()))
+#'
+#' expect_false(is_mcmc("nonsense"))
+#' expect_false(is_mcmc(NULL))
+#' expect_false(is_mcmc(NA))
+#' expect_false(is_mcmc(""))
+#' expect_false(is_mcmc(c()))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_mcmc <- function(

@@ -45,8 +45,10 @@
 #'   of the initial phylogeny.
 #' @param gamma_site_model a site model's gamma site model,
 #'   as returned by \code{\link{create_gamma_site_model}}
-#' @param group_sizes_dimension the group sizes' dimension, as used
-#'   by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})
+#' @param group_sizes_dimension the group sizes' dimension,
+#'   as used by the CBS tree prior (see \link{create_cbs_tree_prior})
+#' @param gtr_site_model a GTR nucleotide substitution model,
+#'   as created by \link{create_gtr_site_model}
 #' @param has_non_strict_clock_model boolean to indicate that the is
 #'   already at least one non-strict (i.e. relaxed log-normal) clock model
 #' @param has_tip_dating TRUE if the user has supplied tip dates,

@@ -145,8 +145,8 @@ of the initial phylogeny.}
 \item{gamma_site_model}{a site model's gamma site model,
 as returned by \code{\link{create_gamma_site_model}}}
 
-\item{group_sizes_dimension}{the group sizes' dimension, as used
-by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})}
+\item{group_sizes_dimension}{the group sizes' dimension,
+as used by the CBS tree prior (see \link{create_cbs_tree_prior})}
 
 \item{gtr_site_model}{a GTR site model,
 as returned by \code{\link{create_gtr_site_model}}}

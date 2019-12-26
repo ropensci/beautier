@@ -2,10 +2,27 @@
 % Please edit documentation in R/check_gtr_site_model.R
 \name{check_gtr_site_model}
 \alias{check_gtr_site_model}
-\title{Check}
+\title{Check if the \code{gtr_site_model} is a valid
+GTR nucleotide substitution model.}
 \usage{
 check_gtr_site_model(gtr_site_model)
 }
+\arguments{
+\item{gtr_site_model}{a GTR site model,
+as returned by \code{\link{create_gtr_site_model}}}
+}
 \description{
-Check
+Use \link{create_gtr_site_model} to create a valid
+GTR nucleotide substitution model.
+}
+\examples{
+library(testthat)
+
+expect_silent(check_gtr_site_model(create_gtr_site_model()))
+
+expect_error(check_gtr_site_model("nonsense"))
+expect_error(check_gtr_site_model(NA))
+expect_error(check_gtr_site_model(NULL))
+expect_error(check_gtr_site_model(""))
+expect_error(check_gtr_site_model(c()))
 }
