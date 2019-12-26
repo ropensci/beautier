@@ -13,15 +13,8 @@
 parameter_to_xml <- function(
   parameter
 ) {
+  beautier::check_param(parameter)
   text <- NULL
-  id <- parameter$id
-  if (!beautier::is_id(id)) {
-    stop("parameter must have an ID")
-  }
-  testit::assert(!beautier::is_one_na(id))
-  if (beautier::is_one_na(parameter$value)) {
-    stop("parameter must have a value")
-  }
   if (beautier::is_alpha_param(parameter)) {
     text <- c(text, beautier::parameter_to_xml_alpha(parameter))
   } else if (beautier::is_beta_param(parameter)) {
