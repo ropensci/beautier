@@ -37,12 +37,14 @@
 is_param <- function(
   x
 ) {
-  if (!"name" %in% names(x)) return(FALSE)
-  if (!x$name %in% beautier::get_param_names()) return(FALSE)
-  if (!"id" %in% names(x)) return(FALSE)
-  if (!"value" %in% names(x)) return(FALSE)
-  if (beautier::is_one_na(x$value)) return(FALSE)
-  TRUE
+  result <- FALSE
+  tryCatch({
+    beautier::check_param(x)
+    result <- TRUE
+  },
+    error = function(e) {} # nolint do not care about e
+  )
+  result
 }
 
 #' Determine if the object is a valid
