@@ -15,7 +15,6 @@ test_that("use", {
     "<parameter id=\"RealParameter.1\" estimate=\"false\" name=\"alpha\">0</parameter>" # nolint
   )
 
-  # Exposing bug of https://github.com/ropensci/babette/issues/26
   expect_equal(
     parameter_to_xml(parameter = create_s_param(id = 1)),
     "<parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0\" name=\"S\" upper=\"Infinity\">0</parameter>" # nolint
