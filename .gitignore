@@ -58,8 +58,6 @@ example_gtr.xml
 example_hky.xml
 example_jc69.xml
 example_tn93.xml
-fastas_to_phylos.xml
-fasta_to_phylo.xml
 test.txt
 vignettes/*.xml
 *.xml

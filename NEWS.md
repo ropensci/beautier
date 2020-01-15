@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## beautier 2.3.4 (unreleased)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Lost dependency on orphaned `geiger` package
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * Moved `fasta_to_phylo` and `fastas_to_phylos` to repository at
+    `https://github.com/richelbilderbeek/ribir` to lose dependency on
+    orphaned `geiger` package
+
 ## beautier 2.3.3 (2019-12-26)
 
 ### NEW FEATURES
