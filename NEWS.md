@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.3.5 (unreleased)
+
+### NEW FEATURES
+
+  * None
+
+### MINOR IMPROVEMENTS
+
+  * Link to https of BEAST2
+
+### BUG FIXES
+
+  * None
+
+### DEPRECATED AND DEFUNCT
+
+  * None
+
 ## beautier 2.3.4 (2020-01-15)
 
 ### NEW FEATURES
