@@ -10,7 +10,7 @@ Authors@R: c(
   person("Yacine B.", "Chehida", role = "ctb"),
   person("Jana", "Riederer", role = "ctb"))
 Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
-Description: 'BEAST2' (<http://www.beast2.org>) is a widely used
+Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
   Bayesian phylogenetic tool, that uses DNA/RNA/protein data
   and many model priors to create a posterior of jointly estimated 
   phylogenies and parameters.
