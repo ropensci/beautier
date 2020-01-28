@@ -16,6 +16,7 @@ r_github_packages:
   - jimhester/covr
   - jimhester/lintr
   - ropensci/spelling
+  - MangoTheCat/goodpractice
 
 before_install:
   # libgit2
