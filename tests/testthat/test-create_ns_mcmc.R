@@ -28,7 +28,7 @@ test_that("elements can be retrieved from BEAST2 XML", {
   particle_count <- 42
   sub_chain_length <- 7000
   epsilon <- 3.14
-  nested_sampling_mcmc <- create_ns_mcmc(
+  ns_mcmc <- create_ns_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     particle_count = particle_count,
@@ -39,7 +39,7 @@ test_that("elements can be retrieved from BEAST2 XML", {
   input_filename <- get_beautier_path("test_output_2.fas")
   text <- create_beast2_input(
     input_filename = input_filename,
-    mcmc = nested_sampling_mcmc
+    mcmc = ns_mcmc
   )
   nss_line <- na.omit(stringr::str_match(text, ".*beast.gss.NS.*"))[1, 1]
   # Line will look something like this:
