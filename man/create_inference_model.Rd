@@ -42,7 +42,7 @@ The first column contains the taxa names, the second column contains
 the date.}
 }
 \value{
-an MCMC configuration
+an inference model
 }
 \description{
 Create a Bayesian phylogenetic inference model,

@@ -7,10 +7,13 @@
 rename_inference_model_filenames(inference_model, rename_fun)
 }
 \arguments{
-\item{inference_model}{an Bayesian phylogenetic inference model,
-as can be created by \code{\link{create_inference_model}}.
+\item{inference_model}{a Bayesian phylogenetic inference model.
 An inference model is the complete model setup in which a site model,
-clock model, tree prior and more are specified.}
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
 
 \item{rename_fun}{a function to rename a filename,
 as can be checked by \link{check_rename_fun}. This function should
@@ -25,6 +28,51 @@ Example rename functions are:
     paths from the filenames
 }}
 }
+\value{
+an inference model with the renamed filenames
+}
 \description{
 Rename the filenames in an inference model
+}
+\examples{
+library(testthat)
+
+inference_model <- create_inference_model()
+inference_model$mcmc$tracelog$filename <- "trace.log"
+inference_model$mcmc$screenlog$filename <- "screen.log"
+inference_model$mcmc$treelog$filename <- "tree.log"
+inference_model$tipdates_filename <- "tipdates.csv"
+
+# Nah, put the files in a folder
+inference_model <- rename_inference_model_filenames(
+  inference_model = inference_model,
+  rename_fun = get_replace_dir_fun("/home/john")
+)
+
+expect_equal(inference_model$mcmc$tracelog$filename, "/home/john/trace.log")
+expect_equal(inference_model$mcmc$screenlog$filename, "/home/john/screen.log")
+expect_equal(inference_model$mcmc$treelog$filename, "/home/john/tree.log")
+expect_equal(inference_model$tipdates_filename, "/home/john/tipdates.csv")
+
+# Nah, put the files in anoth folder
+inference_model <- rename_inference_model_filenames(
+  inference_model = inference_model,
+  rename_fun = get_replace_dir_fun("/home/doe")
+)
+
+expect_equal(inference_model$mcmc$tracelog$filename, "/home/doe/trace.log")
+expect_equal(inference_model$mcmc$screenlog$filename, "/home/doe/screen.log")
+expect_equal(inference_model$mcmc$treelog$filename, "/home/doe/tree.log")
+expect_equal(inference_model$tipdates_filename, "/home/doe/tipdates.csv")
+
+# Nah, store the files locally
+inference_model <- rename_inference_model_filenames(
+  inference_model = inference_model,
+  rename_fun = get_remove_dir_fun()
+)
+
+expect_equal(inference_model$mcmc$tracelog$filename, "trace.log")
+expect_equal(inference_model$mcmc$screenlog$filename, "screen.log")
+expect_equal(inference_model$mcmc$treelog$filename, "tree.log")
+expect_equal(inference_model$tipdates_filename, "tipdates.csv")
 }

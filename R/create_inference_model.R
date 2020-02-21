@@ -3,7 +3,7 @@
 #' Create a Bayesian phylogenetic inference model,
 #' as can be done by BEAUti.
 #' @inheritParams default_params_doc
-#' @return an MCMC configuration
+#' @return an inference model
 #' @seealso Use \link{create_inference_model} to create an inference model
 #' @author Richèl J.C. Bilderbeek
 #' @examples

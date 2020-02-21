@@ -61,10 +61,13 @@
 #' @param ids one or more alignments' IDs.
 #'   IDs can be extracted from their FASTA filenames
 #'   with \code{\link{get_alignment_ids_from_fasta_filenames}})
-#' @param inference_model an Bayesian phylogenetic inference model,
-#'   as can be created by \code{\link{create_inference_model}}.
+#' @param inference_model a Bayesian phylogenetic inference model.
 #'   An inference model is the complete model setup in which a site model,
 #'   clock model, tree prior and more are specified.
+#'   Use \link{create_inference_model} to create an inference model.
+#'   Use \link{check_inference_model} to check if  an inference model is valid.
+#'   Use \link{rename_inference_model_filenames} to rename the files in an
+#'   inference model.
 #' @param inference_models a list of one or more inference models,
 #'   as can be created by \link{create_inference_model}
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
