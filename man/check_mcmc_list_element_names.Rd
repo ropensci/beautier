@@ -7,8 +7,11 @@
 check_mcmc_list_element_names(mcmc)
 }
 \arguments{
-\item{mcmc}{one MCMC
-as returned by \code{\link{create_mcmc}}}
+\item{mcmc}{one MCMC.
+Use \link{create_mcmc} to create an MCMC.
+Use \link{create_ns_mcmc} to create an MCMC for a Nested Sampling run.
+Use \link{check_mcmc} to check if an MCMC is valid.
+Use \link{rename_mcmc_filenames} to rename the filenames in an MCMC.}
 }
 \value{
 nothing

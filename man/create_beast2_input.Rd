@@ -42,8 +42,11 @@ as returned by \code{\link{create_tree_prior}}}
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
 
-\item{mcmc}{one MCMC
-as returned by \code{\link{create_mcmc}}}
+\item{mcmc}{one MCMC.
+Use \link{create_mcmc} to create an MCMC.
+Use \link{create_ns_mcmc} to create an MCMC for a Nested Sampling run.
+Use \link{check_mcmc} to check if an MCMC is valid.
+Use \link{rename_mcmc_filenames} to rename the filenames in an MCMC.}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
