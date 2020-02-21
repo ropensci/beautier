@@ -6,6 +6,20 @@
 \usage{
 check_rename_fun(rename_fun)
 }
+\arguments{
+\item{rename_fun}{a function to rename a filename,
+as can be checked by \link{check_rename_fun}. This function should
+have one argument, which will be a filename or \link{NA}. The
+function should \link{return} one filename (when passed one filename) or
+one \link{NA} (when passed one \link{NA}).
+Example rename functions are:
+\itemize{
+  \item \link{get_remove_dir_fun} function that removes the directory
+    paths from the filenames, in effect turning these into local files
+  \item \link{get_replace_dir_fun} function that replaces the directory
+    paths from the filenames
+}}
+}
 \description{
 Will \link{stop} if not
 }

@@ -104,6 +104,18 @@
 #' @param posterior_crown_age deprecated
 #' @param pre_burnin number of burn in samples taken before entering
 #'   the main loop
+#' @param rename_fun a function to rename a filename,
+#' as can be checked by \link{check_rename_fun}. This function should
+#' have one argument, which will be a filename or \link{NA}. The
+#' function should \link{return} one filename (when passed one filename) or
+#' one \link{NA} (when passed one \link{NA}).
+#' Example rename functions are:
+#' \itemize{
+#'   \item \link{get_remove_dir_fun} function that removes the directory
+#'     paths from the filenames, in effect turning these into local files
+#'   \item \link{get_replace_dir_fun} function that replaces the directory
+#'     paths from the filenames
+#' }
 #' @param rln_clock_model a Relaxed Log-Normal clock model,
 #'   as returned by \code{\link{create_rln_clock_model}}
 #' @param sample_from_prior set to \link{TRUE} to sample from the prior
@@ -201,6 +213,7 @@ default_params_doc <- function(
   phylogeny,
   posterior_crown_age,
   pre_burnin,
+  rename_fun,
   rln_clock_model,
   sample_from_prior,
   sanitise_headers,

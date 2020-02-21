@@ -29,6 +29,7 @@ BugReports: https://github.com/ropensci/beautier/issues
 Imports:
     ape,
     assertive,
+    pryr,
     rappdirs,
     seqinr,
     stringr,

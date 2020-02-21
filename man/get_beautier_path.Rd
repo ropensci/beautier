@@ -16,9 +16,11 @@ the full path of the filename
 Get the full path of a file in the \code{inst/extdata} folder
 }
 \examples{
-  testit::assert(is.character(get_beautier_path("test_output_0.fas")))
-  testit::assert(is.character(get_beautier_path("anthus_aco.fas")))
-  testit::assert(is.character(get_beautier_path("anthus_nd2.fas")))
+library(testthat)
+
+expect_true(is.character(get_beautier_path("test_output_0.fas")))
+expect_true(is.character(get_beautier_path("anthus_aco.fas")))
+expect_true(is.character(get_beautier_path("anthus_nd2.fas")))
 }
 \seealso{
 for more files, use \code{\link{get_beautier_paths}}

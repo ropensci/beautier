@@ -4,9 +4,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso for more files, use \code{\link{get_beautier_paths}}
 #' @examples
-#'   testit::assert(is.character(get_beautier_path("test_output_0.fas")))
-#'   testit::assert(is.character(get_beautier_path("anthus_aco.fas")))
-#'   testit::assert(is.character(get_beautier_path("anthus_nd2.fas")))
+#' library(testthat)
+#'
+#' expect_true(is.character(get_beautier_path("test_output_0.fas")))
+#' expect_true(is.character(get_beautier_path("anthus_aco.fas")))
+#' expect_true(is.character(get_beautier_path("anthus_nd2.fas")))
 #' @export
 get_beautier_path <- function(filename) {
 
