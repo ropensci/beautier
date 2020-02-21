@@ -71,15 +71,17 @@ are_equivalent_xml_lines_all <- function(
 ) {
   if (length(lines_1) != length(lines_2)) {
     if (verbose) {
-      print(paste0("different lengths: ",
-        length(lines_1), " vs ", length(lines_2)))
+      message(
+        "different lengths: ",
+        length(lines_1), " vs ", length(lines_2)
+      )
     }
     return(FALSE)
   }
   for (line in lines_1) {
     if (!line %in% lines_2) {
       if (verbose) {
-        print(paste0("line '", line, "' not found"))
+        message("line '", line, "' not found")
       }
       return(FALSE)
     }
