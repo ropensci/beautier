@@ -1,10 +1,10 @@
 #' Determine if two MCMCs are equal.
 #'
 #' Will \link{stop} if the arguments are not MCMCs.
-#' @param mcmc_1 an MCMC, as created by \link{create_mcmc}
-#' @param mcmc_2 an MCMC, as created by \link{create_mcmc}
+#' @param mcmc_1 an MCMC, as created by \code{\link{create_mcmc}}
+#' @param mcmc_2 an MCMC, as created by \code{\link{create_mcmc}}
 #' @return TRUE if the two MCMCs are equal
-#' @seealso Use \link{create_mcmc} to create an MCMC
+#' @seealso Use \code{\link{create_mcmc}} to create an MCMC
 #' @examples
 #' library(testthat)
 #'

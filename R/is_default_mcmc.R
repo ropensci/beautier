@@ -5,7 +5,7 @@
 #' @examples
 #' library(testthat)
 #'
-#'  # An MCMC created by 'create_mcmc' is default
+#' # An MCMC created by 'create_mcmc' is default
 #' expect_true(is_default_mcmc(create_mcmc()))
 #'
 #' # An MCMC created by 'create_ns_mcmc' is not

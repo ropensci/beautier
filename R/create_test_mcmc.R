@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return an MCMC configuration
 #' @seealso
-#' Use \link{create_mcmc} to create a default BEAST2 MCMC
+#' Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' library(testthat)

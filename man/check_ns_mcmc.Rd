@@ -11,16 +11,16 @@ check_ns_mcmc(mcmc)
 }
 \arguments{
 \item{mcmc}{one MCMC.
-Use \link{create_mcmc} to create an MCMC.
-Use \link{create_ns_mcmc} to create an MCMC for a Nested Sampling run.
-Use \link{check_mcmc} to check if an MCMC is valid.
-Use \link{rename_mcmc_filenames} to rename the filenames in an MCMC.}
+Use \code{\link{create_mcmc}} to create an MCMC.
+Use \code{\link{create_ns_mcmc}} to create an MCMC for a Nested Sampling run.
+Use \code{\link{check_mcmc}} to check if an MCMC is valid.
+Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.}
 }
 \description{
 Will \link{stop} if not, else will do nothing
 }
 \seealso{
-use \link{create_ns_mcmc}
+use \code{\link{create_ns_mcmc}}
 to create an MCMC that uses Nested Sampling
 to estimate a marginal likelihood
 }

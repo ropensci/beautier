@@ -59,7 +59,7 @@ mcmc <- create_test_mcmc()
 expect_true(file.exists(beast2_input_file))
 }
 \seealso{
-Use \link{create_mcmc} to create a default BEAST2 MCMC
+Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC
 }
 \author{
 Richèl J.C. Bilderbeek

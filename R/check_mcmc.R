@@ -3,7 +3,7 @@
 #' Calls \code{stop} if the MCMC is invalid
 #' @inheritParams default_params_doc
 #' @return nothing
-#' @seealso Use \link{create_mcmc} to create a valid MCMC
+#' @seealso Use \code{\link{create_mcmc}} to create a valid MCMC
 #' @examples
 #' library(testthat)
 #'
@@ -26,7 +26,7 @@ check_mcmc <- function(mcmc) {
 #' Calls \code{stop} if an element is missing
 #' @inheritParams default_params_doc
 #' @return nothing
-#' @seealso Use \link{create_mcmc} to create a valid MCMC
+#' @seealso Use \code{\link{create_mcmc}} to create a valid MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mcmc_list_element_names <- function(mcmc) {
@@ -51,7 +51,7 @@ check_mcmc_list_element_names <- function(mcmc) {
 #' Calls \code{stop} if a value is invalid
 #' @inheritParams default_params_doc
 #' @return nothing
-#' @seealso Use \link{create_mcmc} to create a valid MCMC
+#' @seealso Use \code{\link{create_mcmc}} to create a valid MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mcmc_values <- function(mcmc) {

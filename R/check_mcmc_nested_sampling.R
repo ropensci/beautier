@@ -3,7 +3,7 @@
 #'
 #' Will \link{stop} if not, else will do nothing
 #' @inheritParams default_params_doc
-#' @seealso use \link{create_ns_mcmc}
+#' @seealso use \code{\link{create_ns_mcmc}}
 #' to create an MCMC that uses Nested Sampling
 #' to estimate a marginal likelihood
 #' @author Richèl J.C. Bilderbeek

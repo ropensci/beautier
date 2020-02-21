@@ -79,10 +79,10 @@ to the length of that run.
     syy050, https://doi.org/10.1093/sysbio/syy050
 }
 \seealso{
-Use \link{create_mcmc} to create a regular MCMC.
-Use \link{create_test_ns_mcmc} to create an NS MCMC for testing,
+Use \code{\link{create_mcmc}} to create a regular MCMC.
+Use \code{\link{create_test_ns_mcmc}} to create an NS MCMC for testing,
   with, among others, a short MCMC chain length.
-Use \link{check_ns_mcmc} to check that an NS MCMC object is valid.
+Use \code{\link{check_ns_mcmc}} to check that an NS MCMC object is valid.
 }
 \author{
 Richèl J.C. Bilderbeek

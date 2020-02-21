@@ -7,9 +7,9 @@
 are_equal_mcmcs(mcmc_1, mcmc_2)
 }
 \arguments{
-\item{mcmc_1}{an MCMC, as created by \link{create_mcmc}}
+\item{mcmc_1}{an MCMC, as created by \code{\link{create_mcmc}}}
 
-\item{mcmc_2}{an MCMC, as created by \link{create_mcmc}}
+\item{mcmc_2}{an MCMC, as created by \code{\link{create_mcmc}}}
 }
 \value{
 TRUE if the two MCMCs are equal
@@ -26,7 +26,7 @@ expect_true(are_equal_mcmcs(mcmc_1, mcmc_1))
 expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
 }
 \seealso{
-Use \link{create_mcmc} to create an MCMC
+Use \code{\link{create_mcmc}} to create an MCMC
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -8,10 +8,10 @@ check_mcmc(mcmc)
 }
 \arguments{
 \item{mcmc}{one MCMC.
-Use \link{create_mcmc} to create an MCMC.
-Use \link{create_ns_mcmc} to create an MCMC for a Nested Sampling run.
-Use \link{check_mcmc} to check if an MCMC is valid.
-Use \link{rename_mcmc_filenames} to rename the filenames in an MCMC.}
+Use \code{\link{create_mcmc}} to create an MCMC.
+Use \code{\link{create_ns_mcmc}} to create an MCMC for a Nested Sampling run.
+Use \code{\link{check_mcmc}} to check if an MCMC is valid.
+Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.}
 }
 \value{
 nothing
@@ -30,7 +30,7 @@ expect_error(check_mcmc(mcmc = NULL))
 expect_error(check_mcmc(mcmc = NA))
 }
 \seealso{
-Use \link{create_mcmc} to create a valid MCMC
+Use \code{\link{create_mcmc}} to create a valid MCMC
 }
 \author{
 Richèl J.C. Bilderbeek
