@@ -17,7 +17,9 @@
 #' )
 #'
 #' expect_equal(inference_model$mcmc$tracelog$filename, "/home/john/trace.log")
-#' expect_equal(inference_model$mcmc$screenlog$filename, "/home/john/screen.log")
+#' expect_equal(
+#'   inference_model$mcmc$screenlog$filename, "/home/john/screen.log"
+#' )
 #' expect_equal(inference_model$mcmc$treelog$filename, "/home/john/tree.log")
 #' expect_equal(inference_model$tipdates_filename, "/home/john/tipdates.csv")
 #'
@@ -43,7 +45,7 @@
 #' expect_equal(inference_model$mcmc$treelog$filename, "tree.log")
 #' expect_equal(inference_model$tipdates_filename, "tipdates.csv")
 #' @export
-rename_inference_model_filenames <- function(
+rename_inference_model_filenames <- function( # nolint long function name indeed
   inference_model,
   rename_fun
 ) {

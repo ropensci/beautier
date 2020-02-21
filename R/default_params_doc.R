@@ -85,7 +85,8 @@
 #' @param log_every number of MCMC states between writing to file
 #' @param mcmc one MCMC.
 #'   Use \code{\link{create_mcmc}} to create an MCMC.
-#'   Use \code{\link{create_ns_mcmc}} to create an MCMC for a Nested Sampling run.
+#'   Use \code{\link{create_ns_mcmc}} to create an MCMC
+#'     for a Nested Sampling run.
 #'   Use \code{\link{check_mcmc}} to check if an MCMC is valid.
 #'   Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.
 #' @param mode mode how to log.

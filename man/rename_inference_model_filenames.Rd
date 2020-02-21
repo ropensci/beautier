@@ -50,7 +50,9 @@ inference_model <- rename_inference_model_filenames(
 )
 
 expect_equal(inference_model$mcmc$tracelog$filename, "/home/john/trace.log")
-expect_equal(inference_model$mcmc$screenlog$filename, "/home/john/screen.log")
+expect_equal(
+  inference_model$mcmc$screenlog$filename, "/home/john/screen.log"
+)
 expect_equal(inference_model$mcmc$treelog$filename, "/home/john/tree.log")
 expect_equal(inference_model$tipdates_filename, "/home/john/tipdates.csv")
 
