@@ -7,6 +7,7 @@ Newest versions at top.
 ### NEW FEATURES
 
   * Add `rename_mcmc_filenames` and `rename_inference_model_filenames`
+  * Add `get_mcmc_filenames` and `get_inference_model_filenames`
 
 ### MINOR IMPROVEMENTS
 
