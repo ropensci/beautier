@@ -3,7 +3,8 @@
 # For testing
 # files=$(ls)
 
-files=$(egrep -R "\"~" --include={*.R,*.Rmd} | egrep -v "doc/xtableGallery.R")
+# files=$(egrep -R "\"~" --include={*.R,*.Rmd} | egrep -v "doc/xtableGallery.R")
+files=$(find . | egrep -v "\.R$" | egrep -v "/(doc|inst|man|Meta|pics|scripts|tests|.Rproj.user|vignettes|.git)/" | egrep "\.(log|trees|xml|xml.state)$"
 
 if [[ ! -z $files ]]; then 
   echo "Local file created:" 
