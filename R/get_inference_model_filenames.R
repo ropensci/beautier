@@ -1,6 +1,6 @@
 #' Get the filenames stored in an inference model.
 #'
-#' If there is no name for a tipdates specified (as done by
+#' If there is no name for a \code{tipdates} file specified (as done by
 #' setting \code{inference_model$tipdates_filename} to \link{NA},
 #' there will be one filename less returned
 #' @inheritParams default_params_doc
@@ -21,7 +21,7 @@
 #' expect_true("/home/john/tree.log" %in% filenames)
 #' expect_true("/home/john/tipdate.csv" %in% filenames)
 #'
-#' #' Nope, no tipdates needed in my inference ...
+#' #' Nope, no tip dates needed in my inference ...
 #' inference_model$tipdates_filename <- NA
 #' filenames <- get_inference_model_filenames(inference_model)
 #'
