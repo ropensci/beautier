@@ -12,7 +12,7 @@ test_that("mcmc$pre_burning", {
     inference_model = inference_model
   )
   the_line <- as.character(
-    na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = text,
         pattern = ".*MCMC.*"
@@ -21,7 +21,7 @@ test_that("mcmc$pre_burning", {
   )
   testit::assert(nchar(the_line) > 0)
   pre_burnin <- as.numeric(
-    na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = text,
         pattern = ".*preBurnin=.(.*). "
@@ -49,7 +49,7 @@ test_that("mcmc$n_init_attempts", {
     inference_model = inference_model
   )
   the_line <- as.character(
-    na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = text,
         pattern = ".*MCMC.*"
@@ -59,7 +59,7 @@ test_that("mcmc$n_init_attempts", {
   the_line
   testit::assert(nchar(the_line) > 0)
   n_init_attempts <- as.numeric(
-    na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = text,
         pattern = ".*numInitializationAttempts=.(.*).."
@@ -84,7 +84,7 @@ test_that("mcmc$sample_from_prior", {
     inference_model = inference_model
   )
   the_line <- as.character(
-    na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = text,
         pattern = ".*MCMC.*"
@@ -94,7 +94,7 @@ test_that("mcmc$sample_from_prior", {
   the_line
   testit::assert(nchar(the_line) > 0)
   sample_from_prior <- as.logical(
-    na.omit(
+    stats::na.omit(
       stringr::str_match(
         string = text,
         pattern = ".*sampleFromPrior=.(.*).."

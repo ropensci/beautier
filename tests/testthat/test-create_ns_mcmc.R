@@ -41,7 +41,9 @@ test_that("elements can be retrieved from BEAST2 XML", {
     input_filename = input_filename,
     mcmc = ns_mcmc
   )
-  nss_line <- na.omit(stringr::str_match(text, ".*beast.gss.NS.*"))[1, 1]
+  nss_line <- stats::na.omit(
+    stringr::str_match(text, ".*beast.gss.NS.*")
+  )[1, 1]
   # Line will look something like this:
   #
   # <run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"1234000\" storeEvery=\"56000\" particleCount=\"42\" subChainLength=\"7000\" epsilon=\"3.14\"> # nolint indeed this is a long line
