@@ -22,9 +22,9 @@ test_that("no screenlog is no filename", {
   filenames <- get_mcmc_filenames(mcmc)
 
   expect_equal(length(filenames), 2)
-  expect_true("/home/doe/trace.log" %in% filenames)
+  expect_true("/home/john/trace.log" %in% filenames)
   expect_true(!"" %in% filenames)
-  expect_true("/home/doe/tree.log" %in% filenames)
+  expect_true("/home/john/tree.log" %in% filenames)
 })
 
 test_that("use", {
