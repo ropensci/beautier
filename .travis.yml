@@ -43,7 +43,7 @@ after_success:
   # Goodpractice
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$TRAVIS_R_VERSION_STRING" == "release" ]; then travis_wait 60 Rscript -e 'goodpractice::gp()'; fi
   # No local files created
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then if [[ $(egrep -R "\"~" --include={*.R,*.Rmd}) ]]; then echo "Local file created"; exit 1; fi; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./scripts/check_no_local_files; fi
   - # Do a CRAN build
   - cd scripts; ./build_cran
   # does not work temporarily
