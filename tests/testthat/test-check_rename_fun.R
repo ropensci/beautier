@@ -1,12 +1,19 @@
 test_that("use", {
-  suppressMessages(
-    check_rename_fun(get_remove_dir_fun())
-  )
-  expect_silent(check_rename_fun(get_remove_dir_fun()))
-
+  # 'get_replace_dir_fun' triggers the call to 'pryr',
+  # resulting in this message:
+  #
+  #    Registered S3 method overwritten by 'pryr':
+  #    method      from
+  #    print.bytes Rcpp.
+  #
+  # Therefore, first suppress that message, before expecting
+  # 'get_replace_dir_fun' to be silent
   suppressMessages(
     check_rename_fun(get_replace_dir_fun())
   )
+
+  expect_silent(check_rename_fun(get_remove_dir_fun()))
+  expect_silent(check_rename_fun(get_remove_hex_fun()))
   expect_silent(check_rename_fun(get_replace_dir_fun()))
 })
 
