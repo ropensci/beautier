@@ -18,4 +18,3 @@ test_that("correct behaviour", {
   )
   expect_error(f(c()))
 })
-
