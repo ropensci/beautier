@@ -30,7 +30,7 @@ get_remove_hex_fun <- function() {
     if (is.na(filename)) return(NA)
     stringr::str_replace(
       string = filename,
-      pattern = "_[0-9a-f]{12}\\.",
+      pattern = "_[0-9a-f]{10,}\\.",
       replacement = "."
     )
   }
