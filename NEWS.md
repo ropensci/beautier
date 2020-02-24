@@ -6,20 +6,21 @@ Newest versions at top.
 
 ### NEW FEATURES
 
-  * Add `rename_mcmc_filenames` and `rename_inference_model_filenames`
-  * Add `get_mcmc_filenames` and `get_inference_model_filenames`
+ * Add `get_mcmc_filenames` and `get_inference_model_filenames`
+ * Add `rename_mcmc_filenames` and `rename_inference_model_filenames`
+ * Add rename functions `get_remove_dir_fun`, `get_remove_hex_fun` and `get_replace_dir_fun`
 
 ### MINOR IMPROVEMENTS
 
-  * Link to https of BEAST2
+ * Link to https of BEAST2
 
 ### BUG FIXES
 
-  * None
+ * None
 
 ### DEPRECATED AND DEFUNCT
 
-  * None
+ * None
 
 ## beautier 2.3.4 (2020-01-15)
 
