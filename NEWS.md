@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 2.3.5 (unreleased)
+## beautier 2.3.5 (2020-02-25)
 
 ### NEW FEATURES
 
