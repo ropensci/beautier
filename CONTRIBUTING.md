@@ -7,6 +7,27 @@ This GitHub follows the [Contributor Covenant Code of Conduct](doc/code_of_condu
  * For questions, you can create an Issue
  * Code changes go via Pull Requests
 
+## Which package to contribute to?
+
+`beautier` is part of the `babette` package suite,
+which consists out of five packages.
+Here is how to determine which package is best suited for your contribution:
+
+If you want to contribute to how BEAST2 is run,
+go to [beautier](https://github.com/ropensci/beautier/blob/master/CONTRIBUTING.md).
+
+If you want to contribute to how BEAST2 output is parsed,
+go to [tracerer](https://github.com/ropensci/tracerer/blob/master/CONTRIBUTING.md)
+
+If you want to contribute regarding the BEAST2 package management,
+go to [mauricer](https://github.com/ropensci/mauricer/blob/master/CONTRIBUTING.md)
+
+If you want to contribute with an overarching idea,
+go to [babette](https://github.com/ropensci/babette/blob/master/CONTRIBUTING.md).
+
+If you want to contribute to the creation of BEAST2 XML input files, 
+you are at the right spot :-) 
+
 ## Submitting use cases
 
 Use cases within the default BEAUti environment are welcomed.
