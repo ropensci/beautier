@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.3.6 (2020-04-21)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * Fix bug when using tipdating, thanks Katie Walker, @ksw9
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.3.5 (2020-02-25)
 
 ### NEW FEATURES
