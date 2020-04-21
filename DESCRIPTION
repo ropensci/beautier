@@ -8,7 +8,7 @@ Authors@R: c(
   person("Paul", "Van Els", role = "ctb"),
   person("Raphael", "Scherrer", role = "ctb"),
   person("Yacine B.", "Chehida", role = "ctb"),
-  person("Katie", "Walker", role = "ctb"),
+  person("Katie", "Walter", role = "ctb"),
   person("Jana", "Riederer", role = "ctb"))
 Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
