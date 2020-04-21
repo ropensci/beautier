@@ -3,6 +3,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
+^\.github$
 ^install_beast2$
 ^code_of_conduct\.md$
 ^CONTRIBUTING\.md$
