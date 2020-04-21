@@ -64,7 +64,7 @@ tipdate_taxa_to_xml_tree <- function(
     paste0("            <alignment idref=\"", id, "\"/>"), # nolint this is no absolute path
     "        </taxa>",
     "    </trait>",
-    "    <taxonset idref=\"TaxonSet.", id, "\"/>", # nolint this is no absolute path
+    paste0("    <taxonset idref=\"TaxonSet.", id, "\"/>"), # nolint this is no absolute path
     "</tree>"
   )
 }
