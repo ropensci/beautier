@@ -14,7 +14,7 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * Fix bug when using tipdating, thanks Katie Walker, @ksw9
+ * Fix bug when using tipdating, thanks Katie Walter, @ksw9
 
 ### DEPRECATED AND DEFUNCT
 
