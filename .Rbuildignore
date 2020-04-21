@@ -6,6 +6,7 @@
 ^install_beast2$
 ^code_of_conduct\.md$
 ^CONTRIBUTING\.md$
+^LICENSE$
 ^pics$
 ^scripts$
 ^\.appveyor\.yml$
