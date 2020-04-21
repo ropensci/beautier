@@ -8,9 +8,9 @@ matrix:
     os: linux
   - r: release
     os: linux
-  - r: release
-    os: osx
-    osx_image: xcode9.2
+  #- r: release
+  #  os: osx
+  #  osx_image: xcode9.2
 
 r_github_packages:
   - jimhester/covr
@@ -46,8 +46,6 @@ after_success:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./scripts/check_no_local_files; fi
   - # Do a CRAN build
   - cd scripts; ./build_cran
-  # does not work temporarily
-  #- ./scripts/check_dead_links
 
 after_failure:
   - Rscript -e 'print(rappdirs::app_dir()$os)'
