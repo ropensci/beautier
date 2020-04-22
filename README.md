@@ -66,6 +66,7 @@ See [FAQ](doc/faq.md).
     * Coalescent Bayesian Skyline 
     * Coalescent Constant Population
     * Coalescent Exponential Population
+ * Tip dating
 
 ## Missing features/unsupported
 
@@ -73,7 +74,6 @@ See [FAQ](doc/faq.md).
 
 Here are some missing or (yet) unsupported features:
 
- * [Tip dating](https://github.com/ropensci/babette/issues/27)
  * Two or more DNA alignments
  * Two or more site, clock or tree models
  * Two or more MRCA priors
