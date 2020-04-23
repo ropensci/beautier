@@ -39,10 +39,34 @@ See [examples](doc/examples.md).
 
 ## Installation
 
-If you use the `devtools` R package, this is easy:
+`beautier` can be installed:
 
+ * Latest CRAN version: CRAN
+ * Latest stable version: GitHub, `master` branch
+ * Bleeding-edge version: GitHub, `develop` branch
+
+### CRAN
+
+For the latest CRAN version:
+
+```r
+install.packages("beautier")
 ```
-devtools::install_github("ropensci/beautier")
+
+### GitHub, `master` branch
+
+For the latest stable version: 
+
+```r
+remotes::install_github("ropensci/beautier")
+```
+
+### GitHub, `develop` branch
+
+For the bleeding-edge version: 
+
+```r
+remotes::install_github("ropensci/beautier", ref = "develop")
 ```
 
 ## [FAQ](doc/faq.md)
@@ -50,6 +74,8 @@ devtools::install_github("ropensci/beautier")
 See [FAQ](doc/faq.md).
 
 ## Supported
+
+This works, and the interface is unlikely to change.
 
  * 1 DNA alignment
  * Site models:
@@ -66,6 +92,11 @@ See [FAQ](doc/faq.md).
     * Coalescent Bayesian Skyline 
     * Coalescent Constant Population
     * Coalescent Exponential Population
+
+## Experimental
+
+This works, but the interface may change.
+
  * Tip dating
 
 ## Missing features/unsupported
