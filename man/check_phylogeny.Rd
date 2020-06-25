@@ -7,7 +7,8 @@
 check_phylogeny(phylogeny)
 }
 \arguments{
-\item{phylogeny}{a phylogeny of type \link[ape]{phylo}}
+\item{phylogeny}{a phylogeny of type \code{phylo} from the \code{ape}
+package}
 }
 \value{
 nothing
@@ -30,7 +31,7 @@ expect_error(check_phylogeny(c()))
 expect_error(check_phylogeny(c(3, 1, 4)))
 }
 \seealso{
-Use \link[ape]{read.tree} to create a phylogeny
+Use \code{ape::read.tree} to create a phylogeny
 }
 \author{
 Richèl J.C. Bilderbeek

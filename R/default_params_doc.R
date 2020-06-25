@@ -72,7 +72,8 @@
 #'   as can be created by \link{create_inference_model}
 #' @param initial_phylogenies one or more MCMC chain's initial phylogenies.
 #'   Each one set to \code{NA} will result in BEAST2 using a random phylogeny.
-#'   Else the phylogeny is assumed to be of class \link[ape]{phylo}
+#'   Else the phylogeny is assumed to be of class \code{phylo} from the
+#'   \code{ape} package
 #' @param input_filename A FASTA filename.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param input_filenames One or more FASTA filenames.
@@ -104,7 +105,8 @@
 #'   function. BEAST2 uses this file as input.
 #' @param param a parameter, as can be created by \code{\link{create_param}}.
 #' @param param_id a parameter's ID
-#' @param phylogeny a phylogeny of type \link[ape]{phylo}
+#' @param phylogeny a phylogeny of type \code{phylo} from the \code{ape}
+#'   package
 #' @param posterior_crown_age deprecated
 #' @param pre_burnin number of burn in samples taken before entering
 #'   the main loop
