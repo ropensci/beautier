@@ -21,10 +21,10 @@ knitr::opts_chunk$set(
 ![](beautier_logo.png)
 
 The purpose of `beautier` is to create a valid `BEAST2` XML input file
-from its function argument. In this way, a scientific pipeline using 
+from its function argument. In this way, a scientific pipeline using
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-`beautier` is part of the `babette` package suite (website at [https://github.com/ropensci/babette](https://github.com/ropensci/babette)). 
+`beautier` is part of the `babette` package suite (website at [https://github.com/ropensci/babette](https://github.com/ropensci/babette)).
 `babette` allows to use BEAST2 (and its tools) from R.
 
 # Demonstration
@@ -76,8 +76,8 @@ The file indeed is a BEAST2 input file:
 readLines(output_filename)
 ```
 
-This XML input file can be read by BEAST2. 
+This XML input file can be read by BEAST2.
 
 You can use `beastier` to run BEAST2 from R, see [https://github.com/ropensci/beastier](https://github.com/ropensci/beastier).
-You can use `babette` to do a BEAST2 inference directly, 
+You can use `babette` to do a BEAST2 inference directly,
 see [https://github.com/ropensci/babette](https://github.com/ropensci/babette).

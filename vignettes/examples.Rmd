@@ -9,6 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -21,10 +22,10 @@ knitr::opts_chunk$set(
 ![](beautier_logo.png)
 
 The purpose of `beautier` is to create a valid `BEAST2` XML input file
-from its function argument. In this way, a scientific pipeline using 
+from its function argument. In this way, a scientific pipeline using
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-`beautier` is part of the `babette` package suite (website at [https://github.com/ropensci/babette](https://github.com/ropensci/babette)). 
+`beautier` is part of the `babette` package suite (website at [https://github.com/ropensci/babette](https://github.com/ropensci/babette)).
 `babette` allows to use BEAST2 (and its tools) from R.
 
 # Getting started
@@ -94,7 +95,7 @@ create_beast2_input(
 ```{r example_4}
 create_beast2_input(
   input_filename,
-  tree_prior = create_bd_tree_prior() 
+  tree_prior = create_bd_tree_prior()
 )
 ```
 
@@ -107,7 +108,7 @@ create_beast2_input(
   input_filename,
   tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr()
-  ) 
+  )
 )
 ```
 
@@ -137,7 +138,7 @@ create_beast2_input(
   input_filename,
   clock_model = create_strict_clock_model(
     clock_rate_param = 0.5
-  ) 
+  )
 )
 ```
 
