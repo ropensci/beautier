@@ -1,5 +1,3 @@
-context("create_beast2_input_file_from_model")
-
 test_that("use", {
 
   output_filename <- tempfile()

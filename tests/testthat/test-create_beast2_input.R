@@ -1,5 +1,3 @@
-context("create_beast2_input")
-
 test_that("use", {
 
   expect_silent(
