@@ -17,12 +17,13 @@ Branch   |[![Travis CI logo](man/figures/TravisCI.png)](https://travis-ci.org)|[
 
 The purpose of `beautier` is to create 
 [a valid BEAST2 XML input file](inst/extdata/2_4.xml)
-from its function arguments. In this way, a scientific pipeline using 
+from a n inference model. In this way, a scientific pipeline using 
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
 `beautier` is part of the [`babette`](https://github.com/ropensci/babette) package suite:
 
- * [`beautier`](https://github.com/ropensci/beautier) creates BEAST2 input (`.xml`) files.
+ * [`beautier`](https://github.com/ropensci/beautier) create a BEAST2 input (`.xml`) file from an inference model.
+ * [`tiebeaur`](https://github.com/richelbilderbeek/tiebeaur) creates an inference model from a BEAST2 input (`.xml`) file :warning: experimental :warning:
  * [`beastier`](https://github.com/ropensci/beastier) runs BEAST2
  * [`tracerer`](https://github.com/ropensci/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
  * [`mauricer`](https://github.com/ropensci/mauricer) install BEAST2 packages
