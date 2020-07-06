@@ -1410,3 +1410,30 @@ test_that("Tip dating", {
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
+
+
+
+test_that("Tip dating with RLN", {
+
+  skip("https://github.com/ropensci/babette/issues/90")
+  created <- create_beast2_input(
+    input_filename = get_beautier_path("Felinecoronavirus_Envelope_1.fas"),
+    tipdates_filename = get_beautier_path("Felinecoronavirus_Envelope_1_no_quotes.txt"),
+    beauti_options = create_beauti_options(
+      beast2_version = "2.6",
+      nucleotides_uppercase = TRUE,
+      sequence_indent = 8
+    )
+  )
+  expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
+
+  created_lines_filename <- "~/created.xml"
+  expected_lines_filename <- "~/expected.xml"
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = created_lines_filename,
+    expected_lines_filename = expected_lines_filename
+  )
+  expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
+})
