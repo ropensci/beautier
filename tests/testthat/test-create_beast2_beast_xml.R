@@ -2,7 +2,7 @@ context("create_beast2_beautitemplate_xml")
 
 test_that("use, v2.6.2", {
 
-  beauti_options <- create_beauti_options_v2_6_2()
+  beauti_options <- create_beauti_options_v2_6()
   created <- create_beast2_beast_xml(
     beauti_options
   )

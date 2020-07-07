@@ -10,6 +10,9 @@ create_data_xml <- function(
   text <- NULL
   text <- c(text, "    <data")
   text <- c(text, paste0("id=\"", id, "\""))
+  if (beast2_version == "2.6") {
+    text <- c(text, "spec=\"Alignment\"")
+  }
   text <- c(text, "name=\"alignment\">")
   if (beast2_version == "2.5") {
     text <- paste0(text, collapse = " ")

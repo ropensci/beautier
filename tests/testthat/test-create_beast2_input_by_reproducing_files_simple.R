@@ -70,7 +70,7 @@ test_that("2.6.2", {
       tree_prior = create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)
       ),
-      beauti_options = create_beauti_options_v2_6_2()
+      beauti_options = create_beauti_options_v2_6()
     )
   )
   expected <- readLines(get_beautier_path("2_6_2.xml"))

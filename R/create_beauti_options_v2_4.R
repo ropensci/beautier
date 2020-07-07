@@ -1,11 +1,11 @@
-#' Function to create the BEAUti options for version 2.6.2.
+#' Function to create the BEAUti options for version 2.4.
 #'
-#' Function to create the BEAUti options for version 2.6.2, by
+#' Function to create the BEAUti options for version 2.4, by
 #' calling \link{create_beauti_options}.
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' beauti_options <- create_beauti_options_v2_6_2()
+#' beauti_options <- create_beauti_options_v2_4()
 #' xml <- create_beast2_input(
 #'   get_fasta_filename(),
 #'   beauti_options = beauti_options
@@ -15,10 +15,13 @@
 #' expect_true(is.character(xml))
 #' expect_true(length(xml) > 1)
 #' @export
-create_beauti_options_v2_6_2 <- function(
+create_beauti_options_v2_4 <- function(
 ) {
   create_beauti_options(
-    beast2_version = "2.6",
-    sequence_indent = 8
+    capitalize_first_char_id = FALSE,
+    nucleotides_uppercase = FALSE,
+    beast2_version = "2.4",
+    required = "",
+    sequence_indent = 20
   )
 }

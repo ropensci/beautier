@@ -1,5 +1,3 @@
-context("interspace")
-
 test_that("use, zero lines", {
 
   input <- NULL
