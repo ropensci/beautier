@@ -97,7 +97,7 @@ test_that("v2.4", {
     "            <alignment idref=\"test_output_0\"/>",
     "        </taxonset>",
     "    </tree>",
-    "    <parameter id=\"birthRate.t:test_output_0\" name=\"stateNode\">1.0</parameter>",
+    "    <parameter id=\"birthRate.t:test_output_0\" name=\"stateNode\">1.0</parameter>", # nolint indeed a long line
     "</state>"
   )
   expect_equal(created, expected)

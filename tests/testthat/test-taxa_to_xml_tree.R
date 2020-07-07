@@ -1,4 +1,4 @@
-test_that("use, default", {
+test_that("v2.4", {
   created <- taxa_to_xml_tree(
     id = "my_id",
     inference_model = create_test_inference_model(
@@ -15,7 +15,7 @@ test_that("use, default", {
   expect_equal(created, expected)
 })
 
-test_that("use, dated tips", {
+test_that("v2.4, dated tips", {
   inference_model <- create_inference_model(
     tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt"),
     beauti_options = create_beauti_options_v2_4()
