@@ -4,7 +4,11 @@
 \alias{create_beast2_input_map}
 \title{Creates the map section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_map()
+create_beast2_input_map(beauti_options)
+}
+\arguments{
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 lines of XML text

@@ -25,6 +25,11 @@ inference model.}
 lines of XML text
 }
 \description{
+Creates the XML text for the \code{beast} tag of a BEAST2 parameter file,
+which is directly after the XML
+declaration (created by \link{create_xml_declaration}.
+}
+\details{
 The \code{beast} tag has these elements:
 \preformatted{
   <beast[...]>

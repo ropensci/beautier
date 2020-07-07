@@ -1,5 +1,8 @@
 #' Creates the '\code{run}' section of a BEAST2 XML parameter file
 #'
+#' Creates the '\code{run}' section of a BEAST2 XML parameter file,
+#' without being indented.
+#'
 #' The \code{run} tag has these elements:
 #' \preformatted{
 #'    <run[...]>
@@ -36,7 +39,7 @@ create_beast2_input_run <- function(
   input_filename,
   inference_model = create_inference_model()
 ) {
-  testit::assert(length(input_filename) == 1)
+  testthat::expect_equal(length(input_filename), 1)
 
   # Alignment IDs
   ids <- beautier::get_alignment_id(
@@ -111,5 +114,13 @@ create_beast2_input_run <- function(
 
   text <- c(text, "")
   text <- c(text, "</run>")
+
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    # Insert spaces at even indices, even if there is a space
+    text <- text[text != ""]
+    text <- rep(text, each = 2)
+    text[seq(2, length(text), by = 2)] <- ""
+  }
+
   text
 }

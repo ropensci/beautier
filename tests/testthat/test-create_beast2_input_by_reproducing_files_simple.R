@@ -16,9 +16,7 @@ test_that("2.4", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    beauti_options = create_beauti_options(
-      beast2_version = "2.4"
-    )
+    beauti_options = create_beauti_options_v2_4()
   )
 
   expected <- readLines(get_beautier_path("2_4.xml"))
