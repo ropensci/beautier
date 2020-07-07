@@ -10,6 +10,7 @@ phylo_to_xml_state <- function(
   inference_model,
   tipdates_filename = "deprecated"
 ) {
+  stop("Use 'taxa_to_xml_tree'")
   if (tipdates_filename != "deprecated") {
     stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
   }

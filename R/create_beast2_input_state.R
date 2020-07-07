@@ -40,7 +40,7 @@ create_beast2_input_state <- function(
   text <- NULL
   text <- c(
     text,
-    beautier::phylo_to_xml_state(
+    beautier::taxa_to_xml_tree(
       id = inference_model$tree_prior$id,
       inference_model = inference_model
     )
