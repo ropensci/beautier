@@ -37,10 +37,32 @@ test_that("v2.4, dated tips", {
   expect_equal(created, expected)
 })
 
+test_that("v2.6", {
+  created <- taxa_to_xml_tree(
+    id = "test_output_0",
+    inference_model = create_test_inference_model(
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  expected <- c(
+    "<tree id=\"Tree.t:test_output_0\" spec=\"beast.evolution.tree.Tree\" name=\"stateNode\">", # nolint indeed a long line
+    "                ",
+    "    <taxonset id=\"TaxonSet.test_output_0\" spec=\"TaxonSet\">",
+    "                        ",
+    "        <alignment idref=\"test_output_0\"/>",
+    "                    ",
+    "    </taxonset>",
+    "            ",
+    "</tree>"
+  )
+  expect_equal(created, expected)
+})
+
 test_that("deprecation", {
   expect_error(
     taxa_to_xml_tree(
       id = "G_VII_pre2003_msa",
+      inference_model = create_test_inference_model(),
       tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")
     ),
     "'tipdates_filename' is deprecated, use 'inference_model' instead"

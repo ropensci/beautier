@@ -17,7 +17,10 @@ taxa_to_xml_tree <- function(
 
   testit::assert(beautier::is_id(id))
   if (beautier::is_one_na(tipdates_filename)) {
-    beautier::no_taxa_to_xml_tree(id = id)
+    beautier::no_taxa_to_xml_tree(
+      id = id,
+      inference_model = inference_model
+    )
   } else {
     beautier::tipdate_taxa_to_xml_tree(
       id = id,
@@ -34,16 +37,36 @@ taxa_to_xml_tree <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 no_taxa_to_xml_tree <- function(
-  id
+  id,
+  inference_model
 ) {
   testit::assert(beautier::is_id(id))
   text <- NULL
-  text <- c(text, paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"))
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    text <- c(
+      text,
+      paste0(
+        "<tree id=\"Tree.t:", id, "\" ",
+        "spec=\"beast.evolution.tree.Tree\" ",
+        "name=\"stateNode\">"
+      )
+    )
+  } else {
+    text <- c(text, paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"))
+  }
   text <- c(text, paste0("    <taxonset id=\"TaxonSet.", id, "\" ",
                          "spec=\"TaxonSet\">"))
   text <- c(text, paste0("        <alignment idref=\"", id, "\"/>")) # nolint this is no absolute path
   text <- c(text, "    </taxonset>")
   text <- c(text, "</tree>")
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    text <- rep(text, each = 2)
+    text[2] <- "                "
+    text[4] <- "                        "
+    text[6] <- "                    "
+    text[8] <- "            "
+    text <- text[-length(text)]
+  }
   text
 }
 
