@@ -1,3 +1,6 @@
 test_that("Package style", {
-  lintr::expect_lint_free()
+  # Only test on Travis CI
+  if (Sys.getenv("TRAVIS") != "") {
+    lintr::expect_lint_free()
+  }
 })

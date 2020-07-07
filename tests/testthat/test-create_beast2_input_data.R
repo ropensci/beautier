@@ -30,15 +30,15 @@ test_that("v2.6", {
     "spec=\"Alignment\"",
     "name=\"alignment\">",
     "                            ",
-    "        <sequence id=\"seq_t1\" spec=\"Sequence\" taxon=\"t1\" totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>",
+    "        <sequence id=\"seq_t1\" spec=\"Sequence\" taxon=\"t1\" totalcount=\"4\" value=\"acttgttgcgactgcgcctg\"/>", # nolint long line indeed
     "                            ",
-    "        <sequence id=\"seq_t2\" spec=\"Sequence\" taxon=\"t2\" totalcount=\"4\" value=\"acttattgcgactgaggccg\"/>",
+    "        <sequence id=\"seq_t2\" spec=\"Sequence\" taxon=\"t2\" totalcount=\"4\" value=\"acttattgcgactgaggccg\"/>", # nolint long line indeed
     "                            ",
-    "        <sequence id=\"seq_t3\" spec=\"Sequence\" taxon=\"t3\" totalcount=\"4\" value=\"acttaatgcgaatgagcccg\"/>",
+    "        <sequence id=\"seq_t3\" spec=\"Sequence\" taxon=\"t3\" totalcount=\"4\" value=\"acttaatgcgaatgagcccg\"/>", # nolint long line indeed
     "                            ",
-    "        <sequence id=\"seq_t4\" spec=\"Sequence\" taxon=\"t4\" totalcount=\"4\" value=\"aacgacccgcgatcggggat\"/>",
+    "        <sequence id=\"seq_t4\" spec=\"Sequence\" taxon=\"t4\" totalcount=\"4\" value=\"aacgacccgcgatcggggat\"/>", # nolint long line indeed
     "                            ",
-    "        <sequence id=\"seq_t5\" spec=\"Sequence\" taxon=\"t5\" totalcount=\"4\" value=\"acttgttgcgactgagcctg\"/>",
+    "        <sequence id=\"seq_t5\" spec=\"Sequence\" taxon=\"t5\" totalcount=\"4\" value=\"acttgttgcgactgagcctg\"/>", # nolint long line indeed
     "                        ",
     "    </data>"
   )
