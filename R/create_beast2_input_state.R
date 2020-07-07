@@ -38,18 +38,13 @@ create_beast2_input_state <- function(
   has_tip_dating <- !beautier::is_one_na(tipdates_filename)
 
   text <- NULL
-  for (i in seq_along(tree_priors)) {
-    tree_prior <- tree_priors[[i]]
-    id <- tree_prior$id
-    text <- c(
-      text,
-      beautier::phylo_to_xml_state(
-        id = id,
-        inference_model = inference_model
-      )
+  text <- c(
+    text,
+    beautier::phylo_to_xml_state(
+      id = inference_model$tree_prior$id,
+      inference_model = inference_model
     )
-  }
-
+  )
   text <- c(text, beautier::site_models_to_xml_state(site_models))
   text <- c(
     text,

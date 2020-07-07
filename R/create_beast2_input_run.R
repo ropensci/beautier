@@ -111,7 +111,7 @@ create_beast2_input_run <- function(
   text <- c(text, "")
   text <- c(text, "</run>")
 
-  if (inference_model$beauti_options$beast2_version == "2.6") {
+  if (inference_model$beauti_options$beast2_version == "2.6" && 1 == 2) {
     # Insert spaces at even indices, even if there is a space
     text <- text[text != ""]
     text <- rep(text, each = 2)
