@@ -12,7 +12,7 @@ create_beast2_input_data_sequences <- function( # nolint indeed long function na
 
   nucleotides_uppercase <- beauti_options$nucleotides_uppercase
 
-  sequences_table <- fasta_file_to_sequences(input_fasta_filename)
+  sequences_table <- beautier::fasta_file_to_sequences(input_fasta_filename)
   sequences <- as.matrix(cbind(rownames(sequences_table), sequences_table))
   text <- NULL
   for (i in seq(1, nrow(sequences))) {
@@ -37,7 +37,7 @@ create_beast2_input_data_sequences <- function( # nolint indeed long function na
   text <- sort(text, method = "radix")
 
   if (beauti_options$beast2_version == "2.6") {
-    text <- interspace(text)
+    text <- beautier::interspace(text)
     text <- stringr::str_replace_all(
       string = text,
       pattern = "$^",
