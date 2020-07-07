@@ -19,7 +19,7 @@ test_that("v2.4", {
 })
 
 test_that("v2.6", {
-
+  skip("WIP")
   created <- create_beast2_input_data(
     input_filenames = get_fasta_filename(),
     beauti_options = create_beauti_options_v2_6()
