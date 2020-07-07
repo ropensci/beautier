@@ -28,7 +28,6 @@ create_beast2_input_data <- function(
         beauti_options = beauti_options
       )
     )
-    testit::assert(beauti_options$sequence_indent >= 20)
     text <- c(
       text,
       beautier::indent("</data>", n_spaces = beauti_options$sequence_indent - 4)

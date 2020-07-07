@@ -14,7 +14,11 @@ test_that("2.4", {
   created <- create_beast2_input(
     input_filename = get_fasta_filename(),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    beauti_options = create_beauti_options(
+      beast2_version = "2.4"
+    )
   )
 
   expected <- readLines(get_beautier_path("2_4.xml"))
@@ -60,17 +64,27 @@ test_that("v2.5.1", {
 test_that("2.6.2", {
 
   skip("Expose #116")
-  created <- create_beast2_input(
+  created <- create_beast2_input_from_model(
     input_filename = get_fasta_filename(),
-    tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1)
-    ),
-    beauti_options = create_beauti_options(
-      beast2_version = "2.6.2"
+    create_inference_model(
+      tree_prior = create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 1)
+      ),
+      beauti_options = create_beauti_options_v2_6_2()
     )
   )
-
   expected <- readLines(get_beautier_path("2_6_2.xml"))
+
+  created_lines_filename <- "~/created.xml"
+  expected_lines_filename <- "~/expected.xml"
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = created_lines_filename,
+    expected_lines_filename = expected_lines_filename
+  )
+  expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
+
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
