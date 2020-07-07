@@ -57,6 +57,23 @@ test_that("v2.5.1", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
+test_that("2.6.2", {
+
+  skip("Expose #116")
+  created <- create_beast2_input(
+    input_filename = get_fasta_filename(),
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    beauti_options = create_beauti_options(
+      beast2_version = "2.6.2"
+    )
+  )
+
+  expected <- readLines(get_beautier_path("2_6_2.xml"))
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
+
 ################################################################################
 # Site models
 ################################################################################
@@ -1415,10 +1432,13 @@ test_that("Tip dating", {
 
 test_that("Tip dating with RLN", {
 
-  skip("https://github.com/ropensci/babette/issues/90")
+  skip("Issue #116")
+  # Prerequisite for https://github.com/ropensci/babette/issues/90
   created <- create_beast2_input(
     input_filename = get_beautier_path("Felinecoronavirus_Envelope_1.fas"),
-    tipdates_filename = get_beautier_path("Felinecoronavirus_Envelope_1_no_quotes.txt"),
+    tipdates_filename = get_beautier_path(
+      "Felinecoronavirus_Envelope_1_no_quotes.txt"
+    ),
     beauti_options = create_beauti_options(
       beast2_version = "2.6",
       nucleotides_uppercase = TRUE,
