@@ -4,12 +4,36 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_state <- function(
-  site_models,
-  clock_models,
-  tree_priors,
-  mrca_priors = NA,
-  tipdates_filename = NA
+  inference_model,
+  site_models = "deprecated",
+  clock_models = "deprecated",
+  tree_priors = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 ) {
+  if (site_models != "deprecated") {
+    stop("'site_models' is deprecated, use 'inference_model' instead")
+  }
+  if (clock_models != "deprecated") {
+    stop("'clock_models' is deprecated, use 'inference_model' instead")
+  }
+  if (tree_priors != "deprecated") {
+    stop("'tree_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (mrca_priors != "deprecated") {
+    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (tipdates_filename != "deprecated") {
+    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
+  }
+
+  # Do not be smart yet
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  tipdates_filename <- inference_model$tipdates_filename
+
   testit::assert(beautier::are_tree_priors(tree_priors))
   has_tip_dating <- !beautier::is_one_na(tipdates_filename)
 

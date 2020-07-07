@@ -25,6 +25,10 @@ inference model.}
 lines of XML text
 }
 \description{
+Creates the '\code{run}' section of a BEAST2 XML parameter file,
+without being indented.
+}
+\details{
 The \code{run} tag has these elements:
 \preformatted{
    <run[...]>

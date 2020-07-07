@@ -1,6 +1,30 @@
+test_that("v2.4", {
+
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model()
+  )
+  created <- create_beast2_input_state(
+    inference_model = inference_model
+  )
+  expected <- c(
+    "<state id=\"state\" storeEvery=\"5000\">",
+    "    <tree id=\"Tree.t:test_output_0\" name=\"stateNode\">",
+    "        <taxonset id=\"TaxonSet.test_output_0\" spec=\"TaxonSet\">",
+    "            <alignment idref=\"test_output_0\"/>",
+    "        </taxonset>",
+    "    </tree>",
+    "    <parameter id=\"birthRate.t:test_output_0\" name=\"stateNode\">1.0</parameter>", # nolint long line indeed
+    "</state>"
+  )
+  expect_equal(created, expected)
+})
+
 test_that("birth_death", {
 
+  skip("Obsoleted interface")
   fasta_filename <- beautier::get_beautier_path("test_output_0.fas")
+  create_test_inference_model()
   id <- get_alignment_id(fasta_filename)
   expect_silent(
     create_beast2_input_state(
@@ -34,6 +58,8 @@ test_that("birth_death", {
 
 test_that("use without initial phylogeny", {
 
+  skip("Obsoleted interface")
+
   id <- "test_output_0"
   expect_silent(
     create_beast2_input_state(
@@ -48,6 +74,8 @@ test_that("use without initial phylogeny", {
 })
 
 test_that("v2.4", {
+
+  skip("Obsoleted interface")
 
   fasta_filename <- beautier::get_beautier_path("test_output_0.fas")
   id <- get_alignment_id(fasta_filename)
@@ -73,4 +101,43 @@ test_that("v2.4", {
     "</state>"
   )
   expect_equal(created, expected)
+})
+
+test_that("deprecation", {
+
+  expect_error(
+    create_beast2_input_state(
+      inference_model = create_test_inference_model(),
+      site_models = "something"
+    ),
+    "'site_models' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_state(
+      inference_model = create_test_inference_model(),
+      clock_models = "something"
+    ),
+    "'clock_models' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_state(
+      inference_model = create_test_inference_model(),
+      tree_priors = "something"
+    ),
+    "'tree_priors' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_state(
+      inference_model = create_test_inference_model(),
+      mrca_priors = "something"
+    ),
+    "'mrca_priors' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_state(
+      inference_model = create_test_inference_model(),
+      tipdates_filename = "something"
+    ),
+    "'tipdates_filename' is deprecated, use 'inference_model' instead"
+  )
 })
