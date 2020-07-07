@@ -82,4 +82,3 @@ test_that("deprecation", {
     "'tipdates_filename' is deprecated, use 'inference_model' instead"
   )
 })
-
