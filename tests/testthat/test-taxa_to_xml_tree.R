@@ -17,7 +17,8 @@ test_that("use, default", {
 
 test_that("use, dated tips", {
   inference_model <- create_inference_model(
-    tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")
+    tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt"),
+    beauti_options = create_beauti_options_v2_4()
   )
   created <- taxa_to_xml_tree(
     id = "G_VII_pre2003_msa",
