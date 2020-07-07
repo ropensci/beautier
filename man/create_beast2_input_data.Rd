@@ -2,25 +2,29 @@
 % Please edit documentation in R/create_beast2_input_data.R
 \name{create_beast2_input_data}
 \alias{create_beast2_input_data}
-\title{Creates the data section of a BEAST2 XML parameter file}
+\title{Creates the \code{data} section of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_data(
-  input_filenames,
-  beauti_options = create_beauti_options()
+  input_filename,
+  beauti_options = create_beauti_options(),
+  input_filenames = "deprecated"
 )
 }
 \arguments{
-\item{input_filenames}{One or more FASTA filenames.
+\item{input_filename}{A FASTA filename.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
+
+\item{input_filenames}{One or more FASTA filenames.
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 }
 \value{
 lines of XML text
 }
 \description{
-Creates the data section of a BEAST2 XML parameter file
+Creates the \code{data} section of a BEAST2 XML parameter file
 }
 \author{
 Richèl J.C. Bilderbeek

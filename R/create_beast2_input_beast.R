@@ -50,7 +50,7 @@ create_beast2_input_beast <- function(
 
   text <- c(text,
     beautier::create_beast2_input_data(
-      input_filenames = input_filename,
+      input_filename = input_filename,
       beauti_options = inference_model$beauti_options
     )
   )

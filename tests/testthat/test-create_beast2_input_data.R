@@ -1,7 +1,7 @@
 test_that("v2.4", {
 
   created <- create_beast2_input_data(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     beauti_options = create_beauti_options_v2_4()
   )
   expected <- c(
@@ -21,7 +21,7 @@ test_that("v2.4", {
 test_that("v2.6", {
   skip("WIP")
   created <- create_beast2_input_data(
-    input_filenames = get_fasta_filename(),
+    input_filename = get_fasta_filename(),
     beauti_options = create_beauti_options_v2_6()
   )
   expected <- c(
@@ -54,7 +54,7 @@ test_that("v2.6", {
 
 test_that("abuse", {
 
-  testthat::expect_error(
+  expect_error(
     create_beast2_input_data(
       input_filenames = "abs.ent"
     )
@@ -66,10 +66,29 @@ test_that("alignment start with a capital", {
   fasta_filename <- beautier::get_beautier_path("anthus_aco.fas")
 
   lines <- create_beast2_input_data(
-    input_filenames = c(fasta_filename),
+    input_filename = c(fasta_filename),
     create_beauti_options(
       capitalize_first_char_id = TRUE
     )
   )
-  testthat::expect_equal(lines[2], "id=\"Anthus_aco\"")
+  expect_equal(lines[2], "id=\"Anthus_aco\"")
+})
+
+test_that("deprecation", {
+
+  expect_silent(
+    create_beast2_input_data(input_filename = get_fasta_filename())
+  )
+  expect_silent(
+    create_beast2_input_data(
+      input_filename = get_fasta_filename(),
+      input_filenames = "deprecated"
+    )
+  )
+  expect_error(
+    create_beast2_input_data(
+      input_filenames = get_fasta_filename(),
+    ),
+    "'input_filenames' is deprecated. Use 'input_filename' instead"
+  )
 })
