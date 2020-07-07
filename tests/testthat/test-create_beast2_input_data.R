@@ -19,7 +19,6 @@ test_that("v2.4", {
 })
 
 test_that("v2.6", {
-  skip("WIP")
   created <- create_beast2_input_data(
     input_filename = get_fasta_filename(),
     beauti_options = create_beauti_options_v2_6()
@@ -42,14 +41,7 @@ test_that("v2.6", {
     "                        ",
     "    </data>"
   )
-  are_equivalent_xml_lines(expected, created)
   expect_equal(expected, created)
-  expect_equal(expected[1], created[1])
-  expect_equal(expected[2], created[2])
-  expect_equal(expected[3], created[3])
-  expect_equal(expected[4], created[4])
-  expect_equal(expected[5], created[5])
-  expect_equal(expected[6], created[6])
 })
 
 test_that("abuse", {
