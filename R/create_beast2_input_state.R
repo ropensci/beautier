@@ -41,7 +41,7 @@ create_beast2_input_state <- function(
   text <- c(
     text,
     beautier::taxa_to_xml_tree(
-      id = inference_model$tree_prior$id,
+      # id = inference_model$tree_prior$id, # nolint deprecated
       inference_model = inference_model
     )
   )
