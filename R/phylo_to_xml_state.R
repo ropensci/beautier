@@ -7,11 +7,15 @@
 #' @export
 phylo_to_xml_state <- function(
   id,
-  tipdates_filename = NA
+  inference_model,
+  tipdates_filename = "deprecated"
 ) {
+  if (tipdates_filename != "deprecated") {
+    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
+  }
   testit::assert(beautier::is_id(id))
   beautier::taxa_to_xml_tree(
     id = id,
-    tipdates_filename = tipdates_filename
+    inference_model = inference_model
   )
 }

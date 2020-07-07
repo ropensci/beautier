@@ -1,7 +1,10 @@
-context("test-taxa_to_xml_tree")
-
 test_that("use, default", {
-  created <- taxa_to_xml_tree("my_id")
+  created <- taxa_to_xml_tree(
+    id = "my_id",
+    inference_model = create_test_inference_model(
+      beauti_options = create_beauti_options_v2_4()
+    )
+  )
   expected <- c(
     "<tree id=\"Tree.t:my_id\" name=\"stateNode\">",
     "    <taxonset id=\"TaxonSet.my_id\" spec=\"TaxonSet\">",
@@ -13,9 +16,12 @@ test_that("use, default", {
 })
 
 test_that("use, dated tips", {
+  inference_model <- create_inference_model(
+    tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")
+  )
   created <- taxa_to_xml_tree(
     id = "G_VII_pre2003_msa",
-    tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")
+    inference_model = inference_model
   )
   expected <- c(
     "<tree id=\"Tree.t:G_VII_pre2003_msa\" name=\"stateNode\">",
@@ -28,4 +34,14 @@ test_that("use, dated tips", {
     "</tree>"
   )
   expect_equal(created, expected)
+})
+
+test_that("deprecation", {
+  expect_error(
+    taxa_to_xml_tree(
+      id = "G_VII_pre2003_msa",
+      tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")
+    ),
+    "'tipdates_filename' is deprecated, use 'inference_model' instead"
+  )
 })

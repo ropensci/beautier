@@ -45,7 +45,7 @@ create_beast2_input_state <- function(
       text,
       beautier::phylo_to_xml_state(
         id = id,
-        tipdates_filename = tipdates_filename
+        inference_model = inference_model
       )
     )
   }
@@ -71,7 +71,13 @@ create_beast2_input_state <- function(
   )
 
   text <- beautier::indent(text)
-  text <- c("<state id=\"state\" storeEvery=\"5000\">", text)
+
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    text <- c("<state id=\"state\" spec=\"State\" storeEvery=\"5000\">", text)
+  } else {
+    text <- c("<state id=\"state\" storeEvery=\"5000\">", text)
+  }
+
   text <- c(text, "</state>")
   text
 }

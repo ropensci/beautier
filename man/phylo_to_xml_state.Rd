@@ -5,10 +5,18 @@
 \title{Creates the XML of a phylogeny,
   as used in the \code{state} section}
 \usage{
-phylo_to_xml_state(id, tipdates_filename = NA)
+phylo_to_xml_state(id, inference_model, tipdates_filename = "deprecated")
 }
 \arguments{
 \item{id}{the ID of the alignment}
+
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
 This file is assumed to have two columns, separated by a tab.

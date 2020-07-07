@@ -5,12 +5,20 @@
 \title{Creates the \code{tree} section (part of the \code{state} section)
 of a phylogeny and/or taxa}
 \usage{
-taxa_to_xml_tree(id, tipdates_filename = NA)
+taxa_to_xml_tree(id, inference_model, tipdates_filename = "deprecated")
 }
 \arguments{
 \item{id}{an alignment's IDs.
 An ID can be extracted from its FASTA filename
 with \code{\link{get_alignment_ids_from_fasta_filenames}})}
+
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
 
 \item{tipdates_filename}{name of the file containing the tip dates.
 This file is assumed to have two columns, separated by a tab.

@@ -6,8 +6,15 @@
 #' @export
 taxa_to_xml_tree <- function(
   id,
-  tipdates_filename = NA
+  inference_model,
+  tipdates_filename = "deprecated"
 ) {
+  if (tipdates_filename != "deprecated") {
+    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
+  }
+  # Don't be smart yet
+  tipdates_filename <- inference_model$tipdates_filename
+
   testit::assert(beautier::is_id(id))
   if (beautier::is_one_na(tipdates_filename)) {
     beautier::no_taxa_to_xml_tree(id = id)
