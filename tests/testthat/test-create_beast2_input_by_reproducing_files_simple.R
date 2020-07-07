@@ -66,7 +66,7 @@ test_that("2.6.2", {
   skip("Expose #116")
   created <- create_beast2_input_from_model(
     input_filename = get_fasta_filename(),
-    create_inference_model(
+    inference_model = create_inference_model(
       tree_prior = create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)
       ),

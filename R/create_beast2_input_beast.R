@@ -36,8 +36,18 @@ create_beast2_input_beast <- function(
     required = inference_model$beauti_options$required
   )
 
-  text <- c(text, "")
-  text <- c(text, "")
+  # The first whitespace after the XML line
+  if (inference_model$beauti_options$beast2_version != "2.6") {
+    text <- c(text, "")
+    text <- c(text, "")
+  } else {
+    text <- c(
+      text,
+      stringr::str_c(
+        rep(" ", inference_model$beauti_options$sequence_indent), collapse = ""
+      )
+    )
+  }
 
   text <- c(text,
     beautier::create_beast2_input_data(
