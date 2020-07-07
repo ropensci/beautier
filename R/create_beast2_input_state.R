@@ -38,6 +38,7 @@ create_beast2_input_state <- function(
   has_tip_dating <- !beautier::is_one_na(tipdates_filename)
 
   text <- NULL
+  # The 'state' XML section
   text <- c(
     text,
     beautier::taxa_to_xml_tree(
@@ -45,7 +46,11 @@ create_beast2_input_state <- function(
       inference_model = inference_model
     )
   )
-  text <- c(text, beautier::site_models_to_xml_state(site_models))
+  # The 'parameter' XML sections
+  text <- c(
+    text,
+    beautier::site_model_to_xml_state(inference_model$site_model)
+  )
   text <- c(
     text,
     beautier::clock_models_to_xml_state(
