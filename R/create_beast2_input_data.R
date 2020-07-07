@@ -8,6 +8,7 @@ create_beast2_input_data <- function(
   beauti_options = create_beauti_options()
 ) {
   testit::assert(all(file.exists(input_filenames)))
+  testthat::expect_equal(length(input_filenames), 1)
 
   text <- NULL
   n <- length(input_filenames)
