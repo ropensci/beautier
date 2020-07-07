@@ -32,8 +32,7 @@ create_beast2_input_beast <- function(
   testit::assert(file.exists(input_filename))
 
   text <- beautier::create_beast2_beast_xml(
-    beast2_version = inference_model$beauti_options$beast2_version,
-    required = inference_model$beauti_options$required
+    inference_model$beauti_options
   )
 
   # The first whitespace after the XML line

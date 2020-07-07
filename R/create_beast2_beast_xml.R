@@ -1,12 +1,33 @@
 #' Create the \code{<beast ...>} XML
-#' @param beast2_version BEAST2 version
-#' @param required requirement
+#'
+#' The \code{<beast ...>} XML is the XML at the start of a BEAST2
+#' XML input file, directly after the general XML declaration (as
+#' created by \link{create_xml_declaration}).
+#' @inheritParams default_params_doc
 #' @return the XML
 #' @author Richèl J.C. Bilderbeek
+#' @examples
+#' library(testthat)
+#'
+#' beauti_options <- create_beauti_options_v2_6_2()
+#' created <- create_beast2_beast_xml(
+#'   beauti_options
+#' )
+#' expected <- paste0(
+#'   "<beast ",
+#'   "beautitemplate='Standard' ",
+#'   "beautistatus='' ",
+#'   "namespace=\"beast.core:beast.evolution.alignment:",
+#'     "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
+#'     "beast.evolution.operators:beast.evolution.sitemodel:",
+#'     "beast.evolution.substitutionmodel:beast.evolution.likelihood\" ",
+#'   "required=\"\" ",
+#'   "version=\"2.6\">"
+#' )
+#' expect_equal(created, expected)
 #' @export
 create_beast2_beast_xml <- function(
-  beast2_version,
-  required = ""
+  beauti_options
 ) {
   paste0(
     "<beast beautitemplate='Standard' beautistatus='' ",
@@ -15,6 +36,7 @@ create_beast2_beast_xml <- function(
     "beast.evolution.operators:beast.evolution.sitemodel:",
     "beast.evolution.substitutionmodel:",
     "beast.evolution.likelihood\" ",
-    "required=\"", required, "\" version=\"", beast2_version, "\">"
+    "required=\"", beauti_options$required, "\" ",
+    "version=\"", beauti_options$beast2_version, "\">"
   )
 }

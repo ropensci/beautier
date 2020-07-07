@@ -1,8 +1,21 @@
 context("create_beast2_beautitemplate_xml")
 
-test_that("use", {
+test_that("use, v2.6.2", {
 
-  created_2_4 <- create_beast2_beast_xml(beast2_version = "2.4")
-  created_2_5 <- create_beast2_beast_xml(beast2_version = "2.5")
-  expect_true(created_2_4 != created_2_5)
+  beauti_options <- create_beauti_options_v2_6_2()
+  created <- create_beast2_beast_xml(
+    beauti_options
+  )
+  expected <- paste0(
+    "<beast ",
+    "beautitemplate='Standard' ",
+    "beautistatus='' ",
+    "namespace=\"beast.core:beast.evolution.alignment:",
+      "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
+      "beast.evolution.operators:beast.evolution.sitemodel:",
+      "beast.evolution.substitutionmodel:beast.evolution.likelihood\" ",
+    "required=\"\" ",
+    "version=\"2.6\">"
+  )
+  expect_equal(created, expected)
 })

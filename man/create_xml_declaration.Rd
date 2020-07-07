@@ -2,15 +2,22 @@
 % Please edit documentation in R/create_beast2_input_xml.R
 \name{create_xml_declaration}
 \alias{create_xml_declaration}
-\title{Create the XML declaration as XML text}
+\title{Create the XML declaration of the BEAST2 XML input file}
 \usage{
 create_xml_declaration()
 }
 \value{
-lines of XML text
+one line of XML text
 }
 \description{
-Create the XML declaration as XML text
+Create the XML declaration of the BEAST2 XML input file
+}
+\examples{
+library(testthat)
+
+created <- create_xml_declaration()
+expected <- "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"
+expect_equal(created, expected)
 }
 \author{
 Richèl J.C. Bilderbeek
