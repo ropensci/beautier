@@ -30,7 +30,12 @@ The \code{siteModel} tag has these elements:
 
 \preformatted{
   <siteModel[...]>
+
       [parameters]
+
+      <substModel[...]>
+        [...]
+      </substModel>
   </siteModel>
 }
 }

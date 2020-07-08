@@ -10,7 +10,12 @@
 #'
 #' \preformatted{
 #'   <siteModel[...]>
+#'
 #'       [parameters]
+#'
+#'       <substModel[...]>
+#'         [...]
+#'       </substModel>
 #'   </siteModel>
 #' }
 #' @inheritParams default_params_doc
@@ -73,7 +78,7 @@ create_site_model_xml <- function(
 
   text <- c(text,
     beautier::indent(
-      site_model_to_xml_subst_model(inference_model$site_model)
+      beautier::create_subst_model_xml(inference_model)
     )
   )
 
