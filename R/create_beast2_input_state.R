@@ -76,7 +76,7 @@ create_beast2_input_state <- function(
       inference_model = inference_model
     )
   )
-  text <- c(text, beautier::tree_priors_to_xml_state(tree_priors))
+  text <- c(text, beautier::tree_prior_to_xml_state(inference_model$tree_prior))
   text <- c(
     text,
     beautier::mrca_priors_to_xml_state(
