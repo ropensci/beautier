@@ -43,7 +43,6 @@ create_beast2_input_distr <- function(
   clock_models <- list(inference_model$clock_model)
   tree_priors <- list(inference_model$tree_prior)
   mrca_priors <- list(inference_model$mrca_prior)
-  fixed_crown_ages <- FALSE
   tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(beautier::are_site_models(site_models))
