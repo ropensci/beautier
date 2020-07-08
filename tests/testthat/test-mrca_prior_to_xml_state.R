@@ -1,3 +1,11 @@
+test_that("use, no MRCA prior", {
+  created <- mrca_prior_to_xml_state(
+    mrca_prior = NA,
+    has_non_strict_clock_model = "irrelevant"
+  )
+  expected <- NULL # Indeed, nothing
+  expect_equal(created, expected)
+})
 test_that("use, no non-strict clock model", {
   created <- mrca_prior_to_xml_state(
     mrca_prior = create_mrca_prior(),

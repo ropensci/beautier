@@ -79,10 +79,10 @@ create_beast2_input_state <- function(
   text <- c(text, beautier::tree_prior_to_xml_state(inference_model$tree_prior))
   text <- c(
     text,
-    beautier::mrca_priors_to_xml_state(
-      mrca_priors,
-      has_non_strict_clock_model = beautier::get_has_non_strict_clock_model(
-        clock_models
+    beautier::mrca_prior_to_xml_state(
+      mrca_prior = inference_model$mrca_prior,
+      has_non_strict_clock_model = !beautier::is_strict_clock_model(
+        inference_model$clock_model
       )
     )
   )
