@@ -34,7 +34,7 @@ test_that("use, JC69, v2.4, GCC = 1", {
     inference_model = inference_model
   )
   expected <- c(
-    "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\" gammaCategoryCount=\"1\">",
+    "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\" gammaCategoryCount=\"1\">", # nolint long line indeed
     "    <parameter id=\"mutationRate.s:test_output_0\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint long line indeed
     "    <parameter id=\"gammaShape.s:test_output_0\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint long line indeed
     "    <parameter id=\"proportionInvariant.s:test_output_0\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint long line indeed
@@ -61,7 +61,7 @@ test_that("use, JC69, v2.4, GCC = 2", {
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\" gammaCategoryCount=\"2\" shape=\"@gammaShape.s:test_output_0\">", # nolint long line indeed
     "    <parameter id=\"mutationRate.s:test_output_0\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint long line indeed
     "    <parameter id=\"proportionInvariant.s:test_output_0\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint long line indeed
-    "    <substModel id=\"JC69.s:test_output_0\" spec=\"JukesCantor\"/>",
+    "    <substModel id=\"JC69.s:test_output_0\" spec=\"JukesCantor\"/>", # nolint long line indeed
     "</siteModel>"
   )
   expect_equal(created, expected)
