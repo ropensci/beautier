@@ -56,33 +56,43 @@ create_site_model_xml <- function(
   }
   site_model_begin_tag <- paste0(site_model_begin_tag, ">")
 
-  text <- site_model_begin_tag
 
-
-  text <- c(text, paste0("    <parameter ",
+  mutation_rate_parameter <- paste0(
+    "<parameter ",
     "id=\"mutationRate.s:", id,
-    "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
-  if (gcc < 2) {
-    text <- c(text, paste0("    <parameter ",
-      "id=\"gammaShape.s:", id,
-      "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
-  }
+    "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"
+  )
 
-  # proportionInvariant
-  text <- c(text, paste0(
-    "    <parameter id=\"proportionInvariant.s:",
+  gamma_shape_parameter <- NULL
+  if (gcc < 2) {
+    gamma_shape_parameter <- paste0(
+      "<parameter ",
+      "id=\"gammaShape.s:", id,
+      "\" estimate=\"false\" name=\"shape\">1.0</parameter>"
+    )
+  }
+  proportion_invariant_parameter <- paste0(
+    "<parameter id=\"proportionInvariant.s:",
     id, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">",
     inference_model$site_model$gamma_site_model$prop_invariant,
-    "</parameter>"))
-
-  text <- c(text,
-    beautier::indent(
-      beautier::create_subst_model_xml(inference_model)
-    )
+    "</parameter>"
   )
+  subst_model_xml <- beautier::create_subst_model_xml(inference_model)
+  site_model_end_tag <- "</siteModel>"
 
-  text <- c(text, "</siteModel>")
-
-  text
+  # Layout of the text
+  text <- c(
+    site_model_begin_tag,
+    paste0("    ", mutation_rate_parameter)
+  )
+  if (!is.null(gamma_shape_parameter)) {
+    text <- c(text, paste0("    ", gamma_shape_parameter))
+  }
+  text <- c(
+    text,
+    paste0("    ", proportion_invariant_parameter),
+    beautier::indent(subst_model_xml),
+    site_model_end_tag
+  )
 }
