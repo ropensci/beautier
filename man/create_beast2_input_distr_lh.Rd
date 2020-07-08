@@ -6,13 +6,22 @@
 of a BEAST2 XML parameter file}
 \usage{
 create_beast2_input_distr_lh(
-  site_models,
-  clock_models,
-  mrca_priors = NA,
-  tipdates_filename = NA
+  inference_model,
+  site_models = "deprecated",
+  clock_models = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 )
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{site_models}{one or more site models,
 as returned by \code{\link{create_site_model}}}
 

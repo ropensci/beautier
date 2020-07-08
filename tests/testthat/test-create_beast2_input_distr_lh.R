@@ -1,5 +1,3 @@
-context("create_beast2_input_distr_lh")
-
 test_that("strict", {
 
   expected <- c(
@@ -17,18 +15,16 @@ test_that("strict", {
     "    </distribution>",
     "</distribution>"
   )
-
-  created <- create_beast2_input_distr_lh(
-    site_models = list(
-      create_jc69_site_model(id = "test_output_0")
-    ),
-    clock_models = list(
-      create_strict_clock_model(id = "test_output_0")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_inference_model(
+      beauti_options = create_beauti_options_v2_4()
     )
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
-  testthat::expect_true(is_xml(created))
-  testthat::expect_true(is_xml(expected))
+  created <- create_beast2_input_distr_lh(
+    inference_model = inference_model
+  )
+  expect_equal(created, expected)
 })
 
 
@@ -52,13 +48,10 @@ test_that("RLN", {
     "    </distribution>",
     "</distribution>"
   )
-  created <- create_beast2_input_distr_lh(
-    site_models = list(
-      create_jc69_site_model(id = "test_output_0")
-    ),
-    clock_models = list(
-      create_rln_clock_model(
-        id = "test_output_0",
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_inference_model(
+      clock_model = create_rln_clock_model(
         ucldstdev_distr = create_gamma_distr(
           id = 0,
           alpha = create_alpha_param(id = 2, value = "0.5396"),
@@ -66,8 +59,44 @@ test_that("RLN", {
         ),
         mean_rate_prior_distr = create_uniform_distr(id = 1),
         mparam_id = 1
-      )
+      ),
+      beauti_options = create_beauti_options_v2_4()
     )
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
+  created <- create_beast2_input_distr_lh(
+    inference_model = inference_model
+  )
+  expect_equal(created, expected)
+})
+
+test_that("deprecation", {
+
+  expect_error(
+    create_beast2_input_distr_lh(
+      site_models = "something",
+      inference_model = "irrelevant"
+    ),
+    "'site_models' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_lh(
+      clock_models = "something",
+      inference_model = "irrelevant"
+    ),
+    "'clock_models' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_lh(
+      mrca_priors = "something",
+      inference_model = "irrelevant"
+    ),
+    "'mrca_priors' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_lh(
+      tipdates_filename = "something",
+      inference_model = "irrelevant"
+    ),
+    "'tipdates_filename' is deprecated, use 'inference_model' instead"
+  )
 })

@@ -73,12 +73,8 @@ create_beast2_input_run <- function(
   text <- c(text, "")
 
   text <- c(text,
-    create_beast2_input_distr(
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+    beautier::create_beast2_input_distr(
+      inference_model = inference_model
     )
   )
 

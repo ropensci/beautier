@@ -7,7 +7,7 @@ test_that("use, JC69, v2.4", {
     )
   )
   created <- site_model_to_xml_lh_distr(
-    site_model = inference_model$site_model
+    inference_model = inference_model
   )
   expected <- c(
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
@@ -30,7 +30,7 @@ test_that("use, JC69, v2.6", {
     )
   )
   created <- site_model_to_xml_lh_distr(
-    site_model = inference_model$site_model
+    inference_model = inference_model
   )
   expected <- c(
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
@@ -57,7 +57,7 @@ test_that("use, HKY", {
     )
   )
   created <- site_model_to_xml_lh_distr(
-    site_model = inference_model$site_model
+    inference_model = inference_model
   )
   expected <- c(
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
@@ -81,7 +81,7 @@ test_that("use, TN93", {
     )
   )
   created <- site_model_to_xml_lh_distr(
-    site_model = inference_model$site_model
+    inference_model = inference_model
   )
   expected <- c(
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
@@ -105,7 +105,7 @@ test_that("use, GTR", {
     )
   )
   created <- site_model_to_xml_lh_distr(
-    site_model = inference_model$site_model
+    inference_model = inference_model
   )
   expected <- c(
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
@@ -119,4 +119,14 @@ test_that("use, GTR", {
     "</siteModel>"
   )
   expect_equal(created, expected)
+})
+
+test_that("deprecation", {
+  expect_error(
+    site_model_to_xml_lh_distr(
+      site_model = "something",
+      inference_model = "irrelevant"
+    ),
+    "'site_model' is deprecated, use 'inference_model' instead"
+  )
 })

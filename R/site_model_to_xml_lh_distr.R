@@ -26,8 +26,15 @@
 #'  # </distribution>
 #' @export
 site_model_to_xml_lh_distr <- function(
-  site_model
+  inference_model,
+  site_model = "deprecated"
 ) {
+  if (site_model != "deprecated") {
+    stop("'site_model' is deprecated, use 'inference_model' instead")
+  }
+  # Do not be smart yet
+  site_model <- inference_model$site_model
+
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
   testit::assert(beautier::is_id(id))
