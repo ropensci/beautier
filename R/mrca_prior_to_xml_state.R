@@ -7,11 +7,13 @@
 #' library(testthat)
 #'
 #' created <- mrca_prior_to_xml_state(
-#'  mrca_prior = create_mrca_prior(
-#'     alignment_id = "test_output_0",
-#'     mrca_distr = create_normal_distr(id = 42)
-#'   ),
-#'   has_non_strict_clock_model = FALSE
+#'   inference_model = create_inference_model(
+#'     mrca_prior = create_mrca_prior(
+#'       alignment_id = "test_output_0",
+#'       mrca_distr = create_normal_distr(id = 42)
+#'     ),
+#'     clock_model = create_strict_clock_model()
+#'   )
 #' )
 #' expect_match(created, "<parameter id=\"clockRate.c:")
 #' @export
