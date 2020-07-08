@@ -4,6 +4,8 @@
 #' @return the tree prior as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' library(testthat)
+#'
 #' created <- mrca_prior_to_xml_state(
 #'  mrca_prior = create_mrca_prior(
 #'     alignment_id = "test_output_0",

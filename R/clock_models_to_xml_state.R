@@ -11,16 +11,11 @@ clock_models_to_xml_state <- function(
   mrca_priors = "deprecated",
   has_tip_dating = "deprecated"
 ) {
-
-  if (clock_models != "deprecated") {
-    stop("'clock_models' is deprecated, use 'inference_model' instead")
-  }
-  if (mrca_priors != "deprecated") {
-    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
-  }
-  if (has_tip_dating != "deprecated") {
-    stop("'has_tip_dating' is deprecated, use 'inference_model' instead")
-  }
+  beautier::clock_models_to_xml_state_check_deprecated( # nolint indeed a long function name
+    clock_models = clock_models,
+    mrca_priors = mrca_priors,
+    has_tip_dating = has_tip_dating
+  )
 
   # Do not be smart yet
   clock_models <- list(inference_model$clock_model)
@@ -62,4 +57,31 @@ clock_models_to_xml_state <- function(
     ]
   }
   text
+}
+
+
+#' Internal function to check if \link{clock_models_to_xml_state}
+#' uses deprecated arguments.
+#'
+#' This internal function checks if \link{clock_models_to_xml_state}
+#' uses deprecated arguments.
+#' Will \link{stop} if this is the case
+#' @inheritParams default_params_doc
+#' @return Nothing
+#' @author Richèl J.C. Bilderbeek
+#' @export
+clock_models_to_xml_state_check_deprecated <- function( # nolint indeed a long function name
+  clock_models,
+  mrca_priors,
+  has_tip_dating
+) {
+  if (clock_models != "deprecated") {
+    stop("'clock_models' is deprecated, use 'inference_model' instead")
+  }
+  if (mrca_priors != "deprecated") {
+    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (has_tip_dating != "deprecated") {
+    stop("'has_tip_dating' is deprecated, use 'inference_model' instead")
+  }
 }

@@ -21,6 +21,16 @@ the tree prior as XML text
 Creates the XML of an MRCA prior,
   as used in the \code{state} section
 }
+\examples{
+created <- mrca_prior_to_xml_state(
+ mrca_prior = create_mrca_prior(
+    alignment_id = "test_output_0",
+    mrca_distr = create_normal_distr(id = 42)
+  ),
+  has_non_strict_clock_model = FALSE
+)
+expect_match(created, "<parameter id=\"clockRate.c:")
+}
 \author{
 Richèl J.C. Bilderbeek
 }
