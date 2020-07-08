@@ -1,14 +1,27 @@
-#' Converts a site model to XML,
-#'   used in the \code{siteModel} section
+#' Creates the XML text for the \code{siteModel} tag
+#' of a BEAST2 parameter file.
+#'
+#' Creates the XML text for the \code{siteModel} tag of
+#' a BEAST2 parameter file,
+#' which is part of the \code{distribution} node for the
+#' \code{treeLikelihood} ID.
+#'
+#' The \code{siteModel} tag has these elements:
+#'
+#' \preformatted{
+#'   <siteModel[...]>
+#'       [parameters]
+#'   </siteModel>
+#' }
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  # <distribution id="posterior" spec="util.CompoundDistribution">
-#'  #     <distribution id="prior" spec="util.CompoundDistribution">
-#'  #     </distribution>
-#'  #     <distribution id="likelihood" ...>
-#'  #       HERE, where the ID of the distribution is 'likelihood'
+#'  # <distribution id="posterior"[...]">
+#'  #     <distribution id="likelihood" [...]>
+#'  #       <siteModel...>
+#'  #         [parameters]
+#'  #       </siteModel>
 #'  #     </distribution>
 #'  # </distribution>
 #' @export

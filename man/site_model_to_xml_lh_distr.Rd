@@ -2,8 +2,8 @@
 % Please edit documentation in R/site_model_to_xml_lh_distr.R
 \name{site_model_to_xml_lh_distr}
 \alias{site_model_to_xml_lh_distr}
-\title{Converts a site model to XML,
-  used in the \code{siteModel} section}
+\title{Creates the XML text for the \code{siteModel} tag
+of a BEAST2 parameter file.}
 \usage{
 site_model_to_xml_lh_distr(site_model)
 }
@@ -15,15 +15,26 @@ as returned by \code{\link{create_site_model}}}
 the site model as XML text
 }
 \description{
-Converts a site model to XML,
-  used in the \code{siteModel} section
+Creates the XML text for the \code{siteModel} tag of
+a BEAST2 parameter file,
+which is part of the \code{distribution} node for the
+\code{treeLikelihood} ID.
+}
+\details{
+The \code{siteModel} tag has these elements:
+
+\preformatted{
+  <siteModel[...]>
+      [parameters]
+  </siteModel>
+}
 }
 \examples{
- # <distribution id="posterior" spec="util.CompoundDistribution">
- #     <distribution id="prior" spec="util.CompoundDistribution">
- #     </distribution>
- #     <distribution id="likelihood" ...>
- #       HERE, where the ID of the distribution is 'likelihood'
+ # <distribution id="posterior"[...]">
+ #     <distribution id="likelihood" [...]>
+ #       <siteModel...>
+ #         [parameters]
+ #       </siteModel>
  #     </distribution>
  # </distribution>
 }
