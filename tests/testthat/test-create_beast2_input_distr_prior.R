@@ -17,6 +17,9 @@ test_that("RLN", {
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
+      tree_prior = create_yule_tree_prior(
+        birth_rate_distr = create_uniform_distr(id = 1)
+      ),
       clock_model = create_rln_clock_model(
         ucldstdev_distr = create_gamma_distr(
           alpha = create_alpha_param(id = 2, value = "0.5396"),
@@ -28,9 +31,7 @@ test_that("RLN", {
     )
   )
   created <- create_beast2_input_distr_prior(
-    site_models = list(inference_model$site_model),
-    clock_models = list(inference_model$clock_model),
-    tree_priors = list(inference_model$tree_prior)
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -51,9 +52,46 @@ test_that("Yule", {
   )
 
   created <- create_beast2_input_distr_prior(
-    site_models = list(inference_model$site_model),
-    clock_models = list(inference_model$clock_model),
-    tree_priors = list(inference_model$tree_prior)
+    inference_model = inference_model
   )
   expect_equal(created, expected)
+})
+
+test_that("deprecation", {
+
+  expect_error(
+    create_beast2_input_distr_prior(
+      site_models = "something",
+      inference_model = "irrelevant"
+    ),
+    "'site_models' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_prior(
+      clock_models = "something",
+      inference_model = "irrelevant"
+    ),
+    "'clock_models' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_prior(
+      tree_priors = "something",
+      inference_model = "irrelevant"
+    ),
+    "'tree_priors' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_prior(
+      mrca_priors = "something",
+      inference_model = "irrelevant"
+    ),
+    "'mrca_priors' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_distr_prior(
+      tipdates_filename = "something",
+      inference_model = "irrelevant"
+    ),
+    "'tipdates_filename' is deprecated, use 'inference_model' instead"
+  )
 })

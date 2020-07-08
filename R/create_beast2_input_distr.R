@@ -38,30 +38,13 @@ create_beast2_input_distr <- function(
     stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
   }
 
-  # Do not be smart yet
-  site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
-  tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
-
-  testit::assert(beautier::are_site_models(site_models))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(beautier::are_tree_priors(tree_priors))
-  testit::assert(beautier::are_init_tree_priors(tree_priors))
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
-
   text <- NULL
 
   # prior
   text <- c(
     text,
     create_beast2_input_distr_prior(
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+      inference_model = inference_model
     )
   )
 
@@ -101,12 +84,36 @@ create_beast2_input_distr <- function(
 #'  # </distribution>
 #' @export
 create_beast2_input_distr_prior <- function( # nolint indeed long function name
-  site_models,
-  clock_models,
-  tree_priors,
-  mrca_priors = NA,
-  tipdates_filename = NA
+  inference_model,
+  site_models = "deprecated",
+  clock_models = "deprecated",
+  tree_priors = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 ) {
+  if (site_models != "deprecated") {
+    stop("'site_models' is deprecated, use 'inference_model' instead")
+  }
+  if (clock_models != "deprecated") {
+    stop("'clock_models' is deprecated, use 'inference_model' instead")
+  }
+  if (tree_priors != "deprecated") {
+    stop("'tree_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (mrca_priors != "deprecated") {
+    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (tipdates_filename != "deprecated") {
+    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
+  }
+
+  # Do not be smart yet
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  tipdates_filename <- inference_model$tipdates_filename
+
   text <- NULL
   text <- c(text, beautier::tree_priors_to_xml_prior_distr(tree_priors))
   text <- c(text, beautier::gamma_site_models_to_xml_prior_distr(site_models))
