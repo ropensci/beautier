@@ -29,6 +29,7 @@ are_equivalent_xml_files <- function(
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
+#' @export
 are_equivalent_xml_lines <- function(
   lines_1,
   lines_2,
