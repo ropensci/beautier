@@ -5,7 +5,7 @@
 \title{Converts one or more tree priors to the \code{state} section of the
 XML as text}
 \usage{
-tree_priors_to_xml_state(tree_priors)
+tree_priors_to_xml_state(tree_priors = "deprecated")
 }
 \arguments{
 \item{tree_priors}{one or more tree priors,

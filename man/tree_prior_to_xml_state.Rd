@@ -5,9 +5,17 @@
 \title{Creates the XML of a tree prior,
   as used in the \code{state} section}
 \usage{
-tree_prior_to_xml_state(tree_prior)
+tree_prior_to_xml_state(inference_model, tree_prior = "deprecated")
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{tree_prior}{a tree priors,
 as returned by \code{\link{create_tree_prior}}}
 }

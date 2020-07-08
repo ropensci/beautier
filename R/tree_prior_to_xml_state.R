@@ -5,8 +5,15 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tree_prior_to_xml_state <- function(
-  tree_prior
+  inference_model,
+  tree_prior = "deprecated"
 ) {
+  if (tree_prior != "deprecated") {
+    stop("'tree_prior' is deprecated, use 'inference_model' instead")
+  }
+  # Do not be smart yet
+  tree_prior <- inference_model$tree_prior
+
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
   testit::assert(beautier::is_id(id))
@@ -39,8 +46,18 @@ tree_prior_to_xml_state <- function(
       "name=\"stateNode\">3.0E-4</parameter>"))
   } else {
     testit::assert(beautier::is_yule_tree_prior(tree_prior))
-      text <- c(text, paste0("<parameter ", "id=\"birthRate.t:", id, "\" ",
-        "name=\"stateNode\">1.0</parameter>"))
+    parameter_xml <- paste0(
+      "<parameter ", "id=\"birthRate.t:", id, "\" "
+    )
+    if (inference_model$beauti_options$beast2_version == "2.6") {
+      parameter_xml <- paste0(
+        parameter_xml, "spec=\"parameter.RealParameter\" "
+      )
+    }
+    parameter_xml <- paste0(
+      parameter_xml, "name=\"stateNode\">1.0</parameter>"
+    )
+    text <- parameter_xml
   }
   text
 }

@@ -6,16 +6,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tree_priors_to_xml_state <- function(
-  tree_priors
+  tree_priors = "deprecated"
 ) {
-  testit::assert(beautier::are_tree_priors(tree_priors))
-
-  text <- NULL
-  for (tree_prior in tree_priors) {
-    text <- c(text,
-      tree_prior_to_xml_state(tree_prior)
-    )
-  }
-
-  text
+  stop(
+    "'tree_priors_to_xml_state' is deprecated, as",
+    "only one tree prior is supported. ",
+    "Use the (singular) 'tree_prior_to_xml_state' instead"
+  )
 }
