@@ -5,9 +5,21 @@
 \title{Converts one or more MRCA priors to the \code{state} section of the
 XML as text}
 \usage{
-mrca_priors_to_xml_state(mrca_priors, has_non_strict_clock_model = FALSE)
+mrca_priors_to_xml_state(
+  inference_model,
+  mrca_priors = "deprecated",
+  has_non_strict_clock_model = "deprecated"
+)
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
 

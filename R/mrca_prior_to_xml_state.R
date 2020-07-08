@@ -16,9 +16,26 @@
 #' expect_match(created, "<parameter id=\"clockRate.c:")
 #' @export
 mrca_prior_to_xml_state <- function(
-  mrca_prior,
-  has_non_strict_clock_model = FALSE
+  inference_model,
+  mrca_prior = "deprecated",
+  has_non_strict_clock_model = "deprecated"
 ) {
+  if (mrca_prior != "deprecated") {
+    stop("'mrca_prior' is deprecated, use 'inference_model' instead")
+  }
+  if (has_non_strict_clock_model != "deprecated") {
+    stop(
+      "'has_non_strict_clock_model' is deprecated, ",
+      "use 'inference_model' instead"
+    )
+  }
+
+  # Do not be smart yet
+  mrca_prior <- inference_model$mrca_prior
+  has_non_strict_clock_model <- !beautier::is_strict_clock_model(
+    inference_model$clock_model
+  )
+
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   if (beautier::is_one_na(mrca_prior)) {
     return(NULL)

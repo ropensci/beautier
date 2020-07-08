@@ -6,10 +6,26 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_priors_to_xml_state <- function(
-  mrca_priors,
-  has_non_strict_clock_model = FALSE
+  inference_model,
+  mrca_priors = "deprecated",
+  has_non_strict_clock_model = "deprecated"
 ) {
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
+  if (mrca_priors != "deprecated") {
+    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (has_non_strict_clock_model != "deprecated") {
+    stop(
+      "'has_non_strict_clock_model' is deprecated, ",
+      "use 'inference_model' instead"
+    )
+  }
+
+  # Do not be smart yet
+  mrca_priors <- list(inference_model$mrca_prior)
+  has_non_strict_clock_model <- get_has_non_strict_clock_model(
+    list(inference_model$clock_model)
+  )
+
   if (length(mrca_priors) == 1 && beautier::is_one_na(mrca_priors)) {
     return(NULL)
   }
