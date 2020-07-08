@@ -82,11 +82,11 @@ test_that("use, JC69, v2.6", {
   expected <- c(
     "<siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
     "                        ",
-    "    <parameter id=\"mutationRate.s:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>",
+    "    <parameter id=\"mutationRate.s:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint long line indeed
     "                        ",
-    "    <parameter id=\"gammaShape.s:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" name=\"shape\">1.0</parameter>",
+    "    <parameter id=\"gammaShape.s:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint long line indeed
     "                        ",
-    "    <parameter id=\"proportionInvariant.s:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>",
+    "    <parameter id=\"proportionInvariant.s:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint long line indeed
     "                        ",
     "    <substModel id=\"JC69.s:test_output_0\" spec=\"JukesCantor\"/>",
     "                    ",
