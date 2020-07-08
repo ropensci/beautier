@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_site_model_xml.R
 \name{create_site_model_xml}
 \alias{create_site_model_xml}
-\title{Creates the XML text for the \code{siteModel} tag
+\title{Internal function to creates the XML text for the \code{siteModel} tag
 of a BEAST2 parameter file.}
 \usage{
 create_site_model_xml(inference_model)

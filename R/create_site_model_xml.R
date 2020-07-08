@@ -1,4 +1,4 @@
-#' Creates the XML text for the \code{siteModel} tag
+#' Internal function to creates the XML text for the \code{siteModel} tag
 #' of a BEAST2 parameter file.
 #'
 #' Creates the XML text for the \code{siteModel} tag of
@@ -28,28 +28,25 @@
 create_site_model_xml <- function(
   inference_model
 ) {
-  # Do not be smart yet
-  site_model <- inference_model$site_model
-
-  testit::assert(beautier::is_site_model(site_model))
-  id <- site_model$id
+  id <- inference_model$site_model$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
 
-  gamma_category_count <- site_model$gamma_site_model$gamma_cat_count
-  if (gamma_category_count == 0) {
+  # gcc: gamma category count
+  gcc <- inference_model$site_model$gamma_site_model$gamma_cat_count
+  if (gcc == 0) {
     text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
       id, "\" spec=\"SiteModel\">")
     )
-  } else if (gamma_category_count == 1) {
+  } else if (gcc == 1) {
     text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
+      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gcc,
       "\">")
     )
   } else {
     text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
+      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gcc,
       "\" shape=\"@gammaShape.s:", id, "\">")
     )
   }
@@ -57,7 +54,7 @@ create_site_model_xml <- function(
   text <- c(text, paste0("    <parameter ",
     "id=\"mutationRate.s:", id,
     "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
-  if (gamma_category_count < 2) {
+  if (gcc < 2) {
     text <- c(text, paste0("    <parameter ",
       "id=\"gammaShape.s:", id,
       "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
@@ -68,12 +65,12 @@ create_site_model_xml <- function(
     "    <parameter id=\"proportionInvariant.s:",
     id, "\" estimate=\"false\" lower=\"0.0\" ",
     "name=\"proportionInvariant\" upper=\"1.0\">",
-    site_model$gamma_site_model$prop_invariant,
+    inference_model$site_model$gamma_site_model$prop_invariant,
     "</parameter>"))
 
   text <- c(text,
     beautier::indent(
-      site_model_to_xml_subst_model(site_model)
+      site_model_to_xml_subst_model(inference_model$site_model)
     )
   )
 
