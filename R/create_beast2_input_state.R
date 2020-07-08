@@ -70,13 +70,10 @@ create_beast2_input_state <- function(
     beautier::site_model_to_xml_state(inference_model$site_model)
   )
 
-  has_tip_dating <- !beautier::is_one_na(inference_model$tipdates_filename)
   text <- c(
     text,
     beautier::clock_models_to_xml_state(
-      clock_models = clock_models,
-      mrca_priors = mrca_priors,
-      has_tip_dating = has_tip_dating
+      inference_model = inference_model
     )
   )
   text <- c(text, beautier::tree_priors_to_xml_state(tree_priors))
