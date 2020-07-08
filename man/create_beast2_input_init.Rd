@@ -4,9 +4,13 @@
 \alias{create_beast2_input_init}
 \title{Creates the \code{init} section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_init(ids)
+create_beast2_input_init(id, ids = "deprecated")
 }
 \arguments{
+\item{id}{an alignment's IDs.
+An ID can be extracted from its FASTA filename
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
+
 \item{ids}{one or more alignments' IDs.
 IDs can be extracted from their FASTA filenames
 with \code{\link{get_alignment_ids_from_fasta_filenames}})}

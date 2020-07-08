@@ -2,7 +2,7 @@
 % Please edit documentation in R/mrca_prior_to_xml_state.R
 \name{mrca_prior_to_xml_state}
 \alias{mrca_prior_to_xml_state}
-\title{Creates the XML of an MRCA prior,
+\title{Internal function to create the XML of an MRCA prior,
   as used in the \code{state} section}
 \usage{
 mrca_prior_to_xml_state(
@@ -30,7 +30,7 @@ already at least one non-strict (i.e. relaxed log-normal) clock model}
 the tree prior as XML text
 }
 \description{
-Creates the XML of an MRCA prior,
+Internal function to create the XML of an MRCA prior,
   as used in the \code{state} section
 }
 \examples{

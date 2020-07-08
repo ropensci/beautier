@@ -1,4 +1,4 @@
-#' Creates the XML of an MRCA prior,
+#' Internal function to create the XML of an MRCA prior,
 #'   as used in the \code{state} section
 #' @inheritParams default_params_doc
 #' @return the tree prior as XML text
@@ -37,8 +37,6 @@ mrca_prior_to_xml_state <- function(
   has_non_strict_clock_model <- !beautier::is_strict_clock_model(
     inference_model$clock_model
   )
-
-  testit::assert(beautier::is_mrca_prior(mrca_prior))
   if (beautier::is_one_na(mrca_prior)) {
     return(NULL)
   }

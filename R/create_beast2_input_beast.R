@@ -47,6 +47,7 @@ create_beast2_input_beast <- function(
     text <- c(text, "        ")
   }
 
+  # The <data ...> tag
   text <- c(text,
     beautier::create_beast2_input_data(
       input_filename = input_filename,
@@ -70,6 +71,7 @@ create_beast2_input_beast <- function(
     text <- c(text, "    ")
   }
 
+  # The [map_names] section
   xml_maps <- beautier::create_beast2_input_map(
     beauti_options = inference_model$beauti_options
   )
@@ -85,6 +87,7 @@ create_beast2_input_beast <- function(
     text <- c(text, "")
   }
 
+  # The <run...> tag
   xml_run <- beautier::create_beast2_input_run(
     input_filename = input_filename,
     inference_model = inference_model

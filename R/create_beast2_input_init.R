@@ -4,8 +4,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_init <- function(
-  ids
+  id,
+  ids = "deprecated"
 ) {
+  if (ids != "deprecated") {
+    stop("'ids' is deprecated, use 'id' instead")
+  }
+  ids <- id
   testit::assert(length(ids) == 1)
   testit::assert(beautier::are_ids(ids))
 

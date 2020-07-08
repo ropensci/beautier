@@ -41,8 +41,8 @@ create_beast2_input_run <- function(
 ) {
   testthat::expect_equal(length(input_filename), 1)
 
-  # Alignment IDs
-  ids <- beautier::get_alignment_id(
+  # Alignment ID
+  id <- beautier::get_alignment_id(
     input_filename,
     capitalize_first_char_id =
       inference_model$beauti_options$capitalize_first_char_id
@@ -53,12 +53,11 @@ create_beast2_input_run <- function(
   clock_models <- list(inference_model$clock_model)
   tree_priors <- list(inference_model$tree_prior)
   mrca_priors <- list(inference_model$mrca_prior)
-  mcmc <- inference_model$mcmc
   fixed_crown_ages <- FALSE
   tipdates_filename <- inference_model$tipdates_filename
 
   # Create the '<run...' starting tag
-  text <- beautier::mcmc_to_xml_run(mcmc)
+  text <- beautier::mcmc_to_xml_run(inference_model$mcmc)
   if (inference_model$beauti_options$beast2_version == "2.6") {
     text <- c(text, "        ")
   }
@@ -74,7 +73,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_init(
-      ids = ids
+      id = id
     )
   )
 
@@ -116,13 +115,5 @@ create_beast2_input_run <- function(
 
   text <- c(text, "")
   text <- c(text, "</run>")
-
-  if (inference_model$beauti_options$beast2_version == "2.6" && 1 == 2) {
-    # Insert spaces at even indices, even if there is a space
-    text <- text[text != ""]
-    text <- rep(text, each = 2)
-    text[seq(2, length(text), by = 2)] <- ""
-  }
-
   text
 }
