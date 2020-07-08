@@ -137,4 +137,3 @@ test_that("use, GTR", {
   )
   expect_equal(created, expected)
 })
-

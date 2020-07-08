@@ -2,7 +2,8 @@
 % Please edit documentation in R/create_site_model_parameters_xml.R
 \name{create_site_model_parameters_xml}
 \alias{create_site_model_parameters_xml}
-\title{Internal function to creates the XML text for the \code{siteModel} tag
+\title{Internal function to creates the XML text for the
+\code{parameter}s within the \code{siteModel} section
 of a BEAST2 parameter file.}
 \usage{
 create_site_model_parameters_xml(inference_model)
@@ -20,13 +21,13 @@ inference model.}
 the site model as XML text
 }
 \description{
-Creates the XML text for the \code{siteModel} tag of
-a BEAST2 parameter file,
-which is part of the \code{distribution} node for the
-\code{treeLikelihood} ID.
+Internal function to creates the XML text for the
+\code{parameter}s within the \code{siteModel} section,
+which is part of the \code{siteModel} section
+of a BEAST2 parameter file.
 }
 \details{
-The \code{siteModel} tag has these elements:
+The \code{parameter}s sections has these elements:
 
 \preformatted{
    [parameters]
@@ -39,15 +40,6 @@ The \code{siteModel} tag has these elements:
   <parameter id="gammaShape.s[...]>
   <parameter id="proportionInvariant.s[...]>
 }
-}
-\examples{
- # <distribution id="posterior"[...]">
- #     <distribution id="likelihood" [...]>
- #       <siteModel...>
- #         [parameters]
- #       </siteModel>
- #     </distribution>
- # </distribution>
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -1,12 +1,13 @@
-#' Internal function to creates the XML text for the \code{siteModel} tag
+#' Internal function to creates the XML text for the
+#' \code{parameter}s within the \code{siteModel} section
 #' of a BEAST2 parameter file.
 #'
-#' Creates the XML text for the \code{siteModel} tag of
-#' a BEAST2 parameter file,
-#' which is part of the \code{distribution} node for the
-#' \code{treeLikelihood} ID.
+#' Internal function to creates the XML text for the
+#' \code{parameter}s within the \code{siteModel} section,
+#' which is part of the \code{siteModel} section
+#' of a BEAST2 parameter file.
 #'
-#' The \code{siteModel} tag has these elements:
+#' The \code{parameter}s sections has these elements:
 #'
 #' \preformatted{
 #'    [parameters]
@@ -22,16 +23,8 @@
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
-#' @examples
-#'  # <distribution id="posterior"[...]">
-#'  #     <distribution id="likelihood" [...]>
-#'  #       <siteModel...>
-#'  #         [parameters]
-#'  #       </siteModel>
-#'  #     </distribution>
-#'  # </distribution>
 #' @export
-create_site_model_parameters_xml <- function(
+create_site_model_parameters_xml <- function( # nolint long function name, which is fine for an internal function
   inference_model
 ) {
   id <- inference_model$site_model$id
