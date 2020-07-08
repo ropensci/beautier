@@ -61,12 +61,14 @@ create_site_model_xml <- function(
   site_model_begin_tag <- paste0(site_model_begin_tag, ">")
 
 
-  site_model_parameters <- create_site_model_parameters_xml(inference_model)
+  site_model_parameters <- beautier::create_site_model_parameters_xml(
+    inference_model
+  )
   subst_model_xml <- beautier::create_subst_model_xml(inference_model)
   site_model_end_tag <- "</siteModel>"
 
   # Layout of the text
-  text <- c(
+  c(
     site_model_begin_tag,
     beautier::indent(site_model_parameters),
     beautier::indent(subst_model_xml),
