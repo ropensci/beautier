@@ -140,22 +140,52 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 }
 
 
-#' Creates the likelihood section in the distribution section
-#' of a BEAST2 XML parameter file
+
+#' Creates the XML text for the \code{distribution} tag
+#' with the \code{likelihood} ID,
+#' of a BEAST2 parameter file.
+#'
+#' Creates the XML text for the \code{distribution} tag
+#' with the \code{likelihood} ID,
+#' of a BEAST2 parameter file,
+#' in an unindented form
+#'
+#' The \code{distribution} tag (with ID equals \code{likelihood})
+#' has these elements:
+#'
+#' \preformatted{
+#'   <distribution id="likelihood"[...]>
+#'      <distribution id="treeLikelihood"[...]>
+#'         [...]
+#'      </distribution>
+#'       <siteModel[...]>
+#'         [...]
+#'       </siteModel>
+#'       <branchRateModel[...]>
+#'         [...]
+#'       </branchRateModel>
+#'   </distribution>
+#' }
+#'
+#' Zooming out:
+#'
+#' \preformatted{
+#'   <beast[...]>
+#'     <run[...]>
+#'       <distribution id="posterior"[...]>
+#'         <distribution id="likelihood"[...]>
+#'           [this section]
+#'         </distribution>
+#'       </distribution>
+#'     </run>
+#'   </beast>
+#' }
 #' @inheritParams default_params_doc
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richèl J.C. Bilderbeek
 #' @seealso this function is called by \code{create_beast2_input_distr},
 #'   together with \code{create_beast2_input_distr_prior}
-#' @examples
-#'  # <distribution id="posterior" spec="util.CompoundDistribution">
-#'  #     <distribution id="prior" spec="util.CompoundDistribution">
-#'  #     </distribution>
-#'  #     <distribution id="likelihood" ...>
-#'  #       HERE, where the ID of the distribution is 'likelihood'
-#'  #     </distribution>
-#'  # </distribution>
 #' @export
 create_beast2_input_distr_lh <- function(
   inference_model,
@@ -199,7 +229,7 @@ create_beast2_input_distr_lh <- function(
       "\" tree=\"@Tree.t:", id, "\">"))
     text <- c(text,
       beautier::indent(
-        beautier::site_model_to_xml_lh_distr(
+        beautier::create_site_model_xml(
           inference_model = inference_model
         )
       )

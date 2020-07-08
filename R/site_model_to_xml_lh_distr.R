@@ -32,56 +32,9 @@ site_model_to_xml_lh_distr <- function(
   if (site_model != "deprecated") {
     stop("'site_model' is deprecated, use 'inference_model' instead")
   }
-  # Do not be smart yet
-  site_model <- inference_model$site_model
-
-  testit::assert(beautier::is_site_model(site_model))
-  id <- site_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-
-  gamma_category_count <- site_model$gamma_site_model$gamma_cat_count
-  if (gamma_category_count == 0) {
-    text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\">")
-    )
-  } else if (gamma_category_count == 1) {
-    text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
-      "\">")
-    )
-  } else {
-    text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gamma_category_count,
-      "\" shape=\"@gammaShape.s:", id, "\">")
-    )
-  }
-
-  text <- c(text, paste0("    <parameter ",
-    "id=\"mutationRate.s:", id,
-    "\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>"))
-  if (gamma_category_count < 2) {
-    text <- c(text, paste0("    <parameter ",
-      "id=\"gammaShape.s:", id,
-      "\" estimate=\"false\" name=\"shape\">1.0</parameter>"))
-  }
-
-  # proportionInvariant
-  text <- c(text, paste0(
-    "    <parameter id=\"proportionInvariant.s:",
-    id, "\" estimate=\"false\" lower=\"0.0\" ",
-    "name=\"proportionInvariant\" upper=\"1.0\">",
-    site_model$gamma_site_model$prop_invariant,
-    "</parameter>"))
-
-  text <- c(text,
-    beautier::indent(
-      site_model_to_xml_subst_model(site_model)
-    )
+  warning(
+    "Use of 'site_model_to_xml_lh_distr' is deprecated, ",
+    "use 'create_site_model_xml' instead"
   )
-
-  text <- c(text, "</siteModel>")
-
-  text
+  beautier::create_site_model_xml(inference_model)
 }
