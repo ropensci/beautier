@@ -28,17 +28,32 @@ rnd_phylo_to_xml_init <- function(
 
   id <- inference_model$site_model$id
   testit::assert(beautier::is_id(id))
-  text <- NULL
-  text <- c(text, paste0("<init id=\"RandomTree.t:", id,
+
+  init_xml_begin <- paste0("<init id=\"RandomTree.t:", id,
     "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",
     " initial=\"@Tree.t:", id, "\" taxa=\"@", id, "\">"
-  ))
-  text <- c(text, paste0(
-    "    <populationModel id=\"ConstantPopulation0.t:",
-    id, "\" spec=\"ConstantPopulation\">"))
-  text <- c(text, paste0("        <parameter id=\"randomPopSize.t:",
-    id, "\" name=\"popSize\">1.0</parameter>"))
-  text <- c(text, "    </populationModel>")
-  text <- c(text, "</init>")
-  text
+  )
+
+  population_model_xml_begin <- paste0(
+    "<populationModel id=\"ConstantPopulation0.t:",
+    id, "\" spec=\"ConstantPopulation\">"
+  )
+  parameter_xml <- paste0(
+    "<parameter id=\"randomPopSize.t:", id, "\" "
+  )
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    parameter_xml <- paste0(parameter_xml, "spec=\"parameter.RealParameter\" ")
+  }
+  parameter_xml <- paste0(parameter_xml, "name=\"popSize\">1.0</parameter>")
+
+  population_model_xml_end <- "</populationModel>"
+  init_xml_end <- "</init>"
+
+  c(
+    init_xml_begin,
+    paste0("    ", population_model_xml_begin),
+    paste0("        ", parameter_xml),
+    paste0("    ", population_model_xml_end),
+    init_xml_end
+  )
 }
