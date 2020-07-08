@@ -72,8 +72,10 @@ create_beast2_input_run <- function(
   text <- c(text, "")
 
   text <- c(text,
-    beautier::create_beast2_input_distr(
-      inference_model = inference_model
+    beautier::indent(
+      beautier::create_beast2_input_distr(
+        inference_model = inference_model
+      )
     )
   )
 

@@ -61,7 +61,6 @@ create_beast2_input_distr <- function(
     text
   )
   text <- c(text, "</distribution>") # posterior distribution
-  text <- beautier::indent(text)
   text
 }
 
