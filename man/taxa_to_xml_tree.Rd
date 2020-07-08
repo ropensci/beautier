@@ -2,8 +2,7 @@
 % Please edit documentation in R/taxa_to_xml_tree.R
 \name{taxa_to_xml_tree}
 \alias{taxa_to_xml_tree}
-\title{Creates the \code{tree} section (part of the \code{state} section)
-of a phylogeny and/or taxa}
+\title{Creates the '\code{tree}' section of a BEAST2 XML parameter file}
 \usage{
 taxa_to_xml_tree(
   inference_model,
@@ -30,11 +29,22 @@ The first column contains the taxa names, the second column contains
 the date.}
 }
 \value{
-the random phylogeny as XML text
+lines of XML text
 }
 \description{
-Creates the \code{tree} section (part of the \code{state} section)
-of a phylogeny and/or taxa
+Creates the '\code{tree}' section of a BEAST2 XML parameter file,
+which is part of a '\code{state}' section,
+without being indented.
+}
+\details{
+The \code{tree} tag has these elements:
+\preformatted{
+   <tree[...]>
+       <taxonset[...]>
+       [...]
+       </taxonset>
+    </run>
+}
 }
 \author{
 Richèl J.C. Bilderbeek

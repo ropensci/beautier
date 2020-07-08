@@ -6,10 +6,27 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 clock_models_to_xml_state <- function(
-  clock_models,
-  mrca_priors = NA,
-  has_tip_dating = FALSE
+  inference_model,
+  clock_models = "deprecated",
+  mrca_priors = "deprecated",
+  has_tip_dating = "deprecated"
 ) {
+
+  if (clock_models != "deprecated") {
+    stop("'clock_models' is deprecated, use 'inference_model' instead")
+  }
+  if (mrca_priors != "deprecated") {
+    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
+  }
+  if (has_tip_dating != "deprecated") {
+    stop("'has_tip_dating' is deprecated, use 'inference_model' instead")
+  }
+
+  # Do not be smart yet
+  clock_models <- list(inference_model$clock_model)
+  mrca_priors <- list(inference_model$mrca_prior)
+  has_tip_dating <- !beautier::is_one_na(inference_model$tipdates_filename)
+
   # the mrca_priors are supposed to be temporary :-)
   testit::assert(beautier::are_clock_models(clock_models))
 

@@ -1,7 +1,19 @@
-#' Creates the \code{tree} section (part of the \code{state} section)
-#' of a phylogeny and/or taxa
+#' Creates the '\code{tree}' section of a BEAST2 XML parameter file
+#'
+#' Creates the '\code{tree}' section of a BEAST2 XML parameter file,
+#' which is part of a '\code{state}' section,
+#' without being indented.
+#'
+#' The \code{tree} tag has these elements:
+#' \preformatted{
+#'    <tree[...]>
+#'        <taxonset[...]>
+#'        [...]
+#'        </taxonset>
+#'     </run>
+#' }
 #' @inheritParams default_params_doc
-#' @return the random phylogeny as XML text
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
 taxa_to_xml_tree <- function(
@@ -34,9 +46,19 @@ taxa_to_xml_tree <- function(
   }
 }
 
-#' Creates the \code{tree} section
-#' (part of the \code{state} section)
+#' Creates the '\code{tree}' section of a BEAST2 XML parameter file,
+#' which is part of a '\code{state}' section,
+#' without being indented,
 #' when there is no tip-dating
+#'
+#' The \code{tree} tag has these elements:
+#' \preformatted{
+#'    <tree[...]>
+#'        <taxonset[...]>
+#'        [...]
+#'        </taxonset>
+#'     </run>
+#' }
 #' @inheritParams default_params_doc
 #' @return the random phylogeny as XML text
 #' @author Richèl J.C. Bilderbeek
@@ -65,6 +87,7 @@ no_taxa_to_xml_tree <- function(
   text <- c(text, "    </taxonset>")
   text <- c(text, "</tree>")
   if (inference_model$beauti_options$beast2_version == "2.6") {
+    # Add spaces in between
     text <- rep(text, each = 2)
     text[2] <- "                "
     text[4] <- "                        "

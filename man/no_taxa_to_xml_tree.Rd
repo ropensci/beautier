@@ -2,8 +2,9 @@
 % Please edit documentation in R/taxa_to_xml_tree.R
 \name{no_taxa_to_xml_tree}
 \alias{no_taxa_to_xml_tree}
-\title{Creates the \code{tree} section
-(part of the \code{state} section)
+\title{Creates the '\code{tree}' section of a BEAST2 XML parameter file,
+which is part of a '\code{state}' section,
+without being indented,
 when there is no tip-dating}
 \usage{
 no_taxa_to_xml_tree(id, inference_model)
@@ -25,9 +26,14 @@ inference model.}
 the random phylogeny as XML text
 }
 \description{
-Creates the \code{tree} section
-(part of the \code{state} section)
-when there is no tip-dating
+The \code{tree} tag has these elements:
+\preformatted{
+   <tree[...]>
+       <taxonset[...]>
+       [...]
+       </taxonset>
+    </run>
+}
 }
 \author{
 Richèl J.C. Bilderbeek

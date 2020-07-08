@@ -57,7 +57,13 @@ create_beast2_input_run <- function(
   fixed_crown_ages <- FALSE
   tipdates_filename <- inference_model$tipdates_filename
 
+  # Create the '<run...' starting tag
   text <- beautier::mcmc_to_xml_run(mcmc)
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    text <- c(text, "        ")
+  }
+
+  # Create the '<state...' part
   text <- c(text,
     beautier::indent(
       beautier::create_beast2_input_state(
