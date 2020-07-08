@@ -31,25 +31,28 @@ create_site_model_xml <- function(
   id <- inference_model$site_model$id
   testit::assert(beautier::is_id(id))
 
-  text <- NULL
-
   # gcc: gamma category count
   gcc <- inference_model$site_model$gamma_site_model$gamma_cat_count
-  if (gcc == 0) {
-    text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\">")
-    )
-  } else if (gcc == 1) {
-    text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gcc,
-      "\">")
-    )
-  } else {
-    text <- c(text, paste0("<siteModel id=\"SiteModel.s:",
-      id, "\" spec=\"SiteModel\" gammaCategoryCount=\"", gcc,
-      "\" shape=\"@gammaShape.s:", id, "\">")
+
+  site_model_begin_tag <- paste0(
+    "<siteModel id=\"SiteModel.s:", id, "\" spec=\"SiteModel\""
+  )
+  if (gcc >= 1) {
+    site_model_begin_tag <- paste0(
+      site_model_begin_tag,
+      " gammaCategoryCount=\"", gcc, "\""
     )
   }
+  if (gcc >= 2) {
+    site_model_begin_tag <- paste0(
+      site_model_begin_tag,
+      " shape=\"@gammaShape.s:", id, "\""
+    )
+  }
+  site_model_begin_tag <- paste0(site_model_begin_tag, ">")
+
+  text <- site_model_begin_tag
+
 
   text <- c(text, paste0("    <parameter ",
     "id=\"mutationRate.s:", id,
