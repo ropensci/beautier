@@ -4,13 +4,18 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_init <- function(
-  id,
+  inference_model,
+  id = "deprecated",
   ids = "deprecated"
 ) {
-  if (ids != "deprecated") {
-    stop("'ids' is deprecated, use 'id' instead")
+  if (id != "deprecated") {
+    stop("'id' is deprecated, use 'inference_model' instead")
   }
-  ids <- id
+  if (ids != "deprecated") {
+    stop("'ids' is deprecated, use 'inference_model' instead")
+  }
+  # Do not be smart yet
+  ids <- inference_model$site_model$id
   testit::assert(length(ids) == 1)
   testit::assert(beautier::are_ids(ids))
 
@@ -34,7 +39,7 @@ create_beast2_input_init <- function(
     text <- c(text, "")
     text <- c(
       text,
-      beautier::indent(rnd_phylo_to_xml_init(id))
+      beautier::indent(rnd_phylo_to_xml_init(inference_model))
     )
   }
   text

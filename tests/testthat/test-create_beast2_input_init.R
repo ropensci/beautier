@@ -1,7 +1,11 @@
 test_that("use", {
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model()
+  )
 
   created <- create_beast2_input_init(
-    id = "test_output_0"
+    inference_model = inference_model
   )
   expected <- c(
     "",
@@ -27,9 +31,16 @@ test_that("deprecation", {
 
   expect_error(
     create_beast2_input_init(
-      id = "irrelevant",
-      ids = "something"
+      id = "something",
+      inference_model = "irrelevant"
     ),
-    "'ids' is deprecated, use 'id' instead"
+    "'id' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    create_beast2_input_init(
+      ids = "something",
+      inference_model = "irrelevant"
+    ),
+    "'ids' is deprecated, use 'inference_model' instead"
   )
 })

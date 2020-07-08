@@ -41,13 +41,6 @@ create_beast2_input_run <- function(
 ) {
   testthat::expect_equal(length(input_filename), 1)
 
-  # Alignment ID
-  id <- beautier::get_alignment_id(
-    input_filename,
-    capitalize_first_char_id =
-      inference_model$beauti_options$capitalize_first_char_id
-  )
-
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
   clock_models <- list(inference_model$clock_model)
@@ -73,7 +66,7 @@ create_beast2_input_run <- function(
 
   text <- c(text,
     create_beast2_input_init(
-      id = id
+      inference_model = inference_model
     )
   )
 

@@ -5,9 +5,17 @@
 \title{Creates the XML of a random phylogeny,
   as used in the \code{init} section}
 \usage{
-rnd_phylo_to_xml_init(id)
+rnd_phylo_to_xml_init(inference_model, id = "deprecated")
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{id}{an alignment's IDs.
 An ID can be extracted from its FASTA filename
 with \code{\link{get_alignment_ids_from_fasta_filenames}})}
@@ -16,8 +24,20 @@ with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 the phylogeny as XML text
 }
 \description{
-Creates the XML of a random phylogeny,
-  as used in the \code{init} section
+Creates the XML text for the \code{beast} tag of a BEAST2 parameter file,
+which is directly after the XML
+declaration (created by \link{create_xml_declaration}.
+}
+\details{
+The \code{init} tag has these elements:
+
+\preformatted{
+  <init id=\"RandomTree.t:[...]>
+      <populationModel[...]>
+      [...]
+      </populationModel>
+  </init>
+}
 }
 \author{
 Richèl J.C. Bilderbeek

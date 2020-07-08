@@ -1,17 +1,36 @@
-context("rnd_phylo_to_xml_init")
-
 test_that("use", {
-
-  testthat::expect_silent(
-    rnd_phylo_to_xml_init("my_id")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model()
   )
 
+  created <- rnd_phylo_to_xml_init(inference_model)
+  expected <- c(
+    "<init id=\"RandomTree.t:test_output_0\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\" initial=\"@Tree.t:test_output_0\" taxa=\"@test_output_0\">",
+    "    <populationModel id=\"ConstantPopulation0.t:test_output_0\" spec=\"ConstantPopulation\">",
+    "        <parameter id=\"randomPopSize.t:test_output_0\" name=\"popSize\">1.0</parameter>",
+    "    </populationModel>",
+    "</init>"
+  )
+  expect_equal(created, expected)
 })
 
 test_that("abuse", {
 
-  testthat::expect_error(
-    rnd_phylo_to_xml_init(ape::roal(3))
+  expect_error(
+    rnd_phylo_to_xml_init(ape::rcoal(3))
+  )
+
+})
+
+test_that("deprecation", {
+
+  expect_error(
+    rnd_phylo_to_xml_init(
+      id = "something",
+      inference_model = "irrelevant"
+    ),
+    "'id' is deprecated, use 'inference_model' instead"
   )
 
 })
