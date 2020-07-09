@@ -1,4 +1,4 @@
-test_that("strict", {
+test_that("strict, v2.4", {
 
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
@@ -10,6 +10,26 @@ test_that("strict", {
   expected <- c(
     "<branchRateModel id=\"StrictClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint XML
     "    <parameter id=\"clockRate.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
+    "</branchRateModel>"
+  )
+  created <- create_branch_rate_model_xml(
+    inference_model = inference_model
+  )
+  expect_equal(created, expected)
+})
+
+test_that("strict, v2.6", {
+  skip("WIP")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_strict_clock_model(),
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  expected <- c(
+    "<branchRateModel id=\"StrictClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint XML
+    "    <parameter id=\"clockRate.c:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
   created <- create_branch_rate_model_xml(

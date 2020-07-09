@@ -1,12 +1,5 @@
-context(
-  paste(
-    "create_beast2_input by reproducing files,",
-    "simple and single alignments"
-  )
-)
-
 ################################################################################
-# Defaults
+# Defaults for different versions
 ################################################################################
 
 test_that("2.4", {

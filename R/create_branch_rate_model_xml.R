@@ -78,41 +78,27 @@ create_branch_rate_model_sc_xml <- function(# nolint long function name, which i
     beautier::is_strict_clock_model(inference_model$clock_model)
   )
 
-  # Do not be smart yet
-  clock_model <- inference_model$clock_model
-  tipdates_filename <- inference_model$tipdates_filename
+  id <- inference_model$clock_model$id
 
-  testit::assert(beautier::is_clock_model(clock_model))
-  id <- clock_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  if (beautier::is_one_na(tipdates_filename)) {
-    text <- c(text, paste0("<branchRateModel id=\"StrictClock.c:",
-      id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"))
-    # initialization may happen here
-    clock_model$clock_rate_param$id <- id
-    text <- c(
-      text,
-      beautier::indent(
-        beautier::parameter_to_xml(clock_model$clock_rate_param)
-      )
+  if (beautier::is_one_na(inference_model$tipdates_filename)) {
+    xml_begin <- paste0("<branchRateModel id=\"StrictClock.c:",
+      id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"
     )
-    text <- c(text, "</branchRateModel>")
+    # initialization may happen here
+    inference_model$clock_model$clock_rate_param$id <- id
+    xml_param <- beautier::parameter_to_xml(inference_model$clock_model$clock_rate_param)
+    xml_end <- "</branchRateModel>"
+
+    # Layout
+    c(xml_begin, beautier::indent(xml_param), xml_end)
   }
   else {
-    text <- c(
-      text,
-      paste0(
-        "<branchRateModel id=\"StrictClock.c:", id, "\" ",
-        "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-        "clock.rate=\"@clockRate.c:", id, "\"/>" # nolint this is no absolute path
-      )
+    paste0(
+      "<branchRateModel id=\"StrictClock.c:", id, "\" ",
+      "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
+      "clock.rate=\"@clockRate.c:", id, "\"/>" # nolint this is no absolute path
     )
   }
-
-  testit::assert(is.null(text) || beautier::is_xml(text))
-  text
 }
 
 #' Internal function to call \link{create_branch_rate_model_xml}
