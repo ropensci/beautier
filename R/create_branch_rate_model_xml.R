@@ -86,7 +86,7 @@ create_branch_rate_model_sc_xml <- function(# nolint long function name, which i
     )
     # initialization may happen here
     inference_model$clock_model$clock_rate_param$id <- id
-    xml_param <- beautier::parameter_to_xml(inference_model$clock_model$clock_rate_param)
+    xml_param <- beautier::parameter_to_xml(inference_model$clock_model$clock_rate_param) # nolint indeed a long line
     xml_end <- "</branchRateModel>"
 
     # Layout
