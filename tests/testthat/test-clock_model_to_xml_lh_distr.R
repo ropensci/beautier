@@ -1,5 +1,3 @@
-context("clock_model_to_xml_lh_distr")
-
 test_that("strict", {
 
   expected <- c(
@@ -12,10 +10,7 @@ test_that("strict", {
       id = "test_output_0"
     )
   )
-  testit::assert(is_xml(expected))
-  testit::assert(is_xml(created))
-  expect_true(are_equivalent_xml_lines(created, expected))
-
+  expect_equal(created, expected)
 })
 
 
@@ -41,7 +36,7 @@ test_that("RLN", {
       mparam_id = 1
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(created, expected)
 })
 
 test_that("RLN -1 rates", {
@@ -66,7 +61,7 @@ test_that("RLN -1 rates", {
       mparam_id = 1
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(created, expected)
 })
 
 test_that("RLN 0 rates", {
@@ -92,7 +87,7 @@ test_that("RLN 0 rates", {
       n_rate_categories = 0
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(created, expected)
 })
 
 test_that("RLN 1 rates", {
@@ -118,8 +113,7 @@ test_that("RLN 1 rates", {
       n_rate_categories = 1
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
-
+  expect_equal(created, expected)
 })
 
 test_that("RLN 2 rates", {
@@ -145,8 +139,7 @@ test_that("RLN 2 rates", {
       n_rate_categories = 2
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
-
+  expect_equal(created, expected)
 })
 
 
@@ -173,7 +166,7 @@ test_that("RLN clock rate 1.0", {
       n_rate_categories = -1
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(created, expected)
 
 })
 
@@ -201,8 +194,7 @@ test_that("RLN clock rate 1.1", {
       n_rate_categories = -1
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
-
+  expect_equal(created, expected)
 })
 
 test_that("RLN normalize", {
@@ -228,8 +220,7 @@ test_that("RLN normalize", {
       normalize_mean_clock_rate = TRUE
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
-
+  expect_equal(created, expected)
 })
 
 test_that("RLN no normalize", {
@@ -255,7 +246,7 @@ test_that("RLN no normalize", {
       normalize_mean_clock_rate = FALSE
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(created, expected)
 })
 
 test_that("RLN + MRCA with distr", {
@@ -288,5 +279,5 @@ test_that("RLN + MRCA with distr", {
       )
     )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(created, expected)
 })
