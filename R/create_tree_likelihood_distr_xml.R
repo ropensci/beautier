@@ -47,14 +47,13 @@
 #' @seealso this function is called by \code{create_beast2_input_distr},
 #'   together with \code{create_beast2_input_distr_prior}
 #' @export
-create_tree_likelihood_distr_xml <- function( # nolint long function name indeed
+create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
   inference_model
 ) {
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
   clock_models <- list(inference_model$clock_model)
   mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(length(site_models) == 1)
   testit::assert(length(site_models) == length(clock_models))
