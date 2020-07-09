@@ -45,25 +45,16 @@
 create_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
-  # Do not be smart yet
-  clock_model <- inference_model$clock_model
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
-
-  testit::assert(beautier::is_clock_model(clock_model))
-  id <- clock_model$id
-  testit::assert(beautier::is_id(id))
-
-  text <- NULL
-  if (beautier::is_strict_clock_model(clock_model)) {
-    text <- beautier::create_branch_rate_model_sc_xml(inference_model)
-  } else if (beautier::is_rln_clock_model(clock_model)) {
-    text <- beautier::create_branch_rate_model_rln_xml(inference_model)
+  if (beautier::is_strict_clock_model(inference_model$clock_model)) {
+    beautier::create_branch_rate_model_sc_xml(inference_model)
+  } else {
+    # If this assumption fails,
+    # probably a new clock model must be aded here :-)
+    testthat::expect_true(
+      beautier::is_rln_clock_model(inference_model$clock_model)
+    )
+    beautier::create_branch_rate_model_rln_xml(inference_model)
   }
-
-
-  testit::assert(is.null(text) || beautier::is_xml(text))
-  text
 }
 
 #' Internal function to call \link{create_branch_rate_model_xml}
