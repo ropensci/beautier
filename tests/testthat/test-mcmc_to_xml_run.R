@@ -3,9 +3,9 @@ context("mcmc_to_xml_run")
 test_that("use, default", {
 
   created <- mcmc_to_xml_run(create_mcmc())
-  expected <- "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
-  expect_equal(created, expected)
-
+  expected_1 <- "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
+  expected_2 <- "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
+  expect_true(created == expected_1 || created == expected_2)
 })
 
 test_that("use, 1K", {

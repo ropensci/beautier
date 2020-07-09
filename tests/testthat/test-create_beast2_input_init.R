@@ -22,7 +22,7 @@ test_that("abuse", {
 
   expect_error(
     create_beast2_input_init(
-      id = c("a", "b")
+      inference_model = "nonsense"
     )
   )
 })
