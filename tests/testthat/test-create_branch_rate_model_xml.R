@@ -451,8 +451,8 @@ test_that("Adapted from anthus_aco_sub_20181016_all_monophyletic.xml", {
 
   skip("WIP")
   expected <- c(
-    "<branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">",
-    "    <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>",
+    "<branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint long line indeed
+    "    <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint long line indeed
     "</branchRateModel>"
   )
   inference_model <- init_inference_model(
@@ -463,7 +463,7 @@ test_that("Adapted from anthus_aco_sub_20181016_all_monophyletic.xml", {
       ),
       mrca_prior = create_mrca_prior(
         name = "all",
-        alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
+        alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")), # nolint long line indeed
         taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
         is_monophyletic = TRUE
       ),

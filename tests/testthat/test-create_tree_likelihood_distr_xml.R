@@ -198,15 +198,15 @@ test_that("Adapted from anthus_aco_sub_20181016_all.xml", {
 test_that("Adapted from anthus_aco_sub_20181016_all_monophyletic.xml", {
 
   expected <- c(
-    "<distribution id=\"treeLikelihood.anthus_aco_sub\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_aco_sub\" tree=\"@Tree.t:anthus_aco_sub\">",
+    "<distribution id=\"treeLikelihood.anthus_aco_sub\" spec=\"ThreadedTreeLikelihood\" data=\"@anthus_aco_sub\" tree=\"@Tree.t:anthus_aco_sub\">", # nolint long line indeed
     "    <siteModel id=\"SiteModel.s:anthus_aco_sub\" spec=\"SiteModel\">",
-    "        <parameter id=\"mutationRate.s:anthus_aco_sub\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>",
-    "        <parameter id=\"gammaShape.s:anthus_aco_sub\" estimate=\"false\" name=\"shape\">1.0</parameter>",
-    "        <parameter id=\"proportionInvariant.s:anthus_aco_sub\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>",
+    "        <parameter id=\"mutationRate.s:anthus_aco_sub\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint long line indeed
+    "        <parameter id=\"gammaShape.s:anthus_aco_sub\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint long line indeed
+    "        <parameter id=\"proportionInvariant.s:anthus_aco_sub\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint long line indeed
     "        <substModel id=\"JC69.s:anthus_aco_sub\" spec=\"JukesCantor\"/>",
     "    </siteModel>",
-    "    <branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">",
-    "        <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>",
+    "    <branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint long line indeed
+    "        <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint long line indeed
     "    </branchRateModel>",
     "</distribution>"
   )
@@ -218,7 +218,7 @@ test_that("Adapted from anthus_aco_sub_20181016_all_monophyletic.xml", {
       ),
       mrca_prior = create_mrca_prior(
         name = "all",
-        alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")),
+        alignment_id = get_alignment_id(get_beautier_path("anthus_aco_sub.fas")), # nolint long line indeed
         taxa_names = get_taxa_names(get_beautier_path("anthus_aco_sub.fas")),
         is_monophyletic = TRUE
       ),
