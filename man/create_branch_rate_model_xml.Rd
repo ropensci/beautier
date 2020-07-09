@@ -2,8 +2,8 @@
 % Please edit documentation in R/create_branch_rate_model_xml.R
 \name{create_branch_rate_model_xml}
 \alias{create_branch_rate_model_xml}
-\title{Converts a clock model to the \code{branchRateModel} section of the
-XML as text.}
+\title{Internal function to create the \code{branchRateModel} section
+of the XML as text.}
 \usage{
 create_branch_rate_model_xml(inference_model)
 }
@@ -20,16 +20,43 @@ inference model.}
 a character vector of XML strings
 }
 \description{
-This function will be called only if there are no MRCA priors.
+Creates the \code{branchRateModel} section
+of the XML as text.
 }
-\examples{
- # <distribution id="posterior" spec="util.CompoundDistribution">
- #     <distribution id="prior" spec="util.CompoundDistribution">
- #     </distribution>
- #     <distribution id="likelihood" ...>
- #       HERE, where the ID of the distribution is 'likelihood'
- #     </distribution>
- # </distribution>
+\details{
+This function will be called only if there are no MRCA priors.
+
+The \code{distribution} tag (with ID equals \code{treeLikelihood})
+has these elements:
+
+\preformatted{
+  <branchRateModel[...]>
+    [...]
+  </branchRateModel>
+}
+
+When there is a strict clock,
+  \link{create_branch_rate_model_sc_xml} is called.
+When there is an RLN clock,
+  \link{create_branch_rate_model_rln_xml} is called.
+
+Zooming out:
+
+\preformatted{
+  <beast[...]>
+    <run[...]>
+      <distribution id="posterior"[...]>
+        <distribution id="likelihood"[...]>
+          <distribution id="treeLikelihood"[...]>
+             [...]
+
+             [this section]
+          </distribution>
+        </distribution>
+      </distribution>
+    </run>
+  </beast>
+}
 }
 \author{
 Richèl J.C. Bilderbeek
