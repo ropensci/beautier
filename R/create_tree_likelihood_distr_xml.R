@@ -63,6 +63,8 @@ create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
     brm_line,
     "data=\"@", id,
     "\" tree=\"@Tree.t:", id, "\">"))
+
+  # Create the '<siteModel' XML section
   text <- c(text,
     beautier::indent(
       beautier::create_site_model_xml(
@@ -70,7 +72,7 @@ create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
       )
     )
   )
-  # branchRateModel
+  # Create the '<branchRateModel' XML section
   if (beautier::is_one_na(mrca_priors) ||
       get_has_non_strict_clock_model(clock_models)
   ) {

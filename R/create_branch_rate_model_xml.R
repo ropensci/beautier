@@ -45,6 +45,12 @@
 create_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
+  # From caller
+  testthat::expect_true(
+    beautier::is_one_na(inference_model$mrca_prior) ||
+      beautier::get_has_non_strict_clock_model(inference_model$clock_model)
+  )
+
   if (beautier::is_strict_clock_model(inference_model$clock_model)) {
     beautier::create_branch_rate_model_sc_xml(inference_model)
   } else {
