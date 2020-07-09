@@ -347,7 +347,6 @@ test_that("RLN + MRCA with distr", {
 })
 
 test_that("section of anthus_aco_sub_calibration.xml", {
-  skip("WIP")
   expected <- c(
     "<branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\" clock.rate=\"@clockRate.c:anthus_aco_sub\"/>" # nolint long line indeed
   )
@@ -384,7 +383,6 @@ test_that("section of anthus_aco_sub_calibration.xml", {
 })
 
 test_that("adapted from anthus_aco_sub_calibrated_no_prior.xml", {
-  skip("WIP")
   expected <- c(
     "<branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint indeed a long line
     "    <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint indeed a long line
@@ -415,7 +413,6 @@ test_that("adapted from anthus_aco_sub_calibrated_no_prior.xml", {
 })
 
 test_that("Adapted from anthus_aco_sub_20181016_all.xml", {
-  skip("WIP")
   expected <- c(
     "<branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint long line indeed
     "    <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint long line indeed
@@ -449,7 +446,6 @@ test_that("Adapted from anthus_aco_sub_20181016_all.xml", {
 
 test_that("Adapted from anthus_aco_sub_20181016_all_monophyletic.xml", {
 
-  skip("WIP")
   expected <- c(
     "<branchRateModel id=\"StrictClock.c:anthus_aco_sub\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint long line indeed
     "    <parameter id=\"clockRate.c:anthus_aco_sub\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint long line indeed
