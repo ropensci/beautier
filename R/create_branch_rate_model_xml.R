@@ -66,15 +66,17 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
 create_branch_rate_model_sc_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
+  testthat::expect_true(
+    beautier::is_strict_clock_model(inference_model$clock_model)
+  )
+
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-  mrca_priors <- list(inference_model$mrca_prior)
   tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
   testit::assert(beautier::is_id(id))
-  testthat::expect_true(beautier::is_strict_clock_model(clock_model))
 
   text <- NULL
   if (beautier::is_one_na(tipdates_filename)) {
@@ -114,10 +116,12 @@ create_branch_rate_model_sc_xml <- function(# nolint long function name, which i
 create_branch_rate_model_rln_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
+  testthat::expect_true(
+    beautier::is_rln_clock_model(inference_model$clock_model)
+  )
   # Do not be smart yet
   clock_model <- inference_model$clock_model
   mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
@@ -125,7 +129,6 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
 
   text <- NULL
 
-  expect_true(beautier::is_rln_clock_model(clock_model))
 
   n_discrete_rates <- clock_model$n_rate_categories
   mparam_id <- clock_model$mparam_id
