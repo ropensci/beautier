@@ -5,9 +5,21 @@
 \title{Converts an MRCA prior to the \code{branchRateModel} section of the
 XML as text.}
 \usage{
-mrca_prior_to_xml_lh_distr(mrca_prior, has_non_strict_clock_model = FALSE)
+mrca_prior_to_xml_lh_distr(
+  inference_model,
+  mrca_prior = "deprecated",
+  has_non_strict_clock_model = "deprecated"
+)
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{mrca_prior}{a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
 

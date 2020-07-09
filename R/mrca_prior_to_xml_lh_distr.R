@@ -16,42 +16,19 @@
 #'  # </distribution>
 #' @export
 mrca_prior_to_xml_lh_distr <- function(
-  mrca_prior,
-  has_non_strict_clock_model = FALSE
+  inference_model,
+  mrca_prior = "deprecated",
+  has_non_strict_clock_model = "deprecated"
 ) {
-  testit::assert(beautier::is_mrca_prior(mrca_prior))
-  if (length(mrca_prior) == 1 && beautier::is_one_na(mrca_prior)) {
-    return(NULL)
+  if (mrca_prior != "deprecated") {
+    stop("'mrca_prior' is deprecated, use 'inference_model' instead")
   }
-  if (!has_non_strict_clock_model &&
-    !beautier::is_one_na(mrca_prior$mrca_distr)
-  ) {
-    testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
-    paste0(
-      "<branchRateModel ",
-      "id=\"StrictClock.c:", mrca_prior$alignment_id, "\" ",
-      "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
-      "clock.rate=\"@clockRate.c:", mrca_prior$alignment_id, "\"/>" # nolint this is no absolute path
-    )
-  } else if (!has_non_strict_clock_model) {
-    text <- NULL
-    testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
-    text <- c(
-      text,
-      paste0(
-        "<branchRateModel id=\"StrictClock.c:", mrca_prior$alignment_id, "\" ",
-        "spec=\"beast.evolution.branchratemodel.StrictClockModel\">"
-      )
-    )
-    testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
-    text <- c(
-      text,
-      paste0(
-        "    <parameter id=\"clockRate.c:", mrca_prior$alignment_id, "\" ",
-        "estimate=\"false\" name=\"clock.rate\">1.0</parameter>"
-      )
-    )
-    text <- c(text, paste0("</branchRateModel>"))
-    text
+  if (has_non_strict_clock_model != "deprecated") {
+    stop("'has_non_strict_clock_model' is deprecated, use 'inference_model' instead")
   }
+  warning(
+    "'mrca_prior_to_xml_lh_distr' is deprecated. ",
+    "Use 'create_branch_rate_model_stuff_xml' instead'"
+  )
+  beautier::create_branch_rate_model_stuff_xml(inference_model)
 }
