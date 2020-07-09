@@ -156,16 +156,13 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 #' \preformatted{
 #'   <distribution id="likelihood"[...]>
 #'      <distribution id="treeLikelihood"[...]>
-#'         [...]
+#'        [...]
 #'      </distribution>
-#'       <siteModel[...]>
-#'         [...]
-#'       </siteModel>
-#'       <branchRateModel[...]>
-#'         [...]
-#'       </branchRateModel>
 #'   </distribution>
 #' }
+#'
+#' The \code{distribution} section with ID \code{treeLikelihood}
+#' is created by \link{create_tree_likelihood_distr_xml}.
 #'
 #' Zooming out:
 #'
@@ -180,6 +177,7 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 #'     </run>
 #'   </beast>
 #' }
+#'
 #' @inheritParams default_params_doc
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
@@ -206,68 +204,7 @@ create_beast2_input_distr_lh <- function(
   if (tipdates_filename != "deprecated") {
     stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
   }
-  # Do not be smart yet
-  site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
-
-  testit::assert(length(site_models) == 1)
-  testit::assert(length(site_models) == length(clock_models))
-
-  text <- NULL
-  n <- length(site_models)
-  for (i in seq(1, n)) {
-    site_model <- site_models[[i]]
-    clock_model <- clock_models[[i]]
-    id <- site_model$id
-    brm_line <- ""
-    text <- c(text, paste0("<distribution id=\"treeLikelihood.",
-      id, "\" spec=\"ThreadedTreeLikelihood\" ",
-      brm_line,
-      "data=\"@", id,
-      "\" tree=\"@Tree.t:", id, "\">"))
-    text <- c(text,
-      beautier::indent(
-        beautier::create_site_model_xml(
-          inference_model = inference_model
-        )
-      )
-    )
-
-    if (beautier::is_one_na(mrca_priors) ||
-        get_has_non_strict_clock_model(clock_models)
-    ) {
-      text <- c(text,
-        beautier::indent(
-          beautier::clock_model_to_xml_lh_distr(
-            clock_model,
-            mrca_priors = mrca_priors,
-            tipdates_filename = tipdates_filename
-          )
-        )
-      )
-    }
-    # Can be either NA or a list of 1 element
-    testit::assert(beautier::are_mrca_priors(mrca_priors))
-    testit::assert(length(mrca_priors) >= 1)
-    mrca_prior <- NA
-    if (!beautier::is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]]
-    testit::assert(beautier::is_mrca_prior(mrca_prior))
-    text <- c(text,
-      beautier::indent(
-        beautier::mrca_prior_to_xml_lh_distr(
-          mrca_prior,
-          has_non_strict_clock_model = beautier::get_has_non_strict_clock_model(
-            clock_models
-          )
-        )
-      )
-    )
-    # Close of '<distribution id="treeLikelihood.test_output_0"...'
-    text <- c(text, "</distribution>")
-  }
-
+  text <- beautier::create_tree_likelihood_distr_xml(inference_model)
 
   text <- beautier::indent(text)
 
