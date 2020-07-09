@@ -13,7 +13,7 @@ test_that("strict", {
     "</branchRateModel>"
   )
   created <- clock_model_to_xml_lh_distr(
-    inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -46,7 +46,7 @@ test_that("RLN", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -77,7 +77,7 @@ test_that("RLN -1 rates", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -109,7 +109,7 @@ test_that("RLN 0 rates", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -142,7 +142,7 @@ test_that("RLN 1 rates", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -174,7 +174,7 @@ test_that("RLN 2 rates", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -207,7 +207,7 @@ test_that("RLN clock rate 1.0", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -240,7 +240,7 @@ test_that("RLN clock rate 1.1", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -272,7 +272,7 @@ test_that("RLN normalize", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -304,7 +304,7 @@ test_that("RLN no normalize", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model
+    inference_model = inference_model
   )
   expect_equal(created, expected)
 })
@@ -341,8 +341,33 @@ test_that("RLN + MRCA with distr", {
     )
   )
   created <- clock_model_to_xml_lh_distr(
-    clock_model = inference_model$clock_model,
-    mrca_priors = list(inference_model$mrca_prior)
+    inference_model = inference_model
+  )
+  expect_equal(created, expected)
+})
+
+test_that("deprecation", {
+
+  expect_error(
+    clock_model_to_xml_lh_distr(
+      clock_model = "something",
+      inference_model = "irrelevant"
+    ),
+    "'clock_model' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    clock_model_to_xml_lh_distr(
+      mrca_priors = "something",
+      inference_model = "irrelevant"
+    ),
+    "'mrca_priors' is deprecated, use 'inference_model' instead"
+  )
+  expect_error(
+    clock_model_to_xml_lh_distr(
+      tipdates_filename = "something",
+      inference_model = "irrelevant"
+    ),
+    "'tipdates_filename' is deprecated, use 'inference_model' instead"
   )
   expect_equal(created, expected)
 })
