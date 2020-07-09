@@ -24,7 +24,10 @@ mrca_prior_to_xml_lh_distr <- function(
     stop("'mrca_prior' is deprecated, use 'inference_model' instead")
   }
   if (has_non_strict_clock_model != "deprecated") {
-    stop("'has_non_strict_clock_model' is deprecated, use 'inference_model' instead")
+    stop(
+      "'has_non_strict_clock_model' is deprecated, ",
+      "use 'inference_model' instead"
+    )
   }
   warning(
     "'mrca_prior_to_xml_lh_distr' is deprecated. ",

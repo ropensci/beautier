@@ -7,7 +7,7 @@
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_branch_rate_model_stuff_xml <- function(
+create_branch_rate_model_stuff_xml <- function(# nolint long function name indeed, which is fine for an internal function
   inference_model
 ) {
   # Do not be smart yet
