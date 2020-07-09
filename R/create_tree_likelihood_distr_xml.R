@@ -83,23 +83,24 @@ create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
         )
       )
     )
-  }
-  # Can be either NA or a list of 1 element
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
-  testit::assert(length(mrca_priors) >= 1)
-  mrca_prior <- NA
-  if (!beautier::is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]]
-  testit::assert(beautier::is_mrca_prior(mrca_prior))
-  text <- c(text,
-    beautier::indent(
-      beautier::mrca_prior_to_xml_lh_distr(
-        mrca_prior,
-        has_non_strict_clock_model = beautier::get_has_non_strict_clock_model(
-          clock_models
+  } else {
+    # Can be either NA or a list of 1 element
+    testit::assert(beautier::are_mrca_priors(mrca_priors))
+    testit::assert(length(mrca_priors) >= 1)
+    mrca_prior <- NA
+    if (!beautier::is_one_na(mrca_priors)) mrca_prior <- mrca_priors[[1]]
+    testit::assert(beautier::is_mrca_prior(mrca_prior))
+    text <- c(text,
+      beautier::indent(
+        beautier::mrca_prior_to_xml_lh_distr(
+          mrca_prior,
+          has_non_strict_clock_model = beautier::get_has_non_strict_clock_model(
+            clock_models
+          )
         )
       )
     )
-  )
+  }
   # Close of '<distribution id="treeLikelihood.test_output_0"...'
   text <- c(text, "</distribution>")
   text
