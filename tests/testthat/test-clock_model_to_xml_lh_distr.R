@@ -1,20 +1,26 @@
 test_that("strict", {
 
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_strict_clock_model(),
+      beauti_options = create_beauti_options_v2_4()
+    )
+  )
   expected <- c(
     "<branchRateModel id=\"StrictClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint XML
     "    <parameter id=\"clockRate.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
   created <- clock_model_to_xml_lh_distr(
-    create_strict_clock_model(
-      id = "test_output_0"
-    )
+    inference_model$clock_model
   )
   expect_equal(created, expected)
 })
 
 
 test_that("RLN", {
+
 
   expected <- c(
     "<branchRateModel id=\"RelaxedClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:test_output_0\" tree=\"@Tree.t:test_output_0\">", # nolint XML
@@ -24,17 +30,23 @@ test_that("RLN", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -49,17 +61,23 @@ test_that("RLN -1 rates", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -74,18 +92,24 @@ test_that("RLN 0 rates", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        n_rate_categories = 0
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      n_rate_categories = 0
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -100,18 +124,25 @@ test_that("RLN 1 rates", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        id = "test_output_0",
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        n_rate_categories = 1
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      n_rate_categories = 1
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -126,18 +157,24 @@ test_that("RLN 2 rates", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        n_rate_categories = 2
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      n_rate_categories = 2
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -153,21 +190,26 @@ test_that("RLN clock rate 1.0", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        n_rate_categories = -1
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      n_rate_categories = -1
+      beauti_options = create_beauti_options_v2_4()
     )
   )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
+  )
   expect_equal(created, expected)
-
 })
 
 test_that("RLN clock rate 1.1", {
@@ -180,19 +222,25 @@ test_that("RLN clock rate 1.1", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.1</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        mean_clock_rate = "1.1",
+        n_rate_categories = -1
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      mean_clock_rate = "1.1",
-      n_rate_categories = -1
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -207,18 +255,24 @@ test_that("RLN normalize", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        normalize_mean_clock_rate = TRUE
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      normalize_mean_clock_rate = TRUE
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -233,18 +287,24 @@ test_that("RLN no normalize", {
     "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
     "</branchRateModel>"
   )
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "test_output_0",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1,
+        normalize_mean_clock_rate = FALSE
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1,
-      normalize_mean_clock_rate = FALSE
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model
   )
   expect_equal(created, expected)
 })
@@ -260,24 +320,29 @@ test_that("RLN + MRCA with distr", {
     "</branchRateModel>"
   )
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
-  created <- clock_model_to_xml_lh_distr(
-    create_rln_clock_model(
-      id = "anthus_aco_sub",
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
+  inference_model <- init_inference_model(
+    input_filename = fasta_filename,
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(
+        ucldstdev_distr = create_gamma_distr(
+          id = 0,
+          alpha = create_alpha_param(id = 2, value = "0.5396"),
+          beta = create_beta_param(id = 3, value = "0.3819")
+        ),
+        mean_rate_prior_distr = create_uniform_distr(id = 1),
+        mparam_id = 1
       ),
-      mean_rate_prior_distr = create_uniform_distr(id = 1),
-      mparam_id = 1
-    ),
-    mrca_priors = list(
-      create_mrca_prior(
+      mrca_prior = create_mrca_prior(
         alignment_id = get_alignment_id(fasta_filename),
         taxa_names = get_taxa_names(fasta_filename),
         mrca_distr = create_one_div_x_distr()
-      )
+      ),
+      beauti_options = create_beauti_options_v2_4()
     )
+  )
+  created <- clock_model_to_xml_lh_distr(
+    clock_model = inference_model$clock_model,
+    mrca_priors = list(inference_model$mrca_prior)
   )
   expect_equal(created, expected)
 })
