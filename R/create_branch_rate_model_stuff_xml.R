@@ -15,14 +15,19 @@ create_branch_rate_model_stuff_xml <- function(# nolint long function name indee
   has_non_strict_clock_model <- beautier::get_has_non_strict_clock_model(
     list(inference_model$clock_model)
   )
+  has_no_mrca_prior <- beautier::is_one_na(inference_model$mrca_prior)
+  has_non_strict_clock <- get_has_non_strict_clock_model(
+    list(inference_model$clock_model)
+  )
+  has_mrca_prior <- !has_no_mrca_prior
+  has_strict_clock <- !has_non_strict_clock
+  testthat::expect_true(!(has_no_mrca_prior || has_non_strict_clock))
+  testthat::expect_true(!has_no_mrca_prior && !has_non_strict_clock)
+  testthat::expect_true(has_mrca_prior && has_strict_clock)
+  has_mrca_prior_distr <- !beautier::is_one_na(mrca_prior$mrca_distr)
 
-  testit::assert(beautier::is_mrca_prior(mrca_prior))
-  if (length(mrca_prior) == 1 && beautier::is_one_na(mrca_prior)) {
-    return(NULL)
-  }
-  if (!has_non_strict_clock_model &&
-    !beautier::is_one_na(mrca_prior$mrca_distr)
-  ) {
+  if (has_mrca_prior_distr) {
+    testthat::expect_true(has_mrca_prior && has_strict_clock)
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
     paste0(
       "<branchRateModel ",
@@ -30,7 +35,8 @@ create_branch_rate_model_stuff_xml <- function(# nolint long function name indee
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",
       "clock.rate=\"@clockRate.c:", mrca_prior$alignment_id, "\"/>" # nolint this is no absolute path
     )
-  } else if (!has_non_strict_clock_model) {
+  } else {
+    testthat::expect_true(has_mrca_prior && has_strict_clock)
     text <- NULL
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
     text <- c(

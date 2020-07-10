@@ -45,9 +45,14 @@
 create_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
-  if (beautier::is_one_na(inference_model$mrca_prior) ||
-      get_has_non_strict_clock_model(list(inference_model$clock_model))
-  ) {
+  has_no_mrca_prior <- beautier::is_one_na(inference_model$mrca_prior)
+  has_non_strict_clock <- get_has_non_strict_clock_model(
+    list(inference_model$clock_model)
+  )
+  has_mrca_prior <- !has_no_mrca_prior
+  has_strict_clock <- !has_non_strict_clock
+
+  if (has_no_mrca_prior || has_non_strict_clock) {
     if (beautier::is_strict_clock_model(inference_model$clock_model)) {
       beautier::create_branch_rate_model_sc_xml(inference_model)
     } else {
@@ -59,6 +64,9 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
       beautier::create_branch_rate_model_rln_xml(inference_model)
     }
   } else {
+    testthat::expect_true(!(has_no_mrca_prior || has_non_strict_clock))
+    testthat::expect_true(!has_no_mrca_prior && !has_non_strict_clock)
+    testthat::expect_true(has_mrca_prior && has_strict_clock)
     beautier::create_branch_rate_model_stuff_xml(
       inference_model = inference_model
     )
