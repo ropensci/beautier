@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_lambda}
 \title{Converts a lambda parameter to XML}
 \usage{
-parameter_to_xml_lambda(parameter)
+parameter_to_xml_lambda(
+  parameter,
+  beast2_version = create_beauti_options()$beast2_version
+)
 }
 \arguments{
 \item{parameter}{a lambda parameter,

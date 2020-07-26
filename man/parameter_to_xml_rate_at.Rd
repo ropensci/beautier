@@ -4,7 +4,11 @@
 \alias{parameter_to_xml_rate_at}
 \title{Converts a 'rate AT' parameter to XML}
 \usage{
-parameter_to_xml_rate_at(parameter, which_name = "state_node")
+parameter_to_xml_rate_at(
+  parameter,
+  which_name = "state_node",
+  beast2_version = create_beauti_options()$beast2_version
+)
 }
 \arguments{
 \item{parameter}{a 'rate AT' parameter,

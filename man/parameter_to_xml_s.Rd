@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_s}
 \title{Converts a s parameter to XML}
 \usage{
-parameter_to_xml_s(parameter)
+parameter_to_xml_s(
+  parameter,
+  beast2_version = create_beauti_options()$beast2_version
+)
 }
 \arguments{
 \item{parameter}{a s parameter,

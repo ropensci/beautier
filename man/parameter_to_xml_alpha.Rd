@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_alpha}
 \title{Converts an alpha parameter to XML}
 \usage{
-parameter_to_xml_alpha(parameter)
+parameter_to_xml_alpha(
+  parameter,
+  beast2_version = create_beauti_options()$beast2_version
+)
 }
 \arguments{
 \item{parameter}{an alpha parameter,

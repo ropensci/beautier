@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_beta}
 \title{Converts a beta parameter to XML}
 \usage{
-parameter_to_xml_beta(parameter)
+parameter_to_xml_beta(
+  parameter,
+  beast2_version = create_beauti_options()$beast2_version
+)
 }
 \arguments{
 \item{parameter}{a beta parameter,
