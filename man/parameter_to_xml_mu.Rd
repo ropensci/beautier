@@ -4,10 +4,7 @@
 \alias{parameter_to_xml_mu}
 \title{Converts a mu parameter to XML}
 \usage{
-parameter_to_xml_mu(
-  parameter,
-  beast2_version = create_beauti_options()$beast2_version
-)
+parameter_to_xml_mu(parameter)
 }
 \arguments{
 \item{parameter}{a mu parameter,

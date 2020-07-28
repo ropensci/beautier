@@ -4,10 +4,7 @@
 \alias{parameter_to_xml_clock_rate}
 \title{Converts a \code{clockRate} parameter to XML}
 \usage{
-parameter_to_xml_clock_rate(
-  parameter,
-  beast2_version = create_beauti_options()$beast2_version
-)
+parameter_to_xml_clock_rate(parameter)
 }
 \arguments{
 \item{parameter}{a \code{clockRate} parameter,

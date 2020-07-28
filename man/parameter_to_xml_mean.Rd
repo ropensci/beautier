@@ -4,10 +4,7 @@
 \alias{parameter_to_xml_mean}
 \title{Converts a mean parameter to XML}
 \usage{
-parameter_to_xml_mean(
-  parameter,
-  beast2_version = create_beauti_options()$beast2_version
-)
+parameter_to_xml_mean(parameter)
 }
 \arguments{
 \item{parameter}{a mean parameter,

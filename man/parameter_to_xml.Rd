@@ -4,16 +4,11 @@
 \alias{parameter_to_xml}
 \title{Converts a parameter to XML}
 \usage{
-parameter_to_xml(
-  parameter,
-  beast2_version = create_beauti_options()$beast2_version
-)
+parameter_to_xml(parameter)
 }
 \arguments{
 \item{parameter}{a parameter,
 as created by \code{\link{create_param}})}
-
-\item{beast2_version}{BEAST2 version, for example, code{"2.5"}}
 }
 \value{
 the parameter as XML text

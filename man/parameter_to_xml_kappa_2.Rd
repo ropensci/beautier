@@ -4,10 +4,7 @@
 \alias{parameter_to_xml_kappa_2}
 \title{Converts a kappa 2 parameter to XML}
 \usage{
-parameter_to_xml_kappa_2(
-  parameter,
-  beast2_version = create_beauti_options()$beast2_version
-)
+parameter_to_xml_kappa_2(parameter)
 }
 \arguments{
 \item{parameter}{a kappa 2 parameter,
