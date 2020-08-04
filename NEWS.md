@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## beautier 2.3.7 (2020-08-04)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Internal functions have better names
+ * More internal functions use an `inference_model` (instead of 
+   multiple elements of it)
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.3.6 (2020-04-21)
 
 ### NEW FEATURES
