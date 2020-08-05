@@ -8,7 +8,6 @@ cp -r ../man build
 cp -r ../src build
 cp -r ../vignettes build
 cp ../DESCRIPTION build
-cp ../LICENSE build
 cp ../NAMESPACE build
 
 cd build
