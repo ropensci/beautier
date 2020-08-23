@@ -4,6 +4,12 @@
 #' version. The use of these options is mostly for testing
 #' older versions
 #' Whatever option chosen here, the created XML file will be valid.
+#'
+#' Available BEAUti options are:\cr
+#' \itemize{
+#'   \item \link{create_beauti_options_v2_4}
+#'   \item \link{create_beauti_options_v2_6}
+#' }
 #' @param capitalize_first_char_id must the ID of alignment start with a
 #'   capital? TRUE if yes, FALSE if it can be left lower case (if it is
 #'   lowercase)
@@ -17,16 +23,11 @@
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   beauti_options <- create_beauti_options(
-#'     nucleotides_uppercase = TRUE,
-#'     beast2_version = "2.5"
-#'   )
-#'   xml <- create_beast2_input(
-#'     get_fasta_filename(),
-#'     beauti_options = beauti_options
-#'   )
-#'   testit::assert(is.character(xml))
-#'   testit::assert(length(xml) > 1)
+#' beauti_options <- create_beauti_options_v2_4()
+#' xml <- create_beast2_input(
+#'   get_fasta_filename(),
+#'   beauti_options = beauti_options
+#' )
 #' @export
 create_beauti_options <- function(
   capitalize_first_char_id = FALSE,

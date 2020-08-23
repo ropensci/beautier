@@ -37,17 +37,19 @@ version. The use of these options is mostly for testing
 older versions
 Whatever option chosen here, the created XML file will be valid.
 }
+\details{
+Available BEAUti options are:\cr
+\itemize{
+  \item \link{create_beauti_options_v2_4}
+  \item \link{create_beauti_options_v2_6}
+}
+}
 \examples{
-  beauti_options <- create_beauti_options(
-    nucleotides_uppercase = TRUE,
-    beast2_version = "2.5"
-  )
-  xml <- create_beast2_input(
-    get_fasta_filename(),
-    beauti_options = beauti_options
-  )
-  testit::assert(is.character(xml))
-  testit::assert(length(xml) > 1)
+beauti_options <- create_beauti_options_v2_4()
+xml <- create_beast2_input(
+  get_fasta_filename(),
+  beauti_options = beauti_options
+)
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -15,14 +15,10 @@
 #' Use \link{create_beast2_input_beast} to create
 #' to create the XML text of the \code{beast} tag.
 #' @examples
-#' library(testthat)
-#'
 #' text <- create_beast2_input_from_model(
 #'   input_filename = get_fasta_filename(),
 #'   inference_model = create_inference_model()
 #' )
-#' expect_true(substr(text[1], 1, 5) == "<?xml")
-#' expect_true(tail(text, n = 1) == "</beast>")
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_from_model <- function(

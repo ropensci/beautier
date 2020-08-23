@@ -16,13 +16,5 @@ Use \link{create_tn93_site_model} to create a valid
 TN93 nucleotide substitution model.
 }
 \examples{
-library(testthat)
-
-expect_silent(check_tn93_site_model(create_tn93_site_model()))
-
-expect_error(check_tn93_site_model("nonsense"))
-expect_error(check_tn93_site_model(NA))
-expect_error(check_tn93_site_model(NULL))
-expect_error(check_tn93_site_model(""))
-expect_error(check_tn93_site_model(c()))
+check_tn93_site_model(create_tn93_site_model())
 }

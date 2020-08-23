@@ -5,15 +5,7 @@
 #' TN93 nucleotide substitution model.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
-#'
-#' expect_silent(check_tn93_site_model(create_tn93_site_model()))
-#'
-#' expect_error(check_tn93_site_model("nonsense"))
-#' expect_error(check_tn93_site_model(NA))
-#' expect_error(check_tn93_site_model(NULL))
-#' expect_error(check_tn93_site_model(""))
-#' expect_error(check_tn93_site_model(c()))
+#' check_tn93_site_model(create_tn93_site_model())
 #' @export
 check_tn93_site_model <- function(tn93_site_model) {
 

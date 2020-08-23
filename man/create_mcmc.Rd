@@ -62,6 +62,8 @@ create_beast2_input_file(
 expect_true(file.exists(beast2_input_file))
 }
 \seealso{
+Use \code{\link{create_test_mcmc}} to create a short regular MCMC,
+that can be used for testing runs.
 Use \code{\link{create_ns_mcmc}} to create an MCMC for a Nested Sampling run.
 Use \code{\link{check_mcmc}} to check if an MCMC is valid.
 Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.

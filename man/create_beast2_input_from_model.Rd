@@ -30,14 +30,10 @@ The main two XML tags are these:
 }
 }
 \examples{
-library(testthat)
-
 text <- create_beast2_input_from_model(
   input_filename = get_fasta_filename(),
   inference_model = create_inference_model()
 )
-expect_true(substr(text[1], 1, 5) == "<?xml")
-expect_true(tail(text, n = 1) == "</beast>")
 }
 \seealso{
 Use \link{create_beast2_input_file_from_model} to also save it to file.

@@ -21,26 +21,7 @@ Function to check if a file exists.
 Calls \code{stop} if the file is absent
 }
 \examples{
-library(testthat)
-
-expect_silent(
-  check_file_exists(
-    get_beautier_path("anthus_aco_sub.fas")
-  )
-)
-
-# Minimal use
-expect_error(
-  check_file_exists("absent"),
-  "File not found. Could not find file with path 'absent'"
-)
-
-# Add a description
-absent_filename <- "absent"
-expect_error(
-  check_file_exists(absent_filename, "absent_filename"),
-  "File 'absent_filename' not found. Could not find file with path 'absent'"
-)
+check_file_exists(get_beautier_path("anthus_aco_sub.fas"))
 }
 \author{
 Richèl J.C. Bilderbeek
