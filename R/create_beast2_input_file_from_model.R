@@ -4,17 +4,11 @@
 #' @seealso use \link{create_beast2_input_from_model} to
 #' get the BEAST2 input file as text
 #' @examples
-#'   # Get an example FASTA file
-#'   input_filename <- get_fasta_filename()
-#'
-#'   # The file created by beautier, a BEAST2 input file
-#'   output_filename <- tempfile()
-#'
-#'   create_beast2_input_file_from_model(
-#'     input_filename,
-#'     output_filename
-#'   )
-#'   testthat::expect_true(file.exists(output_filename))
+#' create_beast2_input_file_from_model(
+#'   input_filename = get_fasta_filename(),
+#'   output_filename = tempfile(),
+#'   inference_model = create_inference_model()
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @seealso
 #' See \code{\link{create_site_model}} for examples with
