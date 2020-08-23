@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_test_inference_model.R
 \name{create_test_inference_model}
 \alias{create_test_inference_model}
-\title{Create a simple inference model with a short MCMC chain}
+\title{Create a testing inference model.}
 \usage{
 create_test_inference_model(
   site_model = create_jc69_site_model(),
@@ -46,7 +46,8 @@ the date.}
 an inference model
 }
 \description{
-Create a simple inference model with a short MCMC chain
+Creates a simple inference model with a short MCMC chain,
+to be used in testing.
 }
 \examples{
 library(testthat)
@@ -62,8 +63,11 @@ create_beast2_input_file_from_model(
 expect_true(file.exists(beast2_input_file))
 }
 \seealso{
-Use \link{create_inference_model} to create the
-  BEAST2 default inference model
+Use \link{create_inference_model} to create a
+regular inference model.
+Use \link{create_test_ns_inference_model} to create an inference model
+to estimate the marginal likelihood with a short MCMC, to be
+used in testing
 }
 \author{
 Richèl J.C. Bilderbeek

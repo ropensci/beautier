@@ -1,8 +1,15 @@
-#' Create a simple inference model with a short MCMC chain
+#' Create a testing inference model.
+#'
+#' Creates a simple inference model with a short MCMC chain,
+#' to be used in testing.
 #' @inheritParams default_params_doc
 #' @return an inference model
-#' @seealso Use \link{create_inference_model} to create the
-#'   BEAST2 default inference model
+#' @seealso
+#' Use \link{create_inference_model} to create a
+#' regular inference model.
+#' Use \link{create_test_ns_inference_model} to create an inference model
+#' to estimate the marginal likelihood with a short MCMC, to be
+#' used in testing
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' library(testthat)

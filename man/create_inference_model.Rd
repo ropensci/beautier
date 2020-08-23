@@ -50,21 +50,24 @@ Create a Bayesian phylogenetic inference model,
 as can be done by BEAUti.
 }
 \examples{
-  # Create an MCMC chain with 50 states
-  inference_model <- create_inference_model(
-    mcmc = create_mcmc(chain_length = 50000, store_every = 1000)
-  )
+# Create an MCMC chain with 50 states
+inference_model <- create_inference_model(
+  mcmc = create_mcmc(chain_length = 50000, store_every = 1000)
+)
 
-  beast2_input_file <- tempfile(fileext = ".xml")
-  create_beast2_input_file_from_model(
-    get_fasta_filename(),
-    beast2_input_file,
-    inference_model = inference_model
-  )
-  testit::assert(file.exists(beast2_input_file))
+beast2_input_file <-
+create_beast2_input_file_from_model(
+  input_filename = get_fasta_filename(),
+  beast2_input_file = tempfile(fileext = ".xml"),
+  inference_model = inference_model
+)
 }
 \seealso{
-Use \link{create_inference_model} to create an inference model
+Use \link{create_test_inference_model} to create an inference model
+with a short MCMC, to be used in testing.
+Use \link{create_ns_inference_model} to create an inference model
+to estimate the marginal likelihood
+(aka evidence) using a nested sampling approach.
 }
 \author{
 Richèl J.C. Bilderbeek

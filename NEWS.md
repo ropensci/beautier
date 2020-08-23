@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.4 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Added `create_ns_inference_model`
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.3.7 (2020-08-05)
 
 ### NEW FEATURES

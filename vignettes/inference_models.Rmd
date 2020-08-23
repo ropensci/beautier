@@ -63,7 +63,7 @@ we will cover below in more detail:
  * a site model: how the alignment changes
  * a clock model: how the mutation rates differ over the branches
  * a tree prior: the speciation model
- * (optional) an MCRCA prior: a 'Most Recent Common Ancestor'
+ * (optional) an MRCA prior: a 'Most Recent Common Ancestor'
  * an MCMC: the Markov Chain Monte Carlo setup
  * (optional) BEAUti options: version-specific options
  * (experimental) a tipdates filename: a filename for tip-dating
@@ -77,7 +77,7 @@ substitution model ('NSM').
 
 Due to historical reasons, `beautier` confuses the site model and
 NSM: `beautier` has no functions with
-the word 'nucleotide substution' (nor `nsm`) `in it. Instead, it is as if
+the word 'nucleotide substitution' (nor `nsm`) `in it. Instead, it is as if
 these are specific site models.
 
 To see the available site models, use `?create_site_model` to
@@ -144,7 +144,7 @@ inference_model <- create_inference_model(
 )
 ```
 
-## (optional) MCRCA prior: a 'Most Recent Common Ancestor'
+## (optional) MRCA prior: a 'Most Recent Common Ancestor'
 
 With the MRCA ('Most Recent Common Ancestor') prior, one can
 specify which tips share a common ancestor.
@@ -220,6 +220,6 @@ Here is an example:
 create_beast2_input_file_from_model(
   input_filename = get_beautier_path("G_VII_pre2003_msa.fas"),
   inference_model = inference_model,
-  output_filename = tempfile(pattern = "irrelevant here") 
+  output_filename = tempfile(pattern = "irrelevant here")
 )
 ```

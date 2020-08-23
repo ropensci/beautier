@@ -1,5 +1,14 @@
 #' Create an inference model to be tested by Nested Sampling
 #' @inheritParams default_params_doc
+#' @return an inference model
+#' @seealso
+#' Use \link{create_test_inference_model} to create a
+#' regular inference model with a short MCMC, to be used in testing.
+#' Use \link{create_ns_inference_model} to create an inference model
+#' to estimate the marginal likelihood.
+#' @examples
+#' inference_model <- create_test_ns_inference_model()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_ns_inference_model <- function(
   site_model = beautier::create_jc69_site_model(),
