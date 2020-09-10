@@ -19,7 +19,7 @@ r_github_packages:
 
 before_install:
   # From https://stackoverflow.com/a/20042195
-  - Rscript -e "update.packages(checkBuilt = TRUE, ask = FALSE)"
+  #- Rscript -e "update.packages(checkBuilt = TRUE, ask = FALSE)"
   # libgit2
   # - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install libgit2; fi
   # PDF
