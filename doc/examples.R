@@ -30,7 +30,7 @@ create_beast2_input(
 ## ----example_4----------------------------------------------------------------
 create_beast2_input(
   input_filename,
-  tree_prior = create_bd_tree_prior() 
+  tree_prior = create_bd_tree_prior()
 )
 
 ## ----example_5----------------------------------------------------------------
@@ -38,7 +38,7 @@ create_beast2_input(
   input_filename,
   tree_prior = create_yule_tree_prior(
     birth_rate_distr = create_normal_distr()
-  ) 
+  )
 )
 
 ## ----example_6----------------------------------------------------------------
@@ -54,7 +54,7 @@ create_beast2_input(
   input_filename,
   clock_model = create_strict_clock_model(
     clock_rate_param = 0.5
-  ) 
+  )
 )
 
 ## ----example_8----------------------------------------------------------------

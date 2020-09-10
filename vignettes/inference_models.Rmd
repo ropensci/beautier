@@ -4,7 +4,7 @@ author: "Richèl J.C. Bilderbeek"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Inference models}
+  %\VignetteIndexEntry{Inference Models}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
