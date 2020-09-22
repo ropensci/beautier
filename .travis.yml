@@ -17,6 +17,8 @@ r_github_packages:
   - MangoTheCat/goodpractice
 
 before_install:
+  # Lapack
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install liblapack-dev; fi
   # PDF
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr update --self; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr install inconsolata; fi
