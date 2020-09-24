@@ -21,12 +21,8 @@ the XML as text
 Converts an MCMC object to the run section's XML
 }
 \examples{
-
-xml <- mcmc_to_xml_run(create_mcmc())
-expect_equal(
-  xml,
-  "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
-)
+# <run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">
+mcmc_to_xml_run(create_mcmc())
 }
 \author{
 Richèl J.C. Bilderbeek

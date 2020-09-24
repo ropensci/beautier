@@ -16,12 +16,14 @@ TRUE if the name is a valid tree_prior name, FALSE otherwise
 Determines if the name is a valid tree prior name
 }
 \examples{
-
-expect_true(is_tree_prior_name("birth_death"))
-expect_true(is_tree_prior_name("coalescent_bayesian_skyline"))
-expect_true(is_tree_prior_name("coalescent_constant_population"))
-expect_true(is_tree_prior_name("coalescent_exp_population"))
-expect_true(is_tree_prior_name("yule"))
+# TRUE
+is_tree_prior_name("birth_death")
+is_tree_prior_name("coalescent_bayesian_skyline")
+is_tree_prior_name("coalescent_constant_population")
+is_tree_prior_name("coalescent_exp_population")
+is_tree_prior_name("yule")
+# FALSE
+is_tree_prior_name("nonsense")
 }
 \author{
 Richèl J.C. Bilderbeek
