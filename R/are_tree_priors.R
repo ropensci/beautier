@@ -12,7 +12,7 @@
 #' # TRUE
 #' are_tree_priors(bd_tree_prior)
 #' # TRUE
-#' are_tree_priors(both_tree_priors)2
+#' are_tree_priors(both_tree_priors)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_tree_priors <- function(

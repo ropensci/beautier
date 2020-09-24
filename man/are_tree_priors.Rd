@@ -25,7 +25,7 @@ are_tree_priors(yule_tree_prior)
 # TRUE
 are_tree_priors(bd_tree_prior)
 # TRUE
-are_tree_priors(both_tree_priors)2
+are_tree_priors(both_tree_priors)
 }
 \seealso{
 Use \link{create_yule_tree_prior} to create a Yule tree prior
