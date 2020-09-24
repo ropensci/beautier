@@ -23,7 +23,6 @@ Creates all supported site models
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
-
 # All created site models are a kind of site model
 site_models <- create_site_models()
 
