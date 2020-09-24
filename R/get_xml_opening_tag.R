@@ -4,7 +4,7 @@
 #' @examples
 #' # my_tag
 #' get_xml_opening_tag("<my_tag text=something/>")
-#' 
+#'
 #' # NA when there is no opening tag
 #' get_xml_opening_tag("no_xml")
 #' @author Richèl J.C. Bilderbeek

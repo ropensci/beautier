@@ -7,10 +7,9 @@
 #' @return a list of site_models
 #' @seealso Use \link{create_site_model} to create a site model
 #' @examples
-#'
 #' # All created site models are a kind of site model
 #' site_models <- create_site_models()
-#' 
+#'
 #' # TRUE
 #' is_gtr_site_model(site_models[[1]])
 #' is_hky_site_model(site_models[[2]])

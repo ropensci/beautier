@@ -7,7 +7,7 @@
 #' is_one_double(0)
 #' is_one_double(-314)
 #' is_one_double(3.14)
-#' 
+#'
 #' # FALSE
 #' is_one_double(NULL)
 #' is_one_double(NA)

@@ -4,7 +4,7 @@
 #' # TRUE
 #' is_one_bool(TRUE)
 #' is_one_bool(FALSE)
-#' 
+#'
 #' # FALSE
 #' is_one_bool(NULL)
 #' is_one_bool(NA)
