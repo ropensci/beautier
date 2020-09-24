@@ -211,9 +211,9 @@ init_gtr_site_model <- function(
 #' @examples
 #'
 #' hky_site_model <- create_hky_site_model()
-#' is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model)
 #' hky_site_model <- init_hky_site_model(hky_site_model)
-#' is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model)
 #' @export
 init_hky_site_model <- function(
   hky_site_model,
@@ -272,9 +272,9 @@ init_hky_site_model <- function(
 #' @examples
 #'
 #' hky_site_model <- create_hky_site_model()
-#' is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model)
 #' hky_site_model <- init_hky_site_model(hky_site_model)
-#' is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model)
 #' @export
 init_jc69_site_model <- function(
   jc69_site_model,
@@ -323,9 +323,9 @@ init_jc69_site_model <- function(
 #' @examples
 #'
 #' tn93_site_model <- create_tn93_site_model()
-#' is_init_tn93_site_model(tn93_site_model))
+#' is_init_tn93_site_model(tn93_site_model)
 #' tn93_site_model <- init_tn93_site_model(tn93_site_model)
-#' is_init_tn93_site_model(tn93_site_model))
+#' is_init_tn93_site_model(tn93_site_model)
 #' @export
 init_tn93_site_model <- function(
   tn93_site_model,

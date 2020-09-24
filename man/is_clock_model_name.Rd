@@ -17,8 +17,8 @@ Determines if the name is a valid clock model name
 }
 \examples{
 # TRUE
-is_clock_model_name("relaxed_log_normal"))
-is_clock_model_name("strict"))
+is_clock_model_name("relaxed_log_normal")
+is_clock_model_name("strict")
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -4,7 +4,7 @@
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' distr_to_xml(create_uniform_distr(id = 1)
+#' distr_to_xml(create_uniform_distr(id = 1))
 #' @export
 distr_to_xml <- function(
   distr

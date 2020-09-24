@@ -23,9 +23,9 @@ Initializes an HKY site model
 \examples{
 
 hky_site_model <- create_hky_site_model()
-is_init_hky_site_model(hky_site_model))
+is_init_hky_site_model(hky_site_model)
 hky_site_model <- init_hky_site_model(hky_site_model)
-is_init_hky_site_model(hky_site_model))
+is_init_hky_site_model(hky_site_model)
 }
 \author{
 Richèl J.C. Bilderbeek

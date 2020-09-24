@@ -17,7 +17,7 @@ the distribution as XML text
 Converts a distribution to XML
 }
 \examples{
-distr_to_xml(create_uniform_distr(id = 1)
+distr_to_xml(create_uniform_distr(id = 1))
 }
 \author{
 Richèl J.C. Bilderbeek

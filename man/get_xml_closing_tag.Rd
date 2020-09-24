@@ -22,7 +22,7 @@ get_xml_closing_tag("<my_tag text=something></my_tag>")
 
 # Will return NA
 get_xml_closing_tag("<my_tag text=something/>")
-get_xml_closing_tag("no_xml"))
+get_xml_closing_tag("no_xml")
 }
 \author{
 Richèl J.C. Bilderbeek

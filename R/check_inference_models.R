@@ -6,9 +6,7 @@
 #' @seealso Use \link{create_inference_model} to create a valid
 #'   BEAST2 options object
 #' @examples
-#' check_inference_models(
-#'     list(create_inference_model()
-#' )
+#' check_inference_models(list(create_inference_model()))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_inference_models <- function(

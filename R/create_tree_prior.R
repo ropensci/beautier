@@ -247,15 +247,14 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   yule_tree_prior <- create_yule_tree_prior()
+#'  yule_tree_prior <- create_yule_tree_prior()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = yule_tree_prior
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#'  beast2_input_file <- tempfile(fileext = ".xml")
+#'  create_beast2_input_file(
+#'    input_filename = get_fasta_filename(),
+#'    beast2_input_file,
+#'    tree_prior = yule_tree_prior
+#' )
 #' @aliases create_yule_tree_prior create_tree_prior_yule
 #' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(
