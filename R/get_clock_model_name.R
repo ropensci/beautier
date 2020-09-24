@@ -4,7 +4,6 @@
 #' @inheritParams default_params_doc
 #' @return name of the clock model
 #' @examples
-#' library(testthat)
 #'
 #' expect_equal(
 #'   get_clock_model_name(create_strict_clock_model()),

@@ -3,12 +3,7 @@
 #' @return a list of one or more clock models
 #' @seealso Use \link{create_clock_models} to get all clock models
 #' @examples
-#'   names <- get_clock_model_names()
-#'   clock_models <- create_clock_models_from_names(names)
-#'
-#'   for (i in seq_along(names)) {
-#'     testthat::expect_equal(names[i], clock_models[[i]]$name)
-#'   }
+#' clock_models <- create_clock_models_from_names(get_clock_model_names())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_clock_models_from_names <- function(clock_model_names) {

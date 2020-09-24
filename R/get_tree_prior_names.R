@@ -2,7 +2,6 @@
 #' @return the tree prior names
 #' @seealso Use \link{create_tree_priors} to get all tree priors
 #' @examples
-#' library(testthat)
 #'
 #' names <- get_tree_prior_names()
 #' expect_true("birth_death" %in% names)

@@ -17,7 +17,6 @@
 #'  to check for more specific distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_distr(create_beta_distr()))
 #' expect_true(is_distr(create_exp_distr()))
@@ -61,7 +60,6 @@ is_distr <- function( # nolint simplification of this will hurt readablity
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_beta_distr(create_beta_distr()))
 #' expect_false(is_beta_distr(create_exp_distr()))
@@ -93,7 +91,6 @@ is_beta_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_exp_distr(create_exp_distr()))
 #' expect_false(is_exp_distr(create_gamma_distr()))
@@ -122,7 +119,6 @@ is_exp_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_gamma_distr(create_gamma_distr()))
 #'
@@ -154,7 +150,6 @@ is_gamma_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_inv_gamma_distr(create_inv_gamma_distr()))
 #'
@@ -186,7 +181,6 @@ is_inv_gamma_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_laplace_distr(create_laplace_distr()))
 #'
@@ -218,7 +212,6 @@ is_laplace_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_log_normal_distr(create_log_normal_distr()))
 #'
@@ -250,7 +243,6 @@ is_log_normal_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_normal_distr(create_normal_distr()))
 #'
@@ -282,7 +274,6 @@ is_normal_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_one_div_x_distr(create_one_div_x_distr()))
 #'
@@ -308,7 +299,6 @@ is_one_div_x_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_poisson_distr(create_poisson_distr()))
 #'
@@ -338,7 +328,6 @@ is_poisson_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_uniform_distr(create_uniform_distr()))
 #' expect_false(is_uniform_distr(create_beta_distr()))

@@ -7,21 +7,11 @@
 #'   Will \link{stop} if the object is not a list of one or more clock models.
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
-#'   testthat::expect_silent(check_clock_models(create_strict_clock_model()))
-#'   testthat::expect_silent(
-#'     check_clock_models(list(create_strict_clock_model()))
-#'   )
-#'   testthat::expect_silent(
-#'     check_clock_models(
-#'       list(create_strict_clock_model(), create_rln_clock_model())
-#'     )
-#'   )
-#'
-#'   testthat::expect_error(check_clock_models("nonsense"))
-#'   testthat::expect_error(check_clock_models(3.14))
-#'   testthat::expect_error(check_clock_models(42))
-#'   testthat::expect_error(check_clock_models(NA))
-#'   testthat::expect_error(check_clock_models(NULL))
+#' check_clock_models(create_strict_clock_model())
+#' check_clock_models(list(create_strict_clock_model()))
+#' check_clock_models(
+#'   list(create_strict_clock_model(), create_rln_clock_model())
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_clock_models <- function(clock_models) {

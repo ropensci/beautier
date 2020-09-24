@@ -4,7 +4,6 @@
 #'   gamma site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_silent(
 #'   check_gamma_site_model(

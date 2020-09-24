@@ -3,7 +3,6 @@
 #' @return TRUE if x, or all elements of x, are tree_prior objects
 #' @seealso Use \link{create_yule_tree_prior} to create a Yule tree prior
 #' @examples
-#' library(testthat)
 #'
 #' yule_tree_prior <- create_yule_tree_prior()
 #' bd_tree_prior <- create_bd_tree_prior()

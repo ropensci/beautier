@@ -2,7 +2,6 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid tree_prior name, FALSE otherwise
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_tree_prior_name("birth_death"))
 #' expect_true(is_tree_prior_name("coalescent_bayesian_skyline"))

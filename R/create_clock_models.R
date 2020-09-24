@@ -5,7 +5,6 @@
 #' @return a list of site_models
 #' @seealso Use \link{create_clock_model} to create a clock model
 #' @examples
-#' library(testthat)
 #'
 #' clock_models <- create_clock_models()
 #' expect_true(is_rln_clock_model(clock_models[[1]]))

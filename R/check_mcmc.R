@@ -5,7 +5,6 @@
 #' @return nothing
 #' @seealso Use \code{\link{create_mcmc}} to create a valid MCMC
 #' @examples
-#' library(testthat)
 #'
 #' expect_silent(check_mcmc(create_mcmc()))
 #'

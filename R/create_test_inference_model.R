@@ -12,7 +12,6 @@
 #' used in testing
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' inference_model <- create_test_inference_model()
 #'

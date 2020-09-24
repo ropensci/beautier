@@ -2,7 +2,6 @@
 #' @return the parameter names
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' names <- get_param_names()
 #' expect_true("alpha" %in% names)

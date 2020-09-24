@@ -3,7 +3,6 @@
 #' @return the number of distributions a site model has
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # gamma site model, rates AC, AG, AT, CG and GT
 #' expect_equal(

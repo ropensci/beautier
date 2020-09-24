@@ -3,7 +3,6 @@
 #' @param tolerance tolerance to rounding errors
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_one_int(314))
 #' expect_true(is_one_int(0))

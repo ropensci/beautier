@@ -5,13 +5,8 @@
 #' @return TRUE if \code{clock_model} is a valid clock model
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
-#'  testthat::expect_silent(check_clock_model(create_strict_clock_model()))
-#'  testthat::expect_silent(check_clock_model(create_rln_clock_model()))
-#'
-#'  # Must stop on non-clock models
-#'  testthat::expect_error(check_clock_model(clock_model = "nonsense"))
-#'  testthat::expect_error(check_clock_model(clock_model = NULL))
-#'  testthat::expect_error(check_clock_model(clock_model = NA))
+#' check_clock_model(create_strict_clock_model())
+#' check_clock_model(create_rln_clock_model())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_clock_model <- function(clock_model) {
@@ -49,12 +44,7 @@ check_clock_model <- function(clock_model) {
 #' @return TRUE if \code{clock_model} is a valid clock model
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
-#'  testthat::expect_silent(
-#'    check_rln_clock_model(create_rln_clock_model())
-#'  )
-#'  testthat::expect_error(
-#'    check_rln_clock_model(create_strict_clock_model())
-#'  )
+#' check_rln_clock_model(create_rln_clock_model())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_rln_clock_model <- function(clock_model) {
@@ -103,12 +93,7 @@ check_rln_clock_model <- function(clock_model) {
 #' @return TRUE if \code{clock_model} is a valid clock model
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
-#'  testthat::expect_silent(
-#'    check_strict_clock_model(create_strict_clock_model())
-#'  )
-#'  testthat::expect_error(
-#'    check_strict_clock_model(create_rln_clock_model())
-#'  )
+#'  check_strict_clock_model(create_strict_clock_model())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_strict_clock_model <- function(clock_model) {

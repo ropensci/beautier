@@ -3,7 +3,6 @@
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
 #'
 #' # Path need not exist, use UNIX path as example
 #' created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")

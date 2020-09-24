@@ -2,7 +2,6 @@
 #' @return one line of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' created <- create_xml_declaration()
 #' expected <- "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"

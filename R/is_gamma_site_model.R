@@ -3,7 +3,6 @@
 #' @return TRUE if x is a valid gamma site object, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_gamma_site_model(create_gamma_site_model()))
 #'

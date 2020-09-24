@@ -2,7 +2,6 @@
 #' @param x the object to be determined of if it is one double
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_one_double(314))
 #' expect_true(is_one_double(0))

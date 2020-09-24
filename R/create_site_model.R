@@ -21,7 +21,6 @@
 #' @return a site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' input_filename <- get_fasta_filename()
 #'

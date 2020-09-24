@@ -11,7 +11,6 @@
 #'   beauti_options = beauti_options
 #' )
 #'
-#' library(testthat)
 #' expect_true(is.character(xml))
 #' expect_true(length(xml) > 1)
 #' @export

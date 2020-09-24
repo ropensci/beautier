@@ -6,17 +6,17 @@
 #' @return TRUE if the inference model has an MRCA prior,
 #'   FALSE otherwise
 #' @examples
-#'   # No MRCA prior
-#'   inference_model <- create_inference_model(
-#'     mrca_prior = NA
-#'   )
-#'   testthat::expect_false(has_mrca_prior(inference_model))
+#' # No MRCA prior
+#' inference_model <- create_inference_model(
+#'   mrca_prior = NA
+#' )
+#' has_mrca_prior(inference_model) # Returns FALSE
 #'
-#'   # A default MRCA prior
-#'   inference_model <- create_inference_model(
-#'     mrca_prior = create_mrca_prior()
-#'   )
-#'   testthat::expect_true(has_mrca_prior(inference_model))
+#' # A default MRCA prior
+#' inference_model <- create_inference_model(
+#'   mrca_prior = create_mrca_prior()
+#' )
+#' has_mrca_prior(inference_model) # Returns TRUE
 #' @seealso
 #'   \itemize{
 #'     \item \code{\link{create_inference_model}}: create an inference model

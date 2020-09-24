@@ -3,7 +3,6 @@
 #' @return the number of taxa
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' fasta_filename <- get_beautier_path("test_output_5.fas")
 #' expect_equal(get_n_taxa(fasta_filename), 5)

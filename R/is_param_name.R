@@ -3,7 +3,6 @@
 #' @return TRUE if the name is a valid parameter name, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_param_name("alpha"))
 #' expect_true(is_param_name("beta"))

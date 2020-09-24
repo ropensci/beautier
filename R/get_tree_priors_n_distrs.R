@@ -3,7 +3,6 @@
 #' @return the number of distributions a tree prior has
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_equal(
 #'   get_tree_priors_n_distrs(

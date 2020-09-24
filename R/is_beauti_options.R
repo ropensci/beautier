@@ -4,7 +4,6 @@
 #'   \link{FALSE} otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_beauti_options(create_beauti_options()))
 #'

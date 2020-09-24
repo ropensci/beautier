@@ -4,7 +4,6 @@
 #' @param filename A filename
 #' @return That filename without its full path and extension
 #' @examples
-#' library(testthat)
 #'
 #' # Path need not exist, use UNIX path as example
 #' expect_equal(

@@ -5,7 +5,6 @@
 #' @return nothing
 #' @seealso Use \code{ape::read.tree} to create a phylogeny
 #' @examples
-#' library(testthat)
 #'
 #' # Must do nothing on phylogenies
 #' phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")

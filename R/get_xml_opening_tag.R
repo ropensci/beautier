@@ -2,7 +2,6 @@
 #' @param text text to be determined to be valid
 #' @return the opening tag if found, else NA
 #' @examples
-#' library(testthat)
 #'
 #' expect_equal(
 #'   get_xml_opening_tag("<my_tag text=something/>"),

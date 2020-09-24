@@ -2,7 +2,6 @@
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#' library(testthat)
 #'
 #' xml <- mcmc_to_xml_run(create_mcmc())
 #' expect_equal(
@@ -25,7 +24,6 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#' library(testthat)
 #'
 #' xml <- mcmc_to_xml_run_default(create_mcmc())
 #'
@@ -71,7 +69,6 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#' library(testthat)
 #'
 #' xml <- mcmc_to_xml_run_nested_sampling(
 #'   create_ns_mcmc()

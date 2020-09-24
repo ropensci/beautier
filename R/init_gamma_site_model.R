@@ -5,7 +5,6 @@
 #' @return an initialized gamma site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' gamma_site_model <- create_gamma_site_model(
 #'   gamma_cat_count = 2,

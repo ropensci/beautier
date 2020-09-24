@@ -14,7 +14,6 @@
 #' Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # Create an MCMC chain with 50 states
 #' mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)

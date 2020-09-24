@@ -5,7 +5,6 @@
 #' GTR nucleotide substitution model.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
 #'
 #' expect_silent(check_gtr_site_model(create_gtr_site_model()))
 #'

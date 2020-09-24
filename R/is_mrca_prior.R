@@ -4,7 +4,6 @@
 #' @return TRUE if \code{x} is an MRCA prior, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_mrca_prior(create_mrca_prior()))
 #' # Also 'NA' is a valid MRCA prior,

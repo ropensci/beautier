@@ -7,7 +7,6 @@
 #'   and \code{\link{create_yule_tree_prior}}
 #' @return a list of tree_priors
 #' @examples
-#' library(testthat)
 #'
 #' tree_priors <- create_tree_priors()
 #' expect_true(is_bd_tree_prior(tree_priors[[1]]))

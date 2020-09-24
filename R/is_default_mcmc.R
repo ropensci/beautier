@@ -3,7 +3,6 @@
 #' @return TRUE if the MCMC is a default MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # An MCMC created by 'create_mcmc' is default
 #' expect_true(is_default_mcmc(create_mcmc()))

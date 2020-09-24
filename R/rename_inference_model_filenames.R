@@ -2,7 +2,6 @@
 #' @inheritParams default_params_doc
 #' @return an inference model with the renamed filenames
 #' @examples
-#' library(testthat)
 #'
 #' inference_model <- create_inference_model()
 #' inference_model$mcmc$tracelog$filename <- "trace.log"

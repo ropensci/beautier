@@ -3,7 +3,6 @@
 #' @return the number of parameters the tree priors have
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_equal(
 #'   get_tree_priors_n_params(

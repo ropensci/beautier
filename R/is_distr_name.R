@@ -2,7 +2,6 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid distribution name, FALSE otherwise
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_distr_name("uniform"))
 #' expect_true(is_distr_name("normal"))

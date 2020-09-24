@@ -6,7 +6,6 @@
 #' @return the valid values for the \code{freq_equilibrium} argument
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' names <- get_freq_equilibrium_names()
 #' expect_true("estimated" %in% names)

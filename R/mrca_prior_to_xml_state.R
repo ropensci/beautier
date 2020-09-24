@@ -4,7 +4,6 @@
 #' @return the tree prior as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' created <- mrca_prior_to_xml_state(
 #'   inference_model = create_inference_model(

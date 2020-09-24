@@ -5,11 +5,7 @@
 #' @seealso Use \code{\link{create_clock_model}} to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   clock_model_names <- get_clock_model_names()
-#'   for (clock_model_name in clock_model_names) {
-#'     clock_model <- create_clock_model_from_name(clock_model_name)
-#'     testthat::expect_equal(clock_model_name, clock_model$name)
-#'   }
+#' create_clock_model_from_name(get_clock_model_names()[1])
 #' @export
 create_clock_model_from_name <- function(clock_model_name) {
   if (clock_model_name == "strict") {

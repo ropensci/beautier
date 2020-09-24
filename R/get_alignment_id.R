@@ -8,7 +8,6 @@
 #' @seealso Use \link{check_alignment_id} to check if an alignment
 #' ID is valid.
 #' @examples
-#' library(testthat)
 #'
 #' # Path need not exist, use UNIX path as example
 #' created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")

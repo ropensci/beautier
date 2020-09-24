@@ -5,7 +5,6 @@
 #' @return nothing
 #' @seealso Use \link{create_site_model} to create a valid site model
 #' @examples
-#' library(testthat)
 #'
 #' expect_silent(check_site_model(create_jc69_site_model()))
 #' expect_silent(check_site_model(create_hky_site_model()))

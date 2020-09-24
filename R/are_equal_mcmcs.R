@@ -6,7 +6,6 @@
 #' @return TRUE if the two MCMCs are equal
 #' @seealso Use \code{\link{create_mcmc}} to create an MCMC
 #' @examples
-#' library(testthat)
 #'
 #' mcmc_1 <- create_mcmc(chain_length = 1000)
 #' mcmc_2 <- create_mcmc(chain_length = 314)

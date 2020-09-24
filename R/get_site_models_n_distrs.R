@@ -3,7 +3,6 @@
 #' @return the number of distributions the site models have
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_equal(get_site_models_n_distrs(list(create_gtr_site_model())), 5)
 #' expect_equal(get_site_models_n_distrs(list(create_hky_site_model())), 1)

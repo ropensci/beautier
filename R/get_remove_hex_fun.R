@@ -11,7 +11,6 @@
 #'
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' f <- get_remove_hex_fun()
 #' expect_equal(

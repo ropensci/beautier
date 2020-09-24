@@ -4,7 +4,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso to check multiple IDs, use \link{are_ids}
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_id("anthus_aco"))
 #' expect_true(is_id(3))

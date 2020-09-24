@@ -5,7 +5,6 @@
 #' @return nothing
 #' @seealso Use \link{create_param} to create a valid parameter
 #' @examples
-#' library(testthat)
 #'
 #' expect_silent(check_param(create_alpha_param()))
 #' expect_silent(check_param(create_beta_param()))

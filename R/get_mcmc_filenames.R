@@ -4,7 +4,6 @@
 #' need not be created, this (non-)filename will not be returned.
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
 #'
 #' mcmc <- create_mcmc()
 #' mcmc$tracelog$filename <- "/home/john/trace.log"

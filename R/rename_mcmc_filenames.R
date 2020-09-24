@@ -1,7 +1,6 @@
 #' Rename the filenames within an MCMC
 #' @inheritParams default_params_doc
 #' @examples
-#' library(testthat)
 #'
 #' # Create an MCMC with local filenames
 #' mcmc <- create_mcmc()

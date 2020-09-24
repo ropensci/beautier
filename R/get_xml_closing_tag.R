@@ -2,7 +2,6 @@
 #' @param text lines of XML to extract the XML closing tag from
 #' @return the closing tag if found, else NA
 #' @examples
-#' library(testthat)
 #'
 #' expect_equal(
 #'   get_xml_closing_tag("<my_tag text=something></my_tag>"),

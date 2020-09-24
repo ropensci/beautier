@@ -4,7 +4,6 @@
 #' @return the distribution as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' xml <- distr_to_xml(create_uniform_distr(id = 1))
 #' expect_true(is.character(xml))

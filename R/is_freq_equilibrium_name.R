@@ -8,7 +8,6 @@
 #'   and \code{\link{create_tn93_site_model}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_freq_equilibrium_name("estimated"))
 #' expect_true(is_freq_equilibrium_name("empirical"))

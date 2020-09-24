@@ -3,7 +3,6 @@
 #' @return TRUE if the site_model is a valid site_model, FALSE otherwise
 #' @seealso  A site model can be created using \code{\link{create_site_model}}
 #' @examples
-#' library(testthat)
 #'
 #' # site models
 #' expect_true(is_site_model(create_gtr_site_model()))
@@ -38,7 +37,6 @@ is_site_model <- function(
 #' @return TRUE if x is a valid GTR site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # site models
 #' expect_true(is_gtr_site_model(create_gtr_site_model()))
@@ -73,7 +71,6 @@ is_gtr_site_model <- function(
 #' @return TRUE if x is a valid HKY site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # site models
 #' expect_true(is_hky_site_model(create_hky_site_model()))
@@ -107,7 +104,6 @@ is_hky_site_model <- function(
 #' @return TRUE if x is a valid JC69 site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # site models
 #' expect_false(is_jc69_site_model(create_gtr_site_model()))
@@ -137,7 +133,6 @@ is_jc69_site_model <- function(
 #' @return TRUE if x is a valid TN93 site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # site models
 #' expect_false(is_tn93_site_model(create_gtr_site_model()))

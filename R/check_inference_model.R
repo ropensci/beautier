@@ -8,12 +8,7 @@
 #' @seealso Use \link{create_inference_model} to create a valid Bayesian
 #'   phylogenetic inference model
 #' @examples
-#'  testthat::expect_silent(check_inference_model(create_inference_model()))
-#'
-#'  # Must stop on non-MCMCs
-#'  testthat::expect_error(check_inference_model(inference_model = "nonsense"))
-#'  testthat::expect_error(check_inference_model(inference_model = NULL))
-#'  testthat::expect_error(check_inference_model(inference_model = NA))
+#' check_inference_model(create_inference_model())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_inference_model <- function(

@@ -2,7 +2,6 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid site_model name, FALSE otherwise
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_site_model_name("JC69"))
 #' expect_true(is_site_model_name("HKY"))

@@ -5,7 +5,6 @@
 #' Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' # Create an MCMC chain with 50 states
 #' mcmc <- create_test_mcmc()

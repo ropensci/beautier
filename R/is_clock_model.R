@@ -5,7 +5,6 @@
 #'   to create valid clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_clock_model(create_strict_clock_model()))
 #' expect_true(is_clock_model(create_rln_clock_model()))
@@ -33,7 +32,6 @@ is_clock_model <- function(
 #'   functions to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_false(is_rln_clock_model(create_strict_clock_model()))
 #' expect_true(is_rln_clock_model(create_rln_clock_model()))
@@ -63,7 +61,6 @@ is_rln_clock_model <- function(
 #'   functions to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' library(testthat)
 #'
 #' expect_true(is_strict_clock_model(create_strict_clock_model()))
 #' expect_false(is_strict_clock_model(create_rln_clock_model()))
