@@ -13,14 +13,11 @@
 #' @examples
 #'
 #' f <- get_remove_hex_fun()
-#' expect_equal(
-#'   f("/home/john/beast2_186c7404208c.xml.state"),
-#'   "/home/john/beast2.xml.state"
-#' )
-#' expect_equal(
-#'   f("beast2_186c7404208c.xml.state"),
-#'   "beast2.xml.state"
-#' )
+#' # /home/john/beast2.xml.state
+#' f("/home/john/beast2_186c7404208c.xml.state")
+#'
+#' # beast2.xml.state
+#' f("beast2_186c7404208c.xml.state")
 #' expect_equal(f(NA), NA)
 #' @export
 get_remove_hex_fun <- function() {

@@ -7,13 +7,13 @@
 #'   and \code{\link{create_yule_tree_prior}}
 #' @return a list of tree_priors
 #' @examples
-#'
 #' tree_priors <- create_tree_priors()
-#' expect_true(is_bd_tree_prior(tree_priors[[1]]))
-#' expect_true(is_cbs_tree_prior(tree_priors[[2]]))
-#' expect_true(is_ccp_tree_prior(tree_priors[[3]]))
-#' expect_true(is_cep_tree_prior(tree_priors[[4]]))
-#' expect_true(is_yule_tree_prior(tree_priors[[5]]))
+#' # TRUE
+#' is_bd_tree_prior(tree_priors[[1]])
+#' is_cbs_tree_prior(tree_priors[[2]])
+#' is_ccp_tree_prior(tree_priors[[3]])
+#' is_cep_tree_prior(tree_priors[[4]])
+#' is_yule_tree_prior(tree_priors[[5]])
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_tree_priors <- function() {

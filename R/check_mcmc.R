@@ -5,13 +5,7 @@
 #' @return nothing
 #' @seealso Use \code{\link{create_mcmc}} to create a valid MCMC
 #' @examples
-#'
-#' expect_silent(check_mcmc(create_mcmc()))
-#'
-#'  # Must stop on non-MCMCs
-#' expect_error(check_mcmc(mcmc = "nonsense"))
-#' expect_error(check_mcmc(mcmc = NULL))
-#' expect_error(check_mcmc(mcmc = NA))
+#' check_mcmc(create_mcmc())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mcmc <- function(mcmc) {

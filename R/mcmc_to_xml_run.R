@@ -2,12 +2,8 @@
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'
-#' xml <- mcmc_to_xml_run(create_mcmc())
-#' expect_equal(
-#'   xml,
-#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
-#' )
+#' # <run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">
+#' mcmc_to_xml_run(create_mcmc())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run <- function(mcmc) {
@@ -24,13 +20,8 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @inheritParams default_params_doc
 #' @return the XML as text
 #' @examples
-#'
+#' # <run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">
 #' xml <- mcmc_to_xml_run_default(create_mcmc())
-#'
-#' expect_equal(
-#'   xml,
-#'   "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
-#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_default <- function(mcmc) {

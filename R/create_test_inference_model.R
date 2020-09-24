@@ -12,7 +12,6 @@
 #' used in testing
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
 #' inference_model <- create_test_inference_model()
 #'
 #' beast2_input_file <- tempfile(fileext = ".xml")
@@ -21,7 +20,6 @@
 #'   beast2_input_file,
 #'   inference_model = inference_model
 #' )
-#' expect_true(file.exists(beast2_input_file))
 #' @export
 create_test_inference_model <- function(
   site_model = create_jc69_site_model(),

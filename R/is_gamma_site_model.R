@@ -3,14 +3,15 @@
 #' @return TRUE if x is a valid gamma site object, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' # TRUE
+#' is_gamma_site_model(create_gamma_site_model())
 #'
-#' expect_true(is_gamma_site_model(create_gamma_site_model()))
-#'
-#' expect_false(is_gamma_site_model("nonsense"))
-#' expect_false(is_gamma_site_model(NA))
-#' expect_false(is_gamma_site_model(NULL))
-#' expect_false(is_gamma_site_model(""))
-#' expect_false(is_gamma_site_model(c()))
+#' # FALSE
+#' is_gamma_site_model("nonsense")
+#' is_gamma_site_model(NA)
+#' is_gamma_site_model(NULL)
+#' is_gamma_site_model("")
+#' is_gamma_site_model(c())
 #' @export
 is_gamma_site_model <- function(x) {
   tryCatch({

@@ -62,10 +62,12 @@ init_site_models <- function(
 #' @return an initialized GTR site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   gtr_site_model <- create_gtr_site_model()
-#'   testit::assert(!is_init_gtr_site_model(gtr_site_model))
-#'   gtr_site_model <- init_gtr_site_model(gtr_site_model)
-#'   testit::assert(is_init_gtr_site_model(gtr_site_model))
+#' gtr_site_model <- create_gtr_site_model()
+#' # FALSE
+#' is_init_gtr_site_model(gtr_site_model)
+#' gtr_site_model <- init_gtr_site_model(gtr_site_model)
+#' # TRUE
+#' is_init_gtr_site_model(gtr_site_model)
 #' @export
 init_gtr_site_model <- function(
   gtr_site_model,
@@ -209,9 +211,9 @@ init_gtr_site_model <- function(
 #' @examples
 #'
 #' hky_site_model <- create_hky_site_model()
-#' expect_false(is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model))
 #' hky_site_model <- init_hky_site_model(hky_site_model)
-#' expect_true(is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model))
 #' @export
 init_hky_site_model <- function(
   hky_site_model,
@@ -270,9 +272,9 @@ init_hky_site_model <- function(
 #' @examples
 #'
 #' hky_site_model <- create_hky_site_model()
-#' expect_false(is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model))
 #' hky_site_model <- init_hky_site_model(hky_site_model)
-#' expect_true(is_init_hky_site_model(hky_site_model))
+#' is_init_hky_site_model(hky_site_model))
 #' @export
 init_jc69_site_model <- function(
   jc69_site_model,
@@ -321,9 +323,9 @@ init_jc69_site_model <- function(
 #' @examples
 #'
 #' tn93_site_model <- create_tn93_site_model()
-#' expect_false(is_init_tn93_site_model(tn93_site_model))
+#' is_init_tn93_site_model(tn93_site_model))
 #' tn93_site_model <- init_tn93_site_model(tn93_site_model)
-#' expect_true(is_init_tn93_site_model(tn93_site_model))
+#' is_init_tn93_site_model(tn93_site_model))
 #' @export
 init_tn93_site_model <- function(
   tn93_site_model,

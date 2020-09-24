@@ -2,17 +2,19 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid distribution name, FALSE otherwise
 #' @examples
-#'
-#' expect_true(is_distr_name("uniform"))
-#' expect_true(is_distr_name("normal"))
-#' expect_true(is_distr_name("one_div_x"))
-#' expect_true(is_distr_name("log_normal"))
-#' expect_true(is_distr_name("exponential"))
-#' expect_true(is_distr_name("gamma"))
-#' expect_true(is_distr_name("beta"))
-#' expect_true(is_distr_name("laplace"))
-#' expect_true(is_distr_name("inv_gamma"))
-#' expect_true(is_distr_name("poisson"))
+#' # TRUE
+#' is_distr_name("uniform"))
+#' is_distr_name("normal"))
+#' is_distr_name("one_div_x"))
+#' is_distr_name("log_normal"))
+#' is_distr_name("exponential"))
+#' is_distr_name("gamma"))
+#' is_distr_name("beta"))
+#' is_distr_name("laplace"))
+#' is_distr_name("inv_gamma"))
+#' is_distr_name("poisson"))
+#' # FALSE
+#' is_distr_name("nonsense"))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_distr_name <- function(name) {

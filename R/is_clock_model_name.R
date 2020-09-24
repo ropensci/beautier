@@ -2,9 +2,9 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid clock_model name, FALSE otherwise
 #' @examples
-#'
-#' expect_true(is_clock_model_name("relaxed_log_normal"))
-#' expect_true(is_clock_model_name("strict"))
+#' # TRUE
+#' is_clock_model_name("relaxed_log_normal"))
+#' is_clock_model_name("strict"))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_clock_model_name <- function(name) {

@@ -8,10 +8,12 @@
 #'   and \code{\link{create_tn93_site_model}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
-#' expect_true(is_freq_equilibrium_name("estimated"))
-#' expect_true(is_freq_equilibrium_name("empirical"))
-#' expect_true(is_freq_equilibrium_name("all_equal"))
+#' # TRUE
+#' is_freq_equilibrium_name("estimated"))
+#' is_freq_equilibrium_name("empirical"))
+#' is_freq_equilibrium_name("all_equal"))
+#' # FALSE
+#' is_freq_equilibrium_name("nonsense"))
 #' @export
 is_freq_equilibrium_name <- function(
   name

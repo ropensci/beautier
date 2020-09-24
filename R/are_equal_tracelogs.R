@@ -9,8 +9,10 @@
 #'
 #' tracelog_1 <- create_tracelog(log_every = 1000)
 #' tracelog_2 <- create_tracelog(log_every = 314)
-#' expect_true(are_equal_tracelogs(tracelog_1, tracelog_1))
-#' expect_false(are_equal_tracelogs(tracelog_1, tracelog_2))
+#' # TRUE
+#' are_equal_tracelogs(tracelog_1, tracelog_1)
+#' # FALSE
+#' are_equal_tracelogs(tracelog_1, tracelog_2)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_tracelogs <- function(

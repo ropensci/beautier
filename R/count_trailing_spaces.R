@@ -3,13 +3,18 @@
 #' @return the number of spaces before the first character
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
-#' expect_equal(count_trailing_spaces("x"), 0)
-#' expect_equal(count_trailing_spaces(" y"), 1)
-#' expect_equal(count_trailing_spaces("  <"), 2)
-#' expect_equal(count_trailing_spaces(""), 0)
-#' expect_equal(count_trailing_spaces(" "), 1)
-#' expect_equal(count_trailing_spaces("  "), 2)
+#' # 0
+#' count_trailing_spaces("x")
+#' # 1
+#' count_trailing_spaces(" y")
+#' # 2
+#' count_trailing_spaces("  <")
+#' # 0
+#' count_trailing_spaces("")
+#' # 1
+#' count_trailing_spaces(" ")
+#' # 2
+#' count_trailing_spaces("  ")
 #' @export
 count_trailing_spaces <- function(
   line

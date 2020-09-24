@@ -4,17 +4,7 @@
 #'   gamma site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
-#' expect_silent(
-#'   check_gamma_site_model(
-#'     create_gamma_site_model()
-#'   )
-#' )
-#' expect_error(
-#'   check_gamma_site_model(
-#'     "not a gamma site model"
-#'   )
-#' )
+#' check_gamma_site_model(create_gamma_site_model())
 #' @export
 check_gamma_site_model <- function(gamma_site_model) {
 

@@ -3,11 +3,8 @@
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
 #' @examples
-#'
-#' # Path need not exist, use UNIX path as example
+#' # anthus_aco_sub
 #' created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
-#' expected <- "anthus_aco_sub"
-#' expect_equal(created, expected)
 #' expect_silent(check_alignment_id(created))
 #' @export
 check_alignment_id <- function(alignment_id) {

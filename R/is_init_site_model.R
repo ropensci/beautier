@@ -30,9 +30,11 @@ is_init_site_model <- function(
 #' @examples
 #'
 #' gtr_site_model <- create_gtr_site_model()
-#' expect_false(is_init_gtr_site_model(gtr_site_model))
+#' # FALSE: not yet initialized
+#' is_init_gtr_site_model(gtr_site_model)
 #' gtr_site_model <- init_gtr_site_model(gtr_site_model)
-#' expect_true(is_init_gtr_site_model(gtr_site_model))
+#' # TRUE: now it is initialized
+#' is_init_gtr_site_model(gtr_site_model)
 #' @export
 is_init_gtr_site_model <- function( # nolint simplification of this hurts readability
   x
@@ -63,9 +65,11 @@ is_init_gtr_site_model <- function( # nolint simplification of this hurts readab
 #' @examples
 #'
 #' hky_site_model <- create_hky_site_model()
-#' expect_false(is_init_hky_site_model(hky_site_model))
+#' # FALSE: not yet initialized
+#' is_init_hky_site_model(hky_site_model)
 #' hky_site_model <- init_hky_site_model(hky_site_model)
-#' expect_true(is_init_hky_site_model(hky_site_model))
+#' # TRUE: now it is initialized
+#' is_init_hky_site_model(hky_site_model)
 #' @export
 is_init_hky_site_model <- function(
   x
@@ -89,8 +93,10 @@ is_init_hky_site_model <- function(
 #'     gamma_shape_prior_distr = create_normal_distr()
 #'   )
 #' )
-#' expect_false(is_init_jc69_site_model(jc69_site_model))
+#' # FALSE: not yet initialized
+#' is_init_jc69_site_model(jc69_site_model)
 #' jc69_site_model <- init_jc69_site_model(jc69_site_model)
+#' # TRUE: now it is initialized
 #' expect_true(is_init_jc69_site_model(jc69_site_model))
 #' @export
 is_init_jc69_site_model <- function(
@@ -110,9 +116,11 @@ is_init_jc69_site_model <- function(
 #' @examples
 #'
 #' tn93_site_model <- create_tn93_site_model()
-#' expect_false(is_init_tn93_site_model(tn93_site_model))
+#' # FALSE: not yet initialized
+#' is_init_tn93_site_model(tn93_site_model)
 #' tn93_site_model <- init_tn93_site_model(tn93_site_model)
-#' expect_true(is_init_tn93_site_model(tn93_site_model))
+#' # TRUE: now it is initialized
+#' is_init_tn93_site_model(tn93_site_model)
 #' @export
 is_init_tn93_site_model <- function(
   x

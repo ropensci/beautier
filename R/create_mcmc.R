@@ -24,7 +24,6 @@
 #'   beast2_input_file,
 #'   mcmc = mcmc
 #' )
-#' expect_true(file.exists(beast2_input_file))
 #' @export
 create_mcmc <- function(
   chain_length = 10000000,

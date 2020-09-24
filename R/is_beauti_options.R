@@ -4,14 +4,15 @@
 #'   \link{FALSE} otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' # TRUE
+#' is_beauti_options(create_beauti_options())
 #'
-#' expect_true(is_beauti_options(create_beauti_options()))
-#'
-#' expect_false(is_beauti_options("nonsense"))
-#' expect_false(is_beauti_options(NA))
-#' expect_false(is_beauti_options(NULL))
-#' expect_false(is_beauti_options(""))
-#' expect_false(is_beauti_options(c()))
+#' # FALSE
+#' is_beauti_options("nonsense")
+#' is_beauti_options(NA)
+#' is_beauti_options(NULL)
+#' is_beauti_options("")
+#' is_beauti_options(c())
 #' @seealso use \link{create_beauti_options} to create a valid
 #' \code{beauti_options} object
 #' @export

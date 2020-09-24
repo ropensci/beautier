@@ -5,14 +5,15 @@
 #' @return an initialized gamma site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
 #' gamma_site_model <- create_gamma_site_model(
 #'   gamma_cat_count = 2,
 #'   gamma_shape_prior_distr = create_one_div_x_distr(id = NA)
 #' )
-#' expect_false(is_init_gamma_site_model(gamma_site_model))
+#' # FALSE: not yet initialized
+#' is_init_gamma_site_model(gamma_site_model)
 #' gamma_site_model <- init_gamma_site_model(gamma_site_model)
-#' expect_true(is_init_gamma_site_model(gamma_site_model))
+#' # TRUE: now it is initialized
+#' is_init_gamma_site_model(gamma_site_model)
 #' @export
 init_gamma_site_model <- function(
   gamma_site_model,

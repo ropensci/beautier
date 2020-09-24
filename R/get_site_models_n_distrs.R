@@ -3,11 +3,14 @@
 #' @return the number of distributions the site models have
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
-#' expect_equal(get_site_models_n_distrs(list(create_gtr_site_model())), 5)
-#' expect_equal(get_site_models_n_distrs(list(create_hky_site_model())), 1)
-#' expect_equal(get_site_models_n_distrs(list(create_jc69_site_model())), 0)
-#' expect_equal(get_site_models_n_distrs(list(create_tn93_site_model())), 2)
+#' # 5
+#' get_site_models_n_distrs(list(create_gtr_site_model()))
+#' # 1
+#' get_site_models_n_distrs(list(create_hky_site_model()))
+#' # 0
+#' get_site_models_n_distrs(list(create_jc69_site_model()))
+#' # 2
+#' get_site_models_n_distrs(list(create_tn93_site_model()))
 #' @export
 get_site_models_n_distrs <- function(
   site_models

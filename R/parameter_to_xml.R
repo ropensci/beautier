@@ -4,10 +4,7 @@
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
-#' xml <- parameter_to_xml(create_alpha_param(id = 1))
-#' expect_equal(length(xml), 1)
-#' expect_true(nchar(xml) > 1)
+#' parameter_to_xml(create_alpha_param(id = 1)
 #' @export
 parameter_to_xml <- function( # nolint simplifying further hurts readability
   parameter

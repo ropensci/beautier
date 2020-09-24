@@ -2,12 +2,11 @@
 #' @param text text to be determined to be valid
 #' @return the opening tag if found, else NA
 #' @examples
-#'
-#' expect_equal(
-#'   get_xml_opening_tag("<my_tag text=something/>"),
-#'   "my_tag"
-#' )
-#' expect_true(is_one_na(get_xml_opening_tag("no_xml")))
+#' # my_tag
+#' get_xml_opening_tag("<my_tag text=something/>")
+#' 
+#' # NA when there is no opening tag
+#' get_xml_opening_tag("no_xml")
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_xml_opening_tag <- function(text) {

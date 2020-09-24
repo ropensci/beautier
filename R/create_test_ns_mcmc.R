@@ -18,8 +18,6 @@
 #'   beast2_input_file,
 #'   mcmc = mcmc
 #' )
-#'
-#' expect_true(file.exists(beast2_input_file))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_ns_mcmc <- function(

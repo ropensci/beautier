@@ -3,20 +3,19 @@
 #' @return TRUE if the site_model is a valid site_model, FALSE otherwise
 #' @seealso  A site model can be created using \code{\link{create_site_model}}
 #' @examples
+#' # TRUE
+#' is_site_model(create_gtr_site_model())
+#' is_site_model(create_hky_site_model())
+#' is_site_model(create_jc69_site_model())
+#' is_site_model(create_tn93_site_model())
 #'
-#' # site models
-#' expect_true(is_site_model(create_gtr_site_model()))
-#' expect_true(is_site_model(create_hky_site_model()))
-#' expect_true(is_site_model(create_jc69_site_model()))
-#' expect_true(is_site_model(create_tn93_site_model()))
-#'
-#' # other models
-#' expect_false(is_site_model(NA))
-#' expect_false(is_site_model(NULL))
-#' expect_false(is_site_model("nonsense"))
-#' expect_false(is_site_model(create_strict_clock_model()))
-#' expect_false(is_site_model(create_bd_tree_prior()))
-#' expect_false(is_site_model(create_mcmc()))
+#' # FALSE
+#' is_site_model(NA)
+#' is_site_model(NULL)
+#' is_site_model("nonsense")
+#' is_site_model(create_strict_clock_model())
+#' is_site_model(create_bd_tree_prior())
+#' is_site_model(create_mcmc())
 #' @export
 is_site_model <- function(
   x
@@ -39,18 +38,18 @@ is_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' expect_true(is_gtr_site_model(create_gtr_site_model()))
-#' expect_false(is_gtr_site_model(create_hky_site_model()))
-#' expect_false(is_gtr_site_model(create_jc69_site_model()))
-#' expect_false(is_gtr_site_model(create_tn93_site_model()))
+#' is_gtr_site_model(create_gtr_site_model()))
+#' is_gtr_site_model(create_hky_site_model()))
+#' is_gtr_site_model(create_jc69_site_model()))
+#' is_gtr_site_model(create_tn93_site_model()))
 #'
 #' # other models
-#' expect_false(is_gtr_site_model(NA))
-#' expect_false(is_gtr_site_model(NULL))
-#' expect_false(is_gtr_site_model("nonsense"))
-#' expect_false(is_gtr_site_model(create_strict_clock_model()))
-#' expect_false(is_gtr_site_model(create_bd_tree_prior()))
-#' expect_false(is_gtr_site_model(create_mcmc()))
+#' is_gtr_site_model(NA))
+#' is_gtr_site_model(NULL))
+#' is_gtr_site_model("nonsense"))
+#' is_gtr_site_model(create_strict_clock_model()))
+#' is_gtr_site_model(create_bd_tree_prior()))
+#' is_gtr_site_model(create_mcmc()))
 #' @export
 is_gtr_site_model <- function(
   x
@@ -73,18 +72,18 @@ is_gtr_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' expect_true(is_hky_site_model(create_hky_site_model()))
-#' expect_false(is_hky_site_model(create_gtr_site_model()))
-#' expect_false(is_hky_site_model(create_jc69_site_model()))
-#' expect_false(is_hky_site_model(create_tn93_site_model()))
+#' is_hky_site_model(create_hky_site_model()))
+#' is_hky_site_model(create_gtr_site_model()))
+#' is_hky_site_model(create_jc69_site_model()))
+#' is_hky_site_model(create_tn93_site_model()))
 #'
 #' # other models
-#' expect_false(is_hky_site_model(NA))
-#' expect_false(is_hky_site_model(NULL))
-#' expect_false(is_hky_site_model("nonsense"))
-#' expect_false(is_hky_site_model(create_strict_clock_model()))
-#' expect_false(is_hky_site_model(create_bd_tree_prior()))
-#' expect_false(is_hky_site_model(create_mcmc()))
+#' is_hky_site_model(NA))
+#' is_hky_site_model(NULL))
+#' is_hky_site_model("nonsense"))
+#' is_hky_site_model(create_strict_clock_model()))
+#' is_hky_site_model(create_bd_tree_prior()))
+#' is_hky_site_model(create_mcmc()))
 #' @export
 is_hky_site_model <- function(
   x
@@ -106,18 +105,18 @@ is_hky_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' expect_false(is_jc69_site_model(create_gtr_site_model()))
-#' expect_false(is_jc69_site_model(create_hky_site_model()))
-#' expect_true(is_jc69_site_model(create_jc69_site_model()))
-#' expect_false(is_jc69_site_model(create_tn93_site_model()))
+#' is_jc69_site_model(create_gtr_site_model()))
+#' is_jc69_site_model(create_hky_site_model()))
+#' is_jc69_site_model(create_jc69_site_model()))
+#' is_jc69_site_model(create_tn93_site_model()))
 #'
 #' # other models
-#' expect_false(is_jc69_site_model(NA))
-#' expect_false(is_jc69_site_model(NULL))
-#' expect_false(is_jc69_site_model("nonsense"))
-#' expect_false(is_jc69_site_model(create_strict_clock_model()))
-#' expect_false(is_jc69_site_model(create_bd_tree_prior()))
-#' expect_false(is_jc69_site_model(create_mcmc()))
+#' is_jc69_site_model(NA))
+#' is_jc69_site_model(NULL))
+#' is_jc69_site_model("nonsense"))
+#' is_jc69_site_model(create_strict_clock_model()))
+#' is_jc69_site_model(create_bd_tree_prior()))
+#' is_jc69_site_model(create_mcmc()))
 #' @export
 is_jc69_site_model <- function(
   x
@@ -135,20 +134,20 @@ is_jc69_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' expect_false(is_tn93_site_model(create_gtr_site_model()))
-#' expect_false(is_tn93_site_model(create_hky_site_model()))
-#' expect_false(is_tn93_site_model(create_jc69_site_model()))
-#' expect_true(is_tn93_site_model(create_tn93_site_model()))
+#' is_tn93_site_model(create_gtr_site_model()))
+#' is_tn93_site_model(create_hky_site_model()))
+#' is_tn93_site_model(create_jc69_site_model()))
+#' is_tn93_site_model(create_tn93_site_model()))
 #'
 #' # other models
-#' expect_false(is_tn93_site_model(NA))
-#' expect_false(is_tn93_site_model(NULL))
-#' expect_false(is_tn93_site_model("nonsense"))
-#' expect_false(is_tn93_site_model(""))
-#' expect_false(is_tn93_site_model(c()))
-#' expect_false(is_tn93_site_model(create_strict_clock_model()))
-#' expect_false(is_tn93_site_model(create_bd_tree_prior()))
-#' expect_false(is_tn93_site_model(create_mcmc()))
+#' is_tn93_site_model(NA))
+#' is_tn93_site_model(NULL))
+#' is_tn93_site_model("nonsense"))
+#' is_tn93_site_model(""))
+#' is_tn93_site_model(c()))
+#' is_tn93_site_model(create_strict_clock_model()))
+#' is_tn93_site_model(create_bd_tree_prior()))
+#' is_tn93_site_model(create_mcmc()))
 #' @export
 is_tn93_site_model <- function(
   x

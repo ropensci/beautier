@@ -8,14 +8,7 @@
 #'
 #' # Must do nothing on phylogenies
 #' phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")
-#' expect_silent(check_phylogeny(phylogeny))
-#'
-#' # Must stop on non-phylogenies
-#' expect_error(check_phylogeny("nonsense"))
-#' expect_error(check_phylogeny(NULL))
-#' expect_error(check_phylogeny(NA))
-#' expect_error(check_phylogeny(c()))
-#' expect_error(check_phylogeny(c(3, 1, 4)))
+#' check_phylogeny(phylogeny)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_phylogeny <- function(phylogeny) {

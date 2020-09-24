@@ -5,17 +5,15 @@
 #' Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
 #' # Create an MCMC chain with 50 states
 #' mcmc <- create_test_mcmc()
 #'
-#'  beast2_input_file <- tempfile(fileext = ".xml")
-#'  create_beast2_input_file(
-#'    get_fasta_filename(),
-#'    beast2_input_file,
-#'    mcmc = mcmc
+#' beast2_input_file <- tempfile(fileext = ".xml")
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   mcmc = mcmc
 #' )
-#' expect_true(file.exists(beast2_input_file))
 #' @export
 create_test_mcmc <- function(
   chain_length = 3000,

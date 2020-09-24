@@ -73,13 +73,15 @@ init_clock_models <- function(
 #' @examples
 #'
 #' rln_clock_model <- create_rln_clock_model()
-#' expect_false(is_init_rln_clock_model(rln_clock_model))
+#' # FALSE: not yet initialized
+#' is_init_rln_clock_model(rln_clock_model)
 #' rln_clock_model <- init_rln_clock_model(rln_clock_model)
 #' # Dimension is set to NA by default, for unknown reasons.
 #' # Because 'init_rln_clock_model' does not initialize it (for
 #' # unknown reasons), set it manually
 #' rln_clock_model$dimension <- 42
-#' expect_true(is_init_rln_clock_model(rln_clock_model))
+#' # TRUE: now it is initialized
+#' is_init_rln_clock_model(rln_clock_model)
 #' @export
 init_rln_clock_model <- function(
   rln_clock_model,
@@ -129,9 +131,11 @@ init_rln_clock_model <- function(
 #' @examples
 #'
 #' strict_clock_model <- create_strict_clock_model()
-#' expect_false(is_init_strict_clock_model(strict_clock_model))
+#' # FALSE: not yet initialized
+#' is_init_strict_clock_model(strict_clock_model)
 #' strict_clock_model <- init_strict_clock_model(strict_clock_model)
-#' expect_true(is_init_strict_clock_model(strict_clock_model))
+#' # TRUE: initialized
+#' is_init_strict_clock_model(strict_clock_model)
 #' @export
 init_strict_clock_model <- function(
   strict_clock_model,
