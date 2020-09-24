@@ -17,7 +17,6 @@ name of the clock model
 Will \link{stop} if the clock model is an invalid clock model
 }
 \examples{
-library(testthat)
 
 expect_equal(
   get_clock_model_name(create_strict_clock_model()),

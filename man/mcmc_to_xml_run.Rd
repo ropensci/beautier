@@ -21,7 +21,6 @@ the XML as text
 Converts an MCMC object to the run section's XML
 }
 \examples{
-library(testthat)
 
 xml <- mcmc_to_xml_run(create_mcmc())
 expect_equal(

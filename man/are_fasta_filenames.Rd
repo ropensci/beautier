@@ -16,7 +16,6 @@ TRUE if all filenames have a FASTA filename extension
 Checks if all filenames have a FASTA filename extension
 }
 \examples{
-library(testthat)
 
 expect_true(are_fasta_filenames("1.fas"))
 expect_true(are_fasta_filenames("1.fasta"))

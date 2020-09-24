@@ -20,7 +20,6 @@ Determine if the object is a valid
 'rate AG' parameter
 }
 \examples{
-library(testthat)
 
 expect_false(is_rate_ag_param(create_alpha_param()))
 expect_false(is_rate_ag_param(create_beta_param()))

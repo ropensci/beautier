@@ -18,19 +18,9 @@ nothing.
 Will \link{stop} if the object is not a list of one or more tree priors.
 }
 \examples{
-  testthat::expect_silent(check_tree_priors(create_yule_tree_prior()))
-  testthat::expect_silent(check_tree_priors(list(create_yule_tree_prior())))
-  testthat::expect_silent(
-    check_tree_priors(
-      list(create_yule_tree_prior(), create_bd_tree_prior())
-    )
-  )
-
-  testthat::expect_error(check_tree_priors("nonsense"))
-  testthat::expect_error(check_tree_priors(3.14))
-  testthat::expect_error(check_tree_priors(42))
-  testthat::expect_error(check_tree_priors(NA))
-  testthat::expect_error(check_tree_priors(NULL))
+check_tree_priors(create_yule_tree_prior())
+check_tree_priors(list(create_yule_tree_prior()))
+check_tree_priors(list(create_yule_tree_prior(), create_bd_tree_prior()))
 }
 \seealso{
 Use \link{create_tree_prior} to create a valid tree prior

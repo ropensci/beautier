@@ -20,7 +20,6 @@ Determine if the object is a valid
 alpha parameter
 }
 \examples{
-library(testthat)
 
 expect_true(is_alpha_param(create_alpha_param()))
 expect_false(is_alpha_param(create_beta_param()))

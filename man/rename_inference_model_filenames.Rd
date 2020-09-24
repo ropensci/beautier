@@ -38,7 +38,6 @@ an inference model with the renamed filenames
 Rename the filenames in an inference model
 }
 \examples{
-library(testthat)
 
 inference_model <- create_inference_model()
 inference_model$mcmc$tracelog$filename <- "trace.log"

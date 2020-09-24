@@ -17,12 +17,7 @@ nothing
 Calls \code{stop} if the \code{beauti_options} object is invalid
 }
 \examples{
- testthat::expect_silent(check_beauti_options(create_beauti_options()))
-
- # Must stop on nonsense
- testthat::expect_error(check_beauti_options(beauti_options = "nonsense"))
- testthat::expect_error(check_beauti_options(beauti_options = NULL))
- testthat::expect_error(check_beauti_options(beauti_options = NA))
+check_beauti_options(create_beauti_options())
 }
 \seealso{
 Use \link{create_beauti_options} to create a valid

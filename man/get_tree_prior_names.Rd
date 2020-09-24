@@ -13,7 +13,6 @@ the tree prior names
 Get the tree prior names
 }
 \examples{
-library(testthat)
 
 names <- get_tree_prior_names()
 expect_true("birth_death" \%in\% names)

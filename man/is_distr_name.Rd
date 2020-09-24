@@ -16,7 +16,6 @@ TRUE if the name is a valid distribution name, FALSE otherwise
 Determines if the name is a valid distribution name
 }
 \examples{
-library(testthat)
 
 expect_true(is_distr_name("uniform"))
 expect_true(is_distr_name("normal"))

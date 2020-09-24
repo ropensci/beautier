@@ -22,7 +22,6 @@ Poisson distribution
 as created by \code{\link{create_poisson_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_poisson_distr(create_poisson_distr()))
 

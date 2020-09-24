@@ -34,7 +34,6 @@ Internal function to create the XML of an MRCA prior,
   as used in the \code{state} section
 }
 \examples{
-library(testthat)
 
 created <- mrca_prior_to_xml_state(
   inference_model = create_inference_model(

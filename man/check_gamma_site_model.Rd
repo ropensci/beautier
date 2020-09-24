@@ -18,7 +18,6 @@ nothing. Will call \code{stop} if the argument is not a valid
 Checks if the parameter is a valid gamma site model
 }
 \examples{
-library(testthat)
 
 expect_silent(
   check_gamma_site_model(

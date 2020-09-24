@@ -16,7 +16,6 @@ TRUE if the clock_model is a valid clock_model, FALSE otherwise
 Determine if the object is a valid clock_model
 }
 \examples{
-library(testthat)
 
 expect_true(is_clock_model(create_strict_clock_model()))
 expect_true(is_clock_model(create_rln_clock_model()))

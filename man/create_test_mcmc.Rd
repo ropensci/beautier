@@ -45,7 +45,6 @@ an MCMC configuration
 Create an MCMC configuration for testing.
 }
 \examples{
-library(testthat)
 
 # Create an MCMC chain with 50 states
 mcmc <- create_test_mcmc()

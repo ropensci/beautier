@@ -16,7 +16,6 @@ TRUE if the site_model is a valid site_model, FALSE otherwise
 Determine if the object is a valid site_model
 }
 \examples{
-library(testthat)
 
 # site models
 expect_true(is_site_model(create_gtr_site_model()))

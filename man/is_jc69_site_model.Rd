@@ -16,7 +16,6 @@ TRUE if x is a valid JC69 site model, FALSE otherwise
 Determine if the object is a valid JC69 site model
 }
 \examples{
-library(testthat)
 
 # site models
 expect_false(is_jc69_site_model(create_gtr_site_model()))

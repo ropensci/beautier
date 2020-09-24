@@ -20,7 +20,6 @@ Determine if the object is a valid
 m parameter
 }
 \examples{
-library(testthat)
 
 expect_false(is_m_param(create_alpha_param()))
 expect_false(is_m_param(create_beta_param()))

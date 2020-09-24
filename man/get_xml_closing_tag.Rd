@@ -16,7 +16,6 @@ the closing tag if found, else NA
 Get the XML closing tag
 }
 \examples{
-library(testthat)
 
 expect_equal(
   get_xml_closing_tag("<my_tag text=something></my_tag>"),

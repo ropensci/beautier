@@ -13,7 +13,6 @@ is_one_bool(x)
 Check if the argument is one boolean
 }
 \examples{
-library(testthat)
 expect_true(is_one_bool(TRUE))
 expect_true(is_one_bool(FALSE))
 expect_false(is_one_bool(NULL))

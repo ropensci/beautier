@@ -17,7 +17,6 @@ the number of distributions a tree prior has
 Get the number of distributions a tree prior has
 }
 \examples{
-library(testthat)
 
 expect_equal(
   get_tree_priors_n_distrs(

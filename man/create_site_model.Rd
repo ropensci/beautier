@@ -33,7 +33,6 @@ Prefer using the
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
-library(testthat)
 
 input_filename <- get_fasta_filename()
 

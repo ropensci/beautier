@@ -22,7 +22,6 @@ normal distribution
 as created by \code{\link{create_normal_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_normal_distr(create_normal_distr()))
 

@@ -17,7 +17,6 @@ between the filename description (\code{tracelog}) and the hex
 string, this function removes both.
 }
 \examples{
-library(testthat)
 
 f <- get_remove_hex_fun()
 expect_equal(

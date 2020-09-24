@@ -18,19 +18,11 @@ nothing.
 Will \link{stop} if the object is not a list of one or more site models.
 }
 \examples{
-  testthat::expect_silent(check_site_models(create_jc69_site_model()))
-  testthat::expect_silent(check_site_models(list(create_jc69_site_model())))
-  testthat::expect_silent(
-    check_site_models(
-      list(create_jc69_site_model(), create_gtr_site_model())
-    )
-  )
-
-  testthat::expect_error(check_site_models("nonsense"))
-  testthat::expect_error(check_site_models(3.14))
-  testthat::expect_error(check_site_models(42))
-  testthat::expect_error(check_site_models(NA))
-  testthat::expect_error(check_site_models(NULL))
+check_site_models(create_jc69_site_model())
+check_site_models(list(create_jc69_site_model()))
+check_site_models(
+  list(create_jc69_site_model(), create_gtr_site_model())
+)
 }
 \seealso{
 Use \link{create_site_model} to create a valid site model

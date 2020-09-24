@@ -26,17 +26,17 @@ Will \link{stop} if the inference model is invalid
 MRCA: 'Most Recent Common Ancestor'
 }
 \examples{
-  # No MRCA prior
-  inference_model <- create_inference_model(
-    mrca_prior = NA
-  )
-  testthat::expect_false(has_mrca_prior(inference_model))
+# No MRCA prior
+inference_model <- create_inference_model(
+  mrca_prior = NA
+)
+has_mrca_prior(inference_model) # Returns FALSE
 
-  # A default MRCA prior
-  inference_model <- create_inference_model(
-    mrca_prior = create_mrca_prior()
-  )
-  testthat::expect_true(has_mrca_prior(inference_model))
+# A default MRCA prior
+inference_model <- create_inference_model(
+  mrca_prior = create_mrca_prior()
+)
+has_mrca_prior(inference_model) # Returns TRUE
 }
 \seealso{
 \itemize{

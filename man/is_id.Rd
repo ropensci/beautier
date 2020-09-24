@@ -16,7 +16,6 @@ TRUE if x is a valid ID, FALSE otherwise
 Determine if the object is a valid ID
 }
 \examples{
-library(testthat)
 
 expect_true(is_id("anthus_aco"))
 expect_true(is_id(3))

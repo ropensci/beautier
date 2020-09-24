@@ -16,7 +16,6 @@ TRUE if the name is a valid site_model name, FALSE otherwise
 Determines if the name is a valid site_model name
 }
 \examples{
-library(testthat)
 
 expect_true(is_site_model_name("JC69"))
 expect_true(is_site_model_name("HKY"))

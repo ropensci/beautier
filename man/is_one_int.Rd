@@ -15,7 +15,6 @@ is_one_int(x, tolerance = .Machine$double.eps^0.5)
 Determines if the argument is a whole number
 }
 \examples{
-library(testthat)
 
 expect_true(is_one_int(314))
 expect_true(is_one_int(0))

@@ -22,7 +22,6 @@ beta distribution,
 as created by \code{\link{create_beta_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_beta_distr(create_beta_distr()))
 expect_false(is_beta_distr(create_exp_distr()))

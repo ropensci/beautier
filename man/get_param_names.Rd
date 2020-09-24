@@ -13,7 +13,6 @@ the parameter names
 Get the parameter names
 }
 \examples{
-library(testthat)
 
 names <- get_param_names()
 expect_true("alpha" \%in\% names)

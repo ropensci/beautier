@@ -18,7 +18,6 @@ TRUE if x is a valid parameter,
 Determine if the object is a valid parameter
 }
 \examples{
-library(testthat)
 
 expect_true(is_param(create_alpha_param()))
 expect_true(is_param(create_beta_param()))

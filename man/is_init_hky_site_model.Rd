@@ -19,7 +19,6 @@ Determine if x is an initialized HKY site model
 as created by \code{\link{create_hky_site_model}}
 }
 \examples{
-library(testthat)
 
 hky_site_model <- create_hky_site_model()
 expect_false(is_init_hky_site_model(hky_site_model))

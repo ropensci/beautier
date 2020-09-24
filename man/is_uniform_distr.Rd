@@ -22,7 +22,6 @@ uniform distribution
 as created by \code{\link{create_uniform_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_uniform_distr(create_uniform_distr()))
 expect_false(is_uniform_distr(create_beta_distr()))

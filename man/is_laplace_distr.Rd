@@ -22,7 +22,6 @@ Laplace distribution,
 as created by \code{\link{create_laplace_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_laplace_distr(create_laplace_distr()))
 

@@ -21,7 +21,6 @@ an initialized Relaxed Log-Normal clock model
 Initializes a Relaxed Log-Normal clock model
 }
 \examples{
-library(testthat)
 
 rln_clock_model <- create_rln_clock_model()
 expect_false(is_init_rln_clock_model(rln_clock_model))

@@ -34,7 +34,6 @@ Example rename functions are:
 Rename the filenames within an MCMC
 }
 \examples{
-library(testthat)
 
 # Create an MCMC with local filenames
 mcmc <- create_mcmc()

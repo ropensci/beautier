@@ -16,7 +16,6 @@ the number of spaces before the first character
 Count the number of spaces before the first character
 }
 \examples{
-library(testthat)
 
 expect_equal(count_trailing_spaces("x"), 0)
 expect_equal(count_trailing_spaces(" y"), 1)

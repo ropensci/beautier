@@ -16,7 +16,6 @@ That filename without its full path and extension
 The path need not to actually exist
 }
 \examples{
-library(testthat)
 
 # Path need not exist, use UNIX path as example
 expect_equal(

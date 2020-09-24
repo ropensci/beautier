@@ -18,7 +18,6 @@ TRUE if the two tracelogs are equal
 Will \link{stop} if the arguments are not tracelogs.
 }
 \examples{
-library(testthat)
 
 tracelog_1 <- create_tracelog(log_every = 1000)
 tracelog_2 <- create_tracelog(log_every = 314)

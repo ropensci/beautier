@@ -13,7 +13,6 @@ one line of XML text
 Create the XML declaration of the BEAST2 XML input file
 }
 \examples{
-library(testthat)
 
 created <- create_xml_declaration()
 expected <- "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>"

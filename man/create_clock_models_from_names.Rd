@@ -17,12 +17,7 @@ a list of one or more clock models
 Create clock models from their names
 }
 \examples{
-  names <- get_clock_model_names()
-  clock_models <- create_clock_models_from_names(names)
-
-  for (i in seq_along(names)) {
-    testthat::expect_equal(names[i], clock_models[[i]]$name)
-  }
+clock_models <- create_clock_models_from_names(get_clock_model_names())
 }
 \seealso{
 Use \link{create_clock_models} to get all clock models

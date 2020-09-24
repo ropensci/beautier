@@ -19,7 +19,6 @@ Determine if x is an initialized tn93 site model
 as created by \code{\link{create_tn93_site_model}}
 }
 \examples{
-library(testthat)
 
 tn93_site_model <- create_tn93_site_model()
 expect_false(is_init_tn93_site_model(tn93_site_model))

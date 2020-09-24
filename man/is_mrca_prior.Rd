@@ -17,7 +17,6 @@ TRUE if \code{x} is an MRCA prior, FALSE otherwise
 Determine of the object is an empty (\code{NA}) or valid MRCA prior.
 }
 \examples{
-library(testthat)
 
 expect_true(is_mrca_prior(create_mrca_prior()))
 # Also 'NA' is a valid MRCA prior,

@@ -13,7 +13,6 @@ the valid values for the \code{freq_equilibrium} argument
 Returns valid values for the \code{freq_equilibrium} argument
 }
 \examples{
-library(testthat)
 
 names <- get_freq_equilibrium_names()
 expect_true("estimated" \%in\% names)

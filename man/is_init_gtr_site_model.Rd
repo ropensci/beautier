@@ -19,7 +19,6 @@ Determine if x is an initialized GTR site model
 as created by \code{\link{create_gtr_site_model}}
 }
 \examples{
-library(testthat)
 
 gtr_site_model <- create_gtr_site_model()
 expect_false(is_init_gtr_site_model(gtr_site_model))

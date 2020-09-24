@@ -18,7 +18,6 @@ Determine if the object is a valid HKY site model,
 as created by \code{\link{create_hky_site_model}}
 }
 \examples{
-library(testthat)
 
 # site models
 expect_true(is_hky_site_model(create_hky_site_model()))

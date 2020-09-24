@@ -16,7 +16,6 @@ Use \link{create_gtr_site_model} to create a valid
 GTR nucleotide substitution model.
 }
 \examples{
-library(testthat)
 
 expect_silent(check_gtr_site_model(create_gtr_site_model()))
 

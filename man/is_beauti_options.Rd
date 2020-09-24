@@ -17,7 +17,6 @@ is_beauti_options(x)
 Determine if the object is a valid \code{beauti_options}
 }
 \examples{
-library(testthat)
 
 expect_true(is_beauti_options(create_beauti_options()))
 

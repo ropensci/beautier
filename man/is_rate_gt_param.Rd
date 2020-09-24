@@ -20,7 +20,6 @@ Determine if the object is a valid
 'rate GT' parameter
 }
 \examples{
-library(testthat)
 
 expect_false(is_rate_gt_param(create_alpha_param()))
 expect_false(is_rate_gt_param(create_beta_param()))

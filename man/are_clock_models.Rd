@@ -16,7 +16,6 @@ TRUE if x, or all elements of x, are clock_model objects
 Determine if x consists out of clock_models objects
 }
 \examples{
-library(testthat)
 
 rln_clock_model <- create_rln_clock_model()
 strict_clock_model <- create_strict_clock_model()

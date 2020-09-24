@@ -21,7 +21,6 @@ TRUE if the MCMC is a default MCMC
 Determine if the MCMC is a default MCMC
 }
 \examples{
-library(testthat)
 
 # An MCMC created by 'create_mcmc' is default
 expect_true(is_default_mcmc(create_mcmc()))

@@ -22,7 +22,6 @@ inverse-gamma distribution
 as created by \code{\link{create_inv_gamma_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_inv_gamma_distr(create_inv_gamma_distr()))
 

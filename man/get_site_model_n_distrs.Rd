@@ -17,7 +17,6 @@ the number of distributions a site model has
 Get the number of distributions a site model has
 }
 \examples{
-library(testthat)
 
 # gamma site model, rates AC, AG, AT, CG and GT
 expect_equal(

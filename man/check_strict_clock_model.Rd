@@ -17,12 +17,7 @@ TRUE if \code{clock_model} is a valid clock model
 Calls \code{stop} if the clock model is invalid
 }
 \examples{
- testthat::expect_silent(
-   check_strict_clock_model(create_strict_clock_model())
- )
- testthat::expect_error(
-   check_strict_clock_model(create_rln_clock_model())
- )
+ check_strict_clock_model(create_strict_clock_model())
 }
 \seealso{
 Use \link{create_clock_model} to create a valid clock model

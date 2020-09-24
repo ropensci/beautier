@@ -22,7 +22,6 @@ Determine if the object is a valid
 as created by \code{\link{create_one_div_x_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_one_div_x_distr(create_one_div_x_distr()))
 

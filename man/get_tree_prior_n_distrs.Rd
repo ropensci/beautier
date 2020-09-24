@@ -17,7 +17,6 @@ the number of distributions a tree prior has
 Get the number of distributions a tree prior has
 }
 \examples{
-library(testthat)
 
 # birth_rate_distr and death_rate_distr
 expect_equal(get_tree_prior_n_distrs(create_bd_tree_prior()), 2)

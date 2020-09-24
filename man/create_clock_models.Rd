@@ -19,7 +19,6 @@ Creates all supported clock models,
   and \code{\link{create_strict_clock_model}}
 }
 \examples{
-library(testthat)
 
 clock_models <- create_clock_models()
 expect_true(is_rln_clock_model(clock_models[[1]]))

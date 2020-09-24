@@ -17,7 +17,6 @@ the number of distributions the site models have
 Get the number of distributions a site model has
 }
 \examples{
-library(testthat)
 
 expect_equal(get_site_models_n_distrs(list(create_gtr_site_model())), 5)
 expect_equal(get_site_models_n_distrs(list(create_hky_site_model())), 1)

@@ -51,7 +51,6 @@ an MCMC object
 Create an NS MCMC object for testing
 }
 \examples{
-library(testthat)
 
 mcmc <- create_test_ns_mcmc()
 

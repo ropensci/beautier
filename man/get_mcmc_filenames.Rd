@@ -19,7 +19,6 @@ If a filename is set to an empty string, to indicate a certain log file
 need not be created, this (non-)filename will not be returned.
 }
 \examples{
-library(testthat)
 
 mcmc <- create_mcmc()
 mcmc$tracelog$filename <- "/home/john/trace.log"

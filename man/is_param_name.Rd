@@ -16,7 +16,6 @@ TRUE if the name is a valid parameter name, FALSE otherwise
 Determines if the name is a valid parameter name
 }
 \examples{
-library(testthat)
 
 expect_true(is_param_name("alpha"))
 expect_true(is_param_name("beta"))

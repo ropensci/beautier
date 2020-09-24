@@ -19,7 +19,6 @@ Determine if x is an initialized JC69 site model
 as created by \code{\link{create_jc69_site_model}}
 }
 \examples{
-library(testthat)
 
 jc69_site_model <- create_jc69_site_model(
   gamma_site_model = create_gamma_site_model(

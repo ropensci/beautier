@@ -16,7 +16,6 @@ the opening tag if found, else NA
 Get the XML opening tag
 }
 \examples{
-library(testthat)
 
 expect_equal(
   get_xml_opening_tag("<my_tag text=something/>"),

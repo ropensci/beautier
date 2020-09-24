@@ -17,7 +17,6 @@ the number of parameters the tree priors have
 Get the number of parameters a list of tree priors has
 }
 \examples{
-library(testthat)
 
 expect_equal(
   get_tree_priors_n_params(

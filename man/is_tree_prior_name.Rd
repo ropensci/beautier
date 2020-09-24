@@ -16,7 +16,6 @@ TRUE if the name is a valid tree_prior name, FALSE otherwise
 Determines if the name is a valid tree prior name
 }
 \examples{
-library(testthat)
 
 expect_true(is_tree_prior_name("birth_death"))
 expect_true(is_tree_prior_name("coalescent_bayesian_skyline"))

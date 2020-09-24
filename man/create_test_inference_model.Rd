@@ -50,7 +50,6 @@ Creates a simple inference model with a short MCMC chain,
 to be used in testing.
 }
 \examples{
-library(testthat)
 
 inference_model <- create_test_inference_model()
 

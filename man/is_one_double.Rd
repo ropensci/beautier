@@ -13,7 +13,6 @@ is_one_double(x)
 Determines if the argument is a double
 }
 \examples{
-library(testthat)
 
 expect_true(is_one_double(314))
 expect_true(is_one_double(0))

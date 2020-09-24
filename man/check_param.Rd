@@ -16,7 +16,6 @@ nothing
 Calls \code{stop} if the parameter is invalid
 }
 \examples{
-library(testthat)
 
 expect_silent(check_param(create_alpha_param()))
 expect_silent(check_param(create_beta_param()))

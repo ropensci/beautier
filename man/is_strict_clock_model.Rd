@@ -18,7 +18,6 @@ Determine if the object is a valid strict clock model,
   as returned by \code{\link{create_strict_clock_model}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_strict_clock_model(create_strict_clock_model()))
 expect_false(is_strict_clock_model(create_rln_clock_model()))

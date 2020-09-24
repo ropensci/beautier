@@ -21,7 +21,6 @@ the XML as text
 Converts an MCMC object to the run section's XML for a default MCMC
 }
 \examples{
-library(testthat)
 
 xml <- mcmc_to_xml_run_default(create_mcmc())
 

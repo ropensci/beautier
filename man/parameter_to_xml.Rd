@@ -17,7 +17,6 @@ the parameter as XML text
 Converts a parameter to XML
 }
 \examples{
-library(testthat)
 
 xml <- parameter_to_xml(create_alpha_param(id = 1))
 expect_equal(length(xml), 1)

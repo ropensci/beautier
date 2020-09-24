@@ -15,7 +15,6 @@ Keep at \code{NA} to have it initialized automatically}
 Will \link{stop} if not.
 }
 \examples{
-library(testthat)
 
 # Path need not exist, use UNIX path as example
 created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")

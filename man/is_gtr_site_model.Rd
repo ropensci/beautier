@@ -18,7 +18,6 @@ Determine if the object is a valid GTR site model,
 as created by \code{\link{create_gtr_site_model}}
 }
 \examples{
-library(testthat)
 
 # site models
 expect_true(is_gtr_site_model(create_gtr_site_model()))

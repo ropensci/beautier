@@ -18,7 +18,6 @@ TRUE if x is a valid relaxed log normal clock model, FALSE otherwise
 Determine if the object is a valid relaxed log normal clock model
 }
 \examples{
-library(testthat)
 
 expect_false(is_rln_clock_model(create_strict_clock_model()))
 expect_true(is_rln_clock_model(create_rln_clock_model()))

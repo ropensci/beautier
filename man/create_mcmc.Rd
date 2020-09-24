@@ -48,7 +48,6 @@ length (\code{chain_length}) divided by the number of
 states between each sampling event (\code{store_every})
 }
 \examples{
-library(testthat)
 
 # Create an MCMC chain with 50 states
 mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)

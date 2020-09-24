@@ -18,7 +18,6 @@ TRUE if x is a valid lambda parameter,
 Determine if the object is a valid lambda parameter
 }
 \examples{
-library(testthat)
 
 expect_false(is_lambda_param(create_alpha_param()))
 expect_false(is_lambda_param(create_beta_param()))

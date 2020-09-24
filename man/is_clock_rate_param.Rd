@@ -20,7 +20,6 @@ Determine if the object is a valid
 clock_rate parameter
 }
 \examples{
-library(testthat)
 
 expect_false(is_clock_rate_param(create_alpha_param()))
 expect_false(is_clock_rate_param(create_beta_param()))

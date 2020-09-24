@@ -18,7 +18,6 @@ TRUE if x is a valid kappa_2 parameter,
 Determine if the object is a valid kappa 2 parameter
 }
 \examples{
-library(testthat)
 
 expect_false(is_kappa_2_param(create_alpha_param()))
 expect_false(is_kappa_2_param(create_beta_param()))

@@ -18,7 +18,6 @@ TRUE if x is a valid distribution,
 Determine if the object is a valid distribution
 }
 \examples{
-library(testthat)
 
 expect_true(is_distr(create_beta_distr()))
 expect_true(is_distr(create_exp_distr()))

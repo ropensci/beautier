@@ -21,7 +21,6 @@ an initialized gamma site model
 Initializes a gamma site model
 }
 \examples{
-library(testthat)
 
 gamma_site_model <- create_gamma_site_model(
   gamma_cat_count = 2,

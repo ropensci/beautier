@@ -18,7 +18,6 @@ TRUE if the two screenlogs are equal
 Will \link{stop} if the arguments are not screenlogs.
 }
 \examples{
-library(testthat)
 
 screenlog_1 <- create_screenlog(log_every = 1000)
 screenlog_2 <- create_screenlog(log_every = 314)

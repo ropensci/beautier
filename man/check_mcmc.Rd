@@ -21,7 +21,6 @@ nothing
 Calls \code{stop} if the MCMC is invalid
 }
 \examples{
-library(testthat)
 
 expect_silent(check_mcmc(create_mcmc()))
 

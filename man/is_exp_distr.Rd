@@ -22,7 +22,6 @@ exponential distribution
 as created by \code{\link{create_exp_distr}}
 }
 \examples{
-library(testthat)
 
 expect_true(is_exp_distr(create_exp_distr()))
 expect_false(is_exp_distr(create_gamma_distr()))

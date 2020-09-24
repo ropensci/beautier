@@ -17,7 +17,6 @@ nothing
 Calls \code{stop} if the phylogeny is invalid
 }
 \examples{
-library(testthat)
 
 # Must do nothing on phylogenies
 phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")
