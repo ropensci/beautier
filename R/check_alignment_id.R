@@ -5,7 +5,7 @@
 #' @examples
 #' # anthus_aco_sub
 #' created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
-#' expect_silent(check_alignment_id(created))
+#' check_alignment_id(created)
 #' @export
 check_alignment_id <- function(alignment_id) {
   # An alignment ID may be uninitialized

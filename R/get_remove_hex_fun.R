@@ -18,7 +18,9 @@
 #'
 #' # beast2.xml.state
 #' f("beast2_186c7404208c.xml.state")
-#' expect_equal(f(NA), NA)
+#'
+#' # NA
+#' f(NA)
 #' @export
 get_remove_hex_fun <- function() {
   function(filename) {
