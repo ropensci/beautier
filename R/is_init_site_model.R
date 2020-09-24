@@ -97,7 +97,7 @@ is_init_hky_site_model <- function(
 #' is_init_jc69_site_model(jc69_site_model)
 #' jc69_site_model <- init_jc69_site_model(jc69_site_model)
 #' # TRUE: now it is initialized
-#' expect_true(is_init_jc69_site_model(jc69_site_model))
+#' is_init_jc69_site_model(jc69_site_model)
 #' @export
 is_init_jc69_site_model <- function(
   x

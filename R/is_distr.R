@@ -61,13 +61,13 @@ is_distr <- function( # nolint simplification of this will hurt readablity
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'
-#' expect_true(is_beta_distr(create_beta_distr()))
-#' expect_false(is_beta_distr(create_exp_distr()))
-#'
-#' expect_false(is_beta_distr(NA))
-#' expect_false(is_beta_distr(NULL))
-#' expect_false(is_beta_distr("nonsense"))
+#' # TRUE
+#' is_beta_distr(create_beta_distr()
+#' # FALSE
+#' is_beta_distr(create_exp_distr()
+#' is_beta_distr(NA)
+#' is_beta_distr(NULL)
+#' is_beta_distr("nonsense")
 #' @export
 is_beta_distr <- function(
   x
