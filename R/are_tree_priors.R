@@ -8,11 +8,11 @@
 #' bd_tree_prior <- create_bd_tree_prior()
 #' both_tree_priors <- list(yule_tree_prior, bd_tree_prior)
 #' # TRUE
-#' are_tree_priors(yule_tree_prior))
+#' are_tree_priors(yule_tree_prior)
 #' # TRUE
-#' are_tree_priors(bd_tree_prior))
+#' are_tree_priors(bd_tree_prior)
 #' # TRUE
-#' are_tree_priors(both_tree_priors))
+#' are_tree_priors(both_tree_priors)2
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_tree_priors <- function(
