@@ -17,11 +17,10 @@ the prefix of operator IDs, similar to the name of a tree prior
 Get the prefix of operator IDs
 }
 \examples{
-
-bd_pre <- get_operator_id_pre(
+# BirthDeath
+get_operator_id_pre(
   tree_prior = create_bd_tree_prior()
 )
-expect_equal(bd_pre, "BirthDeath")
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -16,12 +16,5 @@ Use \link{create_gtr_site_model} to create a valid
 GTR nucleotide substitution model.
 }
 \examples{
-
-expect_silent(check_gtr_site_model(create_gtr_site_model()))
-
-expect_error(check_gtr_site_model("nonsense"))
-expect_error(check_gtr_site_model(NA))
-expect_error(check_gtr_site_model(NULL))
-expect_error(check_gtr_site_model(""))
-expect_error(check_gtr_site_model(c()))
+check_gtr_site_model(create_gtr_site_model())
 }

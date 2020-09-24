@@ -17,14 +17,15 @@ TRUE if \code{x} is an MRCA prior, FALSE otherwise
 Determine of the object is an empty (\code{NA}) or valid MRCA prior.
 }
 \examples{
-
-expect_true(is_mrca_prior(create_mrca_prior()))
+# TRUE
+is_mrca_prior(create_mrca_prior()))
 # Also 'NA' is a valid MRCA prior,
 # denoting that there no MRCA priors
-expect_true(is_mrca_prior(NA))
+is_mrca_prior(NA)
 
-expect_false(is_mrca_prior(NULL))
-expect_false(is_mrca_prior("nonsense"))
+# FALSE
+is_mrca_prior(NULL)
+is_mrca_prior("nonsense")
 }
 \author{
 Richèl J.C. Bilderbeek

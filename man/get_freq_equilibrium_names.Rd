@@ -13,11 +13,7 @@ the valid values for the \code{freq_equilibrium} argument
 Returns valid values for the \code{freq_equilibrium} argument
 }
 \examples{
-
-names <- get_freq_equilibrium_names()
-expect_true("estimated" \%in\% names)
-expect_true("empirical" \%in\% names)
-expect_true("all_equal" \%in\% names)
+get_freq_equilibrium_names()
 }
 \seealso{
 the \code{freq_equilibrium} argument is used in

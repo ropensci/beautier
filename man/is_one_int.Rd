@@ -15,17 +15,18 @@ is_one_int(x, tolerance = .Machine$double.eps^0.5)
 Determines if the argument is a whole number
 }
 \examples{
-
-expect_true(is_one_int(314))
-expect_true(is_one_int(0))
-expect_true(is_one_int(-314))
-expect_false(is_one_int(3.14))
-expect_false(is_one_int(NULL))
-expect_false(is_one_int(NA))
-expect_false(is_one_int(Inf))
-expect_false(is_one_int("nonsense"))
-expect_false(is_one_int(c()))
-expect_false(is_one_int(c(1, 2)))
+# TRUE
+is_one_int(314)
+is_one_int(0)
+is_one_int(-314)
+# FALSE
+is_one_int(3.14)
+is_one_int(NULL)
+is_one_int(NA)
+is_one_int(Inf)
+is_one_int("nonsense")
+is_one_int(c())
+is_one_int(c(1, 2))
 }
 \author{
 Richèl J.C. Bilderbeek

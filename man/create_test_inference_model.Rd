@@ -50,7 +50,6 @@ Creates a simple inference model with a short MCMC chain,
 to be used in testing.
 }
 \examples{
-
 inference_model <- create_test_inference_model()
 
 beast2_input_file <- tempfile(fileext = ".xml")
@@ -59,7 +58,6 @@ create_beast2_input_file_from_model(
   beast2_input_file,
   inference_model = inference_model
 )
-expect_true(file.exists(beast2_input_file))
 }
 \seealso{
 Use \link{create_inference_model} to create a

@@ -22,13 +22,13 @@ normal distribution
 as created by \code{\link{create_normal_distr}}
 }
 \examples{
-
-expect_true(is_normal_distr(create_normal_distr()))
-
-expect_false(is_normal_distr(create_one_div_x_distr()))
-expect_false(is_normal_distr(NA))
-expect_false(is_normal_distr(NULL))
-expect_false(is_normal_distr("nonsense"))
+# TRUE
+is_normal_distr(create_normal_distr())
+# FALSE
+is_normal_distr(create_one_div_x_distr())
+is_normal_distr(NA)
+is_normal_distr(NULL)
+is_normal_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

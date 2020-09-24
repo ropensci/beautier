@@ -20,18 +20,18 @@ as created by \code{\link{create_gtr_site_model}}
 \examples{
 
 # site models
-expect_true(is_gtr_site_model(create_gtr_site_model()))
-expect_false(is_gtr_site_model(create_hky_site_model()))
-expect_false(is_gtr_site_model(create_jc69_site_model()))
-expect_false(is_gtr_site_model(create_tn93_site_model()))
+is_gtr_site_model(create_gtr_site_model()))
+is_gtr_site_model(create_hky_site_model()))
+is_gtr_site_model(create_jc69_site_model()))
+is_gtr_site_model(create_tn93_site_model()))
 
 # other models
-expect_false(is_gtr_site_model(NA))
-expect_false(is_gtr_site_model(NULL))
-expect_false(is_gtr_site_model("nonsense"))
-expect_false(is_gtr_site_model(create_strict_clock_model()))
-expect_false(is_gtr_site_model(create_bd_tree_prior()))
-expect_false(is_gtr_site_model(create_mcmc()))
+is_gtr_site_model(NA))
+is_gtr_site_model(NULL))
+is_gtr_site_model("nonsense"))
+is_gtr_site_model(create_strict_clock_model()))
+is_gtr_site_model(create_bd_tree_prior()))
+is_gtr_site_model(create_mcmc()))
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -16,12 +16,13 @@ TRUE if the name is a valid site_model name, FALSE otherwise
 Determines if the name is a valid site_model name
 }
 \examples{
-
-expect_true(is_site_model_name("JC69"))
-expect_true(is_site_model_name("HKY"))
-expect_true(is_site_model_name("TN93"))
-expect_true(is_site_model_name("GTR"))
-expect_false(is_site_model_name("nonsense"))
+# TRUE
+is_site_model_name("JC69"))
+is_site_model_name("HKY"))
+is_site_model_name("TN93"))
+is_site_model_name("GTR"))
+# FALSE
+is_site_model_name("nonsense"))
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -58,7 +58,6 @@ create_beast2_input_file(
   beast2_input_file,
   mcmc = mcmc
 )
-expect_true(file.exists(beast2_input_file))
 }
 \seealso{
 Use \code{\link{create_test_mcmc}} to create a short regular MCMC,

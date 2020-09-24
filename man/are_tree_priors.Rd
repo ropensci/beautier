@@ -20,9 +20,12 @@ Determine if x consists out of tree_priors objects
 yule_tree_prior <- create_yule_tree_prior()
 bd_tree_prior <- create_bd_tree_prior()
 both_tree_priors <- list(yule_tree_prior, bd_tree_prior)
-expect_true(are_tree_priors(yule_tree_prior))
-expect_true(are_tree_priors(bd_tree_prior))
-expect_true(are_tree_priors(both_tree_priors))
+# TRUE
+are_tree_priors(yule_tree_prior))
+# TRUE
+are_tree_priors(bd_tree_prior))
+# TRUE
+are_tree_priors(both_tree_priors))
 }
 \seealso{
 Use \link{create_yule_tree_prior} to create a Yule tree prior

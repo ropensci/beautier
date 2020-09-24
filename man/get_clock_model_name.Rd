@@ -17,16 +17,11 @@ name of the clock model
 Will \link{stop} if the clock model is an invalid clock model
 }
 \examples{
+# StrictClock
+get_clock_model_name(create_strict_clock_model())
 
-expect_equal(
-  get_clock_model_name(create_strict_clock_model()),
-  "StrictClock"
-)
-
-expect_equal(
-  get_clock_model_name(create_rln_clock_model()),
-  "RelaxedClock"
-)
+# RelaxedClock
+get_clock_model_name(create_rln_clock_model())
 }
 \author{
 Richèl J.C. Bilderbeek

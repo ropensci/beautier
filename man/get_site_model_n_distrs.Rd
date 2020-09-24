@@ -17,30 +17,17 @@ the number of distributions a site model has
 Get the number of distributions a site model has
 }
 \examples{
+# 5: rates AC, AG, AT, CG and GT
+get_site_model_n_distrs(create_gtr_site_model())
 
-# gamma site model, rates AC, AG, AT, CG and GT
-expect_equal(
-  get_site_model_n_distrs(create_gtr_site_model()),
-  5
-)
+# 1: kappa
+get_site_model_n_distrs(create_hky_site_model())
 
-# gamma site model, kappa
-expect_equal(
-  get_site_model_n_distrs(create_hky_site_model()),
-  1
-)
+# 0: npne
+get_site_model_n_distrs(create_jc69_site_model())
 
-# gamma site model
-expect_equal(
-  get_site_model_n_distrs(create_jc69_site_model()),
-  0
-)
-
-# gamma site model, kappa 1 and kappa 2
-expect_equal(
-  get_site_model_n_distrs(create_tn93_site_model()),
-  2
-)
+# 2: kappa 1 and kappa 2
+get_site_model_n_distrs(create_tn93_site_model())
 }
 \author{
 Richèl J.C. Bilderbeek

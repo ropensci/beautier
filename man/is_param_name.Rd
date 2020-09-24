@@ -16,31 +16,32 @@ TRUE if the name is a valid parameter name, FALSE otherwise
 Determines if the name is a valid parameter name
 }
 \examples{
+# TRUE
+is_param_name("alpha")
+is_param_name("beta")
+is_param_name("clock_rate")
+is_param_name("kappa_1")
+is_param_name("kappa_2")
+is_param_name("lambda")
+is_param_name("m")
+is_param_name("mean")
+is_param_name("mu")
+is_param_name("rate_ac")
+is_param_name("rate_ag")
+is_param_name("rate_at")
+is_param_name("rate_cg")
+is_param_name("rate_ct")
+is_param_name("rate_gt")
+is_param_name("s")
+is_param_name("scale")
+is_param_name("sigma")
 
-expect_true(is_param_name("alpha"))
-expect_true(is_param_name("beta"))
-expect_true(is_param_name("clock_rate"))
-expect_true(is_param_name("kappa_1"))
-expect_true(is_param_name("kappa_2"))
-expect_true(is_param_name("lambda"))
-expect_true(is_param_name("m"))
-expect_true(is_param_name("mean"))
-expect_true(is_param_name("mu"))
-expect_true(is_param_name("rate_ac"))
-expect_true(is_param_name("rate_ag"))
-expect_true(is_param_name("rate_at"))
-expect_true(is_param_name("rate_cg"))
-expect_true(is_param_name("rate_ct"))
-expect_true(is_param_name("rate_gt"))
-expect_true(is_param_name("s"))
-expect_true(is_param_name("scale"))
-expect_true(is_param_name("sigma"))
-
-expect_false(is_param_name("nonsense"))
-expect_false(is_param_name(NA))
-expect_false(is_param_name(NULL))
-expect_false(is_param_name(""))
-expect_false(is_param_name(c()))
+# FALSE
+is_param_name("nonsense")
+is_param_name(NA)
+is_param_name(NULL)
+is_param_name("")
+is_param_name(c())
 }
 \author{
 Richèl J.C. Bilderbeek

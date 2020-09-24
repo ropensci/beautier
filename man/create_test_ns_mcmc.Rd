@@ -61,8 +61,6 @@ create_beast2_input_file(
   beast2_input_file,
   mcmc = mcmc
 )
-
-expect_true(file.exists(beast2_input_file))
 }
 \seealso{
 Use \code{\link{create_ns_mcmc}} to create a default

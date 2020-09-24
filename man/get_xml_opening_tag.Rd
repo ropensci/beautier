@@ -16,12 +16,11 @@ the opening tag if found, else NA
 Get the XML opening tag
 }
 \examples{
+# my_tag
+get_xml_opening_tag("<my_tag text=something/>")
 
-expect_equal(
-  get_xml_opening_tag("<my_tag text=something/>"),
-  "my_tag"
-)
-expect_true(is_one_na(get_xml_opening_tag("no_xml")))
+# NA when there is no opening tag
+get_xml_opening_tag("no_xml")
 }
 \author{
 Richèl J.C. Bilderbeek

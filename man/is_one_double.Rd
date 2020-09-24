@@ -13,18 +13,20 @@ is_one_double(x)
 Determines if the argument is a double
 }
 \examples{
+# TRUE
+is_one_double(314)
+is_one_double(0)
+is_one_double(-314)
+is_one_double(3.14)
 
-expect_true(is_one_double(314))
-expect_true(is_one_double(0))
-expect_true(is_one_double(-314))
-expect_true(is_one_double(3.14))
-expect_false(is_one_double(NULL))
-expect_false(is_one_double(NA))
-expect_false(is_one_double(Inf))
-expect_false(is_one_double("nonsense"))
-expect_false(is_one_double(is_one_double))
-expect_false(is_one_double(c()))
-expect_false(is_one_double(c(1, 2)))
+# FALSE
+is_one_double(NULL)
+is_one_double(NA)
+is_one_double(Inf)
+is_one_double("nonsense")
+is_one_double(is_one_double)
+is_one_double(c())
+is_one_double(c(1, 2))
 }
 \author{
 Richèl J.C. Bilderbeek

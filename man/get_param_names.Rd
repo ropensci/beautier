@@ -13,26 +13,7 @@ the parameter names
 Get the parameter names
 }
 \examples{
-
 names <- get_param_names()
-expect_true("alpha" \%in\% names)
-expect_true("beta" \%in\% names)
-expect_true("clock_rate" \%in\% names)
-expect_true("kappa_1" \%in\% names)
-expect_true("kappa_2" \%in\% names)
-expect_true("lambda" \%in\% names)
-expect_true("m" \%in\% names)
-expect_true("mean" \%in\% names)
-expect_true("mu" \%in\% names)
-expect_true("rate_ac" \%in\% names)
-expect_true("rate_ag" \%in\% names)
-expect_true("rate_at" \%in\% names)
-expect_true("rate_cg" \%in\% names)
-expect_true("rate_ct" \%in\% names)
-expect_true("rate_gt" \%in\% names)
-expect_true("s" \%in\% names)
-expect_true("scale" \%in\% names)
-expect_true("sigma" \%in\% names)
 }
 \author{
 Richèl J.C. Bilderbeek

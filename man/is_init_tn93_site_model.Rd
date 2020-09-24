@@ -21,9 +21,11 @@ as created by \code{\link{create_tn93_site_model}}
 \examples{
 
 tn93_site_model <- create_tn93_site_model()
-expect_false(is_init_tn93_site_model(tn93_site_model))
+# FALSE: not yet initialized
+is_init_tn93_site_model(tn93_site_model)
 tn93_site_model <- init_tn93_site_model(tn93_site_model)
-expect_true(is_init_tn93_site_model(tn93_site_model))
+# TRUE: now it is initialized
+is_init_tn93_site_model(tn93_site_model)
 }
 \author{
 Richèl J.C. Bilderbeek

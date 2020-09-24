@@ -22,13 +22,13 @@ beta distribution,
 as created by \code{\link{create_beta_distr}}
 }
 \examples{
-
-expect_true(is_beta_distr(create_beta_distr()))
-expect_false(is_beta_distr(create_exp_distr()))
-
-expect_false(is_beta_distr(NA))
-expect_false(is_beta_distr(NULL))
-expect_false(is_beta_distr("nonsense"))
+# TRUE
+is_beta_distr(create_beta_distr())
+# FALSE
+is_beta_distr(create_exp_distr())
+is_beta_distr(NA)
+is_beta_distr(NULL)
+is_beta_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

@@ -15,10 +15,7 @@ Keep at \code{NA} to have it initialized automatically}
 Will \link{stop} if not.
 }
 \examples{
-
-# Path need not exist, use UNIX path as example
+# anthus_aco_sub
 created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
-expected <- "anthus_aco_sub"
-expect_equal(created, expected)
-expect_silent(check_alignment_id(created))
+check_alignment_id(created)
 }

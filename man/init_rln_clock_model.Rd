@@ -23,13 +23,15 @@ Initializes a Relaxed Log-Normal clock model
 \examples{
 
 rln_clock_model <- create_rln_clock_model()
-expect_false(is_init_rln_clock_model(rln_clock_model))
+# FALSE: not yet initialized
+is_init_rln_clock_model(rln_clock_model)
 rln_clock_model <- init_rln_clock_model(rln_clock_model)
 # Dimension is set to NA by default, for unknown reasons.
 # Because 'init_rln_clock_model' does not initialize it (for
 # unknown reasons), set it manually
 rln_clock_model$dimension <- 42
-expect_true(is_init_rln_clock_model(rln_clock_model))
+# TRUE: now it is initialized
+is_init_rln_clock_model(rln_clock_model)
 }
 \author{
 Richèl J.C. Bilderbeek

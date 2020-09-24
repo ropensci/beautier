@@ -16,12 +16,13 @@ TRUE if x is a valid ID, FALSE otherwise
 Determine if the object is a valid ID
 }
 \examples{
-
-expect_true(is_id("anthus_aco"))
-expect_true(is_id(3))
-expect_false(is_id(ape::rcoal(3)))
-expect_false(is_id(NULL))
-expect_false(is_id(NA))
+# TRUE
+is_id("anthus_aco"))
+is_id(3))
+# FALSE
+is_id(ape::rcoal(3)))
+is_id(NULL))
+is_id(NA))
 }
 \seealso{
 to check multiple IDs, use \link{are_ids}

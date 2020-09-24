@@ -22,13 +22,13 @@ Poisson distribution
 as created by \code{\link{create_poisson_distr}}
 }
 \examples{
-
-expect_true(is_poisson_distr(create_poisson_distr()))
-
-expect_false(is_poisson_distr(create_uniform_distr()))
-expect_false(is_distr(NA))
-expect_false(is_distr(NULL))
-expect_false(is_distr("nonsense"))
+# TRUE
+is_poisson_distr(create_poisson_distr())
+# FALSE
+is_poisson_distr(create_uniform_distr())
+is_distr(NA)
+is_distr(NULL)
+is_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

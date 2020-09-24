@@ -16,15 +16,16 @@ TRUE if the clock_model is a valid clock_model, FALSE otherwise
 Determine if the object is a valid clock_model
 }
 \examples{
+# TRUE
+is_clock_model(create_strict_clock_model())
+is_clock_model(create_rln_clock_model())
 
-expect_true(is_clock_model(create_strict_clock_model()))
-expect_true(is_clock_model(create_rln_clock_model()))
-
-expect_false(is_clock_model(NA))
-expect_false(is_clock_model(NULL))
-expect_false(is_clock_model("nonsense"))
-expect_false(is_clock_model(create_jc69_site_model()))
-expect_false(is_clock_model(create_mcmc()))
+# FALSE
+is_clock_model(NA)
+is_clock_model(NULL)
+is_clock_model("nonsense")
+is_clock_model(create_jc69_site_model())
+is_clock_model(create_mcmc())
 }
 \seealso{
 see \code{\link{create_clock_model}} for an overview of functions

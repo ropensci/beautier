@@ -26,15 +26,12 @@ Creates all supported site models
 
 # All created site models are a kind of site model
 site_models <- create_site_models()
-expect_true(is_gtr_site_model(site_models[[1]]))
-expect_true(is_hky_site_model(site_models[[2]]))
-expect_true(is_jc69_site_model(site_models[[3]]))
-expect_true(is_tn93_site_model(site_models[[4]]))
 
-# Names are conformant
-for (site_model in site_models) {
-  expect_true(site_model$name \%in\% get_site_model_names())
-}
+# TRUE
+is_gtr_site_model(site_models[[1]])
+is_hky_site_model(site_models[[2]])
+is_jc69_site_model(site_models[[3]])
+is_tn93_site_model(site_models[[4]])
 }
 \seealso{
 Use \link{create_site_model} to create a site model

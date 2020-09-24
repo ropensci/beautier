@@ -17,10 +17,12 @@ TRUE if the name is a valid \code{freq_equilibrium} value
 Checks if \code{name} is a valid \code{freq_equilibrium} argument value
 }
 \examples{
-
-expect_true(is_freq_equilibrium_name("estimated"))
-expect_true(is_freq_equilibrium_name("empirical"))
-expect_true(is_freq_equilibrium_name("all_equal"))
+# TRUE
+is_freq_equilibrium_name("estimated"))
+is_freq_equilibrium_name("empirical"))
+is_freq_equilibrium_name("all_equal"))
+# FALSE
+is_freq_equilibrium_name("nonsense"))
 }
 \seealso{
 the \code{freq_equilibrium} argument is used by

@@ -22,13 +22,13 @@ Determine if the object is a valid
 as created by \code{\link{create_one_div_x_distr}}
 }
 \examples{
-
-expect_true(is_one_div_x_distr(create_one_div_x_distr()))
-
-expect_false(is_one_div_x_distr(create_poisson_distr()))
-expect_false(is_one_div_x_distr(NA))
-expect_false(is_one_div_x_distr(NULL))
-expect_false(is_one_div_x_distr("nonsense"))
+# TRUE
+is_one_div_x_distr(create_one_div_x_distr())
+# FALSE
+is_one_div_x_distr(create_poisson_distr())
+is_one_div_x_distr(NA)
+is_one_div_x_distr(NULL)
+is_one_div_x_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

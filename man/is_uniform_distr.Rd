@@ -22,13 +22,13 @@ uniform distribution
 as created by \code{\link{create_uniform_distr}}
 }
 \examples{
-
-expect_true(is_uniform_distr(create_uniform_distr()))
-expect_false(is_uniform_distr(create_beta_distr()))
-
-expect_false(is_uniform_distr(NA))
-expect_false(is_uniform_distr(NULL))
-expect_false(is_uniform_distr("nonsense"))
+# TRUE
+is_uniform_distr(create_uniform_distr())
+# FALSE
+is_uniform_distr(create_beta_distr())
+is_uniform_distr(NA)
+is_uniform_distr(NULL)
+is_uniform_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

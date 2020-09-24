@@ -21,8 +21,10 @@ Will \link{stop} if the arguments are not treelogs.
 
 treelog_1 <- create_treelog(log_every = 1000)
 treelog_2 <- create_treelog(log_every = 314)
-expect_true(are_equal_treelogs(treelog_1, treelog_1))
-expect_false(are_equal_treelogs(treelog_1, treelog_2))
+# TRUE
+are_equal_treelogs(treelog_1, treelog_1)
+# FALSE
+are_equal_treelogs(treelog_1, treelog_2)
 }
 \seealso{
 Use \link{create_treelog} to create an treelog

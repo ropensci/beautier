@@ -16,23 +16,8 @@ nothing
 Calls \code{stop} if the parameter is invalid
 }
 \examples{
-
-expect_silent(check_param(create_alpha_param()))
-expect_silent(check_param(create_beta_param()))
-
-# List of two parameters is not a/one parameter
-expect_error(
-   check_param(
-     list(create_alpha_param(), create_beta_param())
-   )
- )
-
-# Must stop on non-parameters
-expect_error(check_param("nonsense"))
-expect_error(check_param(NULL))
-expect_error(check_param(NA))
-expect_error(check_param(""))
-expect_error(check_param(c()))
+check_param(create_alpha_param())
+check_param(create_beta_param())
 }
 \seealso{
 Use \link{create_param} to create a valid parameter

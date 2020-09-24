@@ -22,13 +22,13 @@ log-normal distribution,
 as created by \code{\link{create_log_normal_distr}}
 }
 \examples{
-
-expect_true(is_log_normal_distr(create_log_normal_distr()))
-
-expect_false(is_log_normal_distr(create_normal_distr()))
-expect_false(is_distr(NA))
-expect_false(is_distr(NULL))
-expect_false(is_distr("nonsense"))
+# TRUE
+is_log_normal_distr(create_log_normal_distr())
+# FALSE
+is_log_normal_distr(create_normal_distr())
+is_distr(NA)
+is_distr(NULL)
+is_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

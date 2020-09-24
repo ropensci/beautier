@@ -22,13 +22,13 @@ gamma distribution,
 as created by \code{\link{create_gamma_distr}}
 }
 \examples{
-
-expect_true(is_gamma_distr(create_gamma_distr()))
-
-expect_false(is_gamma_distr(create_inv_gamma_distr()))
-expect_false(is_gamma_distr(NA))
-expect_false(is_gamma_distr(NULL))
-expect_false(is_gamma_distr("nonsense"))
+# TRUE
+is_gamma_distr(create_gamma_distr())
+# FALSE
+is_gamma_distr(create_inv_gamma_distr())
+is_gamma_distr(NA)
+is_gamma_distr(NULL)
+is_gamma_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

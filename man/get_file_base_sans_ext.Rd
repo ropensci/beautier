@@ -16,12 +16,9 @@ That filename without its full path and extension
 The path need not to actually exist
 }
 \examples{
-
 # Path need not exist, use UNIX path as example
-expect_equal(
-  get_file_base_sans_ext("/home/homer/test.txt"),
-  "test"
-)
+# test
+get_file_base_sans_ext("/home/homer/test.txt")
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -20,14 +20,16 @@ Determine if x consists out of clock_models objects
 rln_clock_model <- create_rln_clock_model()
 strict_clock_model <- create_strict_clock_model()
 both_clock_models <- list(rln_clock_model, strict_clock_model)
-expect_true(are_clock_models(rln_clock_model))
-expect_true(are_clock_models(strict_clock_model))
-expect_true(are_clock_models(both_clock_models))
+# TRUE
+are_clock_models(rln_clock_model)
+are_clock_models(strict_clock_model)
+are_clock_models(both_clock_models)
 
-expect_false(are_clock_models(NA))
-expect_false(are_clock_models(NULL))
-expect_false(are_clock_models("nonsense"))
-expect_false(are_clock_models(create_jc69_site_model()))
+# FALSE
+are_clock_models(NA)
+are_clock_models(NULL)
+are_clock_models("nonsense")
+are_clock_models(create_jc69_site_model())
 }
 \author{
 Richèl J.C. Bilderbeek

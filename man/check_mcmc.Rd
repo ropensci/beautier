@@ -21,13 +21,7 @@ nothing
 Calls \code{stop} if the MCMC is invalid
 }
 \examples{
-
-expect_silent(check_mcmc(create_mcmc()))
-
- # Must stop on non-MCMCs
-expect_error(check_mcmc(mcmc = "nonsense"))
-expect_error(check_mcmc(mcmc = NULL))
-expect_error(check_mcmc(mcmc = NA))
+check_mcmc(create_mcmc())
 }
 \seealso{
 Use \code{\link{create_mcmc}} to create a valid MCMC

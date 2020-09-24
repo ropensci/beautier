@@ -16,20 +16,19 @@ TRUE if the site_model is a valid site_model, FALSE otherwise
 Determine if the object is a valid site_model
 }
 \examples{
+# TRUE
+is_site_model(create_gtr_site_model())
+is_site_model(create_hky_site_model())
+is_site_model(create_jc69_site_model())
+is_site_model(create_tn93_site_model())
 
-# site models
-expect_true(is_site_model(create_gtr_site_model()))
-expect_true(is_site_model(create_hky_site_model()))
-expect_true(is_site_model(create_jc69_site_model()))
-expect_true(is_site_model(create_tn93_site_model()))
-
-# other models
-expect_false(is_site_model(NA))
-expect_false(is_site_model(NULL))
-expect_false(is_site_model("nonsense"))
-expect_false(is_site_model(create_strict_clock_model()))
-expect_false(is_site_model(create_bd_tree_prior()))
-expect_false(is_site_model(create_mcmc()))
+# FALSE
+is_site_model(NA)
+is_site_model(NULL)
+is_site_model("nonsense")
+is_site_model(create_strict_clock_model())
+is_site_model(create_bd_tree_prior())
+is_site_model(create_mcmc())
 }
 \seealso{
 A site model can be created using \code{\link{create_site_model}}
