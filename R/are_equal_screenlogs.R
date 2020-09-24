@@ -9,9 +9,9 @@
 #' screenlog_1 <- create_screenlog(log_every = 1000)
 #' screenlog_2 <- create_screenlog(log_every = 314)
 #' # TRUE
-#' are_equal_screenlogs(screenlog_1, screenlog_1))
+#' are_equal_screenlogs(screenlog_1, screenlog_1)
 #' # FALSE
-#' are_equal_screenlogs(screenlog_1, screenlog_2))
+#' are_equal_screenlogs(screenlog_1, screenlog_2)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_screenlogs <- function(

@@ -45,10 +45,10 @@ after_success:
   - # Do a CRAN build
   - cd scripts; ./build_cran
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
 after_failure:
   - Rscript -e 'print(rappdirs::app_dir()$os)'
   # Download thesis
-  - Rscript -e 'download.file("https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf", tempfile())'
+  - wget https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf
 
