@@ -38,18 +38,18 @@ is_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' is_gtr_site_model(create_gtr_site_model()))
-#' is_gtr_site_model(create_hky_site_model()))
-#' is_gtr_site_model(create_jc69_site_model()))
-#' is_gtr_site_model(create_tn93_site_model()))
+#' is_gtr_site_model(create_gtr_site_model())
+#' is_gtr_site_model(create_hky_site_model())
+#' is_gtr_site_model(create_jc69_site_model())
+#' is_gtr_site_model(create_tn93_site_model())
 #'
 #' # other models
-#' is_gtr_site_model(NA))
-#' is_gtr_site_model(NULL))
-#' is_gtr_site_model("nonsense"))
-#' is_gtr_site_model(create_strict_clock_model()))
-#' is_gtr_site_model(create_bd_tree_prior()))
-#' is_gtr_site_model(create_mcmc()))
+#' is_gtr_site_model(NA)
+#' is_gtr_site_model(NULL)
+#' is_gtr_site_model("nonsense")
+#' is_gtr_site_model(create_strict_clock_model())
+#' is_gtr_site_model(create_bd_tree_prior())
+#' is_gtr_site_model(create_mcmc())
 #' @export
 is_gtr_site_model <- function(
   x
@@ -72,18 +72,18 @@ is_gtr_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' is_hky_site_model(create_hky_site_model()))
-#' is_hky_site_model(create_gtr_site_model()))
-#' is_hky_site_model(create_jc69_site_model()))
-#' is_hky_site_model(create_tn93_site_model()))
+#' is_hky_site_model(create_hky_site_model())
+#' is_hky_site_model(create_gtr_site_model())
+#' is_hky_site_model(create_jc69_site_model())
+#' is_hky_site_model(create_tn93_site_model())
 #'
 #' # other models
-#' is_hky_site_model(NA))
-#' is_hky_site_model(NULL))
-#' is_hky_site_model("nonsense"))
-#' is_hky_site_model(create_strict_clock_model()))
-#' is_hky_site_model(create_bd_tree_prior()))
-#' is_hky_site_model(create_mcmc()))
+#' is_hky_site_model(NA)
+#' is_hky_site_model(NULL)
+#' is_hky_site_model("nonsense")
+#' is_hky_site_model(create_strict_clock_model())
+#' is_hky_site_model(create_bd_tree_prior())
+#' is_hky_site_model(create_mcmc())
 #' @export
 is_hky_site_model <- function(
   x
@@ -105,18 +105,18 @@ is_hky_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' is_jc69_site_model(create_gtr_site_model()))
-#' is_jc69_site_model(create_hky_site_model()))
-#' is_jc69_site_model(create_jc69_site_model()))
-#' is_jc69_site_model(create_tn93_site_model()))
+#' is_jc69_site_model(create_gtr_site_model())
+#' is_jc69_site_model(create_hky_site_model())
+#' is_jc69_site_model(create_jc69_site_model())
+#' is_jc69_site_model(create_tn93_site_model())
 #'
 #' # other models
-#' is_jc69_site_model(NA))
-#' is_jc69_site_model(NULL))
-#' is_jc69_site_model("nonsense"))
-#' is_jc69_site_model(create_strict_clock_model()))
-#' is_jc69_site_model(create_bd_tree_prior()))
-#' is_jc69_site_model(create_mcmc()))
+#' is_jc69_site_model(NA)
+#' is_jc69_site_model(NULL)
+#' is_jc69_site_model("nonsense")
+#' is_jc69_site_model(create_strict_clock_model())
+#' is_jc69_site_model(create_bd_tree_prior())
+#' is_jc69_site_model(create_mcmc())
 #' @export
 is_jc69_site_model <- function(
   x
@@ -134,20 +134,20 @@ is_jc69_site_model <- function(
 #' @examples
 #'
 #' # site models
-#' is_tn93_site_model(create_gtr_site_model()))
-#' is_tn93_site_model(create_hky_site_model()))
-#' is_tn93_site_model(create_jc69_site_model()))
-#' is_tn93_site_model(create_tn93_site_model()))
+#' is_tn93_site_model(create_gtr_site_model())
+#' is_tn93_site_model(create_hky_site_model())
+#' is_tn93_site_model(create_jc69_site_model())
+#' is_tn93_site_model(create_tn93_site_model())
 #'
 #' # other models
-#' is_tn93_site_model(NA))
-#' is_tn93_site_model(NULL))
-#' is_tn93_site_model("nonsense"))
-#' is_tn93_site_model(""))
-#' is_tn93_site_model(c()))
-#' is_tn93_site_model(create_strict_clock_model()))
-#' is_tn93_site_model(create_bd_tree_prior()))
-#' is_tn93_site_model(create_mcmc()))
+#' is_tn93_site_model(NA)
+#' is_tn93_site_model(NULL)
+#' is_tn93_site_model("nonsense")
+#' is_tn93_site_model("")
+#' is_tn93_site_model(c())
+#' is_tn93_site_model(create_strict_clock_model())
+#' is_tn93_site_model(create_bd_tree_prior())
+#' is_tn93_site_model(create_mcmc())
 #' @export
 is_tn93_site_model <- function(
   x

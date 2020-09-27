@@ -9,11 +9,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' # TRUE
-#' is_freq_equilibrium_name("estimated"))
-#' is_freq_equilibrium_name("empirical"))
-#' is_freq_equilibrium_name("all_equal"))
+#' is_freq_equilibrium_name("estimated")
+#' is_freq_equilibrium_name("empirical")
+#' is_freq_equilibrium_name("all_equal")
 #' # FALSE
-#' is_freq_equilibrium_name("nonsense"))
+#' is_freq_equilibrium_name("nonsense")
 #' @export
 is_freq_equilibrium_name <- function(
   name

@@ -34,14 +34,14 @@ is_clock_model <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'
-#' is_rln_clock_model(create_strict_clock_model()))
-#' is_rln_clock_model(create_rln_clock_model()))
+#' is_rln_clock_model(create_strict_clock_model())
+#' is_rln_clock_model(create_rln_clock_model())
 #'
-#' is_rln_clock_model(NA))
-#' is_rln_clock_model(NULL))
-#' is_rln_clock_model("nonsense"))
-#' is_rln_clock_model(create_jc69_site_model()))
-#' is_rln_clock_model(create_mcmc()))
+#' is_rln_clock_model(NA)
+#' is_rln_clock_model(NULL)
+#' is_rln_clock_model("nonsense")
+#' is_rln_clock_model(create_jc69_site_model())
+#' is_rln_clock_model(create_mcmc())
 #' @export
 is_rln_clock_model <- function(
   x
@@ -63,14 +63,14 @@ is_rln_clock_model <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'
-#' is_strict_clock_model(create_strict_clock_model()))
-#' is_strict_clock_model(create_rln_clock_model()))
+#' is_strict_clock_model(create_strict_clock_model())
+#' is_strict_clock_model(create_rln_clock_model())
 #'
-#' is_strict_clock_model(NA))
-#' is_strict_clock_model(NULL))
-#' is_strict_clock_model("nonsense"))
-#' is_strict_clock_model(create_jc69_site_model()))
-#' is_strict_clock_model(create_mcmc()))
+#' is_strict_clock_model(NA)
+#' is_strict_clock_model(NULL)
+#' is_strict_clock_model("nonsense")
+#' is_strict_clock_model(create_jc69_site_model())
+#' is_strict_clock_model(create_mcmc())
 #' @export
 is_strict_clock_model <- function(
   x

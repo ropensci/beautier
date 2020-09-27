@@ -19,20 +19,20 @@ Determine if the object is a valid TN93 site model,
 \examples{
 
 # site models
-is_tn93_site_model(create_gtr_site_model()))
-is_tn93_site_model(create_hky_site_model()))
-is_tn93_site_model(create_jc69_site_model()))
-is_tn93_site_model(create_tn93_site_model()))
+is_tn93_site_model(create_gtr_site_model())
+is_tn93_site_model(create_hky_site_model())
+is_tn93_site_model(create_jc69_site_model())
+is_tn93_site_model(create_tn93_site_model())
 
 # other models
-is_tn93_site_model(NA))
-is_tn93_site_model(NULL))
-is_tn93_site_model("nonsense"))
-is_tn93_site_model(""))
-is_tn93_site_model(c()))
-is_tn93_site_model(create_strict_clock_model()))
-is_tn93_site_model(create_bd_tree_prior()))
-is_tn93_site_model(create_mcmc()))
+is_tn93_site_model(NA)
+is_tn93_site_model(NULL)
+is_tn93_site_model("nonsense")
+is_tn93_site_model("")
+is_tn93_site_model(c())
+is_tn93_site_model(create_strict_clock_model())
+is_tn93_site_model(create_bd_tree_prior())
+is_tn93_site_model(create_mcmc())
 }
 \author{
 Richèl J.C. Bilderbeek

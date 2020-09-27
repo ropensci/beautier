@@ -18,7 +18,7 @@ Determine of the object is an empty (\code{NA}) or valid MRCA prior.
 }
 \examples{
 # TRUE
-is_mrca_prior(create_mrca_prior()))
+is_mrca_prior(create_mrca_prior())
 # Also 'NA' is a valid MRCA prior,
 # denoting that there no MRCA priors
 is_mrca_prior(NA)

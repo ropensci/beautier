@@ -18,11 +18,11 @@ Checks if \code{name} is a valid \code{freq_equilibrium} argument value
 }
 \examples{
 # TRUE
-is_freq_equilibrium_name("estimated"))
-is_freq_equilibrium_name("empirical"))
-is_freq_equilibrium_name("all_equal"))
+is_freq_equilibrium_name("estimated")
+is_freq_equilibrium_name("empirical")
+is_freq_equilibrium_name("all_equal")
 # FALSE
-is_freq_equilibrium_name("nonsense"))
+is_freq_equilibrium_name("nonsense")
 }
 \seealso{
 the \code{freq_equilibrium} argument is used by

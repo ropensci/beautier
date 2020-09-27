@@ -5,12 +5,12 @@
 #' @seealso to check multiple IDs, use \link{are_ids}
 #' @examples
 #' # TRUE
-#' is_id("anthus_aco"))
-#' is_id(3))
+#' is_id("anthus_aco")
+#' is_id(3)
 #' # FALSE
-#' is_id(ape::rcoal(3)))
-#' is_id(NULL))
-#' is_id(NA))
+#' is_id(ape::rcoal(3))
+#' is_id(NULL)
+#' is_id(NA)
 #' @export
 is_id <- function(
   x

@@ -1,18 +1,23 @@
 #' Creates the \code{taxonset} section in the prior section of the
 #' distribution section of a BEAST2 XML parameter file.
+#'
+#' Creates the \code{taxonset} section in the prior section of the
+#' distribution section of a BEAST2 XML parameter file.
+#'
+#' \code{
+#'   <taxonset id="all" spec="TaxonSet">
+#'       <taxon id="626029_aco" spec="Taxon"/>
+#'       <taxon id="630116_aco" spec="Taxon"/>
+#'       <taxon id="630210_aco" spec="Taxon"/>
+#'       <taxon id="B25702_aco" spec="Taxon"/>
+#'       <taxon id="61430_aco" spec="Taxon"/>
+#'   </taxonset>
+#' }
 #' @inheritParams default_params_doc
 #' @param taxa_names_with_ids taxa names that already have received
 #'   an ID. Causes the XML to \code{idref} these
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
-#' @examples
-#'   # <taxonset id="all" spec="TaxonSet">
-#'   #     <taxon id="626029_aco" spec="Taxon"/>
-#'   #     <taxon id="630116_aco" spec="Taxon"/>
-#'   #     <taxon id="630210_aco" spec="Taxon"/>
-#'   #     <taxon id="B25702_aco" spec="Taxon"/>
-#'   #     <taxon id="61430_aco" spec="Taxon"/>
-#'   # </taxonset>
 #' @export
 mrca_prior_to_xml_taxonset <- function(
   mrca_prior,

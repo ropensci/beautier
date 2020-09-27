@@ -22,12 +22,14 @@ the date.}
 lines of XML text
 }
 \description{
-Creates the MRCA priors' XML for the tracelog section
+Creates the MRCA priors' XML for the tracelog section.
 }
-\examples{
-# <logger id="tracelog" ...>
-#'   # Here
-# </logger>
+\details{
+\code{
+  <logger id="tracelog" ...>
+   # Here
+  </logger>
+}
 }
 \seealso{
 the complete tracelog section is created

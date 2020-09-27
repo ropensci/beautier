@@ -1,12 +1,16 @@
 #' Creates the MRCA prior's XML for the tracelog section
+#'
+#' Creates the MRCA prior's XML for the tracelog section.
+#'
+#' \code{
+#'   <logger id="tracelog" ...>
+#'     # Here
+#'   </logger>
+#' }
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @seealso all MRCA priors' tracelog section is created
 #'   by \code{\link{mrca_priors_to_xml_tracelog}}
-#' @examples
-#' # <logger id="tracelog" ...>
-#' #'   # Here
-#' # </logger>
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_prior_to_xml_tracelog <- function(

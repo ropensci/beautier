@@ -20,14 +20,16 @@ lines of XML text
 \description{
 These lines start with '\code{<distribution id="prior"}'
 }
-\examples{
- # <distribution id="posterior" spec="util.CompoundDistribution">
- #     <distribution id="prior" spec="util.CompoundDistribution">
- #       HERE, where the ID of the distribution is 'prior'
- #     </distribution>
- #     <distribution id="likelihood" ...>
- #     </distribution>
- # </distribution>
+\details{
+\code{
+   <distribution id="posterior" spec="util.CompoundDistribution">
+       <distribution id="prior" spec="util.CompoundDistribution">
+         HERE, where the ID of the distribution is 'prior'
+       </distribution>
+       <distribution id="likelihood" ...>
+       </distribution>
+  </distribution>
+}
 }
 \author{
 Richèl J.C. Bilderbeek

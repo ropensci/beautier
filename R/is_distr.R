@@ -156,9 +156,9 @@ is_gamma_distr <- function(
 #' is_inv_gamma_distr(create_inv_gamma_distr())
 #' # FALSE
 #' is_inv_gamma_distr(create_laplace_distr())
-#' is_inv_gamma_distr(NA))
-#' is_inv_gamma_distr(NULL))
-#' is_inv_gamma_distr("nonsense"))
+#' is_inv_gamma_distr(NA)
+#' is_inv_gamma_distr(NULL)
+#' is_inv_gamma_distr("nonsense")
 #' @export
 is_inv_gamma_distr <- function(
   x

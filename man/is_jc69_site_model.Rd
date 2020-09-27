@@ -18,18 +18,18 @@ Determine if the object is a valid JC69 site model
 \examples{
 
 # site models
-is_jc69_site_model(create_gtr_site_model()))
-is_jc69_site_model(create_hky_site_model()))
-is_jc69_site_model(create_jc69_site_model()))
-is_jc69_site_model(create_tn93_site_model()))
+is_jc69_site_model(create_gtr_site_model())
+is_jc69_site_model(create_hky_site_model())
+is_jc69_site_model(create_jc69_site_model())
+is_jc69_site_model(create_tn93_site_model())
 
 # other models
-is_jc69_site_model(NA))
-is_jc69_site_model(NULL))
-is_jc69_site_model("nonsense"))
-is_jc69_site_model(create_strict_clock_model()))
-is_jc69_site_model(create_bd_tree_prior()))
-is_jc69_site_model(create_mcmc()))
+is_jc69_site_model(NA)
+is_jc69_site_model(NULL)
+is_jc69_site_model("nonsense")
+is_jc69_site_model(create_strict_clock_model())
+is_jc69_site_model(create_bd_tree_prior())
+is_jc69_site_model(create_mcmc())
 }
 \author{
 Richèl J.C. Bilderbeek

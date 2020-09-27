@@ -21,14 +21,16 @@ lines of XML text
 Creates the \code{taxonset} section in the prior section of the
 distribution section of a BEAST2 XML parameter file.
 }
-\examples{
-  # <taxonset id="all" spec="TaxonSet">
-  #     <taxon id="626029_aco" spec="Taxon"/>
-  #     <taxon id="630116_aco" spec="Taxon"/>
-  #     <taxon id="630210_aco" spec="Taxon"/>
-  #     <taxon id="B25702_aco" spec="Taxon"/>
-  #     <taxon id="61430_aco" spec="Taxon"/>
-  # </taxonset>
+\details{
+\code{
+  <taxonset id="all" spec="TaxonSet">
+      <taxon id="626029_aco" spec="Taxon"/>
+      <taxon id="630116_aco" spec="Taxon"/>
+      <taxon id="630210_aco" spec="Taxon"/>
+      <taxon id="B25702_aco" spec="Taxon"/>
+      <taxon id="61430_aco" spec="Taxon"/>
+  </taxonset>
+}
 }
 \author{
 Richèl J.C. Bilderbeek

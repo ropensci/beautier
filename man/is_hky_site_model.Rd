@@ -20,18 +20,18 @@ as created by \code{\link{create_hky_site_model}}
 \examples{
 
 # site models
-is_hky_site_model(create_hky_site_model()))
-is_hky_site_model(create_gtr_site_model()))
-is_hky_site_model(create_jc69_site_model()))
-is_hky_site_model(create_tn93_site_model()))
+is_hky_site_model(create_hky_site_model())
+is_hky_site_model(create_gtr_site_model())
+is_hky_site_model(create_jc69_site_model())
+is_hky_site_model(create_tn93_site_model())
 
 # other models
-is_hky_site_model(NA))
-is_hky_site_model(NULL))
-is_hky_site_model("nonsense"))
-is_hky_site_model(create_strict_clock_model()))
-is_hky_site_model(create_bd_tree_prior()))
-is_hky_site_model(create_mcmc()))
+is_hky_site_model(NA)
+is_hky_site_model(NULL)
+is_hky_site_model("nonsense")
+is_hky_site_model(create_strict_clock_model())
+is_hky_site_model(create_bd_tree_prior())
+is_hky_site_model(create_mcmc())
 }
 \author{
 Richèl J.C. Bilderbeek

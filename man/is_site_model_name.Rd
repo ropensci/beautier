@@ -17,12 +17,12 @@ Determines if the name is a valid site_model name
 }
 \examples{
 # TRUE
-is_site_model_name("JC69"))
-is_site_model_name("HKY"))
-is_site_model_name("TN93"))
-is_site_model_name("GTR"))
+is_site_model_name("JC69")
+is_site_model_name("HKY")
+is_site_model_name("TN93")
+is_site_model_name("GTR")
 # FALSE
-is_site_model_name("nonsense"))
+is_site_model_name("nonsense")
 }
 \author{
 Richèl J.C. Bilderbeek

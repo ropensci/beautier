@@ -301,7 +301,7 @@ is_kappa_2_param <- function(
 #' is_lambda_param(create_sigma_param())
 #'
 #' is_lambda_param(NA)
-#' is_lambda_param(NULL))
+#' is_lambda_param(NULL)
 #' is_lambda_param("nonsense")
 #' is_lambda_param(create_jc69_site_model())
 #' is_lambda_param(create_strict_clock_model())

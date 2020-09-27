@@ -19,14 +19,14 @@ Determine if the object is a valid strict clock model,
 }
 \examples{
 
-is_strict_clock_model(create_strict_clock_model()))
-is_strict_clock_model(create_rln_clock_model()))
+is_strict_clock_model(create_strict_clock_model())
+is_strict_clock_model(create_rln_clock_model())
 
-is_strict_clock_model(NA))
-is_strict_clock_model(NULL))
-is_strict_clock_model("nonsense"))
-is_strict_clock_model(create_jc69_site_model()))
-is_strict_clock_model(create_mcmc()))
+is_strict_clock_model(NA)
+is_strict_clock_model(NULL)
+is_strict_clock_model("nonsense")
+is_strict_clock_model(create_jc69_site_model())
+is_strict_clock_model(create_mcmc())
 }
 \seealso{
 \code{\link{create_clock_model}} shows an overview of

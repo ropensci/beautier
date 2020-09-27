@@ -26,9 +26,9 @@ as created by \code{\link{create_inv_gamma_distr}}
 is_inv_gamma_distr(create_inv_gamma_distr())
 # FALSE
 is_inv_gamma_distr(create_laplace_distr())
-is_inv_gamma_distr(NA))
-is_inv_gamma_distr(NULL))
-is_inv_gamma_distr("nonsense"))
+is_inv_gamma_distr(NA)
+is_inv_gamma_distr(NULL)
+is_inv_gamma_distr("nonsense")
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

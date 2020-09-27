@@ -17,7 +17,7 @@ the parameter as XML text
 Converts a parameter to XML
 }
 \examples{
-parameter_to_xml(create_alpha_param(id = 1)
+parameter_to_xml(create_alpha_param(id = 1))
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -2,16 +2,18 @@
 #' a posterior distribution section) of a BEAST2 XML parameter file.
 #'
 #' These lines start with '\code{<distribution id="prior"}'
+#'
+#' \code{
+#'    <distribution id="posterior" spec="util.CompoundDistribution">
+#'        <distribution id="prior" spec="util.CompoundDistribution">
+#'          HERE, where the ID of the distribution is 'prior'
+#'        </distribution>
+#'        <distribution id="likelihood" ...>
+#'        </distribution>
+#'   </distribution>
+#' }
 #' @inheritParams default_params_doc
 #' @return lines of XML text
-#' @examples
-#'  # <distribution id="posterior" spec="util.CompoundDistribution">
-#'  #     <distribution id="prior" spec="util.CompoundDistribution">
-#'  #       HERE, where the ID of the distribution is 'prior'
-#'  #     </distribution>
-#'  #     <distribution id="likelihood" ...>
-#'  #     </distribution>
-#'  # </distribution>
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_priors_to_xml_prior_distr <- function(
