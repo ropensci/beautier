@@ -11,6 +11,7 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
  * Added `create_ns_inference_model`
+ * No `testthat` tests in examples
 
 ### BUG FIXES
 
