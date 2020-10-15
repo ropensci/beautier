@@ -2,11 +2,11 @@
 
 Newest versions at top.
 
-## beautier 2.4 (unreleased)
+## beautier 2.4 (2020-10-15)
 
 ### NEW FEATURES
 
- * None
+ * Add `inference_models` vignette
 
 ### MINOR IMPROVEMENTS
 
