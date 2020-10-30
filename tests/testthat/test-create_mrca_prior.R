@@ -1,13 +1,23 @@
-context("create_mrca_prior")
-
 test_that("use, minimal", {
 
   mrca_prior <- create_mrca_prior()
 
   expect_true(is_mrca_prior(mrca_prior))
+
 })
 
-test_that("use, no MRCA distr", {
+test_that("use, taxa names", {
+
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+
+  mrca_prior <- create_mrca_prior(
+    taxa_names = get_taxa_names(fasta_filename)
+  )
+
+  expect_true(is_mrca_prior(mrca_prior))
+})
+
+test_that("use, ID and taxa names", {
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
@@ -19,7 +29,19 @@ test_that("use, no MRCA distr", {
   expect_true(is_mrca_prior(mrca_prior))
 })
 
-test_that("use, with MRCA distr", {
+test_that("use, taxa names, MRCA distr", {
+
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+
+  mrca_prior <- create_mrca_prior(
+    taxa_names = get_taxa_names(fasta_filename),
+    mrca_distr = create_normal_distr()
+  )
+
+  expect_true(is_mrca_prior(mrca_prior))
+})
+
+test_that("use, ID, taxa names, MRCA distr", {
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
@@ -27,6 +49,19 @@ test_that("use, with MRCA distr", {
     alignment_id = get_alignment_id(fasta_filename),
     taxa_names = get_taxa_names(fasta_filename),
     mrca_distr = create_normal_distr()
+  )
+  expect_true(is_mrca_prior(mrca_prior))
+})
+
+test_that("use, ID, taxa names, MRCA distr, monophyletic", {
+
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+
+  mrca_prior <- create_mrca_prior(
+    alignment_id = get_alignment_id(fasta_filename),
+    taxa_names = get_taxa_names(fasta_filename),
+    mrca_distr = create_normal_distr(),
+    is_monophyletic = TRUE
   )
 
   expect_true(is_mrca_prior(mrca_prior))
