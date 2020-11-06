@@ -25,8 +25,9 @@ License: GPL-3
 LazyData: true
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
-URL: https://docs.ropensci.org/beautier/, https://github.com/ropensci/beautier/
-BugReports: https://github.com/ropensci/beautier/issues
+URL: https://docs.ropensci.org/beautier/ (website)
+    https://github.com/ropensci/beautier/
+BugReports: https://github.com/ropensci/beautier
 Imports:
     ape,
     assertive,
