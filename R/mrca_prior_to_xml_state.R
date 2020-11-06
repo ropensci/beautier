@@ -15,20 +15,8 @@
 #' )
 #' @export
 mrca_prior_to_xml_state <- function(
-  inference_model,
-  mrca_prior = "deprecated",
-  has_non_strict_clock_model = "deprecated"
+  inference_model
 ) {
-  if (length(mrca_prior) != 1 || mrca_prior != "deprecated") {
-    stop("'mrca_prior' is deprecated, use 'inference_model' instead")
-  }
-  if (has_non_strict_clock_model != "deprecated") {
-    stop(
-      "'has_non_strict_clock_model' is deprecated, ",
-      "use 'inference_model' instead"
-    )
-  }
-
   # Do not be smart yet
   mrca_prior <- inference_model$mrca_prior
   has_non_strict_clock_model <- !beautier::is_strict_clock_model(

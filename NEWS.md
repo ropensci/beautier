@@ -21,7 +21,8 @@ Newest versions at top.
  * `phylo_to_xml_state` removed 
  * `site_models_to_xml_state` gives a deprecation message
  * `tree_priors_to_xml_state` gives a deprecation message
- * `mrca_priors_to_xml_state` gives a deprecation message
+ * `mrca_priors_to_xml_state` has the arguments `mrca_prior`
+   and `has_non_strict_clock_model` replaced by `inference_model`
 
 ## beautier 2.4 (2020-10-15)
 
