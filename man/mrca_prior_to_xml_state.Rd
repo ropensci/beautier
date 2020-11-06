@@ -5,11 +5,7 @@
 \title{Internal function to create the XML of an MRCA prior,
   as used in the \code{state} section}
 \usage{
-mrca_prior_to_xml_state(
-  inference_model,
-  mrca_prior = "deprecated",
-  has_non_strict_clock_model = "deprecated"
-)
+mrca_prior_to_xml_state(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -19,12 +15,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{mrca_prior}{a Most Recent Common Ancestor prior,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{has_non_strict_clock_model}{boolean to indicate that the is
-already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \value{
 the tree prior as XML text
