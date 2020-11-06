@@ -1,5 +1,3 @@
-context("indent")
-
 test_that("use, single line", {
 
   input <- "test"

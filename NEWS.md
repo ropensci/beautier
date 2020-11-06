@@ -2,6 +2,27 @@
 
 Newest versions at top.
 
+## beautier 2.5 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * `phylo_to_xml_state` removed 
+ * `site_models_to_xml_state` gives a deprecation message
+ * `tree_priors_to_xml_state` gives a deprecation message
+ * `mrca_priors_to_xml_state` gives a deprecation message
+
 ## beautier 2.4 (2020-10-15)
 
 ### NEW FEATURES

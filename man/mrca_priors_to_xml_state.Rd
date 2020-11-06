@@ -2,11 +2,10 @@
 % Please edit documentation in R/mrca_priors_to_xml_state.R
 \name{mrca_priors_to_xml_state}
 \alias{mrca_priors_to_xml_state}
-\title{Converts one or more MRCA priors to the \code{state} section of the
-XML as text}
+\title{Deprecated}
 \usage{
 mrca_priors_to_xml_state(
-  inference_model,
+  inference_model = "deprecated",
   mrca_priors = "deprecated",
   has_non_strict_clock_model = "deprecated"
 )

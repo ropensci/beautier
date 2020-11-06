@@ -55,3 +55,23 @@ test_that("use, non-strict clock model, mrca_distr", {
   expected <- NULL # Indeed, nothing
   expect_equal(created, expected)
 })
+
+
+test_that("deprecation", {
+  expect_error(
+    mrca_prior_to_xml_state(
+      inference_model = "irrelevant",
+      mrca_prior = create_mrca_prior()
+    ),
+    "'mrca_prior' is deprecated, use 'inference_model' instead"
+  )
+
+  expect_error(
+    mrca_prior_to_xml_state(
+      inference_model = "irrelevant",
+      has_non_strict_clock_model = TRUE
+    ),
+    "'has_non_strict_clock_model' is deprecated"
+  )
+
+})

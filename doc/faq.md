@@ -79,12 +79,12 @@ Then it was combined with an R logo.
 
 ## What are the FASTA files?
 
-Filename|Reference
----|---
-`anthus_aco.fas`|[1]
-`anthus_nd2.fas`|[1]
+Filename               |Reference
+-----------------------|------------
+`anthus_aco.fas`       |[1]
+`anthus_nd2.fas`       |[1]
 `G_VII_pre2003_msa.fas`|[2]
-Others|Artificial
+Others                 |Artificial
 
  * [1] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
  * [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.

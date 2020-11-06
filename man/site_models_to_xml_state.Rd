@@ -2,10 +2,9 @@
 % Please edit documentation in R/site_models_to_xml_state.R
 \name{site_models_to_xml_state}
 \alias{site_models_to_xml_state}
-\title{Converts one or more clock models to the \code{state} section of the
-XML as text}
+\title{Deprecated function}
 \usage{
-site_models_to_xml_state(site_models)
+site_models_to_xml_state(site_models = "deprecated")
 }
 \arguments{
 \item{site_models}{one or more site models,

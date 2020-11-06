@@ -39,7 +39,6 @@ test_that("v2.4", {
 
 test_that("v2.6", {
 
-  skip("WIP")
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
     input_filename = input_filename,
@@ -51,6 +50,7 @@ test_that("v2.6", {
     input_filename = input_filename,
     inference_model = inference_model
   )
+  skip("WIP")
   expect_true(
        created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
     || created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"

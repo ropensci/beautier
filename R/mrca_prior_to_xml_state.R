@@ -19,7 +19,7 @@ mrca_prior_to_xml_state <- function(
   mrca_prior = "deprecated",
   has_non_strict_clock_model = "deprecated"
 ) {
-  if (mrca_prior != "deprecated") {
+  if (length(mrca_prior) != 1 || mrca_prior != "deprecated") {
     stop("'mrca_prior' is deprecated, use 'inference_model' instead")
   }
   if (has_non_strict_clock_model != "deprecated") {

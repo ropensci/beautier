@@ -96,7 +96,7 @@ This works, and the interface is unlikely to change.
 
 ## Experimental
 
-This works, but the interface may change.
+This works partially, and the interface may change as well.
 
  * Tip dating
 

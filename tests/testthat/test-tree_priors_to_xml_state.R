@@ -1,6 +1,6 @@
 test_that("use", {
   expect_error(
-    mrca_priors_to_xml_state(),
+    tree_priors_to_xml_state(),
     "deprecated"
   )
 })
