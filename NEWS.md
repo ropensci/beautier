@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Use GitHub Actions to check build
 
 ### BUG FIXES
 
