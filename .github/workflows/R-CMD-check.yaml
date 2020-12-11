@@ -8,7 +8,9 @@ name: R-CMD-check
 
 jobs:
   R-CMD-check:
-    runs-on: [ubuntu-latest,macos-latest,windows-latest]
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -34,7 +36,9 @@ jobs:
 
       - name: Test coverage
         run: if [[ "$INSTALL_COBALT" == true ]]; then Rscript -e 'covr::codecov()'; fi
+        if: matrix.os == 'ubuntu-latest'
 
       - name: Lint
         run: if [[ "$INSTALL_COBALT" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+        if: matrix.os == 'macos-latest'
 
