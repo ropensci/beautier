@@ -37,10 +37,10 @@ jobs:
         shell: Rscript {0}
 
       - name: Test coverage
-        run: if [[ "$INSTALL_COBALT" == true ]]; then Rscript -e 'covr::codecov()'; fi
+        run: Rscript -e 'covr::codecov()'
         if: matrix.os == 'ubuntu-latest'
 
       - name: Lint
-        run: if [[ "$INSTALL_COBALT" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+        run: Rscript -e 'lintr::lint_package()'
         if: matrix.os == 'macos-latest'
 
