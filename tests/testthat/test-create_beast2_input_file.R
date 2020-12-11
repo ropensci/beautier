@@ -85,13 +85,15 @@ test_that("abuse", {
   )
 
   # output filename is invalid
-  expect_error(
-    create_beast2_input_file(
-      input_filename = get_fasta_filename(),
-      output_filename = "/no/way",
-    ),
-    "Cannot write to file with name '/no/way'"
-  )
+  if (rappdirs::app_dir()$os != "win") {
+    expect_error(
+      create_beast2_input_file(
+        input_filename = get_fasta_filename(),
+        output_filename = "/no/way",
+      ),
+      "Cannot write to file with name '/no/way'"
+    )
+  }
 })
 
 test_that("cannot create CBS with less than 6 taxa", {
