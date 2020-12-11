@@ -21,6 +21,7 @@ jobs:
 
       - name: Install libcurl4-openssl-dev
         run: sudo apt install -qq libcurl4-openssl-dev
+        if: matrix.os == 'ubuntu-latest'
 
       - name: Install dependencies
         run: |
