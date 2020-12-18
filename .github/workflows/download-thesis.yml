@@ -1,0 +1,18 @@
+on:
+  schedule:
+    - cron: 0 0 1 * * # run monthly
+  repository_dispatch: # run manually
+    types: [check-link]
+  push:
+  pull_request:
+
+name: Download thesis
+jobs:
+  check:
+    name: Download thesis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and delete
+        run: wget --quiet https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf; rm Complete_thesis.pdf
+
+
