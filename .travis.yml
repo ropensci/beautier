@@ -22,6 +22,8 @@ before_install:
   # PDF
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr update --self; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo tlmgr install inconsolata; fi
+  # libgit2-dev
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt install libgit2-dev; fi
 
 before_script:
   - if [ -f ".lintr" ]; then echo "Do use Hadley Wickham's style guide"; exit 1; fi
