@@ -21,7 +21,9 @@
 get_alignment_ids <- function(filenames) {
   if (beautier::are_fasta_filenames(filenames)) {
     return(
-      beautier::get_alignment_ids_from_fasta_filenames(fasta_filenames = filenames)
+      beautier::get_alignment_ids_from_fasta_filenames(
+        fasta_filenames = filenames
+      )
     )
   }
 }
