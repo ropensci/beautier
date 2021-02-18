@@ -21,7 +21,7 @@ tree_priors_to_xml_operators <- function(
 
     text <- c(
       text,
-      tree_prior_to_xml_operators(
+      beautier::tree_prior_to_xml_operators(
         tree_prior = tree_prior,
         fixed_crown_age = fixed_crown_age
       )

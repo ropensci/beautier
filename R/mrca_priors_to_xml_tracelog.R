@@ -23,7 +23,7 @@ mrca_priors_to_xml_tracelog <- function(
 
   for (mrca_prior in mrca_priors) {
     text <- c(text,
-      mrca_prior_to_xml_tracelog(
+      beautier::mrca_prior_to_xml_tracelog(
         clock_models = clock_models,
         mrca_prior = mrca_prior,
         tipdates_filename = tipdates_filename

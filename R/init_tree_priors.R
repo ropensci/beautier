@@ -68,7 +68,7 @@ init_bd_tree_prior <- function(
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
 
-  result <- create_bd_tree_prior(
+  result <- beautier::create_bd_tree_prior(
     birth_rate_distr = beautier::init_distr(
       bd_tree_prior$birth_rate_distr,
       distr_id,
@@ -97,8 +97,8 @@ init_ccp_tree_prior <- function(
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
 
-  result <- create_ccp_tree_prior(
-    pop_size_distr = init_distr(
+  result <- beautier::create_ccp_tree_prior(
+    pop_size_distr = beautier::init_distr(
       ccp_tree_prior$pop_size_distr,
       distr_id,
       param_id

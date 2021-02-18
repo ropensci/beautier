@@ -71,7 +71,7 @@ mrca_prior_to_xml_prior_distr <- function(
   if (beautier::is_distr(mrca_prior$mrca_distr)) {
     text <- c(
       text,
-      beautier::indent(distr_to_xml(mrca_prior$mrca_distr))
+      beautier::indent(beautier::distr_to_xml(mrca_prior$mrca_distr))
     )
   }
   text <- c(text, paste0("</distribution>"))

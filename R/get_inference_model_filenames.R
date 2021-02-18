@@ -12,7 +12,7 @@ get_inference_model_filenames <- function(inference_model) {
   beautier::check_inference_model(inference_model)
   stats::na.omit(
     c(
-      get_mcmc_filenames(inference_model$mcmc),
+      beautier::get_mcmc_filenames(inference_model$mcmc),
       inference_model$tipdates_filename
     )
   )

@@ -48,10 +48,10 @@ create_distr <- function(
   id,
   ...
 ) {
-  if (!is_distr_name(name)) {
+  if (!beautier::is_distr_name(name)) {
     distr_as_string <- function() {
       s <- NULL
-      for (p in get_distr_names()) {
+      for (p in beautier::get_distr_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))
@@ -165,7 +165,7 @@ create_exp_distr <- create_distr_exp <- function(
   mean = 1.0
 ) {
   if (beautier::is_one_double(mean)) {
-    mean <- create_mean_param(value = mean)
+    mean <- beautier::create_mean_param(value = mean)
   }
   if (!is_mean_param(mean)) {
     stop("'mean' must be a mean parameter, ",
@@ -446,10 +446,10 @@ create_normal_distr <- create_distr_normal <- function(
   sigma = 1.0
 ) {
   if (beautier::is_one_double(mean)) {
-    mean <- create_mean_param(value = mean)
+    mean <- beautier::create_mean_param(value = mean)
   }
   if (beautier::is_one_double(sigma)) {
-    sigma <- create_sigma_param(value = sigma)
+    sigma <- beautier::create_sigma_param(value = sigma)
   }
 
   if (!beautier::is_mean_param(mean)) {

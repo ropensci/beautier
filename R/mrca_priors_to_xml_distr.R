@@ -28,7 +28,7 @@ mrca_priors_to_xml_prior_distr <- function(
   for (mrca_prior in mrca_priors) {
     text <- c(
       text,
-      mrca_prior_to_xml_prior_distr(
+      beautier::mrca_prior_to_xml_prior_distr(
         mrca_prior,
         has_non_strict_clock_model = has_non_strict_clock_model,
         taxa_names_with_ids = taxa_names_with_ids

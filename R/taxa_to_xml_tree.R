@@ -112,7 +112,7 @@ tipdate_taxa_to_xml_tree <- function(
 ) {
   testit::assert(beautier::is_id(id))
   testit::assert(!beautier::is_one_na(tipdates_filename))
-  trait_set_str <- create_trait_set_string(
+  trait_set_str <- beautier::create_trait_set_string(
     utils::read.table(tipdates_filename, sep = "\t")
   )
   c(

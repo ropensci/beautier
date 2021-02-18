@@ -12,7 +12,7 @@
 #' @export
 create_clock_models <- function() {
   list(
-    create_rln_clock_model(),
-    create_strict_clock_model()
+    beautier::create_rln_clock_model(),
+    beautier::create_strict_clock_model()
   )
 }

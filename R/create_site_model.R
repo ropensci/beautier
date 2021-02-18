@@ -64,7 +64,7 @@ create_site_model <- function(
   if (!beautier::is_site_model_name(name)) {
     site_models_as_string <- function() {
       s <- NULL
-      for (p in get_site_model_names()) {
+      for (p in beautier::get_site_model_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))

@@ -44,9 +44,9 @@ create_gamma_site_model <- function(
       gamma_cat_count >= 2
     && beautier::is_one_na(gamma_shape_prior_distr)) {
     # Cannot simplify, due to 1.0 becomes 1 in XML
-    gamma_shape_prior_distr <- create_exp_distr(
+    gamma_shape_prior_distr <- beautier::create_exp_distr(
         id = NA,
-        mean = create_mean_param(
+        mean = beautier::create_mean_param(
           id = NA,
           value = "1.0" # string to match XML
         )

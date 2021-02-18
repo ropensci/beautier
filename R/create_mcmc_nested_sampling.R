@@ -48,12 +48,12 @@ create_ns_mcmc <- create_mcmc_nested_sampling <- function(
   particle_count = 1,
   sub_chain_length = 5000,
   epsilon = "1e-12",
-  tracelog = create_tracelog(),
-  screenlog = create_screenlog(),
-  treelog = create_treelog()
+  tracelog = beautier::create_tracelog(),
+  screenlog = beautier::create_screenlog(),
+  treelog = beautier::create_treelog()
 ) {
   # Unsure about 'sample_from_prior' in NS MCMC, Issue #108
-  mcmc <- create_mcmc(
+  mcmc <- beautier::create_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,
