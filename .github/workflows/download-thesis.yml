@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download and delete
-        run: wget --quiet https://www.rug.nl/research/portal/files/132028374/Complete_thesis.pdf; rm Complete_thesis.pdf
+        run: wget --quiet https://pure.rug.nl/ws/files/132028374/Complete_thesis.pdf; rm Complete_thesis.pdf
 
 
