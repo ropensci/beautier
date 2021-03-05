@@ -19,6 +19,8 @@ jobs:
 
       - uses: r-lib/actions/setup-r@v1
 
+      - uses: docker://pandoc/core:2.9
+
       - name: Install libgit2-dev
         run: sudo apt install -qq libgit2-dev
         if: matrix.os == 'ubuntu-latest'
