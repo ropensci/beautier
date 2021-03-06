@@ -5,10 +5,14 @@
 \alias{create_distr_uniform}
 \title{Create a uniform distribution}
 \usage{
-create_uniform_distr(id = NA, upper = Inf)
+create_uniform_distr(id = NA, initial_value = NA, lower = NA, upper = Inf)
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{initial_value}{the initial value for the MCMC}
+
+\item{lower}{the lower bound, the lowest possible value}
 
 \item{upper}{an upper limit of the uniform distribution.
 If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.}

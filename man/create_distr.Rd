@@ -4,13 +4,20 @@
 \alias{create_distr}
 \title{General function to create a distribution.}
 \usage{
-create_distr(name, id, ...)
+create_distr(name, id, initial_value = NA, lower = NA, upper = NA, ...)
 }
 \arguments{
 \item{name}{the distribution name. Valid
 names can be found in \code{get_distr_names}}
 
 \item{id}{the distribution's ID}
+
+\item{initial_value}{the initial value for the MCMC}
+
+\item{lower}{the lower bound, the lowest possible value}
+
+\item{upper}{an upper limit of the uniform distribution.
+If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.}
 
 \item{...}{specific distribution parameters}
 }

@@ -5,7 +5,7 @@
 \alias{create_distr_exp}
 \title{Create an exponential distribution}
 \usage{
-create_exp_distr(id = NA, mean = 1)
+create_exp_distr(id = NA, mean = 1, initial_value = NA, lower = NA, upper = NA)
 }
 \arguments{
 \item{id}{the distribution's ID}
@@ -14,6 +14,13 @@ create_exp_distr(id = NA, mean = 1)
 a numeric value.
 For advanced usage, use the structure
 as returned by \code{\link{create_mean_param}}}
+
+\item{initial_value}{the initial value for the MCMC}
+
+\item{lower}{the lower bound, the lowest possible value}
+
+\item{upper}{an upper limit of the uniform distribution.
+If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.}
 }
 \value{
 an exponential distribution

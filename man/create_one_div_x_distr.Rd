@@ -5,10 +5,17 @@
 \alias{create_distr_one_div_x}
 \title{Create a 1/x distribution}
 \usage{
-create_one_div_x_distr(id = NA)
+create_one_div_x_distr(id = NA, initial_value = NA, lower = NA, upper = NA)
 }
 \arguments{
 \item{id}{the distribution's ID}
+
+\item{initial_value}{the initial value for the MCMC}
+
+\item{lower}{the lower bound, the lowest possible value}
+
+\item{upper}{an upper limit of the uniform distribution.
+If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.}
 }
 \value{
 a 1/x distribution

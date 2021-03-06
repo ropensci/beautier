@@ -5,7 +5,14 @@
 \alias{create_distr_laplace}
 \title{Create a Laplace distribution}
 \usage{
-create_laplace_distr(id = NA, mu = 0, scale = 1)
+create_laplace_distr(
+  id = NA,
+  mu = 0,
+  scale = 1,
+  initial_value = NA,
+  lower = NA,
+  upper = NA
+)
 }
 \arguments{
 \item{id}{the distribution's ID}
@@ -19,6 +26,13 @@ as returned by \code{\link{create_mu_param}}}
 a numeric value.
 For advanced usage, use the structure
 as returned by \code{\link{create_scale_param}}}
+
+\item{initial_value}{the initial value for the MCMC}
+
+\item{lower}{the lower bound, the lowest possible value}
+
+\item{upper}{an upper limit of the uniform distribution.
+If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.}
 }
 \value{
 a Laplace distribution

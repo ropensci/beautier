@@ -5,7 +5,14 @@
 \alias{create_distr_beta}
 \title{Create a beta distribution}
 \usage{
-create_beta_distr(id = NA, alpha = 0, beta = 1)
+create_beta_distr(
+  id = NA,
+  alpha = 0,
+  beta = 1,
+  initial_value = NA,
+  lower = NA,
+  upper = NA
+)
 }
 \arguments{
 \item{id}{the distribution's ID}
@@ -23,6 +30,13 @@ The value
 of beta must be at least 1.0.
 For advanced usage, use the structure
 as returned by \code{\link{create_beta_param}}.}
+
+\item{initial_value}{the initial value for the MCMC}
+
+\item{lower}{the lower bound, the lowest possible value}
+
+\item{upper}{an upper limit of the uniform distribution.
+If the upper limits needs to be infinity, set \code{upper} to \code{Inf}.}
 }
 \value{
 a beta distribution
