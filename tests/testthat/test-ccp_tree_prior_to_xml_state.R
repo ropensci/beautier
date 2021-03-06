@@ -4,8 +4,8 @@ test_that("use", {
   tree_prior = create_ccp_tree_prior(
     pop_size_distr = create_normal_distr(
       initial_value = 100.0,
-      lower_bound = 12.0,
-      upper_bound = 345.0
+      lower = 12.0,
+      upper = 345.0
     )
   )
 
