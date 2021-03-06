@@ -40,3 +40,36 @@ test_that("abuse", {
 test_that("cannot create CBS with less than 6 taxa", {
   # Tested by 'check_file_and_model_agree'
 })
+
+test_that("issue 121", {
+
+  skip("https://github.com/ropensci/beautier/issues/121")
+  output_filename <- tempfile()
+  testit::assert(!file.exists(output_filename))
+
+  inference_model <- create_inference_model(
+    tree_prior = create_ccp_tree_prior(
+      pop_size_distr = create_normal_distr(
+
+      )
+    )
+  )
+
+  text <- create_beast2_input_from_model(
+    get_beautier_path("anthus_nd2_sub.fas"),
+    inference_model
+  )
+
+  text
+  # This is the text to obtain:
+  expected <- paste0(
+    "        ",
+    "<parameter id=\"popSize.t:anthus_nd2_sub\" ",
+      "spec=\"parameter.RealParameter\" lower=\"12.0\" name=\"stateNode\" ",
+      "upper=\"345.0\">",
+      "100.0",
+    "</parameter>"
+  )
+  created <- stringr::str_subset(text, "popSize.t:anthus_nd2_sub.*stateNode")
+  expect_equal(expected, created)
+})
