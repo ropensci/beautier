@@ -14,9 +14,9 @@ create_ns_mcmc(
   particle_count = 1,
   sub_chain_length = 5000,
   epsilon = "1e-12",
-  tracelog = create_tracelog(),
-  screenlog = create_screenlog(),
-  treelog = create_treelog()
+  tracelog = beautier::create_tracelog(),
+  screenlog = beautier::create_screenlog(),
+  treelog = beautier::create_treelog()
 )
 }
 \arguments{
