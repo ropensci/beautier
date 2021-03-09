@@ -1,7 +1,7 @@
 test_that("use", {
   skip("Issue 121")
   skip("https://github.com/ropensci/beautier/issues/121")
-  tree_prior = create_ccp_tree_prior(
+  tree_prior <- create_ccp_tree_prior(
     pop_size_distr = create_normal_distr(
       initial_value = 100.0,
       lower = 12.0,
