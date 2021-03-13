@@ -744,7 +744,10 @@ test_that("ccp_6_taxa_2_4.xml", {
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_ccp_tree_prior(
-      pop_size_distr = create_one_div_x_distr(id = 1)
+      pop_size_distr = create_one_div_x_distr(
+        id = 1,
+        initial_value = 0.3
+      )
     )
   )
   expected <- readLines(get_beautier_path(
@@ -826,7 +829,10 @@ test_that("ccp_2_4.xml", {
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_ccp_tree_prior(
-      pop_size_distr = create_one_div_x_distr(id = 1)
+      pop_size_distr = create_one_div_x_distr(
+        id = 1,
+        initial_value = 0.3
+      )
     )
   )
   expected <- readLines(get_beautier_path(
@@ -843,7 +849,8 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
       pop_size_distr = create_gamma_distr(
         id = 2,
         alpha = create_alpha_param(id = 9, value = "2.0"),
-        beta = create_beta_param(id = 10, value = "2.0")
+        beta = create_beta_param(id = 10, value = "2.0"),
+        initial_value = 0.3
       )
     )
   )
