@@ -1,5 +1,20 @@
 #' Convert a CCP tree prior
 #' to the XML as part of the \code{state} section
+#' @inheritParams default_params_doc
+#' @return XML as text
+#' @examples
+#' # Need an ID and inital value
+#' inference_model <- create_inference_model(
+#'   tree_prior = create_ccp_tree_prior(
+#'     id = "anthus_nd2_sub",
+#'     pop_size_distr = create_normal_distr(
+#'       id = 123,
+#'       initial_value = 3.14
+#'     )
+#'   )
+#' )
+#'
+#' ccp_tree_prior_to_xml_state(inference_model)
 #' @export
 ccp_tree_prior_to_xml_state <- function(
   inference_model,

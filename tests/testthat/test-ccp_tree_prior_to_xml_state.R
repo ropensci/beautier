@@ -1,4 +1,28 @@
-test_that("minimal use", {
+test_that("minimal use, v2.4", {
+  inference_model <- create_inference_model(
+    tree_prior = create_ccp_tree_prior(
+      id = "anthus_nd2_sub",
+      pop_size_distr = create_normal_distr(
+        id = 123,
+        initial_value = 3.14
+      )
+    )
+  )
+
+  text <- ccp_tree_prior_to_xml_state(
+    inference_model
+  )
+
+  text
+  # This is the text to obtain:
+  expected <- paste0(
+    "<parameter id=\"popSize.t:anthus_nd2_sub\" name=\"stateNode\">3.14",
+    "</parameter>"
+  )
+  expect_equal(text, expected)
+})
+
+test_that("minimal use, v2.6", {
   inference_model <- create_inference_model(
     tree_prior = create_ccp_tree_prior(
       id = "anthus_nd2_sub",

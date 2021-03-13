@@ -7,7 +7,36 @@ to the XML as part of the \code{state} section}
 \usage{
 ccp_tree_prior_to_xml_state(inference_model, tree_prior = "deprecated")
 }
+\arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
+\item{tree_prior}{a tree priors,
+as returned by \code{\link{create_tree_prior}}}
+}
+\value{
+XML as text
+}
 \description{
 Convert a CCP tree prior
 to the XML as part of the \code{state} section
+}
+\examples{
+# Need an ID and inital value
+inference_model <- create_inference_model(
+  tree_prior = create_ccp_tree_prior(
+    id = "anthus_nd2_sub",
+    pop_size_distr = create_normal_distr(
+      id = 123,
+      initial_value = 3.14
+    )
+  )
+)
+
+ccp_tree_prior_to_xml_state(inference_model)
 }
