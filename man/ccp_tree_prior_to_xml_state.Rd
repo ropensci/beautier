@@ -2,10 +2,12 @@
 % Please edit documentation in R/ccp_tree_prior_to_xml_state.R
 \name{ccp_tree_prior_to_xml_state}
 \alias{ccp_tree_prior_to_xml_state}
-\title{Convert a CCP tree prior to the XML as part of the \code{state} section}
+\title{Convert a CCP tree prior
+to the XML as part of the \code{state} section}
 \usage{
-ccp_tree_prior_to_xml_state(tree_prior)
+ccp_tree_prior_to_xml_state(inference_model, tree_prior = "deprecated")
 }
 \description{
-Convert a CCP tree prior to the XML as part of the \code{state} section
+Convert a CCP tree prior
+to the XML as part of the \code{state} section
 }
