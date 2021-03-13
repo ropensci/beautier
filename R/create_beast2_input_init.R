@@ -39,7 +39,7 @@ create_beast2_input_init <- function(
     text <- c(text, "")
     text <- c(
       text,
-      beautier::indent(rnd_phylo_to_xml_init(inference_model))
+      beautier::indent(beautier::rnd_phylo_to_xml_init(inference_model))
     )
   }
   text

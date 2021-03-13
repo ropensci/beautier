@@ -5,7 +5,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_screenlog_xml <- function(
-  inference_model = create_inference_model()
+  inference_model = beautier::create_inference_model()
 ) {
   top_line <- "<logger id=\"screenlog\""
   if (nchar(inference_model$mcmc$screenlog$filename) > 0) {

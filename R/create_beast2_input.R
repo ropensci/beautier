@@ -74,7 +74,7 @@ create_beast2_input <- function(
   if (any("mrca_priors" %in% calls)) {
     stop("'mrca_priors' is deprecated, use 'mrca_prior' instead.")
   }
-  inference_model <- create_inference_model(
+  inference_model <- beautier::create_inference_model(
     site_model = site_model,
     clock_model = clock_model,
     tree_prior = tree_prior,

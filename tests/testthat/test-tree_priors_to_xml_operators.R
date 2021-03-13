@@ -1,5 +1,3 @@
-context("tree_priors_to_xml_operators")
-
 test_that("Yule", {
 
   expected <- c(
@@ -51,7 +49,7 @@ test_that("Yule Yule", {
 
 test_that("interface: support multiple fixed_crown_ages", {
 
-  testthat::expect_silent(
+  expect_silent(
     tree_priors_to_xml_operators(
       tree_prior = list(
         create_yule_tree_prior(id = "anthus_aco"),

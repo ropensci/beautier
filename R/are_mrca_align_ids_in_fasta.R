@@ -10,7 +10,7 @@ are_mrca_align_ids_in_fasta <- function(
   fasta_filename
 ) {
   testit::assert(beautier::is_mrca_prior(mrca_prior))
-  if (!is_mrca_align_id_in_fasta(mrca_prior, fasta_filename)) {
+  if (!beautier::is_mrca_align_id_in_fasta(mrca_prior, fasta_filename)) {
     return(FALSE)
   }
   TRUE

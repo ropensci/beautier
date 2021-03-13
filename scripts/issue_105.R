@@ -9,7 +9,7 @@ testit::assert(!file.exists(tracelog_filename))
 testit::assert(!file.exists(screenlog_filename))
 testit::assert(!file.exists(treelog_filename))
 
-inference_model <- create_inference_model(
+inference_model <- beautier::create_inference_model(
   mcmc = create_mcmc(
     chain_length = 3000,
     store_every = 1000,

@@ -24,7 +24,7 @@ are_equal_mcmcs <- function( # nolint cannot lower cyclomatic complexity
     mcmc_1$pre_burnin == mcmc_2$pre_burnin &&
     mcmc_1$n_init_attempts == mcmc_2$n_init_attempts &&
     mcmc_1$sample_from_prior == mcmc_2$sample_from_prior &&
-    are_equal_tracelogs(mcmc_1$tracelog, mcmc_2$tracelog) &&
-    are_equal_screenlogs(mcmc_1$screenlog, mcmc_2$screenlog) &&
-    are_equal_treelogs(mcmc_1$treelog, mcmc_2$treelog)
+    beautier::are_equal_tracelogs(mcmc_1$tracelog, mcmc_2$tracelog) &&
+    beautier::are_equal_screenlogs(mcmc_1$screenlog, mcmc_2$screenlog) &&
+    beautier::are_equal_treelogs(mcmc_1$treelog, mcmc_2$treelog)
 }

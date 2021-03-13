@@ -33,7 +33,7 @@ clock_model_to_xml_operators <- function(
       "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>") # nolint this is no absolute path
     )
-    if (is_mrca_prior_with_distr(mrca_priors[[1]])) {
+    if (beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
       text <- c(
         text,
         paste0(

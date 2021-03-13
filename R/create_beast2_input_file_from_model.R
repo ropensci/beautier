@@ -25,7 +25,7 @@
 create_beast2_input_file_from_model <- function( # nolint indeed a long name, but I preferred this over 'create_beast2_input_file2'
   input_filename,
   output_filename,
-  inference_model = create_inference_model()
+  inference_model = beautier::create_inference_model()
 ) {
   tryCatch(
     beautier::check_inference_model(inference_model),

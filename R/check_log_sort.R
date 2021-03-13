@@ -3,10 +3,11 @@
 #' Valid are \code{smart}, \code{none} and \code{alphabetic}
 #' @export
 check_log_sort <- function(sort) {
-  if (!sort %in% get_log_sorts()) {
+  if (!sort %in% beautier::get_log_sorts()) {
     stop(
       "'sort' must be a valid log sort. \n",
-      "Supported values: '", paste0(get_log_sorts(), collapse = ", "), "' \n",
+      "Supported values: '",
+        paste0(beautier::get_log_sorts(), collapse = ", "), "' \n",
       "Actual value: '", sort
     )
   }

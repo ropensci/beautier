@@ -30,7 +30,7 @@
 #' @export
 create_beast2_input_beast <- function(
   input_filename,
-  inference_model = create_inference_model()
+  inference_model = beautier::create_inference_model()
 ) {
   testit::assert(length(input_filename) == 1)
   testit::assert(file.exists(input_filename))

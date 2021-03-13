@@ -46,7 +46,7 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
   inference_model
 ) {
   has_no_mrca_prior <- beautier::is_one_na(inference_model$mrca_prior)
-  has_non_strict_clock <- get_has_non_strict_clock_model(
+  has_non_strict_clock <- beautier::get_has_non_strict_clock_model(
     list(inference_model$clock_model)
   )
   has_mrca_prior <- !has_no_mrca_prior

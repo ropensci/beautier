@@ -23,7 +23,7 @@ create_beast2_input_operators <- function(
 
   text <- c(
     text,
-    tree_priors_to_xml_operators(
+    beautier::tree_priors_to_xml_operators(
       tree_priors = tree_priors,
       fixed_crown_ages = fixed_crown_ages
     )

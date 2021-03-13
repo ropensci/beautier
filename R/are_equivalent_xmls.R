@@ -115,33 +115,33 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
       beautier::are_equivalent_xml_lines_loggers(lines_1, lines_2, verbose)
     )
   }
-  if (!has_xml_opening_tag(lines = lines_1, section = section)) {
+  if (!beautier::has_xml_opening_tag(lines = lines_1, section = section)) {
     stop(
       "Opening tag for 'section' could not be found in 'lines_1', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_closing_tag(lines = lines_1, section = section)) {
+  if (!beautier::has_xml_closing_tag(lines = lines_1, section = section)) {
     stop(
       "Closing tag for 'section' could not be found in 'lines_1', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_opening_tag(lines = lines_2, section = section)) {
+  if (!beautier::has_xml_opening_tag(lines = lines_2, section = section)) {
     stop(
       "Opening tag for 'section' could not be found in 'lines_2', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_closing_tag(lines = lines_2, section = section)) {
+  if (!beautier::has_xml_closing_tag(lines = lines_2, section = section)) {
     stop(
       "Closing tag for 'section' could not be found in 'lines_2', ",
       "'section' has value '", section, "'"
     )
   }
-  section_1 <- extract_xml_section_from_lines(
+  section_1 <- beautier::extract_xml_section_from_lines(
     lines = lines_1, section = section)
-  section_2 <- extract_xml_section_from_lines(
+  section_2 <- beautier::extract_xml_section_from_lines(
     lines = lines_2, section = section)
   beautier::are_equivalent_xml_lines_all(
     section_1, section_2, verbose = verbose

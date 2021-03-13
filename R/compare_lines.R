@@ -22,9 +22,9 @@ compare_lines <- function(
   expected_lines_filename = "expected.xml"
 ) {
   if (!beautier::is_one_na(section)) {
-    lines <- extract_xml_section_from_lines(
+    lines <- beautier::extract_xml_section_from_lines(
       lines = lines, section = section)
-    expected <- extract_xml_section_from_lines(
+    expected <- beautier::extract_xml_section_from_lines(
       lines = expected, section = section)
   }
   writeLines(text = lines, created_lines_filename)

@@ -3,10 +3,11 @@
 #' Valid are \code{tree}, \code{autodetect} and \code{compound}
 #' @export
 check_log_mode <- function(mode) {
-  if (!mode %in% get_log_modes()) {
+  if (!mode %in% beautier::get_log_modes()) {
     stop(
       "'mode' must be a valid log mode. \n",
-      "Supported values: '", paste0(get_log_modes(), collapse = ", "), "' \n",
+      "Supported values: '",
+      paste0(beautier::get_log_modes(), collapse = ", "), "' \n",
       "Actual value: '", mode
     )
   }

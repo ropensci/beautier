@@ -25,7 +25,7 @@ check_clock_model <- function(clock_model) {
   if (!clock_model$name %in% beautier::get_clock_model_names()) {
     stop(
       "'clock_model$name' must be one of the clock model names (",
-      paste0(get_clock_model_names(), collapse = ", "), "). \n",
+      paste0(beautier::get_clock_model_names(), collapse = ", "), "). \n",
       "Actual value: ", clock_model$name
     )
   }
@@ -70,14 +70,14 @@ check_rln_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$name
     )
   }
-  if (!is_distr(clock_model$ucldstdev_distr)) {
+  if (!beautier::is_distr(clock_model$ucldstdev_distr)) {
     stop(
       "'clock_model$ucldstdev_distr' must be a distribution. \n",
       "Tip: use create_distr. \n",
       "Actual value: ", clock_model$ucldstdev_distr
     )
   }
-  if (!is_distr(clock_model$mean_rate_prior_distr)) {
+  if (!beautier::is_distr(clock_model$mean_rate_prior_distr)) {
     stop(
       "'clock_model$mean_rate_prior_distr' must be a distribution. \n",
       "Tip: use create_distr. \n",
@@ -117,7 +117,7 @@ check_strict_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$name
     )
   }
-  if (!is_distr(clock_model$clock_rate_distr)) {
+  if (!beautier::is_distr(clock_model$clock_rate_distr)) {
     stop(
       "'clock_model$clock_rate_distr' must be a distribution. \n",
       "Tip: use create_distr. \n",

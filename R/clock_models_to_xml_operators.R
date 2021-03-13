@@ -15,7 +15,7 @@ clock_models_to_xml_operators <- function(
     clock_model <- clock_models[[i]]
     text <- c(
       text,
-      clock_model_to_xml_operators(
+      beautier::clock_model_to_xml_operators(
         clock_model = clock_model,
         mrca_priors = mrca_priors,
         tipdates_filename = tipdates_filename

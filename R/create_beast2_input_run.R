@@ -37,7 +37,7 @@
 #' @export
 create_beast2_input_run <- function(
   input_filename,
-  inference_model = create_inference_model()
+  inference_model = beautier::create_inference_model()
 ) {
   testthat::expect_equal(length(input_filename), 1)
 
