@@ -36,7 +36,7 @@ clock_models_to_xml_state <- function(
 
   for (clock_model in clock_models) {
     text <- c(text,
-      clock_model_to_xml_state(
+      beautier::clock_model_to_xml_state(
         clock_model = clock_model,
         has_tip_dating = has_tip_dating
       )

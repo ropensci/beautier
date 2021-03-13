@@ -13,13 +13,13 @@ inference_model <- beautier::create_inference_model(
   mcmc = create_mcmc(
     chain_length = 3000,
     store_every = 1000,
-    tracelog = create_tracelog(
+    tracelog = beautier::create_tracelog(
       filename = tracelog_filename
     ),
-    screenlog = create_screenlog(
+    screenlog = beautier::create_screenlog(
       filename = screenlog_filename
     ),
-    treelog = create_treelog(
+    treelog = beautier::create_treelog(
       filename = treelog_filename
     )
 

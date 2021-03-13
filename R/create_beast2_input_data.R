@@ -5,7 +5,7 @@
 #' @export
 create_beast2_input_data <- function(
   input_filename,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   input_filenames = "deprecated"
 ) {
   if (input_filenames != "deprecated") {
@@ -19,12 +19,12 @@ create_beast2_input_data <- function(
     fasta_filename = input_filename,
     capitalize_first_char_id = beauti_options$capitalize_first_char_id
   )
-  data_start_text <- create_data_xml(
+  data_start_text <- beautier::create_data_xml(
     id = id,
     beast2_version = beauti_options$beast2_version
   )
   # Sequences
-  sequences_text <- create_beast2_input_data_sequences(
+  sequences_text <- beautier::create_beast2_input_data_sequences(
     input_fasta_filename = input_filename,
     beauti_options = beauti_options
   )

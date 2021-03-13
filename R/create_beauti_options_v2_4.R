@@ -13,7 +13,7 @@
 #' @export
 create_beauti_options_v2_4 <- function(
 ) {
-  create_beauti_options(
+  beautier::create_beauti_options(
     capitalize_first_char_id = FALSE,
     nucleotides_uppercase = FALSE,
     beast2_version = "2.4",

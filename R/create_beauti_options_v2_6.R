@@ -13,7 +13,7 @@
 #' @export
 create_beauti_options_v2_6 <- function(
 ) {
-  create_beauti_options(
+  beautier::create_beauti_options(
     beast2_version = "2.6",
     sequence_indent = 8
   )

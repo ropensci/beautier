@@ -64,7 +64,7 @@ create_beast2_input_run <- function(
   )
 
   text <- c(text,
-    create_beast2_input_init(
+    beautier::create_beast2_input_init(
       inference_model = inference_model
     )
   )
@@ -83,7 +83,7 @@ create_beast2_input_run <- function(
 
   text <- c(
     text,
-    create_beast2_input_operators(
+    beautier::create_beast2_input_operators(
       site_models = site_models,
       clock_models = clock_models,
       tree_priors = tree_priors,
@@ -97,7 +97,7 @@ create_beast2_input_run <- function(
 
   text <- c(
     text,
-    create_loggers_xml(
+    beautier::create_loggers_xml(
       input_filename = input_filename,
       inference_model = inference_model
     )

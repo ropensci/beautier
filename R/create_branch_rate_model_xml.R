@@ -137,7 +137,7 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
   line <- paste0("<branchRateModel ",
     "id=\"RelaxedClock.c:", id, "\" ",
     "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-    ifelse(!is_mrca_prior_with_distr(mrca_priors[[1]]),
+    ifelse(!beautier::is_mrca_prior_with_distr(mrca_priors[[1]]),
       "",
       paste0("clock.rate=\"@ucldMean.c:", id, "\" ")
     ),
@@ -160,7 +160,7 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
     "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
     "upper=\"1.0\">1.0</parameter>"))
   text <- c(text, paste0("    </LogNormal>"))
-  if (!is_mrca_prior_with_distr(mrca_priors[[1]])) {
+  if (!beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
     text <- c(text, paste0("    <parameter ",
       "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
       "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))

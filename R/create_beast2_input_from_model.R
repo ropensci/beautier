@@ -39,7 +39,7 @@ create_beast2_input_from_model <- function(
   )
 
   # Check if the combination of FASTA file and inference model agrees
-  check_file_and_model_agree(
+  beautier::check_file_and_model_agree(
     input_filename = input_filename,
     inference_model = inference_model
   )
@@ -49,7 +49,7 @@ create_beast2_input_from_model <- function(
   options(scipen = 20)
 
 
-  text <- create_beast2_input_beast(
+  text <- beautier::create_beast2_input_beast(
     input_filename = input_filename,
     inference_model = inference_model
   )
