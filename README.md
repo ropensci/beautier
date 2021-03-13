@@ -93,6 +93,8 @@ This works, and the interface is unlikely to change.
     * Coalescent Bayesian Skyline 
     * Coalescent Constant Population
     * Coalescent Exponential Population
+ * Handle missing data: simpy use a dash (´-´) as a sequence
+   in a FASTA file
 
 ## Experimental
 
