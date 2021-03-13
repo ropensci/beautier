@@ -31,7 +31,10 @@
 #'   if the crown age needs to be estimated
 #' @param distr_id a distributions' ID
 #' @param fasta_filename a FASTA filename.
-#'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+#' Note that BEAST2 also supports missing data,
+#' by using a dash (\code{-}) or question mark (\code{?})
+#' as a sequence.
 #' @param fasta_filenames One or more FASTA filenames.
 #'   Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
 #' @param fixed_crown_age determines if the phylogeny's crown age is

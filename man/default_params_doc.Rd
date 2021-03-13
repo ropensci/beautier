@@ -128,7 +128,10 @@ if the crown age needs to be estimated}
 \item{distr_id}{a distributions' ID}
 
 \item{fasta_filename}{a FASTA filename.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+Note that BEAST2 also supports missing data,
+by using a dash (\code{-}) or question mark (\code{?})
+as a sequence.}
 
 \item{fasta_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}

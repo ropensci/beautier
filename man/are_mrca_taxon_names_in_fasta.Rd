@@ -11,7 +11,10 @@ are_mrca_taxon_names_in_fasta(mrca_prior, fasta_filename)
 as returned by \code{\link{create_mrca_prior}}}
 
 \item{fasta_filename}{a FASTA filename.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
+Note that BEAST2 also supports missing data,
+by using a dash (\code{-}) or question mark (\code{?})
+as a sequence.}
 }
 \value{
 TRUE if the MRCA priors' taxa names are
