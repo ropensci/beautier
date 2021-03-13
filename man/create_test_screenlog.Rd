@@ -5,7 +5,7 @@
 \title{Create a \code{screenlog} object}
 \usage{
 create_test_screenlog(
-  filename = create_temp_screenlog_filename(),
+  filename = beautier::create_temp_screenlog_filename(),
   log_every = 1000,
   mode = "autodetect",
   sanitise_headers = FALSE,

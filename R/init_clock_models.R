@@ -110,7 +110,7 @@ init_rln_clock_model <- function(
     param_id <- param_id + 1
   }
 
-  result <- create_rln_clock_model(
+  result <- beautier::create_rln_clock_model(
     id = rln_clock_model$id,
     ucldstdev_distr = ucldstdev_distr,
     mean_rate_prior_distr = mean_rate_prior_distr,

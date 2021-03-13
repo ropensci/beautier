@@ -83,7 +83,7 @@ create_beast2_input <- function(
     beauti_options = beauti_options,
     tipdates_filename = tipdates_filename
   )
-  create_beast2_input_from_model(
+  beautier::create_beast2_input_from_model(
     input_filename = input_filename,
     inference_model = inference_model
   )
