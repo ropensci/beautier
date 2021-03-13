@@ -43,9 +43,20 @@ an MCMC configuration
 }
 \description{
 Create an MCMC configuration, as in the BEAUti MCMC tab.
-The number of states that will be saved equals the chain
-length (\code{chain_length}) divided by the number of
-states between each sampling event (\code{store_every})
+}
+\details{
+There are four things that can be saved:
+ * \code{store_every}: saves the state of the MCMC to file,
+   as a \code{.state.xml} file
+ * \code{tracelog}: stores the trace of the state of the MCMC
+   to file. See \code{create_tracelog}
+   how to specify the filename
+ * \code{screenlog}: stores the screen output
+   to file. See \code{create_screenlog}
+   how to specify the filename
+ * \code{treelog}: stores the estimated phylogenies
+   to file. See \code{create_treelog}
+   how to specify the filename
 }
 \examples{
 
