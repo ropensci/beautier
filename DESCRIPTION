@@ -5,12 +5,13 @@ Authors@R: c(
   person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
   person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
   person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
-  person("Paul", "Van Els", role = "ctb"),
-  person("Raphael", "Scherrer", role = "ctb"),
-  person("Yacine B.", "Chehida", role = "ctb"),
+  person("Paul", "Van Els", role = "ctb", comment = c(ORCID = "0000-0002-9499-8873")),
+  person("Raphael", "Scherrer", role = "ctb", comment = c(ORCID = "0000-0002-1447-7630")),
+  person("Yacine B.", "Chehida", role = "ctb", comment = c(ORCID = "0000-0001-7269-9082")),
   person("Katharine S.", "Walter", role = "ctb", comment = c(ORCID = "0000-0003-0065-2204")),
   person("Gary", "Napier", role = "ctb", comment = c(ORCID = "0000-0002-1077-0055")),
-  person("Jana", "Riederer", role = "ctb"))
+  person("Jason", "Griffiths", role = "ctb", comment = c(ORCID = "0000-0002-1667-8233")),
+  person("Jana", "Riederer", role = "ctb", comment = c(ORCID = "0000-0001-6951-9984"))
 Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
   Bayesian phylogenetic tool, that uses DNA/RNA/protein data
