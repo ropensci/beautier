@@ -5,7 +5,7 @@
 \title{Creates the \code{screenlog} section of the \code{logger} section
 of a BEAST2 XML parameter file}
 \usage{
-create_screenlog_xml(inference_model = create_inference_model())
+create_screenlog_xml(inference_model = beautier::create_inference_model())
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.

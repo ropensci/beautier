@@ -10,6 +10,10 @@ an R interface. \code{beautier} closely follows the interface
 of \code{BEAUti 2}, a GUI tool bundled with \code{BEAST2}, including
 its default settings.
 }
+\details{
+See the documentation of \code{create_inference_model} to see the
+features of BEAST2 that \code{beautier} supports.
+}
 \examples{
 # Get an example FASTA file
 input_filename <- get_fasta_filename()
