@@ -109,12 +109,12 @@ The columns need to be tab separated.
 See [here](https://github.com/ropensci/beautier/blob/master/inst/extdata/G_VII_pre2003_dates_4.txt)
 for an example, of which the first rows are shown here:
 
-´´´
+```
 KF767106_Indonesia_1976_VII	1976
 KF767104_Indonesia_1988_VII	1988
 KF767105_Indonesia_1988_VII	1988
 AY288998_Indonesia_1990_VII	1990
-´´´
+```
 
 In the future, there probably will be a ´to_tipdates_file´ function,
 to create a temporary tipdates file from a table.
