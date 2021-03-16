@@ -339,4 +339,3 @@ test_that("log_normal_distr, complete use", {
   expect_equal(lower, log_normal_distr$lower)
   expect_equal(upper, log_normal_distr$upper)
 })
-
