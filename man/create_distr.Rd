@@ -4,7 +4,7 @@
 \alias{create_distr}
 \title{General function to create a distribution.}
 \usage{
-create_distr(name, id, initial_value = NA, lower = NA, upper = NA, ...)
+create_distr(name, id, value = NA, lower = NA, upper = NA, ...)
 }
 \arguments{
 \item{name}{the distribution name. Valid
@@ -12,7 +12,7 @@ names can be found in \code{get_distr_names}}
 
 \item{id}{the distribution's ID}
 
-\item{initial_value}{the initial value for the MCMC}
+\item{value}{the initial value for the MCMC}
 
 \item{lower}{the lower bound, the lowest possible value}
 

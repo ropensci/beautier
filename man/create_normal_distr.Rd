@@ -9,7 +9,7 @@ create_normal_distr(
   id = NA,
   mean = 0,
   sigma = 1,
-  initial_value = NA,
+  value = NA,
   lower = NA,
   upper = NA
 )
@@ -27,7 +27,7 @@ a numeric value.
 For advanced usage, use the structure
 as returned by \code{\link{create_sigma_param}}}
 
-\item{initial_value}{the initial value for the MCMC}
+\item{value}{the initial value for the MCMC}
 
 \item{lower}{the lower bound, the lowest possible value}
 

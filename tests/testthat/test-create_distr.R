@@ -319,3 +319,24 @@ test_that("abuse, uniform", {
   )
 
 })
+
+test_that("log_normal_distr, complete use", {
+  m <- 1.0
+  s <- 1.25
+  value <- 100.0
+  lower <- 0.01
+  upper <- 200.0
+  log_normal_distr <- create_log_normal_distr(
+    m = m,
+    s = s,
+    value = value,
+    lower = lower,
+    upper = upper
+  )
+  expect_equal(m, log_normal_distr$m$value)
+  expect_equal(s, log_normal_distr$s$value)
+  expect_equal(value, log_normal_distr$value)
+  expect_equal(lower, log_normal_distr$lower)
+  expect_equal(upper, log_normal_distr$upper)
+})
+

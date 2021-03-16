@@ -190,7 +190,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 create_ccp_tree_prior <- create_tree_prior_ccp <- function(
   id = NA,
   pop_size_distr = beautier::create_one_div_x_distr(
-    initial_value = 0.3
+    value = 0.3
   )
 ) {
   create_tree_prior(

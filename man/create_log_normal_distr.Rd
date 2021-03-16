@@ -9,7 +9,7 @@ create_log_normal_distr(
   id = NA,
   m = 0,
   s = 0,
-  initial_value = NA,
+  value = NA,
   lower = NA,
   upper = NA
 )
@@ -27,7 +27,7 @@ a numeric value.
 For advanced usage, use the structure
 as returned by \code{\link{create_s_param}}}
 
-\item{initial_value}{the initial value for the MCMC}
+\item{value}{the initial value for the MCMC}
 
 \item{lower}{the lower bound, the lowest possible value}
 

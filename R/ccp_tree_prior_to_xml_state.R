@@ -9,7 +9,7 @@
 #'     id = "anthus_nd2_sub",
 #'     pop_size_distr = create_normal_distr(
 #'       id = 123,
-#'       initial_value = 3.14
+#'       value = 3.14
 #'     )
 #'   )
 #' )
@@ -54,7 +54,7 @@ ccp_tree_prior_to_xml_state <- function(
   parameter_xml <- paste0(
     parameter_xml,
     ">",
-    tree_prior$pop_size_distr$initial_value,
+    tree_prior$pop_size_distr$value,
     "</parameter>"
   )
   parameter_xml

@@ -33,7 +33,7 @@ inference_model <- create_inference_model(
     id = "anthus_nd2_sub",
     pop_size_distr = create_normal_distr(
       id = 123,
-      initial_value = 3.14
+      value = 3.14
     )
   )
 )

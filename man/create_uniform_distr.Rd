@@ -5,12 +5,12 @@
 \alias{create_distr_uniform}
 \title{Create a uniform distribution}
 \usage{
-create_uniform_distr(id = NA, initial_value = NA, lower = NA, upper = Inf)
+create_uniform_distr(id = NA, value = NA, lower = NA, upper = Inf)
 }
 \arguments{
 \item{id}{the distribution's ID}
 
-\item{initial_value}{the initial value for the MCMC}
+\item{value}{the initial value for the MCMC}
 
 \item{lower}{the lower bound, the lowest possible value}
 

@@ -4,7 +4,7 @@ test_that("minimal use, v2.4", {
       id = "anthus_nd2_sub",
       pop_size_distr = create_normal_distr(
         id = 123,
-        initial_value = 3.14
+        value = 3.14
       )
     )
   )
@@ -28,7 +28,7 @@ test_that("minimal use, v2.6", {
       id = "anthus_nd2_sub",
       pop_size_distr = create_normal_distr(
         id = 123,
-        initial_value = "0.3"
+        value = "0.3"
       )
     ),
     beauti_options = create_beauti_options_v2_6()
@@ -55,7 +55,7 @@ test_that("use", {
       id = "anthus_nd2_sub",
       pop_size_distr = create_normal_distr(
         id = 123,
-        initial_value = "100.0",
+        value = "100.0",
         lower = "12.0",
         upper = "345.0"
       )

@@ -5,13 +5,7 @@
 \alias{create_distr_poisson}
 \title{Create a Poisson distribution}
 \usage{
-create_poisson_distr(
-  id = NA,
-  lambda = 0,
-  initial_value = NA,
-  lower = NA,
-  upper = NA
-)
+create_poisson_distr(id = NA, lambda = 0, value = NA, lower = NA, upper = NA)
 }
 \arguments{
 \item{id}{the distribution's ID}
@@ -21,7 +15,7 @@ a numeric value.
 For advanced usage, use the structure
 as returned by \code{\link{create_lambda_param}}}
 
-\item{initial_value}{the initial value for the MCMC}
+\item{value}{the initial value for the MCMC}
 
 \item{lower}{the lower bound, the lowest possible value}
 
