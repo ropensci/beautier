@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_clock_rate}
 \title{Converts a \code{clockRate} parameter to XML}
 \usage{
-parameter_to_xml_clock_rate(parameter)
+parameter_to_xml_clock_rate(
+  parameter,
+  beauti_options = create_beauti_options_v2_4()
+)
 }
 \arguments{
 \item{parameter}{a \code{clockRate} parameter,

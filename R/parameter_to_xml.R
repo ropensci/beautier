@@ -7,7 +7,8 @@
 #' parameter_to_xml(create_alpha_param(id = 1))
 #' @export
 parameter_to_xml <- function( # nolint simplifying further hurts readability
-  parameter
+  parameter,
+  beauti_options = create_beauti_options_v2_4()
 ) {
   beautier::check_param(parameter)
   testit::assert(beautier::is_id(parameter$id))
@@ -16,7 +17,10 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
   } else if (beautier::is_beta_param(parameter)) {
     return(beautier::parameter_to_xml_beta(parameter))
   } else if (beautier::is_clock_rate_param(parameter)) {
-    return(beautier::parameter_to_xml_clock_rate(parameter))
+    return(beautier::parameter_to_xml_clock_rate(
+      parameter = parameter,
+      beauti_options = beauti_options
+    ))
   } else if (beautier::is_kappa_1_param(parameter)) {
     return(beautier::parameter_to_xml_kappa_1(parameter))
   } else if (beautier::is_kappa_2_param(parameter)) {
@@ -110,20 +114,29 @@ parameter_to_xml_beta <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_clock_rate <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options_v2_4()
 ) {
   testit::assert(beautier::is_clock_rate_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  paste0(
+  xml <-  paste0(
     "<parameter ",
-    "id=\"clockRate.c:", id, "\" ",
-    "estimate=\"", estimate, "\" ",
-    "name=\"clock.rate\">",
-    parameter$value,
-    "</parameter>"
+    "id=\"clockRate.c:", id, "\" "
+  )
+  if (beauti_options$beast2_version == "2.6") {
+    xml <- paste0(xml, "spec=\"parameter.RealParameter\" ")
+  }
+  xml <- paste0(
+    xml,
+    paste0(
+      "estimate=\"", estimate, "\" ",
+      "name=\"clock.rate\">",
+      parameter$value,
+      "</parameter>"
+    )
   )
 }
 

@@ -19,7 +19,6 @@ test_that("strict, v2.4", {
 })
 
 test_that("strict, v2.6", {
-  skip("WIP")
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
