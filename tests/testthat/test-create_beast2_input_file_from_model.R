@@ -71,7 +71,7 @@ test_that("Can specify lower, upper and value in normal distr", {
   expect_equal(expected, created)
 })
 
-test_that("Clock rate added twice", {
+test_that("clockRate.c ID added twice", {
 
   # From https://github.com/ropensci/beautier/issues/127
 
@@ -122,4 +122,60 @@ test_that("Clock rate added twice", {
     pattern = "<parameter id=\"clockRate.c:THAILAND_TEST.clust_1.dated\" name=\"stateNode\">0.0000001</parameter>" # nolint indeed long
   )
   expect_equal(1, length(matches))
+
+})
+
+test_that("ClockPrior.c ID added twice", {
+
+  # From https://github.com/ropensci/beautier/issues/128
+
+  skip("WIP")
+  # See the duplicated input in lines 1 and 3 below:
+  # <parameter id="clockRate.c:THAILAND_TEST.clust_1.dated" name="stateNode">0.0000001</parameter>                       # nolint indeed a long line
+  #         <parameter id="popSize.t:THAILAND_TEST.clust_1.dated" lower="0" name="stateNode" upper="200">100</parameter> # nolint indeed a long line
+  #         <parameter id="clockRate.c:THAILAND_TEST.clust_1.dated" name="stateNode">1.0</parameter>                     # nolint indeed a long line
+
+  # clock_model
+  clock_rate <- 0.0000001
+  clock_model <- create_strict_clock_model(
+    clock_rate_param = create_clock_rate_param(value = clock_rate),
+    clock_rate_distr = create_log_normal_distr(
+      value = clock_rate,
+      m = 1,
+      s = 1.25
+    )
+  )
+
+  # MRCA PRIOR
+  mrca_prior <- create_mrca_prior(
+    is_monophyletic = TRUE,
+    mrca_distr = create_laplace_distr(mu = 1990)
+  )
+
+
+  inference_model <- create_inference_model(
+    clock_model = clock_model,
+    mrca_prior = mrca_prior,
+    tipdates_filename = get_beautier_path("THAILAND_TEST.clust_1.dated.txt")
+  )
+
+
+  text <- create_beast2_input_from_model(
+    input_filename = get_beautier_path("THAILAND_TEST.clust_1.dated.fa"),
+    inference_model = inference_model
+  )
+
+  # One sloppy match
+  matches <- stringr::str_subset(
+    string = text,
+    pattern = "<parameter id=\"clockRate.c:THAILAND_TEST.clust_1.dated\" name=\"stateNode\">" # nolint indeed long
+  )
+  expect_equal(1, length(matches))
+  # Must be the exact correct match
+  matches <- stringr::str_subset(
+    string = text,
+    pattern = "<parameter id=\"clockRate.c:THAILAND_TEST.clust_1.dated\" name=\"stateNode\">0.0000001</parameter>" # nolint indeed long
+  )
+  expect_equal(1, length(matches))
+
 })
