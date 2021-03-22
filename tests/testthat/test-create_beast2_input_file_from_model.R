@@ -175,7 +175,6 @@ test_that("ClockPrior.c ID added twice", {
     input_filename = get_beautier_path("THAILAND_TEST.clust_1.dated.fa"),
     inference_model = inference_model
   )
-  readr::write_lines(text, "~/issue_128.txt")
   # One sloppy match
   matches <- stringr::str_subset(
     string = text,
