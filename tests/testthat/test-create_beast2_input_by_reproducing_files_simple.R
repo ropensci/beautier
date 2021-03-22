@@ -1457,11 +1457,7 @@ test_that("Tip dating with RLN", {
     tipdates_filename = get_beautier_path(
       "Felinecoronavirus_Envelope_1_no_quotes.txt"
     ),
-    beauti_options = create_beauti_options(
-      beast2_version = "2.6",
-      nucleotides_uppercase = TRUE,
-      sequence_indent = 8
-    )
+    beauti_options = create_beauti_options_v2_6()
   )
   expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
 
