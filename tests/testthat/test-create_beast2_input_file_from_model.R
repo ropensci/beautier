@@ -131,16 +131,16 @@ test_that("ClockPrior.c ID added twice", {
 
   # <distribution id="posterior" spec="util.CompoundDistribution">
   #     <distribution id="prior" spec="util.CompoundDistribution">
-  #         <distribution id="YuleModel.t:THAILAND_TEST.clust_1.dated" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:THAILAND_TEST.clust_1.dated" tree="@Tree.t:THAILAND_TEST.clust_1.dated"/>
+  #         <distribution id="YuleModel.t:THAILAND_TEST.clust_1.dated" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:THAILAND_TEST.clust_1.dated" tree="@Tree.t:THAILAND_TEST.clust_1.dated"/> # nolint long line indeed
   #         # ...
-  #         <prior id="ClockPrior.c:THAILAND_TEST.clust_1.dated" name="distribution" x="@clockRate.c:THAILAND_TEST.clust_1.dated">
+  #         <prior id="ClockPrior.c:THAILAND_TEST.clust_1.dated" name="distribution" x="@clockRate.c:THAILAND_TEST.clust_1.dated"> # nolint long line indeed
   #             <Uniform id="Uniform.150" name="distr" upper="Infinity"/>
   #         </prior>
   #         # ...
-  #         <prior id="ClockPrior.c:THAILAND_TEST.clust_1.dated" name="distribution" x="@clockRate.c:THAILAND_TEST.clust_1.dated">
+  #         <prior id="ClockPrior.c:THAILAND_TEST.clust_1.dated" name="distribution" x="@clockRate.c:THAILAND_TEST.clust_1.dated"> # nolint long line indeed
   #             <LogNormal id="LogNormalDistributionModel.0" name="distr">
-  #                 <parameter id="RealParameter.0" estimate="false" name="M">1</parameter>
-  #                 <parameter id="RealParameter.1" estimate="false" lower="0" name="S" upper="Infinity">1.25</parameter>
+  #                 <parameter id="RealParameter.0" estimate="false" name="M">1</parameter> # nolint long line indeed
+  #                 <parameter id="RealParameter.1" estimate="false" lower="0" name="S" upper="Infinity">1.25</parameter> # nolint long line indeed
   #             </LogNormal>
   #         </prior>
   #     </distribution>
