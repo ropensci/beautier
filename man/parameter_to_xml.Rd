@@ -9,6 +9,9 @@ parameter_to_xml(parameter, beauti_options = create_beauti_options_v2_4())
 \arguments{
 \item{parameter}{a parameter,
 as created by \code{\link{create_param}})}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the parameter as XML text

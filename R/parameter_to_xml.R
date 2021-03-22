@@ -1,6 +1,7 @@
 #' Converts a parameter to XML
 #' @param parameter a parameter,
 #'   as created by \code{\link{create_param}})
+#' @inheritParams default_params_doc
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
