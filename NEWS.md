@@ -11,6 +11,7 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
  * Use GitHub Actions to check build
+ * Check more setups, thanks @GaryNapier
 
 ### BUG FIXES
 
