@@ -117,10 +117,9 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   text <- c(text, beautier::tree_priors_to_xml_prior_distr(tree_priors))
   text <- c(text, beautier::gamma_site_models_to_xml_prior_distr(site_models))
   text <- c(text, beautier::site_models_to_xml_prior_distr(site_models))
-  text <- c(text, beautier::mrca_priors_to_xml_prior_distr(
-    inference_model = inference_model,
-    has_non_strict_clock_model =
-      beautier::get_has_non_strict_clock_model(clock_models))
+  text <- c(
+    text,
+    beautier::mrca_priors_to_xml_prior_distr(inference_model = inference_model)
   )
   text <- c(
     text,

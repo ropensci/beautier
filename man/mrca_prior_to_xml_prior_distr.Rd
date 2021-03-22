@@ -8,8 +8,8 @@ distribution section of a BEAST2 XML parameter file.}
 mrca_prior_to_xml_prior_distr(
   inference_model,
   mrca_prior = "deprecated",
-  has_non_strict_clock_model = FALSE,
-  taxa_names_with_ids = NULL
+  has_non_strict_clock_model = "deprecated",
+  taxa_names_with_ids = "deprecated"
 )
 }
 \arguments{

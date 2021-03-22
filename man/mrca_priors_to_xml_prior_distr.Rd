@@ -8,7 +8,7 @@ a posterior distribution section) of a BEAST2 XML parameter file.}
 mrca_priors_to_xml_prior_distr(
   inference_model,
   mrca_priors = "deprecated",
-  has_non_strict_clock_model
+  has_non_strict_clock_model = "deprecated"
 )
 }
 \arguments{
