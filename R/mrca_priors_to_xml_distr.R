@@ -27,23 +27,11 @@ mrca_priors_to_xml_prior_distr <- function(
   # Don't be smart yet
   mrca_priors <- list(inference_model$mrca_prior)
   testit::assert(beautier::are_mrca_priors(mrca_priors))
-  if (length(mrca_priors) == 1 && beautier::is_one_na(mrca_priors)) return(NULL)
 
-  text <- NULL
-  taxa_names_with_ids <- NULL
-  for (mrca_prior in mrca_priors) {
-    text <- c(
-      text,
-      beautier::mrca_prior_to_xml_prior_distr(
-        inference_model = inference_model,
-        has_non_strict_clock_model = has_non_strict_clock_model,
-        taxa_names_with_ids = taxa_names_with_ids
-      )
-    )
-    testit::assert(!beautier::is_one_na(mrca_prior$taxa_names))
-    taxa_names_with_ids <- unique(
-      c(taxa_names_with_ids, mrca_prior$taxa_names)
-    )
-  }
-  text
+  if (beautier::is_one_na(mrca_priors)) return(NULL)
+  beautier::mrca_prior_to_xml_prior_distr(
+    inference_model = inference_model,
+    has_non_strict_clock_model = has_non_strict_clock_model,
+    taxa_names_with_ids = NULL
+  )
 }
