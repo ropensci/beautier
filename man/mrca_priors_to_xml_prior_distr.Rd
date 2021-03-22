@@ -5,9 +5,21 @@
 \title{Creates the the \code{distribution}'s prior section (which is part of
 a posterior distribution section) of a BEAST2 XML parameter file.}
 \usage{
-mrca_priors_to_xml_prior_distr(mrca_priors, has_non_strict_clock_model)
+mrca_priors_to_xml_prior_distr(
+  inference_model,
+  mrca_priors,
+  has_non_strict_clock_model
+)
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
 as returned by \code{\link{create_mrca_prior}}}
 

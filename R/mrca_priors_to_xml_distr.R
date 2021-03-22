@@ -17,6 +17,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_priors_to_xml_prior_distr <- function(
+  inference_model,
   mrca_priors,
   has_non_strict_clock_model
 ) {
@@ -29,7 +30,7 @@ mrca_priors_to_xml_prior_distr <- function(
     text <- c(
       text,
       beautier::mrca_prior_to_xml_prior_distr(
-        mrca_prior,
+        inference_model = inference_model,
         has_non_strict_clock_model = has_non_strict_clock_model,
         taxa_names_with_ids = taxa_names_with_ids
       )

@@ -17,14 +17,21 @@
 #'  # </distribution>
 #' @export
 mrca_prior_to_xml_prior_distr <- function(
-  mrca_prior,
+  inference_model,
+  mrca_prior = "deprecated",
   has_non_strict_clock_model = FALSE,
   taxa_names_with_ids = NULL
 ) {
+  if (mrca_prior != "deprecated") {
+    stop("'mrca_prior' is deprecated. Use 'inference_model' instead")
+  }
+  # Don't be smart yet
+  mrca_prior <- inference_model$mrca_prior
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   text <- NULL
   if (!has_non_strict_clock_model &&
-      !beautier::is_one_na(mrca_prior$mrca_distr)
+      !beautier::is_one_na(mrca_prior$mrca_distr) &&
+      beautier::is_one_na(inference_model$tipdates_filename)
   ) {
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
     text <- c(

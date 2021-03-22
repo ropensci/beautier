@@ -129,11 +129,22 @@ test_that("ClockPrior.c ID added twice", {
 
   # From https://github.com/ropensci/beautier/issues/128
 
-  skip("WIP")
-  # See the duplicated input in lines 1 and 3 below:
-  # <parameter id="clockRate.c:THAILAND_TEST.clust_1.dated" name="stateNode">0.0000001</parameter>                       # nolint indeed a long line
-  #         <parameter id="popSize.t:THAILAND_TEST.clust_1.dated" lower="0" name="stateNode" upper="200">100</parameter> # nolint indeed a long line
-  #         <parameter id="clockRate.c:THAILAND_TEST.clust_1.dated" name="stateNode">1.0</parameter>                     # nolint indeed a long line
+  # <distribution id="posterior" spec="util.CompoundDistribution">
+  #     <distribution id="prior" spec="util.CompoundDistribution">
+  #         <distribution id="YuleModel.t:THAILAND_TEST.clust_1.dated" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:THAILAND_TEST.clust_1.dated" tree="@Tree.t:THAILAND_TEST.clust_1.dated"/>
+  #         # ...
+  #         <prior id="ClockPrior.c:THAILAND_TEST.clust_1.dated" name="distribution" x="@clockRate.c:THAILAND_TEST.clust_1.dated">
+  #             <Uniform id="Uniform.150" name="distr" upper="Infinity"/>
+  #         </prior>
+  #         # ...
+  #         <prior id="ClockPrior.c:THAILAND_TEST.clust_1.dated" name="distribution" x="@clockRate.c:THAILAND_TEST.clust_1.dated">
+  #             <LogNormal id="LogNormalDistributionModel.0" name="distr">
+  #                 <parameter id="RealParameter.0" estimate="false" name="M">1</parameter>
+  #                 <parameter id="RealParameter.1" estimate="false" lower="0" name="S" upper="Infinity">1.25</parameter>
+  #             </LogNormal>
+  #         </prior>
+  #     </distribution>
+  # </distribution>
 
   # clock_model
   clock_rate <- 0.0000001
@@ -164,18 +175,17 @@ test_that("ClockPrior.c ID added twice", {
     input_filename = get_beautier_path("THAILAND_TEST.clust_1.dated.fa"),
     inference_model = inference_model
   )
-
+  readr::write_lines(text, "~/issue_128.txt")
   # One sloppy match
   matches <- stringr::str_subset(
     string = text,
-    pattern = "<parameter id=\"clockRate.c:THAILAND_TEST.clust_1.dated\" name=\"stateNode\">" # nolint indeed long
+    pattern = "<prior id=\"ClockPrior.c:THAILAND_TEST.clust_1.dated\" name=\"distribution\" x=\"@clockRate.c:THAILAND_TEST.clust_1.dated\">" # nolint indeed long
   )
   expect_equal(1, length(matches))
   # Must be the exact correct match
   matches <- stringr::str_subset(
     string = text,
-    pattern = "<parameter id=\"clockRate.c:THAILAND_TEST.clust_1.dated\" name=\"stateNode\">0.0000001</parameter>" # nolint indeed long
+    pattern = "<prior id=\"ClockPrior.c:THAILAND_TEST.clust_1.dated\" name=\"distribution\" x=\"@clockRate.c:THAILAND_TEST.clust_1.dated\">" # nolint indeed long
   )
   expect_equal(1, length(matches))
-
 })
