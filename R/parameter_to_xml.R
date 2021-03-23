@@ -111,6 +111,7 @@ parameter_to_xml_beta <- function(
 #'   a numeric value.
 #'   For advanced usage, use the structure
 #'   as created by \code{\link{create_clock_rate_param}})
+#' @inheritParams default_params_doc
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
