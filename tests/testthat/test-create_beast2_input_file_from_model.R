@@ -188,3 +188,40 @@ test_that("ClockPrior.c ID added twice", {
   )
   expect_equal(1, length(matches))
 })
+
+test_that("ID missing", {
+
+  # https://github.com/ropensci/babette/issues/96
+  gamma_site_distr <- create_log_normal_distr(
+    value = 0.25,
+    lower = 0.0,
+    upper = 1.0,
+    m = 1,
+    s = 1.25
+  )
+  gamma_site_model <- create_gamma_site_model(
+    gamma_cat_count = 4,
+    gamma_shape_prior_distr = gamma_site_distr
+  )
+  # The error was that 'gamma_site_model' was assigned to the ID,
+  # the first argument of 'create_gtr_site_model'
+  site_model <- create_gtr_site_model(
+    gamma_site_model = gamma_site_model
+  )
+
+  inference_model <- create_inference_model(
+    site_model = site_model
+  )
+
+  text <- create_beast2_input_from_model(
+    input_filename = get_beautier_path("THAILAND_TEST.clust_1.dated.fa"),
+    inference_model = inference_model
+  )
+
+  expect_error(
+    create_gtr_site_model(
+      id = gamma_site_model
+    ),
+    "'id' must be an ID"
+  )
+})
