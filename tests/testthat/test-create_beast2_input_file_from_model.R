@@ -222,6 +222,6 @@ test_that("ID missing", {
     create_gtr_site_model(
       id = gamma_site_model
     ),
-    "'id' must be an ID"
+    "'id' must be NA \\(recommended\\) or an ID"
   )
 })
