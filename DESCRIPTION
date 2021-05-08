@@ -46,6 +46,7 @@ Suggests:
     ggplot2,
     hunspell,
     lintr,
+    markdown,
     rmarkdown,
     testthat (>= 2.1.0)
 Language: en-US
