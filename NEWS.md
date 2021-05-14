@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 2.5 (unreleased)
+## beautier 2.5
 
 ### NEW FEATURES
 
@@ -12,6 +12,7 @@ Newest versions at top.
 
  * Use GitHub Actions to check build
  * Check more setups, thanks @GaryNapier
+ * Better synergy with `system2`
 
 ### BUG FIXES
 
