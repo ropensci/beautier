@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 2.5
+## beautier 2.5 (2021-05-14)
 
 ### NEW FEATURES
 
