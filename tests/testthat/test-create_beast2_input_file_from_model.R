@@ -15,13 +15,12 @@ test_that("use", {
 
 test_that("abuse", {
 
-  output_filename <- get_beautier_tempfilename()
 
   # input_filenames
   expect_error(
     create_beast2_input_file_from_model(
       input_filename = "nonexisting", # Error
-      output_filename
+      output_filename = "irrelevant"
     ),
     "'input_filename' not found"
   )
@@ -30,7 +29,7 @@ test_that("abuse", {
   expect_error(
     create_beast2_input_file_from_model(
       input_filename = get_fasta_filename(),
-      output_filename,
+      output_filename = "irrelevant",
       inference_model = "nonsense"
     ),
     "'inference_model' must be an inference model"

@@ -82,6 +82,8 @@ test_that("abuse", {
     )
   )
   file.remove(output_filename)
+  unlink(dirname(dirname(dirname(output_filename))))
+
 
   # output filename is invalid
   if (rappdirs::app_dir()$os != "win") {
