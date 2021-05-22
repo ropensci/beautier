@@ -2,7 +2,7 @@ context("create_beast2_input_file")
 
 test_that("use", {
 
-  output_filename <- tempfile()
+  output_filename <- get_beautier_tempfilename()
   testit::assert(!file.exists(output_filename))
 
   expect_silent(
@@ -17,7 +17,7 @@ test_that("use", {
 
 test_that("abuse", {
 
-  output_filename <- tempfile()
+  output_filename <- get_beautier_tempfilename()
 
   # input_filenames
   expect_error(
@@ -80,7 +80,9 @@ test_that("abuse", {
   expect_silent(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename = file.path(tempfile(), "1", "2", "beast2.xml")
+      output_filename = file.path(
+        get_beautier_tempfilename(), "1", "2", "beast2.xml"
+      )
     )
   )
 

@@ -6,11 +6,18 @@
 \usage{
 get_beautier_tempfilename(pattern = "file", fileext = "")
 }
+\arguments{
+\item{pattern}{a non-empty character vector
+giving the initial part of the name.}
+
+\item{fileext}{a non-empty character vector
+giving the file extension}
+}
 \value{
 name for a temporary file
 }
 \description{
-Get a temporary filename, similar to \linky{tempfile},
+Get a temporary filename, similar to \link{tempfile},
 except that it always writes to a temporary folder
 named \link{beautier}.
 }

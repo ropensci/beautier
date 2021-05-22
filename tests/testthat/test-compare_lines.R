@@ -7,8 +7,8 @@ test_that("compare all", {
       lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
       expected = readLines(beautier::get_beautier_path("bd_2_4.xml")),
       section = NA,
-      created_lines_filename = tempfile(),
-      expected_lines_filename = tempfile()
+      created_lines_filename = get_beautier_tempfilename(),
+      expected_lines_filename = get_beautier_tempfilename()
     )
   )
 })
@@ -20,8 +20,8 @@ test_that("compare state", {
       lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
       expected = readLines(beautier::get_beautier_path("bd_2_4.xml")),
       section = "state",
-      created_lines_filename = tempfile(),
-      expected_lines_filename = tempfile()
+      created_lines_filename = get_beautier_tempfilename(),
+      expected_lines_filename = get_beautier_tempfilename()
     )
   )
 })
@@ -33,8 +33,8 @@ test_that("compare operators", {
       lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
       expected = readLines(beautier::get_beautier_path("bd_2_4.xml")),
       section = "operators",
-      created_lines_filename = tempfile(),
-      expected_lines_filename = tempfile()
+      created_lines_filename = get_beautier_tempfilename(),
+      expected_lines_filename = get_beautier_tempfilename()
     )
   )
 })

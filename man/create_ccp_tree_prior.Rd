@@ -23,15 +23,15 @@ a Coalescent Constant Population tree_prior
 Create a Coalescent Constant Population tree prior
 }
 \examples{
-  ccp_tree_prior <- create_ccp_tree_prior()
+ccp_tree_prior <- create_ccp_tree_prior()
 
-  beast2_input_file <- tempfile(fileext = ".xml")
-  create_beast2_input_file(
-    input_filename = get_fasta_filename(),
-    beast2_input_file,
-    tree_prior = ccp_tree_prior
-  )
-  testit::assert(file.exists(beast2_input_file))
+beast2_input_file <- get_beautier_tempfilename()
+create_beast2_input_file(
+  input_filename = get_fasta_filename(),
+  beast2_input_file,
+  tree_prior = ccp_tree_prior
+)
+file.remove(beast2_input_file)
 }
 \seealso{
 An alignment ID can be extracted from

@@ -59,11 +59,13 @@ Create a TN93 site model
    kappa_2_param = 2.0
  )
 
+ output_filename <- get_beautier_tempfilename()
  create_beast2_input_file(
    input_filename = get_fasta_filename(),
-   output_filename = tempfile(pattern = "beast", fileext = ".xml"),
+   output_filename = output_filename,
    site_model = tn93_site_model
  )
+file.remove(output_filename)
 }
 \author{
 Richèl J.C. Bilderbeek

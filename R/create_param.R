@@ -23,24 +23,24 @@
 #' @return a parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create an alpha parameter
-#'   alpha_param <- create_alpha_param()
+#' # Create an alpha parameter
+#' alpha_param <- create_alpha_param()
 #'
-#'   # Use the parameter in a distribution
-#'   beta_distr <- create_beta_distr(
-#'     alpha = alpha_param
-#'   )
+#' # Use the parameter in a distribution
+#' beta_distr <- create_beta_distr(
+#'   alpha = alpha_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = beta_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = beta_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @export
 create_param <- function(
   name,
@@ -85,24 +85,24 @@ create_param <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   alpha_param <- create_alpha_param()
+#' # Create the parameter
+#' alpha_param <- create_alpha_param()
 #'
-#'   # Use the parameter in a distribution
-#'   beta_distr <- create_beta_distr(
-#'     alpha = alpha_param
-#'   )
+#' # Use the parameter in a distribution
+#' beta_distr <- create_beta_distr(
+#'   alpha = alpha_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = beta_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = beta_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_alpha_param create_param_alpha
 #' @export create_alpha_param create_param_alpha
 create_alpha_param <- create_param_alpha <- function(
@@ -131,24 +131,24 @@ create_alpha_param <- create_param_alpha <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   beta_param <- create_beta_param()
+#' # Create the parameter
+#' beta_param <- create_beta_param()
 #'
-#'   # Use the parameter in a distribution
-#'   gamma_distr <- create_gamma_distr(
-#'     beta = beta_param
-#'   )
+#' # Use the parameter in a distribution
+#' gamma_distr <- create_gamma_distr(
+#'   beta = beta_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = gamma_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = gamma_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_beta_param create_param_beta
 #' @export create_beta_param create_param_beta
 create_beta_param <- create_param_beta <- function(
@@ -172,23 +172,23 @@ create_beta_param <- create_param_beta <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   clock_rate_param <- create_clock_rate_param(
-#'     id = "anthus_aco", value = 1.0
-#'   )
+#' clock_rate_param <- create_clock_rate_param(
+#'   id = "anthus_aco", value = 1.0
+#' )
 #'
-#'   # Use the parameter in a clock model
-#'   strict_clock_model <- create_strict_clock_model(
-#'     clock_rate_param = clock_rate_param
-#'   )
+#' # Use the parameter in a clock model
+#' strict_clock_model <- create_strict_clock_model(
+#'   clock_rate_param = clock_rate_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = strict_clock_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = strict_clock_model
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_clock_rate_param create_param_clock_rate
 #' @export create_clock_rate_param create_param_clock_rate
 create_clock_rate_param <- create_param_clock_rate <- function(
@@ -254,24 +254,24 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   lambda_param <- create_lambda_param()
+#' # Create the parameter
+#' lambda_param <- create_lambda_param()
 #'
-#'   # Use the parameter in a distribution
-#'   poisson_distr <- create_poisson_distr(
-#'     lambda = lambda_param
-#'   )
+#' # Use the parameter in a distribution
+#' poisson_distr <- create_poisson_distr(
+#'   lambda = lambda_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = poisson_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = poisson_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_lambda_param create_param_lambda
 #' @export create_lambda_param create_param_lambda
 create_lambda_param <- create_param_lambda <- function(
@@ -295,24 +295,24 @@ create_lambda_param <- create_param_lambda <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   m_param <- create_m_param()
+#' # Create the parameter
+#' m_param <- create_m_param()
 #'
-#'   # Use the parameter in a distribution
-#'   log_normal_distr <- create_log_normal_distr(
-#'     m = m_param
-#'   )
+#' # Use the parameter in a distribution
+#' log_normal_distr <- create_log_normal_distr(
+#'   m = m_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = log_normal_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = log_normal_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_m_param create_param_m
 #' @export create_m_param create_param_m
 create_m_param <- create_param_m <- function(
@@ -339,24 +339,24 @@ create_m_param <- create_param_m <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   mean_param <- create_mean_param(value = 1.0)
+#' # Create the parameter
+#' mean_param <- create_mean_param(value = 1.0)
 #'
-#'   # Use the parameter in a distribution
-#'   exp_distr <- create_exp_distr(
-#'     mean = mean_param
-#'   )
+#' # Use the parameter in a distribution
+#' exp_distr <- create_exp_distr(
+#'   mean = mean_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = exp_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = exp_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_mean_param create_param_mean
 #' @export create_mean_param create_param_mean
 create_mean_param <- create_param_mean <- function(
@@ -381,24 +381,24 @@ create_mean_param <- create_param_mean <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   mu_param <- create_mu_param()
+#' # Create the parameter
+#' mu_param <- create_mu_param()
 #'
-#'   # Use the parameter in a distribution
-#'   laplace_distr <- create_laplace_distr(
-#'     mu = mu_param
-#'   )
+#' # Use the parameter in a distribution
+#' laplace_distr <- create_laplace_distr(
+#'   mu = mu_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = laplace_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = laplace_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_mu_param create_param_mu
 #' @export create_mu_param create_param_mu
 create_mu_param <- create_param_mu <- function(
@@ -420,19 +420,19 @@ create_mu_param <- create_param_mu <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create parameter
-#'   rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
+#' # Create parameter
+#' rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
 #'
-#'   # Use the parameter to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = create_gtr_site_model(
-#'       rate_ac_param = rate_ac_param
-#'     )
+#' # Use the parameter to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = create_gtr_site_model(
+#'     rate_ac_param = rate_ac_param
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rate_ac_param create_param_rate_ac
 #' @export create_rate_ac_param create_param_rate_ac
 create_rate_ac_param <- create_param_rate_ac <- function(
@@ -457,19 +457,19 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create parameter
-#'   rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
+#' # Create parameter
+#' rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
 #'
-#'   # Use the parameter to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = create_gtr_site_model(
-#'       rate_ag_param = rate_ag_param
-#'     )
+#' # Use the parameter to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = create_gtr_site_model(
+#'     rate_ag_param = rate_ag_param
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rate_ag_param create_param_rate_ag
 #' @export create_rate_ag_param create_param_rate_ag
 create_rate_ag_param <- create_param_rate_ag <- function(
@@ -494,19 +494,19 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create parameter
-#'   rate_at_param <- create_rate_at_param(value = 1, estimate = FALSE)
+#' # Create parameter
+#' rate_at_param <- create_rate_at_param(value = 1, estimate = FALSE)
 #'
-#'   # Use the parameter to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = create_gtr_site_model(
-#'       rate_at_param = rate_at_param
-#'     )
+#' # Use the parameter to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = create_gtr_site_model(
+#'     rate_at_param = rate_at_param
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rate_at_param create_param_rate_at
 #' @export create_rate_at_param create_param_rate_at
 create_rate_at_param <- create_param_rate_at <- function(
@@ -531,19 +531,19 @@ create_rate_at_param <- create_param_rate_at <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create parameter
-#'   rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
+#' # Create parameter
+#' rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
 #'
-#'   # Use the parameter to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = create_gtr_site_model(
-#'       rate_cg_param = rate_cg_param
-#'     )
+#' # Use the parameter to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = create_gtr_site_model(
+#'     rate_cg_param = rate_cg_param
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rate_cg_param create_param_rate_cg
 #' @export create_rate_cg_param create_param_rate_cg
 create_rate_cg_param <- create_param_rate_cg <- function(
@@ -568,19 +568,19 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create parameter
-#'   rate_ct_param <- create_rate_ct_param(value = 1)
+#' # Create parameter
+#' rate_ct_param <- create_rate_ct_param(value = 1)
 #'
-#'   # Use the parameter to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = create_gtr_site_model(
-#'       rate_ct_param = rate_ct_param
-#'     )
+#' # Use the parameter to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = create_gtr_site_model(
+#'     rate_ct_param = rate_ct_param
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rate_ct_param create_param_rate_ct
 #' @export create_rate_ct_param create_param_rate_ct
 create_rate_ct_param <- create_param_rate_ct <- function(
@@ -604,19 +604,19 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create parameter
-#'   rate_gt_param <- create_rate_gt_param(value = 1, estimate = FALSE)
+#' # Create parameter
+#' rate_gt_param <- create_rate_gt_param(value = 1, estimate = FALSE)
 #'
-#'   # Use the parameter to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = create_gtr_site_model(
-#'       rate_gt_param = rate_gt_param
-#'     )
+#' # Use the parameter to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = create_gtr_site_model(
+#'     rate_gt_param = rate_gt_param
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rate_gt_param create_param_rate_gt
 #' @export create_rate_gt_param create_param_rate_gt
 create_rate_gt_param <- create_param_rate_gt <- function(
@@ -643,24 +643,24 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   s_param <- create_s_param()
+#' # Create the parameter
+#' s_param <- create_s_param()
 #'
-#'   # Use the parameter in a distribution
-#'   log_normal_distr <- create_log_normal_distr(
-#'     s = s_param
-#'   )
+#' # Use the parameter in a distribution
+#' log_normal_distr <- create_log_normal_distr(
+#'   s = s_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = log_normal_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = log_normal_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_s_param create_param_s
 #' @export create_s_param create_param_s
 create_s_param <- create_param_s <- function(
@@ -689,24 +689,24 @@ create_s_param <- create_param_s <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   scale_param <- create_scale_param()
+#' # Create the parameter
+#' scale_param <- create_scale_param()
 #'
-#'   # Use the parameter in a distribution
-#'   laplace_distr <- create_laplace_distr(
-#'     scale = scale_param
-#'   )
+#' # Use the parameter in a distribution
+#' laplace_distr <- create_laplace_distr(
+#'   scale = scale_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = laplace_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = laplace_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_scale_param create_param_scale
 #' @export create_scale_param create_param_scale
 create_scale_param <- create_param_scale <- function(
@@ -731,24 +731,24 @@ create_scale_param <- create_param_scale <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   # Create the parameter
-#'   sigma_param <- create_sigma_param()
+#' # Create the parameter
+#' sigma_param <- create_sigma_param()
 #'
-#'   # Use the parameter in a distribution
-#'   normal_distr <- create_normal_distr(
-#'     sigma = sigma_param
-#'   )
+#' # Use the parameter in a distribution
+#' normal_distr <- create_normal_distr(
+#'   sigma = sigma_param
+#' )
 #'
-#'   # Use the distribution to create a BEAST2 input file
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = normal_distr
-#'     )
+#' # Use the distribution to create a BEAST2 input file
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = normal_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_sigma_param create_param_sigma
 #' @export create_sigma_param create_param_sigma
 create_sigma_param <- create_param_sigma <- function(

@@ -4,9 +4,8 @@
 #' @export
 create_temp_treelog_filename <- function() {
   normalizePath(
-    tempfile(
+    get_beautier_tempfilename(
       pattern = "treelog_",
-      tmpdir = rappdirs::user_cache_dir(),
       fileext = ".trees"
     ),
     mustWork = FALSE

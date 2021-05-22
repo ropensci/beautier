@@ -1,9 +1,9 @@
 # Test if treelog$filename really creates that file
 library(beautier)
 
-tracelog_filename <- tempfile()
-screenlog_filename <- tempfile()
-treelog_filename <- tempfile()
+tracelog_filename <- get_beautier_tempfilename()
+screenlog_filename <- get_beautier_tempfilename()
+treelog_filename <- get_beautier_tempfilename()
 
 testit::assert(!file.exists(tracelog_filename))
 testit::assert(!file.exists(screenlog_filename))
@@ -26,7 +26,7 @@ inference_model <- beautier::create_inference_model(
   )
 )
 
-beast2_input_filename <- tempfile()
+beast2_input_filename <- get_beautier_tempfilename()
 
 create_beast2_input_file_from_model(
   input_filename = get_fasta_filename(),
@@ -34,7 +34,7 @@ create_beast2_input_file_from_model(
   inference_model = inference_model
 )
 
-new_wd <- tempfile()
+new_wd <- get_beautier_tempfilename()
 dir.create(new_wd, recursive = TRUE)
 setwd(new_wd)
 

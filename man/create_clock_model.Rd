@@ -26,25 +26,25 @@ Prefer using the named function
   and \code{\link{create_strict_clock_model}}
 }
 \examples{
-  rln_clock_model <- create_rln_clock_model()
+rln_clock_model <- create_rln_clock_model()
 
-  beast2_input_file <- tempfile(fileext = ".xml")
-  create_beast2_input_file(
-    get_fasta_filename(),
-    beast2_input_file,
-    clock_model = rln_clock_model
-  )
-  testit::assert(file.exists(beast2_input_file))
+beast2_input_file <- get_beautier_tempfilename()
+create_beast2_input_file(
+  get_fasta_filename(),
+  beast2_input_file,
+  clock_model = rln_clock_model
+)
+file.remove(beast2_input_file)
 
-  strict_clock_model <- create_strict_clock_model()
+strict_clock_model <- create_strict_clock_model()
 
-  beast2_input_file <- tempfile(fileext = ".xml")
-  create_beast2_input_file(
-    get_fasta_filename(),
-    beast2_input_file,
-    clock_model = strict_clock_model
-  )
-  testit::assert(file.exists(beast2_input_file))
+beast2_input_file <- get_beautier_tempfilename()
+create_beast2_input_file(
+  get_fasta_filename(),
+  beast2_input_file,
+  clock_model = strict_clock_model
+)
+file.remove(beast2_input_file)
 }
 \seealso{
 An alignment ID can be extracted from

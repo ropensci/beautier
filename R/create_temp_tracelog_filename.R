@@ -4,9 +4,8 @@
 #' @export
 create_temp_tracelog_filename <- function() {
   normalizePath(
-    tempfile(
+    get_beautier_tempfilename(
       pattern = "tracelog_",
-      tmpdir = rappdirs::user_cache_dir(),
       fileext = ".log"
     ),
     mustWork = FALSE

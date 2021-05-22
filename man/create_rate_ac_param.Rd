@@ -25,19 +25,19 @@ a parameter called 'rate AC'
 Create a parameter called 'rate AC'
 }
 \examples{
-  # Create parameter
-  rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
+# Create parameter
+rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
 
-  # Use the parameter to create a BEAST2 input file
-  beast2_input_file <- tempfile(fileext = ".xml")
-  create_beast2_input_file(
-    input_filename = get_fasta_filename(),
-    beast2_input_file,
-    site_model = create_gtr_site_model(
-      rate_ac_param = rate_ac_param
-    )
+# Use the parameter to create a BEAST2 input file
+beast2_input_file <- get_beautier_tempfilename()
+create_beast2_input_file(
+  input_filename = get_fasta_filename(),
+  beast2_input_file,
+  site_model = create_gtr_site_model(
+    rate_ac_param = rate_ac_param
   )
-  testit::assert(file.exists(beast2_input_file))
+)
+file.remove(beast2_input_file)
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

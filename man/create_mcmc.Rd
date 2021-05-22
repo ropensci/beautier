@@ -59,16 +59,16 @@ There are four things that can be saved:
    how to specify the filename
 }
 \examples{
-
 # Create an MCMC chain with 50 states
 mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
 
-beast2_input_file <- tempfile()
+beast2_input_file <- get_beautier_tempfilename()
 create_beast2_input_file(
   get_fasta_filename(),
   beast2_input_file,
   mcmc = mcmc
 )
+file.remove(beast2_input_file)
 }
 \seealso{
 Use \code{\link{create_test_mcmc}} to create a short regular MCMC,

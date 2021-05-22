@@ -4,11 +4,13 @@
 #' @seealso use \link{create_beast2_input_from_model} to
 #' get the BEAST2 input file as text
 #' @examples
+#' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file_from_model(
 #'   input_filename = get_fasta_filename(),
-#'   output_filename = tempfile(),
+#'   output_filename = output_filename,
 #'   inference_model = create_inference_model()
 #' )
+#' file.remove(output_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @seealso
 #' See \code{\link{create_site_model}} for examples with

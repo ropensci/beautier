@@ -36,36 +36,40 @@ Prefer using the
 input_filename <- get_fasta_filename()
 
 # GTR
-output_filename <- tempfile(pattern = "example_gtr", fileext = ".xml")
+output_filename <- get_beautier_tempfilename()
 create_beast2_input_file(
   input_filename = input_filename,
   output_filename = output_filename,
   site_model = create_gtr_site_model()
 )
+file.remove(output_filename)
 
 # HKY
-output_filename <- tempfile(pattern = "example_hky", fileext = ".xml")
+output_filename <- get_beautier_tempfilename()
 create_beast2_input_file(
   input_filename = input_filename,
   output_filename = output_filename,
   site_model = create_hky_site_model()
 )
+file.remove(output_filename)
 
 # JC69
-output_filename <- tempfile(pattern = "example_jc69", fileext = ".xml")
+output_filename <- get_beautier_tempfilename()
 create_beast2_input_file(
   input_filename = input_filename,
   output_filename = output_filename,
   site_model = create_jc69_site_model()
 )
+file.remove(output_filename)
 
 # TN93
-output_filename <- tempfile(pattern = "example_tn93", fileext = ".xml")
+output_filename <- get_beautier_tempfilename()
 create_beast2_input_file(
   input_filename = input_filename,
   output_filename = output_filename,
   site_model = create_tn93_site_model()
 )
+file.remove(output_filename)
 }
 \seealso{
 See \code{\link{create_gtr_site_model}} for more examples

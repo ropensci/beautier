@@ -8,16 +8,14 @@
 #' @seealso Use \code{\link{create_ns_mcmc}} to create a default
 #' nested sampling MCMC
 #' @examples
-#'
 #' mcmc <- create_test_ns_mcmc()
-#'
-#' beast2_input_file <- tempfile(fileext = ".xml")
-#'
+#' beast2_input_file <- get_beautier_tempfilename()
 #' create_beast2_input_file(
 #'   get_fasta_filename(),
 #'   beast2_input_file,
 #'   mcmc = mcmc
 #' )
+#' file.remove(beast2_input_file)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_ns_mcmc <- function(

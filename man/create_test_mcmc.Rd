@@ -48,12 +48,13 @@ Create an MCMC configuration for testing.
 # Create an MCMC chain with 50 states
 mcmc <- create_test_mcmc()
 
-beast2_input_file <- tempfile(fileext = ".xml")
+beast2_input_file <- get_beautier_tempfilename()
 create_beast2_input_file(
   get_fasta_filename(),
   beast2_input_file,
   mcmc = mcmc
 )
+file.remove(beast2_input_file)
 }
 \seealso{
 Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC

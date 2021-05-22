@@ -32,11 +32,13 @@ nothing
 Create a BEAST2 input file from an inference model
 }
 \examples{
+output_filename <- get_beautier_tempfilename()
 create_beast2_input_file_from_model(
   input_filename = get_fasta_filename(),
-  output_filename = tempfile(),
+  output_filename = output_filename,
   inference_model = create_inference_model()
 )
+file.remove(output_filename)
 }
 \seealso{
 use \link{create_beast2_input_from_model} to

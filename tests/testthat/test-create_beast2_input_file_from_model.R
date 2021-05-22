@@ -1,6 +1,6 @@
 test_that("use", {
 
-  output_filename <- tempfile()
+  output_filename <- get_beautier_tempfilename()
   testit::assert(!file.exists(output_filename))
 
   expect_silent(
@@ -15,7 +15,7 @@ test_that("use", {
 
 test_that("abuse", {
 
-  output_filename <- tempfile()
+  output_filename <- get_beautier_tempfilename()
 
   # input_filenames
   expect_error(

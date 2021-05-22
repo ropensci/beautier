@@ -52,12 +52,13 @@ to be used in testing.
 \examples{
 inference_model <- create_test_inference_model()
 
-beast2_input_file <- tempfile(fileext = ".xml")
+beast2_input_file <- get_beautier_tempfilename()
 create_beast2_input_file_from_model(
   get_fasta_filename(),
   beast2_input_file,
   inference_model = inference_model
 )
+file.remove(beast2_input_file)
 }
 \seealso{
 Use \link{create_inference_model} to create a

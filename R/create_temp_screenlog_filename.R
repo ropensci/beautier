@@ -4,9 +4,8 @@
 #' @export
 create_temp_screenlog_filename <- function() {
   normalizePath(
-    tempfile(
+    get_beautier_tempfilename(
       pattern = "screenlog_",
-      tmpdir = rappdirs::user_cache_dir(),
       fileext = ".csv"
     ),
     mustWork = FALSE

@@ -24,36 +24,40 @@
 #' input_filename <- get_fasta_filename()
 #'
 #' # GTR
-#' output_filename <- tempfile(pattern = "example_gtr", fileext = ".xml")
+#' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file(
 #'   input_filename = input_filename,
 #'   output_filename = output_filename,
 #'   site_model = create_gtr_site_model()
 #' )
+#' file.remove(output_filename)
 #'
 #' # HKY
-#' output_filename <- tempfile(pattern = "example_hky", fileext = ".xml")
+#' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file(
 #'   input_filename = input_filename,
 #'   output_filename = output_filename,
 #'   site_model = create_hky_site_model()
 #' )
+#' file.remove(output_filename)
 #'
 #' # JC69
-#' output_filename <- tempfile(pattern = "example_jc69", fileext = ".xml")
+#' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file(
 #'   input_filename = input_filename,
 #'   output_filename = output_filename,
 #'   site_model = create_jc69_site_model()
 #' )
+#' file.remove(output_filename)
 #'
 #' # TN93
-#' output_filename <- tempfile(pattern = "example_tn93", fileext = ".xml")
+#' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file(
 #'   input_filename = input_filename,
 #'   output_filename = output_filename,
 #'   site_model = create_tn93_site_model()
 #' )
+#' file.remove(output_filename)
 #' @export
 create_site_model <- function(
   name,
@@ -128,22 +132,22 @@ create_site_model <- function(
 #' @return a GTR site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   gtr_site_model <- create_gtr_site_model(
-#'     rate_ac_param = 1.2,
-#'     rate_ag_param = 2.3,
-#'     rate_at_param = 3.4,
-#'     rate_cg_param = 4.5,
-#'     rate_ct_param = 5.6,
-#'     rate_gt_param = 6.7
-#'  )
+#' gtr_site_model <- create_gtr_site_model(
+#'   rate_ac_param = 1.2,
+#'   rate_ag_param = 2.3,
+#'   rate_at_param = 3.4,
+#'   rate_cg_param = 4.5,
+#'   rate_ct_param = 5.6,
+#'   rate_gt_param = 6.7
+#' )
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = gtr_site_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = gtr_site_model
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_gtr_site_model create_site_model_gtr
 #' @export create_gtr_site_model create_site_model_gtr
 create_gtr_site_model <- create_site_model_gtr <- function(
@@ -233,12 +237,13 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  hky_site_model <- create_hky_site_model()
-#'
+#'  output_filename <- get_beautier_tempfilename()
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),
-#'    output_filename = tempfile(pattern = "beast", fileext = ".xml"),
+#'    output_filename = output_filename,
 #'    site_model = hky_site_model
 #'  )
+#' file.remove(output_filename)
 #' @aliases create_hky_site_model create_site_model_hky
 #' @export create_hky_site_model create_site_model_hky
 create_hky_site_model <- create_site_model_hky <- function(
@@ -268,11 +273,13 @@ create_hky_site_model <- create_site_model_hky <- function(
 #' @examples
 #'  jc69_site_model <- create_jc69_site_model()
 #'
+#'  output_filename <- get_beautier_tempfilename()
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),
-#'    output_filename = tempfile(pattern = "beast", fileext = ".xml"),
+#'    output_filename = output_filename,
 #'    site_model = jc69_site_model
 #'  )
+#' file.remove(output_filename)
 #' @aliases create_jc69_site_model create_site_model_jc69
 #' @export create_jc69_site_model create_site_model_jc69
 create_jc69_site_model <- create_site_model_jc69 <- function(
@@ -316,11 +323,13 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'    kappa_2_param = 2.0
 #'  )
 #'
+#'  output_filename <- get_beautier_tempfilename()
 #'  create_beast2_input_file(
 #'    input_filename = get_fasta_filename(),
-#'    output_filename = tempfile(pattern = "beast", fileext = ".xml"),
+#'    output_filename = output_filename,
 #'    site_model = tn93_site_model
 #'  )
+#' file.remove(output_filename)
 #' @aliases create_tn93_site_model create_site_model_tn93
 #' @export create_tn93_site_model create_site_model_tn93
 create_tn93_site_model <- create_site_model_tn93 <- function(

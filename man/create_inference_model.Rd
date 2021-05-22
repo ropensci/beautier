@@ -55,11 +55,13 @@ inference_model <- create_inference_model(
   mcmc = create_mcmc(chain_length = 50000, store_every = 1000)
 )
 
+output_filename <- get_beautier_tempfilename()
 create_beast2_input_file_from_model(
   input_filename = get_fasta_filename(),
-  output_filename = tempfile(fileext = ".xml"),
+  output_filename = output_filename,
   inference_model = inference_model
 )
+file.remove(beast2_input_file)
 }
 \seealso{
 Use \link{create_test_inference_model} to create an inference model

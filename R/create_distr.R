@@ -33,18 +33,18 @@
 #'   and \code{\link{create_uniform_distr}}
 #'   for examples how to use those distributions
 #' @examples
-#'   # Use any distribution
-#'   distr <- create_beta_distr()
+#' # Use any distribution
+#' distr <- create_beta_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_distr <- function(
@@ -100,17 +100,17 @@ create_distr <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   beta_distr <- create_beta_distr()
+#' beta_distr <- create_beta_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = beta_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = beta_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_beta_distr create_distr_beta
 #' @export create_beta_distr create_distr_beta
 create_beta_distr <- create_distr_beta <- function(
@@ -163,17 +163,17 @@ create_beta_distr <- create_distr_beta <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   exp_distr <- create_exp_distr()
+#' exp_distr <- create_exp_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = exp_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = exp_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_exp_distr create_distr_exp
 #' @export create_exp_distr create_distr_exp
 create_exp_distr <- create_distr_exp <- function(
@@ -215,22 +215,22 @@ create_exp_distr <- create_distr_exp <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   gamma_distr <- create_gamma_distr(
-#'      alpha = 0.05,
-#'      beta = 10.0
-#'   )
+#' gamma_distr <- create_gamma_distr(
+#'    alpha = 0.05,
+#'    beta = 10.0
+#' )
 #'
-#'   gtr_site_model <- create_gtr_site_model(
-#'     rate_ac_prior_distr = gamma_distr
-#'   )
+#' gtr_site_model <- create_gtr_site_model(
+#'   rate_ac_prior_distr = gamma_distr
+#' )
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     site_model = gtr_site_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   site_model = gtr_site_model
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_gamma_distr create_distr_gamma
 #' @export create_gamma_distr create_distr_gamma
 create_gamma_distr <- create_distr_gamma <- function(
@@ -288,17 +288,17 @@ create_gamma_distr <- create_distr_gamma <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   inv_gamma_distr <- create_inv_gamma_distr()
+#' inv_gamma_distr <- create_inv_gamma_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = inv_gamma_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = inv_gamma_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_inv_gamma_distr create_distr_inv_gamma
 #' @export create_inv_gamma_distr create_distr_inv_gamma
 create_inv_gamma_distr <- create_distr_inv_gamma <- function(
@@ -349,17 +349,17 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   laplace_distr <- create_laplace_distr()
+#' laplace_distr <- create_laplace_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = laplace_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = laplace_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_laplace_distr create_distr_laplace
 #' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
@@ -411,17 +411,17 @@ create_laplace_distr <- create_distr_laplace <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   log_normal_distr <- create_log_normal_distr()
+#' log_normal_distr <- create_log_normal_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = log_normal_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = log_normal_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_log_normal_distr create_distr_log_normal
 #' @export create_log_normal_distr create_distr_log_normal
 create_log_normal_distr <- create_distr_log_normal <- function(
@@ -473,17 +473,17 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   normal_distr <- create_normal_distr()
+#' normal_distr <- create_normal_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = normal_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = normal_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_normal_distr create_distr_normal
 #' @export create_normal_distr create_distr_normal
 create_normal_distr <- create_distr_normal <- function(
@@ -527,17 +527,17 @@ create_normal_distr <- create_distr_normal <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   one_div_x_distr <- create_one_div_x_distr()
+#' one_div_x_distr <- create_one_div_x_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = one_div_x_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = one_div_x_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_one_div_x_distr create_distr_one_div_x
 #' @export create_one_div_x_distr create_distr_one_div_x
 create_one_div_x_distr <- create_distr_one_div_x <- function(
@@ -566,17 +566,17 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   poisson_distr <- create_poisson_distr()
+#' poisson_distr <- create_poisson_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = poisson_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = poisson_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_poisson_distr create_distr_poisson
 #' @export create_poisson_distr create_distr_poisson
 create_poisson_distr <- create_distr_poisson <- function(
@@ -611,17 +611,17 @@ create_poisson_distr <- create_distr_poisson <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   uniform_distr <- create_uniform_distr()
+#' uniform_distr <- create_uniform_distr()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     input_filename = get_fasta_filename(),
-#'     beast2_input_file,
-#'     tree_prior = create_yule_tree_prior(
-#'       birth_rate_distr = uniform_distr
-#'     )
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   beast2_input_file,
+#'   tree_prior = create_yule_tree_prior(
+#'     birth_rate_distr = uniform_distr
 #'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_uniform_distr create_distr_uniform
 #' @export create_uniform_distr create_distr_uniform
 create_uniform_distr <- create_distr_uniform <- function(

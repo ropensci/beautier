@@ -15,25 +15,25 @@
 #'   model, see \code{\link{create_strict_clock_model}}.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   rln_clock_model <- create_rln_clock_model()
+#' rln_clock_model <- create_rln_clock_model()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = rln_clock_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = rln_clock_model
+#' )
+#' file.remove(beast2_input_file)
 #'
-#'   strict_clock_model <- create_strict_clock_model()
+#' strict_clock_model <- create_strict_clock_model()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = strict_clock_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = strict_clock_model
+#' )
+#' file.remove(beast2_input_file)
 #' @export
 create_clock_model <- function(
   name,
@@ -80,27 +80,27 @@ create_clock_model <- function(
 #' @return a relaxed log-normal clock_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   rln_clock_model <- create_rln_clock_model()
+#' rln_clock_model <- create_rln_clock_model()
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = rln_clock_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = rln_clock_model
+#' )
+#' file.remove(beast2_input_file)
 #'
-#'   rln_clock_model_exp <- create_rln_clock_model(
-#'     mean_rate_prior_distr = create_exp_distr()
-#'   )
+#' rln_clock_model_exp <- create_rln_clock_model(
+#'   mean_rate_prior_distr = create_exp_distr()
+#' )
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = rln_clock_model_exp
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = rln_clock_model_exp
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_rln_clock_model create_clock_model_rln
 #' @export create_rln_clock_model create_clock_model_rln
 create_rln_clock_model <- create_clock_model_rln <- function(
@@ -139,30 +139,30 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #' @return a strict clock_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   strict_clock_model <- create_strict_clock_model(
-#'     clock_rate_param = 1.0,
-#'     clock_rate_distr = create_uniform_distr()
-#'   )
+#' strict_clock_model <- create_strict_clock_model(
+#'   clock_rate_param = 1.0,
+#'   clock_rate_distr = create_uniform_distr()
+#' )
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = strict_clock_model
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = strict_clock_model
+#' )
+#' file.remove(beast2_input_file)
 #'
-#'   strict_clock_model_gamma <- create_strict_clock_model(
-#'     clock_rate_distr = create_gamma_distr()
-#'   )
+#' strict_clock_model_gamma <- create_strict_clock_model(
+#'   clock_rate_distr = create_gamma_distr()
+#' )
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     clock_model = strict_clock_model_gamma
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   clock_model = strict_clock_model_gamma
+#' )
+#' file.remove(beast2_input_file)
 #' @aliases create_strict_clock_model create_clock_model_strict
 #' @export create_strict_clock_model create_clock_model_strict
 create_strict_clock_model <- create_clock_model_strict <- function(

@@ -25,12 +25,13 @@ Create a Yule tree prior
 \examples{
  yule_tree_prior <- create_yule_tree_prior()
 
- beast2_input_file <- tempfile(fileext = ".xml")
+ beast2_input_file <- get_beautier_tempfilename()
  create_beast2_input_file(
    input_filename = get_fasta_filename(),
    beast2_input_file,
    tree_prior = yule_tree_prior
 )
+file.remove(beast2_input_file)
 }
 \seealso{
 An alignment ID can be extracted from

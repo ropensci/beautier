@@ -14,7 +14,7 @@ fasta_filename <- get_beautier_path("test_output_0.fas")
 image(ape::read.FASTA(fasta_filename))
 
 ## ----create_output_filename---------------------------------------------------
-output_filename <- tempfile(pattern = "beast2", fileext = ".xml")
+output_filename <- get_beautier_tempfilename(pattern = "beast2", fileext = ".xml")
 output_filename
 
 ## ----create_beast2_input_file-------------------------------------------------

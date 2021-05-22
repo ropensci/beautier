@@ -17,21 +17,21 @@
 #'   with, among others, a short MCMC chain length.
 #' Use \code{\link{check_ns_mcmc}} to check that an NS MCMC object is valid.
 #' @examples
-#'   mcmc <- create_ns_mcmc(
-#'     chain_length = 1e7,
-#'     store_every = 1000,
-#'     particle_count = 1,
-#'     sub_chain_length = 1000,
-#'     epsilon = 1e-12
-#'   )
+#' mcmc <- create_ns_mcmc(
+#'   chain_length = 1e7,
+#'   store_every = 1000,
+#'   particle_count = 1,
+#'   sub_chain_length = 1000,
+#'   epsilon = 1e-12
+#' )
 #'
-#'   beast2_input_file <- tempfile(fileext = ".xml")
-#'   create_beast2_input_file(
-#'     get_fasta_filename(),
-#'     beast2_input_file,
-#'     mcmc = mcmc
-#'   )
-#'   testit::assert(file.exists(beast2_input_file))
+#' beast2_input_file <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   get_fasta_filename(),
+#'   beast2_input_file,
+#'   mcmc = mcmc
+#' )
+#' file.remove(beast2_input_file)
 #' @references
 #'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
 #'     Remco R Bouckaert; Model Selection and Parameter Inference in

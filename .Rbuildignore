@@ -12,3 +12,5 @@
 ^scripts$
 ^\.appveyor\.yml$
 ^doc$
+^created\.xml$
+^expected\.xml$
