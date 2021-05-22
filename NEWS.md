@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.5.1 (2021-05-22)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * GitHub Actions scheduler tests package once per week
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.5 (2021-05-14)
 
 ### NEW FEATURES
