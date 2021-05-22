@@ -10,7 +10,7 @@ test_that("use", {
     )
   )
   expect_true(file.exists(output_filename))
-  file.remove(created_lines_filename)
+  file.remove(output_filename)
 })
 
 test_that("abuse", {

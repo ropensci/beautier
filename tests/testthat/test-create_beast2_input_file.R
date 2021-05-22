@@ -1,7 +1,7 @@
 test_that("use", {
 
   output_filename <- get_beautier_tempfilename()
-  expect_false(!file.exists(output_filename))
+  expect_false(file.exists(output_filename))
   expect_silent(
     create_beast2_input_file(
       get_fasta_filename(),
