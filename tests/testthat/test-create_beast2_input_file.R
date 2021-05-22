@@ -1,29 +1,24 @@
-context("create_beast2_input_file")
-
 test_that("use", {
 
   output_filename <- get_beautier_tempfilename()
-  testit::assert(!file.exists(output_filename))
-
+  expect_false(!file.exists(output_filename))
   expect_silent(
     create_beast2_input_file(
       get_fasta_filename(),
       output_filename
     )
   )
-
   expect_true(file.exists(output_filename))
+  file.remove(output_filename)
 })
 
 test_that("abuse", {
-
-  output_filename <- get_beautier_tempfilename()
 
   # input_filenames
   expect_error(
     create_beast2_input_file(
       input_filenames = "nonexisting", # Error
-      output_filename
+      output_filename = "irrelevant"
     ),
     "'input_filenames' is deprecated, use 'input_filename' instead"
   )
@@ -32,7 +27,7 @@ test_that("abuse", {
   expect_error(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename,
+      output_filename = "irrelevant",
       site_models = "nonsense"
     ),
     "'site_models' is deprecated, use 'site_model' instead"
@@ -42,7 +37,7 @@ test_that("abuse", {
   expect_error(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename,
+      output_filename = "irrelevant",
       clock_models = "nonsense"
     ),
     "'clock_models' is deprecated, use 'clock_model' instead"
@@ -52,7 +47,7 @@ test_that("abuse", {
   expect_error(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename,
+      output_filename = "irrelevant",
       tree_priors = "nonsense"
     ),
     "'tree_priors' is deprecated, use 'tree_prior' instead"
@@ -61,7 +56,7 @@ test_that("abuse", {
   expect_error(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename,
+      output_filename = "irrelevant",
       mrca_priors = "nonsense"
     ),
     "'mrca_priors' is deprecated, use 'mrca_prior' instead."
@@ -70,21 +65,23 @@ test_that("abuse", {
   expect_error(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename,
+      output_filename = "irrelevant",
       posterior_crown_age = "nonsense" # Error
     ),
     "'posterior_crown_age' is deprecated"
   )
 
   # will create folders needed to hold file
+  output_filename <- file.path(
+    get_beautier_tempfilename(), "1", "2", "beast2.xml"
+  )
   expect_silent(
     create_beast2_input_file(
       input_filename = get_fasta_filename(),
-      output_filename = file.path(
-        get_beautier_tempfilename(), "1", "2", "beast2.xml"
-      )
+      output_filename = output_filename
     )
   )
+  file.remove(output_filename)
 
   # output filename is invalid
   if (rappdirs::app_dir()$os != "win") {
