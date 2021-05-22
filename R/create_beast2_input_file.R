@@ -2,7 +2,6 @@
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @examples
-#'
 #' # Get an example FASTA file
 #' input_filename <- get_fasta_filename()
 #'

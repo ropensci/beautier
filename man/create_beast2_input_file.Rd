@@ -80,7 +80,6 @@ nothing
 Create a BEAST2 input file
 }
 \examples{
-
 # Get an example FASTA file
 input_filename <- get_fasta_filename()
 
