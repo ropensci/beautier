@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.5.2 (2021-05-22)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Removed `LazyData: true` from DESCRIPTION
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.5.1 (2021-05-22)
 
 ### NEW FEATURES
