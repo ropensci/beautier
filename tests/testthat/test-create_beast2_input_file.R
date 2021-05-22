@@ -82,8 +82,7 @@ test_that("abuse", {
     )
   )
   file.remove(output_filename)
-  unlink(dirname(dirname(dirname(output_filename))))
-
+  unlink(dirname(dirname(dirname(output_filename))), recursive = TRUE)
 
   # output filename is invalid
   if (rappdirs::app_dir()$os != "win") {
