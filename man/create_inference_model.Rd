@@ -61,7 +61,7 @@ create_beast2_input_file_from_model(
   output_filename = output_filename,
   inference_model = inference_model
 )
-file.remove(beast2_input_file)
+file.remove(output_filename)
 }
 \seealso{
 Use \link{create_test_inference_model} to create an inference model

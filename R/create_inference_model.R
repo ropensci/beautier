@@ -23,7 +23,7 @@
 #'   output_filename = output_filename,
 #'   inference_model = inference_model
 #' )
-#' file.remove(beast2_input_file)
+#' file.remove(output_filename)
 #' @export
 create_inference_model <- function(
   site_model = beautier::create_jc69_site_model(),
