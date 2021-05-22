@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * Make sure that no files are created in `~/.cache`
+ * Make sure that no files are created in `~/.cache`, fix #129
 
 ### BUG FIXES
 
