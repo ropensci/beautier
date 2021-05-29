@@ -43,7 +43,7 @@ create_screenlog_xml <- function(
   text <- NULL
   text <- c(text, top_line)
   text <- c(text, "    <log idref=\"posterior\"/>") # nolint this is no absolute path
-  if (inference_model$beauti_options$beast2_version == "2.4") {
+  if (inference_model$beauti_options$beast2_version %in% c("2.4", "2.5")) {
     text <- c(text, paste0("    <log id=\"ESS.0\" spec=\"util.ESS\" ",
       "arg=\"@posterior\"/>")) # nolint this is no absolute path
   }

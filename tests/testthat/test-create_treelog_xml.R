@@ -1,4 +1,4 @@
-test_that("use", {
+test_that("use, v2.4", {
 
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
@@ -14,6 +14,28 @@ test_that("use", {
     "<logger id=\"treelog.t:test_output_0\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">", # nolint
     "    <log id=\"TreeWithMetaDataLogger.t:test_output_0\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" tree=\"@Tree.t:test_output_0\"/>", # nolint long line indeed
     "</logger>"
+  )
+  expect_equal(created, expected)
+})
+
+test_that("use, v2.6", {
+
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    create_inference_model(
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  created <- create_treelog_xml(
+    inference_model = inference_model
+  )
+  # create_treelog_xml starts with an empty line. Issue #109
+  expected <- c(
+    "",
+    "<logger id=\"treelog.t:test_output_0\" spec=\"Logger\" fileName=\"$(tree).trees\" logEvery=\"1000\" mode=\"tree\">", # nolint
+    "    <log id=\"TreeWithMetaDataLogger.t:test_output_0\" spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" tree=\"@Tree.t:test_output_0\"/>", # nolint
+    "</logger>" # nolint
   )
   expect_equal(created, expected)
 })

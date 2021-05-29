@@ -30,7 +30,14 @@ test_that("v2.5", {
   )
 
   expected <- readLines(get_beautier_path("anthus_aco_sub_20181016.xml"))
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
   expect_true(are_equivalent_xml_lines(created, expected))
+  compare_lines
 })
 
 test_that("v2.5.1", {
@@ -78,7 +85,6 @@ test_that("2.6.2", {
     expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
-
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -1458,11 +1464,9 @@ test_that("Tip dating with RLN", {
   )
   expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
 
-  created_lines_filename <- "~/created.xml"
-  expected_lines_filename <- "~/expected.xml"
   compare_lines(
-    lines = created,
-    expected = expected,
+    lines = "~/created.xml",
+    expected = "~/expected.xml",
     created_lines_filename = created_lines_filename,
     expected_lines_filename = expected_lines_filename
   )

@@ -12,7 +12,13 @@ create_treelog_xml <- function(
   inference_model
 ) {
   top_line <- paste0(
-    "<logger id=\"treelog.t:", inference_model$clock_model$id, "\" ",
+    "<logger id=\"treelog.t:", inference_model$clock_model$id, "\" "
+  )
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    top_line <- paste0(top_line, "spec=\"Logger\" ")
+  }
+  top_line <- paste0(
+    top_line,
     "fileName=\"", inference_model$mcmc$treelog$filename, "\" ",
     "logEvery=\"", inference_model$mcmc$treelog$log_every, "\" ",
     "mode=\"", inference_model$mcmc$treelog$mode, "\""
