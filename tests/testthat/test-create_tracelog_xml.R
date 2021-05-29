@@ -58,6 +58,7 @@ test_that("detailed use, v2.6", {
     input_filename = input_filename,
     inference_model = inference_model
   )
+  # Taken from 2_6_2.xml
   expected <- c(
     "<logger id=\"tracelog\" spec=\"Logger\" fileName=\"test_output_0.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint
     "    <log idref=\"posterior\"/>", # nolint

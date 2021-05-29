@@ -1,4 +1,4 @@
-test_that("use", {
+test_that("use, v2.4", {
 
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
@@ -15,6 +15,28 @@ test_that("use", {
     "    <log idref=\"likelihood\"/>", # nolint this is no absolute path
     "    <log idref=\"prior\"/>", # nolint this is no absolute path
     "</logger>"
+  )
+  expect_equal(created, expected)
+})
+
+test_that("use, v2.6", {
+
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    create_inference_model(
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  created <- create_screenlog_xml(
+    inference_model = inference_model
+  )
+  expected <- c(
+    "<logger id=\"screenlog\" spec=\"Logger\" logEvery=\"1000\">", # nolint
+    "    <log idref=\"posterior\"/>", # nolint
+    "    <log idref=\"likelihood\"/>", # nolint
+    "    <log idref=\"prior\"/>", # nolint
+    "</logger>" # nolint
   )
   expect_equal(created, expected)
 })

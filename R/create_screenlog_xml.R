@@ -8,6 +8,10 @@ create_screenlog_xml <- function(
   inference_model = beautier::create_inference_model()
 ) {
   top_line <- "<logger id=\"screenlog\""
+
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    top_line <- paste0(top_line, " spec=\"Logger\"")
+  }
   if (nchar(inference_model$mcmc$screenlog$filename) > 0) {
     top_line <- paste0(
       top_line,
@@ -39,8 +43,10 @@ create_screenlog_xml <- function(
   text <- NULL
   text <- c(text, top_line)
   text <- c(text, "    <log idref=\"posterior\"/>") # nolint this is no absolute path
-  text <- c(text, paste0("    <log id=\"ESS.0\" spec=\"util.ESS\" ",
-    "arg=\"@posterior\"/>")) # nolint this is no absolute path
+  if (inference_model$beauti_options$beast2_version == "2.4") {
+    text <- c(text, paste0("    <log id=\"ESS.0\" spec=\"util.ESS\" ",
+      "arg=\"@posterior\"/>")) # nolint this is no absolute path
+  }
   text <- c(text, "    <log idref=\"likelihood\"/>") # nolint this is no absolute path
   text <- c(text, "    <log idref=\"prior\"/>") # nolint this is no absolute path
   text <- c(text, "</logger>")
