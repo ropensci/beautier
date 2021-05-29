@@ -23,7 +23,7 @@ test_that("rln_2_4.xml", {
 })
 
 test_that("rln_2_6.xml", {
-
+  skip("WIP")
   inference_model <- create_inference_model(
     clock_model = create_rln_clock_model(
       ucldstdev_distr = create_gamma_distr(
