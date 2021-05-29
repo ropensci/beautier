@@ -24,13 +24,6 @@
 create_beast2_input_state <- function(
   inference_model
 ) {
-  # Do not be smart yet
-  site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
-  tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
-
   text <- NULL
   # The 'state' XML section
   text <- c(

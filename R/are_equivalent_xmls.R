@@ -1,4 +1,7 @@
-#' Determine if XML files result in equivalent trees
+#' Internal function
+#'
+#' Internal function used for debugging to
+#' determine if XML files result in equivalent trees
 #' @param filename_1 name of a first XML file
 #' @param filename_2 name of a second XML file
 #' @param section the name of the XML section, use NA to check the whole file
@@ -110,6 +113,7 @@ are_equivalent_xml_lines_all <- function(
 #' @return TRUE if the two XML lines result in equivalent trees,
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
+#' @export
 are_equivalent_xml_lines_section <- function( # nolint don't care about internal function length
   lines_1,
   lines_2,

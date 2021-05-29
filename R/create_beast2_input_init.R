@@ -27,7 +27,6 @@ create_beast2_input_init <- function(
   # In other words: bluntly remove it
   n <- length(ids)
   for (i in seq(1, n)) {
-    id <- ids[i]
     text <- c(text, "")
     text <- c(
       text,

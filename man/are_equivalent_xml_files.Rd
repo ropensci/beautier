@@ -2,7 +2,7 @@
 % Please edit documentation in R/are_equivalent_xmls.R
 \name{are_equivalent_xml_files}
 \alias{are_equivalent_xml_files}
-\title{Determine if XML files result in equivalent trees}
+\title{Internal function}
 \usage{
 are_equivalent_xml_files(filename_1, filename_2, section = NA)
 }
@@ -18,7 +18,8 @@ TRUE if the two XML files result in equivalent trees,
   FALSE otherwise
 }
 \description{
-Determine if XML files result in equivalent trees
+Internal function used for debugging to
+determine if XML files result in equivalent trees
 }
 \seealso{
 to check for equality, use \code{are_equal_xml_files}

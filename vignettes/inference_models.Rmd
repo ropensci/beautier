@@ -227,4 +227,3 @@ create_beast2_input_file_from_model(
 # Cleanup
 file.remove(output_filename)
 ```
-
