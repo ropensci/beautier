@@ -4,7 +4,7 @@
 #' @export
 create_temp_treelog_filename <- function() {
   normalizePath(
-    get_beautier_tempfilename(
+    beautier::get_beautier_tempfilename(
       pattern = "treelog_",
       fileext = ".trees"
     ),
