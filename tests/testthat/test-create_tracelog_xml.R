@@ -1,4 +1,26 @@
-test_that("use", {
+test_that("minimal use", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    inference_model = create_inference_model()
+  )
+  expect_silent(
+    create_tracelog_xml(
+      input_filename = input_filename,
+      inference_model = inference_model
+    )
+  )
+  expect_true(
+    is_xml(
+      create_tracelog_xml(
+        input_filename = input_filename,
+        inference_model = inference_model
+      )
+    )
+  )
+})
+
+test_that("detailed use, ?v2.4", {
 
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
@@ -23,30 +45,32 @@ test_that("use", {
   expect_equal(created, expected)
 })
 
-test_that("use", {
+test_that("detailed use, v2.6", {
+
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
     input_filename = input_filename,
-    inference_model = create_inference_model()
-  )
-
-
-  expect_silent(
-    create_tracelog_xml(
-      input_filename = input_filename,
-      inference_model = inference_model
+    create_inference_model(
+      beauti_options = create_beauti_options_v2_6()
     )
   )
-  expect_true(
-    is_xml(
-      create_tracelog_xml(
-        input_filename = input_filename,
-        inference_model = inference_model
-      )
-    )
+  created <- create_tracelog_xml(
+    input_filename = input_filename,
+    inference_model = inference_model
   )
+  expected <- c(
+    "<logger id=\"tracelog\" spec=\"Logger\" fileName=\"test_output_0.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint
+    "    <log idref=\"posterior\"/>", # nolint
+    "    <log idref=\"likelihood\"/>", # nolint
+    "    <log idref=\"prior\"/>", # nolint
+    "    <log idref=\"treeLikelihood.test_output_0\"/>", # nolint
+    "    <log id=\"TreeHeight.t:test_output_0\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:test_output_0\"/>", # nolint
+    "    <log idref=\"YuleModel.t:test_output_0\"/>", # nolint
+    "    <log idref=\"birthRate.t:test_output_0\"/>", # nolint
+    "</logger>" # nolint
+  )
+  expect_equal(created, expected)
 })
-
 test_that("file_name in XML", {
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(

@@ -1,24 +1,25 @@
 ################################################################################
-# Clock model: RLN
+# Clock model: RLN + tipdates
 ################################################################################
 
-test_that("rln_2_4.xml", {
-
-  created <- create_beast2_input(
-    input_filename = get_beautier_path("test_output_0.fas"),
-    clock_model = create_rln_clock_model(
-      ucldstdev_distr = create_gamma_distr(
-        id = 0,
-        alpha = create_alpha_param(id = 2, value = "0.5396"),
-        beta = create_beta_param(id = 3, value = "0.3819")
-      ),
-      mparam_id = 1
-    ),
-    tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1)
-    )
+test_that("RLN + tipdates, v2.6", {
+  skip("https://github.com/ropensci/babette/issues/99")
+  inference_model <- create_inference_model(
+    clock_model = create_rln_clock_model(),
+    tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
+    beauti_options = create_beauti_options_v2_6()
   )
-  expected <- readLines(get_beautier_path("rln_2_4.xml"))
+  created <- create_beast2_input_from_model(
+    input_filename = get_beautier_path("test_output_0.fas"),
+    inference_model = inference_model
+  )
+  expected <- readLines(get_beautier_path("rln_tipdates_2_6.xml"))
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml",
+  )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 

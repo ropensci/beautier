@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Internal debug function to compare the actually created
 #' lines to expected lines using any diff tool
 #' @param lines the created lines

@@ -50,6 +50,10 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
     "<logger ",
     "id=\"tracelog\" "
   )
+  # Add 'spec=\"Logger\" ' for
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    top_line <- paste0(top_line, "spec=\"Logger\" ")
+  }
   if (is.na(inference_model$mcmc$tracelog$filename)) {
     # Alignment IDs
     ids <- beautier::get_alignment_id(

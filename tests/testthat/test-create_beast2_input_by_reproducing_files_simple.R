@@ -1,7 +1,6 @@
 ################################################################################
 # Defaults for different versions
 ################################################################################
-
 test_that("2.4", {
 
   created <- create_beast2_input(
@@ -72,13 +71,11 @@ test_that("2.6.2", {
   }
   expected <- readLines(get_beautier_path("2_6_2.xml"))
 
-  created_lines_filename <- "~/created.xml"
-  expected_lines_filename <- "~/expected.xml"
   compare_lines(
     lines = created,
     expected = expected,
-    created_lines_filename = created_lines_filename,
-    expected_lines_filename = expected_lines_filename
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
 
