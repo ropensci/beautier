@@ -2,18 +2,11 @@
 % Please edit documentation in R/taxa_to_xml_tree.R
 \name{no_taxa_to_xml_tree}
 \alias{no_taxa_to_xml_tree}
-\title{Creates the '\code{tree}' section of a BEAST2 XML parameter file,
-which is part of a '\code{state}' section,
-without being indented,
-when there is no tip-dating}
+\title{Internal function}
 \usage{
-no_taxa_to_xml_tree(id, inference_model)
+no_taxa_to_xml_tree(inference_model, id = "deprecated")
 }
 \arguments{
-\item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filename
-with \code{\link{get_alignment_ids_from_fasta_filenames}})}
-
 \item{inference_model}{a Bayesian phylogenetic inference model.
 An inference model is the complete model setup in which a site model,
 clock model, tree prior and more are specified.
@@ -21,11 +14,21 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
+
+\item{id}{an alignment's IDs.
+An ID can be extracted from its FASTA filename
+with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 }
 \value{
 the random phylogeny as XML text
 }
 \description{
+Creates the '\code{tree}' section of a BEAST2 XML parameter file,
+which is part of a '\code{state}' section,
+without being indented,
+when there is no tip-dating
+}
+\details{
 The \code{tree} tag has these elements:
 \preformatted{
    <tree[...]>

@@ -2,13 +2,23 @@
 % Please edit documentation in R/taxa_to_xml_tree.R
 \name{tipdate_taxa_to_xml_tree}
 \alias{tipdate_taxa_to_xml_tree}
-\title{Creates the \code{tree} section
-(part of the \code{state} section)
-when there is tip-dating}
+\title{Internal function}
 \usage{
-tipdate_taxa_to_xml_tree(id, tipdates_filename)
+tipdate_taxa_to_xml_tree(
+  inference_model,
+  id = "deprecated",
+  tipdates_filename = "deprecated"
+)
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{id}{an alignment's IDs.
 An ID can be extracted from its FASTA filename
 with \code{\link{get_alignment_ids_from_fasta_filenames}})}

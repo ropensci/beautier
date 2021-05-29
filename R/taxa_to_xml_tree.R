@@ -1,6 +1,7 @@
-#' Creates the '\code{tree}' section of a BEAST2 XML parameter file
+#' Internal function
 #'
-#' Creates the '\code{tree}' section of a BEAST2 XML parameter file,
+#' Internal function to creates the '\code{tree}' section
+#' of a BEAST2 XML parameter file,
 #' which is part of a '\code{state}' section,
 #' without being indented.
 #'
@@ -19,24 +20,19 @@
 taxa_to_xml_tree <- function(
   inference_model
 ) {
-  # Don't be smart yet
-  id <- inference_model$tree_prior$id
-  tipdates_filename <- inference_model$tipdates_filename
-
-  testit::assert(beautier::is_id(id))
-  if (beautier::is_one_na(tipdates_filename)) {
+  if (beautier::is_one_na(inference_model$tipdates_filename)) {
     beautier::no_taxa_to_xml_tree(
-      id = id,
       inference_model = inference_model
     )
   } else {
     beautier::tipdate_taxa_to_xml_tree(
-      id = id,
-      tipdates_filename = tipdates_filename
+      inference_model = inference_model
     )
   }
 }
 
+#' Internal function
+#'
 #' Creates the '\code{tree}' section of a BEAST2 XML parameter file,
 #' which is part of a '\code{state}' section,
 #' without being indented,
@@ -55,9 +51,11 @@ taxa_to_xml_tree <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 no_taxa_to_xml_tree <- function(
-  id,
-  inference_model
+  inference_model,
+  id = "deprecated"
 ) {
+  testthat::expect_equal(id, "deprecated")
+  id <- inference_model$tree_prior$id
   testit::assert(beautier::is_id(id))
   text <- NULL
   if (inference_model$beauti_options$beast2_version == "2.6") {
@@ -89,7 +87,8 @@ no_taxa_to_xml_tree <- function(
   text
 }
 
-
+#' Internal function
+#'
 #' Creates the \code{tree} section
 #' (part of the \code{state} section)
 #' when there is tip-dating
@@ -98,22 +97,36 @@ no_taxa_to_xml_tree <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tipdate_taxa_to_xml_tree <- function(
-  id,
-  tipdates_filename
+  inference_model,
+  id = "deprecated",
+  tipdates_filename = "deprecated"
 ) {
+  testthat::expect_equal(id, "deprecated")
+  testthat::expect_equal(tipdates_filename, "deprecated")
+
+  # Don't be smart yet
+  id <- inference_model$tree_prior$id
+  tipdates_filename <- inference_model$tipdates_filename
+
   testit::assert(beautier::is_id(id))
   testit::assert(!beautier::is_one_na(tipdates_filename))
-  trait_set_str <- beautier::create_trait_set_string(
-    utils::read.table(tipdates_filename, sep = "\t")
-  )
+
+  first_line <- paste0("<tree id=\"Tree.t:", id, "\" ")
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    first_line <- paste0(first_line, "spec=\"beast.evolution.tree.Tree\" ")
+  }
+  first_line <- paste0(first_line, "name=\"stateNode\">")
+
   c(
-    paste0("<tree id=\"Tree.t:", id, "\" name=\"stateNode\">"),
-    paste0("    <trait id=\"dateTrait.t:", id, "\" spec=\"beast.evolution.tree.TraitSet\" traitname=\"date-forward\" value=\"", trait_set_str, "\">"), # nolint indeed a long line
-    paste0("        <taxa id=\"TaxonSet.", id, "\" spec=\"TaxonSet\">"),
-    paste0("            <alignment idref=\"", id, "\"/>"), # nolint this is no absolute path
-    "        </taxa>",
-    "    </trait>",
-    paste0("    <taxonset idref=\"TaxonSet.", id, "\"/>"), # nolint this is no absolute path
+    first_line,
+    beautier::indent(tipdate_taxa_to_xml_trait(inference_model)),
+    beautier::indent(
+      paste0(
+        "<taxonset idref=\"TaxonSet.",
+        inference_model$site_model$id,
+        "\"/>"
+      )
+    ),
     "</tree>"
   )
 }

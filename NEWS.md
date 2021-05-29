@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## beautier 2.6.1 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * Removed all deprecated functions and function arguments,
+   as these warned the user in the CRAN v2.6 version
+
 ## beautier 2.6 (2021-05-22)
 
 ### NEW FEATURES
