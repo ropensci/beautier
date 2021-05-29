@@ -53,7 +53,6 @@ default_params_doc(
   param,
   param_id,
   phylogeny,
-  posterior_crown_age,
   pre_burnin,
   rename_fun,
   rln_clock_model,
@@ -236,8 +235,6 @@ function. BEAST2 uses this file as input.}
 
 \item{phylogeny}{a phylogeny of type \code{phylo} from the \code{ape}
 package}
-
-\item{posterior_crown_age}{deprecated}
 
 \item{pre_burnin}{number of burn in samples taken before entering
 the main loop}

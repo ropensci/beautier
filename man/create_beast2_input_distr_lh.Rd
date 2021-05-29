@@ -6,13 +6,7 @@
 with the \code{likelihood} ID,
 of a BEAST2 parameter file.}
 \usage{
-create_beast2_input_distr_lh(
-  inference_model,
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
-)
+create_beast2_input_distr_lh(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -22,20 +16,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, separated by a tab.
-The first column contains the taxa names, the second column contains
-the date.}
 }
 \description{
 Creates the XML text for the \code{distribution} tag

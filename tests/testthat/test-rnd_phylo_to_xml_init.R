@@ -43,15 +43,3 @@ test_that("abuse", {
   )
 
 })
-
-test_that("deprecation", {
-
-  expect_error(
-    rnd_phylo_to_xml_init(
-      id = "something",
-      inference_model = "irrelevant"
-    ),
-    "'id' is deprecated, use 'inference_model' instead"
-  )
-
-})

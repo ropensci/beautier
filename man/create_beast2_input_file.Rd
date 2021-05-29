@@ -13,13 +13,7 @@ create_beast2_input_file(
   mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
   beauti_options = beautier::create_beauti_options(),
-  tipdates_filename = NA,
-  input_filenames = "deprecated",
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated"
+  tipdates_filename = NA
 )
 }
 \arguments{
@@ -55,23 +49,6 @@ as returned by \code{\link{create_beauti_options}}}
 This file is assumed to have two columns, separated by a tab.
 The first column contains the taxa names, the second column contains
 the date.}
-
-\item{input_filenames}{One or more FASTA filenames.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{tree_priors}{one or more tree priors,
-as returned by \code{\link{create_tree_prior}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{posterior_crown_age}{deprecated}
 }
 \value{
 nothing

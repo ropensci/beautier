@@ -2,8 +2,7 @@
 % Please edit documentation in R/compare_lines.R
 \name{compare_lines}
 \alias{compare_lines}
-\title{Internal debug function to compare the actually created
-lines to expected lines using any diff tool}
+\title{Internal function}
 \usage{
 compare_lines(
   lines,

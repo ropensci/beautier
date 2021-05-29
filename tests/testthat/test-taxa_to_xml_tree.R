@@ -65,20 +65,3 @@ test_that("v2.6", {
   )
   expect_equal(created, expected)
 })
-
-test_that("deprecation", {
-  expect_error(
-    taxa_to_xml_tree(
-      inference_model = create_test_inference_model(),
-      id = "G_VII_pre2003_msa"
-    ),
-    "'id' is deprecated, use an initialized 'inference_model' instead"
-  )
-  expect_error(
-    taxa_to_xml_tree(
-      inference_model = create_test_inference_model(),
-      tipdates_filename = get_beautier_path("G_VII_pre2003_dates_4.txt")
-    ),
-    "'tipdates_filename' is deprecated, use 'inference_model' instead"
-  )
-})

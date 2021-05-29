@@ -12,13 +12,7 @@ create_beast2_input(
   tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = beautier::create_mcmc(),
-  beauti_options = beautier::create_beauti_options(),
-  input_filenames = "deprecated",
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  mrca_priors = "deprecated",
-  posterior_crown_age = "deprecated"
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{
@@ -51,23 +45,6 @@ Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
-
-\item{input_filenames}{One or more FASTA filenames.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{tree_priors}{one or more tree priors,
-as returned by \code{\link{create_tree_prior}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{posterior_crown_age}{deprecated}
 }
 \value{
 a character vector of XML strings

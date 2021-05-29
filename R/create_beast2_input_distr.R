@@ -15,28 +15,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_distr <- function(
-  inference_model,
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  if (site_models != "deprecated") {
-    stop("'site_models' is deprecated, use 'inference_model' instead")
-  }
-  if (clock_models != "deprecated") {
-    stop("'clock_models' is deprecated, use 'inference_model' instead")
-  }
-  if (tree_priors != "deprecated") {
-    stop("'tree_priors' is deprecated, use 'inference_model' instead")
-  }
-  if (mrca_priors != "deprecated") {
-    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
-  }
-  if (tipdates_filename != "deprecated") {
-    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
-  }
 
   text <- NULL
 
@@ -83,28 +63,8 @@ create_beast2_input_distr <- function(
 #'  # </distribution>
 #' @export
 create_beast2_input_distr_prior <- function( # nolint indeed long function name
-  inference_model,
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  if (site_models != "deprecated") {
-    stop("'site_models' is deprecated, use 'inference_model' instead")
-  }
-  if (clock_models != "deprecated") {
-    stop("'clock_models' is deprecated, use 'inference_model' instead")
-  }
-  if (tree_priors != "deprecated") {
-    stop("'tree_priors' is deprecated, use 'inference_model' instead")
-  }
-  if (mrca_priors != "deprecated") {
-    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
-  }
-  if (tipdates_filename != "deprecated") {
-    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
-  }
 
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
@@ -186,24 +146,8 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 #'   together with \code{create_beast2_input_distr_prior}
 #' @export
 create_beast2_input_distr_lh <- function(
-  inference_model,
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  if (site_models != "deprecated") {
-    stop("'site_models' is deprecated, use 'inference_model' instead")
-  }
-  if (clock_models != "deprecated") {
-    stop("'clock_models' is deprecated, use 'inference_model' instead")
-  }
-  if (mrca_priors != "deprecated") {
-    stop("'mrca_priors' is deprecated, use 'inference_model' instead")
-  }
-  if (tipdates_filename != "deprecated") {
-    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
-  }
   text <- beautier::create_tree_likelihood_distr_xml(inference_model)
 
   text <- beautier::indent(text)

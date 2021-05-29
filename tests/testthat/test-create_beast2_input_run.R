@@ -38,7 +38,6 @@ test_that("v2.4", {
 })
 
 test_that("v2.6", {
-
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
     input_filename = input_filename,
@@ -50,18 +49,10 @@ test_that("v2.6", {
     input_filename = input_filename,
     inference_model = inference_model
   )
-  skip("WIP")
-  expect_true(
-       created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">"
-    || created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
-  )
-  expect_equal(length(created), 76)
-  expect_equal(
-    created[76],
-    "</run>"
-  )
+  # New in v2.6
+  expect_equal(3, length(stringr::str_subset(created, "spec=\"Logger\" ")))
+  expect_equal(1, length(stringr::str_subset(created, "OperatorSchedule")))
 })
-
 
 test_that("abuse", {
 

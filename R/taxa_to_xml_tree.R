@@ -17,17 +17,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 taxa_to_xml_tree <- function(
-  inference_model,
-  id = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  if (tipdates_filename != "deprecated") {
-    stop("'tipdates_filename' is deprecated, use 'inference_model' instead")
-  }
-  if (id != "deprecated") {
-    stop("'id' is deprecated, use an initialized 'inference_model' instead")
-  }
-
   # Don't be smart yet
   id <- inference_model$tree_prior$id
   tipdates_filename <- inference_model$tipdates_filename

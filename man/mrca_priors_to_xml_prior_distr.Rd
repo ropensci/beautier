@@ -5,11 +5,7 @@
 \title{Creates the the \code{distribution}'s prior section (which is part of
 a posterior distribution section) of a BEAST2 XML parameter file.}
 \usage{
-mrca_priors_to_xml_prior_distr(
-  inference_model,
-  mrca_priors = "deprecated",
-  has_non_strict_clock_model = "deprecated"
-)
+mrca_priors_to_xml_prior_distr(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -19,12 +15,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{has_non_strict_clock_model}{boolean to indicate that the is
-already at least one non-strict (i.e. relaxed log-normal) clock model}
 }
 \value{
 lines of XML text

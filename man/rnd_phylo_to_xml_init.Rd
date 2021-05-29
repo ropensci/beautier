@@ -5,7 +5,7 @@
 \title{Creates the XML of a random phylogeny,
   as used in the \code{init} section}
 \usage{
-rnd_phylo_to_xml_init(inference_model, id = "deprecated")
+rnd_phylo_to_xml_init(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -15,10 +15,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{id}{an alignment's IDs.
-An ID can be extracted from its FASTA filename
-with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 }
 \value{
 the phylogeny as XML text

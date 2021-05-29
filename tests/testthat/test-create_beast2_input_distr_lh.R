@@ -68,35 +68,3 @@ test_that("RLN", {
   )
   expect_equal(created, expected)
 })
-
-test_that("deprecation", {
-
-  expect_error(
-    create_beast2_input_distr_lh(
-      site_models = "something",
-      inference_model = "irrelevant"
-    ),
-    "'site_models' is deprecated, use 'inference_model' instead"
-  )
-  expect_error(
-    create_beast2_input_distr_lh(
-      clock_models = "something",
-      inference_model = "irrelevant"
-    ),
-    "'clock_models' is deprecated, use 'inference_model' instead"
-  )
-  expect_error(
-    create_beast2_input_distr_lh(
-      mrca_priors = "something",
-      inference_model = "irrelevant"
-    ),
-    "'mrca_priors' is deprecated, use 'inference_model' instead"
-  )
-  expect_error(
-    create_beast2_input_distr_lh(
-      tipdates_filename = "something",
-      inference_model = "irrelevant"
-    ),
-    "'tipdates_filename' is deprecated, use 'inference_model' instead"
-  )
-})

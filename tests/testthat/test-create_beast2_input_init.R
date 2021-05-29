@@ -26,21 +26,3 @@ test_that("abuse", {
     )
   )
 })
-
-test_that("deprecation", {
-
-  expect_error(
-    create_beast2_input_init(
-      id = "something",
-      inference_model = "irrelevant"
-    ),
-    "'id' is deprecated, use 'inference_model' instead"
-  )
-  expect_error(
-    create_beast2_input_init(
-      ids = "something",
-      inference_model = "irrelevant"
-    ),
-    "'ids' is deprecated, use 'inference_model' instead"
-  )
-})

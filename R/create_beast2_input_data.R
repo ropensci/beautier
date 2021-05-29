@@ -5,12 +5,8 @@
 #' @export
 create_beast2_input_data <- function(
   input_filename,
-  beauti_options = beautier::create_beauti_options(),
-  input_filenames = "deprecated"
+  beauti_options = beautier::create_beauti_options()
 ) {
-  if (input_filenames != "deprecated") {
-    stop("'input_filenames' is deprecated. Use 'input_filename' instead")
-  }
   testthat::expect_equal(length(input_filename), 1)
   testthat::expect_true(file.exists(input_filename))
 

@@ -110,7 +110,6 @@
 #' @param param_id a parameter's ID
 #' @param phylogeny a phylogeny of type \code{phylo} from the \code{ape}
 #'   package
-#' @param posterior_crown_age deprecated
 #' @param pre_burnin number of burn in samples taken before entering
 #'   the main loop
 #' @param rename_fun a function to rename a filename,
@@ -223,7 +222,6 @@ default_params_doc <- function(
   param,
   param_id,
   phylogeny,
-  posterior_crown_age,
   pre_burnin,
   rename_fun,
   rln_clock_model,

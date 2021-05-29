@@ -19,12 +19,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 rnd_phylo_to_xml_init <- function(
-  inference_model,
-  id = "deprecated"
+  inference_model
 ) {
-  if (id != "deprecated") {
-    stop("'id' is deprecated, use 'inference_model' instead")
-  }
 
   id <- inference_model$site_model$id
   testit::assert(beautier::is_id(id))

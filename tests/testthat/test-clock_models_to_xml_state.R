@@ -88,30 +88,3 @@ test_that("rln + MRCA with distr", {
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
-
-
-
-test_that("deprecation", {
-
-  expect_error(
-    clock_models_to_xml_state(
-      inference_model = "irrelevant",
-      clock_models = "something"
-    ),
-    "'clock_models' is deprecated, use 'inference_model' instead"
-  )
-  expect_error(
-    clock_models_to_xml_state(
-      inference_model = "irrelevant",
-      mrca_priors = "something"
-    ),
-    "'mrca_priors' is deprecated, use 'inference_model' instead"
-  )
-  expect_error(
-    clock_models_to_xml_state(
-      inference_model = "irrelevant",
-      has_tip_dating = "something"
-    ),
-    "'has_tip_dating' is deprecated, use 'inference_model' instead"
-  )
-})

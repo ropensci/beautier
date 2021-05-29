@@ -4,16 +4,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_init <- function(
-  inference_model,
-  id = "deprecated",
-  ids = "deprecated"
+  inference_model
 ) {
-  if (id != "deprecated") {
-    stop("'id' is deprecated, use 'inference_model' instead")
-  }
-  if (ids != "deprecated") {
-    stop("'ids' is deprecated, use 'inference_model' instead")
-  }
   # Do not be smart yet
   ids <- inference_model$site_model$id
   testit::assert(length(ids) == 1)

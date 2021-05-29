@@ -5,7 +5,7 @@
 \title{Convert a CCP tree prior
 to the XML as part of the \code{state} section}
 \usage{
-ccp_tree_prior_to_xml_state(inference_model, tree_prior = "deprecated")
+ccp_tree_prior_to_xml_state(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -15,9 +15,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{tree_prior}{a tree priors,
-as returned by \code{\link{create_tree_prior}}}
 }
 \value{
 XML as text

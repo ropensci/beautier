@@ -17,12 +17,8 @@
 #' ccp_tree_prior_to_xml_state(inference_model)
 #' @export
 ccp_tree_prior_to_xml_state <- function(
-  inference_model,
-  tree_prior = "deprecated"
+  inference_model
 ) {
-  if (tree_prior != "deprecated") {
-    stop("'tree_prior' is deprecated, use 'inference_model' instead")
-  }
   # Do not be smart yet
   tree_prior <- inference_model$tree_prior
   testit::assert(beautier::is_id(tree_prior$id))

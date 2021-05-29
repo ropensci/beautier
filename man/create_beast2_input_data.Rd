@@ -6,8 +6,7 @@
 \usage{
 create_beast2_input_data(
   input_filename,
-  beauti_options = beautier::create_beauti_options(),
-  input_filenames = "deprecated"
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{
@@ -16,9 +15,6 @@ Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
-
-\item{input_filenames}{One or more FASTA filenames.
-Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
 }
 \value{
 lines of XML text

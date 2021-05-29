@@ -82,13 +82,3 @@ test_that("use, yule, v2.6", {
   expected <- "<parameter id=\"birthRate.t:test_output_0\" spec=\"parameter.RealParameter\" name=\"stateNode\">1.0</parameter>" # nolint indeed a long line
   expect_equal(created, expected)
 })
-
-test_that("Deprecation", {
-  expect_error(
-    tree_prior_to_xml_state(
-      tree_prior = "something",
-      inference_model = "irrelevant"
-    ),
-    "'tree_prior' is deprecated, use 'inference_model' instead"
-  )
-})

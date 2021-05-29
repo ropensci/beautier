@@ -17,19 +17,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_priors_to_xml_prior_distr <- function(
-  inference_model,
-  mrca_priors = "deprecated",
-  has_non_strict_clock_model = "deprecated"
+  inference_model
 ) {
-  if (mrca_priors != "deprecated") {
-    stop("'mrca_priors' is deprecated. Use 'inference_model' instead")
-  }
-  if (has_non_strict_clock_model != "deprecated") {
-    stop(
-      "'has_non_strict_clock_model' is deprecated, ",
-      "it is extracted from 'inference_model'"
-    )
-  }
   # Don't be smart yet
   mrca_priors <- list(inference_model$mrca_prior)
   testit::assert(beautier::are_mrca_priors(mrca_priors))

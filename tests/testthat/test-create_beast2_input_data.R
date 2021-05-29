@@ -65,22 +65,3 @@ test_that("alignment start with a capital", {
   )
   expect_equal(lines[2], "id=\"Anthus_aco\"")
 })
-
-test_that("deprecation", {
-
-  expect_silent(
-    create_beast2_input_data(input_filename = get_fasta_filename())
-  )
-  expect_silent(
-    create_beast2_input_data(
-      input_filename = get_fasta_filename(),
-      input_filenames = "deprecated"
-    )
-  )
-  expect_error(
-    create_beast2_input_data(
-      input_filenames = get_fasta_filename(),
-    ),
-    "'input_filenames' is deprecated. Use 'input_filename' instead"
-  )
-})
