@@ -60,7 +60,6 @@ test_that("v2.5.1", {
 
 test_that("2.6.2", {
 
-  skip("Expose #116")
   created <- create_beast2_input_from_model(
     input_filename = get_fasta_filename(),
     inference_model = create_inference_model(
@@ -70,21 +69,8 @@ test_that("2.6.2", {
       beauti_options = create_beauti_options_v2_6()
     )
   )
-  if (1 == 2) {
-    inference_model <- init_inference_model(
-      input_filename = get_fasta_filename(),
-      inference_model = inference_model
-    )
-  }
   expected <- readLines(get_beautier_path("2_6_2.xml"))
 
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
-  )
-  expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 

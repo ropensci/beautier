@@ -104,6 +104,12 @@ create_beast2_input_run <- function(
   )
 
   text <- c(text, "")
+
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    text <- c(text, "    <operatorschedule id=\"OperatorSchedule\" spec=\"OperatorSchedule\"/>") # nolint
+    text <- c(text, "")
+  }
+
   text <- c(text, "</run>")
   text
 }

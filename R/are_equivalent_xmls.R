@@ -38,7 +38,7 @@ are_equivalent_xml_lines <- function(
 ) {
   if (beautier::is_one_na(section)) {
     return(
-      are_equivalent_xml_lines_all(
+      beautier::are_equivalent_xml_lines_all(
         lines_1 = lines_1,
         lines_2 = lines_2,
         verbose = verbose
@@ -47,7 +47,7 @@ are_equivalent_xml_lines <- function(
   } else {
     testit::assert(!beautier::is_one_na(section))
     return(
-      are_equivalent_xml_lines_section(
+      beautier::are_equivalent_xml_lines_section(
         lines_1 = lines_1,
         lines_2 = lines_2,
         section = section,
@@ -70,6 +70,18 @@ are_equivalent_xml_lines_all <- function(
   lines_2,
   verbose = FALSE
 ) {
+  # Remove whitespace-only lines from both files
+  lines_1 <- stringr::str_subset(
+    string = lines_1,
+    pattern = "^[:blank:]*$",
+    negate = TRUE
+  )
+  lines_2 <- stringr::str_subset(
+    string = lines_2,
+    pattern = "^[:blank:]*$",
+    negate = TRUE
+  )
+
   if (length(lines_1) != length(lines_2)) {
     if (verbose) {
       message(
