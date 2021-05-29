@@ -4,8 +4,6 @@
 #' These lines start with '<distribution id='
 #' @inheritParams default_params_doc
 #' @return lines of XML text
-#' @param taxa_names_with_ids taxa names that already have received
-#'   an ID. Causes the XML to \code{idref} these
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">

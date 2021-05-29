@@ -15,9 +15,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{taxa_names_with_ids}{taxa names that already have received
-an ID. Causes the XML to \code{idref} these}
 }
 \value{
 lines of XML text
