@@ -18,8 +18,10 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * Removed all deprecated functions and function arguments,
-   as these warned the user in the CRAN v2.6 version
+ * Removed all deprecated functions and function arguments
+   that warn the user in the current CRAN version (v2.6)
+ * From internal function `tipdate_taxa_to_xml_tree`, 
+   deprecated the `id` and `tipdates_filename`
 
 ## beautier 2.6 (2021-05-22)
 

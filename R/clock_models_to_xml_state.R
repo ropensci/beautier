@@ -23,23 +23,18 @@ clock_models_to_xml_state <- function(
     return(NULL)
   }
 
-  text <- NULL
-
-  for (clock_model in clock_models) {
-    text <- c(text,
-      beautier::clock_model_to_xml_state(
-        clock_model = clock_model,
-        has_tip_dating = has_tip_dating
-      )
-    )
-  }
+  text <- beautier::clock_model_to_xml_state(
+    inference_model = inference_model
+  )
 
   # Remove the first line of the first clock model,
   # if no MRCA prior with a distribution is used
   if (beautier::is_rln_clock_model(clock_models[[1]]) &&
       !beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
     # A RLN clock model returns three lines, only remove the first
-    line_to_remove <- beautier::clock_model_to_xml_state(clock_models[[1]])
+    line_to_remove <- beautier::clock_model_to_xml_state(
+      inference_model = inference_model
+    )
     testit::assert(length(line_to_remove) == 3)
     text <- line_to_remove[
       stringr::str_remove_all(

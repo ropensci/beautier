@@ -25,7 +25,7 @@ create_beast2_input_state <- function(
   inference_model
 ) {
   text <- NULL
-  # The 'state' XML section
+  # The 'tree' XML section
   text <- c(
     text,
     beautier::taxa_to_xml_tree(

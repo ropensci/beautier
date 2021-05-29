@@ -119,7 +119,7 @@ tipdate_taxa_to_xml_tree <- function(
 
   c(
     first_line,
-    beautier::indent(tipdate_taxa_to_xml_trait(inference_model)),
+    beautier::indent(beautier::tipdate_taxa_to_xml_trait(inference_model)),
     beautier::indent(
       paste0(
         "<taxonset idref=\"TaxonSet.",

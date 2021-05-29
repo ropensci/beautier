@@ -6,22 +6,36 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 clock_model_to_xml_state <- function(
-  clock_model,
-  has_tip_dating = FALSE
+  inference_model,
+  clock_model = "deprecated",
+  has_tip_dating = "deprecated"
 ) {
+  testthat::expect_equal(clock_model, "deprecated")
+  testthat::expect_equal(has_tip_dating, "deprecated")
+  # Don't be smart yet
+  clock_model <- inference_model$clock_model
+  has_tip_dating <- !beautier::is_one_na(inference_model$tipdates_filename)
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
   testit::assert(beautier::is_id(clock_model$id))
 
   text <- NULL
   if (beautier::is_strict_clock_model(clock_model) || has_tip_dating == TRUE) {
-    text <- c(
-      text,
-      paste0("<parameter id=\"clockRate.c:", clock_model$id, "\" ",
-        "name=\"stateNode\">", clock_model$clock_rate_param$value,
-        "</parameter>"
-      )
+    parameter_xml <- paste0(
+      "<parameter id=\"clockRate.c:", clock_model$id, "\" "
     )
+    if (inference_model$beauti_options$beast2_version == "2.6") {
+      parameter_xml <- paste0(
+        parameter_xml,
+        "spec=\"parameter.RealParameter\" "
+      )
+    }
+    parameter_xml <- paste0(
+      parameter_xml,
+      "name=\"stateNode\">", clock_model$clock_rate_param$value,
+      "</parameter>"
+    )
+    text <- c(text, parameter_xml)
   } else {
     # Fails on unimplemented clock models
     testit::assert(beautier::is_rln_clock_model(clock_model))
