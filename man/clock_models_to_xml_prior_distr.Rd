@@ -2,12 +2,12 @@
 % Please edit documentation in R/clock_models_to_xml_prior_distr.R
 \name{clock_models_to_xml_prior_distr}
 \alias{clock_models_to_xml_prior_distr}
-\title{Represent the clock models as XML}
+\title{Deprecated function}
 \usage{
 clock_models_to_xml_prior_distr(
-  clock_models,
-  mrca_priors = NA,
-  tipdates_filename = NA
+  clock_models = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 )
 }
 \arguments{
@@ -26,7 +26,7 @@ the date.}
 a character vector of XML strings
 }
 \description{
-Represent the clock models as XML
+Interal function to represent the clock models as XML
 }
 \examples{
  # <distribution id="posterior" spec="util.CompoundDistribution">

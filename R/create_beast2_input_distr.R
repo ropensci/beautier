@@ -68,10 +68,7 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
   tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
 
   text <- NULL
   text <- c(text, beautier::tree_priors_to_xml_prior_distr(tree_priors))
@@ -83,10 +80,8 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   )
   text <- c(
     text,
-    beautier::clock_models_to_xml_prior_distr(
-      clock_models = clock_models,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+    beautier::clock_model_to_xml_prior_distr(
+      inference_mode = inference_model
     )
   )
 

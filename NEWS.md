@@ -20,8 +20,14 @@ Newest versions at top.
 
  * Removed all deprecated functions and function arguments
    that warn the user in the current CRAN version (v2.6)
- * From internal function `tipdate_taxa_to_xml_tree`, 
-   deprecated the `id` and `tipdates_filename`
+ * Internal functions `clock_model_to_xml_prior_distr`,
+   `tipdate_taxa_to_xml_tree`, `tree_priors_to_xml_operators`
+   work with `infererence_model`,
+   deprecated other arguments
+ * Deprecated internal function `clock_models_to_xml_prior_distr`,
+   redirect user to `clock_model_to_xml_prior_distr`
+ * Deprecated internal function `tree_priors_to_xml_operators`,
+   redirect user to `tree_prior_to_xml_operators`
 
 ## beautier 2.6 (2021-05-22)
 

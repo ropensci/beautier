@@ -13,10 +13,20 @@
 #'  # </distribution>
 #' @export
 clock_model_to_xml_prior_distr <- function(
-  clock_model,
-  mrca_priors = NA,
-  tipdates_filename = NA
+  inference_model,
+  clock_model = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 ) {
+  testthat::expect_equal(clock_model, "deprecated")
+  testthat::expect_equal(mrca_priors, "deprecated")
+  testthat::expect_equal(tipdates_filename, "deprecated")
+
+  # Do not be smart yet
+  clock_model <- inference_model$clock_model
+  mrca_priors <- list(inference_model$mrca_prior)
+  tipdates_filename <- inference_model$tipdates_filename
+
   testit::assert(beautier::is_clock_model(clock_model))
 
   text <- NULL
