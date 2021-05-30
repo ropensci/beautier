@@ -16,6 +16,9 @@ a numeric value.
 For advanced usage, use the structure
 as created by \code{\link{create_rate_gt_param}})}
 
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
+
 \item{which_name}{the name, can be \code{state_node} or \code{rate_name}}
 }
 \value{

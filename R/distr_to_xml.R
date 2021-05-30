@@ -48,6 +48,7 @@ distr_to_xml <- function(
 #' Internal function
 #'
 #' Converts a beta distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a beta distribution,
 #'   as created by \code{\link{create_beta_distr}})
 #' @return the distribution as XML text
@@ -81,6 +82,7 @@ distr_to_xml_beta <- function(
 #' Internal function
 #'
 #' Converts an exponential distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr an exponential distribution,
 #'   as created by \code{\link{create_exp_distr}})
 #' @return the distribution as XML text
@@ -110,6 +112,7 @@ distr_to_xml_exp <- function(
 #' Internal function
 #'
 #' Converts an inverse-gamma distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr an inverse-gamma distribution,
 #'   as created by \code{\link{create_inv_gamma_distr}})
 #' @return the distribution as XML text
@@ -144,6 +147,7 @@ distr_to_xml_inv_gamma <- function(
 #' Internal function
 #'
 #' Converts a Laplace distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a Laplace distribution
 #'   as created by \code{\link{create_laplace_distr}})
 #' @return the distribution as XML text
@@ -178,6 +182,7 @@ distr_to_xml_laplace <- function(
 #' Internal function
 #'
 #' Converts a log-normal distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a log-normal distribution,
 #'   as created by \code{\link{create_log_normal_distr}})
 #' @return the distribution as XML text
@@ -213,6 +218,7 @@ distr_to_xml_log_normal <- function(
 #' Internal function
 #'
 #' Converts a normal distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a normal distribution,
 #'   as created by \code{\link{create_normal_distr}})
 #' @return the distribution as XML text
@@ -247,6 +253,7 @@ distr_to_xml_normal <- function(
 #' Internal function
 #'
 #' Converts a 1/x distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a 1/x distribution,
 #'   as created by \code{\link{create_one_div_x_distr}})
 #' @return the distribution as XML text
@@ -270,6 +277,7 @@ distr_to_xml_one_div_x <- function(
 #' Internal function
 #'
 #' Converts a Poisson distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a Poisson distribution,
 #'   as created by \code{\link{create_poisson_distr}})
 #' @return the distribution as XML text
@@ -300,6 +308,7 @@ distr_to_xml_poisson <- function(
 #' Internal function
 #'
 #' Converts a uniform distribution to XML
+#' @inheritParams default_params_doc
 #' @param distr a uniform distribution,
 #'   as created by \code{\link{create_uniform_distr}})
 #' @return the distribution as XML text

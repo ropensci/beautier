@@ -9,6 +9,9 @@ distr_to_xml_one_div_x(distr, beauti_options = create_beauti_options())
 \arguments{
 \item{distr}{a 1/x distribution,
 as created by \code{\link{create_one_div_x_distr}})}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the distribution as XML text

@@ -9,6 +9,9 @@ distr_to_xml_beta(distr, beauti_options = create_beauti_options())
 \arguments{
 \item{distr}{a beta distribution,
 as created by \code{\link{create_beta_distr}})}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the distribution as XML text

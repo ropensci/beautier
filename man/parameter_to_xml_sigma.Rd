@@ -11,6 +11,9 @@ parameter_to_xml_sigma(parameter, beauti_options = create_beauti_options())
 a numeric value.
 For advanced usage, use the structure
 as created by \code{\link{create_sigma_param}})}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the parameter as XML text

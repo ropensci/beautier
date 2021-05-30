@@ -26,7 +26,7 @@ the date.}
 a character vector of XML strings
 }
 \description{
-Interal function to represent the clock models as XML
+Internal function to represent the clock models as XML
 }
 \examples{
  # <distribution id="posterior" spec="util.CompoundDistribution">

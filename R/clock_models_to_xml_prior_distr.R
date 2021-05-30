@@ -1,6 +1,6 @@
 #' Deprecated function
 #'
-#' Interal function to represent the clock models as XML
+#' Internal function to represent the clock models as XML
 #' @examples
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
