@@ -2,9 +2,9 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_beta}
 \alias{distr_to_xml_beta}
-\title{Converts a beta distribution to XML}
+\title{Internal function}
 \usage{
-distr_to_xml_beta(distr)
+distr_to_xml_beta(distr, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{distr}{a beta distribution,

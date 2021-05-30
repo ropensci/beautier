@@ -1,5 +1,7 @@
-#' Converts a clock model to the \code{prior} section of the
-#' XML as text
+#' Internal function
+#'
+#' Internal function to converts a clock model
+#' to the \code{prior} section of the XML as text
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
@@ -31,29 +33,7 @@ clock_model_to_xml_prior_distr <- function(
 
   text <- NULL
   if (beautier::is_rln_clock_model(clock_model)) {
-
-    if (
-      beautier::is_mrca_prior_with_distr(mrca_priors[[1]])
-    ) {
-      text <- c(
-        text,
-        beautier::rln_clock_model_to_xml_mean_rate_prior(clock_model)
-      )
-    }
-
-    id <- clock_model$id
-    testit::assert(beautier::is_id(id))
-    text <- c(text, paste0("<prior ",
-      "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
-      "x=\"@ucldStdev.c:", id, "\">"))
-    text <- c(text,
-      beautier::indent(
-        beautier::distr_to_xml(
-          distr = clock_model$ucldstdev_distr
-        )
-      )
-    )
-    text <- c(text, paste0("</prior>"))
+    return(beautier::rln_clock_model_to_xml_prior_distr(inference_model))
   } else {
     # Fails for unimplemented clock models
     testit::assert(beautier::is_strict_clock_model(clock_model))

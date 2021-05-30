@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Converts a parameter to XML
 #' @param parameter a parameter,
 #'   as created by \code{\link{create_param}})
@@ -9,103 +11,56 @@
 #' @export
 parameter_to_xml <- function( # nolint simplifying further hurts readability
   parameter,
-  beauti_options = create_beauti_options_v2_4()
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   beautier::check_param(parameter)
   testit::assert(beautier::is_id(parameter$id))
   if (beautier::is_alpha_param(parameter)) {
-    return(beautier::parameter_to_xml_alpha(parameter))
+    return(beautier::alpha_parameter_to_xml(alpha_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_beta_param(parameter)) {
-    return(beautier::parameter_to_xml_beta(parameter))
+    return(beautier::beta_parameter_to_xml(beta_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_clock_rate_param(parameter)) {
     return(beautier::parameter_to_xml_clock_rate(
       parameter = parameter,
       beauti_options = beauti_options
     ))
   } else if (beautier::is_kappa_1_param(parameter)) {
-    return(beautier::parameter_to_xml_kappa_1(parameter))
+    return(beautier::parameter_to_xml_kappa_1(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_kappa_2_param(parameter)) {
-    return(beautier::parameter_to_xml_kappa_2(parameter))
+    return(beautier::parameter_to_xml_kappa_2(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_lambda_param(parameter)) {
-    return(beautier::parameter_to_xml_lambda(parameter))
+    return(beautier::parameter_to_xml_lambda(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_m_param(parameter)) {
-    return(beautier::parameter_to_xml_m(parameter))
+    return(beautier::parameter_to_xml_m(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_mean_param(parameter)) {
-    return(beautier::parameter_to_xml_mean(parameter))
+    return(beautier::parameter_to_xml_mean(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_mu_param(parameter)) {
-    return(beautier::parameter_to_xml_mu(parameter))
+    return(beautier::parameter_to_xml_mu(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_rate_ac_param(parameter)) {
-    return(beautier::parameter_to_xml_rate_ac(parameter))
+    return(beautier::parameter_to_xml_rate_ac(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_rate_ag_param(parameter)) {
-    return(beautier::parameter_to_xml_rate_ag(parameter))
+    return(beautier::parameter_to_xml_rate_ag(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_rate_at_param(parameter)) {
-    return(beautier::parameter_to_xml_rate_at(parameter))
+    return(beautier::parameter_to_xml_rate_at(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_rate_cg_param(parameter)) {
-    return(beautier::parameter_to_xml_rate_cg(parameter))
+    return(beautier::parameter_to_xml_rate_cg(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_rate_ct_param(parameter)) {
-    return(beautier::parameter_to_xml_rate_ct(parameter))
+    return(beautier::parameter_to_xml_rate_ct(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_rate_gt_param(parameter)) {
-    return(beautier::parameter_to_xml_rate_gt(parameter))
+    return(beautier::parameter_to_xml_rate_gt(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_s_param(parameter)) {
-    return(beautier::parameter_to_xml_s(parameter))
+    return(beautier::parameter_to_xml_s(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_scale_param(parameter)) {
-    return(beautier::parameter_to_xml_scale(parameter))
+    return(beautier::parameter_to_xml_scale(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   }
   # This assert will also fail for new parameter types
-  testit::assert(beautier::is_sigma_param(parameter))
-  beautier::parameter_to_xml_sigma(parameter)
+  testthat::expect_true(beautier::is_sigma_param(parameter))
+  beautier::parameter_to_xml_sigma(parameter, beauti_options = beauti_options)
 }
 
-#' Converts an alpha parameter to XML
-#' @param parameter an alpha parameter,
-#'   a numeric value.
-#'   For advanced usage, use the structure
-#'   as created by \code{\link{create_alpha_param}})
-#' @return the parameter as XML text
-#' @author Richèl J.C. Bilderbeek
-#' @export
-parameter_to_xml_alpha <- function(
-  parameter
-) {
-  testit::assert(beautier::is_alpha_param(parameter))
-  id <- parameter$id
-  testit::assert(beautier::is_id(id))
-  testit::assert(parameter$estimate == FALSE)
-  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  paste0(
-    "<parameter ",
-    "id=\"RealParameter.", id, "\" ",
-    "estimate=\"", estimate, "\" ",
-    "name=\"alpha\">", parameter$value,
-    "</parameter>"
-  )
-}
-
-#' Converts a beta parameter to XML
-#' @param parameter a beta parameter,
-#'   a numeric value.
-#'   For advanced usage, use the structure
-#'   as created by \code{\link{create_beta_param}})
-#' @return the parameter as XML text
-#' @author Richèl J.C. Bilderbeek
-#' @export
-parameter_to_xml_beta <- function(
-  parameter
-) {
-  testit::assert(beautier::is_beta_param(parameter))
-  id <- parameter$id
-  testit::assert(beautier::is_id(id))
-  testit::assert(parameter$estimate == FALSE)
-  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  paste0(
-    "<parameter ",
-    "id=\"RealParameter.", id, "\" ",
-    "estimate=\"", estimate, "\" ",
-    "name=\"beta\">", parameter$value,
-    "</parameter>"
-  )
-}
-
+#' Internal function
+#'
 #' Converts a \code{clockRate} parameter to XML
 #' @param parameter a \code{clockRate} parameter,
 #'   a numeric value.
@@ -117,8 +72,9 @@ parameter_to_xml_beta <- function(
 #' @export
 parameter_to_xml_clock_rate <- function(
   parameter,
-  beauti_options = create_beauti_options_v2_4()
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_clock_rate_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -142,6 +98,8 @@ parameter_to_xml_clock_rate <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a kappa 1 parameter to XML
 #' @param parameter a kappa 1 parameter,
 #'   a numeric value.
@@ -151,8 +109,10 @@ parameter_to_xml_clock_rate <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_kappa_1 <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_kappa_1_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -162,6 +122,8 @@ parameter_to_xml_kappa_1 <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a kappa 2 parameter to XML
 #' @param parameter a kappa 2 parameter,
 #'   a numeric value.
@@ -171,8 +133,10 @@ parameter_to_xml_kappa_1 <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_kappa_2 <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_kappa_2_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -184,6 +148,8 @@ parameter_to_xml_kappa_2 <- function(
 
 
 
+#' Internal function
+#'
 #' Converts a lambda parameter to XML
 #' @param parameter a lambda parameter,
 #'   a numeric value.
@@ -193,8 +159,10 @@ parameter_to_xml_kappa_2 <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_lambda <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_lambda_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -206,6 +174,8 @@ parameter_to_xml_lambda <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a m parameter to XML
 #' @param parameter a m parameter,
 #'   a numeric value.
@@ -215,8 +185,10 @@ parameter_to_xml_lambda <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_m <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_m_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -231,6 +203,8 @@ parameter_to_xml_m <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a mean parameter to XML
 #' @param parameter a mean parameter,
 #'   a numeric value.
@@ -240,8 +214,10 @@ parameter_to_xml_m <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_mean <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_mean_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -256,6 +232,8 @@ parameter_to_xml_mean <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a mu parameter to XML
 #' @param parameter a mu parameter,
 #'   a numeric value.
@@ -265,8 +243,10 @@ parameter_to_xml_mean <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_mu <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_mu_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -281,6 +261,8 @@ parameter_to_xml_mu <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a 'rate AC' parameter to XML
 #' @param parameter a 'rate AC' parameter,
 #'   a numeric value.
@@ -292,8 +274,10 @@ parameter_to_xml_mu <- function(
 #' @export
 parameter_to_xml_rate_ac <- function(
   parameter,
+  beauti_options = create_beauti_options(),
   which_name = "state_node"
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_ac_param(parameter))
   id <- parameter$id
@@ -314,6 +298,8 @@ parameter_to_xml_rate_ac <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a 'rate AG' parameter to XML
 #' @param parameter a 'rate AG' parameter,
 #'   a numeric value.
@@ -325,8 +311,10 @@ parameter_to_xml_rate_ac <- function(
 #' @export
 parameter_to_xml_rate_ag <- function(
   parameter,
+  beauti_options = create_beauti_options(),
   which_name = "state_node"
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_ag_param(parameter))
   id <- parameter$id
@@ -347,6 +335,8 @@ parameter_to_xml_rate_ag <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a 'rate AT' parameter to XML
 #' @param parameter a 'rate AT' parameter,
 #'   a numeric value.
@@ -358,8 +348,10 @@ parameter_to_xml_rate_ag <- function(
 #' @export
 parameter_to_xml_rate_at <- function(
   parameter,
+  beauti_options = create_beauti_options(),
   which_name = "state_node"
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_at_param(parameter))
   id <- parameter$id
@@ -380,6 +372,8 @@ parameter_to_xml_rate_at <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a 'rate CG' parameter to XML
 #' @param parameter a 'rate CG' parameter,
 #'   a numeric value.
@@ -391,8 +385,10 @@ parameter_to_xml_rate_at <- function(
 #' @export
 parameter_to_xml_rate_cg <- function(
   parameter,
+  beauti_options = create_beauti_options(),
   which_name = "state_node"
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_cg_param(parameter))
   id <- parameter$id
@@ -413,6 +409,8 @@ parameter_to_xml_rate_cg <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a 'rate CT' parameter to XML
 #' @param parameter a 'rate CT' parameter,
 #'   a numeric value.
@@ -424,8 +422,10 @@ parameter_to_xml_rate_cg <- function(
 #' @export
 parameter_to_xml_rate_ct <- function(
   parameter,
+  beauti_options = create_beauti_options(),
   which_name = "state_node"
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_ct_param(parameter))
   id <- parameter$id
@@ -446,6 +446,8 @@ parameter_to_xml_rate_ct <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a 'rate GT' parameter to XML
 #' @param parameter a 'rate GT' parameter,
 #'   a numeric value.
@@ -457,8 +459,10 @@ parameter_to_xml_rate_ct <- function(
 #' @export
 parameter_to_xml_rate_gt <- function(
   parameter,
+  beauti_options = create_beauti_options(),
   which_name = "state_node"
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(which_name %in% c("state_node", "rate_name"))
   testit::assert(beautier::is_rate_gt_param(parameter))
   id <- parameter$id
@@ -479,6 +483,8 @@ parameter_to_xml_rate_gt <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a s parameter to XML
 #' @param parameter a s parameter,
 #'   a numeric value.
@@ -488,8 +494,10 @@ parameter_to_xml_rate_gt <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_s <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_s_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -518,6 +526,8 @@ parameter_to_xml_s <- function(
   text
 }
 
+#' Internal function
+#'
 #' Converts a scale parameter to XML
 #' @param parameter a scale parameter,
 #'   a numeric value.
@@ -527,8 +537,10 @@ parameter_to_xml_s <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_scale <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_scale_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))
@@ -543,6 +555,8 @@ parameter_to_xml_scale <- function(
   )
 }
 
+#' Internal function
+#'
 #' Converts a sigma parameter to XML
 #' @param parameter a sigma parameter,
 #'   a numeric value.
@@ -552,8 +566,10 @@ parameter_to_xml_scale <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 parameter_to_xml_sigma <- function(
-  parameter
+  parameter,
+  beauti_options = create_beauti_options()
 ) {
+  beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_sigma_param(parameter))
   id <- parameter$id
   testit::assert(beautier::is_id(id))

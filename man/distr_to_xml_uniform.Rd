@@ -2,9 +2,9 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_uniform}
 \alias{distr_to_xml_uniform}
-\title{Converts a uniform distribution to XML}
+\title{Internal function}
 \usage{
-distr_to_xml_uniform(distr)
+distr_to_xml_uniform(distr, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{distr}{a uniform distribution,

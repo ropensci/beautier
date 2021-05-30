@@ -2,11 +2,11 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml_clock_rate}
 \alias{parameter_to_xml_clock_rate}
-\title{Converts a \code{clockRate} parameter to XML}
+\title{Internal function}
 \usage{
 parameter_to_xml_clock_rate(
   parameter,
-  beauti_options = create_beauti_options_v2_4()
+  beauti_options = create_beauti_options()
 )
 }
 \arguments{

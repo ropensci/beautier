@@ -8,10 +8,12 @@ It is intended to inherit function argument documentation.}
 \usage{
 default_params_doc(
   alignment_id,
+  alpha_parameter,
   bd_tree_prior,
   cbs_tree_prior,
   beast2_version,
   beauti_options,
+  beta_parameter,
   ccp_tree_prior,
   cep_tree_prior,
   chain_length,
@@ -27,6 +29,7 @@ default_params_doc(
   fasta_filenames,
   fixed_crown_age,
   fixed_crown_ages,
+  gamma_distr,
   gamma_site_model,
   group_sizes_dimension,
   gtr_site_model,
@@ -85,6 +88,9 @@ default_params_doc(
 as returned by \link{get_alignment_id}.
 Keep at \code{NA} to have it initialized automatically}
 
+\item{alpha_parameter}{an alpha parameter,
+as created by \link{create_alpha_param}}
+
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
 by \code{\link{create_bd_tree_prior}}}
 
@@ -95,6 +101,9 @@ as returned by \code{\link{create_cbs_tree_prior}}}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
+
+\item{beta_parameter}{a beta parameter,
+as created by \link{create_beta_param}}
 
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
 as returned by \code{\link{create_ccp_tree_prior}}}
@@ -145,6 +154,9 @@ phylogenies' crown ages are fixed.
 If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
+
+\item{gamma_distr}{a gamma distribution,
+as created by \code{\link{create_gamma_distr}})}
 
 \item{gamma_site_model}{a site model's gamma site model,
 as returned by \code{\link{create_gamma_site_model}}}

@@ -2,9 +2,9 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml_sigma}
 \alias{parameter_to_xml_sigma}
-\title{Converts a sigma parameter to XML}
+\title{Internal function}
 \usage{
-parameter_to_xml_sigma(parameter)
+parameter_to_xml_sigma(parameter, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{parameter}{a sigma parameter,

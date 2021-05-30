@@ -2,9 +2,9 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_laplace}
 \alias{distr_to_xml_laplace}
-\title{Converts a Laplace distribution to XML}
+\title{Internal function}
 \usage{
-distr_to_xml_laplace(distr)
+distr_to_xml_laplace(distr, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{distr}{a Laplace distribution

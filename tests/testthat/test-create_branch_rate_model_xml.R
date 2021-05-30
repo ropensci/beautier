@@ -7,10 +7,11 @@ test_that("strict, v2.4", {
       beauti_options = create_beauti_options_v2_4()
     )
   )
-  expected <- c(
-    "<branchRateModel id=\"StrictClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint XML
-    "    <parameter id=\"clockRate.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
-    "</branchRateModel>"
+  expected <- unindent(
+    extract_xml_section_from_lines(
+      lines = readr::read_lines(get_beautier_path("2_4.xml")),
+      section = "branchRateModel"
+    )
   )
   created <- create_branch_rate_model_xml(
     inference_model = inference_model
@@ -26,10 +27,13 @@ test_that("strict, v2.6", {
       beauti_options = create_beauti_options_v2_6()
     )
   )
-  expected <- c(
-    "<branchRateModel id=\"StrictClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">", # nolint XML
-    "    <parameter id=\"clockRate.c:test_output_0\" spec=\"parameter.RealParameter\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
-    "</branchRateModel>"
+  expected <- remove_empty_lines(
+    unindent(
+      extract_xml_section_from_lines(
+        lines = readr::read_lines(get_beautier_path("2_6_2.xml")),
+        section = "branchRateModel"
+      )
+    )
   )
   created <- create_branch_rate_model_xml(
     inference_model = inference_model
@@ -37,37 +41,55 @@ test_that("strict, v2.6", {
   expect_equal(created, expected)
 })
 
-
-test_that("RLN", {
-
-
-  expected <- c(
-    "<branchRateModel id=\"RelaxedClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:test_output_0\" tree=\"@Tree.t:test_output_0\">", # nolint XML
-    "    <LogNormal id=\"LogNormalDistributionModel.c:test_output_0\" S=\"@ucldStdev.c:test_output_0\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
-    "        <parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
-    "    </LogNormal>",
-    "    <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
-    "</branchRateModel>"
+test_that("RLN, v2.4", {
+  # Tested in detail by test-create_branch_rate_model_rln_xml.R
+  inference_model <- create_test_inference_model(
+    clock_model = create_rln_clock_model(
+      ucldstdev_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 2, value = "0.5396"),
+        beta = create_beta_param(id = 3, value = "0.3819")
+      ),
+      mean_rate_prior_distr = create_uniform_distr(id = 1),
+      mparam_id = 1
+    ),
+    beauti_options = create_beauti_options_v2_4()
   )
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
-    inference_model = create_test_inference_model(
-      clock_model = create_rln_clock_model(
-        ucldstdev_distr = create_gamma_distr(
-          id = 0,
-          alpha = create_alpha_param(id = 2, value = "0.5396"),
-          beta = create_beta_param(id = 3, value = "0.3819")
-        ),
-        mean_rate_prior_distr = create_uniform_distr(id = 1),
-        mparam_id = 1
-      ),
-      beauti_options = create_beauti_options_v2_4()
-    )
-  )
-  created <- create_branch_rate_model_xml(
     inference_model = inference_model
   )
-  expect_equal(created, expected)
+  expect_silent(
+    create_branch_rate_model_xml(
+      inference_model = inference_model
+    )
+  )
+})
+
+
+test_that("RLN, v2.6", {
+  # Tested in detail by test-create_branch_rate_model_rln_xml.R
+  inference_model <- create_test_inference_model(
+    clock_model = create_rln_clock_model(
+      ucldstdev_distr = create_gamma_distr(
+        id = 0,
+        alpha = create_alpha_param(id = 2, value = "0.5396"),
+        beta = create_beta_param(id = 3, value = "0.3819")
+      ),
+      mean_rate_prior_distr = create_uniform_distr(id = 1),
+      mparam_id = 1
+    ),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = inference_model
+  )
+  expect_silent(
+    create_branch_rate_model_xml(
+      inference_model = inference_model
+    )
+  )
 })
 
 test_that("RLN -1 rates", {

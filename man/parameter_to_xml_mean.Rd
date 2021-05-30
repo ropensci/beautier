@@ -2,9 +2,9 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml_mean}
 \alias{parameter_to_xml_mean}
-\title{Converts a mean parameter to XML}
+\title{Internal function}
 \usage{
-parameter_to_xml_mean(parameter)
+parameter_to_xml_mean(parameter, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{parameter}{a mean parameter,

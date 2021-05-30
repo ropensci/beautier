@@ -2,9 +2,9 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml_kappa_2}
 \alias{parameter_to_xml_kappa_2}
-\title{Converts a kappa 2 parameter to XML}
+\title{Internal function}
 \usage{
-parameter_to_xml_kappa_2(parameter)
+parameter_to_xml_kappa_2(parameter, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{parameter}{a kappa 2 parameter,

@@ -2,9 +2,9 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml}
 \alias{parameter_to_xml}
-\title{Converts a parameter to XML}
+\title{Internal function}
 \usage{
-parameter_to_xml(parameter, beauti_options = create_beauti_options_v2_4())
+parameter_to_xml(parameter, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{parameter}{a parameter,

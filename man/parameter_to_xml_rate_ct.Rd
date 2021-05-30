@@ -2,9 +2,13 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml_rate_ct}
 \alias{parameter_to_xml_rate_ct}
-\title{Converts a 'rate CT' parameter to XML}
+\title{Internal function}
 \usage{
-parameter_to_xml_rate_ct(parameter, which_name = "state_node")
+parameter_to_xml_rate_ct(
+  parameter,
+  beauti_options = create_beauti_options(),
+  which_name = "state_node"
+)
 }
 \arguments{
 \item{parameter}{a 'rate CT' parameter,

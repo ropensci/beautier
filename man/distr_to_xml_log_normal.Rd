@@ -2,9 +2,9 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_log_normal}
 \alias{distr_to_xml_log_normal}
-\title{Converts a log-normal distribution to XML}
+\title{Internal function}
 \usage{
-distr_to_xml_log_normal(distr)
+distr_to_xml_log_normal(distr, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{distr}{a log-normal distribution,

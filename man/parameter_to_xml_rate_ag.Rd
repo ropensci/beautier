@@ -2,9 +2,13 @@
 % Please edit documentation in R/parameter_to_xml.R
 \name{parameter_to_xml_rate_ag}
 \alias{parameter_to_xml_rate_ag}
-\title{Converts a 'rate AG' parameter to XML}
+\title{Internal function}
 \usage{
-parameter_to_xml_rate_ag(parameter, which_name = "state_node")
+parameter_to_xml_rate_ag(
+  parameter,
+  beauti_options = create_beauti_options(),
+  which_name = "state_node"
+)
 }
 \arguments{
 \item{parameter}{a 'rate AG' parameter,

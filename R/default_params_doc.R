@@ -4,11 +4,15 @@
 #' @param alignment_id ID of the alignment,
 #'   as returned by \link{get_alignment_id}.
 #'   Keep at \code{NA} to have it initialized automatically
+#' @param alpha_parameter an alpha parameter,
+#' as created by \link{create_alpha_param}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #'   by \code{\link{create_bd_tree_prior}}
 #' @param beast2_version BEAST2 version, for example, code{"2.5"}
 #' @param beauti_options one BEAUti options object,
 #'   as returned by \code{\link{create_beauti_options}}
+#' @param beta_parameter a beta parameter,
+#' as created by \link{create_beta_param}
 #' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
 #'   Keep at \code{NA} to have it initialized automatically
 #' @param cbs_tree_prior a Coalescent Bayesian Skyline tree prior,
@@ -46,6 +50,8 @@
 #'   If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
+#' @param gamma_distr a gamma distribution,
+#'   as created by \code{\link{create_gamma_distr}})
 #' @param gamma_site_model a site model's gamma site model,
 #'   as returned by \code{\link{create_gamma_site_model}}
 #' @param group_sizes_dimension the group sizes' dimension,
@@ -182,10 +188,12 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   alignment_id,
+  alpha_parameter,
   bd_tree_prior,
   cbs_tree_prior,
   beast2_version,
   beauti_options,
+  beta_parameter,
   ccp_tree_prior,
   cep_tree_prior,
   chain_length,
@@ -199,6 +207,7 @@ default_params_doc <- function(
   fasta_filename, fasta_filenames,
   fixed_crown_age,
   fixed_crown_ages,
+  gamma_distr,
   gamma_site_model,
   group_sizes_dimension,
   gtr_site_model,

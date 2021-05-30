@@ -2,9 +2,9 @@
 % Please edit documentation in R/distr_to_xml.R
 \name{distr_to_xml_exp}
 \alias{distr_to_xml_exp}
-\title{Converts an exponential distribution to XML}
+\title{Internal function}
 \usage{
-distr_to_xml_exp(distr)
+distr_to_xml_exp(distr, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{distr}{an exponential distribution,
