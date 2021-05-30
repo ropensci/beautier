@@ -1,3 +1,13 @@
+test_that("no text", {
+  text <- c()
+  expect_equal(unindent(text), c())
+})
+
+test_that("no text", {
+  text <- c("")
+  expect_equal(unindent(text), "")
+})
+
 test_that("unindented, 1 line", {
   text <- c("x")
   expect_equal(unindent(text), "x")
@@ -27,3 +37,4 @@ test_that("indented, 3 line", {
   expect_equal(unindent(text)[2], "  stuff")
   expect_equal(unindent(text)[3], "</tag>")
 })
+

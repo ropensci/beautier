@@ -6,6 +6,9 @@
 \usage{
 unindent(text)
 }
+\arguments{
+\item{text}{one or more lines of text}
+}
 \value{
 unindented lines of text
 }
