@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Creates the XML of a tree prior,
 #'   as used in the \code{operators} section
 #' @inheritParams default_params_doc
@@ -8,6 +10,7 @@ tree_prior_to_xml_operators <- function(
   tree_prior,
   fixed_crown_age = FALSE
 ) {
+  testthat::expect_false(fixed_crown_age)
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
   testit::assert(beautier::is_id(id))
@@ -46,7 +49,7 @@ tree_prior_to_xml_operators <- function(
       "weight=\"3.0\" windowSize=\"1.0\"/>")) # nolint this is no absolute path
   } else {
     # Will fail on unimplemented tree priors
-    testit::assert(beautier::is_yule_tree_prior(tree_prior))
+    testthat::expect_true(beautier::is_yule_tree_prior(tree_prior))
 
     text <- c(text,
       paste0(

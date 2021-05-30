@@ -1416,7 +1416,7 @@ test_that("No tip dating yet", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-test_that("Tip dating", {
+test_that("Tip dating, v2.5", {
 
   created <- create_beast2_input(
     input_filename = get_beautier_path("G_VII_pre2003_msa.fas"),
@@ -1433,6 +1433,39 @@ test_that("Tip dating", {
   )
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
+})
+
+test_that("Tip dating, v2.6", {
+
+  skip("WIP Tipdating")
+  inference_model <- create_inference_model(
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  inference_model <- init_inference_model(
+    input_filename = get_beautier_path("test_output_0.fas"),
+    inference_model = inference_model
+  )
+
+  created <- create_beast2_input_from_model(
+    input_filename = get_beautier_path("test_output_0.fas"),
+    inference_model = inference_model
+  )
+  expected <- readLines(get_beautier_path("tipdates_2_6.xml"))
+
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
+  expect_true(are_equivalent_xml_lines(created, expected))
+
+  expect_true(are_equivalent_xml_lines(created, expected))
+
 })
 
 test_that("Tip dating with RLN", {
