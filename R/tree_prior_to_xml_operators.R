@@ -7,9 +7,17 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tree_prior_to_xml_operators <- function(
-  tree_prior,
-  fixed_crown_age = FALSE
+  inference_model,
+  tree_prior = "deprecated",
+  fixed_crown_age = "deprecated"
 ) {
+  testthat::expect_equal(tree_prior, "deprecated")
+  testthat::expect_equal(fixed_crown_age, "deprecated")
+
+  # Don't be smart yet
+  tree_prior <- inference_model$tree_prior
+  fixed_crown_age <- FALSE
+
   testthat::expect_false(fixed_crown_age)
   testit::assert(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
@@ -50,14 +58,37 @@ tree_prior_to_xml_operators <- function(
   } else {
     # Will fail on unimplemented tree priors
     testthat::expect_true(beautier::is_yule_tree_prior(tree_prior))
-
-    text <- c(text,
-      paste0(
-        "<operator id=\"YuleBirthRateScaler.t:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@birthRate.t:", id, "\" ",
-        "scaleFactor=\"0.75\" weight=\"3.0\"/>" # nolint this is no absolute path
-      )
+    yule_birth_rate_scaler_xml <- paste0(
+      "<operator id=\"YuleBirthRateScaler.t:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@birthRate.t:", id, "\" "
     )
+    # Add scale factor if:
+    # * version != 2.6
+    # * version == 2.6 && tipdates
+    # * version == 2.6 && RLN
+    add_scale_factor <- TRUE
+
+    if (inference_model$beauti_options$beast2_version == "2.6" &&
+      !is.na(inference_model$tipdates_filename)
+    ) {
+      add_scale_factor <- FALSE
+    }
+    if (inference_model$beauti_options$beast2_version == "2.6" &&
+      inference_model$clock_model$name == "rln"
+    ) {
+      add_scale_factor <- FALSE
+    }
+    if (add_scale_factor) {
+      yule_birth_rate_scaler_xml <- paste0(
+        yule_birth_rate_scaler_xml, "scaleFactor=\"0.75\" "
+      )
+    }
+
+    yule_birth_rate_scaler_xml <- paste0(
+      yule_birth_rate_scaler_xml,
+      "weight=\"3.0\"/>"
+    )
+    text <- c(text, yule_birth_rate_scaler_xml)
   }
 
   if (fixed_crown_age == FALSE) {

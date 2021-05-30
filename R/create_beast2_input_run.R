@@ -41,13 +41,6 @@ create_beast2_input_run <- function(
 ) {
   testthat::expect_equal(length(input_filename), 1)
 
-  # Do not be smart yet
-  site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
-  tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
-
   # Create the '<run...' starting tag
   text <- beautier::mcmc_to_xml_run(inference_model$mcmc)
   if (inference_model$beauti_options$beast2_version == "2.6") {
@@ -84,12 +77,7 @@ create_beast2_input_run <- function(
   text <- c(
     text,
     beautier::create_beast2_input_operators(
-      site_models = site_models,
-      clock_models = clock_models,
-      tree_priors = tree_priors,
-      fixed_crown_ages = FALSE,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+      inference_model = inference_model
     )
   )
 

@@ -4,13 +4,29 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_operators <- function(
-  site_models,
-  clock_models,
-  tree_priors,
-  fixed_crown_ages = rep(FALSE, length(site_models)),
-  mrca_priors = NA,
-  tipdates_filename = NA
+  inference_model,
+  site_models = "deprecated",
+  clock_models = "deprecated",
+  tree_priors = "deprecated",
+  fixed_crown_ages = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 ) {
+  testthat::expect_equal(site_models, "deprecated")
+  testthat::expect_equal(clock_models, "deprecated")
+  testthat::expect_equal(tree_priors, "deprecated")
+  testthat::expect_equal(fixed_crown_ages, "deprecated")
+  testthat::expect_equal(mrca_priors, "deprecated")
+  testthat::expect_equal(tipdates_filename, "deprecated")
+
+  # Do not be smart yet
+  site_models <- list(inference_model$site_model)
+  clock_models <- list(inference_model$clock_model)
+  tree_priors <- list(inference_model$tree_prior)
+  mrca_priors <- list(inference_model$mrca_prior)
+  tipdates_filename <- inference_model$tipdates_filename
+  fixed_crown_ages <- FALSE
+
   testit::assert(beautier::is_one_bool(fixed_crown_ages))
   testit::assert(beautier::are_site_models(site_models))
   testit::assert(beautier::are_clock_models(clock_models))
@@ -23,9 +39,8 @@ create_beast2_input_operators <- function(
 
   text <- c(
     text,
-    beautier::tree_priors_to_xml_operators(
-      tree_priors = tree_priors,
-      fixed_crown_ages = fixed_crown_ages
+    beautier::tree_prior_to_xml_operators(
+      inference_model = inference_model
     )
   )
 

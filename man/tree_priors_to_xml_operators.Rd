@@ -2,12 +2,11 @@
 % Please edit documentation in R/tree_priors_to_xml_operators.R
 \name{tree_priors_to_xml_operators}
 \alias{tree_priors_to_xml_operators}
-\title{Creates the XML of a list of one or more tree priors,
-  as used in the \code{operators} section}
+\title{Deprecated}
 \usage{
 tree_priors_to_xml_operators(
-  tree_priors,
-  fixed_crown_ages = rep(FALSE, times = length(tree_priors))
+  tree_priors = "deprecated",
+  fixed_crown_ages = "deprecated"
 )
 }
 \arguments{

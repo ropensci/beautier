@@ -59,7 +59,6 @@ test_that("v2.5.1", {
 })
 
 test_that("2.6.2", {
-
   created <- create_beast2_input_from_model(
     input_filename = get_fasta_filename(),
     inference_model = create_inference_model(
@@ -70,7 +69,6 @@ test_that("2.6.2", {
     )
   )
   expected <- readLines(get_beautier_path("2_6_2.xml"))
-
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -1470,7 +1468,7 @@ test_that("Tip dating, v2.6", {
 
 test_that("Tip dating with RLN", {
 
-  skip("Issue #116")
+  skip("Issue #116. RLN + tipdating")
   # Prerequisite for https://github.com/ropensci/babette/issues/90
   created <- create_beast2_input(
     input_filename = get_beautier_path("Felinecoronavirus_Envelope_1.fas"),
