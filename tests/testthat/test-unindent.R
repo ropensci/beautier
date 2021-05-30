@@ -37,4 +37,3 @@ test_that("indented, 3 line", {
   expect_equal(unindent(text)[2], "  stuff")
   expect_equal(unindent(text)[3], "</tag>")
 })
-
