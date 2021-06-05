@@ -56,7 +56,6 @@ test_that("rln_2_6.xml", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-
 test_that("rln_uclstdev_beta_2_4.xml", {
 
   created <- create_beast2_input(

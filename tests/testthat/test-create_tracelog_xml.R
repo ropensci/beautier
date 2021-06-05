@@ -20,7 +20,7 @@ test_that("minimal use", {
   )
 })
 
-test_that("detailed use, ?v2.4", {
+test_that("detailed use, v2.4", {
 
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
@@ -31,16 +31,11 @@ test_that("detailed use, ?v2.4", {
     input_filename = input_filename,
     inference_model = inference_model
   )
-  expected <- c(
-    "<logger id=\"tracelog\" fileName=\"test_output_0.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint
-    "    <log idref=\"posterior\"/>", # nolint this is no absolute path
-    "    <log idref=\"likelihood\"/>", # nolint this is no absolute path
-    "    <log idref=\"prior\"/>", # nolint this is no absolute path
-    "    <log idref=\"treeLikelihood.test_output_0\"/>", # nolint this is no absolute path
-    "    <log id=\"TreeHeight.t:test_output_0\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:test_output_0\"/>",  # nolint this is no absolute path
-    "    <log idref=\"YuleModel.t:test_output_0\"/>", # nolint this is no absolute path
-    "    <log idref=\"birthRate.t:test_output_0\"/>", # nolint this is no absolute path
-    "</logger>"
+  expected <- unindent(
+      extract_xml_section_from_lines(
+      readr::read_lines(get_beautier_path("2_4.xml")),
+      section = "logger"
+    )[1:9]
   )
   expect_equal(created, expected)
 })
@@ -58,20 +53,42 @@ test_that("detailed use, v2.6", {
     input_filename = input_filename,
     inference_model = inference_model
   )
-  # Taken from 2_6_2.xml
-  expected <- c(
-    "<logger id=\"tracelog\" spec=\"Logger\" fileName=\"test_output_0.log\" logEvery=\"1000\" model=\"@posterior\" sanitiseHeaders=\"true\" sort=\"smart\">", # nolint
-    "    <log idref=\"posterior\"/>", # nolint
-    "    <log idref=\"likelihood\"/>", # nolint
-    "    <log idref=\"prior\"/>", # nolint
-    "    <log idref=\"treeLikelihood.test_output_0\"/>", # nolint
-    "    <log id=\"TreeHeight.t:test_output_0\" spec=\"beast.evolution.tree.TreeHeightLogger\" tree=\"@Tree.t:test_output_0\"/>", # nolint
-    "    <log idref=\"YuleModel.t:test_output_0\"/>", # nolint
-    "    <log idref=\"birthRate.t:test_output_0\"/>", # nolint
-    "</logger>" # nolint
+  expected <- unindent(
+    remove_empty_lines(
+      extract_xml_section_from_lines(
+        readr::read_lines(get_beautier_path("2_6_2.xml")),
+        section = "logger"
+      )
+    )[1:9]
   )
   expect_equal(created, expected)
 })
+
+test_that("detailed use, v2.6, RLN", {
+  input_filename <- get_fasta_filename()
+  inference_model <- init_inference_model(
+    input_filename = input_filename,
+    create_inference_model(
+      clock_model = create_rln_clock_model(),
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  created <- create_tracelog_xml(
+    input_filename = input_filename,
+    inference_model = inference_model
+  )
+  expected <- unindent(
+    remove_empty_lines(
+      extract_xml_section_from_lines(
+        readr::read_lines(get_beautier_path("rln_2_6.xml")),
+        section = "logger"
+      )
+    )[1:11]
+  )
+  expect_true(are_equivalent_xml_lines(created, expected))
+  expect_equal(sort(created), sort(expected))
+})
+
 test_that("file_name in XML", {
   input_filename <- get_fasta_filename()
   inference_model <- init_inference_model(
