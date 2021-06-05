@@ -93,7 +93,6 @@ test_that("detailed use, v2.4, RLN", {
 })
 
 test_that("detailed use, v2.6, RLN", {
-  skip("WIP HIERO")
   expected <- unindent(
     stringr::str_subset(
       readr::read_lines(get_beautier_path("rln_2_6.xml")),
@@ -110,12 +109,6 @@ test_that("detailed use, v2.6, RLN", {
   )
   created <- create_beast2_input_operators(
     inference_model = inference_model
-  )
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
