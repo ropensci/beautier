@@ -44,18 +44,6 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
 
   text <- c(text, line)
 
-  if (1 == 2) {
-    # Code below must become something like this
-    beautier::indent(
-      beautier::distr_to_xml_log_normal(
-        distr = beautier::create_log_normal_distr(
-          id = id,
-          m = beautier::create_m_param(id = mparam_id),
-          s = beautier::create_s_param(id = id)
-        )
-      )
-    )
-  }
   text <- c(text, paste0("    <LogNormal ",
     "id=\"LogNormalDistributionModel.c:", id, "\" ",
     "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
@@ -69,16 +57,32 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
             lower = "0.0",
             upper = "1.0",
             value = "1.0"
-          )
+          ),
+          beauti_options = inference_model$beauti_options
         )
       )
     )
   )
   text <- c(text, paste0("    </LogNormal>"))
   if (!beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
-    text <- c(text, paste0("    <parameter ",
-      "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
-      "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
+    if (1 == 1) {
+      xml_here <- beautier::clock_rate_param_to_xml(
+        clock_rate_param = beautier::create_clock_rate_param(
+          id = id,
+          estimate = FALSE,
+          value = clock_model$mean_clock_rate
+        ),
+        beauti_options = inference_model$beauti_options
+      )
+      xml_here <- stringr::str_replace(xml_here, "id=\"clockRate.c:", "id=\"ucldMean.c:")
+      text <- c(text, indent(xml_here))
+    } else {
+      text <- c(text, paste0("    <parameter ",
+        "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
+        "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
+
+    }
+
   }
   text <- c(text, paste0("</branchRateModel>"))
   testit::assert(is.null(text) || beautier::is_xml(text))

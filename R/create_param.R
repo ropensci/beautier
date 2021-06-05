@@ -193,12 +193,13 @@ create_beta_param <- create_param_beta <- function(
 #' @export create_clock_rate_param create_param_clock_rate
 create_clock_rate_param <- create_param_clock_rate <- function(
   value = "1.0",
+  estimate = FALSE,
   id = NA
 ) {
   beautier::create_param(
     name = "clock_rate",
     id = id,
-    estimate = FALSE,
+    estimate = estimate,
     value = value
   )
 }

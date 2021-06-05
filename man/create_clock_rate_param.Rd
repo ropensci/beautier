@@ -6,10 +6,13 @@
 \title{Create a parameter called \code{clock_rate},
   as needed by \code{\link{create_strict_clock_model}}}
 \usage{
-create_clock_rate_param(value = "1.0", id = NA)
+create_clock_rate_param(value = "1.0", estimate = FALSE, id = NA)
 }
 \arguments{
 \item{value}{value of the parameter}
+
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
+FALSE otherwise}
 
 \item{id}{the parameter's ID}
 }

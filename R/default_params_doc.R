@@ -30,6 +30,9 @@
 #'   must be name among those returned by \code{\link{get_clock_model_names}}
 #' @param clock_models a list of one or more clock models,
 #'   as returned by \code{\link{create_clock_model}}
+#' @param clock_rate_param a \code{clockRate} parameter,
+#' a numeric value,
+#' as created by \link{create_clock_rate_param}
 #' @param crown_age the crown age of the phylogeny
 #' @param crown_ages the crown ages of the phylogenies. Set to NA
 #'   if the crown age needs to be estimated
@@ -204,6 +207,7 @@ default_params_doc <- function(
   clock_model_names,
   clock_models,
   clock_prior_distr_id,
+  clock_rate_param,
   crown_age, crown_ages,
   distr_id,
   fasta_filename, fasta_filenames,

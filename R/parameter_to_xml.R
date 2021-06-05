@@ -21,8 +21,8 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
   } else if (beautier::is_beta_param(parameter)) {
     return(beautier::beta_parameter_to_xml(beta_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_clock_rate_param(parameter)) {
-    return(beautier::parameter_to_xml_clock_rate(
-      parameter = parameter,
+    return(beautier::clock_rate_param_to_xml(
+      clock_rate_param = parameter,
       beauti_options = beauti_options
     ))
   } else if (beautier::is_kappa_1_param(parameter)) {
@@ -57,46 +57,6 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
   # This assert will also fail for new parameter types
   testthat::expect_true(beautier::is_sigma_param(parameter))
   beautier::parameter_to_xml_sigma(parameter, beauti_options = beauti_options)
-}
-
-#' Internal function
-#'
-#' Converts a \code{clockRate} parameter to XML
-#' @inheritParams default_params_doc
-#' @param parameter a \code{clockRate} parameter,
-#'   a numeric value.
-#'   For advanced usage, use the structure
-#'   as created by \code{\link{create_clock_rate_param}})
-#' @inheritParams default_params_doc
-#' @return the parameter as XML text
-#' @author Richèl J.C. Bilderbeek
-#' @export
-parameter_to_xml_clock_rate <- function(
-  parameter,
-  beauti_options = create_beauti_options()
-) {
-  beautier::check_beauti_options(beauti_options)
-  testit::assert(beautier::is_clock_rate_param(parameter))
-  id <- parameter$id
-  testit::assert(beautier::is_id(id))
-  testit::assert(parameter$estimate == FALSE)
-  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  xml <-  paste0(
-    "<parameter ",
-    "id=\"clockRate.c:", id, "\" "
-  )
-  if (beauti_options$beast2_version == "2.6") {
-    xml <- paste0(xml, "spec=\"parameter.RealParameter\" ")
-  }
-  xml <- paste0(
-    xml,
-    paste0(
-      "estimate=\"", estimate, "\" ",
-      "name=\"clock.rate\">",
-      parameter$value,
-      "</parameter>"
-    )
-  )
 }
 
 #' Internal function

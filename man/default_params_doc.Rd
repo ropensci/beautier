@@ -22,6 +22,7 @@ default_params_doc(
   clock_model_names,
   clock_models,
   clock_prior_distr_id,
+  clock_rate_param,
   crown_age,
   crown_ages,
   distr_id,
@@ -127,6 +128,10 @@ as returned by \code{\link{create_clock_model}}}
 
 \item{clock_prior_distr_id}{ID of an MRCA clock model's distribution.
 Keep at \code{NA} to have it initialized automatically}
+
+\item{clock_rate_param}{a \code{clockRate} parameter,
+a numeric value,
+as created by \link{create_clock_rate_param}}
 
 \item{crown_age}{the crown age of the phylogeny}
 

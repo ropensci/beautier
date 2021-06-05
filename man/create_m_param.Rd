@@ -5,13 +5,7 @@
 \alias{create_param_m}
 \title{Create a parameter called m}
 \usage{
-create_m_param(
-  id = NA,
-  estimate = FALSE,
-  lower = "0.0",
-  upper = "1.0",
-  value = 0
-)
+create_m_param(id = NA, estimate = FALSE, lower = NA, upper = NA, value = 0)
 }
 \arguments{
 \item{id}{the parameter's ID}

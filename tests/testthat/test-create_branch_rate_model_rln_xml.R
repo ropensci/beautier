@@ -27,7 +27,6 @@ test_that("RLN, v2.4", {
 })
 
 test_that("RLN, v2.6", {
-  skip("WIP, RLN, 2.6, section branchRateModel")
   expected <- unindent(
     extract_xml_section_from_lines(
       lines = readr::read_lines(get_beautier_path("rln_2_6.xml")),
@@ -53,11 +52,5 @@ test_that("RLN, v2.6", {
   created <- create_branch_rate_model_rln_xml(
     inference_model = inference_model
   )
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml",
-  )
-  expect_equal(created, expected)
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
