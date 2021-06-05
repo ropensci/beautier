@@ -6,13 +6,25 @@ test_that("use", {
   expect_silent(m_param_to_xml(create_m_param(id = 1, value = 1.2)))
 })
 
-test_that("use", {
+test_that("use, v2.4", {
   created <- m_param_to_xml(
     m_param = create_m_param(
       id = 1, estimate = FALSE, lower = "0.0", upper = "1.0", value = "1.0"
-    )
+    ),
+    beauti_options = create_beauti_options_v2_4()
   )
   expected <- "<parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>" # nolint indeed long
+  expect_equal(created, expected)
+})
+
+test_that("use, v2.6", {
+  created <- m_param_to_xml(
+    m_param = create_m_param(
+      id = 1, estimate = FALSE, lower = "0.0", upper = "1.0", value = "1.0"
+    ),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  expected <- "<parameter id=\"RealParameter.1\" spec=\"parameter.RealParameter\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>" # nolint indeed long
   expect_equal(created, expected)
 })
 

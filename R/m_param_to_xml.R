@@ -18,7 +18,13 @@ m_param_to_xml <- function(
   testthat::expect_true(beautier::is_id(m_param$id))
   xml <- paste0(
     "<parameter ",
-    "id=\"RealParameter.", m_param$id, "\" ",
+    "id=\"RealParameter.", m_param$id, "\" "
+  )
+  if (beauti_options$beast2_version == "2.6") {
+    xml <- paste0(xml, "spec=\"parameter.RealParameter\" ")
+  }
+  xml <- paste0(
+    xml,
     "estimate=\"", stringr::str_to_lower(m_param$estimate), "\" "
   )
   if (!is.na(m_param$lower)) {

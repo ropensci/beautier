@@ -28,25 +28,14 @@ test_that("strict", {
 })
 
 
-test_that("RLN", {
-
-  expected <- c(
-    "<distribution id=\"likelihood\" spec=\"util.CompoundDistribution\" useThreads=\"true\">", # nolint XML
-    "    <distribution id=\"treeLikelihood.test_output_0\" spec=\"ThreadedTreeLikelihood\" data=\"@test_output_0\" tree=\"@Tree.t:test_output_0\">", # nolint XML
-    "        <siteModel id=\"SiteModel.s:test_output_0\" spec=\"SiteModel\">",
-    "            <parameter id=\"mutationRate.s:test_output_0\" estimate=\"false\" name=\"mutationRate\">1.0</parameter>", # nolint XML
-    "            <parameter id=\"gammaShape.s:test_output_0\" estimate=\"false\" name=\"shape\">1.0</parameter>", # nolint XML
-    "            <parameter id=\"proportionInvariant.s:test_output_0\" estimate=\"false\" lower=\"0.0\" name=\"proportionInvariant\" upper=\"1.0\">0.0</parameter>", # nolint XML
-    "            <substModel id=\"JC69.s:test_output_0\" spec=\"JukesCantor\"/>", # nolint XML
-    "        </siteModel>",
-    "        <branchRateModel id=\"RelaxedClock.c:test_output_0\" spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" rateCategories=\"@rateCategories.c:test_output_0\" tree=\"@Tree.t:test_output_0\">", # nolint XML
-    "            <LogNormal id=\"LogNormalDistributionModel.c:test_output_0\" S=\"@ucldStdev.c:test_output_0\" meanInRealSpace=\"true\" name=\"distr\">", # nolint XML
-    "                <parameter id=\"RealParameter.1\" estimate=\"false\" lower=\"0.0\" name=\"M\" upper=\"1.0\">1.0</parameter>", # nolint XML
-    "            </LogNormal>",
-    "            <parameter id=\"ucldMean.c:test_output_0\" estimate=\"false\" name=\"clock.rate\">1.0</parameter>", # nolint XML
-    "        </branchRateModel>",
-    "    </distribution>",
-    "</distribution>"
+test_that("RLN, v2.4", {
+  expected <- unindent(
+    remove_empty_lines(
+        extract_xml_section_from_lines(
+        lines = readr::read_lines(get_beautier_path("rln_2_4.xml")),
+        section = "distribution"
+      )
+    )[14:29]
   )
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
