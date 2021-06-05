@@ -4,21 +4,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_operators <- function(
-  inference_model,
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  fixed_crown_ages = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  testthat::expect_equal(site_models, "deprecated")
-  testthat::expect_equal(clock_models, "deprecated")
-  testthat::expect_equal(tree_priors, "deprecated")
-  testthat::expect_equal(fixed_crown_ages, "deprecated")
-  testthat::expect_equal(mrca_priors, "deprecated")
-  testthat::expect_equal(tipdates_filename, "deprecated")
-
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
   clock_models <- list(inference_model$clock_model)
@@ -54,6 +41,5 @@ create_beast2_input_operators <- function(
     )
   )
   text <- beautier::interspace(text)
-
-  beautier::indent(text)
+  text
 }

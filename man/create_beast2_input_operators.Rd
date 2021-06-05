@@ -4,15 +4,7 @@
 \alias{create_beast2_input_operators}
 \title{Creates the operators section of a BEAST2 XML parameter file}
 \usage{
-create_beast2_input_operators(
-  inference_model,
-  site_models = "deprecated",
-  clock_models = "deprecated",
-  tree_priors = "deprecated",
-  fixed_crown_ages = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
-)
+create_beast2_input_operators(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -22,29 +14,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{site_models}{one or more site models,
-as returned by \code{\link{create_site_model}}}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{tree_priors}{one or more tree priors,
-as returned by \code{\link{create_tree_prior}}}
-
-\item{fixed_crown_ages}{one or more booleans to determine if the
-phylogenies' crown ages are fixed.
-If FALSE, crown age is estimated by BEAST2. If TRUE,
-the crown age is fixed to the crown age
-of the initial phylogeny.}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, separated by a tab.
-The first column contains the taxa names, the second column contains
-the date.}
 }
 \value{
 lines of XML text

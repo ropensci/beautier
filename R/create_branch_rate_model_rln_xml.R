@@ -74,7 +74,10 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
         ),
         beauti_options = inference_model$beauti_options
       )
-      xml_here <- stringr::str_replace(xml_here, "id=\"clockRate.c:", "id=\"ucldMean.c:")
+      xml_here <- stringr::str_replace(
+        xml_here,
+        "id=\"clockRate.c:", "id=\"ucldMean.c:"
+      )
       text <- c(text, indent(xml_here))
     } else {
       text <- c(text, paste0("    <parameter ",
