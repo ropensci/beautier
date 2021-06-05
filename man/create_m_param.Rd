@@ -5,10 +5,24 @@
 \alias{create_param_m}
 \title{Create a parameter called m}
 \usage{
-create_m_param(id = NA, value = 0)
+create_m_param(
+  id = NA,
+  estimate = FALSE,
+  lower = "0.0",
+  upper = "1.0",
+  value = 0
+)
 }
 \arguments{
 \item{id}{the parameter's ID}
+
+\item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
+FALSE otherwise}
+
+\item{lower}{lowest possible value of the parameter. If the parameter
+is estimated, \code{lower} must be less than \code{value}}
+
+\item{upper}{upper value of the parameter}
 
 \item{value}{value of the parameter}
 }

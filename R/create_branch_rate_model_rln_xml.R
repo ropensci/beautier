@@ -59,10 +59,21 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
   text <- c(text, paste0("    <LogNormal ",
     "id=\"LogNormalDistributionModel.c:", id, "\" ",
     "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
-  text <- c(text, paste0("        <parameter ",
-    "id=\"RealParameter.", mparam_id, "\" ",
-    "estimate=\"false\" lower=\"0.0\" name=\"M\" ",
-    "upper=\"1.0\">1.0</parameter>"))
+  text <- c(
+    text,
+    indent(
+      indent(
+        beautier::m_param_to_xml(
+          m_param = beautier::create_m_param(
+            id = mparam_id,
+            lower = "0.0",
+            upper = "1.0",
+            value = "1.0"
+          )
+        )
+      )
+    )
+  )
   text <- c(text, paste0("    </LogNormal>"))
   if (!beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
     text <- c(text, paste0("    <parameter ",

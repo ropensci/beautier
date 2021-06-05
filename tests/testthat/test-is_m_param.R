@@ -1,0 +1,12 @@
+test_that("is_m_param", {
+  expect_true(is_m_param(m_param = create_m_param()))
+  expect_true(is_m_param(create_m_param(id = 1)))
+  expect_true(is_m_param(create_m_param(estimate = TRUE)))
+  expect_true(is_m_param(create_m_param(value = 12.34)))
+  expect_true(is_m_param(create_m_param(lower = 0.5)))
+  expect_true(is_m_param(create_m_param(upper = 314.15)))
+  expect_false(is_m_param("nonsense"))
+  expect_false(is_m_param(NA))
+  expect_false(is_m_param(NULL))
+  expect_false(is_m_param(Inf))
+})

@@ -5,11 +5,7 @@
 \title{Determine if the object is a valid
 m parameter}
 \usage{
-is_m_param(x)
-}
-\arguments{
-\item{x}{an object, to be determined if it is a valid
-m parameter}
+is_m_param(m_param)
 }
 \value{
 TRUE if x is a valid m parameter,

@@ -1,5 +1,3 @@
-context("parameter_to_xml")
-
 test_that("use", {
 
   expect_silent(

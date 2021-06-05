@@ -338,6 +338,9 @@ is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
+
+\item{m_param}{an m parameter,
+as created by \link{create_m_param}}
 }
 \description{
 Documentation of general function arguments.

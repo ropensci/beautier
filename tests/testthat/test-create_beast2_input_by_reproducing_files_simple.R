@@ -339,6 +339,12 @@ test_that("hky_2_4.xml", {
   )
 
   expected <- readLines(get_beautier_path("hky_2_4.xml"))
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 

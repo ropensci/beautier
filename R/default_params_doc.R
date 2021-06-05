@@ -93,6 +93,8 @@
 #' @param jc69_site_model a JC69 site model,
 #'   as returned by \code{\link{create_jc69_site_model}}
 #' @param log_every number of MCMC states between writing to file
+#' @param m_param an m parameter,
+#' as created by \link{create_m_param}
 #' @param mcmc one MCMC.
 #'   Use \code{\link{create_mcmc}} to create an MCMC.
 #'   Use \code{\link{create_ns_mcmc}} to create an MCMC

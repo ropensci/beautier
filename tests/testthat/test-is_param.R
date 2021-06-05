@@ -1,5 +1,3 @@
-context("is_param")
-
 test_that("use", {
 
   expect_true(is_param(create_alpha_param()))
@@ -117,18 +115,9 @@ test_that("is_lambda_param", {
 
 })
 
-test_that("is_m_param", {
-
-  expect_true(is_m_param(create_m_param()))
-  expect_false(is_m_param("nonsense"))
-
-})
-
 test_that("is_mean_param", {
-
   expect_true(is_mean_param(create_mean_param()))
   expect_false(is_mean_param("nonsense"))
-
 })
 
 test_that("is_mu_param", {

@@ -32,7 +32,7 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
   } else if (beautier::is_lambda_param(parameter)) {
     return(beautier::parameter_to_xml_lambda(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_m_param(parameter)) {
-    return(beautier::parameter_to_xml_m(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+    return(beautier::m_param_to_xml(m_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_mean_param(parameter)) {
     return(beautier::parameter_to_xml_mean(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_mu_param(parameter)) {
@@ -174,36 +174,6 @@ parameter_to_xml_lambda <- function(
     "<parameter ",
     "id=\"RealParameter.", id, "\" ",
     "name=\"lambda\">", parameter$value,
-    "</parameter>"
-  )
-}
-
-#' Internal function
-#'
-#' Converts a m parameter to XML
-#' @inheritParams default_params_doc
-#' @param parameter a m parameter,
-#'   a numeric value.
-#'   For advanced usage, use the structure
-#'   as created by \code{\link{create_m_param}})
-#' @return the parameter as XML text
-#' @author Richèl J.C. Bilderbeek
-#' @export
-parameter_to_xml_m <- function(
-  parameter,
-  beauti_options = create_beauti_options()
-) {
-  beautier::check_beauti_options(beauti_options)
-  testit::assert(beautier::is_m_param(parameter))
-  id <- parameter$id
-  testit::assert(beautier::is_id(id))
-  testit::assert(parameter$estimate == FALSE)
-  estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
-  paste0(
-    "<parameter ",
-    "id=\"RealParameter.", id, "\" ",
-    "estimate=\"", estimate, "\" ",
-    "name=\"M\">", parameter$value,
     "</parameter>"
   )
 }

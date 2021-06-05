@@ -317,12 +317,17 @@ create_lambda_param <- create_param_lambda <- function(
 #' @export create_m_param create_param_m
 create_m_param <- create_param_m <- function(
   id = NA,
+  estimate = FALSE,
+  lower = NA,
+  upper = NA,
   value = 0.0
 ) {
   beautier::create_param(
     name = "m",
     id = id,
-    estimate = FALSE,
+    estimate = estimate,
+    lower = lower,
+    upper = upper,
     value = value
   )
 }
