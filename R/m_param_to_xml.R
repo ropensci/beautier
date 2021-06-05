@@ -2,10 +2,6 @@
 #'
 #' Converts an m parameter to XML
 #' @inheritParams default_params_doc
-#' @param parameter a m parameter,
-#'   a numeric value.
-#'   For advanced usage, use the structure
-#'   as created by \code{\link{create_m_param}})
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export

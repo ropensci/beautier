@@ -228,6 +228,7 @@ default_params_doc <- function(
   is_monophyletic,
   jc69_site_model,
   log_every,
+  m_param,
   mcmc,
   mode,
   mrca_prior, mrca_priors,

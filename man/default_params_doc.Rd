@@ -47,6 +47,7 @@ default_params_doc(
   is_monophyletic,
   jc69_site_model,
   log_every,
+  m_param,
   mcmc,
   mode,
   mrca_prior,
@@ -220,6 +221,9 @@ as returned by \code{\link{create_jc69_site_model}}}
 
 \item{log_every}{number of MCMC states between writing to file}
 
+\item{m_param}{an m parameter,
+as created by \link{create_m_param}}
+
 \item{mcmc}{one MCMC.
 Use \code{\link{create_mcmc}} to create an MCMC.
 Use \code{\link{create_ns_mcmc}} to create an MCMC
@@ -343,9 +347,6 @@ is potentially useful in debugging}
 
 \item{yule_tree_prior}{a Yule tree_prior,
 as created by \code{\link{create_yule_tree_prior}}}
-
-\item{m_param}{an m parameter,
-as created by \link{create_m_param}}
 }
 \description{
 Documentation of general function arguments.

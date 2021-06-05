@@ -12,11 +12,6 @@ as created by \link{create_m_param}}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
-
-\item{parameter}{a m parameter,
-a numeric value.
-For advanced usage, use the structure
-as created by \code{\link{create_m_param}})}
 }
 \value{
 the parameter as XML text
