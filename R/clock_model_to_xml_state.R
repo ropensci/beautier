@@ -42,7 +42,7 @@ clock_model_to_xml_state <- function(
     }
     text <- c(
       text,
-      beautier::create_ucld_stdev_state_node_param(inference_model)
+      beautier::create_ucld_stdev_state_node_param_xml(inference_model)
     )
     text <- c(
       text,

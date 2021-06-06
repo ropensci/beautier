@@ -54,6 +54,12 @@ test_that("v2.6, RLN", {
   created <- clock_model_to_xml_state(
     inference_model = inference_model
   )
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -87,7 +93,7 @@ test_that("rln + MRCA", {
 
 
 test_that("rln + MRCA with distr", {
-
+  skip("Need create_beauti_options_v2_5")
   # From rln_mrca_one_div_x_2_5.xml
   expected <- c(
     "<parameter id=\"ucldStdev.c:anthus_aco_sub\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>", # nolint indeed a long line of XML
@@ -103,7 +109,8 @@ test_that("rln + MRCA with distr", {
         alignment_id = get_alignment_id(fasta_filename),
         taxa_names = get_taxa_names(fasta_filename),
         mrca_distr = create_one_div_x_distr()
-      )
+      ),
+      beauti_options = create_beauti_options_v2_5()
     )
   )
 

@@ -17,18 +17,24 @@ inference model.}
 }
 \value{
 the XML
-\code{<parameter id=\"ucldMean.c:[id]\" name=\"stateNode\">1.0</parameter>}
+\code{
+  <parameter id=\"ucldMean.c:[id]\" spec=\"parameter.RealParameter\"
+    name=\"stateNode\">1.0</parameter>
+}
 }
 \description{
 Creates the \code{ucldMean.c} parameter with the name \code{stateNode},
 such as:
-\code{<parameter id=\"ucldMean.c:[id]\" name=\"stateNode\">1.0</parameter>}
+\code{
+  <parameter id=\"ucldMean.c:[id]\" spec=\"parameter.RealParameter\"
+    name=\"stateNode\">1.0</parameter>
+}
 }
 \examples{
-# "<parameter id=\"ucldMean.c:314\" name=\"stateNode\">1.0</parameter>"
 create_ucld_mean_state_node_param_xml(
   create_inference_model(
-    clock_model = create_rln_clock_model(id = 314)
+    clock_model = create_rln_clock_model(id = 314),
+    beauti_options = create_beauti_options_v2_6()
   )
 )
 }
