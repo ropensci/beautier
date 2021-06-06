@@ -8,9 +8,6 @@ create_beast2_input_operators <- function(
 ) {
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
-  tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
 
   text <- beautier::tree_prior_to_xml_operators(
     inference_model = inference_model
