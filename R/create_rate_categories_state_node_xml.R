@@ -21,7 +21,10 @@
 #' @examples
 #' create_rate_categories_state_node_xml(
 #'   create_inference_model(
-#'     clock_model = create_rln_clock_model(id = 314)
+#'     clock_model = create_rln_clock_model(
+#'       id = 314,
+#'       dimension = 1
+#'     )
 #'   )
 #' )
 #' @export

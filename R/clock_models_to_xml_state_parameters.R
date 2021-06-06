@@ -6,7 +6,7 @@
 #' all in the form \code{<parameter id=[...]>}
 #' @author Richèl J.C. Bilderbeek
 #' @export
-clock_models_to_xml_state_parameters <- function( # nolint indeed a long function name
+clock_models_to_state_parameters_xml <- function( # nolint indeed a long function name
   inference_model
 ) {
   if (beautier::has_strict_clock_model(inference_model)) {

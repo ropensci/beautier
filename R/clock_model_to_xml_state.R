@@ -27,10 +27,12 @@ clock_model_to_xml_state <- function(
     testthat::expect_false(beautier::is_one_na(clock_model$mean_clock_rate))
     testthat::expect_false(beautier::is_one_na(clock_model$dimension))
 
-    text <- c(
-      text,
-      beautier::create_ucld_mean_state_node_param(inference_model)
-    )
+    if (beautier::is_mrca_prior_with_distr(inference_model$mrca_prior)) {
+      text <- c(
+        text,
+        beautier::create_ucld_mean_state_node_param_xml(inference_model)
+      )
+    }
     text <- c(
       text,
       beautier::create_ucld_stdev_state_node_param(inference_model)
