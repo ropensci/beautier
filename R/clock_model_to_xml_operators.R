@@ -5,10 +5,21 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 clock_model_to_xml_operators <- function(
-  clock_model,
-  mrca_priors,
-  tipdates_filename = NA
+  inference_model,
+  clock_model = "deprecated",
+  mrca_priors = "deprecated",
+  tipdates_filename = "deprecated"
 ) {
+  testthat::expect_equal(clock_model, "deprecated")
+  testthat::expect_equal(mrca_priors, "deprecated")
+  testthat::expect_equal(tipdates_filename, "deprecated")
+
+  # Don't be smart yet
+  clock_model <- inference_model$clock_model
+  mrca_priors <- list(inference_model$mrca_prior)
+  tipdates_filename <- inference_model$tipdates_filename
+
+
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
 
@@ -59,11 +70,7 @@ clock_model_to_xml_operators <- function(
   ) {
     text <- c(
       text,
-      paste0(
-        "<operator id=\"StrictClockRateScaler.c:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@clockRate.c:", id, "\" ",
-        "scaleFactor=\"0.75\" weight=\"3.0\"/>" # nolint this is no absolute path
-      )
+      beautier::create_strict_clock_rate_scaler_operator_xml(inference_model)
     )
     text <- c(
       text,

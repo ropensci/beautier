@@ -34,10 +34,8 @@ create_beast2_input_operators <- function(
   text <- c(text, beautier::site_models_to_xml_operators(site_models))
   text <- c(
     text,
-    beautier::clock_models_to_xml_operators(
-      clock_models = clock_models,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+    beautier::clock_model_to_xml_operators(
+      inference_model
     )
   )
   text <- beautier::interspace(text)

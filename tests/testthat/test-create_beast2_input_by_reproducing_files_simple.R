@@ -1467,9 +1467,6 @@ test_that("Tip dating, v2.6", {
     expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected))
-
-  expect_true(are_equivalent_xml_lines(created, expected))
-
 })
 
 test_that("Tip dating with RLN", {

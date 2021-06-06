@@ -14,12 +14,11 @@ test_that("strict", {
 })
 
 test_that("v2.4, RLN", {
-
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
       clock_model = create_rln_clock_model(),
-      beauti_options = create_beauti_options_v2_6()
+      beauti_options = create_beauti_options_v2_4()
     )
   )
   expected <- unindent(
