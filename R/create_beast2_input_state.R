@@ -45,20 +45,20 @@ create_beast2_input_state <- function(
   if (1 == 2) {
     text <- c(
       text,
-      beautier::clock_models_to_state_parameters_xml(
+      beautier::clock_model_to_state_parameters_xml(
         inference_model = inference_model
       )
     )
     text <- c(
       text,
-      beautier::clock_models_state_state_nodes_xml(
+      beautier::clock_model_to_state_state_nodes_xml(
         inference_model = inference_model
       )
     )
   } else {
     text <- c(
       text,
-      beautier::clock_models_to_xml_state(
+      beautier::clock_model_to_xml_state(
         inference_model = inference_model
       )
     )

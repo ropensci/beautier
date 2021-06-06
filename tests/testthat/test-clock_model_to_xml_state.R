@@ -7,7 +7,7 @@ test_that("strict", {
     )
   )
   expected <- NULL # Indeed, nothing!
-  created <- clock_models_to_xml_state(
+  created <- clock_model_to_xml_state(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -28,7 +28,7 @@ test_that("v2.4, RLN", {
       section = "state"
     )[8:9]
   )
-  created <- clock_models_to_xml_state(
+  created <- clock_model_to_xml_state(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -51,7 +51,7 @@ test_that("v2.6, RLN", {
       )
     )[8:9]
   )
-  created <- clock_models_to_xml_state(
+  created <- clock_model_to_xml_state(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -79,7 +79,7 @@ test_that("rln + MRCA", {
   )
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
-  created <- clock_models_to_xml_state(
+  created <- clock_model_to_xml_state(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -107,7 +107,7 @@ test_that("rln + MRCA with distr", {
     )
   )
 
-  created <- clock_models_to_xml_state(
+  created <- clock_model_to_xml_state(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))

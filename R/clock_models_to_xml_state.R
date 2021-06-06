@@ -1,4 +1,4 @@
-#' Internal function
+#' Deprecated internal function
 #'
 #' Converts one or more clock models to the \code{state} section of the
 #' XML as text
@@ -10,14 +10,5 @@
 clock_models_to_xml_state <- function(
   inference_model
 ) {
-  if (beautier::has_strict_clock_model(inference_model) &&
-    !beautier::has_tip_dating(inference_model)
-  ) {
-    return(NULL)
-  }
-
-  text <- beautier::clock_model_to_xml_state(
-    inference_model = inference_model
-  )
-  text
+  stop("Deprecated, use 'clock_model_to_xml_state'")
 }

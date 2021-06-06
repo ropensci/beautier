@@ -11,6 +11,13 @@ clock_model_to_xml_state <- function(
   inference_model
 ) {
   beautier::check_inference_model(inference_model)
+  if (beautier::has_strict_clock_model(inference_model) &&
+    !beautier::has_tip_dating(inference_model)
+  ) {
+    return(NULL)
+  }
+
+  beautier::check_inference_model(inference_model)
   # Don't be smart yet
   clock_model <- inference_model$clock_model
 
