@@ -36,6 +36,32 @@ test_that("v2.6", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
+test_that("v2.6, RLN", {
+  skip("WIP RLN state HIERO")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(),
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  created <- create_beast2_input_state(
+    inference_model = inference_model
+  )
+  expected <- unindent(
+    extract_xml_section_from_lines(
+      lines = readr::read_lines(get_beautier_path("rln_2_6.xml")),
+      section = "state"
+    )
+  )
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
 test_that("tipdates, v2.6", {
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
