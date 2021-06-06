@@ -37,7 +37,7 @@ test_that("v2.6", {
 })
 
 test_that("v2.6, RLN", {
-  skip("WIP RLN state HIERO")
+  skip("WIP RLN state")
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(

@@ -2,14 +2,9 @@
 % Please edit documentation in R/clock_model_to_xml_state.R
 \name{clock_model_to_xml_state}
 \alias{clock_model_to_xml_state}
-\title{Converts a clock model to the \code{state} section of the
-XML as text}
+\title{Internal function}
 \usage{
-clock_model_to_xml_state(
-  inference_model,
-  clock_model = "deprecated",
-  has_tip_dating = "deprecated"
-)
+clock_model_to_xml_state(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -19,12 +14,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{clock_model}{a clock model,
-as returned by \code{\link{create_clock_model}}}
-
-\item{has_tip_dating}{TRUE if the user has supplied tip dates,
-FALSE otherwise}
 }
 \value{
 lines of XML text, without indentation nor \code{state}

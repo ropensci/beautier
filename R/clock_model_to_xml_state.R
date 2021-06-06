@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Converts a clock model to the \code{state} section of the
 #' XML as text
 #' @inheritParams default_params_doc
@@ -6,16 +8,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 clock_model_to_xml_state <- function(
-  inference_model,
-  clock_model = "deprecated",
-  has_tip_dating = "deprecated"
+  inference_model
 ) {
-  testthat::expect_equal(clock_model, "deprecated")
-  testthat::expect_equal(has_tip_dating, "deprecated")
+  beautier::check_inference_model(inference_model)
   # Don't be smart yet
   clock_model <- inference_model$clock_model
-  has_tip_dating <- !beautier::is_one_na(inference_model$tipdates_filename)
-  testit::assert(beautier::is_clock_model(clock_model))
+  has_tip_dating <- beautier::has_tip_dating(inference_model)
   id <- clock_model$id
   testit::assert(beautier::is_id(clock_model$id))
 

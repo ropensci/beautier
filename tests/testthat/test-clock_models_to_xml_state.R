@@ -13,19 +13,43 @@ test_that("strict", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-test_that("rln", {
+test_that("v2.4, RLN", {
 
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
-      clock_model = create_rln_clock_model()
+      clock_model = create_rln_clock_model(),
+      beauti_options = create_beauti_options_v2_6()
     )
   )
+  expected <- unindent(
+    extract_xml_section_from_lines(
+      readr::read_lines(get_beautier_path("rln_2_4.xml")),
+      section = "state"
+    )[8:9]
+  )
+  created <- clock_models_to_xml_state(
+    inference_model = inference_model
+  )
+  expect_true(are_equivalent_xml_lines(created, expected))
+})
 
-  # From rln_2_4.xml
-  expected <- c(
-    "<parameter id=\"ucldStdev.c:test_output_0\" lower=\"0.0\" name=\"stateNode\">0.1</parameter>", # nolint indeed a long line of XML
-    "<stateNode id=\"rateCategories.c:test_output_0\" spec=\"parameter.IntegerParameter\" dimension=\"8\">1</stateNode>" # nolint indeed a long line of XML
+test_that("v2.6, RLN", {
+  skip("WIP 2.6 RLN params HIERO")
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_rln_clock_model(),
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  expected <- unindent(
+    remove_empty_lines(
+      extract_xml_section_from_lines(
+        readr::read_lines(get_beautier_path("rln_2_6.xml")),
+        section = "state"
+      )
+    )[8:9]
   )
   created <- clock_models_to_xml_state(
     inference_model = inference_model

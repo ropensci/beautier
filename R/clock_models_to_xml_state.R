@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Converts one or more clock models to the \code{state} section of the
 #' XML as text
 #' @inheritParams default_params_doc
@@ -8,17 +10,8 @@
 clock_models_to_xml_state <- function(
   inference_model
 ) {
-  # Do not be smart yet
-  clock_models <- list(inference_model$clock_model)
-  mrca_priors <- list(inference_model$mrca_prior)
-  has_tip_dating <- !beautier::is_one_na(inference_model$tipdates_filename)
-
-  # the mrca_priors are supposed to be temporary :-)
-  testit::assert(beautier::are_clock_models(clock_models))
-
-  if (length(clock_models) == 1 &&
-      beautier::is_strict_clock_model(clock_models[[1]]) &&
-    has_tip_dating == FALSE
+  if (beautier::has_strict_clock_model(inference_model) &&
+    !beautier::has_tip_dating(inference_model)
   ) {
     return(NULL)
   }
@@ -29,8 +22,8 @@ clock_models_to_xml_state <- function(
 
   # Remove the first line of the first clock model,
   # if no MRCA prior with a distribution is used
-  if (beautier::is_rln_clock_model(clock_models[[1]]) &&
-      !beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
+  if (beautier::has_rln_clock_model(inference_model) &&
+      !beautier::is_mrca_prior_with_distr(inference_model$mrca_prior)) {
     # A RLN clock model returns three lines, only remove the first
     line_to_remove <- beautier::clock_model_to_xml_state(
       inference_model = inference_model

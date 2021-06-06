@@ -2,8 +2,7 @@
 % Please edit documentation in R/clock_models_to_xml_state.R
 \name{clock_models_to_xml_state}
 \alias{clock_models_to_xml_state}
-\title{Converts one or more clock models to the \code{state} section of the
-XML as text}
+\title{Internal function}
 \usage{
 clock_models_to_xml_state(inference_model)
 }
