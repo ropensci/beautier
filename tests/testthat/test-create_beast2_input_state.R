@@ -37,7 +37,6 @@ test_that("v2.6", {
 })
 
 test_that("v2.6, RLN", {
-  skip("WIP RLN state")
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
@@ -54,14 +53,9 @@ test_that("v2.6, RLN", {
       section = "state"
     )
   )
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
-  )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
+
 test_that("tipdates, v2.6", {
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
