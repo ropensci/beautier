@@ -64,24 +64,25 @@ clock_model_to_xml_operators <- function(
     }
   }
 
-  if ((beautier::is_strict_clock_model(clock_model)
-    && beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) ||
-      !beautier::is_one_na(tipdates_filename)
-  ) {
-    text <- c(
-      text,
-      beautier::create_strict_clock_rate_scaler_operator_xml(inference_model)
-    )
-    text <- c(
-      text,
-      paste0(
-        "<operator id=\"strictClockUpDownOperator.c:", id, "\" ",
-        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"
+  if (beautier::is_strict_clock_model(clock_model)) {
+    if (beautier::is_mrca_prior_with_distr(inference_model$mrca_prior) ||
+      beautier::has_tip_dating(inference_model)
+    ) {
+      text <- c(
+        text,
+        beautier::create_strict_clock_rate_scaler_operator_xml(inference_model)
       )
-    )
-    text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>")) # nolint this is no absolute path
-    text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>")) # nolint this is no absolute path
-    text <- c(text, paste0("</operator>"))
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"strictClockUpDownOperator.c:", id, "\" ",
+          "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"
+        )
+      )
+      text <- c(text, paste0("    <up idref=\"clockRate.c:", id, "\"/>")) # nolint this is no absolute path
+      text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>")) # nolint this is no absolute path
+      text <- c(text, paste0("</operator>"))
+    }
   }
   text
 }
