@@ -42,12 +42,27 @@ create_beast2_input_state <- function(
     beautier::site_model_to_xml_state(inference_model$site_model)
   )
 
-  text <- c(
-    text,
-    beautier::clock_models_to_xml_state(
-      inference_model = inference_model
+  if (1 == 2) {
+    text <- c(
+      text,
+      beautier::clock_models_to_xml_state_parameters(
+        inference_model = inference_model
+      )
     )
-  )
+    text <- c(
+      text,
+      beautier::clock_models_to_xml_state_state_nodes(
+        inference_model = inference_model
+      )
+    )
+  } else {
+    text <- c(
+      text,
+      beautier::clock_models_to_xml_state(
+        inference_model = inference_model
+      )
+    )
+  }
   text <- c(
     text,
     beautier::tree_prior_to_xml_state(inference_model)

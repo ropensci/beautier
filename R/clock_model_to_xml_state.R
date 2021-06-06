@@ -13,43 +13,32 @@ clock_model_to_xml_state <- function(
   beautier::check_inference_model(inference_model)
   # Don't be smart yet
   clock_model <- inference_model$clock_model
-  has_tip_dating <- beautier::has_tip_dating(inference_model)
-  id <- clock_model$id
-  testit::assert(beautier::is_id(clock_model$id))
 
   text <- NULL
-  if (beautier::is_strict_clock_model(clock_model) || has_tip_dating == TRUE) {
-    parameter_xml <- paste0(
-      "<parameter id=\"clockRate.c:", clock_model$id, "\" "
+  if (beautier::has_strict_clock_model(inference_model) ||
+      beautier::has_tip_dating(inference_model)) {
+    text <- c(
+      text,
+      beautier::create_clock_rate_state_node_parameter_xml(inference_model)
     )
-    if (inference_model$beauti_options$beast2_version == "2.6") {
-      parameter_xml <- paste0(
-        parameter_xml,
-        "spec=\"parameter.RealParameter\" "
-      )
-    }
-    parameter_xml <- paste0(
-      parameter_xml,
-      "name=\"stateNode\">", clock_model$clock_rate_param$value,
-      "</parameter>"
-    )
-    text <- c(text, parameter_xml)
   } else {
     # Fails on unimplemented clock models
-    testit::assert(beautier::is_rln_clock_model(clock_model))
-    testit::assert(!beautier::is_one_na(clock_model$mean_clock_rate))
-    testit::assert(!beautier::is_one_na(clock_model$dimension))
+    testthat::expect_true(beautier::is_rln_clock_model(clock_model))
+    testthat::expect_false(beautier::is_one_na(clock_model$mean_clock_rate))
+    testthat::expect_false(beautier::is_one_na(clock_model$dimension))
 
-    text <- c(text, paste0("<parameter id=\"ucldMean.c:", id, "\" ",
-        "name=\"stateNode\">", clock_model$mean_clock_rate, "</parameter>")
+    text <- c(
+      text,
+      beautier::create_ucld_mean_state_node_param(inference_model)
     )
-    # ucldStdev.c is always 0.1, cannot set it to other value
-    text <- c(text, paste0("<parameter id=\"ucldStdev.c:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">0.1</parameter>"))
-    # value is always 1, dimension d = 2n - 2, where n is the number of taxa
-    text <- c(text, paste0("<stateNode id=\"rateCategories.c:", id, "\" ",
-      "spec=\"parameter.IntegerParameter\" ",
-      "dimension=\"", clock_model$dimension, "\">1</stateNode>"))
+    text <- c(
+      text,
+      beautier::create_ucld_stdev_state_node_param(inference_model)
+    )
+    text <- c(
+      text,
+      beautier::create_rate_categories_state_node_xml(inference_model)
+    )
   }
 
   text
