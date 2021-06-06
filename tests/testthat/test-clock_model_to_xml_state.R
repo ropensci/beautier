@@ -35,7 +35,6 @@ test_that("v2.4, RLN", {
 })
 
 test_that("v2.6, RLN", {
-  skip("WIP 2.6 RLN params HIERO")
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
@@ -53,12 +52,6 @@ test_that("v2.6, RLN", {
   )
   created <- clock_model_to_xml_state(
     inference_model = inference_model
-  )
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

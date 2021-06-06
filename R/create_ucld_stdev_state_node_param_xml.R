@@ -27,11 +27,17 @@ create_ucld_stdev_state_node_param_xml <- function(inference_model) { # nolint i
   id <- clock_model$id
   testthat::expect_true(beautier::is_rln_clock_model(clock_model))
   testthat::expect_false(beautier::is_one_na(id))
-  paste0(
-    "<parameter id=\"ucldStdev.c:", id, "\" ",
+  xml <- paste0("<parameter id=\"ucldStdev.c:", id, "\" ")
+  if (inference_model$beauti_options$beast2_version == "2.6") {
+    xml <- paste0(xml, "spec=\"parameter.RealParameter\" ")
+
+  }
+  xml <- paste0(
+    xml,
     "lower=\"0.0\" ",
     "name=\"stateNode\">",
     "0.1", # always set to 0.1 in BEAUti, cannot set it to other value
     "</parameter>"
   )
+  xml
 }
