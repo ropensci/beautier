@@ -2,15 +2,12 @@
 % Please edit documentation in R/clock_models_to_xml_operators.R
 \name{clock_models_to_xml_operators}
 \alias{clock_models_to_xml_operators}
-\title{Create all clock models' operators' XML text}
+\title{Deprecated}
 \usage{
-clock_models_to_xml_operators(...)
-}
-\value{
-a character vector of XML strings
+clock_models_to_xml_operators()
 }
 \description{
-Create all clock models' operators' XML text
+Deprecated
 }
 \author{
 Richèl J.C. Bilderbeek
