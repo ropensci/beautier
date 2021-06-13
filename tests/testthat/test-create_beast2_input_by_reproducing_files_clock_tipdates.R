@@ -5,7 +5,16 @@
 test_that("RLN + tipdates, v2.6", {
   skip("https://github.com/ropensci/babette/issues/99")
   inference_model <- create_inference_model(
-    clock_model = create_rln_clock_model(),
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    clock_model = create_rln_clock_model(
+      ucldstdev_distr = create_gamma_distr(
+        alpha = create_alpha_param(id = 2, value = "0.5396"),
+        beta = create_beta_param(id = 3, value = "0.3819")
+      ),
+      mparam_id = 1
+    ),
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
     beauti_options = create_beauti_options_v2_6()
   )
