@@ -75,3 +75,34 @@ test_that("tipdates, v2.6", {
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
+
+test_that("RLN + tipdates, v2.6", {
+  inference_model <- create_inference_model(
+    site_model = create_jc69_site_model(id = "test_output_0"),
+    tree_prior = create_yule_tree_prior(
+      id = "test_output_0",
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
+    clock_model = create_rln_clock_model(
+      id = "test_output_0",
+      ucldstdev_distr = create_gamma_distr(
+        alpha = create_alpha_param(id = 2, value = "0.5396"),
+        beta = create_beta_param(id = 3, value = "0.3819")
+      ),
+      mparam_id = 1,
+      dimension = 8
+    ),
+    tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  created <- create_beast2_input_state(
+    inference_model = inference_model
+  )
+  expected <- unindent(
+    extract_xml_section_from_lines(
+      lines = readr::read_lines(get_beautier_path("rln_tipdates_2_6.xml")),
+      section = "state"
+    )
+  )
+  expect_true(are_equivalent_xml_lines(created, expected))
+})

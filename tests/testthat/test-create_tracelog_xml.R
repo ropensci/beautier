@@ -97,7 +97,6 @@ test_that("detailed use, v2.6, RLN", {
 
 
 test_that("RLN + tipdates, v2.6", {
-  skip("https://github.com/ropensci/babette/issues/99, create_tracelog_xml")
   inference_model <- create_inference_model(
     site_model = create_jc69_site_model(id = "test_output_0"),
     tree_prior = create_yule_tree_prior(
@@ -126,12 +125,6 @@ test_that("RLN + tipdates, v2.6", {
         section = "logger"
       )
     )[1:12]
-  )
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml",
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

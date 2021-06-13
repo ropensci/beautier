@@ -29,9 +29,8 @@ mrca_prior_to_xml_tracelog <- function(
   tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(beautier::is_mrca_prior(mrca_prior))
-  if (length(mrca_prior) == 1 &&
-      beautier::is_one_na(mrca_prior) &&
-      beautier::is_one_na(tipdates_filename)
+  if (!beautier::has_mrca_prior(inference_model) &&
+      !beautier::has_tip_dating(inference_model)
   ) {
     return(NULL)
   }
@@ -43,15 +42,18 @@ mrca_prior_to_xml_tracelog <- function(
 
   if (
     (
-      beautier::is_strict_clock_model(clock_models[[1]]) &&
-      beautier::is_mrca_prior_with_distr(mrca_prior)
+      beautier::is_strict_clock_model(inference_model$clock_model) &&
+      beautier::has_mrca_prior_with_distr(inference_model)
     ) ||
-      !beautier::is_one_na(tipdates_filename)
+      (
+        beautier::is_strict_clock_model(inference_model$clock_model) &&
+        beautier::has_tip_dating(inference_model)
+      )
   ) {
     text <- c(
       text,
       paste0(
-        "<log idref=\"clockRate.c:", clock_models[[1]]$id, "\"/>" # nolint this is no absolute path
+        "<log idref=\"clockRate.c:", inference_model$clock_model$id, "\"/>" # nolint this is no absolute path
       )
     )
   }

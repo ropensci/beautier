@@ -20,7 +20,7 @@ lines of XML text
 }
 \description{
 Creates the tree models' XML for the tracelog section.
-That is, all XMLs that have the word 'tree' in them.
+That is, all XML tags that have the word 'tree' in them.
 }
 \note{
 use site_models just because it contains all IDs

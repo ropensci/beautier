@@ -1,7 +1,7 @@
 #' Internal function
 #'
 #' Creates the tree models' XML for the tracelog section.
-#' That is, all XMLs that have the word 'tree' in them.
+#' That is, all XML tags that have the word 'tree' in them.
 #'
 #' @inheritParams default_params_doc
 #' @return lines of XML text

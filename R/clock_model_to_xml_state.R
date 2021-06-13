@@ -17,13 +17,16 @@ clock_model_to_xml_state <- function(
     return(NULL)
   }
 
-  beautier::check_inference_model(inference_model)
   # Don't be smart yet
   clock_model <- inference_model$clock_model
 
   text <- NULL
   if (beautier::has_strict_clock_model(inference_model) ||
-      beautier::has_tip_dating(inference_model)) {
+      (
+        beautier::has_strict_clock_model(inference_model) &&
+        beautier::has_tip_dating(inference_model)
+      )
+    ) {
     text <- c(
       text,
       beautier::create_clock_rate_state_node_parameter_xml(inference_model)
@@ -34,7 +37,9 @@ clock_model_to_xml_state <- function(
     testthat::expect_false(beautier::is_one_na(clock_model$mean_clock_rate))
     testthat::expect_false(beautier::is_one_na(clock_model$dimension))
 
-    if (beautier::has_mrca_prior_with_distr(inference_model)) {
+    if (beautier::has_mrca_prior_with_distr(inference_model) ||
+        beautier::has_tip_dating(inference_model)
+    ) {
       text <- c(
         text,
         beautier::create_ucld_mean_state_node_param_xml(inference_model)

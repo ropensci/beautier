@@ -13,7 +13,8 @@ test_that("RLN + tipdates, v2.6", {
         alpha = create_alpha_param(id = 2, value = "0.5396"),
         beta = create_beta_param(id = 3, value = "0.3819")
       ),
-      mparam_id = 1
+      mparam_id = 1,
+      dimension = 8
     ),
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
     beauti_options = create_beauti_options_v2_6()
