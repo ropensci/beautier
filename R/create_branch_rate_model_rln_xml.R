@@ -22,13 +22,16 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
 
   text <- NULL
 
-
   n_discrete_rates <- clock_model$n_rate_categories
   mparam_id <- clock_model$mparam_id
   line <- paste0("<branchRateModel ",
     "id=\"RelaxedClock.c:", id, "\" ",
     "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" "
   )
+
+  if (beautier::has_tip_dating(inference_model)) {
+    line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
+  }
   if (beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
     line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
   }
