@@ -27,17 +27,20 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
   mparam_id <- clock_model$mparam_id
   line <- paste0("<branchRateModel ",
     "id=\"RelaxedClock.c:", id, "\" ",
-    "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" ",
-    ifelse(!beautier::is_mrca_prior_with_distr(mrca_priors[[1]]),
-      "",
-      paste0("clock.rate=\"@ucldMean.c:", id, "\" ")
-    ),
-    ifelse(clock_model$normalize_mean_clock_rate == TRUE,
-      "normalize=\"true\" ", ""),
-    ifelse(n_discrete_rates != -1,
-      paste0("numberOfDiscreteRates=\"", n_discrete_rates, "\" "),
-      ""
-    ),
+    "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" "
+  )
+  if (beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
+    line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
+  }
+  if(clock_model$normalize_mean_clock_rate == TRUE) {
+    line <- paste0(line, "normalize=\"true\" ")
+  }
+  if (n_discrete_rates != -1) {
+    line <- paste0(line, "numberOfDiscreteRates=\"", n_discrete_rates, "\" ")
+  }
+
+  line <- paste0(
+    line,
     "rateCategories=\"@rateCategories.c:", id, "\" ",
     "tree=\"@Tree.t:", id, "\">"
   )
