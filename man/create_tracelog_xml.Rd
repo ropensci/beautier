@@ -2,8 +2,7 @@
 % Please edit documentation in R/create_tracelog_xml.R
 \name{create_tracelog_xml}
 \alias{create_tracelog_xml}
-\title{Creates the \code{tracelog} section of the \code{logger} section
-of a BEAST2 XML parameter file}
+\title{Internal function}
 \usage{
 create_tracelog_xml(input_filename, inference_model)
 }

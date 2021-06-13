@@ -1,6 +1,6 @@
-#' Creates the MRCA prior's XML for the tracelog section
+#' Internal function
 #'
-#' Creates the MRCA prior's XML for the tracelog section.
+#' Internal function to creates the MRCA prior's XML for the tracelog section.
 #'
 #' \code{
 #'   <logger id="tracelog" ...>

@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Creates the \code{tracelog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
@@ -9,10 +11,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
 ) {
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
-  clock_models <- list(inference_model$clock_model)
   tree_priors <- list(inference_model$tree_prior)
-  mrca_priors <- list(inference_model$mrca_prior)
-  tipdates_filename <- inference_model$tipdates_filename
 
   text <- NULL
 

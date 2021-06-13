@@ -2,7 +2,7 @@
 % Please edit documentation in R/mrca_prior_to_xml_tracelog.R
 \name{mrca_prior_to_xml_tracelog}
 \alias{mrca_prior_to_xml_tracelog}
-\title{Creates the MRCA prior's XML for the tracelog section}
+\title{Internal function}
 \usage{
 mrca_prior_to_xml_tracelog(
   inference_model,
@@ -35,7 +35,7 @@ the date.}
 lines of XML text
 }
 \description{
-Creates the MRCA prior's XML for the tracelog section.
+Internal function to creates the MRCA prior's XML for the tracelog section.
 }
 \details{
 \code{
