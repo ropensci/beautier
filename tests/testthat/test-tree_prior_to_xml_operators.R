@@ -37,7 +37,6 @@ test_that("Yule, v2.6.0", {
 })
 
 test_that("RLN + tipdates, v2.6", {
-  skip("https://github.com/ropensci/babette/issues/99, hiero")
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       id = "test_output_0",
@@ -64,12 +63,6 @@ test_that("RLN + tipdates, v2.6", {
       )
     ),
     "\\.t:test_output_0"
-  )
-  compare_lines(
-    lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml",
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
