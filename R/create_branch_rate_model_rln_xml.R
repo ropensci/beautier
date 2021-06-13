@@ -35,7 +35,7 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
   if (beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
     line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
   }
-  if(clock_model$normalize_mean_clock_rate == TRUE) {
+  if (clock_model$normalize_mean_clock_rate == TRUE) {
     line <- paste0(line, "normalize=\"true\" ")
   }
   if (n_discrete_rates != -1) {
