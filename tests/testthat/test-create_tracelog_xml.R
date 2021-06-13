@@ -37,6 +37,12 @@ test_that("detailed use, v2.4", {
       section = "logger"
     )[1:9]
   )
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
   expect_equal(created, expected)
 })
 

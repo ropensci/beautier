@@ -18,7 +18,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
   text <- c(text, "<log idref=\"posterior\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"likelihood\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"prior\"/>") # nolint this is no absolute path
-  text <- c(text, beautier::tree_models_to_xml_tracelog(site_models))
+  text <- c(text, beautier::tree_model_to_tracelog_xml(inference_model))
 
   site_models_xml <- beautier::site_models_to_xml_tracelog(site_models)
   if (!is.null(site_models_xml)) {

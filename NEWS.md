@@ -36,8 +36,8 @@ Newest versions at top.
    redirect user to `clock_model_to_xml_tracelog`
  * Deprecated `mrca_priors_to_xml_tracelog`,
    redirect user to `mrca_prior_to_xml_tracelog`
-
-
+ * Deprecated `tree_models_to_xml_tracelog`,
+   redirect user to `tree_model_to_tracelog_xml`
 
 ## beautier 2.6 (2021-05-22)
 
