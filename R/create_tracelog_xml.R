@@ -36,10 +36,8 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
   text <- c(text, beautier::tree_priors_to_xml_tracelog(tree_priors))
   text <- c(
     text,
-    beautier::mrca_priors_to_xml_tracelog(
-      clock_models = clock_models,
-      mrca_priors = mrca_priors,
-      tipdates_filename = tipdates_filename
+    beautier::mrca_prior_to_xml_tracelog(
+      inference_model = inference_model
     )
   )
 
