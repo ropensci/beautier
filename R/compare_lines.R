@@ -29,6 +29,16 @@ compare_lines <- function(
     expected <- beautier::extract_xml_section_from_lines(
       lines = expected, section = section)
   }
+  dir.create(
+    dirname(created_lines_filename),
+    showWarnings = FALSE,
+    recursive = TRUE
+  )
+  dir.create(
+    dirname(expected_lines_filename),
+    showWarnings = FALSE,
+    recursive = TRUE
+  )
   writeLines(text = lines, created_lines_filename)
   writeLines(text = expected, expected_lines_filename)
 }
