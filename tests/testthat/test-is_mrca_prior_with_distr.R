@@ -1,5 +1,3 @@
-context("test-is_mrca_prior_with_distr")
-
 test_that("use", {
 
   expect_false(is_mrca_prior_with_distr("nonsense"))
