@@ -28,7 +28,7 @@ clock_model_to_xml_tracelog <- function(
 
   text <- NULL
   if (beautier::is_rln_clock_model(clock_model)) {
-    if (beautier::is_mrca_prior_with_distr(mrca_priors[[1]])
+    if (beautier::has_mrca_prior_with_distr(inference_model)
     ) {
       text <- c(text, paste0("<log idref=\"ucldMean.c:", id, "\"/>")) # nolint this is no absolute path
     }
