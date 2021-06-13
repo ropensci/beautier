@@ -70,28 +70,21 @@ create_branch_rate_model_rln_xml <- function(# nolint long function name, which 
     )
   )
   text <- c(text, paste0("    </LogNormal>"))
-  if (!beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
-    if (1 == 1) {
-      xml_here <- beautier::clock_rate_param_to_xml(
-        clock_rate_param = beautier::create_clock_rate_param(
-          id = id,
-          estimate = FALSE,
-          value = clock_model$mean_clock_rate
-        ),
-        beauti_options = inference_model$beauti_options
-      )
-      xml_here <- stringr::str_replace(
-        xml_here,
-        "id=\"clockRate.c:", "id=\"ucldMean.c:"
-      )
-      text <- c(text, indent(xml_here))
-    } else {
-      text <- c(text, paste0("    <parameter ",
-        "id=\"ucldMean.c:", id, "\" estimate=\"false\" ",
-        "name=\"clock.rate\">", clock_model$mean_clock_rate, "</parameter>"))
-
-    }
-
+  if (!beautier::is_mrca_prior_with_distr(mrca_priors[[1]]) &&
+      !has_tip_dating(inference_model)) {
+    xml_here <- beautier::clock_rate_param_to_xml(
+      clock_rate_param = beautier::create_clock_rate_param(
+        id = id,
+        estimate = FALSE,
+        value = clock_model$mean_clock_rate
+      ),
+      beauti_options = inference_model$beauti_options
+    )
+    xml_here <- stringr::str_replace(
+      xml_here,
+      "id=\"clockRate.c:", "id=\"ucldMean.c:"
+    )
+    text <- c(text, indent(xml_here))
   }
   text <- c(text, paste0("</branchRateModel>"))
   testit::assert(is.null(text) || beautier::is_xml(text))
