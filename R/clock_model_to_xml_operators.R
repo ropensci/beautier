@@ -44,7 +44,7 @@ clock_model_to_xml_operators <- function(
       "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>") # nolint this is no absolute path
     )
-    if (beautier::is_mrca_prior_with_distr(mrca_priors[[1]])) {
+    if (beautier::has_mrca_prior_with_distr(inference_model)) {
       text <- c(
         text,
         paste0(
@@ -65,7 +65,7 @@ clock_model_to_xml_operators <- function(
   }
 
   if (beautier::is_strict_clock_model(clock_model)) {
-    if (beautier::is_mrca_prior_with_distr(inference_model$mrca_prior) ||
+    if (beautier::has_mrca_prior_with_distr(inference_model) ||
       beautier::has_tip_dating(inference_model)
     ) {
       text <- c(
