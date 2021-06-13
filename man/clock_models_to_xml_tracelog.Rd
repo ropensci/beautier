@@ -2,7 +2,7 @@
 % Please edit documentation in R/clock_models_to_xml_tracelog.R
 \name{clock_models_to_xml_tracelog}
 \alias{clock_models_to_xml_tracelog}
-\title{Creates the clock models' XML for the tracelog section}
+\title{Deprecated internal function}
 \usage{
 clock_models_to_xml_tracelog(clock_models, mrca_priors = NA)
 }

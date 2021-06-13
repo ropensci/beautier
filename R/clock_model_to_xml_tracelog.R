@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Creates the clock model's XML for the tracelog section
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
@@ -10,9 +12,16 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 clock_model_to_xml_tracelog <- function(
-  clock_model,
-  mrca_priors = NA
+  inference_model,
+  clock_model = "deprecated",
+  mrca_priors = "deprecated"
 ) {
+  testthat::expect_equal(clock_model, "deprecated")
+  testthat::expect_equal(mrca_priors, "deprecated")
+  # Do not be smart yet
+  clock_model <- inference_model$clock_model
+  mrca_priors  <- list(inference_model$mrca_prior)
+
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id
   testit::assert(beautier::is_id(id))

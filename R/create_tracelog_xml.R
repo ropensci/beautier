@@ -26,9 +26,8 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
     text <- c(text, site_models_xml)
   }
 
-  clock_models_xml <- beautier::clock_models_to_xml_tracelog(
-    clock_models = clock_models,
-    mrca_priors = mrca_priors
+  clock_models_xml <- beautier::clock_model_to_xml_tracelog(
+    inference_model = inference_model
   )
   if (!is.null(clock_models_xml)) {
     text <- c(text, clock_models_xml)

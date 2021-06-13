@@ -2,11 +2,23 @@
 % Please edit documentation in R/clock_model_to_xml_tracelog.R
 \name{clock_model_to_xml_tracelog}
 \alias{clock_model_to_xml_tracelog}
-\title{Creates the clock model's XML for the tracelog section}
+\title{Internal function}
 \usage{
-clock_model_to_xml_tracelog(clock_model, mrca_priors = NA)
+clock_model_to_xml_tracelog(
+  inference_model,
+  clock_model = "deprecated",
+  mrca_priors = "deprecated"
+)
 }
 \arguments{
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
+
 \item{clock_model}{a clock model,
 as returned by \code{\link{create_clock_model}}}
 

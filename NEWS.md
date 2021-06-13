@@ -32,6 +32,8 @@ Newest versions at top.
    redirect user to `clock_model_to_xml_state`
  * Deprecated `clock_models_to_xml_operators`,
    redirect user to `clock_model_to_xml_operators`
+ * Deprecated `clock_models_to_xml_tracelog`,
+   redirect user to `clock_model_to_xml_tracelog`
 
 ## beautier 2.6 (2021-05-22)
 
