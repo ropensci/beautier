@@ -6,6 +6,10 @@
 \usage{
 check_empty_beautier_folder(beautier_folder = get_beautier_folder())
 }
+\arguments{
+\item{beautier_folder}{the path to
+the \link{beautier} temporary files folder}
+}
 \value{
 Nothing.
 }

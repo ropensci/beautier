@@ -10,6 +10,7 @@ default_params_doc(
   alignment_id,
   alpha_parameter,
   bd_tree_prior,
+  beautier_folder,
   cbs_tree_prior,
   beast2_version,
   beauti_options,
@@ -95,6 +96,9 @@ as created by \link{create_alpha_param}}
 
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
 by \code{\link{create_bd_tree_prior}}}
+
+\item{beautier_folder}{the path to
+the \link{beautier} temporary files folder}
 
 \item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
 as returned by \code{\link{create_cbs_tree_prior}}}

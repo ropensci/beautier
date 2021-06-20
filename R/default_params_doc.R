@@ -2,15 +2,17 @@
 #' This function does nothing.
 #' It is intended to inherit function argument documentation.
 #' @param alignment_id ID of the alignment,
-#'   as returned by \link{get_alignment_id}.
-#'   Keep at \code{NA} to have it initialized automatically
+#' as returned by \link{get_alignment_id}.
+#' Keep at \code{NA} to have it initialized automatically
 #' @param alpha_parameter an alpha parameter,
 #' as created by \link{create_alpha_param}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
-#'   by \code{\link{create_bd_tree_prior}}
+#' by \code{\link{create_bd_tree_prior}}
 #' @param beast2_version BEAST2 version, for example, code{"2.5"}
 #' @param beauti_options one BEAUti options object,
-#'   as returned by \code{\link{create_beauti_options}}
+#' as returned by \code{\link{create_beauti_options}}
+#' @param beautier_folder the path to
+#' the \link{beautier} temporary files folder
 #' @param beta_parameter a beta parameter,
 #' as created by \link{create_beta_param}
 #' @param clock_prior_distr_id ID of an MRCA clock model's distribution.
@@ -195,6 +197,7 @@ default_params_doc <- function(
   alignment_id,
   alpha_parameter,
   bd_tree_prior,
+  beautier_folder,
   cbs_tree_prior,
   beast2_version,
   beauti_options,

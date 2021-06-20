@@ -6,6 +6,10 @@
 \usage{
 clear_beautier_cache(beautier_folder = get_beautier_folder())
 }
+\arguments{
+\item{beautier_folder}{the path to
+the \link{beautier} temporary files folder}
+}
 \value{
 Nothing.
 }
