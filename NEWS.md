@@ -6,7 +6,8 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Added `check_empty_beautier_folder` to make sure
+   no temporary files are created
 
 ### MINOR IMPROVEMENTS
 
