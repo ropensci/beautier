@@ -1446,8 +1446,6 @@ test_that("Tip dating, v2.5", {
 })
 
 test_that("Tip dating, v2.6", {
-
-  skip("WIP Tipdating")
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)

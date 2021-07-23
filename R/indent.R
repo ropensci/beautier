@@ -13,10 +13,7 @@ indent <- function(
   if (n_spaces < 0) {
     stop("'n_spaces' must be a positive integer")
   }
-  if (is.null(text)) {
-    stop("Am I really needed? If not, delete my if statement")
-    return(NULL)
-  }
+  testthat::expect_false(is.null(text))
   for (i in seq_along(text)) {
     if (text[i] == "") next
     spaces <- paste(rep(" ", n_spaces), collapse = "")
