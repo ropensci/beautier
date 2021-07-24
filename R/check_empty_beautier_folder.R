@@ -12,7 +12,7 @@
 check_empty_beautier_folder <- function(
   beautier_folder = get_beautier_folder()
 ) {
-  dirs <- list.dirs(beautier_folder)
+  dirs <- normalizePath(list.dirs(beautier_folder))
   dirs <- dirs[dirs != normalizePath(beautier_folder, mustWork = FALSE)]
 
   if (length(dirs) != 0) {

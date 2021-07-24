@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 2.6.2 (unreleased)
+## beautier 2.6.2 (2021-07-24)
 
 ### NEW FEATURES
 
@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * `check_empty_beautier_folder` works correctly on Windows
 
 ### BUG FIXES
 
