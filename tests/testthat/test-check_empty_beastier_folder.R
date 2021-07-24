@@ -21,7 +21,9 @@ test_that("files are detected", {
 
   dir.create(get_beautier_folder(), showWarnings = FALSE, recursive = TRUE)
   beautier_filename <- file.path(get_beautier_tempfilename())
-  expect_silent(check_empty_beautier_folder(beautier_folder = get_beautier_folder()))
+  expect_silent(
+    check_empty_beautier_folder(beautier_folder = get_beautier_folder())
+  )
   readr::write_lines(x = "irrelevant", file = beautier_filename)
   file.create(normalizePath(beautier_filename, mustWork = FALSE))
   expect_error(check_empty_beautier_folder(beautier_folder))
