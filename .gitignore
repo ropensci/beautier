@@ -67,3 +67,4 @@ beautier.Rcheck/
 scripts/build/
 doc
 Meta
+*.sif
