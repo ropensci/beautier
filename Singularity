@@ -1,4 +1,4 @@
-# The beastier R package, with BEAST2 installed
+# The beautier R package
 
 Bootstrap: docker
 From: r-base
@@ -9,8 +9,7 @@ From: r-base
     apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev r-cran-stringi libicu-dev r-cran-rjava
     apt-get clean
     Rscript -e 'install.packages(c("remotes", "devtools"))'
-    Rscript -e 'remotes::install_github("ropensci/beastier")'
-    Rscript -e 'beastier::install_beast2(folder_name = "/opt/beastier")'
+    Rscript -e 'remotes::install_github("ropensci/beautier")'
 
 %apprun R
 exec R "$@"
@@ -22,33 +21,40 @@ exec Rscript "$@"
 exec R "$@"
 
 %test
-    Rscript -e 'beastier::beastier_report(folder_name = "/opt/beastier")'
+    Rscript -e 'beautier::get_beautier_folder()'
 
 %help
 
-This container has the R package beastier and the tool BEAST2 installed.
-
-When using this container, set `beast2_path` to `/opt/beastier`, for example:
+This container has the R package beautier installed.
 
 ```
-library(beastier)
-beast2_options <- create_beast2_options(
-  input_filename = get_beastier_path("2_4.xml"),
-  beast2_path = "/opt/beastier"
+library(beautier)
+# Get an example FASTA file
+input_filename <- get_fasta_filename()
+
+# The file created by beautier, a BEAST2 input file
+output_filename <- get_beautier_tempfilename()
+
+# Use the default BEAUti settings to create a BEAST2 input file
+create_beast2_input_file_from_model(
+  input_filename,
+  output_filename,
+  inference_model = create_inference_model()
 )
-run_beast2_from_options(beast2_options)
+readLines(output_filename)
+file.remove(output_filename)
 ```
 
 %labels
 
     AUTHOR Richel J.C. Bilderbeek
 
-    NAME beastier
+    NAME beautier
  
-    DESCRIPTION The beastier R package, with BEAST2 installed
+    DESCRIPTION The beautier R package
 
     USAGE simply run the container
 
-    URL https://github.com/ropensci/beastier
+    URL https://github.com/ropensci/beautier
 
-    VERSION 2.4.4
+    VERSION 2.6.2
