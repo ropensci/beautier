@@ -11,14 +11,8 @@ From: r-base
     Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("ropensci/beautier")'
 
-%apprun R
-exec R "$@"
-
-%apprun Rscript
-exec Rscript "$@"
-
 %runscript
-exec R "$@"
+exec R --vanilla --silent --no-echo "$@"
 
 %test
     Rscript -e 'beautier::get_beautier_folder()'
@@ -26,6 +20,14 @@ exec R "$@"
 %help
 
 This container has the R package beautier installed.
+
+To make the container run a script called, e.g. `script.R`, do:
+
+```
+cat script.R | ./plinkr.sif
+```
+
+
 
 ```
 library(beautier)
