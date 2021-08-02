@@ -5,10 +5,10 @@ From: r-base
 
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get update
+    apt-get -y update
     apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev r-cran-stringi libicu-dev r-cran-rjava
-    apt-get clean
-    Rscript -e 'install.packages(c("remotes", "devtools"))'
+    apt-get -y clean
+    Rscript -e 'install.packages(c("remotes", "devtools", "stringi"))'
     Rscript -e 'remotes::install_github("ropensci/beautier")'
 
 %runscript
