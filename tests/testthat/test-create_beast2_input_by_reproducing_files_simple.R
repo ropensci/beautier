@@ -1494,3 +1494,36 @@ test_that("Tip dating with RLN", {
   )
   expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
 })
+
+test_that("Offset", {
+
+  skip("Issue #130. https://github.com/ropensci/beautier/issues/130")
+  # To reproduce 'distr_offset.xml' we need support for multiple tree priors
+  # first
+
+  fasta_filename <- beautier::get_beautier_tempfilename(
+    pattern = "primates_",
+    fileext = ".fas"
+  )
+  save_nexus_as_fasta(
+    nexus_filename = beastier::get_beast2_example_filename("Primates.nex"),
+    fasta_filename = fasta_filename
+  )
+
+  created <- create_beast2_input_from_model(
+    input_filename = fasta_filename,
+    inference_model = create_inference_model(),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  expected <- readLines(get_beautier_path("distr_offset.xml"))
+  stringr::str_subset(expected, "offset")
+
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
+  expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
+  file.remove(fasta_filename)
+})
