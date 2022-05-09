@@ -139,3 +139,29 @@ test_that("abuse: two alignments", {
     "Must use one alignment, site model, clock model and tree prior"
   )
 })
+
+test_that("Issue https://github.com/ropensci/beastier/issues/63", {
+  xml_text <- create_beast2_input(
+    beautier::get_fasta_filename(),
+    site_model = create_gtr_site_model(gamma_site_model = create_gamma_site_model()),
+    mcmc = create_mcmc(
+      chain_length = 9e+07,
+      store_every = -1,
+      pre_burnin = 0,
+      n_init_attempts = 10,
+      sample_from_prior = FALSE,
+      tracelog = create_tracelog(filename = "Step 4.2 COI BEAST output.log", log_every = 9000),
+      screenlog = create_screenlog(log_every = 9000),
+      treelog = create_treelog(filename = "Step 4.2 COI BEAST output.trees",log_every = 9000)),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  expect_equal(
+    1,
+    length(
+      stringr::str_subset(
+        xml_text,
+        "logger id=.treelog.t:test_output_.*fileName=\"Step.*"
+      )
+    )
+  )
+})

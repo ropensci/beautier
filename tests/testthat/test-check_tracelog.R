@@ -65,6 +65,14 @@ test_that("abuse, by wrong values", {
   expect_error(
     check_tracelog(
       create_tracelog(
+        filename = "filename with spaces.csv"
+      )
+    ),
+    "filename"
+  )
+  expect_error(
+    check_tracelog(
+      create_tracelog(
         filename = 1234
       )
     ),

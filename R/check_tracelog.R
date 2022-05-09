@@ -44,10 +44,7 @@ check_tracelog_names <- function(tracelog) {
 #' @export
 check_tracelog_values <- function(tracelog) {
 
-  if (!beautier::is_one_na(tracelog$filename)) {
-    assertive::assert_is_character(tracelog$filename)
-    assertive::assert_is_a_string(tracelog$filename)
-  }
+  beautier::check_filename(tracelog$filename, allow_na = TRUE)
   assertive::assert_is_numeric(tracelog$log_every)
   assertive::assert_all_are_positive(tracelog$log_every)
   beautier::check_log_mode(tracelog$mode)

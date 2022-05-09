@@ -5,8 +5,8 @@
 #' @export
 check_screenlog <- function(screenlog) {
 
-  check_screenlog_names(screenlog)
-  check_screenlog_values(screenlog)
+  beautier::check_screenlog_names(screenlog)
+  beautier::check_screenlog_values(screenlog)
 }
 
 #' Check if the \code{screenlog} has the list elements
@@ -43,10 +43,11 @@ check_screenlog_names <- function(screenlog) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_screenlog_values <- function(screenlog) {
-  if (!beautier::is_one_na(screenlog$filename)) {
-    assertive::assert_is_character(screenlog$filename)
-    assertive::assert_is_a_string(screenlog$filename)
-  }
+  beautier::check_filename(
+    screenlog$filename,
+    allow_empty_str = TRUE,
+    allow_na = TRUE
+  )
   assertive::assert_is_numeric(screenlog$log_every)
   assertive::assert_all_are_positive(screenlog$log_every)
   beautier::check_log_mode(screenlog$mode)

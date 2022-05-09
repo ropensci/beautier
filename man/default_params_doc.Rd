@@ -8,6 +8,8 @@ It is intended to inherit function argument documentation.}
 \usage{
 default_params_doc(
   alignment_id,
+  allow_empty_str,
+  allow_na,
   alpha_parameter,
   bd_tree_prior,
   beautier_folder,
@@ -90,6 +92,10 @@ default_params_doc(
 \item{alignment_id}{ID of the alignment,
 as returned by \link{get_alignment_id}.
 Keep at \code{NA} to have it initialized automatically}
+
+\item{allow_empty_str}{allow a string to be empty}
+
+\item{allow_na}{allow \link{NA}}
 
 \item{alpha_parameter}{an alpha parameter,
 as created by \link{create_alpha_param}}

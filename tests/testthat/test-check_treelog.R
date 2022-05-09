@@ -66,6 +66,15 @@ test_that("abuse, by wrong values", {
   expect_error(
     check_treelog(
       create_treelog(
+        filename = "filename with spaces.csv"
+      )
+    ),
+    "filename"
+  )
+
+  expect_error(
+    check_treelog(
+      create_treelog(
         log_every = "nonsense"
       )
     ),

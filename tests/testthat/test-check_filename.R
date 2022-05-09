@@ -1,0 +1,21 @@
+test_that("use", {
+  expect_silent(check_filename("a"))
+  expect_silent(check_filename("a.csv"))
+  expect_silent(check_filename("~/a.csv"))
+  expect_silent(check_filename("/home/a.csv"))
+  expect_silent(check_filename("many.dots.csv"))
+  expect_silent(check_filename("", allow_empty_str = TRUE))
+  expect_silent(check_filename(NA, allow_na = TRUE))
+  expect_error(check_filename(filename = "filename with spaces.csv"))
+  expect_error(check_filename(""))
+  expect_error(check_filename(NULL))
+  expect_error(check_filename(NA))
+  expect_error(check_filename(Inf))
+  expect_error(check_filename(42))
+  expect_error(check_filename(3.14))
+  expect_error(check_filename(c()))
+  expect_error(check_filename(c("a", "b")))
+
+  # https://github.com/ropensci/beastier/issues/63
+  expect_error(check_filename("Step 4.2 COI BEAST output.log"))
+})

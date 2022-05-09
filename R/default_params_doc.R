@@ -4,6 +4,8 @@
 #' @param alignment_id ID of the alignment,
 #' as returned by \link{get_alignment_id}.
 #' Keep at \code{NA} to have it initialized automatically
+#' @param allow_empty_str allow a string to be empty
+#' @param allow_na allow \link{NA}
 #' @param alpha_parameter an alpha parameter,
 #' as created by \link{create_alpha_param}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
@@ -195,6 +197,8 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   alignment_id,
+  allow_empty_str,
+  allow_na,
   alpha_parameter,
   bd_tree_prior,
   beautier_folder,

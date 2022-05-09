@@ -2,6 +2,7 @@ test_that("identicals", {
   treelog_1 <- create_treelog()
   treelog_2 <- treelog_1
   expect_true(are_equal_treelogs(treelog_1, treelog_2))
+  expect_silent(check_empty_beautier_folder())
 })
 
 test_that("identicals, same NA filename", {
@@ -10,6 +11,7 @@ test_that("identicals, same NA filename", {
   treelog_1$filename <- NA
   treelog_2$filename <- NA
   expect_true(are_equal_treelogs(treelog_1, treelog_2))
+  check_empty_beautier_folder()
 })
 
 test_that("identicals, same non-NA filename", {
@@ -69,4 +71,5 @@ test_that("sort", {
   treelog_1$sort <- "alphabetic"
   treelog_2$sort <- "smart"
   expect_false(are_equal_treelogs(treelog_1, treelog_2))
+  expect_silent(check_empty_beautier_folder())
 })

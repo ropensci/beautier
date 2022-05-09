@@ -46,6 +46,7 @@ test_that("screenlog", {
   mcmc_2 <- mcmc_1
   mcmc_2$screenlog <- create_test_screenlog()
   expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
+  expect_silent(check_empty_beautier_folder())
 })
 
 test_that("treelog", {
@@ -53,4 +54,5 @@ test_that("treelog", {
   mcmc_2 <- mcmc_1
   mcmc_2$treelog <- create_test_treelog()
   expect_false(are_equal_mcmcs(mcmc_1, mcmc_2))
+  expect_silent(check_empty_beautier_folder())
 })

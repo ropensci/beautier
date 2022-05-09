@@ -18,7 +18,7 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * Filenames cannot have spaces
 
 ## beautier 2.6.2 (2021-07-24)
 

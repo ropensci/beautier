@@ -6,6 +6,7 @@ test_that("minimal use", {
       )
     )
   )
+  expect_silent(check_empty_beautier_folder())
 })
 
 test_that("use, v2.4", {
@@ -20,6 +21,7 @@ test_that("use, v2.4", {
     beauti_options = create_beauti_options_v2_4()
   )
   expect_equal(created, expected)
+  expect_silent(check_empty_beautier_folder())
 })
 
 test_that("use, v2.6", {
@@ -34,4 +36,5 @@ test_that("use, v2.6", {
     beauti_options = create_beauti_options_v2_6()
   )
   expect_equal(created, expected)
+  expect_silent(check_empty_beautier_folder())
 })
