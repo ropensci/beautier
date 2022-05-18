@@ -35,5 +35,5 @@ jobs:
         run: singularity run-help beautier.sif
 
       - name: Run container
-        run: singularity run beautier.sif Rscript scripts/demo_container.R
+        run: ./scripts/run_container.sh
 
