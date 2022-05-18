@@ -14,7 +14,7 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * At the end of the tests, delete the 'beautier' temporary folder, thanks Brian Ripley
 
 ### DEPRECATED AND DEFUNCT
 
