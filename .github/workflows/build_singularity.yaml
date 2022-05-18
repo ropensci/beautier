@@ -25,11 +25,8 @@ jobs:
       - name: Show singularity version
         run: singularity version
 
-#      - name: Show present working directory
-#        run: echo $PWD
-
-      - name: Build Container
-        run: sudo -E singularity build beautier.sif Singularity
+      - name: Build container
+        run: ./scripts/build_singularity_container.sh
 
       - name: Test container
         run: singularity test beautier.sif
@@ -38,5 +35,5 @@ jobs:
         run: singularity run-help beautier.sif
 
       - name: Run container
-        run: cat scripts/demo_container.R | ./beautier.sif
+        run: singularity run beautier.sif Rscript scripts/demo_container.R
 
