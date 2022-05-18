@@ -1,18 +1,19 @@
 # The beautier R package
-
+# Works, see https://github.com/richelbilderbeek/tidyverse_singularity
 Bootstrap: docker
-From: r-base
+From: rocker/tidyverse
 
 %post
-    sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get -y update
-    apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev r-cran-stringi libicu-dev r-cran-rjava
-    apt-get -y clean
-    Rscript -e 'install.packages(c("remotes", "devtools", "stringi"))'
+    # From https://github.com/brucemoran/Singularity/blob/8eb44591284ffb29056d234c47bf8b1473637805/shub/bases/recipe.CentOs7-R_3.5.2#L21
+    echo 'export LANG=en_US.UTF-8 LANGUAGE=C LC_ALL=C LC_CTYPE=C LC_COLLATE=C  LC_TIME=C LC_MONETARY=C LC_PAPER=C LC_MEASUREMENT=C' >> $SINGULARITY_ENVIRONMENT
+
+    Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("ropensci/beautier")'
 
+
 %runscript
-exec R --vanilla --silent --no-echo "$@"
+echo "'beautier.sif' running with arguments '$@'"
+exec "$@"
 
 %test
     Rscript -e 'beautier::get_beautier_folder()'
