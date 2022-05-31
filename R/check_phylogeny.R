@@ -12,7 +12,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_phylogeny <- function(phylogeny) {
-  if (class(phylogeny) == "phylo") {
+  if (inherits(phylogeny, "phylo")) {
     return()
   }
   stop(
