@@ -16,6 +16,11 @@ a character vector of XML strings
 \description{
 Convert a clock model to the XML of the \code{TreeLogger}
 }
+\note{
+This is an internal function, so it should be marked with
+  \code{@export}. This is not done, as this will disallow all
+  functions to find the documentation parameters
+}
 \author{
 Richèl J.C. Bilderbeek
 }

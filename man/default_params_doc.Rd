@@ -31,6 +31,7 @@ default_params_doc(
   distr_id,
   fasta_filename,
   fasta_filenames,
+  filename,
   fixed_crown_age,
   fixed_crown_ages,
   gamma_distr,
@@ -159,6 +160,8 @@ as a sequence.}
 
 \item{fasta_filenames}{One or more FASTA filenames.
 Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.}
+
+\item{filename}{a filename, as can be checked by \link{check_filename}}
 
 \item{fixed_crown_age}{determines if the phylogeny's crown age is
 fixed. If FALSE, crown age is estimated by BEAST2. If TRUE,

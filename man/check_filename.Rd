@@ -7,6 +7,8 @@
 check_filename(filename, allow_empty_str = FALSE, allow_na = FALSE)
 }
 \arguments{
+\item{filename}{a filename, as can be checked by \link{check_filename}}
+
 \item{allow_empty_str}{allow a string to be empty}
 
 \item{allow_na}{allow \link{NA}}
