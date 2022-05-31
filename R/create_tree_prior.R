@@ -21,42 +21,18 @@
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' beast2_input_file <- get_beautier_tempfilename()
+#'
+#' bd_tree_prior <- create_bd_tree_prior()
+#' cbs_tree_prior <- create_cbs_tree_prior()
+#' ccp_tree_prior <- create_ccp_tree_prior()
+#' cep_tree_prior <- create_cep_tree_prior()
+#' yule_tree_prior <- create_yule_tree_prior()
+#'
+#' # Use any of the above tree priors
 #' create_beast2_input_file(
 #'   input_filename = get_fasta_filename(),
 #'   beast2_input_file,
-#'   tree_prior = create_bd_tree_prior()
-#' )
-#' file.remove(beast2_input_file)
-#'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_beautier_path("test_output_6.fas"),
-#'   beast2_input_file,
-#'   tree_prior = create_cbs_tree_prior()
-#' )
-#' file.remove(beast2_input_file)
-#'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_ccp_tree_prior()
-#' )
-#' file.remove(beast2_input_file)
-#'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_cep_tree_prior()
-#' )
-#' file.remove(beast2_input_file)
-#'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior()
+#'   tree_prior = bd_tree_prior
 #' )
 #' file.remove(beast2_input_file)
 #' @export
