@@ -16,5 +16,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 remove_beautier_folder <- function() {
-  unlink(beautier::get_beautier_folder(), recursive = TRUE)
+  folder_name <- beautier::get_beautier_folder()
+  if (dir.exists(folder_name)) {
+    unlink(folder_name, recursive = TRUE)
+  }
 }
