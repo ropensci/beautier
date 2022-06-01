@@ -24,40 +24,17 @@
 #' check_empty_beautier_folder()
 #'
 #' input_filename <- get_fasta_filename()
+#' gtr_site_model <- create_gtr_site_model()
+#' hk_site_model <- create_hky_site_model()
+#' jc69_site_model <- create_jc69_site_model()
+#' tn93_site_model <- create_tn93_site_model()
 #'
-#' # GTR
+#' # Can use any site model
 #' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file(
 #'   input_filename = input_filename,
 #'   output_filename = output_filename,
-#'   site_model = create_gtr_site_model()
-#' )
-#' file.remove(output_filename)
-#'
-#' # HKY
-#' output_filename <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = input_filename,
-#'   output_filename = output_filename,
-#'   site_model = create_hky_site_model()
-#' )
-#' file.remove(output_filename)
-#'
-#' # JC69
-#' output_filename <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = input_filename,
-#'   output_filename = output_filename,
-#'   site_model = create_jc69_site_model()
-#' )
-#' file.remove(output_filename)
-#'
-#' # TN93
-#' output_filename <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = input_filename,
-#'   output_filename = output_filename,
-#'   site_model = create_tn93_site_model()
+#'   site_model = jc69_site_model
 #' )
 #' file.remove(output_filename)
 #'
