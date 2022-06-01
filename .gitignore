@@ -68,3 +68,5 @@ scripts/build/
 doc
 Meta
 *.sif
+/doc/
+/Meta/

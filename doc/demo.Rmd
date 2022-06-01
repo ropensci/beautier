@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = ""
 )
+beautier::remove_beautier_folder()
+beautier::check_empty_beautier_folder()
 ```
 
 # Introduction
@@ -82,8 +84,12 @@ You can use `beastier` to run BEAST2 from R, see [https://github.com/ropensci/be
 You can use `babette` to do a BEAST2 inference directly,
 see [https://github.com/ropensci/babette](https://github.com/ropensci/babette).
 
-## Clean up
 
-```{r show_beast2_input_file}
+## Cleanup
+
+```{r cleanup}
 file.remove(output_filename)
+
+beautier::remove_beautier_folder()
+beautier::check_empty_beautier_folder()
 ```

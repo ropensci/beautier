@@ -3,6 +3,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = ""
 )
+beautier::remove_beautier_folder()
+beautier::check_empty_beautier_folder()
 
 ## ----load_beautier------------------------------------------------------------
 library(beautier)
@@ -76,4 +78,8 @@ create_beast2_input(
     )
   )
 )
+
+## -----------------------------------------------------------------------------
+beautier::remove_beautier_folder()
+beautier::check_empty_beautier_folder()
 
