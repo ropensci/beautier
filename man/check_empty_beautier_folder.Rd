@@ -25,7 +25,11 @@ If there are folder and/or files in the `beautier` folder,
 an error is given.
 }
 \examples{
+remove_beautier_folder()
+
 check_empty_beautier_folder()
+
+remove_beautier_folder()
 }
 \seealso{
 use \link{remove_beautier_folder} to remove the default

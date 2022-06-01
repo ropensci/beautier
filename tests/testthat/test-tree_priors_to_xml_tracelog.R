@@ -1,8 +1,7 @@
-context("tree_priors_to_xml_tracelog")
-
 test_that("creates a text", {
+  check_empty_beautier_folder()
 
-  testthat::expect_true(
+  expect_true(
     is.character(
       tree_priors_to_xml_tracelog(
         list(create_yule_tree_prior(id = "anthus_aco"))

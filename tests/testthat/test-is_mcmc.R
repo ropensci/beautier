@@ -1,6 +1,5 @@
-context("is_mcmc")
-
 test_that("is_mcmc, use", {
+  check_empty_beautier_folder()
 
   expect_true(is_mcmc(create_mcmc()))
   expect_true(is_mcmc(create_ns_mcmc()))
@@ -9,6 +8,7 @@ test_that("is_mcmc, use", {
   expect_false(is_mcmc(NULL))
   expect_false(is_mcmc(list(chain_length = 0)))
 
+  check_empty_beautier_folder()
 })
 
 test_that("is_mcmc: devious", {
@@ -47,6 +47,7 @@ test_that("is_mcmc: devious", {
 })
 
 test_that("is_mcmc_nested_sampling, use", {
+  check_empty_beautier_folder()
 
   expect_true(
     is_mcmc_nested_sampling(create_ns_mcmc())
@@ -58,4 +59,5 @@ test_that("is_mcmc_nested_sampling, use", {
   expect_false(is_mcmc_nested_sampling(list(chain_length = 0)))
 
   # Devious cases done by check_nested_sampling_mcmc
+  check_empty_beautier_folder()
 })

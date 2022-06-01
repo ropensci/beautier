@@ -1,4 +1,6 @@
 test_that("v2.4", {
+  check_empty_beautier_folder()
+
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
@@ -90,4 +92,6 @@ test_that("v2.6, tipdates", {
     "</tree>"
   )
   expect_equal(created, expected)
+
+  check_empty_beautier_folder()
 })

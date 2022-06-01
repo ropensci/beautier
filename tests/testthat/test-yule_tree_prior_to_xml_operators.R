@@ -59,4 +59,7 @@ test_that("RLN + tipdates, v2.6", {
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+
+  check_empty_beautier_folder()
+  remove_beautier_folder()
 })

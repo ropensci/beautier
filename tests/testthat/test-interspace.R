@@ -1,10 +1,12 @@
 test_that("use, zero lines", {
+  check_empty_beautier_folder()
 
   input <- NULL
   result <- interspace(input)
   expected <- NULL
   expect_equal(result, expected)
 
+  check_empty_beautier_folder()
 })
 
 test_that("use, one line", {
@@ -46,6 +48,7 @@ test_that("use, simple indentation", {
 })
 
 test_that("use, complex indentation", {
+  check_empty_beautier_folder()
 
   input <- c(
     "<a>",
@@ -66,4 +69,5 @@ test_that("use, complex indentation", {
     )
   expect_equal(result, expected)
 
+  check_empty_beautier_folder()
 })

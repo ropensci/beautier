@@ -13,12 +13,17 @@
 #' @inheritParams default_params_doc
 #' @return Nothing.
 #' @examples
+#' remove_beautier_folder()
+#'
 #' check_empty_beautier_folder()
+#'
+#' remove_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_empty_beautier_folder <- function(
   beautier_folder = get_beautier_folder()
 ) {
+  beautier_folder <- normalizePath(beautier_folder, mustWork = FALSE)
   if (!dir.exists(beautier_folder)) return(invisible(beautier_folder))
   dirs <- normalizePath(list.dirs(beautier_folder))
   dirs <- dirs[dirs != normalizePath(beautier_folder, mustWork = FALSE)]
@@ -32,7 +37,11 @@ check_empty_beautier_folder <- function(
         paste(utils::head(dirs), collapse = ",")
     )
   }
-  filenames <- list.files(beautier_folder, full.names = TRUE, recursive = TRUE)
+  filenames <- normalizePath(
+    list.files(
+      beautier_folder, full.names = TRUE, recursive = TRUE
+    )
+  )
   if (length(filenames) != 0) {
     stop(
       "Files found in beautier folder. \n",

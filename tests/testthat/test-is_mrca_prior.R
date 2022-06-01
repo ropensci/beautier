@@ -1,6 +1,5 @@
-context("is_mrca_prior")
-
 test_that("use", {
+  check_empty_beautier_folder()
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   mrca_prior <- create_mrca_prior(
@@ -16,6 +15,8 @@ test_that("use", {
   expect_false(is_mrca_prior("nonsense"))
   expect_false(is_mrca_prior(42))
   expect_false(is_mrca_prior(NULL))
+
+  check_empty_beautier_folder()
 })
 
 test_that("use, two", {
@@ -73,4 +74,7 @@ test_that("devious", {
   h <- g
   h$mrca_distr <- "nonsense"
   expect_false(is_mrca_prior(h))
+
+  check_empty_beautier_folder()
+
 })

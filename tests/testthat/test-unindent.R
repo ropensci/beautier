@@ -1,4 +1,6 @@
 test_that("no text", {
+  check_empty_beautier_folder()
+
   text <- c()
   expect_equal(unindent(text), c())
 })

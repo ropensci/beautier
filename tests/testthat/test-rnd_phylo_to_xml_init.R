@@ -1,4 +1,6 @@
 test_that("use", {
+  check_empty_beautier_folder()
+
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
@@ -34,12 +36,16 @@ test_that("use, 2.6", {
     "</init>"
   )
   expect_equal(created, expected)
+
+  check_empty_beautier_folder()
 })
 
 test_that("abuse", {
+  check_empty_beautier_folder()
 
   expect_error(
     rnd_phylo_to_xml_init(ape::rcoal(3))
   )
 
+  check_empty_beautier_folder()
 })

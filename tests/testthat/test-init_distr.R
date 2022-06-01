@@ -1,6 +1,6 @@
-context("init_distr")
-
 test_that("use", {
+  check_empty_beautier_folder()
+
   uniform_distr <- create_uniform_distr()
   expect_false(is_init_distr(uniform_distr))
   uniform_distr <- init_distr(uniform_distr)
@@ -94,4 +94,6 @@ test_that("init uniform", {
   expect_true(is.na(uniform_distr$id))
   uniform_distr <- init_distr(uniform_distr, distr_id = 314)
   expect_equal(uniform_distr$id, 314)
+
+  check_empty_beautier_folder()
 })
