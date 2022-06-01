@@ -23,6 +23,7 @@ the parameter as XML text
 Converts an alpha parameter to XML
 }
 \examples{
+remove_beautier_folder()
 check_empty_beautier_folder()
 
 # The alpha parameter must be initialized, i.e. have an ID
