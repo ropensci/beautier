@@ -41,6 +41,8 @@ a gamma distribution
 Create a gamma distribution
 }
 \examples{
+check_empty_beautier_folder()
+
 gamma_distr <- create_gamma_distr(
    alpha = 0.05,
    beta = 10.0
@@ -57,6 +59,9 @@ create_beast2_input_file(
   site_model = gtr_site_model
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

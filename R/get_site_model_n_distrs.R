@@ -3,6 +3,8 @@
 #' @return the number of distributions a site model has
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # 5: rates AC, AG, AT, CG and GT
 #' get_site_model_n_distrs(create_gtr_site_model())
 #'
@@ -14,6 +16,8 @@
 #'
 #' # 2: kappa 1 and kappa 2
 #' get_site_model_n_distrs(create_tn93_site_model())
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_site_model_n_distrs <- function(
   site_model

@@ -21,6 +21,7 @@ an initialized strict clock model
 Initializes a strict clock model
 }
 \examples{
+check_empty_beautier_folder()
 
 strict_clock_model <- create_strict_clock_model()
 # FALSE: not yet initialized
@@ -28,6 +29,8 @@ is_init_strict_clock_model(strict_clock_model)
 strict_clock_model <- init_strict_clock_model(strict_clock_model)
 # TRUE: initialized
 is_init_strict_clock_model(strict_clock_model)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

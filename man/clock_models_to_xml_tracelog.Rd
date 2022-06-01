@@ -19,11 +19,6 @@ a character vector of XML strings
 \description{
 Creates the clock models' XML for the tracelog section
 }
-\examples{
-# <logger id="tracelog" ...>
-#'   # Here
-# </logger>
-}
 \seealso{
 the complete tracelog section is created
   by \code{\link{create_tracelog_xml}}

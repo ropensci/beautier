@@ -22,6 +22,8 @@ Determine if the object is a valid
 as created by \code{\link{create_one_div_x_distr}}
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_one_div_x_distr(create_one_div_x_distr())
 # FALSE
@@ -29,6 +31,8 @@ is_one_div_x_distr(create_poisson_distr())
 is_one_div_x_distr(NA)
 is_one_div_x_distr(NULL)
 is_one_div_x_distr("nonsense")
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

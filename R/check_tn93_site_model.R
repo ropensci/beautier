@@ -5,7 +5,11 @@
 #' TN93 nucleotide substitution model.
 #' @inheritParams default_params_doc
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_tn93_site_model(create_tn93_site_model())
+#'
+#' check_empty_beautier_folder()
 #' @export
 check_tn93_site_model <- function(tn93_site_model) {
 

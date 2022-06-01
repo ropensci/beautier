@@ -36,6 +36,8 @@ such as:
 }
 }
 \examples{
+check_empty_beautier_folder()
+
 create_rate_categories_state_node_xml(
   create_inference_model(
     clock_model = create_rln_clock_model(
@@ -44,6 +46,8 @@ create_rate_categories_state_node_xml(
     )
   )
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

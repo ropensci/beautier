@@ -16,5 +16,9 @@ Use \link{create_tn93_site_model} to create a valid
 TN93 nucleotide substitution model.
 }
 \examples{
+check_empty_beautier_folder()
+
 check_tn93_site_model(create_tn93_site_model())
+
+check_empty_beautier_folder()
 }

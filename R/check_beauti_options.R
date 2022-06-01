@@ -6,7 +6,11 @@
 #' @seealso Use \link{create_beauti_options} to create a valid
 #'   BEAUti options setup
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_beauti_options(create_beauti_options())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_beauti_options <- function(

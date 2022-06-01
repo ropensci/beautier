@@ -28,6 +28,8 @@ this parameter is used in a log-normal distribution
   (as returned by \code{\link{create_log_normal_distr}})
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create the parameter
 s_param <- create_s_param()
 
@@ -46,6 +48,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

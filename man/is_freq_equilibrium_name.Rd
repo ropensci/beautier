@@ -17,12 +17,16 @@ TRUE if the name is a valid \code{freq_equilibrium} value
 Checks if \code{name} is a valid \code{freq_equilibrium} argument value
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_freq_equilibrium_name("estimated")
 is_freq_equilibrium_name("empirical")
 is_freq_equilibrium_name("all_equal")
 # FALSE
 is_freq_equilibrium_name("nonsense")
+
+check_empty_beautier_folder()
 }
 \seealso{
 the \code{freq_equilibrium} argument is used by

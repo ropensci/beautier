@@ -19,14 +19,15 @@ test_that("folders are detected", {
 test_that("files are detected", {
   if (rappdirs::app_dir()$os == "win") return()
 
+  remove_beautier_folder()
+
+  beautier_filename <- get_beautier_tempfilename()
   dir.create(get_beautier_folder(), showWarnings = FALSE, recursive = TRUE)
-  beautier_filename <- file.path(get_beautier_tempfilename())
-  expect_silent(
-    check_empty_beautier_folder(beautier_folder = get_beautier_folder())
-  )
+  expect_error(check_empty_beautier_folder(), "'beautier' folder found")
   readr::write_lines(x = "irrelevant", file = beautier_filename)
   file.create(normalizePath(beautier_filename, mustWork = FALSE))
-  expect_error(check_empty_beautier_folder(beautier_folder))
+  expect_error(check_empty_beautier_folder(), "Files found")
   file.remove(beautier_filename)
-  expect_silent(check_empty_beautier_folder())
+  expect_error(check_empty_beautier_folder(), "'beautier' folder found")
+  remove_beautier_folder()
 })

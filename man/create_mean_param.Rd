@@ -26,6 +26,8 @@ this parameter is used in an exponential distribution
   It cannot be estimated (as a hyper parameter) yet.
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create the parameter
 mean_param <- create_mean_param(value = 1.0)
 
@@ -44,6 +46,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

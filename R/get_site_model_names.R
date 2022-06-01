@@ -2,12 +2,11 @@
 #' @return the site model names
 #' @seealso Use \link{create_site_models} to get all site models
 #' @examples
-#'   # Check all names
-#'   names <- get_site_model_names()
-#'   testit::assert("JC69" %in% names)
-#'   testit::assert("HKY" %in% names)
-#'   testit::assert("TN93" %in% names)
-#'   testit::assert("GTR" %in% names)
+#' check_empty_beautier_folder()
+#'
+#' get_site_model_names()
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_site_model_names <- function() {

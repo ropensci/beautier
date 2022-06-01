@@ -22,6 +22,8 @@ a Coalescent Bayesian Skyline tree_prior
 Create a Coalescent Bayesian Skyline tree prior
 }
 \examples{
+check_empty_beautier_folder()
+
 cbs_tree_prior <- create_cbs_tree_prior()
 
 beast2_input_file <- get_beautier_tempfilename()
@@ -31,6 +33,9 @@ create_beast2_input_file(
   tree_prior = cbs_tree_prior
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 An alignment ID can be extracted from

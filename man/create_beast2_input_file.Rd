@@ -57,6 +57,8 @@ nothing
 Create a BEAST2 input file
 }
 \examples{
+check_empty_beautier_folder()
+
 # Get an example FASTA file
 input_filename <- get_fasta_filename()
 
@@ -68,6 +70,9 @@ create_beast2_input_file(
   output_filename
 )
 file.remove(output_filename)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_beast2_input_file_from_model} to do the same with an

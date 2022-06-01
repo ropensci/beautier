@@ -4,9 +4,13 @@
 #' @seealso tree priors can be created by \code{\link{create_tree_prior}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   testit::assert(is_tree_prior(create_bd_tree_prior()))
-#'   testit::assert(is_tree_prior(create_yule_tree_prior()))
-#'   testit::assert(!is_tree_prior("nonsense"))
+#' check_empty_beautier_folder()
+#'
+#' testit::assert(is_tree_prior(create_bd_tree_prior()))
+#' testit::assert(is_tree_prior(create_yule_tree_prior()))
+#' testit::assert(!is_tree_prior("nonsense"))
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_tree_prior <- function(
   x
@@ -24,11 +28,15 @@ is_tree_prior <- function(
 #'   Birth-Death tree prior
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'   testit::assert(is_bd_tree_prior(create_bd_tree_prior()))
 #'   testit::assert(!is_bd_tree_prior(create_cbs_tree_prior()))
 #'   testit::assert(!is_bd_tree_prior(create_ccp_tree_prior()))
 #'   testit::assert(!is_bd_tree_prior(create_cep_tree_prior()))
 #'   testit::assert(!is_bd_tree_prior(create_yule_tree_prior()))
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_bd_tree_prior <- function(
   x
@@ -49,11 +57,15 @@ is_bd_tree_prior <- function(
 #'   coalescent Bayes skyline tree prior
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'   testit::assert(!is_cbs_tree_prior(create_bd_tree_prior()))
 #'   testit::assert( is_cbs_tree_prior(create_cbs_tree_prior()))
 #'   testit::assert(!is_cbs_tree_prior(create_ccp_tree_prior()))
 #'   testit::assert(!is_cbs_tree_prior(create_cep_tree_prior()))
 #'   testit::assert(!is_cbs_tree_prior(create_yule_tree_prior()))
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_cbs_tree_prior <- function(
   x
@@ -74,11 +86,13 @@ is_cbs_tree_prior <- function(
 #'   constant coalescence population tree prior
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'   testit::assert(!is_ccp_tree_prior(create_bd_tree_prior()))
 #'   testit::assert(!is_ccp_tree_prior(create_cbs_tree_prior()))
 #'   testit::assert( is_ccp_tree_prior(create_ccp_tree_prior()))
 #'   testit::assert(!is_ccp_tree_prior(create_cep_tree_prior()))
 #'   testit::assert(!is_ccp_tree_prior(create_yule_tree_prior()))
+#' check_empty_beautier_folder()
 #' @export
 is_ccp_tree_prior <- function(
   x
@@ -99,11 +113,15 @@ is_ccp_tree_prior <- function(
 #'   coalescent exponential population tree prior
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'   testit::assert(!is_cep_tree_prior(create_bd_tree_prior()))
 #'   testit::assert(!is_cep_tree_prior(create_cbs_tree_prior()))
 #'   testit::assert(!is_cep_tree_prior(create_ccp_tree_prior()))
 #'   testit::assert( is_cep_tree_prior(create_cep_tree_prior()))
 #'   testit::assert(!is_cep_tree_prior(create_yule_tree_prior()))
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_cep_tree_prior <- function(
   x
@@ -122,11 +140,18 @@ is_cep_tree_prior <- function(
 #'   Yule tree prior
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   testit::assert(!is_yule_tree_prior(create_bd_tree_prior()))
-#'   testit::assert(!is_yule_tree_prior(create_cbs_tree_prior()))
-#'   testit::assert(!is_yule_tree_prior(create_ccp_tree_prior()))
-#'   testit::assert(!is_yule_tree_prior(create_cep_tree_prior()))
-#'   testit::assert( is_yule_tree_prior(create_yule_tree_prior()))
+#' check_empty_beautier_folder()
+#'
+#' # TRUE
+#' is_yule_tree_prior(create_yule_tree_prior())
+#'
+#' # FALSE
+#' is_yule_tree_prior(create_bd_tree_prior())
+#' is_yule_tree_prior(create_cbs_tree_prior())
+#' is_yule_tree_prior(create_ccp_tree_prior())
+#' is_yule_tree_prior(create_cep_tree_prior())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_yule_tree_prior <- function(
   x

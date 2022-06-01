@@ -18,9 +18,12 @@ the present and the moment of at which the first
 diversification (resulting in two lineages) happened.
 }
 \examples{
-  phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-  created <- get_crown_age(phylogeny = phylogeny)
-  testit::assert(created == 15)
+check_empty_beautier_folder()
+
+phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
+get_crown_age(phylogeny = phylogeny)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

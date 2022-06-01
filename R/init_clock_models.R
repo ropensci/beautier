@@ -71,6 +71,7 @@ init_clock_models <- function(
 #' @return an initialized Relaxed Log-Normal clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' rln_clock_model <- create_rln_clock_model()
 #' # FALSE: not yet initialized
@@ -82,6 +83,8 @@ init_clock_models <- function(
 #' rln_clock_model$dimension <- 42
 #' # TRUE: now it is initialized
 #' is_init_rln_clock_model(rln_clock_model)
+#'
+#' check_empty_beautier_folder()
 #' @export
 init_rln_clock_model <- function(
   rln_clock_model,
@@ -129,6 +132,7 @@ init_rln_clock_model <- function(
 #' @return an initialized strict clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' strict_clock_model <- create_strict_clock_model()
 #' # FALSE: not yet initialized
@@ -136,6 +140,8 @@ init_rln_clock_model <- function(
 #' strict_clock_model <- init_strict_clock_model(strict_clock_model)
 #' # TRUE: initialized
 #' is_init_strict_clock_model(strict_clock_model)
+#'
+#' check_empty_beautier_folder()
 #' @export
 init_strict_clock_model <- function(
   strict_clock_model,

@@ -16,13 +16,13 @@ the filenames' full paths
 Get the full paths of files in the \code{inst/extdata} folder
 }
 \examples{
-  testit::assert(
-    length(
-      get_beautier_paths(
-        c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")
-      )
-     ) == 3
-   )
+check_empty_beautier_folder()
+
+ get_beautier_paths(
+   c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")
+ )
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{get_beautier_path} to get the path of one file

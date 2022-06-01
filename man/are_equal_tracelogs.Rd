@@ -18,6 +18,7 @@ TRUE if the two tracelogs are equal
 Will \link{stop} if the arguments are not tracelogs.
 }
 \examples{
+check_empty_beautier_folder()
 
 tracelog_1 <- create_tracelog(log_every = 1000)
 tracelog_2 <- create_tracelog(log_every = 314)
@@ -25,6 +26,8 @@ tracelog_2 <- create_tracelog(log_every = 314)
 are_equal_tracelogs(tracelog_1, tracelog_1)
 # FALSE
 are_equal_tracelogs(tracelog_1, tracelog_2)
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_tracelog} to create an tracelog

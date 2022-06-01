@@ -36,6 +36,16 @@ nothing. Instead, two files are created, with the
 Internal debug function to compare the actually created
 lines to expected lines using any diff tool
 }
+\examples{
+check_empty_beautier_folder()
+
+compare_lines(
+  lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
+  expected = readLines(beautier::get_beautier_path("bd_2_4.xml"))
+)
+
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -23,6 +23,8 @@ Creates all supported site models
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
+check_empty_beautier_folder()
+
 # All created site models are a kind of site model
 site_models <- create_site_models()
 
@@ -31,6 +33,8 @@ is_gtr_site_model(site_models[[1]])
 is_hky_site_model(site_models[[2]])
 is_jc69_site_model(site_models[[3]])
 is_tn93_site_model(site_models[[4]])
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_site_model} to create a site model

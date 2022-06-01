@@ -33,6 +33,8 @@
 #'   and \code{\link{create_uniform_distr}}
 #'   for examples how to use those distributions
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Use any distribution
 #' distr <- create_beta_distr()
 #'
@@ -45,6 +47,9 @@
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_distr <- function(
@@ -100,6 +105,8 @@ create_distr <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' beta_distr <- create_beta_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -111,6 +118,9 @@ create_distr <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_beta_distr create_distr_beta
 #' @export create_beta_distr create_distr_beta
 create_beta_distr <- create_distr_beta <- function(
@@ -163,6 +173,8 @@ create_beta_distr <- create_distr_beta <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' exp_distr <- create_exp_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -174,6 +186,9 @@ create_beta_distr <- create_distr_beta <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_exp_distr create_distr_exp
 #' @export create_exp_distr create_distr_exp
 create_exp_distr <- create_distr_exp <- function(
@@ -215,6 +230,8 @@ create_exp_distr <- create_distr_exp <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' gamma_distr <- create_gamma_distr(
 #'    alpha = 0.05,
 #'    beta = 10.0
@@ -231,6 +248,9 @@ create_exp_distr <- create_distr_exp <- function(
 #'   site_model = gtr_site_model
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_gamma_distr create_distr_gamma
 #' @export create_gamma_distr create_distr_gamma
 create_gamma_distr <- create_distr_gamma <- function(
@@ -288,6 +308,8 @@ create_gamma_distr <- create_distr_gamma <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' inv_gamma_distr <- create_inv_gamma_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -299,6 +321,9 @@ create_gamma_distr <- create_distr_gamma <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_inv_gamma_distr create_distr_inv_gamma
 #' @export create_inv_gamma_distr create_distr_inv_gamma
 create_inv_gamma_distr <- create_distr_inv_gamma <- function(
@@ -349,6 +374,8 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' laplace_distr <- create_laplace_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -360,6 +387,9 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_laplace_distr create_distr_laplace
 #' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
@@ -411,6 +441,8 @@ create_laplace_distr <- create_distr_laplace <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' log_normal_distr <- create_log_normal_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -422,6 +454,9 @@ create_laplace_distr <- create_distr_laplace <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_log_normal_distr create_distr_log_normal
 #' @export create_log_normal_distr create_distr_log_normal
 create_log_normal_distr <- create_distr_log_normal <- function(
@@ -473,6 +508,8 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' normal_distr <- create_normal_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -484,6 +521,9 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_normal_distr create_distr_normal
 #' @export create_normal_distr create_distr_normal
 create_normal_distr <- create_distr_normal <- function(
@@ -527,6 +567,8 @@ create_normal_distr <- create_distr_normal <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' one_div_x_distr <- create_one_div_x_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -538,6 +580,9 @@ create_normal_distr <- create_distr_normal <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_one_div_x_distr create_distr_one_div_x
 #' @export create_one_div_x_distr create_distr_one_div_x
 create_one_div_x_distr <- create_distr_one_div_x <- function(
@@ -566,6 +611,8 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' poisson_distr <- create_poisson_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -577,6 +624,9 @@ create_one_div_x_distr <- create_distr_one_div_x <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_poisson_distr create_distr_poisson
 #' @export create_poisson_distr create_distr_poisson
 create_poisson_distr <- create_distr_poisson <- function(
@@ -611,6 +661,8 @@ create_poisson_distr <- create_distr_poisson <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' uniform_distr <- create_uniform_distr()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -622,6 +674,9 @@ create_poisson_distr <- create_distr_poisson <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_uniform_distr create_distr_uniform
 #' @export create_uniform_distr create_distr_uniform
 create_uniform_distr <- create_distr_uniform <- function(

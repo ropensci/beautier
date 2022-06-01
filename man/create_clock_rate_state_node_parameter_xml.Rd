@@ -31,11 +31,15 @@ such as:
 }
 }
 \examples{
+check_empty_beautier_folder()
+
 create_ucld_stdev_state_node_param_xml(
   create_inference_model(
     clock_model = create_rln_clock_model(id = 314)
   )
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

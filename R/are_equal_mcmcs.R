@@ -6,12 +6,16 @@
 #' @return TRUE if the two MCMCs are equal
 #' @seealso Use \code{\link{create_mcmc}} to create an MCMC
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' mcmc_1 <- create_mcmc(chain_length = 1000)
 #' mcmc_2 <- create_mcmc(chain_length = 314)
 #' # TRUE
 #' are_equal_mcmcs(mcmc_1, mcmc_1)
 #' # FALSE
 #' are_equal_mcmcs(mcmc_1, mcmc_2)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_mcmcs <- function( # nolint cannot lower cyclomatic complexity

@@ -1,6 +1,14 @@
 #' Create a \code{treelog} object
 #' @inheritParams default_params_doc
 #' @param filename name of the file to store the posterior trees
+#' @return a `treelog`, as can be checked by \link{check_treelog}
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' create_treelog()
+#'
+#' check_empty_beautier_folder()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_treelog <- function(
   filename = "$(tree).trees",

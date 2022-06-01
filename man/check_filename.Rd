@@ -20,8 +20,12 @@ nothing
 Calls \code{stop} if the filename is invalid
 }
 \examples{
+check_empty_beautier_folder()
+
 check_filename("trace.log")
 check_filename("my.trees")
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -44,6 +44,7 @@ The \code{parameter} section is created by
 The \code{substModel} section is created by \link{create_subst_model_xml}
 }
 \examples{
+check_empty_beautier_folder()
  # <distribution id="posterior"[...]">
  #     <distribution id="likelihood" [...]>
  #       <siteModel...>
@@ -51,6 +52,8 @@ The \code{substModel} section is created by \link{create_subst_model_xml}
  #       </siteModel>
  #     </distribution>
  # </distribution>
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

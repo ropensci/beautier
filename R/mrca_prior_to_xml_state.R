@@ -4,6 +4,8 @@
 #' @return the tree prior as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' mrca_prior_to_xml_state(
 #'   inference_model = create_inference_model(
 #'     mrca_prior = create_mrca_prior(
@@ -13,6 +15,8 @@
 #'     clock_model = create_strict_clock_model()
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 mrca_prior_to_xml_state <- function(
   inference_model

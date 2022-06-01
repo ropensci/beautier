@@ -20,6 +20,7 @@ Determine if the object is a valid
 beta parameter
 }
 \examples{
+check_empty_beautier_folder()
 
 is_beta_param(create_alpha_param())
 is_beta_param(create_beta_param())
@@ -47,6 +48,8 @@ is_beta_param(create_jc69_site_model())
 is_beta_param(create_strict_clock_model())
 is_beta_param(create_yule_tree_prior())
 is_beta_param(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

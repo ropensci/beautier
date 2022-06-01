@@ -20,7 +20,11 @@ the distribution as XML text
 Converts a distribution to XML
 }
 \examples{
+check_empty_beautier_folder()
+
 distr_to_xml(create_uniform_distr(id = 1))
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

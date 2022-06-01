@@ -55,6 +55,8 @@ See
   for examples how to use those distributions
 }
 \examples{
+check_empty_beautier_folder()
+
 # Use any distribution
 distr <- create_beta_distr()
 
@@ -67,6 +69,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

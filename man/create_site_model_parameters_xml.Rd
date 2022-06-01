@@ -41,6 +41,9 @@ The \code{parameter}s sections has these elements:
   <parameter id="proportionInvariant.s[...]>
 }
 }
+\examples{
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

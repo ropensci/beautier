@@ -6,6 +6,7 @@
 #' @return TRUE if the two treelogs are equal
 #' @seealso Use \link{create_treelog} to create an treelog
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' treelog_1 <- create_treelog(log_every = 1000)
 #' treelog_2 <- create_treelog(log_every = 314)
@@ -13,6 +14,8 @@
 #' are_equal_treelogs(treelog_1, treelog_1)
 #' # FALSE
 #' are_equal_treelogs(treelog_1, treelog_2)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_treelogs <- function(

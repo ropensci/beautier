@@ -17,6 +17,8 @@ TRUE if \code{x} is an MRCA prior, FALSE otherwise
 Determine of the object is an empty (\code{NA}) or valid MRCA prior.
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_mrca_prior(create_mrca_prior())
 # Also 'NA' is a valid MRCA prior,
@@ -26,6 +28,8 @@ is_mrca_prior(NA)
 # FALSE
 is_mrca_prior(NULL)
 is_mrca_prior("nonsense")
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

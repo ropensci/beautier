@@ -13,6 +13,8 @@ is_one_double(x)
 Determines if the argument is a double
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_one_double(314)
 is_one_double(0)
@@ -27,6 +29,8 @@ is_one_double("nonsense")
 is_one_double(is_one_double)
 is_one_double(c())
 is_one_double(c(1, 2))
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -24,6 +24,8 @@
 #' Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create an MCMC chain with 50 states
 #' mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
 #'
@@ -34,6 +36,9 @@
 #'   mcmc = mcmc
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @export
 create_mcmc <- function(
   chain_length = 10000000,

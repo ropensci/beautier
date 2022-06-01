@@ -5,8 +5,12 @@
 #' @return nothing
 #' @seealso Use \link{create_param} to create a valid parameter
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_param(create_alpha_param())
 #' check_param(create_beta_param())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_param <- function(param) {

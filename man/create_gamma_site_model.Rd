@@ -42,6 +42,8 @@ a gamma site model
 Create a gamma site model, part of a site model
 }
 \examples{
+check_empty_beautier_folder()
+
 gamma_site_model <- create_gamma_site_model(prop_invariant = 0.5)
 
 site_model <- create_hky_site_model(gamma_site_model = gamma_site_model)
@@ -53,6 +55,9 @@ create_beast2_input_file(
   site_model = site_model
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 Use \code{\link{create_gamma_site_model}}

@@ -4,6 +4,8 @@
 #' @return TRUE if \code{x} is an MRCA prior, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_mrca_prior(create_mrca_prior())
 #' # Also 'NA' is a valid MRCA prior,
@@ -13,6 +15,8 @@
 #' # FALSE
 #' is_mrca_prior(NULL)
 #' is_mrca_prior("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_mrca_prior <- function(
   mrca_prior

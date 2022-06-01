@@ -23,6 +23,8 @@ FALSE otherwise
 Determine if the \code{inference_model} uses tip dating
 }
 \examples{
+check_empty_beautier_folder()
+
 # Yes, has tip dating
 has_strict_clock_model(
   create_inference_model(
@@ -34,6 +36,8 @@ has_strict_clock_model(
 has_strict_clock_model(
   create_inference_model()
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

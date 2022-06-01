@@ -12,11 +12,15 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' create_strict_clock_rate_scaler_operator_xml(
 #'   create_inference_model(
 #'     clock_model = create_strict_clock_model(id = 314)
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_strict_clock_rate_scaler_operator_xml <- function(inference_model) { # nolint indeed a long function name
   beautier::check_inference_model(inference_model)

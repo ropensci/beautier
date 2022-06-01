@@ -5,6 +5,8 @@
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_param(create_alpha_param())
 #' is_param(create_beta_param())
@@ -33,6 +35,8 @@
 #' is_param(create_strict_clock_model())
 #' is_param(create_yule_tree_prior())
 #' is_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_param <- function(
   x
@@ -55,6 +59,7 @@ is_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_alpha_param(create_alpha_param())
 #' is_alpha_param(create_beta_param())
@@ -82,6 +87,8 @@ is_param <- function(
 #' is_alpha_param(create_strict_clock_model())
 #' is_alpha_param(create_yule_tree_prior())
 #' is_alpha_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_alpha_param <- function(
   x
@@ -98,6 +105,7 @@ is_alpha_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_beta_param(create_alpha_param())
 #' is_beta_param(create_beta_param())
@@ -125,6 +133,8 @@ is_alpha_param <- function(
 #' is_beta_param(create_strict_clock_model())
 #' is_beta_param(create_yule_tree_prior())
 #' is_beta_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_beta_param <- function(
   x
@@ -141,6 +151,7 @@ is_beta_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_clock_rate_param(create_alpha_param())
 #' is_clock_rate_param(create_beta_param())
@@ -168,6 +179,8 @@ is_beta_param <- function(
 #' is_clock_rate_param(create_strict_clock_model())
 #' is_clock_rate_param(create_yule_tree_prior())
 #' is_clock_rate_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_clock_rate_param <- function(
   x
@@ -185,6 +198,7 @@ is_clock_rate_param <- function(
 #'   \code{\link{create_kappa_1_param}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_kappa_1_param(create_alpha_param())
 #' is_kappa_1_param(create_beta_param())
@@ -212,6 +226,8 @@ is_clock_rate_param <- function(
 #' is_kappa_1_param(create_strict_clock_model())
 #' is_kappa_1_param(create_yule_tree_prior())
 #' is_kappa_1_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_kappa_1_param <- function(
   x
@@ -233,6 +249,7 @@ is_kappa_1_param <- function(
 #'   \code{\link{create_kappa_2_param}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_kappa_2_param(create_alpha_param())
 #' is_kappa_2_param(create_beta_param())
@@ -260,6 +277,8 @@ is_kappa_1_param <- function(
 #' is_kappa_2_param(create_strict_clock_model())
 #' is_kappa_2_param(create_yule_tree_prior())
 #' is_kappa_2_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_kappa_2_param <- function(
   x
@@ -280,6 +299,7 @@ is_kappa_2_param <- function(
 #' @seealso lambda parameters are returned by \code{\link{create_lambda_param}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_lambda_param(create_alpha_param())
 #' is_lambda_param(create_beta_param())
@@ -307,6 +327,8 @@ is_kappa_2_param <- function(
 #' is_lambda_param(create_strict_clock_model())
 #' is_lambda_param(create_yule_tree_prior())
 #' is_lambda_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_lambda_param <- function(
   x
@@ -322,6 +344,7 @@ is_lambda_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_mean_param(create_alpha_param())
 #' is_mean_param(create_beta_param())
@@ -349,6 +372,8 @@ is_lambda_param <- function(
 #' is_mean_param(create_strict_clock_model())
 #' is_mean_param(create_yule_tree_prior())
 #' is_mean_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_mean_param <- function(
   x
@@ -366,6 +391,7 @@ is_mean_param <- function(
 #' @seealso \code{\link{create_mu_param}} creates a mu parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_mu_param(create_alpha_param())
 #' is_mu_param(create_beta_param())
@@ -393,6 +419,8 @@ is_mean_param <- function(
 #' is_mu_param(create_strict_clock_model())
 #' is_mu_param(create_yule_tree_prior())
 #' is_mu_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_mu_param <- function(
   x
@@ -410,6 +438,7 @@ is_mu_param <- function(
 #' @seealso \code{\link{create_rate_ac_param}} creates a 'rate AC' parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rate_ac_param(create_alpha_param())
 #' is_rate_ac_param(create_beta_param())
@@ -437,6 +466,8 @@ is_mu_param <- function(
 #' is_rate_ac_param(create_strict_clock_model())
 #' is_rate_ac_param(create_yule_tree_prior())
 #' is_rate_ac_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rate_ac_param <- function(
   x
@@ -454,6 +485,7 @@ is_rate_ac_param <- function(
 #' @seealso \code{\link{create_rate_ag_param}} creates a 'rate AG' parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rate_ag_param(create_alpha_param())
 #' is_rate_ag_param(create_beta_param())
@@ -481,6 +513,8 @@ is_rate_ac_param <- function(
 #' is_rate_ag_param(create_strict_clock_model())
 #' is_rate_ag_param(create_yule_tree_prior())
 #' is_rate_ag_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rate_ag_param <- function(
   x
@@ -498,6 +532,7 @@ is_rate_ag_param <- function(
 #' @seealso \code{\link{create_rate_at_param}} creates a 'rate AT' parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rate_at_param(create_alpha_param())
 #' is_rate_at_param(create_beta_param())
@@ -525,6 +560,8 @@ is_rate_ag_param <- function(
 #' is_rate_at_param(create_strict_clock_model())
 #' is_rate_at_param(create_yule_tree_prior())
 #' is_rate_at_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rate_at_param <- function(
   x
@@ -542,6 +579,7 @@ is_rate_at_param <- function(
 #' @seealso \code{\link{create_rate_cg_param}} creates a 'rate CG' parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rate_cg_param(create_alpha_param())
 #' is_rate_cg_param(create_beta_param())
@@ -569,6 +607,8 @@ is_rate_at_param <- function(
 #' is_rate_cg_param(create_strict_clock_model())
 #' is_rate_cg_param(create_yule_tree_prior())
 #' is_rate_cg_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rate_cg_param <- function(
   x
@@ -586,6 +626,7 @@ is_rate_cg_param <- function(
 #' @seealso \code{\link{create_rate_ct_param}} creates a 'rate CT' parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rate_ct_param(create_alpha_param())
 #' is_rate_ct_param(create_beta_param())
@@ -613,6 +654,8 @@ is_rate_cg_param <- function(
 #' is_rate_ct_param(create_strict_clock_model())
 #' is_rate_ct_param(create_yule_tree_prior())
 #' is_rate_ct_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rate_ct_param <- function(
   x
@@ -630,6 +673,7 @@ is_rate_ct_param <- function(
 #' @seealso \code{\link{create_rate_gt_param}} creates a 'rate GT' parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rate_gt_param(create_alpha_param())
 #' is_rate_gt_param(create_beta_param())
@@ -657,6 +701,8 @@ is_rate_ct_param <- function(
 #' is_rate_gt_param(create_strict_clock_model())
 #' is_rate_gt_param(create_yule_tree_prior())
 #' is_rate_gt_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rate_gt_param <- function(
   x
@@ -673,6 +719,7 @@ is_rate_gt_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_s_param(create_alpha_param())
 #' is_s_param(create_beta_param())
@@ -700,6 +747,8 @@ is_rate_gt_param <- function(
 #' is_s_param(create_strict_clock_model())
 #' is_s_param(create_yule_tree_prior())
 #' is_s_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_s_param <- function(
   x
@@ -716,6 +765,7 @@ is_s_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_scale_param(create_alpha_param())
 #' is_scale_param(create_beta_param())
@@ -743,6 +793,8 @@ is_s_param <- function(
 #' is_scale_param(create_strict_clock_model())
 #' is_scale_param(create_yule_tree_prior())
 #' is_scale_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_scale_param <- function(
   x
@@ -759,6 +811,7 @@ is_scale_param <- function(
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_sigma_param(create_alpha_param())
 #' is_sigma_param(create_beta_param())
@@ -786,6 +839,8 @@ is_scale_param <- function(
 #' is_sigma_param(create_strict_clock_model())
 #' is_sigma_param(create_yule_tree_prior())
 #' is_sigma_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_sigma_param <- function(
   x

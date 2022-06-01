@@ -5,6 +5,8 @@
 #' Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create an MCMC chain with 50 states
 #' mcmc <- create_test_mcmc()
 #'
@@ -15,6 +17,9 @@
 #'   mcmc = mcmc
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @export
 create_test_mcmc <- function(
   chain_length = 3000,

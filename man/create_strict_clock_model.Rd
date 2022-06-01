@@ -31,6 +31,8 @@ a strict clock_model
 Create a strict clock model
 }
 \examples{
+check_empty_beautier_folder()
+
 strict_clock_model <- create_strict_clock_model(
   clock_rate_param = 1.0,
   clock_rate_distr = create_uniform_distr()
@@ -55,6 +57,9 @@ create_beast2_input_file(
   clock_model = strict_clock_model_gamma
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

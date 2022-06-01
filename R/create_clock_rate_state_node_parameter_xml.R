@@ -14,11 +14,15 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' create_ucld_stdev_state_node_param_xml(
 #'   create_inference_model(
 #'     clock_model = create_rln_clock_model(id = 314)
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_clock_rate_state_node_parameter_xml <- function(inference_model) { # nolint indeed a long function name
   testthat::expect_true(

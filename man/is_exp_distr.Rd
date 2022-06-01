@@ -22,6 +22,8 @@ exponential distribution
 as created by \code{\link{create_exp_distr}}
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_exp_distr(create_exp_distr())
 # FALSE
@@ -29,6 +31,8 @@ is_exp_distr(create_gamma_distr())
 is_exp_distr(NA)
 is_exp_distr(NULL)
 is_exp_distr("nonsense")
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

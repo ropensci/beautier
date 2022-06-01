@@ -13,3 +13,13 @@ as created by \link{create_treelog}}
 \description{
 Will call \link{stop} if not.
 }
+\examples{
+check_empty_beautier_folder()
+
+check_treelog(create_test_treelog())
+
+check_empty_beautier_folder()
+}
+\author{
+Richèl J.C. Bilderbeek
+}

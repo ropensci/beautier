@@ -16,6 +16,8 @@ TRUE if the name is a valid parameter name, FALSE otherwise
 Determines if the name is a valid parameter name
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_param_name("alpha")
 is_param_name("beta")
@@ -42,6 +44,8 @@ is_param_name(NA)
 is_param_name(NULL)
 is_param_name("")
 is_param_name(c())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

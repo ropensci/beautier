@@ -26,6 +26,7 @@
 #' @return the site model as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'  # <distribution id="posterior"[...]">
 #'  #     <distribution id="likelihood" [...]>
 #'  #       <siteModel...>
@@ -33,6 +34,8 @@
 #'  #       </siteModel>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_site_model_xml <- function(
   inference_model

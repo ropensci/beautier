@@ -21,6 +21,8 @@
 #' @return a site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' input_filename <- get_fasta_filename()
 #'
 #' # GTR
@@ -58,6 +60,9 @@
 #'   site_model = create_tn93_site_model()
 #' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @export
 create_site_model <- function(
   name,
@@ -132,6 +137,8 @@ create_site_model <- function(
 #' @return a GTR site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' gtr_site_model <- create_gtr_site_model(
 #'   rate_ac_param = 1.2,
 #'   rate_ag_param = 2.3,
@@ -148,6 +155,9 @@ create_site_model <- function(
 #'   site_model = gtr_site_model
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_gtr_site_model create_site_model_gtr
 #' @export create_gtr_site_model create_site_model_gtr
 create_gtr_site_model <- create_site_model_gtr <- function(
@@ -236,14 +246,19 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #' @return an HKY site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  hky_site_model <- create_hky_site_model()
-#'  output_filename <- get_beautier_tempfilename()
-#'  create_beast2_input_file(
-#'    input_filename = get_fasta_filename(),
-#'    output_filename = output_filename,
-#'    site_model = hky_site_model
-#'  )
+#' check_empty_beautier_folder()
+#'
+#' hky_site_model <- create_hky_site_model()
+#' output_filename <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   output_filename = output_filename,
+#'   site_model = hky_site_model
+#' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_hky_site_model create_site_model_hky
 #' @export create_hky_site_model create_site_model_hky
 create_hky_site_model <- create_site_model_hky <- function(
@@ -271,15 +286,20 @@ create_hky_site_model <- create_site_model_hky <- function(
 #' @return a JC69 site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  jc69_site_model <- create_jc69_site_model()
+#' check_empty_beautier_folder()
 #'
-#'  output_filename <- get_beautier_tempfilename()
-#'  create_beast2_input_file(
-#'    input_filename = get_fasta_filename(),
-#'    output_filename = output_filename,
-#'    site_model = jc69_site_model
-#'  )
+#' jc69_site_model <- create_jc69_site_model()
+#'
+#' output_filename <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   output_filename = output_filename,
+#'   site_model = jc69_site_model
+#' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_jc69_site_model create_site_model_jc69
 #' @export create_jc69_site_model create_site_model_jc69
 create_jc69_site_model <- create_site_model_jc69 <- function(
@@ -318,18 +338,23 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #' @return a TN93 site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  tn93_site_model <- create_tn93_site_model(
-#'    kappa_1_param = 2.0,
-#'    kappa_2_param = 2.0
-#'  )
+#' check_empty_beautier_folder()
 #'
-#'  output_filename <- get_beautier_tempfilename()
-#'  create_beast2_input_file(
-#'    input_filename = get_fasta_filename(),
-#'    output_filename = output_filename,
-#'    site_model = tn93_site_model
-#'  )
+#' tn93_site_model <- create_tn93_site_model(
+#'   kappa_1_param = 2.0,
+#'   kappa_2_param = 2.0
+#' )
+#'
+#' output_filename <- get_beautier_tempfilename()
+#' create_beast2_input_file(
+#'   input_filename = get_fasta_filename(),
+#'   output_filename = output_filename,
+#'   site_model = tn93_site_model
+#' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_tn93_site_model create_site_model_tn93
 #' @export create_tn93_site_model create_site_model_tn93
 create_tn93_site_model <- create_site_model_tn93 <- function(

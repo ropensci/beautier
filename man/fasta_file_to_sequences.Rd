@@ -15,6 +15,13 @@ a table of sequences
 \description{
 Convert a FASTA file to a table of sequences
 }
+\examples{
+check_empty_beautier_folder()
+
+fasta_file_to_sequences(fasta_filename = get_fasta_filename())
+
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

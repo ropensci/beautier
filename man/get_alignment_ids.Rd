@@ -18,14 +18,13 @@ The file extension will be used to determine which
 type of file is worked on.
 }
 \examples{
-  created <- get_alignment_ids(
-    get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
-  )
-  expected <- c(
-    get_alignment_id(get_beautier_path("anthus_aco.fas")),
-    get_alignment_id(get_beautier_path("anthus_nd2.fas"))
-  )
-  testit::assert(created == expected)
+check_empty_beautier_folder()
+
+get_alignment_ids(
+  get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+)
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{get_alignment_ids_from_fasta_filenames} to

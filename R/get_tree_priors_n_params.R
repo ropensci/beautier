@@ -3,6 +3,8 @@
 #' @return the number of parameters the tree priors have
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Two
 #' get_tree_priors_n_params(
 #'   list(
@@ -10,6 +12,8 @@
 #'     create_cep_tree_prior() # two
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_tree_priors_n_params <- function(
   tree_priors

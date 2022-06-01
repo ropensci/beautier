@@ -5,6 +5,17 @@
 #'   long name length is accepted
 #' @seealso \code{\link{create_beast2_input}}
 #' @examples
+#' check_empty_beautier_folder()
+#'
+#' inference_model <- init_inference_model(
+#'   input_filename = get_fasta_filename(),
+#'   inference_model = create_inference_model(
+#'     beauti_options = create_beauti_options_v2_4()
+#'   )
+#' )
+#' create_beast2_input_distr(
+#'   inference_model = inference_model
+#' )
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -12,6 +23,8 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_distr <- function(
@@ -54,6 +67,8 @@ create_beast2_input_distr <- function(
 #'   long name length is accepted
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -61,6 +76,8 @@ create_beast2_input_distr <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_beast2_input_distr_prior <- function( # nolint indeed long function name
   inference_model
@@ -167,6 +184,8 @@ create_beast2_input_distr_lh <- function(
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -174,6 +193,8 @@ create_beast2_input_distr_lh <- function(
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior
@@ -227,6 +248,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -234,6 +257,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cbs_tree_prior
@@ -264,6 +289,8 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -271,6 +298,8 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   ccp_tree_prior
@@ -315,6 +344,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -322,6 +353,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cep_tree_prior
@@ -377,6 +410,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #'  # <distribution id="posterior" spec="util.CompoundDistribution">
 #'  #     <distribution id="prior" spec="util.CompoundDistribution">
 #'  #       HERE, where the ID of the distribution is 'prior'
@@ -384,6 +419,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#'
+#' check_empty_beautier_folder()
 #' @export
 yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   yule_tree_prior

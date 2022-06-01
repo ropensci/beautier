@@ -45,7 +45,9 @@ an MRCA prior
 Create a Most Recent Common Ancestor prior
 }
 \examples{
- fasta_filename <- get_beautier_path("anthus_aco.fas")
+check_empty_beautier_folder()
+
+fasta_filename <- get_beautier_path("anthus_aco.fas")
 
  # The first two taxa are sister species
  mrca_prior <- create_mrca_prior(
@@ -63,6 +65,8 @@ Create a Most Recent Common Ancestor prior
    taxa_names = get_taxa_names(fasta_filename),
    mrca_distr = create_normal_distr(mean = 10, sigma = 0.1)
  )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

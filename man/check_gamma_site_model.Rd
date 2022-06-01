@@ -18,7 +18,11 @@ nothing. Will call \code{stop} if the argument is not a valid
 Checks if the parameter is a valid gamma site model
 }
 \examples{
+check_empty_beautier_folder()
+
 check_gamma_site_model(create_gamma_site_model())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

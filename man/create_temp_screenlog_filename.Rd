@@ -2,13 +2,26 @@
 % Please edit documentation in R/create_temp_screenlog_filename.R
 \name{create_temp_screenlog_filename}
 \alias{create_temp_screenlog_filename}
-\title{Create a filename for a temporary screenlog file}
+\title{Create a filename for a temporary `screenlog` file}
 \usage{
 create_temp_screenlog_filename()
 }
+\value{
+a filename for a temporary `screenlog` file
+}
 \description{
-Create a filename for a temporary screenlog file
+Create a filename for a temporary `screenlog` file
+}
+\examples{
+check_empty_beautier_folder()
+
+create_temp_screenlog_filename()
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \link{create_screenlog} to create a screenlog.
+}
+\author{
+Richèl J.C. Bilderbeek
 }

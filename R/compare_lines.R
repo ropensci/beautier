@@ -14,6 +14,15 @@
 #'   and \code{expected_lines_filename} that contain the
 #'   section under investigation, so that a diff tool
 #'   can compare these
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' compare_lines(
+#'   lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
+#'   expected = readLines(beautier::get_beautier_path("bd_2_4.xml"))
+#' )
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 compare_lines <- function(

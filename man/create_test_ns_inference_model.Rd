@@ -35,7 +35,11 @@ an inference model
 Create an inference model to be tested by Nested Sampling
 }
 \examples{
+check_empty_beautier_folder()
+
 inference_model <- create_test_ns_inference_model()
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_test_inference_model} to create a

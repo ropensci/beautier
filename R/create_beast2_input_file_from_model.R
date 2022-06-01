@@ -4,6 +4,8 @@
 #' @seealso use \link{create_beast2_input_from_model} to
 #' get the BEAST2 input file as text
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' output_filename <- get_beautier_tempfilename()
 #' create_beast2_input_file_from_model(
 #'   input_filename = get_fasta_filename(),
@@ -11,6 +13,9 @@
 #'   inference_model = create_inference_model()
 #' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @seealso
 #' See \code{\link{create_site_model}} for examples with

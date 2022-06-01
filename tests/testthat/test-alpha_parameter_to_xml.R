@@ -1,4 +1,5 @@
 test_that("minimal use", {
+  remove_beautier_folder()
   expect_silent(
     alpha_parameter_to_xml(
       alpha_parameter = create_alpha_param(

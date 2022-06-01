@@ -17,7 +17,11 @@ a list of one or more clock models
 Create clock models from their names
 }
 \examples{
-clock_models <- create_clock_models_from_names(get_clock_model_names())
+check_empty_beautier_folder()
+
+create_clock_models_from_names(get_clock_model_names())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_clock_models} to get all clock models

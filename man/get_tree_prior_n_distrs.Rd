@@ -17,6 +17,8 @@ the number of distributions a tree prior has
 Get the number of distributions a tree prior has
 }
 \examples{
+check_empty_beautier_folder()
+
 # 2: birth_rate_distr and death_rate_distr
 get_tree_prior_n_distrs(create_bd_tree_prior())
 
@@ -31,6 +33,8 @@ get_tree_prior_n_distrs(create_cep_tree_prior())
 
 # 1: birth_rate_distr
 get_tree_prior_n_distrs(create_yule_tree_prior())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

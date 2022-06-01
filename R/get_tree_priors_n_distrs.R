@@ -3,13 +3,17 @@
 #' @return the number of distributions a tree prior has
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' # Three
+#' check_empty_beautier_folder()
+#'
+#' # Three distrubutions
 #' get_tree_priors_n_distrs(
 #'   list(
 #'     create_bd_tree_prior(), # has two distributions
 #'     create_ccp_tree_prior() # has one distribution
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_tree_priors_n_distrs <- function(
   tree_priors

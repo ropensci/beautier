@@ -4,8 +4,12 @@
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_filename("trace.log")
 #' check_filename("my.trees")
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_filename <- function(

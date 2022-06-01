@@ -19,6 +19,20 @@ the distribution as XML text
 \description{
 Converts a gamma distribution to XML
 }
+\examples{
+check_empty_beautier_folder()
+
+# gamma distribution must be initialized
+gamma_distr_to_xml(
+  gamma_distr = create_gamma_distr(
+    id = "0",
+    alpha = create_alpha_param(id = "2", value = "0.5396"),
+    beta = create_beta_param(id = "3", value = "0.3819")
+  )
+)
+
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

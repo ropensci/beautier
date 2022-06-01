@@ -16,11 +16,18 @@ TRUE if x is a valid Yule tree prior, FALSE otherwise
 Determine if the object is a valid Yule tree prior,
 }
 \examples{
-  testit::assert(!is_yule_tree_prior(create_bd_tree_prior()))
-  testit::assert(!is_yule_tree_prior(create_cbs_tree_prior()))
-  testit::assert(!is_yule_tree_prior(create_ccp_tree_prior()))
-  testit::assert(!is_yule_tree_prior(create_cep_tree_prior()))
-  testit::assert( is_yule_tree_prior(create_yule_tree_prior()))
+check_empty_beautier_folder()
+
+# TRUE
+is_yule_tree_prior(create_yule_tree_prior())
+
+# FALSE
+is_yule_tree_prior(create_bd_tree_prior())
+is_yule_tree_prior(create_cbs_tree_prior())
+is_yule_tree_prior(create_ccp_tree_prior())
+is_yule_tree_prior(create_cep_tree_prior())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \code{\link{create_yule_tree_prior}} to create a valid

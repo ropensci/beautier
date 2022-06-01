@@ -25,6 +25,8 @@ this function is not intended for regular use, thus its
   long name length is accepted
 }
 \examples{
+check_empty_beautier_folder()
+
  # <distribution id="posterior" spec="util.CompoundDistribution">
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #       HERE, where the ID of the distribution is 'prior'
@@ -32,6 +34,8 @@ this function is not intended for regular use, thus its
  #     <distribution id="likelihood" ...>
  #     </distribution>
  # </distribution>
+
+check_empty_beautier_folder()
 }
 \seealso{
 this function is called by \code{create_beast2_input_distr},

@@ -32,6 +32,8 @@ this parameter is used in a log-normal distribution
   It cannot be estimated (as a hyper parameter) yet.
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create the parameter
 m_param <- create_m_param()
 
@@ -50,6 +52,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

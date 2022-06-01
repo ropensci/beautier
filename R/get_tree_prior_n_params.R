@@ -4,32 +4,26 @@
 #' @return the number of parameters a tree prior has
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'  # birth_rate_distr is uniform, which has zero parameters
-#'  # death_rate_distr is uniform, which has zero parameters
-#'  testit::assert(
-#'    get_tree_prior_n_params(create_bd_tree_prior()) == 0
-#'  )
+#' check_empty_beautier_folder()
 #'
-#'  # no distributions, no parameters
-#'  testit::assert(
-#'    get_tree_prior_n_params(create_cbs_tree_prior()) == 0
-#'  )
+#' # birth_rate_distr is uniform, which has zero parameters
+#' # death_rate_distr is uniform, which has zero parameters
+#' get_tree_prior_n_params(create_bd_tree_prior())
 #'
-#'  # pop_size_distr is 1/x, which has zero parameters
-#'  testit::assert(
-#'    get_tree_prior_n_params(create_ccp_tree_prior()) == 0
-#'  )
+#' # no distributions, no parameters
+#' get_tree_prior_n_params(create_cbs_tree_prior())
 #'
-#'  # pop_size_distr is 1/x, which has zero parameters
-#'  # growth_rate_distr is Laplace, which has two parameters
-#'  testit::assert(
-#'    get_tree_prior_n_params(create_cep_tree_prior()) == 2
-#'  )
+#' # pop_size_distr is 1/x, which has zero parameters
+#' get_tree_prior_n_params(create_ccp_tree_prior())
 #'
-#'  # birth_rate_distr is uniform, which has zero parameters
-#'  testit::assert(
-#'    get_tree_prior_n_params(create_yule_tree_prior()) == 0
-#'  )
+#' # pop_size_distr is 1/x, which has zero parameters
+#' # growth_rate_distr is Laplace, which has two parameters
+#' get_tree_prior_n_params(create_cep_tree_prior())
+#'
+#' # birth_rate_distr is uniform, which has zero parameters
+#' get_tree_prior_n_params(create_yule_tree_prior())
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_tree_prior_n_params <- function(
   tree_prior

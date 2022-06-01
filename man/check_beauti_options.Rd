@@ -17,7 +17,11 @@ nothing
 Calls \code{stop} if the \code{beauti_options} object is invalid
 }
 \examples{
+check_empty_beautier_folder()
+
 check_beauti_options(create_beauti_options())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_beauti_options} to create a valid

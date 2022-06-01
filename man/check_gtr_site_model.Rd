@@ -16,5 +16,9 @@ Use \link{create_gtr_site_model} to create a valid
 GTR nucleotide substitution model.
 }
 \examples{
+check_empty_beautier_folder()
+
 check_gtr_site_model(create_gtr_site_model())
+
+check_empty_beautier_folder()
 }

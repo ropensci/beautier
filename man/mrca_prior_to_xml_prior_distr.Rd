@@ -23,6 +23,8 @@ lines of XML text
 These lines start with '<distribution id='
 }
 \examples{
+check_empty_beautier_folder()
+
  # <distribution id="posterior" spec="util.CompoundDistribution">
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #       HERE, where the ID of the distribution is 'prior'
@@ -30,6 +32,8 @@ These lines start with '<distribution id='
  #     <distribution id="likelihood" ...>
  #     </distribution>
  # </distribution>
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

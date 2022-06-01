@@ -38,6 +38,7 @@ an inference model with the renamed filenames
 Rename the filenames in an inference model
 }
 \examples{
+check_empty_beautier_folder()
 
 inference_model <- create_inference_model()
 inference_model$mcmc$tracelog$filename <- "trace.log"
@@ -62,4 +63,6 @@ rename_inference_model_filenames(
   inference_model = inference_model,
   rename_fun = get_remove_dir_fun()
 )
+
+check_empty_beautier_folder()
 }

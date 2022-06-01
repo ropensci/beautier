@@ -20,9 +20,13 @@ Creates the tree models' XML for the tracelog section
 use site_models just because it contains all IDs
 }
 \examples{
+check_empty_beautier_folder()
+
 # <logger id="tracelog" ...>
 #'   # Here
 # </logger>
+
+check_empty_beautier_folder()
 }
 \seealso{
 the complete tracelog section is created

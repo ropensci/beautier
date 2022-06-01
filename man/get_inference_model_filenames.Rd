@@ -21,6 +21,10 @@ setting \code{inference_model$tipdates_filename} to \link{NA},
 there will be one filename less returned
 }
 \examples{
+check_empty_beautier_folder()
+
 inference_model <- create_inference_model()
 filenames <- get_inference_model_filenames(inference_model)
+
+check_empty_beautier_folder()
 }

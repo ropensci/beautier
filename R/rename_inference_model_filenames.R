@@ -2,6 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return an inference model with the renamed filenames
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' inference_model <- create_inference_model()
 #' inference_model$mcmc$tracelog$filename <- "trace.log"
@@ -26,6 +27,8 @@
 #'   inference_model = inference_model,
 #'   rename_fun = get_remove_dir_fun()
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 rename_inference_model_filenames <- function( # nolint long function name indeed
   inference_model,

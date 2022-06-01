@@ -13,7 +13,11 @@
 #' to estimate the marginal likelihood with a short MCMC,
 #' to be used in testing.
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' inference_model <- create_ns_inference_model()
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_ns_inference_model <- function(

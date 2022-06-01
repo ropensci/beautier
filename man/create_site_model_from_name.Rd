@@ -17,7 +17,11 @@ a site model
 Create a site model from name
 }
 \examples{
+check_empty_beautier_folder()
+
 site_model <- create_site_model_from_name(get_site_model_names()[1])
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_site_model} to create a site model

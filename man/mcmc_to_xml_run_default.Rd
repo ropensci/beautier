@@ -21,8 +21,12 @@ the XML as text
 Converts an MCMC object to the run section's XML for a default MCMC
 }
 \examples{
+check_empty_beautier_folder()
+
 # <run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">
 xml <- mcmc_to_xml_run_default(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

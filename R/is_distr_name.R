@@ -2,6 +2,8 @@
 #' @param name the name to be tested
 #' @return TRUE if the name is a valid distribution name, FALSE otherwise
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_distr_name("uniform")
 #' is_distr_name("normal")
@@ -15,6 +17,8 @@
 #' is_distr_name("poisson")
 #' # FALSE
 #' is_distr_name("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_distr_name <- function(name) {

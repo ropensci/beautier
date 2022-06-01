@@ -1,5 +1,3 @@
-context("are_equal_xml_files")
-
 test_that("use, one file", {
 
   xml <- c(
@@ -9,7 +7,7 @@ test_that("use, one file", {
   )
   filename <- "temp_are_equal_xml_files.xml"
   writeLines(xml, filename)
-  testthat::expect_true(
+  expect_true(
     are_equal_xml_files(filename, filename, section = "taxonset")
   )
   file.remove(filename)
@@ -38,7 +36,7 @@ test_that("use, two files", {
   writeLines(xml_1, filename_1)
   writeLines(xml_2, filename_2)
 
-  testthat::expect_false(
+  expect_false(
     are_equal_xml_files(
       filename_1 = filename_1,
       filename_2 = filename_2,
@@ -60,7 +58,7 @@ test_that("abuse", {
   writeLines(xml, filename)
 
 
-  testthat::expect_error(
+  expect_error(
     are_equal_xml_files(
       filename_1 = "abs.ent",
       filename_2 = filename,
@@ -68,7 +66,7 @@ test_that("abuse", {
     ),
     "'filename_1' must be the name of a file that is present"
   )
-  testthat::expect_error(
+  expect_error(
     are_equal_xml_files(
       filename_1 = filename,
       filename_2 = "abs.ent",
@@ -76,7 +74,7 @@ test_that("abuse", {
     ),
     "'filename_2' must be the name of a file that is present"
   )
-  testthat::expect_error(
+  expect_error(
     are_equal_xml_files(
       filename_1 = filename,
       filename_2 = filename,

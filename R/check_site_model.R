@@ -5,6 +5,7 @@
 #' @return nothing
 #' @seealso Use \link{create_site_model} to create a valid site model
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' check_site_model(create_jc69_site_model())
 #' check_site_model(create_hky_site_model())
@@ -13,6 +14,8 @@
 #'
 #' # Can use list of one site model
 #' check_site_model(list(create_jc69_site_model()))
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_site_model <- function(site_model) {

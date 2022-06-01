@@ -13,7 +13,11 @@ the clock model names
 Get the clock model names
 }
 \examples{
-names <- get_clock_model_names()
+check_empty_beautier_folder()
+
+get_clock_model_names()
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_clock_models} to create a list

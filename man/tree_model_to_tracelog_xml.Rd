@@ -26,9 +26,13 @@ That is, all XML tags that have the word 'tree' in them.
 use site_models just because it contains all IDs
 }
 \examples{
+check_empty_beautier_folder()
+
 # <logger id="tracelog" ...>
 #'   # Here
 # </logger>
+
+check_empty_beautier_folder()
 }
 \seealso{
 the complete tracelog section is created

@@ -33,6 +33,8 @@ Prefer using the
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
+check_empty_beautier_folder()
+
 input_filename <- get_fasta_filename()
 
 # GTR
@@ -70,6 +72,9 @@ create_beast2_input_file(
   site_model = create_tn93_site_model()
 )
 file.remove(output_filename)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 See \code{\link{create_gtr_site_model}} for more examples

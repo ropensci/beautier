@@ -19,6 +19,8 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' create_rate_categories_state_node_xml(
 #'   create_inference_model(
 #'     clock_model = create_rln_clock_model(
@@ -27,6 +29,8 @@
 #'     )
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_rate_categories_state_node_xml <- function(inference_model) { # nolint indeed a long function name
   beautier::check_inference_model(inference_model)

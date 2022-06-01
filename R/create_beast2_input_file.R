@@ -2,6 +2,8 @@
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Get an example FASTA file
 #' input_filename <- get_fasta_filename()
 #'
@@ -13,6 +15,9 @@
 #'   output_filename
 #' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @seealso
 #'   Use \link{create_beast2_input_file_from_model} to do the same with an

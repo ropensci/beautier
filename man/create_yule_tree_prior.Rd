@@ -23,15 +23,20 @@ a Yule tree_prior
 Create a Yule tree prior
 }
 \examples{
- yule_tree_prior <- create_yule_tree_prior()
+check_empty_beautier_folder()
 
- beast2_input_file <- get_beautier_tempfilename()
- create_beast2_input_file(
+yule_tree_prior <- create_yule_tree_prior()
+
+beast2_input_file <- get_beautier_tempfilename()
+create_beast2_input_file(
    input_filename = get_fasta_filename(),
    beast2_input_file,
    tree_prior = yule_tree_prior
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 An alignment ID can be extracted from

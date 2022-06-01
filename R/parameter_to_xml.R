@@ -7,7 +7,11 @@
 #' @return the parameter as XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' parameter_to_xml(create_alpha_param(id = 1))
+#'
+#' check_empty_beautier_folder()
 #' @export
 parameter_to_xml <- function( # nolint simplifying further hurts readability
   parameter,

@@ -24,6 +24,8 @@ a 1/x distribution
 Create a 1/x distribution
 }
 \examples{
+check_empty_beautier_folder()
+
 one_div_x_distr <- create_one_div_x_distr()
 
 beast2_input_file <- get_beautier_tempfilename()
@@ -35,6 +37,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

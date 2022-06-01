@@ -6,15 +6,18 @@
 #' @param phylogeny The phylogeny to obtain the crown age of
 #' @return the crown age of the phylogeny
 #' @examples
-#'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-#'   created <- get_crown_age(phylogeny = phylogeny)
-#'   testit::assert(created == 15)
+#' check_empty_beautier_folder()
+#'
+#' phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
+#' get_crown_age(phylogeny = phylogeny)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_crown_age <- function(
   phylogeny
 ) {
-  if (!inherits(phylogeny, "phylo") && !inherits(phylogeny, "multiPhylo")) {
+  if (!beautier::is_phylo(phylogeny) && !inherits(phylogeny, "multiPhylo")) {
     stop("phylogeny must be of class 'phylo' or multiPhylo")
   }
   if (!ape::is.ultrametric(phylogeny)) {

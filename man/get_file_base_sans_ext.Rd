@@ -16,9 +16,13 @@ That filename without its full path and extension
 The path need not to actually exist
 }
 \examples{
+check_empty_beautier_folder()
+
 # Path need not exist, use UNIX path as example
 # test
 get_file_base_sans_ext("/home/homer/test.txt")
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

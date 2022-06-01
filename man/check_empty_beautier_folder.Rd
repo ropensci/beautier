@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_empty_beautier_folder.R
 \name{check_empty_beautier_folder}
 \alias{check_empty_beautier_folder}
-\title{Check there are no files in the default \link{beautier} folder}
+\title{Internal function}
 \usage{
 check_empty_beautier_folder(beautier_folder = get_beautier_folder())
 }
@@ -14,9 +14,22 @@ the \link{beautier} temporary files folder}
 Nothing.
 }
 \description{
-Check there are no files in the default \link{beautier} folder.
-The goal is to make sure no temporary files are left undeleted.
-Will \link{stop} if there are files in the \link{beautier} folder
+Internal function to verify that, if there are `beautier`
+temporary files created, these are also cleaned up,
+as by CRAN policy.
+}
+\details{
+If the `beautier` folder does not exist, this function
+does nothing.
+If there are folder and/or files in the `beautier` folder,
+an error is given.
+}
+\examples{
+check_empty_beautier_folder()
+}
+\seealso{
+use \link{remove_beautier_folder} to remove the default
+`beautier` folder
 }
 \author{
 Richèl J.C. Bilderbeek

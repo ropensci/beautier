@@ -5,6 +5,7 @@
 #'   FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_m_param(create_alpha_param())
 #' is_m_param(create_beta_param())
@@ -32,6 +33,8 @@
 #' is_m_param(create_strict_clock_model())
 #' is_m_param(create_yule_tree_prior())
 #' is_m_param(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_m_param <- function(
   m_param

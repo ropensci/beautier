@@ -8,10 +8,14 @@
 #' @seealso Use \link{check_alignment_id} to check if an alignment
 #' ID is valid.
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Path need not exist, use UNIX path as example
 #' # anthus_aco_sub
-#' created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
-#' check_alignment_id(created)
+#' alignment_id <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
+#' check_alignment_id(alignment_id)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_alignment_id <- function(

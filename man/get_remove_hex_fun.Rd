@@ -18,6 +18,7 @@ between the filename description (\code{tracelog}) and the hex
 string, this function removes both.
 }
 \examples{
+check_empty_beautier_folder()
 
 f <- get_remove_hex_fun()
 # /home/john/beast2.xml.state
@@ -28,6 +29,8 @@ f("beast2_186c7404208c.xml.state")
 
 # NA
 f(NA)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

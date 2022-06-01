@@ -21,7 +21,11 @@ nothing
 Calls \code{stop} if the MCMC is invalid
 }
 \examples{
+check_empty_beautier_folder()
+
 check_mcmc(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \code{\link{create_mcmc}} to create a valid MCMC

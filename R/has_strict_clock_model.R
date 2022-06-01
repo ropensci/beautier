@@ -6,6 +6,8 @@
 #' FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Yes, has a strict clock model
 #' has_strict_clock_model(
 #'   create_inference_model(clock_model = create_strict_clock_model())
@@ -15,6 +17,8 @@
 #' has_strict_clock_model(
 #'   create_inference_model(clock_model = create_rln_clock_model())
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 has_strict_clock_model <- function(inference_model) {
   beautier::check_inference_model(inference_model)

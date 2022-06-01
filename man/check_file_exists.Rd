@@ -21,7 +21,11 @@ Function to check if a file exists.
 Calls \code{stop} if the file is absent
 }
 \examples{
+check_empty_beautier_folder()
+
 check_file_exists(get_beautier_path("anthus_aco_sub.fas"))
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

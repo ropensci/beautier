@@ -2,11 +2,15 @@
 #' @param text text to be determined to be valid
 #' @return the opening tag if found, else NA
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # my_tag
 #' get_xml_opening_tag("<my_tag text=something/>")
 #'
 #' # NA when there is no opening tag
 #' get_xml_opening_tag("no_xml")
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_xml_opening_tag <- function(text) {

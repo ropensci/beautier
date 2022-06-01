@@ -3,6 +3,8 @@
 #' @return TRUE if the site_model is a valid site_model, FALSE otherwise
 #' @seealso  A site model can be created using \code{\link{create_site_model}}
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_site_model(create_gtr_site_model())
 #' is_site_model(create_hky_site_model())
@@ -16,6 +18,8 @@
 #' is_site_model(create_strict_clock_model())
 #' is_site_model(create_bd_tree_prior())
 #' is_site_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_site_model <- function(
   x
@@ -36,6 +40,7 @@ is_site_model <- function(
 #' @return TRUE if x is a valid GTR site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' # site models
 #' is_gtr_site_model(create_gtr_site_model())
@@ -50,6 +55,8 @@ is_site_model <- function(
 #' is_gtr_site_model(create_strict_clock_model())
 #' is_gtr_site_model(create_bd_tree_prior())
 #' is_gtr_site_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_gtr_site_model <- function(
   x
@@ -70,6 +77,7 @@ is_gtr_site_model <- function(
 #' @return TRUE if x is a valid HKY site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' # site models
 #' is_hky_site_model(create_hky_site_model())
@@ -84,6 +92,8 @@ is_gtr_site_model <- function(
 #' is_hky_site_model(create_strict_clock_model())
 #' is_hky_site_model(create_bd_tree_prior())
 #' is_hky_site_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_hky_site_model <- function(
   x
@@ -103,6 +113,7 @@ is_hky_site_model <- function(
 #' @return TRUE if x is a valid JC69 site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' # site models
 #' is_jc69_site_model(create_gtr_site_model())
@@ -117,6 +128,8 @@ is_hky_site_model <- function(
 #' is_jc69_site_model(create_strict_clock_model())
 #' is_jc69_site_model(create_bd_tree_prior())
 #' is_jc69_site_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_jc69_site_model <- function(
   x
@@ -132,6 +145,7 @@ is_jc69_site_model <- function(
 #' @return TRUE if x is a valid TN93 site model, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' # site models
 #' is_tn93_site_model(create_gtr_site_model())
@@ -148,6 +162,8 @@ is_jc69_site_model <- function(
 #' is_tn93_site_model(create_strict_clock_model())
 #' is_tn93_site_model(create_bd_tree_prior())
 #' is_tn93_site_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_tn93_site_model <- function(
   x

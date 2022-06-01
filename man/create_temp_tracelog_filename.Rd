@@ -2,13 +2,26 @@
 % Please edit documentation in R/create_temp_tracelog_filename.R
 \name{create_temp_tracelog_filename}
 \alias{create_temp_tracelog_filename}
-\title{Create a filename for a temporary tracelog file}
+\title{Create a filename for a temporary `tracelog` file}
 \usage{
 create_temp_tracelog_filename()
 }
+\value{
+a filename for a temporary `tracelog` file
+}
 \description{
-Create a filename for a temporary tracelog file
+Create a filename for a temporary `tracelog` file
+}
+\examples{
+check_empty_beautier_folder()
+
+create_temp_tracelog_filename()
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \link{create_tracelog} to create a tracelog.
+}
+\author{
+Richèl J.C. Bilderbeek
 }

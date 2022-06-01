@@ -22,6 +22,8 @@ a parameter called 'rate CT'
 Create a parameter called 'rate CT'
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create parameter
 rate_ct_param <- create_rate_ct_param(value = 1)
 
@@ -35,6 +37,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

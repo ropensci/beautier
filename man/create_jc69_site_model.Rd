@@ -21,15 +21,20 @@ a JC69 site_model
 Create a JC69 site model
 }
 \examples{
- jc69_site_model <- create_jc69_site_model()
+check_empty_beautier_folder()
 
- output_filename <- get_beautier_tempfilename()
- create_beast2_input_file(
-   input_filename = get_fasta_filename(),
-   output_filename = output_filename,
-   site_model = jc69_site_model
- )
+jc69_site_model <- create_jc69_site_model()
+
+output_filename <- get_beautier_tempfilename()
+create_beast2_input_file(
+  input_filename = get_fasta_filename(),
+  output_filename = output_filename,
+  site_model = jc69_site_model
+)
 file.remove(output_filename)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

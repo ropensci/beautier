@@ -26,6 +26,17 @@ this function is not intended for regular use, thus its
   long name length is accepted
 }
 \examples{
+check_empty_beautier_folder()
+
+inference_model <- init_inference_model(
+  input_filename = get_fasta_filename(),
+  inference_model = create_inference_model(
+    beauti_options = create_beauti_options_v2_4()
+  )
+)
+create_beast2_input_distr(
+  inference_model = inference_model
+)
  # <distribution id="posterior" spec="util.CompoundDistribution">
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #       HERE, where the ID of the distribution is 'prior'
@@ -33,6 +44,8 @@ this function is not intended for regular use, thus its
  #     <distribution id="likelihood" ...>
  #     </distribution>
  # </distribution>
+
+check_empty_beautier_folder()
 }
 \seealso{
 \code{\link{create_beast2_input}}

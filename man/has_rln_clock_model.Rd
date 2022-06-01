@@ -26,6 +26,8 @@ Determine if the \code{inference_model} uses
 a relaxed log-normal clock model.
 }
 \examples{
+check_empty_beautier_folder()
+
 # Yes, has a RLN clock model
 has_rln_clock_model(
   create_inference_model(clock_model = create_rln_clock_model())
@@ -35,6 +37,8 @@ has_rln_clock_model(
 has_rln_clock_model(
   create_inference_model(clock_model = create_strict_clock_model())
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -3,7 +3,11 @@
 #' @return one or more site models
 #' @seealso Use \link{create_site_model} to create a site model
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' create_site_models_from_names(get_site_model_names())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_site_models_from_names <- function(site_model_names) {

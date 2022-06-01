@@ -18,6 +18,8 @@ TRUE if x is a valid parameter,
 Determine if the object is a valid parameter
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_param(create_alpha_param())
 is_param(create_beta_param())
@@ -46,6 +48,8 @@ is_param(create_jc69_site_model())
 is_param(create_strict_clock_model())
 is_param(create_yule_tree_prior())
 is_param(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

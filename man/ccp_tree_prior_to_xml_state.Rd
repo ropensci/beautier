@@ -24,6 +24,8 @@ Convert a CCP tree prior
 to the XML as part of the \code{state} section
 }
 \examples{
+check_empty_beautier_folder()
+
 # Need an ID and inital value
 inference_model <- create_inference_model(
   tree_prior = create_ccp_tree_prior(
@@ -36,4 +38,6 @@ inference_model <- create_inference_model(
 )
 
 ccp_tree_prior_to_xml_state(inference_model)
+
+check_empty_beautier_folder()
 }

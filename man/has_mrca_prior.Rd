@@ -26,6 +26,8 @@ Will \link{stop} if the inference model is invalid
 MRCA: 'Most Recent Common Ancestor'
 }
 \examples{
+check_empty_beautier_folder()
+
 # No MRCA prior
 inference_model <- create_inference_model(
   mrca_prior = NA
@@ -37,6 +39,8 @@ inference_model <- create_inference_model(
   mrca_prior = create_mrca_prior()
 )
 has_mrca_prior(inference_model) # Returns TRUE
+
+check_empty_beautier_folder()
 }
 \seealso{
 \itemize{

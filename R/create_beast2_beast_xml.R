@@ -7,9 +7,13 @@
 #' @return the XML
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' remove_beautier_folder()
+#'
 #' create_beast2_beast_xml(
 #'   beauti_options = create_beauti_options_v2_6()
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_beast2_beast_xml <- function(
   beauti_options

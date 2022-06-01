@@ -21,12 +21,16 @@ an initialized GTR site model
 Initializes a GTR site model
 }
 \examples{
+check_empty_beautier_folder()
+
 gtr_site_model <- create_gtr_site_model()
 # FALSE
 is_init_gtr_site_model(gtr_site_model)
 gtr_site_model <- init_gtr_site_model(gtr_site_model)
 # TRUE
 is_init_gtr_site_model(gtr_site_model)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

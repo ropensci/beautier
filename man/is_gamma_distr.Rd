@@ -22,6 +22,8 @@ gamma distribution,
 as created by \code{\link{create_gamma_distr}}
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_gamma_distr(create_gamma_distr())
 # FALSE
@@ -29,6 +31,8 @@ is_gamma_distr(create_inv_gamma_distr())
 is_gamma_distr(NA)
 is_gamma_distr(NULL)
 is_gamma_distr("nonsense")
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

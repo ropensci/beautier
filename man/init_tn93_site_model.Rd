@@ -21,11 +21,14 @@ an initialized TN93 site model
 Initializes a TN93 site model
 }
 \examples{
+check_empty_beautier_folder()
 
 tn93_site_model <- create_tn93_site_model()
 is_init_tn93_site_model(tn93_site_model)
 tn93_site_model <- init_tn93_site_model(tn93_site_model)
 is_init_tn93_site_model(tn93_site_model)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

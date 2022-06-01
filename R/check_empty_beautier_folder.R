@@ -1,15 +1,25 @@
-#' Check there are no files in the default \link{beautier} folder
+#' Internal function
 #'
-#' Check there are no files in the default \link{beautier} folder.
-#' The goal is to make sure no temporary files are left undeleted.
-#' Will \link{stop} if there are files in the \link{beautier} folder
+#' Internal function to verify that, if there are `beautier`
+#' temporary files created, these are also cleaned up,
+#' as by CRAN policy.
+#'
+#' If the `beautier` folder does not exist, this function
+#' does nothing.
+#' If there are folder and/or files in the `beautier` folder,
+#' an error is given.
+#' @seealso use \link{remove_beautier_folder} to remove the default
+#' `beautier` folder
 #' @inheritParams default_params_doc
 #' @return Nothing.
+#' @examples
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_empty_beautier_folder <- function(
   beautier_folder = get_beautier_folder()
 ) {
+  if (!dir.exists(beautier_folder)) return(invisible(beautier_folder))
   dirs <- normalizePath(list.dirs(beautier_folder))
   dirs <- dirs[dirs != normalizePath(beautier_folder, mustWork = FALSE)]
 
@@ -32,4 +42,8 @@ check_empty_beautier_folder <- function(
         paste(utils::head(filenames), collapse = ",")
     )
   }
+  if (dir.exists(beautier_folder)) {
+    stop("'beautier' folder found at ", beautier_folder)
+  }
+  invisible(beautier_folder)
 }

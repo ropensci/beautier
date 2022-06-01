@@ -4,13 +4,18 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso to check multiple IDs, use \link{are_ids}
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_id("anthus_aco")
 #' is_id(3)
+#'
 #' # FALSE
 #' is_id(ape::rcoal(3))
 #' is_id(NULL)
 #' is_id(NA)
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_id <- function(
   x

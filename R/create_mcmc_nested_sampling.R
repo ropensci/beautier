@@ -17,6 +17,8 @@
 #'   with, among others, a short MCMC chain length.
 #' Use \code{\link{check_ns_mcmc}} to check that an NS MCMC object is valid.
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' mcmc <- create_ns_mcmc(
 #'   chain_length = 1e7,
 #'   store_every = 1000,
@@ -32,6 +34,9 @@
 #'   mcmc = mcmc
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @references
 #'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
 #'     Remco R Bouckaert; Model Selection and Parameter Inference in

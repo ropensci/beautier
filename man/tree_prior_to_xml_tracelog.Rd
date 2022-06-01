@@ -17,9 +17,13 @@ lines of XML text
 Creates the tree prior's XML for the tracelog section
 }
 \examples{
+check_empty_beautier_folder()
+
 # <logger id="tracelog" ...>
 #'   # Here
 # </logger>
+
+check_empty_beautier_folder()
 }
 \seealso{
 all tree priors' tracelog section is created

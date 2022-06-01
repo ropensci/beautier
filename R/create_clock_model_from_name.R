@@ -5,7 +5,11 @@
 #' @seealso Use \code{\link{create_clock_model}} to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' create_clock_model_from_name(get_clock_model_names()[1])
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_clock_model_from_name <- function(clock_model_name) {
   if (clock_model_name == "strict") {

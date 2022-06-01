@@ -12,6 +12,8 @@
 #' (aka evidence) using a nested sampling approach.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create an MCMC chain with 50 states
 #' inference_model <- create_inference_model(
 #'   mcmc = create_mcmc(chain_length = 50000, store_every = 1000)
@@ -24,6 +26,9 @@
 #'   inference_model = inference_model
 #' )
 #' file.remove(output_filename)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @export
 create_inference_model <- function(
   site_model = beautier::create_jc69_site_model(),

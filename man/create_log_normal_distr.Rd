@@ -41,6 +41,8 @@ a log-normal distribution
 Create a log-normal distribution
 }
 \examples{
+check_empty_beautier_folder()
+
 log_normal_distr <- create_log_normal_distr()
 
 beast2_input_file <- get_beautier_tempfilename()
@@ -52,6 +54,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

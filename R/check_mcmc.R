@@ -5,7 +5,11 @@
 #' @return nothing
 #' @seealso Use \code{\link{create_mcmc}} to create a valid MCMC
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_mcmc(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mcmc <- function(mcmc) {

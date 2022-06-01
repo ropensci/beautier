@@ -3,6 +3,8 @@
 #' @return TRUE if the name is a valid parameter name, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_param_name("alpha")
 #' is_param_name("beta")
@@ -29,6 +31,8 @@
 #' is_param_name(NULL)
 #' is_param_name("")
 #' is_param_name(c())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_param_name <- function(name) {
   if (length(name) == 0) return(FALSE)

@@ -6,9 +6,13 @@
 #' @seealso all clock models' tracelog section is created
 #'   by \code{\link{clock_models_to_xml_tracelog}}
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # <logger id="tracelog" ...>
 #' #'   # Here
 #' # </logger>
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 clock_model_to_xml_tracelog <- function(

@@ -15,6 +15,8 @@ See the documentation of \code{create_inference_model} to see the
 features of BEAST2 that \code{beautier} supports.
 }
 \examples{
+check_empty_beautier_folder()
+
 # Get an example FASTA file
 input_filename <- get_fasta_filename()
 
@@ -27,7 +29,10 @@ create_beast2_input_file_from_model(
   output_filename,
   inference_model = create_inference_model()
 )
-file.remove(output_filename)
+
+# Remove the folder that contains the beautier temporary files
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 These are packages associated with \code{beautier}:

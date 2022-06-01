@@ -7,7 +7,11 @@
 #' Use \link{create_ns_inference_model} to create an inference model
 #' to estimate the marginal likelihood.
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' inference_model <- create_test_ns_inference_model()
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_ns_inference_model <- function(

@@ -17,6 +17,8 @@ is_beauti_options(x)
 Determine if the object is a valid \code{beauti_options}
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_beauti_options(create_beauti_options())
 
@@ -26,6 +28,8 @@ is_beauti_options(NA)
 is_beauti_options(NULL)
 is_beauti_options("")
 is_beauti_options(c())
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \link{create_beauti_options} to create a valid

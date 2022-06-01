@@ -5,13 +5,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso for one file, use \code{\link{get_beautier_path}}
 #' @examples
-#'   testit::assert(
-#'     length(
-#'       get_beautier_paths(
-#'         c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")
-#'       )
-#'      ) == 3
-#'    )
+#' check_empty_beautier_folder()
+#'
+#'  get_beautier_paths(
+#'    c("test_output_0.fas", "anthus_aco.fas", "anthus_nd2.fas")
+#'  )
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_beautier_paths <- function(filenames) {
 

@@ -21,6 +21,16 @@ TRUE if the two XML files result in equivalent trees,
 Internal function used for debugging to
 determine if XML files result in equivalent trees
 }
+\examples{
+check_empty_beautier_folder()
+
+are_equivalent_xml_files(
+  filename_1 = get_beautier_path("2_4.xml"),
+  filename_2 = get_beautier_path("2_6_0.xml")
+)
+
+check_empty_beautier_folder()
+}
 \seealso{
 to check for equality, use \code{are_equal_xml_files}
 }

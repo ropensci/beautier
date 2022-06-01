@@ -16,6 +16,8 @@ TRUE if all filenames have a FASTA filename extension
 Checks if all filenames have a FASTA filename extension
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 are_fasta_filenames("1.fas")
 are_fasta_filenames("1.fasta")
@@ -31,6 +33,8 @@ are_fasta_filenames(Inf)
 are_fasta_filenames("1.fasX")
 are_fasta_filenames(c("1.fas", "2.exe"))
 are_fasta_filenames(c("1.bat", "2.exe"))
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

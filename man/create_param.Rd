@@ -45,6 +45,8 @@ Prefer using the
   and \code{\link{create_sigma_param}}
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create an alpha parameter
 alpha_param <- create_alpha_param()
 
@@ -63,6 +65,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

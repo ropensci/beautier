@@ -4,9 +4,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @seealso for more files, use \code{\link{get_beautier_paths}}
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' get_beautier_path("test_output_0.fas")
 #' get_beautier_path("anthus_aco.fas")
 #' get_beautier_path("anthus_nd2.fas")
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_beautier_path <- function(filename) {
 

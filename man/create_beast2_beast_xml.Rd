@@ -19,9 +19,13 @@ XML input file, directly after the general XML declaration (as
 created by \link{create_xml_declaration}).
 }
 \examples{
+remove_beautier_folder()
+
 create_beast2_beast_xml(
   beauti_options = create_beauti_options_v2_6()
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

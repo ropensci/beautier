@@ -7,6 +7,16 @@
 #'   and one line that is \code{</section>} (also excluding whitespace)
 #' @return TRUE if the two sections of the XML files are equal,
 #'   FALSE otherwise
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' are_equal_xml_lines(
+#'   lines_1 = readLines(get_beautier_path("2_4.xml")),
+#'   lines_2 = readLines(get_beautier_path("2_6_0.xml")),
+#'   section = "taxonset"
+#' )
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_xml_lines <- function(

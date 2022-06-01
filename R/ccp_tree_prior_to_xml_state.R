@@ -3,6 +3,8 @@
 #' @inheritParams default_params_doc
 #' @return XML as text
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Need an ID and inital value
 #' inference_model <- create_inference_model(
 #'   tree_prior = create_ccp_tree_prior(
@@ -15,6 +17,8 @@
 #' )
 #'
 #' ccp_tree_prior_to_xml_state(inference_model)
+#'
+#' check_empty_beautier_folder()
 #' @export
 ccp_tree_prior_to_xml_state <- function(
   inference_model

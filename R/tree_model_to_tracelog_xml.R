@@ -9,9 +9,13 @@
 #' @seealso the complete tracelog section is created
 #'   by \code{\link{create_tracelog_xml}}
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # <logger id="tracelog" ...>
 #' #'   # Here
 #' # </logger>
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tree_model_to_tracelog_xml <- function(

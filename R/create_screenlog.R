@@ -2,6 +2,13 @@
 #' @inheritParams default_params_doc
 #' @param filename name of the file to store the posterior screens
 #' phylogenies to. By default, this is \code{$(screen).screens}
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' create_screenlog()
+#'
+#' check_empty_beautier_folder()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_screenlog <- function(
   filename = "",

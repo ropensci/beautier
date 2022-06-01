@@ -17,10 +17,13 @@ nothing
 Calls \code{stop} if the phylogeny is invalid
 }
 \examples{
+check_empty_beautier_folder()
 
 # Must do nothing on phylogenies
 phylogeny <- ape::read.tree(text = "(A:1, B:1):1;")
 check_phylogeny(phylogeny)
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \code{ape::read.tree} to create a phylogeny

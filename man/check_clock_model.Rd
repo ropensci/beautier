@@ -17,8 +17,12 @@ TRUE if \code{clock_model} is a valid clock model
 Calls \code{stop} if the clock model is invalid
 }
 \examples{
+check_empty_beautier_folder()
+
 check_clock_model(create_strict_clock_model())
 check_clock_model(create_rln_clock_model())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_clock_model} to create a valid clock model

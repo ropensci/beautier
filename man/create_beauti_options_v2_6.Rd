@@ -14,11 +14,15 @@ Function to create the BEAUti options for version 2.6, by
 calling \link{create_beauti_options}.
 }
 \examples{
+check_empty_beautier_folder()
+
 beauti_options <- create_beauti_options_v2_6()
 xml <- create_beast2_input(
   get_fasta_filename(),
   beauti_options = beauti_options
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

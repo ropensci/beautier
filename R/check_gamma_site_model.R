@@ -4,7 +4,11 @@
 #'   gamma site model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_gamma_site_model(create_gamma_site_model())
+#'
+#' check_empty_beautier_folder()
 #' @export
 check_gamma_site_model <- function(gamma_site_model) {
 

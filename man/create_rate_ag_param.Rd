@@ -25,6 +25,8 @@ a parameter called 'rate AG'
 Create a parameter called 'rate AG'
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create parameter
 rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
 
@@ -38,6 +40,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

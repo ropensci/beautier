@@ -32,9 +32,13 @@ a character vector of XML strings
 Creates the clock model's XML for the tracelog section
 }
 \examples{
+check_empty_beautier_folder()
+
 # <logger id="tracelog" ...>
 #'   # Here
 # </logger>
+
+check_empty_beautier_folder()
 }
 \seealso{
 all clock models' tracelog section is created

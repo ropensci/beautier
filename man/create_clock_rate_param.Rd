@@ -27,6 +27,8 @@ Create a parameter called \code{clock_rate},
 It cannot be estimated (as a hyper parameter) yet.
 }
 \examples{
+check_empty_beautier_folder()
+
 clock_rate_param <- create_clock_rate_param(
   id = "anthus_aco", value = 1.0
 )
@@ -44,6 +46,9 @@ create_beast2_input_file(
   clock_model = strict_clock_model
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

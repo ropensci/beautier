@@ -53,12 +53,12 @@ a character vector of XML strings
 Create a BEAST2 XML input text
 }
 \examples{
-  text <- create_beast2_input(
-    input_filename = get_fasta_filename()
-  )
-  testit::assert(substr(text[1], 1, 5) == "<?xml")
-  text[1]
-  testit::assert(tail(text, n = 1) == "</beast>")
+check_empty_beautier_folder()
+
+create_beast2_input(
+  input_filename = get_fasta_filename()
+)
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_beast2_input_from_model} to create the BEAST2 XML

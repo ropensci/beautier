@@ -4,9 +4,13 @@
 #' @seealso all tree priors' tracelog section is created
 #'   by \code{\link{tree_priors_to_xml_tracelog}}
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # <logger id="tracelog" ...>
 #' #'   # Here
 #' # </logger>
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tree_prior_to_xml_tracelog <- function(

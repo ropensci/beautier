@@ -22,6 +22,8 @@
 #' }
 #' @inheritParams default_params_doc
 #' @return the site model as XML text
+#' @examples
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_site_model_parameters_xml <- function( # nolint long function name, which is fine for an internal function

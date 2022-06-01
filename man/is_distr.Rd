@@ -18,6 +18,8 @@ TRUE if x is a valid distribution,
 Determine if the object is a valid distribution
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_distr(create_beta_distr())
 is_distr(create_exp_distr())
@@ -34,6 +36,8 @@ is_distr(create_uniform_distr())
 is_distr(NA)
 is_distr(NULL)
 is_distr("nonsense")
+
+check_empty_beautier_folder()
 }
 \seealso{
 use

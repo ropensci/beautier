@@ -3,9 +3,13 @@
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # anthus_aco_sub
-#' created <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
-#' check_alignment_id(created)
+#' alignment_id <- get_alignment_id("/home/homer/anthus_aco_sub.fas")
+#' check_alignment_id(alignment_id)
+#'
+#' check_empty_beautier_folder()
 #' @export
 check_alignment_id <- function(alignment_id) {
   # An alignment ID may be uninitialized

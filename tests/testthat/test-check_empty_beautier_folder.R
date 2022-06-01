@@ -7,10 +7,14 @@ test_that("non-existing folder", {
 test_that("empty folder", {
   beautier_folder <- tempfile()
   dir.create(beautier_folder)
+  expect_error(
+    check_empty_beautier_folder(beautier_folder = beautier_folder),
+    "'beautier' folder found"
+  )
+  unlink(beautier_folder, recursive = TRUE)
   expect_silent(
     check_empty_beautier_folder(beautier_folder = beautier_folder)
   )
-  unlink(beautier_folder, recursive = TRUE)
 })
 
 test_that("folder with subfolder", {

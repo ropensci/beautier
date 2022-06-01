@@ -21,11 +21,14 @@ an initialized HKY site model
 Initializes a JC69 site model
 }
 \examples{
+check_empty_beautier_folder()
 
 hky_site_model <- create_hky_site_model()
 is_init_hky_site_model(hky_site_model)
 hky_site_model <- init_hky_site_model(hky_site_model)
 is_init_hky_site_model(hky_site_model)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

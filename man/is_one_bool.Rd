@@ -13,6 +13,8 @@ is_one_bool(x)
 Check if the argument is one boolean
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_one_bool(TRUE)
 is_one_bool(FALSE)
@@ -24,6 +26,8 @@ is_one_bool(c())
 is_one_bool("nonsense")
 is_one_bool(is_one_bool)
 is_one_bool(c(TRUE, FALSE))
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

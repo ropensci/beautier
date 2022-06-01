@@ -17,6 +17,8 @@ nothing
 Calls \code{stop} if the MRCA prior is invalid.
 }
 \examples{
+check_empty_beautier_folder()
+
 fasta_filename <- get_beautier_path("anthus_aco.fas")
 mrca_prior <- create_mrca_prior(
   alignment_id = get_alignment_id(fasta_filename = fasta_filename),
@@ -27,6 +29,8 @@ mrca_prior <- create_mrca_prior(
  taxa_names = get_taxa_names(filename = fasta_filename)
 )
 check_mrca_prior(mrca_prior)
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_mrca_prior} to create a valid MRCA prior

@@ -23,6 +23,17 @@ TRUE if the two sections of the XML files are equal,
 \description{
 Determine if XML files result in equal trees
 }
+\examples{
+check_empty_beautier_folder()
+
+are_equal_xml_files(
+  filename_1 = get_beautier_path("2_4.xml"),
+  filename_2 = get_beautier_path("2_6_0.xml"),
+  section = "taxonset"
+)
+
+check_empty_beautier_folder()
+}
 \seealso{
 to check for equivalence, use \code{\link{are_equivalent_xml_files}}
 }

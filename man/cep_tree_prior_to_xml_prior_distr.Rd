@@ -20,6 +20,8 @@ of a BEAST2 XML parameter file for a
 Coalescent Exponential Population tree prior
 }
 \examples{
+check_empty_beautier_folder()
+
  # <distribution id="posterior" spec="util.CompoundDistribution">
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #       HERE, where the ID of the distribution is 'prior'
@@ -27,6 +29,8 @@ Coalescent Exponential Population tree prior
  #     <distribution id="likelihood" ...>
  #     </distribution>
  # </distribution>
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

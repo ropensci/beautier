@@ -8,6 +8,16 @@
 #' @return TRUE if the two sections of the XML files are equal,
 #'   FALSE otherwise
 #' @seealso to check for equivalence, use \code{\link{are_equivalent_xml_files}}
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' are_equal_xml_files(
+#'   filename_1 = get_beautier_path("2_4.xml"),
+#'   filename_2 = get_beautier_path("2_6_0.xml"),
+#'   section = "taxonset"
+#' )
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_xml_files <- function(

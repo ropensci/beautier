@@ -6,6 +6,7 @@
 #' @return TRUE if the two tracelogs are equal
 #' @seealso Use \link{create_tracelog} to create an tracelog
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' tracelog_1 <- create_tracelog(log_every = 1000)
 #' tracelog_2 <- create_tracelog(log_every = 314)
@@ -13,6 +14,8 @@
 #' are_equal_tracelogs(tracelog_1, tracelog_1)
 #' # FALSE
 #' are_equal_tracelogs(tracelog_1, tracelog_2)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_tracelogs <- function(

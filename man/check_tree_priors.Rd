@@ -18,9 +18,13 @@ nothing.
 Will \link{stop} if the object is not a list of one or more tree priors.
 }
 \examples{
+check_empty_beautier_folder()
+
 check_tree_priors(create_yule_tree_prior())
 check_tree_priors(list(create_yule_tree_prior()))
 check_tree_priors(list(create_yule_tree_prior(), create_bd_tree_prior()))
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_tree_prior} to create a valid tree prior

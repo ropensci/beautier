@@ -13,7 +13,11 @@ the tree prior names
 Get the tree prior names
 }
 \examples{
+check_empty_beautier_folder()
+
 get_tree_prior_names()
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_tree_priors} to get all tree priors

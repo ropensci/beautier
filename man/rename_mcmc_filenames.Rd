@@ -34,6 +34,7 @@ Example rename functions are:
 Rename the filenames within an MCMC
 }
 \examples{
+check_empty_beautier_folder()
 
 # Create an MCMC with local filenames
 mcmc <- create_mcmc()
@@ -58,4 +59,6 @@ mcmc <- rename_mcmc_filenames(
   mcmc = mcmc,
   rename_fun = get_remove_dir_fun()
 )
+
+check_empty_beautier_folder()
 }

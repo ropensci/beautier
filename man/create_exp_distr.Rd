@@ -29,6 +29,8 @@ an exponential distribution
 Create an exponential distribution
 }
 \examples{
+check_empty_beautier_folder()
+
 exp_distr <- create_exp_distr()
 
 beast2_input_file <- get_beautier_tempfilename()
@@ -40,6 +42,9 @@ create_beast2_input_file(
   )
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

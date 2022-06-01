@@ -12,6 +12,7 @@
 #'
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' f <- get_remove_hex_fun()
 #' # /home/john/beast2.xml.state
@@ -22,6 +23,8 @@
 #'
 #' # NA
 #' f(NA)
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_remove_hex_fun <- function() {
   function(filename) {

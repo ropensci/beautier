@@ -59,6 +59,8 @@ There are four things that can be saved:
    how to specify the filename
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create an MCMC chain with 50 states
 mcmc <- create_mcmc(chain_length = 50000, store_every = 1000)
 
@@ -69,6 +71,9 @@ create_beast2_input_file(
   mcmc = mcmc
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 Use \code{\link{create_test_mcmc}} to create a short regular MCMC,

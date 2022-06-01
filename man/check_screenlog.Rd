@@ -13,3 +13,13 @@ as created by \link{create_screenlog}}
 \description{
 Will call \link{stop} if not.
 }
+\examples{
+check_empty_beautier_folder()
+
+check_screenlog(create_test_screenlog())
+
+check_empty_beautier_folder()
+}
+\author{
+Richèl J.C. Bilderbeek
+}

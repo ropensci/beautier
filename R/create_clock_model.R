@@ -15,6 +15,8 @@
 #'   model, see \code{\link{create_strict_clock_model}}.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' rln_clock_model <- create_rln_clock_model()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -34,6 +36,9 @@
 #'   clock_model = strict_clock_model
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @export
 create_clock_model <- function(
   name,
@@ -80,6 +85,8 @@ create_clock_model <- function(
 #' @return a relaxed log-normal clock_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' rln_clock_model <- create_rln_clock_model()
 #' rln_clock_model_exp <- create_rln_clock_model(
 #'   mean_rate_prior_distr = create_exp_distr()
@@ -94,6 +101,9 @@ create_clock_model <- function(
 #'   clock_model = rln_clock_model
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rln_clock_model create_clock_model_rln
 #' @export create_rln_clock_model create_clock_model_rln
 create_rln_clock_model <- create_clock_model_rln <- function(
@@ -132,6 +142,8 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #' @return a strict clock_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' strict_clock_model <- create_strict_clock_model(
 #'   clock_rate_param = 1.0,
 #'   clock_rate_distr = create_uniform_distr()
@@ -156,6 +168,9 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #'   clock_model = strict_clock_model_gamma
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_strict_clock_model create_clock_model_strict
 #' @export create_strict_clock_model create_clock_model_strict
 create_strict_clock_model <- create_clock_model_strict <- function(

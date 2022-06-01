@@ -5,8 +5,12 @@
 #' @return TRUE if \code{clock_model} is a valid clock model
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_clock_model(create_strict_clock_model())
 #' check_clock_model(create_rln_clock_model())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_clock_model <- function(clock_model) {
@@ -44,7 +48,11 @@ check_clock_model <- function(clock_model) {
 #' @return TRUE if \code{clock_model} is a valid clock model
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_rln_clock_model(create_rln_clock_model())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_rln_clock_model <- function(clock_model) {
@@ -93,7 +101,11 @@ check_rln_clock_model <- function(clock_model) {
 #' @return TRUE if \code{clock_model} is a valid clock model
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
-#'  check_strict_clock_model(create_strict_clock_model())
+#' check_empty_beautier_folder()
+#'
+#' check_strict_clock_model(create_strict_clock_model())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_strict_clock_model <- function(clock_model) {

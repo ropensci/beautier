@@ -1,6 +1,7 @@
 #' Rename the filenames within an MCMC
 #' @inheritParams default_params_doc
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' # Create an MCMC with local filenames
 #' mcmc <- create_mcmc()
@@ -25,6 +26,8 @@
 #'   mcmc = mcmc,
 #'   rename_fun = get_remove_dir_fun()
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 rename_mcmc_filenames <- function(
   mcmc,

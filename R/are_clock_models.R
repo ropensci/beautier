@@ -3,6 +3,7 @@
 #' @return TRUE if x, or all elements of x, are clock_model objects
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' rln_clock_model <- create_rln_clock_model()
 #' strict_clock_model <- create_strict_clock_model()
@@ -17,6 +18,8 @@
 #' are_clock_models(NULL)
 #' are_clock_models("nonsense")
 #' are_clock_models(create_jc69_site_model())
+#'
+#' check_empty_beautier_folder()
 #' @export
 are_clock_models <- function(
   x

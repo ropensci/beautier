@@ -17,6 +17,8 @@ the number of distributions a site model has
 Get the number of distributions a site model has
 }
 \examples{
+check_empty_beautier_folder()
+
 # 5: rates AC, AG, AT, CG and GT
 get_site_model_n_distrs(create_gtr_site_model())
 
@@ -28,6 +30,8 @@ get_site_model_n_distrs(create_jc69_site_model())
 
 # 2: kappa 1 and kappa 2
 get_site_model_n_distrs(create_tn93_site_model())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

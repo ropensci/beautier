@@ -23,8 +23,7 @@ test_that("abuse", {
       output_filename = output_filename
     )
   )
-  file.remove(output_filename)
-  unlink(dirname(dirname(dirname(output_filename))), recursive = TRUE)
+  remove_beautier_folder()
 
   # output filename is invalid
   if (rappdirs::app_dir()$os != "win") {

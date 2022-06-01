@@ -17,6 +17,8 @@ nothing
 Calls \code{stop} if the tree priors are invalid
 }
 \examples{
+check_empty_beautier_folder()
+
 check_tree_prior(create_yule_tree_prior())
 check_tree_prior(create_bd_tree_prior())
 check_tree_prior(create_cbs_tree_prior())
@@ -25,6 +27,8 @@ check_tree_prior(create_cep_tree_prior())
 
 # Can use list of one tree prior
 check_tree_prior(list(create_yule_tree_prior()))
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_tree_prior} to create a valid tree prior

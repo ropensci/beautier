@@ -22,6 +22,8 @@ normal distribution
 as created by \code{\link{create_normal_distr}}
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_normal_distr(create_normal_distr())
 # FALSE
@@ -29,6 +31,8 @@ is_normal_distr(create_one_div_x_distr())
 is_normal_distr(NA)
 is_normal_distr(NULL)
 is_normal_distr("nonsense")
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

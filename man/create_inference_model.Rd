@@ -50,6 +50,8 @@ Create a Bayesian phylogenetic inference model,
 as can be done by BEAUti.
 }
 \examples{
+check_empty_beautier_folder()
+
 # Create an MCMC chain with 50 states
 inference_model <- create_inference_model(
   mcmc = create_mcmc(chain_length = 50000, store_every = 1000)
@@ -62,6 +64,9 @@ create_beast2_input_file_from_model(
   inference_model = inference_model
 )
 file.remove(output_filename)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_test_inference_model} to create an inference model

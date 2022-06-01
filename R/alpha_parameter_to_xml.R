@@ -3,6 +3,13 @@
 #' Converts an alpha parameter to XML
 #' @inheritParams default_params_doc
 #' @return the parameter as XML text
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' # The alpha parameter must be initialized, i.e. have an ID
+#' alpha_parameter_to_xml(alpha_parameter = create_alpha_param(id = "1"))
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 alpha_parameter_to_xml <- function(

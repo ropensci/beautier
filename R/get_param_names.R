@@ -2,7 +2,11 @@
 #' @return the parameter names
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' names <- get_param_names()
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_param_names <- function() {
   c(

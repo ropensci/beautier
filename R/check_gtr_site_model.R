@@ -5,7 +5,11 @@
 #' GTR nucleotide substitution model.
 #' @inheritParams default_params_doc
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_gtr_site_model(create_gtr_site_model())
+#'
+#' check_empty_beautier_folder()
 #' @export
 check_gtr_site_model <- function(gtr_site_model) {
   if (!beautier::is_site_model(gtr_site_model)) {

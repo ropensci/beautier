@@ -21,6 +21,13 @@ the \code{substModel} section as XML text
 \description{
 Internal function to create the \code{substModel} section
 }
+\examples{
+check_empty_beautier_folder()
+
+# Inference model must be initialized
+
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

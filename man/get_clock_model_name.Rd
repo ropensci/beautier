@@ -17,11 +17,15 @@ name of the clock model
 Will \link{stop} if the clock model is an invalid clock model
 }
 \examples{
+check_empty_beautier_folder()
+
 # StrictClock
 get_clock_model_name(create_strict_clock_model())
 
 # RelaxedClock
 get_clock_model_name(create_rln_clock_model())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

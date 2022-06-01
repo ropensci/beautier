@@ -25,6 +25,8 @@ Creates all supported tree priors,
   and \code{\link{create_yule_tree_prior}}
 }
 \examples{
+check_empty_beautier_folder()
+
 tree_priors <- create_tree_priors()
 # TRUE
 is_bd_tree_prior(tree_priors[[1]])
@@ -32,6 +34,8 @@ is_cbs_tree_prior(tree_priors[[2]])
 is_ccp_tree_prior(tree_priors[[3]])
 is_cep_tree_prior(tree_priors[[4]])
 is_yule_tree_prior(tree_priors[[5]])
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

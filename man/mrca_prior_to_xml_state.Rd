@@ -24,6 +24,8 @@ Internal function to create the XML of an MRCA prior,
   as used in the \code{state} section
 }
 \examples{
+check_empty_beautier_folder()
+
 mrca_prior_to_xml_state(
   inference_model = create_inference_model(
     mrca_prior = create_mrca_prior(
@@ -33,6 +35,8 @@ mrca_prior_to_xml_state(
     clock_model = create_strict_clock_model()
   )
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

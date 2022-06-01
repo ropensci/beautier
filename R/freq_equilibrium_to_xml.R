@@ -2,6 +2,12 @@
 #' @param freq_equilibrium a \code{freq_equilibrium} name
 #' @param id a site model's name
 #' @return the \code{freq_equilibrium} as XML
+#' @examples
+#' check_empty_beautier_folder()
+#'
+#' freq_equilibrium_to_xml(freq_equilibrium = "estimated", id = "my_id")
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 freq_equilibrium_to_xml <- function(

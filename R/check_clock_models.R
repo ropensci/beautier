@@ -7,11 +7,15 @@
 #'   Will \link{stop} if the object is not a list of one or more clock models.
 #' @seealso Use \link{create_clock_model} to create a valid clock model
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_clock_models(create_strict_clock_model())
 #' check_clock_models(list(create_strict_clock_model()))
 #' check_clock_models(
 #'   list(create_strict_clock_model(), create_rln_clock_model())
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_clock_models <- function(clock_models) {

@@ -21,9 +21,13 @@ the XML as text
 Converts an MCMC object to the run section's XML for a Nested-Sampling MCMC
 }
 \examples{
+check_empty_beautier_folder()
+
 #  "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"1e+07\" "
 #  "particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">"
 mcmc_to_xml_run_nested_sampling(create_ns_mcmc())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

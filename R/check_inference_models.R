@@ -6,7 +6,11 @@
 #' @seealso Use \link{create_inference_model} to create a valid
 #'   BEAST2 options object
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' check_inference_models(list(create_inference_model()))
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_inference_models <- function(

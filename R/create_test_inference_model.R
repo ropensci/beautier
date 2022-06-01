@@ -10,8 +10,9 @@
 #' Use \link{create_test_ns_inference_model} to create an inference model
 #' to estimate the marginal likelihood with a short MCMC, to be
 #' used in testing
-#' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' inference_model <- create_test_inference_model()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -21,6 +22,10 @@
 #'   inference_model = inference_model
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_inference_model <- function(
   site_model = beautier::create_jc69_site_model(),

@@ -17,13 +17,17 @@ the number of distributions a tree prior has
 Get the number of distributions a tree prior has
 }
 \examples{
-# Three
+check_empty_beautier_folder()
+
+# Three distrubutions
 get_tree_priors_n_distrs(
   list(
     create_bd_tree_prior(), # has two distributions
     create_ccp_tree_prior() # has one distribution
   )
 )
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -26,6 +26,19 @@ log file}
 \item{sort}{how to sort the log.
 Valid values are the ones returned by \link{get_log_sorts}}
 }
+\value{
+a `treelog`, as can be checked by \link{check_treelog}
+}
 \description{
 Create a \code{treelog} object
+}
+\examples{
+check_empty_beautier_folder()
+
+create_treelog()
+
+check_empty_beautier_folder()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

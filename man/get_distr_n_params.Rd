@@ -18,6 +18,8 @@ the number of parameters that distribution uses
 Get the number of parameters a distribution uses
 }
 \examples{
+check_empty_beautier_folder()
+
 get_distr_n_params(create_beta_distr())
 get_distr_n_params(create_exp_distr())
 get_distr_n_params(create_gamma_distr())
@@ -28,6 +30,8 @@ get_distr_n_params(create_normal_distr())
 get_distr_n_params(create_one_div_x_distr())
 get_distr_n_params(create_poisson_distr())
 get_distr_n_params(create_uniform_distr())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

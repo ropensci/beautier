@@ -17,6 +17,8 @@
 #'  to check for more specific distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_distr(create_beta_distr())
 #' is_distr(create_exp_distr())
@@ -33,6 +35,8 @@
 #' is_distr(NA)
 #' is_distr(NULL)
 #' is_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_distr <- function( # nolint simplification of this will hurt readablity
   x
@@ -61,6 +65,8 @@ is_distr <- function( # nolint simplification of this will hurt readablity
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_beta_distr(create_beta_distr())
 #' # FALSE
@@ -68,6 +74,8 @@ is_distr <- function( # nolint simplification of this will hurt readablity
 #' is_beta_distr(NA)
 #' is_beta_distr(NULL)
 #' is_beta_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_beta_distr <- function(
   x
@@ -92,6 +100,8 @@ is_beta_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_exp_distr(create_exp_distr())
 #' # FALSE
@@ -99,6 +109,8 @@ is_beta_distr <- function(
 #' is_exp_distr(NA)
 #' is_exp_distr(NULL)
 #' is_exp_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_exp_distr <- function(
   x
@@ -121,6 +133,8 @@ is_exp_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_gamma_distr(create_gamma_distr())
 #' # FALSE
@@ -128,6 +142,8 @@ is_exp_distr <- function(
 #' is_gamma_distr(NA)
 #' is_gamma_distr(NULL)
 #' is_gamma_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_gamma_distr <- function(
   x
@@ -152,6 +168,8 @@ is_gamma_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_inv_gamma_distr(create_inv_gamma_distr())
 #' # FALSE
@@ -159,6 +177,8 @@ is_gamma_distr <- function(
 #' is_inv_gamma_distr(NA)
 #' is_inv_gamma_distr(NULL)
 #' is_inv_gamma_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_inv_gamma_distr <- function(
   x
@@ -183,6 +203,8 @@ is_inv_gamma_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_laplace_distr(create_laplace_distr())
 #' # FALSE
@@ -190,6 +212,8 @@ is_inv_gamma_distr <- function(
 #' is_laplace_distr(NA)
 #' is_laplace_distr(NULL)
 #' is_laplace_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_laplace_distr <- function(
   x
@@ -214,6 +238,8 @@ is_laplace_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_log_normal_distr(create_log_normal_distr())
 #' # FALSE
@@ -221,6 +247,8 @@ is_laplace_distr <- function(
 #' is_distr(NA)
 #' is_distr(NULL)
 #' is_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_log_normal_distr <- function(
   x
@@ -245,6 +273,8 @@ is_log_normal_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_normal_distr(create_normal_distr())
 #' # FALSE
@@ -252,6 +282,8 @@ is_log_normal_distr <- function(
 #' is_normal_distr(NA)
 #' is_normal_distr(NULL)
 #' is_normal_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_normal_distr <- function(
   x
@@ -276,6 +308,8 @@ is_normal_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_one_div_x_distr(create_one_div_x_distr())
 #' # FALSE
@@ -283,6 +317,8 @@ is_normal_distr <- function(
 #' is_one_div_x_distr(NA)
 #' is_one_div_x_distr(NULL)
 #' is_one_div_x_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_one_div_x_distr <- function(
   x
@@ -301,6 +337,8 @@ is_one_div_x_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_poisson_distr(create_poisson_distr())
 #' # FALSE
@@ -308,6 +346,8 @@ is_one_div_x_distr <- function(
 #' is_distr(NA)
 #' is_distr(NULL)
 #' is_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_poisson_distr <- function(
   x
@@ -330,6 +370,8 @@ is_poisson_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_uniform_distr(create_uniform_distr())
 #' # FALSE
@@ -337,6 +379,8 @@ is_poisson_distr <- function(
 #' is_uniform_distr(NA)
 #' is_uniform_distr(NULL)
 #' is_uniform_distr("nonsense")
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_uniform_distr <- function(
   x

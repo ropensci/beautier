@@ -24,7 +24,11 @@ Calls \code{stop} if the supplied object is not a valid
   Bayesian phylogenetic inference model.
 }
 \examples{
+check_empty_beautier_folder()
+
 check_inference_model(create_inference_model())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_inference_model} to create a valid Bayesian

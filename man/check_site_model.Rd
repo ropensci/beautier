@@ -17,6 +17,7 @@ nothing
 Calls \code{stop} if the site models are invalid
 }
 \examples{
+check_empty_beautier_folder()
 
 check_site_model(create_jc69_site_model())
 check_site_model(create_hky_site_model())
@@ -25,6 +26,8 @@ check_site_model(create_gtr_site_model())
 
 # Can use list of one site model
 check_site_model(list(create_jc69_site_model()))
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_site_model} to create a valid site model

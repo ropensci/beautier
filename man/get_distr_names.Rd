@@ -13,7 +13,11 @@ the distribution names
 Get the distribution names
 }
 \examples{
+check_empty_beautier_folder()
+
 get_distr_names()
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -19,6 +19,7 @@ If a filename is set to an empty string, to indicate a certain log file
 need not be created, this (non-)filename will not be returned.
 }
 \examples{
+check_empty_beautier_folder()
 
 mcmc <- create_mcmc()
 mcmc$tracelog$filename <- "/home/john/trace.log"
@@ -34,4 +35,6 @@ mcmc$screenlog$filename <- ""
 # 2 filenames
 # ... one file less will be created
 filenames <- get_mcmc_filenames(mcmc)
+
+check_empty_beautier_folder()
 }

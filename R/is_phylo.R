@@ -3,14 +3,20 @@
 #' @return TRUE or FALSE
 #' @seealso Use \link{check_phylogeny} to check for a phylogeny
 #' @examples
-#'   phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
-#'   testit::assert(is_phylo(phylogeny))
+#' check_empty_beautier_folder()
 #'
-#'   testit::assert(!is_phylo("nonsense"))
-#'   testit::assert(!is_phylo(NA))
-#'   testit::assert(!is_phylo(NULL))
+#' # TRUE
+#' phylogeny <- ape::read.tree(text = "(a:15,b:15):1;")
+#' is_phylo(phylogeny)
+#'
+#' # FALSE
+#' is_phylo("nonsense")
+#' is_phylo(NA)
+#' is_phylo(NULL)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_phylo <- function(x) {
-  class(x) == "phylo"
+  inherits(x, "phylo")
 }

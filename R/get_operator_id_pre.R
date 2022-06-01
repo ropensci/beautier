@@ -2,10 +2,14 @@
 #' @inheritParams default_params_doc
 #' @return the prefix of operator IDs, similar to the name of a tree prior
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # BirthDeath
 #' get_operator_id_pre(
 #'   tree_prior = create_bd_tree_prior()
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_operator_id_pre <- function(tree_prior) {

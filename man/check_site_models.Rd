@@ -18,11 +18,15 @@ nothing.
 Will \link{stop} if the object is not a list of one or more site models.
 }
 \examples{
+check_empty_beautier_folder()
+
 check_site_models(create_jc69_site_model())
 check_site_models(list(create_jc69_site_model()))
 check_site_models(
   list(create_jc69_site_model(), create_gtr_site_model())
 )
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_site_model} to create a valid site model

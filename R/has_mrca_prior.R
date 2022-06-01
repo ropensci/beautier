@@ -6,6 +6,8 @@
 #' @return TRUE if the inference model has an MRCA prior,
 #'   FALSE otherwise
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # No MRCA prior
 #' inference_model <- create_inference_model(
 #'   mrca_prior = NA
@@ -17,6 +19,8 @@
 #'   mrca_prior = create_mrca_prior()
 #' )
 #' has_mrca_prior(inference_model) # Returns TRUE
+#'
+#' check_empty_beautier_folder()
 #' @seealso
 #'   \itemize{
 #'     \item \code{\link{create_inference_model}}: create an inference model

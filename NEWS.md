@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## beautier 2.6.4 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * There is no 'beautier' temporary folder created by the tests, not the
+   examples, to comply with CRAN policy
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.6.3 (2022-05-18)
 
 ### NEW FEATURES

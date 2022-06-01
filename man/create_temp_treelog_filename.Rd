@@ -2,13 +2,26 @@
 % Please edit documentation in R/create_temp_treelog_filename.R
 \name{create_temp_treelog_filename}
 \alias{create_temp_treelog_filename}
-\title{Create a filename for a temporary treelog file}
+\title{Create a filename for a temporary `treelog` file}
 \usage{
 create_temp_treelog_filename()
 }
+\value{
+a filename for a temporary `treelog` file
+}
 \description{
-Create a filename for a temporary treelog file
+Create a filename for a temporary `treelog` file
+}
+\examples{
+check_empty_beautier_folder()
+
+create_temp_treelog_filename()
+
+check_empty_beautier_folder()
 }
 \seealso{
 use \link{create_treelog} to create a treelog.
+}
+\author{
+Richèl J.C. Bilderbeek
 }

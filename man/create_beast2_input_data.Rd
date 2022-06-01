@@ -22,6 +22,16 @@ lines of XML text
 \description{
 Creates the \code{data} section of a BEAST2 XML parameter file
 }
+\examples{
+check_empty_beautier_folder()
+
+create_beast2_input_data(
+  input_filename = get_fasta_filename(),
+  beauti_options = create_beauti_options_v2_4()
+)
+
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

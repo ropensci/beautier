@@ -16,6 +16,7 @@ the closing tag if found, else NA
 Get the XML closing tag
 }
 \examples{
+check_empty_beautier_folder()
 
 # my_tag
 get_xml_closing_tag("<my_tag text=something></my_tag>")
@@ -23,6 +24,8 @@ get_xml_closing_tag("<my_tag text=something></my_tag>")
 # Will return NA
 get_xml_closing_tag("<my_tag text=something/>")
 get_xml_closing_tag("no_xml")
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

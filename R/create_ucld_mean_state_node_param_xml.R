@@ -14,12 +14,16 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' create_ucld_mean_state_node_param_xml(
 #'   create_inference_model(
 #'     clock_model = create_rln_clock_model(id = 314),
 #'     beauti_options = create_beauti_options_v2_6()
 #'   )
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 create_ucld_mean_state_node_param_xml <- function(inference_model) { # nolint indeed a long function name
   if (inference_model$beauti_options$beast2_version == "2.4") {

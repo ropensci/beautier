@@ -16,6 +16,8 @@ the number of spaces before the first character
 Count the number of spaces before the first character
 }
 \examples{
+check_empty_beautier_folder()
+
 # 0
 count_trailing_spaces("x")
 # 1
@@ -28,6 +30,8 @@ count_trailing_spaces("")
 count_trailing_spaces(" ")
 # 2
 count_trailing_spaces("  ")
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

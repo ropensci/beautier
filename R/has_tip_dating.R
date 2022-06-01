@@ -6,6 +6,8 @@
 #' FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Yes, has tip dating
 #' has_strict_clock_model(
 #'   create_inference_model(
@@ -17,6 +19,8 @@
 #' has_strict_clock_model(
 #'   create_inference_model()
 #' )
+#'
+#' check_empty_beautier_folder()
 #' @export
 has_tip_dating <- function(inference_model) {
   beautier::check_inference_model(inference_model)

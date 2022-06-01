@@ -5,9 +5,13 @@
 #' @param distr a distribution,
 #'   as created by \code{\link{create_distr}})
 #' @return the distribution as XML text
-#' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' distr_to_xml(create_uniform_distr(id = 1))
+#'
+#' check_empty_beautier_folder()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 distr_to_xml <- function(
   distr,

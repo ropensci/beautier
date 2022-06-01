@@ -18,6 +18,7 @@ TRUE if x is a valid lambda parameter,
 Determine if the object is a valid lambda parameter
 }
 \examples{
+check_empty_beautier_folder()
 
 is_lambda_param(create_alpha_param())
 is_lambda_param(create_beta_param())
@@ -45,6 +46,8 @@ is_lambda_param(create_jc69_site_model())
 is_lambda_param(create_strict_clock_model())
 is_lambda_param(create_yule_tree_prior())
 is_lambda_param(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \seealso{
 lambda parameters are returned by \code{\link{create_lambda_param}}

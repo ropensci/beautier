@@ -20,7 +20,11 @@ the parameter as XML text
 Converts a parameter to XML
 }
 \examples{
+check_empty_beautier_folder()
+
 parameter_to_xml(create_alpha_param(id = 1))
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

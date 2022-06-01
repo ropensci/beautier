@@ -6,7 +6,11 @@
 #' @return the valid values for the \code{freq_equilibrium} argument
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' get_freq_equilibrium_names()
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_freq_equilibrium_names <- function() {
   c("estimated", "empirical", "all_equal")

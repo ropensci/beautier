@@ -30,6 +30,8 @@ Prefer the use the named functions
   instead
 }
 \examples{
+check_empty_beautier_folder()
+
 beast2_input_file <- get_beautier_tempfilename()
 
 bd_tree_prior <- create_bd_tree_prior()
@@ -45,6 +47,9 @@ create_beast2_input_file(
   tree_prior = bd_tree_prior
 )
 file.remove(beast2_input_file)
+
+remove_beautier_folder()
+check_empty_beautier_folder()
 }
 \seealso{
 See

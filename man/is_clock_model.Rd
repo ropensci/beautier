@@ -16,6 +16,8 @@ TRUE if the clock_model is a valid clock_model, FALSE otherwise
 Determine if the object is a valid clock_model
 }
 \examples{
+check_empty_beautier_folder()
+
 # TRUE
 is_clock_model(create_strict_clock_model())
 is_clock_model(create_rln_clock_model())
@@ -26,6 +28,8 @@ is_clock_model(NULL)
 is_clock_model("nonsense")
 is_clock_model(create_jc69_site_model())
 is_clock_model(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \seealso{
 see \code{\link{create_clock_model}} for an overview of functions

@@ -15,6 +15,25 @@ TRUE if x, or all elements of x, are IDs
 \description{
 Determine if x consists out of IDs
 }
+\examples{
+check_empty_beautier_folder()
+
+# TRUE
+are_ids("anthus_aco")
+are_ids(c("anthus_aco", "anthus_nd2"))
+are_ids(list("anthus_aco", "anthus_nd2"))
+are_ids(c(1, 2))
+are_ids(1)
+
+# FALSE
+are_ids(NULL)
+are_ids(NA)
+are_ids(c())
+are_ids(ape::rcoal(3))
+are_ids(c(ape::rcoal(3), ape::rcoal(4)))
+
+check_empty_beautier_folder()
+}
 \seealso{
 to check one ID, use \link{is_id}
 }

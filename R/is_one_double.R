@@ -2,6 +2,8 @@
 #' @param x the object to be determined of if it is one double
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_one_double(314)
 #' is_one_double(0)
@@ -16,6 +18,8 @@
 #' is_one_double(is_one_double)
 #' is_one_double(c())
 #' is_one_double(c(1, 2))
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_one_double <- function(x) {
   if (length(x) != 1) return(FALSE)

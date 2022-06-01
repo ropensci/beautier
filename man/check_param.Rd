@@ -16,8 +16,12 @@ nothing
 Calls \code{stop} if the parameter is invalid
 }
 \examples{
+check_empty_beautier_folder()
+
 check_param(create_alpha_param())
 check_param(create_beta_param())
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_param} to create a valid parameter

@@ -13,7 +13,11 @@ the parameter names
 Get the parameter names
 }
 \examples{
+check_empty_beautier_folder()
+
 names <- get_param_names()
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

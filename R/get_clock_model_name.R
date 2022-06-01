@@ -4,11 +4,15 @@
 #' @inheritParams default_params_doc
 #' @return name of the clock model
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # StrictClock
 #' get_clock_model_name(create_strict_clock_model())
 #'
 #' # RelaxedClock
 #' get_clock_model_name(create_rln_clock_model())
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_clock_model_name <- function(

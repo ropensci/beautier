@@ -19,6 +19,7 @@ Determine if x is an initialized HKY site model
 as created by \code{\link{create_hky_site_model}}
 }
 \examples{
+check_empty_beautier_folder()
 
 hky_site_model <- create_hky_site_model()
 # FALSE: not yet initialized
@@ -26,6 +27,8 @@ is_init_hky_site_model(hky_site_model)
 hky_site_model <- init_hky_site_model(hky_site_model)
 # TRUE: now it is initialized
 is_init_hky_site_model(hky_site_model)
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

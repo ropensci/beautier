@@ -18,6 +18,7 @@ Determine if the object is a valid HKY site model,
 as created by \code{\link{create_hky_site_model}}
 }
 \examples{
+check_empty_beautier_folder()
 
 # site models
 is_hky_site_model(create_hky_site_model())
@@ -32,6 +33,8 @@ is_hky_site_model("nonsense")
 is_hky_site_model(create_strict_clock_model())
 is_hky_site_model(create_bd_tree_prior())
 is_hky_site_model(create_mcmc())
+
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

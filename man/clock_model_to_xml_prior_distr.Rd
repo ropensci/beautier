@@ -39,6 +39,7 @@ Internal function to converts a clock model
 to the \code{prior} section of the XML as text
 }
 \examples{
+check_empty_beautier_folder()
  # <distribution id="posterior" spec="util.CompoundDistribution">
  #     <distribution id="prior" spec="util.CompoundDistribution">
  #       HERE, where the ID of the distribution is 'prior'
@@ -46,6 +47,7 @@ to the \code{prior} section of the XML as text
  #     <distribution id="likelihood" ...>
  #     </distribution>
  # </distribution>
+check_empty_beautier_folder()
 }
 \author{
 Richèl J.C. Bilderbeek

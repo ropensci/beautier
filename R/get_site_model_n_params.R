@@ -3,18 +3,21 @@
 #' @return the number of parameters a site model has
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#'   testit::assert(
-#'     get_site_model_n_params(create_gtr_site_model()) == 10
-#'   )
-#'   testit::assert(
-#'     get_site_model_n_params(create_hky_site_model()) == 2
-#'   )
-#'   testit::assert(
-#'     get_site_model_n_params(create_jc69_site_model()) == 0
-#'   )
-#'   testit::assert(
-#'     get_site_model_n_params(create_tn93_site_model()) == 4
-#'   )
+#' check_empty_beautier_folder()
+#'
+#' # Ten
+#' get_site_model_n_params(create_gtr_site_model())
+#'
+#' # Two
+#' get_site_model_n_params(create_hky_site_model())
+#'
+#' # Zero
+#' get_site_model_n_params(create_jc69_site_model())
+#'
+#' # Four
+#' get_site_model_n_params(create_tn93_site_model())
+#'
+#' check_empty_beautier_folder()
 #' @export
 get_site_model_n_params <- function(
   site_model

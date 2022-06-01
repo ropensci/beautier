@@ -19,14 +19,13 @@ The files are assumed to be FASTA. If this is not the case, there
 may be any kind of error message when calling this function.
 }
 \examples{
-  created <- get_alignment_ids_from_fasta_filenames(
-    get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
-  )
-  expected <- c(
-    get_alignment_id(get_beautier_path("anthus_aco.fas")),
-    get_alignment_id(get_beautier_path("anthus_nd2.fas"))
-  )
-  testit::assert(created == expected)
+check_empty_beautier_folder()
+
+get_alignment_ids_from_fasta_filenames(
+  get_beautier_paths(c("anthus_aco.fas", "anthus_nd2.fas"))
+)
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{get_alignment_ids} to get the alignment IDs from multiple

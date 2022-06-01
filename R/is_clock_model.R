@@ -5,6 +5,8 @@
 #'   to create valid clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # TRUE
 #' is_clock_model(create_strict_clock_model())
 #' is_clock_model(create_rln_clock_model())
@@ -15,6 +17,8 @@
 #' is_clock_model("nonsense")
 #' is_clock_model(create_jc69_site_model())
 #' is_clock_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_clock_model <- function(
   x
@@ -33,6 +37,7 @@ is_clock_model <- function(
 #'   functions to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_rln_clock_model(create_strict_clock_model())
 #' is_rln_clock_model(create_rln_clock_model())
@@ -42,6 +47,8 @@ is_clock_model <- function(
 #' is_rln_clock_model("nonsense")
 #' is_rln_clock_model(create_jc69_site_model())
 #' is_rln_clock_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_rln_clock_model <- function(
   x
@@ -62,6 +69,7 @@ is_rln_clock_model <- function(
 #'   functions to create a clock model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
 #'
 #' is_strict_clock_model(create_strict_clock_model())
 #' is_strict_clock_model(create_rln_clock_model())
@@ -71,6 +79,8 @@ is_rln_clock_model <- function(
 #' is_strict_clock_model("nonsense")
 #' is_strict_clock_model(create_jc69_site_model())
 #' is_strict_clock_model(create_mcmc())
+#'
+#' check_empty_beautier_folder()
 #' @export
 is_strict_clock_model <- function(
   x

@@ -3,6 +3,8 @@
 #' @return the number of spaces before the first character
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # 0
 #' count_trailing_spaces("x")
 #' # 1
@@ -15,6 +17,8 @@
 #' count_trailing_spaces(" ")
 #' # 2
 #' count_trailing_spaces("  ")
+#'
+#' check_empty_beautier_folder()
 #' @export
 count_trailing_spaces <- function(
   line

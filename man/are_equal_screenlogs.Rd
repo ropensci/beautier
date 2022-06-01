@@ -18,12 +18,16 @@ TRUE if the two screenlogs are equal
 Will \link{stop} if the arguments are not screenlogs.
 }
 \examples{
+check_empty_beautier_folder()
+
 screenlog_1 <- create_screenlog(log_every = 1000)
 screenlog_2 <- create_screenlog(log_every = 314)
 # TRUE
 are_equal_screenlogs(screenlog_1, screenlog_1)
 # FALSE
 are_equal_screenlogs(screenlog_1, screenlog_2)
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \link{create_screenlog} to create an screenlog

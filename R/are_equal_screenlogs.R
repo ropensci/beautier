@@ -6,12 +6,16 @@
 #' @return TRUE if the two screenlogs are equal
 #' @seealso Use \link{create_screenlog} to create an screenlog
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' screenlog_1 <- create_screenlog(log_every = 1000)
 #' screenlog_2 <- create_screenlog(log_every = 314)
 #' # TRUE
 #' are_equal_screenlogs(screenlog_1, screenlog_1)
 #' # FALSE
 #' are_equal_screenlogs(screenlog_1, screenlog_2)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 are_equal_screenlogs <- function(

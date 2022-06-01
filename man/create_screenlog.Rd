@@ -30,3 +30,13 @@ Valid values are the ones returned by \link{get_log_sorts}}
 \description{
 Create a \code{screenlog} object
 }
+\examples{
+check_empty_beautier_folder()
+
+create_screenlog()
+
+check_empty_beautier_folder()
+}
+\author{
+Richèl J.C. Bilderbeek
+}

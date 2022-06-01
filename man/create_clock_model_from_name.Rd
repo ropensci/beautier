@@ -18,7 +18,11 @@ a clock model,
 Create a clock model from name
 }
 \examples{
+check_empty_beautier_folder()
+
 create_clock_model_from_name(get_clock_model_names()[1])
+
+check_empty_beautier_folder()
 }
 \seealso{
 Use \code{\link{create_clock_model}} to create a clock model

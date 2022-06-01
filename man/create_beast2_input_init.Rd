@@ -21,6 +21,19 @@ lines of XML text
 \description{
 Creates the \code{init} section of a BEAST2 XML parameter file
 }
+\examples{
+check_empty_beautier_folder()
+
+inference_model <- init_inference_model(
+  input_filename = get_fasta_filename(),
+  inference_model = create_test_inference_model()
+)
+xml <- create_beast2_input_init(
+  inference_model = inference_model
+)
+
+check_empty_beautier_folder()
+}
 \author{
 Richèl J.C. Bilderbeek
 }

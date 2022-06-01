@@ -5,6 +5,8 @@
 #' @return nothing
 #' @seealso Use \link{create_mrca_prior} to create a valid MRCA prior
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' fasta_filename <- get_beautier_path("anthus_aco.fas")
 #' mrca_prior <- create_mrca_prior(
 #'   alignment_id = get_alignment_id(fasta_filename = fasta_filename),
@@ -15,6 +17,8 @@
 #'  taxa_names = get_taxa_names(filename = fasta_filename)
 #' )
 #' check_mrca_prior(mrca_prior)
+#'
+#' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_mrca_prior <- function(mrca_prior) {

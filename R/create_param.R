@@ -23,6 +23,8 @@
 #' @return a parameter
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create an alpha parameter
 #' alpha_param <- create_alpha_param()
 #'
@@ -41,6 +43,9 @@
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @export
 create_param <- function(
   name,
@@ -85,6 +90,8 @@ create_param <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' alpha_param <- create_alpha_param()
 #'
@@ -103,6 +110,9 @@ create_param <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_alpha_param create_param_alpha
 #' @export create_alpha_param create_param_alpha
 create_alpha_param <- create_param_alpha <- function(
@@ -131,6 +141,8 @@ create_alpha_param <- create_param_alpha <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' beta_param <- create_beta_param()
 #'
@@ -149,6 +161,9 @@ create_alpha_param <- create_param_alpha <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_beta_param create_param_beta
 #' @export create_beta_param create_param_beta
 create_beta_param <- create_param_beta <- function(
@@ -172,6 +187,8 @@ create_beta_param <- create_param_beta <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' clock_rate_param <- create_clock_rate_param(
 #'   id = "anthus_aco", value = 1.0
 #' )
@@ -189,6 +206,9 @@ create_beta_param <- create_param_beta <- function(
 #'   clock_model = strict_clock_model
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_clock_rate_param create_param_clock_rate
 #' @export create_clock_rate_param create_param_clock_rate
 create_clock_rate_param <- create_param_clock_rate <- function(
@@ -255,6 +275,8 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' lambda_param <- create_lambda_param()
 #'
@@ -273,6 +295,9 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_lambda_param create_param_lambda
 #' @export create_lambda_param create_param_lambda
 create_lambda_param <- create_param_lambda <- function(
@@ -296,6 +321,8 @@ create_lambda_param <- create_param_lambda <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' m_param <- create_m_param()
 #'
@@ -314,6 +341,9 @@ create_lambda_param <- create_param_lambda <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_m_param create_param_m
 #' @export create_m_param create_param_m
 create_m_param <- create_param_m <- function(
@@ -345,6 +375,8 @@ create_m_param <- create_param_m <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' mean_param <- create_mean_param(value = 1.0)
 #'
@@ -363,6 +395,9 @@ create_m_param <- create_param_m <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_mean_param create_param_mean
 #' @export create_mean_param create_param_mean
 create_mean_param <- create_param_mean <- function(
@@ -387,6 +422,8 @@ create_mean_param <- create_param_mean <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' mu_param <- create_mu_param()
 #'
@@ -405,6 +442,9 @@ create_mean_param <- create_param_mean <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_mu_param create_param_mu
 #' @export create_mu_param create_param_mu
 create_mu_param <- create_param_mu <- function(
@@ -426,6 +466,8 @@ create_mu_param <- create_param_mu <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create parameter
 #' rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
 #'
@@ -439,6 +481,9 @@ create_mu_param <- create_param_mu <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rate_ac_param create_param_rate_ac
 #' @export create_rate_ac_param create_param_rate_ac
 create_rate_ac_param <- create_param_rate_ac <- function(
@@ -463,6 +508,8 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create parameter
 #' rate_ag_param <- create_rate_ag_param(value = 1, estimate = FALSE)
 #'
@@ -476,6 +523,9 @@ create_rate_ac_param <- create_param_rate_ac <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rate_ag_param create_param_rate_ag
 #' @export create_rate_ag_param create_param_rate_ag
 create_rate_ag_param <- create_param_rate_ag <- function(
@@ -500,6 +550,8 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create parameter
 #' rate_at_param <- create_rate_at_param(value = 1, estimate = FALSE)
 #'
@@ -513,6 +565,9 @@ create_rate_ag_param <- create_param_rate_ag <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rate_at_param create_param_rate_at
 #' @export create_rate_at_param create_param_rate_at
 create_rate_at_param <- create_param_rate_at <- function(
@@ -537,6 +592,8 @@ create_rate_at_param <- create_param_rate_at <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create parameter
 #' rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
 #'
@@ -550,6 +607,9 @@ create_rate_at_param <- create_param_rate_at <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rate_cg_param create_param_rate_cg
 #' @export create_rate_cg_param create_param_rate_cg
 create_rate_cg_param <- create_param_rate_cg <- function(
@@ -574,6 +634,8 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create parameter
 #' rate_ct_param <- create_rate_ct_param(value = 1)
 #'
@@ -587,6 +649,9 @@ create_rate_cg_param <- create_param_rate_cg <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rate_ct_param create_param_rate_ct
 #' @export create_rate_ct_param create_param_rate_ct
 create_rate_ct_param <- create_param_rate_ct <- function(
@@ -610,6 +675,8 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create parameter
 #' rate_gt_param <- create_rate_gt_param(value = 1, estimate = FALSE)
 #'
@@ -623,6 +690,9 @@ create_rate_ct_param <- create_param_rate_ct <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_rate_gt_param create_param_rate_gt
 #' @export create_rate_gt_param create_param_rate_gt
 create_rate_gt_param <- create_param_rate_gt <- function(
@@ -649,6 +719,8 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' s_param <- create_s_param()
 #'
@@ -667,6 +739,9 @@ create_rate_gt_param <- create_param_rate_gt <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_s_param create_param_s
 #' @export create_s_param create_param_s
 create_s_param <- create_param_s <- function(
@@ -695,6 +770,8 @@ create_s_param <- create_param_s <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' scale_param <- create_scale_param()
 #'
@@ -713,6 +790,9 @@ create_s_param <- create_param_s <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_scale_param create_param_scale
 #' @export create_scale_param create_param_scale
 create_scale_param <- create_param_scale <- function(
@@ -737,6 +817,8 @@ create_scale_param <- create_param_scale <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
+#' check_empty_beautier_folder()
+#'
 #' # Create the parameter
 #' sigma_param <- create_sigma_param()
 #'
@@ -755,6 +837,9 @@ create_scale_param <- create_param_scale <- function(
 #'   )
 #' )
 #' file.remove(beast2_input_file)
+#'
+#' remove_beautier_folder()
+#' check_empty_beautier_folder()
 #' @aliases create_sigma_param create_param_sigma
 #' @export create_sigma_param create_param_sigma
 create_sigma_param <- create_param_sigma <- function(

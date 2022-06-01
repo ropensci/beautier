@@ -13,7 +13,11 @@ the valid values for the \code{freq_equilibrium} argument
 Returns valid values for the \code{freq_equilibrium} argument
 }
 \examples{
+check_empty_beautier_folder()
+
 get_freq_equilibrium_names()
+
+check_empty_beautier_folder()
 }
 \seealso{
 the \code{freq_equilibrium} argument is used in

@@ -1,5 +1,3 @@
-context("test-freq_equilibrium_to_xml")
-
 test_that("use, estimated", {
 
   created <- freq_equilibrium_to_xml(
