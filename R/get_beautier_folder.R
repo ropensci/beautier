@@ -11,5 +11,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_beautier_folder <- function() {
-  rappdirs::user_cache_dir(appname = "beautier")
+  normalizePath(
+    rappdirs::user_cache_dir(appname = "beautier"),
+    mustWork = FALSE
+  )
 }
