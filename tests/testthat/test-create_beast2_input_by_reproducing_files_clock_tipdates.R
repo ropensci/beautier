@@ -24,13 +24,16 @@ test_that("RLN + tipdates, v2.6", {
     inference_model = inference_model
   )
   expected <- readLines(get_beautier_path("rln_tipdates_2_6.xml"))
+
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml",
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("rln_uclstdev_beta_2_4.xml", {
@@ -52,13 +55,16 @@ test_that("rln_uclstdev_beta_2_4.xml", {
     )
   )
   expected <- readLines(get_beautier_path("rln_uclstdev_beta_2_4.xml"))
+
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 ################################################################################

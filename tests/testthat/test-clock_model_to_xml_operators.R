@@ -39,6 +39,8 @@ test_that("v2.6, RLN", {
 
 test_that("v2.6, tipdates", {
   skip("Unsure what happens here")
+  check_empty_beautier_folder()
+
   expected <- unindent(
     stringr::str_subset(
       readr::read_lines(get_beautier_path("tipdates_2_6.xml")),
@@ -50,13 +52,15 @@ test_that("v2.6, tipdates", {
       clock_model = create_rln_clock_model(id = "test_output_0")
     )
   )
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("rln + mrca", {

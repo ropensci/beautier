@@ -16,6 +16,8 @@ test_that("compare all", {
   file.remove(created_lines_filename)
   file.remove(expected_lines_filename)
 
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("compare state", {
@@ -35,6 +37,9 @@ test_that("compare state", {
 
   file.remove(created_lines_filename)
   file.remove(expected_lines_filename)
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("compare operators", {
@@ -54,4 +59,7 @@ test_that("compare operators", {
 
   file.remove(created_lines_filename)
   file.remove(expected_lines_filename)
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })

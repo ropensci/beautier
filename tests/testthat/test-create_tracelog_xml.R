@@ -37,13 +37,14 @@ test_that("detailed use, v2.4", {
       section = "logger"
     )[1:9]
   )
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_equal(created, expected)
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("detailed use, v2.6", {

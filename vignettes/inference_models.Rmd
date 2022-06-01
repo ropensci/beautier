@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+beautier::check_empty_beautier_folder()
 ```
 
 ## Introduction
@@ -226,4 +227,7 @@ create_beast2_input_file_from_model(
 )
 # Cleanup
 file.remove(output_filename)
+
+beautier::remove_beautier_folder()
+beautier::check_empty_beautier_folder()
 ```

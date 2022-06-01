@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = ""
 )
+beautier::check_empty_beautier_folder()
 ```
 
 # Introduction
@@ -87,4 +88,7 @@ see [https://github.com/ropensci/babette](https://github.com/ropensci/babette).
 
 ```{r cleanup}
 file.remove(output_filename)
+
+beautier::remove_beautier_folder()
+beautier::check_empty_beautier_folder()
 ```

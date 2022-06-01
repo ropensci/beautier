@@ -30,14 +30,14 @@ test_that("v2.5", {
   )
 
   expected <- readLines(get_beautier_path("anthus_aco_sub_20181016.xml"))
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
-  compare_lines
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("v2.5.1", {
@@ -339,13 +339,14 @@ test_that("hky_2_4.xml", {
   )
 
   expected <- readLines(get_beautier_path("hky_2_4.xml"))
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 
@@ -368,13 +369,14 @@ test_that("hky_kappa_2_4.xml", {
   )
   expected <- readLines(get_beautier_path(
     "hky_kappa_2_4.xml"))
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml",
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("hky_prop_invariant_0_5_2_4.xml", {
@@ -1464,13 +1466,14 @@ test_that("Tip dating, v2.6", {
   )
   expected <- readLines(get_beautier_path("tipdates_2_6.xml"))
 
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("Tip dating with RLN", {
@@ -1486,11 +1489,13 @@ test_that("Tip dating with RLN", {
   )
   expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
 
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })

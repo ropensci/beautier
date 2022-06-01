@@ -62,13 +62,14 @@ test_that("detailed use, v2.6", {
   created <- create_beast2_input_operators(
     inference_model = inference_model
   )
+  # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
+    expected = expected
   )
   expect_true(are_equivalent_xml_lines(created, expected))
+  remove_beautier_folder()
+  check_empty_beautier_folder()
 })
 
 test_that("detailed use, v2.4, RLN", {

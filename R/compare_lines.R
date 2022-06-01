@@ -17,11 +17,13 @@
 #' @examples
 #' check_empty_beautier_folder()
 #'
+#' # Creates temporary files in beautier folder
 #' compare_lines(
 #'   lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
 #'   expected = readLines(beautier::get_beautier_path("bd_2_4.xml"))
 #' )
 #'
+#' remove_beautier_folder()
 #' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -29,8 +31,12 @@ compare_lines <- function(
   lines,
   expected,
   section = NA,
-  created_lines_filename = "created.xml",
-  expected_lines_filename = "expected.xml"
+  created_lines_filename = get_beautier_tempfilename(
+    pattern = "created", fileext = ".xml"
+  ),
+  expected_lines_filename = get_beautier_tempfilename(
+    pattern = "expected", fileext = ".xml"
+  )
 ) {
   if (!beautier::is_one_na(section)) {
     lines <- beautier::extract_xml_section_from_lines(
