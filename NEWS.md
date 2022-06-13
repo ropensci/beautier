@@ -10,8 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * There is no 'beautier' temporary folder created by the tests, not the
-   examples, to comply with CRAN policy
+ * None
 
 ### BUG FIXES
 
