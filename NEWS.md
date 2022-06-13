@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 2.6.4 (unreleased)
+## beautier 2.6.4 (2022-06-05)
 
 ### NEW FEATURES
 
