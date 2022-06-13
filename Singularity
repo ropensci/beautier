@@ -60,4 +60,4 @@ file.remove(output_filename)
 
     URL https://github.com/ropensci/beautier
 
-    VERSION 2.6.4
+    VERSION 2.6.5
