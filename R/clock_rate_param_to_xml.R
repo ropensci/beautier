@@ -32,10 +32,3 @@ clock_rate_param_to_xml <- function(
   )
   xml
 }
-
-parameter_to_xml_clock_rate <- function(...) {
-  stop(
-    "'parameter_to_xml_clock_rate' is deprecated, ",
-    "use 'clock_rate_param_to_xml' instead"
-  )
-}

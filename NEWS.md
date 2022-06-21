@@ -18,7 +18,7 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * Removed functions that were deprecated in v2.6.4
 
 ## beautier 2.6.4 (2022-06-05)
 

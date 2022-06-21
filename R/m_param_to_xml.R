@@ -33,7 +33,3 @@ m_param_to_xml <- function(
   xml <- paste0(xml, ">", m_param$value, "</parameter>")
   xml
 }
-
-parameter_to_xml_m <- function(...) {
-  stop("'parameter_to_xml_m' is deprecated, use 'm_param_to_xml' instead")
-}

@@ -14,15 +14,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_prior_to_xml_tracelog <- function(
-  inference_model,
-  clock_models = "deprecated",
-  mrca_prior = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  testthat::expect_equal(clock_models, "deprecated")
-  testthat::expect_equal(mrca_prior, "deprecated")
-  testthat::expect_equal(tipdates_filename, "deprecated")
-
   # Do not be smart yet
   clock_models <- list(inference_model$clock_model)
   mrca_prior <- inference_model$mrca_prior

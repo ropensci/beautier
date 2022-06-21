@@ -51,10 +51,8 @@ taxa_to_xml_tree <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 no_taxa_to_xml_tree <- function(
-  inference_model,
-  id = "deprecated"
+  inference_model
 ) {
-  testthat::expect_equal(id, "deprecated")
   id <- inference_model$tree_prior$id
   testit::assert(beautier::is_id(id))
   text <- NULL
@@ -97,13 +95,8 @@ no_taxa_to_xml_tree <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tipdate_taxa_to_xml_tree <- function(
-  inference_model,
-  id = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  testthat::expect_equal(id, "deprecated")
-  testthat::expect_equal(tipdates_filename, "deprecated")
-
   # Don't be smart yet
   id <- inference_model$tree_prior$id
   tipdates_filename <- inference_model$tipdates_filename

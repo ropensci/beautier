@@ -17,15 +17,8 @@
 #' check_empty_beautier_folder()
 #' @export
 clock_model_to_xml_prior_distr <- function(
-  inference_model,
-  clock_model = "deprecated",
-  mrca_priors = "deprecated",
-  tipdates_filename = "deprecated"
+  inference_model
 ) {
-  testthat::expect_equal(clock_model, "deprecated")
-  testthat::expect_equal(mrca_priors, "deprecated")
-  testthat::expect_equal(tipdates_filename, "deprecated")
-
   # Do not be smart yet
   clock_model <- inference_model$clock_model
   mrca_priors <- list(inference_model$mrca_prior)
