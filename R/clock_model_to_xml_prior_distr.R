@@ -21,7 +21,6 @@ clock_model_to_xml_prior_distr <- function(
 ) {
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-  mrca_priors <- list(inference_model$mrca_prior)
   tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(beautier::is_clock_model(clock_model))

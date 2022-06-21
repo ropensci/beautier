@@ -102,8 +102,7 @@ create_branch_rate_model_sc_xml <- function(# nolint long function name, which i
 
     # Layout
     c(xml_begin, beautier::indent(xml_param), xml_end)
-  }
-  else {
+  } else {
     paste0(
       "<branchRateModel id=\"StrictClock.c:", id, "\" ",
       "spec=\"beast.evolution.branchratemodel.StrictClockModel\" ",

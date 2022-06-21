@@ -20,7 +20,6 @@ clock_model_to_xml_tracelog <- function(
 ) {
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-  mrca_priors  <- list(inference_model$mrca_prior)
 
   testit::assert(beautier::is_clock_model(clock_model))
   id <- clock_model$id

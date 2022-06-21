@@ -17,9 +17,7 @@ mrca_prior_to_xml_tracelog <- function(
   inference_model
 ) {
   # Do not be smart yet
-  clock_models <- list(inference_model$clock_model)
   mrca_prior <- inference_model$mrca_prior
-  tipdates_filename <- inference_model$tipdates_filename
 
   testit::assert(beautier::is_mrca_prior(mrca_prior))
   if (!beautier::has_mrca_prior(inference_model) &&
