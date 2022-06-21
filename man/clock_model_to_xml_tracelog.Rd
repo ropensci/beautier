@@ -4,11 +4,7 @@
 \alias{clock_model_to_xml_tracelog}
 \title{Internal function}
 \usage{
-clock_model_to_xml_tracelog(
-  inference_model,
-  clock_model = "deprecated",
-  mrca_priors = "deprecated"
-)
+clock_model_to_xml_tracelog(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -18,12 +14,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{clock_model}{a clock model,
-as returned by \code{\link{create_clock_model}}}
-
-\item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
-as returned by \code{\link{create_mrca_prior}}}
 }
 \value{
 a character vector of XML strings

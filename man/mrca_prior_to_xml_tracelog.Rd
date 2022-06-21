@@ -4,12 +4,7 @@
 \alias{mrca_prior_to_xml_tracelog}
 \title{Internal function}
 \usage{
-mrca_prior_to_xml_tracelog(
-  inference_model,
-  clock_models = "deprecated",
-  mrca_prior = "deprecated",
-  tipdates_filename = "deprecated"
-)
+mrca_prior_to_xml_tracelog(inference_model)
 }
 \arguments{
 \item{inference_model}{a Bayesian phylogenetic inference model.
@@ -19,17 +14,6 @@ Use \link{create_inference_model} to create an inference model.
 Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
-
-\item{clock_models}{a list of one or more clock models,
-as returned by \code{\link{create_clock_model}}}
-
-\item{mrca_prior}{a Most Recent Common Ancestor prior,
-as returned by \code{\link{create_mrca_prior}}}
-
-\item{tipdates_filename}{name of the file containing the tip dates.
-This file is assumed to have two columns, separated by a tab.
-The first column contains the taxa names, the second column contains
-the date.}
 }
 \value{
 lines of XML text
