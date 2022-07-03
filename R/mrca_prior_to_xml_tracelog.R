@@ -9,8 +9,6 @@
 #' }
 #' @inheritParams default_params_doc
 #' @return lines of XML text
-#' @seealso all MRCA priors' tracelog section is created
-#'   by \code{\link{mrca_priors_to_xml_tracelog}}
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mrca_prior_to_xml_tracelog <- function(

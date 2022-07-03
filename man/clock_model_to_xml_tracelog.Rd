@@ -30,10 +30,6 @@ check_empty_beautier_folder()
 
 check_empty_beautier_folder()
 }
-\seealso{
-all clock models' tracelog section is created
-  by \code{\link{clock_models_to_xml_tracelog}}
-}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -28,10 +28,6 @@ Internal function to creates the MRCA prior's XML for the tracelog section.
   </logger>
 }
 }
-\seealso{
-all MRCA priors' tracelog section is created
-  by \code{\link{mrca_priors_to_xml_tracelog}}
-}
 \author{
 Richèl J.C. Bilderbeek
 }

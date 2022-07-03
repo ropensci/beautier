@@ -3,8 +3,6 @@
 #' Creates the clock model's XML for the tracelog section
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
-#' @seealso all clock models' tracelog section is created
-#'   by \code{\link{clock_models_to_xml_tracelog}}
 #' @examples
 #' check_empty_beautier_folder()
 #'

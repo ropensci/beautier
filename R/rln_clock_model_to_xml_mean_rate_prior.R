@@ -1,4 +1,5 @@
-#' Used by \code{\link{clock_models_to_xml_prior_distr}}
+#' Internal function
+#'
 #' @inheritParams default_params_doc
 #' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek

@@ -2,7 +2,7 @@
 % Please edit documentation in R/rln_clock_model_to_xml_mean_rate_prior.R
 \name{rln_clock_model_to_xml_mean_rate_prior}
 \alias{rln_clock_model_to_xml_mean_rate_prior}
-\title{Used by \code{\link{clock_models_to_xml_prior_distr}}}
+\title{Internal function}
 \usage{
 rln_clock_model_to_xml_mean_rate_prior(rln_clock_model)
 }
@@ -14,7 +14,7 @@ as returned by \code{\link{create_rln_clock_model}}}
 lines of XML text
 }
 \description{
-Used by \code{\link{clock_models_to_xml_prior_distr}}
+Internal function
 }
 \author{
 Richèl J.C. Bilderbeek
