@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Doc does not link to absent functions
 
 ### BUG FIXES
 
