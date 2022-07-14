@@ -44,18 +44,6 @@ create_beast2_input_file(
 )
 file.remove(beast2_input_file)
 
-strict_clock_model_gamma <- create_strict_clock_model(
-  clock_rate_distr = create_gamma_distr()
-)
-
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  get_fasta_filename(),
-  beast2_input_file,
-  clock_model = strict_clock_model_gamma
-)
-file.remove(beast2_input_file)
-
 remove_beautier_folder()
 }
 \author{

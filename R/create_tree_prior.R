@@ -81,8 +81,6 @@ create_tree_prior <- function(
 #'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
-#'
 #' bd_tree_prior <- create_bd_tree_prior()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
@@ -93,20 +91,7 @@ create_tree_prior <- function(
 #' )
 #' file.remove(beast2_input_file)
 #'
-#' bd_tree_prior_exp <- create_bd_tree_prior(
-#'   birth_rate_distr = create_exp_distr()
-#' )
-#'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = bd_tree_prior_exp
-#' )
-#' file.remove(beast2_input_file)
-#'
 #' remove_beautier_folder()
-#' check_empty_beautier_folder()
 #' @aliases create_bd_tree_prior create_tree_prior_bd
 #' @export create_bd_tree_prior create_tree_prior_bd
 create_bd_tree_prior <- create_tree_prior_bd <- function(
