@@ -770,8 +770,6 @@ create_s_param <- create_param_s <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
-#'
 #' # Create the parameter
 #' scale_param <- create_scale_param()
 #'
@@ -792,7 +790,6 @@ create_s_param <- create_param_s <- function(
 #' file.remove(beast2_input_file)
 #'
 #' remove_beautier_folder()
-#' check_empty_beautier_folder()
 #' @aliases create_scale_param create_param_scale
 #' @export create_scale_param create_param_scale
 create_scale_param <- create_param_scale <- function(
