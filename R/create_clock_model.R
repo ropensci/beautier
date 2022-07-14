@@ -75,14 +75,16 @@ create_clock_model <- function(
 #' rln_clock_model <- create_rln_clock_model()
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   get_fasta_filename(),
-#'   beast2_input_file,
-#'   clock_model = rln_clock_model
-#' )
-#' file.remove(beast2_input_file)
+#' \dontrun{
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     beast2_input_file,
+#'     clock_model = rln_clock_model
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_rln_clock_model create_clock_model_rln
 #' @export create_rln_clock_model create_clock_model_rln
 create_rln_clock_model <- create_clock_model_rln <- function(

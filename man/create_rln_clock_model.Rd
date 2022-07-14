@@ -55,14 +55,16 @@ Create a relaxed log-normal clock model
 rln_clock_model <- create_rln_clock_model()
 
 beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  get_fasta_filename(),
-  beast2_input_file,
-  clock_model = rln_clock_model
-)
-file.remove(beast2_input_file)
+\dontrun{
+  create_beast2_input_file(
+    get_fasta_filename(),
+    beast2_input_file,
+    clock_model = rln_clock_model
+  )
+  file.remove(beast2_input_file)
 
-remove_beautier_folder()
+  remove_beautier_folder()
+}
 }
 \author{
 Richèl J.C. Bilderbeek
