@@ -73,13 +73,8 @@ create_clock_model <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' rln_clock_model <- create_rln_clock_model()
-#' rln_clock_model_exp <- create_rln_clock_model(
-#'   mean_rate_prior_distr = create_exp_distr()
-#' )
 #'
 #' beast2_input_file <- get_beautier_tempfilename()
-#'
-#' # Pick any of the above clock models
 #' create_beast2_input_file(
 #'   get_fasta_filename(),
 #'   beast2_input_file,
