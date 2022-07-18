@@ -187,28 +187,28 @@ create_beta_param <- create_param_beta <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' clock_rate_param <- create_clock_rate_param(
-#'   id = "anthus_aco", value = 1.0
-#' )
+#'   clock_rate_param <- create_clock_rate_param(
+#'     id = "anthus_aco", value = 1.0
+#'   )
 #'
-#' # Use the parameter in a clock model
-#' strict_clock_model <- create_strict_clock_model(
-#'   clock_rate_param = clock_rate_param
-#' )
+#'   # Use the parameter in a clock model
+#'   strict_clock_model <- create_strict_clock_model(
+#'     clock_rate_param = clock_rate_param
+#'   )
 #'
-#' # Use the distribution to create a BEAST2 input file
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   clock_model = strict_clock_model
-#' )
-#' file.remove(beast2_input_file)
+#'   # Use the distribution to create a BEAST2 input file
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     clock_model = strict_clock_model
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_clock_rate_param create_param_clock_rate
 #' @export create_clock_rate_param create_param_clock_rate
 create_clock_rate_param <- create_param_clock_rate <- function(
@@ -275,29 +275,29 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Create the parameter
-#' lambda_param <- create_lambda_param()
+#'   # Create the parameter
+#'   lambda_param <- create_lambda_param()
 #'
-#' # Use the parameter in a distribution
-#' poisson_distr <- create_poisson_distr(
-#'   lambda = lambda_param
-#' )
-#'
-#' # Use the distribution to create a BEAST2 input file
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = poisson_distr
+#'   # Use the parameter in a distribution
+#'   poisson_distr <- create_poisson_distr(
+#'     lambda = lambda_param
 #'   )
-#' )
-#' file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   # Use the distribution to create a BEAST2 input file
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = poisson_distr
+#'     )
+#'   )
+#'   file.remove(beast2_input_file)
+#'
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_lambda_param create_param_lambda
 #' @export create_lambda_param create_param_lambda
 create_lambda_param <- create_param_lambda <- function(
@@ -321,29 +321,30 @@ create_lambda_param <- create_param_lambda <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Create the parameter
-#' m_param <- create_m_param()
+#'   # Create the parameter
+#'   m_param <- create_m_param()
 #'
-#' # Use the parameter in a distribution
-#' log_normal_distr <- create_log_normal_distr(
-#'   m = m_param
-#' )
-#'
-#' # Use the distribution to create a BEAST2 input file
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = log_normal_distr
+#'   # Use the parameter in a distribution
+#'   log_normal_distr <- create_log_normal_distr(
+#'     m = m_param
 #'   )
-#' )
-#' file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   # Use the distribution to create a BEAST2 input file
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
+#'   )
+#'   file.remove(beast2_input_file)
+#'
+#'   remove_beautier_folder()
+#'
+#' }
 #' @aliases create_m_param create_param_m
 #' @export create_m_param create_param_m
 create_m_param <- create_param_m <- function(
@@ -375,29 +376,29 @@ create_m_param <- create_param_m <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Create the parameter
-#' mean_param <- create_mean_param(value = 1.0)
+#'   # Create the parameter
+#'   mean_param <- create_mean_param(value = 1.0)
 #'
-#' # Use the parameter in a distribution
-#' exp_distr <- create_exp_distr(
-#'   mean = mean_param
-#' )
-#'
-#' # Use the distribution to create a BEAST2 input file
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = exp_distr
+#'   # Use the parameter in a distribution
+#'   exp_distr <- create_exp_distr(
+#'     mean = mean_param
 #'   )
-#' )
-#' file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   # Use the distribution to create a BEAST2 input file
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = exp_distr
+#'     )
+#'   )
+#'   file.remove(beast2_input_file)
+#'
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_mean_param create_param_mean
 #' @export create_mean_param create_param_mean
 create_mean_param <- create_param_mean <- function(
@@ -422,29 +423,29 @@ create_mean_param <- create_param_mean <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Create the parameter
-#' mu_param <- create_mu_param()
+#'   # Create the parameter
+#'   mu_param <- create_mu_param()
 #'
-#' # Use the parameter in a distribution
-#' laplace_distr <- create_laplace_distr(
-#'   mu = mu_param
-#' )
-#'
-#' # Use the distribution to create a BEAST2 input file
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = laplace_distr
+#'   # Use the parameter in a distribution
+#'   laplace_distr <- create_laplace_distr(
+#'     mu = mu_param
 #'   )
-#' )
-#' file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   # Use the distribution to create a BEAST2 input file
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = laplace_distr
+#'     )
+#'   )
+#'   file.remove(beast2_input_file)
+#'
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_mu_param create_param_mu
 #' @export create_mu_param create_param_mu
 create_mu_param <- create_param_mu <- function(
@@ -466,24 +467,24 @@ create_mu_param <- create_param_mu <- function(
 #'   of all parameters that can be created
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Create parameter
-#' rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
+#'   # Create parameter
+#'   rate_ac_param <- create_rate_ac_param(value = 1, estimate = FALSE)
 #'
-#' # Use the parameter to create a BEAST2 input file
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   site_model = create_gtr_site_model(
-#'     rate_ac_param = rate_ac_param
+#'   # Use the parameter to create a BEAST2 input file
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     site_model = create_gtr_site_model(
+#'       rate_ac_param = rate_ac_param
+#'     )
 #'   )
-#' )
-#' file.remove(beast2_input_file)
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_rate_ac_param create_param_rate_ac
 #' @export create_rate_ac_param create_param_rate_ac
 create_rate_ac_param <- create_param_rate_ac <- function(

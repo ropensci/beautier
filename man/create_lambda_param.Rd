@@ -23,29 +23,29 @@ this parameter is used in a Poisson distribution
   (as returned by \code{\link{create_poisson_distr}})
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-# Create the parameter
-lambda_param <- create_lambda_param()
+  # Create the parameter
+  lambda_param <- create_lambda_param()
 
-# Use the parameter in a distribution
-poisson_distr <- create_poisson_distr(
-  lambda = lambda_param
-)
-
-# Use the distribution to create a BEAST2 input file
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = poisson_distr
+  # Use the parameter in a distribution
+  poisson_distr <- create_poisson_distr(
+    lambda = lambda_param
   )
-)
-file.remove(beast2_input_file)
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  # Use the distribution to create a BEAST2 input file
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = poisson_distr
+    )
+  )
+  file.remove(beast2_input_file)
+
+  remove_beautier_folder()
+}
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

@@ -308,22 +308,22 @@ create_gamma_distr <- create_distr_gamma <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' inv_gamma_distr <- create_inv_gamma_distr()
+#'   inv_gamma_distr <- create_inv_gamma_distr()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = inv_gamma_distr
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = inv_gamma_distr
+#'     )
 #'   )
-#' )
-#' file.remove(beast2_input_file)
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_inv_gamma_distr create_distr_inv_gamma
 #' @export create_inv_gamma_distr create_distr_inv_gamma
 create_inv_gamma_distr <- create_distr_inv_gamma <- function(
@@ -374,22 +374,22 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' laplace_distr <- create_laplace_distr()
+#'   laplace_distr <- create_laplace_distr()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = laplace_distr
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = laplace_distr
+#'     )
 #'   )
-#' )
-#' file.remove(beast2_input_file)
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_laplace_distr create_distr_laplace
 #' @export create_laplace_distr create_distr_laplace
 create_laplace_distr <- create_distr_laplace <- function(
@@ -441,22 +441,22 @@ create_laplace_distr <- create_distr_laplace <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' log_normal_distr <- create_log_normal_distr()
+#'   log_normal_distr <- create_log_normal_distr()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = log_normal_distr
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = log_normal_distr
+#'     )
 #'   )
-#' )
-#' file.remove(beast2_input_file)
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_log_normal_distr create_distr_log_normal
 #' @export create_log_normal_distr create_distr_log_normal
 create_log_normal_distr <- create_distr_log_normal <- function(
@@ -508,22 +508,22 @@ create_log_normal_distr <- create_distr_log_normal <- function(
 #'   of all supported distributions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' normal_distr <- create_normal_distr()
+#'   normal_distr <- create_normal_distr()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = create_yule_tree_prior(
-#'     birth_rate_distr = normal_distr
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = create_yule_tree_prior(
+#'       birth_rate_distr = normal_distr
+#'     )
 #'   )
-#' )
-#' file.remove(beast2_input_file)
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_normal_distr create_distr_normal
 #' @export create_normal_distr create_distr_normal
 create_normal_distr <- create_distr_normal <- function(
