@@ -20,26 +20,29 @@
 #'   for more examples using those functions
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
+#'   check_empty_beautier_folder()
 #'
-#' bd_tree_prior <- create_bd_tree_prior()
-#' cbs_tree_prior <- create_cbs_tree_prior()
-#' ccp_tree_prior <- create_ccp_tree_prior()
-#' cep_tree_prior <- create_cep_tree_prior()
-#' yule_tree_prior <- create_yule_tree_prior()
+#'   beast2_input_file <- get_beautier_tempfilename()
 #'
-#' # Use any of the above tree priors
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = bd_tree_prior
-#' )
-#' file.remove(beast2_input_file)
+#'   bd_tree_prior <- create_bd_tree_prior()
+#'   cbs_tree_prior <- create_cbs_tree_prior()
+#'   ccp_tree_prior <- create_ccp_tree_prior()
+#'   cep_tree_prior <- create_cep_tree_prior()
+#'   yule_tree_prior <- create_yule_tree_prior()
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   # Use any of the above tree priors
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = bd_tree_prior
+#'   )
+#'   file.remove(beast2_input_file)
+#'
+#'   remove_beautier_folder()
+#'   check_empty_beautier_folder()
+#' }
 #' @export
 create_tree_prior <- function(
   name,
@@ -81,17 +84,20 @@ create_tree_prior <- function(
 #'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' bd_tree_prior <- create_bd_tree_prior()
+#' if (is_on_ci()) {
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = bd_tree_prior
-#' )
-#' file.remove(beast2_input_file)
+#'   bd_tree_prior <- create_bd_tree_prior()
 #'
-#' remove_beautier_folder()
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = bd_tree_prior
+#'   )
+#'   file.remove(beast2_input_file)
+#'
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_bd_tree_prior create_tree_prior_bd
 #' @export create_bd_tree_prior create_tree_prior_bd
 create_bd_tree_prior <- create_tree_prior_bd <- function(
@@ -114,20 +120,20 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' cbs_tree_prior <- create_cbs_tree_prior()
+#'   cbs_tree_prior <- create_cbs_tree_prior()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_beautier_path("test_output_6.fas"),
-#'   beast2_input_file,
-#'   tree_prior = cbs_tree_prior
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_beautier_path("test_output_6.fas"),
+#'     beast2_input_file,
+#'     tree_prior = cbs_tree_prior
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_cbs_tree_prior create_tree_prior_cbs
 #' @export create_cbs_tree_prior create_tree_prior_cbs
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
@@ -152,20 +158,20 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' ccp_tree_prior <- create_ccp_tree_prior()
+#'   ccp_tree_prior <- create_ccp_tree_prior()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = ccp_tree_prior
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = ccp_tree_prior
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_ccp_tree_prior create_tree_prior_ccp
 #' @export create_ccp_tree_prior create_tree_prior_ccp
 create_ccp_tree_prior <- create_tree_prior_ccp <- function(
@@ -192,20 +198,20 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #'   its FASTA filename using \code{\link{get_alignment_id}}
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' cep_tree_prior <- create_cep_tree_prior()
+#'   cep_tree_prior <- create_cep_tree_prior()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   input_filename = get_fasta_filename(),
-#'   beast2_input_file,
-#'   tree_prior = cep_tree_prior
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     input_filename = get_fasta_filename(),
+#'     beast2_input_file,
+#'     tree_prior = cep_tree_prior
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_cep_tree_prior create_tree_prior_cep
 #' @export create_cep_tree_prior create_tree_prior_cep
 create_cep_tree_prior <- create_tree_prior_cep <- function(
@@ -235,20 +241,20 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' yule_tree_prior <- create_yule_tree_prior()
+#'   yule_tree_prior <- create_yule_tree_prior()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'    input_filename = get_fasta_filename(),
-#'    beast2_input_file,
-#'    tree_prior = yule_tree_prior
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'      input_filename = get_fasta_filename(),
+#'      beast2_input_file,
+#'      tree_prior = yule_tree_prior
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_yule_tree_prior create_tree_prior_yule
 #' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(

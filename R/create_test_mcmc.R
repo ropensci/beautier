@@ -5,21 +5,21 @@
 #' Use \code{\link{create_mcmc}} to create a default BEAST2 MCMC
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Create an MCMC chain with 50 states
-#' mcmc <- create_test_mcmc()
+#'   # Create an MCMC chain with 50 states
+#'   mcmc <- create_test_mcmc()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   get_fasta_filename(),
-#'   beast2_input_file,
-#'   mcmc = mcmc
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     beast2_input_file,
+#'     mcmc = mcmc
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @export
 create_test_mcmc <- function(
   chain_length = 3000,

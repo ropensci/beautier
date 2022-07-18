@@ -41,27 +41,27 @@ a gamma distribution
 Create a gamma distribution
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-gamma_distr <- create_gamma_distr(
-   alpha = 0.05,
-   beta = 10.0
-)
+  gamma_distr <- create_gamma_distr(
+    alpha = 0.05,
+    beta = 10.0
+  )
 
-gtr_site_model <- create_gtr_site_model(
-  rate_ac_prior_distr = gamma_distr
-)
+  gtr_site_model <- create_gtr_site_model(
+    rate_ac_prior_distr = gamma_distr
+  )
 
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  site_model = gtr_site_model
-)
-file.remove(beast2_input_file)
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    site_model = gtr_site_model
+  )
+  file.remove(beast2_input_file)
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  remove_beautier_folder()
+}
 }
 \seealso{
 the function \code{\link{create_distr}} shows an overview

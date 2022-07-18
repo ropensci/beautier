@@ -15,17 +15,21 @@
 #'   model, see \code{\link{create_strict_clock_model}}.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' strict_clock_model <- create_strict_clock_model()
+#' if (is_on_ci()) {
+#'   # Can use any of these models
+#'   strict_clock_model <- create_strict_clock_model()
+#'   rln_clock_model <- create_rln_clock_model()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   get_fasta_filename(),
-#'   beast2_input_file,
-#'   clock_model = strict_clock_model
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     beast2_input_file,
+#'     clock_model = strict_clock_model
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @export
 create_clock_model <- function(
   name,
@@ -123,20 +127,22 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #' @return a strict clock_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' strict_clock_model <- create_strict_clock_model(
-#'   clock_rate_param = 1.0,
-#'   clock_rate_distr = create_uniform_distr()
-#' )
+#' if (is_on_ci()) {
+#'   strict_clock_model <- create_strict_clock_model(
+#'     clock_rate_param = 1.0,
+#'     clock_rate_distr = create_uniform_distr()
+#'   )
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file(
-#'   get_fasta_filename(),
-#'   beast2_input_file,
-#'   clock_model = strict_clock_model
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file(
+#'     get_fasta_filename(),
+#'     beast2_input_file,
+#'     clock_model = strict_clock_model
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
+#'   remove_beautier_folder()
+#' }
 #' @aliases create_strict_clock_model create_clock_model_strict
 #' @export create_strict_clock_model create_clock_model_strict
 create_strict_clock_model <- create_clock_model_strict <- function(

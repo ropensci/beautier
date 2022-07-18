@@ -203,8 +203,6 @@ is_inv_gamma_distr <- function(
 #'   distribution
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
-#'
 #' # TRUE
 #' is_laplace_distr(create_laplace_distr())
 #' # FALSE
@@ -212,8 +210,6 @@ is_inv_gamma_distr <- function(
 #' is_laplace_distr(NA)
 #' is_laplace_distr(NULL)
 #' is_laplace_distr("nonsense")
-#'
-#' check_empty_beautier_folder()
 #' @export
 is_laplace_distr <- function(
   x

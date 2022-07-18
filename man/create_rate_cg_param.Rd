@@ -25,24 +25,24 @@ a parameter called 'rate CG'
 Create a parameter called 'rate CG'
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-# Create parameter
-rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
+  # Create parameter
+  rate_cg_param <- create_rate_cg_param(value = 1, estimate = FALSE)
 
-# Use the parameter to create a BEAST2 input file
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  site_model = create_gtr_site_model(
-    rate_cg_param = rate_cg_param
+  # Use the parameter to create a BEAST2 input file
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    site_model = create_gtr_site_model(
+      rate_cg_param = rate_cg_param
+    )
   )
-)
-file.remove(beast2_input_file)
+  file.remove(beast2_input_file)
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  remove_beautier_folder()
+}
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

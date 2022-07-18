@@ -2,22 +2,25 @@
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' # Get an example FASTA file
-#' input_filename <- get_fasta_filename()
+#'   check_empty_beautier_folder()
 #'
-#' # The file created by beautier, a BEAST2 input file
-#' output_filename <- get_beautier_tempfilename()
+#'   # Get an example FASTA file
+#'   input_filename <- get_fasta_filename()
 #'
-#' create_beast2_input_file(
-#'   input_filename,
-#'   output_filename
-#' )
-#' file.remove(output_filename)
+#'   # The file created by beautier, a BEAST2 input file
+#'   output_filename <- get_beautier_tempfilename()
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   create_beast2_input_file(
+#'     input_filename,
+#'     output_filename
+#'   )
+#'   file.remove(output_filename)
+#'
+#'   remove_beautier_folder()
+#'   check_empty_beautier_folder()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @seealso
 #'   Use \link{create_beast2_input_file_from_model} to do the same with an

@@ -27,17 +27,20 @@ a Birth-Death tree_prior
 Create a Birth-Death tree prior
 }
 \examples{
-bd_tree_prior <- create_bd_tree_prior()
+if (is_on_ci()) {
 
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  tree_prior = bd_tree_prior
-)
-file.remove(beast2_input_file)
+  bd_tree_prior <- create_bd_tree_prior()
 
-remove_beautier_folder()
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    tree_prior = bd_tree_prior
+  )
+  file.remove(beast2_input_file)
+
+  remove_beautier_folder()
+}
 }
 \seealso{
 An alignment ID can be extracted from

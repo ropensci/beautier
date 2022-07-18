@@ -55,23 +55,23 @@ See
   for examples how to use those distributions
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-# Use any distribution
-distr <- create_beta_distr()
+  # Use any distribution
+  distr <- create_beta_distr()
 
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = distr
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = distr
+    )
   )
-)
-file.remove(beast2_input_file)
+  file.remove(beast2_input_file)
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  remove_beautier_folder()
+}
 }
 \author{
 Richèl J.C. Bilderbeek

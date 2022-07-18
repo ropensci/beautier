@@ -23,26 +23,28 @@ this parameter is used in a Laplace distribution
   (as returned by \code{\link{create_laplace_distr}})
 }
 \examples{
-# Create the parameter
-scale_param <- create_scale_param()
+if (is_on_ci()) {
+  # Create the parameter
+  scale_param <- create_scale_param()
 
-# Use the parameter in a distribution
-laplace_distr <- create_laplace_distr(
-  scale = scale_param
-)
-
-# Use the distribution to create a BEAST2 input file
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = laplace_distr
+  # Use the parameter in a distribution
+  laplace_distr <- create_laplace_distr(
+    scale = scale_param
   )
-)
-file.remove(beast2_input_file)
 
-remove_beautier_folder()
+  # Use the distribution to create a BEAST2 input file
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = laplace_distr
+    )
+  )
+  file.remove(beast2_input_file)
+
+  remove_beautier_folder()
+}
 }
 \seealso{
 the function \code{\link{create_param}} contains a list

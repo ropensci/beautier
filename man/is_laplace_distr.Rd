@@ -22,8 +22,6 @@ Laplace distribution,
 as created by \code{\link{create_laplace_distr}}
 }
 \examples{
-check_empty_beautier_folder()
-
 # TRUE
 is_laplace_distr(create_laplace_distr())
 # FALSE
@@ -31,8 +29,6 @@ is_laplace_distr(create_log_normal_distr())
 is_laplace_distr(NA)
 is_laplace_distr(NULL)
 is_laplace_distr("nonsense")
-
-check_empty_beautier_folder()
 }
 \seealso{
 use \code{\link{is_distr}} to see if x is any

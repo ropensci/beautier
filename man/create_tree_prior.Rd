@@ -30,26 +30,29 @@ Prefer the use the named functions
   instead
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-beast2_input_file <- get_beautier_tempfilename()
+  check_empty_beautier_folder()
 
-bd_tree_prior <- create_bd_tree_prior()
-cbs_tree_prior <- create_cbs_tree_prior()
-ccp_tree_prior <- create_ccp_tree_prior()
-cep_tree_prior <- create_cep_tree_prior()
-yule_tree_prior <- create_yule_tree_prior()
+  beast2_input_file <- get_beautier_tempfilename()
 
-# Use any of the above tree priors
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  tree_prior = bd_tree_prior
-)
-file.remove(beast2_input_file)
+  bd_tree_prior <- create_bd_tree_prior()
+  cbs_tree_prior <- create_cbs_tree_prior()
+  ccp_tree_prior <- create_ccp_tree_prior()
+  cep_tree_prior <- create_cep_tree_prior()
+  yule_tree_prior <- create_yule_tree_prior()
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  # Use any of the above tree priors
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    tree_prior = bd_tree_prior
+  )
+  file.remove(beast2_input_file)
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \seealso{
 See

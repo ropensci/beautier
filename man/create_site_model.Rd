@@ -33,25 +33,28 @@ Prefer using the
   and \code{\link{create_tn93_site_model}}
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-input_filename <- get_fasta_filename()
-gtr_site_model <- create_gtr_site_model()
-hk_site_model <- create_hky_site_model()
-jc69_site_model <- create_jc69_site_model()
-tn93_site_model <- create_tn93_site_model()
+  check_empty_beautier_folder()
 
-# Can use any site model
-output_filename <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = input_filename,
-  output_filename = output_filename,
-  site_model = jc69_site_model
-)
-file.remove(output_filename)
+  input_filename <- get_fasta_filename()
+  gtr_site_model <- create_gtr_site_model()
+  hk_site_model <- create_hky_site_model()
+  jc69_site_model <- create_jc69_site_model()
+  tn93_site_model <- create_tn93_site_model()
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  # Can use any site model
+  output_filename <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = input_filename,
+    output_filename = output_filename,
+    site_model = jc69_site_model
+  )
+  file.remove(output_filename)
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \seealso{
 See \code{\link{create_gtr_site_model}} for more examples

@@ -28,29 +28,29 @@ and inverse-gamma distribution
 It cannot be estimated (as a hyper parameter) yet.
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-# Create the parameter
-beta_param <- create_beta_param()
+  # Create the parameter
+  beta_param <- create_beta_param()
 
-# Use the parameter in a distribution
-gamma_distr <- create_gamma_distr(
-  beta = beta_param
-)
-
-# Use the distribution to create a BEAST2 input file
-beast2_input_file <- get_beautier_tempfilename()
-create_beast2_input_file(
-  input_filename = get_fasta_filename(),
-  beast2_input_file,
-  tree_prior = create_yule_tree_prior(
-    birth_rate_distr = gamma_distr
+  # Use the parameter in a distribution
+  gamma_distr <- create_gamma_distr(
+    beta = beta_param
   )
-)
-file.remove(beast2_input_file)
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  # Use the distribution to create a BEAST2 input file
+  beast2_input_file <- get_beautier_tempfilename()
+  create_beast2_input_file(
+    input_filename = get_fasta_filename(),
+    beast2_input_file,
+    tree_prior = create_yule_tree_prior(
+      birth_rate_distr = gamma_distr
+    )
+  )
+  file.remove(beast2_input_file)
+
+  remove_beautier_folder()
+}
 }
 \seealso{
 the function \code{\link{create_param}} contains a list
