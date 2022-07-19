@@ -123,13 +123,15 @@ to create a temporary tipdates file from a table.
 
 `beautier` cannot do everything `BEAUti` can. 
 
-Here are some missing or (yet) unsupported features:
+Here are some missing or (yet) unsupported features,
+some are linked to an Issue:
 
+ * [Add offset to a distribution](https://github.com/ropensci/beautier/issues/130)
  * Two or more DNA alignments
  * Two or more site, clock or tree models
- * Two or more MRCA priors
+ * [Two or more MRCA priors](https://github.com/ropensci/beautier/issues/131) 
  * Shared site, clock and/or tree models
- * Using an amino acid alignment
+ * [Using an amino acid alignment](https://github.com/ropensci/beautier/issues/114)
  * Support for hyper parameters
  * Clock models
    * Relaxed exponential
@@ -137,6 +139,7 @@ Here are some missing or (yet) unsupported features:
  * Tree priors
    * Calibrated Yule model
    * Coalescent Extended Bayesian Skyline
+   * [Birth Death Skyline Serial](https://github.com/ropensci/beautier/issues/133) 
  * Initialization (this is a tab that is hidden by default in `BEAUti`)
 
 ## There is a feature I miss
