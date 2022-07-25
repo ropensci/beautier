@@ -31,6 +31,7 @@ jobs:
         run: |
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("devtools")
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")
           remotes::install_cran("lintr")
