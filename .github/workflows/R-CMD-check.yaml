@@ -27,6 +27,9 @@ jobs:
         run: sudo apt install -qq libcurl4-openssl-dev
         if: matrix.os == 'ubuntu-latest'
 
+      - name: Install libharfbuzz-dev libfribidi-dev
+        run: sudo apt install -qq libharfbuzz-dev libfribidi-dev
+
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
