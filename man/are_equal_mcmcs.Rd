@@ -18,16 +18,19 @@ TRUE if the two MCMCs are equal
 Will \link{stop} if the arguments are not MCMCs.
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-mcmc_1 <- create_mcmc(chain_length = 1000)
-mcmc_2 <- create_mcmc(chain_length = 314)
-# TRUE
-are_equal_mcmcs(mcmc_1, mcmc_1)
-# FALSE
-are_equal_mcmcs(mcmc_1, mcmc_2)
+  check_empty_beautier_folder()
 
-check_empty_beautier_folder()
+  mcmc_1 <- create_mcmc(chain_length = 1000)
+  mcmc_2 <- create_mcmc(chain_length = 314)
+  # TRUE
+  are_equal_mcmcs(mcmc_1, mcmc_1)
+  # FALSE
+  are_equal_mcmcs(mcmc_1, mcmc_2)
+
+  check_empty_beautier_folder()
+}
 }
 \seealso{
 Use \code{\link{create_mcmc}} to create an MCMC

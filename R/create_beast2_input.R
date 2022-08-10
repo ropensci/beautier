@@ -6,9 +6,11 @@
 #'   input text from an inference model
 #'   Use \link{create_beast2_input_file} to also save it to file.
 #' @examples
-#' create_beast2_input(
-#'   input_filename = get_fasta_filename()
-#' )
+#' if (is_on_ci()) {
+#'   create_beast2_input(
+#'     input_filename = get_fasta_filename()
+#'   )
+#' }
 #' @seealso \code{\link{create_beast2_input_file}} shows more examples
 #' @author Richèl J.C. Bilderbeek
 #' @export

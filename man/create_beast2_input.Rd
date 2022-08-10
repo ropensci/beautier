@@ -53,9 +53,11 @@ a character vector of XML strings
 Create a BEAST2 XML input text
 }
 \examples{
-create_beast2_input(
-  input_filename = get_fasta_filename()
-)
+if (is_on_ci()) {
+  create_beast2_input(
+    input_filename = get_fasta_filename()
+  )
+}
 }
 \seealso{
 Use \link{create_beast2_input_from_model} to create the BEAST2 XML

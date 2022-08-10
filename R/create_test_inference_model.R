@@ -11,20 +11,22 @@
 #' to estimate the marginal likelihood with a short MCMC, to be
 #' used in testing
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
+#'   check_empty_beautier_folder()
 #'
-#' inference_model <- create_test_inference_model()
+#'   inference_model <- create_test_inference_model()
 #'
-#' beast2_input_file <- get_beautier_tempfilename()
-#' create_beast2_input_file_from_model(
-#'   get_fasta_filename(),
-#'   beast2_input_file,
-#'   inference_model = inference_model
-#' )
-#' file.remove(beast2_input_file)
+#'   beast2_input_file <- get_beautier_tempfilename()
+#'   create_beast2_input_file_from_model(
+#'     get_fasta_filename(),
+#'     beast2_input_file,
+#'     inference_model = inference_model
+#'   )
+#'   file.remove(beast2_input_file)
 #'
-#' remove_beautier_folder()
-#' check_empty_beautier_folder()
+#'   remove_beautier_folder()
+#'   check_empty_beautier_folder()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_inference_model <- function(

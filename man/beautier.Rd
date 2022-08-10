@@ -15,24 +15,27 @@ See the documentation of \code{create_inference_model} to see the
 features of BEAST2 that \code{beautier} supports.
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-# Get an example FASTA file
-input_filename <- get_fasta_filename()
+  check_empty_beautier_folder()
 
-# The file created by beautier, a BEAST2 input file
-output_filename <- get_beautier_tempfilename()
+  # Get an example FASTA file
+  input_filename <- get_fasta_filename()
 
-# Use the default BEAUti settings to create a BEAST2 input file
-create_beast2_input_file_from_model(
-  input_filename,
-  output_filename,
-  inference_model = create_inference_model()
-)
+  # The file created by beautier, a BEAST2 input file
+  output_filename <- get_beautier_tempfilename()
 
-# Remove the folder that contains the beautier temporary files
-remove_beautier_folder()
-check_empty_beautier_folder()
+  # Use the default BEAUti settings to create a BEAST2 input file
+  create_beast2_input_file_from_model(
+    input_filename,
+    output_filename,
+    inference_model = create_inference_model()
+  )
+
+  # Remove the folder that contains the beautier temporary files
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \seealso{
 These are packages associated with \code{beautier}:

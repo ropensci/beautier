@@ -23,15 +23,18 @@
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' beauti_options <- create_beauti_options_v2_4()
-#' xml <- create_beast2_input(
-#'   get_fasta_filename(),
-#'   beauti_options = beauti_options
-#' )
+#'   check_empty_beautier_folder()
 #'
-#' check_empty_beautier_folder()
+#'   beauti_options <- create_beauti_options_v2_4()
+#'   xml <- create_beast2_input(
+#'     get_fasta_filename(),
+#'     beauti_options = beauti_options
+#'   )
+#'
+#'   check_empty_beautier_folder()
+#' }
 #' @export
 create_beauti_options <- function(
   capitalize_first_char_id = FALSE,

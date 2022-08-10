@@ -21,15 +21,18 @@ TRUE if the MCMC is a default MCMC
 Determine if the MCMC is a default MCMC
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
 
-# TRUE: An MCMC created by 'create_mcmc' is default.
-is_default_mcmc(create_mcmc())
+  check_empty_beautier_folder()
 
-# FALSE: An MCMC created by 'create_ns_mcmc' is not
-is_default_mcmc(create_ns_mcmc())
+  # TRUE: An MCMC created by 'create_mcmc' is default.
+  is_default_mcmc(create_mcmc())
 
-check_empty_beautier_folder()
+  # FALSE: An MCMC created by 'create_ns_mcmc' is not
+  is_default_mcmc(create_ns_mcmc())
+
+  check_empty_beautier_folder()
+}
 }
 \author{
 Richèl J.C. Bilderbeek

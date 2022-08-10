@@ -15,14 +15,17 @@
 #' Use \link{create_beast2_input_beast} to create
 #' to create the XML text of the \code{beast} tag.
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
 #'
-#' text <- create_beast2_input_from_model(
-#'   input_filename = get_fasta_filename(),
-#'   inference_model = create_inference_model()
-#' )
+#'   check_empty_beautier_folder()
 #'
-#' check_empty_beautier_folder()
+#'   text <- create_beast2_input_from_model(
+#'     input_filename = get_fasta_filename(),
+#'     inference_model = create_inference_model()
+#'   )
+#'
+#'   check_empty_beautier_folder()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_beast2_input_from_model <- function(

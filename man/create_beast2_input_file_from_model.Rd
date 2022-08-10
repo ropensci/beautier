@@ -32,18 +32,20 @@ nothing
 Create a BEAST2 input file from an inference model
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
+  check_empty_beautier_folder()
 
-output_filename <- get_beautier_tempfilename()
-create_beast2_input_file_from_model(
-  input_filename = get_fasta_filename(),
-  output_filename = output_filename,
-  inference_model = create_inference_model()
-)
-file.remove(output_filename)
+  output_filename <- get_beautier_tempfilename()
+  create_beast2_input_file_from_model(
+    input_filename = get_fasta_filename(),
+    output_filename = output_filename,
+    inference_model = create_inference_model()
+  )
+  file.remove(output_filename)
 
-remove_beautier_folder()
-check_empty_beautier_folder()
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \seealso{
 use \link{create_beast2_input_from_model} to
