@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier 2.6.5 (unreleased)
+## beautier 2.6.5 (2022-08-11)
 
 ### NEW FEATURES
 
@@ -11,6 +11,7 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
  * Doc does not link to absent functions
+ * No tests take more than 5 seconds on CRAN infrastructure
 
 ### BUG FIXES
 
