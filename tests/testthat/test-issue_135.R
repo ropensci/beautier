@@ -56,7 +56,7 @@ test_that("1: re-created file", {
   beautier_text <- readr::read_lines(beautier_file)
   kappa_param_regex <- "<parameter id=.kappa.s:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.0. name=.stateNode.>2.0</parameter>"
   expect_equal(1, sum(stringr::str_count(beauti_text, kappa_param_regex)))
-  # First fix
+  # First fix, works!
   expect_equal(1, sum(stringr::str_count(beautier_text, kappa_param_regex)))
 
   freq_param_regex <- "<parameter id=.freqParameter.s:anthus_aco_sub. spec=.parameter.RealParameter. dimension=.4. lower=.0.0. name=.stateNode. upper=.1.0.>0.25</parameter>"
