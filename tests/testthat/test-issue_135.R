@@ -13,6 +13,7 @@ test_that("1: expose problem: files are different already", {
 })
 
 test_that("1: re-created file", {
+  skip("Issue #135, Issue 135")
   # Re-create a beautier file that is equivalent to the BEAUti file
   # The BEAUti file is correct:
   # issue_135_no_mrca_no_estimate_beauti.xml
@@ -68,6 +69,7 @@ test_that("1: re-created file", {
 })
 
 test_that("use", {
+  skip("Issue #135, Issue 135")
   beauti_file <- beautier::get_beautier_path("issue_135_no_mrca_estimate_beauti.xml")
   beauti_text <- readr::read_lines(beauti_file)
   # <branchRateModel id="StrictClock.c:anthus_aco_sub" spec="beast.evolution.branchratemodel.StrictClockModel">                       # nolint

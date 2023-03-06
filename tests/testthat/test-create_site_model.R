@@ -1,5 +1,3 @@
-context("create_site_model")
-
 test_that("use, default arguments", {
 
   # English

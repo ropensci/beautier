@@ -44,9 +44,15 @@ site_model_to_xml_state <- function(
     }
   } else if (beautier::is_hky_site_model(site_model)) {
     site_model$kappa_param$id <- id
-    text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\">",
-      site_model$kappa, "</parameter>"))
+    if ("use_old" == "do so")
+    {
+      text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
+                             "lower=\"0.0\" name=\"stateNode\">",
+                             site_model$kappa, "</parameter>"))
+
+    } else {
+      text <- c(text, beautier::parameter_to_xml(site_model$kappa_1_param))
+    }
   } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       site_model$kappa_1_param$id <- id
