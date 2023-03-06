@@ -184,8 +184,8 @@ test_that("is_hky_site_model: devious", {
   h$name <- "nonsense"
   expect_false(is_hky_site_model(h))
 
-  # No 'kappa'
-  h <- g[names(g) != "kappa"]
+  # No 'kappa_param'
+  h <- g[names(g) != "kappa_param"]
   expect_false(is_hky_site_model(h))
 
   # No 'kappa_prior_distr'

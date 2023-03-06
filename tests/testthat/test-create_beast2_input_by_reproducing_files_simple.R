@@ -357,7 +357,7 @@ test_that("hky_kappa_2_4.xml", {
     input_filename = get_beautier_path("test_output_0.fas"),
     site_model = create_hky_site_model(
       id = get_alignment_id(get_fasta_filename()),
-      kappa = 3.4,
+      kappa_param = create_kappa_param(value = "3.4"),
       kappa_prior_distr = create_log_normal_distr(
         id = 0,
         m = create_m_param(id = 1, value = "1.0"),
