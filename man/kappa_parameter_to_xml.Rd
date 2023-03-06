@@ -10,6 +10,9 @@ kappa_parameter_to_xml(
 )
 }
 \arguments{
+\item{kappa_parameter}{a kappa parameter,
+as created by \link{create_kappa_param}}
+
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
 }

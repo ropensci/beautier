@@ -50,6 +50,7 @@ default_params_doc(
   input_filenames,
   is_monophyletic,
   jc69_site_model,
+  kappa_parameter,
   log_every,
   m_param,
   mcmc,
@@ -231,6 +232,9 @@ as returned by \code{\link{create_mrca_prior}}}
 
 \item{jc69_site_model}{a JC69 site model,
 as returned by \code{\link{create_jc69_site_model}}}
+
+\item{kappa_parameter}{a kappa parameter,
+as created by \link{create_kappa_param}}
 
 \item{log_every}{number of MCMC states between writing to file}
 

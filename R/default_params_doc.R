@@ -100,6 +100,8 @@
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param jc69_site_model a JC69 site model,
 #'   as returned by \code{\link{create_jc69_site_model}}
+#' @param kappa_parameter a kappa parameter,
+#' as created by \link{create_kappa_param}
 #' @param log_every number of MCMC states between writing to file
 #' @param m_param an m parameter,
 #' as created by \link{create_m_param}
@@ -236,6 +238,7 @@ default_params_doc <- function(
   input_filename, input_filenames,
   is_monophyletic,
   jc69_site_model,
+  kappa_parameter,
   log_every,
   m_param,
   mcmc,
