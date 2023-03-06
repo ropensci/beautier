@@ -243,7 +243,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #' @export create_hky_site_model create_site_model_hky
 create_hky_site_model <- create_site_model_hky <- function(
   id = NA,
-  kappa = "2.0",
+  kappa_param = create_kappa_param(value = "2.0"),
   gamma_site_model = create_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
     m = create_m_param(value = "1.0"),
@@ -255,7 +255,7 @@ create_hky_site_model <- create_site_model_hky <- function(
     name = "HKY",
     id = id,
     gamma_site_model = gamma_site_model,
-    kappa = kappa,
+    kappa_param = kappa_param,
     kappa_prior_distr = kappa_prior_distr,
     freq_equilibrium = freq_equilibrium
   )
