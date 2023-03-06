@@ -1,8 +1,9 @@
-context("is_site_model")
-
 test_that("use", {
 
   expect_true(is_site_model(create_jc69_site_model()))
+  expect_true(is_site_model(create_hky_site_model()))
+  expect_true(is_site_model(create_tn93_site_model()))
+  expect_true(is_site_model(create_gtr_site_model()))
 
   expect_false(is_site_model(NA))
   expect_false(is_site_model(NULL))

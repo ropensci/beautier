@@ -43,19 +43,9 @@ site_model_to_xml_state <- function(
       text <- c(text, beautier::parameter_to_xml(site_model$rate_gt_param))
     }
   } else if (beautier::is_hky_site_model(site_model)) {
-    if ("Fix Issue 136" == "Fix Issue #136")
-    {
-      # Old code, to be removed
-      testthat::expect_true("kappa" %in% names(site_model))
-      text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
-                             "lower=\"0.0\" name=\"stateNode\">",
-                             site_model$kappa, "</parameter>"))
-
-    } else {
-      testthat::expect_true("kappa_param" %in% names(site_model))
-      site_model$kappa_param$id <- id
-      text <- c(text, beautier::parameter_to_xml(site_model$kappa_1_param))
-    }
+    testthat::expect_true("kappa_param" %in% names(site_model))
+    site_model$kappa_param$id <- id
+    text <- c(text, beautier::parameter_to_xml(site_model$kappa_param))
   } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       site_model$kappa_1_param$id <- id
