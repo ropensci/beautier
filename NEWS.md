@@ -6,7 +6,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Add `create_kappa_param`/`create_param_kappa` for the HKY site model
 
 ### MINOR IMPROVEMENTS
 
