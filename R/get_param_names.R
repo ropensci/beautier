@@ -13,6 +13,7 @@ get_param_names <- function() {
     "alpha",
     "beta",
     "clock_rate",
+    "freqParameter", # BEAST2 redundant naming: 'freq' is the name of a parameter # nolint
     "lambda",
     "kappa",
     "kappa_1",

@@ -6,7 +6,9 @@ Newest versions at top.
 
 ### NEW FEATURES
 
+ * Add `create_freq_param`/`create_param_freq` for the GTR, HKY and TN93 site models
  * Add `create_kappa_param`/`create_param_kappa` for the HKY site model
+ * Add `is_freq_param` for the GTR, HKY and TN93 site models
  * Add `is_kappa_param` for the HKY site model
 
 ### MINOR IMPROVEMENTS
