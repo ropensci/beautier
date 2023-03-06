@@ -2,8 +2,8 @@
 % Please edit documentation in R/site_model_to_xml_state.R
 \name{site_model_to_xml_state}
 \alias{site_model_to_xml_state}
-\title{Converts a site model to XML,
-  used in the \code{state} section}
+\title{Internal function to convert a site model to XML,
+  used in the `state` section}
 \usage{
 site_model_to_xml_state(site_model, beauti_options = create_beauti_options())
 }
@@ -18,8 +18,8 @@ as returned by \code{\link{create_beauti_options}}}
 the site model as XML text
 }
 \description{
-Converts a site model to XML,
-  used in the \code{state} section
+Internal function to convert a site model to XML,
+  used in the `state` section
 }
 \author{
 Richèl J.C. Bilderbeek

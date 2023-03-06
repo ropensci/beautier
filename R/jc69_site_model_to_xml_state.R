@@ -12,6 +12,7 @@ jc69_site_model_to_xml_state <- function(
   beautier::check_beauti_options(beauti_options)
   id <- site_model$id
   testit::assert(beautier::is_id(id))
+  testthat::expect_true(beautier::is_jc69_site_model(site_model))
   text <- NULL
   text <- c(
     text,

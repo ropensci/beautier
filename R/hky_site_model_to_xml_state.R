@@ -13,29 +13,27 @@ hky_site_model_to_xml_state <- function(
   id <- site_model$id
   testit::assert(beautier::is_id(id))
   text <- NULL
-  if (beautier::is_hky_site_model(site_model)) {
-    testthat::expect_true("kappa_param" %in% names(site_model))
-    site_model$kappa_param$id <- id
-    text <- c(
-      text,
-      beautier::parameter_to_xml(
-        site_model$kappa_param,
-        beauti_options = beauti_options
-      )
-    )
-  }
+  testthat::expect_true(beautier::is_hky_site_model(site_model))
 
-  if (!beautier::is_jc69_site_model(site_model)) {
-    text <- c(
-      text,
-      paste0(
-        "<parameter ",
-        "id=\"freqParameter.s:", id, "\" dimension=\"4\" ",
-        "lower=\"0.0\" ",
-        "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
-      )
+  testthat::expect_true("kappa_param" %in% names(site_model))
+  site_model$kappa_param$id <- id
+  text <- c(
+    text,
+    beautier::parameter_to_xml(
+      site_model$kappa_param,
+      beauti_options = beauti_options
     )
-  }
+  )
+
+  text <- c(
+    text,
+    paste0(
+      "<parameter ",
+      "id=\"freqParameter.s:", id, "\" dimension=\"4\" ",
+      "lower=\"0.0\" ",
+      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
+    )
+  )
 
   text <- c(
     text,
