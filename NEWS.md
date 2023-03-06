@@ -19,7 +19,8 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * `create_hky_site_model` does not have `kappa` as an argument anymore:
+    use `kappa_param` instead. Using `kappa` gives a proper deprecation message
 
 ## beautier 2.6.5 (2022-08-11)
 

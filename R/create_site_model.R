@@ -243,6 +243,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #' @export create_hky_site_model create_site_model_hky
 create_hky_site_model <- create_site_model_hky <- function(
   id = NA,
+  kappa = "obsolete",
   kappa_param = create_kappa_param(value = "2.0"),
   gamma_site_model = create_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(
@@ -251,6 +252,16 @@ create_hky_site_model <- create_site_model_hky <- function(
   ),
   freq_equilibrium = "estimated"
 ) {
+  if (kappa != "obsolete") {
+    stop(
+        "Parameter 'kappa' is obseolete. \n",
+        "Use 'kappa_param' instead.\n",
+        " \n",
+        "Example: \n",
+        "  create_hky_site_model(kappa = \"123\") # OBSOLETE \n",
+        "  create_hky_site_model(kappa_param = create_kappa_param(value = \"123\")) # NEW" # nolint
+    )
+  }
   beautier::create_site_model(
     name = "HKY",
     id = id,
