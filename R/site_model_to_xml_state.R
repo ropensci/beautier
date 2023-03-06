@@ -45,6 +45,7 @@ site_model_to_xml_state <- function(
   } else if (beautier::is_hky_site_model(site_model)) {
     if ("Fix Issue 136" == "Fix Issue #136")
     {
+      # Old code, to be removed
       testthat::expect_true("kappa" %in% names(site_model))
       text <- c(text, paste0("<parameter id=\"kappa.s:", id, "\" ",
                              "lower=\"0.0\" name=\"stateNode\">",

@@ -4,6 +4,7 @@ test_that("use, default values", {
   expect_silent(create_alpha_param())
   expect_silent(create_beta_param())
   expect_silent(create_clock_rate_param())
+  expect_silent(create_kappa_param())
   expect_silent(create_kappa_1_param())
   expect_silent(create_kappa_2_param())
   expect_silent(create_lambda_param())
@@ -23,6 +24,7 @@ test_that("use, default values", {
   expect_silent(create_param_alpha())
   expect_silent(create_param_beta())
   expect_silent(create_param_clock_rate())
+  expect_silent(create_param_kappa())
   expect_silent(create_param_kappa_1())
   expect_silent(create_param_kappa_2())
   expect_silent(create_param_lambda())
@@ -51,6 +53,9 @@ test_that("use, valid function arguments", {
   )
   expect_silent(
     create_clock_rate_param(id = 1, value = 0.5)
+  )
+  expect_silent(
+    create_kappa_param(id = 1, lower = 0.1, value = 0.5)
   )
   expect_silent(
     create_kappa_1_param(id = 1, lower = 0.1, value = 0.5)
@@ -104,6 +109,9 @@ test_that("use, valid function arguments", {
   )
   expect_silent(
     create_param_clock_rate(id = 1, value = 0.5)
+  )
+  expect_silent(
+    create_param_kappa(id = 1, lower = 0.1, value = 0.5)
   )
   expect_silent(
     create_param_kappa_1(id = 1, lower = 0.1, value = 0.5)

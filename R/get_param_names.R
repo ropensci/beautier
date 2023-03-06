@@ -14,6 +14,7 @@ get_param_names <- function() {
     "beta",
     "clock_rate",
     "lambda",
+    "kappa",
     "kappa_1",
     "kappa_2",
     "m",

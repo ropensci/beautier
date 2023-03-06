@@ -224,6 +224,27 @@ create_clock_rate_param <- create_param_clock_rate <- function(
   )
 }
 
+#' Create a parameter called kappa
+#' @inheritParams default_parameters_doc
+#' @return a parameter called kappa
+#' @author Richèl J.C. Bilderbeek
+#' @aliases create_kappa_param create_param_kappa
+#' @export create_kappa_param create_param_kappa
+create_kappa_param <- create_param_kappa <- function(
+    id = NA,
+    lower = "0.0",
+    value = "2.0",
+    estimate = TRUE
+) {
+  beautier::create_param(
+    name = "kappa",
+    id = id,
+    lower = lower,
+    value = value,
+    estimate = estimate
+  )
+}
+
 #' Create a parameter called kappa 1
 #' @inheritParams default_parameters_doc
 #' @return a parameter called kappa 1
