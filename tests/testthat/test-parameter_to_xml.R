@@ -5,6 +5,10 @@ test_that("use", {
   )
 
   expect_silent(
+    parameter_to_xml(parameter = create_kappa_param(id = 1))
+  )
+
+  expect_silent(
     parameter_to_xml(parameter = create_rate_ct_param(id = 1))
   )
 

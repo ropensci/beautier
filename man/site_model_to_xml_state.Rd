@@ -5,11 +5,14 @@
 \title{Converts a site model to XML,
   used in the \code{state} section}
 \usage{
-site_model_to_xml_state(site_model)
+site_model_to_xml_state(site_model, beauti_options = create_beauti_options())
 }
 \arguments{
 \item{site_model}{a site model,
 as returned by \code{\link{create_site_model}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the site model as XML text

@@ -39,7 +39,10 @@ create_beast2_input_state <- function(
   # The 'parameter' XML sections
   text <- c(
     text,
-    beautier::site_model_to_xml_state(inference_model$site_model)
+    beautier::site_model_to_xml_state(
+      inference_model$site_model,
+      beauti_options = inference_model$beauti_options
+    )
   )
   text <- c(
     text,

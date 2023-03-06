@@ -35,7 +35,7 @@ test_that("1: re-created file", {
   create_beast2_input_file_from_model(
     input_filename = fasta_filename,
     output_filename = beautier_file,
-    inference_model= inference_model
+    inference_model = inference_model
   )
   # If this passes, this is done!
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
