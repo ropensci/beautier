@@ -14,8 +14,19 @@ tn93_site_model_to_xml_state <- function(
   testit::assert(beautier::is_id(id))
   text <- NULL
   testthat::expect_true(beautier::is_tn93_site_model(site_model))
-  if (site_model$kappa_1_param$estimate == TRUE) {
+
+  if (beautier::is_one_na(site_model$kappa_1_param$id)) {
     site_model$kappa_1_param$id <- id
+  }
+  if (beautier::is_one_na(site_model$kappa_2_param$id)) {
+    site_model$kappa_2_param$id <- id
+  }
+  if (beautier::is_one_na(site_model$freq_param$id)) {
+    site_model$freq_param$id <- id
+  }
+
+
+  if (site_model$kappa_1_param$estimate == TRUE) {
     text <- c(
       text,
       beautier::parameter_to_xml(
@@ -25,7 +36,6 @@ tn93_site_model_to_xml_state <- function(
     )
   }
   if (site_model$kappa_2_param$estimate == TRUE) {
-    site_model$kappa_2_param$id <- id
     text <- c(
       text,
       beautier::parameter_to_xml(
@@ -34,27 +44,13 @@ tn93_site_model_to_xml_state <- function(
       )
     )
   }
-  if (1 == 2) {
-    text <- c(
-      text,
-      paste0(
-        "<parameter ",
-        "id=\"freqParameter.s:", id, "\" dimension=\"4\" ",
-        "lower=\"0.0\" ",
-        "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
-      )
+  text <- c(
+    text,
+    beautier::freq_parameter_to_xml(
+      site_model$freq_param,
+      beauti_options = beauti_options
     )
-  } else {
-    site_model$freq_param$id <- id
-    text <- c(
-      text,
-      beautier::freq_parameter_to_xml(
-        site_model$freq_param,
-        beauti_options = beauti_options
-      )
-    )
-  }
-
+  )
 
   text <- c(
     text,

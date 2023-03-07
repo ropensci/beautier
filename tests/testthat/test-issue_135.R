@@ -32,6 +32,11 @@ test_that("1: re-created file", {
     beauti_options = beautier::create_beauti_options_v2_6()
   )
 
+  # Make the inference model match the BEAUti file
+  inference_model$tree_prior$birth_rate_distr$id <- "1"
+  inference_model$site_model$kappa_prior_distr$m$id <- "1"
+  inference_model$site_model$kappa_prior_distr$s$id <- "2"
+
   create_beast2_input_file_from_model(
     input_filename = fasta_filename,
     output_filename = beautier_file,
@@ -40,29 +45,22 @@ test_that("1: re-created file", {
   # If this passes, this is done!
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
 
-  # BEAUti text
-  # <state id="state" spec="State" storeEvery="5000">
-  #   <tree id="Tree.t:anthus_aco_sub" spec="beast.evolution.tree.Tree" name="stateNode">
-  #   <taxonset id="TaxonSet.anthus_aco_sub" spec="TaxonSet">
-  #   <alignment idref="anthus_aco_sub"/>
-  #   </taxonset>
-  #   </tree>
-  #   <parameter id="kappa.s:anthus_aco_sub" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.0</parameter>
-  #   <parameter id="freqParameter.s:anthus_aco_sub" spec="parameter.RealParameter" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
-  #   <parameter id="birthRate.t:anthus_aco_sub" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
-  # </state>
-
   beauti_text <- readr::read_lines(beauti_file)
   beautier_text <- readr::read_lines(beautier_file)
-  kappa_param_regex <- "<parameter id=.kappa.s:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.0. name=.stateNode.>2.0</parameter>"
-  expect_equal(1, sum(stringr::str_count(beauti_text, kappa_param_regex)))
-  # First fix, works!
-  expect_equal(1, sum(stringr::str_count(beautier_text, kappa_param_regex)))
 
-  freq_param_regex <- "<parameter id=.freqParameter.s:anthus_aco_sub. spec=.parameter.RealParameter. dimension=.4. lower=.0.0. name=.stateNode. upper=.1.0.>0.25</parameter>"
-  expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
-  # Second fix
-  expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
+  if (1 + 1 == 2) {
+    # First fix, works!
+    kappa_param_regex <- "<parameter id=.kappa.s:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.0. name=.stateNode.>2.0</parameter>"
+    expect_equal(1, sum(stringr::str_count(beauti_text, kappa_param_regex)))
+    expect_equal(1, sum(stringr::str_count(beautier_text, kappa_param_regex)))
+  }
+
+  if (1 + 1 == 2) {
+    # Second fix, works!
+    freq_param_regex <- "<parameter id=.freqParameter.s:anthus_aco_sub. spec=.parameter.RealParameter. dimension=.4. lower=.0.0. name=.stateNode. upper=.1.0.>0.25</parameter>"
+    expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
+    expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
+  }
 
   # Etc.
 

@@ -18,8 +18,13 @@ hky_site_model_to_xml_state <- function(
   testthat::expect_true("freq_param" %in% names(site_model))
   testthat::expect_true("kappa_param" %in% names(site_model))
 
-  site_model$freq_param$id <- id
-  site_model$kappa_param$id <- id
+  if (beautier::is_one_na(site_model$freq_param$id)) {
+    site_model$freq_param$id <- id
+  }
+
+  if (beautier::is_one_na(site_model$kappa_param$id)) {
+    site_model$kappa_param$id <- id
+  }
 
   text <- c(
     text,
