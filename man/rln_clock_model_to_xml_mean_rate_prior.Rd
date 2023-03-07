@@ -4,11 +4,14 @@
 \alias{rln_clock_model_to_xml_mean_rate_prior}
 \title{Internal function}
 \usage{
-rln_clock_model_to_xml_mean_rate_prior(rln_clock_model)
+rln_clock_model_to_xml_mean_rate_prior(rln_clock_model, beauti_options)
 }
 \arguments{
 \item{rln_clock_model}{a Relaxed Log-Normal clock model,
 as returned by \code{\link{create_rln_clock_model}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 lines of XML text

@@ -46,7 +46,10 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
   if (beautier::has_mrca_prior_with_distr(inference_model)) {
     text <- c(
       text,
-      beautier::rln_clock_model_to_xml_mean_rate_prior(clock_model)
+      beautier::rln_clock_model_to_xml_mean_rate_prior(
+        clock_model,
+        beauti_options = inference_model$beauti_options
+      )
     )
   }
 
