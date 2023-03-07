@@ -88,9 +88,26 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   tree_priors <- list(inference_model$tree_prior)
 
   text <- NULL
-  text <- c(text, beautier::tree_priors_to_xml_prior_distr(tree_priors))
-  text <- c(text, beautier::gamma_site_models_to_xml_prior_distr(site_models))
-  text <- c(text, beautier::site_models_to_xml_prior_distr(site_models))
+  text <- c(
+    text,
+    beautier::tree_priors_to_xml_prior_distr(
+      tree_priors,
+      beauti_options = inference_model$beauti_options
+    )
+  )
+  text <- c(
+    text,
+    beautier::gamma_site_models_to_xml_prior_distr(
+      site_models,
+      beauti_options = inference_model$beauti_options)
+  )
+  text <- c(
+    text,
+    beautier::site_models_to_xml_prior_distr(
+      site_models,
+      beauti_options = inference_model$beauti_options
+    )
+  )
   text <- c(
     text,
     beautier::mrca_priors_to_xml_prior_distr(inference_model = inference_model)
@@ -197,7 +214,8 @@ create_beast2_input_distr_lh <- function(
 #' check_empty_beautier_folder()
 #' @export
 bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
-  bd_tree_prior
+  bd_tree_prior,
+  beauti_options = create_beauti_options()
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
@@ -219,7 +237,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
-        distr = bd_birth_rate_distr
+        distr = bd_birth_rate_distr,
+        beauti_options = beauti_options
       )
     )
   )
@@ -233,7 +252,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
-        distr = bd_death_rate_distr
+        distr = bd_death_rate_distr,
+        beauti_options = beauti_options
       )
     )
   )
@@ -302,7 +322,8 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' check_empty_beautier_folder()
 #' @export
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
-  ccp_tree_prior
+  ccp_tree_prior,
+  beauti_options = create_beauti_options()
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
@@ -330,7 +351,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
-        distr = ccp_tree_prior$pop_size_distr
+        distr = ccp_tree_prior$pop_size_distr,
+        beauti_options = beauti_options
       )
     )
   )
@@ -357,7 +379,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' check_empty_beautier_folder()
 #' @export
 cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
-  cep_tree_prior
+  cep_tree_prior,
+  beauti_options = create_beauti_options()
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id
@@ -384,7 +407,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
-        distr = cep_tree_prior$pop_size_distr
+        distr = cep_tree_prior$pop_size_distr,
+        beauti_options = beauti_options
       )
     )
   )
@@ -396,7 +420,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
-        distr = cep_tree_prior$growth_rate_distr
+        distr = cep_tree_prior$growth_rate_distr,
+        beauti_options = beauti_options
       )
     )
   )
@@ -423,7 +448,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' check_empty_beautier_folder()
 #' @export
 yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
-  yule_tree_prior
+  yule_tree_prior,
+  beauti_options = create_beauti_options()
 ) {
   testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
@@ -444,7 +470,10 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   )
   text <- c(text,
     beautier::indent(
-      beautier::distr_to_xml(yule_tree_prior$birth_rate_distr)
+      beautier::distr_to_xml(
+        yule_tree_prior$birth_rate_distr,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</prior>"))

@@ -7,11 +7,17 @@ the prior section of the distribution section
 of a BEAST2 XML parameter file for a
 Coalescent Exponential Population tree prior}
 \usage{
-cep_tree_prior_to_xml_prior_distr(cep_tree_prior)
+cep_tree_prior_to_xml_prior_distr(
+  cep_tree_prior,
+  beauti_options = create_beauti_options()
+)
 }
 \arguments{
 \item{cep_tree_prior}{a Coalescent Exponential Population tree prior,
 as returned by \code{\link{create_cep_tree_prior}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \description{
 Creates the tree prior section in the prior section of

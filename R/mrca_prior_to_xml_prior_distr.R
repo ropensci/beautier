@@ -45,8 +45,11 @@ mrca_prior_to_xml_prior_distr <- function(
     text <- c(
       text,
       beautier::indent(
-        beautier::distr_to_xml(beautier::create_uniform_distr(
-          id = mrca_prior$clock_prior_distr_id)
+        beautier::distr_to_xml(
+          beautier::create_uniform_distr(
+            id = mrca_prior$clock_prior_distr_id
+          ),
+          beauti_options = inference_model$beauti_options
         )
       )
     )
@@ -78,7 +81,12 @@ mrca_prior_to_xml_prior_distr <- function(
   if (beautier::is_distr(mrca_prior$mrca_distr)) {
     text <- c(
       text,
-      beautier::indent(beautier::distr_to_xml(mrca_prior$mrca_distr))
+      beautier::indent(
+        beautier::distr_to_xml(
+          mrca_prior$mrca_distr,
+          beauti_options = inference_model$beauti_options
+        )
+      )
     )
   }
   text <- c(text, paste0("</distribution>"))

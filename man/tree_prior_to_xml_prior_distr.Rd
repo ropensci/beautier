@@ -5,11 +5,14 @@
 \title{Creates the distribution section in the prior section of the
 distribution section of a BEAST2 XML parameter file.}
 \usage{
-tree_prior_to_xml_prior_distr(tree_prior)
+tree_prior_to_xml_prior_distr(tree_prior, beauti_options)
 }
 \arguments{
 \item{tree_prior}{a tree priors,
 as returned by \code{\link{create_tree_prior}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 lines of XML text

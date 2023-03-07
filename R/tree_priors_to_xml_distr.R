@@ -19,13 +19,20 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 tree_priors_to_xml_prior_distr <- function(
-  tree_priors
+  tree_priors,
+  beauti_options
 ) {
   testit::assert(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
   for (tree_prior in tree_priors) {
-    text <- c(text, beautier::tree_prior_to_xml_prior_distr(tree_prior))
+    text <- c(
+      text,
+      beautier::tree_prior_to_xml_prior_distr(
+        tree_prior,
+        beauti_options = beauti_options
+      )
+    )
   }
   text
 }

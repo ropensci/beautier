@@ -5,11 +5,17 @@
 \title{Creates the gamma site models section in the distribution section
 of a BEAST2 XML parameter file}
 \usage{
-gamma_site_model_to_xml_prior_distr(site_model)
+gamma_site_model_to_xml_prior_distr(
+  site_model,
+  beauti_options = create_beauti_options()
+)
 }
 \arguments{
 \item{site_model}{a site model,
 as returned by \code{\link{create_site_model}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 lines of XML text

@@ -40,7 +40,8 @@ clock_model_to_xml_prior_distr <- function(
       text <- c(text,
         beautier::indent(
           beautier::distr_to_xml(
-            clock_model$clock_rate_distr
+            clock_model$clock_rate_distr,
+            beauti_options = inference_model$beauti_options
           )
         )
       )

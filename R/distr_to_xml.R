@@ -8,14 +8,17 @@
 #' @examples
 #' check_empty_beautier_folder()
 #'
-#' distr_to_xml(create_uniform_distr(id = 1))
+#' distr_to_xml(
+#'   create_uniform_distr(id = 1),
+#'   beauti_options = create_beauti_options()
+#' )
 #'
 #' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 distr_to_xml <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   beautier::check_beauti_options(beauti_options)
   text <- NULL
@@ -206,12 +209,18 @@ distr_to_xml_log_normal <- function(
     "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$m)
+      beautier::parameter_to_xml(
+        distr$m,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$s)
+      beautier::parameter_to_xml(
+        distr$s,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</LogNormal>"))

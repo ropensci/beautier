@@ -5,7 +5,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 site_model_to_xml_prior_distr <- function(
-  site_model
+  site_model,
+  beauti_options
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
@@ -18,7 +19,10 @@ site_model_to_xml_prior_distr <- function(
       "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
     text <- c(text,
       beautier::indent(
-        beautier::distr_to_xml(site_model$kappa_prior)
+        beautier::distr_to_xml(
+          site_model$kappa_prior,
+          beauti_options = beauti_options
+        )
       )
     )
     text <- c(text, paste0("</prior>"))
@@ -28,7 +32,10 @@ site_model_to_xml_prior_distr <- function(
         "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
       text <- c(text,
         beautier::indent(
-          beautier::distr_to_xml(site_model$kappa_1_prior)
+          beautier::distr_to_xml(
+            site_model$kappa_1_prior,
+            beauti_options = beauti_options
+          )
         )
       )
       text <- c(text, paste0("</prior>"))
@@ -38,7 +45,10 @@ site_model_to_xml_prior_distr <- function(
         "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
       text <- c(text,
         beautier::indent(
-          beautier::distr_to_xml(site_model$kappa_2_prior)
+          beautier::distr_to_xml(
+            site_model$kappa_2_prior,
+            beauti_options = beauti_options
+          )
         )
       )
       text <- c(text, paste0("</prior>"))
@@ -47,8 +57,15 @@ site_model_to_xml_prior_distr <- function(
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(text, paste0("<prior id=\"RateACPrior.s:", id, "\" ",
         "name=\"distribution\" x=\"@rateAC.s:", id, "\">"))
-      text <- c(text, beautier::indent(
-        beautier::distr_to_xml(site_model$rate_ac_prior_distr)))
+      text <- c(
+        text,
+        beautier::indent(
+          beautier::distr_to_xml(
+            site_model$rate_ac_prior_distr,
+            beauti_options = beauti_options
+          )
+        )
+      )
       text <- c(text, paste0("</prior>"))
     }
     if (site_model$rate_ag_param$estimate == TRUE) {

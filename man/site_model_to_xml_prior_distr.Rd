@@ -5,11 +5,14 @@
 \title{Converts a site model to XML,
   used in the \code{prior} section}
 \usage{
-site_model_to_xml_prior_distr(site_model)
+site_model_to_xml_prior_distr(site_model, beauti_options)
 }
 \arguments{
 \item{site_model}{a site model,
 as returned by \code{\link{create_site_model}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the site model as XML text

@@ -5,7 +5,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function name
-  site_model
+  site_model,
+  beauti_options = create_beauti_options()
 ) {
   testit::assert(beautier::is_site_model(site_model))
   id <- site_model$id
@@ -21,7 +22,8 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
       text,
       beautier::indent(
         beautier::distr_to_xml(
-          gamma_site_model$gamma_shape_prior_distr
+          gamma_site_model$gamma_shape_prior_distr,
+          beauti_options = beauti_options
         )
       )
     )

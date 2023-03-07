@@ -6,11 +6,17 @@
 the prior section of the distribution section
 of a BEAST2 XML parameter file for a Birth-Death tree prior}
 \usage{
-bd_tree_prior_to_xml_prior_distr(bd_tree_prior)
+bd_tree_prior_to_xml_prior_distr(
+  bd_tree_prior,
+  beauti_options = create_beauti_options()
+)
 }
 \arguments{
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
 by \code{\link{create_bd_tree_prior}}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \description{
 Creates the tree prior section in the prior section of

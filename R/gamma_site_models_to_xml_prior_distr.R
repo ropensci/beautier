@@ -5,13 +5,17 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 gamma_site_models_to_xml_prior_distr <- function( # nolint indeed long function name
-  site_models
+  site_models,
+  beauti_options = create_beauti_options()
 ) {
   text <- NULL
   for (site_model in site_models) {
     text <- c(
       text,
-      beautier::gamma_site_model_to_xml_prior_distr(site_model)
+      beautier::gamma_site_model_to_xml_prior_distr(
+        site_model,
+        beauti_options = beauti_options
+      )
     )
   }
   text
