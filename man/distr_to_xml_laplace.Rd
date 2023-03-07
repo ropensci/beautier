@@ -4,7 +4,7 @@
 \alias{distr_to_xml_laplace}
 \title{Internal function}
 \usage{
-distr_to_xml_laplace(distr, beauti_options = create_beauti_options())
+distr_to_xml_laplace(distr, beauti_options)
 }
 \arguments{
 \item{distr}{a Laplace distribution

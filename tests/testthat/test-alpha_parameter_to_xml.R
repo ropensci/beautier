@@ -4,7 +4,8 @@ test_that("minimal use", {
     alpha_parameter_to_xml(
       alpha_parameter = create_alpha_param(
         id = "1"
-      )
+      ),
+      beauti_options = create_beauti_options()
     )
   )
   expect_silent(check_empty_beautier_folder())

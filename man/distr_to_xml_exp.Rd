@@ -4,7 +4,7 @@
 \alias{distr_to_xml_exp}
 \title{Internal function}
 \usage{
-distr_to_xml_exp(distr, beauti_options = create_beauti_options())
+distr_to_xml_exp(distr, beauti_options)
 }
 \arguments{
 \item{distr}{an exponential distribution,

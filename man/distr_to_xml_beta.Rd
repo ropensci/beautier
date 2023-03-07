@@ -4,7 +4,7 @@
 \alias{distr_to_xml_beta}
 \title{Internal function}
 \usage{
-distr_to_xml_beta(distr, beauti_options = create_beauti_options())
+distr_to_xml_beta(distr, beauti_options)
 }
 \arguments{
 \item{distr}{a beta distribution,

@@ -4,7 +4,7 @@
 \alias{distr_to_xml_inv_gamma}
 \title{Internal function}
 \usage{
-distr_to_xml_inv_gamma(distr, beauti_options = create_beauti_options())
+distr_to_xml_inv_gamma(distr, beauti_options)
 }
 \arguments{
 \item{distr}{an inverse-gamma distribution,

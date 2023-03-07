@@ -4,7 +4,7 @@
 \alias{distr_to_xml_normal}
 \title{Internal function}
 \usage{
-distr_to_xml_normal(distr, beauti_options = create_beauti_options())
+distr_to_xml_normal(distr, beauti_options)
 }
 \arguments{
 \item{distr}{a normal distribution,

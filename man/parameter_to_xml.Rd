@@ -4,7 +4,7 @@
 \alias{parameter_to_xml}
 \title{Internal function}
 \usage{
-parameter_to_xml(parameter, beauti_options = create_beauti_options())
+parameter_to_xml(parameter, beauti_options)
 }
 \arguments{
 \item{parameter}{a parameter,
@@ -22,7 +22,10 @@ Converts a parameter to XML
 \examples{
 check_empty_beautier_folder()
 
-parameter_to_xml(create_alpha_param(id = 1))
+parameter_to_xml(
+  create_alpha_param(id = 1),
+  beauti_options = create_beauti_options()
+)
 
 check_empty_beautier_folder()
 }

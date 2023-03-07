@@ -63,7 +63,7 @@ distr_to_xml <- function(
 #' @export
 distr_to_xml_beta <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_beta_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -74,12 +74,18 @@ distr_to_xml_beta <- function(
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$alpha)
+      beautier::parameter_to_xml(
+        distr$alpha,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$beta)
+      beautier::parameter_to_xml(
+        distr$beta,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</Beta>"))
@@ -97,7 +103,7 @@ distr_to_xml_beta <- function(
 #' @export
 distr_to_xml_exp <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_exp_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -109,7 +115,10 @@ distr_to_xml_exp <- function(
     "id=\"Exponential.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$mean)
+      beautier::parameter_to_xml(
+        distr$mean,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</Exponential>"))
@@ -127,7 +136,7 @@ distr_to_xml_exp <- function(
 #' @export
 distr_to_xml_inv_gamma <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_inv_gamma_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -139,12 +148,18 @@ distr_to_xml_inv_gamma <- function(
     "id=\"InverseGamma.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$alpha)
+      beautier::parameter_to_xml(
+        distr$alpha,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$beta)
+      beautier::parameter_to_xml(
+        distr$beta,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</InverseGamma>"))
@@ -162,7 +177,7 @@ distr_to_xml_inv_gamma <- function(
 #' @export
 distr_to_xml_laplace <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_laplace_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -174,12 +189,18 @@ distr_to_xml_laplace <- function(
     "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$mu)
+      beautier::parameter_to_xml(
+        distr$mu,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$scale)
+      beautier::parameter_to_xml(
+        distr$scale,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</LaplaceDistribution>"))
@@ -197,7 +218,7 @@ distr_to_xml_laplace <- function(
 #' @export
 distr_to_xml_log_normal <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_log_normal_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -239,7 +260,7 @@ distr_to_xml_log_normal <- function(
 #' @export
 distr_to_xml_normal <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_normal_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -251,12 +272,18 @@ distr_to_xml_normal <- function(
     "id=\"Normal.", id, "\" name=\"distr\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$mean)
+      beautier::parameter_to_xml(
+        distr$mean,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$sigma)
+      beautier::parameter_to_xml(
+        distr$sigma,
+        beauti_options = beauti_options
+      )
     )
   )
   text <- c(text, paste0("</Normal>"))
@@ -274,7 +301,7 @@ distr_to_xml_normal <- function(
 #' @export
 distr_to_xml_one_div_x <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_one_div_x_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -298,7 +325,7 @@ distr_to_xml_one_div_x <- function(
 #' @export
 distr_to_xml_poisson <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_poisson_distr(distr))
   beautier::check_beauti_options(beauti_options)
@@ -311,7 +338,10 @@ distr_to_xml_poisson <- function(
     "spec=\"beast.math.distributions.Poisson\">"))
   text <- c(text,
     beautier::indent(
-      beautier::parameter_to_xml(distr$lambda),
+      beautier::parameter_to_xml(
+        distr$lambda,
+        beauti_options = beauti_options
+      ),
     )
   )
   text <- c(text, paste0("</distr>"))
@@ -329,7 +359,7 @@ distr_to_xml_poisson <- function(
 #' @export
 distr_to_xml_uniform <- function(
   distr,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_uniform_distr(distr))
   beautier::check_beauti_options(beauti_options)

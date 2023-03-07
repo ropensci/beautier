@@ -33,20 +33,24 @@ s_parameter_to_xml <- function(
   upper <- parameter$upper
   text <- paste0(
     "<parameter ",
-    "id=\"RealParameter.", id, "\" ",
-    "estimate=\"", estimate, "\""
+    "id=\"RealParameter.", id, "\""
+  )
+  if (beauti_options$beast2_version == "2.6") {
+    text <- paste0(text, " spec=\"parameter.RealParameter\"")
+  }
+
+  text <- paste0(
+    text,
+    " estimate=\"", estimate, "\""
   )
   if (!beautier::is_one_na(lower)) {
-    if (
-      (beauti_options$beast2_version == "2.4" && lower != 0.0) ||
-      beauti_options$beast2_version == "2.6") {
+    if (lower != 0.0) {
       text <- paste0(text, " lower=\"", lower, "\"")
     }
   }
   text <- paste0(text, " name=\"S\"")
   if (!beautier::is_one_na(upper)) {
-    if ((beauti_options$beast2_version == "2.4" && !is.infinite(upper)) ||
-      beauti_options$beast2_version == "2.6") {
+    if (!is.infinite(upper)) {
       upper_txt <- upper
       if (is.infinite(upper)) {
         upper_txt <- "Infinity"

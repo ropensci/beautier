@@ -4,10 +4,7 @@
 \alias{alpha_parameter_to_xml}
 \title{Internal function}
 \usage{
-alpha_parameter_to_xml(
-  alpha_parameter,
-  beauti_options = create_beauti_options()
-)
+alpha_parameter_to_xml(alpha_parameter, beauti_options)
 }
 \arguments{
 \item{alpha_parameter}{an alpha parameter,
@@ -27,7 +24,10 @@ remove_beautier_folder()
 check_empty_beautier_folder()
 
 # The alpha parameter must be initialized, i.e. have an ID
-alpha_parameter_to_xml(alpha_parameter = create_alpha_param(id = "1"))
+alpha_parameter_to_xml(
+  alpha_parameter = create_alpha_param(id = "1"),
+  beauti_options = create_beauti_options()
+)
 
 check_empty_beautier_folder()
 }

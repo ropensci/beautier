@@ -4,7 +4,7 @@
 \alias{distr_to_xml_one_div_x}
 \title{Internal function}
 \usage{
-distr_to_xml_one_div_x(distr, beauti_options = create_beauti_options())
+distr_to_xml_one_div_x(distr, beauti_options)
 }
 \arguments{
 \item{distr}{a 1/x distribution,

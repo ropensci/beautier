@@ -4,7 +4,7 @@
 \alias{s_parameter_to_xml}
 \title{Internal function}
 \usage{
-s_parameter_to_xml(parameter, beauti_options = create_beauti_options())
+s_parameter_to_xml(parameter, beauti_options)
 }
 \arguments{
 \item{parameter}{a s parameter,
@@ -20,6 +20,16 @@ the parameter as XML text
 }
 \description{
 Converts an `s_param` to XML
+}
+\examples{
+s_parameter_to_xml(
+  create_s_param(id = 4, value = 1.25),
+  beauti_options = create_beauti_options_v2_4()
+)
+s_parameter_to_xml(
+  create_s_param(id = 4, value = 1.25),
+  beauti_options = create_beauti_options_v2_6()
+)
 }
 \author{
 Richèl J.C. Bilderbeek
