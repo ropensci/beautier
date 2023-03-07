@@ -61,6 +61,11 @@ test_that("1: re-created file", {
     expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
     expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
   }
+  # Third fix
+  freq_param_regex <- "<operator id=.YuleBirthRateScaler.t:anthus_aco_sub. spec=.ScaleOperator. parameter=.@birthRate.t:anthus_aco_sub. weight=.3.0./>"
+  expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
+  expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
+
 
   # Etc.
 

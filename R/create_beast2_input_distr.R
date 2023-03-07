@@ -215,7 +215,7 @@ create_beast2_input_distr_lh <- function(
 #' @export
 bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
@@ -281,7 +281,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
 #' check_empty_beautier_folder()
 #' @export
 cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
-  cbs_tree_prior
+  cbs_tree_prior,
+  beauti_options
 ) {
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
   id <- cbs_tree_prior$id
@@ -323,7 +324,7 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' @export
 ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   ccp_tree_prior,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
@@ -380,7 +381,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' @export
 cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   cep_tree_prior,
-  beauti_options = create_beauti_options()
+  beauti_options
 ) {
   testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id

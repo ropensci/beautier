@@ -7,10 +7,7 @@ the prior section of the distribution section
 of a BEAST2 XML parameter file for a
 Coalescent Constant Population tree prior}
 \usage{
-ccp_tree_prior_to_xml_prior_distr(
-  ccp_tree_prior,
-  beauti_options = create_beauti_options()
-)
+ccp_tree_prior_to_xml_prior_distr(ccp_tree_prior, beauti_options)
 }
 \arguments{
 \item{ccp_tree_prior}{a Coalescent Constant Population tree prior,
