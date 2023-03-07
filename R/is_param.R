@@ -237,10 +237,12 @@ is_freq_param <- function(
     x
 ) {
   if (!beautier::is_param(x)) return(FALSE)
-  if (x$name != "freqParameter") return(FALSE) # redundant name by BEAST2
-
+  if (x$name != "freqParameter") return(FALSE) # redundant name
   if (!"lower" %in% names(x)) return(FALSE)
+  if (!"upper" %in% names(x)) return(FALSE)
+  if (!"value" %in% names(x)) return(FALSE)
   if (!"estimate" %in% names(x)) return(FALSE)
+  if (!"dimension" %in% names(x)) return(FALSE)
   TRUE
 }
 

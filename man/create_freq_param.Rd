@@ -10,7 +10,8 @@ create_freq_param(
   lower = "0.0",
   upper = "1.0",
   value = "0.25",
-  estimate = TRUE
+  estimate = TRUE,
+  dimension = 4
 )
 }
 \arguments{

@@ -28,6 +28,7 @@ default_params_doc(
   clock_rate_param,
   crown_age,
   crown_ages,
+  dimension,
   distr_id,
   fasta_filename,
   fasta_filenames,
@@ -150,6 +151,9 @@ as created by \link{create_clock_rate_param}}
 
 \item{crown_ages}{the crown ages of the phylogenies. Set to NA
 if the crown age needs to be estimated}
+
+\item{dimension}{`BEAST2` parameter, use in, among others,
+\link{create_freq_param}}
 
 \item{distr_id}{a distributions' ID}
 

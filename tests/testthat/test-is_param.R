@@ -3,6 +3,7 @@ test_that("use", {
   expect_true(is_param(create_alpha_param()))
   expect_true(is_param(create_beta_param()))
   expect_true(is_param(create_clock_rate_param()))
+  expect_true(is_param(create_freq_param()))
   expect_true(is_param(create_m_param()))
   expect_true(is_param(create_mean_param()))
   expect_true(is_param(create_mu_param()))
@@ -23,7 +24,7 @@ test_that("use", {
 test_that("is_param, devious", {
 
   g <- create_alpha_param()
-  testit::assert(is_param(g))
+  expect_true(is_param(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -69,6 +70,31 @@ test_that("is_clock_rate_param", {
 
 })
 
+test_that("is_freq_param", {
+
+  expect_true(is_freq_param(create_freq_param()))
+  expect_false(is_freq_param("nonsense"))
+})
+
+test_that("is_freq_param, devious", {
+
+  g <- create_freq_param()
+  expect_true(is_freq_param(g))
+
+  # No 'lower'
+  h <- g[names(g) != "lower"]
+  expect_false(is_freq_param(h))
+
+  # No 'estimate'
+  h <- g[names(g) != "estimate"]
+  expect_false(is_freq_param(h))
+
+  # No 'dimension'
+  h <- g[names(g) != "dimension"]
+  expect_false(is_freq_param(h))
+})
+
+
 test_that("is_kappa_1_param", {
 
   expect_true(is_kappa_1_param(create_kappa_1_param()))
@@ -78,7 +104,7 @@ test_that("is_kappa_1_param", {
 test_that("is_kappa_1_param, devious", {
 
   g <- create_kappa_1_param()
-  testit::assert(is_kappa_1_param(g))
+  expect_true(is_kappa_1_param(g))
 
   # No 'lower'
   h <- g[names(g) != "lower"]
@@ -99,7 +125,7 @@ test_that("is_kappa_2_param", {
 test_that("is_kappa_2_param, devious", {
 
   g <- create_kappa_2_param()
-  testit::assert(is_kappa_2_param(g))
+  expect_true(is_kappa_2_param(g))
 
   # No 'lower'
   h <- g[names(g) != "lower"]

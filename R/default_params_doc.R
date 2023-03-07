@@ -40,6 +40,8 @@
 #' @param crown_age the crown age of the phylogeny
 #' @param crown_ages the crown ages of the phylogenies. Set to NA
 #'   if the crown age needs to be estimated
+#' @param dimension `BEAST2` parameter, use in, among others,
+#' \link{create_freq_param}
 #' @param distr_id a distributions' ID
 #' @param fasta_filename a FASTA filename.
 #' Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
@@ -219,6 +221,7 @@ default_params_doc <- function(
   clock_prior_distr_id,
   clock_rate_param,
   crown_age, crown_ages,
+  dimension,
   distr_id,
   fasta_filename, fasta_filenames,
   filename,

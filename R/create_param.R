@@ -235,7 +235,8 @@ create_freq_param <- create_param_freq <- function(
     lower = "0.0",
     upper = "1.0",
     value = "0.25",
-    estimate = TRUE
+    estimate = TRUE,
+    dimension = 4
 ) {
   beautier::create_param(
     name = "freqParameter",
@@ -243,7 +244,8 @@ create_freq_param <- create_param_freq <- function(
     lower = lower,
     upper = upper,
     value = value,
-    estimate = estimate
+    estimate = estimate,
+    dimension = dimension
   )
 }
 
