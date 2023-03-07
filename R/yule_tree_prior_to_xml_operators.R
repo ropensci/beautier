@@ -40,7 +40,9 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   }
 
   # NEW 135
-  if (inference_model$beauti_options$beast2_version == "2.6") {
+  if (inference_model$beauti_options$beast2_version == "2.6" &&
+      beautier::is_hky_site_model(inference_model$site_model)
+    ) {
     add_scale_factor <- FALSE
   }
 
