@@ -34,16 +34,27 @@ tn93_site_model_to_xml_state <- function(
       )
     )
   }
-
-  text <- c(
-    text,
-    paste0(
-      "<parameter ",
-      "id=\"freqParameter.s:", id, "\" dimension=\"4\" ",
-      "lower=\"0.0\" ",
-      "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
+  if (1 == 2) {
+    text <- c(
+      text,
+      paste0(
+        "<parameter ",
+        "id=\"freqParameter.s:", id, "\" dimension=\"4\" ",
+        "lower=\"0.0\" ",
+        "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
+      )
     )
-  )
+  } else {
+    site_model$freq_param$id <- id
+    text <- c(
+      text,
+      beautier::freq_parameter_to_xml(
+        site_model$freq_param,
+        beauti_options = beauti_options
+      )
+    )
+  }
+
 
   text <- c(
     text,

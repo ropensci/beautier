@@ -12,9 +12,7 @@
 #' check_empty_beautier_folder()
 #' @export
 check_gtr_site_model <- function(gtr_site_model) {
-  if (!beautier::is_site_model(gtr_site_model)) {
-    stop("'gtr_site_model' must be a site model")
-  }
+  beautier::check_site_model(gtr_site_model)
   if (gtr_site_model$name != "GTR") {
     stop("'gtr_site_model$name' must be 'GTR'")
   }
@@ -69,10 +67,19 @@ check_gtr_site_model <- function(gtr_site_model) {
 check_gtr_site_model_names <- function(gtr_site_model) {
 
   list_element_names <- c(
-    "rate_ac_prior_distr", "rate_ag_prior_distr",
-    "rate_at_prior_distr", "rate_cg_prior_distr", "rate_gt_prior_distr",
-    "rate_ac_param", "rate_ag_param", "rate_at_param", "rate_cg_param",
-    "rate_ct_param", "rate_gt_param", "freq_equilibrium"
+    "rate_ac_prior_distr",
+    "rate_ag_prior_distr",
+    "rate_at_prior_distr",
+    "rate_cg_prior_distr",
+    "rate_gt_prior_distr",
+    "rate_ac_param",
+    "rate_ag_param",
+    "rate_at_param",
+    "rate_cg_param",
+    "rate_ct_param",
+    "rate_gt_param",
+    "freq_equilibrium",
+    "freq_param"
   )
   for (arg_name in list_element_names) {
     if (!arg_name %in% names(gtr_site_model)) {

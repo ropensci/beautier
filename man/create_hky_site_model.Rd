@@ -12,7 +12,8 @@ create_hky_site_model(
   gamma_site_model = create_gamma_site_model(),
   kappa_prior_distr = create_log_normal_distr(m = create_m_param(value = "1.0"), s =
     1.25),
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_param = create_freq_param()
 )
 }
 \arguments{

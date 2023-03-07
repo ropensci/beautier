@@ -23,11 +23,11 @@ test_that("1: re-created file", {
 
   #without mrca prior, single value at clock rate
   fasta_filename <- babette::get_babette_path("anthus_aco_sub.fas")
-  clock.rate <- beautier::create_clock_rate_param(value = 0.00277,estimate=FALSE)
+  clock.rate <- beautier::create_clock_rate_param(value = 0.00277, estimate=FALSE)
 
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
-    clock_model = beautier::create_strict_clock_model(id = NA,clock.rate),
+    clock_model = beautier::create_strict_clock_model(id = NA, clock.rate),
     tree_prior = create_yule_tree_prior(),
     beauti_options = beautier::create_beauti_options_v2_6()
   )

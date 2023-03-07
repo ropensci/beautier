@@ -24,7 +24,8 @@ create_gtr_site_model(
   rate_cg_param = create_rate_cg_param(),
   rate_ct_param = create_rate_ct_param(),
   rate_gt_param = create_rate_gt_param(),
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_param = create_freq_param()
 )
 }
 \arguments{

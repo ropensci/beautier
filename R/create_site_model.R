@@ -169,10 +169,14 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   rate_cg_param = create_rate_cg_param(),
   rate_ct_param = create_rate_ct_param(),
   rate_gt_param = create_rate_gt_param(),
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_param = create_freq_param()
 ) {
   if (!beautier::is_one_na(id) && !beautier::is_id(id)) {
     stop("'id' must be NA (recommended) or an ID")
+  }
+  if (!beautier::is_freq_param(freq_param)) {
+    stop("'freq_param' must a valid freq_param. Tip: use 'create_freq_param'")
   }
   if (beautier::is_one_double(rate_ac_param)) {
     rate_ac_param <- create_rate_ac_param(value = rate_ac_param)
@@ -208,7 +212,8 @@ create_gtr_site_model <- create_site_model_gtr <- function(
     rate_cg_param = rate_cg_param,
     rate_ct_param = rate_ct_param,
     rate_gt_param = rate_gt_param,
-    freq_equilibrium = freq_equilibrium
+    freq_equilibrium = freq_equilibrium,
+    freq_param = freq_param
   )
 }
 
@@ -250,7 +255,8 @@ create_hky_site_model <- create_site_model_hky <- function(
     m = create_m_param(value = "1.0"),
     s = 1.25
   ),
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_param = create_freq_param()
 ) {
   if (kappa != "obsolete") {
     stop(
@@ -268,7 +274,8 @@ create_hky_site_model <- create_site_model_hky <- function(
     gamma_site_model = gamma_site_model,
     kappa_param = kappa_param,
     kappa_prior_distr = kappa_prior_distr,
-    freq_equilibrium = freq_equilibrium
+    freq_equilibrium = freq_equilibrium,
+    freq_param = freq_param
   )
 }
 
@@ -361,7 +368,8 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
     m = 1.0,
     s = 1.25
   ),
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_param = create_freq_param()
 ) {
   if (beautier::is_one_double(kappa_1_param)) {
     kappa_1_param <- create_kappa_1_param(value = kappa_1_param)
@@ -377,6 +385,7 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
     kappa_2_prior_distr = kappa_2_prior_distr,
     kappa_1_param = kappa_1_param,
     kappa_2_param = kappa_2_param,
-    freq_equilibrium = freq_equilibrium
+    freq_equilibrium = freq_equilibrium,
+    freq_param = freq_param
   )
 }

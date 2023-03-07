@@ -12,7 +12,8 @@ create_tn93_site_model(
   kappa_2_param = create_kappa_2_param(),
   kappa_1_prior_distr = create_log_normal_distr(m = 1, s = 1.25),
   kappa_2_prior_distr = create_log_normal_distr(m = 1, s = 1.25),
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_param = create_freq_param()
 )
 }
 \arguments{
