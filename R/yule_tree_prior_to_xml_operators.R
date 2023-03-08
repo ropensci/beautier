@@ -23,7 +23,7 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   # * version != 2.6
   # * version == 2.6 && tipdates
   # * version == 2.6 && RLN
-  # * version == 2.6 && RLN
+  # * not #135
   add_scale_factor <- TRUE
 
   if (inference_model$beauti_options$beast2_version == "2.6" &&
@@ -39,11 +39,12 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
     add_scale_factor <- FALSE
   }
 
-  # NEW 135
-  if (inference_model$beauti_options$beast2_version == "2.6" &&
-      beautier::is_hky_site_model(inference_model$site_model)
+  if ("FIX_ISSUE_135" == "ONGOING") {
+    if (inference_model$beauti_options$beast2_version == "2.6" &&
+        beautier::is_hky_site_model(inference_model$site_model)
     ) {
-    add_scale_factor <- FALSE
+      add_scale_factor <- FALSE
+    }
   }
 
 
