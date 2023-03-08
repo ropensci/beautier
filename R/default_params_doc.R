@@ -40,8 +40,6 @@
 #' @param crown_age the crown age of the phylogeny
 #' @param crown_ages the crown ages of the phylogenies. Set to NA
 #'   if the crown age needs to be estimated
-#' @param dimension `BEAST2` parameter, use in, among others,
-#' \link{create_freq_param}
 #' @param distr_id a distributions' ID
 #' @param fasta_filename a FASTA filename.
 #' Use \code{\link{get_fasta_filename}} to obtain a testing FASTA filename.
@@ -102,7 +100,7 @@
 #'   as returned by \code{\link{create_mrca_prior}}
 #' @param jc69_site_model a JC69 site model,
 #'   as returned by \code{\link{create_jc69_site_model}}
-#' @param kappa_parameter a kappa parameter,
+#' @param kappa_param a kappa parameter,
 #' as created by \link{create_kappa_param}
 #' @param log_every number of MCMC states between writing to file
 #' @param m_param an m parameter,
@@ -221,7 +219,6 @@ default_params_doc <- function(
   clock_prior_distr_id,
   clock_rate_param,
   crown_age, crown_ages,
-  dimension,
   distr_id,
   fasta_filename, fasta_filenames,
   filename,
@@ -241,7 +238,7 @@ default_params_doc <- function(
   input_filename, input_filenames,
   is_monophyletic,
   jc69_site_model,
-  kappa_parameter,
+  kappa_param,
   log_every,
   m_param,
   mcmc,
@@ -284,6 +281,8 @@ default_params_doc <- function(
 
 #' Documentation of parameters (for example, \code{create_param}.
 #' This function does nothing. It is intended to inherit documentation from.
+#' @param dimension the number of dimensions, for example, as used in
+#' \link{create_freq_param}
 #' @param estimate TRUE if this parameter is to be estimated by BEAST2,
 #'   FALSE otherwise
 #' @param id the parameter's ID
@@ -299,6 +298,7 @@ default_params_doc <- function(
 #'   \code{@export}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_parameters_doc <- function(
+  dimension,
   estimate,
   id,
   lower,

@@ -33,7 +33,7 @@ create_gtr_site_model(
 the FASTA filename using \code{\link{get_alignment_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
-by \code{\link{create_gamma_site_model}}}
+by \link{create_gamma_site_model}}
 
 \item{rate_ac_prior_distr}{the AC rate prior distribution,
 as returned by \code{\link{create_distr}}}
@@ -84,6 +84,9 @@ as returned by \code{\link{create_rate_gt_param}}}
 are either \code{estimated}, \code{empirical} or \code{all_equal}.
 \code{get_freq_equilibrium_names} returns the possible values
 for \code{freq_equilibrium}}
+
+\item{freq_param}{a `freq` parameter,
+as created by \link{create_freq_param}}
 }
 \value{
 a GTR site_model

@@ -33,7 +33,7 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
       beauti_options = beauti_options
     ))
   } else if (beautier::is_kappa_param(parameter)) {
-    return(beautier::kappa_parameter_to_xml(kappa_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
+    return(beautier::kappa_param_to_xml(kappa_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_kappa_1_param(parameter)) {
     return(beautier::parameter_to_xml_kappa_1(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_kappa_2_param(parameter)) {

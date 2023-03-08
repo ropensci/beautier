@@ -1,24 +1,25 @@
 #' Internal function
 #'
 #' Converts a `freq` parameter to XML
-#' @inheritParams default_params_doc
+#' @param freq_param a `freq` parameter,
+#' as created by \link{create_freq_param}
 #' @return the parameter as XML text
 #' @examples
 #' check_empty_beautier_folder()
 #'
 #' # The freq parameter must be initialized, i.e. have an ID
-#' freq_parameter_to_xml(freq_parameter = create_freq_param(id = "1"))
+#' freq_param_to_xml(freq_param = create_freq_param(id = "1"))
 #'
 #' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-freq_parameter_to_xml <- function(
-  freq_parameter,
+freq_param_to_xml <- function(
+  freq_param,
   beauti_options = create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  testit::assert(beautier::is_freq_param(freq_parameter))
-  id <- freq_parameter$id
+  testit::assert(beautier::is_freq_param(freq_param))
+  id <- freq_param$id
   testit::assert(beautier::is_id(id))
 
   xml <- paste0("<parameter id=\"freqParameter.s:", id, "\" ")
@@ -30,11 +31,11 @@ freq_parameter_to_xml <- function(
   }
   xml <- paste0(
     xml,
-    "dimension=\"", freq_parameter$dimension,"\" ",
-    "lower=\"", freq_parameter$lower, "\" ",
+    "dimension=\"", freq_param$dimension,"\" ",
+    "lower=\"", freq_param$lower, "\" ",
     "name=\"stateNode\" ",
-    "upper=\"", freq_parameter$upper, "\">",
-    freq_parameter$value,
+    "upper=\"", freq_param$upper, "\">",
+    freq_param$value,
     "</parameter>"
   )
   xml

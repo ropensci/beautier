@@ -7,18 +7,18 @@
 #' check_empty_beautier_folder()
 #'
 #' # The kappa parameter must be initialized, i.e. have an ID
-#' kappa_parameter_to_xml(kappa_parameter = create_kappa_param(id = "1"))
+#' kappa_param_to_xml(kappa_param = create_kappa_param(id = "1"))
 #'
 #' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-kappa_parameter_to_xml <- function(
-  kappa_parameter,
+kappa_param_to_xml <- function(
+  kappa_param,
   beauti_options = create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  testit::assert(beautier::is_kappa_param(kappa_parameter))
-  id <- kappa_parameter$id
+  testit::assert(beautier::is_kappa_param(kappa_param))
+  id <- kappa_param$id
   testit::assert(beautier::is_id(id))
 
   xml <- paste0("<parameter id=\"kappa.s:", id, "\" ")
@@ -30,8 +30,8 @@ kappa_parameter_to_xml <- function(
   }
   xml <- paste0(
     xml,
-    "lower=\"", kappa_parameter$lower, "\" ",
-    "name=\"stateNode\">", kappa_parameter$value, "</parameter>"
+    "lower=\"", kappa_param$lower, "\" ",
+    "name=\"stateNode\">", kappa_param$value, "</parameter>"
   )
   xml
 }

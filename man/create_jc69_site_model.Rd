@@ -12,7 +12,7 @@ create_jc69_site_model(id = NA, gamma_site_model = create_gamma_site_model())
 the FASTA filename using \code{\link{get_alignment_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
-by \code{\link{create_gamma_site_model}}}
+by \link{create_gamma_site_model}}
 }
 \value{
 a JC69 site_model

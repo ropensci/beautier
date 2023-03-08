@@ -4,7 +4,7 @@
 #' @param id the IDs of the alignment (can be extracted from
 #'   the FASTA filename using \code{\link{get_alignment_id}})
 #' @param gamma_site_model a gamma site model, as created
-#'   by \code{\link{create_gamma_site_model}}
+#'   by \link{create_gamma_site_model}
 #' @param ... specific site model parameters
 #' @note Prefer using the
 #'   named functions
@@ -107,13 +107,15 @@ create_site_model <- function(
 #'   For advanced usage, use the structure
 #'   as returned by \code{\link{create_rate_ct_param}}
 #' @param rate_gt_param the 'rate GT' parameter,
-#'   a numeric value.
-#'   For advanced usage, use the structure
-#'   as returned by \code{\link{create_rate_gt_param}}
+#' a numeric value.
+#' For advanced usage, use the structure
+#' as returned by \code{\link{create_rate_gt_param}}
 #' @param freq_equilibrium the frequency in which the rates are at equilibrium
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
+#' @param freq_param a `freq` parameter,
+#' as created by \link{create_freq_param}
 #' @return a GTR site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
@@ -219,7 +221,10 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 
 #' Create an HKY site model
 #' @inheritParams create_site_model
-#' @param kappa the kappa
+#' @param kappa obsoleted parameter. It is the value in the `kappa_param`
+#' argument
+#' @param kappa_param a `kappa` parameter,
+#' as created by \link{create_kappa_param}
 #' @param kappa_prior_distr the distribution of the kappa prior,
 #'   which is a log-normal distribution
 #'   (as created by \code{\link{create_log_normal_distr}})
@@ -228,6 +233,8 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
+#' @param freq_param a `freq` parameter,
+#' as created by \link{create_freq_param}
 #' @return an HKY site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples
@@ -333,6 +340,8 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
+#' @param freq_param a `freq` parameter,
+#' as created by \link{create_freq_param}
 #' @return a TN93 site_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples

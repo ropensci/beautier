@@ -14,7 +14,7 @@ names can be found in \code{get_site_model_names}}
 the FASTA filename using \code{\link{get_alignment_id}})}
 
 \item{gamma_site_model}{a gamma site model, as created
-by \code{\link{create_gamma_site_model}}}
+by \link{create_gamma_site_model}}
 
 \item{...}{specific site model parameters}
 }

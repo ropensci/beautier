@@ -1,8 +1,8 @@
 test_that("minimal use", {
   remove_beautier_folder()
   expect_silent(
-    kappa_parameter_to_xml(
-      kappa_parameter = create_kappa_param(
+    kappa_param_to_xml(
+      kappa_param = create_kappa_param(
         id = "1"
       )
     )
@@ -17,7 +17,7 @@ test_that("use, v2.4", {
       section = "state"
     )[8]
   )
-  created <- kappa_parameter_to_xml(
+  created <- kappa_param_to_xml(
     kappa_param = create_kappa_param(id = "test_output_0", value = "2.0"),
     beauti_options = create_beauti_options_v2_4()
   )
@@ -32,7 +32,7 @@ test_that("use, v2.6", {
       section = "state"
     )[8]
   )
-  created <- kappa_parameter_to_xml(
+  created <- kappa_param_to_xml(
     kappa_param = create_kappa_param(id = "anthus_aco_sub", value = "2.0"),
     beauti_options = create_beauti_options_v2_6()
   )

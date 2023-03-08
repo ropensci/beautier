@@ -5,9 +5,12 @@
 \title{Documentation of parameters (for example, \code{create_param}.
 This function does nothing. It is intended to inherit documentation from.}
 \usage{
-default_parameters_doc(estimate, id, lower, name, upper, value, ...)
+default_parameters_doc(dimension, estimate, id, lower, name, upper, value, ...)
 }
 \arguments{
+\item{dimension}{the number of dimensions, for example, as used in
+\link{create_freq_param}}
+
 \item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
 FALSE otherwise}
 

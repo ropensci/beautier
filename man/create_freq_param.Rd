@@ -26,6 +26,9 @@ is estimated, \code{lower} must be less than \code{value}}
 
 \item{estimate}{TRUE if this parameter is to be estimated by BEAST2,
 FALSE otherwise}
+
+\item{dimension}{the number of dimensions, for example, as used in
+\link{create_freq_param}}
 }
 \value{
 a parameter called freq

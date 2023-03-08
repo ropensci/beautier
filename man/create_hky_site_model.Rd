@@ -20,10 +20,14 @@ create_hky_site_model(
 \item{id}{the IDs of the alignment (can be extracted from
 the FASTA filename using \code{\link{get_alignment_id}})}
 
-\item{kappa}{the kappa}
+\item{kappa}{obsoleted parameter. It is the value in the `kappa_param`
+argument}
+
+\item{kappa_param}{a `kappa` parameter,
+as created by \link{create_kappa_param}}
 
 \item{gamma_site_model}{a gamma site model, as created
-by \code{\link{create_gamma_site_model}}}
+by \link{create_gamma_site_model}}
 
 \item{kappa_prior_distr}{the distribution of the kappa prior,
 which is a log-normal distribution
@@ -34,6 +38,9 @@ by default}
 are either \code{estimated}, \code{empirical} or \code{all_equal}.
 \code{get_freq_equilibrium_names} returns the possible values
 for \code{freq_equilibrium}}
+
+\item{freq_param}{a `freq` parameter,
+as created by \link{create_freq_param}}
 }
 \value{
 an HKY site_model
