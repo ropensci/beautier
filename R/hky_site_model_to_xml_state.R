@@ -34,27 +34,13 @@ hky_site_model_to_xml_state <- function(
     )
   )
 
-  if (1 == 2) {
-    text <- c(
-      text,
-      paste0(
-        "<parameter ",
-        "id=\"freqParameter.s:", id, "\" dimension=\"4\" ",
-        "lower=\"0.0\" ",
-        "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
-      )
+  text <- c(
+    text,
+    beautier::freq_param_to_xml(
+      site_model$freq_param,
+      beauti_options = beauti_options
     )
-  } else {
-    text <- c(
-      text,
-      beautier::freq_param_to_xml(
-        site_model$freq_param,
-        beauti_options = beauti_options
-      )
-    )
-
-  }
-
+  )
   text <- c(
     text,
     beautier::gamma_site_model_to_xml_state(site_model$gamma_site_model, id)

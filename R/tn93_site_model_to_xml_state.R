@@ -15,15 +15,10 @@ tn93_site_model_to_xml_state <- function(
   text <- NULL
   testthat::expect_true(beautier::is_tn93_site_model(site_model))
 
-  if (beautier::is_one_na(site_model$kappa_1_param$id)) {
-    site_model$kappa_1_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$kappa_2_param$id)) {
-    site_model$kappa_2_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$freq_param$id)) {
-    site_model$freq_param$id <- id
-  }
+  # Indeed, overwrite by the site model's ID
+  site_model$kappa_1_param$id <- id
+  site_model$kappa_2_param$id <- id
+  site_model$freq_param$id <- id
 
 
   if (site_model$kappa_1_param$estimate == TRUE) {

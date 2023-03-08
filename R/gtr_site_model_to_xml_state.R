@@ -15,27 +15,15 @@ gtr_site_model_to_xml_state <- function(
   text <- NULL
   testthat::expect_true(beautier::is_gtr_site_model(site_model))
 
-  if (beautier::is_one_na(site_model$rate_ac_param$id)) {
-    site_model$rate_ac_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$rate_ag_param$id)) {
-    site_model$rate_ag_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$rate_at_param$id)) {
-    site_model$rate_at_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$rate_cg_param$id)) {
-    site_model$rate_cg_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$rate_ct_param$id)) {
-    site_model$rate_ct_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$rate_gt_param$id)) {
-    site_model$rate_gt_param$id <- id
-  }
-  if (beautier::is_one_na(site_model$freq_param$id)) {
-    site_model$freq_param$id <- id
-  }
+  # Indeed, overwrite by the site model's ID
+  site_model$rate_ac_param$id <- id
+  site_model$rate_ag_param$id <- id
+  site_model$rate_at_param$id <- id
+  site_model$rate_cg_param$id <- id
+  site_model$rate_ct_param$id <- id
+  site_model$rate_gt_param$id <- id
+  site_model$freq_param$id <- id
+
   testthat::expect_true("estimate" %in% names(site_model$rate_ac_param))
   testthat::expect_true("estimate" %in% names(site_model$rate_ag_param))
   testthat::expect_true("estimate" %in% names(site_model$rate_at_param))

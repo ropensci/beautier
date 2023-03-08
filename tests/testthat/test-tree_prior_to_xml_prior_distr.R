@@ -1,5 +1,3 @@
-context("tree_prior_to_xml_prior_distr")
-
 test_that("BD", {
 
   expected <- c(
@@ -16,9 +14,10 @@ test_that("BD", {
       id = "test_output_0",
       birth_rate_distr = create_uniform_distr(id = 3, upper = "1000.0"),
       death_rate_distr = create_uniform_distr(id = 4, upper = NA)
-    )
+    ),
+    beauti_options = create_beauti_options()
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CBS", {
@@ -30,9 +29,10 @@ test_that("CBS", {
     "<distribution id=\"MarkovChainedPopSizes.t:anthus_aco\" spec=\"beast.math.distributions.MarkovChainDistribution\" jeffreys=\"true\" parameter=\"@bPopSizes.t:anthus_aco\"/>" # nolint XML is long
   )
   created <- tree_prior_to_xml_prior_distr(
-    tree_prior = create_cbs_tree_prior(id = "anthus_aco")
+    tree_prior = create_cbs_tree_prior(id = "anthus_aco"),
+    beauti_options = create_beauti_options()
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
+  expect_true(are_equivalent_xml_lines(created, expected))
 
 })
 
@@ -51,9 +51,10 @@ test_that("CCP", {
     tree_prior = create_ccp_tree_prior(
       id = "test_output_0",
       pop_size_distr = create_one_div_x_distr(id = 1)
-    )
+    ),
+    beauti_options = create_beauti_options()
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("CEP", {
@@ -82,9 +83,10 @@ test_that("CEP", {
         mu = create_mu_param(id = 1, value = "0.001"),
         scale = create_scale_param(id = 2, value = "30.701135")
       )
-    )
+    ),
+    beauti_options = create_beauti_options()
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
 
 test_that("Yule", {
@@ -99,8 +101,9 @@ test_that("Yule", {
     tree_prior = create_yule_tree_prior(
       id = "test_output_0",
       birth_rate_distr = create_uniform_distr(id = 1, upper = Inf)
-    )
+    ),
+    beauti_options = create_beauti_options()
   )
-  testthat::expect_true(are_equivalent_xml_lines(created, expected))
-
+  expect_true(are_equivalent_xml_lines(created, expected))
 })
+

@@ -267,7 +267,7 @@ create_hky_site_model <- create_site_model_hky <- function(
 ) {
   if (kappa != "obsolete") {
     stop(
-        "Parameter 'kappa' is obseolete. \n",
+        "Parameter 'kappa' is obsolete. \n",
         "Use 'kappa_param' instead.\n",
         " \n",
         "Example: \n",
