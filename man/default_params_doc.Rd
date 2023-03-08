@@ -34,6 +34,7 @@ default_params_doc(
   filename,
   fixed_crown_age,
   fixed_crown_ages,
+  freq_param,
   gamma_distr,
   gamma_site_model,
   group_sizes_dimension,
@@ -174,6 +175,9 @@ phylogenies' crown ages are fixed.
 If FALSE, crown age is estimated by BEAST2. If TRUE,
 the crown age is fixed to the crown age
 of the initial phylogeny.}
+
+\item{freq_param}{a `freq` parameter,
+as created by \link{create_freq_param}}
 
 \item{gamma_distr}{a gamma distribution,
 as created by \code{\link{create_gamma_distr}})}

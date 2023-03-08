@@ -58,6 +58,8 @@
 #'   If FALSE, crown age is estimated by BEAST2. If TRUE,
 #'   the crown age is fixed to the crown age
 #'   of the initial phylogeny.
+#' @param freq_param a `freq` parameter,
+#' as created by \link{create_freq_param}
 #' @param gamma_distr a gamma distribution,
 #'   as created by \code{\link{create_gamma_distr}})
 #' @param gamma_site_model a site model's gamma site model,
@@ -224,6 +226,7 @@ default_params_doc <- function(
   filename,
   fixed_crown_age,
   fixed_crown_ages,
+  freq_param,
   gamma_distr,
   gamma_site_model,
   group_sizes_dimension,

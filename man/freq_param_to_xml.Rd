@@ -9,6 +9,9 @@ freq_param_to_xml(freq_param, beauti_options = create_beauti_options())
 \arguments{
 \item{freq_param}{a `freq` parameter,
 as created by \link{create_freq_param}}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 the parameter as XML text

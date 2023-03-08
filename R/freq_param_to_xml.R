@@ -1,8 +1,7 @@
 #' Internal function
 #'
 #' Converts a `freq` parameter to XML
-#' @param freq_param a `freq` parameter,
-#' as created by \link{create_freq_param}
+#' @inheritParams default_params_doc
 #' @return the parameter as XML text
 #' @examples
 #' check_empty_beautier_folder()
