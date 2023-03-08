@@ -22,7 +22,7 @@ test_that("1: re-created file", {
   beautier_file <- "~/issue_135_no_mrca_no_estimate_beautier.xml"
 
   #without mrca prior, single value at clock rate
-  fasta_filename <- babette::get_babette_path("anthus_aco_sub.fas")
+  fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
   clock.rate <- beautier::create_clock_rate_param(value = 0.00277, estimate=FALSE)
 
   inference_model <- create_inference_model(
