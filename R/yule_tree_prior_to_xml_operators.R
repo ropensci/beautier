@@ -21,32 +21,7 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   )
   # Add scale factor if:
   # * version != 2.6
-  # * version == 2.6 && tipdates
-  # * version == 2.6 && RLN
-  # * not #135
-  add_scale_factor <- TRUE
-
-  if (inference_model$beauti_options$beast2_version == "2.6" &&
-    !beautier::is_rln_clock_model(inference_model$clock_model) &&
-    beautier::has_tip_dating(inference_model)
-  ) {
-    add_scale_factor <- FALSE
-  }
-  if (inference_model$beauti_options$beast2_version == "2.6" &&
-      beautier::is_rln_clock_model(inference_model$clock_model) &&
-      !beautier::has_tip_dating(inference_model)
-  ) {
-    add_scale_factor <- FALSE
-  }
-
-  if (1 + 1 == 2 || "FIX_ISSUE_135" == "ONGOING") {
-    if (inference_model$beauti_options$beast2_version == "2.6") {
-      add_scale_factor <- FALSE
-    }
-  }
-
-
-  if (add_scale_factor) {
+  if (inference_model$beauti_options$beast2_version == "2.4") {
     yule_birth_rate_scaler_xml <- paste0(
       yule_birth_rate_scaler_xml, "scaleFactor=\"0.75\" "
     )
