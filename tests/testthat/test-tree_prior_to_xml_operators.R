@@ -16,10 +16,10 @@ test_that("Yule, v2.4", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-test_that("Yule, v2.6.0", {
+test_that("Yule, v2.6", {
   expected <- stringr::str_trim(
     stringr::str_subset(
-      readr::read_lines(get_beautier_path("2_6_0.xml")),
+      readr::read_lines(get_beautier_path("anthus_aco_sub_2_6.xml")),
       "<operator id="
     )
   )
@@ -27,7 +27,7 @@ test_that("Yule, v2.6.0", {
     beauti_options = create_beauti_options_v2_6()
   )
   inference_model <- init_inference_model(
-    input_filename = get_beautier_path("test_output_0.fas"),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     inference_model = inference_model
   )
   created <- tree_prior_to_xml_operators(
@@ -37,6 +37,8 @@ test_that("Yule, v2.6.0", {
 })
 
 test_that("RLN + tipdates, v2.6", {
+  # Irreproducible error
+  skip("'scaleFactor' is in BEAUti file, using an unknown version of BEAUti")
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       id = "test_output_0",
