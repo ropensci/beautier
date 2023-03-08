@@ -4,7 +4,11 @@
 \alias{create_beauti_options_v2_6}
 \title{Function to create the BEAUti options for version 2.6.}
 \usage{
-create_beauti_options_v2_6()
+create_beauti_options_v2_6(
+  beast2_version = "2.6",
+  sequence_indent = 8,
+  nucleotides_uppercase = FALSE
+)
 }
 \value{
 a BEAUti options structure

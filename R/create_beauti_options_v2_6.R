@@ -19,9 +19,13 @@
 #' }
 #' @export
 create_beauti_options_v2_6 <- function(
+  beast2_version = "2.6",
+  sequence_indent = 8,
+  nucleotides_uppercase = FALSE
 ) {
   beautier::create_beauti_options(
-    beast2_version = "2.6",
-    sequence_indent = 8
+    beast2_version = beast2_version,
+    sequence_indent = sequence_indent,
+    nucleotides_uppercase = nucleotides_uppercase
   )
 }

@@ -58,17 +58,17 @@ test_that("v2.5.1", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-test_that("2.6.2", {
+test_that("anthus_aco_sub_2_6.xml", {
   created <- create_beast2_input_from_model(
-    input_filename = get_fasta_filename(),
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
     inference_model = create_inference_model(
       tree_prior = create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)
       ),
-      beauti_options = create_beauti_options_v2_6()
+      beauti_options = create_beauti_options_v2_6(nucleotides_uppercase = TRUE)
     )
   )
-  expected <- readLines(get_beautier_path("2_6_2.xml"))
+  expected <- readLines(get_beautier_path("anthus_aco_sub_2_6.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 

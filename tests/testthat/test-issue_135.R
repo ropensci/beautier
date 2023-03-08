@@ -18,10 +18,8 @@ test_that("re-create file step by step 1/?: the minimal XML", {
   file.copy(from = beauti_file, to = "~/anthus_aco_sub_2_6.xml")
 
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
-  beauti_options <- beautier::create_beauti_options_v2_6()
-  beauti_options$nucleotides_uppercase <- TRUE
   inference_model <- create_inference_model(
-    beauti_options = beauti_options
+    beauti_options = beautier::create_beauti_options_v2_6(nucleotides_uppercase = TRUE)
   )
 
   # # Make the inference model match the BEAUti file
@@ -55,13 +53,11 @@ test_that("1: re-created file", {
   fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
   clock.rate <- beautier::create_clock_rate_param(value = 0.00277, estimate=FALSE)
 
-  beauti_options <- beautier::create_beauti_options_v2_6()
-  beauti_options$nucleotides_uppercase <- TRUE
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
     clock_model = beautier::create_strict_clock_model(id = NA, clock.rate),
     tree_prior = create_yule_tree_prior(),
-    beauti_options = beauti_options
+    beauti_options = beautier::create_beauti_options_v2_6(nucleotides_uppercase = TRUE)
   )
 
   # Make the inference model match the BEAUti file
