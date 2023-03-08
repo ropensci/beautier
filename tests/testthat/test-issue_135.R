@@ -48,27 +48,21 @@ test_that("1: re-created file", {
   beauti_text <- readr::read_lines(beauti_file)
   beautier_text <- readr::read_lines(beautier_file)
 
-  if (1 + 1 == 2) {
-    # First fix, works!
-    kappa_param_regex <- "<parameter id=.kappa.s:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.0. name=.stateNode.>2.0</parameter>"
-    expect_equal(1, sum(stringr::str_count(beauti_text, kappa_param_regex)))
-    expect_equal(1, sum(stringr::str_count(beautier_text, kappa_param_regex)))
-  }
 
-  if (1 + 1 == 2) {
-    # Second fix, works!
-    freq_param_regex <- "<parameter id=.freqParameter.s:anthus_aco_sub. spec=.parameter.RealParameter. dimension=.4. lower=.0.0. name=.stateNode. upper=.1.0.>0.25</parameter>"
-    expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
-    expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
-  }
   # Third fix
   freq_param_regex <- "<operator id=.YuleBirthRateScaler.t:anthus_aco_sub. spec=.ScaleOperator. parameter=.@birthRate.t:anthus_aco_sub. weight=.3.0./>"
   expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
   expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
 
+  # First fix, works!
+  kappa_param_regex <- "<parameter id=.kappa.s:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.0. name=.stateNode.>2.0</parameter>"
+  expect_equal(1, sum(stringr::str_count(beauti_text, kappa_param_regex)))
+  expect_equal(1, sum(stringr::str_count(beautier_text, kappa_param_regex)))
 
-  # Etc.
-
+  # Second fix, works!
+  freq_param_regex <- "<parameter id=.freqParameter.s:anthus_aco_sub. spec=.parameter.RealParameter. dimension=.4. lower=.0.0. name=.stateNode. upper=.1.0.>0.25</parameter>"
+  expect_equal(1, sum(stringr::str_count(beauti_text, freq_param_regex)))
+  expect_equal(1, sum(stringr::str_count(beautier_text, freq_param_regex)))
 })
 
 test_that("use", {
