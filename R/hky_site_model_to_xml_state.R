@@ -47,7 +47,7 @@ hky_site_model_to_xml_state <- function(
   } else {
     text <- c(
       text,
-      beautier::freq_parameter_to_xml(
+      beautier::freq_param_to_xml(
         site_model$freq_param,
         beauti_options = beauti_options
       )

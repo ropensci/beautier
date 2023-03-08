@@ -2,8 +2,8 @@ test_that("minimal use", {
 
   remove_beautier_folder()
   expect_silent(
-    freq_parameter_to_xml(
-      freq_parameter = create_freq_param(
+    freq_param_to_xml(
+      freq_param = create_freq_param(
         id = "1"
       )
     )
@@ -20,8 +20,8 @@ test_that("use", {
     "name=\"stateNode\" upper=\"1.0\">0.25</parameter>"
   )
 
-  created <- freq_parameter_to_xml(
-    freq_parameter = create_freq_param(
+  created <- freq_param_to_xml(
+    freq_param = create_freq_param(
       id = "1"
     )
   )
@@ -35,7 +35,7 @@ test_that("use, v2.4", {
       section = "state"
     )[9]
   )
-  created <- freq_parameter_to_xml(
+  created <- freq_param_to_xml(
     freq_param = create_freq_param(id = "test_output_0", value = "0.25"),
     beauti_options = create_beauti_options_v2_4()
   )
@@ -50,7 +50,7 @@ test_that("use, v2.6", {
       section = "state"
     )[9]
   )
-  created <- freq_parameter_to_xml(
+  created <- freq_param_to_xml(
     freq_param = create_freq_param(id = "anthus_aco_sub", value = "0.25"),
     beauti_options = create_beauti_options_v2_6()
   )
