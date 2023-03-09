@@ -30,6 +30,17 @@ strict_clock_model_to_xml_prior_distr <- function(
 
   text <- NULL
 
+  if (clock_model$clock_rate_param$estimate == TRUE) {
+    testthat::expect_true(beautier::is_id(clock_model$id))
+    testthat::expect_true(beautier::is_id(clock_model$clock_rate_distr$id))
+    text <- c(
+      text,
+      paste0("<prior id=\"ClockPrior.c:", clock_model$id, "\" name=\"distribution\" x=\"@clockRate.c:", clock_model$id, "\">"),
+      paste0("  <Uniform id=\"Uniform.", clock_model$clock_rate_distr$id, "\" name=\"distr\" upper=\"Infinity\"/>\""),
+      "</prior>"
+    )
+  }
+
   if (!beautier::is_one_na(tipdates_filename)) {
     id <- clock_model$id
     testit::assert(beautier::is_id(id))
