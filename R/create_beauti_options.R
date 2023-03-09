@@ -20,6 +20,7 @@
 #'   for example \code{BEAST v2.5.0}
 #' @param sequence_indent the number of spaces the XML \code{sequence}
 #'   lines are indented
+#' @param status the BEAUti status
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
 #' @examples
@@ -41,14 +42,16 @@ create_beauti_options <- function(
   nucleotides_uppercase = FALSE,
   beast2_version = "2.4",
   required = "",
-  sequence_indent = 20
+  sequence_indent = 20,
+  status = ""
 ) {
   beauti_options <- list(
     capitalize_first_char_id = capitalize_first_char_id,
     nucleotides_uppercase = nucleotides_uppercase,
     beast2_version = beast2_version,
     required = required,
-    sequence_indent = sequence_indent
+    sequence_indent = sequence_indent,
+    status = status
   )
   beautier::check_beauti_options(beauti_options)
   beauti_options

@@ -17,7 +17,6 @@ test_that("1: can re-create file 'issue_135_no_mrca_no_estimate_beauti.xml'", {
   inference_model$site_model$kappa_prior_distr$m$id <- "1"
   inference_model$site_model$kappa_prior_distr$s$id <- "2"
   inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id <- "3"
-
   create_beast2_input_file_from_model(
     input_filename = fasta_filename,
     output_filename = beautier_file,
@@ -62,7 +61,8 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
     ),
     tree_prior = create_yule_tree_prior(),
     beauti_options = beautier::create_beauti_options_v2_6(
-      nucleotides_uppercase = TRUE
+      nucleotides_uppercase = TRUE,
+      status = "noAutoSetClockRate"
     )
   )
 
@@ -92,26 +92,31 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
     )
   }
 
+  # Fift fix,
+  clock_prior_pattern <- "beautistatus='noAutoSetClockRate'"
+  expect_equal(1, length(stringr::str_subset(beauti_text, clock_prior_pattern)))
+  expect_equal(1, length(stringr::str_subset(beautier_text, clock_prior_pattern)))
 
-  # Fifth fix
-  log_pattern <- "<log idref=.clockRate.c:anthus_aco_sub./>"
-  expect_equal(1, length(stringr::str_subset(beauti_text, log_pattern)))
-  expect_equal(1, length(stringr::str_subset(beautier_text, log_pattern)))
-
-  # Second fix
-  clock_rate_param_pattern <- "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.00277. name=.stateNode. upper=.0.00542.>0.0035</parameter>"
-  expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
-  expect_equal(1, length(stringr::str_subset(beautier_text, clock_rate_param_pattern)))
 
   # First fix, works
   clock_prior_pattern <- "<prior id=.ClockPrior.c:anthus_aco_sub. name=.distribution. x=..clockRate.c:anthus_aco_sub.>"
   expect_equal(1, length(stringr::str_subset(beauti_text, clock_prior_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, clock_prior_pattern)))
 
+  # Second fix, works
+  clock_rate_param_pattern <- "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.00277. name=.stateNode. upper=.0.00542.>0.0035</parameter>"
+  expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
+  expect_equal(1, length(stringr::str_subset(beautier_text, clock_rate_param_pattern)))
+
   # Third fix, works
   branch_rate_model_pattern <- "<branchRateModel id=.StrictClock.c:anthus_aco_sub. spec=.beast.evolution.branchratemodel.StrictClockModel. clock.rate=..clockRate.c:anthus_aco_sub./>"
   expect_equal(1, length(stringr::str_subset(beauti_text, branch_rate_model_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, branch_rate_model_pattern)))
+
+  # Fifth fix, works
+  log_pattern <- "<log idref=.clockRate.c:anthus_aco_sub./>"
+  expect_equal(1, length(stringr::str_subset(beauti_text, log_pattern)))
+  expect_equal(1, length(stringr::str_subset(beautier_text, log_pattern)))
 
   beautier::remove_beautier_folder()
 

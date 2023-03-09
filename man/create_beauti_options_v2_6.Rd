@@ -7,7 +7,8 @@
 create_beauti_options_v2_6(
   beast2_version = "2.6",
   sequence_indent = 8,
-  nucleotides_uppercase = FALSE
+  nucleotides_uppercase = FALSE,
+  status = ""
 )
 }
 \arguments{
@@ -18,6 +19,8 @@ lines are indented}
 
 \item{nucleotides_uppercase}{must the nucleotides of the DNA sequence be
 in uppercase?}
+
+\item{status}{the BEAUti status}
 }
 \value{
 a BEAUti options structure

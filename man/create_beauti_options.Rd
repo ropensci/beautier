@@ -9,7 +9,8 @@ create_beauti_options(
   nucleotides_uppercase = FALSE,
   beast2_version = "2.4",
   required = "",
-  sequence_indent = 20
+  sequence_indent = 20,
+  status = ""
 )
 }
 \arguments{
@@ -27,6 +28,8 @@ for example \code{BEAST v2.5.0}}
 
 \item{sequence_indent}{the number of spaces the XML \code{sequence}
 lines are indented}
+
+\item{status}{the BEAUti status}
 }
 \value{
 a BEAUti options structure

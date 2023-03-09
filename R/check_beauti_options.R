@@ -21,7 +21,8 @@ check_beauti_options <- function(
     "nucleotides_uppercase",
     "beast2_version",
     "required",
-    "sequence_indent"
+    "sequence_indent",
+    "status"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(beauti_options)) {

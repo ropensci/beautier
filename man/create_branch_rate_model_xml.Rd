@@ -24,8 +24,6 @@ Creates the \code{branchRateModel} section
 of the XML as text.
 }
 \details{
-This function will be called only if there are no MRCA priors.
-
 The \code{distribution} tag (with ID equals \code{treeLikelihood})
 has these elements:
 
