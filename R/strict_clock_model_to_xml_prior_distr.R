@@ -36,7 +36,7 @@ strict_clock_model_to_xml_prior_distr <- function(
     text <- c(
       text,
       paste0("<prior id=\"ClockPrior.c:", clock_model$id, "\" name=\"distribution\" x=\"@clockRate.c:", clock_model$id, "\">"),
-      paste0("  <Uniform id=\"Uniform.", clock_model$clock_rate_distr$id, "\" name=\"distr\" upper=\"Infinity\"/>\""),
+      beautier::indent(paste0("<Uniform id=\"Uniform.", clock_model$clock_rate_distr$id, "\" name=\"distr\" upper=\"Infinity\"/>")),
       "</prior>"
     )
   }
