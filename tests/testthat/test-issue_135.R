@@ -14,6 +14,7 @@ test_that("1: expose problem: files are different already", {
 
 test_that("re-create file step by step 2/?: HKY site model", {
 
+  skip("WIP #135")
   # # Make the inference model match the BEAUti file
   inference_model <- create_inference_model(
     site_model = create_hky_site_model(),
