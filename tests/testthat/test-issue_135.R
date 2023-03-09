@@ -92,11 +92,16 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
     )
   }
 
+
+  # Fifth fix
+  log_pattern <- "<log idref=.clockRate.c:anthus_aco_sub./>"
+  expect_equal(1, length(stringr::str_subset(beauti_text, log_pattern)))
+  expect_equal(1, length(stringr::str_subset(beautier_text, log_pattern)))
+
   # Third fix
   branch_rate_model_pattern <- "<branchRateModel id=.StrictClock.c:anthus_aco_sub. spec=.beast.evolution.branchratemodel.StrictClockModel. clock.rate=..clockRate.c:anthus_aco_sub./>"
   expect_equal(1, length(stringr::str_subset(beauti_text, branch_rate_model_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, branch_rate_model_pattern)))
-
 
 
 

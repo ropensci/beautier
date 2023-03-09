@@ -1,8 +1,10 @@
 test_that("strict", {
-  created <- clock_model_to_xml_operators(
-    inference_model = create_inference_model()
+  # More detailed tests in 'test-strict_clock_model_to_xml_operators'
+  expect_silent(
+    clock_model_to_xml_operators(
+      inference_model = create_inference_model()
+    )
   )
-  expect_true(is.null(created))
 })
 
 test_that("v2.4, RLN", {

@@ -18,6 +18,17 @@ strict_clock_model_to_xml_operators <- function(
   # May not need ID at all, if it is the first and strict clock model
   text <- NULL
 
+  if (inference_model$clock_model$clock_rate_param$estimate) {
+    text <- c(
+      text,
+      paste0("<operator id=\"StrictClockRateScaler.c:", id, "\" spec=\"ScaleOperator\" parameter=\"@clockRate.c:", id, "\" weight=\"3.0\"/>"),
+      paste0("<operator id=\"strictClockUpDownOperator.c:", id, "\" spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"),
+      beautier::indent(paste0("<up idref=\"clockRate.c:", id, "\"/>")),
+      beautier::indent(paste0("<down idref=\"Tree.t:", id, "\"/>")),
+      "</operator>"
+    )
+  }
+
   if (beautier::has_mrca_prior_with_distr(inference_model) ||
     beautier::has_tip_dating(inference_model)
   ) {
