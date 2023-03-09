@@ -47,18 +47,7 @@ site_model_to_xml_prior_distr <- function(
 
   text <- NULL
   if (beautier::is_hky_site_model(site_model)) {
-    text <- c(text, paste0("<prior ",
-      "id=\"KappaPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
-    text <- c(text,
-      beautier::indent(
-        beautier::distr_to_xml(
-          site_model$kappa_prior,
-          beauti_options = beauti_options
-        )
-      )
-    )
-    text <- c(text, paste0("</prior>"))
+    text <- hky_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options)
   } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",
