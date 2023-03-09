@@ -20,7 +20,7 @@ clock_model_to_xml_tracelog <- function(
     return(beautier::strict_clock_model_to_xml_tracelog(inference_model))
   } else {
     # Will fail on unimplemented clock models
-    testthat::expect_true(beautier::is_rln_clock_model(clock_model))
+    testthat::expect_true(beautier::is_rln_clock_model(inference_model$clock_model))
     return(beautier::rln_clock_model_to_xml_tracelog(inference_model))
   }
 }

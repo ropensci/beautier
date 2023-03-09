@@ -16,7 +16,7 @@ test_that("rln", {
     "<log id=\"rate.c:test_output_0\" spec=\"beast.evolution.branchratemodel.RateStatistic\" branchratemodel=\"@RelaxedClock.c:test_output_0\" tree=\"@Tree.t:test_output_0\"/>" # nolint XML
   )
   created <- clock_model_to_xml_tracelog(
-    create_inference_model(
+    inference_model = create_inference_model(
       clock_model = create_rln_clock_model(id = "test_output_0")
     )
   )
