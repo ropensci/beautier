@@ -1,16 +1,33 @@
-test_that("strict", {
-
+test_that("strict, v2.4", {
+  # More detailed tests in test-strict_clock_model_to_xml_state.R
   inference_model <- init_inference_model(
     input_filename = get_fasta_filename(),
     inference_model = create_test_inference_model(
-      clock_model = create_strict_clock_model()
+      clock_model = create_strict_clock_model(),
+      beauti_options = create_beauti_options_v2_4()
     )
   )
-  expected <- NULL # Indeed, nothing!
-  created <- clock_model_to_xml_state(
-    inference_model = inference_model
+  expect_silent(
+    clock_model_to_xml_state(
+      inference_model = inference_model
+    )
   )
-  expect_true(are_equivalent_xml_lines(created, expected))
+})
+
+test_that("strict, v2.6", {
+  # More detailed tests in test-strict_clock_model_to_xml_state.R
+  inference_model <- init_inference_model(
+    input_filename = get_fasta_filename(),
+    inference_model = create_test_inference_model(
+      clock_model = create_strict_clock_model(),
+      beauti_options = create_beauti_options_v2_6()
+    )
+  )
+  expect_silent(
+    clock_model_to_xml_state(
+      inference_model = inference_model
+    )
+  )
 })
 
 test_that("v2.4, RLN", {
