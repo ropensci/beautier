@@ -8,11 +8,17 @@
 init_mrca_priors <- function(
   mrca_priors,
   distr_id = 0,
-  param_id = 0
+  param_id = 0,
+  beauti_options
 ) {
   if (length(mrca_priors) == 1 && beautier::is_one_na(mrca_priors)) return(NA)
+  testthat::expect_equal(1, length(mrca_priors))
   testit::assert(beautier::are_mrca_priors(mrca_priors))
-  names <- paste0("auto_name_", seq_along(mrca_priors))
+  if (beauti_options$beast2_version == "2.4") {
+    names <- "auto_name_1"
+  } else {
+    names <- "ingroup"
+  }
 
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]

@@ -4,7 +4,7 @@
 \alias{init_mrca_priors}
 \title{Initializes all MRCA priors}
 \usage{
-init_mrca_priors(mrca_priors, distr_id = 0, param_id = 0)
+init_mrca_priors(mrca_priors, distr_id = 0, param_id = 0, beauti_options)
 }
 \arguments{
 \item{mrca_priors}{a list of one or more Most Recent Common Ancestor priors,
@@ -13,6 +13,9 @@ as returned by \code{\link{create_mrca_prior}}}
 \item{distr_id}{the first distributions' ID}
 
 \item{param_id}{the first parameter's ID}
+
+\item{beauti_options}{one BEAUti options object,
+as returned by \code{\link{create_beauti_options}}}
 }
 \value{
 a list of initialized MRCA priors

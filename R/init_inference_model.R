@@ -39,7 +39,8 @@ init_inference_model <- function(input_filename, inference_model) {
   inference_model$mrca_prior <- beautier::init_mrca_priors(
     list(inference_model$mrca_prior),
     distr_id = 150,
-    param_id = 300
+    param_id = 300,
+    beauti_options = inference_model$beauti_options
   )[[1]]
 
   # Set the alignment ID and taxon names
