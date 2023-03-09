@@ -98,13 +98,6 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
   expect_equal(1, length(stringr::str_subset(beauti_text, log_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, log_pattern)))
 
-  # Third fix
-  branch_rate_model_pattern <- "<branchRateModel id=.StrictClock.c:anthus_aco_sub. spec=.beast.evolution.branchratemodel.StrictClockModel. clock.rate=..clockRate.c:anthus_aco_sub./>"
-  expect_equal(1, length(stringr::str_subset(beauti_text, branch_rate_model_pattern)))
-  expect_equal(1, length(stringr::str_subset(beautier_text, branch_rate_model_pattern)))
-
-
-
   # Second fix
   clock_rate_param_pattern <- "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. lower=.0.00277. name=.stateNode. upper=.0.00542.>0.0035</parameter>"
   expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
@@ -114,6 +107,11 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
   clock_prior_pattern <- "<prior id=.ClockPrior.c:anthus_aco_sub. name=.distribution. x=..clockRate.c:anthus_aco_sub.>"
   expect_equal(1, length(stringr::str_subset(beauti_text, clock_prior_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, clock_prior_pattern)))
+
+  # Third fix, works
+  branch_rate_model_pattern <- "<branchRateModel id=.StrictClock.c:anthus_aco_sub. spec=.beast.evolution.branchratemodel.StrictClockModel. clock.rate=..clockRate.c:anthus_aco_sub./>"
+  expect_equal(1, length(stringr::str_subset(beauti_text, branch_rate_model_pattern)))
+  expect_equal(1, length(stringr::str_subset(beautier_text, branch_rate_model_pattern)))
 
   beautier::remove_beautier_folder()
 

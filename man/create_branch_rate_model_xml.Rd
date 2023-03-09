@@ -36,7 +36,7 @@ has these elements:
 }
 
 When there is a strict clock,
-  \link{create_branch_rate_model_sc_xml} is called.
+  \link{create_strict_clock_branch_rate_model_xml} is called.
 When there is an RLN clock,
   \link{create_branch_rate_model_rln_xml} is called.
 

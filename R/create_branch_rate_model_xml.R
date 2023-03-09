@@ -4,8 +4,6 @@
 #' Creates the \code{branchRateModel} section
 #' of the XML as text.
 #'
-#' This function will be called only if there are no MRCA priors.
-#'
 #' The \code{distribution} tag (with ID equals \code{treeLikelihood})
 #' has these elements:
 #'
@@ -16,7 +14,7 @@
 #' }
 #'
 #' When there is a strict clock,
-#'   \link{create_branch_rate_model_sc_xml} is called.
+#'   \link{create_strict_clock_branch_rate_model_xml} is called.
 #' When there is an RLN clock,
 #'   \link{create_branch_rate_model_rln_xml} is called.
 #'
@@ -54,7 +52,7 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
 
   if (has_no_mrca_prior || has_non_strict_clock) {
     if (beautier::is_strict_clock_model(inference_model$clock_model)) {
-      beautier::create_branch_rate_model_sc_xml(inference_model)
+      beautier::create_strict_clock_branch_rate_model_xml(inference_model)
     } else {
       # If this assumption fails,
       # probably a new clock model must be aded here :-)
@@ -73,13 +71,15 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
   }
 }
 
-#' Internal function to call \link{create_branch_rate_model_xml}
-#' for a strict clock.
+#' Internal function.
+#'
+#' Internal function to create the \code{branchRateModel} section
+#' of the XML as text, for a strict clock model
 #' @inheritParams default_params_doc
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_branch_rate_model_sc_xml <- function(# nolint long function name, which is fine for a long function
+create_strict_clock_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
   testthat::expect_true(
@@ -88,7 +88,10 @@ create_branch_rate_model_sc_xml <- function(# nolint long function name, which i
 
   id <- inference_model$clock_model$id
 
-  if (beautier::is_one_na(inference_model$tipdates_filename)) {
+  if (
+    beautier::is_one_na(inference_model$tipdates_filename) &&
+    inference_model$clock_model$clock_rate_param$estimate == FALSE
+  ) {
     xml_begin <- paste0("<branchRateModel id=\"StrictClock.c:",
       id, "\" spec=\"beast.evolution.branchratemodel.StrictClockModel\">"
     )
