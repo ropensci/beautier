@@ -25,6 +25,7 @@ test_that("re-create file step by step 2/?: HKY site model", {
   inference_model$tree_prior$birth_rate_distr$id <- "1"
   inference_model$site_model$kappa_prior_distr$m$id <- "1"
   inference_model$site_model$kappa_prior_distr$s$id <- "2"
+  inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id <- "3"
 
   beautier_file <- get_beautier_tempfilename(pattern = "anthus_aco_sub_2_6")
   create_beast2_input_file_from_model(

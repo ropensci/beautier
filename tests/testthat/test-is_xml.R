@@ -1,4 +1,5 @@
 test_that("use", {
+  check_empty_beautier_folder()
 
   expect_false(is_xml(NA))
   expect_true(is_xml("<text content=\"Hello\"/>")) # nolint this is no absolute path

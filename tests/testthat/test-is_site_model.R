@@ -1,4 +1,5 @@
 test_that("use", {
+  check_empty_beautier_folder()
 
   expect_true(is_site_model(create_jc69_site_model()))
   expect_true(is_site_model(create_hky_site_model()))

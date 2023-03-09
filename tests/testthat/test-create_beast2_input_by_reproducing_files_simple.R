@@ -71,6 +71,7 @@ test_that("anthus_aco_sub_2_6.xml", {
   expected <- readLines(get_beautier_path("anthus_aco_sub_2_6.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
+
 ################################################################################
 # Site models
 ################################################################################
@@ -349,6 +350,39 @@ test_that("hky_2_4.xml", {
 })
 
 
+test_that("hky_2_6.xml", {
+  check_empty_beautier_folder()
+  remove_beautier_folder()
+
+  inference_model <- create_inference_model(
+    site_model = create_hky_site_model(),
+    beauti_options = beautier::create_beauti_options_v2_6(
+      nucleotides_uppercase = TRUE
+    )
+  )
+  inference_model$tree_prior$birth_rate_distr$id <- "1"
+  inference_model$site_model$kappa_prior_distr$m$id <- "1"
+  inference_model$site_model$kappa_prior_distr$s$id <- "2"
+  inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id <- "3"
+
+  beautier_file <- get_beautier_tempfilename(pattern = "anthus_aco_sub_2_6")
+  create_beast2_input_file_from_model(
+    input_filename = beautier::get_beautier_path("anthus_aco_sub.fas"),
+    output_filename = beautier_file,
+    inference_model = inference_model
+  )
+  # If this passes, this is done!
+  beauti_file <- beautier::get_beautier_path("hky_2_6.xml")
+  expect_true(
+    beautier::are_equivalent_xml_files(
+      beautier_file,
+      beauti_filename
+    )
+  )
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+})
 
 test_that("hky_kappa_2_4.xml", {
 
