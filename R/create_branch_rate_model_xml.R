@@ -49,8 +49,9 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
   )
   has_mrca_prior <- !has_no_mrca_prior
   has_strict_clock <- !has_non_strict_clock
+  estimates_clock_rate <- inference_model$clock_model$clock_rate_param$estimate
 
-  if (has_no_mrca_prior || has_non_strict_clock) {
+  if (has_no_mrca_prior || has_non_strict_clock || estimates_clock_rate) {
     if (beautier::is_strict_clock_model(inference_model$clock_model)) {
       beautier::create_strict_clock_branch_rate_model_xml(inference_model)
     } else {

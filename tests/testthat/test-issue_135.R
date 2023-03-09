@@ -98,7 +98,7 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   mrca.taxa <- get_taxa_names(fasta_filename)
   mrca.taxa <- mrca.taxa[2:length(mrca.taxa)]
-  mrca.prior <- create_mrca_prior(taxa_names=mrca.taxa,is_monophyletic = T)
+  mrca.prior <- create_mrca_prior(taxa_names=mrca.taxa,is_monophyletic = TRUE)
   clock.rate <- beautier::create_clock_rate_param(value = 0.00277,estimate=FALSE)
 
   inference_model <- create_inference_model(
@@ -138,9 +138,9 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
   }
 
   # example fix
-  clock_prior_pattern <- "beautistatus='noAutoSetClockRate'"
-  expect_equal(1, length(stringr::str_subset(beauti_text, clock_prior_pattern)))
-  expect_equal(1, length(stringr::str_subset(beautier_text, clock_prior_pattern)))
+  clock_rate_param_pattern <- "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. estimate=.false. name=.clock.rate.>0.00277</parameter>"
+  expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
+  expect_equal(1, length(stringr::str_subset(beautier_text, clock_rate_param_pattern)))
 
   beautier::remove_beautier_folder()
 
