@@ -352,7 +352,6 @@ test_that("hky_2_4.xml", {
 
 test_that("hky_2_6.xml", {
   check_empty_beautier_folder()
-  remove_beautier_folder()
 
   inference_model <- create_inference_model(
     site_model = create_hky_site_model(),
@@ -372,7 +371,7 @@ test_that("hky_2_6.xml", {
     inference_model = inference_model
   )
   # If this passes, this is done!
-  beauti_file <- beautier::get_beautier_path("hky_2_6.xml")
+  beauti_filename <- beautier::get_beautier_path("hky_2_6.xml")
   expect_true(
     beautier::are_equivalent_xml_files(
       beautier_file,
