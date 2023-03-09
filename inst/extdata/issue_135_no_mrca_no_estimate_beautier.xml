@@ -5,15 +5,15 @@ id="anthus_aco_sub"
 spec="Alignment"
 name="alignment">
                             
-        <sequence id="seq_61430_aco" spec="Sequence" taxon="61430_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgaaaattgtctgttttt"/>
+        <sequence id="seq_61430_aco" spec="Sequence" taxon="61430_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGCGAAAATTGTCTGTTTTT"/>
                             
-        <sequence id="seq_626029_aco" spec="Sequence" taxon="626029_aco" totalcount="4" value="acaggttagaaactactctgttttctggctgcttgtttaatgccctctcctattttattgtgacgattgtctgttttt"/>
+        <sequence id="seq_626029_aco" spec="Sequence" taxon="626029_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTGCTTGTTTAATGCCCTCTCCTATTTTATTGTGACGATTGTCTGTTTTT"/>
                             
-        <sequence id="seq_630116_aco" spec="Sequence" taxon="630116_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgcgaaaattgtctgttttt"/>
+        <sequence id="seq_630116_aco" spec="Sequence" taxon="630116_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGCGAAAATTGTCTGTTTTT"/>
                             
-        <sequence id="seq_630210_aco" spec="Sequence" taxon="630210_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgtgacaattgtctgttttt"/>
+        <sequence id="seq_630210_aco" spec="Sequence" taxon="630210_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGTGACAATTGTCTGTTTTT"/>
                             
-        <sequence id="seq_B25702_aco" spec="Sequence" taxon="B25702_aco" totalcount="4" value="acaggttagaaactactctgttttctggctccttgtttaatgccctgtcctattttattgtgacaattgtctgttttt"/>
+        <sequence id="seq_B25702_aco" spec="Sequence" taxon="B25702_aco" totalcount="4" value="ACAGGTTAGAAACTACTCTGTTTTCTGGCTCCTTGTTTAATGCCCTGTCCTATTTTATTGTGACAATTGTCTGTTTTT"/>
                         
     </data>
         
@@ -57,8 +57,8 @@ name="alignment">
                         
             </tree>
                         
-            <parameter id="kappa.s:anthus_aco_sub" lower="0.0" name="stateNode">2.0</parameter>
-            <parameter id="freqParameter.s:anthus_aco_sub" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+            <parameter id="kappa.s:anthus_aco_sub" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.0</parameter>
+            <parameter id="freqParameter.s:anthus_aco_sub" spec="parameter.RealParameter" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
             <parameter id="birthRate.t:anthus_aco_sub" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
         </state>
             
@@ -72,12 +72,15 @@ name="alignment">
             <distribution id="prior" spec="util.CompoundDistribution">
                 <distribution id="YuleModel.t:anthus_aco_sub" spec="beast.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:anthus_aco_sub" tree="@Tree.t:anthus_aco_sub"/>
                 <prior id="YuleBirthRatePrior.t:anthus_aco_sub" name="distribution" x="@birthRate.t:anthus_aco_sub">
-                    <Uniform id="Uniform.100" name="distr" upper="Infinity"/>
+                    <Uniform id="Uniform.1" name="distr" upper="Infinity"/>
+                </prior>
+                <prior id="FrequenciesPrior.s:anthus_aco_sub" name="distribution" x="@freqParameter.s:anthus_aco_sub">
+                    <Uniform id="Uniform.3" name="distr"/>
                 </prior>
                 <prior id="KappaPrior.s:anthus_aco_sub" name="distribution" x="@kappa.s:anthus_aco_sub">
                     <LogNormal id="LogNormalDistributionModel.0" name="distr">
-                        <parameter id="RealParameter.0" estimate="false" name="M">1.0</parameter>
-                        <parameter id="RealParameter.1" estimate="false" lower="0" name="S" upper="Infinity">1.25</parameter>
+                        <parameter id="RealParameter.1" spec="parameter.RealParameter" estimate="false" name="M">1.0</parameter>
+                        <parameter id="RealParameter.2" spec="parameter.RealParameter" estimate="false" name="S">1.25</parameter>
                     </LogNormal>
                 </prior>
             </distribution>
@@ -101,7 +104,7 @@ name="alignment">
             </distribution>
         </distribution>
             
-        <operator id="YuleBirthRateScaler.t:anthus_aco_sub" spec="ScaleOperator" parameter="@birthRate.t:anthus_aco_sub" scaleFactor="0.75" weight="3.0"/>
+        <operator id="YuleBirthRateScaler.t:anthus_aco_sub" spec="ScaleOperator" parameter="@birthRate.t:anthus_aco_sub" weight="3.0"/>
             
         <operator id="YuleModelTreeScaler.t:anthus_aco_sub" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:anthus_aco_sub" weight="3.0"/>
             
