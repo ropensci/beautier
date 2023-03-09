@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Converts a site model to XML,
 #'   used in the \code{prior} section
 #' @inheritParams default_params_doc

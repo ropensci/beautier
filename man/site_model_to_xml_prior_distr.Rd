@@ -2,8 +2,7 @@
 % Please edit documentation in R/site_model_to_xml_prior.R
 \name{site_model_to_xml_prior_distr}
 \alias{site_model_to_xml_prior_distr}
-\title{Converts a site model to XML,
-  used in the \code{prior} section}
+\title{Internal function}
 \usage{
 site_model_to_xml_prior_distr(site_model, beauti_options)
 }
