@@ -23,7 +23,6 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   # * version != 2.6
   # * version == 2.6 && tipdates
   # * version == 2.6 && RLN
-  # * not #135
   add_scale_factor <- TRUE
 
   if (inference_model$beauti_options$beast2_version == "2.6" &&

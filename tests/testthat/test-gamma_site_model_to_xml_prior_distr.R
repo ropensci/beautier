@@ -41,7 +41,6 @@ test_that("use", {
 })
 
 test_that("use", {
-  skip("WIP #135")
   # v2.6 has a FrequenciesPrior section (see below), where v2.4 does not.
   #
   # <prior id=\"FrequenciesPrior.s:anthus_aco_sub\" name=\"distribution\" x=\"@freqParameter.s:anthus_aco_sub\">"
