@@ -12,29 +12,39 @@ test_that("1: expose problem: files are different already", {
   expect_false(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
 })
 
-test_that("re-create file step by step 1/?: the minimal XML", {
-
-  beauti_file <- beautier::get_beautier_path("anthus_aco_sub_2_6.xml")
-  file.copy(from = beauti_file, to = "~/anthus_aco_sub_2_6.xml")
-
-  fasta_filename <- beautier::get_beautier_path("anthus_aco_sub.fas")
-  inference_model <- create_inference_model(
-    beauti_options = beautier::create_beauti_options_v2_6(nucleotides_uppercase = TRUE)
-  )
+test_that("re-create file step by step 2/?: HKY site model", {
 
   # # Make the inference model match the BEAUti file
+  inference_model <- create_inference_model(
+    site_model = create_hky_site_model(),
+    beauti_options = beautier::create_beauti_options_v2_6(
+      nucleotides_uppercase = TRUE
+    )
+  )
   inference_model$tree_prior$birth_rate_distr$id <- "1"
-  # inference_model$site_model$kappa_prior_distr$m$id <- "1"
-  # inference_model$site_model$kappa_prior_distr$s$id <- "2"
+  inference_model$site_model$kappa_prior_distr$m$id <- "1"
+  inference_model$site_model$kappa_prior_distr$s$id <- "2"
 
-  beautier_file <- "~/created.xml"
+  beautier_file <- get_beautier_tempfilename(pattern = "anthus_aco_sub_2_6")
   create_beast2_input_file_from_model(
-    input_filename = fasta_filename,
+    input_filename = beautier::get_beautier_path("anthus_aco_sub.fas"),
     output_filename = beautier_file,
     inference_model = inference_model
   )
   # If this passes, this is done!
-  expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
+  beauti_file <- beautier::get_beautier_path("hky_2_6.xml")
+  expect_true(
+    beautier::are_equivalent_xml_files(
+      beautier_file,
+      beauti_filename
+    )
+  )
+  beautier::compare_lines(
+    lines = readr::read_lines(beautier_file),
+    expected = readr::read_lines(beauti_file),
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
 })
 
 test_that("1: re-created file", {

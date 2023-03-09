@@ -71,7 +71,6 @@ test_that("anthus_aco_sub_2_6.xml", {
   expected <- readLines(get_beautier_path("anthus_aco_sub_2_6.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
-
 ################################################################################
 # Site models
 ################################################################################
