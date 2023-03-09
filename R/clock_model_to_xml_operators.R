@@ -1,3 +1,5 @@
+#' Internal function
+#'
 #' Converts a clock model to the \code{operators} section of the
 #' XML as text
 #' @inheritParams default_params_doc

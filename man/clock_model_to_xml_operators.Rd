@@ -2,8 +2,7 @@
 % Please edit documentation in R/clock_model_to_xml_operators.R
 \name{clock_model_to_xml_operators}
 \alias{clock_model_to_xml_operators}
-\title{Converts a clock model to the \code{operators} section of the
-XML as text}
+\title{Internal function}
 \usage{
 clock_model_to_xml_operators(inference_model)
 }
