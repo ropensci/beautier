@@ -2,8 +2,7 @@
 % Please edit documentation in R/gamma_site_models_to_xml_prior_distr.R
 \name{gamma_site_models_to_xml_prior_distr}
 \alias{gamma_site_models_to_xml_prior_distr}
-\title{Creates the gamma site models section in the distribution section
-of a BEAST2 XML parameter file}
+\title{Deprecated function}
 \usage{
 gamma_site_models_to_xml_prior_distr(
   site_models,
@@ -21,7 +20,8 @@ as returned by \code{\link{create_beauti_options}}}
 lines of XML text
 }
 \description{
-Creates the gamma site models section in the distribution section
+Internal function to
+creates the gamma site models section in the distribution section
 of a BEAST2 XML parameter file
 }
 \author{

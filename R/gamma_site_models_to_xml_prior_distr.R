@@ -1,4 +1,7 @@
-#' Creates the gamma site models section in the distribution section
+#' Deprecated function
+#'
+#' Internal function to
+#' creates the gamma site models section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
 #' @return lines of XML text
@@ -8,15 +11,5 @@ gamma_site_models_to_xml_prior_distr <- function( # nolint indeed long function 
   site_models,
   beauti_options = create_beauti_options()
 ) {
-  text <- NULL
-  for (site_model in site_models) {
-    text <- c(
-      text,
-      beautier::gamma_site_model_to_xml_prior_distr(
-        site_model,
-        beauti_options = beauti_options
-      )
-    )
-  }
-  text
+  stop("Deprecated function, use 'gamma_site_model_to_xml_prior_distr' instead")
 }

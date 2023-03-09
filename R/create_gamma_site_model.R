@@ -16,6 +16,8 @@
 #'   are either \code{estimated}, \code{empirical} or \code{all_equal}.
 #'   \code{get_freq_equilibrium_names} returns the possible values
 #'   for \code{freq_equilibrium}
+#' @param freq_prior_uniform_distr_id the ID of the `FrequenciesPrior`'s
+#' uniform distribution
 #' @return a gamma site model
 #' @seealso Use \code{\link{create_gamma_site_model}}
 #'   to create a gamma site model
@@ -43,8 +45,10 @@ create_gamma_site_model <- function(
   gamma_shape = "1.0",
   prop_invariant = "0.0",
   gamma_shape_prior_distr = NA,
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_prior_uniform_distr_id = 1000
 ) {
+  testthat::expect_true(beautier::is_id(freq_prior_uniform_distr_id))
   if (length(gamma_cat_count) == 1 &&
       gamma_cat_count >= 2
     && beautier::is_one_na(gamma_shape_prior_distr)) {
@@ -62,7 +66,8 @@ create_gamma_site_model <- function(
     gamma_shape = gamma_shape,
     prop_invariant = prop_invariant,
     gamma_shape_prior_distr = gamma_shape_prior_distr,
-    freq_equilibrium = freq_equilibrium
+    freq_equilibrium = freq_equilibrium,
+    freq_prior_uniform_distr_id = freq_prior_uniform_distr_id
   )
   beautier::check_gamma_site_model(gamma_site_model)
   gamma_site_model

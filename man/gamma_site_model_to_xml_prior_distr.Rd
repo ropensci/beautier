@@ -2,20 +2,18 @@
 % Please edit documentation in R/gamma_site_model_to_xml_prior_distr.R
 \name{gamma_site_model_to_xml_prior_distr}
 \alias{gamma_site_model_to_xml_prior_distr}
-\title{Creates the gamma site models section in the distribution section
-of a BEAST2 XML parameter file}
+\title{Internal function.}
 \usage{
-gamma_site_model_to_xml_prior_distr(
-  site_model,
-  beauti_options = create_beauti_options()
-)
+gamma_site_model_to_xml_prior_distr(inference_model)
 }
 \arguments{
-\item{site_model}{a site model,
-as returned by \code{\link{create_site_model}}}
-
-\item{beauti_options}{one BEAUti options object,
-as returned by \code{\link{create_beauti_options}}}
+\item{inference_model}{a Bayesian phylogenetic inference model.
+An inference model is the complete model setup in which a site model,
+clock model, tree prior and more are specified.
+Use \link{create_inference_model} to create an inference model.
+Use \link{check_inference_model} to check if  an inference model is valid.
+Use \link{rename_inference_model_filenames} to rename the files in an
+inference model.}
 }
 \value{
 lines of XML text

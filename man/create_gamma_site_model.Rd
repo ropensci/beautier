@@ -9,7 +9,8 @@ create_gamma_site_model(
   gamma_shape = "1.0",
   prop_invariant = "0.0",
   gamma_shape_prior_distr = NA,
-  freq_equilibrium = "estimated"
+  freq_equilibrium = "estimated",
+  freq_prior_uniform_distr_id = 1000
 )
 }
 \arguments{
@@ -34,6 +35,9 @@ distribution, as can be created by \code{\link{create_distr}}}
 are either \code{estimated}, \code{empirical} or \code{all_equal}.
 \code{get_freq_equilibrium_names} returns the possible values
 for \code{freq_equilibrium}}
+
+\item{freq_prior_uniform_distr_id}{the ID of the `FrequenciesPrior`'s
+uniform distribution}
 }
 \value{
 a gamma site model

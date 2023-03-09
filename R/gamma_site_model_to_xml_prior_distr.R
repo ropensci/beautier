@@ -7,20 +7,41 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function name
-  site_model,
-  beauti_options
+  inference_model
 ) {
-  testit::assert(beautier::is_site_model(site_model))
+  beautier::check_inference_model(inference_model)
+  site_model <- inference_model$site_model # don't be smart yet
+  beauti_options <- inference_model$beauti_options  # don't be smart yet
   id <- site_model$id
-  testit::assert(beautier::is_id(id))
 
   text <- NULL
 
-  if (1 == 2 && !beautier::is_jc69_site_model(site_model)) {
+  if (inference_model$beauti_options$beast2_version =="2.6" &&
+      !beautier::is_jc69_site_model(inference_model$site_model)
+    ) {
+    testthat::expect_true(
+      beautier::is_id(
+        inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id
+      )
+    )
+
     text <- c(
       text,
-      paste0("<prior id=\"FrequenciesPrior.s:anthus_aco_sub\" name=\"distribution\" x=\"@freqParameter.s:anthus_aco_sub\">"),
-      beautier::indent("<Uniform id=\"Uniform.3\" name=\"distr\"/>"),
+      paste0(
+        "<prior ",
+        "id=\"FrequenciesPrior.s:", id, "\" ",
+        "name=\"distribution\" ",
+        "x=\"@freqParameter.s:", id,
+        "\">"
+      ),
+      beautier::indent(
+        paste0(
+          "<Uniform ",
+          "id=\"Uniform.", inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id, "\" ",
+          "name=\"distr\"",
+          "/>"
+        )
+      ),
       "</prior>"
     )
   }

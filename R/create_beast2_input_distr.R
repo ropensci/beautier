@@ -97,9 +97,9 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   )
   text <- c(
     text,
-    beautier::gamma_site_models_to_xml_prior_distr(
-      site_models,
-      beauti_options = inference_model$beauti_options)
+    beautier::gamma_site_model_to_xml_prior_distr(
+      inference_model
+    )
   )
   text <- c(
     text,

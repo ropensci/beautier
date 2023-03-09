@@ -1,33 +1,41 @@
 test_that("use", {
   expect_silent(
     gamma_site_model_to_xml_prior_distr(
-      site_model = create_jc69_site_model(id = 1),
-      beauti_options = create_beauti_options_v2_4()
+      create_inference_model(
+        site_model = create_jc69_site_model(id = 1),
+        beauti_options = create_beauti_options_v2_4()
+      )
     )
   )
   expect_silent(
     gamma_site_model_to_xml_prior_distr(
-      site_model = create_jc69_site_model(id = 1),
-      beauti_options = create_beauti_options_v2_6()
+      create_inference_model(
+        site_model = create_jc69_site_model(id = 1),
+        beauti_options = create_beauti_options_v2_6()
+      )
     )
   )
 
   expect_silent(
     gamma_site_model_to_xml_prior_distr(
-      site_model = create_hky_site_model(
-        id = 1,
-        kappa_prior_distr = create_uniform_distr(id = 2)
-      ),
-      beauti_options = create_beauti_options_v2_4()
+      create_inference_model(
+        site_model = create_hky_site_model(
+          id = 1,
+          kappa_prior_distr = create_uniform_distr(id = 2)
+        ),
+        beauti_options = create_beauti_options_v2_4()
+      )
     )
   )
   expect_silent(
     gamma_site_model_to_xml_prior_distr(
-      site_model = create_hky_site_model(
-        id = 1,
-        kappa_prior_distr = create_uniform_distr(id = 2)
-      ),
-      beauti_options = create_beauti_options_v2_6()
+      create_inference_model(
+        site_model = create_hky_site_model(
+          id = 1,
+          kappa_prior_distr = create_uniform_distr(id = 2)
+        ),
+        beauti_options = create_beauti_options_v2_6()
+      )
     )
   )
 })
@@ -55,8 +63,10 @@ test_that("use", {
     length(
       stringr::str_subset(
         gamma_site_model_to_xml_prior_distr(
-          site_model = site_model,
-          beauti_options = create_beauti_options_v2_4()
+          create_inference_model(
+            site_model = site_model,
+            beauti_options = create_beauti_options_v2_4()
+          )
         ),
         pattern = freq_prior_regex
       )
@@ -67,8 +77,10 @@ test_that("use", {
     length(
       stringr::str_subset(
         gamma_site_model_to_xml_prior_distr(
-          site_model = site_model,
-          beauti_options = create_beauti_options_v2_6()
+          create_inference_model(
+            site_model = site_model,
+            beauti_options = create_beauti_options_v2_6()
+          )
         ),
         pattern = freq_prior_regex
       )

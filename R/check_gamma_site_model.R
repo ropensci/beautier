@@ -62,7 +62,8 @@ check_gamma_site_model_names <- function(gamma_site_model) {
 
   argument_names <- c(
     "gamma_cat_count", "gamma_shape", "prop_invariant",
-    "gamma_shape_prior_distr", "freq_equilibrium"
+    "gamma_shape_prior_distr", "freq_equilibrium",
+    "freq_prior_uniform_distr_id"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(gamma_site_model)) {
