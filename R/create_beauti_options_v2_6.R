@@ -2,6 +2,7 @@
 #'
 #' Function to create the BEAUti options for version 2.6, by
 #' calling \link{create_beauti_options}.
+#' @inheritParams create_beauti_options
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
 #' @examples

@@ -10,6 +10,15 @@ create_beauti_options_v2_6(
   nucleotides_uppercase = FALSE
 )
 }
+\arguments{
+\item{beast2_version}{the BEAST2 version}
+
+\item{sequence_indent}{the number of spaces the XML \code{sequence}
+lines are indented}
+
+\item{nucleotides_uppercase}{must the nucleotides of the DNA sequence be
+in uppercase?}
+}
 \value{
 a BEAUti options structure
 }
