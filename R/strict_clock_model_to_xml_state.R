@@ -18,7 +18,22 @@ strict_clock_model_to_xml_state <- function(
 
   text <- NULL
 
-  # return("<parameter id=\"clockRate.c:anthus_aco_sub\" spec=\"parameter.RealParameter\" lower=\"0.00277\" name=\"stateNode\" upper=\"0.00542\">0.0035</parameter>")
+  if (inference_model$clock_model$clock_rate_param$estimate) {
+    text <- c(
+      text,
+      paste0(
+        "<parameter ",
+        "id=\"clockRate.c:", inference_model$clock_model$id, "\" ",
+        "spec=\"parameter.RealParameter\" ",
+        "lower=\"", inference_model$clock_model$clock_rate_distr$lower, "\" ",
+        "name=\"stateNode\" ",
+        "upper=\"", inference_model$clock_model$clock_rate_distr$upper,"\">",
+        inference_model$clock_model$clock_rate_param$value,
+        "</parameter>"
+      )
+    )
+
+  }
 
   if (!beautier::has_tip_dating(inference_model)) {
     return(text)

@@ -53,6 +53,5 @@ test_that("estimated clock rate, v2.6", {
   created <- strict_clock_model_to_xml_state(
     inference_model = inference_model
   )
-  created
-
+  expect_equal(1, length(created))
 })
