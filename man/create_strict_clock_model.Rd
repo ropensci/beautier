@@ -30,6 +30,11 @@ a strict clock_model
 \description{
 Create a strict clock model
 }
+\note{
+I am unsure about the relationship between `clock_rate_param`
+and `clock_rate_distr`. Please contact me if you know
+the most natural architecture
+}
 \examples{
 if (is_on_ci()) {
   strict_clock_model <- create_strict_clock_model(

@@ -1,11 +1,22 @@
-test_that("strict", {
-  inference_model <- create_inference_model(
-    clock_model = create_strict_clock_model()
+test_that("strict, v2.6", {
+  # More detailed tests in 'test-strict_clock_model_to_xml_prior_distr'
+  expect_silent(
+    clock_model_to_xml_prior_distr(
+      inference_model = create_inference_model(
+        clock_model = create_strict_clock_model(),
+        beauti_options = create_beauti_options_v2_4()
+      )
+    )
   )
-  expect_true(
-    is.null(
-      clock_model_to_xml_prior_distr(
-        inference_model = inference_model
+})
+
+test_that("strict, v2.6", {
+  # More detailed tests in 'test-strict_clock_model_to_xml_prior_distr'
+  expect_silent(
+    clock_model_to_xml_prior_distr(
+      inference_model = create_inference_model(
+        clock_model = create_strict_clock_model(),
+        beauti_options = create_beauti_options_v2_6()
       )
     )
   )

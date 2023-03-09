@@ -124,6 +124,9 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 #'   as created by the \code{\link{create_clock_rate_param}} function
 #' @param clock_rate_distr the clock rate's distribution,
 #'   as created by a \code{\link{create_distr}} function
+#' @note I am unsure about the relationship between `clock_rate_param`
+#' and `clock_rate_distr`. Please contact me if you know
+#' the most natural architecture
 #' @return a strict clock_model
 #' @author Richèl J.C. Bilderbeek
 #' @examples

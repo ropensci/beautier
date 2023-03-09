@@ -14,39 +14,21 @@
 #'  #     <distribution id="likelihood" ...>
 #'  #     </distribution>
 #'  # </distribution>
+#' clock_model_to_xml_prior_distr(
+#'   inference_model = create_inference_model()
+#' )
 #' check_empty_beautier_folder()
 #' @export
 clock_model_to_xml_prior_distr <- function(
   inference_model
 ) {
-  # Do not be smart yet
-  clock_model <- inference_model$clock_model
-  tipdates_filename <- inference_model$tipdates_filename
+  testit::assert(beautier::is_clock_model(inference_model$clock_model))
 
-  testit::assert(beautier::is_clock_model(clock_model))
-
-  text <- NULL
-  if (beautier::is_rln_clock_model(clock_model)) {
+  if (beautier::is_rln_clock_model(inference_model$clock_model)) {
     return(beautier::rln_clock_model_to_xml_prior_distr(inference_model))
   } else {
     # Fails for unimplemented clock models
-    testit::assert(beautier::is_strict_clock_model(clock_model))
-
-    if (!beautier::is_one_na(tipdates_filename)) {
-      id <- clock_model$id
-      testit::assert(beautier::is_id(id))
-      text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
-        "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
-      text <- c(text,
-        beautier::indent(
-          beautier::distr_to_xml(
-            clock_model$clock_rate_distr,
-            beauti_options = inference_model$beauti_options
-          )
-        )
-      )
-      text <- c(text, paste0("</prior>"))
-    }
+    testit::assert(beautier::is_strict_clock_model(inference_model$clock_model))
+    return(beautier::strict_clock_model_to_xml_prior_distr(inference_model))
   }
-  text
 }
