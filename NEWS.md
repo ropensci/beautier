@@ -10,6 +10,7 @@ Newest versions at top.
  * Add `create_kappa_param`/`create_param_kappa` for the HKY site model
  * Add `is_freq_param` for the GTR, HKY and TN93 site models
  * Add `is_kappa_param` for the HKY site model
+ * The clock rate of a strict clock model can be estimated
 
 ### MINOR IMPROVEMENTS
 
