@@ -36,9 +36,6 @@ test_that("strict, v2.6, with clock rate to be estimated", {
     )
   )
 
-  # <prior id="ClockPrior.c:anthus_aco_sub" name="distribution" x="@clockRate.c:anthus_aco_sub">
-  #   <Uniform id="Uniform.0" name="distr" upper="Infinity"/>
-  # </prior>
   expect_equal(
     3,
     length(

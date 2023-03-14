@@ -16,20 +16,22 @@ TRUE if x is a valid MCMC, FALSE otherwise
 Determine if the object is a valid MCMC
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
+  check_empty_beautier_folder()
 
-# Returns TRUE
-is_mcmc(create_mcmc())
-is_mcmc(create_ns_mcmc())
+  # Returns TRUE
+  is_mcmc(create_mcmc())
+  is_mcmc(create_ns_mcmc())
 
-# Returns FALSE
-is_mcmc("nonsense")
-is_mcmc(NULL)
-is_mcmc(NA)
-is_mcmc("")
-is_mcmc(c())
+  # Returns FALSE
+  is_mcmc("nonsense")
+  is_mcmc(NULL)
+  is_mcmc(NA)
+  is_mcmc("")
+  is_mcmc(c())
 
-check_empty_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \seealso{
 Use \code{\link{create_mcmc}} to create an MCMC

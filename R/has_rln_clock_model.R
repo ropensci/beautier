@@ -9,19 +9,21 @@
 #' FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
+#'   check_empty_beautier_folder()
 #'
-#' # Yes, has a RLN clock model
-#' has_rln_clock_model(
-#'   create_inference_model(clock_model = create_rln_clock_model())
-#' )
+#'   # Yes, has a RLN clock model
+#'   has_rln_clock_model(
+#'     create_inference_model(clock_model = create_rln_clock_model())
+#'   )
 #'
-#' # No RLN clock model
-#' has_rln_clock_model(
-#'   create_inference_model(clock_model = create_strict_clock_model())
-#' )
+#'   # No RLN clock model
+#'   has_rln_clock_model(
+#'     create_inference_model(clock_model = create_strict_clock_model())
+#'   )
 #'
-#' check_empty_beautier_folder()
+#'   check_empty_beautier_folder()
+#' }
 #' @export
 has_rln_clock_model <- function(inference_model) {
   beautier::check_inference_model(inference_model)

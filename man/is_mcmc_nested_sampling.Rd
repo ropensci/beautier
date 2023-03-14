@@ -19,15 +19,17 @@ Determine if the object is a valid Nested-Sampling MCMC,
   as used in [1]
 }
 \examples{
-check_empty_beautier_folder()
+if (is_on_ci()) {
+  check_empty_beautier_folder()
 
-# TRUE
-is_nested_sampling_mcmc(create_ns_mcmc())
-# FALSE
-is_nested_sampling_mcmc(create_mcmc())
-is_nested_sampling_mcmc("nonsense")
+  # TRUE
+  is_nested_sampling_mcmc(create_ns_mcmc())
+  # FALSE
+  is_nested_sampling_mcmc(create_mcmc())
+  is_nested_sampling_mcmc("nonsense")
 
-check_empty_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \references{
 * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,

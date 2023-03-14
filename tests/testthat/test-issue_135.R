@@ -15,7 +15,9 @@ test_that("1: can re-create file 'issue_135_no_mrca_no_estimate_beauti.xml'", {
     site_model = beautier::create_hky_site_model(),
     clock_model = beautier::create_strict_clock_model(id = NA, clock_rate),
     tree_prior = create_yule_tree_prior(),
-    beauti_options = beautier::create_beauti_options_v2_6(nucleotides_uppercase = TRUE)
+    beauti_options = beautier::create_beauti_options_v2_6(
+      nucleotides_uppercase = TRUE
+    )
   )
 
   inference_model$tree_prior$birth_rate_distr$id <- "1"
@@ -45,14 +47,20 @@ test_that("1: can re-create file 'issue_135_no_mrca_no_estimate_beauti.xml'", {
 test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
 
   # Delivered by the user
-  beauti_file <- beautier::get_beautier_path("issue_135_no_mrca_estimate_beauti.xml")
+  beauti_file <- beautier::get_beautier_path(
+    "issue_135_no_mrca_estimate_beauti.xml"
+  )
 
   beautier_file <- get_beautier_tempfilename()
 
   #134 without mrca prior, estimating clock rate from a uniform prior
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
-  clock_rate <- beautier::create_clock_rate_param(value = "0.0035", estimate = TRUE)
-  clock_uniform <- beautier::create_uniform_distr(value = 0.0035, lower = 0.00277, upper = 0.00542)
+  clock_rate <- beautier::create_clock_rate_param(
+    value = "0.0035", estimate = TRUE
+  )
+  clock_uniform <- beautier::create_uniform_distr(
+    value = 0.0035, lower = 0.00277, upper = 0.00542
+  )
 
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
@@ -89,7 +97,9 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
 test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
 
   # This is a unique file, delivered by the user
-  beauti_file <- beautier::get_beautier_path("issue_135_mrca_no_estimate_beauti.xml")
+  beauti_file <- beautier::get_beautier_path(
+    "issue_135_mrca_no_estimate_beauti.xml"
+  )
   beautier_file <- get_beautier_tempfilename()
 
   #134 without mrca prior, estimating clock rate from a uniform prior
@@ -99,12 +109,18 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   mrca_taxa <- get_taxa_names(fasta_filename)
   mrca_taxa <- mrca_taxa[2:length(mrca_taxa)]
-  mrca_prior <- create_mrca_prior(taxa_names=mrca_taxa,is_monophyletic = TRUE)
-  clock_rate <- beautier::create_clock_rate_param(value = 0.00277,estimate=FALSE)
+  mrca_prior <- create_mrca_prior(
+    taxa_names = mrca_taxa,
+    is_monophyletic = TRUE
+  )
+  clock_rate <- beautier::create_clock_rate_param(
+    value = 0.00277,
+    estimate = FALSE
+  )
 
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
-    clock_model = beautier::create_strict_clock_model(id = NA,clock_rate),
+    clock_model = beautier::create_strict_clock_model(id = NA, clock_rate),
     tree_prior = create_yule_tree_prior(),
     mrca_prior = mrca_prior,
     beauti_options = beautier::create_beauti_options_v2_6(
@@ -132,20 +148,34 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
 test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
 
   # This is a unique file, delivered by the user
-  beauti_file <- beautier::get_beautier_path("issue_135_mrca_estimate_beauti.xml")
+  beauti_file <- beautier::get_beautier_path(
+    "issue_135_mrca_estimate_beauti.xml"
+  )
   beautier_file <- get_beautier_tempfilename()
 
   #With mrca prior, estimating clock rate from a uniform prior
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   mrca_taxa <- get_taxa_names(fasta_filename)
   mrca_taxa <- mrca_taxa[2:length(mrca_taxa)]
-  mrca_prior <- create_mrca_prior(taxa_names = mrca_taxa, is_monophyletic = TRUE)
-  clock_rate <- beautier::create_clock_rate_param(value = "0.0035", estimate = TRUE)
-  clock_uniform<-beautier::create_uniform_distr(value = 0.0035, lower = 0.00277, upper = 0.00542)
+  mrca_prior <- create_mrca_prior(
+    taxa_names = mrca_taxa,
+    is_monophyletic = TRUE
+  )
+  clock_rate <- beautier::create_clock_rate_param(
+    value = "0.0035",
+    estimate = TRUE
+  )
+  clock_uniform <- beautier::create_uniform_distr(
+    value = 0.0035, lower = 0.00277, upper = 0.00542
+  )
 
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
-    clock_model = beautier::create_strict_clock_model(id = NA,clock_rate,clock_uniform),
+    clock_model = beautier::create_strict_clock_model(
+      id = NA,
+      clock_rate,
+      clock_uniform
+    ),
     tree_prior = create_yule_tree_prior(),
     mrca_prior = mrca_prior,
     beauti_options = beautier::create_beauti_options_v2_6(

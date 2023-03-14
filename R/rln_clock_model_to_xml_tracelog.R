@@ -16,8 +16,6 @@
 rln_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  # Do not be smart yet
-  clock_model <- inference_model$clock_model
   testthat::expect_true(
     beautier::is_rln_clock_model(inference_model$clock_model)
   )

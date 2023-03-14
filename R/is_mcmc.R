@@ -3,20 +3,22 @@
 #' @seealso Use \code{\link{create_mcmc}} to create an MCMC
 #' @return TRUE if x is a valid MCMC, FALSE otherwise
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
+#'   check_empty_beautier_folder()
 #'
-#' # Returns TRUE
-#' is_mcmc(create_mcmc())
-#' is_mcmc(create_ns_mcmc())
+#'   # Returns TRUE
+#'   is_mcmc(create_mcmc())
+#'   is_mcmc(create_ns_mcmc())
 #'
-#' # Returns FALSE
-#' is_mcmc("nonsense")
-#' is_mcmc(NULL)
-#' is_mcmc(NA)
-#' is_mcmc("")
-#' is_mcmc(c())
+#'   # Returns FALSE
+#'   is_mcmc("nonsense")
+#'   is_mcmc(NULL)
+#'   is_mcmc(NA)
+#'   is_mcmc("")
+#'   is_mcmc(c())
 #'
-#' check_empty_beautier_folder()
+#'   check_empty_beautier_folder()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_mcmc <- function(
@@ -38,15 +40,17 @@ is_mcmc <- function(
 #' @seealso Use \link{create_ns_mcmc} to create an NS MCMC
 #' @return TRUE if x is a valid Nested-Sampling MCMC, FALSE otherwise
 #' @examples
-#' check_empty_beautier_folder()
+#' if (is_on_ci()) {
+#'   check_empty_beautier_folder()
 #'
-#' # TRUE
-#' is_nested_sampling_mcmc(create_ns_mcmc())
-#' # FALSE
-#' is_nested_sampling_mcmc(create_mcmc())
-#' is_nested_sampling_mcmc("nonsense")
+#'   # TRUE
+#'   is_nested_sampling_mcmc(create_ns_mcmc())
+#'   # FALSE
+#'   is_nested_sampling_mcmc(create_mcmc())
+#'   is_nested_sampling_mcmc("nonsense")
 #'
-#' check_empty_beautier_folder()
+#'   check_empty_beautier_folder()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @references
 #'   * [1] Patricio Maturana Russel, Brendon J Brewer, Steffen Klaere,
