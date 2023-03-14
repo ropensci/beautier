@@ -96,6 +96,7 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
 create_branch_rate_model_xml_old <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
+  stop("DELETE ME")
   has_no_mrca_prior <- beautier::is_one_na(inference_model$mrca_prior)
   has_non_strict_clock <- beautier::get_has_non_strict_clock_model(
     list(inference_model$clock_model)
@@ -136,6 +137,7 @@ create_branch_rate_model_xml_old <- function(# nolint long function name, which 
 create_strict_clock_branch_rate_model_xml_old <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
+  stop("DELETE ME")
   testthat::expect_true(
     beautier::is_strict_clock_model(inference_model$clock_model)
   )
