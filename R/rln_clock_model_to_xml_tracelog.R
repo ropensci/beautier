@@ -18,8 +18,10 @@ rln_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal fun
 ) {
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-  testthat::expect_true(beautier::is_rln_clock_model(inference_model$clock_model))
-  id <- clock_model$id
+  testthat::expect_true(
+    beautier::is_rln_clock_model(inference_model$clock_model)
+  )
+  id <- inference_model$clock_model$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL

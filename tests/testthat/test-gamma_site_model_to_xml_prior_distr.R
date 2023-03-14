@@ -43,8 +43,24 @@ test_that("use", {
 test_that("use", {
   # v2.6 has a FrequenciesPrior section (see below), where v2.4 does not.
   freq_prior_regex <- "FrequenciesPrior.s"
-  expect_equal(0, length(stringr::str_subset(readr::read_lines(get_beautier_path("hky_2_4.xml")), freq_prior_regex)))
-  expect_equal(1, length(stringr::str_subset(readr::read_lines(get_beautier_path("hky_2_6.xml")), freq_prior_regex)))
+  expect_equal(
+    0,
+    length(
+      stringr::str_subset(
+        readr::read_lines(get_beautier_path("hky_2_4.xml")),
+        freq_prior_regex
+      )
+    )
+  )
+  expect_equal(
+    1,
+    length(
+      stringr::str_subset(
+        readr::read_lines(get_beautier_path("hky_2_6.xml")),
+        freq_prior_regex
+      )
+    )
+  )
 
   site_model <- create_hky_site_model(
     id = 1,

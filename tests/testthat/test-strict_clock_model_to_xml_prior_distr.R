@@ -28,8 +28,12 @@ test_that("strict, v2.6, with clock rate to be estimated", {
 
   clock_model <- beautier::create_strict_clock_model(
     id = "anthus_aco_sub",
-    clock_rate_param = beautier::create_clock_rate_param(value = "0.0035", estimate = TRUE),
-    clock_rate_distr = beautier::create_uniform_distr(id = 0, value = 0.0035, lower = 0.00277, upper = 0.00542)
+    clock_rate_param = beautier::create_clock_rate_param(
+      value = "0.0035", estimate = TRUE
+    ),
+    clock_rate_distr = beautier::create_uniform_distr(
+      id = 0, value = 0.0035, lower = 0.00277, upper = 0.00542
+    )
   )
 
   # <prior id="ClockPrior.c:anthus_aco_sub" name="distribution" x="@clockRate.c:anthus_aco_sub">
