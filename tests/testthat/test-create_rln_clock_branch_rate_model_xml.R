@@ -20,7 +20,7 @@ test_that("RLN, v2.4", {
       beauti_options = create_beauti_options_v2_4()
     )
   )
-  created <- create_branch_rate_model_rln_xml(
+  created <- create_rln_clock_branch_rate_model_xml(
     inference_model = inference_model
   )
   expect_equal(created, expected)
@@ -49,7 +49,7 @@ test_that("RLN, v2.6", {
     input_filename = get_fasta_filename(),
     inference_model = inference_model
   )
-  created <- create_branch_rate_model_rln_xml(
+  created <- create_rln_clock_branch_rate_model_xml(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -77,7 +77,7 @@ test_that("RLN + tipdates, v2.6", {
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
     beauti_options = create_beauti_options_v2_6()
   )
-  created <- create_branch_rate_model_rln_xml(
+  created <- create_rln_clock_branch_rate_model_xml(
     inference_model = inference_model
   )
   expect_true(are_equivalent_xml_lines(created, expected))
