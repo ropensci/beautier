@@ -120,7 +120,6 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
     inference_model = inference_model
   )
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
-  beautier::remove_beautier_folder()
 })
 
 
@@ -134,25 +133,30 @@ test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
   beautier_file <- "~/issue_135_mrca_estimate_beautier.xml"
   # beautier_file <- get_beautier_tempfilename()
 
-  #134 without mrca prior, estimating clock rate from a uniform prior
-  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
-
-  #With mrca prior, single value at clock rate
+  #With mrca prior, estimating clock rate from a uniform prior
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   mrca.taxa <- get_taxa_names(fasta_filename)
   mrca.taxa <- mrca.taxa[2:length(mrca.taxa)]
-  mrca.prior <- create_mrca_prior(taxa_names=mrca.taxa,is_monophyletic = TRUE)
-  clock.rate <- beautier::create_clock_rate_param(value = 0.00277,estimate=FALSE)
+  mrca.prior <- create_mrca_prior(taxa_names=mrca.taxa,is_monophyletic = T)
+  clock.rate <- beautier::create_clock_rate_param(value = "0.0035",estimate=TRUE)
+  clock.uniform<-beautier::create_uniform_distr(value = 0.0035,lower = 0.00277, upper = 0.00542)
 
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
-    clock_model = beautier::create_strict_clock_model(id = NA,clock.rate),
+    clock_model = beautier::create_strict_clock_model(id = NA,clock.rate,clock.uniform),
     tree_prior = create_yule_tree_prior(),
     mrca_prior = mrca.prior,
     beauti_options = beautier::create_beauti_options_v2_6(
       nucleotides_uppercase = TRUE
     )
   )
+
+  create_beast2_input_file_from_model(
+    input_filename = fasta_filename,
+    output_filename = beautier_file,
+    inference_model= inference_model
+  )
+
 
   # Make the inference model match the BEAUti file
   inference_model$tree_prior$birth_rate_distr$id <- "1"
@@ -181,7 +185,7 @@ test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
   }
 
   # example fix
-  clock_rate_param_pattern <- "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. estimate=.false. name=.clock.rate.>0.00277</parameter>"
+  clock_rate_param_pattern <- "<branchRateModel id=.StrictClock.c:anthus_aco_sub. spec=.beast.evolution.branchratemodel.StrictClockModel. clock.rate=.@clockRate.c:anthus_aco_sub./>"
   expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, clock_rate_param_pattern)))
   beautier::remove_beautier_folder()
