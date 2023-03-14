@@ -124,7 +124,6 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
 
 
 test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
-  skip("Issue #135, Issue 135")
 
   # This is a unique file, delivered by the user
   beauti_file <- beautier::get_beautier_path("issue_135_mrca_estimate_beauti.xml")
@@ -147,16 +146,10 @@ test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
     tree_prior = create_yule_tree_prior(),
     mrca_prior = mrca.prior,
     beauti_options = beautier::create_beauti_options_v2_6(
-      nucleotides_uppercase = TRUE
+      nucleotides_uppercase = TRUE,
+      status = "noAutoSetClockRate"
     )
   )
-
-  create_beast2_input_file_from_model(
-    input_filename = fasta_filename,
-    output_filename = beautier_file,
-    inference_model= inference_model
-  )
-
 
   # Make the inference model match the BEAUti file
   inference_model$tree_prior$birth_rate_distr$id <- "1"
