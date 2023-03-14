@@ -120,6 +120,7 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
     inference_model = inference_model
   )
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
+  beautier::remove_beautier_folder()
 })
 
 
@@ -127,10 +128,7 @@ test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
 
   # This is a unique file, delivered by the user
   beauti_file <- beautier::get_beautier_path("issue_135_mrca_estimate_beauti.xml")
-
-  file.copy(beauti_file, "~/issue_135_mrca_estimate_beauti.xml")
-  beautier_file <- "~/issue_135_mrca_estimate_beautier.xml"
-  # beautier_file <- get_beautier_tempfilename()
+  beautier_file <- get_beautier_tempfilename()
 
   #With mrca prior, estimating clock rate from a uniform prior
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
@@ -165,22 +163,5 @@ test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
   )
   # If this passes, this is done!
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
-
-  beauti_text <- readr::read_lines(beauti_file)
-  beautier_text <- readr::read_lines(beautier_file)
-  if (1 + 1 == 2) {
-    beautier::compare_lines(
-      lines = beautier_text,
-      expected = beauti_text,
-      created_lines_filename = "~/created.xml",
-      expected_lines_filename = "~/expected.xml"
-    )
-  }
-
-  # example fix
-  clock_rate_param_pattern <- "<branchRateModel id=.StrictClock.c:anthus_aco_sub. spec=.beast.evolution.branchratemodel.StrictClockModel. clock.rate=.@clockRate.c:anthus_aco_sub./>"
-  expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
-  expect_equal(1, length(stringr::str_subset(beautier_text, clock_rate_param_pattern)))
   beautier::remove_beautier_folder()
-
 })
