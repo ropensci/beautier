@@ -46,7 +46,9 @@ test_that("use, v2.4", {
 test_that("use, v2.6", {
   expected <- unindent(
     extract_xml_section_from_lines(
-      lines = readr::read_lines(get_beautier_path("issue_135_no_mrca_no_estimate_beauti.xml")),
+      lines = readr::read_lines(
+        get_beautier_path("issue_135_no_mrca_no_estimate_beauti.xml")
+      ),
       section = "state"
     )[9]
   )

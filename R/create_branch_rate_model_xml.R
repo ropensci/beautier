@@ -49,6 +49,6 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
     testthat::expect_true(
       beautier::is_rln_clock_model(inference_model$clock_model)
     )
-    return (beautier::create_rln_clock_branch_rate_model_xml(inference_model))
+    return(beautier::create_rln_clock_branch_rate_model_xml(inference_model))
   }
 }

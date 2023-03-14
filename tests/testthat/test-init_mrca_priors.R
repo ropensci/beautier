@@ -27,7 +27,10 @@ test_that("initialize, without distr, v2.6", {
   )
   testthat::expect_true(!are_init_mrca_priors(before))
   testthat::expect_true(are_mrca_priors(before))
-  after <- init_mrca_priors(before, beauti_options = create_beauti_options_v2_6())
+  after <- init_mrca_priors(
+    before,
+    beauti_options = create_beauti_options_v2_6()
+  )
   testthat::expect_true(are_init_mrca_priors(after))
   testthat::expect_true(are_mrca_priors(after))
   expect_equal(after[[1]]$name, "ingroup")

@@ -106,4 +106,3 @@ test_that("Yule", {
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
-

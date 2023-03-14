@@ -21,8 +21,18 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
   if (inference_model$clock_model$clock_rate_param$estimate) {
     text <- c(
       text,
-      paste0("<operator id=\"StrictClockRateScaler.c:", id, "\" spec=\"ScaleOperator\" parameter=\"@clockRate.c:", id, "\" weight=\"3.0\"/>"),
-      paste0("<operator id=\"strictClockUpDownOperator.c:", id, "\" spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"),
+      paste0(
+        "<operator id=\"StrictClockRateScaler.c:", id, "\" ",
+        "spec=\"ScaleOperator\" ",
+        "parameter=\"@clockRate.c:", id, "\" ",
+        "weight=\"3.0\"/>"
+      ),
+      paste0(
+        "<operator id=\"strictClockUpDownOperator.c:", id, "\" ",
+        "spec=\"UpDownOperator\" ",
+        "scaleFactor=\"0.75\" ",
+        "weight=\"3.0\">"
+      ),
       beautier::indent(paste0("<up idref=\"clockRate.c:", id, "\"/>")),
       beautier::indent(paste0("<down idref=\"Tree.t:", id, "\"/>")),
       "</operator>"

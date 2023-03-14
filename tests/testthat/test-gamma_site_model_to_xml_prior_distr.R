@@ -42,12 +42,6 @@ test_that("use", {
 
 test_that("use", {
   # v2.6 has a FrequenciesPrior section (see below), where v2.4 does not.
-  #
-  # <prior id=\"FrequenciesPrior.s:anthus_aco_sub\" name=\"distribution\" x=\"@freqParameter.s:anthus_aco_sub\">"
-  #     <Uniform id=\"Uniform.3\" name=\"distr\"/>"
-  # </prior>"
-  #
-  #
   freq_prior_regex <- "FrequenciesPrior.s"
   expect_equal(0, length(stringr::str_subset(readr::read_lines(get_beautier_path("hky_2_4.xml")), freq_prior_regex)))
   expect_equal(1, length(stringr::str_subset(readr::read_lines(get_beautier_path("hky_2_6.xml")), freq_prior_regex)))

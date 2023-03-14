@@ -13,9 +13,6 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
   beautier::check_inference_model(inference_model)
   testthat::expect_true(beautier::has_strict_clock_model(inference_model))
 
-  # Don't be smart yet
-  clock_model <- inference_model$clock_model
-
   text <- NULL
 
   if (inference_model$clock_model$clock_rate_param$estimate) {
@@ -27,7 +24,7 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
         "spec=\"parameter.RealParameter\" ",
         "lower=\"", inference_model$clock_model$clock_rate_distr$lower, "\" ",
         "name=\"stateNode\" ",
-        "upper=\"", inference_model$clock_model$clock_rate_distr$upper,"\">",
+        "upper=\"", inference_model$clock_model$clock_rate_distr$upper, "\">",
         inference_model$clock_model$clock_rate_param$value,
         "</parameter>"
       )

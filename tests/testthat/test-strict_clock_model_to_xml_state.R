@@ -32,15 +32,19 @@ test_that("minimal, v2.6", {
 
 test_that("estimated clock rate, v2.6", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
-  clock.rate <- beautier::create_clock_rate_param(value = "0.0035", estimate = TRUE)
-  clock.uniform <- beautier::create_uniform_distr(value = 0.0035, lower = 0.00277, upper = 0.00542)
+  clock_rate <- beautier::create_clock_rate_param(
+    value = "0.0035", estimate = TRUE
+  )
+  clock_uniform <- beautier::create_uniform_distr(
+    value = 0.0035, lower = 0.00277, upper = 0.00542
+  )
 
   inference_model <- create_inference_model(
     site_model = beautier::create_hky_site_model(),
     clock_model = beautier::create_strict_clock_model(
       id = "anthus_aco_sub",
-      clock_rate_param = clock.rate,
-      clock_rate_distr = clock.uniform
+      clock_rate_param = clock_rate,
+      clock_rate_distr = clock_uniform
     ),
     tree_prior = create_yule_tree_prior(),
     beauti_options = beautier::create_beauti_options_v2_6(

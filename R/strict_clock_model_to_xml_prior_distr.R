@@ -35,8 +35,17 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
     testthat::expect_true(beautier::is_id(clock_model$clock_rate_distr$id))
     text <- c(
       text,
-      paste0("<prior id=\"ClockPrior.c:", clock_model$id, "\" name=\"distribution\" x=\"@clockRate.c:", clock_model$id, "\">"),
-      beautier::indent(paste0("<Uniform id=\"Uniform.", clock_model$clock_rate_distr$id, "\" name=\"distr\" upper=\"Infinity\"/>")),
+      paste0(
+        "<prior id=\"ClockPrior.c:", clock_model$id, "\" ",
+        "name=\"distribution\" ",
+        "x=\"@clockRate.c:", clock_model$id, "\">"
+      ),
+      beautier::indent(
+        paste0(
+          "<Uniform id=\"Uniform.", clock_model$clock_rate_distr$id, "\" ",
+          "name=\"distr\" upper=\"Infinity\"/>"
+        )
+      ),
       "</prior>"
     )
   }

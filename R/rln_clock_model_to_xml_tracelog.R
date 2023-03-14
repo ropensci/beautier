@@ -18,13 +18,11 @@ rln_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal fun
 ) {
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-
-  testit::assert(beautier::is_clock_model(clock_model))
+  testthat::expect_true(beautier::is_rln_clock_model(inference_model$clock_model))
   id <- clock_model$id
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  testthat::expect_true(beautier::is_rln_clock_model(inference_model$clock_model))
   if (beautier::has_mrca_prior_with_distr(inference_model) ||
       beautier::has_tip_dating(inference_model)
   ) {
