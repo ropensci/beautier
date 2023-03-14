@@ -6,7 +6,7 @@
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_branch_rate_model_rln_xml <- function(# nolint long function name, which is fine for a long function
+create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
   testthat::expect_true(

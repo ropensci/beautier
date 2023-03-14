@@ -96,6 +96,12 @@ test_that("section of anthus_aco_sub_calibration.xml", {
     inference_model = inference_model
   )
   expect_equal(created, expected)
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
 })
 
 

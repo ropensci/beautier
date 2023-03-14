@@ -416,11 +416,18 @@ test_that("section of anthus_aco_sub_calibration.xml", {
       beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
     )
   )
-
   created <- create_branch_rate_model_xml(
     inference_model = inference_model
   )
+  # HIERO
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
   expect_equal(created, expected)
+
 })
 
 test_that("adapted from anthus_aco_sub_calibrated_no_prior.xml", {
