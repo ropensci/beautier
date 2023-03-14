@@ -82,13 +82,56 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
 
 
 test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
-  skip("Issue #135, Issue 135")
 
   # This is a unique file, delivered by the user
   beauti_file <- beautier::get_beautier_path("issue_135_mrca_no_estimate_beauti.xml")
+  beautier_file <- get_beautier_tempfilename()
 
-  file.copy(beauti_file, "~/issue_135_mrca_no_estimate_beauti.xml")
-  beautier_file <- "~/issue_135_mrca_no_estimate_beautier.xml"
+  #134 without mrca prior, estimating clock rate from a uniform prior
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+
+  #With mrca prior, single value at clock rate
+  fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
+  mrca.taxa <- get_taxa_names(fasta_filename)
+  mrca.taxa <- mrca.taxa[2:length(mrca.taxa)]
+  mrca.prior <- create_mrca_prior(taxa_names=mrca.taxa,is_monophyletic = TRUE)
+  clock.rate <- beautier::create_clock_rate_param(value = 0.00277,estimate=FALSE)
+
+  inference_model <- create_inference_model(
+    site_model = beautier::create_hky_site_model(),
+    clock_model = beautier::create_strict_clock_model(id = NA,clock.rate),
+    tree_prior = create_yule_tree_prior(),
+    mrca_prior = mrca.prior,
+    beauti_options = beautier::create_beauti_options_v2_6(
+      nucleotides_uppercase = TRUE
+    )
+  )
+
+  # Make the inference model match the BEAUti file
+  inference_model$tree_prior$birth_rate_distr$id <- "1"
+  inference_model$site_model$kappa_prior_distr$m$id <- "1"
+  inference_model$site_model$kappa_prior_distr$s$id <- "2"
+  inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id <- "3"
+  inference_model$clock_model$clock_rate_distr$id <- "0"
+
+  create_beast2_input_file_from_model(
+    input_filename = fasta_filename,
+    output_filename = beautier_file,
+    inference_model = inference_model
+  )
+  expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
+  beautier::remove_beautier_folder()
+})
+
+
+test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
+  skip("Issue #135, Issue 135")
+
+  # This is a unique file, delivered by the user
+  beauti_file <- beautier::get_beautier_path("issue_135_mrca_estimate_beauti.xml")
+
+  file.copy(beauti_file, "~/issue_135_mrca_estimate_beauti.xml")
+  beautier_file <- "~/issue_135_mrca_estimate_beautier.xml"
   # beautier_file <- get_beautier_tempfilename()
 
   #134 without mrca prior, estimating clock rate from a uniform prior
@@ -141,7 +184,6 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
   clock_rate_param_pattern <- "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. estimate=.false. name=.clock.rate.>0.00277</parameter>"
   expect_equal(1, length(stringr::str_subset(beauti_text, clock_rate_param_pattern)))
   expect_equal(1, length(stringr::str_subset(beautier_text, clock_rate_param_pattern)))
-
   beautier::remove_beautier_folder()
 
 })
