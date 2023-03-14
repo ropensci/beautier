@@ -10,6 +10,7 @@
 create_branch_rate_model_stuff_xml <- function(# nolint long function name indeed, which is fine for an internal function
   inference_model
 ) {
+  stop("DELETE ME")
   # Do not be smart yet
   mrca_prior <- inference_model$mrca_prior
   has_no_mrca_prior <- beautier::is_one_na(inference_model$mrca_prior)
