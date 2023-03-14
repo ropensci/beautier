@@ -13,7 +13,7 @@
 #' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-rln_clock_model_to_xml_tracelog <- function(
+rln_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal function name
   inference_model
 ) {
   # Do not be smart yet

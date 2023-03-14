@@ -13,7 +13,7 @@
 #' check_empty_beautier_folder()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-strict_clock_model_to_xml_tracelog <- function(
+strict_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal function name
   inference_model
 ) {
   testthat::expect_true(
@@ -26,7 +26,7 @@ strict_clock_model_to_xml_tracelog <- function(
   if (clock_model$clock_rate_param$estimate) {
     text <- c(
       text,
-      paste0("<log idref=\"clockRate.c:", id ,"\"/>")
+      paste0("<log idref=\"clockRate.c:", id, "\"/>")
     )
   }
   text

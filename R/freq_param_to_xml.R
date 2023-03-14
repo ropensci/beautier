@@ -30,7 +30,7 @@ freq_param_to_xml <- function(
   }
   xml <- paste0(
     xml,
-    "dimension=\"", freq_param$dimension,"\" ",
+    "dimension=\"", freq_param$dimension, "\" ",
     "lower=\"", freq_param$lower, "\" ",
     "name=\"stateNode\" ",
     "upper=\"", freq_param$upper, "\">",

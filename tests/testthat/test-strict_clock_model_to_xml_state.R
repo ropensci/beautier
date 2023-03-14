@@ -32,7 +32,7 @@ test_that("minimal, v2.6", {
 
 test_that("estimated clock rate, v2.6", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
-  clock.rate <- beautier::create_clock_rate_param( value = "0.0035", estimate = TRUE)
+  clock.rate <- beautier::create_clock_rate_param(value = "0.0035", estimate = TRUE)
   clock.uniform <- beautier::create_uniform_distr(value = 0.0035, lower = 0.00277, upper = 0.00542)
 
   inference_model <- create_inference_model(

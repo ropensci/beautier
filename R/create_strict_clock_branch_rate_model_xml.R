@@ -15,13 +15,17 @@ create_strict_clock_branch_rate_model_xml <- function(# nolint long function nam
 
   id <- inference_model$clock_model$id
 
-  has_tipdates_filename <- !beautier::is_one_na(inference_model$tipdates_filename)
+  has_tipdates_filename <- !beautier::is_one_na(
+    inference_model$tipdates_filename
+  )
   has_mrca_prior <- !beautier::is_one_na(inference_model$mrca_prior)
   has_mrca_prior_distr <- NA
   if (has_mrca_prior) {
-    has_mrca_prior_distr <- beautier::is_one_na(inference_model$mrca_prior$mrca_distr)
+    has_mrca_prior_distr <- beautier::is_one_na(
+      inference_model$mrca_prior$mrca_distr
+    )
   }
-  do_estimate_clock_rate <- inference_model$clock_model$clock_rate_param$estimate == TRUE
+  do_estimate_clock_rate <- inference_model$clock_model$clock_rate_param$estimate == TRUE # nolint indeed a long line
 
   if (
     (!has_tipdates_filename && !has_mrca_prior && !do_estimate_clock_rate) ||

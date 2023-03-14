@@ -6,7 +6,7 @@
 #' @return a character vector of XML strings
 #' @author Richèl J.C. Bilderbeek
 #' @export
-strict_clock_model_to_xml_operators <- function(
+strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal function name
   inference_model
 ) {
   # Don't be smart yet

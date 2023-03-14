@@ -15,7 +15,7 @@
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-tn93_site_model_to_xml_prior_distr <- function(
+tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
     site_model,
     beauti_options
 ) {

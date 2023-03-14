@@ -19,7 +19,7 @@
 #' )
 #' check_empty_beautier_folder()
 #' @export
-strict_clock_model_to_xml_prior_distr <- function(
+strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
   inference_model
 ) {
   # Do not be smart yet

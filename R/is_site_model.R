@@ -95,7 +95,7 @@ is_gtr_site_model <- function(
 #'
 #' check_empty_beautier_folder()
 #' @export
-is_hky_site_model <- function(
+is_hky_site_model <- function( # nolint indeed a function with high cyclomatic complexity
   x
 ) {
   if (!beautier::is_site_model(x)) return(FALSE)

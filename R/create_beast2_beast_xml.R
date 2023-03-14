@@ -20,7 +20,7 @@ create_beast2_beast_xml <- function(
 ) {
   paste0(
     "<beast beautitemplate='Standard' ",
-    "beautistatus='", beauti_options$status,"' ",
+    "beautistatus='", beauti_options$status, "' ",
     "namespace=\"beast.core:beast.evolution.alignment:",
     "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
     "beast.evolution.operators:beast.evolution.sitemodel:",

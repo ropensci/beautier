@@ -16,7 +16,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
 
   text <- NULL
 
-  if (inference_model$beauti_options$beast2_version =="2.6" &&
+  if (inference_model$beauti_options$beast2_version == "2.6" &&
       !beautier::is_jc69_site_model(inference_model$site_model)
     ) {
     testthat::expect_true(
@@ -37,7 +37,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
       beautier::indent(
         paste0(
           "<Uniform ",
-          "id=\"Uniform.", inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id, "\" ",
+          "id=\"Uniform.", inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id, "\" ", # nolint indeed a long line
           "name=\"distr\"",
           "/>"
         )
