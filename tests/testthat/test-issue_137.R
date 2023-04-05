@@ -8,8 +8,6 @@ test_that("1: can re-create file 'issue_137_lognormal_estimate_beauti.xml'", {
   )
 
   beautier_file <- get_beautier_tempfilename()
-
-  #134 without mrca prior, estimating clock rate from a uniform prior
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   clock_rate <- beautier::create_clock_rate_param(
     value = "0.003536", estimate = TRUE
@@ -63,6 +61,12 @@ test_that("1: can re-create file 'issue_137_lognormal_estimate_beauti.xml'", {
       )
     )
   )
+  # <prior id="ClockPrior.c:anthus_aco_sub" name="distribution" x="@clockRate.c:anthus_aco_sub">
+  #   <LogNormal id="LogNormalDistributionModel.1" name="distr">
+  #     <parameter id="RealParameter.3" spec="parameter.RealParameter" estimate="false" name="M">-5.73</parameter>
+  #     <parameter id="RealParameter.4" spec="parameter.RealParameter" estimate="false" lower="0.0" name="S" upper="5.0">0.5</parameter>
+  #   </LogNormal>
+  # </prior>
 
 
   beautier::remove_beautier_folder()

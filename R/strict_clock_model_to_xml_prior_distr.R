@@ -41,9 +41,9 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
         "x=\"@clockRate.c:", clock_model$id, "\">"
       ),
       beautier::indent(
-        paste0(
-          "<Uniform id=\"Uniform.", clock_model$clock_rate_distr$id, "\" ",
-          "name=\"distr\" upper=\"Infinity\"/>"
+        beautier::distr_to_xml(
+          clock_model$clock_rate_distr,
+          beauti_options = inference_model$beauti_options
         )
       ),
       "</prior>"
