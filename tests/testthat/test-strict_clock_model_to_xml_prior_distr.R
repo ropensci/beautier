@@ -57,7 +57,9 @@ test_that("strict, v2.6, with clock rate to be estimated, lognormal distr", {
   clock_rate_distr <- beautier::create_log_normal_distr(
     id = 1,
     m = beautier::create_m_param(id = "3", value = "-5.73"),
-    s = beautier::create_s_param(id = "4", value = "0.5", lower = "0.0", upper = "5.0"),
+    s = beautier::create_s_param(
+      id = "4", value = "0.5", lower = "0.0", upper = "5.0"
+    ),
     value = "5.0"
   )
   clock_model <- beautier::create_strict_clock_model(
@@ -71,13 +73,6 @@ test_that("strict, v2.6, with clock rate to be estimated, lognormal distr", {
       beauti_options = create_beauti_options_v2_6()
     )
   )
-  created
-  # <prior id="ClockPrior.c:anthus_aco_sub" name="distribution" x="@clockRate.c:anthus_aco_sub">
-  #   <LogNormal id="LogNormalDistributionModel.1" name="distr">
-  #     <parameter id="RealParameter.3" spec="parameter.RealParameter" estimate="false" name="M">-5.73</parameter>
-  #     <parameter id="RealParameter.4" spec="parameter.RealParameter" estimate="false" lower="0.0" name="S" upper="5.0">0.5</parameter>
-  #   </LogNormal>
-  # </prior>
   expect_equal(
     6,
     length(created)

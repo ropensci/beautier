@@ -21,7 +21,8 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
       "id=\"clockRate.c:", inference_model$clock_model$id, "\" ",
       "spec=\"parameter.RealParameter\" "
     )
-    if (!beautier::is_one_na(inference_model$clock_model$clock_rate_distr$lower)) {
+    lower <- inference_model$clock_model$clock_rate_distr$lower
+    if (!beautier::is_one_na(lower)) {
       param_xml <- paste0(
         param_xml,
         "lower=\"", inference_model$clock_model$clock_rate_distr$lower, "\" "
@@ -31,7 +32,8 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
       param_xml,
       "name=\"stateNode\""
     )
-    if (!beautier::is_one_na(inference_model$clock_model$clock_rate_distr$lower)) {
+    upper <- inference_model$clock_model$clock_rate_distr$upper
+    if (!beautier::is_one_na(upper)) {
       param_xml <- paste0(
         param_xml,
         " upper=\"", inference_model$clock_model$clock_rate_distr$upper, "\""
