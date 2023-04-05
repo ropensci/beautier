@@ -22,35 +22,39 @@
 strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  # Do not be smart yet
-  clock_model <- inference_model$clock_model
-  tipdates_filename <- inference_model$tipdates_filename
-
   testit::assert(beautier::is_strict_clock_model(clock_model))
 
   text <- NULL
 
-  if (clock_model$clock_rate_param$estimate == TRUE) {
+  if (inference_model$clock_model$clock_rate_param$estimate == TRUE) {
+    clock_model <- inference_model$clock_model
+    # No idea why BEAUti does this, see issue_135 files
+    if (beautier::is_one_double(clock_model$clock_rate_distr$upper)) {
+      clock_model$clock_rate_distr$upper <- Inf
+    }
+
     testthat::expect_true(beautier::is_id(clock_model$id))
     testthat::expect_true(beautier::is_id(clock_model$clock_rate_distr$id))
+    opening_tag <- paste0(
+      "<prior id=\"ClockPrior.c:", clock_model$id, "\" ",
+      "name=\"distribution\" ",
+      "x=\"@clockRate.c:", clock_model$id, "\">"
+    )
+    distr_xml <- beautier::distr_to_xml(
+      clock_model$clock_rate_distr,
+      beauti_options = inference_model$beauti_options
+    )
+    closing_tag <- "</prior>"
     text <- c(
       text,
-      paste0(
-        "<prior id=\"ClockPrior.c:", clock_model$id, "\" ",
-        "name=\"distribution\" ",
-        "x=\"@clockRate.c:", clock_model$id, "\">"
-      ),
-      beautier::indent(
-        beautier::distr_to_xml(
-          clock_model$clock_rate_distr,
-          beauti_options = inference_model$beauti_options
-        )
-      ),
-      "</prior>"
+      opening_tag,
+      beautier::indent(distr_xml),
+      closing_tag
     )
   }
 
-  if (!beautier::is_one_na(tipdates_filename)) {
+  if (!beautier::is_one_na(inference_model$tipdates_filename)) {
+    clock_model <- inference_model$clock_model
     id <- clock_model$id
     testit::assert(beautier::is_id(id))
     text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",

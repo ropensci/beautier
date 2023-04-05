@@ -89,7 +89,6 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
     inference_model = inference_model
   )
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
-
   beautier::remove_beautier_folder()
 })
 

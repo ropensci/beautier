@@ -35,18 +35,15 @@ test_that("strict, v2.6, with clock rate to be estimated, uniform distr", {
       id = 0, value = 0.0035, lower = 0.00277, upper = 0.00542
     )
   )
-
-  expect_equal(
-    3,
-    length(
-      strict_clock_model_to_xml_prior_distr(
-        inference_model = create_inference_model(
-          clock_model = clock_model,
-          beauti_options = create_beauti_options_v2_6()
-        )
-      )
+  xml <- strict_clock_model_to_xml_prior_distr(
+    inference_model = create_inference_model(
+      clock_model = clock_model,
+      beauti_options = create_beauti_options_v2_6()
     )
   )
+  expect_equal(3, length(xml))
+  # For reasons unknown to me, upper must be Infinity here
+  expect_equal(1, length(stringr::str_subset(xml, "upper=.Infinity")))
 })
 
 test_that("strict, v2.6, with clock rate to be estimated, lognormal distr", {
