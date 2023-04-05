@@ -2,7 +2,26 @@
 
 Newest versions at top.
 
-## beautier 2.6.6 (unreleased)
+## beautier 2.6.7 (2023-04-05)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * The clock rate distribution of a strict clock model can be set
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+
+## beautier 2.6.6 (2023-03-14)
 
 ### NEW FEATURES
 
