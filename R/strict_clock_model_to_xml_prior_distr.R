@@ -22,7 +22,7 @@
 strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  testit::assert(beautier::is_strict_clock_model(clock_model))
+  testit::assert(beautier::is_strict_clock_model(inference_model$clock_model))
 
   text <- NULL
 
