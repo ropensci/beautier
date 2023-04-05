@@ -30,7 +30,7 @@ test_that("minimal, v2.6", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-test_that("estimated clock rate, v2.6", {
+test_that("estimated clock rate, uniform distribution, v2.6", {
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
   clock_rate <- beautier::create_clock_rate_param(
     value = "0.0035", estimate = TRUE
@@ -58,4 +58,41 @@ test_that("estimated clock rate, v2.6", {
     inference_model = inference_model
   )
   expect_equal(1, length(created))
+})
+
+
+test_that("estimated clock rate, lognormal distribution, v2.6", {
+  clock_rate <- beautier::create_clock_rate_param(
+    value = "0.003536", estimate = TRUE
+  )
+  clock_rate_distr <- beautier::create_log_normal_distr(
+    m = beautier::create_m_param(value = "-5.73"),
+    value = "5.0"
+  )
+
+  inference_model <- create_inference_model(
+    clock_model = beautier::create_strict_clock_model(
+      id = NA,
+      clock_rate_param = clock_rate,
+      clock_rate_distr = clock_rate_distr
+    )
+  )
+
+  inference_model <- init_inference_model(
+    input_filename = get_beautier_path("anthus_aco_sub.fas"),
+    inference_model = inference_model
+  )
+
+  created <- strict_clock_model_to_xml_state(
+    inference_model = inference_model
+  )
+  expect_equal(
+    1,
+    length(
+      stringr::str_subset(
+        created,
+        "<parameter id=.clockRate.c:anthus_aco_sub. spec=.parameter.RealParameter. name=.stateNode.>0.003536</parameter>" # nolint indeed long
+      )
+    )
+  )
 })

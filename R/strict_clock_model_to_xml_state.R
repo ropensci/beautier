@@ -16,20 +16,34 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
   text <- NULL
 
   if (inference_model$clock_model$clock_rate_param$estimate) {
-    text <- c(
-      text,
-      paste0(
-        "<parameter ",
-        "id=\"clockRate.c:", inference_model$clock_model$id, "\" ",
-        "spec=\"parameter.RealParameter\" ",
-        "lower=\"", inference_model$clock_model$clock_rate_distr$lower, "\" ",
-        "name=\"stateNode\" ",
-        "upper=\"", inference_model$clock_model$clock_rate_distr$upper, "\">",
-        inference_model$clock_model$clock_rate_param$value,
-        "</parameter>"
-      )
+    param_xml <- paste0(
+      "<parameter ",
+      "id=\"clockRate.c:", inference_model$clock_model$id, "\" ",
+      "spec=\"parameter.RealParameter\" "
     )
-
+    if (!beautier::is_one_na(inference_model$clock_model$clock_rate_distr$lower)) {
+      param_xml <- paste0(
+        param_xml,
+        "lower=\"", inference_model$clock_model$clock_rate_distr$lower, "\" "
+      )
+    }
+    param_xml <- paste0(
+      param_xml,
+      "name=\"stateNode\""
+    )
+    if (!beautier::is_one_na(inference_model$clock_model$clock_rate_distr$lower)) {
+      param_xml <- paste0(
+        param_xml,
+        " upper=\"", inference_model$clock_model$clock_rate_distr$upper, "\""
+      )
+    }
+    param_xml <- paste0(
+      param_xml,
+      ">",
+      inference_model$clock_model$clock_rate_param$value,
+      "</parameter>"
+    )
+    text <- c(text, param_xml)
   }
 
   if (!beautier::has_tip_dating(inference_model)) {
