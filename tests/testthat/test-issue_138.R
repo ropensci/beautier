@@ -37,6 +37,23 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
   skip("Issue #138")
   beauti_text <- readr::read_lines(beauti_file)
   beautier_text <- readr::read_lines(beautier_file)
+
+  init_inference_model <- init_inference_model(input_filename = fasta_filename, inference_model = inference_model)
+  check_tree_prior(init_inference_model$tree_prior)
+  tree_prior_to_xml_state(inference_model = init_inference_model)
+
+  expect_equal(
+    sum(
+      stringr::str_count(
+        beautier_text,
+        pattern = "<parameter id=\"bPopSizes.t:Heleioporus_species_ND2_Pop1\" spec=\"parameter.RealParameter\" dimension=\"5\" lower=\"0.0\" name=\"stateNode\">380.0</parameter>"
+      )
+    ),
+    1
+  )
+  beautier_text
+
+
   compare_lines(
     lines = beautier_text,
     expected = beauti_text,

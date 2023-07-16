@@ -10,7 +10,9 @@ tree_prior_to_xml_state <- function(
   # Do not be smart yet
   tree_prior <- inference_model$tree_prior
 
-  testit::assert(beautier::is_tree_prior(tree_prior))
+  #testit::assert(beautier::is_tree_prior(tree_prior))
+  beautier::check_tree_prior(tree_prior)
+
   id <- tree_prior$id
   testit::assert(beautier::is_id(id))
 
