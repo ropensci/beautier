@@ -22,7 +22,8 @@ check_beauti_options <- function(
     "beast2_version",
     "required",
     "sequence_indent",
-    "status"
+    "status",
+    "namespace"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(beauti_options)) {

@@ -43,7 +43,8 @@ create_beauti_options <- function(
   beast2_version = "2.4",
   required = "",
   sequence_indent = 20,
-  status = ""
+  status = "",
+  namespace = beautier::get_default_beast_namespace()
 ) {
   beauti_options <- list(
     capitalize_first_char_id = capitalize_first_char_id,
@@ -51,7 +52,8 @@ create_beauti_options <- function(
     beast2_version = beast2_version,
     required = required,
     sequence_indent = sequence_indent,
-    status = status
+    status = status,
+    namespace = namespace
   )
   beautier::check_beauti_options(beauti_options)
   beauti_options

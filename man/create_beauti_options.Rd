@@ -10,7 +10,8 @@ create_beauti_options(
   beast2_version = "2.4",
   required = "",
   sequence_indent = 20,
-  status = ""
+  status = "",
+  namespace = beautier::get_default_beast_namespace()
 )
 }
 \arguments{

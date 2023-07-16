@@ -5,6 +5,7 @@
 #' @inheritParams create_beauti_options
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
+#' @seealso see \link{create_beauti_options_v2_4} for using the older v2.4
 #' @examples
 #' if (is_on_ci()) {
 #'
@@ -23,12 +24,14 @@ create_beauti_options_v2_6 <- function(
   beast2_version = "2.6",
   sequence_indent = 8,
   nucleotides_uppercase = FALSE,
-  status = ""
+  status = "",
+  namespace = beautier::get_default_beast_namespace()
 ) {
   beautier::create_beauti_options(
     beast2_version = beast2_version,
     sequence_indent = sequence_indent,
     nucleotides_uppercase = nucleotides_uppercase,
-    status = status
+    status = status,
+    namespace = namespace
   )
 }

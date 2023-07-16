@@ -8,7 +8,8 @@ create_beauti_options_v2_6(
   beast2_version = "2.6",
   sequence_indent = 8,
   nucleotides_uppercase = FALSE,
-  status = ""
+  status = "",
+  namespace = beautier::get_default_beast_namespace()
 )
 }
 \arguments{
@@ -42,6 +43,9 @@ if (is_on_ci()) {
 
   check_empty_beautier_folder()
 }
+}
+\seealso{
+see \link{create_beauti_options_v2_4} for using the older v2.4
 }
 \author{
 Richèl J.C. Bilderbeek

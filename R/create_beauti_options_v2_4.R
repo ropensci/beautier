@@ -24,6 +24,7 @@ create_beauti_options_v2_4 <- function(
     nucleotides_uppercase = FALSE,
     beast2_version = "2.4",
     required = "",
-    sequence_indent = 20
+    sequence_indent = 20,
+    namespace = beautier::get_default_beast_namespace()
   )
 }
