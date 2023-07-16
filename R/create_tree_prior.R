@@ -138,12 +138,14 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 #' @export create_cbs_tree_prior create_tree_prior_cbs
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
   id = NA,
-  group_sizes_dimension = 5
+  group_sizes_dimension = 5,
+  b_pop_sizes_param = create_b_pop_sizes_param()
   ) {
   cbs_tree_prior <- create_tree_prior(
     name = "coalescent_bayesian_skyline",
     id = id,
-    group_sizes_dimension = group_sizes_dimension
+    group_sizes_dimension = group_sizes_dimension,
+    b_pop_sizes_param = b_pop_sizes_param
   )
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
   cbs_tree_prior

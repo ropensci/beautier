@@ -2,6 +2,7 @@ test_that("use, default values", {
 
   # English name
   expect_silent(create_alpha_param())
+  expect_silent(create_b_pop_sizes_param())
   expect_silent(create_beta_param())
   expect_silent(create_clock_rate_param())
   expect_silent(create_kappa_param())
@@ -22,6 +23,7 @@ test_that("use, default values", {
 
   # Searchable name
   expect_silent(create_param_alpha())
+  expect_silent(create_param_b_pop_sizes())
   expect_silent(create_param_beta())
   expect_silent(create_param_clock_rate())
   expect_silent(create_param_kappa())
@@ -47,6 +49,9 @@ test_that("use, valid function arguments", {
   # English name
   expect_silent(
     create_alpha_param(id = 1, value = 0.5)
+  )
+  expect_silent(
+    create_b_pop_sizes_param(id = 1, value = 0.5)
   )
   expect_silent(
     create_beta_param(id = 1, value = 0.5)

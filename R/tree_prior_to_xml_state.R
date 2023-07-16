@@ -25,9 +25,20 @@ tree_prior_to_xml_state <- function(
   } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     text <- c(text, beautier::ccp_tree_prior_to_xml_state(inference_model))
   } else if (beautier::is_cbs_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<parameter id=\"bPopSizes.t:", id, "\" ",
-      "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
-      "upper=\"380000.0\">380.0</parameter>"))
+
+    if ("old" == "correct") {
+      text <- c(text, paste0("<parameter id=\"bPopSizes.t:", id, "\" ",
+                             "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
+                             "upper=\"380000.0\">380.0</parameter>"))
+    } else {
+      text <- c(
+        text,
+        b_pop_sizes_parameter_to_xml(
+          b_pop_sizes_parameter = inference_model$tree_prior$b_pop_sizes_param,
+          beauti_options = inference_model$beauti_options
+        )
+      )
+    }
     text <- c(
       text,
       paste0(

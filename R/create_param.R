@@ -127,6 +127,32 @@ create_alpha_param <- create_param_alpha <- function(
   )
 }
 
+#' Create a parameter called `b_pop_sizes`.
+#' @inheritParams default_parameters_doc
+#' @return a parameter called b_pop_sizes
+#' @note this parameter is used in a CBS model,
+#' as created by \link{create_cbs_tree_prior}
+#' @seealso the function \code{\link{create_param}} contains a list
+#'   of all parameters that can be created
+#' @author Richèl J.C. Bilderbeek
+#' @examples
+#' # Create the parameter
+#' b_pop_sizes_param <- create_b_pop_sizes_param()
+#' @aliases create_b_pop_sizes_param create_param_b_pop_sizes
+#' @export create_b_pop_sizes_param create_param_b_pop_sizes
+create_b_pop_sizes_param <- create_param_b_pop_sizes <- function(
+    id = NA,
+    value = 1.0
+) {
+  beautier::create_param(
+    name = "b_pop_sizes",
+    id = id,
+    estimate = FALSE,
+    value = value
+  )
+}
+
+
 #' Create a parameter called beta
 #' @inheritParams default_parameters_doc
 #' @return a parameter called beta

@@ -11,6 +11,7 @@
 get_param_names <- function() {
   c(
     "alpha",
+    "b_pop_sizes", # bPopSizes
     "beta",
     "clock_rate",
     "freqParameter", # BEAST2 redundant naming: 'freq' is the name of a parameter # nolint
