@@ -21,11 +21,7 @@ create_beast2_beast_xml <- function(
   paste0(
     "<beast beautitemplate='Standard' ",
     "beautistatus='", beauti_options$status, "' ",
-    "namespace=\"beast.core:beast.evolution.alignment:",
-    "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
-    "beast.evolution.operators:beast.evolution.sitemodel:",
-    "beast.evolution.substitutionmodel:",
-    "beast.evolution.likelihood\" ",
+    "namespace=\"", beauti_options$namespace,"\" ",
     "required=\"", beauti_options$required, "\" ",
     "version=\"", beauti_options$beast2_version, "\">"
   )

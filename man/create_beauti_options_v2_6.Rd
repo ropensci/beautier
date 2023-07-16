@@ -9,7 +9,8 @@ create_beauti_options_v2_6(
   sequence_indent = 8,
   nucleotides_uppercase = FALSE,
   status = "",
-  namespace = beautier::get_default_beast_namespace()
+  namespace = beautier::get_default_beast_namespace(),
+  required = ""
 )
 }
 \arguments{
@@ -22,6 +23,9 @@ lines are indented}
 in uppercase?}
 
 \item{status}{the BEAUti status}
+
+\item{required}{things that may be required,
+for example \code{BEAST v2.5.0}}
 }
 \value{
 a BEAUti options structure
