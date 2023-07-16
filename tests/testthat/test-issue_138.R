@@ -1,7 +1,7 @@
 test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
 
   # Delivered by the user, not supported
-  beauti_file <- beautier::get_beautier_path("issue_138_v2_7.xml")
+  beauti_file <- beautier::get_beautier_path("issue_138_v2_6.xml")
 
   # Output file
   beautier_file <- get_beautier_tempfilename()
@@ -31,7 +31,6 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
     ),
     beauti_options = create_beauti_options_v2_6(
       namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood",
-      required = "BEAST.base v2.7.4"
     )
   )
 
