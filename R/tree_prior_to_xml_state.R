@@ -31,6 +31,7 @@ tree_prior_to_xml_state <- function(
                              "dimension=\"5\" lower=\"0.0\" name=\"stateNode\" ",
                              "upper=\"380000.0\">380.0</parameter>"))
     } else {
+      inference_model$tree_prior$b_pop_sizes_param$id <- id
       text <- c(
         text,
         b_pop_sizes_parameter_to_xml(
