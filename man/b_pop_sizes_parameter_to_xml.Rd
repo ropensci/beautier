@@ -19,6 +19,13 @@ the parameter as XML text
 \description{
 Converts a Bayesian population sizes parameter to XML
 }
+\examples{
+b_pop_sizes_parameter_to_xml(
+  b_pop_sizes_parameter = create_b_pop_sizes_parameter(),
+  beauti_options = create_beauti_options()
+)
+
+}
 \author{
 Richèl J.C. Bilderbeek
 }

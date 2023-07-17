@@ -23,7 +23,7 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
       )
     ),
     tree_prior = create_cbs_tree_prior(
-      b_pop_sizes_param = create_b_pop_sizes_param()
+      b_pop_sizes_param = create_b_pop_sizes_param(upper = Inf)
     ),
     beauti_options = create_beauti_options_v2_6(
       namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood",
@@ -40,10 +40,6 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
   beauti_text <- readr::read_lines(beauti_file)
   beautier_text <- readr::read_lines(beautier_file)
 
-  init_inference_model <- init_inference_model(input_filename = fasta_filename, inference_model = inference_model)
-  check_tree_prior(init_inference_model$tree_prior)
-  tree_prior_to_xml_state(inference_model = init_inference_model)
-
   expect_equal(
     sum(
       stringr::str_count(
@@ -54,7 +50,6 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
     1
   )
   beautier_text
-
 
   compare_lines(
     lines = beautier_text,

@@ -142,13 +142,15 @@ create_alpha_param <- create_param_alpha <- function(
 #' @export create_b_pop_sizes_param create_param_b_pop_sizes
 create_b_pop_sizes_param <- create_param_b_pop_sizes <- function(
     id = NA,
-    value = 1.0
+    value = 1.0,
+    upper = "380000.0"
 ) {
   beautier::create_param(
     name = "b_pop_sizes",
     id = id,
     estimate = FALSE,
-    value = value
+    value = value,
+    upper = upper
   )
 }
 
