@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## beautier 2.6.8 (2023-08-05)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * `create_strict_clock_model` can create a strict model from
+   only a string
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+
 ## beautier 2.6.7 (2023-04-05)
 
 ### NEW FEATURES
@@ -19,7 +39,6 @@ Newest versions at top.
 ### DEPRECATED AND DEFUNCT
 
  * None
-
 
 ## beautier 2.6.6 (2023-03-14)
 

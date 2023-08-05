@@ -2,10 +2,6 @@
 #'
 #' Converts a Bayesian population sizes parameter to XML
 #' @inheritParams default_params_doc
-#' Internal function
-#'
-#' Converts a Bayesian population sizes parameter to XML
-#' @inheritParams default_params_doc
 #' @return the parameter as XML text
 #' @examples
 #' b_pop_sizes_parameter_to_xml(
