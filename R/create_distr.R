@@ -534,7 +534,7 @@ create_normal_distr <- create_distr_normal <- function(
   lower = NA,
   upper = NA
 ) {
-  if (beautier::is_one_double(mean)) {
+  if (beautier::is_one_double(mean) || beautier::is_one_string(mean)) {
     mean <- beautier::create_mean_param(value = mean)
   }
   if (beautier::is_one_double(sigma)) {

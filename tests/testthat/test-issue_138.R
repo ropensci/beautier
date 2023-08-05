@@ -24,7 +24,7 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
       clock_rate_distr = create_normal_distr(
         id = NA,
         mean = mutation_rate,
-        sigma = (mutation_rate / 10) * 2
+        sigma = (as.numeric(mutation_rate) / 10) * 2
       )
     ),
     tree_prior = create_cbs_tree_prior(

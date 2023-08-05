@@ -10,8 +10,10 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * `create_strict_clock_model` can create a strict model from
-   only a string
+ * `create_strict_clock_model` can also create a strict model from
+   only a string (conversion from a double was already supported)
+ * `create_mean_param` can also create a mean parameter from
+   only a string (conversion from a double was already supported)
 
 ### BUG FIXES
 
