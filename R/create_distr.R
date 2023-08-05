@@ -645,7 +645,8 @@ create_poisson_distr <- create_distr_poisson <- function(
 
   if (!is_lambda_param(lambda)) {
     stop("'lambda' must be a lambda parameter, ",
-      "as returned by 'create_lambda_param'")
+      "as returned by 'create_lambda_param'"
+    )
   }
   beautier::create_distr(
     name = "poisson",

@@ -84,8 +84,12 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     text <- c(text, paste0("</prior>"))
   }
   if (site_model$rate_gt_param$estimate == TRUE) {
-    text <- c(text, paste0("<prior id=\"RateGTPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateGT.s:", id, "\">")
+    text <- c(
+      text,
+      paste0(
+        "<prior id=\"RateGTPrior.s:", id, "\" ",
+        "name=\"distribution\" x=\"@rateGT.s:", id, "\">"
+      )
     )
     text <- c(
       text,

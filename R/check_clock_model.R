@@ -145,8 +145,8 @@ check_strict_clock_model <- function(clock_model) {
   }
   if (
     !beautier::is_one_double(clock_model$rate_scaler_factor) &&
-    !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) &&
-    !beautier::is_one_empty_string(clock_model$rate_scaler_factor)
+      !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) &&
+      !beautier::is_one_empty_string(clock_model$rate_scaler_factor)
   ) {
     stop(
       "'rate_scaler_factor' must be a number ",

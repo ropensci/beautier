@@ -284,10 +284,10 @@ create_freq_param <- create_param_freq <- function(
 #' @aliases create_kappa_param create_param_kappa
 #' @export create_kappa_param create_param_kappa
 create_kappa_param <- create_param_kappa <- function(
-    id = NA,
-    lower = "0.0",
-    value = "2.0",
-    estimate = TRUE
+  id = NA,
+  lower = "0.0",
+  value = "2.0",
+  estimate = TRUE
 ) {
   beautier::create_param(
     name = "kappa",

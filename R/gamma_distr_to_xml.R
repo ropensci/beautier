@@ -32,7 +32,8 @@ gamma_distr_to_xml <- function(
 
   text <- NULL
   text <- c(text, paste0("<Gamma ",
-    "id=\"Gamma.", id, "\" name=\"distr\">"))
+    "id=\"Gamma.", id, "\" name=\"distr\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::alpha_parameter_to_xml(

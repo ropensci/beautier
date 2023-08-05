@@ -36,7 +36,7 @@ check_mrca_prior <- function(mrca_prior) {
 
   if (
     !beautier::is_distr(mrca_prior$mrca_distr) &&
-    !beautier::is_one_na(mrca_prior$mrca_distr)
+      !beautier::is_one_na(mrca_prior$mrca_distr)
   ) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }

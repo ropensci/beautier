@@ -11,8 +11,7 @@
 #' @aliases check_ns_mcmc check_mcmc_nested_sampling check_nested_sampling_mcmc
 #' @export check_ns_mcmc check_mcmc_nested_sampling check_nested_sampling_mcmc
 check_ns_mcmc <- check_mcmc_nested_sampling <-
-check_nested_sampling_mcmc <- function(mcmc)
-{
+check_nested_sampling_mcmc <- function(mcmc) {
 
   beautier::check_mcmc(mcmc)
 

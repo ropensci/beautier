@@ -1097,8 +1097,10 @@ test_that("birth_rate_inv_gamma_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_inv_gamma_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_inv_gamma_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1114,8 +1116,10 @@ test_that("birth_rate_poisson_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_poisson_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_poisson_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

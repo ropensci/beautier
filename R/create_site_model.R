@@ -267,12 +267,12 @@ create_hky_site_model <- create_site_model_hky <- function(
 ) {
   if (kappa != "obsolete") {
     stop(
-        "Parameter 'kappa' is obsolete. \n",
-        "Use 'kappa_param' instead.\n",
-        " \n",
-        "Example: \n",
-        "  create_hky_site_model(kappa = \"123\") # OBSOLETE \n",
-        "  create_hky_site_model(kappa_param = create_kappa_param(value = \"123\")) # NEW" # nolint
+      "Parameter 'kappa' is obsolete. \n",
+      "Use 'kappa_param' instead.\n",
+      " \n",
+      "Example: \n",
+      "  create_hky_site_model(kappa = \"123\") # OBSOLETE \n",
+      "  create_hky_site_model(kappa_param = create_kappa_param(value = \"123\")) # NEW" # nolint
     )
   }
   beautier::create_site_model(

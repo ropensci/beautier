@@ -156,7 +156,7 @@ create_strict_clock_model <- create_clock_model_strict <- function(
 ) {
   if (
     beautier::is_one_double(clock_rate_param) ||
-    beautier::is_one_string(clock_rate_param)
+      beautier::is_one_string(clock_rate_param)
   ) {
     clock_rate_param <- create_clock_rate_param(clock_rate_param)
   }

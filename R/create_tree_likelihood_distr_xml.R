@@ -57,7 +57,8 @@ create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
     id, "\" spec=\"ThreadedTreeLikelihood\" ",
     brm_line,
     "data=\"@", id,
-    "\" tree=\"@Tree.t:", id, "\">"))
+    "\" tree=\"@Tree.t:", id, "\">")
+  )
 
   # Create the '<siteModel' XML section
   text <- c(text,

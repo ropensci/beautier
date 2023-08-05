@@ -29,9 +29,13 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
   text <- c(text, paste0("<operator ",
     "id=\"CategoriesSwapOperator.c:", id, "\" spec=\"SwapOperator\" ",
     "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>")) # nolint this is no absolute path
-  text <- c(text, paste0("<operator ",
-    "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
-    "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>") # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"CategoriesUniform.c:", id, "\" spec=\"UniformOperator\" ",
+      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"
+    )
   )
   if (beautier::has_mrca_prior_with_distr(inference_model)) {
     text <- c(
@@ -45,8 +49,11 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
 
     text <- c(
       text,
-      paste0("<operator id=\"relaxedUpDownOperator.c:", id, "\" ",
-        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"))
+      paste0(
+        "<operator id=\"relaxedUpDownOperator.c:", id, "\" ",
+        "spec=\"UpDownOperator\" scaleFactor=\"0.75\" weight=\"3.0\">"
+      )
+    )
     text <- c(text, paste0("    <up idref=\"ucldMean.c:", id, "\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("    <down idref=\"Tree.t:", id, "\"/>")) # nolint this is no absolute path
     text <- c(text, paste0("</operator>"))

@@ -119,10 +119,14 @@ create_tn93_subst_model_xml <- function( # nolint indeed a long function name, w
     )
   }
   if (site_model$kappa_2_param$estimate == FALSE) {
-    text <- c(text, paste0("<parameter id=\"kappa2.s:", id, "\" ",
-      "estimate=\"false\" ",
-      "lower=\"", site_model$kappa_2_param$lower, "\" ",
-      "name=\"kappa2\">", site_model$kappa_2_param$value, "</parameter>")
+    text <- c(
+      text,
+      paste0(
+        "<parameter id=\"kappa2.s:", id, "\" ",
+        "estimate=\"false\" ",
+        "lower=\"", site_model$kappa_2_param$lower, "\" ",
+        "name=\"kappa2\">", site_model$kappa_2_param$value, "</parameter>"
+      )
     )
   }
   text <- c(text, freq_equilibrium_text)

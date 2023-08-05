@@ -104,7 +104,7 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
   id = NA,
   birth_rate_distr = create_uniform_distr(),
   death_rate_distr = create_uniform_distr()
-  ) {
+) {
   create_tree_prior(
     name = "birth_death",
     id = id,
@@ -140,7 +140,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
   id = NA,
   group_sizes_dimension = 5,
   b_pop_sizes_param = create_b_pop_sizes_param()
-  ) {
+) {
   cbs_tree_prior <- create_tree_prior(
     name = "coalescent_bayesian_skyline",
     id = id,

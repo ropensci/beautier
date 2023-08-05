@@ -14,7 +14,8 @@
 get_n_taxa <- function(filename) {
   assertive::assert_is_a_string(filename)
   assertive::assert_all_are_existing_files(filename)
-  tryCatch({
+  tryCatch(
+    {
       return(length(seqinr::read.fasta(filename)))
     },
     error = function(e) {

@@ -18,7 +18,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
 
   if (inference_model$beauti_options$beast2_version == "2.6" &&
       !beautier::is_jc69_site_model(inference_model$site_model)
-    ) {
+  ) {
     testthat::expect_true(
       beautier::is_id(
         inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id
@@ -50,7 +50,8 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
   if (gamma_site_model$gamma_cat_count >= 2) {
     text <- c(text, paste0("<prior ",
       "id=\"GammaShapePrior.s:", id, "\" name=\"distribution\" ",
-      "x=\"@gammaShape.s:", id, "\">"))
+      "x=\"@gammaShape.s:", id, "\">")
+    )
     text <- c(
       text,
       beautier::indent(

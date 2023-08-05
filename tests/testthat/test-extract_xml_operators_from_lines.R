@@ -14,9 +14,9 @@ test_that("one operator", {
   testthat::expect_equal(
     extract_xml_operators_from_lines(
       c(
-      "not",
-      "<operator id=\"",
-      "neither"
+        "not",
+        "<operator id=\"",
+        "neither"
       )
     ),
     "<operator id=\""

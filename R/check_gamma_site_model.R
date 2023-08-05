@@ -37,7 +37,7 @@ check_gamma_site_model <- function(gamma_site_model) {
   }
   if (
     !beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr) &&
-    !beautier::is_distr(gamma_site_model$gamma_shape_prior_distr)
+      !beautier::is_distr(gamma_site_model$gamma_shape_prior_distr)
   ) {
     stop(
       "'gamma_site_model$gamma_shape_prior_distr' must be NA ",
@@ -46,7 +46,7 @@ check_gamma_site_model <- function(gamma_site_model) {
   }
   if (
     gamma_site_model$gamma_cat_count < 2 &&
-    !beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr)
+      !beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr)
   ) {
     stop(
       "'gamma_shape_prior_distr' must be NA ",

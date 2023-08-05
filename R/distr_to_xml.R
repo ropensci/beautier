@@ -112,7 +112,8 @@ distr_to_xml_exp <- function(
 
   text <- NULL
   text <- c(text, paste0("<Exponential ",
-    "id=\"Exponential.", id, "\" name=\"distr\">"))
+    "id=\"Exponential.", id, "\" name=\"distr\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::parameter_to_xml(
@@ -145,7 +146,8 @@ distr_to_xml_inv_gamma <- function(
 
   text <- NULL
   text <- c(text, paste0("<InverseGamma ",
-    "id=\"InverseGamma.", id, "\" name=\"distr\">"))
+    "id=\"InverseGamma.", id, "\" name=\"distr\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::parameter_to_xml(
@@ -186,7 +188,8 @@ distr_to_xml_laplace <- function(
 
   text <- NULL
   text <- c(text, paste0("<LaplaceDistribution ",
-    "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"))
+    "id=\"LaplaceDistribution.", id, "\" name=\"distr\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::parameter_to_xml(
@@ -227,7 +230,8 @@ distr_to_xml_log_normal <- function(
 
   text <- NULL
   text <- c(text, paste0("<LogNormal ",
-    "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">"))
+    "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::parameter_to_xml(
@@ -269,7 +273,8 @@ distr_to_xml_normal <- function(
 
   text <- NULL
   text <- c(text, paste0("<Normal ",
-    "id=\"Normal.", id, "\" name=\"distr\">"))
+    "id=\"Normal.", id, "\" name=\"distr\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::parameter_to_xml(
@@ -335,7 +340,8 @@ distr_to_xml_poisson <- function(
   text <- NULL
   text <- c(text, paste0("<distr ",
     "id=\"Poisson.", id, "\" ",
-    "spec=\"beast.math.distributions.Poisson\">"))
+    "spec=\"beast.math.distributions.Poisson\">")
+  )
   text <- c(text,
     beautier::indent(
       beautier::parameter_to_xml(

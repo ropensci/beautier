@@ -73,8 +73,10 @@ test_that("abuse: opening tag of lines 1 not found", {
   lines_2 <- lines_1
 
   expect_error(
-    are_equivalent_xml_lines_section(lines_1, lines_2,
-      section = "nonsense"),
+    are_equivalent_xml_lines_section(
+      lines_1, lines_2,
+      section = "nonsense"
+    ),
     "Opening tag for 'section' could not be found in 'lines_1'"
   )
 })
@@ -90,8 +92,11 @@ test_that("abuse: closing tag of lines 1 not found", {
   lines_2 <- lines_1
 
   expect_error(
-    are_equivalent_xml_lines_section(lines_1, lines_2,
-      section = "a"),
+    are_equivalent_xml_lines_section(
+      lines_1,
+      lines_2,
+      section = "a"
+    ),
     "Closing tag for 'section' could not be found in 'lines_1'"
   )
 })

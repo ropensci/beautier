@@ -34,7 +34,7 @@ get_tree_prior_n_params <- function(
   if (beautier::is_bd_tree_prior(tree_prior)) {
     return(
       beautier::get_distr_n_params(tree_prior$birth_rate_distr) +
-      beautier::get_distr_n_params(tree_prior$death_rate_distr)
+        beautier::get_distr_n_params(tree_prior$death_rate_distr)
     )
   } else if (beautier::is_cbs_tree_prior(tree_prior)) {
     return(0)
@@ -43,7 +43,7 @@ get_tree_prior_n_params <- function(
   } else if (beautier::is_cep_tree_prior(tree_prior)) {
     return(
       beautier::get_distr_n_params(tree_prior$pop_size_distr) +
-      beautier::get_distr_n_params(tree_prior$growth_rate_distr)
+        beautier::get_distr_n_params(tree_prior$growth_rate_distr)
     )
   } else {
     testit::assert(beautier::is_yule_tree_prior(tree_prior))

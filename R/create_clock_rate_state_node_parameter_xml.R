@@ -27,7 +27,7 @@
 create_clock_rate_state_node_parameter_xml <- function(inference_model) { # nolint indeed a long function name
   testthat::expect_true(
     beautier::has_strict_clock_model(inference_model) ||
-    beautier::has_tip_dating(inference_model)
+      beautier::has_tip_dating(inference_model)
   )
   testthat::expect_true(beautier::has_tip_dating(inference_model))
   clock_model <- inference_model$clock_model

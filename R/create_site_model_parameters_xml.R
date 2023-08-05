@@ -68,7 +68,8 @@ create_site_model_parameters_xml <- function( # nolint long function name, which
 
   # proportionInvariant parameter
   proportion_invariant_parameter <- paste0(
-    "<parameter id=\"proportionInvariant.s:", id, "\" ")
+    "<parameter id=\"proportionInvariant.s:", id, "\" "
+  )
   if (inference_model$beauti_options$beast2_version == "2.6") {
     proportion_invariant_parameter <- paste0(proportion_invariant_parameter,
       "spec=\"parameter.RealParameter\" "

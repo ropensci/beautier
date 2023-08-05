@@ -28,7 +28,7 @@ test_that("v2.4", {
   )
   expect_true(
     created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"10000000\">" ||
-    created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
+      created[1] == "<run id=\"mcmc\" spec=\"MCMC\" chainLength=\"1e+07\">"
   )
   expect_equal(length(created), 76)
   expect_equal(
