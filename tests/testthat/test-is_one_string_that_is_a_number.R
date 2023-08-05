@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_true(is_one_string_that_is_a_number("3.14"))
+  expect_false(is_one_string_that_is_a_number(c("3.14", "42")))
+  expect_false(is_one_string_that_is_a_number(42))
+  expect_false(is_one_string_that_is_a_number("nonsense"))
+  expect_false(is_one_string_that_is_a_number(NA))
+  expect_false(is_one_string_that_is_a_number(NULL))
+  expect_false(is_one_string_that_is_a_number(Inf))
+  expect_false(is_one_string_that_is_a_number(is_one_string_that_is_a_number))
+})

@@ -534,7 +534,10 @@ create_normal_distr <- create_distr_normal <- function(
   lower = NA,
   upper = NA
 ) {
-  if (beautier::is_one_double(mean) || beautier::is_one_string(mean)) {
+  if (beautier::is_one_string_that_is_a_number(mean)) {
+    mean <- beautier::create_mean_param(value = as.numeric(mean))
+  }
+  if (beautier::is_one_double(mean)) {
     mean <- beautier::create_mean_param(value = mean)
   }
   if (beautier::is_one_double(sigma)) {
@@ -542,7 +545,7 @@ create_normal_distr <- create_distr_normal <- function(
   }
 
   if (!beautier::is_mean_param(mean)) {
-    stop("'mean' must be a mean parameter, ",
+    stop("'mean' must be a mean (as in: average) parameter, ",
       "as returned by 'create_mean_param'")
   }
   if (!beautier::is_sigma_param(sigma)) {

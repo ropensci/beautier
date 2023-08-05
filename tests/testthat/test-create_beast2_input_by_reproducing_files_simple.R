@@ -65,7 +65,10 @@ test_that("anthus_aco_sub_2_6.xml", {
       tree_prior = create_yule_tree_prior(
         birth_rate_distr = create_uniform_distr(id = 1)
       ),
-      beauti_options = create_beauti_options_v2_6(nucleotides_uppercase = TRUE)
+      beauti_options = create_beauti_options_v2_6(
+        nucleotides_uppercase = TRUE,
+        namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" # nolint indeed a long line
+      )
     )
   )
   expected <- readLines(get_beautier_path("anthus_aco_sub_2_6.xml"))
@@ -356,7 +359,8 @@ test_that("hky_2_6.xml", {
   inference_model <- create_inference_model(
     site_model = create_hky_site_model(),
     beauti_options = beautier::create_beauti_options_v2_6(
-      nucleotides_uppercase = TRUE
+      nucleotides_uppercase = TRUE,
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" # nolint indeed a long line
     )
   )
   inference_model$tree_prior$birth_rate_distr$id <- "1"
@@ -1486,7 +1490,9 @@ test_that("Tip dating, v2.6", {
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
-    beauti_options = create_beauti_options_v2_6()
+    beauti_options = create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" # nolint indeed a long line
+    )
   )
   inference_model <- init_inference_model(
     input_filename = get_beautier_path("test_output_0.fas"),
