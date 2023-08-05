@@ -1,4 +1,4 @@
-test_that("1: can re-create file 'issue_137_lognormal_estimate_beauti.xml'", {
+test_that("Re-create file 'issue_137_lognormal_estimate_beauti.xml'", {
 
   # Delivered by the user
   beauti_file <- beautier::get_beautier_path(
@@ -25,6 +25,7 @@ test_that("1: can re-create file 'issue_137_lognormal_estimate_beauti.xml'", {
     clock_model = clock_model,
     tree_prior = create_yule_tree_prior(),
     beauti_options = beautier::create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood", # nolint indeed a long line
       nucleotides_uppercase = TRUE,
       status = "noAutoSetClockRate"
     )

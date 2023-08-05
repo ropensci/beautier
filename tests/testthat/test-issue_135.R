@@ -16,6 +16,7 @@ test_that("1: can re-create file 'issue_135_no_mrca_no_estimate_beauti.xml'", {
     clock_model = beautier::create_strict_clock_model(id = NA, clock_rate),
     tree_prior = create_yule_tree_prior(),
     beauti_options = beautier::create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood", # nolint indeed a long line
       nucleotides_uppercase = TRUE
     )
   )
@@ -30,17 +31,6 @@ test_that("1: can re-create file 'issue_135_no_mrca_no_estimate_beauti.xml'", {
     inference_model = inference_model
   )
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
-
-  beauti_text <- readr::read_lines(beauti_file)
-  beautier_text <- readr::read_lines(beautier_file)
-  if (1 == 2) {
-    beautier::compare_lines(
-      lines = beautier_text,
-      expected = beauti_text,
-      created_lines_filename = "~/created.xml",
-      expected_lines_filename = "~/expected.xml"
-    )
-  }
   beautier::remove_beautier_folder()
 })
 
@@ -71,6 +61,7 @@ test_that("2: can re-create file 'issue_135_no_mrca_estimate_beauti.xml'", {
     ),
     tree_prior = create_yule_tree_prior(),
     beauti_options = beautier::create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood", # nolint indeed a long line
       nucleotides_uppercase = TRUE,
       status = "noAutoSetClockRate"
     )
@@ -123,6 +114,7 @@ test_that("3: can re-create file 'issue_135_mrca_no_estimate_beauti.xml'", {
     tree_prior = create_yule_tree_prior(),
     mrca_prior = mrca_prior,
     beauti_options = beautier::create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood", # nolint indeed a long line
       nucleotides_uppercase = TRUE
     )
   )
@@ -178,6 +170,7 @@ test_that("4: can re-create file 'issue_135_mrca_estimate_beauti.xml'", {
     tree_prior = create_yule_tree_prior(),
     mrca_prior = mrca_prior,
     beauti_options = beautier::create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood", # nolint indeed a long line
       nucleotides_uppercase = TRUE,
       status = "noAutoSetClockRate"
     )
