@@ -1508,6 +1508,7 @@ test_that("Tip dating, v2.5", {
 
 test_that("Tip dating, v2.6", {
   inference_model <- create_inference_model(
+    clock_model = create_strict_clock_model(rate_scaler_factor = ""),
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
@@ -1528,10 +1529,14 @@ test_that("Tip dating, v2.6", {
   expected <- readLines(get_beautier_path("tipdates_2_6.xml"))
 
   # Creates temporary files in beautier folder
-  compare_lines(
-    lines = created,
-    expected = expected
-  )
+  if (1 == 2) {
+    compare_lines(
+      lines = created,
+      expected = expected,
+      created_lines_filename = "~/created.xml",
+      expected_lines_filename = "~/expected.xml",
+    )
+  }
   expect_true(are_equivalent_xml_lines(created, expected))
   remove_beautier_folder()
   check_empty_beautier_folder()
