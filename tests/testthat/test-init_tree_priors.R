@@ -69,8 +69,11 @@ test_that("initialize Yule prior", {
   testit::assert(is_yule_tree_prior(after[[1]]))
   testthat::expect_true(are_init_tree_priors(after))
 
-  before <- list(create_yule_tree_prior(
-  birth_rate_distr = create_exp_distr(id = 1)))
+  before <- list(
+    create_yule_tree_prior(
+      birth_rate_distr = create_exp_distr(id = 1)
+    )
+  )
   testit::assert(is_yule_tree_prior(before[[1]]))
   testit::assert(!are_init_tree_priors(before))
   after <- init_tree_priors(before, ids = "some_id")

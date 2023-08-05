@@ -4,11 +4,14 @@ test_that("use", {
   testit::assert(get_gamma_site_model_n_distrs(gamma_site_model) == 1)
 
   site_model_0_distrs <- create_jc69_site_model(
-    gamma_site_model = gamma_site_model)
+    gamma_site_model = gamma_site_model
+  )
   site_model_1_distrs <- create_hky_site_model(
-    gamma_site_model = gamma_site_model)
+    gamma_site_model = gamma_site_model
+  )
   site_model_2_distrs <- create_tn93_site_model(
-    gamma_site_model = gamma_site_model)
+    gamma_site_model = gamma_site_model
+  )
 
   testit::assert(get_site_model_n_distrs(site_model_0_distrs) == 1)
   testit::assert(get_site_model_n_distrs(site_model_1_distrs) == 2)

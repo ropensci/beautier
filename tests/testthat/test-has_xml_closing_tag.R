@@ -14,9 +14,11 @@ test_that("use", {
   expect_true(has_xml_closing_tag(text, section = "a"))
   expect_true(has_xml_closing_tag(text, section = "b"))
   expect_false(
-    has_xml_closing_tag(text, section = "nonsense"))
+    has_xml_closing_tag(text, section = "nonsense")
+  )
   expect_false(
-    has_xml_closing_tag("", section = "nonsense"))
+    has_xml_closing_tag("", section = "nonsense")
+  )
 
 })
 

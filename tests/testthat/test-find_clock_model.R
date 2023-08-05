@@ -52,10 +52,10 @@ test_that("use", {
 
   testthat::expect_error(
     find_clock_model(
-        clock_models = list(
-          create_strict_clock_model(id = 1),
-          create_rln_clock_model(id = 2)
-        ),
+      clock_models = list(
+        create_strict_clock_model(id = 1),
+        create_rln_clock_model(id = 2)
+      ),
       id = NA
     ),
     "'id' must be an ID"

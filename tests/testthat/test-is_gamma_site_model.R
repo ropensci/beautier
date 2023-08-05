@@ -1,11 +1,10 @@
-context("is_gamma_site_model")
-
 test_that("use", {
 
-  expect_true(is_gamma_site_model(
-    create_gamma_site_model())
+  expect_true(
+    is_gamma_site_model(
+      create_gamma_site_model()
+    )
   )
-
   expect_false(is_gamma_site_model("nonsense"))
   expect_false(is_gamma_site_model(NA))
   expect_false(is_gamma_site_model(NULL))

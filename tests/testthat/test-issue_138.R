@@ -90,9 +90,11 @@ test_that("Re-create v2.7 BEAUti file, as supplied by the user", {
     clock_model = create_strict_clock_model(
       id = NA,
       clock_rate_param = mutation_rate,
-      clock_rate_distr = create_normal_distr(id = NA,
-      mean = mutation_rate,
-      sigma = (mutation_rate / 10) * 2)
+      clock_rate_distr = create_normal_distr(
+        id = NA,
+        mean = mutation_rate,
+        sigma = (mutation_rate / 10) * 2
+      )
     ),
     tree_prior = create_cbs_tree_prior(),
     mcmc = create_mcmc(
