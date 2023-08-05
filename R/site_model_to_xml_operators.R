@@ -80,10 +80,14 @@ site_model_to_xml_operators <- function(
 
   if (site_model$gamma_site_model$gamma_cat_count > 1) {
     testit::assert(beautier::is_id(id))
-    text <- c(text, paste0("<operator ",
-      "id=\"gammaShapeScaler.s:", id, "\" spec=\"ScaleOperator\" ",
-      "parameter=\"@gammaShape.s:", id, "\" scaleFactor=\"0.5\" ",
-      "weight=\"0.1\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator ",
+        "id=\"gammaShapeScaler.s:", id, "\" spec=\"ScaleOperator\" ",
+        "parameter=\"@gammaShape.s:", id, "\" scaleFactor=\"0.5\" ",
+        "weight=\"0.1\"/>"
+      )
     )
   }
   text

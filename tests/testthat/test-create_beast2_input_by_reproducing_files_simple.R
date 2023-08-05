@@ -619,11 +619,14 @@ test_that("tn93_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
 
-  expected <- readLines(get_beautier_path(
-    "tn93_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "tn93_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -647,11 +650,14 @@ test_that("tn93_gcc_1_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
 
-  expected <- readLines(get_beautier_path(
-    "tn93_gcc_1_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "tn93_gcc_1_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -675,11 +681,14 @@ test_that("tn93_gcc_2_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
 
-  expected <- readLines(get_beautier_path(
-    "tn93_gcc_2_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "tn93_gcc_2_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -704,15 +713,18 @@ test_that("tn93_kappas_not_estimated.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1)),
+      birth_rate_distr = create_uniform_distr(id = 1)
+    ),
     beauti_options = create_beauti_options(
       beast2_version = "2.5",
       required = "BEAST v2.5.0"
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "tn93_kappas_not_estimated.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "tn93_kappas_not_estimated.xml"
+    )
   )
   expect_true(
     are_equivalent_xml_lines(
@@ -737,13 +749,17 @@ test_that("bd_2_4.xml", {
     input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_bd_tree_prior(
       birth_rate_distr = create_uniform_distr(
-        id = 3, upper = "1000.0"),
+        id = 3, upper = "1000.0"
+      ),
       death_rate_distr = create_uniform_distr(
-        id = 4, upper = NA)
+        id = 4, upper = NA
+      )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "bd_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "bd_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -754,13 +770,17 @@ test_that("bd_6_taxa_2_4.xml", {
     input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_bd_tree_prior(
       birth_rate_distr = create_uniform_distr(
-        id = 3, upper = "1000.0"),
+        id = 3, upper = "1000.0"
+      ),
       death_rate_distr = create_uniform_distr(
-        id = 4, upper = NA)
+        id = 4, upper = NA
+      )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "bd_6_taxa_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "bd_6_taxa_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -771,8 +791,10 @@ test_that("cbs_6_taxa_2_4.xml", {
     input_filename = get_beautier_path("test_output_6.fas"),
     tree_prior = create_cbs_tree_prior(pop_sizes_scaler_scale_factor = 0.75)
   )
-  expected <- readLines(get_beautier_path(
-    "cbs_6_taxa_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "cbs_6_taxa_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -788,8 +810,10 @@ test_that("ccp_6_taxa_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "ccp_6_taxa_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "ccp_6_taxa_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -807,8 +831,10 @@ test_that("cep_6_taxa_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "cep_6_taxa_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "cep_6_taxa_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -837,8 +863,10 @@ test_that("cbs_6_taxa_2_4.xml", {
       pop_sizes_scaler_scale_factor = 0.75
     )
   )
-  expected <- readLines(get_beautier_path(
-    "cbs_6_taxa_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "cbs_6_taxa_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -874,8 +902,10 @@ test_that("ccp_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "ccp_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "ccp_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -893,8 +923,10 @@ test_that("ccp_pop_size_gamma_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "ccp_pop_size_gamma_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "ccp_pop_size_gamma_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -929,7 +961,8 @@ test_that("yule_2_4.xml", {
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
   expected <- readLines(get_beautier_path("yule_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -943,10 +976,13 @@ test_that("birth_rate_uniform_2_4.xml", {
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_uniform_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_uniform_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -963,8 +999,10 @@ test_that("birth_rate_normal_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_normal_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_normal_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

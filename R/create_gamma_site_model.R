@@ -50,8 +50,8 @@ create_gamma_site_model <- function(
 ) {
   testthat::expect_true(beautier::is_id(freq_prior_uniform_distr_id))
   if (length(gamma_cat_count) == 1 &&
-      gamma_cat_count >= 2
-    && beautier::is_one_na(gamma_shape_prior_distr)) {
+      gamma_cat_count >= 2 &&
+      beautier::is_one_na(gamma_shape_prior_distr)) {
     # Cannot simplify, due to 1.0 becomes 1 in XML
     gamma_shape_prior_distr <- beautier::create_exp_distr(
       id = NA,

@@ -341,12 +341,16 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
     beta <- create_beta_param(value = beta)
   }
   if (!beautier::is_alpha_param(alpha)) {
-    stop("'alpha' must be an alpha parameter, ",
-      "as returned by 'create_alpha_param'")
+    stop(
+      "'alpha' must be an alpha parameter, ",
+      "as returned by 'create_alpha_param'"
+    )
   }
   if (!beautier::is_beta_param(beta)) {
-    stop("'beta' must be a beta parameter, ",
-      "as returned by 'create_beta_param'")
+    stop(
+      "'beta' must be a beta parameter, ",
+      "as returned by 'create_beta_param'"
+    )
   }
   beautier::create_distr(
     name = "inv_gamma",
@@ -408,12 +412,16 @@ create_laplace_distr <- create_distr_laplace <- function(
   }
 
   if (!beautier::is_mu_param(mu)) {
-    stop("'mu' must be a mu parameter, ",
-      "as returned by 'create_mu_param'")
+    stop(
+      "'mu' must be a mu parameter, ",
+      "as returned by 'create_mu_param'"
+    )
   }
   if (!beautier::is_scale_param(scale)) {
-    stop("'scale' must be a scale parameter, ",
-      "as returned by 'create_scale_param'")
+    stop(
+      "'scale' must be a scale parameter, ",
+      "as returned by 'create_scale_param'"
+    )
   }
   beautier::create_distr(
     name = "laplace",
@@ -545,12 +553,16 @@ create_normal_distr <- create_distr_normal <- function(
   }
 
   if (!beautier::is_mean_param(mean)) {
-    stop("'mean' must be a mean (as in: average) parameter, ",
-      "as returned by 'create_mean_param'")
+    stop(
+      "'mean' must be a mean (as in: average) parameter, ",
+      "as returned by 'create_mean_param'"
+    )
   }
   if (!beautier::is_sigma_param(sigma)) {
-    stop("'sigma' must be a sigma parameter, ",
-      "as returned by 'create_sigma_param'")
+    stop(
+      "'sigma' must be a sigma parameter, ",
+      "as returned by 'create_sigma_param'"
+    )
   }
   beautier::create_distr(
     name = "normal",

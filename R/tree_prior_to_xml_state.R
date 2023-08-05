@@ -17,11 +17,19 @@ tree_prior_to_xml_state <- function(
 
   text <- NULL
   if (beautier::is_bd_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<parameter id=\"BDBirthRate.t:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>")
+    text <- c(
+      text,
+      paste0(
+        "<parameter id=\"BDBirthRate.t:", id, "\" ",
+        "lower=\"0.0\" name=\"stateNode\" upper=\"10000.0\">1.0</parameter>"
+      )
     )
-    text <- c(text, paste0("<parameter id=\"BDDeathRate.t:", id, "\" ",
-      "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>")
+    text <- c(
+      text,
+      paste0(
+        "<parameter id=\"BDDeathRate.t:", id, "\" ",
+        "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"
+      )
     )
   } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     text <- c(text, beautier::ccp_tree_prior_to_xml_state(inference_model))

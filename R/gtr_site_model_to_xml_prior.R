@@ -29,7 +29,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   text <- NULL
   if (site_model$rate_ac_param$estimate == TRUE) {
     text <- c(text, paste0("<prior id=\"RateACPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAC.s:", id, "\">"))
+      "name=\"distribution\" x=\"@rateAC.s:", id, "\">")
+    )
     text <- c(
       text,
       beautier::indent(
@@ -43,7 +44,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   }
   if (site_model$rate_ag_param$estimate == TRUE) {
     text <- c(text, paste0("<prior id=\"RateAGPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAG.s:", id, "\">"))
+      "name=\"distribution\" x=\"@rateAG.s:", id, "\">")
+    )
     text <- c(
       text,
       beautier::indent(
@@ -57,7 +59,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   }
   if (site_model$rate_at_param$estimate == TRUE) {
     text <- c(text, paste0("<prior id=\"RateATPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateAT.s:", id, "\">"))
+      "name=\"distribution\" x=\"@rateAT.s:", id, "\">")
+    )
     text <- c(
       text,
       beautier::indent(
@@ -71,7 +74,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   }
   if (site_model$rate_cg_param$estimate == TRUE) {
     text <- c(text, paste0("<prior id=\"RateCGPrior.s:", id, "\" ",
-      "name=\"distribution\" x=\"@rateCG.s:", id, "\">"))
+      "name=\"distribution\" x=\"@rateCG.s:", id, "\">")
+    )
     text <- c(
       text,
       beautier::indent(

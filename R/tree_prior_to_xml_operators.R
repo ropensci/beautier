@@ -42,7 +42,9 @@ tree_prior_to_xml_operators <- function(
       "<operator id=\"popSizesScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", id, "\" "
     )
-    testthat::expect_true("pop_sizes_scaler_scale_factor" %in% names(tree_prior))
+    testthat::expect_true(
+      "pop_sizes_scaler_scale_factor" %in% names(tree_prior)
+    )
     if (tree_prior$pop_sizes_scaler_scale_factor != "") {
       pop_size_scaler_xml <- paste0(
         pop_size_scaler_xml,
@@ -102,9 +104,13 @@ tree_prior_to_xml_operators <- function(
     "id=\"", operator_id_pre, "Narrow.t:", id, "\" spec=\"Exchange\" ",
     "tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>")
   )
-  text <- c(text, paste0("<operator id=\"", operator_id_pre, "Wide.t:", id,
-    "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", id,
-    "\" weight=\"3.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator id=\"", operator_id_pre, "Wide.t:", id,
+      "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", id,
+      "\" weight=\"3.0\"/>"
+    )
   )
   text <- c(
     text,

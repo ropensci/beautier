@@ -31,8 +31,9 @@ gamma_distr_to_xml <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<Gamma ",
-    "id=\"Gamma.", id, "\" name=\"distr\">")
+  text <- c(
+    text,
+    paste0("<Gamma ", "id=\"Gamma.", id, "\" name=\"distr\">")
   )
   text <- c(text,
     beautier::indent(
