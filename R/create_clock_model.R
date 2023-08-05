@@ -151,7 +151,8 @@ create_rln_clock_model <- create_clock_model_rln <- function(
 create_strict_clock_model <- create_clock_model_strict <- function(
   id = NA,
   clock_rate_param = create_clock_rate_param(),
-  clock_rate_distr = create_uniform_distr()
+  clock_rate_distr = create_uniform_distr(),
+  rate_scaler_factor = 0.75
 ) {
   if (
     beautier::is_one_double(clock_rate_param) ||
@@ -175,8 +176,9 @@ create_strict_clock_model <- create_clock_model_strict <- function(
     name = "strict",
     id = id,
     clock_rate_param = clock_rate_param,
-    clock_rate_distr = clock_rate_distr
+    clock_rate_distr = clock_rate_distr,
+    rate_scaler_factor = rate_scaler_factor
   )
-  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
+  beautier::check_strict_clock_model(strict_clock_model)
   strict_clock_model
 }

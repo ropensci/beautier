@@ -110,7 +110,7 @@ check_rln_clock_model <- function(clock_model) {
 #' @export
 check_strict_clock_model <- function(clock_model) {
   argument_names <- c(
-    "name", "id", "clock_rate_param", "clock_rate_distr"
+    "name", "id", "clock_rate_param", "clock_rate_distr", "rate_scaler_factor"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(clock_model)) {
@@ -143,4 +143,15 @@ check_strict_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$clock_rate_param
     )
   }
+  if (
+    !beautier::is_one_double(clock_model$rate_scaler_factor) &&
+    !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor)
+  ) {
+    stop(
+      "'rate_scaler_factor' must be a number ",
+      "or a string that can be converted to a number. ",
+      "Actual value: ", rate_scaler_factor
+    )
+  }
+  invisible(clock_model)
 }

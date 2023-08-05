@@ -38,7 +38,8 @@ test_that("use: operators", {
   expect_silent(
     extract_xml_section_from_lines(
       lines = readLines(get_beautier_path("2_4.xml")),
-      section = "operators")
+      section = "operators"
+    )
   )
 
 })
@@ -48,7 +49,8 @@ test_that("use: loggers", {
   expect_silent(
     extract_xml_section_from_lines(
       lines = readLines(get_beautier_path("2_4.xml")),
-      section = "loggers")
+      section = "loggers"
+    )
   )
 
 })

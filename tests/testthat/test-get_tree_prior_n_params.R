@@ -27,9 +27,10 @@ test_that("use, CCP", {
   # pop_size_distr: one_div_x_distr: 0
   expect_equal(get_tree_prior_n_params(create_ccp_tree_prior()), 0)
 
-  expect_equal(get_tree_prior_n_params(
-    create_ccp_tree_prior(
-      pop_size_distr = create_exp_distr() # 1
+  expect_equal(
+    get_tree_prior_n_params(
+      create_ccp_tree_prior(
+        pop_size_distr = create_exp_distr() # 1
       )
     ),
     1

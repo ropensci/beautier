@@ -65,6 +65,7 @@ default_params_doc(
   param_id,
   phylogeny,
   pre_burnin,
+  rate_scaler_factor,
   rename_fun,
   rln_clock_model,
   sample_from_prior,
@@ -280,6 +281,9 @@ package}
 
 \item{pre_burnin}{number of burn in samples taken before entering
 the main loop}
+
+\item{rate_scaler_factor}{the strict clock model's operator scaler
+for the rate}
 
 \item{rename_fun}{a function to rename a filename,
 as can be checked by \link{check_rename_fun}. This function should

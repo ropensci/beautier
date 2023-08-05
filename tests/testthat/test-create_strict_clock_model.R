@@ -13,6 +13,15 @@ test_that("use", {
       )
     )
   )
+
+  # Issue #139, Issue 139
+  expect_true(
+    is_strict_clock_model(
+      create_strict_clock_model(
+        rate_scaler_factor = 0.75
+      )
+    )
+  )
 })
 
 test_that("simplified interface converts", {

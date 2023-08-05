@@ -61,9 +61,9 @@ test_that("Can specify lower, upper and value in normal distr", {
   expected <- paste0(
     "            ",
     "<parameter id=\"popSize.t:anthus_nd2_sub\" ",
-      "spec=\"parameter.RealParameter\" lower=\"12.0\" name=\"stateNode\" ",
-      "upper=\"345.0\">",
-      "100.0",
+    "spec=\"parameter.RealParameter\" lower=\"12.0\" name=\"stateNode\" ",
+    "upper=\"345.0\">",
+    "100.0",
     "</parameter>"
   )
   created <- stringr::str_subset(text, "popSize.t:anthus_nd2_sub.*stateNode")

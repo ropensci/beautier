@@ -11,7 +11,8 @@ test_that("Can specify HKY gamma category count", {
 test_that("Can specify HKY proportion invariant", {
 
   gamma_site_model <- beautier::create_gamma_site_model(
-    prop_invariant = 0.2)
+    prop_invariant = 0.2
+  )
   expect_true(is_gamma_site_model(gamma_site_model))
   expect_equal(gamma_site_model$prop_invariant, 0.2)
 

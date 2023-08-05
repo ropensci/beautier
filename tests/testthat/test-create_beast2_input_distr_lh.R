@@ -31,7 +31,7 @@ test_that("strict", {
 test_that("RLN, v2.4", {
   expected <- unindent(
     remove_empty_lines(
-        extract_xml_section_from_lines(
+      extract_xml_section_from_lines(
         lines = readr::read_lines(get_beautier_path("rln_2_4.xml")),
         section = "distribution"
       )

@@ -1269,8 +1269,10 @@ test_that("anthus_aco_sub_calibrated_rln_monophyletic.xml", {
     ),
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_calibrated_rln_monophyletic.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_calibrated_rln_monophyletic.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1291,8 +1293,10 @@ test_that("Base point: anthus_aco_sub.xml", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_20181016.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_20181016.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1317,8 +1321,10 @@ test_that("Base point + all taxa", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_20181016_all.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_20181016_all.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1344,8 +1350,10 @@ test_that("Base point + all taxa + monophyletic", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_20181016_all_monophyletic.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_20181016_all_monophyletic.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1372,8 +1380,10 @@ test_that("Base point + all taxa + monophyletic + one_div_x", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_20181016_all_one_div_x_monophyletic.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_20181016_all_one_div_x_monophyletic.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1400,8 +1410,10 @@ test_that("Base point + all taxa + one_div_x", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_20181016_all_one_div_x.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_20181016_all_one_div_x.xml"
+    )
   )
 
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -1438,8 +1450,10 @@ test_that("Base point + all taxa + one_div_x + RLN", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_20181016_all_one_div_x_rln.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_20181016_all_one_div_x_rln.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
