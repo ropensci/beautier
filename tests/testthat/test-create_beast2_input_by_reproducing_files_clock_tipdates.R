@@ -59,7 +59,9 @@ test_that("rln_uclstdev_beta_2_4.xml", {
   # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
-    expected = expected
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 

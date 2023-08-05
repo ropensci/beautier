@@ -15,6 +15,10 @@ Get the default `namespace` element value of the `beast` XML tag.
 \examples{
 get_default_beast_namespace()
 }
+\seealso{
+* For BEAST2 v2.4, use \link{get_default_beast_namespace_v2_4}
+  * For BEAST2 v2.6, use \link{get_default_beast_namespace_v2_6}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_beauti_options.R
 \name{create_beauti_options}
 \alias{create_beauti_options}
-\title{Function to create a set of BEAUti options.}
+\title{Function to create a set of `BEAUti` options.}
 \usage{
 create_beauti_options(
   capitalize_first_char_id = FALSE,
@@ -11,7 +11,7 @@ create_beauti_options(
   required = "",
   sequence_indent = 20,
   status = "",
-  namespace = beautier::get_default_beast_namespace()
+  namespace = beautier::get_default_beast_namespace_v2_4()
 )
 }
 \arguments{
@@ -36,17 +36,18 @@ lines are indented}
 a BEAUti options structure
 }
 \description{
-BEAUti options are settings that differ between BEAUti
+`BEAUti` options are settings that differ between `BEAUti`
 version. The use of these options is mostly for testing
 older versions
 Whatever option chosen here, the created XML file will be valid.
 }
 \details{
 Available BEAUti options are:\cr
-\itemize{
-  \item \link{create_beauti_options_v2_4}
-  \item \link{create_beauti_options_v2_6}
-}
+  * \link{create_beauti_options_v2_4}
+  * \link{create_beauti_options_v2_6}
+
+`beautier` uses v2.4 by default, as this is when the first tests
+were written.
 }
 \examples{
 if (is_on_ci()) {

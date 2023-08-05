@@ -1,15 +1,16 @@
-#' Function to create a set of BEAUti options.
+#' Function to create a set of `BEAUti` options.
 #'
-#' BEAUti options are settings that differ between BEAUti
+#' `BEAUti` options are settings that differ between `BEAUti`
 #' version. The use of these options is mostly for testing
 #' older versions
 #' Whatever option chosen here, the created XML file will be valid.
 #'
 #' Available BEAUti options are:\cr
-#' \itemize{
-#'   \item \link{create_beauti_options_v2_4}
-#'   \item \link{create_beauti_options_v2_6}
-#' }
+#'   * \link{create_beauti_options_v2_4}
+#'   * \link{create_beauti_options_v2_6}
+#'
+#' `beautier` uses v2.4 by default, as this is when the first tests
+#' were written.
 #' @param capitalize_first_char_id must the ID of alignment start with a
 #'   capital? TRUE if yes, FALSE if it can be left lower case (if it is
 #'   lowercase)
@@ -44,7 +45,7 @@ create_beauti_options <- function(
   required = "",
   sequence_indent = 20,
   status = "",
-  namespace = beautier::get_default_beast_namespace()
+  namespace = beautier::get_default_beast_namespace_v2_4()
 ) {
   beauti_options <- list(
     capitalize_first_char_id = capitalize_first_char_id,

@@ -35,7 +35,9 @@ test_that("rln_2_6.xml", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
     ),
-    beauti_options = create_beauti_options_v2_6()
+    beauti_options = create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" # nolint indeed a long line
+    )
   )
   created <- create_beast2_input_from_model(
     input_filename = get_beautier_path("test_output_0.fas"),

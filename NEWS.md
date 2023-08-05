@@ -14,6 +14,9 @@ Newest versions at top.
    only a string (conversion from a double was already supported)
  * `create_mean_param` can also create a mean parameter from
    only a string (conversion from a double was already supported)
+ * Add `get_default_beast_namespace_v2_4` and `get_default_beast_namespace_v2_6`,
+   to work well with `create_beauti_options_v2_4` and `create_beauti_options_v2_6`
+   respectively
 
 ### BUG FIXES
 
