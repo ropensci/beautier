@@ -8,7 +8,7 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
 
   # Delivered by the user
   fasta_filename <- get_beautier_path("Heleioporus_species_ND2_Pop1.fasta")
-  mutation_rate <- "1.45E-08"
+  mutation_rate <- "1.45E-8"
 
   inference_model <- create_inference_model(
     site_model = create_hky_site_model(
@@ -29,6 +29,9 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
     ),
     tree_prior = create_cbs_tree_prior(
       b_pop_sizes_param = create_b_pop_sizes_param(upper = Inf)
+    ),
+    mcmc = create_mcmc(
+      tracelog = create_tracelog(filename = "beast.log")
     ),
     beauti_options = create_beauti_options_v2_6(
       namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood",
