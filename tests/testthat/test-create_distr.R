@@ -293,7 +293,7 @@ test_that("abuse, normal_distr", {
 
   expect_error(
     create_normal_distr(mean = "nonsense"),
-    "'mean' must be a mean parameter"
+    "'mean' must be a mean.*parameter"
   )
   expect_error(
     create_normal_distr(sigma = "nonsense"),

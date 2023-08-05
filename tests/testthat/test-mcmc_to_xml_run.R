@@ -35,8 +35,11 @@ test_that("use, mcmc_to_xml_run, 1K", {
 
 test_that("use, mcmc_to_xml_run, store every", {
 
-  created <- mcmc_to_xml_run(create_ns_mcmc(
-    chain_length = 10000, store_every = 1000)
+  created <- mcmc_to_xml_run(
+    create_ns_mcmc(
+      chain_length = 10000,
+      store_every = 1000
+    )
   )
   expected <- "<run id=\"mcmc\" spec=\"beast.gss.NS\" chainLength=\"10000\" storeEvery=\"1000\" particleCount=\"1\" subChainLength=\"5000\" epsilon=\"1e-12\">" # nolint indeed a long string
   expect_equal(created, expected)

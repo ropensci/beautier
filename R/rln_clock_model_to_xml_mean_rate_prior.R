@@ -15,8 +15,13 @@ rln_clock_model_to_xml_mean_rate_prior <- function( # nolint indeed a long inter
 
   text <- NULL
 
-  text <- c(text, paste0("<prior id=\"MeanRatePrior.c:", id, "\" ",
-    "name=\"distribution\" x=\"@ucldMean.c:", id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior id=\"MeanRatePrior.c:", id, "\" ",
+      "name=\"distribution\" x=\"@ucldMean.c:", id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(

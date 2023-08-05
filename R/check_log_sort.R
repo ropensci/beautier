@@ -7,7 +7,7 @@ check_log_sort <- function(sort) {
     stop(
       "'sort' must be a valid log sort. \n",
       "Supported values: '",
-        paste0(beautier::get_log_sorts(), collapse = ", "), "' \n",
+      paste0(beautier::get_log_sorts(), collapse = ", "), "' \n",
       "Actual value: '", sort
     )
   }

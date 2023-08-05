@@ -40,9 +40,13 @@ compare_lines <- function(
 ) {
   if (!beautier::is_one_na(section)) {
     lines <- beautier::extract_xml_section_from_lines(
-      lines = lines, section = section)
+      lines = lines,
+      section = section
+    )
     expected <- beautier::extract_xml_section_from_lines(
-      lines = expected, section = section)
+      lines = expected,
+      section = section
+    )
   }
   dir.create(
     dirname(created_lines_filename),

@@ -70,7 +70,8 @@ check_mcmc_values <- function(mcmc) {
     )
   }
   if (!beautier::is_one_na(mcmc$store_every) &&
-      mcmc$store_every != -1 && mcmc$store_every < 1000) {
+    mcmc$store_every != -1 && mcmc$store_every < 1000
+  ) {
     stop("'mcmc$store_every' must be at least 1000, NA or -1")
   }
 

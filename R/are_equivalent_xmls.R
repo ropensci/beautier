@@ -165,11 +165,17 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
     )
   }
   section_1 <- beautier::extract_xml_section_from_lines(
-    lines = lines_1, section = section)
+    lines = lines_1,
+    section = section
+  )
   section_2 <- beautier::extract_xml_section_from_lines(
-    lines = lines_2, section = section)
+    lines = lines_2,
+    section = section
+  )
   beautier::are_equivalent_xml_lines_all(
-    section_1, section_2, verbose = verbose
+    section_1,
+    section_2,
+    verbose = verbose
   )
 }
 

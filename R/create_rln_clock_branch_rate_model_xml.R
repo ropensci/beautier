@@ -49,9 +49,14 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
 
   text <- c(text, line)
 
-  text <- c(text, paste0("    <LogNormal ",
-    "id=\"LogNormalDistributionModel.c:", id, "\" ",
-    "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"))
+  text <- c(
+    text,
+    paste0(
+      "    <LogNormal ",
+      "id=\"LogNormalDistributionModel.c:", id, "\" ",
+      "S=\"@ucldStdev.c:", id, "\" meanInRealSpace=\"true\" name=\"distr\">"
+    )
+  )
   text <- c(
     text,
     indent(

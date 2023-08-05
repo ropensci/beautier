@@ -21,7 +21,7 @@ create_beast2_beast_xml <- function(
   paste0(
     "<beast beautitemplate='Standard' ",
     "beautistatus='", beauti_options$status, "' ",
-    "namespace=\"", beauti_options$namespace,"\" ",
+    "namespace=\"", beauti_options$namespace, "\" ",
     "required=\"", beauti_options$required, "\" ",
     "version=\"", beauti_options$beast2_version, "\">"
   )

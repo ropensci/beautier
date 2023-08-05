@@ -49,8 +49,12 @@ are_equal_xml_lines <- function(
     )
   }
   section_1 <- beautier::extract_xml_section_from_lines(
-    lines = lines_1, section = section)
+    lines = lines_1,
+    section = section
+  )
   section_2 <- beautier::extract_xml_section_from_lines(
-    lines = lines_2, section = section)
+    lines = lines_2,
+    section = section
+  )
   identical(section_1, section_2)
 }

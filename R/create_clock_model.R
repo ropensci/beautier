@@ -153,8 +153,10 @@ create_strict_clock_model <- create_clock_model_strict <- function(
   clock_rate_param = create_clock_rate_param(),
   clock_rate_distr = create_uniform_distr()
 ) {
-  if (beautier::is_one_double(clock_rate_param) ||
-      beautier::is_one_string(clock_rate_param)) {
+  if (
+    beautier::is_one_double(clock_rate_param) ||
+    beautier::is_one_string(clock_rate_param)
+  ) {
     clock_rate_param <- create_clock_rate_param(clock_rate_param)
   }
   if (!beautier::is_clock_rate_param(clock_rate_param)) {

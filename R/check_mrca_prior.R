@@ -34,8 +34,10 @@ check_mrca_prior <- function(mrca_prior) {
   beautier::check_alignment_id(mrca_prior$alignment_id)
   beautier::check_mrca_prior_taxa_names(mrca_prior$taxa_names)
 
-  if (!beautier::is_distr(mrca_prior$mrca_distr) &&
-      !beautier::is_one_na(mrca_prior$mrca_distr)) {
+  if (
+    !beautier::is_distr(mrca_prior$mrca_distr) &&
+    !beautier::is_one_na(mrca_prior$mrca_distr)
+  ) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
   if (!beautier::is_one_na(mrca_prior$clock_prior_distr_id) &&

@@ -34,7 +34,7 @@ check_empty_beautier_folder <- function(
       "beautier_folder: ", beautier_folder, " \n",
       "length(list.dirs(beautier_folder)): ", length(dirs), " \n",
       "head(list.dirs(beautier_folder)): ",
-        paste(utils::head(dirs), collapse = ",")
+      paste(utils::head(dirs), collapse = ",")
     )
   }
   filenames <- normalizePath(
@@ -48,7 +48,7 @@ check_empty_beautier_folder <- function(
       "beautier_folder: ", beautier_folder, " \n",
       "length(list.files(beautier_folder))): ", length(filenames), " \n",
       "head(list.files(beautier_folder)): ",
-        paste(utils::head(filenames), collapse = ",")
+      paste(utils::head(filenames), collapse = ",")
     )
   }
   if (dir.exists(beautier_folder)) {

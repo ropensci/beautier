@@ -23,13 +23,13 @@ test_that("use, two lines", {
   input <- c(
     "<a/>",
     "<b/>"
-    )
+  )
   result <- interspace(input)
   expected <- c(
     "<a/>",
     "",
     "<b/>"
-    )
+  )
   expect_equal(result, expected)
 
 })
@@ -40,7 +40,7 @@ test_that("use, simple indentation", {
     "<a>",
     "  indented",
     "</a>"
-    )
+  )
   result <- interspace(input)
   expected <- input
   expect_equal(result, expected)
@@ -56,7 +56,7 @@ test_that("use, complex indentation", {
     "</a>",
     "<b>",
     "<c>"
-    )
+  )
   result <- interspace(input)
   expected <- c(
     "<a>",
@@ -66,7 +66,7 @@ test_that("use, complex indentation", {
     "<b>",
     "",
     "<c>"
-    )
+  )
   expect_equal(result, expected)
 
   check_empty_beautier_folder()

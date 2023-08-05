@@ -25,7 +25,7 @@ are_clock_models <- function(
   x
 ) {
   tryCatch({
-      # We check four times. Just to check lintr-bot
+    # We check four times. Just to check lintr-bot
       beautier::check_clock_models(x)
       TRUE
     },

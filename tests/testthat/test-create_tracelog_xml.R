@@ -32,7 +32,7 @@ test_that("detailed use, v2.4", {
     inference_model = inference_model
   )
   expected <- unindent(
-      extract_xml_section_from_lines(
+    extract_xml_section_from_lines(
       readr::read_lines(get_beautier_path("2_4.xml")),
       section = "logger"
     )[1:9]

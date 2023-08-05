@@ -17,7 +17,8 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
         s = create_s_param(id = 2, value = "1.25")
       )
     ),
-    # below sets a clock model with mean at empirical rate and a narrow standard deviation
+    # below sets a clock model with mean at empirical rate
+    # and a narrow standard deviation
     clock_model = create_strict_clock_model(
       id = NA,
       clock_rate_param = create_clock_rate_param(value = mutation_rate),
@@ -34,7 +35,7 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
       tracelog = create_tracelog(filename = "beast.log")
     ),
     beauti_options = create_beauti_options_v2_6(
-      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood",
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood", # nolint indeed a long line
       nucleotides_uppercase = TRUE
     )
   )
@@ -52,7 +53,7 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
     sum(
       stringr::str_count(
         beautier_text,
-        pattern = "<parameter id=\"bPopSizes.t:Heleioporus_species_ND2_Pop1\" spec=\"parameter.RealParameter\" dimension=\"5\" lower=\"0.0\" name=\"stateNode\">380.0</parameter>"
+        pattern = "<parameter id=\"bPopSizes.t:Heleioporus_species_ND2_Pop1\" spec=\"parameter.RealParameter\" dimension=\"5\" lower=\"0.0\" name=\"stateNode\">380.0</parameter>" # nolint indeed a long line
       )
     ),
     1
@@ -84,7 +85,8 @@ test_that("Re-create v2.7 BEAUti file, as supplied by the user", {
 
   inference_model <- create_inference_model(
     site_model = create_hky_site_model(),
-     # below sets a clock model with mean at empirical rate and a narrow standard deviation
+    # below sets a clock model with mean at empirical rate
+    # and a narrow standard deviation
     clock_model = create_strict_clock_model(
       id = NA,
       clock_rate_param = mutation_rate,

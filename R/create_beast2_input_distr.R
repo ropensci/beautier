@@ -124,7 +124,8 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   # Surround text by prior distribution tag
   text <- c(
     "<distribution id=\"prior\" spec=\"util.CompoundDistribution\">",
-    text)
+    text
+  )
   text <- c(text, "</distribution>")
 }
 
@@ -182,10 +183,13 @@ create_beast2_input_distr_lh <- function(
   text <- beautier::indent(text)
 
   # Surround by likelihood distribution tags
-  text <- c(paste0(
-    "<distribution id=\"likelihood\" ",
-    "spec=\"util.CompoundDistribution\" useThreads=\"true\">"),
-    text)
+  text <- c(
+    paste0(
+      "<distribution id=\"likelihood\" ",
+      "spec=\"util.CompoundDistribution\" useThreads=\"true\">"
+    ),
+    text
+  )
   text <- c(text, "</distribution>")
 
   # Must have one or zero branchRateModel
@@ -459,9 +463,14 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   text <- NULL
 
   # distribution
-  text <- c(text, paste0("<distribution id=\"YuleModel.t:", id,
-    "\" spec=\"beast.evolution.speciation.YuleModel\" ",
-    "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<distribution id=\"YuleModel.t:", id,
+      "\" spec=\"beast.evolution.speciation.YuleModel\" ",
+      "birthDiffRate=\"@birthRate.t:", id, "\" tree=\"@Tree.t:", id, "\"/>"
+    )
+  )
 
   # prior
   text <- c(text, paste0(
