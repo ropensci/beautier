@@ -59,11 +59,14 @@ is_bd_tree_prior <- function(
 #' @examples
 #' check_empty_beautier_folder()
 #'
-#'   testit::assert(!is_cbs_tree_prior(create_bd_tree_prior()))
-#'   testit::assert( is_cbs_tree_prior(create_cbs_tree_prior()))
-#'   testit::assert(!is_cbs_tree_prior(create_ccp_tree_prior()))
-#'   testit::assert(!is_cbs_tree_prior(create_cep_tree_prior()))
-#'   testit::assert(!is_cbs_tree_prior(create_yule_tree_prior()))
+#' # TRUE
+#' is_cbs_tree_prior(create_cbs_tree_prior())
+#'
+#' # FALSE
+#' is_cbs_tree_prior(create_bd_tree_prior())
+#' is_cbs_tree_prior(create_ccp_tree_prior())
+#' is_cbs_tree_prior(create_cep_tree_prior())
+#' is_cbs_tree_prior(create_yule_tree_prior())
 #'
 #' check_empty_beautier_folder()
 #' @export
@@ -74,6 +77,7 @@ is_cbs_tree_prior <- function(
   if (x$name != "coalescent_bayesian_skyline") return(FALSE)
   if (!"group_sizes_dimension" %in% names(x)) return(FALSE)
   if (!"b_pop_sizes_param" %in% names(x)) return(FALSE)
+  if (!"pop_sizes_scaler_scale_factor" %in% names(x)) return(FALSE)
   TRUE
 }
 

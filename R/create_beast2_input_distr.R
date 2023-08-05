@@ -227,11 +227,16 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
 
   text <- NULL
 
-  text <- c(text, paste0("<distribution id=\"BirthDeath.t:", id,
-    "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
-    "birthDiffRate=\"@BDBirthRate.t:", id, "\" ",
-    "relativeDeathRate=\"@BDDeathRate.t:", id, "\" ",
-    "tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<distribution id=\"BirthDeath.t:", id,
+      "\" spec=\"beast.evolution.speciation.BirthDeathGernhard08Model\" ",
+      "birthDiffRate=\"@BDBirthRate.t:", id, "\" ",
+      "relativeDeathRate=\"@BDDeathRate.t:", id, "\" ",
+      "tree=\"@Tree.t:", id, "\"/>"
+    )
+  )
 
   # BDBirthRate
   bd_birth_rate_distr <- bd_tree_prior$birth_rate_distr

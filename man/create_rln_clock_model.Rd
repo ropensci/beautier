@@ -13,7 +13,8 @@ create_rln_clock_model(
   mean_clock_rate = "1.0",
   n_rate_categories = -1,
   normalize_mean_clock_rate = FALSE,
-  dimension = NA
+  dimension = NA,
+  rate_scaler_factor = 0.75
 )
 }
 \arguments{
@@ -44,6 +45,10 @@ set to NA to have it initialized}
 Leave NA to let beautier calculate it.
 Else, the dimensionality of the clock
 equals twice the number of taxa minus two.}
+
+\item{rate_scaler_factor}{the strict clock model's operator scaler
+for the rate.
+Use an empty string to indicate the default.}
 }
 \value{
 a relaxed log-normal clock_model

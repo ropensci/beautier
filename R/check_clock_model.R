@@ -59,7 +59,7 @@ check_rln_clock_model <- function(clock_model) {
   argument_names <- c(
     "name", "id", "ucldstdev_distr", "mean_rate_prior_distr", "mparam_id",
     "mean_clock_rate", "n_rate_categories", "normalize_mean_clock_rate",
-    "dimension"
+    "dimension", "rate_scaler_factor"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(clock_model)) {
@@ -92,6 +92,19 @@ check_rln_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$mean_rate_prior_distr
     )
   }
+  if (
+    !beautier::is_one_double(clock_model$rate_scaler_factor) &&
+      !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) &&
+      !beautier::is_one_empty_string(clock_model$rate_scaler_factor)
+  ) {
+    stop(
+      "'rate_scaler_factor' must be a number ",
+      "or a string that can be converted to a number ",
+      "or an empty string. ",
+      "Actual value: ", clock_model$rate_scaler_factor
+    )
+  }
+  invisible(clock_model)
 }
 
 #' Check if the clock model is a valid clock model.
@@ -145,7 +158,7 @@ check_strict_clock_model <- function(clock_model) {
   }
   if (
     !beautier::is_one_double(clock_model$rate_scaler_factor) &&
-      !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) &&
+      !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
       !beautier::is_one_empty_string(clock_model$rate_scaler_factor)
   ) {
     stop(

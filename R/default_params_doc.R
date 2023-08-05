@@ -130,6 +130,8 @@
 #' @param param_id a parameter's ID
 #' @param phylogeny a phylogeny of type \code{phylo} from the \code{ape}
 #'   package
+#' @param pop_sizes_scaler_scale_factor the scale factor used by the
+#' population sizes scaler operator
 #' @param pre_burnin number of burn in samples taken before entering
 #'   the main loop
 #' @param rate_scaler_factor the strict clock model's operator scaler
@@ -256,6 +258,7 @@ default_params_doc <- function(
   param,
   param_id,
   phylogeny,
+  pop_sizes_scaler_scale_factor,
   pre_burnin,
   rate_scaler_factor,
   rename_fun,

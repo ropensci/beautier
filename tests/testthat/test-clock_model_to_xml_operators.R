@@ -51,7 +51,10 @@ test_that("v2.6, tipdates", {
   )
   created <- clock_model_to_xml_operators(
     inference_model = create_inference_model(
-      clock_model = create_rln_clock_model(id = "test_output_0")
+      clock_model = create_rln_clock_model(
+        id = "test_output_0",
+        rate_scaler_factor = 0.75
+      )
     )
   )
   # Creates temporary files in beautier folder

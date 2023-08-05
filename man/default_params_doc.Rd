@@ -64,6 +64,7 @@ default_params_doc(
   param,
   param_id,
   phylogeny,
+  pop_sizes_scaler_scale_factor,
   pre_burnin,
   rate_scaler_factor,
   rename_fun,
@@ -278,6 +279,9 @@ function. BEAST2 uses this file as input.}
 
 \item{phylogeny}{a phylogeny of type \code{phylo} from the \code{ape}
 package}
+
+\item{pop_sizes_scaler_scale_factor}{the scale factor used by the
+population sizes scaler operator}
 
 \item{pre_burnin}{number of burn in samples taken before entering
 the main loop}

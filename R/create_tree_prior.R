@@ -139,13 +139,15 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
   id = NA,
   group_sizes_dimension = 5,
-  b_pop_sizes_param = create_b_pop_sizes_param()
+  b_pop_sizes_param = create_b_pop_sizes_param(),
+  pop_sizes_scaler_scale_factor = ""
 ) {
   cbs_tree_prior <- create_tree_prior(
     name = "coalescent_bayesian_skyline",
     id = id,
     group_sizes_dimension = group_sizes_dimension,
-    b_pop_sizes_param = b_pop_sizes_param
+    b_pop_sizes_param = b_pop_sizes_param,
+    pop_sizes_scaler_scale_factor = pop_sizes_scaler_scale_factor
   )
   testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
   cbs_tree_prior
@@ -261,11 +263,13 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(
   id = NA,
-  birth_rate_distr = create_uniform_distr()
+  birth_rate_distr = create_uniform_distr(),
+  rate_scaler_factor = 0.5
 ) {
   create_tree_prior(
     name = "yule",
     id = id,
-    birth_rate_distr = birth_rate_distr
+    birth_rate_distr = birth_rate_distr,
+    rate_scaler_factor = rate_scaler_factor
   )
 }

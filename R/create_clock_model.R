@@ -99,7 +99,8 @@ create_rln_clock_model <- create_clock_model_rln <- function(
   mean_clock_rate = "1.0",
   n_rate_categories = -1,
   normalize_mean_clock_rate = FALSE,
-  dimension = NA
+  dimension = NA,
+  rate_scaler_factor = 0.75
 ) {
   rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
@@ -110,9 +111,10 @@ create_rln_clock_model <- create_clock_model_rln <- function(
     mean_clock_rate = mean_clock_rate,
     n_rate_categories = n_rate_categories,
     normalize_mean_clock_rate = normalize_mean_clock_rate,
-    dimension = dimension
+    dimension = dimension,
+    rate_scaler_factor = rate_scaler_factor
   )
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  beautier::check_rln_clock_model(rln_clock_model)
   rln_clock_model
 }
 

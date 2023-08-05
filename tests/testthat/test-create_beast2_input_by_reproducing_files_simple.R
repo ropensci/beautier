@@ -977,8 +977,10 @@ test_that("birth_rate_one_div_x_2_4.xml", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "birth_rate_one_div_x_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_one_div_x_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1000,8 +1002,10 @@ test_that("birth_rate_log_normal_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_log_normal_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_log_normal_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1018,8 +1022,10 @@ test_that("birth_rate_exp_2_4.xml", {
     )
   )
 
-  expected <- readLines(get_beautier_path(
-    "birth_rate_exp_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_exp_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1037,8 +1043,10 @@ test_that("birth_rate_gamma_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_gamma_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_gamma_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1055,8 +1063,10 @@ test_that("birth_rate_beta_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_beta_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_beta_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1073,8 +1083,10 @@ test_that("birth_rate_laplace_2_4.xml", {
       )
     )
   )
-  expected <- readLines(get_beautier_path(
-    "birth_rate_laplace_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "birth_rate_laplace_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
