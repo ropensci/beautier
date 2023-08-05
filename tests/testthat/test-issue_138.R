@@ -8,14 +8,19 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
 
   # Delivered by the user
   fasta_filename <- get_beautier_path("Heleioporus_species_ND2_Pop1.fasta")
-  mutation_rate <- 1.45E-08
+  mutation_rate <- "1.45E-08"
 
   inference_model <- create_inference_model(
-    site_model = create_hky_site_model(),
+    site_model = create_hky_site_model(
+      kappa_prior_distr = create_log_normal_distr(
+        m = create_m_param(id = 1, value = "1.0"),
+        s = create_s_param(id = 2, value = "1.25")
+      )
+    ),
     # below sets a clock model with mean at empirical rate and a narrow standard deviation
     clock_model = create_strict_clock_model(
       id = NA,
-      clock_rate_param = mutation_rate,
+      clock_rate_param = create_clock_rate_param(value = mutation_rate),
       clock_rate_distr = create_normal_distr(
         id = NA,
         mean = mutation_rate,

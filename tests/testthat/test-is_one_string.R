@@ -1,0 +1,15 @@
+test_that("use", {
+  expect_true(is_one_string("I am one string"))
+
+  expect_false(is_one_string(314))
+  expect_false(is_one_string(0))
+  expect_false(is_one_string(-314))
+  expect_false(is_one_string(3.14))
+  expect_false(is_one_string(NULL))
+  expect_false(is_one_string(NA))
+  expect_false(is_one_string(Inf))
+  expect_false(is_one_string(c("A", "B")))
+  expect_false(is_one_string(is_one_string))
+  expect_false(is_one_string(c()))
+  expect_false(is_one_string(c(1, 2)))
+})

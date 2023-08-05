@@ -5,12 +5,14 @@
 \alias{create_param_b_pop_sizes}
 \title{Create a parameter called `b_pop_sizes`.}
 \usage{
-create_b_pop_sizes_param(id = NA, value = 1)
+create_b_pop_sizes_param(id = NA, value = 1, upper = "380000.0")
 }
 \arguments{
 \item{id}{the parameter's ID}
 
 \item{value}{value of the parameter}
+
+\item{upper}{upper value of the parameter}
 }
 \value{
 a parameter called b_pop_sizes

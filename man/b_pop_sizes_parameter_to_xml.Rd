@@ -21,10 +21,13 @@ Converts a Bayesian population sizes parameter to XML
 }
 \examples{
 b_pop_sizes_parameter_to_xml(
-  b_pop_sizes_parameter = create_b_pop_sizes_parameter(),
+  b_pop_sizes_parameter = create_b_pop_sizes_param(id = 42),
   beauti_options = create_beauti_options()
 )
-
+b_pop_sizes_parameter_to_xml(
+  b_pop_sizes_parameter = create_b_pop_sizes_param(id = 42, upper = Inf),
+  beauti_options = create_beauti_options()
+)
 }
 \author{
 Richèl J.C. Bilderbeek

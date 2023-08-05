@@ -1,5 +1,3 @@
-context("create_strict_clock_model")
-
 test_that("use", {
 
   expect_true(
@@ -15,8 +13,10 @@ test_that("use", {
       )
     )
   )
+})
 
-  # Simplified interface
+test_that("simplified interface converts", {
+
   expect_true(
     is_strict_clock_model(
       create_strict_clock_model(
@@ -25,6 +25,13 @@ test_that("use", {
     )
   )
 
+  expect_true(
+    is_strict_clock_model(
+      create_strict_clock_model(
+        clock_rate_param = "3.14"
+      )
+    )
+  )
 })
 
 test_that("abuse", {
