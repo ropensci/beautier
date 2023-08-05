@@ -26,7 +26,8 @@ as created by the \code{\link{create_clock_rate_param}} function}
 as created by a \code{\link{create_distr}} function}
 
 \item{rate_scaler_factor}{the strict clock model's operator scaler
-for the rate}
+for the rate.
+Use an empty string to indicate the default.}
 }
 \value{
 a strict clock_model

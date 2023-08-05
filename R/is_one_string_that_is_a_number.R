@@ -6,7 +6,8 @@
 #' is_one_string_that_is_a_number("3.14")
 #'
 #' # FALSE
-#' is_one_string_that_is_a_number("3.14", "42")
+#' is_one_string_that_is_a_number(c("3.14", "42"))
+#' is_one_string_that_is_a_number("")
 #' is_one_string_that_is_a_number(42)
 #' is_one_string_that_is_a_number("nonsense")
 #' @author Richèl J.C. Bilderbeek

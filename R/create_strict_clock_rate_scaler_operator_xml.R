@@ -32,7 +32,9 @@ create_strict_clock_rate_scaler_operator_xml <- function(inference_model) { # no
     "<operator id=\"StrictClockRateScaler.c:", id, "\" ",
     "spec=\"ScaleOperator\" parameter=\"@clockRate.c:", id, "\" "
   )
-  xml <- paste0(xml, "scaleFactor=\"", clock_model$rate_scaler_factor, "\" ")
+  if (clock_model$rate_scaler_factor != "") {
+    xml <- paste0(xml, "scaleFactor=\"", clock_model$rate_scaler_factor, "\" ")
+  }
   if (1 == 2) {
     if (inference_model$beauti_options$beast2_version != "2.6") {
       xml <- paste0(xml, "scaleFactor=\"0.75\" ")

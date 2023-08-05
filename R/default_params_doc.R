@@ -133,7 +133,8 @@
 #' @param pre_burnin number of burn in samples taken before entering
 #'   the main loop
 #' @param rate_scaler_factor the strict clock model's operator scaler
-#' for the rate
+#' for the rate.
+#' Use an empty string to indicate the default.
 #' @param rename_fun a function to rename a filename,
 #' as can be checked by \link{check_rename_fun}. This function should
 #' have one argument, which will be a filename or \link{NA}. The

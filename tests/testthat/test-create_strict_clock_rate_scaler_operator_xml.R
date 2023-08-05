@@ -35,7 +35,10 @@ test_that("detailed use, v2.6", {
   expect_equal(
     create_strict_clock_rate_scaler_operator_xml(
       inference_model = create_inference_model(
-        clock_model = create_strict_clock_model(id = "test_output_0"),
+        clock_model = create_strict_clock_model(
+          id = "test_output_0",
+          rate_scaler_factor = ""
+        ),
         beauti_options = create_beauti_options_v2_6()
       )
     ),
