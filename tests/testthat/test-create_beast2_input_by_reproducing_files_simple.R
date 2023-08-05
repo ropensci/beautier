@@ -769,7 +769,7 @@ test_that("cbs_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_6.fas"),
-    tree_prior = create_cbs_tree_prior()
+    tree_prior = create_cbs_tree_prior(pop_sizes_scaler_scale_factor = 0.75)
   )
   expected <- readLines(get_beautier_path(
     "cbs_6_taxa_2_4.xml")
@@ -833,7 +833,9 @@ test_that("cbs_6_taxa_2_4.xml", {
 
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_6.fas"),
-    tree_prior = create_cbs_tree_prior()
+    tree_prior = create_cbs_tree_prior(
+      pop_sizes_scaler_scale_factor = 0.75
+    )
   )
   expected <- readLines(get_beautier_path(
     "cbs_6_taxa_2_4.xml")
@@ -846,7 +848,8 @@ test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
   created <- create_beast2_input(
     input_filename = get_beautier_path("anthus_aco_sub.fas"),
     tree_prior = create_cbs_tree_prior(
-      group_sizes_dimension = 4
+      group_sizes_dimension = 4,
+      pop_sizes_scaler_scale_factor = 0.75
     ),
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
@@ -855,8 +858,6 @@ test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
-
-
 
 ################################################################################
 # Tree prior: CCP

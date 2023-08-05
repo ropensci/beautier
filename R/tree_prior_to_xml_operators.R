@@ -37,24 +37,24 @@ tree_prior_to_xml_operators <- function(
       "\" scaleFactor=\"0.75\" weight=\"3.0\"/>")
     )
   } else if (beautier::is_cbs_tree_prior(tree_prior)) {
-    text <- c(
-      text,
-      paste0(
-        "<operator id=\"popSizesScaler.t:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", id, "\" "
-      )
+
+    pop_size_scaler_xml <- paste0(
+      "<operator id=\"popSizesScaler.t:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", id, "\" "
     )
     testthat::expect_true("pop_sizes_scaler_scale_factor" %in% names(tree_prior))
-    if (tree_prior$pop_sizes_scaler_scale_factor != "")
-    text <- c(
-      text,
-      "scaleFactor=\"", tree_prior$pop_sizes_scaler_scale_factor, "\" "
-    )
-    text <- c(
-      text,
-      "weight=\"15.0\"/>"
-    )
+    if (tree_prior$pop_sizes_scaler_scale_factor != "") {
+      pop_size_scaler_xml <- paste0(
+        pop_size_scaler_xml,
+        "scaleFactor=\"", tree_prior$pop_sizes_scaler_scale_factor, "\" "
+      )
+    }
+    pop_size_scaler_xml <- paste0(pop_size_scaler_xml, "weight=\"15.0\"/>")
 
+    text <- c(
+      text,
+      pop_size_scaler_xml
+    )
     text <- c(text, paste0("<operator id=\"groupSizesDelta.t:", id, "\" ",
       "spec=\"DeltaExchangeOperator\" integer=\"true\" weight=\"6.0\">")
     )
