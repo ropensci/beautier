@@ -1138,8 +1138,10 @@ test_that("anthus_aco_sub.xml", {
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1170,8 +1172,10 @@ test_that("anthus_aco_sub_calibration.xml", {
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_calibrated.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_calibrated.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1196,8 +1200,10 @@ test_that("anthus_aco_sub_calibrated_no_prior.xml", {
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
 
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_calibrated_no_prior.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_calibrated_no_prior.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -1232,8 +1238,10 @@ test_that("anthus_aco_sub_calibrated_rln.xml", {
     ),
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_calibrated_rln.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_calibrated_rln.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

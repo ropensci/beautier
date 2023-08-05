@@ -78,7 +78,8 @@ test_that("strict_clock_2_4.xml", {
   created <- create_beast2_input(
     input_filename = get_beautier_path("test_output_0.fas"),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
   expected <- readLines(get_beautier_path("strict_clock_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -95,7 +96,8 @@ test_that("strict_clock_rate_0_5_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
   expected <- readLines(get_beautier_path("strict_clock_rate_0_5_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))

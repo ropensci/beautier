@@ -93,10 +93,10 @@ init_gtr_site_model <- function(
     ) {
       gtr_site_model$gamma_site_model$gamma_shape_prior_distr <-
         beautier::init_distr(
-        gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
-        distr_id = distr_id,
-        param_id = param_id
-      )
+          gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
+          distr_id = distr_id,
+          param_id = param_id
+        )
       distr_id <- distr_id + 1
       param_id <- param_id + beautier::get_distr_n_params(
         gtr_site_model$gamma_site_model$gamma_shape_prior_distr
@@ -240,10 +240,10 @@ init_hky_site_model <- function(
     )) {
       hky_site_model$gamma_site_model$gamma_shape_prior_distr <-
         beautier::init_distr(
-        hky_site_model$gamma_site_model$gamma_shape_prior_distr,
-        distr_id = distr_id,
-        param_id = param_id
-      )
+          hky_site_model$gamma_site_model$gamma_shape_prior_distr,
+          distr_id = distr_id,
+          param_id = param_id
+        )
       distr_id <- distr_id + 1
       param_id <- param_id + beautier::get_distr_n_params(
         hky_site_model$gamma_site_model$gamma_shape_prior_distr
@@ -306,10 +306,10 @@ init_jc69_site_model <- function(
     ) {
       jc69_site_model$gamma_site_model$gamma_shape_prior_distr <-
         beautier::init_distr(
-        jc69_site_model$gamma_site_model$gamma_shape_prior_distr,
-        distr_id = distr_id,
-        param_id = param_id
-      )
+          jc69_site_model$gamma_site_model$gamma_shape_prior_distr,
+          distr_id = distr_id,
+          param_id = param_id
+        )
       distr_id <- distr_id + 1
       param_id <- param_id + beautier::get_distr_n_params(
         jc69_site_model$gamma_site_model$gamma_shape_prior_distr
@@ -360,10 +360,10 @@ init_tn93_site_model <- function(
     ) {
       tn93_site_model$gamma_site_model$gamma_shape_prior_distr <-
         beautier::init_distr(
-        tn93_site_model$gamma_site_model$gamma_shape_prior_distr,
-        distr_id = distr_id,
-        param_id = param_id
-      )
+          tn93_site_model$gamma_site_model$gamma_shape_prior_distr,
+          distr_id = distr_id,
+          param_id = param_id
+        )
       distr_id <- distr_id + 1
       param_id <- param_id + beautier::get_distr_n_params(
         tn93_site_model$gamma_site_model$gamma_shape_prior_distr

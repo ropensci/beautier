@@ -138,7 +138,7 @@ is_alpha_param <- function(
 #' check_empty_beautier_folder()
 #' @export
 is_b_pop_sizes_param <- function(
-    x
+  x
 ) {
   if (!beautier::is_param(x)) return(FALSE)
   x$name == "b_pop_sizes"
@@ -282,7 +282,7 @@ is_clock_rate_param <- function(
 #' check_empty_beautier_folder()
 #' @export
 is_freq_param <- function(
-    x
+  x
 ) {
   if (!beautier::is_param(x)) return(FALSE)
   if (x$name != "freqParameter") return(FALSE) # redundant name
@@ -336,7 +336,7 @@ is_freq_param <- function(
 #' check_empty_beautier_folder()
 #' @export
 is_kappa_param <- function(
-    x
+  x
 ) {
   if (!beautier::is_param(x)) return(FALSE)
   if (x$name != "kappa") return(FALSE)

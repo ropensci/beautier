@@ -36,8 +36,8 @@ init_clock_models <- function(
         }
 
         distr_id <- distr_id  + 2 # Has two distributions
-        param_id <- param_id + beautier::get_distr_n_params(
-          clock_model$ucldstdev_distr) +
+        param_id <- param_id +
+          beautier::get_distr_n_params(clock_model$ucldstdev_distr) +
           1 # mparam
       }
 
@@ -53,7 +53,8 @@ init_clock_models <- function(
         )
         distr_id <- distr_id  + 1 # Has one distributions
         param_id <- param_id + beautier::get_distr_n_params(
-          clock_model$clock_rate_distr)
+          clock_model$clock_rate_distr
+        )
       }
 
       testit::assert(beautier::is_init_strict_clock_model(clock_model))
@@ -158,7 +159,8 @@ init_strict_clock_model <- function(
   )
   distr_id <- distr_id + 1
   param_id <- param_id + beautier::get_distr_n_params(
-    strict_clock_model$clock_rate_distr)
+    strict_clock_model$clock_rate_distr
+  )
 
   # clock_rate_param
   strict_clock_model$clock_rate_param$id <- param_id

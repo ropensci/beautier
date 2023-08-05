@@ -39,13 +39,14 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
   if (site_model$kappa_2_param$estimate == TRUE) {
     text <- c(text, paste0("<prior id=\"kappa2Prior.s:", id, "\" ",
                            "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
-    text <- c(text,
-              beautier::indent(
-                beautier::distr_to_xml(
-                  site_model$kappa_2_prior,
-                  beauti_options = beauti_options
-                )
-              )
+    text <- c(
+      text,
+      beautier::indent(
+        beautier::distr_to_xml(
+          site_model$kappa_2_prior,
+          beauti_options = beauti_options
+        )
+      )
     )
     text <- c(text, paste0("</prior>"))
   }

@@ -28,11 +28,11 @@ test_that("two operators", {
   testthat::expect_equal(
     extract_xml_operators_from_lines(
       c(
-      "not",
-      "<operator id=\"a\"/>", # nolint this is no absolute path
-      "",
-      "<operator id=\"b\"/>", # nolint this is no absolute path
-      "neither too"
+        "not",
+        "<operator id=\"a\"/>", # nolint this is no absolute path
+        "",
+        "<operator id=\"b\"/>", # nolint this is no absolute path
+        "neither too"
       )
     ),
     c(

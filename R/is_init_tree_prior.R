@@ -80,7 +80,7 @@ is_init_cep_tree_prior <- function(
 ) {
   testit::assert(beautier::is_cep_tree_prior(x))
   beautier::is_init_distr(x$pop_size_distr) &&
-  beautier::is_init_distr(x$growth_rate_distr)
+    beautier::is_init_distr(x$growth_rate_distr)
 }
 
 #' Determine if x is an initialized Yule tree_prior object

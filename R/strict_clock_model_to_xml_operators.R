@@ -40,7 +40,7 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
   }
 
   if (beautier::has_mrca_prior_with_distr(inference_model) ||
-    beautier::has_tip_dating(inference_model)
+      beautier::has_tip_dating(inference_model)
   ) {
     text <- c(
       text,

@@ -12,7 +12,7 @@ has_xml_opening_tag <- function(
   section = NA
 ) {
   if (is.null(section) ||
-    (!is.character(section) && !beautier::is_one_na(section))
+      (!is.character(section) && !beautier::is_one_na(section))
   ) {
     stop("'section' must be NA or a word")
   }

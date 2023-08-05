@@ -23,7 +23,8 @@ is_mrca_prior <- function(
 ) {
   if (beautier::is_one_na(mrca_prior)) return(TRUE)
   if (!is.list(mrca_prior)) return(FALSE)
-  tryCatch({
+  tryCatch(
+    {
       beautier::check_mrca_prior(mrca_prior)
       TRUE
     },

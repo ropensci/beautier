@@ -27,12 +27,12 @@ hky_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
                          "id=\"KappaPrior.s:", id, "\" ",
                          "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
   text <- c(text,
-            beautier::indent(
-              beautier::distr_to_xml(
-                site_model$kappa_prior,
-                beauti_options = beauti_options
-              )
-            )
+    beautier::indent(
+      beautier::distr_to_xml(
+        site_model$kappa_prior,
+        beauti_options = beauti_options
+      )
+    )
   )
   text <- c(text, paste0("</prior>"))
   text

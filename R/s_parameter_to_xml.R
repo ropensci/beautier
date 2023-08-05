@@ -19,8 +19,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 s_parameter_to_xml <- function(
-    parameter,
-    beauti_options
+  parameter,
+  beauti_options
 ) {
   beautier::check_beauti_options(beauti_options)
   testit::assert(beautier::is_s_param(parameter))

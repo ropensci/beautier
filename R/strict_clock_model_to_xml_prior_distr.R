@@ -57,8 +57,13 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
     clock_model <- inference_model$clock_model
     id <- clock_model$id
     testit::assert(beautier::is_id(id))
-    text <- c(text, paste0("<prior id=\"ClockPrior.c:", id, "\" ",
-      "name=\"distribution\" x=\"@clockRate.c:", id, "\">"))
+    text <- c(
+      text,
+      paste0(
+        "<prior id=\"ClockPrior.c:", id, "\" ",
+        "name=\"distribution\" x=\"@clockRate.c:", id, "\">"
+      )
+    )
     text <- c(text,
       beautier::indent(
         beautier::distr_to_xml(

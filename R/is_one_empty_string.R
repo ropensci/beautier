@@ -13,7 +13,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_one_empty_string <- function(x) {
-  if (length(x) != 1) return (FALSE)
-  if (!is.character(x)) return (FALSE)
+  if (length(x) != 1) return(FALSE)
+  if (!is.character(x)) return(FALSE)
   nchar(x) == 0
 }

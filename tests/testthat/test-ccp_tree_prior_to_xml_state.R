@@ -42,8 +42,8 @@ test_that("minimal use, v2.6", {
   # This is the text to obtain:
   expected <- paste0(
     "<parameter id=\"popSize.t:anthus_nd2_sub\" ",
-      "spec=\"parameter.RealParameter\" name=\"stateNode\">",
-      "0.3",
+    "spec=\"parameter.RealParameter\" name=\"stateNode\">",
+    "0.3",
     "</parameter>"
   )
   expect_equal(text, expected)
@@ -71,9 +71,9 @@ test_that("use", {
   # This is the text to obtain:
   expected <- paste0(
     "<parameter id=\"popSize.t:anthus_nd2_sub\" ",
-      "spec=\"parameter.RealParameter\" lower=\"12.0\" name=\"stateNode\" ",
-      "upper=\"345.0\">",
-      "100.0",
+    "spec=\"parameter.RealParameter\" lower=\"12.0\" name=\"stateNode\" ",
+    "upper=\"345.0\">",
+    "100.0",
     "</parameter>"
   )
   expect_equal(text, expected)

@@ -10,7 +10,6 @@ tree_prior_to_xml_state <- function(
   # Do not be smart yet
   tree_prior <- inference_model$tree_prior
 
-  #testit::assert(beautier::is_tree_prior(tree_prior))
   beautier::check_tree_prior(tree_prior)
 
   id <- tree_prior$id
@@ -51,8 +50,13 @@ tree_prior_to_xml_state <- function(
   } else if (beautier::is_cep_tree_prior(tree_prior)) {
     text <- c(text, paste0("<parameter id=\"ePopSize.t:", id, "\" ",
       "name=\"stateNode\">0.3</parameter>"))
-    text <- c(text, paste0("<parameter id=\"growthRate.t:", id, "\" ",
-      "name=\"stateNode\">3.0E-4</parameter>"))
+    text <- c(
+      text,
+      paste0(
+        "<parameter id=\"growthRate.t:", id, "\" ",
+        "name=\"stateNode\">3.0E-4</parameter>"
+      )
+    )
   } else {
     testit::assert(beautier::is_yule_tree_prior(tree_prior))
     parameter_xml <- paste0(

@@ -79,9 +79,14 @@ tree_prior_to_xml_operators <- function(
   text <- c(text, paste0("<operator id=\"", operator_id_pre, "Wide.t:", id,
     "\" spec=\"Exchange\" isNarrow=\"false\" tree=\"@Tree.t:", id,
     "\" weight=\"3.0\"/>")) # nolint this is no absolute path
-  text <- c(text, paste0("<operator ",
-    "id=\"", operator_id_pre, "WilsonBalding.t:", id,
-    "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", id,
-    "\" weight=\"3.0\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"", operator_id_pre, "WilsonBalding.t:", id,
+      "\" spec=\"WilsonBalding\" tree=\"@Tree.t:", id,
+      "\" weight=\"3.0\"/>"
+    )
+  )
   text
 }

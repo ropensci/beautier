@@ -8,16 +8,16 @@ test_that("use", {
     check_beauti_options(
       create_beauti_options(
         required = ""
+      )
     )
   )
-)
   expect_silent(
     check_beauti_options(
       create_beauti_options(
         required = "valid input"
+      )
     )
   )
-)
 
   # Must stop on nonsense
   expect_error(check_beauti_options(beauti_options = "nonsense"))

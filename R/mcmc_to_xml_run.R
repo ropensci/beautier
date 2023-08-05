@@ -55,8 +55,10 @@ mcmc_to_xml_run_default <- function(mcmc) {
   }
 
   if (mcmc$sample_from_prior == TRUE) {
-    xml <- paste0(xml, " sampleFromPrior=\"",
-      tolower(as.character(mcmc$sample_from_prior)), "\"")
+    xml <- paste0(
+      xml, " sampleFromPrior=\"",
+      tolower(as.character(mcmc$sample_from_prior)), "\""
+    )
   }
 
 

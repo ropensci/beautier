@@ -18,7 +18,8 @@
 #' check_empty_beautier_folder()
 #' @export
 is_gamma_site_model <- function(x) {
-  tryCatch({
+  tryCatch(
+    {
       beautier::check_gamma_site_model(x)
       TRUE
     },

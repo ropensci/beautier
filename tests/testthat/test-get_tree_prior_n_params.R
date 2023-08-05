@@ -4,10 +4,11 @@ test_that("use, BD", {
   # death_rate_distr: uniform: 0
   expect_equal(get_tree_prior_n_params(create_bd_tree_prior()), 0)
 
-  expect_equal(get_tree_prior_n_params(
-    create_bd_tree_prior(
-      birth_rate_distr = create_exp_distr(), # 1
-      death_rate_distr = create_laplace_distr() #2
+  expect_equal(
+    get_tree_prior_n_params(
+      create_bd_tree_prior(
+        birth_rate_distr = create_exp_distr(), # 1
+        death_rate_distr = create_laplace_distr() #2
       )
     ),
     3

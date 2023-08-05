@@ -55,9 +55,14 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
 
   id <- clock_model$id
   testit::assert(beautier::is_id(id))
-  text <- c(text, paste0("<prior ",
-    "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
-    "x=\"@ucldStdev.c:", id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior ",
+      "id=\"ucldStdevPrior.c:", id, "\" name=\"distribution\" ",
+      "x=\"@ucldStdev.c:", id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(

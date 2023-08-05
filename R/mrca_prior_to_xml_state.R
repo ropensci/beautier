@@ -30,11 +30,11 @@ mrca_prior_to_xml_state <- function(
     return(NULL)
   }
   if (mrca_prior$is_monophyletic == FALSE &&
-      beautier::is_one_na(mrca_prior$mrca_distr)) return(NULL)
+        beautier::is_one_na(mrca_prior$mrca_distr)) return(NULL)
   if (mrca_prior$is_monophyletic == TRUE &&
-    beautier::is_one_na(mrca_prior$mrca_distr)) return(NULL)
+        beautier::is_one_na(mrca_prior$mrca_distr)) return(NULL)
   if (!has_non_strict_clock_model &&
-      beautier::is_one_na(inference_model$tipdates_filename)) {
+        beautier::is_one_na(inference_model$tipdates_filename)) {
     testit::assert(!beautier::is_one_na(mrca_prior$alignment_id))
     paste0(
       "<parameter ",

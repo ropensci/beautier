@@ -32,11 +32,11 @@ mrca_prior_to_xml_tracelog <- function(
   if (
     (
       beautier::is_strict_clock_model(inference_model$clock_model) &&
-      beautier::has_mrca_prior_with_distr(inference_model)
+        beautier::has_mrca_prior_with_distr(inference_model)
     ) ||
       (
         beautier::is_strict_clock_model(inference_model$clock_model) &&
-        beautier::has_tip_dating(inference_model)
+          beautier::has_tip_dating(inference_model)
       )
   ) {
     text <- c(

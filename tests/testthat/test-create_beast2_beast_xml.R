@@ -16,9 +16,9 @@ test_that("use, v2.6.2", {
     "beautitemplate='Standard' ",
     "beautistatus='' ",
     "namespace=\"beast.core:beast.evolution.alignment:",
-      "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
-      "beast.evolution.operators:beast.evolution.sitemodel:",
-      "beast.evolution.substitutionmodel:beast.evolution.likelihood\" ",
+    "beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:",
+    "beast.evolution.operators:beast.evolution.sitemodel:",
+    "beast.evolution.substitutionmodel:beast.evolution.likelihood\" ",
     "required=\"\" ",
     "version=\"2.6\">"
   )

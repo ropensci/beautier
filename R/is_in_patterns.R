@@ -7,7 +7,8 @@
 is_in_patterns <- function(line, patterns) {
 
   for (pattern in patterns) {
-    if (!beautier::is_one_na(
+    if (
+      !beautier::is_one_na(
         stringr::str_match(string = line, pattern = pattern)[1, 1]
       )
     ) {
