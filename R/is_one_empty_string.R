@@ -1,6 +1,6 @@
 #' Determine if an object is one empty string
-#' @param s the object that may be one string that may be empty
-#' @return TRUE is `s` is one string that is empty
+#' @param x the object that may be one string that may be empty
+#' @return TRUE is `x` is one string that is empty
 #' @examples
 #' # TRUE
 #' is_one_empty_string("")

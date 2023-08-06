@@ -261,8 +261,13 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   # BDDeathRate
   bd_death_rate_distr <- bd_tree_prior$death_rate_distr
 
-  text <- c(text, paste0("<prior id=\"DeathRatePrior.t:", id,
-    "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior id=\"DeathRatePrior.t:", id,
+      "\" name=\"distribution\" x=\"@BDDeathRate.t:", id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
@@ -303,17 +308,31 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<distribution ",
-    "id=\"BayesianSkyline.t:",
-    id, "\" spec=\"BayesianSkyline\" groupSizes=\"@bGroupSizes.t:", id,
-    "\" popSizes=\"@bPopSizes.t:", id, "\">"))
-  text <- c(text, paste0("    ",
-    "<treeIntervals id=\"BSPTreeIntervals.t:", id, "\" ",
-    "spec=\"TreeIntervals\" tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<distribution ",
+      "id=\"BayesianSkyline.t:",
+      id, "\" spec=\"BayesianSkyline\" groupSizes=\"@bGroupSizes.t:", id,
+      "\" popSizes=\"@bPopSizes.t:", id, "\">"
+    )
+  )
+  text <- c(
+    text,
+    paste0("    ",
+      "<treeIntervals id=\"BSPTreeIntervals.t:", id, "\" ",
+      "spec=\"TreeIntervals\" tree=\"@Tree.t:", id, "\"/>"
+    )
+  )
   text <- c(text, paste0("</distribution>"))
-  text <- c(text, paste0("<distribution id=\"MarkovChainedPopSizes.t:", id,
-    "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
-    "jeffreys=\"true\" parameter=\"@bPopSizes.t:", id, "\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<distribution id=\"MarkovChainedPopSizes.t:", id,
+      "\" spec=\"beast.math.distributions.MarkovChainDistribution\" ",
+      "jeffreys=\"true\" parameter=\"@bPopSizes.t:", id, "\"/>"
+    )
+  )
   text
 }
 

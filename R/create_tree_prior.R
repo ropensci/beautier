@@ -263,13 +263,11 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(
   id = NA,
-  birth_rate_distr = create_uniform_distr(),
-  rate_scaler_factor = 0.5
+  birth_rate_distr = create_uniform_distr()
 ) {
   create_tree_prior(
     name = "yule",
     id = id,
-    birth_rate_distr = birth_rate_distr,
-    rate_scaler_factor = rate_scaler_factor
+    birth_rate_distr = birth_rate_distr
   )
 }

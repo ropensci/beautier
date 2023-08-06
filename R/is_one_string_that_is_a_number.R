@@ -1,6 +1,6 @@
 #' General function to create a distribution.
-#' @param s the object that may be one string that may be a number
-#' @return TRUE is `s` is one string that is a number
+#' @param x the object that may be one string that may be a number
+#' @return TRUE is `x` is one string that is a number
 #' @examples
 #' # TRUE
 #' is_one_string_that_is_a_number("3.14")
