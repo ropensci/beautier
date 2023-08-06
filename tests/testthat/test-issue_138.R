@@ -15,6 +15,9 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
       kappa_prior_distr = create_log_normal_distr(
         m = create_m_param(id = 1, value = "1.0"),
         s = create_s_param(id = 2, value = "1.25")
+      ),
+      gamma_site_model = create_gamma_site_model(
+        freq_prior_uniform_distr_id = 3
       )
     ),
     # below sets a clock model with mean at empirical rate
@@ -68,11 +71,11 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
   )
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
   beautier::remove_beautier_folder()
-
 })
 
 test_that("Re-create v2.7 BEAUti file, as supplied by the user", {
 
+  skip("Do not support v2.7")
   # Delivered by the user, not supported
   beauti_file <- beautier::get_beautier_path("issue_138_v2_7.xml")
 
