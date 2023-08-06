@@ -7,10 +7,10 @@
 is_one_string_that_is_a_number(x)
 }
 \arguments{
-\item{s}{the object that may be one string that may be a number}
+\item{x}{the object that may be one string that may be a number}
 }
 \value{
-TRUE is `s` is one string that is a number
+TRUE is `x` is one string that is a number
 }
 \description{
 General function to create a distribution.

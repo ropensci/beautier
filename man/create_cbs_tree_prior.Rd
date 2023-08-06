@@ -20,6 +20,9 @@ with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 \item{group_sizes_dimension}{the group sizes' dimension,
 as used by the CBS tree prior (see \code{\link{create_cbs_tree_prior}})}
 
+\item{b_pop_sizes_param}{a Bayesian population size parameter,
+as created by \link{create_b_pop_sizes_param}}
+
 \item{pop_sizes_scaler_scale_factor}{the scale factor used by the
 population sizes scaler operator}
 }

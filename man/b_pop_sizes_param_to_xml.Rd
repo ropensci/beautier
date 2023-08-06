@@ -10,6 +10,9 @@ b_pop_sizes_param_to_xml(
 )
 }
 \arguments{
+\item{b_pop_sizes_param}{a Bayesian population size parameter,
+as created by \link{create_b_pop_sizes_param}}
+
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
 }
