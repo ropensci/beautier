@@ -24,6 +24,8 @@ in uppercase?}
 
 \item{status}{the BEAUti status}
 
+\item{namespace}{the `namespace` XML element in the `beast` XML tag.}
+
 \item{required}{things that may be required,
 for example \code{BEAST v2.5.0}}
 }

@@ -12,6 +12,7 @@ default_params_doc(
   allow_na,
   alpha_parameter,
   b_pop_sizes_param,
+  b_pop_sizes_parameter,
   bd_tree_prior,
   beautier_folder,
   cbs_tree_prior,
@@ -61,7 +62,6 @@ default_params_doc(
   mrca_priors,
   mrca_prior_name,
   n_init_attempts,
-  namespace,
   output_filename,
   param,
   param_id,
@@ -108,6 +108,9 @@ Keep at \code{NA} to have it initialized automatically}
 as created by \link{create_alpha_param}}
 
 \item{b_pop_sizes_param}{a Bayesian population size parameter,
+as created by \link{create_b_pop_sizes_param}}
+
+\item{b_pop_sizes_parameter}{a Bayesian population size parameter,
 as created by \link{create_b_pop_sizes_param}}
 
 \item{bd_tree_prior}{a Birth-Death tree prior, as created
@@ -274,8 +277,6 @@ order or even class name.
 Leave at \link{NA} to have it named automatically.}
 
 \item{n_init_attempts}{number of initialization attempts before failing}
-
-\item{namespace}{the `namespace` XML element in the `beast` XML tag.}
 
 \item{output_filename}{Name of the XML parameter file created by this
 function. BEAST2 uses this file as input.}

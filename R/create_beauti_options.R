@@ -22,6 +22,7 @@
 #' @param sequence_indent the number of spaces the XML \code{sequence}
 #'   lines are indented
 #' @param status the BEAUti status
+#' @param namespace the `namespace` XML element in the `beast` XML tag.
 #' @return a BEAUti options structure
 #' @author Richèl J.C. Bilderbeek
 #' @examples

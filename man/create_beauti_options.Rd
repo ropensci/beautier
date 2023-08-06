@@ -31,6 +31,8 @@ for example \code{BEAST v2.5.0}}
 lines are indented}
 
 \item{status}{the BEAUti status}
+
+\item{namespace}{the `namespace` XML element in the `beast` XML tag.}
 }
 \value{
 a BEAUti options structure
