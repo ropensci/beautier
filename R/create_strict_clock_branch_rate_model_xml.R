@@ -29,9 +29,9 @@ create_strict_clock_branch_rate_model_xml <- function(# nolint long function nam
 
   if (
     (!has_tipdates_filename && !has_mrca_prior && !do_estimate_clock_rate) ||
-    (!has_tipdates_filename && has_mrca_prior && has_mrca_prior_distr &&
-       !do_estimate_clock_rate
-    )
+      (!has_tipdates_filename && has_mrca_prior && has_mrca_prior_distr &&
+        !do_estimate_clock_rate
+      )
   ) {
     xml_begin <- paste0(
       "<branchRateModel id=\"StrictClock.c:", id, "\" ",

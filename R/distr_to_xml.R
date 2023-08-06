@@ -338,9 +338,13 @@ distr_to_xml_poisson <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<distr ",
-    "id=\"Poisson.", id, "\" ",
-    "spec=\"beast.math.distributions.Poisson\">")
+  text <- c(
+    text,
+    paste0(
+      "<distr ",
+      "id=\"Poisson.", id, "\" ",
+      "spec=\"beast.math.distributions.Poisson\">"
+    )
   )
   text <- c(text,
     beautier::indent(

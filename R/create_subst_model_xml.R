@@ -69,8 +69,10 @@ create_hky_subst_model_xml <- function( # nolint indeed a long function name, wh
   testit::assert(beautier::is_hky_site_model(site_model))
   text <- c(
     text,
-    paste0("<substModel ",
-      "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">")
+    paste0(
+      "<substModel ",
+      "id=\"hky.s:", id, "\" spec=\"HKY\" kappa=\"@kappa.s:", id, "\">"
+    )
   )
   text <- c(text, freq_equilibrium_text)
   text <- c(text, paste0("</substModel>"))

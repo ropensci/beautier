@@ -22,19 +22,31 @@ tree_prior_to_xml_operators <- function(
   operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (beautier::is_bd_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<operator id=\"BirthRateScaler.t:",
-      id, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
-      id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator id=\"BirthRateScaler.t:",
+        id, "\" spec=\"ScaleOperator\" parameter=\"@BDBirthRate.t:",
+        id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"
+      )
     )
-    text <- c(text, paste0("<operator id=\"DeathRateScaler.t:",
-      id,
-      "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
-      id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator id=\"DeathRateScaler.t:",
+        id,
+        "\" spec=\"ScaleOperator\" parameter=\"@BDDeathRate.t:",
+        id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"
+      )
     )
   } else if (beautier::is_ccp_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<operator id=\"PopSizeScaler.t:",
-      id, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", id,
-      "\" scaleFactor=\"0.75\" weight=\"3.0\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator id=\"PopSizeScaler.t:",
+        id, "\" spec=\"ScaleOperator\" parameter=\"@popSize.t:", id,
+        "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"
+      )
     )
   } else if (beautier::is_cbs_tree_prior(tree_prior)) {
 
@@ -57,22 +69,38 @@ tree_prior_to_xml_operators <- function(
       text,
       pop_size_scaler_xml
     )
-    text <- c(text, paste0("<operator id=\"groupSizesDelta.t:", id, "\" ",
-      "spec=\"DeltaExchangeOperator\" integer=\"true\" weight=\"6.0\">")
+    text <- c(
+      text,
+      paste0(
+        "<operator id=\"groupSizesDelta.t:", id, "\" ",
+        "spec=\"DeltaExchangeOperator\" integer=\"true\" weight=\"6.0\">"
+      )
     )
-    text <- c(text, paste0("    <intparameter ",
-      "idref=\"bGroupSizes.t:", id, "\"/>")
+    text <- c(
+      text,
+      paste0(
+        "    <intparameter ",
+        "idref=\"bGroupSizes.t:", id, "\"/>"
+      )
     )
     text <- c(text, paste0("</operator>"))
   } else if (beautier::is_cep_tree_prior(tree_prior)) {
-    text <- c(text, paste0("<operator id=\"ePopSizeScaler.t:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@ePopSize.t:", id, "\" ",
-      "scaleFactor=\"0.75\" weight=\"3.0\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator id=\"ePopSizeScaler.t:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@ePopSize.t:", id, "\" ",
+        "scaleFactor=\"0.75\" weight=\"3.0\"/>"
+      )
     )
-    text <- c(text, paste0("<operator ",
-      "id=\"GrowthRateRandomWalk.t:", id, "\" ",
-      "spec=\"RealRandomWalkOperator\" parameter=\"@growthRate.t:", id, "\" ",
-      "weight=\"3.0\" windowSize=\"1.0\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator ",
+        "id=\"GrowthRateRandomWalk.t:", id, "\" ",
+        "spec=\"RealRandomWalkOperator\" parameter=\"@growthRate.t:", id, "\" ",
+        "weight=\"3.0\" windowSize=\"1.0\"/>"
+      )
     )
   } else {
     # Will fail on unimplemented tree priors
@@ -83,26 +111,47 @@ tree_prior_to_xml_operators <- function(
     )
   }
 
-  text <- c(text, paste0("<operator ",
-    "id=\"", operator_id_pre, "TreeScaler.t:", id, "\" ",
-    "spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
-    id, "\" weight=\"3.0\"/>")) # nolint this is no absolute path
-  text <- c(text, paste0("<operator ",
-    "id=\"", operator_id_pre, "TreeRootScaler.t:", id, "\" ",
-    "spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
-    "tree=\"@Tree.t:", id, "\" weight=\"3.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"", operator_id_pre, "TreeScaler.t:", id, "\" ",
+      "spec=\"ScaleOperator\" scaleFactor=\"0.5\" tree=\"@Tree.t:",
+      id, "\" weight=\"3.0\"/>"
+    )
   )
-  text <- c(text, paste0("<operator ",
-    "id=\"", operator_id_pre, "UniformOperator.t:", id, "\" spec=\"Uniform\" ",
-    "tree=\"@Tree.t:", id, "\" weight=\"30.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"", operator_id_pre, "TreeRootScaler.t:", id, "\" ",
+      "spec=\"ScaleOperator\" rootOnly=\"true\" scaleFactor=\"0.5\" ",
+      "tree=\"@Tree.t:", id, "\" weight=\"3.0\"/>"
+    )
   )
-  text <- c(text, paste0("<operator ",
-    "id=\"", operator_id_pre, "SubtreeSlide.t:", id, "\" ",
-    "spec=\"SubtreeSlide\" tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"", operator_id_pre, "UniformOperator.t:", id, "\" spec=\"Uniform\" ",
+      "tree=\"@Tree.t:", id, "\" weight=\"30.0\"/>"
+    )
   )
-  text <- c(text, paste0("<operator ",
-    "id=\"", operator_id_pre, "Narrow.t:", id, "\" spec=\"Exchange\" ",
-    "tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"", operator_id_pre, "SubtreeSlide.t:", id, "\" ",
+      "spec=\"SubtreeSlide\" tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>"
+    )
+  )
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"", operator_id_pre, "Narrow.t:", id, "\" spec=\"Exchange\" ",
+      "tree=\"@Tree.t:", id, "\" weight=\"15.0\"/>"
+    )
   )
   text <- c(
     text,

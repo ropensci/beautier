@@ -241,8 +241,13 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   # BDBirthRate
   bd_birth_rate_distr <- bd_tree_prior$birth_rate_distr
 
-  text <- c(text, paste0("<prior id=\"BirthRatePrior.t:", id,
-    "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior id=\"BirthRatePrior.t:", id,
+      "\" name=\"distribution\" x=\"@BDBirthRate.t:", id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
@@ -478,7 +483,9 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   )
 
   # prior
-  text <- c(text, paste0(
+  text <- c(
+    text,
+    paste0(
       "<prior id=\"YuleBirthRatePrior.t:", id, "\" ",
       "name=\"distribution\" x=\"@birthRate.t:", id, "\">"
     )

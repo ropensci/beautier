@@ -117,7 +117,8 @@ test_that("gtr_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
 
   expected <- readLines(get_beautier_path("gtr_2_4.xml"))
@@ -160,7 +161,8 @@ test_that("gtr_gcc_1_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
   expected <- readLines(get_beautier_path("gtr_gcc_1_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -202,7 +204,8 @@ test_that("gtr_gcc_2_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
   expected <- readLines(get_beautier_path("gtr_gcc_2_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
@@ -245,10 +248,13 @@ test_that("gtr_gcc_2_shape_1_5_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "gtr_gcc_2_shape_1_5_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "gtr_gcc_2_shape_1_5_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -291,10 +297,14 @@ test_that("gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"))
+  expected <- readLines(
+    get_beautier_path(
+      "gtr_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml"
+    )
+  )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -312,10 +322,13 @@ test_that("gtr_no_rate_estimation_2_4.xml", {
       rate_gt_param = create_rate_gt_param(value = "1.0", estimate = FALSE)
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "gtr_no_rate_estimation_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "gtr_no_rate_estimation_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -338,7 +351,8 @@ test_that("hky_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
 
   expected <- readLines(get_beautier_path("hky_2_4.xml"))
@@ -401,10 +415,14 @@ test_that("hky_kappa_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "hky_kappa_2_4.xml"))
+  expected <- readLines(
+    get_beautier_path(
+      "hky_kappa_2_4.xml"
+    )
+  )
   # Creates temporary files in beautier folder
   compare_lines(
     lines = created,
@@ -431,11 +449,10 @@ test_that("hky_prop_invariant_0_5_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "hky_prop_invariant_0_5_2_4.xml")
-  )
+  expected <- readLines(get_beautier_path("hky_prop_invariant_0_5_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -455,10 +472,10 @@ test_that("hky_gcc_1_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "hky_gcc_1_2_4.xml"))
+  expected <- readLines(get_beautier_path("hky_gcc_1_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -480,8 +497,7 @@ test_that("hky_gcc_2_2_4.xml", {
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1))
   )
-  expected <- readLines(get_beautier_path(
-    "hky_gcc_2_2_4.xml"))
+  expected <- readLines(get_beautier_path("hky_gcc_2_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -501,10 +517,13 @@ test_that("hky_gcc_4_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "hky_gcc_4_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "hky_gcc_4_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -524,7 +543,8 @@ test_that("jc69_2_4.xml", {
     ),
     tree_prior = create_yule_tree_prior(
       id = id,
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
 
   expected <- readLines(get_beautier_path("jc69_2_4.xml"))
@@ -545,10 +565,14 @@ test_that("jc69_gcc_2_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "jc69_gcc_2_2_4.xml"))
+  expected <- readLines(
+    get_beautier_path(
+      "jc69_gcc_2_2_4.xml"
+    )
+  )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -567,10 +591,13 @@ test_that("jc69_gcc_2_shape_1_5_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
   )
-  expected <- readLines(get_beautier_path(
-    "jc69_gcc_2_shape_1_5_2_4.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "jc69_gcc_2_shape_1_5_2_4.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -588,7 +615,8 @@ test_that("jc69_gcc_2_shape_1_5_prop_invariant_0_5_2_4.xml", {
       )
     ),
     tree_prior = create_yule_tree_prior(
-      birth_rate_distr = create_uniform_distr(id = 1))
+      birth_rate_distr = create_uniform_distr(id = 1)
+    )
 
   )
   expected <- readLines(get_beautier_path(
@@ -881,8 +909,10 @@ test_that("anthus_aco_sub_cbs_groupsize_4_dim.xml", {
     ),
     beauti_options = create_beauti_options(nucleotides_uppercase = TRUE)
   )
-  expected <- readLines(get_beautier_path(
-    "anthus_aco_sub_cbs_groupsize_4_dim.xml")
+  expected <- readLines(
+    get_beautier_path(
+      "anthus_aco_sub_cbs_groupsize_4_dim.xml"
+    )
   )
   expect_true(are_equivalent_xml_lines(created, expected))
 })

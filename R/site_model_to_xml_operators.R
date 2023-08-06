@@ -61,17 +61,25 @@ site_model_to_xml_operators <- function(
       )
     }
     if (site_model$rate_gt_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"RateGTScaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"RateGTScaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@rateGT.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
       )
     }
   }
   if (!beautier::is_jc69_site_model(site_model)) {
     testit::assert(beautier::is_id(id))
-    text <- c(text, paste0("<operator ",
-      "id=\"FrequenciesExchanger.s:", id, "\" spec=\"DeltaExchangeOperator\" ",
-      "delta=\"0.01\" weight=\"0.1\">")
+    text <- c(
+      text,
+      paste0(
+        "<operator ",
+        "id=\"FrequenciesExchanger.s:", id, "\" spec=\"DeltaExchangeOperator\" ",
+        "delta=\"0.01\" weight=\"0.1\">"
+      )
     )
     text <- c(text, paste0("    <parameter ",
       "idref=\"freqParameter.s:", id, "\"/>")) # nolint this is no absolute path
