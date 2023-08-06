@@ -48,27 +48,6 @@ test_that("Re-create v2.6.7 BEAUti file, as created by Richel", {
     output_filename = beautier_file,
     inference_model = inference_model
   )
-  skip("Issue #138")
-  beauti_text <- readr::read_lines(beauti_file)
-  beautier_text <- readr::read_lines(beautier_file)
-
-  expect_equal(
-    sum(
-      stringr::str_count(
-        beautier_text,
-        pattern = "<parameter id=\"bPopSizes.t:Heleioporus_species_ND2_Pop1\" spec=\"parameter.RealParameter\" dimension=\"5\" lower=\"0.0\" name=\"stateNode\">380.0</parameter>" # nolint indeed a long line
-      )
-    ),
-    1
-  )
-  beautier_text
-
-  compare_lines(
-    lines = beautier_text,
-    expected = beauti_text,
-    created_lines_filename = "~/created.xml",
-    expected_lines_filename = "~/expected.xml"
-  )
   expect_true(beautier::are_equivalent_xml_files(beauti_file, beautier_file))
   beautier::remove_beautier_folder()
 })

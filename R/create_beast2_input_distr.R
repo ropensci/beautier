@@ -347,22 +347,40 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   text <- NULL
 
   # distributions
-  text <- c(text, paste0("<distribution id=\"CoalescentConstant.t:", id,
-    "\" spec=\"Coalescent\">"))
-  text <- c(text, paste0("    ",
-    "<populationModel id=\"ConstantPopulation.t:", id,
-    "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", id, "\"/>")) # nolint this is no absolute path
-  text <- c(text, paste0(
-    "    <treeIntervals id=\"TreeIntervals.t:",
-    id, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
-    id, "\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<distribution id=\"CoalescentConstant.t:", id,
+      "\" spec=\"Coalescent\">"
+    )
+  )
+  text <- c(
+    text,
+    paste0(
+      "    ",
+      "<populationModel id=\"ConstantPopulation.t:", id,
+      "\" spec=\"ConstantPopulation\" popSize=\"@popSize.t:", id, "\"/>"
+    )
+  )
+  text <- c(
+    text,
+    paste0(
+      "    <treeIntervals id=\"TreeIntervals.t:",
+      id, "\" spec=\"TreeIntervals\" tree=\"@Tree.t:",
+      id, "\"/>"
+    )
+  )
   text <- c(text, "</distribution>")
 
   # pop size
-  text <- c(text, paste0(
-    "<prior id=\"PopSizePrior.t:", id,
-    "\" name=\"distribution\" x=\"@popSize.t:",
-    id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior id=\"PopSizePrior.t:", id,
+      "\" name=\"distribution\" x=\"@popSize.t:",
+      id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
@@ -404,21 +422,41 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   text <- NULL
 
   # distribution
-  text <- c(text, paste0("<distribution ",
-    "id=\"CoalescentExponential.t:", id, "\" spec=\"Coalescent\">"))
-  text <- c(text, paste0("    <populationModel ",
-    "id=\"ExponentialGrowth.t:", id, "\" spec=\"ExponentialGrowth\" ",
-    "growthRate=\"@growthRate.t:", id, "\" ",
-    "popSize=\"@ePopSize.t:", id, "\"/>")) # nolint this is no absolute path
-  text <- c(text, paste0("    <treeIntervals ",
-    "id=\"TreeIntervals.t:", id, "\" spec=\"TreeIntervals\" ",
-    "tree=\"@Tree.t:", id, "\"/>")) # nolint this is no absolute path
+  text <- c(
+    text,
+    paste0(
+      "<distribution ",
+      "id=\"CoalescentExponential.t:", id, "\" spec=\"Coalescent\">"
+    )
+  )
+  text <- c(
+    text,
+    paste0(
+      "    <populationModel ",
+      "id=\"ExponentialGrowth.t:", id, "\" spec=\"ExponentialGrowth\" ",
+      "growthRate=\"@growthRate.t:", id, "\" ",
+      "popSize=\"@ePopSize.t:", id, "\"/>"
+    )
+  )
+  text <- c(
+    text,
+    paste0(
+      "    <treeIntervals ",
+      "id=\"TreeIntervals.t:", id, "\" spec=\"TreeIntervals\" ",
+      "tree=\"@Tree.t:", id, "\"/>"
+    )
+  )
   text <- c(text, paste0("</distribution>"))
 
   # prior
-  text <- c(text, paste0("<prior ",
-    "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
-    "x=\"@ePopSize.t:", id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior ",
+      "id=\"ePopSizePrior.t:", id, "\" name=\"distribution\" ",
+      "x=\"@ePopSize.t:", id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(
@@ -429,9 +467,14 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   )
   text <- c(text, paste0("</prior>"))
 
-  text <- c(text, paste0("<prior ",
-    "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
-    "x=\"@growthRate.t:", id, "\">"))
+  text <- c(
+    text,
+    paste0(
+      "<prior ",
+      "id=\"GrowthRatePrior.t:", id, "\" name=\"distribution\" ",
+      "x=\"@growthRate.t:", id, "\">"
+    )
+  )
   text <- c(text,
     beautier::indent(
       beautier::distr_to_xml(

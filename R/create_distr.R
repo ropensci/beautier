@@ -138,12 +138,16 @@ create_beta_distr <- create_distr_beta <- function(
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
-    stop("'alpha' must be an alpha parameter, ",
-      "as returned by 'create_alpha_param'")
+    stop(
+      "'alpha' must be an alpha parameter, ",
+      "as returned by 'create_alpha_param'"
+    )
   }
   if (!is_beta_param(beta)) {
-    stop("'beta' must be a beta parameter, ",
-      "as returned by 'create_beta_param'")
+    stop(
+      "'beta' must be a beta parameter, ",
+      "as returned by 'create_beta_param'"
+    )
   }
   if (alpha$value < 0.0) {
     stop("'alpha' must have a positive value")
@@ -202,8 +206,10 @@ create_exp_distr <- create_distr_exp <- function(
     mean <- beautier::create_mean_param(value = mean)
   }
   if (!is_mean_param(mean)) {
-    stop("'mean' must be a mean parameter, ",
-      "as returned by 'create_mean_param'")
+    stop(
+      "'mean' must be a mean parameter, ",
+      "as returned by 'create_mean_param'"
+    )
   }
   beautier::create_distr(
     name = "exponential",
@@ -268,12 +274,16 @@ create_gamma_distr <- create_distr_gamma <- function(
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
-    stop("'alpha' must be an alpha parameter, ",
-      "as returned by 'create_alpha_param'")
+    stop(
+      "'alpha' must be an alpha parameter, ",
+      "as returned by 'create_alpha_param'"
+    )
   }
   if (!is_beta_param(beta)) {
-    stop("'beta' must be a beta parameter, ",
-      "as returned by 'create_beta_param'")
+    stop(
+      "'beta' must be a beta parameter, ",
+      "as returned by 'create_beta_param'"
+    )
   }
   if (alpha$value < 0.0) {
     stop("'value' of 'alpha' must be positive")

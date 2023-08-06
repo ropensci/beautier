@@ -133,7 +133,8 @@ tree_prior_to_xml_operators <- function(
     text,
     paste0(
       "<operator ",
-      "id=\"", operator_id_pre, "UniformOperator.t:", id, "\" spec=\"Uniform\" ",
+      "id=\"", operator_id_pre, "UniformOperator.t:", id, "\" ",
+      "spec=\"Uniform\" ",
       "tree=\"@Tree.t:", id, "\" weight=\"30.0\"/>"
     )
   )

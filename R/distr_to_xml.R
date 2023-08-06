@@ -111,8 +111,12 @@ distr_to_xml_exp <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<Exponential ",
-    "id=\"Exponential.", id, "\" name=\"distr\">")
+  text <- c(
+    text,
+    paste0(
+      "<Exponential ",
+      "id=\"Exponential.", id, "\" name=\"distr\">"
+    )
   )
   text <- c(text,
     beautier::indent(
@@ -145,8 +149,12 @@ distr_to_xml_inv_gamma <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<InverseGamma ",
-    "id=\"InverseGamma.", id, "\" name=\"distr\">")
+  text <- c(
+    text,
+    paste0(
+      "<InverseGamma ",
+      "id=\"InverseGamma.", id, "\" name=\"distr\">"
+    )
   )
   text <- c(text,
     beautier::indent(
@@ -187,8 +195,12 @@ distr_to_xml_laplace <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<LaplaceDistribution ",
-    "id=\"LaplaceDistribution.", id, "\" name=\"distr\">")
+  text <- c(
+    text,
+    paste0(
+      "<LaplaceDistribution ",
+      "id=\"LaplaceDistribution.", id, "\" name=\"distr\">"
+    )
   )
   text <- c(text,
     beautier::indent(
@@ -229,8 +241,12 @@ distr_to_xml_log_normal <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<LogNormal ",
-    "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">")
+  text <- c(
+    text,
+    paste0(
+      "<LogNormal ",
+      "id=\"LogNormalDistributionModel.", id, "\" name=\"distr\">"
+    )
   )
   text <- c(text,
     beautier::indent(
@@ -272,8 +288,12 @@ distr_to_xml_normal <- function(
   testit::assert(beautier::is_id(id))
 
   text <- NULL
-  text <- c(text, paste0("<Normal ",
-    "id=\"Normal.", id, "\" name=\"distr\">")
+  text <- c(
+    text,
+    paste0(
+      "<Normal ",
+      "id=\"Normal.", id, "\" name=\"distr\">"
+    )
   )
   text <- c(text,
     beautier::indent(

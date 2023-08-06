@@ -114,10 +114,14 @@ create_tn93_subst_model_xml <- function( # nolint indeed a long function name, w
   subst_model_line <- paste0(subst_model_line, ">")
   text <- c(text, subst_model_line)
   if (site_model$kappa_1_param$estimate == FALSE) {
-    text <- c(text, paste0("<parameter id=\"kappa1.s:", id, "\" ",
-      "estimate=\"false\" ",
-      "lower=\"", site_model$kappa_1_param$lower, "\" ",
-      "name=\"kappa1\">", site_model$kappa_1_param$value, "</parameter>")
+    text <- c(
+      text,
+      paste0(
+        "<parameter id=\"kappa1.s:", id, "\" ",
+        "estimate=\"false\" ",
+        "lower=\"", site_model$kappa_1_param$lower, "\" ",
+        "name=\"kappa1\">", site_model$kappa_1_param$value, "</parameter>"
+      )
     )
   }
   if (site_model$kappa_2_param$estimate == FALSE) {

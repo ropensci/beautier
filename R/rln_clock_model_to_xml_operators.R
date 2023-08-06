@@ -19,18 +19,30 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
   text <- NULL
 
   testit::assert(beautier::is_id(id))
-  text <- c(text, paste0("<operator id=\"ucldStdevScaler.c:", id, "\" ",
-    "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
-    "scaleFactor=\"0.5\" weight=\"3.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator id=\"ucldStdevScaler.c:", id, "\" ",
+      "spec=\"ScaleOperator\" parameter=\"@ucldStdev.c:", id, "\" ",
+      "scaleFactor=\"0.5\" weight=\"3.0\"/>"
+    )
   )
-  text <- c(text, paste0("<operator ",
-    "id=\"CategoriesRandomWalk.c:", id, "\" spec=\"IntRandomWalkOperator\" ",
-    "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\" ",
-    "windowSize=\"1\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"CategoriesRandomWalk.c:", id, "\" spec=\"IntRandomWalkOperator\" ",
+      "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\" ",
+      "windowSize=\"1\"/>"
+    )
   )
-  text <- c(text, paste0("<operator ",
-    "id=\"CategoriesSwapOperator.c:", id, "\" spec=\"SwapOperator\" ",
-    "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>")
+  text <- c(
+    text,
+    paste0(
+      "<operator ",
+      "id=\"CategoriesSwapOperator.c:", id, "\" spec=\"SwapOperator\" ",
+      "intparameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"
+    )
   )
   text <- c(
     text,

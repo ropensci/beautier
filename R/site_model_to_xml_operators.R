@@ -16,48 +16,76 @@ site_model_to_xml_operators <- function(
 
   if (beautier::is_hky_site_model(site_model)) {
     testit::assert(beautier::is_id(id))
-    text <- c(text, paste0("<operator id=\"KappaScaler.s:", id, "\" ",
-      "spec=\"ScaleOperator\" parameter=\"@kappa.s:", id, "\" ",
-      "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+    text <- c(
+      text,
+      paste0(
+        "<operator id=\"KappaScaler.s:", id, "\" ",
+        "spec=\"ScaleOperator\" parameter=\"@kappa.s:", id, "\" ",
+        "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+      )
     )
   } else if (beautier::is_tn93_site_model(site_model)) {
     testit::assert(beautier::is_id(id))
     if (site_model$kappa_1_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"kappa1Scaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
-      ) # nolint this is no absolute path
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"kappa1Scaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@kappa1.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
+      )
     }
     if (site_model$kappa_2_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"kappa2Scaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"kappa2Scaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@kappa2.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
       )
     }
   } else if (beautier::is_gtr_site_model(site_model)) {
     testit::assert(beautier::is_id(id))
     if (site_model$rate_ac_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"RateACScaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"RateACScaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@rateAC.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
       )
     }
     if (site_model$rate_ag_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"RateAGScaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@rateAG.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"RateAGScaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@rateAG.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
       )
     }
     if (site_model$rate_at_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"RateATScaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@rateAT.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"RateATScaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@rateAT.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
       )
     }
     if (site_model$rate_cg_param$estimate == TRUE) {
-      text <- c(text, paste0("<operator id=\"RateCGScaler.s:", id, "\" ",
-        "spec=\"ScaleOperator\" parameter=\"@rateCG.s:", id, "\" ",
-        "scaleFactor=\"0.5\" weight=\"0.1\"/>")
+      text <- c(
+        text,
+        paste0(
+          "<operator id=\"RateCGScaler.s:", id, "\" ",
+          "spec=\"ScaleOperator\" parameter=\"@rateCG.s:", id, "\" ",
+          "scaleFactor=\"0.5\" weight=\"0.1\"/>"
+        )
       )
     }
     if (site_model$rate_gt_param$estimate == TRUE) {
@@ -77,7 +105,8 @@ site_model_to_xml_operators <- function(
       text,
       paste0(
         "<operator ",
-        "id=\"FrequenciesExchanger.s:", id, "\" spec=\"DeltaExchangeOperator\" ",
+        "id=\"FrequenciesExchanger.s:", id, "\" ",
+        "spec=\"DeltaExchangeOperator\" ",
         "delta=\"0.01\" weight=\"0.1\">"
       )
     )

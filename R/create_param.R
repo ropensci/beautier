@@ -259,12 +259,12 @@ create_clock_rate_param <- create_param_clock_rate <- function(
 #' @aliases create_freq_param create_param_freq
 #' @export create_freq_param create_param_freq
 create_freq_param <- create_param_freq <- function(
-    id = NA,
-    lower = "0.0",
-    upper = "1.0",
-    value = "0.25",
-    estimate = TRUE,
-    dimension = 4
+  id = NA,
+  lower = "0.0",
+  upper = "1.0",
+  value = "0.25",
+  estimate = TRUE,
+  dimension = 4
 ) {
   beautier::create_param(
     name = "freqParameter",
