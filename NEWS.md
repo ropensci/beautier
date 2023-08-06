@@ -20,7 +20,7 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * Strict clock model's clock rate can have a normal distribution, #138
 
 ### DEPRECATED AND DEFUNCT
 
