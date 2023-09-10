@@ -4,35 +4,64 @@
 \name{beautier-package}
 \alias{beautier}
 \alias{beautier-package}
-\title{beautier: 'BEAUti' from R}
+\title{\code{beautier}: A package to create a \code{BEAST2} input file.}
 \description{
-'BEAST2' (\url{https://www.beast2.org}) is a widely used Bayesian phylogenetic tool, that uses DNA/RNA/protein data and many model priors to create a posterior of jointly estimated phylogenies and parameters. 'BEAUti 2' (which is part of 'BEAST2') is a GUI tool that allows users to specify the many possible setups and generates the XML file 'BEAST2' needs to run. This package provides a way to create 'BEAST2' input files without active user input, but using R function calls instead.
+\code{beautier} allows to create a \code{BEAST2} input file, using
+an R interface. \code{beautier} closely follows the interface
+of \code{BEAUti 2}, a GUI tool bundled with \code{BEAST2}, including
+its default settings.
+}
+\details{
+See the documentation of \code{create_inference_model} to see the
+features of BEAST2 that \code{beautier} supports.
+}
+\examples{
+if (is_on_ci()) {
+
+  check_empty_beautier_folder()
+
+  # Get an example FASTA file
+  input_filename <- get_fasta_filename()
+
+  # The file created by beautier, a BEAST2 input file
+  output_filename <- get_beautier_tempfilename()
+
+  # Use the default BEAUti settings to create a BEAST2 input file
+  create_beast2_input_file_from_model(
+    input_filename,
+    output_filename,
+    inference_model = create_inference_model()
+  )
+
+  # Remove the folder that contains the beautier temporary files
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+}
 }
 \seealso{
-Useful links:
+These are packages associated with \code{beautier}:
 \itemize{
-  \item \url{https://docs.ropensci.org/beautier/ (website) https://github.com/ropensci/beautier/}
-  \item Report bugs at \url{https://github.com/ropensci/beautier}
+  \item{
+    The package \code{beastier} can run
+    BEAST2 from R
+  }
+  \item{
+    The package \code{tracerer} can parse
+    BEAST2 output files from R
+  }
+  \item{
+    The package \code{mauricer} manages
+    BEAST2 packages from R
+  }
+  \item{
+    The package \code{babette} combines the
+    functionality of \code{beautier},
+    \code{beastier}, \code{mauricer} and \code{tracerer}
+    into a single workflow
+  }
 }
-
 }
 \author{
-\strong{Maintainer}: Richèl J.C. Bilderbeek \email{richel@richelbilderbeek.nl} (\href{https://orcid.org/0000-0003-1107-7049}{ORCID})
-
-Other contributors:
-\itemize{
-  \item Joëlle Barido-Sottani (Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209) [reviewer]
-  \item David Winter (David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209) [reviewer]
-  \item Paul Van Els (\href{https://orcid.org/0000-0002-9499-8873}{ORCID}) [contributor]
-  \item Raphael Scherrer (\href{https://orcid.org/0000-0002-1447-7630}{ORCID}) [contributor]
-  \item Yacine B. Chehida (\href{https://orcid.org/0000-0001-7269-9082}{ORCID}) [contributor]
-  \item Katharine S. Walter (\href{https://orcid.org/0000-0003-0065-2204}{ORCID}) [contributor]
-  \item Gary Napier (\href{https://orcid.org/0000-0002-1077-0055}{ORCID}) [contributor]
-  \item Jason Griffiths (\href{https://orcid.org/0000-0002-1667-8233}{ORCID}) [contributor]
-  \item Thijs Janzen (\href{https://orcid.org/0000-0002-4162-1140}{ORCID}) [contributor]
-  \item Pedro Taucce (\href{https://orcid.org/0000-0002-3088-4543}{ORCID}) [contributor]
-  \item Jana Riederer (\href{https://orcid.org/0000-0001-6951-9984}{ORCID}) [contributor]
-}
-
+Richèl J.C. Bilderbeek
 }
 \keyword{internal}
