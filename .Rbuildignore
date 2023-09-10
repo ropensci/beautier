@@ -15,3 +15,5 @@
 ^created\.xml$
 ^expected\.xml$
 ^Singularity$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
