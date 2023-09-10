@@ -53,11 +53,11 @@ file.remove(output_filename)
     AUTHOR Richel J.C. Bilderbeek
 
     NAME beautier
- 
+
     DESCRIPTION The beautier R package
 
     USAGE simply run the container
 
     URL https://github.com/ropensci/beautier
 
-    VERSION 2.6.8
+    VERSION 2.6.9

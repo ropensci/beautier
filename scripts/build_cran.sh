@@ -14,4 +14,5 @@ cp ../NAMESPACE build
 
 cd build || exit 42
 R CMD build .
-R CMD check --as-cran "$(ls ./*.tar.gz)"
+gz_files=$(ls ./*.tar.gz)
+R CMD check --as-cran "${gz_files}"

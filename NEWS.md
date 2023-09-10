@@ -2,6 +2,25 @@
 
 Newest versions at top.
 
+## beautier 2.6.8 (2023-09-10)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Did `usethis::use_package_doc()`
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+
 ## beautier 2.6.8 (2023-08-05)
 
 ### NEW FEATURES
