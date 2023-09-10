@@ -70,3 +70,4 @@ Meta
 *.sif
 /doc/
 /Meta/
+build/
