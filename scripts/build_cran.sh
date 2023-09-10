@@ -12,6 +12,6 @@ cp -r ../vignettes build
 cp ../DESCRIPTION build
 cp ../NAMESPACE build
 
-cd build
+cd build || exit 42
 R CMD build .
-R CMD check --as-cran $(ls *.tar.gz)
+R CMD check --as-cran "$(ls ./*.tar.gz)"
