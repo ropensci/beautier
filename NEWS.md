@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier 2.6.9 (2023-09-25)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Use newer CITATION
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier 2.6.8 (2023-09-10)
 
 ### NEW FEATURES
