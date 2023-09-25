@@ -2,15 +2,14 @@
 
 Newest versions at top.
 
-## beautier 2.6.9 (2023-09-25)
+## beautier v2.6.10 (unreleased)
 
 ### NEW FEATURES
 
  * None
 
 ### MINOR IMPROVEMENTS
-
- * Use newer CITATION
+ * None
 
 ### BUG FIXES
 
@@ -20,7 +19,25 @@ Newest versions at top.
 
  * None
 
-## beautier 2.6.8 (2023-09-10)
+## beautier v2.6.9 (2023-09-25)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * Use new CITATION style
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+## beautier v2.6.8 (2023-09-10)
 
 ### NEW FEATURES
 
@@ -39,7 +56,7 @@ Newest versions at top.
  * None
 
 
-## beautier 2.6.8 (2023-08-05)
+## beautier v2.6.8 (2023-08-05)
 
 ### NEW FEATURES
 
@@ -64,7 +81,7 @@ Newest versions at top.
  * None
 
 
-## beautier 2.6.7 (2023-04-05)
+## beautier v2.6.7 (2023-04-05)
 
 ### NEW FEATURES
 
@@ -82,7 +99,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.6.6 (2023-03-14)
+## beautier v2.6.6 (2023-03-14)
 
 ### NEW FEATURES
 
@@ -105,7 +122,7 @@ Newest versions at top.
  * `create_hky_site_model` does not have `kappa` as an argument anymore:
     use `kappa_param` instead. Using `kappa` gives a proper deprecation message
 
-## beautier 2.6.5 (2022-08-11)
+## beautier v2.6.5 (2022-08-11)
 
 ### NEW FEATURES
 
@@ -124,7 +141,7 @@ Newest versions at top.
 
  * Removed functions that were deprecated in v2.6.4
 
-## beautier 2.6.4 (2022-06-05)
+## beautier v2.6.4 (2022-06-05)
 
 ### NEW FEATURES
 
@@ -143,7 +160,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.6.3 (2022-05-18)
+## beautier v2.6.3 (2022-05-18)
 
 ### NEW FEATURES
 
@@ -161,7 +178,7 @@ Newest versions at top.
 
  * Filenames cannot have spaces
 
-## beautier 2.6.2 (2021-07-24)
+## beautier v2.6.2 (2021-07-24)
 
 ### NEW FEATURES
 
@@ -179,7 +196,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.6.1 (2021-07-23)
+## beautier v2.6.1 (2021-07-23)
 
 ### NEW FEATURES
 
@@ -217,7 +234,7 @@ Newest versions at top.
  * Deprecated `tree_models_to_xml_tracelog`,
    redirect user to `tree_model_to_tracelog_xml`
 
-## beautier 2.6 (2021-05-22)
+## beautier v2.6 (2021-05-22)
 
 ### NEW FEATURES
 
@@ -235,7 +252,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.5.2 (2021-05-22)
+## beautier v2.5.2 (2021-05-22)
 
 ### NEW FEATURES
 
@@ -253,7 +270,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.5.1 (2021-05-22)
+## beautier v2.5.1 (2021-05-22)
 
 ### NEW FEATURES
 
@@ -271,7 +288,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.5 (2021-05-14)
+## beautier v2.5 (2021-05-14)
 
 ### NEW FEATURES
 
@@ -295,7 +312,7 @@ Newest versions at top.
  * `mrca_priors_to_xml_state` has the arguments `mrca_prior`
    and `has_non_strict_clock_model` replaced by `inference_model`
 
-## beautier 2.4 (2020-10-15)
+## beautier v2.4 (2020-10-15)
 
 ### NEW FEATURES
 
@@ -314,7 +331,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.3.7 (2020-08-05)
+## beautier v2.3.7 (2020-08-05)
 
 ### NEW FEATURES
 
@@ -334,7 +351,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.3.6 (2020-04-21)
+## beautier v2.3.6 (2020-04-21)
 
 ### NEW FEATURES
 
@@ -352,7 +369,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.3.5 (2020-02-25)
+## beautier v2.3.5 (2020-02-25)
 
 ### NEW FEATURES
 
@@ -372,7 +389,7 @@ Newest versions at top.
 
  * None
 
-## beautier 2.3.4 (2020-01-15)
+## beautier v2.3.4 (2020-01-15)
 
 ### NEW FEATURES
 
@@ -392,7 +409,7 @@ Newest versions at top.
     `https://github.com/richelbilderbeek/ribir` to lose dependency on
     orphaned `geiger` package
 
-## beautier 2.3.3 (2019-12-26)
+## beautier v2.3.3 (2019-12-26)
 
 ### NEW FEATURES
 
@@ -410,7 +427,7 @@ Newest versions at top.
 
   * None
 
-## beautier 2.3.2 (2019-11-30)
+## beautier v2.3.2 (2019-11-30)
 
 ### NEW FEATURES
 
@@ -428,7 +445,7 @@ Newest versions at top.
 
   * None
 
-## beautier 2.3.1 (2019-11-29)
+## beautier v2.3.1 (2019-11-29)
 
 ### NEW FEATURES
 
@@ -446,7 +463,7 @@ Newest versions at top.
 
   * None
 
-## beautier 2.3 (2019-10-27)
+## beautier v2.3 (2019-10-27)
 
 ### NEW FEATURES
 
@@ -471,7 +488,7 @@ Newest versions at top.
   * None
 
 
-## beautier 2.2.4 (2019-10-15)
+## beautier v2.2.4 (2019-10-15)
 
 ### NEW FEATURES
 
@@ -491,7 +508,7 @@ Newest versions at top.
 
 
 
-## beautier 2.2.3 (2019-09-10)
+## beautier v2.2.3 (2019-09-10)
 
 ### NEW FEATURES
 
@@ -509,7 +526,7 @@ Newest versions at top.
 
   * None
 
-## beautier 2.2.2 (2019-09-10)
+## beautier v2.2.2 (2019-09-10)
 
 ### NEW FEATURES
 
@@ -529,7 +546,7 @@ Newest versions at top.
 
   * None
 
-## beautier 2.2.1 (2019-03-08)
+## beautier v2.2.1 (2019-03-08)
 
 ### NEW FEATURES
 
