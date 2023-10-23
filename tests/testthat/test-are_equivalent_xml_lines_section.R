@@ -57,7 +57,7 @@ test_that("abuse: section must be a word", {
 
   expect_error(
     are_equivalent_xml_lines_section(lines_1, lines_2, section = NA),
-    "is_a_string : section is not of class 'character'"
+    "beautier::is_one_string"
   )
 
 })
