@@ -59,12 +59,12 @@ test_that("abuse: section must be one string", {
 
   expect_error(
     extract_xml_section_from_lines(lines = lines, section = NA),
-    "section is not of class 'character'"
+    "beautier::is_one_string"
   )
 
   expect_error(
     extract_xml_section_from_lines(lines = lines, section = NULL),
-    "section is not of class 'character'"
+    "beautier::is_one_string"
   )
 })
 

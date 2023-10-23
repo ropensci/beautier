@@ -35,11 +35,11 @@ test_that("abuse", {
 
   expect_error(
     has_xml_closing_tag(text, section = NA),
-    "section is not of class 'character'"
+    "beautier::is_one_string"
   )
   expect_error(
     has_xml_closing_tag(text, section = NULL),
-    "section is not of class 'character'"
+    "beautier::is_one_string"
   )
 
 })

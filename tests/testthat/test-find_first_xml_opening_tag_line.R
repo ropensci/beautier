@@ -52,12 +52,12 @@ test_that("abuse", {
 
   expect_error(
     find_first_xml_opening_tag_line(lines = lines, section = NA),
-    "section is not of class 'character'"
+    "beautier::is_one_string"
   )
 
   expect_error(
     find_first_xml_opening_tag_line(lines = lines, section = NULL),
-    "section is not of class 'character'"
+    "beautier::is_one_string"
   )
 
 })
