@@ -14,7 +14,7 @@
 #' as created by \link{create_b_pop_sizes_param}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #' by \code{\link{create_bd_tree_prior}}
-#' @param beast2_version BEAST2 version, for example, code{"2.5"}
+#' @param beast2_version BEAST2 version, for example, \code{"2.5"}
 #' @param beauti_options one BEAUti options object,
 #' as returned by \code{\link{create_beauti_options}}
 #' @param beautier_folder the path to

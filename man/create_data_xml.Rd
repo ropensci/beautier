@@ -11,7 +11,7 @@ create_data_xml(id, beast2_version)
 An ID can be extracted from its FASTA filename
 with \code{\link{get_alignment_ids_from_fasta_filenames}})}
 
-\item{beast2_version}{BEAST2 version, for example, code{"2.5"}}
+\item{beast2_version}{BEAST2 version, for example, \code{"2.5"}}
 }
 \value{
 lines of XML text

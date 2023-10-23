@@ -122,7 +122,7 @@ the \link{beautier} temporary files folder}
 \item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
 as returned by \code{\link{create_cbs_tree_prior}}}
 
-\item{beast2_version}{BEAST2 version, for example, code{"2.5"}}
+\item{beast2_version}{BEAST2 version, for example, \code{"2.5"}}
 
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
