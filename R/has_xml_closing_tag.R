@@ -11,7 +11,7 @@ has_xml_closing_tag <- function(
   lines,
   section
 ) {
-  assertive::assert_is_a_string(section)
+  testthat::expect_true(beautier::is_one_string(section))
   !beautier::is_one_na(
     beautier::find_last_xml_closing_tag_line(
       lines = lines,

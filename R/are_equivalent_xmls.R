@@ -129,7 +129,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
   section,
   verbose = FALSE
 ) {
-  assertive::assert_is_a_string(section)
+  testthat::expect_true(beautier::is_one_string(section))
   if (section == "operators") {
     return(
       beautier::are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)

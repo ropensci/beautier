@@ -45,9 +45,10 @@ check_tracelog_names <- function(tracelog) {
 check_tracelog_values <- function(tracelog) {
 
   beautier::check_filename(tracelog$filename, allow_na = TRUE)
-  assertive::assert_is_numeric(tracelog$log_every)
-  assertive::assert_all_are_positive(tracelog$log_every)
+  testthat::expect_true(beautier::is_one_int(tracelog$log_every))
+  testthat::expect_true(all(tracelog$log_every > 0))
   beautier::check_log_mode(tracelog$mode)
-  assertive::assert_is_if_condition(tracelog$sanitise_headers)
+  testthat::expect_true(beautier::is_one_bool(tracelog$sanitise_headers))
   beautier::check_log_sort(tracelog$sort)
+  invisible(tracelog)
 }

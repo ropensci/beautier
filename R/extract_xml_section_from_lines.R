@@ -8,7 +8,7 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  assertive::assert_is_a_string(section)
+  testthat::expect_true(beautier::is_one_string(section))
   if (section == "operators") {
     return(beautier::extract_xml_operators_from_lines(lines))
   }

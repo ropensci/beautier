@@ -51,9 +51,10 @@ check_treelog_names <- function(treelog) {
 #' @export
 check_treelog_values <- function(treelog) {
   beautier::check_filename(filename = treelog$filename, allow_na = TRUE)
-  assertive::assert_is_numeric(treelog$log_every)
-  assertive::assert_all_are_positive(treelog$log_every)
+  testthat::expect_true(beautier::is_one_int(treelog$log_every))
+  testthat::expect_true(all(treelog$log_every > 0))
   beautier::check_log_mode(treelog$mode)
-  assertive::assert_is_if_condition(treelog$sanitise_headers)
+  testthat::expect_true(beautier::is_one_bool(treelog$sanitise_headers))
   beautier::check_log_sort(treelog$sort)
+  invisible(treelog)
 }

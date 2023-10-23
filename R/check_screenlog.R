@@ -55,9 +55,10 @@ check_screenlog_values <- function(screenlog) {
     allow_empty_str = TRUE,
     allow_na = TRUE
   )
-  assertive::assert_is_numeric(screenlog$log_every)
-  assertive::assert_all_are_positive(screenlog$log_every)
+  testthat::expect_true(beautier::is_one_int(screenlog$log_every))
+  testthat::expect_true(all(screenlog$log_every > 0))
   beautier::check_log_mode(screenlog$mode)
-  assertive::assert_is_if_condition(screenlog$sanitise_headers)
+  testthat::expect_true(beautier::is_one_bool(screenlog$sanitise_headers))
   beautier::check_log_sort(screenlog$sort)
+  invisible(screenlog)
 }

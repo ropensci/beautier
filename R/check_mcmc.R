@@ -82,10 +82,11 @@ check_mcmc_values <- function(mcmc) {
       "Actual value 'mcmc$chain_length': '", mcmc$chain_length, "'"
     )
   }
-  assertive::assert_all_are_whole_numbers(mcmc$n_init_attempts)
-  assertive::assert_all_are_positive(mcmc$n_init_attempts)
-  assertive::assert_is_if_condition(mcmc$sample_from_prior)
+  testthat::expect_true(beautier::is_one_int(mcmc$n_init_attempts))
+  testthat::expect_true(n_init_attempts > 0)
+  testthat::expect_true(beautier::is_one_bool(mcmc$sample_from_prior))
   beautier::check_treelog(mcmc$treelog)
   beautier::check_screenlog(mcmc$screenlog)
   beautier::check_tracelog(mcmc$tracelog)
+  invisible(mcmc)
 }

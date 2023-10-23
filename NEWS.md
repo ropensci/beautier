@@ -6,9 +6,10 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Remove dependency on 'assertive'
 
 ### MINOR IMPROVEMENTS
+
  * None
 
 ### BUG FIXES
