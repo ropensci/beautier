@@ -49,7 +49,7 @@ get_site_model_n_params <- function(
         0
     )
   } else {
-    testit::assert(is_tn93_site_model(site_model))
+    check_true(is_tn93_site_model(site_model))
     return(
       gamma_site_model_n_params +
         get_distr_n_params(site_model$kappa_1_prior_distr) +

@@ -13,10 +13,10 @@ tree_prior_to_xml_operators <- function(
   tree_prior <- inference_model$tree_prior
   fixed_crown_age <- FALSE
 
-  testthat::expect_false(fixed_crown_age)
-  testit::assert(is_tree_prior(tree_prior))
+  check_false(fixed_crown_age)
+  check_true(is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   operator_id_pre <- get_operator_id_pre(tree_prior)
@@ -54,7 +54,7 @@ tree_prior_to_xml_operators <- function(
       "<operator id=\"popSizesScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", id, "\" "
     )
-    testthat::expect_true(
+    check_true(
       "pop_sizes_scaler_scale_factor" %in% names(tree_prior)
     )
     if (tree_prior$pop_sizes_scaler_scale_factor != "") {
@@ -104,7 +104,7 @@ tree_prior_to_xml_operators <- function(
     )
   } else {
     # Will fail on unimplemented tree priors
-    testthat::expect_true(is_yule_tree_prior(tree_prior))
+    check_true(is_yule_tree_prior(tree_prior))
     text <- c(
       text,
       yule_tree_prior_to_xml_operators(inference_model)

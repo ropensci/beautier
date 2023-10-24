@@ -14,7 +14,7 @@ get_replace_dir_fun <- function(new_dir_name = "") {
     )
     gsub("//", "/", dirty_path)
   }
-  pryr::partial(
+  purrr::partial(
     replace_dir,
     new_dir_name = new_dir_name
   )

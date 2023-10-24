@@ -46,7 +46,7 @@ get_distr_n_params <- function(
   } else  if (is_poisson_distr(distr)) {
     return(1) # lambda
   } else {
-    testit::assert(is_uniform_distr(distr))
+    check_true(is_uniform_distr(distr))
     return(0) # none
   }
 }

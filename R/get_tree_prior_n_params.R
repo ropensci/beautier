@@ -46,7 +46,7 @@ get_tree_prior_n_params <- function(
         get_distr_n_params(tree_prior$growth_rate_distr)
     )
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior))
+    check_true(is_yule_tree_prior(tree_prior))
     return(
       get_distr_n_params(tree_prior$birth_rate_distr)
     )

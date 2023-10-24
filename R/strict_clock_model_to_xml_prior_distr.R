@@ -22,7 +22,7 @@
 strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  testit::assert(is_strict_clock_model(inference_model$clock_model))
+  check_true(is_strict_clock_model(inference_model$clock_model))
 
   text <- NULL
 
@@ -33,8 +33,8 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
       clock_model$clock_rate_distr$upper <- Inf
     }
 
-    testthat::expect_true(is_id(clock_model$id))
-    testthat::expect_true(is_id(clock_model$clock_rate_distr$id))
+    check_true(is_id(clock_model$id))
+    check_true(is_id(clock_model$clock_rate_distr$id))
     opening_tag <- paste0(
       "<prior id=\"ClockPrior.c:", clock_model$id, "\" ",
       "name=\"distribution\" ",
@@ -56,7 +56,7 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
   if (!is_one_na(inference_model$tipdates_filename)) {
     clock_model <- inference_model$clock_model
     id <- clock_model$id
-    testit::assert(is_id(id))
+    check_true(is_id(id))
     text <- c(
       text,
       paste0(

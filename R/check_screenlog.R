@@ -55,9 +55,9 @@ check_screenlog_values <- function(screenlog) {
     allow_empty_str = TRUE,
     allow_na = TRUE
   )
-  assertive::assert_is_numeric(screenlog$log_every)
-  assertive::assert_all_are_positive(screenlog$log_every)
+
+  lapply(screenlog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
   check_log_mode(screenlog$mode)
-  assertive::assert_is_if_condition(screenlog$sanitise_headers)
+  check_logical(screenlog$sanitise_headers)
   check_log_sort(screenlog$sort)
 }

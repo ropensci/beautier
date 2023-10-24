@@ -34,7 +34,7 @@ tree_prior_to_xml_prior_distr <- function(
   } else if (is_cep_tree_prior(tree_prior)) {
     text <- c(text, cep_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior))
+    check_true(is_yule_tree_prior(tree_prior))
     text <- c(text, yule_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
   }
   text

@@ -39,7 +39,7 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
 ) {
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-  testthat::expect_true(is_rln_clock_model(clock_model))
+  check_true(is_rln_clock_model(clock_model))
 
   text <- NULL
 
@@ -54,7 +54,7 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
   }
 
   id <- clock_model$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
   text <- c(
     text,
     paste0(

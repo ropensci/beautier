@@ -16,9 +16,9 @@
 tree_prior_to_xml_tracelog <- function(
   tree_prior
 ) {
-  testit::assert(is_tree_prior(tree_prior))
+  check_true(is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   if (is_yule_tree_prior(tree_prior)) {

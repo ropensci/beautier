@@ -24,7 +24,7 @@ get_site_models_n_distrs <- function(
   }
   n <- 0
   for (site_model in site_models) {
-    testit::assert(is_site_model(site_model))
+    check_true(is_site_model(site_model))
     n <- n + get_site_model_n_distrs(site_model)
   }
   n

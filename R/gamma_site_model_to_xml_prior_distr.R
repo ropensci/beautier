@@ -19,7 +19,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
   if (inference_model$beauti_options$beast2_version == "2.6" &&
       !is_jc69_site_model(inference_model$site_model)
   ) {
-    testthat::expect_true(
+    check_true(
       is_id(
         inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id
       )

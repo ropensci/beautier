@@ -22,13 +22,13 @@
 clock_model_to_xml_prior_distr <- function(
   inference_model
 ) {
-  testit::assert(is_clock_model(inference_model$clock_model))
+  check_true(is_clock_model(inference_model$clock_model))
 
   if (is_rln_clock_model(inference_model$clock_model)) {
     return(rln_clock_model_to_xml_prior_distr(inference_model))
   } else {
     # Fails for unimplemented clock models
-    testit::assert(is_strict_clock_model(inference_model$clock_model))
+    check_true(is_strict_clock_model(inference_model$clock_model))
     return(strict_clock_model_to_xml_prior_distr(inference_model))
   }
 }

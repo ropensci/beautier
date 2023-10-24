@@ -82,9 +82,8 @@ check_mcmc_values <- function(mcmc) {
       "Actual value 'mcmc$chain_length': '", mcmc$chain_length, "'"
     )
   }
-  assertive::assert_all_are_whole_numbers(mcmc$n_init_attempts)
-  assertive::assert_all_are_positive(mcmc$n_init_attempts)
-  assertive::assert_is_if_condition(mcmc$sample_from_prior)
+  lapply(mcmc$n_init_attempts, function(x) check_number_whole(x, min = 1, arg = "n_init_attempts"))
+  check_logical(mcmc$sample_from_prior)
   check_treelog(mcmc$treelog)
   check_screenlog(mcmc$screenlog)
   check_tracelog(mcmc$tracelog)

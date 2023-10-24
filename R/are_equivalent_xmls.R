@@ -57,7 +57,7 @@ are_equivalent_xml_lines <- function(
       )
     )
   } else {
-    testit::assert(!is_one_na(section))
+    check_true(!is_one_na(section))
     return(
       are_equivalent_xml_lines_section(
         lines_1 = lines_1,
@@ -129,7 +129,7 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
   section,
   verbose = FALSE
 ) {
-  assertive::assert_is_a_string(section)
+  check_string(section)
   if (section == "operators") {
     return(
       are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)

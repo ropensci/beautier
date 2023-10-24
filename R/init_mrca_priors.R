@@ -12,8 +12,9 @@ init_mrca_priors <- function(
   beauti_options
 ) {
   if (length(mrca_priors) == 1 && is_one_na(mrca_priors)) return(NA)
-  testthat::expect_equal(1, length(mrca_priors))
-  testit::assert(are_mrca_priors(mrca_priors))
+
+  check_true(length(mrca_priors) == 1)
+  check_true(are_mrca_priors(mrca_priors))
   if (beauti_options$beast2_version == "2.4") {
     names <- "auto_name_1"
   } else {
@@ -22,7 +23,7 @@ init_mrca_priors <- function(
 
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]
-    testit::assert(is_mrca_prior(mrca_prior))
+    check_true(is_mrca_prior(mrca_prior))
 
     if (is_one_na(mrca_prior$name)) {
       mrca_prior$name <- names[i]
@@ -43,7 +44,7 @@ init_mrca_priors <- function(
       param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr)
     }
 
-    testit::assert(is_mrca_prior(mrca_prior))
+    check_true(is_mrca_prior(mrca_prior))
     mrca_priors[[i]] <- mrca_prior
   }
   mrca_priors

@@ -11,15 +11,15 @@ init_clock_models <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(all(file.exists(fasta_filenames)))
-  testit::assert(are_clock_models(clock_models))
-  testit::assert(length(clock_models) == length(fasta_filenames))
+  check_true(all(file.exists(fasta_filenames)))
+  check_true(are_clock_models(clock_models))
+  check_true(length(clock_models) == length(fasta_filenames))
   ids <- get_alignment_ids_from_fasta_filenames(fasta_filenames)
   n_taxa <- get_n_taxa(fasta_filenames[1])
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
-    testit::assert(is_clock_model(clock_model))
+    check_true(is_clock_model(clock_model))
 
     if (is_rln_clock_model(clock_model)) {
       # RLN
@@ -42,7 +42,7 @@ init_clock_models <- function(
       }
 
     } else {
-      testit::assert(is_strict_clock_model(clock_model))
+      check_true(is_strict_clock_model(clock_model))
 
       if (!is_init_strict_clock_model(clock_model)) {
 
@@ -57,7 +57,7 @@ init_clock_models <- function(
         )
       }
 
-      testit::assert(is_init_strict_clock_model(clock_model))
+      check_true(is_init_strict_clock_model(clock_model))
     }
 
     if (is_one_na(clock_model$id)) clock_model$id <- ids[i]
@@ -92,7 +92,7 @@ init_rln_clock_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_rln_clock_model(rln_clock_model))
+  check_true(is_rln_clock_model(rln_clock_model))
   ucldstdev_distr <- init_distr(
     rln_clock_model$ucldstdev_distr,
     distr_id,
@@ -149,7 +149,7 @@ init_strict_clock_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(is_strict_clock_model(strict_clock_model))
+  check_true(is_strict_clock_model(strict_clock_model))
 
   # clock_rate_distr
   strict_clock_model$clock_rate_distr <- init_distr(

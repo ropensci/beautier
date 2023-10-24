@@ -17,7 +17,7 @@ mrca_prior_to_xml_tracelog <- function(
   # Do not be smart yet
   mrca_prior <- inference_model$mrca_prior
 
-  testit::assert(is_mrca_prior(mrca_prior))
+  check_true(is_mrca_prior(mrca_prior))
   if (!has_mrca_prior(inference_model) &&
       !has_tip_dating(inference_model)
   ) {

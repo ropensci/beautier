@@ -24,7 +24,7 @@ check_file_and_model_agree <- function(
 
   # All MRCA prior's alignment IDs must match the FASTA file IDs
   if (!is_one_na(inference_model$mrca_prior)) {
-    testit::assert(is_mrca_prior(inference_model$mrca_prior))
+    check_true(is_mrca_prior(inference_model$mrca_prior))
 
     if (
       !is_mrca_align_id_in_fasta(

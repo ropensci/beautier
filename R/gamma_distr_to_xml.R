@@ -25,10 +25,10 @@ gamma_distr_to_xml <- function(
   # Don't be smart yet
   distr <- gamma_distr
 
-  testit::assert(is_gamma_distr(distr))
+  check_true(is_gamma_distr(distr))
   check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(

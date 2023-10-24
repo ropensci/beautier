@@ -41,9 +41,9 @@ site_model_to_xml_prior_distr <- function(
   site_model,
   beauti_options
 ) {
-  testit::assert(is_site_model(site_model))
+  check_true(is_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   if (is_hky_site_model(site_model)) {

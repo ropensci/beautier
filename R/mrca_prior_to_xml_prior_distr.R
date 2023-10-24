@@ -27,13 +27,13 @@ mrca_prior_to_xml_prior_distr <- function(
   has_non_strict_clock_model <- get_has_non_strict_clock_model(
     list(inference_model$clock_model)
   )
-  testit::assert(is_mrca_prior(mrca_prior))
+  check_true(is_mrca_prior(mrca_prior))
   text <- NULL
   if (!has_non_strict_clock_model &&
       !is_one_na(mrca_prior$mrca_distr) &&
       is_one_na(inference_model$tipdates_filename)
   ) {
-    testit::assert(!is_one_na(mrca_prior$alignment_id))
+    check_true(!is_one_na(mrca_prior$alignment_id))
     text <- c(
       text,
       paste0(
@@ -63,7 +63,7 @@ mrca_prior_to_xml_prior_distr <- function(
   if (mrca_prior$is_monophyletic) {
     opening_tag <- paste0(opening_tag, "monophyletic=\"true\" ")
   }
-  testit::assert(!is_one_na(mrca_prior$alignment_id))
+  check_true(!is_one_na(mrca_prior$alignment_id))
   opening_tag <- paste0(
     opening_tag, "tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"
   )

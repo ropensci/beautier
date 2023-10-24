@@ -9,15 +9,15 @@
 create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
-  testthat::expect_true(
+  check_true(
     is_rln_clock_model(inference_model$clock_model)
   )
   # Do not be smart yet
   clock_model <- inference_model$clock_model
 
-  testit::assert(is_clock_model(clock_model))
+  check_true(is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 
@@ -92,6 +92,6 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     text <- c(text, indent(xml_here))
   }
   text <- c(text, paste0("</branchRateModel>"))
-  testit::assert(is.null(text) || is_xml(text))
+  check_true(is.null(text) || is_xml(text))
   text
 }

@@ -32,8 +32,8 @@ create_beast2_input_beast <- function(
   input_filename,
   inference_model = create_inference_model()
 ) {
-  testit::assert(length(input_filename) == 1)
-  testit::assert(file.exists(input_filename))
+  check_true(length(input_filename) == 1)
+  check_true(file.exists(input_filename))
 
   text <- create_beast2_beast_xml(
     inference_model$beauti_options

@@ -16,8 +16,7 @@ create_beast2_input_data <- function(
   input_filename,
   beauti_options = create_beauti_options()
 ) {
-  testthat::expect_equal(length(input_filename), 1)
-  testthat::expect_true(file.exists(input_filename))
+  check_file_exists(input_filename)
 
   # Data opening tag
   id <- get_alignment_id(

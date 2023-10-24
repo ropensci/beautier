@@ -22,9 +22,9 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   site_model,
   beauti_options
 ) {
-  testthat::expect_true(is_gtr_site_model(site_model))
+  check_true(is_gtr_site_model(site_model))
   id <- site_model$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   if (site_model$rate_ac_param$estimate == TRUE) {

@@ -9,7 +9,7 @@
 create_strict_clock_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
-  testthat::expect_true(
+  check_true(
     is_strict_clock_model(inference_model$clock_model)
   )
 

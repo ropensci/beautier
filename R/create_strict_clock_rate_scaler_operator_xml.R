@@ -25,9 +25,9 @@
 create_strict_clock_rate_scaler_operator_xml <- function(inference_model) { # nolint indeed a long function name
   check_inference_model(inference_model)
   clock_model <- inference_model$clock_model
-  testthat::expect_true(is_strict_clock_model(clock_model))
+  check_true(is_strict_clock_model(clock_model))
   id <- clock_model$id
-  testthat::expect_true(is_id(id))
+  check_true(is_id(id))
   xml <- paste0(
     "<operator id=\"StrictClockRateScaler.c:", id, "\" ",
     "spec=\"ScaleOperator\" parameter=\"@clockRate.c:", id, "\" "

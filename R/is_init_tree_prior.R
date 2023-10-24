@@ -17,7 +17,7 @@ is_init_tree_prior <- function(
   } else if (is_cep_tree_prior(x)) {
     return(is_init_cep_tree_prior(x))
   } else {
-    testit::assert(is_yule_tree_prior(x))
+    check_true(is_yule_tree_prior(x))
     return(is_init_yule_tree_prior(x))
   }
 }
@@ -31,7 +31,7 @@ is_init_tree_prior <- function(
 is_init_bd_tree_prior <- function(
   x
 ) {
-  testit::assert(is_bd_tree_prior(x))
+  check_true(is_bd_tree_prior(x))
   is_init_distr(x$birth_rate_distr) &&
     is_init_distr(x$death_rate_distr)
 }
@@ -47,7 +47,7 @@ is_init_bd_tree_prior <- function(
 is_init_cbs_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cbs_tree_prior(x))
+  check_true(is_cbs_tree_prior(x))
 
   # Yup, is always initialized
   TRUE
@@ -78,7 +78,7 @@ is_init_ccp_tree_prior <- function(
 is_init_cep_tree_prior <- function(
   x
 ) {
-  testit::assert(is_cep_tree_prior(x))
+  check_true(is_cep_tree_prior(x))
   is_init_distr(x$pop_size_distr) &&
     is_init_distr(x$growth_rate_distr)
 }
@@ -92,6 +92,6 @@ is_init_cep_tree_prior <- function(
 is_init_yule_tree_prior <- function(
   x
 ) {
-  testit::assert(is_yule_tree_prior(x))
+  check_true(is_yule_tree_prior(x))
   is_init_distr(x$birth_rate_distr)
 }

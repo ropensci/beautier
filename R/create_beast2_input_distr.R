@@ -193,7 +193,7 @@ create_beast2_input_distr_lh <- function(
   text <- c(text, "</distribution>")
 
   # Must have one or zero branchRateModel
-  # testit::assert(sum(grepl(x = text, pattern = " *<branchRateModel.*")) < length(site_models)) # nolint perhaps one day
+  # check_true(sum(grepl(x = text, pattern = " *<branchRateModel.*")) < length(site_models)) # nolint perhaps one day
 
   text
 }
@@ -221,9 +221,9 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior,
   beauti_options
 ) {
-  testit::assert(is_bd_tree_prior(bd_tree_prior))
+  check_true(is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 
@@ -303,9 +303,9 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   cbs_tree_prior,
   beauti_options
 ) {
-  testit::assert(is_cbs_tree_prior(cbs_tree_prior))
+  check_true(is_cbs_tree_prior(cbs_tree_prior))
   id <- cbs_tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -359,9 +359,9 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   ccp_tree_prior,
   beauti_options
 ) {
-  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
+  check_true(is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 
@@ -434,9 +434,9 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   cep_tree_prior,
   beauti_options
 ) {
-  testit::assert(is_cep_tree_prior(cep_tree_prior))
+  check_true(is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 
@@ -528,9 +528,9 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   yule_tree_prior,
   beauti_options = create_beauti_options()
 ) {
-  testit::assert(is_yule_tree_prior(yule_tree_prior))
+  check_true(is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 

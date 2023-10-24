@@ -48,7 +48,7 @@ create_gamma_site_model <- function(
   freq_equilibrium = "estimated",
   freq_prior_uniform_distr_id = 1000
 ) {
-  testthat::expect_true(is_id(freq_prior_uniform_distr_id))
+  check_true(is_id(freq_prior_uniform_distr_id))
   if (length(gamma_cat_count) == 1 &&
       gamma_cat_count >= 2 &&
       is_one_na(gamma_shape_prior_distr)

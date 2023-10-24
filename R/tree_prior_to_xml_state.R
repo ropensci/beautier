@@ -13,7 +13,7 @@ tree_prior_to_xml_state <- function(
   check_tree_prior(tree_prior)
 
   id <- tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   if (is_bd_tree_prior(tree_prior)) {
@@ -67,7 +67,7 @@ tree_prior_to_xml_state <- function(
       )
     )
   } else {
-    testit::assert(is_yule_tree_prior(tree_prior))
+    check_true(is_yule_tree_prior(tree_prior))
     parameter_xml <- paste0(
       "<parameter ", "id=\"birthRate.t:", id, "\" "
     )

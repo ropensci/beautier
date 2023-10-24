@@ -25,7 +25,7 @@ check_file_exists <- function(
         "'"
       )
     } else {
-      assertive::assert_is_a_string(filename_description)
+      check_string(filename_description)
       stop(
         "File '", filename_description, "' not found. ",
         "Could not find file with path '",

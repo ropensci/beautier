@@ -6,7 +6,7 @@
 clock_model_to_xml_treelogger <- function(
   clock_model
 ) {
-  testit::assert(is_clock_model(clock_model))
+  check_true(is_clock_model(clock_model))
   id <- clock_model$id
 
   if (is_strict_clock_model(clock_model)) {
@@ -21,7 +21,7 @@ clock_model_to_xml_treelogger <- function(
   } else {
 
     # Will fail on unimplemented clock models
-    testit::assert(is_rln_clock_model(clock_model))
+    check_true(is_rln_clock_model(clock_model))
 
     return(
       paste0(

@@ -21,7 +21,7 @@ mrca_priors_to_xml_prior_distr <- function(
 ) {
   # Don't be smart yet
   mrca_priors <- list(inference_model$mrca_prior)
-  testit::assert(are_mrca_priors(mrca_priors))
+  check_true(are_mrca_priors(mrca_priors))
 
   if (is_one_na(mrca_priors)) return(NULL)
   mrca_prior_to_xml_prior_distr(

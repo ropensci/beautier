@@ -29,7 +29,7 @@ check_mrca_prior <- function(mrca_prior) {
   # If not, it should have all list elements needed
   check_mrca_prior_names(mrca_prior)
 
-  check_is_monophyletic(mrca_prior$is_monophyletic)
+  check_bool(mrca_prior$is_monophyletic)
   check_mrca_prior_name(mrca_prior$name)
   check_alignment_id(mrca_prior$alignment_id)
   check_mrca_prior_taxa_names(mrca_prior$taxa_names)

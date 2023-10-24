@@ -12,13 +12,13 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
   # Don't be smart yet
   clock_model <- inference_model$clock_model
 
-  testit::assert(is_rln_clock_model(clock_model))
+  check_true(is_rln_clock_model(clock_model))
 
   id <- clock_model$id
 
   text <- NULL
 
-  testit::assert(is_id(id))
+  check_true(is_id(id))
   text <- c(
     text,
     paste0(

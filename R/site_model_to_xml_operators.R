@@ -7,7 +7,7 @@
 site_model_to_xml_operators <- function(
   site_model
 ) {
-  testit::assert(is_site_model(site_model))
+  check_true(is_site_model(site_model))
 
   # May be NA for JC69 model
   id <- site_model$id
@@ -15,7 +15,7 @@ site_model_to_xml_operators <- function(
   text <- NULL
 
   if (is_hky_site_model(site_model)) {
-    testit::assert(is_id(id))
+    check_true(is_id(id))
     text <- c(
       text,
       paste0(
@@ -25,7 +25,7 @@ site_model_to_xml_operators <- function(
       )
     )
   } else if (is_tn93_site_model(site_model)) {
-    testit::assert(is_id(id))
+    check_true(is_id(id))
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(
         text,
@@ -47,7 +47,7 @@ site_model_to_xml_operators <- function(
       )
     }
   } else if (is_gtr_site_model(site_model)) {
-    testit::assert(is_id(id))
+    check_true(is_id(id))
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(
         text,
@@ -100,7 +100,7 @@ site_model_to_xml_operators <- function(
     }
   }
   if (!is_jc69_site_model(site_model)) {
-    testit::assert(is_id(id))
+    check_true(is_id(id))
     text <- c(
       text,
       paste0(
@@ -116,7 +116,7 @@ site_model_to_xml_operators <- function(
   }
 
   if (site_model$gamma_site_model$gamma_cat_count > 1) {
-    testit::assert(is_id(id))
+    check_true(is_id(id))
     text <- c(
       text,
       paste0(

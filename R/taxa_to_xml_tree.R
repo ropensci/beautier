@@ -54,7 +54,7 @@ no_taxa_to_xml_tree <- function(
   inference_model
 ) {
   id <- inference_model$tree_prior$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
   text <- NULL
   if (inference_model$beauti_options$beast2_version == "2.6") {
     text <- c(
@@ -101,8 +101,8 @@ tipdate_taxa_to_xml_tree <- function(
   id <- inference_model$tree_prior$id
   tipdates_filename <- inference_model$tipdates_filename
 
-  testit::assert(is_id(id))
-  testit::assert(!is_one_na(tipdates_filename))
+  check_true(is_id(id))
+  check_true(!is_one_na(tipdates_filename))
 
   first_line <- paste0("<tree id=\"Tree.t:", id, "\" ")
   if (inference_model$beauti_options$beast2_version == "2.6") {

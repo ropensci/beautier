@@ -23,9 +23,9 @@ mrca_prior_to_xml_taxonset <- function(
   mrca_prior,
   taxa_names_with_ids = NULL
 ) {
-  testit::assert(is_mrca_prior(mrca_prior))
+  check_true(is_mrca_prior(mrca_prior))
   text <- NULL
-  testit::assert(!is_one_na(mrca_prior$taxa_names))
+  check_true(!is_one_na(mrca_prior$taxa_names))
   for (taxon_name in mrca_prior$taxa_names) {
     text <- c(text, paste0("<taxon id=\"", taxon_name, "\" spec=\"Taxon\"/>")) # nolint this is no absolute path
   }

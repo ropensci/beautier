@@ -46,7 +46,7 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
   if (is_strict_clock_model(inference_model$clock_model)) {
     return(create_strict_clock_branch_rate_model_xml(inference_model))
   } else {
-    testthat::expect_true(
+    check_true(
       is_rln_clock_model(inference_model$clock_model)
     )
     return(create_rln_clock_branch_rate_model_xml(inference_model))

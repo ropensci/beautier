@@ -8,12 +8,12 @@ gtr_site_model_to_xml_state <- function(
   site_model,
   beauti_options = create_beauti_options()
 ) {
-  testthat::expect_true(is_site_model(site_model))
+  check_true(is_site_model(site_model))
   check_beauti_options(beauti_options)
   id <- site_model$id
-  testthat::expect_true(is_id(id))
+  check_true(is_id(id))
   text <- NULL
-  testthat::expect_true(is_gtr_site_model(site_model))
+  check_true(is_gtr_site_model(site_model))
 
   # Indeed, overwrite by the site model's ID
   site_model$rate_ac_param$id <- id
@@ -24,12 +24,12 @@ gtr_site_model_to_xml_state <- function(
   site_model$rate_gt_param$id <- id
   site_model$freq_param$id <- id
 
-  testthat::expect_true("estimate" %in% names(site_model$rate_ac_param))
-  testthat::expect_true("estimate" %in% names(site_model$rate_ag_param))
-  testthat::expect_true("estimate" %in% names(site_model$rate_at_param))
-  testthat::expect_true("estimate" %in% names(site_model$rate_cg_param))
-  testthat::expect_true("estimate" %in% names(site_model$rate_ct_param))
-  testthat::expect_true("estimate" %in% names(site_model$rate_gt_param))
+  check_true("estimate" %in% names(site_model$rate_ac_param))
+  check_true("estimate" %in% names(site_model$rate_ag_param))
+  check_true("estimate" %in% names(site_model$rate_at_param))
+  check_true("estimate" %in% names(site_model$rate_cg_param))
+  check_true("estimate" %in% names(site_model$rate_ct_param))
+  check_true("estimate" %in% names(site_model$rate_gt_param))
   if (site_model$rate_ac_param$estimate == TRUE) {
     text <- c(
       text,

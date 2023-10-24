@@ -8,15 +8,15 @@ hky_site_model_to_xml_state <- function(
   site_model,
   beauti_options = create_beauti_options()
 ) {
-  testit::assert(is_site_model(site_model))
+  check_true(is_site_model(site_model))
   check_beauti_options(beauti_options)
   id <- site_model$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
   text <- NULL
-  testthat::expect_true(is_hky_site_model(site_model))
+  check_true(is_hky_site_model(site_model))
 
-  testthat::expect_true("freq_param" %in% names(site_model))
-  testthat::expect_true("kappa_param" %in% names(site_model))
+  check_true("freq_param" %in% names(site_model))
+  check_true("kappa_param" %in% names(site_model))
 
   if (is_one_na(site_model$freq_param$id)) {
     site_model$freq_param$id <- id

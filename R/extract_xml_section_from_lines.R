@@ -8,7 +8,7 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  assertive::assert_is_a_string(section)
+  check_string(section)
   if (section == "operators") {
     return(extract_xml_operators_from_lines(lines))
   }
@@ -35,7 +35,7 @@ extract_xml_section_from_lines <- function(
     lines = lines,
     section = section
   )
-  testit::assert(!is_one_na(from_index))
-  testit::assert(!is_one_na(to_index))
+  check_true(!is_one_na(from_index))
+  check_true(!is_one_na(to_index))
   lines[from_index:to_index]
 }

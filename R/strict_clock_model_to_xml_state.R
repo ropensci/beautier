@@ -11,7 +11,7 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
   inference_model
 ) {
   check_inference_model(inference_model)
-  testthat::expect_true(has_strict_clock_model(inference_model))
+  check_true(has_strict_clock_model(inference_model))
 
   text <- NULL
 

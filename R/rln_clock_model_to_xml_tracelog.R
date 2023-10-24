@@ -16,11 +16,11 @@
 rln_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  testthat::expect_true(
+  check_true(
     is_rln_clock_model(inference_model$clock_model)
   )
   id <- inference_model$clock_model$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   if (has_mrca_prior_with_distr(inference_model) ||

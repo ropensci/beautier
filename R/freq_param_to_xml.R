@@ -17,9 +17,9 @@ freq_param_to_xml <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  testit::assert(is_freq_param(freq_param))
+  check_true(is_freq_param(freq_param))
   id <- freq_param$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   xml <- paste0("<parameter id=\"freqParameter.s:", id, "\" ")
   if (beauti_options$beast2_version == "2.6") {

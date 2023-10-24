@@ -20,7 +20,7 @@ clock_model_to_xml_tracelog <- function(
     return(strict_clock_model_to_xml_tracelog(inference_model))
   } else {
     # Will fail on unimplemented clock models
-    testthat::expect_true(
+    check_true(
       is_rln_clock_model(inference_model$clock_model)
     )
     return(rln_clock_model_to_xml_tracelog(inference_model))

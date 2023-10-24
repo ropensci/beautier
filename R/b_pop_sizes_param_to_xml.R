@@ -10,9 +10,9 @@ b_pop_sizes_param_to_xml <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  testit::assert(is_b_pop_sizes_param(b_pop_sizes_param))
+  check_true(is_b_pop_sizes_param(b_pop_sizes_param))
   id <- b_pop_sizes_param$id
-  testit::assert(is_id(id))
+  check_true(is_id(id))
 
   xml <- paste0(
     "<parameter id=\"bPopSizes.t:", id, "\" ",
