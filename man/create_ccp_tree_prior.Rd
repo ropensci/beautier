@@ -7,7 +7,7 @@
 \usage{
 create_ccp_tree_prior(
   id = NA,
-  pop_size_distr = beautier::create_one_div_x_distr(value = 0.3)
+  pop_size_distr = create_one_div_x_distr(value = 0.3)
 )
 }
 \arguments{

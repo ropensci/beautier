@@ -43,8 +43,8 @@ check_empty_beautier_folder()
 
 # Creates temporary files in beautier folder
 compare_lines(
-  lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
-  expected = readLines(beautier::get_beautier_path("bd_2_4.xml"))
+  lines = readLines(get_beautier_path("bd_2_4.xml")),
+  expected = readLines(get_beautier_path("bd_2_4.xml"))
 )
 
 remove_beautier_folder()

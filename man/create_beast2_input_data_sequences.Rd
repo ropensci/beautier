@@ -6,7 +6,7 @@
 \usage{
 create_beast2_input_data_sequences(
   input_fasta_filename,
-  beauti_options = beautier::create_beauti_options()
+  beauti_options = create_beauti_options()
 )
 }
 \arguments{

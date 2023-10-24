@@ -18,15 +18,6 @@ Determines if x is one NA
 \examples{
 check_empty_beautier_folder()
 
-# TRUE
-  testit::assert(is_one_na(NA))
-
-# FALSE
-  testit::assert(!is_one_na(NULL))
-  testit::assert(!is_one_na(42))
-  testit::assert(!is_one_na("Hello"))
-  testit::assert(!is_one_na(3.14))
-  testit::assert(!is_one_na(c(NA, NA)))
 
 check_empty_beautier_folder()
 }

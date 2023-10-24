@@ -7,7 +7,7 @@
 create_beast2_input_file_from_model(
   input_filename,
   output_filename,
-  inference_model = beautier::create_inference_model()
+  inference_model = create_inference_model()
 )
 }
 \arguments{
