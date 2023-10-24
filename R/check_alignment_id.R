@@ -13,7 +13,7 @@
 #' @export
 check_alignment_id <- function(alignment_id) {
   # An alignment ID may be uninitialized
-  if (beautier::is_one_na(alignment_id)) return()
+  if (is_one_na(alignment_id)) return()
 
   if (length(alignment_id) != 1) {
     stop(

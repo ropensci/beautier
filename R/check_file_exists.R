@@ -17,7 +17,7 @@ check_file_exists <- function(
   filename_description = NA
 ) {
   if (!file.exists(filename)) {
-    if (beautier::is_one_na(filename_description)) {
+    if (is_one_na(filename_description)) {
       stop(
         "File not found. ",
         "Could not find file with path '",

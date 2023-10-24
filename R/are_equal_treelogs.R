@@ -21,8 +21,8 @@
 are_equal_treelogs <- function(
   treelog_1, treelog_2
 ) {
-  beautier::check_treelog(treelog_1)
-  beautier::check_treelog(treelog_2)
+  check_treelog(treelog_1)
+  check_treelog(treelog_2)
   # Can be both NA
   if (is.na(treelog_1$filename)) {
     if (!is.na(treelog_2$filename)) return(FALSE)

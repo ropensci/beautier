@@ -25,7 +25,7 @@ ccp_tree_prior_to_xml_state <- function(
 ) {
   # Do not be smart yet
   tree_prior <- inference_model$tree_prior
-  testit::assert(beautier::is_id(tree_prior$id))
+  testit::assert(is_id(tree_prior$id))
 
   parameter_xml <- paste0(
     "<parameter id=\"popSize.t:", tree_prior$id, "\" "

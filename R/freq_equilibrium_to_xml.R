@@ -14,7 +14,7 @@ freq_equilibrium_to_xml <- function(
   freq_equilibrium,
   id
 ) {
-  testit::assert(beautier::is_freq_equilibrium_name(freq_equilibrium))
+  testit::assert(is_freq_equilibrium_name(freq_equilibrium))
   if (freq_equilibrium == "estimated") {
     paste0("<frequencies ", "id=\"estimatedFreqs.s:", id, "\" ",
       "spec=\"Frequencies\" ",

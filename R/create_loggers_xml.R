@@ -27,22 +27,22 @@ create_loggers_xml <- function(
   inference_model
 ) {
   testit::assert(length(input_filename) == 1)
-  beautier::check_inference_model(inference_model)
+  check_inference_model(inference_model)
 
-  tracelog_text <- beautier::create_tracelog_xml(
+  tracelog_text <- create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
 
-  screenlog_text <- beautier::create_screenlog_xml(inference_model)
+  screenlog_text <- create_screenlog_xml(inference_model)
 
-  treelogs_text <- beautier::create_treelog_xml(inference_model)
+  treelogs_text <- create_treelog_xml(inference_model)
 
 
   c(
-    beautier::indent(tracelog_text),
+    indent(tracelog_text),
     "",
-    beautier::indent(screenlog_text),
-    beautier::indent(treelogs_text)
+    indent(screenlog_text),
+    indent(treelogs_text)
   )
 }

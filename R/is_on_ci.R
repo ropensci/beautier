@@ -70,7 +70,7 @@ is_on_travis <- function() {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_on_ci <- function() {
-  beautier::is_on_appveyor() ||
-    beautier::is_on_github_actions() ||
-    beautier::is_on_travis()
+  is_on_appveyor() ||
+    is_on_github_actions() ||
+    is_on_travis()
 }

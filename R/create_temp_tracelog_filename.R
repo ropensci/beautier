@@ -12,7 +12,7 @@
 #' @export
 create_temp_tracelog_filename <- function() {
   normalizePath(
-    beautier::get_beautier_tempfilename(
+    get_beautier_tempfilename(
       pattern = "tracelog_",
       fileext = ".log"
     ),

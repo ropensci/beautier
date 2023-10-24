@@ -26,6 +26,6 @@
 #' }
 #' @export
 has_rln_clock_model <- function(inference_model) {
-  beautier::check_inference_model(inference_model)
-  beautier::is_rln_clock_model(inference_model$clock_model)
+  check_inference_model(inference_model)
+  is_rln_clock_model(inference_model$clock_model)
 }

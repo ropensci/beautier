@@ -5,7 +5,7 @@
 #' @inheritParams default_params_doc
 #' @export
 check_mrca_prior_name <- function(mrca_prior_name) {
-  if (beautier::is_one_na(mrca_prior_name)) return()
+  if (is_one_na(mrca_prior_name)) return()
   if (length(mrca_prior_name) != 1) {
     stop("'name' must be one NA or one character string")
   }

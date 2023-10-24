@@ -24,6 +24,6 @@ create_screenlog <- function(
     sanitise_headers = sanitise_headers,
     sort = sort
   )
-  beautier::check_screenlog(screenlog)
+  check_screenlog(screenlog)
   screenlog
 }

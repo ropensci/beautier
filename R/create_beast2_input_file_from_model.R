@@ -34,10 +34,10 @@
 create_beast2_input_file_from_model <- function( # nolint indeed a long name, but I preferred this over 'create_beast2_input_file2'
   input_filename,
   output_filename,
-  inference_model = beautier::create_inference_model()
+  inference_model = create_inference_model()
 ) {
   tryCatch(
-    beautier::check_inference_model(inference_model),
+    check_inference_model(inference_model),
     error = function(msg) {
       stop(
         "'inference_model' must be an inference model.\n",
@@ -46,7 +46,7 @@ create_beast2_input_file_from_model <- function( # nolint indeed a long name, bu
       )
     }
   )
-  text <- beautier::create_beast2_input_from_model(
+  text <- create_beast2_input_from_model(
     input_filename = input_filename,
     inference_model = inference_model
   )

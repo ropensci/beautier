@@ -36,10 +36,10 @@ create_clock_model <- function(
   id,
   ...
 ) {
-  if (!beautier::is_clock_model_name(name)) {
+  if (!is_clock_model_name(name)) {
     clock_models_as_string <- function() {
       s <- NULL
-      for (p in beautier::get_clock_model_names()) {
+      for (p in get_clock_model_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))
@@ -102,7 +102,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
   dimension = NA,
   rate_scaler_factor = 0.75
 ) {
-  rln_clock_model <- beautier::create_clock_model(
+  rln_clock_model <- create_clock_model(
     name = "relaxed_log_normal",
     id = id,
     ucldstdev_distr = ucldstdev_distr,
@@ -114,7 +114,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
     dimension = dimension,
     rate_scaler_factor = rate_scaler_factor
   )
-  beautier::check_rln_clock_model(rln_clock_model)
+  check_rln_clock_model(rln_clock_model)
   rln_clock_model
 }
 
@@ -157,30 +157,30 @@ create_strict_clock_model <- create_clock_model_strict <- function(
   rate_scaler_factor = 0.75
 ) {
   if (
-    beautier::is_one_double(clock_rate_param) ||
-      beautier::is_one_string(clock_rate_param)
+    is_one_double(clock_rate_param) ||
+      is_one_string(clock_rate_param)
   ) {
     clock_rate_param <- create_clock_rate_param(clock_rate_param)
   }
-  if (!beautier::is_clock_rate_param(clock_rate_param)) {
+  if (!is_clock_rate_param(clock_rate_param)) {
     stop(
       "'clock_rate_param' must be a clock rate parameter, ",
       "as can be created by 'create_clock_rate_param'"
     )
   }
-  if (!beautier::is_distr(clock_rate_distr)) {
+  if (!is_distr(clock_rate_distr)) {
     stop(
       "'clock_rate_distr' must be a distribution, ",
       "as can be created by 'create_distr'"
     )
   }
-  strict_clock_model <- beautier::create_clock_model(
+  strict_clock_model <- create_clock_model(
     name = "strict",
     id = id,
     clock_rate_param = clock_rate_param,
     clock_rate_distr = clock_rate_distr,
     rate_scaler_factor = rate_scaler_factor
   )
-  beautier::check_strict_clock_model(strict_clock_model)
+  check_strict_clock_model(strict_clock_model)
   strict_clock_model
 }

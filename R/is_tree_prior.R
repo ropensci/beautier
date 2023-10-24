@@ -16,7 +16,7 @@ is_tree_prior <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (!beautier::is_tree_prior_name(x$name)) return(FALSE)
+  if (!is_tree_prior_name(x$name)) return(FALSE)
   if (!"id" %in% names(x)) return(FALSE)
   TRUE
 }
@@ -161,7 +161,7 @@ is_cep_tree_prior <- function(
 is_yule_tree_prior <- function(
   x
 ) {
-  if (is.list(x) && length(x) == 1) return(beautier::is_yule_tree_prior(x[[1]]))
+  if (is.list(x) && length(x) == 1) return(is_yule_tree_prior(x[[1]]))
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "yule") return(FALSE)
   if (!"birth_rate_distr" %in% names(x)) return(FALSE)

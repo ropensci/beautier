@@ -28,7 +28,7 @@ create_beast2_input_state <- function(
   # The 'tree' XML section
   text <- c(
     text,
-    beautier::taxa_to_xml_tree(
+    taxa_to_xml_tree(
       inference_model = inference_model
     )
   )
@@ -39,29 +39,29 @@ create_beast2_input_state <- function(
   # The 'parameter' XML sections
   text <- c(
     text,
-    beautier::site_model_to_xml_state(
+    site_model_to_xml_state(
       inference_model$site_model,
       beauti_options = inference_model$beauti_options
     )
   )
   text <- c(
     text,
-    beautier::clock_model_to_xml_state(
+    clock_model_to_xml_state(
       inference_model = inference_model
     )
   )
   text <- c(
     text,
-    beautier::tree_prior_to_xml_state(inference_model)
+    tree_prior_to_xml_state(inference_model)
   )
   text <- c(
     text,
-    beautier::mrca_prior_to_xml_state(
+    mrca_prior_to_xml_state(
       inference_model = inference_model
     )
   )
 
-  text <- beautier::indent(text)
+  text <- indent(text)
 
   state_start_tag <- "<state id=\"state\" "
   if (inference_model$beauti_options$beast2_version == "2.6") {

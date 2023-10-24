@@ -35,7 +35,7 @@ create_test_ns_mcmc <- function(
   screenlog = create_test_screenlog(),
   treelog = create_test_treelog()
 ) {
-  beautier::create_ns_mcmc(
+  create_ns_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,

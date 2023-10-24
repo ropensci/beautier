@@ -22,5 +22,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_distr_name <- function(name) {
-  name %in% beautier::get_distr_names()
+  name %in% get_distr_names()
 }

@@ -37,7 +37,7 @@ are_equal_xml_files <- function(
       "'", filename_2, "' could not be found"
     )
   }
-  beautier::are_equal_xml_lines(
+  are_equal_xml_lines(
     lines_1 = readLines(filename_1),
     lines_2 = readLines(filename_2),
     section = section

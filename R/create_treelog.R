@@ -24,6 +24,6 @@ create_treelog <- function(
     sanitise_headers = sanitise_headers,
     sort = sort
   )
-  beautier::check_treelog(treelog)
+  check_treelog(treelog)
   treelog
 }

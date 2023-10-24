@@ -28,7 +28,7 @@ create_beast2_input_map <- function(
     "<map name=\"OneOnX\" >beast.math.distributions.OneOnX</map>"
   )
   if (beauti_options$beast2_version == "2.6") {
-    text <- beautier::interspace(text)
+    text <- interspace(text)
     text <- c(text, "")
   }
   text

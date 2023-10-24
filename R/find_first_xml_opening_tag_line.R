@@ -10,5 +10,5 @@ find_first_xml_opening_tag_line <- function( # nolint indeed long function name
   section
 ) {
   assertive::assert_is_a_string(section)
-  beautier::find_first_regex_line(lines, paste0("<", section, ".*>"))
+  find_first_regex_line(lines, paste0("<", section, ".*>"))
 }

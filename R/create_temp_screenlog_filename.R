@@ -12,7 +12,7 @@
 #' @export
 create_temp_screenlog_filename <- function() {
   normalizePath(
-    beautier::get_beautier_tempfilename(
+    get_beautier_tempfilename(
       pattern = "screenlog_",
       fileext = ".csv"
     ),

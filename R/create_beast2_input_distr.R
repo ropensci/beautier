@@ -48,7 +48,7 @@ create_beast2_input_distr <- function(
       inference_model = inference_model
     )
   )
-  text <- beautier::indent(text)
+  text <- indent(text)
   text <- c(
     "<distribution id=\"posterior\" spec=\"util.CompoundDistribution\">",
     text
@@ -90,36 +90,36 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   text <- NULL
   text <- c(
     text,
-    beautier::tree_priors_to_xml_prior_distr(
+    tree_priors_to_xml_prior_distr(
       tree_priors,
       beauti_options = inference_model$beauti_options
     )
   )
   text <- c(
     text,
-    beautier::gamma_site_model_to_xml_prior_distr(
+    gamma_site_model_to_xml_prior_distr(
       inference_model
     )
   )
   text <- c(
     text,
-    beautier::site_models_to_xml_prior_distr(
+    site_models_to_xml_prior_distr(
       site_models,
       beauti_options = inference_model$beauti_options
     )
   )
   text <- c(
     text,
-    beautier::mrca_priors_to_xml_prior_distr(inference_model = inference_model)
+    mrca_priors_to_xml_prior_distr(inference_model = inference_model)
   )
   text <- c(
     text,
-    beautier::clock_model_to_xml_prior_distr(
+    clock_model_to_xml_prior_distr(
       inference_mode = inference_model
     )
   )
 
-  text <- beautier::indent(text)
+  text <- indent(text)
 
   # Surround text by prior distribution tag
   text <- c(
@@ -178,9 +178,9 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 create_beast2_input_distr_lh <- function(
   inference_model
 ) {
-  text <- beautier::create_tree_likelihood_distr_xml(inference_model)
+  text <- create_tree_likelihood_distr_xml(inference_model)
 
-  text <- beautier::indent(text)
+  text <- indent(text)
 
   # Surround by likelihood distribution tags
   text <- c(
@@ -221,9 +221,9 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior,
   beauti_options
 ) {
-  testit::assert(beautier::is_bd_tree_prior(bd_tree_prior))
+  testit::assert(is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -249,8 +249,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = bd_birth_rate_distr,
         beauti_options = beauti_options
       )
@@ -269,8 +269,8 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = bd_death_rate_distr,
         beauti_options = beauti_options
       )
@@ -303,9 +303,9 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   cbs_tree_prior,
   beauti_options
 ) {
-  testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
+  testit::assert(is_cbs_tree_prior(cbs_tree_prior))
   id <- cbs_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
   text <- c(
@@ -359,9 +359,9 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   ccp_tree_prior,
   beauti_options
 ) {
-  testit::assert(beautier::is_ccp_tree_prior(ccp_tree_prior))
+  testit::assert(is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -401,8 +401,8 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = ccp_tree_prior$pop_size_distr,
         beauti_options = beauti_options
       )
@@ -434,9 +434,9 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   cep_tree_prior,
   beauti_options
 ) {
-  testit::assert(beautier::is_cep_tree_prior(cep_tree_prior))
+  testit::assert(is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -477,8 +477,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = cep_tree_prior$pop_size_distr,
         beauti_options = beauti_options
       )
@@ -495,8 +495,8 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = cep_tree_prior$growth_rate_distr,
         beauti_options = beauti_options
       )
@@ -528,9 +528,9 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   yule_tree_prior,
   beauti_options = create_beauti_options()
 ) {
-  testit::assert(beautier::is_yule_tree_prior(yule_tree_prior))
+  testit::assert(is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
 
   text <- NULL
 
@@ -553,8 +553,8 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         yule_tree_prior$birth_rate_distr,
         beauti_options = beauti_options
       )

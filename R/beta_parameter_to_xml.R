@@ -9,12 +9,12 @@ beta_parameter_to_xml <- function(
   beta_parameter,
   beauti_options = create_beauti_options()
 ) {
-  beautier::check_beauti_options(beauti_options)
+  check_beauti_options(beauti_options)
   # Don't be smart yet
   parameter <- beta_parameter
-  testit::assert(beautier::is_beta_param(parameter))
+  testit::assert(is_beta_param(parameter))
   id <- parameter$id
-  testit::assert(beautier::is_id(id))
+  testit::assert(is_id(id))
   testit::assert(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   xml <- paste0(

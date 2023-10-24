@@ -21,8 +21,8 @@
 are_equal_tracelogs <- function(
   tracelog_1, tracelog_2
 ) {
-  beautier::check_tracelog(tracelog_1)
-  beautier::check_tracelog(tracelog_2)
+  check_tracelog(tracelog_1)
+  check_tracelog(tracelog_2)
   # Can be both NA
   if (is.na(tracelog_1$filename)) {
     if (!is.na(tracelog_2$filename)) return(FALSE)

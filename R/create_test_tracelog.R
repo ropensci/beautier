@@ -8,7 +8,7 @@ create_test_tracelog <- function(
   sanitise_headers = TRUE,
   sort = "smart"
 ) {
-  beautier::create_tracelog(
+  create_tracelog(
     filename = filename,
     log_every = log_every,
     mode = mode,

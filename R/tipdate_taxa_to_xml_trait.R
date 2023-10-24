@@ -28,7 +28,7 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
   # The concatenated taxa
   trait_set_str <- NULL
   if (inference_model$beauti_options$beast2_version != "2.6") {
-    trait_set_str <- beautier::create_trait_set_string(
+    trait_set_str <- create_trait_set_string(
       utils::read.table(inference_model$tipdates_filename, sep = "\t")
     )
   }

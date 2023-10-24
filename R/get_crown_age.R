@@ -17,7 +17,7 @@
 get_crown_age <- function(
   phylogeny
 ) {
-  if (!beautier::is_phylo(phylogeny) && !inherits(phylogeny, "multiPhylo")) {
+  if (!is_phylo(phylogeny) && !inherits(phylogeny, "multiPhylo")) {
     stop("phylogeny must be of class 'phylo' or multiPhylo")
   }
   if (!ape::is.ultrametric(phylogeny)) {

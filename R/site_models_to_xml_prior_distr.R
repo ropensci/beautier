@@ -23,7 +23,7 @@ site_models_to_xml_prior_distr <- function(
   for (site_model in site_models) {
     text <- c(
       text,
-      beautier::site_model_to_xml_prior_distr(
+      site_model_to_xml_prior_distr(
         site_model,
         beauti_options = beauti_options
       )

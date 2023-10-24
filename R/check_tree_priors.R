@@ -18,10 +18,10 @@
 #' @export
 check_tree_priors <- function(tree_priors) {
 
-  if (beautier::is_tree_prior(tree_priors)) {
+  if (is_tree_prior(tree_priors)) {
     tree_priors <- list(tree_priors)
   }
-  if (!beautier::are_tree_priors(tree_priors)) {
+  if (!are_tree_priors(tree_priors)) {
     stop(
       "'tree_priors' must be a list of one or more valid tree priors. ",
       "Actual value(s): ", tree_priors

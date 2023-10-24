@@ -4,7 +4,7 @@
 #' @inheritParams default_params_doc
 #' @export
 check_mrca_prior_taxa_names <- function(taxa_names) {
-  if (beautier::is_one_na(taxa_names)) return()
+  if (is_one_na(taxa_names)) return()
   if (length(taxa_names) == 0 ||
       !is.character(taxa_names) ||
       sum(taxa_names == "") > 0
