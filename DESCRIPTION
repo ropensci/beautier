@@ -14,7 +14,6 @@ Authors@R: c(
   person("Thijs", "Janzen", role = "ctb", comment = c(ORCID = "0000-0002-4162-1140")),
   person("Pedro", "Taucce", role = "ctb", comment = c(ORCID = "0000-0002-3088-4543")),
   person("Jana", "Riederer", role = "ctb", comment = c(ORCID = "0000-0001-6951-9984")))
-Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
 Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
   Bayesian phylogenetic tool, that uses DNA/RNA/protein data
   and many model priors to create a posterior of jointly estimated 
@@ -28,23 +27,18 @@ Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
 License: GPL-3
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
-URL: https://github.com/ropensci/beautier/
-BugReports: https://github.com/ropensci/beautier
+URL: https://docs.ropensci.org/beautier/, https://github.com/ropensci/beautier
+BugReports: https://github.com/ropensci/beautier/issues
 Imports:
     ape,
-    assertive,
-    pryr,
     rappdirs,
+    purrr,
+    rlang (>= 1.1.0),
     seqinr,
-    stringr,
-    testit
+    stringr
 Suggests:
     spelling,
-    devtools,
     knitr,
-    ggplot2,
-    hunspell,
-    lintr,
     markdown,
     readr,
     rmarkdown,
