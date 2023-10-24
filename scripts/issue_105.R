@@ -5,9 +5,9 @@ tracelog_filename <- get_beautier_tempfilename()
 screenlog_filename <- get_beautier_tempfilename()
 treelog_filename <- get_beautier_tempfilename()
 
-testit::assert(!file.exists(tracelog_filename))
-testit::assert(!file.exists(screenlog_filename))
-testit::assert(!file.exists(treelog_filename))
+expect_true(!file.exists(tracelog_filename))
+expect_true(!file.exists(screenlog_filename))
+expect_true(!file.exists(treelog_filename))
 
 inference_model <- beautier::create_inference_model(
   mcmc = beautier::create_mcmc(
@@ -43,6 +43,6 @@ system2(
   args = beast2_input_filename
 )
 
-testit::assert(file.exists(tracelog_filename))
-testit::assert(file.exists(screenlog_filename))
-testit::assert(file.exists(treelog_filename))
+expect_true(file.exists(tracelog_filename))
+expect_true(file.exists(screenlog_filename))
+expect_true(file.exists(treelog_filename))
