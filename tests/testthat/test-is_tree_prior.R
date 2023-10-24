@@ -25,7 +25,7 @@ test_that("use", {
 test_that("is_tree_prior, devious", {
 
   g <- create_yule_tree_prior()
-  testit::assert(is_tree_prior(g))
+  expect_true(is_tree_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -44,7 +44,7 @@ test_that("is_tree_prior, devious", {
 test_that("is_bd_tree_prior, devious", {
 
   g <- create_bd_tree_prior()
-  testit::assert(is_bd_tree_prior(g))
+  expect_true(is_bd_tree_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -67,7 +67,7 @@ test_that("is_bd_tree_prior, devious", {
 test_that("is_cbs_tree_prior, devious", {
 
   g <- create_cbs_tree_prior()
-  testit::assert(is_cbs_tree_prior(g))
+  expect_true(is_cbs_tree_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -86,7 +86,7 @@ test_that("is_cbs_tree_prior, devious", {
 test_that("is_ccp_tree_prior, devious", {
 
   g <- create_ccp_tree_prior()
-  testit::assert(is_ccp_tree_prior(g))
+  expect_true(is_ccp_tree_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -105,7 +105,7 @@ test_that("is_ccp_tree_prior, devious", {
 test_that("is_cep_tree_prior, devious", {
 
   g <- create_cep_tree_prior()
-  testit::assert(is_cep_tree_prior(g))
+  expect_true(is_cep_tree_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -128,7 +128,7 @@ test_that("is_cep_tree_prior, devious", {
 test_that("is_yule_tree_prior, devious", {
 
   g <- create_yule_tree_prior()
-  testit::assert(is_yule_tree_prior(g))
+  expect_true(is_yule_tree_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]

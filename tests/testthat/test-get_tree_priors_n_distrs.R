@@ -2,11 +2,11 @@ context("get_tree_priors_n_distrs")
 
 test_that("use", {
 
-  testit::assert(get_tree_prior_n_distrs(create_bd_tree_prior()) == 2)
-  testit::assert(get_tree_prior_n_distrs(create_cbs_tree_prior()) == 0)
-  testit::assert(get_tree_prior_n_distrs(create_ccp_tree_prior()) == 1)
-  testit::assert(get_tree_prior_n_distrs(create_cep_tree_prior()) == 2)
-  testit::assert(get_tree_prior_n_distrs(create_yule_tree_prior()) == 1)
+  expect_true(get_tree_prior_n_distrs(create_bd_tree_prior()) == 2)
+  expect_true(get_tree_prior_n_distrs(create_cbs_tree_prior()) == 0)
+  expect_true(get_tree_prior_n_distrs(create_ccp_tree_prior()) == 1)
+  expect_true(get_tree_prior_n_distrs(create_cep_tree_prior()) == 2)
+  expect_true(get_tree_prior_n_distrs(create_yule_tree_prior()) == 1)
 
   testthat::expect_equal(
     get_tree_priors_n_distrs(

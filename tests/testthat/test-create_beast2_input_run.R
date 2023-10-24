@@ -50,8 +50,8 @@ test_that("v2.6", {
     inference_model = inference_model
   )
   # New in v2.6
-  expect_equal(3, length(stringr::str_subset(created, "spec=\"Logger\" ")))
-  expect_equal(1, length(stringr::str_subset(created, "OperatorSchedule")))
+  expect_length(stringr::str_subset(created, "spec=\"Logger\" "), 3)
+  expect_length(stringr::str_subset(created, "OperatorSchedule"), 1)
 })
 
 test_that("abuse", {

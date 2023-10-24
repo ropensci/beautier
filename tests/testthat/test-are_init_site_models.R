@@ -9,7 +9,7 @@ test_that("use", {
       gamma_shape_prior_distr = create_one_div_x_distr(id = 0)
     )
   )
-  testit::assert(is_init_site_model(g))
+  expect_true(is_init_site_model(g))
 
   expect_true(are_init_site_models(list(g)))
 

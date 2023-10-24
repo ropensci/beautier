@@ -8,7 +8,7 @@ test_that("use", {
     mrca_distr = create_one_div_x_distr(id = 123),
     clock_prior_distr_id = 42
   )
-  testit::assert(is_init_mrca_prior(g))
+  expect_true(is_init_mrca_prior(g))
   expect_true(are_init_mrca_priors(list(g)))
 
   expect_false(are_init_mrca_priors("nonsense"))

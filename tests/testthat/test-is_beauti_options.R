@@ -9,7 +9,7 @@ test_that("use", {
 test_that("use, devious", {
 
   g <- create_beauti_options()
-  testit::assert(is_beauti_options(g))
+  expect_true(is_beauti_options(g))
 
   # No 'capitalize_first_char_id'
   h <- g[names(g) != "capitalize_first_char_id"]

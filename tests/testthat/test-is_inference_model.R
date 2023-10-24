@@ -10,6 +10,6 @@ test_that("use", {
     list(create_inference_model()),
     list(create_inference_model())
   )
-  testit::assert(length(inference_models) == 2)
+  expect_true(length(inference_models) == 2)
   expect_false(is_inference_model(inference_models))
 })

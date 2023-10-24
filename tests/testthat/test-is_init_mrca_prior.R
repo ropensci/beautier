@@ -32,7 +32,7 @@ test_that("use", {
     clock_prior_distr_id = 42
   )
 
-  testit::assert(is_init_mrca_prior(g))
+  expect_true(is_init_mrca_prior(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
