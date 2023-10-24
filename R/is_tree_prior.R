@@ -6,9 +6,9 @@
 #' @examples
 #' check_empty_beautier_folder()
 #'
-#' check_true(is_tree_prior(create_bd_tree_prior()))
-#' check_true(is_tree_prior(create_yule_tree_prior()))
-#' check_true(!is_tree_prior("nonsense"))
+#' is_tree_prior(create_bd_tree_prior())
+#' is_tree_prior(create_yule_tree_prior())
+#' !is_tree_prior("nonsense")
 #'
 #' check_empty_beautier_folder()
 #' @export
@@ -30,11 +30,11 @@ is_tree_prior <- function(
 #' @examples
 #' check_empty_beautier_folder()
 #'
-#'   check_true(is_bd_tree_prior(create_bd_tree_prior()))
-#'   check_true(!is_bd_tree_prior(create_cbs_tree_prior()))
-#'   check_true(!is_bd_tree_prior(create_ccp_tree_prior()))
-#'   check_true(!is_bd_tree_prior(create_cep_tree_prior()))
-#'   check_true(!is_bd_tree_prior(create_yule_tree_prior()))
+#'   is_bd_tree_prior(create_bd_tree_prior())
+#'   !is_bd_tree_prior(create_cbs_tree_prior())
+#'   !is_bd_tree_prior(create_ccp_tree_prior())
+#'   !is_bd_tree_prior(create_cep_tree_prior())
+#'   !is_bd_tree_prior(create_yule_tree_prior())
 #'
 #' check_empty_beautier_folder()
 #' @export
@@ -51,8 +51,8 @@ is_bd_tree_prior <- function(
 #' Determine if the object is a valid constant coalescent Bayesian skyline prior
 #' @param x an object, to be determined if it is a valid constant coalescent
 #'   Bayesian skyline prior
-#' @return TRUE if x is a valid constant coalescent Bayesian skyline prior,
-#'   FALSE otherwise
+#' @return `TRUE` if `x` is a valid constant coalescent Bayesian skyline prior,
+#'   `FALSE` otherwise
 #' @seealso Use \code{\link{create_cbs_tree_prior}} to create a valid
 #'   coalescent Bayes skyline tree prior
 #' @author Richèl J.C. Bilderbeek
@@ -92,11 +92,11 @@ is_cbs_tree_prior <- function(
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()
-#'   check_true(!is_ccp_tree_prior(create_bd_tree_prior()))
-#'   check_true(!is_ccp_tree_prior(create_cbs_tree_prior()))
-#'   check_true( is_ccp_tree_prior(create_ccp_tree_prior()))
-#'   check_true(!is_ccp_tree_prior(create_cep_tree_prior()))
-#'   check_true(!is_ccp_tree_prior(create_yule_tree_prior()))
+#'   !is_ccp_tree_prior(create_bd_tree_prior())
+#'   !is_ccp_tree_prior(create_cbs_tree_prior())
+#'   is_ccp_tree_prior(create_ccp_tree_prior())
+#'   !is_ccp_tree_prior(create_cep_tree_prior())
+#'   !is_ccp_tree_prior(create_yule_tree_prior())
 #' check_empty_beautier_folder()
 #' @export
 is_ccp_tree_prior <- function(
@@ -120,11 +120,11 @@ is_ccp_tree_prior <- function(
 #' @examples
 #' check_empty_beautier_folder()
 #'
-#'   check_true(!is_cep_tree_prior(create_bd_tree_prior()))
-#'   check_true(!is_cep_tree_prior(create_cbs_tree_prior()))
-#'   check_true(!is_cep_tree_prior(create_ccp_tree_prior()))
-#'   check_true( is_cep_tree_prior(create_cep_tree_prior()))
-#'   check_true(!is_cep_tree_prior(create_yule_tree_prior()))
+#'   !is_cep_tree_prior(create_bd_tree_prior())
+#'   !is_cep_tree_prior(create_cbs_tree_prior())
+#'   !is_cep_tree_prior(create_ccp_tree_prior())
+#'   is_cep_tree_prior(create_cep_tree_prior())
+#'   !is_cep_tree_prior(create_yule_tree_prior())
 #'
 #' check_empty_beautier_folder()
 #' @export

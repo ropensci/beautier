@@ -11,8 +11,8 @@ is_cbs_tree_prior(x)
 Bayesian skyline prior}
 }
 \value{
-TRUE if x is a valid constant coalescent Bayesian skyline prior,
-  FALSE otherwise
+`TRUE` if `x` is a valid constant coalescent Bayesian skyline prior,
+  `FALSE` otherwise
 }
 \description{
 Determine if the object is a valid constant coalescent Bayesian skyline prior

@@ -115,7 +115,7 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   text <- c(
     text,
     clock_model_to_xml_prior_distr(
-      inference_mode = inference_model
+      inference_model = inference_model
     )
   )
 
