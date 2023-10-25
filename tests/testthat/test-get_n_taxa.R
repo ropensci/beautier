@@ -45,7 +45,7 @@ test_that("abuse", {
 
   expect_error(
     get_n_taxa("abs.ent"),
-    "abs.ent"
+    "filename must exist"
   )
 
   expect_error(

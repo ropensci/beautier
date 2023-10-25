@@ -35,11 +35,11 @@ test_that("abuse", {
 
   expect_error(
     has_xml_closing_tag(text, section = NA),
-    "beautier::is_one_string"
+    "must be a single string"
   )
   expect_error(
     has_xml_closing_tag(text, section = NULL),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 
 })

@@ -50,12 +50,12 @@ test_that("abuse", {
 
   expect_error(
     find_first_xml_opening_tag_line(lines = lines, section = NA),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 
   expect_error(
     find_first_xml_opening_tag_line(lines = lines, section = NULL),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 
 })
