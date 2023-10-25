@@ -21,6 +21,6 @@ check_inference_models <- function(
   }
   for (i in seq_along(inference_models)) {
     # Stub with too simple error message
-    beautier::check_inference_model(inference_models[[i]])
+    check_inference_model(inference_models[[i]])
   }
 }

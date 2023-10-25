@@ -25,9 +25,9 @@ are_site_models <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (beautier::is_site_model(x)) return(TRUE)
+  if (is_site_model(x)) return(TRUE)
   for (i in x) {
-    if (!beautier::is_site_model(i)) return(FALSE)
+    if (!is_site_model(i)) return(FALSE)
   }
   return(TRUE)
 }

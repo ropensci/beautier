@@ -9,9 +9,9 @@ rln_clock_model_to_xml_mean_rate_prior <- function( # nolint indeed a long inter
   beauti_options
 ) { # nolint indeed long function name
 
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
+  check_true(is_rln_clock_model(rln_clock_model))
   id <- rln_clock_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 
@@ -23,8 +23,8 @@ rln_clock_model_to_xml_mean_rate_prior <- function( # nolint indeed a long inter
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = rln_clock_model$mean_rate_prior_distr,
         beauti_options = beauti_options
       )

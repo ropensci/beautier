@@ -41,7 +41,7 @@ create_site_model_xml <- function(
   inference_model
 ) {
   id <- inference_model$site_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   # gcc: gamma category count
   gcc <- inference_model$site_model$gamma_site_model$gamma_cat_count
@@ -64,17 +64,17 @@ create_site_model_xml <- function(
   site_model_begin_tag <- paste0(site_model_begin_tag, ">")
 
 
-  site_model_parameters <- beautier::create_site_model_parameters_xml(
+  site_model_parameters <- create_site_model_parameters_xml(
     inference_model
   )
-  subst_model_xml <- beautier::create_subst_model_xml(inference_model)
+  subst_model_xml <- create_subst_model_xml(inference_model)
   site_model_end_tag <- "</siteModel>"
 
   # Layout of the text
   c(
     site_model_begin_tag,
-    beautier::indent(site_model_parameters),
-    beautier::indent(subst_model_xml),
+    indent(site_model_parameters),
+    indent(subst_model_xml),
     site_model_end_tag
   )
 }

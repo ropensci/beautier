@@ -695,7 +695,7 @@ distr <- create_distr_poisson(id = 1, lambda = 1.2)
 
 ### MINOR IMPROVEMENTS
 
-  * Follow all [rOpenSci packaging guidelines](https://github.com/ropensci/onboarding/blob/master/packaging_guide.md)
+  * Follow all [rOpenSci packaging guidelines](https://github.com/ropensci/software-review/blob/master/packaging_guide.md)
 
 ### BUG FIXES
 

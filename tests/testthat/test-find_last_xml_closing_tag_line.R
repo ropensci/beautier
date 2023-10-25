@@ -1,5 +1,3 @@
-context("find_last_xml_closing_tag_line")
-
 test_that("use", {
 
   lines <- c(

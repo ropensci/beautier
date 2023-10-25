@@ -4,11 +4,11 @@
 #' @inheritParams default_params_doc
 #' @export
 check_store_every <- function(store_every) {
-  testit::assert(length(store_every) == 1)
+  check_number_whole(store_every, allow_na = TRUE, min = -1)
   if (is.na(store_every)) return()
   testthat::expect_true(beautier::is_one_int(store_every))
 
-  if (store_every < -1 || store_every == 0) {
+  if (store_every == 0) {
     stop(
       "'store_every' must be either NA, -1 or a non-zero positive value. \n",
       "'Actual value: ", store_every

@@ -7,9 +7,9 @@
 are_init_mrca_priors <- function(
   x
 ) {
-  if (!beautier::are_mrca_priors(x)) return(FALSE)
+  if (!are_mrca_priors(x)) return(FALSE)
   for (i in x) {
-    if (!beautier::is_init_mrca_prior(i)) return(FALSE)
+    if (!is_init_mrca_prior(i)) return(FALSE)
   }
   return(TRUE)
 }

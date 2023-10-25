@@ -21,8 +21,8 @@
 are_equal_screenlogs <- function(
   screenlog_1, screenlog_2
 ) {
-  beautier::check_screenlog(screenlog_1)
-  beautier::check_screenlog(screenlog_2)
+  check_screenlog(screenlog_1)
+  check_screenlog(screenlog_2)
   # Can be both NA
   if (is.na(screenlog_1$filename)) {
     if (!is.na(screenlog_2$filename)) return(FALSE)

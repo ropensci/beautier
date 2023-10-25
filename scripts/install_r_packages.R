@@ -1,6 +1,5 @@
 install.packages("ape", repos = "http://cran.uk.r-project.org")
 install.packages("devtools", repos = "http://cran.uk.r-project.org")
-install.packages("ggplot2", repos = "http://cran.uk.r-project.org")
 install.packages("gridExtra", repos = "http://cran.uk.r-project.org")
 install.packages("knitr", repos = "http://cran.uk.r-project.org")
 install.packages("lintr", repos = "http://cran.uk.r-project.org")

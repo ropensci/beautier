@@ -5,13 +5,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_xml <- function(text) {
-  if (beautier::is_one_na(text)) return(FALSE)
-  if (!beautier::has_xml_opening_tag(text)) return(FALSE)
-  if (beautier::has_xml_short_closing_tag(text)) return(TRUE)
-  opening_tag <- beautier::get_xml_opening_tag(text)
-  closing_tag <- beautier::get_xml_closing_tag(text)
-  if (beautier::is_one_na(closing_tag)) return(FALSE)
-  testit::assert(!beautier::is_one_na(closing_tag))
+  if (is_one_na(text)) return(FALSE)
+  if (!has_xml_opening_tag(text)) return(FALSE)
+  if (has_xml_short_closing_tag(text)) return(TRUE)
+  opening_tag <- get_xml_opening_tag(text)
+  closing_tag <- get_xml_closing_tag(text)
+  if (is_one_na(closing_tag)) return(FALSE)
+  check_true(!is_one_na(closing_tag))
   if (opening_tag != closing_tag) return(FALSE)
   TRUE
 }

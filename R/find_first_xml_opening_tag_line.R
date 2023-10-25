@@ -9,6 +9,6 @@ find_first_xml_opening_tag_line <- function( # nolint indeed long function name
   lines,
   section
 ) {
-  testthat::expect_true(beautier::is_one_string(section))
-  beautier::find_first_regex_line(lines, paste0("<", section, ".*>"))
+  check_string(section)
+  find_first_regex_line(lines, paste0("<", section, ".*>"))
 }

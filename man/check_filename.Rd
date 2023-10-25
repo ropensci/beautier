@@ -14,7 +14,7 @@ check_filename(filename, allow_empty_str = FALSE, allow_na = FALSE)
 \item{allow_na}{allow \link{NA}}
 }
 \value{
-nothing
+The filename (invisibly)
 }
 \description{
 Calls \code{stop} if the filename is invalid

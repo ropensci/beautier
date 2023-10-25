@@ -16,5 +16,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_site_model_name <- function(name) {
-  name %in% beautier::get_site_model_names()
+  name %in% get_site_model_names()
 }

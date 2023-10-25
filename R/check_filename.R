@@ -2,7 +2,7 @@
 #'
 #' Calls \code{stop} if the filename is invalid
 #' @inheritParams default_params_doc
-#' @return nothing
+#' @return The filename (invisibly)
 #' @examples
 #' check_empty_beautier_folder()
 #'
@@ -17,22 +17,15 @@ check_filename <- function(
   allow_empty_str = FALSE,
   allow_na = FALSE
 ) {
-  testthat::expect_equal(1, length(allow_empty_str))
-  testthat::expect_equal(1, length(allow_na))
-  testthat::expect_true(allow_empty_str == TRUE || allow_empty_str == FALSE)
-  testthat::expect_true(allow_na == TRUE || allow_na == FALSE)
+  check_logical(allow_empty_str)
+  check_logical(allow_na)
+  check_string(filename, allow_na = allow_na, allow_empty = allow_empty_str)
 
-  testthat::expect_equal(length(filename), 1)
-  if (allow_na && is.na(filename)) return(invisible(filename))
-  testthat::expect_true(is.character(filename))
-  if (stringr::str_detect(filename, " ")) {
+  if (!is.na(filename) && nzchar(filename) && stringr::str_detect(filename, " ")) {
     stop(
       "Filenames must not have space. \n",
       "filename: ", filename
     )
-  }
-  if (!allow_empty_str) {
-    testthat::expect_true(nchar(filename) > 0)
   }
   invisible(filename)
 }

@@ -37,27 +37,27 @@
 #' @export
 create_beast2_input_run <- function(
   input_filename,
-  inference_model = beautier::create_inference_model()
+  inference_model = create_inference_model()
 ) {
-  testthat::expect_equal(length(input_filename), 1)
+  check_true(length(input_filename) == 1)
 
   # Create the '<run...' starting tag
-  text <- beautier::mcmc_to_xml_run(inference_model$mcmc)
+  text <- mcmc_to_xml_run(inference_model$mcmc)
   if (inference_model$beauti_options$beast2_version == "2.6") {
     text <- c(text, "        ")
   }
 
   # Create the '<state...' part
   text <- c(text,
-    beautier::indent(
-      beautier::create_beast2_input_state(
+    indent(
+      create_beast2_input_state(
         inference_model = inference_model
       )
     )
   )
 
   text <- c(text,
-    beautier::create_beast2_input_init(
+    create_beast2_input_init(
       inference_model = inference_model
     )
   )
@@ -65,8 +65,8 @@ create_beast2_input_run <- function(
   text <- c(text, "")
 
   text <- c(text,
-    beautier::indent(
-      beautier::create_beast2_input_distr(
+    indent(
+      create_beast2_input_distr(
         inference_model = inference_model
       )
     )
@@ -76,8 +76,8 @@ create_beast2_input_run <- function(
 
   text <- c(
     text,
-    beautier::indent(
-      beautier::create_beast2_input_operators(
+    indent(
+      create_beast2_input_operators(
         inference_model = inference_model
       )
     )
@@ -87,7 +87,7 @@ create_beast2_input_run <- function(
 
   text <- c(
     text,
-    beautier::create_loggers_xml(
+    create_loggers_xml(
       input_filename = input_filename,
       inference_model = inference_model
     )

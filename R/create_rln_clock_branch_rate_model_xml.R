@@ -9,15 +9,15 @@
 create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, which is fine for a long function
   inference_model
 ) {
-  testthat::expect_true(
-    beautier::is_rln_clock_model(inference_model$clock_model)
+  check_true(
+    is_rln_clock_model(inference_model$clock_model)
   )
   # Do not be smart yet
   clock_model <- inference_model$clock_model
 
-  testit::assert(beautier::is_clock_model(clock_model))
+  check_true(is_clock_model(clock_model))
   id <- clock_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
 
@@ -28,10 +28,10 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     "spec=\"beast.evolution.branchratemodel.UCRelaxedClockModel\" "
   )
 
-  if (beautier::has_tip_dating(inference_model)) {
+  if (has_tip_dating(inference_model)) {
     line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
   }
-  if (beautier::has_mrca_prior_with_distr(inference_model)) {
+  if (has_mrca_prior_with_distr(inference_model)) {
     line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
   }
   if (clock_model$normalize_mean_clock_rate == TRUE) {
@@ -61,8 +61,8 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     text,
     indent(
       indent(
-        beautier::m_param_to_xml(
-          m_param = beautier::create_m_param(
+        m_param_to_xml(
+          m_param = create_m_param(
             id = mparam_id,
             lower = "0.0",
             upper = "1.0",
@@ -74,11 +74,11 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     )
   )
   text <- c(text, paste0("    </LogNormal>"))
-  if (!beautier::has_mrca_prior_with_distr(inference_model) &&
+  if (!has_mrca_prior_with_distr(inference_model) &&
       !has_tip_dating(inference_model)
   ) {
-    xml_here <- beautier::clock_rate_param_to_xml(
-      clock_rate_param = beautier::create_clock_rate_param(
+    xml_here <- clock_rate_param_to_xml(
+      clock_rate_param = create_clock_rate_param(
         id = id,
         estimate = FALSE,
         value = clock_model$mean_clock_rate
@@ -92,6 +92,6 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     text <- c(text, indent(xml_here))
   }
   text <- c(text, paste0("</branchRateModel>"))
-  testit::assert(is.null(text) || beautier::is_xml(text))
+  check_true(is.null(text) || is_xml(text))
   text
 }

@@ -27,13 +27,13 @@ check_clock_models <- function(clock_models) {
     )
   }
 
-  if (beautier::is_clock_model(clock_models)) {
+  if (is_clock_model(clock_models)) {
     clock_models <- list(clock_models)
   }
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
     tryCatch(
-      beautier::check_clock_model(clock_model),
+      check_clock_model(clock_model),
       error = function(e) {
         stop(
           "'clock_models' must be a list of one or more valid clock models. \n",

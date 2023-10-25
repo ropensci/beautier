@@ -22,7 +22,7 @@ tree_model_to_tracelog_xml <- function(
   inference_model
 ) {
   id <- inference_model$site_model$id
-  testthat::expect_true(beautier::is_id(id))
+  check_true(is_id(id))
   text <- NULL
   text <- c(text, paste0("<log idref=\"treeLikelihood.", id, "\"/>")) # nolint this is no absolute path
   text <- c(

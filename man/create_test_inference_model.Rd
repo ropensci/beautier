@@ -5,12 +5,12 @@
 \title{Create a testing inference model.}
 \usage{
 create_test_inference_model(
-  site_model = beautier::create_jc69_site_model(),
-  clock_model = beautier::create_strict_clock_model(),
-  tree_prior = beautier::create_yule_tree_prior(),
+  site_model = create_jc69_site_model(),
+  clock_model = create_strict_clock_model(),
+  tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
-  mcmc = beautier::create_test_mcmc(),
-  beauti_options = beautier::create_beauti_options(),
+  mcmc = create_test_mcmc(),
+  beauti_options = create_beauti_options(),
   tipdates_filename = NA
 )
 }

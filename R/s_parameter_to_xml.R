@@ -22,11 +22,11 @@ s_parameter_to_xml <- function(
   parameter,
   beauti_options
 ) {
-  beautier::check_beauti_options(beauti_options)
-  testit::assert(beautier::is_s_param(parameter))
+  check_beauti_options(beauti_options)
+  check_true(is_s_param(parameter))
   id <- parameter$id
-  testit::assert(beautier::is_id(id))
-  testit::assert(parameter$estimate == FALSE)
+  check_true(is_id(id))
+  check_true(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   value <- parameter$value
   lower <- parameter$lower
@@ -43,13 +43,13 @@ s_parameter_to_xml <- function(
     text,
     " estimate=\"", estimate, "\""
   )
-  if (!beautier::is_one_na(lower)) {
+  if (!is_one_na(lower)) {
     if (lower != 0.0) {
       text <- paste0(text, " lower=\"", lower, "\"")
     }
   }
   text <- paste0(text, " name=\"S\"")
-  if (!beautier::is_one_na(upper)) {
+  if (!is_one_na(upper)) {
     if (!is.infinite(upper)) {
       upper_txt <- upper
       if (is.infinite(upper)) {

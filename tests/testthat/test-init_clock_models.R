@@ -5,8 +5,8 @@ test_that("initialize RLN clock model", {
 
   fasta_filenames <- beautier::get_beautier_path("test_output_0.fas")
   before <- list(create_rln_clock_model())
-  testit::assert(is_rln_clock_model(before[[1]]))
-  testit::assert(!are_init_clock_models(before))
+  expect_true(is_rln_clock_model(before[[1]]))
+  expect_true(!are_init_clock_models(before))
   after <- init_clock_models(
     before,
     fasta_filenames = fasta_filenames
@@ -20,8 +20,8 @@ test_that("initialize strict clock model", {
 
   fasta_filenames <- beautier::get_beautier_path("test_output_0.fas")
   before <- list(create_strict_clock_model())
-  testit::assert(is_strict_clock_model(before[[1]]))
-  testit::assert(!are_init_clock_models(before))
+  expect_true(is_strict_clock_model(before[[1]]))
+  expect_true(!are_init_clock_models(before))
   after <- init_clock_models(
     before,
     fasta_filenames = fasta_filenames
@@ -42,8 +42,8 @@ test_that("initialize RLN clock model", {
     mparam_id = 1
   )
   before <- list(clock_model)
-  testit::assert(is_rln_clock_model(before[[1]]))
-  testit::assert(!are_init_clock_models(before))
+  expect_true(is_rln_clock_model(before[[1]]))
+  expect_true(!are_init_clock_models(before))
   after <- init_clock_models(
     before,
     fasta_filenames = fasta_filenames

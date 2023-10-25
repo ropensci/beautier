@@ -12,7 +12,7 @@
 #' @export check_ns_mcmc check_mcmc_nested_sampling check_nested_sampling_mcmc
 check_ns_mcmc <- check_mcmc_nested_sampling <- check_nested_sampling_mcmc <- function(mcmc) { # nolint indeed a long line
 
-  beautier::check_mcmc(mcmc)
+  check_mcmc(mcmc)
 
   # The arguments 'chain_length' and 'store_every' are checked
   # by check_mcmc

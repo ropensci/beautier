@@ -44,11 +44,11 @@ check_tracelog_names <- function(tracelog) {
 #' @export
 check_tracelog_values <- function(tracelog) {
 
-  beautier::check_filename(tracelog$filename, allow_na = TRUE)
-  testthat::expect_true(beautier::is_one_int(tracelog$log_every))
-  testthat::expect_true(all(tracelog$log_every > 0))
-  beautier::check_log_mode(tracelog$mode)
-  testthat::expect_true(beautier::is_one_bool(tracelog$sanitise_headers))
-  beautier::check_log_sort(tracelog$sort)
+  check_filename(tracelog$filename, allow_na = TRUE)
+  lapply(tracelog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+
+  check_log_mode(tracelog$mode)
+  check_logical(tracelog$sanitise_headers)
+  check_log_sort(tracelog$sort)
   invisible(tracelog)
 }

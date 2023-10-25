@@ -8,12 +8,12 @@
 is_init_clock_model <- function(
   x
 ) {
-  if (!beautier::is_clock_model(x)) return(FALSE)
-  if (beautier::is_strict_clock_model(x)) {
-    return(beautier::is_init_strict_clock_model(x))
+  if (!is_clock_model(x)) return(FALSE)
+  if (is_strict_clock_model(x)) {
+    return(is_init_strict_clock_model(x))
   } else {
-    testit::assert(beautier::is_rln_clock_model(x))
-    return(beautier::is_init_rln_clock_model(x))
+    check_true(is_rln_clock_model(x))
+    return(is_init_rln_clock_model(x))
   }
 }
 
@@ -26,13 +26,13 @@ is_init_clock_model <- function(
 is_init_rln_clock_model <- function(
   rln_clock_model
 ) {
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
-  if (!beautier::is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE)
-  if (!beautier::is_init_distr(rln_clock_model$mean_rate_prior_distr)) {
+  check_true(is_rln_clock_model(rln_clock_model))
+  if (!is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE)
+  if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) {
     return(FALSE)
   }
-  !beautier::is_one_na(rln_clock_model$mparam_id) &&
-    !beautier::is_one_na(rln_clock_model$dimension)
+  !is_one_na(rln_clock_model$mparam_id) &&
+    !is_one_na(rln_clock_model$dimension)
 }
 
 #' Determine if x is an initialized strict clock_model object
@@ -43,9 +43,9 @@ is_init_rln_clock_model <- function(
 is_init_strict_clock_model <- function(
   strict_clock_model
 ) {
-  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
-  if (!beautier::is_init_distr(strict_clock_model$clock_rate_distr)) {
+  check_true(is_strict_clock_model(strict_clock_model))
+  if (!is_init_distr(strict_clock_model$clock_rate_distr)) {
     return(FALSE)
   }
-  !beautier::is_one_na(strict_clock_model$clock_rate_param$id)
+  !is_one_na(strict_clock_model$clock_rate_param$id)
 }

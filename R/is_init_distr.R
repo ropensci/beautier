@@ -8,30 +8,30 @@
 is_init_distr <- function(
   x
 ) {
-  if (!beautier::is_distr(x)) return(FALSE)
-  if (beautier::is_one_na(x$id)) return(FALSE)
+  if (!is_distr(x)) return(FALSE)
+  if (is_one_na(x$id)) return(FALSE)
 
-  if (beautier::is_beta_distr(x)) {
-    return(beautier::is_init_beta_distr(x))
-  } else if (beautier::is_exp_distr(x)) {
-    return(beautier::is_init_exp_distr(x))
-  } else if (beautier::is_gamma_distr(x)) {
-    return(beautier::is_init_gamma_distr(x))
-  } else if (beautier::is_inv_gamma_distr(x)) {
-    return(beautier::is_init_inv_gamma_distr(x))
-  } else if (beautier::is_laplace_distr(x)) {
-    return(beautier::is_init_laplace_distr(x))
-  } else if (beautier::is_log_normal_distr(x)) {
-    return(beautier::is_init_log_normal_distr(x))
-  } else if (beautier::is_normal_distr(x)) {
-    return(beautier::is_init_normal_distr(x))
-  } else if (beautier::is_one_div_x_distr(x)) {
-    return(beautier::is_init_one_div_x_distr(x))
-  } else if (beautier::is_poisson_distr(x)) {
-    return(beautier::is_init_poisson_distr(x))
+  if (is_beta_distr(x)) {
+    return(is_init_beta_distr(x))
+  } else if (is_exp_distr(x)) {
+    return(is_init_exp_distr(x))
+  } else if (is_gamma_distr(x)) {
+    return(is_init_gamma_distr(x))
+  } else if (is_inv_gamma_distr(x)) {
+    return(is_init_inv_gamma_distr(x))
+  } else if (is_laplace_distr(x)) {
+    return(is_init_laplace_distr(x))
+  } else if (is_log_normal_distr(x)) {
+    return(is_init_log_normal_distr(x))
+  } else if (is_normal_distr(x)) {
+    return(is_init_normal_distr(x))
+  } else if (is_one_div_x_distr(x)) {
+    return(is_init_one_div_x_distr(x))
+  } else if (is_poisson_distr(x)) {
+    return(is_init_poisson_distr(x))
   } else {
-    testit::assert(beautier::is_uniform_distr(x))
-    return(beautier::is_init_uniform_distr(x))
+    check_true(is_uniform_distr(x))
+    return(is_init_uniform_distr(x))
   }
 }
 
@@ -45,8 +45,8 @@ is_init_distr <- function(
 is_init_beta_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_beta_distr(x))
-  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
+  check_true(is_beta_distr(x))
+  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized exponential distribution object
@@ -59,8 +59,8 @@ is_init_beta_distr <- function(
 is_init_exp_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_exp_distr(x))
-  !beautier::is_one_na(x$mean$id)
+  check_true(is_exp_distr(x))
+  !is_one_na(x$mean$id)
 }
 
 #' Determine if x is an initialized gamma distribution object
@@ -72,8 +72,8 @@ is_init_exp_distr <- function(
 is_init_gamma_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_gamma_distr(x))
-  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
+  check_true(is_gamma_distr(x))
+  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized inverse-gamma distribution
@@ -86,8 +86,8 @@ is_init_gamma_distr <- function(
 is_init_inv_gamma_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_inv_gamma_distr(x))
-  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
+  check_true(is_inv_gamma_distr(x))
+  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized Laplace distribution
@@ -100,8 +100,8 @@ is_init_inv_gamma_distr <- function(
 is_init_laplace_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_laplace_distr(x))
-  !beautier::is_one_na(x$mu$id) && !beautier::is_one_na(x$scale$id)
+  check_true(is_laplace_distr(x))
+  !is_one_na(x$mu$id) && !is_one_na(x$scale$id)
 }
 
 #' Determine if x is an initialized log_normal distribution object
@@ -114,8 +114,8 @@ is_init_laplace_distr <- function(
 is_init_log_normal_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_log_normal_distr(x))
-  !beautier::is_one_na(x$m$id) && !beautier::is_one_na(x$s$id)
+  check_true(is_log_normal_distr(x))
+  !is_one_na(x$m$id) && !is_one_na(x$s$id)
 }
 
 #' Determine if x is an initialized normal distribution object
@@ -128,8 +128,8 @@ is_init_log_normal_distr <- function(
 is_init_normal_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_normal_distr(x))
-  !beautier::is_one_na(x$mean$id) && !beautier::is_one_na(x$sigma$id)
+  check_true(is_normal_distr(x))
+  !is_one_na(x$mean$id) && !is_one_na(x$sigma$id)
 }
 
 #' Determine if x is an initialized one_div_x distribution object
@@ -142,7 +142,7 @@ is_init_normal_distr <- function(
 is_init_one_div_x_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_one_div_x_distr(x))
+  check_true(is_one_div_x_distr(x))
   TRUE
 }
 
@@ -156,8 +156,8 @@ is_init_one_div_x_distr <- function(
 is_init_poisson_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_poisson_distr(x))
-  !beautier::is_one_na(x$lambda$id)
+  check_true(is_poisson_distr(x))
+  !is_one_na(x$lambda$id)
 }
 
 #' Determine if x is an initialized uniform distribution object
@@ -170,6 +170,6 @@ is_init_poisson_distr <- function(
 is_init_uniform_distr <- function(
   x
 ) {
-  testit::assert(beautier::is_uniform_distr(x))
+  check_true(is_uniform_distr(x))
   TRUE
 }

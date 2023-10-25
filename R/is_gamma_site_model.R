@@ -20,7 +20,7 @@
 is_gamma_site_model <- function(x) {
   tryCatch(
     {
-      beautier::check_gamma_site_model(x)
+      check_gamma_site_model(x)
       TRUE
     },
     error = function(e) { # nolint indeed ignore e

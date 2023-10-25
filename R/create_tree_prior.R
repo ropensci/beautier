@@ -49,10 +49,10 @@ create_tree_prior <- function(
   id,
   ...
 ) {
-  if (!beautier::is_tree_prior_name(name)) {
+  if (!is_tree_prior_name(name)) {
     tree_priors_as_string <- function() {
       s <- NULL
-      for (p in beautier::get_tree_prior_names()) {
+      for (p in get_tree_prior_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))
@@ -149,7 +149,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
     b_pop_sizes_param = b_pop_sizes_param,
     pop_sizes_scaler_scale_factor = pop_sizes_scaler_scale_factor
   )
-  testit::assert(beautier::is_cbs_tree_prior(cbs_tree_prior))
+  check_true(is_cbs_tree_prior(cbs_tree_prior))
   cbs_tree_prior
 }
 
@@ -180,7 +180,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #' @export create_ccp_tree_prior create_tree_prior_ccp
 create_ccp_tree_prior <- create_tree_prior_ccp <- function(
   id = NA,
-  pop_size_distr = beautier::create_one_div_x_distr(
+  pop_size_distr = create_one_div_x_distr(
     value = 0.3
   )
 ) {

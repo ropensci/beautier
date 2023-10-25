@@ -17,6 +17,6 @@
 #' }
 #' @export
 is_default_mcmc <- function(mcmc) {
-  if (!beautier::is_mcmc(mcmc)) return(FALSE)
-  length(names(mcmc)) == length(names(beautier::create_mcmc()))
+  if (!is_mcmc(mcmc)) return(FALSE)
+  length(names(mcmc)) == length(names(create_mcmc()))
 }

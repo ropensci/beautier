@@ -24,7 +24,7 @@ has_xml_short_closing_tag <- function(
         pattern = "/>" # nolint this is no absolute path
       )
     )
-    if (!beautier::is_one_na(match)) return(TRUE)
+    if (!is_one_na(match)) return(TRUE)
   }
   FALSE
 }

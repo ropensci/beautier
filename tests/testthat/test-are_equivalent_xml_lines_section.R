@@ -1,5 +1,3 @@
-context("are_equivalent_xml_lines_section")
-
 test_that("use", {
 
   lines_1 <- c(

@@ -9,10 +9,10 @@ clock_rate_param_to_xml <- function(
   clock_rate_param,
   beauti_options = create_beauti_options()
 ) {
-  beautier::check_beauti_options(beauti_options)
-  testit::assert(beautier::is_clock_rate_param(clock_rate_param))
+  check_beauti_options(beauti_options)
+  check_true(is_clock_rate_param(clock_rate_param))
   id <- clock_rate_param$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   xml <-  paste0(
     "<parameter ",

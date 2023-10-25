@@ -20,35 +20,35 @@ distr_to_xml <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_beauti_options(beauti_options)
+  check_beauti_options(beauti_options)
   text <- NULL
   id <- distr$id
-  if (!beautier::is_id(id)) {
+  if (!is_id(id)) {
     stop("distribution must have an ID")
   }
-  if (beautier::is_beta_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_beta(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_exp_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_exp(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_gamma_distr(distr)) {
-    text <- c(text, beautier::gamma_distr_to_xml(gamma_distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_inv_gamma_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_inv_gamma(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_laplace_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_laplace(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_log_normal_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_log_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_normal_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_one_div_x_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_one_div_x(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (beautier::is_poisson_distr(distr)) {
-    text <- c(text, beautier::distr_to_xml_poisson(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  if (is_beta_distr(distr)) {
+    text <- c(text, distr_to_xml_beta(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_exp_distr(distr)) {
+    text <- c(text, distr_to_xml_exp(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_gamma_distr(distr)) {
+    text <- c(text, gamma_distr_to_xml(gamma_distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_inv_gamma_distr(distr)) {
+    text <- c(text, distr_to_xml_inv_gamma(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_laplace_distr(distr)) {
+    text <- c(text, distr_to_xml_laplace(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_log_normal_distr(distr)) {
+    text <- c(text, distr_to_xml_log_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_normal_distr(distr)) {
+    text <- c(text, distr_to_xml_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_one_div_x_distr(distr)) {
+    text <- c(text, distr_to_xml_one_div_x(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (is_poisson_distr(distr)) {
+    text <- c(text, distr_to_xml_poisson(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
   } else {
-    testit::assert(beautier::is_uniform_distr(distr))
-    text <- c(text, beautier::distr_to_xml_uniform(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+    check_true(is_uniform_distr(distr))
+    text <- c(text, distr_to_xml_uniform(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
   }
-  testit::assert(beautier::is_xml(text))
+  check_true(is_xml(text))
   text
 }
 
@@ -65,24 +65,24 @@ distr_to_xml_beta <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_beta_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_beta_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$alpha,
         beauti_options = beauti_options
       )
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$beta,
         beauti_options = beauti_options
       )
@@ -105,10 +105,10 @@ distr_to_xml_exp <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_exp_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_exp_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -119,8 +119,8 @@ distr_to_xml_exp <- function(
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$mean,
         beauti_options = beauti_options
       )
@@ -143,10 +143,10 @@ distr_to_xml_inv_gamma <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_inv_gamma_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_inv_gamma_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -157,16 +157,16 @@ distr_to_xml_inv_gamma <- function(
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$alpha,
         beauti_options = beauti_options
       )
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$beta,
         beauti_options = beauti_options
       )
@@ -189,10 +189,10 @@ distr_to_xml_laplace <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_laplace_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_laplace_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -203,16 +203,16 @@ distr_to_xml_laplace <- function(
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$mu,
         beauti_options = beauti_options
       )
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$scale,
         beauti_options = beauti_options
       )
@@ -235,10 +235,10 @@ distr_to_xml_log_normal <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_log_normal_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_log_normal_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -249,16 +249,16 @@ distr_to_xml_log_normal <- function(
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$m,
         beauti_options = beauti_options
       )
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$s,
         beauti_options = beauti_options
       )
@@ -282,10 +282,10 @@ distr_to_xml_normal <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_normal_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_normal_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -296,16 +296,16 @@ distr_to_xml_normal <- function(
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$mean,
         beauti_options = beauti_options
       )
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$sigma,
         beauti_options = beauti_options
       )
@@ -328,10 +328,10 @@ distr_to_xml_one_div_x <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_one_div_x_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_one_div_x_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<OneOnX ",
@@ -352,10 +352,10 @@ distr_to_xml_poisson <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_poisson_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_poisson_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -367,8 +367,8 @@ distr_to_xml_poisson <- function(
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         distr$lambda,
         beauti_options = beauti_options
       ),
@@ -391,16 +391,16 @@ distr_to_xml_uniform <- function(
   distr,
   beauti_options
 ) {
-  testit::assert(beautier::is_uniform_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_uniform_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")
   line_end <- "/>" # nolint this is no absolute path
   upper <- distr$upper
-  if (beautier::is_one_na(upper)) {
+  if (is_one_na(upper)) {
     text <- c(text, paste0(line_begin, line_end))
   } else if (is.infinite(upper)) {
     text <- c(text, paste0(line_begin, " upper=\"Infinity\"", line_end))

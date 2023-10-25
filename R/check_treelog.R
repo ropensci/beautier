@@ -50,11 +50,10 @@ check_treelog_names <- function(treelog) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_treelog_values <- function(treelog) {
-  beautier::check_filename(filename = treelog$filename, allow_na = TRUE)
-  testthat::expect_true(beautier::is_one_int(treelog$log_every))
-  testthat::expect_true(all(treelog$log_every > 0))
-  beautier::check_log_mode(treelog$mode)
-  testthat::expect_true(beautier::is_one_bool(treelog$sanitise_headers))
-  beautier::check_log_sort(treelog$sort)
+  check_filename(filename = treelog$filename, allow_na = TRUE)
+  lapply(treelog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+  check_log_mode(treelog$mode)
+  check_logical(treelog$sanitise_headers)
+  check_log_sort(treelog$sort)
   invisible(treelog)
 }

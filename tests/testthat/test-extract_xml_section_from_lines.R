@@ -1,5 +1,3 @@
-context("extract_xml_section_from_lines")
-
 test_that("use", {
 
   lines <- c(

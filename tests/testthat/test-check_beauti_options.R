@@ -1,5 +1,3 @@
-context("test-check_beauti_options")
-
 test_that("use", {
   expect_silent(check_beauti_options(create_beauti_options()))
 
@@ -83,13 +81,13 @@ test_that("in-depth use", {
     check_beauti_options(
       create_beauti_options(capitalize_first_char_id = "nonsense")
     ),
-    "'capitalize_first_char_id' must be one boolean"
+    "`beauti_options\\$capitalize_first_char_id` must be `TRUE` or `FALSE`, not the string \"nonsense\"."
   )
   expect_error(
     check_beauti_options(
       create_beauti_options(capitalize_first_char_id = NA)
     ),
-    "'capitalize_first_char_id' must be one boolean"
+    "`beauti_options\\$capitalize_first_char_id` must be `TRUE` or `FALSE`, not `NA`."
   )
 
   # nucleotides_uppercase
@@ -97,13 +95,13 @@ test_that("in-depth use", {
     check_beauti_options(
       create_beauti_options(nucleotides_uppercase = "nonsense")
     ),
-    "'nucleotides_uppercase' must be one boolean"
+    "`beauti_options\\$nucleotides_uppercase` must be `TRUE` or `FALSE`, not the string \"nonsense\"."
   )
   expect_error(
     check_beauti_options(
       create_beauti_options(nucleotides_uppercase = NA)
     ),
-    "'nucleotides_uppercase' must be one boolean"
+    "`beauti_options\\$nucleotides_uppercase` must be `TRUE` or `FALSE`, not `NA`."
   )
 
   # beast2_version

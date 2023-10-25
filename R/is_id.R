@@ -20,5 +20,5 @@
 is_id <- function(
   x
 ) {
-  beautier::is_one_string(x) || beautier::is_one_int(x)
+  rlang::is_string(x) || rlang::is_integerish(x, n = 1)
 }

@@ -14,8 +14,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_param <- function(param) {
-  beautier::check_param_names(param)
-  beautier::check_param_types(param)
+  check_param_names(param)
+  check_param_types(param)
 }
 
 #' Check if the \code{param} has the list elements
@@ -52,10 +52,10 @@ check_param_names <- function(param) {
 #' @export
 check_param_types <- function(param) {
 
-  if (!param$name %in% beautier::get_param_names()) {
+  if (!param$name %in% get_param_names()) {
     stop("'param$name' must be a valid parameter name")
   }
-  if (beautier::is_one_na(param$value)) {
+  if (is_one_na(param$value)) {
     stop("'param$value' must not be NA")
   }
 }

@@ -6,8 +6,8 @@
 extract_xml_loggers_from_lines <- function(
   lines
 ) {
-  first_line <- beautier::find_first_regex_line(lines, "<logger id=\"")
-  testit::assert(!beautier::is_one_na(first_line))
-  last_line <- beautier::find_last_regex_line(lines, "</logger>")
+  first_line <- find_first_regex_line(lines, "<logger id=\"")
+  check_true(!is_one_na(first_line))
+  last_line <- find_last_regex_line(lines, "</logger>")
   lines[first_line:last_line]
 }

@@ -13,15 +13,15 @@ tree_prior_to_xml_operators <- function(
   tree_prior <- inference_model$tree_prior
   fixed_crown_age <- FALSE
 
-  testthat::expect_false(fixed_crown_age)
-  testit::assert(beautier::is_tree_prior(tree_prior))
+  check_false(fixed_crown_age)
+  check_true(is_tree_prior(tree_prior))
   id <- tree_prior$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
-  operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
+  operator_id_pre <- get_operator_id_pre(tree_prior)
 
-  if (beautier::is_bd_tree_prior(tree_prior)) {
+  if (is_bd_tree_prior(tree_prior)) {
     text <- c(
       text,
       paste0(
@@ -39,7 +39,7 @@ tree_prior_to_xml_operators <- function(
         id, "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"
       )
     )
-  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
+  } else if (is_ccp_tree_prior(tree_prior)) {
     text <- c(
       text,
       paste0(
@@ -48,13 +48,13 @@ tree_prior_to_xml_operators <- function(
         "\" scaleFactor=\"0.75\" weight=\"3.0\"/>"
       )
     )
-  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
+  } else if (is_cbs_tree_prior(tree_prior)) {
 
     pop_size_scaler_xml <- paste0(
       "<operator id=\"popSizesScaler.t:", id, "\" ",
       "spec=\"ScaleOperator\" parameter=\"@bPopSizes.t:", id, "\" "
     )
-    testthat::expect_true(
+    check_true(
       "pop_sizes_scaler_scale_factor" %in% names(tree_prior)
     )
     if (tree_prior$pop_sizes_scaler_scale_factor != "") {
@@ -84,7 +84,7 @@ tree_prior_to_xml_operators <- function(
       )
     )
     text <- c(text, paste0("</operator>"))
-  } else if (beautier::is_cep_tree_prior(tree_prior)) {
+  } else if (is_cep_tree_prior(tree_prior)) {
     text <- c(
       text,
       paste0(
@@ -104,10 +104,10 @@ tree_prior_to_xml_operators <- function(
     )
   } else {
     # Will fail on unimplemented tree priors
-    testthat::expect_true(beautier::is_yule_tree_prior(tree_prior))
+    check_true(is_yule_tree_prior(tree_prior))
     text <- c(
       text,
-      beautier::yule_tree_prior_to_xml_operators(inference_model)
+      yule_tree_prior_to_xml_operators(inference_model)
     )
   }
 

@@ -9,10 +9,10 @@ test_that("initialize JC69 site model", {
 
   id <- "a"
   before <- list(create_jc69_site_model(gamma_site_model = gamma_site_model))
-  testit::assert(is_jc69_site_model(before[[1]]))
-  testit::assert(!are_init_site_models(before))
+  expect_true(is_jc69_site_model(before[[1]]))
+  expect_true(!are_init_site_models(before))
   after <- init_site_models(before, ids = id)
-  testit::assert(is_jc69_site_model(after[[1]]))
+  expect_true(is_jc69_site_model(after[[1]]))
   expect_true(are_init_site_models(after))
 
 })
@@ -26,10 +26,10 @@ test_that("initialize HKY site model", {
 
   id <- "a"
   before <- list(create_hky_site_model(gamma_site_model = gamma_site_model))
-  testit::assert(is_hky_site_model(before[[1]]))
-  testit::assert(!are_init_site_models(before))
+  expect_true(is_hky_site_model(before[[1]]))
+  expect_true(!are_init_site_models(before))
   after <- init_site_models(before, ids = id)
-  testit::assert(is_hky_site_model(after[[1]]))
+  expect_true(is_hky_site_model(after[[1]]))
   expect_true(are_init_site_models(after))
 
 })
@@ -43,10 +43,10 @@ test_that("initialize TN93 site model", {
 
   id <- "a"
   before <- list(create_tn93_site_model(gamma_site_model = gamma_site_model))
-  testit::assert(is_tn93_site_model(before[[1]]))
-  testit::assert(!are_init_site_models(before))
+  expect_true(is_tn93_site_model(before[[1]]))
+  expect_true(!are_init_site_models(before))
   after <- init_site_models(before, ids = id)
-  testit::assert(is_tn93_site_model(after[[1]]))
+  expect_true(is_tn93_site_model(after[[1]]))
   expect_true(are_init_site_models(after))
 
 })
@@ -60,10 +60,10 @@ test_that("initialize GTR site model", {
 
   id <- "a"
   before <- list(create_gtr_site_model(gamma_site_model = gamma_site_model))
-  testit::assert(is_gtr_site_model(before[[1]]))
-  testit::assert(!are_init_site_models(before))
+  expect_true(is_gtr_site_model(before[[1]]))
+  expect_true(!are_init_site_models(before))
   after <- init_site_models(before, ids = id)
-  testit::assert(is_gtr_site_model(after[[1]]))
+  expect_true(is_gtr_site_model(after[[1]]))
   expect_true(are_init_site_models(after))
 
 })

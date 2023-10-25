@@ -30,7 +30,7 @@ create_site_model_parameters_xml <- function( # nolint long function name, which
   inference_model
 ) {
   id <- inference_model$site_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   # gcc: gamma category count
   gcc <- inference_model$site_model$gamma_site_model$gamma_cat_count

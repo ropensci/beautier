@@ -7,13 +7,13 @@
 is_init_mrca_prior <- function(
   x
 ) {
-  if (!beautier::is_mrca_prior(x)) return(FALSE)
+  if (!is_mrca_prior(x)) return(FALSE)
   # Just an NA
-  if (length(x) == 1 && beautier::is_one_na(x)) return(TRUE)
-  if (beautier::is_one_na(x$name)) return(FALSE)
-  if (beautier::is_one_na(x$clock_prior_distr_id)) return(FALSE)
-  if (beautier::is_distr(x$mrca_distr) &&
-      !beautier::is_init_distr(x$mrca_distr)
+  if (length(x) == 1 && is_one_na(x)) return(TRUE)
+  if (is_one_na(x$name)) return(FALSE)
+  if (is_one_na(x$clock_prior_distr_id)) return(FALSE)
+  if (is_distr(x$mrca_distr) &&
+      !is_init_distr(x$mrca_distr)
   ) return(FALSE)
   TRUE
 }

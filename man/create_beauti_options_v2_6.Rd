@@ -9,7 +9,7 @@ create_beauti_options_v2_6(
   sequence_indent = 8,
   nucleotides_uppercase = FALSE,
   status = "",
-  namespace = beautier::get_default_beast_namespace_v2_6(),
+  namespace = get_default_beast_namespace_v2_6(),
   required = ""
 )
 }

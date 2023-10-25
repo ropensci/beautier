@@ -4,9 +4,9 @@
 init_inference_model <- function(input_filename, inference_model) {
 
   # Site model. TODO: remove plurals
-  inference_model$site_model <- beautier::init_site_models(
+  inference_model$site_model <- init_site_models(
     site_models = list(inference_model$site_model),
-    ids = beautier::get_alignment_ids_from_fasta_filenames(
+    ids = get_alignment_ids_from_fasta_filenames(
       fasta_filenames = input_filename
     ),
     distr_id = 0,
@@ -14,21 +14,21 @@ init_inference_model <- function(input_filename, inference_model) {
   )[[1]]
 
   # Clock model. TODO: remove plurals
-  inference_model$clock_model <- beautier::init_clock_models(
+  inference_model$clock_model <- init_clock_models(
     clock_models = list(inference_model$clock_model),
     fasta_filenames = input_filename,
-    distr_id = 0 + beautier::get_site_models_n_distrs(
+    distr_id = 0 + get_site_models_n_distrs(
       list(inference_model$site_model)
     ),
-    param_id = 0 + beautier::get_site_models_n_params(
+    param_id = 0 + get_site_models_n_params(
       list(inference_model$site_model)
     )
   )[[1]]
 
   # Tree prior. TODO: remove plurals
-  inference_model$tree_prior <- beautier::init_tree_priors(
+  inference_model$tree_prior <- init_tree_priors(
     list(inference_model$tree_prior),
-    ids = beautier::get_alignment_ids_from_fasta_filenames(
+    ids = get_alignment_ids_from_fasta_filenames(
       fasta_filenames = input_filename
     ),
     distr_id = 100,
@@ -36,7 +36,7 @@ init_inference_model <- function(input_filename, inference_model) {
   )[[1]]
 
   # MRCA prior. TODO: remove plurals
-  inference_model$mrca_prior <- beautier::init_mrca_priors(
+  inference_model$mrca_prior <- init_mrca_priors(
     list(inference_model$mrca_prior),
     distr_id = 150,
     param_id = 300,
@@ -44,7 +44,7 @@ init_inference_model <- function(input_filename, inference_model) {
   )[[1]]
 
   # Set the alignment ID and taxon names
-  inference_model <- beautier::init_mrca_prior(input_filename, inference_model)
+  inference_model <- init_mrca_prior(input_filename, inference_model)
 
   inference_model
 }

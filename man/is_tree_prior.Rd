@@ -18,9 +18,9 @@ Determine if an object is a valid tree prior
 \examples{
 check_empty_beautier_folder()
 
-testit::assert(is_tree_prior(create_bd_tree_prior()))
-testit::assert(is_tree_prior(create_yule_tree_prior()))
-testit::assert(!is_tree_prior("nonsense"))
+is_tree_prior(create_bd_tree_prior())
+is_tree_prior(create_yule_tree_prior())
+!is_tree_prior("nonsense")
 
 check_empty_beautier_folder()
 }

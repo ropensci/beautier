@@ -18,29 +18,29 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
   text <- c(text, "<log idref=\"posterior\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"likelihood\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"prior\"/>") # nolint this is no absolute path
-  text <- c(text, beautier::tree_model_to_tracelog_xml(inference_model))
+  text <- c(text, tree_model_to_tracelog_xml(inference_model))
 
-  site_models_xml <- beautier::site_models_to_xml_tracelog(site_models)
+  site_models_xml <- site_models_to_xml_tracelog(site_models)
   if (!is.null(site_models_xml)) {
     text <- c(text, site_models_xml)
   }
 
-  clock_models_xml <- beautier::clock_model_to_xml_tracelog(
+  clock_models_xml <- clock_model_to_xml_tracelog(
     inference_model = inference_model
   )
   if (!is.null(clock_models_xml)) {
     text <- c(text, clock_models_xml)
   }
 
-  text <- c(text, beautier::tree_priors_to_xml_tracelog(tree_priors))
+  text <- c(text, tree_priors_to_xml_tracelog(tree_priors))
   text <- c(
     text,
-    beautier::mrca_prior_to_xml_tracelog(
+    mrca_prior_to_xml_tracelog(
       inference_model = inference_model
     )
   )
 
-  text <- beautier::indent(text)
+  text <- indent(text)
 
   top_line <- paste0(
     "<logger ",
@@ -52,7 +52,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
   }
   if (is.na(inference_model$mcmc$tracelog$filename)) {
     # Alignment IDs
-    ids <- beautier::get_alignment_id(
+    ids <- get_alignment_id(
       input_filename,
       capitalize_first_char_id =
         inference_model$beauti_options$capitalize_first_char_id
@@ -63,7 +63,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
       "fileName=\"", filename, ".log\" "
     )
   } else {
-    testit::assert(!is.na(inference_model$mcmc$tracelog$filename))
+    check_true(!is.na(inference_model$mcmc$tracelog$filename))
     top_line <- paste0(
       top_line,
       "fileName=\"", inference_model$mcmc$tracelog$filename, "\" "

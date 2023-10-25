@@ -19,7 +19,7 @@ test_that("mcmc$pre_burning", {
       )[, 1]
     )
   )
-  testit::assert(nchar(the_line) > 0)
+  expect_true(nchar(the_line) > 0)
   pre_burnin <- as.numeric(
     stats::na.omit(
       stringr::str_match(
@@ -57,7 +57,7 @@ test_that("mcmc$n_init_attempts", {
     )
   )
   the_line
-  testit::assert(nchar(the_line) > 0)
+  expect_true(nchar(the_line) > 0)
   n_init_attempts <- as.numeric(
     stats::na.omit(
       stringr::str_match(
@@ -92,7 +92,7 @@ test_that("mcmc$sample_from_prior", {
     )
   )
   the_line
-  testit::assert(nchar(the_line) > 0)
+  expect_true(nchar(the_line) > 0)
   sample_from_prior <- as.logical(
     stats::na.omit(
       stringr::str_match(

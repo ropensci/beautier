@@ -25,11 +25,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_ucld_stdev_state_node_param_xml <- function(inference_model) { # nolint indeed a long function name
-  beautier::check_inference_model(inference_model)
+  check_inference_model(inference_model)
   clock_model <- inference_model$clock_model
   id <- clock_model$id
-  testthat::expect_true(beautier::is_rln_clock_model(clock_model))
-  testthat::expect_false(beautier::is_one_na(id))
+  check_true(is_rln_clock_model(clock_model))
+  check_false(is_one_na(id))
   xml <- paste0("<parameter id=\"ucldStdev.c:", id, "\" ")
   if (inference_model$beauti_options$beast2_version == "2.6") {
     xml <- paste0(xml, "spec=\"parameter.RealParameter\" ")

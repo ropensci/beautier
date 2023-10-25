@@ -18,12 +18,12 @@
 get_tree_priors_n_params <- function(
   tree_priors
 ) {
-  if (!beautier::are_tree_priors(tree_priors)) {
+  if (!are_tree_priors(tree_priors)) {
     stop("'tree_priors' must be a list of tree priors")
   }
   n <- 0
   for (tree_prior in tree_priors) {
-    n <- n + beautier::get_tree_prior_n_params(tree_prior)
+    n <- n + get_tree_prior_n_params(tree_prior)
   }
   n
 }

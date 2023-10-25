@@ -78,7 +78,7 @@ test_that("abuse", {
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr()
     ),
-    "'name' must be one NA or one character string"
+    "`mrca_prior_name` must be a single string or `NA`, not `NULL`."
   )
 
   # Checked in more detail by 'check_alignment_id'
@@ -110,7 +110,7 @@ test_that("abuse", {
       is_monophyletic = NULL,
       mrca_distr = create_normal_distr()
     ),
-    "'is_monophyletic' must be either TRUE or FALSE"
+    "`mrca_prior\\$is_monophyletic` must be `TRUE` or `FALSE`, not `NULL`."
   )
 
   expect_error(

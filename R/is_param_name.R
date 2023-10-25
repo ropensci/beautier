@@ -36,5 +36,5 @@
 #' @export
 is_param_name <- function(name) {
   if (length(name) == 0) return(FALSE)
-  name %in% beautier::get_param_names()
+  name %in% get_param_names()
 }

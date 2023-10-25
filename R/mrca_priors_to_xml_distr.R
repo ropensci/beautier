@@ -21,10 +21,10 @@ mrca_priors_to_xml_prior_distr <- function(
 ) {
   # Don't be smart yet
   mrca_priors <- list(inference_model$mrca_prior)
-  testit::assert(beautier::are_mrca_priors(mrca_priors))
+  check_true(are_mrca_priors(mrca_priors))
 
-  if (beautier::is_one_na(mrca_priors)) return(NULL)
-  beautier::mrca_prior_to_xml_prior_distr(
+  if (is_one_na(mrca_priors)) return(NULL)
+  mrca_prior_to_xml_prior_distr(
     inference_model = inference_model
   )
 }

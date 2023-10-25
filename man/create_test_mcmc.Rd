@@ -10,9 +10,9 @@ create_test_mcmc(
   pre_burnin = 0,
   n_init_attempts = 10,
   sample_from_prior = FALSE,
-  tracelog = beautier::create_test_tracelog(),
-  screenlog = beautier::create_test_screenlog(),
-  treelog = beautier::create_test_treelog()
+  tracelog = create_test_tracelog(),
+  screenlog = create_test_screenlog(),
+  treelog = create_test_treelog()
 )
 }
 \arguments{

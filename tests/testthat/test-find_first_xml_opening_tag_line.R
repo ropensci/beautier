@@ -1,5 +1,3 @@
-context("find_first_xml_opening_tag_line")
-
 test_that("use", {
 
   lines <- c(

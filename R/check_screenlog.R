@@ -12,8 +12,8 @@
 #' @export
 check_screenlog <- function(screenlog) {
 
-  beautier::check_screenlog_names(screenlog)
-  beautier::check_screenlog_values(screenlog)
+  check_screenlog_names(screenlog)
+  check_screenlog_values(screenlog)
 }
 
 #' Check if the \code{screenlog} has the list elements
@@ -50,15 +50,14 @@ check_screenlog_names <- function(screenlog) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_screenlog_values <- function(screenlog) {
-  beautier::check_filename(
+  check_filename(
     screenlog$filename,
     allow_empty_str = TRUE,
     allow_na = TRUE
   )
-  testthat::expect_true(beautier::is_one_int(screenlog$log_every))
-  testthat::expect_true(all(screenlog$log_every > 0))
-  beautier::check_log_mode(screenlog$mode)
-  testthat::expect_true(beautier::is_one_bool(screenlog$sanitise_headers))
-  beautier::check_log_sort(screenlog$sort)
+  lapply(screenlog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+  check_log_mode(screenlog$mode)
+  check_logical(screenlog$sanitise_headers)
+  check_log_sort(screenlog$sort)
   invisible(screenlog)
 }

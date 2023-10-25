@@ -18,11 +18,11 @@
 get_clock_model_name <- function(
   clock_model
 ) {
-  if (beautier::is_strict_clock_model(clock_model)) {
+  if (is_strict_clock_model(clock_model)) {
     return("StrictClock")
   } else {
     # Will fail on unimplemented clock models
-    testit::assert(beautier::is_rln_clock_model(clock_model))
+    check_true(is_rln_clock_model(clock_model))
     return("RelaxedClock")
   }
 }

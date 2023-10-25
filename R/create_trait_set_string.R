@@ -10,8 +10,8 @@
 create_trait_set_string <- function(
   df
 ) {
-  testit::assert(is.data.frame(df))
-  testit::assert(ncol(df) == 2)
+  check_true(is.data.frame(df))
+  check_true(ncol(df) == 2)
   str <- NULL
   n_rows <- nrow(df)
   for (i in seq(1, n_rows)) {

@@ -19,6 +19,6 @@ create_tracelog <- function(
     sanitise_headers = sanitise_headers,
     sort = sort
   )
-  beautier::check_tracelog(tracelog)
+  check_tracelog(tracelog)
   tracelog
 }

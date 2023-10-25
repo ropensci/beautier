@@ -12,8 +12,11 @@
 #' check_empty_beautier_folder()
 #' @export
 get_n_taxa <- function(filename) {
-  testthat::expect_true(beautier::is_one_string(filename))
-  beautier::check_file_exists(filename)
+  check_string(filename)
+
+  if (!file.exists(filename)) {
+    stop("filename must exist.")
+  }
   tryCatch(
     {
       return(length(seqinr::read.fasta(filename)))

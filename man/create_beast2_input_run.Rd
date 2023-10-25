@@ -6,7 +6,7 @@
 \usage{
 create_beast2_input_run(
   input_filename,
-  inference_model = beautier::create_inference_model()
+  inference_model = create_inference_model()
 )
 }
 \arguments{
