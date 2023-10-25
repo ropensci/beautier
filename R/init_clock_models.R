@@ -11,56 +11,56 @@ init_clock_models <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(all(file.exists(fasta_filenames)))
-  testit::assert(beautier::are_clock_models(clock_models))
-  testit::assert(length(clock_models) == length(fasta_filenames))
-  ids <- beautier::get_alignment_ids_from_fasta_filenames(fasta_filenames)
-  n_taxa <- beautier::get_n_taxa(fasta_filenames[1])
+  check_true(all(file.exists(fasta_filenames)))
+  check_true(are_clock_models(clock_models))
+  check_true(length(clock_models) == length(fasta_filenames))
+  ids <- get_alignment_ids_from_fasta_filenames(fasta_filenames)
+  n_taxa <- get_n_taxa(fasta_filenames[1])
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]
-    testit::assert(beautier::is_clock_model(clock_model))
+    check_true(is_clock_model(clock_model))
 
-    if (beautier::is_rln_clock_model(clock_model)) {
+    if (is_rln_clock_model(clock_model)) {
       # RLN
 
-      if (!beautier::is_init_rln_clock_model(clock_model)) {
+      if (!is_init_rln_clock_model(clock_model)) {
 
-        clock_model <- beautier::init_rln_clock_model(
+        clock_model <- init_rln_clock_model(
           clock_model,
           distr_id = distr_id,
           param_id = param_id
         )
-        if (beautier::is_one_na(clock_model$dimension)) {
+        if (is_one_na(clock_model$dimension)) {
           clock_model$dimension <- (2 * n_taxa) - 2
         }
 
         distr_id <- distr_id  + 2 # Has two distributions
         param_id <- param_id +
-          beautier::get_distr_n_params(clock_model$ucldstdev_distr) +
+          get_distr_n_params(clock_model$ucldstdev_distr) +
           1 # mparam
       }
 
     } else {
-      testit::assert(beautier::is_strict_clock_model(clock_model))
+      check_true(is_strict_clock_model(clock_model))
 
-      if (!beautier::is_init_strict_clock_model(clock_model)) {
+      if (!is_init_strict_clock_model(clock_model)) {
 
-        clock_model <- beautier::init_strict_clock_model(
+        clock_model <- init_strict_clock_model(
           clock_model,
           distr_id = distr_id,
           param_id = param_id
         )
         distr_id <- distr_id  + 1 # Has one distributions
-        param_id <- param_id + beautier::get_distr_n_params(
+        param_id <- param_id + get_distr_n_params(
           clock_model$clock_rate_distr
         )
       }
 
-      testit::assert(beautier::is_init_strict_clock_model(clock_model))
+      check_true(is_init_strict_clock_model(clock_model))
     }
 
-    if (beautier::is_one_na(clock_model$id)) clock_model$id <- ids[i]
+    if (is_one_na(clock_model$id)) clock_model$id <- ids[i]
 
     clock_models[[i]] <- clock_model
   }
@@ -92,29 +92,29 @@ init_rln_clock_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_rln_clock_model(rln_clock_model))
-  ucldstdev_distr <- beautier::init_distr(
+  check_true(is_rln_clock_model(rln_clock_model))
+  ucldstdev_distr <- init_distr(
     rln_clock_model$ucldstdev_distr,
     distr_id,
     param_id
   )
   distr_id <- distr_id + 1
-  param_id <- param_id + beautier::get_distr_n_params(ucldstdev_distr)
-  mean_rate_prior_distr <- beautier::init_distr(
+  param_id <- param_id + get_distr_n_params(ucldstdev_distr)
+  mean_rate_prior_distr <- init_distr(
     rln_clock_model$mean_rate_prior_distr,
     distr_id,
     param_id
   )
   distr_id <- distr_id + 1
-  param_id <- param_id + beautier::get_distr_n_params(mean_rate_prior_distr)
+  param_id <- param_id + get_distr_n_params(mean_rate_prior_distr)
 
   mparam_id <- rln_clock_model$mparam_id
-  if (beautier::is_one_na(mparam_id)) {
+  if (is_one_na(mparam_id)) {
     mparam_id <- param_id
     param_id <- param_id + 1
   }
 
-  result <- beautier::create_rln_clock_model(
+  result <- create_rln_clock_model(
     id = rln_clock_model$id,
     ucldstdev_distr = ucldstdev_distr,
     mean_rate_prior_distr = mean_rate_prior_distr,
@@ -149,16 +149,16 @@ init_strict_clock_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  testit::assert(beautier::is_strict_clock_model(strict_clock_model))
+  check_true(is_strict_clock_model(strict_clock_model))
 
   # clock_rate_distr
-  strict_clock_model$clock_rate_distr <- beautier::init_distr(
+  strict_clock_model$clock_rate_distr <- init_distr(
     strict_clock_model$clock_rate_distr,
     distr_id,
     param_id
   )
   distr_id <- distr_id + 1
-  param_id <- param_id + beautier::get_distr_n_params(
+  param_id <- param_id + get_distr_n_params(
     strict_clock_model$clock_rate_distr
   )
 

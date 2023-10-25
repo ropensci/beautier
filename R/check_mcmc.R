@@ -59,8 +59,8 @@ check_mcmc_values <- function(mcmc) {
       "'Actual value: ", mcmc$chain_length
     )
   }
-  beautier::check_store_every(mcmc$store_every)
-  if (!beautier::is_one_na(mcmc$store_every) &&
+  check_store_every(mcmc$store_every)
+  if (!is_one_na(mcmc$store_every) &&
       mcmc$store_every > mcmc$chain_length
   ) {
     stop(
@@ -69,7 +69,7 @@ check_mcmc_values <- function(mcmc) {
       "Actual value of 'mcmc$store_every': ", mcmc$store_every, "'"
     )
   }
-  if (!beautier::is_one_na(mcmc$store_every) &&
+  if (!is_one_na(mcmc$store_every) &&
       mcmc$store_every != -1 && mcmc$store_every < 1000
   ) {
     stop("'mcmc$store_every' must be at least 1000, NA or -1")
@@ -82,10 +82,9 @@ check_mcmc_values <- function(mcmc) {
       "Actual value 'mcmc$chain_length': '", mcmc$chain_length, "'"
     )
   }
-  assertive::assert_all_are_whole_numbers(mcmc$n_init_attempts)
-  assertive::assert_all_are_positive(mcmc$n_init_attempts)
-  assertive::assert_is_if_condition(mcmc$sample_from_prior)
-  beautier::check_treelog(mcmc$treelog)
-  beautier::check_screenlog(mcmc$screenlog)
-  beautier::check_tracelog(mcmc$tracelog)
+  lapply(mcmc$n_init_attempts, function(x) check_number_whole(x, min = 1, arg = "n_init_attempts"))
+  check_logical(mcmc$sample_from_prior)
+  check_treelog(mcmc$treelog)
+  check_screenlog(mcmc$screenlog)
+  check_tracelog(mcmc$tracelog)
 }

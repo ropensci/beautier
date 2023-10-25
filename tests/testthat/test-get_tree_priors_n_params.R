@@ -15,10 +15,10 @@ test_that("use", {
     birth_rate_distr = create_exp_distr(), # 1
     death_rate_distr = create_laplace_distr() #2
   )
-  testit::assert(get_tree_prior_n_params(tree_prior_0_params) == 0)
-  testit::assert(get_tree_prior_n_params(tree_prior_1_params) == 1)
-  testit::assert(get_tree_prior_n_params(tree_prior_2_params) == 2)
-  testit::assert(get_tree_prior_n_params(tree_prior_3_params) == 3)
+  expect_true(get_tree_prior_n_params(tree_prior_0_params) == 0)
+  expect_true(get_tree_prior_n_params(tree_prior_1_params) == 1)
+  expect_true(get_tree_prior_n_params(tree_prior_2_params) == 2)
+  expect_true(get_tree_prior_n_params(tree_prior_3_params) == 3)
 
   testthat::expect_equal(
     get_tree_priors_n_params(

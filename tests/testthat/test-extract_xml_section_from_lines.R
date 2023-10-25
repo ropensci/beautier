@@ -59,12 +59,12 @@ test_that("abuse: section must be one string", {
 
   expect_error(
     extract_xml_section_from_lines(lines = lines, section = NA),
-    "section is not of class 'character'"
+    "`section` must be a single string, not `NA`."
   )
 
   expect_error(
     extract_xml_section_from_lines(lines = lines, section = NULL),
-    "section is not of class 'character'"
+    "`section` must be a single string, not `NULL`."
   )
 })
 

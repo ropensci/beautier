@@ -23,9 +23,9 @@
 #' @export
 create_site_models <- function() {
   list(
-    beautier::create_gtr_site_model(),
-    beautier::create_hky_site_model(),
-    beautier::create_jc69_site_model(),
-    beautier::create_tn93_site_model()
+    create_gtr_site_model(),
+    create_hky_site_model(),
+    create_jc69_site_model(),
+    create_tn93_site_model()
   )
 }

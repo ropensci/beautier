@@ -26,7 +26,7 @@ is_site_model <- function(
 ) {
   result <- FALSE
   tryCatch({
-    beautier::check_site_model(x)
+    check_site_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e
@@ -63,7 +63,7 @@ is_gtr_site_model <- function(
 ) {
   result <- FALSE
   tryCatch({
-    beautier::check_gtr_site_model(x)
+    check_gtr_site_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e
@@ -98,14 +98,14 @@ is_gtr_site_model <- function(
 is_hky_site_model <- function( # nolint indeed a function with high cyclomatic complexity
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   if (x$name != "HKY") return(FALSE)
   if (!"kappa_param" %in% names(x)) return(FALSE)
   if (!"kappa_prior_distr" %in% names(x)) return(FALSE)
-  if (!beautier::is_distr(x$kappa_prior_distr)) return(FALSE)
+  if (!is_distr(x$kappa_prior_distr)) return(FALSE)
   if (!"freq_equilibrium" %in% names(x)) return(FALSE)
-  if (!beautier::is_kappa_param(x$kappa_param)) return(FALSE)
-  if (!beautier::is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
+  if (!is_kappa_param(x$kappa_param)) return(FALSE)
+  if (!is_freq_equilibrium_name(x$freq_equilibrium)) return(FALSE)
   TRUE
 }
 
@@ -135,7 +135,7 @@ is_hky_site_model <- function( # nolint indeed a function with high cyclomatic c
 is_jc69_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
+  if (!is_site_model(x)) return(FALSE)
   if (x$name != "JC69") return(FALSE)
   TRUE
 }
@@ -171,7 +171,7 @@ is_tn93_site_model <- function(
 ) {
   result <- FALSE
   tryCatch({
-    beautier::check_tn93_site_model(x)
+    check_tn93_site_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e

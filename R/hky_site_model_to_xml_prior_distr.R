@@ -18,17 +18,17 @@ hky_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   site_model,
   beauti_options
 ) {
-  testthat::expect_true(beautier::is_hky_site_model(site_model))
+  check_true(is_hky_site_model(site_model))
   id <- site_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<prior ",
                          "id=\"KappaPrior.s:", id, "\" ",
                          "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         site_model$kappa_prior,
         beauti_options = beauti_options
       )

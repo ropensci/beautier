@@ -18,13 +18,13 @@ b_pop_sizes_parameter_to_xml <- function(
   b_pop_sizes_parameter,
   beauti_options = create_beauti_options()
 ) {
-  beautier::check_beauti_options(beauti_options)
+  check_beauti_options(beauti_options)
   # Don't be smart yet
   parameter <- b_pop_sizes_parameter
-  testit::assert(beautier::is_b_pop_sizes_param(parameter))
+  check_true(is_b_pop_sizes_param(parameter))
   id <- parameter$id
-  testit::assert(beautier::is_id(id))
-  testit::assert("upper" %in% names(b_pop_sizes_parameter))
+  check_true(is_id(id))
+  check_true("upper" %in% names(b_pop_sizes_parameter))
   xml <- paste0(
     "<parameter id=\"bPopSizes.t:", id, "\" "
   )

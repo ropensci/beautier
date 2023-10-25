@@ -38,7 +38,7 @@ test_that("abuse", {
 
   testthat::expect_error(
     indent(text = "test", n_spaces = -1),
-    "'n_spaces' must be a positive integer"
+    "`n_spaces` must be a whole number"
   )
 
 })

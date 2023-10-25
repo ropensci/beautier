@@ -52,12 +52,12 @@ test_that("abuse", {
 
   expect_error(
     find_first_xml_opening_tag_line(lines = lines, section = NA),
-    "section is not of class 'character'"
+    "`section` must be a single string, not `NA`."
   )
 
   expect_error(
     find_first_xml_opening_tag_line(lines = lines, section = NULL),
-    "section is not of class 'character'"
+    "`section` must be a single string, not `NULL`."
   )
 
 })

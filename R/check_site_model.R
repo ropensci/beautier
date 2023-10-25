@@ -20,12 +20,12 @@
 #' @export
 check_site_model <- function(site_model) {
   if (length(site_model) == 1) {
-    beautier::check_site_model_names(site_model[[1]])
-    beautier::check_site_model_types(site_model[[1]])
+    check_site_model_names(site_model[[1]])
+    check_site_model_types(site_model[[1]])
     return()
   }
-  beautier::check_site_model_names(site_model)
-  beautier::check_site_model_types(site_model)
+  check_site_model_names(site_model)
+  check_site_model_types(site_model)
 }
 
 #' Check if the \code{site_model} has the list elements
@@ -63,10 +63,10 @@ check_site_model_names <- function(site_model) {
 #' @export
 check_site_model_types <- function(site_model) {
 
-  if (!beautier::is_site_model_name(site_model$name)) {
+  if (!is_site_model_name(site_model$name)) {
     stop("Invalid site model name. Actual value: '", site_model$name, "'")
   }
-  if (!beautier::is_gamma_site_model(site_model$gamma_site_model)) {
+  if (!is_gamma_site_model(site_model$gamma_site_model)) {
     stop("Invalid 'site_model$gamma_site_model'")
   }
 }

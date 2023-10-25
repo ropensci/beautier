@@ -19,8 +19,8 @@
 #'
 #' # Creates temporary files in beautier folder
 #' compare_lines(
-#'   lines = readLines(beautier::get_beautier_path("bd_2_4.xml")),
-#'   expected = readLines(beautier::get_beautier_path("bd_2_4.xml"))
+#'   lines = readLines(get_beautier_path("bd_2_4.xml")),
+#'   expected = readLines(get_beautier_path("bd_2_4.xml"))
 #' )
 #'
 #' remove_beautier_folder()
@@ -38,12 +38,12 @@ compare_lines <- function(
     pattern = "expected", fileext = ".xml"
   )
 ) {
-  if (!beautier::is_one_na(section)) {
-    lines <- beautier::extract_xml_section_from_lines(
+  if (!is_one_na(section)) {
+    lines <- extract_xml_section_from_lines(
       lines = lines,
       section = section
     )
-    expected <- beautier::extract_xml_section_from_lines(
+    expected <- extract_xml_section_from_lines(
       lines = expected,
       section = section
     )

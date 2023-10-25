@@ -6,10 +6,10 @@
 clock_model_to_xml_treelogger <- function(
   clock_model
 ) {
-  testit::assert(beautier::is_clock_model(clock_model))
+  check_true(is_clock_model(clock_model))
   id <- clock_model$id
 
-  if (beautier::is_strict_clock_model(clock_model)) {
+  if (is_strict_clock_model(clock_model)) {
     return(
       paste0(
         "<log ",
@@ -21,7 +21,7 @@ clock_model_to_xml_treelogger <- function(
   } else {
 
     # Will fail on unimplemented clock models
-    testit::assert(beautier::is_rln_clock_model(clock_model))
+    check_true(is_rln_clock_model(clock_model))
 
     return(
       paste0(

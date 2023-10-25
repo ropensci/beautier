@@ -8,7 +8,7 @@ create_test_treelog <- function(
   sanitise_headers = FALSE,
   sort = "none"
 ) {
-  beautier::create_treelog(
+  create_treelog(
     filename = filename,
     log_every = log_every,
     mode = mode,

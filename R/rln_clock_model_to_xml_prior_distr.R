@@ -39,14 +39,14 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
 ) {
   # Do not be smart yet
   clock_model <- inference_model$clock_model
-  testthat::expect_true(beautier::is_rln_clock_model(clock_model))
+  check_true(is_rln_clock_model(clock_model))
 
   text <- NULL
 
-  if (beautier::has_mrca_prior_with_distr(inference_model)) {
+  if (has_mrca_prior_with_distr(inference_model)) {
     text <- c(
       text,
-      beautier::rln_clock_model_to_xml_mean_rate_prior(
+      rln_clock_model_to_xml_mean_rate_prior(
         clock_model,
         beauti_options = inference_model$beauti_options
       )
@@ -54,7 +54,7 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
   }
 
   id <- clock_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
   text <- c(
     text,
     paste0(
@@ -64,8 +64,8 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::distr_to_xml(
+    indent(
+      distr_to_xml(
         distr = clock_model$ucldstdev_distr,
         beauti_options = inference_model$beauti_options
       )

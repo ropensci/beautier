@@ -33,20 +33,10 @@ check_beauti_options <- function(
       )
     }
   }
-  if (!beautier::is_one_bool(beauti_options$capitalize_first_char_id)) {
-    stop(
-      "'capitalize_first_char_id' must be one boolean. \n",
-      "Actual value: ", beauti_options$capitalize_first_char_id
-    )
-  }
-  if (!beautier::is_one_bool(beauti_options$nucleotides_uppercase)) {
-    stop(
-      "'nucleotides_uppercase' must be one boolean. \n",
-      "Actual value: ", beauti_options$nucleotides_uppercase
-    )
-  }
-  assertive::assert_is_a_string(beauti_options$beast2_version)
-  assertive::assert_is_a_string(beauti_options$required)
+  check_bool(beauti_options$capitalize_first_char_id)
+  check_bool(beauti_options$nucleotides_uppercase)
+  check_string(beauti_options$beast2_version)
+  check_string(beauti_options$required)
   if (!is_one_int(beauti_options$sequence_indent)) { #  nolint beautier function
     stop(
       "'sequence_indent' must be one number. \n",

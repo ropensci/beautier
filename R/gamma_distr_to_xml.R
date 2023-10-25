@@ -25,10 +25,10 @@ gamma_distr_to_xml <- function(
   # Don't be smart yet
   distr <- gamma_distr
 
-  testit::assert(beautier::is_gamma_distr(distr))
-  beautier::check_beauti_options(beauti_options)
+  check_true(is_gamma_distr(distr))
+  check_beauti_options(beauti_options)
   id <- distr$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   text <- c(
@@ -36,16 +36,16 @@ gamma_distr_to_xml <- function(
     paste0("<Gamma ", "id=\"Gamma.", id, "\" name=\"distr\">")
   )
   text <- c(text,
-    beautier::indent(
-      beautier::alpha_parameter_to_xml(
+    indent(
+      alpha_parameter_to_xml(
         alpha_parameter = distr$alpha,
         beauti_options = beauti_options
       )
     )
   )
   text <- c(text,
-    beautier::indent(
-      beautier::parameter_to_xml(
+    indent(
+      parameter_to_xml(
         parameter = distr$beta,
         beauti_options = beauti_options
       )

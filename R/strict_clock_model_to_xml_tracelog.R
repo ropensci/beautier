@@ -16,12 +16,12 @@
 strict_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  testthat::expect_true(
-    beautier::is_strict_clock_model(inference_model$clock_model)
+  check_true(
+    is_strict_clock_model(inference_model$clock_model)
   )
   clock_model <- inference_model$clock_model
   id <- clock_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
   text <- NULL
   if (clock_model$clock_rate_param$estimate) {
     text <- c(

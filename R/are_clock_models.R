@@ -27,7 +27,7 @@ are_clock_models <- function(
   tryCatch(
     {
       # We check four times. Just to check lintr-bot
-      beautier::check_clock_models(x)
+      check_clock_models(x)
       TRUE
     },
     error = function(e) FALSE
@@ -46,10 +46,10 @@ are_clock_models <- function(
 are_rln_clock_models <- function(
   clock_models
 ) {
-  testit::assert(beautier::are_clock_models(clock_models))
+  check_true(are_clock_models(clock_models))
   rlns <- rep(NA, length(clock_models))
   for (i in seq_along(clock_models)) {
-    rlns[i] <- beautier::is_rln_clock_model(clock_models[[i]])
+    rlns[i] <- is_rln_clock_model(clock_models[[i]])
   }
   rlns
 }

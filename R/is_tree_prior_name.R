@@ -17,5 +17,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_tree_prior_name <- function(name) {
-  name %in% beautier::get_tree_prior_names()
+  name %in% get_tree_prior_names()
 }

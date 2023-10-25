@@ -26,7 +26,7 @@ test_that("is_init_gtr_site_model", {
     rate_ct_param = create_rate_ac_param(id = 11),
     rate_gt_param = create_rate_ac_param(id = 12)
   )
-  testit::assert(is_init_gtr_site_model(g))
+  expect_true(is_init_gtr_site_model(g))
 
   # Uninitialize 'rate_ac_prior_distr'
   h <- g

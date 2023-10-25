@@ -31,7 +31,7 @@ check_inference_model <- function(
     }
   }
   tryCatch(
-    beautier::check_site_model(inference_model$site_model),
+    check_site_model(inference_model$site_model),
     error = function(e) {
       stop(
         "'site_model' must be a valid site model. \n",
@@ -42,7 +42,7 @@ check_inference_model <- function(
   )
 
   tryCatch(
-    beautier::check_clock_model(inference_model$clock_model),
+    check_clock_model(inference_model$clock_model),
     error = function(e) {
       stop(
         "'clock_model' must be a valid clock model. \n",
@@ -51,10 +51,10 @@ check_inference_model <- function(
       )
     }
   )
-  beautier::check_tree_prior(inference_model$tree_prior)
-  beautier::check_mcmc(inference_model$mcmc)
+  check_tree_prior(inference_model$tree_prior)
+  check_mcmc(inference_model$mcmc)
   tryCatch(
-    beautier::check_mrca_prior(inference_model$mrca_prior),
+    check_mrca_prior(inference_model$mrca_prior),
     error = function(e) {
       stop(
         "'mrca_prior' must be a valid MRCA prior. \n",
@@ -64,7 +64,7 @@ check_inference_model <- function(
     }
   )
   tryCatch(
-    beautier::check_beauti_options(inference_model$beauti_options),
+    check_beauti_options(inference_model$beauti_options),
     error = function(e) {
       stop(
         "'beauti_options' must be a valid BEAUti options. \n",
@@ -73,13 +73,5 @@ check_inference_model <- function(
       )
     }
   )
-  if (length(inference_model$tipdates_filename) != 1) {
-    stop("'tipdates_filename' must have one element")
-  }
-  if (
-    !beautier::is_one_na(inference_model$tipdates_filename) &&
-      !assertive::is_a_string(inference_model$tipdates_filename)
-  ) {
-    stop("'tipdates_filename' must be one NA or one string")
-  }
+  check_string(inference_model$tipdates_filename, allow_na = TRUE)
 }

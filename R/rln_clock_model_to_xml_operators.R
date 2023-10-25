@@ -12,13 +12,13 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
   # Don't be smart yet
   clock_model <- inference_model$clock_model
 
-  testit::assert(beautier::is_rln_clock_model(clock_model))
+  check_true(is_rln_clock_model(clock_model))
 
   id <- clock_model$id
 
   text <- NULL
 
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
   text <- c(
     text,
     paste0(
@@ -52,7 +52,7 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"
     )
   )
-  if (beautier::has_mrca_prior_with_distr(inference_model)) {
+  if (has_mrca_prior_with_distr(inference_model)) {
     text <- c(
       text,
       paste0(

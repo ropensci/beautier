@@ -7,18 +7,18 @@
 is_init_tree_prior <- function(
   x
 ) {
-  if (!beautier::is_tree_prior(x)) return(FALSE)
-  if (beautier::is_bd_tree_prior(x)) {
-    return(beautier::is_init_bd_tree_prior(x))
-  } else if (beautier::is_cbs_tree_prior(x)) {
-    return(beautier::is_init_cbs_tree_prior(x))
-  } else if (beautier::is_ccp_tree_prior(x)) {
-    return(beautier::is_init_ccp_tree_prior(x))
-  } else if (beautier::is_cep_tree_prior(x)) {
-    return(beautier::is_init_cep_tree_prior(x))
+  if (!is_tree_prior(x)) return(FALSE)
+  if (is_bd_tree_prior(x)) {
+    return(is_init_bd_tree_prior(x))
+  } else if (is_cbs_tree_prior(x)) {
+    return(is_init_cbs_tree_prior(x))
+  } else if (is_ccp_tree_prior(x)) {
+    return(is_init_ccp_tree_prior(x))
+  } else if (is_cep_tree_prior(x)) {
+    return(is_init_cep_tree_prior(x))
   } else {
-    testit::assert(beautier::is_yule_tree_prior(x))
-    return(beautier::is_init_yule_tree_prior(x))
+    check_true(is_yule_tree_prior(x))
+    return(is_init_yule_tree_prior(x))
   }
 }
 
@@ -31,9 +31,9 @@ is_init_tree_prior <- function(
 is_init_bd_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_bd_tree_prior(x))
-  beautier::is_init_distr(x$birth_rate_distr) &&
-    beautier::is_init_distr(x$death_rate_distr)
+  check_true(is_bd_tree_prior(x))
+  is_init_distr(x$birth_rate_distr) &&
+    is_init_distr(x$death_rate_distr)
 }
 
 #' Determine if x is an initialized Coalescent Bayesian Skyline
@@ -47,7 +47,7 @@ is_init_bd_tree_prior <- function(
 is_init_cbs_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_cbs_tree_prior(x))
+  check_true(is_cbs_tree_prior(x))
 
   # Yup, is always initialized
   TRUE
@@ -64,7 +64,7 @@ is_init_cbs_tree_prior <- function(
 is_init_ccp_tree_prior <- function(
   x
 ) {
-  beautier::is_init_distr(x$pop_size_distr)
+  is_init_distr(x$pop_size_distr)
 }
 
 #' Determine if x is an initialized Coalescent Exponential Population
@@ -78,9 +78,9 @@ is_init_ccp_tree_prior <- function(
 is_init_cep_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_cep_tree_prior(x))
-  beautier::is_init_distr(x$pop_size_distr) &&
-    beautier::is_init_distr(x$growth_rate_distr)
+  check_true(is_cep_tree_prior(x))
+  is_init_distr(x$pop_size_distr) &&
+    is_init_distr(x$growth_rate_distr)
 }
 
 #' Determine if x is an initialized Yule tree_prior object
@@ -92,6 +92,6 @@ is_init_cep_tree_prior <- function(
 is_init_yule_tree_prior <- function(
   x
 ) {
-  testit::assert(beautier::is_yule_tree_prior(x))
-  beautier::is_init_distr(x$birth_rate_distr)
+  check_true(is_yule_tree_prior(x))
+  is_init_distr(x$birth_rate_distr)
 }

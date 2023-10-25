@@ -25,14 +25,14 @@
 #' check_empty_beautier_folder()
 #' @export
 create_clock_rate_state_node_parameter_xml <- function(inference_model) { # nolint indeed a long function name
-  testthat::expect_true(
-    beautier::has_strict_clock_model(inference_model) ||
-      beautier::has_tip_dating(inference_model)
+  check_true(
+    has_strict_clock_model(inference_model) ||
+      has_tip_dating(inference_model)
   )
-  testthat::expect_true(beautier::has_tip_dating(inference_model))
+  check_true(has_tip_dating(inference_model))
   clock_model <- inference_model$clock_model
   id <- clock_model$id
-  testthat::expect_false(beautier::is_one_na(id))
+  check_false(is_one_na(id))
 
   xml <- paste0(
     "<parameter id=\"clockRate.c:", id, "\" "

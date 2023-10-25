@@ -21,11 +21,11 @@
 is_mrca_prior <- function(
   mrca_prior
 ) {
-  if (beautier::is_one_na(mrca_prior)) return(TRUE)
+  if (is_one_na(mrca_prior)) return(TRUE)
   if (!is.list(mrca_prior)) return(FALSE)
   tryCatch(
     {
-      beautier::check_mrca_prior(mrca_prior)
+      check_mrca_prior(mrca_prior)
       TRUE
     },
     error = function(e) return(FALSE) # nolint indeed ignores e

@@ -24,24 +24,24 @@
 check_mrca_prior <- function(mrca_prior) {
 
   # An MRCA prior can be NA
-  if (beautier::is_one_na(mrca_prior)) return()
+  if (is_one_na(mrca_prior)) return()
 
   # If not, it should have all list elements needed
-  beautier::check_mrca_prior_names(mrca_prior)
+  check_mrca_prior_names(mrca_prior)
 
-  beautier::check_is_monophyletic(mrca_prior$is_monophyletic)
-  beautier::check_mrca_prior_name(mrca_prior$name)
-  beautier::check_alignment_id(mrca_prior$alignment_id)
-  beautier::check_mrca_prior_taxa_names(mrca_prior$taxa_names)
+  check_bool(mrca_prior$is_monophyletic)
+  check_mrca_prior_name(mrca_prior$name)
+  check_alignment_id(mrca_prior$alignment_id)
+  check_mrca_prior_taxa_names(mrca_prior$taxa_names)
 
   if (
-    !beautier::is_distr(mrca_prior$mrca_distr) &&
-      !beautier::is_one_na(mrca_prior$mrca_distr)
+    !is_distr(mrca_prior$mrca_distr) &&
+      !is_one_na(mrca_prior$mrca_distr)
   ) {
     stop("'mrca_distr' must a distribution, as created by 'create_distr'")
   }
-  if (!beautier::is_one_na(mrca_prior$clock_prior_distr_id) &&
-      !beautier::is_one_int(mrca_prior$clock_prior_distr_id)
+  if (!is_one_na(mrca_prior$clock_prior_distr_id) &&
+      !is_one_int(mrca_prior$clock_prior_distr_id)
   ) {
     stop("'clock_prior_distr_id' must be one NA or one number")
   }

@@ -23,7 +23,7 @@ rnd_phylo_to_xml_init <- function(
 ) {
 
   id <- inference_model$site_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   init_xml_begin <- paste0("<init id=\"RandomTree.t:", id,
     "\" spec=\"beast.evolution.tree.RandomTree\" estimate=\"false\"",

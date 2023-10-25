@@ -27,11 +27,11 @@ create_test_mcmc <- function(
   pre_burnin = 0,
   n_init_attempts = 10,
   sample_from_prior = FALSE,
-  tracelog = beautier::create_test_tracelog(),
-  screenlog = beautier::create_test_screenlog(),
-  treelog = beautier::create_test_treelog()
+  tracelog = create_test_tracelog(),
+  screenlog = create_test_screenlog(),
+  treelog = create_test_treelog()
 ) {
-  beautier::create_mcmc(
+  create_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,

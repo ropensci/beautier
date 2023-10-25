@@ -9,6 +9,6 @@ find_last_xml_closing_tag_line <- function(
   lines,
   section
 ) {
-  assertive::assert_is_a_string(section)
-  beautier::find_last_regex_line(lines, paste0("</", section, ">"))
+  check_string(section)
+  find_last_regex_line(lines, paste0("</", section, ">"))
 }

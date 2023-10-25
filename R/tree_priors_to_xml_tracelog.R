@@ -19,7 +19,7 @@ tree_priors_to_xml_tracelog <- function(
   text <- NULL
   for (tree_prior in tree_priors) {
     text <- c(text,
-      beautier::tree_prior_to_xml_tracelog(tree_prior)
+      tree_prior_to_xml_tracelog(tree_prior)
     )
   }
   text

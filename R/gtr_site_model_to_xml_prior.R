@@ -22,9 +22,9 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   site_model,
   beauti_options
 ) {
-  testthat::expect_true(beautier::is_gtr_site_model(site_model))
+  check_true(is_gtr_site_model(site_model))
   id <- site_model$id
-  testit::assert(beautier::is_id(id))
+  check_true(is_id(id))
 
   text <- NULL
   if (site_model$rate_ac_param$estimate == TRUE) {
@@ -37,8 +37,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      beautier::indent(
-        beautier::distr_to_xml(
+      indent(
+        distr_to_xml(
           site_model$rate_ac_prior_distr,
           beauti_options = beauti_options
         )
@@ -56,8 +56,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      beautier::indent(
-        beautier::distr_to_xml(
+      indent(
+        distr_to_xml(
           site_model$rate_ag_prior_distr,
           beauti_options = beauti_options
         )
@@ -75,8 +75,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      beautier::indent(
-        beautier::distr_to_xml(
+      indent(
+        distr_to_xml(
           site_model$rate_at_prior_distr,
           beauti_options = beauti_options
         )
@@ -94,8 +94,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      beautier::indent(
-        beautier::distr_to_xml(
+      indent(
+        distr_to_xml(
           site_model$rate_cg_prior_distr,
           beauti_options = beauti_options
         )
@@ -113,8 +113,8 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      beautier::indent(
-        beautier::distr_to_xml(
+      indent(
+        distr_to_xml(
           site_model$rate_gt_prior_distr,
           beauti_options = beauti_options
         )

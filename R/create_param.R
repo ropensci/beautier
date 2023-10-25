@@ -53,10 +53,10 @@ create_param <- function(
   value,
   ...
 ) {
-  if (!beautier::is_param_name(name)) {
+  if (!is_param_name(name)) {
     parameters_as_string <- function() {
       s <- NULL
-      for (p in beautier::get_param_names()) {
+      for (p in get_param_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))
@@ -119,7 +119,7 @@ create_alpha_param <- create_param_alpha <- function(
   id = NA,
   value = 0.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "alpha",
     id = id,
     estimate = FALSE,
@@ -145,7 +145,7 @@ create_b_pop_sizes_param <- create_param_b_pop_sizes <- function(
   value = 1.0,
   upper = "380000.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "b_pop_sizes",
     id = id,
     estimate = FALSE,
@@ -198,7 +198,7 @@ create_beta_param <- create_param_beta <- function(
   id = NA,
   value = 1.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "beta",
     id = id,
     estimate = FALSE,
@@ -244,7 +244,7 @@ create_clock_rate_param <- create_param_clock_rate <- function(
   estimate = FALSE,
   id = NA
 ) {
-  beautier::create_param(
+  create_param(
     name = "clock_rate",
     id = id,
     estimate = estimate,
@@ -266,7 +266,7 @@ create_freq_param <- create_param_freq <- function(
   estimate = TRUE,
   dimension = 4
 ) {
-  beautier::create_param(
+  create_param(
     name = "freqParameter",
     id = id,
     lower = lower,
@@ -289,7 +289,7 @@ create_kappa_param <- create_param_kappa <- function(
   value = "2.0",
   estimate = TRUE
 ) {
-  beautier::create_param(
+  create_param(
     name = "kappa",
     id = id,
     lower = lower,
@@ -310,7 +310,7 @@ create_kappa_1_param <- create_param_kappa_1 <- function(
   value = "2.0",
   estimate = TRUE
 ) {
-  beautier::create_param(
+  create_param(
     name = "kappa_1",
     id = id,
     lower = lower,
@@ -331,7 +331,7 @@ create_kappa_2_param <- create_param_kappa_2 <- function(
   value = "2.0",
   estimate = TRUE
 ) {
-  beautier::create_param(
+  create_param(
     name = "kappa_2",
     id = id,
     lower = lower,
@@ -378,7 +378,7 @@ create_lambda_param <- create_param_lambda <- function(
   id = NA,
   value = 0.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "lambda",
     id = id,
     value = value
@@ -428,7 +428,7 @@ create_m_param <- create_param_m <- function(
   upper = NA,
   value = 0.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "m",
     id = id,
     estimate = estimate,
@@ -479,7 +479,7 @@ create_mean_param <- create_param_mean <- function(
   id = NA,
   value = 0.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "mean",
     id = id,
     estimate = FALSE,
@@ -526,7 +526,7 @@ create_mu_param <- create_param_mu <- function(
   id = NA,
   value = 0.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "mu",
     id = id,
     estimate = FALSE,
@@ -567,7 +567,7 @@ create_rate_ac_param <- create_param_rate_ac <- function(
   value = "1.0",
   lower = "0.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "rate_ac",
     id = id,
     estimate = estimate,
@@ -609,7 +609,7 @@ create_rate_ag_param <- create_param_rate_ag <- function(
   value = "1.0",
   lower = "0.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "rate_ag",
     id = id,
     estimate = estimate,
@@ -651,7 +651,7 @@ create_rate_at_param <- create_param_rate_at <- function(
   value = "1.0",
   lower = "0.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "rate_at",
     id = id,
     estimate = estimate,
@@ -693,7 +693,7 @@ create_rate_cg_param <- create_param_rate_cg <- function(
   value = "1.0",
   lower = "0.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "rate_cg",
     id = id,
     estimate = estimate,
@@ -734,7 +734,7 @@ create_rate_ct_param <- create_param_rate_ct <- function(
   value = "1.0",
   lower = "0.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "rate_ct",
     id = id,
     estimate = FALSE,
@@ -776,7 +776,7 @@ create_rate_gt_param <- create_param_rate_gt <- function(
   value = "1.0",
   lower = "0.0"
 ) {
-  beautier::create_param(
+  create_param(
     name = "rate_gt",
     id = id,
     estimate = estimate,
@@ -825,7 +825,7 @@ create_s_param <- create_param_s <- function(
   lower = 0.0,
   upper = Inf
 ) {
-  beautier::create_param(
+  create_param(
     name = "s",
     id = id,
     estimate = FALSE,
@@ -873,7 +873,7 @@ create_scale_param <- create_param_scale <- function(
   id = NA,
   value = 0.0
 ) {
-  beautier::create_param(
+  create_param(
     name = "scale",
     id = id,
     estimate = FALSE,
@@ -923,7 +923,7 @@ create_sigma_param <- create_param_sigma <- function(
   if (value <= 0.0) {
     stop("'value' must be non-zero and positive")
   }
-  beautier::create_param(
+  create_param(
     name = "sigma",
     id = id,
     estimate = FALSE,

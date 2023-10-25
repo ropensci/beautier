@@ -26,18 +26,18 @@ check_clock_model <- function(clock_model) {
       )
     }
   }
-  if (!clock_model$name %in% beautier::get_clock_model_names()) {
+  if (!clock_model$name %in% get_clock_model_names()) {
     stop(
       "'clock_model$name' must be one of the clock model names (",
-      paste0(beautier::get_clock_model_names(), collapse = ", "), "). \n",
+      paste0(get_clock_model_names(), collapse = ", "), "). \n",
       "Actual value: ", clock_model$name
     )
   }
   if (clock_model$name == "strict") {
-    beautier::check_strict_clock_model(clock_model)
+    check_strict_clock_model(clock_model)
   } else {
-    testit::assert(clock_model$name == "relaxed_log_normal")
-    beautier::check_rln_clock_model(clock_model)
+    check_true(clock_model$name == "relaxed_log_normal")
+    check_rln_clock_model(clock_model)
   }
 }
 
@@ -78,14 +78,14 @@ check_rln_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$name
     )
   }
-  if (!beautier::is_distr(clock_model$ucldstdev_distr)) {
+  if (!is_distr(clock_model$ucldstdev_distr)) {
     stop(
       "'clock_model$ucldstdev_distr' must be a distribution. \n",
       "Tip: use create_distr. \n",
       "Actual value: ", clock_model$ucldstdev_distr
     )
   }
-  if (!beautier::is_distr(clock_model$mean_rate_prior_distr)) {
+  if (!is_distr(clock_model$mean_rate_prior_distr)) {
     stop(
       "'clock_model$mean_rate_prior_distr' must be a distribution. \n",
       "Tip: use create_distr. \n",
@@ -93,9 +93,9 @@ check_rln_clock_model <- function(clock_model) {
     )
   }
   if (
-    !beautier::is_one_double(clock_model$rate_scaler_factor) &&
-      !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
-      !beautier::is_one_empty_string(clock_model$rate_scaler_factor)
+    !is_one_double(clock_model$rate_scaler_factor) &&
+      !is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
+      !is_one_empty_string(clock_model$rate_scaler_factor)
   ) {
     stop(
       "'rate_scaler_factor' must be a number ",
@@ -142,14 +142,14 @@ check_strict_clock_model <- function(clock_model) {
       "Actual value: ", clock_model$name
     )
   }
-  if (!beautier::is_distr(clock_model$clock_rate_distr)) {
+  if (!is_distr(clock_model$clock_rate_distr)) {
     stop(
       "'clock_model$clock_rate_distr' must be a distribution. \n",
       "Tip: use create_distr. \n",
       "Actual value: ", clock_model$clock_rate_distr
     )
   }
-  if (!beautier::is_param(clock_model$clock_rate_param)) {
+  if (!is_param(clock_model$clock_rate_param)) {
     stop(
       "'clock_model$clock_rate_param' must be a parameter. \n",
       "Tip: use create_param. \n",
@@ -157,9 +157,9 @@ check_strict_clock_model <- function(clock_model) {
     )
   }
   if (
-    !beautier::is_one_double(clock_model$rate_scaler_factor) &&
-      !beautier::is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
-      !beautier::is_one_empty_string(clock_model$rate_scaler_factor)
+    !is_one_double(clock_model$rate_scaler_factor) &&
+      !is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
+      !is_one_empty_string(clock_model$rate_scaler_factor)
   ) {
     stop(
       "'rate_scaler_factor' must be a number ",

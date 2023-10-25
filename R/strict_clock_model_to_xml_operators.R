@@ -12,7 +12,7 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
   # Don't be smart yet
   clock_model <- inference_model$clock_model
 
-  testthat::expect_true(beautier::is_strict_clock_model(clock_model))
+  check_true(is_strict_clock_model(clock_model))
   id <- clock_model$id
 
   # May not need ID at all, if it is the first and strict clock model
@@ -33,18 +33,18 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
         "scaleFactor=\"0.75\" ",
         "weight=\"3.0\">"
       ),
-      beautier::indent(paste0("<up idref=\"clockRate.c:", id, "\"/>")),
-      beautier::indent(paste0("<down idref=\"Tree.t:", id, "\"/>")),
+      indent(paste0("<up idref=\"clockRate.c:", id, "\"/>")),
+      indent(paste0("<down idref=\"Tree.t:", id, "\"/>")),
       "</operator>"
     )
   }
 
-  if (beautier::has_mrca_prior_with_distr(inference_model) ||
-      beautier::has_tip_dating(inference_model)
+  if (has_mrca_prior_with_distr(inference_model) ||
+      has_tip_dating(inference_model)
   ) {
     text <- c(
       text,
-      beautier::create_strict_clock_rate_scaler_operator_xml(inference_model)
+      create_strict_clock_rate_scaler_operator_xml(inference_model)
     )
     text <- c(
       text,

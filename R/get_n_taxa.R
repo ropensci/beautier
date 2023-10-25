@@ -12,8 +12,12 @@
 #' check_empty_beautier_folder()
 #' @export
 get_n_taxa <- function(filename) {
-  assertive::assert_is_a_string(filename)
-  assertive::assert_all_are_existing_files(filename)
+  check_string(filename)
+
+  if (!file.exists(filename)) {
+    stop("filename must exist.")
+  }
+
   tryCatch(
     {
       return(length(seqinr::read.fasta(filename)))

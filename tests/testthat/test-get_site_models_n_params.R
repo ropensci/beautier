@@ -18,10 +18,10 @@ test_that("use", {
   site_model_10_params <- create_gtr_site_model(
     gamma_site_model = gamma_site_model
   )
-  testit::assert(get_site_model_n_params(site_model_0_params) == 1)
-  testit::assert(get_site_model_n_params(site_model_2_params) == 3)
-  testit::assert(get_site_model_n_params(site_model_4_params) == 5)
-  testit::assert(get_site_model_n_params(site_model_10_params) == 11)
+  expect_true(get_site_model_n_params(site_model_0_params) == 1)
+  expect_true(get_site_model_n_params(site_model_2_params) == 3)
+  expect_true(get_site_model_n_params(site_model_4_params) == 5)
+  expect_true(get_site_model_n_params(site_model_10_params) == 11)
 
   testthat::expect_equal(
     get_site_models_n_params(

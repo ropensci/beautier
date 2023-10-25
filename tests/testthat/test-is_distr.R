@@ -19,7 +19,7 @@ test_that("use", {
 test_that("is_beta_distr, devious", {
 
   g <- create_beta_distr()
-  testit::assert(is_beta_distr(g))
+  expect_true(is_beta_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -52,7 +52,7 @@ test_that("is_beta_distr, devious", {
 test_that("is_exp_distr, devious", {
 
   g <- create_exp_distr()
-  testit::assert(is_exp_distr(g))
+  expect_true(is_exp_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -76,7 +76,7 @@ test_that("is_exp_distr, devious", {
 test_that("is_gamma_distr, devious", {
 
   g <- create_gamma_distr()
-  testit::assert(is_gamma_distr(g))
+  expect_true(is_gamma_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -109,7 +109,7 @@ test_that("is_gamma_distr, devious", {
 test_that("is_inv_gamma_distr, devious", {
 
   g <- create_inv_gamma_distr()
-  testit::assert(is_inv_gamma_distr(g))
+  expect_true(is_inv_gamma_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -142,7 +142,7 @@ test_that("is_inv_gamma_distr, devious", {
 test_that("is_laplace_distr, devious", {
 
   g <- create_laplace_distr()
-  testit::assert(is_laplace_distr(g))
+  expect_true(is_laplace_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -175,7 +175,7 @@ test_that("is_laplace_distr, devious", {
 test_that("is_log_normal_distr, devious", {
 
   g <- create_log_normal_distr()
-  testit::assert(is_log_normal_distr(g))
+  expect_true(is_log_normal_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -208,7 +208,7 @@ test_that("is_log_normal_distr, devious", {
 test_that("is_normal_distr, devious", {
 
   g <- create_normal_distr()
-  testit::assert(is_normal_distr(g))
+  expect_true(is_normal_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -241,7 +241,7 @@ test_that("is_normal_distr, devious", {
 test_that("is_one_div_x_distr, devious", {
 
   g <- create_one_div_x_distr()
-  testit::assert(is_one_div_x_distr(g))
+  expect_true(is_one_div_x_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -256,7 +256,7 @@ test_that("is_one_div_x_distr, devious", {
 test_that("is_poisson_distr, devious", {
 
   g <- create_poisson_distr()
-  testit::assert(is_poisson_distr(g))
+  expect_true(is_poisson_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]
@@ -280,7 +280,7 @@ test_that("is_poisson_distr, devious", {
 test_that("is_uniform_distr, devious", {
 
   g <- create_uniform_distr()
-  testit::assert(is_uniform_distr(g))
+  expect_true(is_uniform_distr(g))
 
   # No 'name'
   h <- g[names(g) != "name"]

@@ -7,9 +7,9 @@
 are_init_tree_priors <- function(
   x
 ) {
-  if (!beautier::are_tree_priors(x)) return(FALSE)
+  if (!are_tree_priors(x)) return(FALSE)
   for (i in x) {
-    if (!beautier::is_init_tree_prior(i)) return(FALSE)
+    if (!is_init_tree_prior(i)) return(FALSE)
   }
   TRUE
 }

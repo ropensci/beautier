@@ -9,7 +9,7 @@
 gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function name
   inference_model
 ) {
-  beautier::check_inference_model(inference_model)
+  check_inference_model(inference_model)
   site_model <- inference_model$site_model # don't be smart yet
   beauti_options <- inference_model$beauti_options  # don't be smart yet
   id <- site_model$id
@@ -17,10 +17,10 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
   text <- NULL
 
   if (inference_model$beauti_options$beast2_version == "2.6" &&
-      !beautier::is_jc69_site_model(inference_model$site_model)
+      !is_jc69_site_model(inference_model$site_model)
   ) {
-    testthat::expect_true(
-      beautier::is_id(
+    check_true(
+      is_id(
         inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id
       )
     )
@@ -34,7 +34,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
         "x=\"@freqParameter.s:", id,
         "\">"
       ),
-      beautier::indent(
+      indent(
         paste0(
           "<Uniform ",
           "id=\"Uniform.", inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id, "\" ", # nolint indeed a long line
@@ -58,8 +58,8 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
     )
     text <- c(
       text,
-      beautier::indent(
-        beautier::distr_to_xml(
+      indent(
+        distr_to_xml(
           gamma_site_model$gamma_shape_prior_distr,
           beauti_options = beauti_options
         )

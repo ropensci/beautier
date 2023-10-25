@@ -8,16 +8,16 @@
 is_init_site_model <- function(
   x
 ) {
-  if (!beautier::is_site_model(x)) return(FALSE)
-  if (beautier::is_gtr_site_model(x)) {
-    return(beautier::is_init_gtr_site_model(x))
-  } else if (beautier::is_hky_site_model(x)) {
-    return(beautier::is_init_hky_site_model(x))
-  } else if (beautier::is_jc69_site_model(x)) {
-    return(beautier::is_init_jc69_site_model(x))
+  if (!is_site_model(x)) return(FALSE)
+  if (is_gtr_site_model(x)) {
+    return(is_init_gtr_site_model(x))
+  } else if (is_hky_site_model(x)) {
+    return(is_init_hky_site_model(x))
+  } else if (is_jc69_site_model(x)) {
+    return(is_init_jc69_site_model(x))
   } else {
-    testit::assert(beautier::is_tn93_site_model(x))
-    return(beautier::is_init_tn93_site_model(x))
+    check_true(is_tn93_site_model(x))
+    return(is_init_tn93_site_model(x))
   }
 }
 
@@ -42,20 +42,20 @@ is_init_site_model <- function(
 is_init_gtr_site_model <- function( # nolint simplification of this hurts readability
   x
 ) {
-  if (!beautier::is_gtr_site_model(x)) return(FALSE)
-  if (!beautier::is_init_distr(x$rate_ac_prior_distr)) return(FALSE)
-  if (!beautier::is_init_distr(x$rate_ag_prior_distr)) return(FALSE)
-  if (!beautier::is_init_distr(x$rate_at_prior_distr)) return(FALSE)
-  if (!beautier::is_init_distr(x$rate_cg_prior_distr)) return(FALSE)
+  if (!is_gtr_site_model(x)) return(FALSE)
+  if (!is_init_distr(x$rate_ac_prior_distr)) return(FALSE)
+  if (!is_init_distr(x$rate_ag_prior_distr)) return(FALSE)
+  if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE)
+  if (!is_init_distr(x$rate_cg_prior_distr)) return(FALSE)
   # Indeed, no rate_ct_prior_distr yet
-  if (!beautier::is_init_distr(x$rate_gt_prior_distr)) return(FALSE)
-  if (!beautier::is_init_param(x$rate_ac_param)) return(FALSE)
-  if (!beautier::is_init_param(x$rate_ag_param)) return(FALSE)
-  if (!beautier::is_init_param(x$rate_at_param)) return(FALSE)
-  if (!beautier::is_init_param(x$rate_cg_param)) return(FALSE)
-  if (!beautier::is_init_param(x$rate_ct_param)) return(FALSE)
-  if (!beautier::is_init_param(x$rate_gt_param)) return(FALSE)
-  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  if (!is_init_distr(x$rate_gt_prior_distr)) return(FALSE)
+  if (!is_init_param(x$rate_ac_param)) return(FALSE)
+  if (!is_init_param(x$rate_ag_param)) return(FALSE)
+  if (!is_init_param(x$rate_at_param)) return(FALSE)
+  if (!is_init_param(x$rate_cg_param)) return(FALSE)
+  if (!is_init_param(x$rate_ct_param)) return(FALSE)
+  if (!is_init_param(x$rate_gt_param)) return(FALSE)
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }
 
@@ -80,9 +80,9 @@ is_init_gtr_site_model <- function( # nolint simplification of this hurts readab
 is_init_hky_site_model <- function(
   x
 ) {
-  testit::assert(beautier::is_hky_site_model(x))
-  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
-  beautier::is_init_distr(x$kappa_prior)
+  check_true(is_hky_site_model(x))
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  is_init_distr(x$kappa_prior)
 }
 
 #' Determine if x is an initialized JC69 site model
@@ -111,8 +111,8 @@ is_init_hky_site_model <- function(
 is_init_jc69_site_model <- function(
   x
 ) {
-  testit::assert(beautier::is_jc69_site_model(x))
-  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  check_true(is_jc69_site_model(x))
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }
 
@@ -137,8 +137,8 @@ is_init_jc69_site_model <- function(
 is_init_tn93_site_model <- function(
   x
 ) {
-  testit::assert(beautier::is_tn93_site_model(x))
-  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
-  beautier::is_init_distr(x$kappa_1_prior) &&
-    beautier::is_init_distr(x$kappa_2_prior)
+  check_true(is_tn93_site_model(x))
+  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  is_init_distr(x$kappa_1_prior) &&
+    is_init_distr(x$kappa_2_prior)
 }

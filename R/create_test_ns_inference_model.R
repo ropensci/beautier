@@ -15,16 +15,16 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_ns_inference_model <- function(
-  site_model = beautier::create_jc69_site_model(),
-  clock_model = beautier::create_strict_clock_model(),
-  tree_prior = beautier::create_yule_tree_prior(),
-  mcmc = beautier::create_test_ns_mcmc()
+  site_model = create_jc69_site_model(),
+  clock_model = create_strict_clock_model(),
+  tree_prior = create_yule_tree_prior(),
+  mcmc = create_test_ns_mcmc()
 ) {
-  beautier::check_site_model(site_model)
-  beautier::check_clock_model(clock_model)
-  beautier::check_tree_prior(tree_prior)
-  beautier::check_nested_sampling_mcmc(mcmc)
-  beautier::create_inference_model(
+  check_site_model(site_model)
+  check_clock_model(clock_model)
+  check_tree_prior(tree_prior)
+  check_nested_sampling_mcmc(mcmc)
+  create_inference_model(
     site_model = site_model,
     clock_model = clock_model,
     tree_prior = tree_prior,

@@ -50,10 +50,9 @@ check_treelog_names <- function(treelog) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_treelog_values <- function(treelog) {
-  beautier::check_filename(filename = treelog$filename, allow_na = TRUE)
-  assertive::assert_is_numeric(treelog$log_every)
-  assertive::assert_all_are_positive(treelog$log_every)
-  beautier::check_log_mode(treelog$mode)
-  assertive::assert_is_if_condition(treelog$sanitise_headers)
-  beautier::check_log_sort(treelog$sort)
+  check_filename(filename = treelog$filename, allow_na = TRUE)
+  lapply(treelog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+  check_log_mode(treelog$mode)
+  check_logical(treelog$sanitise_headers)
+  check_log_sort(treelog$sort)
 }

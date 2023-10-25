@@ -14,12 +14,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run <- function(mcmc) {
-  testit::assert(beautier::is_mcmc(mcmc))
-  if (beautier::is_default_mcmc(mcmc)) {
-    beautier::mcmc_to_xml_run_default(mcmc)
+  check_true(is_mcmc(mcmc))
+  if (is_default_mcmc(mcmc)) {
+    mcmc_to_xml_run_default(mcmc)
   } else {
-    testit::assert(beautier::is_mcmc_nested_sampling(mcmc))
-    beautier::mcmc_to_xml_run_nested_sampling(mcmc)
+    check_true(is_mcmc_nested_sampling(mcmc))
+    mcmc_to_xml_run_nested_sampling(mcmc)
   }
 }
 
@@ -36,8 +36,8 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_default <- function(mcmc) {
-  testit::assert(beautier::is_mcmc(mcmc))
-  testit::assert(beautier::is_default_mcmc(mcmc))
+  check_true(is_mcmc(mcmc))
+  check_true(is_default_mcmc(mcmc))
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\""
@@ -62,7 +62,7 @@ mcmc_to_xml_run_default <- function(mcmc) {
   }
 
 
-  if (!beautier::is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }
   xml <- paste0(xml, ">")
@@ -83,13 +83,13 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint indeed long function name
-  testit::assert(beautier::is_mcmc(mcmc))
-  testit::assert(beautier::is_mcmc_nested_sampling(mcmc))
+  check_true(is_mcmc(mcmc))
+  check_true(is_mcmc_nested_sampling(mcmc))
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"beast.gss.NS\" ",
     "chainLength=\"", mcmc$chain_length, "\""
   )
-  if (!beautier::is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
+  if (!is_one_na(mcmc$store_every) && mcmc$store_every > 0) {
     xml <- paste0(xml, " storeEvery=\"", mcmc$store_every, "\"")
   }
   xml <- paste0(xml,

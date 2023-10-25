@@ -17,7 +17,7 @@
 get_crown_age <- function(
   phylogeny
 ) {
-  if (!beautier::is_phylo(phylogeny) && !inherits(phylogeny, "multiPhylo")) {
+  if (!is_phylo(phylogeny) && !inherits(phylogeny, "multiPhylo")) {
     stop("phylogeny must be of class 'phylo' or multiPhylo")
   }
   if (!ape::is.ultrametric(phylogeny)) {
@@ -25,6 +25,6 @@ get_crown_age <- function(
   }
 
   n_taxa <- length(phylogeny$tip.label)
-  testit::assert(n_taxa > 0)
+  check_true(n_taxa > 0)
   ape::dist.nodes(phylogeny)[n_taxa + 1][1]
 }

@@ -10,9 +10,8 @@ indent <- function(
   text,
   n_spaces = 4
 ) {
-  if (n_spaces < 0) {
-    stop("'n_spaces' must be a positive integer")
-  }
+  check_number_whole(n_spaces, min = 0)
+
   testthat::expect_false(is.null(text))
   for (i in seq_along(text)) {
     if (text[i] == "") next

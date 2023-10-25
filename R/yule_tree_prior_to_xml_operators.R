@@ -12,8 +12,8 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   # Don't be smart yet
   tree_prior <- inference_model$tree_prior
   id <- tree_prior$id
-  testthat::expect_true(beautier::is_yule_tree_prior(tree_prior))
-  testthat::expect_true(beautier::is_id(id))
+  check_true(is_yule_tree_prior(tree_prior))
+  check_true(is_id(id))
 
   yule_birth_rate_scaler_xml <- paste0(
     "<operator id=\"YuleBirthRateScaler.t:", id, "\" ",
@@ -26,14 +26,14 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   add_scale_factor <- TRUE
 
   if (inference_model$beauti_options$beast2_version == "2.6" &&
-      !beautier::is_rln_clock_model(inference_model$clock_model) &&
-      beautier::has_tip_dating(inference_model)
+      !is_rln_clock_model(inference_model$clock_model) &&
+      has_tip_dating(inference_model)
   ) {
     add_scale_factor <- FALSE
   }
   if (inference_model$beauti_options$beast2_version == "2.6" &&
-      beautier::is_rln_clock_model(inference_model$clock_model) &&
-      !beautier::has_tip_dating(inference_model)
+      is_rln_clock_model(inference_model$clock_model) &&
+      !has_tip_dating(inference_model)
   ) {
     add_scale_factor <- FALSE
   }

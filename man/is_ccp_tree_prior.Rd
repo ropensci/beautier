@@ -21,11 +21,11 @@ Determine if the object is a valid
 }
 \examples{
 check_empty_beautier_folder()
-  testit::assert(!is_ccp_tree_prior(create_bd_tree_prior()))
-  testit::assert(!is_ccp_tree_prior(create_cbs_tree_prior()))
-  testit::assert( is_ccp_tree_prior(create_ccp_tree_prior()))
-  testit::assert(!is_ccp_tree_prior(create_cep_tree_prior()))
-  testit::assert(!is_ccp_tree_prior(create_yule_tree_prior()))
+  !is_ccp_tree_prior(create_bd_tree_prior())
+  !is_ccp_tree_prior(create_cbs_tree_prior())
+  is_ccp_tree_prior(create_ccp_tree_prior())
+  !is_ccp_tree_prior(create_cep_tree_prior())
+  !is_ccp_tree_prior(create_yule_tree_prior())
 check_empty_beautier_folder()
 }
 \seealso{

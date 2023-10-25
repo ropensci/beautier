@@ -39,6 +39,6 @@
 is_m_param <- function(
   m_param
 ) {
-  if (!beautier::is_param(m_param)) return(FALSE)
+  if (!is_param(m_param)) return(FALSE)
   m_param$name == "m"
 }
