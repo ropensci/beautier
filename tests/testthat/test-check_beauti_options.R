@@ -109,13 +109,13 @@ test_that("in-depth use", {
     check_beauti_options(
       create_beauti_options(beast2_version = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
     ),
-    "beautier::is_one_string"
+    "must be a single string"
   )
   expect_error(
     check_beauti_options(
       create_beauti_options(beast2_version = NA)
     ),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 
   # beast2_version
@@ -123,13 +123,13 @@ test_that("in-depth use", {
     check_beauti_options(
       create_beauti_options(required = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
     ),
-    "beautier::is_one_string"
+    "must be a single string"
   )
   expect_error(
     check_beauti_options(
       create_beauti_options(required = NA)
     ),
-    "beautier::is_one_string"
+    "must be a single string, not `NA`"
   )
 
   # sequence_indent
@@ -146,3 +146,4 @@ test_that("in-depth use", {
     "'sequence_indent' must be one number"
   )
 })
+

@@ -57,12 +57,12 @@ test_that("abuse: section must be one string", {
 
   expect_error(
     extract_xml_section_from_lines(lines = lines, section = NA),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 
   expect_error(
     extract_xml_section_from_lines(lines = lines, section = NULL),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 })
 

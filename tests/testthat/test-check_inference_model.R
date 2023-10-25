@@ -1,5 +1,3 @@
-context("test-check_inference_model")
-
 test_that("use", {
   expect_silent(check_inference_model(create_inference_model()))
 
@@ -142,18 +140,18 @@ test_that("in-depth use", {
     check_inference_model(
       create_inference_model(tipdates_filename = NULL)
     ),
-    "`inference_model\\$tipdates_filename` must be a single string or `NA`, not `NULL`."
+    "must have one element"
   )
   expect_error(
     check_inference_model(
       create_inference_model(tipdates_filename = c("nons", "ense"))
     ),
-    "`inference_model\\$tipdates_filename` must be a single string or `NA`, not a character vector."
+    "must have one element"
   )
   expect_error(
     check_inference_model(
       create_inference_model(tipdates_filename = 1)
     ),
-    "`inference_model\\$tipdates_filename` must be a single string or `NA`, not the number 1."
+    "must be one NA or one string"
   )
 })

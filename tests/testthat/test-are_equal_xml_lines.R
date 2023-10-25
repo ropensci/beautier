@@ -1,5 +1,3 @@
-context("are_equal_xml_lines")
-
 test_that("use", {
 
   expect_true(
@@ -70,7 +68,7 @@ test_that("abuse: section must be a word", {
 
   expect_error(
     are_equal_xml_lines(lines_1, lines_2, section = NA),
-    "beautier::is_one_string"
+    "must be a single string"
   )
 
 })
