@@ -13,7 +13,7 @@ Authors@R: c(
   person("Jason", "Griffiths", role = "ctb", comment = c(ORCID = "0000-0002-1667-8233")),
   person("Thijs", "Janzen", role = "ctb", comment = c(ORCID = "0000-0002-4162-1140")),
   person("Pedro", "Taucce", role = "ctb", comment = c(ORCID = "0000-0002-3088-4543")),
-  person("Olivier", "Roy", role = "ctb", comment = c(ORCID = "0000-0003-2504-802X")),
+  person("Olivier", "Roy", role = "ctb"),
   person("Jana", "Riederer", role = "ctb", comment = c(ORCID = "0000-0001-6951-9984")))
 Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
   Bayesian phylogenetic tool, that uses DNA/RNA/protein data
