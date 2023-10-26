@@ -19,5 +19,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_one_bool <- function(x) {
-  length(x) == 1 && is.logical(x)
+  length(x) == 1 && !is.na(x) && is.logical(x)
 }
