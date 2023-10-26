@@ -19,5 +19,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_one_bool <- function(x) {
-  assertive::is_if_condition(x)
+  length(x) == 1 && is.logical(x)
 }
