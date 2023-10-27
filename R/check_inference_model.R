@@ -73,16 +73,6 @@ check_inference_model <- function(
       )
     }
   )
-  if (length(inference_model$tipdates_filename) != 1) {
-    stop("'tipdates_filename' must have one element")
-  }
-
-  if (
-    !beautier::is_one_na(inference_model$tipdates_filename) &&
-      !beautier::is_one_string(inference_model$tipdates_filename)
-  ) {
-    stop("'tipdates_filename' must be one NA or one string")
-  }
   check_string(inference_model$tipdates_filename, allow_na = TRUE)
   invisible(inference_model)
 }
