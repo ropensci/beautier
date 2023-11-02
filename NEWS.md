@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## beautier v2.6.11 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## beautier v2.6.10 (2023-11-02)
 
 ### NEW FEATURES
