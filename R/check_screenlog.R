@@ -2,7 +2,7 @@
 #'
 #' Will call \link{stop} if not.
 #' @inheritParams default_params_doc
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @examples
 #' check_empty_beautier_folder()
 #'

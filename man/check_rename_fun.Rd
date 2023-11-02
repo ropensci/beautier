@@ -24,7 +24,7 @@ Example rename functions are:
 }}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will \link{stop} if not

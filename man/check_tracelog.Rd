@@ -11,7 +11,7 @@ check_tracelog(tracelog)
 as created by \link{create_tracelog}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will call \link{stop} if not.

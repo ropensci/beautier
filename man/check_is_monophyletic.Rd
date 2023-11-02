@@ -12,7 +12,7 @@ a Most Recent Common Ancestor prior,
 as returned by \code{\link{create_mrca_prior}}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will \link{stop} if not.

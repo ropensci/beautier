@@ -2,7 +2,7 @@
 #'
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @export
 check_mrca_prior_taxa_names <- function(taxa_names) {
   if (is_one_na(taxa_names)) return()

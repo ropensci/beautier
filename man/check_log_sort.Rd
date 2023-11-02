@@ -11,7 +11,7 @@ check_log_sort(sort)
 Valid are \code{smart}, \code{none} and \code{alphabetic}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Check if the supplied \code{sort} is a valid logging sorting option.

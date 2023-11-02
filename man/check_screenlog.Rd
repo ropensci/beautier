@@ -11,7 +11,7 @@ check_screenlog(screenlog)
 as created by \link{create_screenlog}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will call \link{stop} if not.

@@ -11,7 +11,7 @@
 #' @seealso use \link{remove_beautier_folder} to remove the default
 #' `beautier` folder
 #' @inheritParams default_params_doc
-#' @return Nothing.
+#' @return No return value, called for side effects.
 #' @examples
 #' remove_beautier_folder()
 #'

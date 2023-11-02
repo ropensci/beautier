@@ -11,7 +11,7 @@ check_empty_beautier_folder(beautier_folder = get_beautier_folder())
 the \link{beautier} temporary files folder}
 }
 \value{
-Nothing.
+No return value, called for side effects.
 }
 \description{
 Internal function to verify that, if there are `beautier`

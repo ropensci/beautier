@@ -4,7 +4,7 @@
 #' Use \link{create_tn93_site_model} to create a valid
 #' TN93 nucleotide substitution model.
 #' @inheritParams default_params_doc
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @examples
 #' check_empty_beautier_folder()
 #'

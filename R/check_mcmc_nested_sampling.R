@@ -3,7 +3,7 @@
 #'
 #' Will \link{stop} if not, else will do nothing
 #' @inheritParams default_params_doc
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @seealso use \code{\link{create_ns_mcmc}}
 #' to create an MCMC that uses Nested Sampling
 #' to estimate a marginal likelihood

@@ -18,7 +18,7 @@ Use \code{\link{check_mcmc}} to check if an MCMC is valid.
 Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will \link{stop} if not, else will do nothing

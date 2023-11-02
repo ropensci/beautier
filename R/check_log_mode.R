@@ -1,7 +1,7 @@
 #' Check if the supplied \code{mode} is a valid logging mode.
 #' @param mode mode how to log.
 #' Valid are \code{tree}, \code{autodetect} and \code{compound}
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @export
 check_log_mode <- function(mode) {
   if (!mode %in% get_log_modes()) {

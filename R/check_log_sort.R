@@ -1,7 +1,7 @@
 #' Check if the supplied \code{sort} is a valid logging sorting option.
 #' @param sort how to sort the entries in a log.
 #' Valid are \code{smart}, \code{none} and \code{alphabetic}
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @export
 check_log_sort <- function(sort) {
   if (!sort %in% get_log_sorts()) {

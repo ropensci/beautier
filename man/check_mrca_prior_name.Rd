@@ -13,7 +13,7 @@ order or even class name.
 Leave at \link{NA} to have it named automatically.}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 A valid MRCA prior name is either \link{NA} or one character string.

@@ -2,7 +2,7 @@
 #'
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
-#' @return Nothing
+#' @return No return value, called for side effects
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_rename_fun <- function(rename_fun) {

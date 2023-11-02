@@ -11,7 +11,7 @@ check_treelog(treelog)
 as created by \link{create_treelog}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will call \link{stop} if not.

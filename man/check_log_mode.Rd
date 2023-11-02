@@ -11,7 +11,7 @@ check_log_mode(mode)
 Valid are \code{tree}, \code{autodetect} and \code{compound}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Check if the supplied \code{mode} is a valid logging mode.

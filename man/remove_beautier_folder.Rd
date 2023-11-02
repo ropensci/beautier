@@ -7,7 +7,7 @@
 remove_beautier_folder()
 }
 \value{
-Nothing.
+No return value, called for side effects.
 }
 \description{
 Check there are no files in the default \link{beautier} folder.

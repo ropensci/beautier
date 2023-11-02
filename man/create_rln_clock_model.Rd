@@ -57,10 +57,12 @@ a relaxed log-normal clock_model
 Create a relaxed log-normal clock model
 }
 \examples{
-rln_clock_model <- create_rln_clock_model()
+if (is_on_ci()) {
 
-beast2_input_file <- get_beautier_tempfilename()
-\dontrun{
+  rln_clock_model <- create_rln_clock_model()
+
+  beast2_input_file <- get_beautier_tempfilename()
+
   create_beast2_input_file(
     get_fasta_filename(),
     beast2_input_file,

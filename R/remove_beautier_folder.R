@@ -6,7 +6,7 @@
 #'
 #' @seealso use \link{remove_beautier_folder} to remove the default
 #' `beautier` folder
-#' @return Nothing.
+#' @return No return value, called for side effects.
 #' @examples
 #' check_empty_beautier_folder()
 #'

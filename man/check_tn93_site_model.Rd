@@ -12,7 +12,7 @@ check_tn93_site_model(tn93_site_model)
 as returned by \code{\link{create_tn93_site_model}}}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Use \link{create_tn93_site_model} to create a valid

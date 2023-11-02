@@ -13,7 +13,7 @@ Keep at \code{NA} to have it initialized automatically,
 using all taxa in the alignment}
 }
 \value{
-Nothing
+No return value, called for side effects
 }
 \description{
 Will \link{stop} if not.
