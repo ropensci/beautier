@@ -52,9 +52,10 @@ create_beast2_input_from_model <- function(
   )
 
   # Make a million show as 1000000 instead of 1e+06
-  old_scipen <- getOption("scipen")
+  # Use suprior syntax, thanks Victoria Wimmer
+  old <- options()
+  on.exit(options(old))
   options(scipen = 20)
-
 
   text <- create_beast2_input_beast(
     input_filename = input_filename,
@@ -64,9 +65,6 @@ create_beast2_input_from_model <- function(
     create_xml_declaration(),
     text[1]
   )
-
-  # Restore scipen
-  options(scipen = old_scipen)
 
   text
 }
