@@ -2,6 +2,7 @@
 #'
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
+#' @return nothing, will \link{stop} if needed
 #' @examples
 #' check_empty_beautier_folder()
 #'
@@ -34,4 +35,5 @@ check_alignment_id <- function(alignment_id) {
       "Actual value: ", alignment_id
     )
   }
+  invisible(alignment_id)
 }

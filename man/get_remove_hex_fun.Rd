@@ -6,6 +6,9 @@
 \usage{
 get_remove_hex_fun()
 }
+\value{
+a function to remove the hext string from filenames
+}
 \description{
 The default filenames created by \link{beautier} are temporary files,
 such as \code{/home/john/.cache/tracelog_82c5888db98.log} (on Linux),

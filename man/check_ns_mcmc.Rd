@@ -17,6 +17,9 @@ Use \code{\link{create_ns_mcmc}} to create an MCMC
 Use \code{\link{check_mcmc}} to check if an MCMC is valid.
 Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.}
 }
+\value{
+Nothing
+}
 \description{
 Will \link{stop} if not, else will do nothing
 }

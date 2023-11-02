@@ -6,6 +6,15 @@
 \usage{
 get_log_modes()
 }
+\value{
+the possible log modes
+}
 \description{
 Get the possible log modes
+}
+\examples{
+get_log_modes()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

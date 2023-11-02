@@ -3,6 +3,7 @@
 #'
 #' Will \link{stop} if not, else will do nothing
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @seealso use \code{\link{create_ns_mcmc}}
 #' to create an MCMC that uses Nested Sampling
 #' to estimate a marginal likelihood
@@ -40,4 +41,5 @@ check_ns_mcmc <- check_mcmc_nested_sampling <- check_nested_sampling_mcmc <- fun
   if (mcmc$epsilon <= 0.0) {
     stop("'mcmc$epsilon' must be non-zero and positive")
   }
+  invisible(mcmc)
 }

@@ -1,5 +1,6 @@
 #' Rename the filenames within an MCMC
 #' @inheritParams default_params_doc
+#' @return an `mcmc` (see \link{create_mcmc}) with renamed filenames
 #' @examples
 #' check_empty_beautier_folder()
 #'

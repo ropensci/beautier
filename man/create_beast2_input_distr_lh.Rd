@@ -17,6 +17,9 @@ Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
 }
+\value{
+lines of XML text
+}
 \description{
 Creates the XML text for the \code{distribution} tag
 with the \code{likelihood} ID,

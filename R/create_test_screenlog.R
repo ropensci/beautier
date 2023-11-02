@@ -1,5 +1,9 @@
-#' Create a \code{screenlog} object
+#' Create a \code{screenlog} object, to be used in testing
 #' @inheritParams create_screenlog
+#' @return a \code{screenlog} object
+#' @examples
+#' create_test_screenlog()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_screenlog <- function(
   filename = create_temp_screenlog_filename(),

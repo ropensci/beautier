@@ -28,6 +28,15 @@ log file}
 \item{sort}{how to sort the log.
 Valid values are the ones returned by \link{get_log_sorts}}
 }
+\value{
+a \code{tracelog} object
+}
 \description{
 Create a \code{tracelog} object
+}
+\examples{
+create_tracelog()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

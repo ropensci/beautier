@@ -3,6 +3,7 @@
 #' Creates the \code{tracelog} section of the \code{logger} section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_tracelog_xml <- function(# nolint keep long function name, as it extends the 'create_beast2_input' name

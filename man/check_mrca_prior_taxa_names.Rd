@@ -12,6 +12,9 @@ as returned by \code{\link{get_taxa_names}}.
 Keep at \code{NA} to have it initialized automatically,
 using all taxa in the alignment}
 }
+\value{
+Nothing
+}
 \description{
 Will \link{stop} if not.
 }

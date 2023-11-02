@@ -11,6 +11,9 @@ check_tn93_site_model(tn93_site_model)
 \item{tn93_site_model}{a TN93 site model,
 as returned by \code{\link{create_tn93_site_model}}}
 }
+\value{
+Nothing
+}
 \description{
 Use \link{create_tn93_site_model} to create a valid
 TN93 nucleotide substitution model.

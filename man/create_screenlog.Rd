@@ -27,6 +27,9 @@ log file}
 \item{sort}{how to sort the log.
 Valid values are the ones returned by \link{get_log_sorts}}
 }
+\value{
+a \code{screenlog} object
+}
 \description{
 Create a \code{screenlog} object
 }

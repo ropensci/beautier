@@ -61,6 +61,7 @@ create_beast2_input_distr <- function(
 #' Creates the prior section in the distribution section
 #' of a BEAST2 XML parameter file
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @seealso this function is called by \code{create_beast2_input_distr},
 #'   together with \code{create_beast2_input_distr_lh}
 #' @note this function is not intended for regular use, thus its
@@ -169,6 +170,7 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 #' }
 #'
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richèl J.C. Bilderbeek
@@ -203,6 +205,7 @@ create_beast2_input_distr_lh <- function(
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()
@@ -285,6 +288,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Birth-Death tree prior
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()
@@ -341,6 +345,7 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Constant Population tree prior
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()
@@ -416,6 +421,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' of a BEAST2 XML parameter file for a
 #' Coalescent Exponential Population tree prior
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()
@@ -510,6 +516,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' the prior section of the distribution section
 #' of a BEAST2 XML parameter file for a Yule tree prior
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()

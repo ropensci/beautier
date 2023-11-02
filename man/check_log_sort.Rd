@@ -10,6 +10,9 @@ check_log_sort(sort)
 \item{sort}{how to sort the entries in a log.
 Valid are \code{smart}, \code{none} and \code{alphabetic}}
 }
+\value{
+Nothing
+}
 \description{
 Check if the supplied \code{sort} is a valid logging sorting option.
 }

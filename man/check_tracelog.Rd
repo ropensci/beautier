@@ -10,6 +10,9 @@ check_tracelog(tracelog)
 \item{tracelog}{a \code{tracelog},
 as created by \link{create_tracelog}}
 }
+\value{
+Nothing
+}
 \description{
 Will call \link{stop} if not.
 }

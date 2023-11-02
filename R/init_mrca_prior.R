@@ -8,6 +8,8 @@
 #'     these are set by reading these from the alignment file
 #' }
 #' @inheritParams default_params_doc
+#' @return an initialized MRCA prior
+#' @author Richèl J.C. Bilderbeek
 #' @export
 init_mrca_prior <- function(
   input_filename,

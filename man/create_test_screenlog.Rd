@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_test_screenlog.R
 \name{create_test_screenlog}
 \alias{create_test_screenlog}
-\title{Create a \code{screenlog} object}
+\title{Create a \code{screenlog} object, to be used in testing}
 \usage{
 create_test_screenlog(
   filename = create_temp_screenlog_filename(),
@@ -27,6 +27,15 @@ log file}
 \item{sort}{how to sort the log.
 Valid values are the ones returned by \link{get_log_sorts}}
 }
+\value{
+a \code{screenlog} object
+}
 \description{
-Create a \code{screenlog} object
+Create a \code{screenlog} object, to be used in testing
+}
+\examples{
+create_test_screenlog()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

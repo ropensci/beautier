@@ -10,6 +10,9 @@ check_log_mode(mode)
 \item{mode}{mode how to log.
 Valid are \code{tree}, \code{autodetect} and \code{compound}}
 }
+\value{
+Nothing
+}
 \description{
 Check if the supplied \code{mode} is a valid logging mode.
 }

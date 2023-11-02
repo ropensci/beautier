@@ -9,6 +9,12 @@ get_replace_dir_fun(new_dir_name = "")
 \arguments{
 \item{new_dir_name}{the new directory name}
 }
+\value{
+a function to replace the directory of a filename
+}
 \description{
 Get a function to replace the directory of a filename
+}
+\author{
+Richèl J.C. Bilderbeek
 }

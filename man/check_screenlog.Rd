@@ -10,6 +10,9 @@ check_screenlog(screenlog)
 \item{screenlog}{a \code{screenlog},
 as created by \link{create_screenlog}}
 }
+\value{
+Nothing
+}
 \description{
 Will call \link{stop} if not.
 }

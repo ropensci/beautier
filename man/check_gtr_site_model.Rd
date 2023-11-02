@@ -11,6 +11,10 @@ check_gtr_site_model(gtr_site_model)
 \item{gtr_site_model}{a GTR site model,
 as returned by \code{\link{create_gtr_site_model}}}
 }
+\value{
+TRUE is the \code{gtr_site_model} is a valid
+GTR nucleotide substitution model, FALSE otherwise
+}
 \description{
 Use \link{create_gtr_site_model} to create a valid
 GTR nucleotide substitution model.

@@ -10,6 +10,7 @@
 #' between the filename description (\code{tracelog}) and the hex
 #' string, this function removes both.
 #'
+#' @return a function to remove the hext string from filenames
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()

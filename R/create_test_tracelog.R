@@ -1,5 +1,9 @@
-#' Create a \code{tracelog} object
+#' Create a \code{tracelog} object, as used for testing
 #' @inheritParams create_tracelog
+#' @return a \code{tracelog} object
+#' @examples
+#' create_test_tracelog()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_tracelog <- function(
   filename = create_temp_tracelog_filename(),

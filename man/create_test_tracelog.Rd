@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_test_tracelog.R
 \name{create_test_tracelog}
 \alias{create_test_tracelog}
-\title{Create a \code{tracelog} object}
+\title{Create a \code{tracelog} object, as used for testing}
 \usage{
 create_test_tracelog(
   filename = create_temp_tracelog_filename(),
@@ -28,6 +28,15 @@ log file}
 \item{sort}{how to sort the log.
 Valid values are the ones returned by \link{get_log_sorts}}
 }
+\value{
+a \code{tracelog} object
+}
 \description{
-Create a \code{tracelog} object
+Create a \code{tracelog} object, as used for testing
+}
+\examples{
+create_test_tracelog()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

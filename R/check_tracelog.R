@@ -2,6 +2,7 @@
 #'
 #' Will call \link{stop} if not.
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @export
 check_tracelog <- function(tracelog) {
 

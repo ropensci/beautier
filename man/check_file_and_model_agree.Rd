@@ -18,6 +18,9 @@ Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
 }
+\value{
+nothing, will \link{stop} if needed
+}
 \description{
 Will \link{stop} if not
 }

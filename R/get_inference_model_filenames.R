@@ -4,6 +4,7 @@
 #' setting \code{inference_model$tipdates_filename} to \link{NA},
 #' there will be one filename less returned
 #' @inheritParams default_params_doc
+#' @return the filenames stored in an inference model
 #' @examples
 #' check_empty_beautier_folder()
 #'

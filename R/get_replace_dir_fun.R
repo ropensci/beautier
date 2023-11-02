@@ -1,5 +1,7 @@
 #' Get a function to replace the directory of a filename
 #' @param new_dir_name the new directory name
+#' @return a function to replace the directory of a filename
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_replace_dir_fun <- function(new_dir_name = "") {
   replace_dir <- function(filename, new_dir_name) {

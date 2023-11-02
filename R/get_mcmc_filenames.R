@@ -3,6 +3,7 @@
 #' If a filename is set to an empty string, to indicate a certain log file
 #' need not be created, this (non-)filename will not be returned.
 #' @inheritParams default_params_doc
+#' @return the filenames stored in an MCMC
 #' @examples
 #' check_empty_beautier_folder()
 #'
@@ -22,6 +23,7 @@
 #' filenames <- get_mcmc_filenames(mcmc)
 #'
 #' check_empty_beautier_folder()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_mcmc_filenames <- function(mcmc) {
   check_mcmc(mcmc)

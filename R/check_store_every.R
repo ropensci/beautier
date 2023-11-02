@@ -2,6 +2,7 @@
 #'
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @export
 check_store_every <- function(store_every) {
   check_number_whole(store_every, allow_na = TRUE, min = -1)

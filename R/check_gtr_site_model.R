@@ -4,6 +4,8 @@
 #' Use \link{create_gtr_site_model} to create a valid
 #' GTR nucleotide substitution model.
 #' @inheritParams default_params_doc
+#' @return TRUE is the \code{gtr_site_model} is a valid
+#' GTR nucleotide substitution model, FALSE otherwise
 #' @examples
 #' check_empty_beautier_folder()
 #'

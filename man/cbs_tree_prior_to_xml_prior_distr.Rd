@@ -15,6 +15,9 @@ as returned by \code{\link{create_cbs_tree_prior}}}
 \item{beauti_options}{one BEAUti options object,
 as returned by \code{\link{create_beauti_options}}}
 }
+\value{
+lines of XML text
+}
 \description{
 Creates the tree prior section in the prior section of
 the prior section of the distribution section

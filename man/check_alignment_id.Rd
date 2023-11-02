@@ -11,6 +11,9 @@ check_alignment_id(alignment_id)
 as returned by \link{get_alignment_id}.
 Keep at \code{NA} to have it initialized automatically}
 }
+\value{
+nothing, will \link{stop} if needed
+}
 \description{
 Will \link{stop} if not.
 }

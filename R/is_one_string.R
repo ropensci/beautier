@@ -1,5 +1,6 @@
-#' Determines if the argument is a string
+#' Determines if the argument is one string
 #' @param x the object to be determined of if it is one string
+#' @return TRUE if the argument is one string, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()

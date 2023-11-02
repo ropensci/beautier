@@ -7,6 +7,9 @@ without the directory.}
 \usage{
 get_remove_dir_fun()
 }
+\value{
+a function to remove the folder name from a path
+}
 \description{
 Or: get a function that returns the local version of a filename.
 Also, the function will return \link{NA} if the filename is \link{NA}

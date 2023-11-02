@@ -2,6 +2,7 @@
 #'
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
+#' @return nothing, will \link{stop} if needed
 #' @export
 check_file_and_model_agree <- function(
   input_filename,
@@ -56,4 +57,5 @@ check_file_and_model_agree <- function(
       stop("All MRCA prior's taxa names must be FASTA file taxa names")
     }
   }
+  invisible(NULL)
 }

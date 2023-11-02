@@ -1,6 +1,7 @@
 #' Check if the supplied \code{mode} is a valid logging mode.
 #' @param mode mode how to log.
 #' Valid are \code{tree}, \code{autodetect} and \code{compound}
+#' @return Nothing
 #' @export
 check_log_mode <- function(mode) {
   if (!mode %in% get_log_modes()) {
@@ -11,4 +12,5 @@ check_log_mode <- function(mode) {
       "Actual value: '", mode
     )
   }
+  invisible(mode)
 }

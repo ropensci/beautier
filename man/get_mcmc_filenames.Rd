@@ -14,6 +14,9 @@ Use \code{\link{create_ns_mcmc}} to create an MCMC
 Use \code{\link{check_mcmc}} to check if an MCMC is valid.
 Use \code{\link{rename_mcmc_filenames}} to rename the filenames in an MCMC.}
 }
+\value{
+the filenames stored in an MCMC
+}
 \description{
 If a filename is set to an empty string, to indicate a certain log file
 need not be created, this (non-)filename will not be returned.
@@ -37,4 +40,7 @@ mcmc$screenlog$filename <- ""
 filenames <- get_mcmc_filenames(mcmc)
 
 check_empty_beautier_folder()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

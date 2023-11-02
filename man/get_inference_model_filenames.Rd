@@ -15,6 +15,9 @@ Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
 }
+\value{
+the filenames stored in an inference model
+}
 \description{
 If there is no name for a \code{tipdates} file specified (as done by
 setting \code{inference_model$tipdates_filename} to \link{NA},

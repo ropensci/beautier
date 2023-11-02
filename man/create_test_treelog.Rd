@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_test_treelog.R
 \name{create_test_treelog}
 \alias{create_test_treelog}
-\title{Create a \code{treelog} object}
+\title{Create a \code{treelog} object to be used in testing}
 \usage{
 create_test_treelog(
   filename = create_temp_treelog_filename(),
@@ -26,6 +26,15 @@ log file}
 \item{sort}{how to sort the log.
 Valid values are the ones returned by \link{get_log_sorts}}
 }
+\value{
+a \code{treelog} object
+}
 \description{
-Create a \code{treelog} object
+Create a \code{treelog} object to be used in testing
+}
+\examples{
+create_test_treelog()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

@@ -41,6 +41,7 @@
 #' }
 #'
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @note this function is not intended for regular use, thus its
 #'   long name length is accepted
 #' @author Richèl J.C. Bilderbeek

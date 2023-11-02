@@ -13,6 +13,7 @@
 #'  </logger>
 #' }
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @seealso
 #' Use \link{create_tracelog_xml} to create the XML text
 #' of the logger with the \code{tracelog} ID.

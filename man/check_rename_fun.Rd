@@ -23,6 +23,9 @@ Example rename functions are:
     For example, \code{tracelog_82c1a522040.log} becomes \code{tracelog.log}
 }}
 }
+\value{
+Nothing
+}
 \description{
 Will \link{stop} if not
 }

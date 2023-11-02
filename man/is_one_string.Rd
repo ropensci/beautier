@@ -2,15 +2,18 @@
 % Please edit documentation in R/is_one_string.R
 \name{is_one_string}
 \alias{is_one_string}
-\title{Determines if the argument is a string}
+\title{Determines if the argument is one string}
 \usage{
 is_one_string(x)
 }
 \arguments{
 \item{x}{the object to be determined of if it is one string}
 }
+\value{
+TRUE if the argument is one string, FALSE otherwise
+}
 \description{
-Determines if the argument is a string
+Determines if the argument is one string
 }
 \examples{
 check_empty_beautier_folder()

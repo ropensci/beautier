@@ -2,6 +2,7 @@
 #'
 #' Will call \link{stop} if not.
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @examples
 #' check_empty_beautier_folder()
 #'
@@ -14,6 +15,8 @@ check_treelog <- function(treelog) {
 
   check_treelog_names(treelog)
   check_treelog_values(treelog)
+
+  invisible(treelog)
 }
 
 #' Check if the \code{treelog} has the list elements

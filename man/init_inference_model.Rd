@@ -18,6 +18,12 @@ Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
 }
+\value{
+an initialized inference model
+}
 \description{
 Initialize an inference model
+}
+\author{
+Richèl J.C. Bilderbeek
 }

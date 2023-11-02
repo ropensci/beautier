@@ -4,6 +4,7 @@
 #' Use \link{create_tn93_site_model} to create a valid
 #' TN93 nucleotide substitution model.
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @examples
 #' check_empty_beautier_folder()
 #'
@@ -36,7 +37,7 @@ check_tn93_site_model <- function(tn93_site_model) {
       "an equilibrium frequency name"
     )
   }
-
+  invisible(tn93_site_model)
 }
 
 #' Check if the \code{tn93_site_model} has the list elements

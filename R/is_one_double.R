@@ -1,5 +1,6 @@
 #' Determines if the argument is a double
 #' @param x the object to be determined of if it is one double
+#' @return TRUE if the argument is one floating point value, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()

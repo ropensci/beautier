@@ -30,6 +30,9 @@ Example rename functions are:
     For example, \code{tracelog_82c1a522040.log} becomes \code{tracelog.log}
 }}
 }
+\value{
+an `mcmc` (see \link{create_mcmc}) with renamed filenames
+}
 \description{
 Rename the filenames within an MCMC
 }

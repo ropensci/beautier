@@ -2,6 +2,7 @@
 #'
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_rename_fun <- function(rename_fun) {
@@ -17,4 +18,6 @@ check_rename_fun <- function(rename_fun) {
   ) {
     stop("'rename_fun' must return a character vector with one element")
   }
+
+  invisible(rename_fun)
 }

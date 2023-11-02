@@ -1,6 +1,7 @@
 #' Determines if the argument is a whole number
 #' @param x the object to be determined of if it is one integer
 #' @param tolerance tolerance to rounding errors
+#' @return TRUE if the argument is one int, FALSE otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_empty_beautier_folder()

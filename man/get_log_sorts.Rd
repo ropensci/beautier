@@ -6,6 +6,15 @@
 \usage{
 get_log_sorts()
 }
+\value{
+the possible log sorts
+}
 \description{
 Get the possible log sorts
+}
+\examples{
+get_log_sorts()
+}
+\author{
+Richèl J.C. Bilderbeek
 }

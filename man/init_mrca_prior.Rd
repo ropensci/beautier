@@ -18,6 +18,9 @@ Use \link{check_inference_model} to check if  an inference model is valid.
 Use \link{rename_inference_model_filenames} to rename the files in an
 inference model.}
 }
+\value{
+an initialized MRCA prior
+}
 \description{
 Initialized by
 \itemize{
@@ -26,4 +29,7 @@ Initialized by
   \item if no taxa names are set,
     these are set by reading these from the alignment file
 }
+}
+\author{
+Richèl J.C. Bilderbeek
 }

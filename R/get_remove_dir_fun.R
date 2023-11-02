@@ -5,6 +5,7 @@
 #' Also, the function will return \link{NA} if the filename is \link{NA}
 #' @seealso see \link{check_rename_fun}
 #'   for an overview of file renaming functions
+#' @return a function to remove the folder name from a path
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_remove_dir_fun <- function() {

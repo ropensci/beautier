@@ -9,6 +9,9 @@ is_one_bool(x)
 \arguments{
 \item{x}{the argument to be tested to be boolean}
 }
+\value{
+TRUE if the argument is one boolean, FALSE otherwise
+}
 \description{
 Check if the argument is one boolean
 }

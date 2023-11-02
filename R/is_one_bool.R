@@ -1,5 +1,6 @@
 #' Check if the argument is one boolean
 #' @param x the argument to be tested to be boolean
+#' @return TRUE if the argument is one boolean, FALSE otherwise
 #' @examples
 #' check_empty_beautier_folder()
 #'

@@ -11,6 +11,9 @@ is_one_int(x, tolerance = .Machine$double.eps^0.5)
 
 \item{tolerance}{tolerance to rounding errors}
 }
+\value{
+TRUE if the argument is one int, FALSE otherwise
+}
 \description{
 Determines if the argument is a whole number
 }

@@ -1,5 +1,7 @@
 #' Initialize an inference model
 #' @inheritParams default_params_doc
+#' @return an initialized inference model
+#' @author Richèl J.C. Bilderbeek
 #' @export
 init_inference_model <- function(input_filename, inference_model) {
 

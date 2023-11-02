@@ -6,6 +6,7 @@
 #' </logger>
 #' ```
 #' @inheritParams default_params_doc
+#' @return lines of XML text
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_treelog_xml <- function(

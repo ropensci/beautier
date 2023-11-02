@@ -2,6 +2,7 @@
 #'
 #' Will call \link{stop} if not.
 #' @inheritParams default_params_doc
+#' @return Nothing
 #' @examples
 #' check_empty_beautier_folder()
 #'
@@ -14,6 +15,8 @@ check_screenlog <- function(screenlog) {
 
   check_screenlog_names(screenlog)
   check_screenlog_values(screenlog)
+
+  invisible(screenlog)
 }
 
 #' Check if the \code{screenlog} has the list elements
