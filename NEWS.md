@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Improved documentation
 
 ### BUG FIXES
 
