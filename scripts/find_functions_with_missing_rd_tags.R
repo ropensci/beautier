@@ -2,6 +2,16 @@
 #
 # Find function that are not completely documented
 #
+# Usage:
+#
+#   ./find_functions_with_missing_rd_tags
+#   ./find_functions_with_missing_rd_tags [package_name]
+#
+# Examples:
+#
+#   ./find_functions_with_missing_rd_tags
+#   ./find_functions_with_missing_rd_tags beautier
+#
 # From https://stat.ethz.ch/pipermail/r-package-devel/2021q2/007106.html
 
 library(tools)
