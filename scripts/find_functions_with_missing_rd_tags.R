@@ -5,7 +5,13 @@
 # From https://stat.ethz.ch/pipermail/r-package-devel/2021q2/007106.html
 
 library(tools)
+
 pkg_of_interest <- "beautier"
+
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) == 1) pkg_of_interest <- args[1]
+print(paste("Find functions in package", pkg_of_interest))
+
 db <- Rd_db(pkg_of_interest)
 
 name <- lapply(db, tools:::.Rd_get_metadata, "name")
