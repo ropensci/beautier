@@ -7,7 +7,7 @@
 get_remove_hex_fun()
 }
 \value{
-a function to remove the hext string from filenames
+a function to remove the hex string from filenames
 }
 \description{
 The default filenames created by \link{beautier} are temporary files,
