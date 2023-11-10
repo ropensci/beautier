@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Remove dependency on 'spelling'
 
 ### BUG FIXES
 
