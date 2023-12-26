@@ -3,7 +3,7 @@
 ################################################################################
 
 test_that("RLN + tipdates, v2.6", {
-  skip("https://github.com/ropensci/babette/issues/99")
+  ## https://github.com/ropensci/babette/issues/99"
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)
@@ -20,7 +20,6 @@ test_that("RLN + tipdates, v2.6", {
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
     beauti_options = create_beauti_options_v2_6(
       namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood"
-
     )
   )
   created <- create_beast2_input_from_model(
@@ -35,6 +34,12 @@ test_that("RLN + tipdates, v2.6", {
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
   expected_line <- r"(<Uniform id="Uniform.3" name="distr" upper="Infinity"/>)"
+  testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
+  testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+  expected_line <- r"(<operator id="ucldMeanScaler.c:test_output_0" spec="ScaleOperator" parameter="@ucldMean.c:test_output_0" scaleFactor="0.5" weight="1.0"/>)"
+  testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
+  testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+  expected_line <- r"(<operator id="relaxedUpDownOperator.c:test_output_0" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">)"
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
 
