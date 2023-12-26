@@ -28,9 +28,15 @@ test_that("RLN + tipdates, v2.6", {
   )
   expected <- readLines(get_beautier_path("rln_tipdates_2_6.xml"))
   expected_line <- r"(<operator id="YuleBirthRateScaler.t:test_output_0" spec="ScaleOperator" parameter="@birthRate.t:test_output_0" scaleFactor="0.75" weight="3.0"/>)"
-  expected[151]
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+  expected_line <- r"(<prior id="MeanRatePrior.c:test_output_0" name="distribution" x="@ucldMean.c:test_output_0">)"
+  testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
+  testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+  expected_line <- r"(<Uniform id="Uniform.3" name="distr" upper="Infinity"/>)"
+  testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
+  testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+
   if (1 == 2) {
     compare_lines(
       lines = created,
