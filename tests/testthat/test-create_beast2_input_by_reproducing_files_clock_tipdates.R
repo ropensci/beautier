@@ -2,8 +2,7 @@
 # Clock model: RLN + tipdates
 ################################################################################
 
-test_that("RLN + tipdates, v2.6", {
-  ## https://github.com/ropensci/babette/issues/99"
+test_that("#99: RLN + tipdates, v2.6", {
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       birth_rate_distr = create_uniform_distr(id = 1)

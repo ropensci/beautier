@@ -36,9 +36,8 @@ test_that("Yule, v2.6", {
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
-test_that("RLN + tipdates, v2.6", {
-  # Irreproducible error
-  skip("'scaleFactor' is in BEAUti file, using an unknown version of BEAUti")
+test_that("#99: RLN + tipdates, v2.6", {
+
   inference_model <- create_inference_model(
     tree_prior = create_yule_tree_prior(
       id = "test_output_0",
