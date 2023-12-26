@@ -17,19 +17,28 @@ test_that("RLN + tipdates, v2.6", {
       dimension = 8
     ),
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
-    beauti_options = create_beauti_options_v2_6()
+    beauti_options = create_beauti_options_v2_6(
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood"
+
+    )
   )
   created <- create_beast2_input_from_model(
     input_filename = get_beautier_path("test_output_0.fas"),
     inference_model = inference_model
   )
   expected <- readLines(get_beautier_path("rln_tipdates_2_6.xml"))
-
-  # Creates temporary files in beautier folder
-  compare_lines(
-    lines = created,
-    expected = expected
-  )
+  expected_line <- r"(<operator id="YuleBirthRateScaler.t:test_output_0" spec="ScaleOperator" parameter="@birthRate.t:test_output_0" scaleFactor="0.75" weight="3.0"/>)"
+  expected[151]
+  testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
+  testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+  if (1 == 2) {
+    compare_lines(
+      lines = created,
+      expected = expected,
+      created_lines_filename = "~/created.xml",
+      expected_lines_filename = "~/expected.xml"
+    )
+  }
   expect_true(are_equivalent_xml_lines(created, expected))
 
   remove_beautier_folder()
