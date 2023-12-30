@@ -1638,16 +1638,14 @@ test_that("Tip dating with RLN", {
   # Prerequisite for https://github.com/ropensci/babette/issues/90
   created <- create_beast2_input(
     input_filename = get_beautier_path("Felinecoronavirus_Envelope_1.fas"),
-    site_model = create_jc69_site_model(),
-    clock_model = create_rln_clock_model(
-      mean_clock_rate =  0.001,
-      mean_rate_prior_distr = create_normal_distr()
-    ),
-    tree_prior = create_cbs_tree_prior(),
     tipdates_filename = get_beautier_path(
       "Felinecoronavirus_Envelope_1_no_quotes.txt"
     ),
-    beauti_options = create_beauti_options_v2_6()
+    beauti_options = create_beauti_options(
+      beast2_version = "2.6",
+      nucleotides_uppercase = TRUE,
+      sequence_indent = 8
+    )
   )
   expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
 
