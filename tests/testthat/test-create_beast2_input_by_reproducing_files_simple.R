@@ -1642,7 +1642,7 @@ test_that("Tip dating with RLN", {
     ),
     beauti_options = create_beauti_options_v2_6()
   )
-  expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
+    expected <- readLines(get_beautier_path("Felinecoronavirus_Envelope_1.xml"))
 
   # Creates temporary files in beautier folder
   compare_lines(

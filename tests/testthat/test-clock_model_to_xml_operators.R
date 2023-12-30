@@ -54,7 +54,10 @@ test_that("v2.6, tipdates", {
       clock_model = create_rln_clock_model(
         id = "test_output_0",
         rate_scaler_factor = 0.75
-      )
+      ),
+      # Should this be added? Question, questions ...
+      # tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
+      beauti_options = create_beauti_options_v2_6()
     )
   )
   # Creates temporary files in beautier folder
