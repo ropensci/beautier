@@ -2,7 +2,7 @@ Package: beautier
 Title: 'BEAUti' from R
 Version: 2.6.12
 Authors@R: c(
-  person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
+  person("Richèl J.C.", "Bilderbeek", email = "rjcbilderbeek@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
   person("Joëlle", "Barido-Sottani", role = "rev", comment = "Joëlle reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
   person("David", "Winter", role = "rev", comment = "David reviewed the package for rOpenSci, see https://github.com/ropensci/onboarding/issues/209"),
   person("Paul", "Van Els", role = "ctb", comment = c(ORCID = "0000-0002-9499-8873")),
