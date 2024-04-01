@@ -35,6 +35,8 @@ create_beast2_input_beast <- function(
   check_true(length(input_filename) == 1)
   check_true(file.exists(input_filename))
 
+  # The XML declaration is prepended by the caller
+  # and is created by 'create_xml_declaration'
   text <- create_beast2_beast_xml(
     inference_model$beauti_options
   )

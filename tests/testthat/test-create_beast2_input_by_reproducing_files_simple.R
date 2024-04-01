@@ -1631,7 +1631,7 @@ test_that("Tip dating, v2.6", {
   check_empty_beautier_folder()
 })
 
-test_that("Tip dating with RLN", {
+test_that("Tip dating with RLN 1/3", {
 
   skip("Issue #116. RLN + tipdating")
   # Probably needs to get proper IDs and such ...
@@ -1656,6 +1656,88 @@ test_that("Tip dating with RLN", {
   )
   expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
 
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+})
+
+test_that("RLN and non-monophyletic MRCA with distribution, beastier", {
+  # babette issue 106. babette Issue #106
+  # https://github.com/ropensci/babette/issues/106
+
+  # Thanks to Raphael Scherrer for sharing this bug
+  fasta_filename <- get_fasta_filename()
+  lines <- beautier::create_beast2_input(
+    input_filename = fasta_filename,
+    clock_model = create_rln_clock_model(),
+    mrca_prior = create_mrca_prior(
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      is_monophyletic = FALSE,
+      mrca_distr = create_one_div_x_distr() # Use simpler distribution
+    ),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  # The next testing function does compare line-by-line
+  if ("beastier" %in% installed.packages()[,1]) {
+    expect_true(
+      beastier::are_beast2_input_lines(
+        lines, method = "deep"
+      )
+    )
+  }
+
+  remove_beautier_folder()
+  check_empty_beautier_folder()
+})
+
+test_that("RLN and non-monophyletic MRCA with distribution, beastier", {
+  # This is the same test as above, yet made to function with beautier
+  # functionality only. It does mess up the cleanliness of
+  # the creation of the inference model
+  # babette issue 106. babette Issue #106
+  # https://github.com/ropensci/babette/issues/106
+
+  # Thanks to Raphael Scherrer for sharing this bug
+  fasta_filename <- get_fasta_filename()
+  lines <- beautier::create_beast2_input(
+    input_filename = fasta_filename,
+    tree_prior = create_tree_prior_yule(birth_rate_distr = create_uniform_distr(id = "1")),
+    clock_model = create_rln_clock_model(
+      mparam_id = "1",
+      mean_rate_prior_distr = create_uniform_distr(id = "3"),
+      ucldstdev_distr = create_gamma_distr(
+        id = "0",
+        alpha = create_alpha_param(id = "2", value = "0.5396"),
+        beta = create_beta_param(id = "3", value = "0.3819")
+      )
+    ),
+    mrca_prior = create_mrca_prior(
+      name = "all_taxa",
+      alignment_id = get_alignment_id(fasta_filename),
+      taxa_names = get_taxa_names(fasta_filename),
+      is_monophyletic = FALSE,
+      mrca_distr = create_one_div_x_distr(id = "1") # Use simpler distribution
+    ),
+    beauti_options = create_beauti_options_v2_6()
+  )
+  if ("beastier" %in% installed.packages()[,1]) {
+    expect_true(
+      beastier::are_beast2_input_lines(
+        lines, method = "deep"
+      )
+    )
+  }
+  expected <- readLines(get_beautier_path("babette_issue_26.xml"))
+
+  # Creates temporary files in beautier folder
+  created <- lines
+  compare_lines(
+    lines = lines,
+    expected = expected,
+    created_lines_filename = "~/created.txt",
+    expected_lines_filename = "~/expected.txt"
+  )
+  expect_true(are_equivalent_xml_lines(created, expected, verbose = TRUE))
   remove_beautier_folder()
   check_empty_beautier_folder()
 })
