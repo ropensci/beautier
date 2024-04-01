@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## beautier v2.6.12 (unreleased)
+## beautier v2.6.12 (2024-04-01)
 
 ### NEW FEATURES
 
@@ -14,7 +14,7 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * Fixes https://github.com/ropensci/babette/issues/106
 
 ### DEPRECATED AND DEFUNCT
 
