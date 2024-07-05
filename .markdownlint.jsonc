@@ -3,4 +3,29 @@
 
   // Default state for all rules
   "default": true
+
+  // MkDocs assumes 4 spaces for indentation.
+  // Markdown assumes 4 spaces for indentation.
+  // That markdownlint has a different default is the error of markdownlint
+  "MD007": { "indent": 4 },
+
+  "MD013": {
+    // Number of characters, CHANGED FROM 80
+    "line_length": 1000,
+    // Number of characters for headings
+    "heading_line_length": 80,
+    // Number of characters for code blocks, CHANGED FROM 80
+    "code_block_line_length": 200,
+    // Include code blocks
+    "code_blocks": true,
+    // Include tables
+    "tables": true,
+    // Include headings
+    "headings": true,
+    // Strict length checking
+    "strict": false,
+    // Stern length checking
+    "stern": false
+  },
+
 }

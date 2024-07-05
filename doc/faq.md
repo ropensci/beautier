@@ -3,9 +3,9 @@
 ## Shouldn't the slogan be 'beautier: BEAUti 2 for R'?
 
 That slogan would indeed be more precise. That
-extra precision would come at the cost of 
+extra precision would come at the cost of
 readability (the extra '2'). As there is no `BEAUti 1`,
-there is no possible confusion and that extra number 
+there is no possible confusion and that extra number
 does not add extra information.
 
 ## Which version of BEAUti do you use as a guideline?
@@ -21,7 +21,7 @@ can be found in the [beastier::install_beast2](https://github.com/ropensci/beast
 
 Because `ropensci` does not have AppVeyor.
 
-To do check for Windows, 
+To do check for Windows,
 [the beautier_on_windows repo](https://github.com/richelbilderbeek/beautier_on_windows)
 is created. That repo only checks the `master` branch of `beautier`.
 
@@ -39,7 +39,7 @@ See [CONTRIBUTING](../CONTRIBUTING.md), at 'Submitting code'
 
 ## How can I submit a bug?
 
-See [CONTRIBUTING](../CONTRIBUTING.md), at 'Submitting bugs' 
+See [CONTRIBUTING](../CONTRIBUTING.md), at 'Submitting bugs'
 
 ## How can I indicate something else?
 
@@ -67,15 +67,15 @@ or
 
 ### Are there any related packages?
 
- * [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
- * [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
- * [BEASTifier](https://github.com/josephwb/BEASTifier): generate BEAST input files from a NEXUS file, similar to [beautier](https://github.com/ropensci/beautier)
- * [RBeast](https://github.com/beast-dev/RBeast): misc other things
+* [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
+* [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
+* [BEASTifier](https://github.com/josephwb/BEASTifier): generate BEAST input files from a NEXUS file, similar to [beautier](https://github.com/ropensci/beautier)
+* [RBeast](https://github.com/beast-dev/RBeast): misc other things
 
 ## What is the idea behind the logo?
 
 The butterfly symbolizes beauty.
-Then it was combined with an R logo. 
+Then it was combined with an R logo.
 
 ## What are the FASTA files?
 
@@ -86,9 +86,9 @@ Filename               |Reference
 `G_VII_pre2003_msa.fas`|[2]
 Others                 |Artificial
 
- * [1] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
- * [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.
- 
+* [1] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
+* [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.
+
 Thanks to Peter A. Durr and Paul van Els for supplying the FASTA files.
 
 ## Why are the functions prefixed with `create_`?
@@ -115,12 +115,12 @@ out <- create_beast2_input(
 )
 ```
 
-Answer: because function names should start with a 
+Answer: because function names should start with a
 verb (see e.g. [https://style.tidyverse.org/functions.html#naming](The Tidyverse Style Guide))
 
 ## Why the name?
 
-`beautier` is 'BEAUti for R'. 
+`beautier` is 'BEAUti for R'.
 
 Additionally, it is a joke that suggests `beautier` would have more beauty than `BEAUti`.
 This suggestion benefits the image of author of `beautier`, who, however, thinks that
@@ -128,7 +128,7 @@ both tools are equally valuable and beautiful.
 
 ## Why the logo?
 
-Initially, the logo was a low-tech remake of Belle, for Beauty and the Beast. 
+Initially, the logo was a low-tech remake of Belle, for Beauty and the Beast.
 To prevent problems with Disney, a different logo was picked.
 
 The current logo shows a butterfly, an animal considered to be beautiful.
