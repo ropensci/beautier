@@ -2,6 +2,9 @@
 
 Newest versions at top.
 
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD025 -->
+
 # beautier v2.6.13 (unreleased)
 
 ## NEW FEATURES
@@ -754,3 +757,6 @@ distr <- create_distr_poisson(id = 1, lambda = 1.2)
 ## DEPRECATED AND DEFUNCT
 
 * None
+
+<!-- markdownlint-enable MD024 -->
+<!-- markdownlint-enable MD025 -->
