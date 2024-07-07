@@ -2,7 +2,7 @@
 {
 
   // Default state for all rules
-  "default": true
+  "default": true,
 
   // MkDocs assumes 4 spaces for indentation.
   // Markdown assumes 4 spaces for indentation.

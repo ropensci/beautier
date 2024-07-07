@@ -14,15 +14,21 @@ The first BEAST2 XML files created by `beautier`
 followed BEAST2 v2.4. `beautier` follows the
 BEAST2 versions, which is now at v2.6.0.
 
+
 The BEAST2 version actually used by `babette`
-can be found in the [beastier::install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
+can be found in the 
+<!-- markdownlint-disable MD013 -->
+[beastier::install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
+<!-- markdownlint-enable MD013 -->
 
 ## Why does AppVeyor only check the `master` branch?
 
 Because `ropensci` does not have AppVeyor.
 
 To do check for Windows,
+<!-- markdownlint-disable MD013 -->
 [the beautier_on_windows repo](https://github.com/richelbilderbeek/beautier_on_windows)
+<!-- markdownlint-enable MD013 -->
 is created. That repo only checks the `master` branch of `beautier`.
 
 ## What's the [road map](road_map.md)?
@@ -49,13 +55,17 @@ Submit an Issue. Or send an email to Richèl Bilderbeek.
 
 Cite:
 
-```
+<!-- markdownlint-disable MD013 -->
+
+```text
 Bilderbeek, Richèl JC, and Rampal S. Etienne. "babette: BEAUti 2, BEAST 2 and Tracer for R." Methods in Ecology and Evolution (2018).
 ```
 
+<!-- markdownlint-enable MD013 -->
+
 or
 
-```
+```text
 @article{bilderbeek2018babette,
   title={babette: BEAUti 2, BEAST 2 and Tracer for R},
   author={Bilderbeek, Richèl JC and Etienne, Rampal S},
@@ -67,9 +77,13 @@ or
 
 ### Are there any related packages?
 
-* [lumier](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
-* [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): tip-dating analyses using fossils as dated terminal taxa
-* [BEASTifier](https://github.com/josephwb/BEASTifier): generate BEAST input files from a NEXUS file, similar to [beautier](https://github.com/ropensci/beautier)
+* [lumier](https://github.com/ropensci/lumier): 
+  Shiny app to help create the function call needed
+* [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): 
+  tip-dating analyses using fossils as dated terminal taxa
+* [BEASTifier](https://github.com/josephwb/BEASTifier): 
+  generate BEAST input files from a NEXUS file, 
+  similar to [beautier](https://github.com/ropensci/beautier)
 * [RBeast](https://github.com/beast-dev/RBeast): misc other things
 
 ## What is the idea behind the logo?
@@ -86,8 +100,12 @@ Filename               |Reference
 `G_VII_pre2003_msa.fas`|[2]
 Others                 |Artificial
 
-* [1] Van Els, Paul, and Heraldo V. Norambuena. "A revision of species limits in Neotropical pipits Anthus based on multilocus genetic and vocal data." Ibis.
-* [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.
+* [1] Van Els, Paul, and Heraldo V. Norambuena. 
+  "A revision of species limits in Neotropical pipits Anthus 
+  based on multilocus genetic and vocal data." Ibis.
+* [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; 
+  Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). 
+  Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.
 
 Thanks to Peter A. Durr and Paul van Els for supplying the FASTA files.
 
@@ -116,14 +134,17 @@ out <- create_beast2_input(
 ```
 
 Answer: because function names should start with a
-verb (see e.g. [https://style.tidyverse.org/functions.html#naming](The Tidyverse Style Guide))
+verb (see e.g. 
+[https://style.tidyverse.org/functions.html#naming](The Tidyverse Style Guide))
 
 ## Why the name?
 
 `beautier` is 'BEAUti for R'.
 
-Additionally, it is a joke that suggests `beautier` would have more beauty than `BEAUti`.
-This suggestion benefits the image of author of `beautier`, who, however, thinks that
+Additionally, it is a joke that suggests `beautier` 
+would have more beauty than `BEAUti`.
+This suggestion benefits the image of author of `beautier`, 
+who, however, thinks that
 both tools are equally valuable and beautiful.
 
 ## Why the logo?
@@ -139,37 +160,48 @@ be used for free, by attribution.
 
 ### Not enough memory
 
-```
+```bash
 ./beauti
 ```
 
-```
+```text
 Can't start up: not enough memory
 ```
 
-On Artful Aardvark, remove `-Xms256m -Xmx4g` from the `bin/beauti` file's last line. Change:
+On Artful Aardvark, remove `-Xms256m -Xmx4g` from the `bin/beauti` 
+file's last line. Change:
 
-```
+<!-- markdownlint-disable MD013 -->
+
+```bash
 "$JAVA" -Dlauncher.wait.for.exit=true -Xms256m -Xmx4g -Djava.library.path="$BEAST_LIB" -Duser.language=en -cp "$BEAST_LIB/launcher.jar" beast.app.beauti.BeautiLauncher -capture $*
 ```
 
+<!-- markdownlint-enable MD013 -->
+
 to
 
-```
+<!-- markdownlint-disable MD013 -->
+
+```bash
 "$JAVA" -Dlauncher.wait.for.exit=true -Djava.library.path="$BEAST_LIB" -Duser.language=en -cp "$BEAST_LIB/launcher.jar" beast.app.beauti.BeautiLauncher -capture $*
 ```
+
+<!-- markdownlint-enable MD013 -->
 
 ### BEAUti requires Java version at least 8
 
 Do:
 
-```
+```bash
 sudo update-alternatives --config java
 ```
 
 Pick `/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java`:
 
-```
+<!-- markdownlint-disable MD013 -->
+
+```bash
 There are 5 choices for the alternative java (providing /usr/bin/java).
 
   Selection    Path                                            Priority   Status
@@ -181,3 +213,5 @@ There are 5 choices for the alternative java (providing /usr/bin/java).
 * 4            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
   5            /usr/lib/jvm/java-9-openjdk-amd64/bin/java       1091      manual mode
 ```
+
+<!-- markdownlint-enable MD013 -->

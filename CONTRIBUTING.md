@@ -84,7 +84,7 @@ Pull Requests should follow the same guidelines as 'Submitting code'.
 
 To get started working on `beautier` do:
 
-```
+```bash
 git clone https://github.com/ropensci/beautier
 ```
 
@@ -92,13 +92,13 @@ Development is done on the `develop` branch.
 To download and checkout the `develop` branch,
 first go into the `beautier` folder (`cd beautier`), then do:
 
-```
+```bash
 git checkout develop
 ```
 
 Then the workflow is the common `git` workflow:
 
-```
+```bash
 git pull
 git add --all :/
 git commit -m "Did something awesome"
