@@ -14,9 +14,8 @@ The first BEAST2 XML files created by `beautier`
 followed BEAST2 v2.4. `beautier` follows the
 BEAST2 versions, which is now at v2.6.0.
 
-
 The BEAST2 version actually used by `babette`
-can be found in the 
+can be found in the
 <!-- markdownlint-disable MD013 -->
 [beastier::install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
 <!-- markdownlint-enable MD013 -->
@@ -77,12 +76,12 @@ or
 
 ### Are there any related packages?
 
-* [lumier](https://github.com/ropensci/lumier): 
+* [lumier](https://github.com/ropensci/lumier):
   Shiny app to help create the function call needed
-* [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR): 
+* [BEASTmasteR](https://github.com/nmatzke/BEASTmasteR):
   tip-dating analyses using fossils as dated terminal taxa
-* [BEASTifier](https://github.com/josephwb/BEASTifier): 
-  generate BEAST input files from a NEXUS file, 
+* [BEASTifier](https://github.com/josephwb/BEASTifier):
+  generate BEAST input files from a NEXUS file,
   similar to [beautier](https://github.com/ropensci/beautier)
 * [RBeast](https://github.com/beast-dev/RBeast): misc other things
 
@@ -100,11 +99,11 @@ Filename               |Reference
 `G_VII_pre2003_msa.fas`|[2]
 Others                 |Artificial
 
-* [1] Van Els, Paul, and Heraldo V. Norambuena. 
-  "A revision of species limits in Neotropical pipits Anthus 
+* [1] Van Els, Paul, and Heraldo V. Norambuena.
+  "A revision of species limits in Neotropical pipits Anthus
   based on multilocus genetic and vocal data." Ibis.
-* [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J; 
-  Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation). 
+* [2] Durr, PA; Wibowo, MH; Tabbu, CR; Asmara, W; Selleck, P; Wang, J;
+  Broz, I; Graham, K.; Dimitrov, K and Afonso, C. (in preparation).
   Phylodynamics of Genotype VII Newcastle disease virus in Indonesia.
 
 Thanks to Peter A. Durr and Paul van Els for supplying the FASTA files.
@@ -134,16 +133,16 @@ out <- create_beast2_input(
 ```
 
 Answer: because function names should start with a
-verb (see e.g. 
+verb (see e.g.
 [https://style.tidyverse.org/functions.html#naming](The Tidyverse Style Guide))
 
 ## Why the name?
 
 `beautier` is 'BEAUti for R'.
 
-Additionally, it is a joke that suggests `beautier` 
+Additionally, it is a joke that suggests `beautier`
 would have more beauty than `BEAUti`.
-This suggestion benefits the image of author of `beautier`, 
+This suggestion benefits the image of author of `beautier`,
 who, however, thinks that
 both tools are equally valuable and beautiful.
 
@@ -168,7 +167,7 @@ be used for free, by attribution.
 Can't start up: not enough memory
 ```
 
-On Artful Aardvark, remove `-Xms256m -Xmx4g` from the `bin/beauti` 
+On Artful Aardvark, remove `-Xms256m -Xmx4g` from the `bin/beauti`
 file's last line. Change:
 
 <!-- markdownlint-disable MD013 -->

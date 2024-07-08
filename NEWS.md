@@ -687,7 +687,7 @@ Newest versions at top.
 
 * Simplified interface for parameters:
 
-```
+```r
 # Old
 distr <- create_distr_poisson(id = 1, lambda = create_lambda_param(value = 1.2))
 # Added

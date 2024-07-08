@@ -4,8 +4,8 @@
 
 [![Peer Review Status](https://badges.ropensci.org/209_status.svg)](https://github.com/ropensci/software-review/issues/209)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/beautier)](https://cran.r-project.org/package=beautier)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/beautier)]( https://CRAN.R-project.org/package=beautier)
-[![](http://cranlogs.r-pkg.org/badges/beautier)](https://CRAN.R-project.org/package=beautier)
+[![CRAN total downloads](http://cranlogs.r-pkg.org/badges/grand-total/beautier)]( https://CRAN.R-project.org/package=beautier)
+[![CRAN downloads per months](http://cranlogs.r-pkg.org/badges/beautier)](https://CRAN.R-project.org/package=beautier)
 [![DOI](https://zenodo.org/badge/53443354.svg)](https://zenodo.org/badge/latestdoi/53443354)
 
 Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/beautier/actions)|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
@@ -82,19 +82,19 @@ This works, and the interface is unlikely to change.
 
 * 1 DNA alignment
 * Site models:
-  * JC69
-  * HKY
-  * TN93
-  * GTR
+    * JC69
+    * HKY
+    * TN93
+    * GTR
 * Clock models:
-  * Strickt
-  * Relaxed log-normal
+    * Strickt
+    * Relaxed log-normal
 * Tree models:
-  * Yule
-  * Birth-Death
-  * Coalescent Bayesian Skyline
-  * Coalescent Constant Population
-  * Coalescent Exponential Population
+    * Yule
+    * Birth-Death
+    * Coalescent Bayesian Skyline
+    * Coalescent Constant Population
+    * Coalescent Exponential Population
 * Handle missing data: simply use a dash (´-´) as a sequence
    in a FASTA file
 
@@ -111,7 +111,7 @@ The columns need to be tab separated.
 See [here](https://github.com/ropensci/beautier/blob/master/inst/extdata/G_VII_pre2003_dates_4.txt)
 for an example, of which the first rows are shown here:
 
-```
+```text
 KF767106_Indonesia_1976_VII 1976
 KF767104_Indonesia_1988_VII 1988
 KF767105_Indonesia_1988_VII 1988
@@ -136,12 +136,12 @@ some are linked to an Issue:
 * [Using an amino acid alignment](https://github.com/ropensci/beautier/issues/114)
 * Support for hyper parameters
 * Clock models
-  * Relaxed exponential
-  * Random local
+    * Relaxed exponential
+    * Random local
 * Tree priors
-  * Calibrated Yule model
-  * Coalescent Extended Bayesian Skyline
-  * [Birth Death Skyline Serial](https://github.com/ropensci/beautier/issues/133)
+    * Calibrated Yule model
+    * Coalescent Extended Bayesian Skyline
+    * [Birth Death Skyline Serial](https://github.com/ropensci/beautier/issues/133)
 * Initialization (this is a tab that is hidden by default in `BEAUti`)
 
 ## There is a feature I miss
