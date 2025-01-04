@@ -191,4 +191,3 @@ FASTA file `G_VII_pre2003_msa.fas` from:
 [![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
 
 <!-- markdownlint-enable MD013 -->
-
