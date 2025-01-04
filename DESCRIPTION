@@ -26,7 +26,7 @@ Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
   files without active user input, but using
   R function calls instead.
 License: GPL-3
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 URL: https://docs.ropensci.org/beautier/, https://github.com/ropensci/beautier
 BugReports: https://github.com/ropensci/beautier/issues
