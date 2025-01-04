@@ -74,7 +74,7 @@ check_inference_model <- function(
     }
   )
   if (!is_one_na(inference_model$tipdates_filename)) {
-    check_string(inference_model$tipdates_filename)
+    check_string(inference_model$tipdates_filename, allow_na = TRUE)
     if (!file.exists(inference_model$tipdates_filename)) {
       stop(
         "Tipdating filename not found at path '",

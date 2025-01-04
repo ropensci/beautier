@@ -4,7 +4,9 @@ test_that("replace dir from local to folder", {
   inference_model$mcmc$tracelog$filename <- "trace.log"
   inference_model$mcmc$screenlog$filename <- "screen.log"
   inference_model$mcmc$treelog$filename <- "tree.log"
-  inference_model$tipdates_filename <- "tipdates.csv"
+  inference_model$tipdates_filename <- get_beautier_path(
+    "babette_issue_108_tipdates.txt"
+  )
 
   inference_model <- rename_inference_model_filenames(
     inference_model = inference_model,
@@ -16,7 +18,10 @@ test_that("replace dir from local to folder", {
     inference_model$mcmc$screenlog$filename, "/home/john/screen.log"
   )
   expect_equal(inference_model$mcmc$treelog$filename, "/home/john/tree.log")
-  expect_equal(inference_model$tipdates_filename, "/home/john/tipdates.csv")
+  expect_equal(
+    inference_model$tipdates_filename,
+    "/home/john/babette_issue_108_tipdates.txt"
+  )
 })
 
 test_that("rename dir from folder to folder", {
@@ -25,7 +30,9 @@ test_that("rename dir from folder to folder", {
   inference_model$mcmc$tracelog$filename <- "/home/john/trace.log"
   inference_model$mcmc$screenlog$filename <- "/home/john/screen.log"
   inference_model$mcmc$treelog$filename <- "/home/john/tree.log"
-  inference_model$tipdates_filename <- "/home/john/tipdates.csv"
+  inference_model$tipdates_filename <- get_beautier_path(
+    "babette_issue_108_tipdates.txt"
+  )
 
   inference_model <- rename_inference_model_filenames(
     inference_model = inference_model,
@@ -35,7 +42,10 @@ test_that("rename dir from folder to folder", {
   expect_equal(inference_model$mcmc$tracelog$filename, "/home/doe/trace.log")
   expect_equal(inference_model$mcmc$screenlog$filename, "/home/doe/screen.log")
   expect_equal(inference_model$mcmc$treelog$filename, "/home/doe/tree.log")
-  expect_equal(inference_model$tipdates_filename, "/home/doe/tipdates.csv")
+  expect_equal(
+    inference_model$tipdates_filename,
+    "/home/doe/babette_issue_108_tipdates.txt"
+  )
 })
 
 
@@ -45,7 +55,9 @@ test_that("remove dir", {
   inference_model$mcmc$tracelog$filename <- "/home/john/trace.log"
   inference_model$mcmc$screenlog$filename <- "/home/john/screen.log"
   inference_model$mcmc$treelog$filename <- "/home/john/tree.log"
-  inference_model$tipdates_filename <- "/home/john/tipdates.csv"
+  inference_model$tipdates_filename <- get_beautier_path(
+    "babette_issue_108_tipdates.txt"
+  )
 
   inference_model <- rename_inference_model_filenames(
     inference_model = inference_model,
@@ -55,7 +67,10 @@ test_that("remove dir", {
   expect_equal(inference_model$mcmc$tracelog$filename, "trace.log")
   expect_equal(inference_model$mcmc$screenlog$filename, "screen.log")
   expect_equal(inference_model$mcmc$treelog$filename, "tree.log")
-  expect_equal(inference_model$tipdates_filename, "tipdates.csv")
+  expect_equal(
+    inference_model$tipdates_filename,
+    "babette_issue_108_tipdates.txt"
+  )
 })
 
 test_that("use", {
