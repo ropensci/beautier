@@ -73,6 +73,17 @@ check_inference_model <- function(
       )
     }
   )
-  check_string(inference_model$tipdates_filename, allow_na = TRUE)
+  if (!is_one_na(inference_model$tipdates_filename)) {
+    check_string(inference_model$tipdates_filename)
+    if (!file.exists(inference_model$tipdates_filename)) {
+      stop(
+        "Tipdating filename not found at path '",
+        inference_model$tipdates_filename, "'. \n",
+        "Tip: set either to NA (i.e. no tip dating) ",
+        "or to a valid path"
+      )
+    }
+  }
+
   invisible(inference_model)
 }
