@@ -20,7 +20,11 @@ test_that("use", {
   )
   expect_silent(
     check_inference_model(
-      create_inference_model(tipdates_filename = "my_filename.csv")
+      create_inference_model(
+        tipdates_filename = get_beautier_path(
+          "babette_issue_108_tipdates.txt"
+        )
+      )
     )
   )
 
