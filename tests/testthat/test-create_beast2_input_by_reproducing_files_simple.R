@@ -1679,11 +1679,13 @@ test_that("RLN and non-monophyletic MRCA with distribution, beastier", {
   )
   # The next testing function does compare line-by-line
   if ("beastier" %in% installed.packages()[,1]) {
-    expect_true(
-      beastier::are_beast2_input_lines(
-        lines, method = "deep"
+    if (beastier::is_beast2_installed()) {
+      expect_true(
+        beastier::are_beast2_input_lines(
+          lines, method = "deep"
+        )
       )
-    )
+    }
   }
 
   remove_beautier_folder()
@@ -1721,11 +1723,13 @@ test_that("RLN and non-monophyletic MRCA with distribution, beastier", {
     beauti_options = create_beauti_options_v2_6()
   )
   if ("beastier" %in% installed.packages()[,1]) {
-    expect_true(
-      beastier::are_beast2_input_lines(
-        lines, method = "deep"
+    if (beastier::is_beast2_installed()) {
+      expect_true(
+        beastier::are_beast2_input_lines(
+          lines, method = "deep"
+        )
       )
-    )
+    }
   }
   expected <- readLines(get_beautier_path("babette_issue_26.xml"))
 
