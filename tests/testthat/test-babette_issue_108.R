@@ -26,7 +26,11 @@ test_that("tipdates file must be used in the created file", {
   fasta_filename <- get_beautier_path("babette_issue_108.fasta")
   output_filename <- get_beautier_tempfilename()
   tipdates_filename <- get_beautier_path("babette_issue_108_tipdates.txt")
-  tipdates_table <- readr::read_tsv(tipdates_filename, col_names = c("A", "year"))
+  tipdates_table <- readr::read_tsv(
+    tipdates_filename,
+    col_names = c("A", "year"),
+    show_col_types = FALSE
+  )
   expect_silent(
     create_beast2_input_file(
       input_filename = fasta_filename,
@@ -39,7 +43,7 @@ test_that("tipdates file must be used in the created file", {
       beauti_options = create_beauti_options_v2_6()
     )
   )
-  expect_false(file.exists(output_filename))
+  expect_true(file.exists(output_filename))
   beast2_xml_lines <- readr::read_lines(output_filename)
   expect_true(
     length(
