@@ -17,10 +17,10 @@ BEAST2 versions, which is now at v2.6.0.
 The BEAST2 version actually used by `babette`
 can be found in the
 <!-- markdownlint-disable MD013 -->
-[beastier::install_beast2](https://github.com/ropensci/beastier/blob/master/R/install_beast2.R) function.
+[beastier::install_beast2](https://github.com/ropensci/beastier/blob/main/R/install_beast2.R) function.
 <!-- markdownlint-enable MD013 -->
 
-## Why does AppVeyor only check the `master` branch?
+## Why does AppVeyor only check the `main` branch?
 
 Because `ropensci` does not have AppVeyor.
 
@@ -28,7 +28,7 @@ To do check for Windows,
 <!-- markdownlint-disable MD013 -->
 [the beautier_on_windows repo](https://github.com/richelbilderbeek/beautier_on_windows)
 <!-- markdownlint-enable MD013 -->
-is created. That repo only checks the `master` branch of `beautier`.
+is created. That repo only checks the `main` branch of `beautier`.
 
 ## What's the [road map](road_map.md)?
 

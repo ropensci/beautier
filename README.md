@@ -10,7 +10,7 @@
 
 Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/beautier/actions)|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
 ---------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------
-`master` |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=master)   |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/beautier/branch/master)
+`main` |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=main)   |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beautier/branch/main)
 `develop`|![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beautier/branch/develop)
 
 `beautier` is `BEAUti` for R.
@@ -45,7 +45,7 @@ See [examples](doc/examples.md).
 `beautier` can be installed:
 
 * Latest CRAN version: CRAN
-* Latest stable version: GitHub, `master` branch
+* Latest stable version: GitHub, `main` branch
 * Bleeding-edge version: GitHub, `develop` branch
 
 ### CRAN
@@ -56,7 +56,7 @@ For the latest CRAN version:
 install.packages("beautier")
 ```
 
-### GitHub, `master` branch
+### GitHub, `main` branch
 
 For the latest stable version:
 
@@ -108,7 +108,7 @@ The tip dates file is a file
 that needs to not have column, nor row names.
 The columns need to be tab separated.
 
-See [here](https://github.com/ropensci/beautier/blob/master/inst/extdata/G_VII_pre2003_dates_4.txt)
+See [here](https://github.com/ropensci/beautier/blob/main/inst/extdata/G_VII_pre2003_dates_4.txt)
 for an example, of which the first rows are shown here:
 
 ```text

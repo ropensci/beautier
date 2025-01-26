@@ -218,15 +218,15 @@
       "sameAs": "https://CRAN.R-project.org/package=testit"
     }
   ],
-  "releaseNotes": "https://github.com/ropensci/beautier/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/beautier/blob/master/README.md",
+  "releaseNotes": "https://github.com/ropensci/beautier/blob/main/NEWS.md",
+  "readme": "https://github.com/ropensci/beautier/blob/main/README.md",
   "contIntegration": [
     "https://travis-ci.org",
     "https://www.appveyor.com",
     "https://www.codecov.io",
     "https://travis-ci.org/ropensci/beautier",
     "https://ci.appveyor.com/project/ropensci/beautier",
-    "https://codecov.io/github/ropensci/beautier/branch/master",
+    "https://codecov.io/github/ropensci/beautier/branch/main",
     "https://travis-ci.org/ropensci/beautier",
     "https://ci.appveyor.com/project/ropensci/beautier",
     "https://codecov.io/github/ropensci/beautier/branch/develop"
