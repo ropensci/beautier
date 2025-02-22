@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.5">
+
+
+    <data id="1996-2000" name="alignment">
+                    <sequence id="seq_A/Environment/Hong_Kong/437-10/1999_H5N1_EPI_ISL_1462_0" taxon="A/Environment/Hong_Kong/437-10/1999_H5N1_EPI_ISL_1462_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttaaaagtgatcagatttgcattggttaccatgcaaataactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaacgggaagctctgcgatctagatggagtgaagcctctaattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacaactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaagtcctcctttttcagaaatgtggtatggcttaccaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctatatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccctctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagagaggactatttggggctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttagaaaggaggatagaaaatttgaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/Environment/Hong_Kong/437-4/1999_H5N1_EPI_ISL_1459_0" taxon="A/Environment/Hong_Kong/437-4/1999_H5N1_EPI_ISL_1459_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttaaaagtgatcagatttgcattggttaccatgcaaataactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaacgggaagctctgcgatctagatggagtgaagcctctaattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacaactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaagtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctatatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccctctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagagaggactatttggggctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttagaaaggaggatagaaaatttgaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgccaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/Environment/Hong_Kong/437-6/1999_H5N1_EPI_ISL_1460_0" taxon="A/Environment/Hong_Kong/437-6/1999_H5N1_EPI_ISL_1460_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaacgggaagctctgcgatctagatggagtgaagcctctaattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacaactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaagtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctatatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccctctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagagaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttagaaaggaggatagaaaatttaaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcagcagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/Environment/Hong_Kong/437-8/1999_H5N1_EPI_ISL_1461_0" taxon="A/Environment/Hong_Kong/437-8/1999_H5N1_EPI_ISL_1461_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttaaaagtgatcagatttgcattggttaccatgcaaataactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaacgggaagctctgcgatctagatggagtgaagcctctaattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttatccaggggatttcaacaactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaagtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctatatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtgaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccctctcaccatcggggaatgccccaaatatgtggaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagagaggactatttggggctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttagaaaggaggatagaaaatttgaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccggagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/Goose/Guangdong/1/1996_H5N1_EPI_ISL_1254_0" taxon="A/Goose/Guangdong/1/1996_H5N1_EPI_ISL_1254_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgtcaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaatgggaagctctgcgatctaaatggagtgaagcctctcattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacgactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttagtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacttacatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccccctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcagagagagaga---------agaagaaaaaagagaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggaggatagagaatttaaacaagcagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttatgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/chicken/Hubei/wh/1997_H5N1_EPI_ISL_68662_0" taxon="A/chicken/Hubei/wh/1997_H5N1_EPI_ISL_68662_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaggacacacaacgggaagctctgcgatctagatggagtaaagcctctcattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcaccaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacgactatgaagaactgaaacacctattgagcagaataaaccattttgagaaaattcagatcatccccaaaagttcttggtccgatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtacataccccacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctacatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacatttttaaagccgaatgatgccatcaatttcgaaagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccccctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagcgaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagcggatacgctgcagacaaagaatccactccaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggaggatagagagtttaaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaagaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/chicken/Hubei/wj/1997_H5N1_EPI_ISL_68664_0" taxon="A/chicken/Hubei/wj/1997_H5N1_EPI_ISL_68664_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgtcaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaacgggaagctctgcgatctaaatggagtgaagcctctcattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcaccaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacgactatgaagaactgaaacacctattgagcagaataaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtacatacccaacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctatatttccgttgggacatcaacactgaaccagagattggttccagaaatagctactagatccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgaaagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccccctcaccatcggagaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagagaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagatagagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggaggatagagagtttaaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagtactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/chicken/Hubei/wl/1997_H5N1_EPI_ISL_68666_0" taxon="A/chicken/Hubei/wl/1997_H5N1_EPI_ISL_68666_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagaaacacaacgggaagctctgcgatctagatggagtgaaacctctaattttaagagattgtagtgtagctggatggctcctcggaaacccaatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtagagaaggccagtccagccaatgacctctgttacccaggggatttcaacgactatgaagaactgaaacacctattgagcagaataaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgaagcctcatcaggggtgagcgcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtacatacccaacaataaagaggagctacaataataccaaccaagaagatcttttggtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacctacatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgaaagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccccctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagcgaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagcggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggaggatagagagtttaaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/duck/Guangxi/07/1999_H5N1_EPI_ISL_3895_0" taxon="A/duck/Guangxi/07/1999_H5N1_EPI_ISL_3895_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgttgaaagtgatcaaatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaacgggaagctctgcaatctaaatggagtgaagcctctcattttgagagattgtagtgtagctggatggctcctcggaaatcctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggctagcccagccaatgacctctgttacccaggggatctcaatgactatgaagaactgaaacacctattgagcagcacaaaccattttgagaaaattcagatcatccccaaaaattcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttaccaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaacccagaagatcttttgatactgtgggggattcaccatcctaatgatgcagcagagcagacaaagctctatcaaaacccaaccacctacgtttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatagtaactgcaacaccaagtgtcaaactccaataggggcgataaactctagtatgccattccacaacatacatcctctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaaa---------agaagaaaaaagagagggctatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaattcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggagaatagagaatttaaacaagaagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggagaatgagagaactctatactttcatgactcaaatgtcaaggacctttacgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaagaaacggaacgtatgactatccgcagtattcagaagaagcaaggctaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcattacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/goose/Guangdong/1/1996-01-01_H5N1_EPI_ISL_17767104_0" taxon="A/goose/Guangdong/1/1996-01-01_H5N1_EPI_ISL_17767104_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgtcaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaatgggaagctctgcgatctaaatggagtgaagcctctcattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacgactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttagtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacttacatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccccctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcagagagagaga---------agaagaaaaaagagaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccaccatagcaatgagcaggggagtggatacgctgcagacaaagaatccactcaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggaggatagagaatttaaacaagcagatggaagacggattcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttatgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                    <sequence id="seq_A/goose/Guangdong/3/1997_H5N1_EPI_ISL_1909_0" taxon="A/goose/Guangdong/3/1997_H5N1_EPI_ISL_1909_0" totalcount="4" value="atggagaaaatagtgcttcttcttgcaatagtcagtcttgtcaaaagtgatcagatttgcattggttaccatgcaaacaactcgacagagcaggttgacacaataatggaaaagaacgttactgttacacatgcccaagacatactggaaaagacacacaatgggaagctctgcgatctaaatggagtgaagcctctcattttgagagattgtagtgtagctggatggctcctcggaaaccctatgtgtgacgaattcatcaatgtgccggaatggtcttacatagtggagaaggccagtccagccaatgacctctgttacccaggggatttcaacgactatgaagaactgaaacacctattgagcagaacaaaccattttgagaaaattcagatcatccccaaaagttcttggtccaatcatgatgcctcatcaggggtgagctcagca---tgtccataccatgggaggtcctcctttttcagaaatgtggtatggcttatcaaaaagaacagtgcatacccaacaataaagaggagctacaataataccaaccaagaagatcttttagtactgtgggggattcaccatcctaatgatgcggcagagcagacaaagctctatcaaaacccaaccacttacatttccgttggaacatcaacactgaaccagagattggttccagaaatagctactagacccaaagtaaacgggcaaagtggaagaatggagttcttctggacaattttaaagccgaatgatgccatcaatttcgagagtaatggaaatttcattgctccagaatatgcatacaaaattgtcaagaaaggggactcagcaattatgaaaagtgaattggaatatggtaactgcaacaccaagtgtcaaactccaatgggggcgataaactctagtatgccattccacaacatacaccccctcaccatcggggaatgccccaaatatgtgaaatcaaacagattagtccttgcgactggactcagaaatacccctcaaagagagaga---------agaagaaaaaagagaggactatttggagctatagcaggttttatagagggaggatggcagggaatggtagatggttggtatgggtaccgccatagcaatgagcaggggagtggatacgctgcagacaaagaatccacccaaaaggcaatagatggagtcaccaataaggtcaactcgatcattgacaaaatgaacactcagtttgaggccgttggaagggaatttaataacttggaaaggaggatagagaatttaaacaagcagatggaagacggactcctagatgtctggacttataatgctgaacttctggttctcatggaaaatgagagaactctagactttcatgactcaaatgtcaagaacctttatgacaaggtccgactacagcttagggataatgcaaaggagctgggtaatggttgtttcgagttctatcacaaatgtgataatgaatgtatggaaagtgtaaaaaacggaacgtatgactacccgcagtattcagaagaagcaagactaaacagagaggaaataagtggagtaaaattggaatcaatgggaacttaccaaatactgtcaatttattcaacagtggcgagttccctagcactggcaatcatggtagctggt---ctatctttatggatgtgctccaatggatcgttacaatgcagaatttgcatt"/>
+                </data>
+
+
+    
+
+
+    
+
+
+    
+<map name="Uniform" >beast.math.distributions.Uniform</map>
+<map name="Exponential" >beast.math.distributions.Exponential</map>
+<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+<map name="Normal" >beast.math.distributions.Normal</map>
+<map name="Beta" >beast.math.distributions.Beta</map>
+<map name="Gamma" >beast.math.distributions.Gamma</map>
+<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+<map name="prior" >beast.math.distributions.Prior</map>
+<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+
+
+<run id="mcmc" spec="MCMC" chainLength="10000000">
+    <state id="state" storeEvery="5000">
+        <tree id="Tree.t:1996-2000" name="stateNode">
+            <trait id="dateTrait.t:1996-2000" spec="beast.evolution.tree.TraitSet" traitname="date-forward" value="A/Goose/Guangdong/1/1996_H5N1_EPI_ISL_1254_0=1996.5,A/Environment/Hong_Kong/437-4/1999_H5N1_EPI_ISL_1459_0=1999.5,A/Environment/Hong_Kong/437-6/1999_H5N1_EPI_ISL_1460_0=1999.5,A/Environment/Hong_Kong/437-8/1999_H5N1_EPI_ISL_1461_0=1999.5,A/Environment/Hong_Kong/437-10/1999_H5N1_EPI_ISL_1462_0=1999.5,A/goose/Guangdong/3/1997_H5N1_EPI_ISL_1909_0=1997.5,A/chicken/Hubei/wh/1997_H5N1_EPI_ISL_68662_0=1997.5,A/chicken/Hubei/wj/1997_H5N1_EPI_ISL_68664_0=1997.5,A/chicken/Hubei/wl/1997_H5N1_EPI_ISL_68666_0=1997.5,A/duck/Guangxi/07/1999_H5N1_EPI_ISL_3895_0=1999.5,A/goose/Guangdong/1/1996-01-01_H5N1_EPI_ISL_17767104_0=1996">
+                <taxa id="TaxonSet.1996-2000" spec="TaxonSet">
+                    <alignment idref="1996-2000"/>
+                </taxa>
+            </trait>
+            <taxonset idref="TaxonSet.1996-2000"/>
+        </tree>
+        <parameter id="kappa.s:1996-2000" lower="0.0" name="stateNode">2.0</parameter>
+        <parameter id="freqParameter.s:1996-2000" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+        <parameter id="ucldMean.c:1996-2000" name="stateNode">1.0</parameter>
+        <parameter id="ucldStdev.c:1996-2000" lower="0.0" name="stateNode">0.1</parameter>
+        <stateNode id="rateCategories.c:1996-2000" spec="parameter.IntegerParameter" dimension="20">1</stateNode>
+        <parameter id="bPopSizes.t:1996-2000" dimension="5" lower="0.0" name="stateNode" upper="380000.0">380.0</parameter>
+        <stateNode id="bGroupSizes.t:1996-2000" spec="parameter.IntegerParameter" dimension="5">1</stateNode>
+    </state>
+
+    <init id="RandomTree.t:1996-2000" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:1996-2000" taxa="@1996-2000">
+        <populationModel id="ConstantPopulation0.t:1996-2000" spec="ConstantPopulation">
+            <parameter id="randomPopSize.t:1996-2000" name="popSize">1.0</parameter>
+        </populationModel>
+    </init>
+
+    <distribution id="posterior" spec="util.CompoundDistribution">
+        <distribution id="prior" spec="util.CompoundDistribution">
+            <distribution id="BayesianSkyline.t:1996-2000" spec="BayesianSkyline" groupSizes="@bGroupSizes.t:1996-2000" popSizes="@bPopSizes.t:1996-2000">
+                <treeIntervals id="BSPTreeIntervals.t:1996-2000" spec="TreeIntervals" tree="@Tree.t:1996-2000"/>
+            </distribution>
+            <distribution id="MarkovChainedPopSizes.t:1996-2000" spec="beast.math.distributions.MarkovChainDistribution" jeffreys="true" parameter="@bPopSizes.t:1996-2000"/>
+            <prior id="KappaPrior.s:1996-2000" name="distribution" x="@kappa.s:1996-2000">
+                <LogNormal id="LogNormalDistributionModel.0" name="distr">
+                    <parameter id="RealParameter.0" estimate="false" name="M">1.0</parameter>
+                    <parameter id="RealParameter.1" estimate="false" name="S">1.25</parameter>
+                </LogNormal>
+            </prior>
+            <prior id="MeanRatePrior.c:1996-2000" name="distribution" x="@ucldMean.c:1996-2000">
+                <Uniform id="Uniform.2" name="distr" upper="Infinity"/>
+            </prior>
+            <prior id="ucldStdevPrior.c:1996-2000" name="distribution" x="@ucldStdev.c:1996-2000">
+                <Gamma id="Gamma.1" name="distr">
+                    <parameter id="RealParameter.2" estimate="false" name="alpha">0.5396</parameter>
+                    <parameter id="RealParameter.3" estimate="false" name="beta">0.3819</parameter>
+                </Gamma>
+            </prior>
+        </distribution>
+        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+            <distribution id="treeLikelihood.1996-2000" spec="ThreadedTreeLikelihood" data="@1996-2000" tree="@Tree.t:1996-2000">
+                <siteModel id="SiteModel.s:1996-2000" spec="SiteModel">
+                    <parameter id="mutationRate.s:1996-2000" estimate="false" name="mutationRate">1.0</parameter>
+                    <parameter id="gammaShape.s:1996-2000" estimate="false" name="shape">1.0</parameter>
+                    <parameter id="proportionInvariant.s:1996-2000" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                    <substModel id="hky.s:1996-2000" spec="HKY" kappa="@kappa.s:1996-2000">
+                        <frequencies id="estimatedFreqs.s:1996-2000" spec="Frequencies" frequencies="@freqParameter.s:1996-2000"/>
+                    </substModel>
+                </siteModel>
+                <branchRateModel id="RelaxedClock.c:1996-2000" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:1996-2000" rateCategories="@rateCategories.c:1996-2000" tree="@Tree.t:1996-2000">
+                    <LogNormal id="LogNormalDistributionModel.c:1996-2000" S="@ucldStdev.c:1996-2000" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.4" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                    </LogNormal>
+                </branchRateModel>
+            </distribution>
+        </distribution>
+    </distribution>
+
+    <operator id="popSizesScaler.t:1996-2000" spec="ScaleOperator" parameter="@bPopSizes.t:1996-2000" weight="15.0"/>
+
+    <operator id="groupSizesDelta.t:1996-2000" spec="DeltaExchangeOperator" integer="true" weight="6.0">
+        <intparameter idref="bGroupSizes.t:1996-2000"/>
+    </operator>
+
+    <operator id="BayesianSkylineTreeScaler.t:1996-2000" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:1996-2000" weight="3.0"/>
+
+    <operator id="BayesianSkylineTreeRootScaler.t:1996-2000" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:1996-2000" weight="3.0"/>
+
+    <operator id="BayesianSkylineUniformOperator.t:1996-2000" spec="Uniform" tree="@Tree.t:1996-2000" weight="30.0"/>
+
+    <operator id="BayesianSkylineSubtreeSlide.t:1996-2000" spec="SubtreeSlide" tree="@Tree.t:1996-2000" weight="15.0"/>
+
+    <operator id="BayesianSkylineNarrow.t:1996-2000" spec="Exchange" tree="@Tree.t:1996-2000" weight="15.0"/>
+
+    <operator id="BayesianSkylineWide.t:1996-2000" spec="Exchange" isNarrow="false" tree="@Tree.t:1996-2000" weight="3.0"/>
+
+    <operator id="BayesianSkylineWilsonBalding.t:1996-2000" spec="WilsonBalding" tree="@Tree.t:1996-2000" weight="3.0"/>
+
+    <operator id="KappaScaler.s:1996-2000" spec="ScaleOperator" parameter="@kappa.s:1996-2000" scaleFactor="0.5" weight="0.1"/>
+
+    <operator id="FrequenciesExchanger.s:1996-2000" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+        <parameter idref="freqParameter.s:1996-2000"/>
+    </operator>
+
+    <operator id="ucldStdevScaler.c:1996-2000" spec="ScaleOperator" parameter="@ucldStdev.c:1996-2000" scaleFactor="0.5" weight="3.0"/>
+
+    <operator id="CategoriesRandomWalk.c:1996-2000" spec="IntRandomWalkOperator" parameter="@rateCategories.c:1996-2000" weight="10.0" windowSize="1"/>
+
+    <operator id="CategoriesSwapOperator.c:1996-2000" spec="SwapOperator" intparameter="@rateCategories.c:1996-2000" weight="10.0"/>
+
+    <operator id="CategoriesUniform.c:1996-2000" spec="UniformOperator" parameter="@rateCategories.c:1996-2000" weight="10.0"/>
+
+    <operator id="ucldMeanScaler.c:1996-2000" spec="ScaleOperator" parameter="@ucldMean.c:1996-2000" scaleFactor="0.5" weight="1.0"/>
+
+    <operator id="relaxedUpDownOperator.c:1996-2000" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+        <up idref="ucldMean.c:1996-2000"/>
+        <down idref="Tree.t:1996-2000"/>
+    </operator>
+
+    <logger id="tracelog" fileName="1996-2000.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <log idref="posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+        <log idref="treeLikelihood.1996-2000"/>
+        <log id="TreeHeight.t:1996-2000" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:1996-2000"/>
+        <log idref="kappa.s:1996-2000"/>
+        <log idref="freqParameter.s:1996-2000"/>
+        <log idref="ucldMean.c:1996-2000"/>
+        <log idref="ucldStdev.c:1996-2000"/>
+        <log id="rate.c:1996-2000" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:1996-2000" tree="@Tree.t:1996-2000"/>
+        <log idref="BayesianSkyline.t:1996-2000"/>
+        <log idref="bPopSizes.t:1996-2000"/>
+        <log idref="bGroupSizes.t:1996-2000"/>
+    </logger>
+
+    <logger id="screenlog" logEvery="1000">
+        <log idref="posterior"/>
+        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+        <log idref="likelihood"/>
+        <log idref="prior"/>
+    </logger>
+
+    <logger id="treelog.t:1996-2000" fileName="$(tree).trees" logEvery="1000" mode="tree">
+        <log id="TreeWithMetaDataLogger.t:1996-2000" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:1996-2000" tree="@Tree.t:1996-2000"/>
+    </logger>
+
+</run>
+
+</beast>
