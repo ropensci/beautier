@@ -74,6 +74,10 @@ test_that("tipdates file must be used in the created file", {
 
 test_that("Reproduce file", {
 
+  if (!"beastier" %in% installed.packages()[,1]) {
+    return()
+  }
+
   fasta_filename_beautier <- get_beautier_path("babette_issue_108.fasta")
   # Copy to have 1996-2000 in the data id
   fasta_filename <- file.path(
