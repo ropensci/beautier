@@ -19,17 +19,8 @@ test_that("tipdates file must be used in the created file", {
     setwd("~/Downloads/file/")
   }
 
-  #fasta_filename <- get_beautier_path("babette_issue_108.fasta")
-  #fasta_filename <- get_beautier_path("THAILAND_TEST.clust_1.dated.fa")
-  #fasta_filename <- "combined_aligned_myx.fasta"
   fasta_filename <- get_beautier_path("babette_issue_109.fasta")
-
-  #tipdates_filename <- get_beautier_path("babette_issue_108_tipdates.txt")
-  #tipdates_filename <- get_beautier_path("THAILAND_TEST.clust_1.dated.txt")
-  #tipdates_filename <- "tipdate.tsv"
   tipdates_filename <- get_beautier_path("babette_issue_109.tsv")
-
-
   output_filename <- get_beautier_tempfilename()
 
   testthat::expect_equal(
@@ -53,12 +44,17 @@ test_that("tipdates file must be used in the created file", {
     output_filename = output_filename
   )
 
+
   text <- readr::read_lines(output_filename)
 
   testthat::expect_equal(
     2,
     length(stringr::str_subset(text, "2014"))
   )
+
+  if (1 == 2) {
+    beastier::are_beast2_input_lines_deep(text, verbose = TRUE)
+  }
 
   # Inference model that fails
   inference_model <- create_inference_model(
@@ -75,6 +71,8 @@ test_that("tipdates file must be used in the created file", {
     input_filename = fasta_filename,
     output_filename = output_filename
   )
+
+
 
   text <- readr::read_lines(output_filename)
 

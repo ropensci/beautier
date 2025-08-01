@@ -89,6 +89,7 @@ test_that("Reproduce file", {
     rappdirs::user_cache_dir(appname = "beautier"),
     "1996-2000.fasta"
   )
+  dir.create(dirname(fasta_filename), recursive = TRUE)
   file.copy(from = fasta_filename_beautier, to = fasta_filename)
 
 
