@@ -18,6 +18,17 @@ test_that("use", {
       create_inference_model(tipdates_filename = NA)
     )
   )
+  expect_error(
+    check_inference_model(
+      inference_model = create_inference_model(
+        tipdates_filename = get_beautier_path(
+          "babette_issue_109_no_tabs.tsv"
+        )
+      )
+    ),
+    "is not a tab-separated"
+  )
+
   expect_silent(
     check_inference_model(
       create_inference_model(

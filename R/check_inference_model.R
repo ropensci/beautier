@@ -74,7 +74,10 @@ check_inference_model <- function(
     }
   )
   if (!is_one_na(inference_model$tipdates_filename)) {
+    # Must be a string
     check_string(inference_model$tipdates_filename, allow_na = TRUE)
+
+    # Must exist
     if (!file.exists(inference_model$tipdates_filename)) {
       stop(
         "Tipdating filename not found at path '",
@@ -83,6 +86,18 @@ check_inference_model <- function(
         "or to a valid path"
       )
     }
+    # Must be tab-seperated
+    tipdates_text <- readr::read_lines(inference_model$tipdates_filename)
+    if (!all(stringr::str_detect(tipdates_text, "\\t"))) {
+      stop(
+        "Tipdating filename at path '",
+        inference_model$tipdates_filename, "' ",
+        "is not a tab-separated file. \n",
+        "Tip: edit the file to have tabs as a column seperator and try again"
+      )
+
+    }
+
   }
 
   invisible(inference_model)

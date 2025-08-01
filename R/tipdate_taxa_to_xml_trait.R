@@ -28,9 +28,12 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
   # The concatenated taxa
   trait_set_str <- NULL
   if (inference_model$beauti_options$beast2_version != "2.6") {
-    trait_set_str <- create_trait_set_string(
-      utils::read.table(inference_model$tipdates_filename, sep = "\t")
+    tipdates_table <- utils::read.table(
+      inference_model$tipdates_filename,
+      sep = "\t"
     )
+    testthat::expect_equal(ncol(tipdates_table), 2)
+    trait_set_str <- create_trait_set_string(tipdates_table)
   }
   first_line <- paste0(
     "<trait id=\"dateTrait.t:", id, "\" ",

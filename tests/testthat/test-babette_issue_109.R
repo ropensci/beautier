@@ -1,3 +1,15 @@
+test_that("tipdates file without tabs must give an error", {
+
+  expect_error(
+    create_inference_model(
+      tipdates_filename = get_beautier_path("babette_issue_109_no_tabs.tsv")
+    ),
+    "is not a tab-separated file"
+  )
+  remove_beautier_folder()
+})
+
+
 test_that("tipdates file must be used in the created file", {
 
   if (!"beastier" %in% installed.packages()[,1]) {
@@ -32,7 +44,7 @@ test_that("tipdates file must be used in the created file", {
     tree_prior = create_yule_tree_prior(),
     mcmc = create_mcmc(),
     tipdates_filename = tipdates_filename,
-    beauti_options = create_beauti_options_v2_6()
+    beauti_options = create_beauti_options_v2_4()
   )
 
   create_beast2_input_file_from_model(
@@ -44,7 +56,7 @@ test_that("tipdates file must be used in the created file", {
   text <- readr::read_lines(output_filename)
 
   testthat::expect_equal(
-    1,
+    2,
     length(stringr::str_subset(text, "2014"))
   )
 
@@ -55,7 +67,7 @@ test_that("tipdates file must be used in the created file", {
     tree_prior = create_ccp_tree_prior(),
     mcmc = create_mcmc(),
     tipdates_filename = tipdates_filename,
-    beauti_options = create_beauti_options_v2_6()
+    beauti_options = create_beauti_options_v2_4()
   )
 
   create_beast2_input_file_from_model(
@@ -67,7 +79,7 @@ test_that("tipdates file must be used in the created file", {
   text <- readr::read_lines(output_filename)
 
   testthat::expect_equal(
-    1,
+    2,
     length(stringr::str_subset(text, "2014"))
   )
 

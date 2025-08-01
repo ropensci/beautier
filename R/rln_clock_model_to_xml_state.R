@@ -24,10 +24,13 @@ rln_clock_model_to_xml_state <- function(
   if (has_mrca_prior_with_distr(inference_model) ||
       has_tip_dating(inference_model)
   ) {
-    text <- c(
-      text,
-      create_ucld_mean_state_node_param_xml(inference_model)
-    )
+    # Was not present yet
+    if (inference_model$beauti_options$beast2_version != "2.4") {
+      text <- c(
+        text,
+        create_ucld_mean_state_node_param_xml(inference_model)
+      )
+    }
   }
   text <- c(
     text,
