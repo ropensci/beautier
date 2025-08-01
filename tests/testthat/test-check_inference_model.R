@@ -29,6 +29,18 @@ test_that("use", {
     "is not a tab-separated"
   )
 
+  # Ignore empty lines
+  inference_model <- create_test_inference_model()
+  inference_model$tipdates_filename <- get_beautier_path(
+    "test_output_0_tipdates.tsv"
+  )
+  expect_silent(
+    check_inference_model(
+      inference_model
+    )
+  )
+
+
   expect_silent(
     check_inference_model(
       create_inference_model(

@@ -18,3 +18,7 @@
 ^CRAN-SUBMISSION$
 ^cran-comments\.md$
 ^mlc_config\.json$
+^\.markdownlint.jsonc$
+^\.markdownlintignore$
+^\.spellcheck.yml$
+^\.wordlist.txt$

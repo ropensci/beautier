@@ -14,7 +14,7 @@ Newest versions at top.
 ## MINOR IMPROVEMENTS
 
 - Clearer error message when the tab-separated tipdates file does
-  not use a tab as a separator
+  not use a tab as a separator. Empty lines are allowed.
 
 ## BUG FIXES
 

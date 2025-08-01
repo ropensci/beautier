@@ -88,6 +88,8 @@ check_inference_model <- function(
     }
     # Must be tab-seperated
     tipdates_text <- readr::read_lines(inference_model$tipdates_filename)
+    tipdates_text <- tipdates_text[tipdates_text != ""]
+
     if (!all(stringr::str_detect(tipdates_text, "\\t"))) {
       stop(
         "Tipdating filename at path '",
