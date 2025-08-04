@@ -61,57 +61,6 @@
 
 .standalone_types_check_dot_call <- .Call
 
-check_bool <- function(x,
-                       ...,
-                       allow_na = FALSE,
-                       allow_null = FALSE,
-                       arg = caller_arg(x),
-                       call = caller_env()) {
-  if (!missing(x) && .standalone_types_check_dot_call(ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null)) {
-    return(invisible(NULL))
-  }
-
-  stop_input_type(
-    x,
-    c("`TRUE`", "`FALSE`"),
-    ...,
-    allow_na = allow_na,
-    allow_null = allow_null,
-    arg = arg,
-    call = call
-  )
-}
-
-check_string <- function(x,
-                         ...,
-                         allow_empty = TRUE,
-                         allow_na = FALSE,
-                         allow_null = FALSE,
-                         arg = caller_arg(x),
-                         call = caller_env()) {
-  if (!missing(x)) {
-    is_string <- .rlang_check_is_string(
-      x,
-      allow_empty = allow_empty,
-      allow_na = allow_na,
-      allow_null = allow_null
-    )
-    if (is_string) {
-      return(invisible(NULL))
-    }
-  }
-
-  stop_input_type(
-    x,
-    "a single string",
-    ...,
-    allow_na = allow_na,
-    allow_null = allow_null,
-    arg = arg,
-    call = call
-  )
-}
-
 .rlang_check_is_string <- function(x,
                                    allow_empty,
                                    allow_na,

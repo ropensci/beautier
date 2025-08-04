@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_bool(TRUE))
+  expect_silent(check_bool(FALSE))
+  expect_error(check_bool(c()))
+  expect_error(check_bool(NULL))
+  expect_error(check_bool(NA))
+  expect_error(check_bool(Inf))
+  expect_error(check_bool(c(TRUE, TRUE)))
+  expect_error(check_bool("nonsense"))
+})
