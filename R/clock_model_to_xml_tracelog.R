@@ -17,12 +17,12 @@ clock_model_to_xml_tracelog <- function(
   inference_model
 ) {
   if (is_strict_clock_model(inference_model$clock_model)) {
-    return(strict_clock_model_to_xml_tracelog(inference_model))
+    strict_clock_model_to_xml_tracelog(inference_model)
   } else {
     # Will fail on unimplemented clock models
     check_true(
       is_rln_clock_model(inference_model$clock_model)
     )
-    return(rln_clock_model_to_xml_tracelog(inference_model))
+    rln_clock_model_to_xml_tracelog(inference_model)
   }
 }

@@ -1588,6 +1588,13 @@ test_that("Tip dating, v2.5", {
     )
   )
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
+
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 

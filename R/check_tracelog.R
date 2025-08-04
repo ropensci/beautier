@@ -46,7 +46,10 @@ check_tracelog_names <- function(tracelog) {
 check_tracelog_values <- function(tracelog) {
 
   check_filename(tracelog$filename, allow_na = TRUE)
-  lapply(tracelog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+  lapply(
+    tracelog$log_every,
+    function(x) check_number_whole(x, min = 1, arg = "log_every")
+  )
 
   check_log_mode(tracelog$mode)
   check_logical(tracelog$sanitise_headers)

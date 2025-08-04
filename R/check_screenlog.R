@@ -58,7 +58,10 @@ check_screenlog_values <- function(screenlog) {
     allow_empty_str = TRUE,
     allow_na = TRUE
   )
-  lapply(screenlog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+  lapply(
+    screenlog$log_every,
+    function(x) check_number_whole(x, min = 1, arg = "log_every")
+  )
   check_log_mode(screenlog$mode)
   check_logical(screenlog$sanitise_headers)
   check_log_sort(screenlog$sort)

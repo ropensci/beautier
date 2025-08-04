@@ -31,5 +31,5 @@ are_ids <- function(
   for (i in x) {
     if (!is_id(i)) return(FALSE)
   }
-  return(TRUE)
+  TRUE
 }

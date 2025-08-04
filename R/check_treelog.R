@@ -54,7 +54,10 @@ check_treelog_names <- function(treelog) {
 #' @export
 check_treelog_values <- function(treelog) {
   check_filename(filename = treelog$filename, allow_na = TRUE)
-  lapply(treelog$log_every, function(x) check_number_whole(x, min = 1, arg = "log_every"))
+  lapply(
+    treelog$log_every,
+    function(x) check_number_whole(x, min = 1, arg = "log_every")
+  )
   check_log_mode(treelog$mode)
   check_logical(treelog$sanitise_headers)
   check_log_sort(treelog$sort)

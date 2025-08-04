@@ -11,6 +11,8 @@
 #'
 #' `beautier` uses v2.4 by default, as this is when the first tests
 #' were written.
+#' @param add_operator_schedule set to TRUE to add the Operator
+#' Schedule to the BEAST2 XML input file
 #' @param capitalize_first_char_id must the ID of alignment start with a
 #'   capital? TRUE if yes, FALSE if it can be left lower case (if it is
 #'   lowercase)

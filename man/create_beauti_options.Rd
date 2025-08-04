@@ -34,6 +34,9 @@ lines are indented}
 \item{status}{the BEAUti status}
 
 \item{namespace}{the `namespace` XML element in the `beast` XML tag.}
+
+\item{add_operator_schedule}{set to TRUE to add the Operator
+Schedule to the BEAST2 XML input file}
 }
 \value{
 a BEAUti options structure

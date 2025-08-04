@@ -21,7 +21,10 @@ check_filename <- function(
   check_logical(allow_na)
   check_string(filename, allow_na = allow_na, allow_empty = allow_empty_str)
 
-  if (!is.na(filename) && nzchar(filename) && stringr::str_detect(filename, " ")) {
+  if (!is.na(filename) &&
+      nzchar(filename) &&
+      stringr::str_detect(filename, " ")
+  ) {
     stop(
       "Filenames must not have space. \n",
       "filename: ", filename

@@ -11,13 +11,13 @@
 #'
 #' check_empty_beautier_folder()
 #' @export
-is_beast2_input_file_with_tipdates <- function(beast2_input_file) {
-  text <- readr::read_lines(beast2_input_file)
+is_beast2_input_file_with_tipdates <- function(beast2_input_filename) { # nolint indeed a long function name
+  text <- readr::read_lines(beast2_input_filename)
   tipdate_regex <- paste0(
     "<trait id=\"dateTrait.t:.*\" ",
     "spec=\"beast.evolution.tree.TraitSet\" ",
     "traitname=\"date(-forward)?\" ",
-    "value=\".+\">"
+    "value=\".*\">" # Empty string is allowed
   )
   n_hits <- sum(stringr::str_count(text, tipdate_regex))
 

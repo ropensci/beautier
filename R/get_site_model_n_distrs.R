@@ -30,13 +30,13 @@ get_site_model_n_distrs <- function(
     gamma_site_model
   )
   if (is_gtr_site_model(site_model)) {
-    return(5 + gamma_site_model_n_distrs)
+    5 + gamma_site_model_n_distrs
   } else if (is_hky_site_model(site_model)) {
-    return(1 + gamma_site_model_n_distrs)
+    1 + gamma_site_model_n_distrs
   } else if (is_jc69_site_model(site_model)) {
-    return(0 + gamma_site_model_n_distrs)
+    0 + gamma_site_model_n_distrs
   } else {
     check_true(is_tn93_site_model(site_model))
-    return(2 + gamma_site_model_n_distrs)
+    2 + gamma_site_model_n_distrs
   }
 }

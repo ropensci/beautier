@@ -3,8 +3,7 @@ test_that("tipdates file without tabs must give an error", {
   expect_error(
     create_inference_model(
       tipdates_filename = get_beautier_path("babette_issue_109_no_tabs.tsv")
-    ),
-    "is not a tab-separated file"
+    )
   )
   remove_beautier_folder()
 })

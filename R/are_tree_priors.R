@@ -28,5 +28,5 @@ are_tree_priors <- function(
   for (i in x) {
     if (!is_tree_prior(i)) return(FALSE)
   }
-  return(TRUE)
+  TRUE
 }

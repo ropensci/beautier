@@ -29,5 +29,5 @@ are_site_models <- function(
   for (i in x) {
     if (!is_site_model(i)) return(FALSE)
   }
-  return(TRUE)
+  TRUE
 }

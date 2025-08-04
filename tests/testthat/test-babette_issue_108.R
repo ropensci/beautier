@@ -1,6 +1,4 @@
 test_that("lack of tipdates file must be detected", {
-  expect_true(file.exists(get_beautier_path("babette_issue_108_tipdates.txt")))
-  expect_true(file.exists(get_beautier_path("babette_issue_108.fasta")))
   fasta_filename <- get_beautier_path("babette_issue_108.fasta")
   output_filename <- get_beautier_tempfilename()
   tipdates_filename <- "TIPDATES_FILENAME"

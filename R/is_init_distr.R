@@ -12,26 +12,26 @@ is_init_distr <- function(
   if (is_one_na(x$id)) return(FALSE)
 
   if (is_beta_distr(x)) {
-    return(is_init_beta_distr(x))
+    is_init_beta_distr(x)
   } else if (is_exp_distr(x)) {
-    return(is_init_exp_distr(x))
+    is_init_exp_distr(x)
   } else if (is_gamma_distr(x)) {
-    return(is_init_gamma_distr(x))
+    is_init_gamma_distr(x)
   } else if (is_inv_gamma_distr(x)) {
-    return(is_init_inv_gamma_distr(x))
+    is_init_inv_gamma_distr(x)
   } else if (is_laplace_distr(x)) {
-    return(is_init_laplace_distr(x))
+    is_init_laplace_distr(x)
   } else if (is_log_normal_distr(x)) {
-    return(is_init_log_normal_distr(x))
+    is_init_log_normal_distr(x)
   } else if (is_normal_distr(x)) {
-    return(is_init_normal_distr(x))
+    is_init_normal_distr(x)
   } else if (is_one_div_x_distr(x)) {
-    return(is_init_one_div_x_distr(x))
+    is_init_one_div_x_distr(x)
   } else if (is_poisson_distr(x)) {
-    return(is_init_poisson_distr(x))
+    is_init_poisson_distr(x)
   } else {
     check_true(is_uniform_distr(x))
-    return(is_init_uniform_distr(x))
+    is_init_uniform_distr(x)
   }
 }
 

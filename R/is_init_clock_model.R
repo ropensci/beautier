@@ -10,10 +10,10 @@ is_init_clock_model <- function(
 ) {
   if (!is_clock_model(x)) return(FALSE)
   if (is_strict_clock_model(x)) {
-    return(is_init_strict_clock_model(x))
+    is_init_strict_clock_model(x)
   } else {
     check_true(is_rln_clock_model(x))
-    return(is_init_rln_clock_model(x))
+    is_init_rln_clock_model(x)
   }
 }
 

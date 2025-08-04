@@ -4,7 +4,10 @@
 \alias{is_beast2_input_file_with_tipdates}
 \title{Determine if the file is a BEAST2 input file that has tip dating}
 \usage{
-is_beast2_input_file_with_tipdates(beast2_input_file)
+is_beast2_input_file_with_tipdates(beast2_input_filename)
+}
+\arguments{
+\item{beast2_input_filename}{path to a BEAST2 XML input file}
 }
 \value{
 TRUE if x is the BEAST2 input file has tip dating, FALSE otherwise

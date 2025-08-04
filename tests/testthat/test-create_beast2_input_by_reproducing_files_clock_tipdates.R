@@ -41,6 +41,10 @@ test_that("#99: RLN + tipdates, v2.6", {
   expected_line <- r"(<operator id="relaxedUpDownOperator.c:test_output_0" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">)"
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+  expected_line <- r"(<trait id="dateTrait.t:test_output_0" spec="beast.evolution.tree.TraitSet" traitname="date" value="">)"
+  testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
+  testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
+
 
   if (1 == 2) {
     compare_lines(

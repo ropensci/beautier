@@ -6,7 +6,7 @@ check_true <- function(x,
          arg = caller_arg(x),
          call = caller_env()) {
 
-  if (!missing(x) && !isFALSE(x) &&.standalone_types_check_dot_call(ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null)) {
+  if (!missing(x) && !isFALSE(x) && .standalone_types_check_dot_call(ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null)) {
     return(invisible(NULL))
   }
 

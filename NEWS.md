@@ -14,13 +14,16 @@ Newest versions at top.
 
 ## MINOR IMPROVEMENTS
 
-- Clearer error message when the tab-separated tipdates file does
+- Clearer error message when the tab-separated tip dates file does
   not use a tab as a separator. Empty lines are allowed.
 
 ## BUG FIXES
 
 - A `tipdates_filename` must either be `NA` or be a path
   to an existing file, reported [here](https://github.com/ropensci/babette/issues/108)
+- Fix [#109](https://github.com/ropensci/babette/issues/108)
+
+
 
 ## DEPRECATED AND DEFUNCT
 

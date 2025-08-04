@@ -16,6 +16,7 @@ default_params_doc(
   bd_tree_prior,
   beautier_folder,
   cbs_tree_prior,
+  beast2_input_filename,
   beast2_version,
   beauti_options,
   beta_parameter,
@@ -121,6 +122,8 @@ the \link{beautier} temporary files folder}
 
 \item{cbs_tree_prior}{a Coalescent Bayesian Skyline tree prior,
 as returned by \code{\link{create_cbs_tree_prior}}}
+
+\item{beast2_input_filename}{path to a BEAST2 XML input file}
 
 \item{beast2_version}{BEAST2 version, for example, \code{"2.5"}}
 

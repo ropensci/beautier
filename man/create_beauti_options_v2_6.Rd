@@ -29,6 +29,9 @@ in uppercase?}
 
 \item{required}{things that may be required,
 for example \code{BEAST v2.5.0}}
+
+\item{add_operator_schedule}{set to TRUE to add the Operator
+Schedule to the BEAST2 XML input file}
 }
 \value{
 a BEAUti options structure

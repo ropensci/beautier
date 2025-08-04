@@ -14,6 +14,7 @@
 #' as created by \link{create_b_pop_sizes_param}
 #' @param bd_tree_prior a Birth-Death tree prior, as created
 #' by \code{\link{create_bd_tree_prior}}
+#' @param beast2_input_filename path to a BEAST2 XML input file
 #' @param beast2_version BEAST2 version, for example, \code{"2.5"}
 #' @param beauti_options one BEAUti options object,
 #' as returned by \code{\link{create_beauti_options}}
@@ -219,6 +220,7 @@ default_params_doc <- function(
   bd_tree_prior,
   beautier_folder,
   cbs_tree_prior,
+  beast2_input_filename,
   beast2_version,
   beauti_options,
   beta_parameter,

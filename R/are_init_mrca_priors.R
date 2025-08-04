@@ -11,5 +11,5 @@ are_init_mrca_priors <- function(
   for (i in x) {
     if (!is_init_mrca_prior(i)) return(FALSE)
   }
-  return(TRUE)
+  TRUE
 }
