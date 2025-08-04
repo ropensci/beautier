@@ -55,8 +55,6 @@ test_that("v2.6, tipdates", {
         id = "test_output_0",
         rate_scaler_factor = 0.75
       ),
-      # Should this be added? Question, questions ...
-      # tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
       beauti_options = create_beauti_options_v2_6()
     )
   )

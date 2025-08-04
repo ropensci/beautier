@@ -18,7 +18,7 @@ test_that("#99: RLN + tipdates, v2.6", {
     ),
     tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv"),
     beauti_options = create_beauti_options_v2_6(
-      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood"
+      namespace = "beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" # nolint
     )
   )
   created <- create_beast2_input_from_model(
@@ -26,22 +26,22 @@ test_that("#99: RLN + tipdates, v2.6", {
     inference_model = inference_model
   )
   expected <- readLines(get_beautier_path("rln_tipdates_2_6.xml"))
-  expected_line <- r"(<operator id="YuleBirthRateScaler.t:test_output_0" spec="ScaleOperator" parameter="@birthRate.t:test_output_0" scaleFactor="0.75" weight="3.0"/>)"
+  expected_line <- r"(<operator id="YuleBirthRateScaler.t:test_output_0" spec="ScaleOperator" parameter="@birthRate.t:test_output_0" scaleFactor="0.75" weight="3.0"/>)" # nolint
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
-  expected_line <- r"(<prior id="MeanRatePrior.c:test_output_0" name="distribution" x="@ucldMean.c:test_output_0">)"
+  expected_line <- r"(<prior id="MeanRatePrior.c:test_output_0" name="distribution" x="@ucldMean.c:test_output_0">)" # nolint
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
   expected_line <- r"(<Uniform id="Uniform.3" name="distr" upper="Infinity"/>)"
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
-  expected_line <- r"(<operator id="ucldMeanScaler.c:test_output_0" spec="ScaleOperator" parameter="@ucldMean.c:test_output_0" scaleFactor="0.5" weight="1.0"/>)"
+  expected_line <- r"(<operator id="ucldMeanScaler.c:test_output_0" spec="ScaleOperator" parameter="@ucldMean.c:test_output_0" scaleFactor="0.5" weight="1.0"/>)" # nolint
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
-  expected_line <- r"(<operator id="relaxedUpDownOperator.c:test_output_0" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">)"
+  expected_line <- r"(<operator id="relaxedUpDownOperator.c:test_output_0" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">)" # nolint
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
-  expected_line <- r"(<trait id="dateTrait.t:test_output_0" spec="beast.evolution.tree.TraitSet" traitname="date" value="">)"
+  expected_line <- r"(<trait id="dateTrait.t:test_output_0" spec="beast.evolution.tree.TraitSet" traitname="date" value="">)" # nolint
   testthat::expect_equal(1, sum(stringr::str_detect(expected, expected_line)))
   testthat::expect_equal(1, sum(stringr::str_detect(created, expected_line)))
 

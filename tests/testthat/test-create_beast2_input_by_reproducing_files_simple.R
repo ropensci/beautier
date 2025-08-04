@@ -1707,7 +1707,9 @@ test_that("RLN and non-monophyletic MRCA with distribution, beastier", {
   fasta_filename <- get_fasta_filename()
   lines <- beautier::create_beast2_input(
     input_filename = fasta_filename,
-    tree_prior = create_tree_prior_yule(birth_rate_distr = create_uniform_distr(id = "1")),
+    tree_prior = create_tree_prior_yule(
+      birth_rate_distr = create_uniform_distr(id = "1")
+    ),
     clock_model = create_rln_clock_model(
       mparam_id = "1",
       mean_rate_prior_distr = create_uniform_distr(id = "3"),
@@ -1726,7 +1728,7 @@ test_that("RLN and non-monophyletic MRCA with distribution, beastier", {
     ),
     beauti_options = create_beauti_options_v2_6()
   )
-  if ("beastier" %in% installed.packages()[,1]) {
+  if ("beastier" %in% installed.packages()[, 1]) {
     if (beastier::is_beast2_installed()) {
       expect_true(
         beastier::are_beast2_input_lines(
