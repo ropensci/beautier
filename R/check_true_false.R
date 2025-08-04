@@ -1,7 +1,6 @@
 #' Determine if `x` is `TRUE`
 #' @param x the object to be determined to be `TRUE`
 #' @return Nothing. Will raise an exception if the value is not `TRUE`
-#' @note Created by modifying check_bool from import-standalone-type-check.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_true(TRUE)
@@ -15,7 +14,6 @@ check_true <- function(x) {
 #' Determine if `x` is `FALSE`
 #' @param x the object to be determined to be `FALSE`
 #' @return Nothing. Will raise an exception if the value is not `FALSE`
-#' @note Created by modifying check_bool from import-standalone-type-check.
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_false(FALSE)

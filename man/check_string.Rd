@@ -4,7 +4,7 @@
 \alias{check_string}
 \title{Determine if `x` is one string}
 \usage{
-check_string(x, allow_na = FALSE, allow_empty = FALSE)
+check_string(x, allow_na = FALSE, allow_empty = TRUE)
 }
 \arguments{
 \item{x}{the object to be determined to be one string}
