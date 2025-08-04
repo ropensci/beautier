@@ -9,16 +9,16 @@ is_init_tree_prior <- function(
 ) {
   if (!is_tree_prior(x)) return(FALSE)
   if (is_bd_tree_prior(x)) {
-    return(is_init_bd_tree_prior(x))
+    is_init_bd_tree_prior(x)
   } else if (is_cbs_tree_prior(x)) {
-    return(is_init_cbs_tree_prior(x))
+    is_init_cbs_tree_prior(x)
   } else if (is_ccp_tree_prior(x)) {
-    return(is_init_ccp_tree_prior(x))
+    is_init_ccp_tree_prior(x)
   } else if (is_cep_tree_prior(x)) {
-    return(is_init_cep_tree_prior(x))
+    is_init_cep_tree_prior(x)
   } else {
     check_true(is_yule_tree_prior(x))
-    return(is_init_yule_tree_prior(x))
+    is_init_yule_tree_prior(x)
   }
 }
 

@@ -52,7 +52,9 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
       "parameter=\"@rateCategories.c:", id, "\" weight=\"10.0\"/>"
     )
   )
-  if (has_mrca_prior_with_distr(inference_model) || has_tip_dating(inference_model)) {
+  if (has_mrca_prior_with_distr(inference_model) ||
+    has_tip_dating(inference_model)
+  ) {
     text <- c(
       text,
       paste0(

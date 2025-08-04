@@ -37,8 +37,10 @@ yule_tree_prior_to_xml_operators <- function( # nolint indeed a long function na
   ) {
     add_scale_factor <- FALSE
   }
-  if (inference_model$beauti_options$beast2_version == "2.6" &&
-      !has_tip_dating(inference_model)) {
+  if (
+    inference_model$beauti_options$beast2_version == "2.6" &&
+    !has_tip_dating(inference_model)
+  ) {
     add_scale_factor <- FALSE
   }
 

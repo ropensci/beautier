@@ -22,7 +22,7 @@ test_that("lack of tipdates file must be detected", {
 
 test_that("tipdates file must be used in the created file", {
 
-  if (!"beastier" %in% installed.packages()[,1]) {
+  if (!"beastier" %in% installed.packages()[, 1]) {
     return()
   }
 
@@ -77,7 +77,7 @@ test_that("tipdates file must be used in the created file", {
 
 test_that("Reproduce file", {
 
-  if (!"beastier" %in% installed.packages()[,1]) {
+  if (!"beastier" %in% installed.packages()[, 1]) {
     return()
   }
 
@@ -141,7 +141,7 @@ test_that("Reproduce file", {
     assignInNamespace(
       "get_beast2_main_class_name",
       function() {
-          "beast.app.beastapp.BeastMain"
+        "beast.app.beastapp.BeastMain"
       },
       ns = "beastier"
     )
@@ -150,7 +150,7 @@ test_that("Reproduce file", {
       output_state_filename = create_temp_state_filename(),
       use_beagle = TRUE,
       beast2_path = "/home/zhulab/.beast/2.5/BEAST/lib/beast.jar",
-      verbose = T
+      verbose = TRUE
     )
   }
 

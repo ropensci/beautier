@@ -12,5 +12,3 @@ test_that("use", {
   )
   expect_true(needs_trait_set_str(inference_model))
 })
-
-
