@@ -33,7 +33,7 @@ create_ucld_mean_state_node_param_xml <- function(inference_model) { # nolint in
   clock_model <- inference_model$clock_model
   id <- clock_model$id
   mean_clock_rate <- clock_model$mean_clock_rate
-  testthat::expect_false(is_rln_clock_model(clock_model))
+  testthat::expect_true(is_rln_clock_model(clock_model))
   testthat::expect_false(is_one_na(id))
   testthat::expect_false(is_one_na(mean_clock_rate))
   xml <- paste0(

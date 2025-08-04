@@ -22,7 +22,11 @@ check_string <- function(
     )
   }
   if (!allow_na) {
-    testthat::expect_false(is.na(x))
+    if (is_one_na(x)) {
+      stop(
+        "'x' must be a single string, not NA"
+      )
+    }
   }
   if (is.na(x)) return()
   testthat::expect_true(is.character(x))
