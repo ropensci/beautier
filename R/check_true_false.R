@@ -1,4 +1,11 @@
-# Created by modifying check_bool from import-standalone-type-check.
+#' Determine if `x` is `TRUE`
+#' @param x the object to be determined to be `TRUE`
+#' @return Nothing. Will raise an exception if the value is not `TRUE`
+#' @note Created by modifying check_bool from import-standalone-type-check.
+#' @author [`olivroy`](https://github.com/olivroy)
+#' @examples
+#' check_true(TRUE)
+#' @export
 check_true <- function(x,
   ...,
   allow_na = FALSE,
@@ -26,7 +33,15 @@ check_true <- function(x,
     call = call
   )
 }
-# Adapted from standalone-types-check.R
+
+#' Determine if `x` is `FALSE`
+#' @param x the object to be determined to be `FALSE`
+#' @return Nothing. Will raise an exception if the value is not `FALSE`
+#' @note Created by modifying check_bool from import-standalone-type-check.
+#' @author [`olivroy`](https://github.com/olivroy)
+#' @examples
+#' check_false(FALSE)
+#' @export
 check_false <- function(x,
   ...,
   allow_na = FALSE,
