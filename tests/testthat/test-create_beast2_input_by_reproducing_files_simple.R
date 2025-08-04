@@ -10,7 +10,6 @@ test_that("2.4", {
     ),
     beauti_options = create_beauti_options_v2_4()
   )
-
   expected <- readLines(get_beautier_path("2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -28,7 +27,6 @@ test_that("v2.5", {
       nucleotides_uppercase = TRUE
     )
   )
-
   expected <- readLines(get_beautier_path("anthus_aco_sub_20181016.xml"))
   # Creates temporary files in beautier folder
   compare_lines(
@@ -53,7 +51,6 @@ test_that("v2.5.1", {
       nucleotides_uppercase = TRUE
     )
   )
-
   expected <- readLines(get_beautier_path("anthus_aco_sub_2_5_1.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })
@@ -120,7 +117,6 @@ test_that("gtr_2_4.xml", {
       birth_rate_distr = create_uniform_distr(id = 1)
     )
   )
-
   expected <- readLines(get_beautier_path("gtr_2_4.xml"))
   expect_true(are_equivalent_xml_lines(created, expected))
 })

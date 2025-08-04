@@ -9,62 +9,23 @@ test_that("tipdates file without tabs must give an error", {
   remove_beautier_folder()
 })
 
-
-test_that("tipdates file must be used in the created file", {
+test_that("produce a valid BEAST2 input file", {
 
   if (!"beastier" %in% installed.packages()[,1]) {
     return()
   }
-  if (1 == 2) {
-    setwd("~/Downloads/file/")
-  }
 
   fasta_filename <- get_beautier_path("babette_issue_109.fasta")
   tipdates_filename <- get_beautier_path("babette_issue_109.tsv")
-  readLines(tipdates_filename)
   output_filename <- get_beautier_tempfilename()
 
-  testthat::expect_equal(
-    1,
-    length(stringr::str_subset(readr::read_lines(tipdates_filename), "2014"))
-  )
-
-  # Inference model that works
-  inference_model <- create_inference_model(
-    site_model = create_gtr_site_model(),
-    clock_model = create_rln_clock_model(),
-    tree_prior = create_yule_tree_prior(),
-    mcmc = create_mcmc(),
-    tipdates_filename = tipdates_filename,
-    beauti_options = create_beauti_options_v2_4()
-  )
-
-  create_beast2_input_file_from_model(
-    inference_model = inference_model,
-    input_filename = fasta_filename,
-    output_filename = output_filename
-  )
-
-
-  text <- readr::read_lines(output_filename)
-
-  testthat::expect_equal(
-    2,
-    length(stringr::str_subset(text, "2014"))
-  )
-
-  if (1 == 2) {
-    beastier::are_beast2_input_lines_deep(text, verbose = TRUE)
-  }
-
-  # Inference model that fails
   inference_model <- create_inference_model(
     site_model = create_hky_site_model(),
     clock_model = create_rln_clock_model(),
     tree_prior = create_ccp_tree_prior(),
     mcmc = create_mcmc(),
     tipdates_filename = tipdates_filename,
-    beauti_options = create_beauti_options_v2_4()
+    beauti_options = create_beauti_options_v2_6()
   )
 
   create_beast2_input_file_from_model(
@@ -73,14 +34,58 @@ test_that("tipdates file must be used in the created file", {
     output_filename = output_filename
   )
 
-
-
-  text <- readr::read_lines(output_filename)
-
-  testthat::expect_equal(
-    2,
-    length(stringr::str_subset(text, "2014"))
+  expect_true(
+    is_beast2_input_file_with_tipdates(output_filename)
   )
+  expect_true(
+    beastier::is_beast2_input_file(output_filename)
+  )
+  expect_true(
+    beastier::are_beast2_input_lines_deep(
+      lines = readr::read_lines(output_filename),
+      verbose = TRUE
+    )
+  )
+  remove_beautier_folder()
+})
+
+
+test_that("reproduce BEAUti v2.6 file", {
+
+  fasta_filename <- get_beautier_path("babette_issue_109.fasta")
+  tipdates_filename <- get_beautier_path("babette_issue_109.tsv")
+  output_filename <- get_beautier_tempfilename()
+  expected_filename <- get_beautier_path("babette_issue_109_expected_v2_6.xml")
+
+  inference_model <- create_inference_model(
+    site_model = create_hky_site_model(),
+    clock_model = create_rln_clock_model(),
+    tree_prior = create_ccp_tree_prior(),
+    mcmc = create_mcmc(),
+    tipdates_filename = tipdates_filename,
+    beauti_options = create_beauti_options_v2_6()
+  )
+
+  create_beast2_input_file_from_model(
+    inference_model = inference_model,
+    input_filename = fasta_filename,
+    output_filename = output_filename
+  )
+
+  expect_true(is_beast2_input_file_with_tipdates(output_filename))
+
+  created <- readr::read_lines(output_filename)
+  expected <- readr::read_lines(expected_filename)
+
+  compare_lines(
+    lines = created,
+    expected = expected,
+    created_lines_filename = "~/created.xml",
+    expected_lines_filename = "~/expected.xml"
+  )
+  expect_true(are_equivalent_xml_lines(created, expected))
+
+  expect_equal(created, expected)
 
   remove_beautier_folder()
 })

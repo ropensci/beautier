@@ -9,7 +9,8 @@ Newest versions at top.
 
 ## NEW FEATURES
 
-- None
+- Add `is_beast2_input_file_with_tipdates` to detect if a BEAST2
+  XML input files indeed has tip dates stored
 
 ## MINOR IMPROVEMENTS
 
