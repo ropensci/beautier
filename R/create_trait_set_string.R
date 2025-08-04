@@ -6,6 +6,12 @@
 #' @param df a data frame with two columns
 #' @return the trait set string
 #' @author Richèl J.C. Bilderbeek
+#' @examples
+#' create_trait_set_string(
+#'   read_tipdates_file(
+#'     get_beautier_path("G_VII_pre2003_dates_4.txt")
+#'   )
+#' )
 #' @export
 create_trait_set_string <- function(
   df
