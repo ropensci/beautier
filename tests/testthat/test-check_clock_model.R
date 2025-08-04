@@ -1,5 +1,3 @@
-context("test-check_clock_model")
-
 test_that("use", {
   expect_silent(check_clock_model(create_strict_clock_model()))
   expect_silent(check_clock_model(create_rln_clock_model()))
@@ -56,4 +54,12 @@ test_that("abuse, rln clock model", {
     check_clock_model(rln_clock_model),
     "'clock_model\\$mean_rate_prior_distr' must be a distribution"
   )
+
+  rln_clock_model <- create_rln_clock_model()
+  rln_clock_model$rate_scaler_factor <- "nonsense"
+  expect_error(
+    check_clock_model(rln_clock_model),
+    "'clock_model\\$rate_scaler_factor' must be a number"
+  )
+
 })

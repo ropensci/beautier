@@ -98,7 +98,7 @@ check_rln_clock_model <- function(clock_model) {
       !is_one_empty_string(clock_model$rate_scaler_factor)
   ) {
     stop(
-      "'rate_scaler_factor' must be a number ",
+      "'clock_model$rate_scaler_factor' must be a number ",
       "or a string that can be converted to a number ",
       "or an empty string. ",
       "Actual value: ", clock_model$rate_scaler_factor
