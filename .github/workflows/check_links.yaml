@@ -1,11 +1,13 @@
 on:
   push:
     paths:
+      - README.md
       - 'docs/**'
       - .github/workflows/check_links.yaml
       - mlc_config.json
   pull_request:
     paths:
+      - README.md
       - 'docs/**'
       - .github/workflows/check_links.yaml
       - mlc_config.json
@@ -25,3 +27,4 @@ jobs:
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           config-file: 'mlc_config.json'
+
