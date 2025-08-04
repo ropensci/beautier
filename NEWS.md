@@ -11,6 +11,8 @@ Newest versions at top.
 
 - Add `is_beast2_input_file_with_tipdates` to detect if a BEAST2
   XML input files indeed has tip dates stored
+- Add `check_tipdates_file` to test a tip date file is valid
+- Add `read_tipdates_file` to read a tip date file
 
 ## MINOR IMPROVEMENTS
 
