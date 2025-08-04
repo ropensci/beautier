@@ -1,6 +1,6 @@
 # Created by modifying check_bool from import-standalone-type-check.
 check_true <- function(x,
-         ...,
+       ...,
          allow_na = FALSE,
          allow_null = FALSE,
          arg = caller_arg(x),

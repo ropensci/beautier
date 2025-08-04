@@ -8,10 +8,10 @@
 [![CRAN downloads per months](http://cranlogs.r-pkg.org/badges/beautier)](https://CRAN.R-project.org/package=beautier)
 [![DOI](https://zenodo.org/badge/53443354.svg)](https://zenodo.org/badge/latestdoi/53443354)
 
-Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/beautier/actions)|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
----------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------
-`main`   |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=main)     |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beautier/branch/main)
-`develop`|![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beautier/branch/develop)
+Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/beautier/actions)                                                                                      |[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
+---------|---------|---------
+`main`   |[![R-CMD-check](https://github.com/ropensci/beautier/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/ropensci/beautier/actions/workflows/R-CMD-check.yaml)   |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beautier/branch/main)
+`develop`|[![R-CMD-check](https://github.com/ropensci/beautier/actions/workflows/R-CMD-check.yaml/badge.svg?branch=develop)](https://github.com/ropensci/beautier/actions/workflows/R-CMD-check.yaml)|[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beautier/branch/develop)
 
 <!-- markdownlint-enable MD013 -->
 
