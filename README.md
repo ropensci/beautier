@@ -1,6 +1,6 @@
 # beautier
 
-<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD013 --><!-- Badges cannot be split up over lines, hence will break 80 characters per line -->
 
 [![Peer Review Status](https://badges.ropensci.org/209_status.svg)](https://github.com/ropensci/software-review/issues/209)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/beautier)](https://cran.r-project.org/package=beautier)
@@ -10,8 +10,10 @@
 
 Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/beautier/actions)|[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
 ---------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------
-`main` |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=main)   |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beautier/branch/main)
+`main`   |![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=main)     |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beautier/branch/main)
 `develop`|![R-CMD-check](https://github.com/ropensci/beautier/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/ropensci/beautier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beautier/branch/develop)
+
+<!-- markdownlint-enable MD013 -->
 
 `beautier` is `BEAUti` for R.
 
@@ -22,19 +24,25 @@ The purpose of `beautier` is to create
 from a n inference model. In this way, a scientific pipeline using
 `BEAST2` can be fully scripted, instead of using `BEAUti`'s GUI.
 
-`beautier` is part of the [`babette`](https://github.com/ropensci/babette) package suite:
+`beautier` is part of the
+[`babette`](https://github.com/ropensci/babette) package suite:
 
-* [`beautier`](https://github.com/ropensci/beautier) create a BEAST2 input (`.xml`) file from an inference model.
-* [`tiebeaur`](https://github.com/richelbilderbeek/tiebeaur) creates an inference model from a BEAST2 input (`.xml`) file :warning: experimental :warning:
+* [`beautier`](https://github.com/ropensci/beautier)
+  create a BEAST2 input (`.xml`) file from an inference model.
+* [`tiebeaur`](https://github.com/richelbilderbeek/tiebeaur)
+  creates an inference model from a BEAST2 input (`.xml`) file
+  :warning: experimental :warning:
 * [`beastier`](https://github.com/ropensci/beastier) runs BEAST2
-* [`tracerer`](https://github.com/ropensci/tracerer) pastes BEAST2 output (`.log`, `.trees`, etc) files.
+* [`tracerer`](https://github.com/ropensci/tracerer) allows to
+  works with BEAST2 output (`.log`, `.trees`, etc) files.
 * [`mauricer`](https://github.com/ropensci/mauricer) install BEAST2 packages
 
 Related R packages:
 
-* [`beautier_on_windows`](https://github.com/richelbilderbeek/beautier_on_windows): verifies
-   `beautier` builds on Windows
-* [`lumier`](https://github.com/ropensci/lumier): Shiny app to help create the function call needed
+* [`beautier_on_windows`](https://github.com/richelbilderbeek/beautier_on_windows):
+  verifies `beautier` builds on Windows
+* [`lumier`](https://github.com/ropensci/lumier):
+  Shiny app to help create the function call needed
 
 ## Examples
 
@@ -166,6 +174,8 @@ Sure, just add an Issue. Or send an email.
 
 ## Files used by continuous integration scripts
 
+<!-- markdownlint-disable MD013 --><!-- Tables cannot be split up over lines, hence will break 80 characters per line -->
+
 Filename                              |Descriptions
 --------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------
 [mlc_config.json](mlc_config.json)    |Configuration of the link checker, use `markdown-link-check --config mlc_config.json --quiet docs/**/*.md` to do link checking locally
@@ -174,7 +184,11 @@ Filename                              |Descriptions
 [.markdownlint.jsonc](.markdownlint.jsonc)|Configuration of the markdown linter, use `markdownlint "**/*.md"` to do markdown linting locally. The name of this file is a default name.
 [.markdownlintignore](.markdownlintignore)|Files ignored by the markdown linter, use `markdownlint "**/*.md"` to do markdown linting locally. The name of this file is a default name.
 
+<!-- markdownlint-enable MD013 -->
+
 ## References
+
+<!-- markdownlint-disable MD013 --><!-- References are not split up over lines, to keep them copy-pastable, hence will break 80 characters per line -->
 
 Article about `babette`:
 

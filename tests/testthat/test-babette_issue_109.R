@@ -21,6 +21,7 @@ test_that("tipdates file must be used in the created file", {
 
   fasta_filename <- get_beautier_path("babette_issue_109.fasta")
   tipdates_filename <- get_beautier_path("babette_issue_109.tsv")
+  readLines(tipdates_filename)
   output_filename <- get_beautier_tempfilename()
 
   testthat::expect_equal(
