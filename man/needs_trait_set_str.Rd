@@ -19,19 +19,8 @@ inference model.}
 TRUE if this is needed
 }
 \description{
-The hypothesis is that this is needed when the tree
-prior is a coalescent model.
-}
-\details{
-Here are the notes I concluded this from:
-
-Site model|Clock model|Tree prior|Needed|Other notes
-----------|-----------|----------|------|----------------
-GTR       |RLN        |CBS       |Yes   |#108
-HKY       |RLN        |CCP       |Yes   |#109
-JC69      |RLN        |Yule      |No    |#99
-JC69      |Strict     |Yule      |No    |tipdates_2_6.xml
-JC69      |RLN        |Yule      |No    |tipdates_2_6.xml
+The hypothesis is that this is needed when
+all times are zero.
 }
 \author{
 Richèl J.C. Bilderbeek

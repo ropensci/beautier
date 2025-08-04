@@ -1,17 +1,14 @@
 test_that("use", {
-  skip("WIP")
   inference_model <- create_inference_model()
   expect_false(needs_trait_set_str(inference_model))
 
   inference_model <- create_inference_model(
-    tree_prior = create_ccp_tree_prior(),
-    beauti_options = create_beauti_options_v2_6()
+    tipdates_filename = get_beautier_path("test_output_0_tipdates.tsv")
   )
-  expect_true(needs_trait_set_str(inference_model))
+  expect_false(needs_trait_set_str(inference_model))
 
   inference_model <- create_inference_model(
-    tree_prior = create_cbs_tree_prior(),
-    beauti_options = create_beauti_options_v2_6()
+    tipdates_filename = get_beautier_path("babette_issue_109.tsv")
   )
   expect_true(needs_trait_set_str(inference_model))
 })
