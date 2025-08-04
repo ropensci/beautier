@@ -17,7 +17,7 @@ is_beast2_input_file_with_tipdates <- function(beast2_input_file) {
     "<trait id=\"dateTrait.t:.*\" ",
     "spec=\"beast.evolution.tree.TraitSet\" ",
     "traitname=\"date(-forward)?\" ",
-    "value=\".*\">"
+    "value=\".+\">"
   )
   n_hits <- sum(stringr::str_count(text, tipdate_regex))
 
