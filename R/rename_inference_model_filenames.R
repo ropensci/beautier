@@ -34,20 +34,6 @@ rename_inference_model_filenames <- function( # nolint long function name indeed
   inference_model,
   rename_fun
 ) {
-  # tryCatch(
-  #   check_inference_model(inference_model),
-  #   error = function(error_msg) {
-  #     if (
-  #       stringr::str_detect(error_msg,
-  #         "Tipdating filename not found at path",
-  #         negate = TRUE
-  #       )
-  #     ) {
-  #       stop(error_msg)
-  #     }
-  #   }
-  # )
-
   check_rename_fun(rename_fun)
 
   # MCMC

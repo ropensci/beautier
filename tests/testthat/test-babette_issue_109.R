@@ -10,7 +10,7 @@ test_that("tipdates file without tabs must give an error", {
 
 test_that("produce a valid BEAST2 input file", {
 
-  if (!"beastier" %in% installed.packages()[,1]) {
+  if (!"beastier" %in% installed.packages()[, 1]) {
     return()
   }
 

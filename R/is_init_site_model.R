@@ -10,14 +10,14 @@ is_init_site_model <- function(
 ) {
   if (!is_site_model(x)) return(FALSE)
   if (is_gtr_site_model(x)) {
-    return(is_init_gtr_site_model(x))
+    is_init_gtr_site_model(x)
   } else if (is_hky_site_model(x)) {
-    return(is_init_hky_site_model(x))
+    is_init_hky_site_model(x)
   } else if (is_jc69_site_model(x)) {
-    return(is_init_jc69_site_model(x))
+    is_init_jc69_site_model(x)
   } else {
     check_true(is_tn93_site_model(x))
-    return(is_init_tn93_site_model(x))
+    is_init_tn93_site_model(x)
   }
 }
 

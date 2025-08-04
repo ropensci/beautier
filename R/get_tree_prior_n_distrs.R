@@ -29,15 +29,15 @@ get_tree_prior_n_distrs <- function(
     stop("'tree_prior' must be a tree prior")
   }
   if (is_bd_tree_prior(tree_prior)) {
-    return(2)
+    2
   } else if (is_cbs_tree_prior(tree_prior)) {
-    return(0)
+    0
   } else if (is_ccp_tree_prior(tree_prior)) {
-    return(1)
+    1
   } else if (is_cep_tree_prior(tree_prior)) {
-    return(2)
+    2
   } else {
     check_true(is_yule_tree_prior(tree_prior))
-    return(1)
+    1
   }
 }
