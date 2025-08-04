@@ -26,7 +26,8 @@ create_beauti_options_v2_6 <- function(
   nucleotides_uppercase = FALSE,
   status = "",
   namespace = get_default_beast_namespace_v2_6(),
-  required = ""
+  required = "",
+  add_operator_schedule = TRUE
 ) {
   create_beauti_options(
     beast2_version = beast2_version,
@@ -34,6 +35,7 @@ create_beauti_options_v2_6 <- function(
     nucleotides_uppercase = nucleotides_uppercase,
     status = status,
     namespace = namespace,
-    required = required
+    required = required,
+    add_operator_schedule = add_operator_schedule
   )
 }

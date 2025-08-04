@@ -23,7 +23,8 @@ check_beauti_options <- function(
     "required",
     "sequence_indent",
     "status",
-    "namespace"
+    "namespace",
+    "add_operator_schedule"
   )
   for (arg_name in argument_names) {
     if (!arg_name %in% names(beauti_options)) {
@@ -43,4 +44,5 @@ check_beauti_options <- function(
       "Actual value: ", beauti_options$sequence_indent
     )
   }
+  check_bool(beauti_options$add_operator_schedule)
 }

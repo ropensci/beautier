@@ -95,7 +95,15 @@ create_beast2_input_run <- function(
 
   text <- c(text, "")
 
-  if (inference_model$beauti_options$beast2_version == "2.6") {
+  # I have no idea when to add or not add the Operator Schedule.
+  # The only place I remove it is at #109, that has:
+  # - HKY nucleotide substitution model
+  # - Relaxed Log Normal clock rate
+  # - Coalescent Constant Population tree model
+  # - Tipdates
+  if (inference_model$beauti_options$beast2_version == "2.6"
+    && inference_model$beauti_options$add_operator_schedule == TRUE
+  ) {
     text <- c(text, "    <operatorschedule id=\"OperatorSchedule\" spec=\"OperatorSchedule\"/>") # nolint
     text <- c(text, "")
   }

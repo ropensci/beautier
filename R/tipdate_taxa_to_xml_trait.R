@@ -27,10 +27,10 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
 
   # The concatenated taxa
   trait_set_str <- ""
-  if (inference_model$beauti_options$beast2_version != "2.6") {
-    tipdates_table <- utils::read.table(
+  if (1 + 1 == 2 || inference_model$beauti_options$beast2_version != "2.6") {
+    tipdates_table <- readr::read_tsv(
       inference_model$tipdates_filename,
-      sep = "\t"
+      show_col_types = FALSE
     )
     testthat::expect_equal(ncol(tipdates_table), 2)
     trait_set_str <- create_trait_set_string(tipdates_table)
