@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.6">
+        
+    <data
+id="babette_issue_109"
+spec="Alignment"
+name="alignment">
+                                
+        <sequence id="seq_MK388093.1:ACT/04-2013" spec="Sequence" taxon="MK388093.1:ACT/04-2013" totalcount="4" value="aatttatagctcttaaaaaaaagtataaccctacctaccctggacgtacgatagagggat"/>
+                                
+        <sequence id="seq_MK388094.1:SA/12-2013" spec="Sequence" taxon="MK388094.1:SA/12-2013" totalcount="4" value="aatttatagctcttaaaaaaaagtataaccctacctaccctggacgtacgatagagggat"/>
+                                
+        <sequence id="seq_MK388095.1:ACT/04-2013" spec="Sequence" taxon="MK388095.1:ACT/04-2013" totalcount="4" value="aatttatagctcttaaaaaaaagtataaccctacctaccctggacgtacgatagagggat"/>
+                                
+        <sequence id="seq_MK388096.1:NSW/02-2013" spec="Sequence" taxon="MK388096.1:NSW/02-2013" totalcount="4" value="aatttatagctcttaaaaaaaagtataaccctacctaccctggacgtacgatagagggat"/>
+                                
+        <sequence id="seq_MK388097.1:SA/07-2012" spec="Sequence" taxon="MK388097.1:SA/07-2012" totalcount="4" value="aatttatagctcttaaaaaaaagtataaccctacctaccctggacgtacgatagagggat"/>
+                                
+        <sequence id="seq_MK388098.1:ACT/04-2014" spec="Sequence" taxon="MK388098.1:ACT/04-2014" totalcount="4" value="aatttatagctcttaaaaaaaagtataaccctacctaccctggacgtacgatagagggat"/>
+                            
+    </data>
+        
+
+
+    
+
+
+    
+
+    <map name="Uniform" >beast.math.distributions.Uniform</map>
+    
+    <map name="Exponential" >beast.math.distributions.Exponential</map>
+    
+    <map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
+    
+    <map name="Normal" >beast.math.distributions.Normal</map>
+    
+    <map name="Beta" >beast.math.distributions.Beta</map>
+    
+    <map name="Gamma" >beast.math.distributions.Gamma</map>
+    
+    <map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
+    
+    <map name="prior" >beast.math.distributions.Prior</map>
+    
+    <map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
+    
+    <map name="OneOnX" >beast.math.distributions.OneOnX</map>
+    
+    <run id="mcmc" spec="MCMC" chainLength="10000000">
+            
+        <state id="state" spec="State" storeEvery="5000">
+                    
+            <tree id="Tree.t:babette_issue_109" spec="beast.evolution.tree.Tree" name="stateNode">
+                            
+                <trait id="dateTrait.t:babette_issue_109" spec="beast.evolution.tree.TraitSet" traitname="date" value="MK388093.1:ACT/04-2013=2013.25,MK388094.1:SA/12-2013=2013.91666666667,MK388095.1:ACT/04-2013=2013.25,MK388096.1:NSW/02-2013=2013.08333333333,MK388097.1:SA/07-2012=2012.5,MK388098.1:ACT/04-2014=2014.25">
+                                    
+                    <taxa id="TaxonSet.babette_issue_109" spec="TaxonSet">
+                                            
+                        <alignment idref="babette_issue_109"/>
+                                        
+                    </taxa>
+                                
+                </trait>
+                            
+                <taxonset idref="TaxonSet.babette_issue_109"/>
+                        
+            </tree>
+                    
+            <parameter id="kappa.s:babette_issue_109" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.0</parameter>
+                    
+            <parameter id="ucldMean.c:babette_issue_109" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
+                    
+            <parameter id="ucldStdev.c:babette_issue_109" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.1</parameter>
+                    
+            <stateNode id="rateCategories.c:babette_issue_109" spec="parameter.IntegerParameter" dimension="10">1</stateNode>
+                    
+            <parameter id="popSize.t:babette_issue_109" spec="parameter.RealParameter" name="stateNode">0.3</parameter>
+                    
+            <parameter id="freqParameter.s:babette_issue_109" spec="parameter.RealParameter" dimension="4" lower="0.0" name="stateNode" upper="1.0">0.25</parameter>
+                
+        </state>
+            
+        <init id="RandomTree.t:babette_issue_109" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:babette_issue_109" taxa="@babette_issue_109">
+                    
+            <populationModel id="ConstantPopulation0.t:babette_issue_109" spec="ConstantPopulation">
+                            
+                <parameter id="randomPopSize.t:babette_issue_109" spec="parameter.RealParameter" name="popSize">1.0</parameter>
+                        
+            </populationModel>
+                
+        </init>
+            
+        <distribution id="posterior" spec="util.CompoundDistribution">
+                    
+            <distribution id="prior" spec="util.CompoundDistribution">
+                            
+                <distribution id="CoalescentConstant.t:babette_issue_109" spec="Coalescent">
+                                    
+                    <populationModel id="ConstantPopulation.t:babette_issue_109" spec="ConstantPopulation" popSize="@popSize.t:babette_issue_109"/>
+                                    
+                    <treeIntervals id="TreeIntervals.t:babette_issue_109" spec="TreeIntervals" tree="@Tree.t:babette_issue_109"/>
+                                
+                </distribution>
+                            
+                <prior id="FrequenciesPrior.s:babette_issue_109" name="distribution" x="@freqParameter.s:babette_issue_109">
+                                    
+                    <Uniform id="Uniform.3" name="distr"/>
+                                
+                </prior>
+                            
+                <prior id="KappaPrior.s:babette_issue_109" name="distribution" x="@kappa.s:babette_issue_109">
+                                    
+                    <LogNormal id="LogNormalDistributionModel.0" name="distr">
+                                            
+                        <parameter id="RealParameter.1" spec="parameter.RealParameter" estimate="false" name="M">1.0</parameter>
+                                            
+                        <parameter id="RealParameter.2" spec="parameter.RealParameter" estimate="false" name="S">1.25</parameter>
+                                        
+                    </LogNormal>
+                                
+                </prior>
+                            
+                <prior id="PopSizePrior.t:babette_issue_109" name="distribution" x="@popSize.t:babette_issue_109">
+                                    
+                    <OneOnX id="OneOnX.1" name="distr"/>
+                                
+                </prior>
+                            
+                <prior id="MeanRatePrior.c:babette_issue_109" name="distribution" x="@ucldMean.c:babette_issue_109">
+                                    
+                    <Uniform id="Uniform.4" name="distr" upper="Infinity"/>
+                                
+                </prior>
+                            
+                <prior id="ucldStdevPrior.c:babette_issue_109" name="distribution" x="@ucldStdev.c:babette_issue_109">
+                                    
+                    <Gamma id="Gamma.0" name="distr">
+                                            
+                        <parameter id="RealParameter.4" spec="parameter.RealParameter" estimate="false" name="alpha">0.5396</parameter>
+                                            
+                        <parameter id="RealParameter.5" spec="parameter.RealParameter" estimate="false" name="beta">0.3819</parameter>
+                                        
+                    </Gamma>
+                                
+                </prior>
+                        
+            </distribution>
+                    
+            <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
+                            
+                <distribution id="treeLikelihood.babette_issue_109" spec="ThreadedTreeLikelihood" data="@babette_issue_109" tree="@Tree.t:babette_issue_109">
+                                    
+                    <siteModel id="SiteModel.s:babette_issue_109" spec="SiteModel">
+                                            
+                        <parameter id="mutationRate.s:babette_issue_109" spec="parameter.RealParameter" estimate="false" name="mutationRate">1.0</parameter>
+                                            
+                        <parameter id="gammaShape.s:babette_issue_109" spec="parameter.RealParameter" estimate="false" name="shape">1.0</parameter>
+                                            
+                        <parameter id="proportionInvariant.s:babette_issue_109" spec="parameter.RealParameter" estimate="false" lower="0.0" name="proportionInvariant" upper="1.0">0.0</parameter>
+                                            
+                        <substModel id="hky.s:babette_issue_109" spec="HKY" kappa="@kappa.s:babette_issue_109">
+                                                    
+                            <frequencies id="estimatedFreqs.s:babette_issue_109" spec="Frequencies" frequencies="@freqParameter.s:babette_issue_109"/>
+                                                
+                        </substModel>
+                                        
+                    </siteModel>
+                                    
+                    <branchRateModel id="RelaxedClock.c:babette_issue_109" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:babette_issue_109" rateCategories="@rateCategories.c:babette_issue_109" tree="@Tree.t:babette_issue_109">
+                                            
+                        <LogNormal id="LogNormalDistributionModel.c:babette_issue_109" S="@ucldStdev.c:babette_issue_109" meanInRealSpace="true" name="distr">
+                                                    
+                            <parameter id="RealParameter.3" spec="parameter.RealParameter" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
+                                                
+                        </LogNormal>
+                                        
+                    </branchRateModel>
+                                
+                </distribution>
+                        
+            </distribution>
+                
+        </distribution>
+            
+        <operator id="KappaScaler.s:babette_issue_109" spec="ScaleOperator" parameter="@kappa.s:babette_issue_109" scaleFactor="0.5" weight="0.1"/>
+            
+        <operator id="ucldMeanScaler.c:babette_issue_109" spec="ScaleOperator" parameter="@ucldMean.c:babette_issue_109" scaleFactor="0.5" weight="1.0"/>
+            
+        <operator id="ucldStdevScaler.c:babette_issue_109" spec="ScaleOperator" parameter="@ucldStdev.c:babette_issue_109" scaleFactor="0.5" weight="3.0"/>
+            
+        <operator id="CategoriesRandomWalk.c:babette_issue_109" spec="IntRandomWalkOperator" parameter="@rateCategories.c:babette_issue_109" weight="10.0" windowSize="1"/>
+            
+        <operator id="CategoriesSwapOperator.c:babette_issue_109" spec="SwapOperator" intparameter="@rateCategories.c:babette_issue_109" weight="10.0"/>
+            
+        <operator id="CategoriesUniform.c:babette_issue_109" spec="UniformOperator" parameter="@rateCategories.c:babette_issue_109" weight="10.0"/>
+            
+        <operator id="relaxedUpDownOperator.c:babette_issue_109" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
+                    
+            <up idref="ucldMean.c:babette_issue_109"/>
+                    
+            <down idref="Tree.t:babette_issue_109"/>
+                
+        </operator>
+            
+        <operator id="CoalescentConstantTreeScaler.t:babette_issue_109" spec="ScaleOperator" scaleFactor="0.5" tree="@Tree.t:babette_issue_109" weight="3.0"/>
+            
+        <operator id="CoalescentConstantTreeRootScaler.t:babette_issue_109" spec="ScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:babette_issue_109" weight="3.0"/>
+            
+        <operator id="CoalescentConstantUniformOperator.t:babette_issue_109" spec="Uniform" tree="@Tree.t:babette_issue_109" weight="30.0"/>
+            
+        <operator id="CoalescentConstantSubtreeSlide.t:babette_issue_109" spec="SubtreeSlide" tree="@Tree.t:babette_issue_109" weight="15.0"/>
+            
+        <operator id="CoalescentConstantNarrow.t:babette_issue_109" spec="Exchange" tree="@Tree.t:babette_issue_109" weight="15.0"/>
+            
+        <operator id="CoalescentConstantWide.t:babette_issue_109" spec="Exchange" isNarrow="false" tree="@Tree.t:babette_issue_109" weight="3.0"/>
+            
+        <operator id="CoalescentConstantWilsonBalding.t:babette_issue_109" spec="WilsonBalding" tree="@Tree.t:babette_issue_109" weight="3.0"/>
+            
+        <operator id="PopSizeScaler.t:babette_issue_109" spec="ScaleOperator" parameter="@popSize.t:babette_issue_109" scaleFactor="0.75" weight="3.0"/>
+            
+        <operator id="FrequenciesExchanger.s:babette_issue_109" spec="DeltaExchangeOperator" delta="0.01" weight="0.1">
+                    
+            <parameter idref="freqParameter.s:babette_issue_109"/>
+                
+        </operator>
+            
+        <logger id="tracelog" spec="Logger" fileName="babette_issue_109.log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+                    
+            <log idref="posterior"/>
+                    
+            <log idref="likelihood"/>
+                    
+            <log idref="prior"/>
+                    
+            <log idref="treeLikelihood.babette_issue_109"/>
+                    
+            <log id="TreeHeight.t:babette_issue_109" spec="beast.evolution.tree.TreeHeightLogger" tree="@Tree.t:babette_issue_109"/>
+                    
+            <log idref="kappa.s:babette_issue_109"/>
+                    
+            <log idref="ucldMean.c:babette_issue_109"/>
+                    
+            <log idref="ucldStdev.c:babette_issue_109"/>
+                    
+            <log id="rate.c:babette_issue_109" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:babette_issue_109" tree="@Tree.t:babette_issue_109"/>
+                    
+            <log idref="popSize.t:babette_issue_109"/>
+                    
+            <log idref="CoalescentConstant.t:babette_issue_109"/>
+                    
+            <log idref="freqParameter.s:babette_issue_109"/>
+                
+        </logger>
+            
+        <logger id="screenlog" spec="Logger" logEvery="1000">
+                    
+            <log idref="posterior"/>
+                    
+            <log idref="likelihood"/>
+                    
+            <log idref="prior"/>
+                
+        </logger>
+            
+        <logger id="treelog.t:babette_issue_109" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
+                    
+            <log id="TreeWithMetaDataLogger.t:babette_issue_109" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:babette_issue_109" tree="@Tree.t:babette_issue_109"/>
+                
+        </logger>
+        
+    </run>
+    
+</beast>
