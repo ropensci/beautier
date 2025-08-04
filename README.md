@@ -116,7 +116,8 @@ The tip dates file is a file
 that needs to not have column, nor row names.
 The columns need to be tab separated.
 
-See [here](https://github.com/ropensci/beautier/blob/main/inst/extdata/G_VII_pre2003_dates_4.txt)
+See
+[the example file `G_VII_pre2003_dates_4.txt`](https://github.com/ropensci/beautier/blob/main/inst/extdata/G_VII_pre2003_dates_4.txt)
 for an example, of which the first rows are shown here:
 
 ```text
@@ -125,9 +126,6 @@ KF767104_Indonesia_1988_VII 1988
 KF767105_Indonesia_1988_VII 1988
 AY288998_Indonesia_1990_VII 1990
 ```
-
-In the future, there probably will be a ´to_tipdates_file´ function,
-to create a temporary tipdates file from a table.
 
 ## Missing features/unsupported
 

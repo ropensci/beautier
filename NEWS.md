@@ -24,7 +24,7 @@ Newest versions at top.
 ## BUG FIXES
 
 - A `tipdates_filename` must either be `NA` or be a path
-  to an existing file, reported [here](https://github.com/ropensci/babette/issues/108)
+  to an existing file, reported at [#108](https://github.com/ropensci/babette/issues/108)
 - Fix [#109](https://github.com/ropensci/babette/issues/108)
 
 ## DEPRECATED AND DEFUNCT
