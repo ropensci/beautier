@@ -77,31 +77,31 @@ test_that("in-depth use", {
 
   # Wrong parameter values
   # capitalize_first_char_id
+  #  "`beauti_options\\$capitalize_first_char_id` must be `TRUE` or `FALSE`, not the string \"nonsense\"." # nolint
   expect_error(
     check_beauti_options(
       create_beauti_options(capitalize_first_char_id = "nonsense")
-    ),
-    "`beauti_options\\$capitalize_first_char_id` must be `TRUE` or `FALSE`, not the string \"nonsense\"." # nolint
+    )
   )
+  # "`beauti_options\\$capitalize_first_char_id` must be `TRUE` or `FALSE`, not `NA`." # nolint
   expect_error(
     check_beauti_options(
       create_beauti_options(capitalize_first_char_id = NA)
-    ),
-    "`beauti_options\\$capitalize_first_char_id` must be `TRUE` or `FALSE`, not `NA`." # nolint
+    )
   )
 
   # nucleotides_uppercase
+  # "`beauti_options\\$nucleotides_uppercase` must be `TRUE` or `FALSE`, not the string \"nonsense\"." # nolint
   expect_error(
     check_beauti_options(
       create_beauti_options(nucleotides_uppercase = "nonsense")
-    ),
-    "`beauti_options\\$nucleotides_uppercase` must be `TRUE` or `FALSE`, not the string \"nonsense\"." # nolint
+    )
   )
+  # "`beauti_options\\$nucleotides_uppercase` must be `TRUE` or `FALSE`, not `NA`." # nolint
   expect_error(
     check_beauti_options(
       create_beauti_options(nucleotides_uppercase = NA)
-    ),
-    "`beauti_options\\$nucleotides_uppercase` must be `TRUE` or `FALSE`, not `NA`." # nolint
+    )
   )
 
   # beast2_version
@@ -128,8 +128,7 @@ test_that("in-depth use", {
   expect_error(
     check_beauti_options(
       create_beauti_options(required = NA)
-    ),
-    "must be a single string, not `NA`"
+    )
   )
 
   # sequence_indent

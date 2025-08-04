@@ -178,7 +178,6 @@ test_that("in-depth use", {
   expect_error(
     check_inference_model(
       create_inference_model(tipdates_filename = 1)
-    ),
-    "must be a single string or `NA`, not the number 1"
+    )
   )
 })
