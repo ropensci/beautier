@@ -22,14 +22,14 @@ create_subst_model_xml <- function(
   check_true(is_site_model(site_model))
 
   if (is_jc69_site_model(site_model)) {
-    return(create_jc69_subst_model_xml(site_model))
+    create_jc69_subst_model_xml(site_model)
   } else if (is_hky_site_model(site_model)) {
-    return(create_hky_subst_model_xml(site_model))
+    create_hky_subst_model_xml(site_model)
   } else if (is_tn93_site_model(site_model)) {
-    return(create_tn93_subst_model_xml(site_model))
+    create_tn93_subst_model_xml(site_model)
   } else {
     check_true(is_gtr_site_model(site_model))
-    return(create_gtr_subst_model_xml(site_model))
+    create_gtr_subst_model_xml(site_model)
   }
 }
 

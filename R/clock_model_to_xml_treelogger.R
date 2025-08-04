@@ -10,26 +10,22 @@ clock_model_to_xml_treelogger <- function(
   id <- clock_model$id
 
   if (is_strict_clock_model(clock_model)) {
-    return(
-      paste0(
-        "<log ",
-        "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
-        "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-        "tree=\"@Tree.t:", id, "\"/>" # nolint this is no absolute path
-      )
+    paste0(
+      "<log ",
+      "id=\"TreeWithMetaDataLogger.t:", id, "\" ",
+      "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
+      "tree=\"@Tree.t:", id, "\"/>" # nolint this is no absolute path
     )
   } else {
 
     # Will fail on unimplemented clock models
     check_true(is_rln_clock_model(clock_model))
 
-    return(
-      paste0(
-        "<log id=\"TreeWithMetaDataLogger.t:", id, "\" ",
-        "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
-        "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
-        "tree=\"@Tree.t:", id, "\"/>" # nolint this is no absolute path
-      )
+    paste0(
+      "<log id=\"TreeWithMetaDataLogger.t:", id, "\" ",
+      "spec=\"beast.evolution.tree.TreeWithMetaDataLogger\" ",
+      "branchratemodel=\"@RelaxedClock.c:", id, "\" ",
+      "tree=\"@Tree.t:", id, "\"/>" # nolint this is no absolute path
     )
   }
 }
