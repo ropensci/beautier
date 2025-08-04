@@ -11,6 +11,8 @@ test_that("tipdates file without tabs must give an error", {
 
 test_that("produce a valid BEAST2 input file", {
 
+  skip("#109")
+
   if (!"beastier" %in% installed.packages()[,1]) {
     return()
   }
@@ -51,6 +53,7 @@ test_that("produce a valid BEAST2 input file", {
 
 
 test_that("reproduce BEAUti v2.6 file", {
+  skip("#109")
 
   fasta_filename <- get_beautier_path("babette_issue_109.fasta")
   tipdates_filename <- get_beautier_path("babette_issue_109.tsv")

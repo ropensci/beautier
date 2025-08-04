@@ -26,7 +26,7 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
   id <- inference_model$tree_prior$id
 
   # The concatenated taxa
-  trait_set_str <- NULL
+  trait_set_str <- ""
   if (inference_model$beauti_options$beast2_version != "2.6") {
     tipdates_table <- utils::read.table(
       inference_model$tipdates_filename,
@@ -50,6 +50,7 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
       "traitname=\"date\" "
     )
   }
+  testthat::expect_true(nchar(trait_set_str) > 0)
   first_line <- paste0(
     first_line,
     "value=\"", trait_set_str, "\">"
