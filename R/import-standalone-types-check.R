@@ -2,15 +2,6 @@
 # Source: <https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R>
 # ----------------------------------------------------------------------
 #
-# ---
-# repo: r-lib/rlang
-# file: standalone-types-check.R
-# last-updated: 2023-03-13
-# license: https://unlicense.org
-# dependencies: standalone-obj-type.R
-# imports: rlang (>= 1.1.0)
-# ---
-#
 # ## Changelog
 #
 # 2023-03-13:

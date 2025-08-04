@@ -43,7 +43,7 @@ test_that("detailed use, v2.6", {
 test_that("abuse", {
   expect_error(
     create_ucld_stdev_state_node_param_xml(
-      create_inference_model(
+      inference_model = create_inference_model(
         clock_model = create_rln_clock_model() # id is NA
       )
     ),

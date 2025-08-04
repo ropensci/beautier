@@ -17,9 +17,9 @@ rln_clock_model_to_xml_state <- function(
 
   text <- NULL
   # Fails on unimplemented clock models
-  check_true(is_rln_clock_model(clock_model))
-  check_false(is_one_na(clock_model$mean_clock_rate))
-  check_false(is_one_na(clock_model$dimension))
+  testthat::expect_true(is_rln_clock_model(clock_model))
+  testthat::expect_false(is_one_na(clock_model$mean_clock_rate))
+  testthat::expect_false(is_one_na(clock_model$dimension))
 
   if (has_mrca_prior_with_distr(inference_model) ||
       has_tip_dating(inference_model)

@@ -69,7 +69,7 @@ test_that("abuse", {
   )
   expect_error(
     create_ucld_mean_state_node_param_xml(
-      create_inference_model(
+      inference_model = create_inference_model(
         clock_model = create_rln_clock_model(id = 314, mean_clock_rate = NA),
         beauti_options = create_beauti_options_v2_6()
       )

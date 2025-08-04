@@ -9,6 +9,6 @@ find_first_xml_opening_tag_line <- function( # nolint indeed long function name
   lines,
   section
 ) {
-  check_string(section)
+  check_string(section, allow_na = FALSE)
   find_first_regex_line(lines, paste0("<", section, ".*>"))
 }

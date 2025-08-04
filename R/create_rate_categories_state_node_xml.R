@@ -38,8 +38,8 @@ create_rate_categories_state_node_xml <- function(inference_model) { # nolint in
   check_true(is_rln_clock_model(clock_model))
   id <- clock_model$id
   dimension <- clock_model$dimension
-  check_false(is_one_na(dimension))
-  check_false(is_one_na(id))
+  testthat::expect_false(is_one_na(dimension))
+  testthat::expect_false(is_one_na(id))
   # dimension d = 2n - 2, where n is the number of taxa
   paste0(
     "<stateNode id=\"rateCategories.c:", id, "\" ",
