@@ -12,10 +12,10 @@ on:
   schedule:
   - cron: "0 0 12 * *"
 
-name: check-links
+name: check_links
 
 jobs:
-  check-links:
+  check_links:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
