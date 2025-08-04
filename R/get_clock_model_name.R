@@ -19,10 +19,10 @@ get_clock_model_name <- function(
   clock_model
 ) {
   if (is_strict_clock_model(clock_model)) {
-    return("StrictClock")
+    "StrictClock"
   } else {
     # Will fail on unimplemented clock models
     check_true(is_rln_clock_model(clock_model))
-    return("RelaxedClock")
+    "RelaxedClock"
   }
 }

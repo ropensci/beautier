@@ -62,4 +62,3 @@ check_tipdates_file <- function(tipdates_filename) {
     )
   }
 }
-

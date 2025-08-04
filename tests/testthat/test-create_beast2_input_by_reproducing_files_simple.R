@@ -1587,6 +1587,7 @@ test_that("Tip dating, v2.5", {
       sequence_indent = 24
     )
   )
+  read_tipdates_file(get_beautier_path("G_VII_pre2003_dates_4.txt"))
   expected <- readLines(get_beautier_path("G_VII_pre2003.xml"))
   compare_lines(
     lines = created,

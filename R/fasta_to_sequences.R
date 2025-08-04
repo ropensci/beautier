@@ -26,6 +26,5 @@ fasta_file_to_sequences <- function(fasta_filename) {
     sequences <- c(sequences, sequence)
   }
 
-  table <- data.frame(sequences, row.names = labels)
-  return(table)
+  data.frame(sequences, row.names = labels)
 }

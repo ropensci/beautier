@@ -73,6 +73,15 @@ test_that("tipdates, v2.6", {
       section = "state"
     )
   )
+  if (1 == 2) {
+    compare_lines(
+      lines = created,
+      expected = expected,
+      created_lines_filename = "~/created.xml",
+      expected_lines_filename = "~/expected.xml",
+    )
+  }
+
   expect_true(are_equivalent_xml_lines(created, expected))
 })
 
@@ -104,5 +113,13 @@ test_that("RLN + tipdates, v2.6", {
       section = "state"
     )
   )
+  if (1 == 2) {
+    compare_lines(
+      lines = created,
+      expected = expected,
+      created_lines_filename = "~/created.xml",
+      expected_lines_filename = "~/expected.xml",
+    )
+  }
   expect_true(are_equivalent_xml_lines(created, expected))
 })

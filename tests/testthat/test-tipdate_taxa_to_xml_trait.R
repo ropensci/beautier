@@ -11,6 +11,7 @@ test_that("v2.6, tipdates", {
     inference_model = inference_model
   )
   # Extracted from tipdates_2_6.xml
+  # Note that the value is an empty string
   expected <- c(
     "<trait id=\"dateTrait.t:test_output_0\" spec=\"beast.evolution.tree.TraitSet\" traitname=\"date\" value=\"\">", # nolint
     "    <taxa id=\"TaxonSet.test_output_0\" spec=\"TaxonSet\">", # nolint

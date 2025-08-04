@@ -27,7 +27,7 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
 
   # The concatenated taxa
   trait_set_str <- ""
-  if (1 + 1 == 2 || inference_model$beauti_options$beast2_version != "2.6") {
+  if (needs_trait_set_str(inference_model)) {
 
     # read_tipdates_file wil check the file
     tipdates_table <- read_tipdates_file(inference_model$tipdates_filename)
@@ -49,7 +49,7 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
       "traitname=\"date\" "
     )
   }
-  testthat::expect_true(nchar(trait_set_str) > 0)
+  testthat::expect_true(nchar(trait_set_str) >= 0) # Yes, can be empty
   first_line <- paste0(
     first_line,
     "value=\"", trait_set_str, "\">"

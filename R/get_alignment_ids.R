@@ -19,10 +19,8 @@
 #' @export
 get_alignment_ids <- function(filenames) {
   if (are_fasta_filenames(filenames)) {
-    return(
-      get_alignment_ids_from_fasta_filenames(
-        fasta_filenames = filenames
-      )
+    get_alignment_ids_from_fasta_filenames(
+      fasta_filenames = filenames
     )
   }
 }
