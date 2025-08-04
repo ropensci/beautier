@@ -10,6 +10,9 @@ check_string(x, allow_na = FALSE, allow_empty = TRUE)
 \item{x}{the object to be determined to be one string}
 
 \item{allow_na}{allow \link{NA}}
+
+\item{allow_empty}{boolean to indicate if an empty string
+is allowed}
 }
 \value{
 Nothing. Will raise an exception if the value is not one string

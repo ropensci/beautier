@@ -11,7 +11,8 @@ has_xml_closing_tag <- function(
   lines,
   section
 ) {
-  check_string(section)
+  check_string(section, allow_na = TRUE)
+
   !is_one_na(
     find_last_xml_closing_tag_line(
       lines = lines,

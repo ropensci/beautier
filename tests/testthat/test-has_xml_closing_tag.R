@@ -1,5 +1,3 @@
-context("has_xml_closing_tag")
-
 test_that("use", {
 
   text <- c(
@@ -34,7 +32,7 @@ test_that("abuse", {
   )
 
   expect_error(
-    has_xml_closing_tag(text, section = NA),
+    has_xml_closing_tag(lines = text, section = NA),
     "must be a single string"
   )
   expect_error(

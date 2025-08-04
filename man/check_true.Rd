@@ -15,9 +15,6 @@ Nothing. Will raise an exception if the value is not `TRUE`
 \description{
 Determine if `x` is `TRUE`
 }
-\note{
-Created by modifying check_bool from import-standalone-type-check.
-}
 \examples{
 check_true(TRUE)
 }

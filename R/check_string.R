@@ -15,7 +15,12 @@ check_string <- function(
 ) {
   check_bool(allow_na)
   check_bool(allow_empty)
-  testthat::expect_equal(length(x), 1)
+  if (length(x) != 1) {
+    stop(
+      "'x' must be a single string. \n",
+      "Actual length: ", length(x)
+    )
+  }
   if (!allow_na) {
     testthat::expect_false(is.na(x))
   }
