@@ -4,14 +4,7 @@
 \alias{check_true}
 \title{Determine if `x` is `TRUE`}
 \usage{
-check_true(
-  x,
-  ...,
-  allow_na = FALSE,
-  allow_null = FALSE,
-  arg = caller_arg(x),
-  call = caller_env()
-)
+check_true(x)
 }
 \arguments{
 \item{x}{the object to be determined to be `TRUE`}
@@ -29,5 +22,5 @@ Created by modifying check_bool from import-standalone-type-check.
 check_true(TRUE)
 }
 \author{
-[`olivroy`](https://github.com/olivroy)
+Richèl J.C. Bilderbeek
 }

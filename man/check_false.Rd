@@ -4,14 +4,7 @@
 \alias{check_false}
 \title{Determine if `x` is `FALSE`}
 \usage{
-check_false(
-  x,
-  ...,
-  allow_na = FALSE,
-  allow_null = FALSE,
-  arg = caller_arg(x),
-  call = caller_env()
-)
+check_false(x)
 }
 \arguments{
 \item{x}{the object to be determined to be `FALSE`}
@@ -29,5 +22,5 @@ Created by modifying check_bool from import-standalone-type-check.
 check_false(FALSE)
 }
 \author{
-[`olivroy`](https://github.com/olivroy)
+Richèl J.C. Bilderbeek
 }
