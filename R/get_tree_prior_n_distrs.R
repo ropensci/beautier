@@ -28,16 +28,16 @@ get_tree_prior_n_distrs <- function(
   if (!is_tree_prior(tree_prior)) {
     stop("'tree_prior' must be a tree prior")
   }
-  if (is_bd_tree_prior(tree_prior)) {
+  if (beautier::is_bd_tree_prior(tree_prior)) {
     2
-  } else if (is_cbs_tree_prior(tree_prior)) {
+  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
     0
-  } else if (is_ccp_tree_prior(tree_prior)) {
+  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     1
-  } else if (is_cep_tree_prior(tree_prior)) {
+  } else if (beautier::is_cep_tree_prior(tree_prior)) {
     2
   } else {
-    check_true(is_yule_tree_prior(tree_prior))
+    beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
     1
   }
 }

@@ -20,8 +20,8 @@ create_beast2_input_init <- function(
 ) {
   # Do not be smart yet
   ids <- inference_model$site_model$id
-  check_true(length(ids) == 1)
-  check_true(are_ids(ids))
+  beautier::check_true(length(ids) == 1)
+  beautier::check_true(are_ids(ids))
 
   text <- NULL
 

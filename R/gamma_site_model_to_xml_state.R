@@ -10,8 +10,8 @@ gamma_site_model_to_xml_state <- function(
   gamma_site_model,
   id
 ) {
-  check_true(is_gamma_site_model(gamma_site_model))
-  check_true(is_id(id))
+  beautier::check_true(is_gamma_site_model(gamma_site_model))
+  beautier::check_true(beautier::is_id(id))
   text <- NULL
   if (gamma_site_model$gamma_cat_count >= 2) {
     text <- c(

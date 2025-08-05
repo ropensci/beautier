@@ -16,7 +16,7 @@
 site_model_to_xml_tracelog <- function(
   site_model
 ) {
-  check_true(is_site_model(site_model))
+  beautier::check_true(is_site_model(site_model))
   id <- site_model$id
 
   text <- NULL

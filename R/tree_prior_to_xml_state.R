@@ -13,10 +13,10 @@ tree_prior_to_xml_state <- function(
   check_tree_prior(tree_prior)
 
   id <- tree_prior$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
-  if (is_bd_tree_prior(tree_prior)) {
+  if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(
       text,
       paste0(
@@ -31,9 +31,9 @@ tree_prior_to_xml_state <- function(
         "lower=\"0.0\" name=\"stateNode\" upper=\"1.0\">0.5</parameter>"
       )
     )
-  } else if (is_ccp_tree_prior(tree_prior)) {
+  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     text <- c(text, ccp_tree_prior_to_xml_state(inference_model))
-  } else if (is_cbs_tree_prior(tree_prior)) {
+  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
 
     inference_model$tree_prior$b_pop_sizes_param$id <- id
     text <- c(
@@ -51,7 +51,7 @@ tree_prior_to_xml_state <- function(
         "dimension=\"", tree_prior$group_sizes_dimension, "\">1</stateNode>"
       )
     )
-  } else if (is_cep_tree_prior(tree_prior)) {
+  } else if (beautier::is_cep_tree_prior(tree_prior)) {
     text <- c(
       text,
       paste0(
@@ -67,7 +67,7 @@ tree_prior_to_xml_state <- function(
       )
     )
   } else {
-    check_true(is_yule_tree_prior(tree_prior))
+    beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
     parameter_xml <- paste0(
       "<parameter ", "id=\"birthRate.t:", id, "\" "
     )

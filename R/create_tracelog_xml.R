@@ -64,7 +64,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
       "fileName=\"", filename, ".log\" "
     )
   } else {
-    check_true(!is.na(inference_model$mcmc$tracelog$filename))
+    beautier::check_true(!is.na(inference_model$mcmc$tracelog$filename))
     top_line <- paste0(
       top_line,
       "fileName=\"", inference_model$mcmc$tracelog$filename, "\" "

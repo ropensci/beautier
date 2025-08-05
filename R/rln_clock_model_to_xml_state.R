@@ -17,7 +17,7 @@ rln_clock_model_to_xml_state <- function(
 
   text <- NULL
   # Fails on unimplemented clock models
-  check_true(is_rln_clock_model(clock_model))
+  beautier::check_true(beautier::is_rln_clock_model(clock_model))
   check_false(is_one_na(clock_model$mean_clock_rate))
   check_false(is_one_na(clock_model$dimension))
 

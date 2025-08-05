@@ -17,9 +17,9 @@ kappa_param_to_xml <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_kappa_param(kappa_param))
+  beautier::check_true(is_kappa_param(kappa_param))
   id <- kappa_param$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   xml <- paste0("<parameter id=\"kappa.s:", id, "\" ")
   if (beauti_options$beast2_version == "2.6") {

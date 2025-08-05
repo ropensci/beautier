@@ -6,7 +6,7 @@
 site_models_to_xml_operators <- function(
   site_models
 ) {
-  check_true(are_site_models(site_models))
+  beautier::check_true(are_site_models(site_models))
 
   text <- NULL
   for (site_model in site_models) {

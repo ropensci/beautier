@@ -25,11 +25,11 @@
 #' check_empty_beautier_folder()
 #' @export
 create_clock_rate_state_node_parameter_xml <- function(inference_model) { # nolint indeed a long function name
-  check_true(
+  beautier::check_true(
     has_strict_clock_model(inference_model) ||
       has_tip_dating(inference_model)
   )
-  check_true(has_tip_dating(inference_model))
+  beautier::check_true(beautier::has_tip_dating(inference_model))
   clock_model <- inference_model$clock_model
   id <- clock_model$id
   check_false(is_one_na(id))

@@ -32,8 +32,8 @@ create_beast2_input_beast <- function(
   input_filename,
   inference_model = create_inference_model()
 ) {
-  check_true(length(input_filename) == 1)
-  check_true(file.exists(input_filename))
+  beautier::check_true(length(input_filename) == 1)
+  beautier::check_true(file.exists(input_filename))
 
   # The XML declaration is prepended by the caller
   # and is created by 'create_xml_declaration'

@@ -22,7 +22,7 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
 ) {
   check_beauti_options(beauti_options)
   check_param(parameter)
-  check_true(is_id(parameter$id))
+  beautier::check_true(beautier::is_id(parameter$id))
   if (is_alpha_param(parameter)) {
     return(alpha_parameter_to_xml(alpha_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (is_beta_param(parameter)) {
@@ -64,7 +64,7 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
     return(parameter_to_xml_scale(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   }
   # This assert will also fail for new parameter types
-  check_true(is_sigma_param(parameter))
+  beautier::check_true(is_sigma_param(parameter))
   parameter_to_xml_sigma(parameter, beauti_options = beauti_options)
 }
 
@@ -84,9 +84,9 @@ parameter_to_xml_kappa_1 <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_kappa_1_param(parameter))
+  beautier::check_true(is_kappa_1_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   paste0("<parameter id=\"kappa1.s:", id, "\" ",
     "lower=\"", parameter$lower, "\" ",
     "name=\"stateNode\">", parameter$value, "</parameter>"
@@ -109,9 +109,9 @@ parameter_to_xml_kappa_2 <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_kappa_2_param(parameter))
+  beautier::check_true(is_kappa_2_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   paste0("<parameter id=\"kappa2.s:", id, "\" ",
     "lower=\"", parameter$lower, "\" ",
     "name=\"stateNode\">", parameter$value, "</parameter>"
@@ -136,9 +136,9 @@ parameter_to_xml_lambda <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_lambda_param(parameter))
+  beautier::check_true(is_lambda_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   paste0(
     "<parameter ",
     "id=\"RealParameter.", id, "\" ",
@@ -163,10 +163,10 @@ parameter_to_xml_mean <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_mean_param(parameter))
+  beautier::check_true(is_mean_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
-  check_true(parameter$estimate == FALSE)
+  beautier::check_true(beautier::is_id(id))
+  beautier::check_true(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -193,10 +193,10 @@ parameter_to_xml_mu <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_mu_param(parameter))
+  beautier::check_true(is_mu_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
-  check_true(parameter$estimate == FALSE)
+  beautier::check_true(beautier::is_id(id))
+  beautier::check_true(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -225,10 +225,10 @@ parameter_to_xml_rate_ac <- function(
   which_name = "state_node"
 ) {
   check_beauti_options(beauti_options)
-  check_true(which_name %in% c("state_node", "rate_name"))
-  check_true(is_rate_ac_param(parameter))
+  beautier::check_true(which_name %in% c("state_node", "rate_name"))
+  beautier::check_true(is_rate_ac_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateAC.s:", id, "\"")
@@ -238,7 +238,7 @@ parameter_to_xml_rate_ac <- function(
   name_str <- NULL
   if (which_name == "state_node") name_str <- "stateNode"
   if (which_name == "rate_name") name_str <- "rateAC"
-  check_true(!is.null(name_str))
+  beautier::check_true(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
     " name=\"", name_str, "\">", value, "</parameter>"
@@ -263,10 +263,10 @@ parameter_to_xml_rate_ag <- function(
   which_name = "state_node"
 ) {
   check_beauti_options(beauti_options)
-  check_true(which_name %in% c("state_node", "rate_name"))
-  check_true(is_rate_ag_param(parameter))
+  beautier::check_true(which_name %in% c("state_node", "rate_name"))
+  beautier::check_true(is_rate_ag_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateAG.s:", id, "\"")
@@ -276,7 +276,7 @@ parameter_to_xml_rate_ag <- function(
   name_str <- NULL
   if (which_name == "state_node") name_str <- "stateNode"
   if (which_name == "rate_name") name_str <- "rateAG"
-  check_true(!is.null(name_str))
+  beautier::check_true(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
     " name=\"", name_str, "\">", value, "</parameter>"
@@ -301,10 +301,10 @@ parameter_to_xml_rate_at <- function(
   which_name = "state_node"
 ) {
   check_beauti_options(beauti_options)
-  check_true(which_name %in% c("state_node", "rate_name"))
-  check_true(is_rate_at_param(parameter))
+  beautier::check_true(which_name %in% c("state_node", "rate_name"))
+  beautier::check_true(is_rate_at_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateAT.s:", id, "\"")
@@ -314,7 +314,7 @@ parameter_to_xml_rate_at <- function(
   name_str <- NULL
   if (which_name == "state_node") name_str <- "stateNode"
   if (which_name == "rate_name") name_str <- "rateAT"
-  check_true(!is.null(name_str))
+  beautier::check_true(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
     " name=\"", name_str, "\">", value, "</parameter>"
@@ -339,10 +339,10 @@ parameter_to_xml_rate_cg <- function(
   which_name = "state_node"
 ) {
   check_beauti_options(beauti_options)
-  check_true(which_name %in% c("state_node", "rate_name"))
-  check_true(is_rate_cg_param(parameter))
+  beautier::check_true(which_name %in% c("state_node", "rate_name"))
+  beautier::check_true(is_rate_cg_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateCG.s:", id, "\"")
@@ -352,7 +352,7 @@ parameter_to_xml_rate_cg <- function(
   name_str <- NULL
   if (which_name == "state_node") name_str <- "stateNode"
   if (which_name == "rate_name") name_str <- "rateCG"
-  check_true(!is.null(name_str))
+  beautier::check_true(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
     " name=\"", name_str, "\">", value, "</parameter>"
@@ -377,10 +377,10 @@ parameter_to_xml_rate_ct <- function(
   which_name = "state_node"
 ) {
   check_beauti_options(beauti_options)
-  check_true(which_name %in% c("state_node", "rate_name"))
-  check_true(is_rate_ct_param(parameter))
+  beautier::check_true(which_name %in% c("state_node", "rate_name"))
+  beautier::check_true(is_rate_ct_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateCT.s:", id, "\"")
@@ -390,7 +390,7 @@ parameter_to_xml_rate_ct <- function(
   name_str <- NULL
   if (which_name == "state_node") name_str <- "stateNode"
   if (which_name == "rate_name") name_str <- "rateCT"
-  check_true(!is.null(name_str))
+  beautier::check_true(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
     " name=\"", name_str, "\">", value, "</parameter>"
@@ -415,10 +415,10 @@ parameter_to_xml_rate_gt <- function(
   which_name = "state_node"
 ) {
   check_beauti_options(beauti_options)
-  check_true(which_name %in% c("state_node", "rate_name"))
-  check_true(is_rate_gt_param(parameter))
+  beautier::check_true(which_name %in% c("state_node", "rate_name"))
+  beautier::check_true(is_rate_gt_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   value <- parameter$value
   lower <- parameter$lower
   line <- paste0("<parameter id=\"rateGT.s:", id, "\"")
@@ -428,7 +428,7 @@ parameter_to_xml_rate_gt <- function(
   name_str <- NULL
   if (which_name == "state_node") name_str <- "stateNode"
   if (which_name == "rate_name") name_str <- "rateGT"
-  check_true(!is.null(name_str))
+  beautier::check_true(!is.null(name_str))
 
   paste0(line, " lower=\"", lower, "\"",
     " name=\"", name_str, "\">", value, "</parameter>"
@@ -451,10 +451,10 @@ parameter_to_xml_scale <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_scale_param(parameter))
+  beautier::check_true(is_scale_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
-  check_true(parameter$estimate == FALSE)
+  beautier::check_true(beautier::is_id(id))
+  beautier::check_true(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",
@@ -481,10 +481,10 @@ parameter_to_xml_sigma <- function(
   beauti_options = create_beauti_options()
 ) {
   check_beauti_options(beauti_options)
-  check_true(is_sigma_param(parameter))
+  beautier::check_true(is_sigma_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
-  check_true(parameter$estimate == FALSE)
+  beautier::check_true(beautier::is_id(id))
+  beautier::check_true(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   paste0(
     "<parameter ",

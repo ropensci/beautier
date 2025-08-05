@@ -18,9 +18,9 @@ hky_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
   site_model,
   beauti_options
 ) {
-  check_true(is_hky_site_model(site_model))
+  beautier::check_true(is_hky_site_model(site_model))
   id <- site_model$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
   text <- c(text, paste0("<prior ",

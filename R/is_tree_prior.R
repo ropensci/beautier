@@ -120,11 +120,11 @@ is_ccp_tree_prior <- function(
 #' @examples
 #' check_empty_beautier_folder()
 #'
-#'   !is_cep_tree_prior(create_bd_tree_prior())
-#'   !is_cep_tree_prior(create_cbs_tree_prior())
-#'   !is_cep_tree_prior(create_ccp_tree_prior())
+#'   !beautier::is_cep_tree_prior(create_bd_tree_prior())
+#'   !beautier::is_cep_tree_prior(create_cbs_tree_prior())
+#'   !beautier::is_cep_tree_prior(create_ccp_tree_prior())
 #'   is_cep_tree_prior(create_cep_tree_prior())
-#'   !is_cep_tree_prior(create_yule_tree_prior())
+#'   !beautier::is_cep_tree_prior(create_yule_tree_prior())
 #'
 #' check_empty_beautier_folder()
 #' @export
@@ -161,7 +161,7 @@ is_cep_tree_prior <- function(
 is_yule_tree_prior <- function(
   x
 ) {
-  if (is.list(x) && length(x) == 1) return(is_yule_tree_prior(x[[1]]))
+  if (is.list(x) && length(x) == 1) return(beautier::is_yule_tree_prior(x[[1]]))
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "yule") return(FALSE)
   if (!"birth_rate_distr" %in% names(x)) return(FALSE)

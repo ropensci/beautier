@@ -32,7 +32,7 @@ site_model_to_xml_state <- function(
       )
     )
   } else {
-    check_true(is_jc69_site_model(site_model))
+    beautier::check_true(is_jc69_site_model(site_model))
     return(
       jc69_site_model_to_xml_state(
         site_model = site_model,

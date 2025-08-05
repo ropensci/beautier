@@ -25,16 +25,16 @@ tree_prior_to_xml_prior_distr <- function(
   check_tree_prior(tree_prior)
   check_beauti_options(beauti_options)
   text <- NULL
-  if (is_bd_tree_prior(tree_prior)) {
+  if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(text, bd_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_cbs_tree_prior(tree_prior)) {
+  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
     text <- c(text, cbs_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_ccp_tree_prior(tree_prior)) {
+  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     text <- c(text, ccp_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_cep_tree_prior(tree_prior)) {
+  } else if (beautier::is_cep_tree_prior(tree_prior)) {
     text <- c(text, cep_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
   } else {
-    check_true(is_yule_tree_prior(tree_prior))
+    beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
     text <- c(text, yule_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line
   }
   text

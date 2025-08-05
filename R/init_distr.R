@@ -11,7 +11,7 @@ init_distr <- function( # nolint simplifying this more hurts readability
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_distr(distr))
+  beautier::check_true(is_distr(distr))
   if (is_beta_distr(distr)) {
     return(
       init_beta_distr(
@@ -85,7 +85,7 @@ init_distr <- function( # nolint simplifying this more hurts readability
       )
     )
   }
-  check_true(is_uniform_distr(distr))
+  beautier::check_true(is_uniform_distr(distr))
   init_uniform_distr(
     uniform_distr = distr,
     distr_id = distr_id
@@ -104,7 +104,7 @@ init_beta_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_beta_distr(beta_distr))
+  beautier::check_true(is_beta_distr(beta_distr))
 
   if (is_one_na(beta_distr$id)) {
     beta_distr$id <- distr_id
@@ -131,7 +131,7 @@ init_exp_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_exp_distr(exp_distr))
+  beautier::check_true(is_exp_distr(exp_distr))
 
   if (is_one_na(exp_distr$id)) {
     exp_distr$id <- distr_id
@@ -154,7 +154,7 @@ init_gamma_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_gamma_distr(gamma_distr))
+  beautier::check_true(is_gamma_distr(gamma_distr))
 
   if (is_one_na(gamma_distr$id)) {
     gamma_distr$id <- distr_id
@@ -181,7 +181,7 @@ init_inv_gamma_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_inv_gamma_distr(inv_gamma_distr))
+  beautier::check_true(is_inv_gamma_distr(inv_gamma_distr))
 
   if (is_one_na(inv_gamma_distr$id)) {
     inv_gamma_distr$id <- distr_id
@@ -208,7 +208,7 @@ init_laplace_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_laplace_distr(laplace_distr))
+  beautier::check_true(is_laplace_distr(laplace_distr))
 
   if (is_one_na(laplace_distr$id)) {
     laplace_distr$id <- distr_id
@@ -235,7 +235,7 @@ init_log_normal_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_log_normal_distr(log_normal_distr))
+  beautier::check_true(is_log_normal_distr(log_normal_distr))
 
   if (is_one_na(log_normal_distr$id)) {
     log_normal_distr$id <- distr_id
@@ -262,7 +262,7 @@ init_normal_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_normal_distr(normal_distr))
+  beautier::check_true(is_normal_distr(normal_distr))
 
   if (is_one_na(normal_distr$id)) {
     normal_distr$id <- distr_id
@@ -288,7 +288,7 @@ init_one_div_x_distr <- function(
   one_div_x_distr,
   distr_id = 0
 ) {
-  check_true(is_one_div_x_distr(one_div_x_distr))
+  beautier::check_true(is_one_div_x_distr(one_div_x_distr))
 
   if (is_one_na(one_div_x_distr$id)) {
     one_div_x_distr$id <- distr_id
@@ -308,7 +308,7 @@ init_poisson_distr <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_poisson_distr(poisson_distr))
+  beautier::check_true(is_poisson_distr(poisson_distr))
 
   if (is_one_na(poisson_distr$id)) {
     poisson_distr$id <- distr_id
@@ -330,7 +330,7 @@ init_uniform_distr <- function(
   uniform_distr,
   distr_id = 0
 ) {
-  check_true(is_uniform_distr(uniform_distr))
+  beautier::check_true(is_uniform_distr(uniform_distr))
 
   if (is_one_na(uniform_distr$id)) {
     uniform_distr$id <- distr_id

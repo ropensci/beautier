@@ -19,9 +19,9 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
   site_model,
   beauti_options
 ) {
-  check_true(is_tn93_site_model(site_model))
+  beautier::check_true(is_tn93_site_model(site_model))
   id <- site_model$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
   text <- NULL
   if (site_model$kappa_1_param$estimate == TRUE) {
     text <- c(text, paste0("<prior id=\"kappa1Prior.s:", id, "\" ",

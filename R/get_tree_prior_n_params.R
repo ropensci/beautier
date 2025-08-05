@@ -31,18 +31,18 @@ get_tree_prior_n_params <- function(
   if (!is_tree_prior(tree_prior)) {
     stop("'tree_prior' must be a tree prior")
   }
-  if (is_bd_tree_prior(tree_prior)) {
+  if (beautier::is_bd_tree_prior(tree_prior)) {
     get_distr_n_params(tree_prior$birth_rate_distr) +
       get_distr_n_params(tree_prior$death_rate_distr)
-  } else if (is_cbs_tree_prior(tree_prior)) {
+  } else if (beautier::is_cbs_tree_prior(tree_prior)) {
     0
-  } else if (is_ccp_tree_prior(tree_prior)) {
+  } else if (beautier::is_ccp_tree_prior(tree_prior)) {
     get_distr_n_params(tree_prior$pop_size_distr)
-  } else if (is_cep_tree_prior(tree_prior)) {
+  } else if (beautier::is_cep_tree_prior(tree_prior)) {
     get_distr_n_params(tree_prior$pop_size_distr) +
       get_distr_n_params(tree_prior$growth_rate_distr)
   } else {
-    check_true(is_yule_tree_prior(tree_prior))
+    beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
     get_distr_n_params(tree_prior$birth_rate_distr)
   }
 }

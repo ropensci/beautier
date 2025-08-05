@@ -14,11 +14,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run <- function(mcmc) {
-  check_true(is_mcmc(mcmc))
+  beautier::check_true(is_mcmc(mcmc))
   if (is_default_mcmc(mcmc)) {
     mcmc_to_xml_run_default(mcmc)
   } else {
-    check_true(is_mcmc_nested_sampling(mcmc))
+    beautier::check_true(is_mcmc_nested_sampling(mcmc))
     mcmc_to_xml_run_nested_sampling(mcmc)
   }
 }
@@ -36,8 +36,8 @@ mcmc_to_xml_run <- function(mcmc) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_default <- function(mcmc) {
-  check_true(is_mcmc(mcmc))
-  check_true(is_default_mcmc(mcmc))
+  beautier::check_true(is_mcmc(mcmc))
+  beautier::check_true(is_default_mcmc(mcmc))
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"MCMC\" ",
     "chainLength=\"", mcmc$chain_length, "\""
@@ -83,8 +83,8 @@ mcmc_to_xml_run_default <- function(mcmc) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 mcmc_to_xml_run_nested_sampling <- function(mcmc) { # nolint indeed long function name
-  check_true(is_mcmc(mcmc))
-  check_true(is_mcmc_nested_sampling(mcmc))
+  beautier::check_true(is_mcmc(mcmc))
+  beautier::check_true(is_mcmc_nested_sampling(mcmc))
   xml <- paste0(
     "<run id=\"mcmc\" spec=\"beast.gss.NS\" ",
     "chainLength=\"", mcmc$chain_length, "\""

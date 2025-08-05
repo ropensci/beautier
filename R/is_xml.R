@@ -11,7 +11,7 @@ is_xml <- function(text) {
   opening_tag <- get_xml_opening_tag(text)
   closing_tag <- get_xml_closing_tag(text)
   if (is_one_na(closing_tag)) return(FALSE)
-  check_true(!is_one_na(closing_tag))
+  beautier::check_true(!is_one_na(closing_tag))
   if (opening_tag != closing_tag) return(FALSE)
   TRUE
 }

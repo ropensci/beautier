@@ -9,11 +9,11 @@ is_mrca_align_id_in_fasta <- function(
   mrca_prior,
   fasta_filename
 ) {
-  check_true(is_mrca_prior(mrca_prior))
+  beautier::check_true(is_mrca_prior(mrca_prior))
   id <- get_alignment_id(fasta_filename)
-  check_true(is_mrca_prior(mrca_prior))
-  check_true(!is_one_na(mrca_prior))
-  check_true("alignment_id" %in% names(mrca_prior))
-  check_true(!is_one_na(mrca_prior$alignment_id))
+  beautier::check_true(is_mrca_prior(mrca_prior))
+  beautier::check_true(!is_one_na(mrca_prior))
+  beautier::check_true("alignment_id" %in% names(mrca_prior))
+  beautier::check_true(!is_one_na(mrca_prior$alignment_id))
   mrca_prior$alignment_id == id
 }

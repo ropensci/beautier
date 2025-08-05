@@ -149,7 +149,7 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
     b_pop_sizes_param = b_pop_sizes_param,
     pop_sizes_scaler_scale_factor = pop_sizes_scaler_scale_factor
   )
-  check_true(is_cbs_tree_prior(cbs_tree_prior))
+  beautier::check_true(beautier::is_cbs_tree_prior(cbs_tree_prior))
   cbs_tree_prior
 }
 

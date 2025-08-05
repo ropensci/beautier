@@ -24,7 +24,7 @@ init_gamma_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_gamma_site_model(gamma_site_model))
+  beautier::check_true(is_gamma_site_model(gamma_site_model))
 
   if (!is_init_distr(gamma_site_model$gamma_shape_prior_distr)) {
     gamma_site_model$gamma_shape_prior_distr <- init_distr(
@@ -37,6 +37,6 @@ init_gamma_site_model <- function(
       gamma_site_model$gamma_shape_prior_distr
     )
   }
-  check_true(is_gamma_site_model(gamma_site_model))
+  beautier::check_true(is_gamma_site_model(gamma_site_model))
   gamma_site_model
 }

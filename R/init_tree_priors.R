@@ -11,34 +11,34 @@ init_tree_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(are_tree_priors(tree_priors))
+  beautier::check_true(are_tree_priors(tree_priors))
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    check_true(is_tree_prior(tree_prior))
+    beautier::check_true(is_tree_prior(tree_prior))
 
-    if (is_bd_tree_prior(tree_prior)) {
+    if (beautier::is_bd_tree_prior(tree_prior)) {
       if (!is_init_bd_tree_prior(tree_prior)) {
         tree_prior <- init_bd_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
-    } else if (is_cbs_tree_prior(tree_prior)) {
+    } else if (beautier::is_cbs_tree_prior(tree_prior)) {
       # Nothing to do
-    } else if (is_ccp_tree_prior(tree_prior)) {
+    } else if (beautier::is_ccp_tree_prior(tree_prior)) {
       if (!is_init_ccp_tree_prior(tree_prior)) {
         tree_prior <- init_ccp_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
-    } else if (is_cep_tree_prior(tree_prior)) {
+    } else if (beautier::is_cep_tree_prior(tree_prior)) {
       if (!is_init_cep_tree_prior(tree_prior)) {
         tree_prior <- init_cep_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     } else {
-      check_true(is_yule_tree_prior(tree_prior))
+      beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
       if (!is_init_yule_tree_prior(tree_prior)) {
         tree_prior <- init_yule_tree_prior(
           tree_prior,
@@ -66,7 +66,7 @@ init_bd_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  check_true(is_bd_tree_prior(bd_tree_prior))
+  beautier::check_true(beautier::is_bd_tree_prior(bd_tree_prior))
 
   result <- create_bd_tree_prior(
     birth_rate_distr = init_distr(
@@ -95,7 +95,7 @@ init_ccp_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  check_true(is_ccp_tree_prior(ccp_tree_prior))
+  beautier::check_true(beautier::is_ccp_tree_prior(ccp_tree_prior))
 
   result <- create_ccp_tree_prior(
     pop_size_distr = init_distr(
@@ -117,10 +117,10 @@ init_cep_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  check_true(is_cep_tree_prior(cep_tree_prior))
-  check_true(!is_one_na(distr_id))
-  check_true(!is_one_na(param_id))
-  check_true(
+  beautier::check_true(beautier::is_cep_tree_prior(cep_tree_prior))
+  beautier::check_true(!is_one_na(distr_id))
+  beautier::check_true(!is_one_na(param_id))
+  beautier::check_true(
     !is_one_na(
       get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
@@ -152,7 +152,7 @@ init_yule_tree_prior <- function(
   distr_id,
   param_id
 ) {
-  check_true(is_yule_tree_prior(yule_tree_prior))
+  beautier::check_true(beautier::is_yule_tree_prior(yule_tree_prior))
 
   result <- create_yule_tree_prior(
     birth_rate_distr = init_distr(

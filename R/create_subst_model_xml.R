@@ -19,7 +19,7 @@ create_subst_model_xml <- function(
   inference_model
 ) {
   site_model <- inference_model$site_model
-  check_true(is_site_model(site_model))
+  beautier::check_true(is_site_model(site_model))
 
   if (is_jc69_site_model(site_model)) {
     create_jc69_subst_model_xml(site_model)
@@ -28,7 +28,7 @@ create_subst_model_xml <- function(
   } else if (is_tn93_site_model(site_model)) {
     create_tn93_subst_model_xml(site_model)
   } else {
-    check_true(is_gtr_site_model(site_model))
+    beautier::check_true(is_gtr_site_model(site_model))
     create_gtr_subst_model_xml(site_model)
   }
 }
@@ -42,10 +42,10 @@ create_subst_model_xml <- function(
 create_jc69_subst_model_xml <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  check_true(is_site_model(site_model))
+  beautier::check_true(is_site_model(site_model))
   id <- site_model$id
-  check_true(is_id(id))
-  check_true(is_jc69_site_model(site_model))
+  beautier::check_true(beautier::is_id(id))
+  beautier::check_true(is_jc69_site_model(site_model))
   paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>") # nolint this is no absolute path
 }
 
@@ -58,15 +58,15 @@ create_jc69_subst_model_xml <- function( # nolint indeed a long function name, w
 create_hky_subst_model_xml <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  check_true(is_site_model(site_model))
+  beautier::check_true(is_site_model(site_model))
   id <- site_model$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
-  check_true(is_hky_site_model(site_model))
+  beautier::check_true(is_hky_site_model(site_model))
   text <- c(
     text,
     paste0(
@@ -88,16 +88,16 @@ create_hky_subst_model_xml <- function( # nolint indeed a long function name, wh
 create_tn93_subst_model_xml <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  check_true(is_site_model(site_model))
+  beautier::check_true(is_site_model(site_model))
   id <- site_model$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
-  check_true(is_tn93_site_model(site_model))
+  beautier::check_true(is_tn93_site_model(site_model))
   subst_model_line <- paste0(
     "<substModel id=\"tn93.s:", id, "\" spec=\"TN93\""
   )
@@ -149,16 +149,16 @@ create_tn93_subst_model_xml <- function( # nolint indeed a long function name, w
 create_gtr_subst_model_xml <- function( # nolint indeed a long function name, which is fine for internal functions
   site_model
 ) {
-  check_true(is_site_model(site_model))
+  beautier::check_true(is_site_model(site_model))
   id <- site_model$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
   freq_equilibrium_text <- indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
-  check_true(is_gtr_site_model(site_model))
+  beautier::check_true(is_gtr_site_model(site_model))
 
   subst_model_xml <- paste0(
     "<substModel ", "id=\"gtr.s:", id, "\" spec=\"GTR\""

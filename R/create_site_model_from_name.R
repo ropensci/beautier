@@ -18,7 +18,7 @@ create_site_model_from_name <- function(site_model_name) {
   } else if (site_model_name == "TN93") {
     create_tn93_site_model()
   } else {
-    check_true(site_model_name == "GTR")
+    beautier::check_true(site_model_name == "GTR")
     create_gtr_site_model()
   }
 }

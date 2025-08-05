@@ -15,7 +15,7 @@ clock_model_to_xml_state <- function(
   if (has_strict_clock_model(inference_model)) {
     strict_clock_model_to_xml_state(inference_model)
   } else {
-    check_true(has_rln_clock_model(inference_model))
+    beautier::check_true(has_rln_clock_model(inference_model))
     rln_clock_model_to_xml_state(inference_model)
   }
 }

@@ -224,9 +224,9 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   bd_tree_prior,
   beauti_options
 ) {
-  check_true(is_bd_tree_prior(bd_tree_prior))
+  beautier::check_true(beautier::is_bd_tree_prior(bd_tree_prior))
   id <- bd_tree_prior$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
 
@@ -307,9 +307,9 @@ cbs_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   cbs_tree_prior,
   beauti_options
 ) {
-  check_true(is_cbs_tree_prior(cbs_tree_prior))
+  beautier::check_true(beautier::is_cbs_tree_prior(cbs_tree_prior))
   id <- cbs_tree_prior$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
   text <- c(
@@ -364,9 +364,9 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   ccp_tree_prior,
   beauti_options
 ) {
-  check_true(is_ccp_tree_prior(ccp_tree_prior))
+  beautier::check_true(beautier::is_ccp_tree_prior(ccp_tree_prior))
   id <- ccp_tree_prior$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
 
@@ -440,9 +440,9 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   cep_tree_prior,
   beauti_options
 ) {
-  check_true(is_cep_tree_prior(cep_tree_prior))
+  beautier::check_true(beautier::is_cep_tree_prior(cep_tree_prior))
   id <- cep_tree_prior$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
 
@@ -535,9 +535,9 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   yule_tree_prior,
   beauti_options = create_beauti_options()
 ) {
-  check_true(is_yule_tree_prior(yule_tree_prior))
+  beautier::check_true(beautier::is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
 

@@ -39,7 +39,7 @@ create_beast2_input_run <- function(
   input_filename,
   inference_model = create_inference_model()
 ) {
-  check_true(length(input_filename) == 1)
+  beautier::check_true(length(input_filename) == 1)
 
   # Create the '<run...' starting tag
   text <- mcmc_to_xml_run(inference_model$mcmc)

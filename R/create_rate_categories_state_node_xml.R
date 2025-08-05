@@ -35,7 +35,7 @@
 create_rate_categories_state_node_xml <- function(inference_model) { # nolint indeed a long function name
   check_inference_model(inference_model)
   clock_model <- inference_model$clock_model
-  check_true(is_rln_clock_model(clock_model))
+  beautier::check_true(beautier::is_rln_clock_model(clock_model))
   id <- clock_model$id
   dimension <- clock_model$dimension
   check_false(is_one_na(dimension))

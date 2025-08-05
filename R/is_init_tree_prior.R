@@ -8,16 +8,16 @@ is_init_tree_prior <- function(
   x
 ) {
   if (!is_tree_prior(x)) return(FALSE)
-  if (is_bd_tree_prior(x)) {
+  if (beautier::is_bd_tree_prior(x)) {
     is_init_bd_tree_prior(x)
-  } else if (is_cbs_tree_prior(x)) {
+  } else if (beautier::is_cbs_tree_prior(x)) {
     is_init_cbs_tree_prior(x)
-  } else if (is_ccp_tree_prior(x)) {
+  } else if (beautier::is_ccp_tree_prior(x)) {
     is_init_ccp_tree_prior(x)
-  } else if (is_cep_tree_prior(x)) {
+  } else if (beautier::is_cep_tree_prior(x)) {
     is_init_cep_tree_prior(x)
   } else {
-    check_true(is_yule_tree_prior(x))
+    beautier::check_true(beautier::is_yule_tree_prior(x))
     is_init_yule_tree_prior(x)
   }
 }
@@ -31,7 +31,7 @@ is_init_tree_prior <- function(
 is_init_bd_tree_prior <- function(
   x
 ) {
-  check_true(is_bd_tree_prior(x))
+  beautier::check_true(beautier::is_bd_tree_prior(x))
   is_init_distr(x$birth_rate_distr) &&
     is_init_distr(x$death_rate_distr)
 }
@@ -47,7 +47,7 @@ is_init_bd_tree_prior <- function(
 is_init_cbs_tree_prior <- function(
   x
 ) {
-  check_true(is_cbs_tree_prior(x))
+  beautier::check_true(beautier::is_cbs_tree_prior(x))
 
   # Yup, is always initialized
   TRUE
@@ -78,7 +78,7 @@ is_init_ccp_tree_prior <- function(
 is_init_cep_tree_prior <- function(
   x
 ) {
-  check_true(is_cep_tree_prior(x))
+  beautier::check_true(beautier::is_cep_tree_prior(x))
   is_init_distr(x$pop_size_distr) &&
     is_init_distr(x$growth_rate_distr)
 }
@@ -92,6 +92,6 @@ is_init_cep_tree_prior <- function(
 is_init_yule_tree_prior <- function(
   x
 ) {
-  check_true(is_yule_tree_prior(x))
+  beautier::check_true(beautier::is_yule_tree_prior(x))
   is_init_distr(x$birth_rate_distr)
 }

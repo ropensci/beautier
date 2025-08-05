@@ -46,7 +46,7 @@ get_distr_n_params <- function(
   } else  if (is_poisson_distr(distr)) {
     1 # lambda
   } else {
-    check_true(is_uniform_distr(distr))
+    beautier::check_true(is_uniform_distr(distr))
     0 # none
   }
 }

@@ -25,10 +25,10 @@ alpha_parameter_to_xml <- function(
   # Don't be smart yet
   parameter <- alpha_parameter
 
-  check_true(is_alpha_param(parameter))
+  beautier::check_true(is_alpha_param(parameter))
   id <- parameter$id
-  check_true(is_id(id))
-  check_true(parameter$estimate == FALSE)
+  beautier::check_true(beautier::is_id(id))
+  beautier::check_true(parameter$estimate == FALSE)
   estimate <- ifelse(parameter$estimate == TRUE, "true", "false")
   xml <- paste0(
     "<parameter ",

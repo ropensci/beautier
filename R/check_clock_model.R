@@ -36,7 +36,7 @@ check_clock_model <- function(clock_model) {
   if (clock_model$name == "strict") {
     check_strict_clock_model(clock_model)
   } else {
-    check_true(clock_model$name == "relaxed_log_normal")
+    beautier::check_true(clock_model$name == "relaxed_log_normal")
     check_rln_clock_model(clock_model)
   }
 }

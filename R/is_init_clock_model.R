@@ -12,7 +12,7 @@ is_init_clock_model <- function(
   if (is_strict_clock_model(x)) {
     is_init_strict_clock_model(x)
   } else {
-    check_true(is_rln_clock_model(x))
+    beautier::check_true(beautier::is_rln_clock_model(x))
     is_init_rln_clock_model(x)
   }
 }
@@ -26,7 +26,7 @@ is_init_clock_model <- function(
 is_init_rln_clock_model <- function(
   rln_clock_model
 ) {
-  check_true(is_rln_clock_model(rln_clock_model))
+  beautier::check_true(beautier::is_rln_clock_model(rln_clock_model))
   if (!is_init_distr(rln_clock_model$ucldstdev_distr)) return(FALSE)
   if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) {
     return(FALSE)
@@ -43,7 +43,7 @@ is_init_rln_clock_model <- function(
 is_init_strict_clock_model <- function(
   strict_clock_model
 ) {
-  check_true(is_strict_clock_model(strict_clock_model))
+  beautier::check_true(is_strict_clock_model(strict_clock_model))
   if (!is_init_distr(strict_clock_model$clock_rate_distr)) {
     return(FALSE)
   }

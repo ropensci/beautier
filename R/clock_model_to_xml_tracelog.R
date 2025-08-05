@@ -20,7 +20,7 @@ clock_model_to_xml_tracelog <- function(
     strict_clock_model_to_xml_tracelog(inference_model)
   } else {
     # Will fail on unimplemented clock models
-    check_true(
+    beautier::check_true(
       is_rln_clock_model(inference_model$clock_model)
     )
     rln_clock_model_to_xml_tracelog(inference_model)

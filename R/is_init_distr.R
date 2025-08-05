@@ -30,7 +30,7 @@ is_init_distr <- function(
   } else if (is_poisson_distr(x)) {
     is_init_poisson_distr(x)
   } else {
-    check_true(is_uniform_distr(x))
+    beautier::check_true(is_uniform_distr(x))
     is_init_uniform_distr(x)
   }
 }
@@ -45,7 +45,7 @@ is_init_distr <- function(
 is_init_beta_distr <- function(
   x
 ) {
-  check_true(is_beta_distr(x))
+  beautier::check_true(is_beta_distr(x))
   !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
 }
 
@@ -59,7 +59,7 @@ is_init_beta_distr <- function(
 is_init_exp_distr <- function(
   x
 ) {
-  check_true(is_exp_distr(x))
+  beautier::check_true(is_exp_distr(x))
   !is_one_na(x$mean$id)
 }
 
@@ -72,7 +72,7 @@ is_init_exp_distr <- function(
 is_init_gamma_distr <- function(
   x
 ) {
-  check_true(is_gamma_distr(x))
+  beautier::check_true(is_gamma_distr(x))
   !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
 }
 
@@ -86,7 +86,7 @@ is_init_gamma_distr <- function(
 is_init_inv_gamma_distr <- function(
   x
 ) {
-  check_true(is_inv_gamma_distr(x))
+  beautier::check_true(is_inv_gamma_distr(x))
   !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
 }
 
@@ -100,7 +100,7 @@ is_init_inv_gamma_distr <- function(
 is_init_laplace_distr <- function(
   x
 ) {
-  check_true(is_laplace_distr(x))
+  beautier::check_true(is_laplace_distr(x))
   !is_one_na(x$mu$id) && !is_one_na(x$scale$id)
 }
 
@@ -114,7 +114,7 @@ is_init_laplace_distr <- function(
 is_init_log_normal_distr <- function(
   x
 ) {
-  check_true(is_log_normal_distr(x))
+  beautier::check_true(is_log_normal_distr(x))
   !is_one_na(x$m$id) && !is_one_na(x$s$id)
 }
 
@@ -128,7 +128,7 @@ is_init_log_normal_distr <- function(
 is_init_normal_distr <- function(
   x
 ) {
-  check_true(is_normal_distr(x))
+  beautier::check_true(is_normal_distr(x))
   !is_one_na(x$mean$id) && !is_one_na(x$sigma$id)
 }
 
@@ -142,7 +142,7 @@ is_init_normal_distr <- function(
 is_init_one_div_x_distr <- function(
   x
 ) {
-  check_true(is_one_div_x_distr(x))
+  beautier::check_true(is_one_div_x_distr(x))
   TRUE
 }
 
@@ -156,7 +156,7 @@ is_init_one_div_x_distr <- function(
 is_init_poisson_distr <- function(
   x
 ) {
-  check_true(is_poisson_distr(x))
+  beautier::check_true(is_poisson_distr(x))
   !is_one_na(x$lambda$id)
 }
 
@@ -170,6 +170,6 @@ is_init_poisson_distr <- function(
 is_init_uniform_distr <- function(
   x
 ) {
-  check_true(is_uniform_distr(x))
+  beautier::check_true(is_uniform_distr(x))
   TRUE
 }

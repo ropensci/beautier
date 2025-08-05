@@ -6,7 +6,7 @@
 clock_model_to_xml_treelogger <- function(
   clock_model
 ) {
-  check_true(is_clock_model(clock_model))
+  beautier::check_true(is_clock_model(clock_model))
   id <- clock_model$id
 
   if (is_strict_clock_model(clock_model)) {
@@ -19,7 +19,7 @@ clock_model_to_xml_treelogger <- function(
   } else {
 
     # Will fail on unimplemented clock models
-    check_true(is_rln_clock_model(clock_model))
+    beautier::check_true(beautier::is_rln_clock_model(clock_model))
 
     paste0(
       "<log id=\"TreeWithMetaDataLogger.t:", id, "\" ",

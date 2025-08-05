@@ -16,7 +16,7 @@ is_init_site_model <- function(
   } else if (is_jc69_site_model(x)) {
     is_init_jc69_site_model(x)
   } else {
-    check_true(is_tn93_site_model(x))
+    beautier::check_true(is_tn93_site_model(x))
     is_init_tn93_site_model(x)
   }
 }
@@ -80,7 +80,7 @@ is_init_gtr_site_model <- function( # nolint simplification of this hurts readab
 is_init_hky_site_model <- function(
   x
 ) {
-  check_true(is_hky_site_model(x))
+  beautier::check_true(is_hky_site_model(x))
   if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   is_init_distr(x$kappa_prior)
 }
@@ -111,7 +111,7 @@ is_init_hky_site_model <- function(
 is_init_jc69_site_model <- function(
   x
 ) {
-  check_true(is_jc69_site_model(x))
+  beautier::check_true(is_jc69_site_model(x))
   if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }
@@ -137,7 +137,7 @@ is_init_jc69_site_model <- function(
 is_init_tn93_site_model <- function(
   x
 ) {
-  check_true(is_tn93_site_model(x))
+  beautier::check_true(is_tn93_site_model(x))
   if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   is_init_distr(x$kappa_1_prior) &&
     is_init_distr(x$kappa_2_prior)

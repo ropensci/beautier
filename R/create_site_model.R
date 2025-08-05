@@ -174,7 +174,7 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   freq_equilibrium = "estimated",
   freq_param = create_freq_param()
 ) {
-  if (!is_one_na(id) && !is_id(id)) {
+  if (!is_one_na(id) && !beautier::is_id(id)) {
     stop("'id' must be NA (recommended) or an ID")
   }
   if (!is_freq_param(freq_param)) {

@@ -36,7 +36,7 @@ get_site_model_n_distrs <- function(
   } else if (is_jc69_site_model(site_model)) {
     0 + gamma_site_model_n_distrs
   } else {
-    check_true(is_tn93_site_model(site_model))
+    beautier::check_true(is_tn93_site_model(site_model))
     2 + gamma_site_model_n_distrs
   }
 }

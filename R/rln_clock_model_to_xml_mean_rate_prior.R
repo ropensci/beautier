@@ -9,9 +9,9 @@ rln_clock_model_to_xml_mean_rate_prior <- function( # nolint indeed a long inter
   beauti_options
 ) { # nolint indeed long function name
 
-  check_true(is_rln_clock_model(rln_clock_model))
+  beautier::check_true(beautier::is_rln_clock_model(rln_clock_model))
   id <- rln_clock_model$id
-  check_true(is_id(id))
+  beautier::check_true(beautier::is_id(id))
 
   text <- NULL
 

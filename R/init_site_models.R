@@ -11,12 +11,12 @@ init_site_models <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(are_site_models(site_models))
-  check_true(length(site_models) == length(ids))
+  beautier::check_true(are_site_models(site_models))
+  beautier::check_true(length(site_models) == length(ids))
 
   for (i in seq_along(site_models)) {
     site_model <- site_models[[i]]
-    check_true(is_site_model(site_model))
+    beautier::check_true(is_site_model(site_model))
     if (is_gtr_site_model(site_model)) {
       # GTR
       site_model <- init_gtr_site_model(
@@ -39,7 +39,7 @@ init_site_models <- function(
         param_id = param_id
       )
     } else {
-      check_true(is_tn93_site_model(site_model))
+      beautier::check_true(is_tn93_site_model(site_model))
       site_model <- init_tn93_site_model(
         site_model,
         distr_id = distr_id,
@@ -51,7 +51,7 @@ init_site_models <- function(
     param_id <- param_id + get_site_model_n_params(site_model)
 
     if (is_one_na(site_model$id)) site_model$id <- ids[i]
-    check_true(is_init_site_model(site_model))
+    beautier::check_true(is_init_site_model(site_model))
     site_models[[i]] <- site_model
   }
   site_models
@@ -78,7 +78,7 @@ init_gtr_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_gtr_site_model(gtr_site_model))
+  beautier::check_true(is_gtr_site_model(gtr_site_model))
 
   # Initialize gamma site model, if any
   if (
@@ -200,11 +200,11 @@ init_gtr_site_model <- function(
     )
     param_id <- param_id + 1
   }
-  check_true(is_gtr_site_model(gtr_site_model))
-  check_true(
+  beautier::check_true(is_gtr_site_model(gtr_site_model))
+  beautier::check_true(
     is_init_gamma_site_model(gtr_site_model$gamma_site_model)
   )
-  check_true(is_init_gtr_site_model(gtr_site_model))
+  beautier::check_true(is_init_gtr_site_model(gtr_site_model))
   gtr_site_model
 }
 
@@ -227,7 +227,7 @@ init_hky_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_hky_site_model(hky_site_model))
+  beautier::check_true(is_hky_site_model(hky_site_model))
 
   # Initialize gamma site model, if any
   if (
@@ -264,10 +264,10 @@ init_hky_site_model <- function(
     )
   }
 
-  check_true(
+  beautier::check_true(
     is_init_gamma_site_model(hky_site_model$gamma_site_model)
   )
-  check_true(is_init_hky_site_model(hky_site_model))
+  beautier::check_true(is_init_hky_site_model(hky_site_model))
   hky_site_model
 }
 
@@ -291,7 +291,7 @@ init_jc69_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_jc69_site_model(jc69_site_model))
+  beautier::check_true(is_jc69_site_model(jc69_site_model))
 
   # Initialize gamma site model, if any
   if (
@@ -317,10 +317,10 @@ init_jc69_site_model <- function(
     }
   }
 
-  check_true(
+  beautier::check_true(
     is_init_gamma_site_model(jc69_site_model$gamma_site_model)
   )
-  check_true(is_init_jc69_site_model(jc69_site_model))
+  beautier::check_true(is_init_jc69_site_model(jc69_site_model))
   jc69_site_model
 }
 
@@ -345,7 +345,7 @@ init_tn93_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  check_true(is_tn93_site_model(tn93_site_model))
+  beautier::check_true(is_tn93_site_model(tn93_site_model))
 
   # Initialize gamma site model, if any
   if (
@@ -412,9 +412,9 @@ init_tn93_site_model <- function(
     )
     param_id <- param_id + 1
   }
-  check_true(
+  beautier::check_true(
     is_init_gamma_site_model(tn93_site_model$gamma_site_model)
   )
-  check_true(is_init_tn93_site_model(tn93_site_model))
+  beautier::check_true(is_init_tn93_site_model(tn93_site_model))
   tn93_site_model
 }
