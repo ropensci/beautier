@@ -8,7 +8,7 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  check_string(section, allow_na = FALSE)
+  check_string(section)
   if (section == "operators") {
     return(extract_xml_operators_from_lines(lines))
   }

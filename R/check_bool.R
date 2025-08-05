@@ -7,8 +7,8 @@
 #' check_bool(TRUE)
 #' check_bool(FALSE)
 #' @export
-check_bool <- function(x) {
-  testthat::expect_equal(length(x), 1)
-  testthat::expect_false(is.na(x))
-  testthat::expect_true(x == TRUE || x == FALSE)
-}
+#check_bool <- function(x) {
+#  testthat::expect_equal(length(x), 1)
+#  testthat::expect_false(is.na(x))
+#  testthat::expect_true(x == TRUE || x == FALSE)
+#}

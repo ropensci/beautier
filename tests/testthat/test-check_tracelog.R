@@ -59,7 +59,8 @@ test_that("abuse, by wrong values", {
       create_tracelog(
         filename = 1234
       )
-    )
+    ),
+    "filename"
   )
   expect_error(
     check_tracelog(
@@ -74,7 +75,8 @@ test_that("abuse, by wrong values", {
       create_tracelog(
         filename = 1234
       )
-    )
+    ),
+    "filename"
   )
 
   expect_error(

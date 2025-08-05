@@ -13,8 +13,8 @@ tree_prior_to_xml_operators <- function(
   tree_prior <- inference_model$tree_prior
   fixed_crown_age <- FALSE
 
-  testthat::expect_false(fixed_crown_age)
-  testthat::expect_true(is_tree_prior(tree_prior))
+  check_false(fixed_crown_age)
+  check_true(is_tree_prior(tree_prior))
   id <- tree_prior$id
   check_true(is_id(id))
 

@@ -9,6 +9,6 @@ find_last_xml_closing_tag_line <- function(
   lines,
   section
 ) {
-  check_string(section, allow_na = FALSE)
+  check_string(section)
   find_last_regex_line(lines, paste0("</", section, ">"))
 }

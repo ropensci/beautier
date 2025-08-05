@@ -27,7 +27,7 @@ create_loggers_xml <- function(
   input_filename,
   inference_model
 ) {
-  testthat::expect_equal(length(input_filename), 1)
+  check_true(length(input_filename) == 1)
   check_inference_model(inference_model)
 
   tracelog_text <- create_tracelog_xml(

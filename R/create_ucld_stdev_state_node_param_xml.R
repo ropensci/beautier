@@ -29,7 +29,7 @@ create_ucld_stdev_state_node_param_xml <- function(inference_model) { # nolint i
   clock_model <- inference_model$clock_model
   id <- clock_model$id
   check_true(is_rln_clock_model(clock_model))
-  testthat::expect_false(is_one_na(id))
+  check_false(is_one_na(id))
   xml <- paste0("<parameter id=\"ucldStdev.c:", id, "\" ")
   if (inference_model$beauti_options$beast2_version == "2.6") {
     xml <- paste0(xml, "spec=\"parameter.RealParameter\" ")

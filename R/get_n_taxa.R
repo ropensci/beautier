@@ -12,12 +12,7 @@
 #' check_empty_beautier_folder()
 #' @export
 get_n_taxa <- function(filename) {
-  if (!is_one_string(filename)) {
-    stop(
-      "'filename' must be one string. \n",
-      "Value of 'filename': ", filename
-    )
-  }
+  check_string(filename)
 
   if (!file.exists(filename)) {
     stop("filename must exist.")

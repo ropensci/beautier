@@ -12,7 +12,7 @@ indent <- function(
 ) {
   check_number_whole(n_spaces, min = 0)
 
-  testthat::expect_false(is.null(text))
+  check_false(is.null(text))
   for (i in seq_along(text)) {
     if (text[i] == "") next
     spaces <- paste(rep(" ", n_spaces), collapse = "")

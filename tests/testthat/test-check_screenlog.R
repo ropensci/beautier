@@ -59,7 +59,8 @@ test_that("abuse, by wrong values", {
       create_screenlog(
         filename = 1234
       )
-    )
+    ),
+    "filename"
   )
   expect_error(
     check_screenlog(
@@ -74,7 +75,8 @@ test_that("abuse, by wrong values", {
       create_screenlog(
         filename = 1234
       )
-    )
+    ),
+    "filename"
   )
 
   expect_error(

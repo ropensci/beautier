@@ -71,14 +71,14 @@ test_that("abuse", {
 
   fasta_filename <- get_beautier_path("anthus_aco_sub.fas")
 
-  # "`mrca_prior_name` must be a single string or `NA`, not `NULL`."
   expect_error(
     create_mrca_prior(
       name = NULL,
       alignment_id = get_alignment_id(fasta_filename),
       taxa_names = get_taxa_names(fasta_filename),
       mrca_distr = create_normal_distr()
-    )
+    ),
+    "`mrca_prior_name` must be a single string or `NA`, not `NULL`."
   )
 
   # Checked in more detail by 'check_alignment_id'
@@ -102,8 +102,6 @@ test_that("abuse", {
     "'taxa_names'.*NA.*name"
   )
 
-  # "`mrca_prior\\$is_monophyletic` must be `TRUE` or `FALSE`, not `NULL`."
-
   expect_error(
     create_mrca_prior(
       name = "my_prior_name",
@@ -111,7 +109,8 @@ test_that("abuse", {
       taxa_names = get_taxa_names(fasta_filename),
       is_monophyletic = NULL,
       mrca_distr = create_normal_distr()
-    )
+    ),
+    "`mrca_prior\\$is_monophyletic` must be `TRUE` or `FALSE`, not `NULL`."
   )
 
   expect_error(
