@@ -61,6 +61,6 @@ create_beauti_options <- function(
     namespace = namespace,
     add_operator_schedule = add_operator_schedule
   )
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   beauti_options
 }

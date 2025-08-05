@@ -26,7 +26,7 @@ are_tree_priors <- function(
     return(TRUE)
   }
   for (i in x) {
-    if (!is_tree_prior(i)) return(FALSE)
+    if (!beautier::is_tree_prior(i)) return(FALSE)
   }
   TRUE
 }

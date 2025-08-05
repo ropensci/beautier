@@ -13,7 +13,7 @@ tree_prior_to_xml_operators <- function(
   tree_prior <- inference_model$tree_prior
   fixed_crown_age <- FALSE
 
-  check_false(fixed_crown_age)
+  beautier::check_false(fixed_crown_age)
   beautier::check_true(is_tree_prior(tree_prior))
   id <- tree_prior$id
   beautier::check_true(beautier::is_id(id))
@@ -107,7 +107,7 @@ tree_prior_to_xml_operators <- function(
     beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
     text <- c(
       text,
-      yule_tree_prior_to_xml_operators(inference_model)
+      beautier::yule_tree_prior_to_xml_operators(inference_model)
     )
   }
 

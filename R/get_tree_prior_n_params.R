@@ -28,7 +28,7 @@
 get_tree_prior_n_params <- function(
   tree_prior
 ) {
-  if (!is_tree_prior(tree_prior)) {
+  if (!beautier::is_tree_prior(tree_prior)) {
     stop("'tree_prior' must be a tree prior")
   }
   if (beautier::is_bd_tree_prior(tree_prior)) {

@@ -26,7 +26,7 @@ gamma_distr_to_xml <- function(
   distr <- gamma_distr
 
   beautier::check_true(is_gamma_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -45,7 +45,7 @@ gamma_distr_to_xml <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         parameter = distr$beta,
         beauti_options = beauti_options
       )

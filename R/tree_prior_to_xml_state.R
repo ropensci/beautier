@@ -10,7 +10,7 @@ tree_prior_to_xml_state <- function(
   # Do not be smart yet
   tree_prior <- inference_model$tree_prior
 
-  check_tree_prior(tree_prior)
+  beautier::check_tree_prior(tree_prior)
 
   id <- tree_prior$id
   beautier::check_true(beautier::is_id(id))
@@ -38,7 +38,7 @@ tree_prior_to_xml_state <- function(
     inference_model$tree_prior$b_pop_sizes_param$id <- id
     text <- c(
       text,
-      b_pop_sizes_parameter_to_xml(
+      beautier::b_pop_sizes_parameter_to_xml(
         b_pop_sizes_parameter = inference_model$tree_prior$b_pop_sizes_param,
         beauti_options = inference_model$beauti_options
       )

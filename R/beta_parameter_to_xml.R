@@ -9,7 +9,7 @@ beta_parameter_to_xml <- function(
   beta_parameter,
   beauti_options = create_beauti_options()
 ) {
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   # Don't be smart yet
   parameter <- beta_parameter
   beautier::check_true(is_beta_param(parameter))

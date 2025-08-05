@@ -22,8 +22,8 @@ tree_prior_to_xml_prior_distr <- function(
   tree_prior,
   beauti_options
 ) {
-  check_tree_prior(tree_prior)
-  check_beauti_options(beauti_options)
+  beautier::check_tree_prior(tree_prior)
+  beautier::check_beauti_options(beauti_options)
   text <- NULL
   if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(text, bd_tree_prior_to_xml_prior_distr(tree_prior, beauti_options = beauti_options)) # nolint indeed a long line

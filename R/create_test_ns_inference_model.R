@@ -22,7 +22,7 @@ create_test_ns_inference_model <- function(
 ) {
   check_site_model(site_model)
   check_clock_model(clock_model)
-  check_tree_prior(tree_prior)
+  beautier::check_tree_prior(tree_prior)
   check_nested_sampling_mcmc(mcmc)
   create_inference_model(
     site_model = site_model,

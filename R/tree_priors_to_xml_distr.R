@@ -28,7 +28,7 @@ tree_priors_to_xml_prior_distr <- function(
   for (tree_prior in tree_priors) {
     text <- c(
       text,
-      tree_prior_to_xml_prior_distr(
+      beautier::tree_prior_to_xml_prior_distr(
         tree_prior,
         beauti_options = beauti_options
       )

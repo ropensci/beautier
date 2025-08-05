@@ -14,8 +14,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_param <- function(param) {
-  check_param_names(param)
-  check_param_types(param)
+  beautier::check_param_names(param)
+  beautier::check_param_types(param)
 }
 
 #' Check if the \code{param} has the list elements

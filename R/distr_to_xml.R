@@ -20,7 +20,7 @@ distr_to_xml <- function(
   distr,
   beauti_options
 ) {
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   text <- NULL
   id <- distr$id
   if (!beautier::is_id(id)) {
@@ -66,7 +66,7 @@ distr_to_xml_beta <- function(
   beauti_options
 ) {
   beautier::check_true(is_beta_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -74,7 +74,7 @@ distr_to_xml_beta <- function(
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$alpha,
         beauti_options = beauti_options
       )
@@ -82,7 +82,7 @@ distr_to_xml_beta <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$beta,
         beauti_options = beauti_options
       )
@@ -106,7 +106,7 @@ distr_to_xml_exp <- function(
   beauti_options
 ) {
   beautier::check_true(is_exp_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -120,7 +120,7 @@ distr_to_xml_exp <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$mean,
         beauti_options = beauti_options
       )
@@ -144,7 +144,7 @@ distr_to_xml_inv_gamma <- function(
   beauti_options
 ) {
   beautier::check_true(is_inv_gamma_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -158,7 +158,7 @@ distr_to_xml_inv_gamma <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$alpha,
         beauti_options = beauti_options
       )
@@ -166,7 +166,7 @@ distr_to_xml_inv_gamma <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$beta,
         beauti_options = beauti_options
       )
@@ -190,7 +190,7 @@ distr_to_xml_laplace <- function(
   beauti_options
 ) {
   beautier::check_true(is_laplace_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -204,7 +204,7 @@ distr_to_xml_laplace <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$mu,
         beauti_options = beauti_options
       )
@@ -212,7 +212,7 @@ distr_to_xml_laplace <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$scale,
         beauti_options = beauti_options
       )
@@ -236,7 +236,7 @@ distr_to_xml_log_normal <- function(
   beauti_options
 ) {
   beautier::check_true(is_log_normal_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -250,7 +250,7 @@ distr_to_xml_log_normal <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$m,
         beauti_options = beauti_options
       )
@@ -258,7 +258,7 @@ distr_to_xml_log_normal <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$s,
         beauti_options = beauti_options
       )
@@ -283,7 +283,7 @@ distr_to_xml_normal <- function(
   beauti_options
 ) {
   beautier::check_true(is_normal_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -297,7 +297,7 @@ distr_to_xml_normal <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$mean,
         beauti_options = beauti_options
       )
@@ -305,7 +305,7 @@ distr_to_xml_normal <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$sigma,
         beauti_options = beauti_options
       )
@@ -329,7 +329,7 @@ distr_to_xml_one_div_x <- function(
   beauti_options
 ) {
   beautier::check_true(is_one_div_x_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -353,7 +353,7 @@ distr_to_xml_poisson <- function(
   beauti_options
 ) {
   beautier::check_true(is_poisson_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 
@@ -368,7 +368,7 @@ distr_to_xml_poisson <- function(
   )
   text <- c(text,
     indent(
-      parameter_to_xml(
+      beautier::parameter_to_xml(
         distr$lambda,
         beauti_options = beauti_options
       ),
@@ -392,7 +392,7 @@ distr_to_xml_uniform <- function(
   beauti_options
 ) {
   beautier::check_true(is_uniform_distr(distr))
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
 

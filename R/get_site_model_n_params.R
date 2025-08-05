@@ -22,7 +22,7 @@
 get_site_model_n_params <- function(
   site_model
 ) {
-  if (!is_site_model(site_model)) {
+  if (!beautier::is_site_model(site_model)) {
     stop("'site_model' must be a site model")
   }
   gamma_site_model_n_params <- get_gamma_site_model_n_params(

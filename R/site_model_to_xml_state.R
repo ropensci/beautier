@@ -9,7 +9,7 @@ site_model_to_xml_state <- function(
   beauti_options = create_beauti_options()
 ) {
   check_site_model(site_model)
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   if (is_gtr_site_model(site_model)) {
     return(
       gtr_site_model_to_xml_state(

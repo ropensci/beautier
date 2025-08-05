@@ -34,8 +34,8 @@ create_ucld_mean_state_node_param_xml <- function(inference_model) { # nolint in
   id <- clock_model$id
   mean_clock_rate <- clock_model$mean_clock_rate
   beautier::check_true(beautier::is_rln_clock_model(clock_model))
-  check_false(is_one_na(id))
-  check_false(is_one_na(mean_clock_rate))
+  beautier::check_false(is_one_na(id))
+  beautier::check_false(is_one_na(mean_clock_rate))
   xml <- paste0(
     "<parameter id=\"ucldMean.c:", id, "\" "
   )

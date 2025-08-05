@@ -16,7 +16,7 @@ freq_param_to_xml <- function(
   freq_param,
   beauti_options = create_beauti_options()
 ) {
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_freq_param(freq_param))
   id <- freq_param$id
   beautier::check_true(beautier::is_id(id))

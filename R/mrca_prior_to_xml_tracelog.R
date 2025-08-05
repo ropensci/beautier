@@ -36,7 +36,7 @@ mrca_prior_to_xml_tracelog <- function(
     ) ||
       (
         is_strict_clock_model(inference_model$clock_model) &&
-          has_tip_dating(inference_model)
+          beautier::has_tip_dating(inference_model)
       )
   ) {
     text <- c(

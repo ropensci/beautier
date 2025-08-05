@@ -43,7 +43,7 @@ is_param <- function(
 ) {
   result <- FALSE
   tryCatch({
-    check_param(x)
+    beautier::check_param(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e

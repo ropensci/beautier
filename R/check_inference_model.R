@@ -51,7 +51,7 @@ check_inference_model <- function(
       )
     }
   )
-  check_tree_prior(inference_model$tree_prior)
+  beautier::check_tree_prior(inference_model$tree_prior)
   check_mcmc(inference_model$mcmc)
   tryCatch(
     check_mrca_prior(inference_model$mrca_prior),
@@ -64,7 +64,7 @@ check_inference_model <- function(
     }
   )
   tryCatch(
-    check_beauti_options(inference_model$beauti_options),
+    beautier::check_beauti_options(inference_model$beauti_options),
     error = function(e) {
       stop(
         "'beauti_options' must be a valid BEAUti options. \n",

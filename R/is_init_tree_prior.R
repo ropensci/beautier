@@ -7,7 +7,7 @@
 is_init_tree_prior <- function(
   x
 ) {
-  if (!is_tree_prior(x)) return(FALSE)
+  if (!beautier::is_tree_prior(x)) return(FALSE)
   if (beautier::is_bd_tree_prior(x)) {
     is_init_bd_tree_prior(x)
   } else if (beautier::is_cbs_tree_prior(x)) {

@@ -6,9 +6,12 @@
 #' @examples
 #' check_empty_beautier_folder()
 #'
+#'# TRUE
 #' is_tree_prior(create_bd_tree_prior())
 #' is_tree_prior(create_yule_tree_prior())
-#' !is_tree_prior("nonsense")
+#'
+#' # FALSE
+#' is_tree_prior("nonsense")
 #'
 #' check_empty_beautier_folder()
 #' @export
@@ -16,7 +19,7 @@ is_tree_prior <- function(
   x
 ) {
   if (!"name" %in% names(x)) return(FALSE)
-  if (!is_tree_prior_name(x$name)) return(FALSE)
+  if (!beautier::is_tree_prior_name(x$name)) return(FALSE)
   if (!"id" %in% names(x)) return(FALSE)
   TRUE
 }

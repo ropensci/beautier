@@ -22,7 +22,7 @@ s_parameter_to_xml <- function(
   parameter,
   beauti_options
 ) {
-  check_beauti_options(beauti_options)
+  beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_s_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))

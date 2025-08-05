@@ -8,7 +8,7 @@
 is_init_site_model <- function(
   x
 ) {
-  if (!is_site_model(x)) return(FALSE)
+  if (!beautier::is_site_model(x)) return(FALSE)
   if (is_gtr_site_model(x)) {
     is_init_gtr_site_model(x)
   } else if (is_hky_site_model(x)) {
