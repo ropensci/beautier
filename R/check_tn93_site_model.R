@@ -14,24 +14,24 @@
 #' @export
 check_tn93_site_model <- function(tn93_site_model) {
 
-  if (!is_site_model(tn93_site_model)) {
+  if (!beautier::is_site_model(tn93_site_model)) {
     stop("'tn93_site_model' must be a site model")
   }
-  check_tn93_site_model_names(tn93_site_model)
+  beautier::check_tn93_site_model_names(tn93_site_model)
 
-  if (!is_distr(tn93_site_model$kappa_1_prior_distr)) {
+  if (!beautier::is_distr(tn93_site_model$kappa_1_prior_distr)) {
     stop("'tn93_site_model$kappa_1_prior_distr' must be a distribution")
   }
-  if (!is_distr(tn93_site_model$kappa_2_prior_distr)) {
+  if (!beautier::is_distr(tn93_site_model$kappa_2_prior_distr)) {
     stop("'tn93_site_model$kappa_2_prior_distr' must be a distribution")
   }
-  if (!is_param(tn93_site_model$kappa_1_param)) {
+  if (!beautier::is_param(tn93_site_model$kappa_1_param)) {
     stop("'tn93_site_model$kappa_1_param' must be a parameter")
   }
-  if (!is_param(tn93_site_model$kappa_2_param)) {
+  if (!beautier::is_param(tn93_site_model$kappa_2_param)) {
     stop("'tn93_site_model$kappa_2_param' must be a parameter")
   }
-  if (!is_freq_equilibrium_name(tn93_site_model$freq_equilibrium)) {
+  if (!beautier::is_freq_equilibrium_name(tn93_site_model$freq_equilibrium)) {
     stop(
       "'tn93_site_model$freq_equilibrium' must be ",
       "an equilibrium frequency name"

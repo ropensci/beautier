@@ -14,11 +14,11 @@
 #' check_empty_beautier_folder()
 #' @export
 check_gtr_site_model <- function(gtr_site_model) {
-  check_site_model(gtr_site_model)
+  beautier::check_site_model(gtr_site_model)
   if (gtr_site_model$name != "GTR") {
     stop("'gtr_site_model$name' must be 'GTR'")
   }
-  check_gtr_site_model_names(gtr_site_model)
+  beautier::check_gtr_site_model_names(gtr_site_model)
 
   # Check if all distributions are valid distributions
   expected_distrs <- list(
@@ -44,12 +44,12 @@ check_gtr_site_model <- function(gtr_site_model) {
     gtr_site_model$rate_gt_param
   )
   for (expected_param in expected_params) {
-    if (!is_param(expected_param)) {
+    if (!beautier::is_param(expected_param)) {
       stop("Invalid gtr_site_model$param")
     }
   }
 
-  if (!is_freq_equilibrium_name(gtr_site_model$freq_equilibrium)) {
+  if (!beautier::is_freq_equilibrium_name(gtr_site_model$freq_equilibrium)) {
     stop("Invalid gtr_site_model$freq_equilibrium")
   }
   TRUE
