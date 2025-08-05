@@ -2,13 +2,10 @@
 # Source: <https://github.com/r-lib/rlang/blob/main/R/standalone-obj-type.R>
 # ----------------------------------------------------------------------
 #
-# ---
-# repo: r-lib/rlang
-# file: standalone-obj-type.R
-# last-updated: 2023-05-01
-# license: https://unlicense.org
-# imports: rlang (>= 1.1.0)
-# ---
+# - file: standalone-obj-type.R
+# - last-updated: 2023-05-01
+# - license: https://unlicense.org
+# - imports: rlang (>= 1.1.0)
 #
 # ## Changelog
 #
@@ -61,6 +58,10 @@
 #' @param length Whether to mention the length of vectors and lists.
 #' @return A string describing the type. Starts with an indefinite
 #'   article, e.g. "an integer vector".
+#' @note adapted from
+#' [https://github.com/r-lib/rlang](https://github.com/r-lib/rlang)
+#' file `R/standalone-obj-type.R`
+#' @author [`olivroy`](https://github.com/olivroy)
 #' @noRd
 obj_type_friendly <- function(x, value = TRUE) {
   if (is_missing(x)) {
@@ -268,6 +269,10 @@ vec_type_friendly <- function(x, length = FALSE) {
 #' @param x Any R object.
 #' @return One of `"bare"` (for non-OO objects), `"S3"`, `"S4"`,
 #'   `"R6"`, or `"R7"`.
+#' @note adapted from
+#' [https://github.com/r-lib/rlang](https://github.com/r-lib/rlang)
+#' file `R/standalone-obj-type.R`
+#' @author [`olivroy`](https://github.com/olivroy)
 #' @noRd
 obj_type_oo <- function(x) {
   if (!is.object(x)) {
@@ -295,15 +300,20 @@ obj_type_oo <- function(x) {
 #' @param show_value Passed to `value` argument of `obj_type_friendly()`.
 #' @param ... Arguments passed to [abort()].
 #' @inheritParams args_error_context
+#' @note adapted from
+#' [`r-lib`](https://github.com/r-lib/rlang/blob/main/R/standalone-obj-type.R)
+#' @author [`olivroy`](https://github.com/olivroy)
 #' @noRd
-stop_input_type <- function(x,
-                            what,
-                            ...,
-                            allow_na = FALSE,
-                            allow_null = FALSE,
-                            show_value = TRUE,
-                            arg = caller_arg(x),
-                            call = caller_env()) {
+stop_input_type <- function(
+  x,
+  what,
+  ...,
+  allow_na = FALSE,
+  allow_null = FALSE,
+  show_value = TRUE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   # From standalone-cli.R
   cli <- env_get_list(
     nms = c("format_arg", "format_code"),

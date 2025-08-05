@@ -2,14 +2,11 @@
 # Source: <https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R>
 # ----------------------------------------------------------------------
 #
-# ---
-# repo: r-lib/rlang
-# file: standalone-types-check.R
-# last-updated: 2023-03-13
-# license: https://unlicense.org
-# dependencies: standalone-obj-type.R
-# imports: rlang (>= 1.1.0)
-# ---
+# - file: standalone-types-check.R
+# - last-updated: 2023-03-13
+# - license: https://unlicense.org
+# - dependencies: standalone-obj-type.R
+# - imports: rlang (>= 1.1.0)
 #
 # ## Changelog
 #
@@ -59,15 +56,37 @@
 
 # Scalars -----------------------------------------------------------------
 
-.standalone_types_check_dot_call <- .Call
+.standalone_types_check_dot_call <- .Call # nolint indeed a long name
 
-check_bool <- function(x,
-                       ...,
-                       allow_na = FALSE,
-                       allow_null = FALSE,
-                       arg = caller_arg(x),
-                       call = caller_env()) {
-  if (!missing(x) && .standalone_types_check_dot_call(ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null)) {
+#' Determine if `x` is one boolean
+#' @param x the object to be determined to be one boolean
+#' @param ... other arguments, no idea why this is needed
+#' @param allow_na set to TRUE to allow NA to be valid
+#' @param allow_null set to TRUE to allow NULL to be valid
+#' @param arg no idea why this is needed
+#' @param call no idea why this is needed
+#' @return Nothing. Will raise an exception if the value is not one boolean
+#' @note From
+#' [r-lib](https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R)
+#' @author [`olivroy`](https://github.com/olivroy) and Richèl J.C. Bilderbeek
+#' @examples
+#' check_bool(TRUE)
+#' check_bool(FALSE)
+#' @export
+check_bool <- function(
+  x,
+  ...,
+  allow_na = FALSE,
+  allow_null = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  if (
+    !missing(x)
+    && .standalone_types_check_dot_call(
+      ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null
+    )
+  ) {
     return(invisible(NULL))
   }
 
@@ -82,13 +101,30 @@ check_bool <- function(x,
   )
 }
 
-check_string <- function(x,
-                         ...,
-                         allow_empty = TRUE,
-                         allow_na = FALSE,
-                         allow_null = FALSE,
-                         arg = caller_arg(x),
-                         call = caller_env()) {
+#' Determine if `x` is one string
+#' @param x the object to be determined to be one string
+#' @param ... other arguments, no idea why this is needed
+#' @param allow_empty set to TRUE to allow an empty string to be valid
+#' @param allow_na set to TRUE to allow NA to be valid
+#' @param allow_null set to TRUE to allow NULL to be valid
+#' @param arg no idea why this is needed
+#' @param call no idea why this is needed
+#' @return Nothing. Will raise an exception if the value is not one string
+#' @author [`olivroy`](https://github.com/olivroy) and Richèl J.C. Bilderbeek
+#' @note From
+#' [r-lib](https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R)
+#' @examples
+#' check_string("This is a string")
+#' @export
+check_string <- function(
+  x,
+  ...,
+  allow_empty = TRUE,
+  allow_na = FALSE,
+  allow_null = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   if (!missing(x)) {
     is_string <- .rlang_check_is_string(
       x,
@@ -161,9 +197,9 @@ check_name <- function(x,
   )
 }
 
-IS_NUMBER_true <- 0
-IS_NUMBER_false <- 1
-IS_NUMBER_oob <- 2
+IS_NUMBER_true <- 0  # nolint
+IS_NUMBER_false <- 1 # nolint
+IS_NUMBER_oob <- 2   # nolint
 
 check_number_decimal <- function(x,
                                  ...,
