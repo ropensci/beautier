@@ -1,8 +1,22 @@
+# Check spelling on the 2nd day of the month.
+# 2nd as the first letter of this repo is the 2nd letter in the alphabet.
 on:
   push:
+    paths:
+      - .github/workflows/R-CMD-check.yaml
+      - "**.R"
+      - "**.Rmd"
+      - DESCRIPTION
+      - .Rbuildignore
   pull_request:
+    paths:
+      - .github/workflows/R-CMD-check.yaml
+      - "**.R"
+      - "**.Rmd"
+      - DESCRIPTION
+      - .Rbuildignore
   schedule:
-  - cron: "0 0 2 * *"
+    - cron: "0 0 2 * *"
 
 name: R-CMD-check
 
