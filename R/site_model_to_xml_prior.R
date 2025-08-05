@@ -7,14 +7,14 @@
 #' @examples
 #' site_model_to_xml_prior_distr(
 #'   site_model = create_jc69_site_model(id = 1),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #' site_model_to_xml_prior_distr(
 #'   site_model = create_hky_site_model(
 #'     id = 1,
 #'     kappa_prior_distr = create_uniform_distr(id = 2)
 #'   ),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #' site_model_to_xml_prior_distr(
 #'   site_model = create_tn93_site_model(
@@ -22,7 +22,7 @@
 #'     kappa_1_prior_distr = create_uniform_distr(id = 2),
 #'     kappa_2_prior_distr = create_uniform_distr(id = 3)
 #'   ),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #' site_model_to_xml_prior_distr(
 #'   site_model = create_gtr_site_model(
@@ -33,7 +33,7 @@
 #'     rate_cg_prior_distr = create_uniform_distr(id = 5),
 #'     rate_gt_prior_distr = create_uniform_distr(id = 6)
 #'   ),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -47,11 +47,11 @@ site_model_to_xml_prior_distr <- function(
 
   text <- NULL
   if (beautier::is_hky_site_model(site_model)) {
-    text <- hky_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
+    text <- beautier::hky_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
   } else if (beautier::is_tn93_site_model(site_model)) {
-    text <- tn93_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
-  } else if (is_gtr_site_model(site_model)) {
-    text <- gtr_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
+    text <- beautier::tn93_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
+  } else if (beautier::is_gtr_site_model(site_model)) {
+    text <- beautier::gtr_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
   }
   text
 }

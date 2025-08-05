@@ -4,7 +4,10 @@
 \alias{freq_param_to_xml}
 \title{Internal function}
 \usage{
-freq_param_to_xml(freq_param, beauti_options = create_beauti_options())
+freq_param_to_xml(
+  freq_param,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{freq_param}{a `freq` parameter,

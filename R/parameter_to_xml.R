@@ -11,7 +11,7 @@
 #'
 #' parameter_to_xml(
 #'   create_alpha_param(id = 1),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #'
 #' check_empty_beautier_folder()
@@ -81,7 +81,7 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
 #' @export
 parameter_to_xml_kappa_1 <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_kappa_1_param(parameter))
@@ -106,7 +106,7 @@ parameter_to_xml_kappa_1 <- function(
 #' @export
 parameter_to_xml_kappa_2 <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_kappa_2_param(parameter))
@@ -133,7 +133,7 @@ parameter_to_xml_kappa_2 <- function(
 #' @export
 parameter_to_xml_lambda <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_lambda_param(parameter))
@@ -160,7 +160,7 @@ parameter_to_xml_lambda <- function(
 #' @export
 parameter_to_xml_mean <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_mean_param(parameter))
@@ -190,7 +190,7 @@ parameter_to_xml_mean <- function(
 #' @export
 parameter_to_xml_mu <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_mu_param(parameter))
@@ -221,7 +221,7 @@ parameter_to_xml_mu <- function(
 #' @export
 parameter_to_xml_rate_ac <- function(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 ) {
   beautier::check_beauti_options(beauti_options)
@@ -259,7 +259,7 @@ parameter_to_xml_rate_ac <- function(
 #' @export
 parameter_to_xml_rate_ag <- function(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 ) {
   beautier::check_beauti_options(beauti_options)
@@ -297,7 +297,7 @@ parameter_to_xml_rate_ag <- function(
 #' @export
 parameter_to_xml_rate_at <- function(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 ) {
   beautier::check_beauti_options(beauti_options)
@@ -335,7 +335,7 @@ parameter_to_xml_rate_at <- function(
 #' @export
 parameter_to_xml_rate_cg <- function(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 ) {
   beautier::check_beauti_options(beauti_options)
@@ -373,7 +373,7 @@ parameter_to_xml_rate_cg <- function(
 #' @export
 parameter_to_xml_rate_ct <- function(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 ) {
   beautier::check_beauti_options(beauti_options)
@@ -411,7 +411,7 @@ parameter_to_xml_rate_ct <- function(
 #' @export
 parameter_to_xml_rate_gt <- function(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 ) {
   beautier::check_beauti_options(beauti_options)
@@ -448,7 +448,7 @@ parameter_to_xml_rate_gt <- function(
 #' @export
 parameter_to_xml_scale <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_scale_param(parameter))
@@ -478,7 +478,7 @@ parameter_to_xml_scale <- function(
 #' @export
 parameter_to_xml_sigma <- function(
   parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_sigma_param(parameter))

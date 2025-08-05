@@ -27,7 +27,7 @@ tn93_site_model_to_xml_prior_distr(
     kappa_1_prior_distr = create_uniform_distr(id = 2),
     kappa_2_prior_distr = create_uniform_distr(id = 3)
   ),
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \author{

@@ -14,7 +14,7 @@
 #' @export
 freq_param_to_xml <- function(
   freq_param,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(is_freq_param(freq_param))

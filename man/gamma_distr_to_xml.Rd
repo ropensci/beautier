@@ -4,7 +4,10 @@
 \alias{gamma_distr_to_xml}
 \title{Internal function}
 \usage{
-gamma_distr_to_xml(gamma_distr, beauti_options = create_beauti_options())
+gamma_distr_to_xml(
+  gamma_distr,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{gamma_distr}{a gamma distribution,

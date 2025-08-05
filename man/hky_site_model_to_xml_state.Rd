@@ -7,7 +7,7 @@
 \usage{
 hky_site_model_to_xml_state(
   site_model,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{

@@ -30,7 +30,7 @@ gtr_site_model_to_xml_prior_distr(
     rate_cg_prior_distr = create_uniform_distr(id = 5),
     rate_gt_prior_distr = create_uniform_distr(id = 6)
   ),
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \author{

@@ -9,7 +9,7 @@
 #' @export
 gamma_site_models_to_xml_prior_distr <- function( # nolint indeed long function name
   site_models,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   stop("Deprecated function, use 'gamma_site_model_to_xml_prior_distr' instead")
 }

@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_mean}
 \title{Internal function}
 \usage{
-parameter_to_xml_mean(parameter, beauti_options = create_beauti_options())
+parameter_to_xml_mean(
+  parameter,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{parameter}{a mean parameter,

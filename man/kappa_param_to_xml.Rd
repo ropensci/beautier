@@ -4,7 +4,10 @@
 \alias{kappa_param_to_xml}
 \title{Internal function}
 \usage{
-kappa_param_to_xml(kappa_param, beauti_options = create_beauti_options())
+kappa_param_to_xml(
+  kappa_param,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{kappa_param}{a kappa parameter,

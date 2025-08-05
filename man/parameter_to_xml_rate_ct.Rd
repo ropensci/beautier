@@ -6,7 +6,7 @@
 \usage{
 parameter_to_xml_rate_ct(
   parameter,
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   which_name = "state_node"
 )
 }

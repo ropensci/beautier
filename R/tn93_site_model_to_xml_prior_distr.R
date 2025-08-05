@@ -11,7 +11,7 @@
 #'     kappa_1_prior_distr = create_uniform_distr(id = 2),
 #'     kappa_2_prior_distr = create_uniform_distr(id = 3)
 #'   ),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -29,7 +29,7 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
     text <- c(
       text,
       beautier::indent(
-        distr_to_xml(
+        beautier::distr_to_xml(
           site_model$kappa_1_prior,
           beauti_options = beauti_options
         )
@@ -43,7 +43,7 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
     text <- c(
       text,
       beautier::indent(
-        distr_to_xml(
+        beautier::distr_to_xml(
           site_model$kappa_2_prior,
           beauti_options = beauti_options
         )

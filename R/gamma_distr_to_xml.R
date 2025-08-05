@@ -20,7 +20,7 @@
 #' @export
 gamma_distr_to_xml <- function(
   gamma_distr,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   # Don't be smart yet
   distr <- gamma_distr

@@ -68,7 +68,7 @@ rln_clock_model_to_xml_prior_distr <- function( # nolint indeed a long function 
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = clock_model$ucldstdev_distr,
         beauti_options = inference_model$beauti_options
       )

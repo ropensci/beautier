@@ -29,7 +29,7 @@ site_model_to_xml_tracelog <- function(
     if (site_model$kappa_2_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"kappa2.s:", id, "\"/>")) # nolint this is no absolute path
     }
-  } else if (is_gtr_site_model(site_model)) {
+  } else if (beautier::is_gtr_site_model(site_model)) {
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"rateAC.s:", id, "\"/>")) # nolint this is no absolute path
     }

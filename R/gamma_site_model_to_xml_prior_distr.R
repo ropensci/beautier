@@ -59,7 +59,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
     text <- c(
       text,
       beautier::indent(
-        distr_to_xml(
+        beautier::distr_to_xml(
           gamma_site_model$gamma_shape_prior_distr,
           beauti_options = beauti_options
         )

@@ -10,7 +10,7 @@ create_strict_clock_branch_rate_model_xml <- function(# nolint long function nam
   inference_model
 ) {
   beautier::check_true(
-    is_strict_clock_model(inference_model$clock_model)
+    beautier::is_strict_clock_model(inference_model$clock_model)
   )
 
   id <- inference_model$clock_model$id

@@ -6,14 +6,14 @@
 #' @export
 gtr_site_model_to_xml_state <- function(
   site_model,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_true(beautier::is_site_model(site_model))
   beautier::check_beauti_options(beauti_options)
   id <- site_model$id
   beautier::check_true(beautier::is_id(id))
   text <- NULL
-  beautier::check_true(is_gtr_site_model(site_model))
+  beautier::check_true(beautier::is_gtr_site_model(site_model))
 
   # Indeed, overwrite by the site model's ID
   site_model$rate_ac_param$id <- id

@@ -24,7 +24,7 @@ check_empty_beautier_folder()
 
 distr_to_xml(
   create_uniform_distr(id = 1),
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 
 check_empty_beautier_folder()

@@ -14,7 +14,7 @@
 #' @export
 kappa_param_to_xml <- function(
   kappa_param,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(beautier::is_kappa_param(kappa_param))

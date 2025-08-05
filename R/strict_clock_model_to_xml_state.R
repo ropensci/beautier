@@ -54,7 +54,7 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
 
   text <- c(
     text,
-    create_clock_rate_state_node_parameter_xml(inference_model)
+    beautier::create_clock_rate_state_node_parameter_xml(inference_model)
   )
   text
 }

@@ -5,7 +5,10 @@
 \title{Internal function to convert a site model to XML,
   used in the `state` section}
 \usage{
-site_model_to_xml_state(site_model, beauti_options = create_beauti_options())
+site_model_to_xml_state(
+  site_model,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{site_model}{a site model,

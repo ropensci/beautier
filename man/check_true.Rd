@@ -9,8 +9,8 @@ check_true(
   ...,
   allow_na = FALSE,
   allow_null = FALSE,
-  arg = caller_arg(x),
-  call = caller_env()
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
 )
 }
 \arguments{

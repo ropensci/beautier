@@ -22,14 +22,14 @@ create_subst_model_xml <- function(
   beautier::check_true(beautier::is_site_model(site_model))
 
   if (beautier::is_jc69_site_model(site_model)) {
-    create_jc69_subst_model_xml(site_model)
+    beautier::create_jc69_subst_model_xml(site_model)
   } else if (beautier::is_hky_site_model(site_model)) {
-    create_hky_subst_model_xml(site_model)
+    beautier::create_hky_subst_model_xml(site_model)
   } else if (beautier::is_tn93_site_model(site_model)) {
-    create_tn93_subst_model_xml(site_model)
+    beautier::create_tn93_subst_model_xml(site_model)
   } else {
-    beautier::check_true(is_gtr_site_model(site_model))
-    create_gtr_subst_model_xml(site_model)
+    beautier::check_true(beautier::is_gtr_site_model(site_model))
+    beautier::create_gtr_subst_model_xml(site_model)
   }
 }
 
@@ -158,7 +158,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
-  beautier::check_true(is_gtr_site_model(site_model))
+  beautier::check_true(beautier::is_gtr_site_model(site_model))
 
   subst_model_xml <- paste0(
     "<substModel ", "id=\"gtr.s:", id, "\" spec=\"GTR\""

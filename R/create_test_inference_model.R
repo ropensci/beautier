@@ -35,7 +35,7 @@ create_test_inference_model <- function(
   tree_prior = create_yule_tree_prior(),
   mrca_prior = NA,
   mcmc = create_test_mcmc(),
-  beauti_options = create_beauti_options(),
+  beauti_options = beautier::create_beauti_options(),
   tipdates_filename = NA
 ) {
   create_inference_model(

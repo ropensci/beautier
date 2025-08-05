@@ -8,7 +8,7 @@ of a BEAST2 XML parameter file for a Yule tree prior}
 \usage{
 yule_tree_prior_to_xml_prior_distr(
   yule_tree_prior,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{

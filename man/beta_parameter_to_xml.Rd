@@ -4,7 +4,10 @@
 \alias{beta_parameter_to_xml}
 \title{Internal function}
 \usage{
-beta_parameter_to_xml(beta_parameter, beauti_options = create_beauti_options())
+beta_parameter_to_xml(
+  beta_parameter,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{beta_parameter}{a beta parameter,

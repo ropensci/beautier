@@ -10,7 +10,7 @@
 #'
 #' distr_to_xml(
 #'   create_uniform_distr(id = 1),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #'
 #' check_empty_beautier_folder()
@@ -26,29 +26,29 @@ distr_to_xml <- function(
   if (!beautier::is_id(id)) {
     stop("distribution must have an ID")
   }
-  if (is_beta_distr(distr)) {
-    text <- c(text, distr_to_xml_beta(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_exp_distr(distr)) {
-    text <- c(text, distr_to_xml_exp(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_gamma_distr(distr)) {
-    text <- c(text, gamma_distr_to_xml(gamma_distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_inv_gamma_distr(distr)) {
-    text <- c(text, distr_to_xml_inv_gamma(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_laplace_distr(distr)) {
-    text <- c(text, distr_to_xml_laplace(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_log_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_log_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_normal_distr(distr)) {
-    text <- c(text, distr_to_xml_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_one_div_x_distr(distr)) {
-    text <- c(text, distr_to_xml_one_div_x(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_poisson_distr(distr)) {
-    text <- c(text, distr_to_xml_poisson(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  if (beautier::is_beta_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_beta(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_exp_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_exp(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_gamma_distr(distr)) {
+    text <- c(text, beautier::gamma_distr_to_xml(gamma_distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_inv_gamma_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_inv_gamma(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_laplace_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_laplace(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_log_normal_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_log_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_normal_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_normal(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_one_div_x_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_one_div_x(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_poisson_distr(distr)) {
+    text <- c(text, beautier::distr_to_xml_poisson(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
   } else {
-    beautier::check_true(is_uniform_distr(distr))
-    text <- c(text, distr_to_xml_uniform(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
+    beautier::check_true(beautier::is_uniform_distr(distr))
+    text <- c(text, beautier::distr_to_xml_uniform(distr = distr, beauti_options = beauti_options)) # nolint indeed a long line
   }
-  beautier::check_true(is_xml(text))
+  beautier::check_true(beautier::is_xml(text))
   text
 }
 
@@ -65,7 +65,7 @@ distr_to_xml_beta <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_beta_distr(distr))
+  beautier::check_true(beautier::is_beta_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -105,7 +105,7 @@ distr_to_xml_exp <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_exp_distr(distr))
+  beautier::check_true(beautier::is_exp_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -189,7 +189,7 @@ distr_to_xml_laplace <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_laplace_distr(distr))
+  beautier::check_true(beautier::is_laplace_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -235,7 +235,7 @@ distr_to_xml_log_normal <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_log_normal_distr(distr))
+  beautier::check_true(beautier::is_log_normal_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -282,7 +282,7 @@ distr_to_xml_normal <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_normal_distr(distr))
+  beautier::check_true(beautier::is_normal_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -328,7 +328,7 @@ distr_to_xml_one_div_x <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_one_div_x_distr(distr))
+  beautier::check_true(beautier::is_one_div_x_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -352,7 +352,7 @@ distr_to_xml_poisson <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_poisson_distr(distr))
+  beautier::check_true(beautier::is_poisson_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))
@@ -391,7 +391,7 @@ distr_to_xml_uniform <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_uniform_distr(distr))
+  beautier::check_true(beautier::is_uniform_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))

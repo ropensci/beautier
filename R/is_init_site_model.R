@@ -9,15 +9,15 @@ is_init_site_model <- function(
   x
 ) {
   if (!beautier::is_site_model(x)) return(FALSE)
-  if (is_gtr_site_model(x)) {
-    is_init_gtr_site_model(x)
+  if (beautier::is_gtr_site_model(x)) {
+    beautier::is_init_gtr_site_model(x)
   } else if (beautier::is_hky_site_model(x)) {
-    is_init_hky_site_model(x)
+    beautier::is_init_hky_site_model(x)
   } else if (beautier::is_jc69_site_model(x)) {
-    is_init_jc69_site_model(x)
+    beautier::is_init_jc69_site_model(x)
   } else {
     beautier::check_true(beautier::is_tn93_site_model(x))
-    is_init_tn93_site_model(x)
+    beautier::is_init_tn93_site_model(x)
   }
 }
 
@@ -42,19 +42,19 @@ is_init_site_model <- function(
 is_init_gtr_site_model <- function( # nolint simplification of this hurts readability
   x
 ) {
-  if (!is_gtr_site_model(x)) return(FALSE)
+  if (!beautier::is_gtr_site_model(x)) return(FALSE)
   if (!beautier::is_init_distr(x$rate_ac_prior_distr)) return(FALSE)
   if (!beautier::is_init_distr(x$rate_ag_prior_distr)) return(FALSE)
   if (!beautier::is_init_distr(x$rate_at_prior_distr)) return(FALSE)
   if (!beautier::is_init_distr(x$rate_cg_prior_distr)) return(FALSE)
   # Indeed, no rate_ct_prior_distr yet
   if (!beautier::is_init_distr(x$rate_gt_prior_distr)) return(FALSE)
-  if (!is_init_param(x$rate_ac_param)) return(FALSE)
-  if (!is_init_param(x$rate_ag_param)) return(FALSE)
-  if (!is_init_param(x$rate_at_param)) return(FALSE)
-  if (!is_init_param(x$rate_cg_param)) return(FALSE)
-  if (!is_init_param(x$rate_ct_param)) return(FALSE)
-  if (!is_init_param(x$rate_gt_param)) return(FALSE)
+  if (!beautier::is_init_param(x$rate_ac_param)) return(FALSE)
+  if (!beautier::is_init_param(x$rate_ag_param)) return(FALSE)
+  if (!beautier::is_init_param(x$rate_at_param)) return(FALSE)
+  if (!beautier::is_init_param(x$rate_cg_param)) return(FALSE)
+  if (!beautier::is_init_param(x$rate_ct_param)) return(FALSE)
+  if (!beautier::is_init_param(x$rate_gt_param)) return(FALSE)
   if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }

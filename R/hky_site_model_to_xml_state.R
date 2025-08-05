@@ -6,7 +6,7 @@
 #' @export
 hky_site_model_to_xml_state <- function(
   site_model,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_true(beautier::is_site_model(site_model))
   beautier::check_beauti_options(beauti_options)

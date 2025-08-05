@@ -26,10 +26,10 @@ get_site_model_n_distrs <- function(
     stop("'site_model' must be a site model")
   }
   gamma_site_model <- site_model$gamma_site_model
-  gamma_site_model_n_distrs <- get_gamma_site_model_n_distrs(
+  gamma_site_model_n_distrs <- beautier::get_gamma_site_model_n_distrs(
     gamma_site_model
   )
-  if (is_gtr_site_model(site_model)) {
+  if (beautier::is_gtr_site_model(site_model)) {
     5 + gamma_site_model_n_distrs
   } else if (beautier::is_hky_site_model(site_model)) {
     1 + gamma_site_model_n_distrs

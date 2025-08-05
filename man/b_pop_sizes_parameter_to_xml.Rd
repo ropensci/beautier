@@ -6,7 +6,7 @@
 \usage{
 b_pop_sizes_parameter_to_xml(
   b_pop_sizes_parameter,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{
@@ -25,11 +25,11 @@ Converts a Bayesian population sizes parameter to XML
 \examples{
 b_pop_sizes_parameter_to_xml(
   b_pop_sizes_parameter = create_b_pop_sizes_param(id = 42),
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 b_pop_sizes_parameter_to_xml(
   b_pop_sizes_parameter = create_b_pop_sizes_param(id = 42, upper = Inf),
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \author{

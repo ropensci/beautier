@@ -6,7 +6,7 @@
 \usage{
 gamma_site_models_to_xml_prior_distr(
   site_models,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{

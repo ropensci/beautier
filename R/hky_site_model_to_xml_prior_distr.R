@@ -10,7 +10,7 @@
 #'     id = 1,
 #'     kappa_prior_distr = create_uniform_distr(id = 2)
 #'   ),
-#'   beauti_options = create_beauti_options()
+#'   beauti_options = beautier::create_beauti_options()
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -28,7 +28,7 @@ hky_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
                          "name=\"distribution\" x=\"@kappa.s:", id, "\">"))
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         site_model$kappa_prior,
         beauti_options = beauti_options
       )

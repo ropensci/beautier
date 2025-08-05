@@ -4,7 +4,10 @@
 \alias{parameter_to_xml_mu}
 \title{Internal function}
 \usage{
-parameter_to_xml_mu(parameter, beauti_options = create_beauti_options())
+parameter_to_xml_mu(
+  parameter,
+  beauti_options = beautier::create_beauti_options()
+)
 }
 \arguments{
 \item{parameter}{a mu parameter,

@@ -7,7 +7,7 @@
 #' @export
 b_pop_sizes_param_to_xml <- function(
   b_pop_sizes_param,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(beautier::is_b_pop_sizes_param(b_pop_sizes_param))

@@ -17,7 +17,7 @@ strict_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal 
   inference_model
 ) {
   beautier::check_true(
-    is_strict_clock_model(inference_model$clock_model)
+    beautier::is_strict_clock_model(inference_model$clock_model)
   )
   clock_model <- inference_model$clock_model
   id <- clock_model$id

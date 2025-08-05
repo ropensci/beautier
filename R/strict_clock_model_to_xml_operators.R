@@ -44,7 +44,7 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
   ) {
     text <- c(
       text,
-      create_strict_clock_rate_scaler_operator_xml(inference_model)
+      beautier::create_strict_clock_rate_scaler_operator_xml(inference_model)
     )
     text <- c(
       text,

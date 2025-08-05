@@ -533,7 +533,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
 #' @export
 yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   yule_tree_prior,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_true(beautier::is_yule_tree_prior(yule_tree_prior))
   id <- yule_tree_prior$id

@@ -4,7 +4,7 @@
 \alias{m_param_to_xml}
 \title{Internal function}
 \usage{
-m_param_to_xml(m_param, beauti_options = create_beauti_options())
+m_param_to_xml(m_param, beauti_options = beautier::create_beauti_options())
 }
 \arguments{
 \item{m_param}{an m parameter,

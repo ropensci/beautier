@@ -6,7 +6,7 @@
 \usage{
 b_pop_sizes_param_to_xml(
   b_pop_sizes_param,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 )
 }
 \arguments{

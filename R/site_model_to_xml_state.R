@@ -6,27 +6,27 @@
 #' @export
 site_model_to_xml_state <- function(
   site_model,
-  beauti_options = create_beauti_options()
+  beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_site_model(site_model)
   beautier::check_beauti_options(beauti_options)
-  if (is_gtr_site_model(site_model)) {
+  if (beautier::is_gtr_site_model(site_model)) {
     return(
-      gtr_site_model_to_xml_state(
+      beautier::gtr_site_model_to_xml_state(
         site_model = site_model,
         beauti_options = beauti_options
       )
     )
   } else if (beautier::is_hky_site_model(site_model)) {
     return(
-      hky_site_model_to_xml_state(
+      beautier::hky_site_model_to_xml_state(
         site_model = site_model,
         beauti_options = beauti_options
       )
     )
   } else if (beautier::is_tn93_site_model(site_model)) {
     return(
-      tn93_site_model_to_xml_state(
+      beautier::tn93_site_model_to_xml_state(
         site_model = site_model,
         beauti_options = beauti_options
       )
@@ -34,7 +34,7 @@ site_model_to_xml_state <- function(
   } else {
     beautier::check_true(beautier::is_jc69_site_model(site_model))
     return(
-      jc69_site_model_to_xml_state(
+      beautier::jc69_site_model_to_xml_state(
         site_model = site_model,
         beauti_options = beauti_options
       )

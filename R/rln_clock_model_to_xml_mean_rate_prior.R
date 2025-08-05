@@ -24,7 +24,7 @@ rln_clock_model_to_xml_mean_rate_prior <- function( # nolint indeed a long inter
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = rln_clock_model$mean_rate_prior_distr,
         beauti_options = beauti_options
       )

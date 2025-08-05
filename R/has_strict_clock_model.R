@@ -22,5 +22,5 @@
 #' @export
 has_strict_clock_model <- function(inference_model) {
   beautier::check_inference_model(inference_model)
-  is_strict_clock_model(inference_model$clock_model)
+  beautier::is_strict_clock_model(inference_model$clock_model)
 }

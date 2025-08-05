@@ -25,26 +25,26 @@ get_site_model_n_params <- function(
   if (!beautier::is_site_model(site_model)) {
     stop("'site_model' must be a site model")
   }
-  gamma_site_model_n_params <- get_gamma_site_model_n_params(
+  gamma_site_model_n_params <- beautier::get_gamma_site_model_n_params(
     site_model$gamma_site_model
   )
 
-  if (is_gtr_site_model(site_model)) {
+  if (beautier::is_gtr_site_model(site_model)) {
     gamma_site_model_n_params +
-      get_distr_n_params(site_model$rate_ac_prior_distr) +
-      get_distr_n_params(site_model$rate_ag_prior_distr) +
-      get_distr_n_params(site_model$rate_at_prior_distr) +
-      get_distr_n_params(site_model$rate_cg_prior_distr) +
-      get_distr_n_params(site_model$rate_gt_prior_distr)
+      beautier::get_distr_n_params(site_model$rate_ac_prior_distr) +
+      beautier::get_distr_n_params(site_model$rate_ag_prior_distr) +
+      beautier::get_distr_n_params(site_model$rate_at_prior_distr) +
+      beautier::get_distr_n_params(site_model$rate_cg_prior_distr) +
+      beautier::get_distr_n_params(site_model$rate_gt_prior_distr)
   } else if (beautier::is_hky_site_model(site_model)) {
     gamma_site_model_n_params +
-      get_distr_n_params(site_model$kappa_prior_distr)
+      beautier::get_distr_n_params(site_model$kappa_prior_distr)
   } else if (beautier::is_jc69_site_model(site_model)) {
     gamma_site_model_n_params + 0
   } else {
     beautier::check_true(beautier::is_tn93_site_model(site_model))
     gamma_site_model_n_params +
-      get_distr_n_params(site_model$kappa_1_prior_distr) +
-      get_distr_n_params(site_model$kappa_2_prior_distr)
+      beautier::get_distr_n_params(site_model$kappa_1_prior_distr) +
+      beautier::get_distr_n_params(site_model$kappa_2_prior_distr)
   }
 }

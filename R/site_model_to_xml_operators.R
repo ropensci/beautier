@@ -46,7 +46,7 @@ site_model_to_xml_operators <- function(
         )
       )
     }
-  } else if (is_gtr_site_model(site_model)) {
+  } else if (beautier::is_gtr_site_model(site_model)) {
     beautier::check_true(beautier::is_id(id))
     if (site_model$rate_ac_param$estimate == TRUE) {
       text <- c(
