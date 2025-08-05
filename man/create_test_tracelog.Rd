@@ -5,7 +5,7 @@
 \title{Create a \code{tracelog} object, as used for testing}
 \usage{
 create_test_tracelog(
-  filename = create_temp_tracelog_filename(),
+  filename = beautier::create_temp_tracelog_filename(),
   log_every = 1000,
   mode = "autodetect",
   sanitise_headers = TRUE,

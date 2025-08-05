@@ -18,37 +18,37 @@ init_tree_priors <- function(
     beautier::check_true(beautier::is_tree_prior(tree_prior))
 
     if (beautier::is_bd_tree_prior(tree_prior)) {
-      if (!is_init_bd_tree_prior(tree_prior)) {
-        tree_prior <- init_bd_tree_prior(
+      if (!beautier::is_init_bd_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_bd_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     } else if (beautier::is_cbs_tree_prior(tree_prior)) {
       # Nothing to do
     } else if (beautier::is_ccp_tree_prior(tree_prior)) {
-      if (!is_init_ccp_tree_prior(tree_prior)) {
-        tree_prior <- init_ccp_tree_prior(
+      if (!beautier::is_init_ccp_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_ccp_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     } else if (beautier::is_cep_tree_prior(tree_prior)) {
-      if (!is_init_cep_tree_prior(tree_prior)) {
-        tree_prior <- init_cep_tree_prior(
+      if (!beautier::is_init_cep_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_cep_tree_prior(
           tree_prior, distr_id = distr_id, param_id = param_id
         )
       }
     } else {
       beautier::check_true(beautier::is_yule_tree_prior(tree_prior))
-      if (!is_init_yule_tree_prior(tree_prior)) {
-        tree_prior <- init_yule_tree_prior(
+      if (!beautier::is_init_yule_tree_prior(tree_prior)) {
+        tree_prior <- beautier::init_yule_tree_prior(
           tree_prior,
           distr_id = distr_id,
           param_id = param_id
         )
       }
     }
-    distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior)
-    param_id <- param_id + get_tree_prior_n_params(tree_prior)
+    distr_id <- distr_id + beautier::get_tree_prior_n_distrs(tree_prior)
+    param_id <- param_id + beautier::get_tree_prior_n_params(tree_prior)
 
     if (beautier::is_one_na(tree_prior$id)) tree_prior$id <- ids[i]
     tree_priors[[i]] <- tree_prior

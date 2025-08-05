@@ -12,9 +12,9 @@ create_test_ns_mcmc(
   particle_count = 1,
   sub_chain_length = 500,
   epsilon = 1e-12,
-  tracelog = create_test_tracelog(),
-  screenlog = create_test_screenlog(),
-  treelog = create_test_treelog()
+  tracelog = beautier::create_test_tracelog(),
+  screenlog = beautier::create_test_screenlog(),
+  treelog = beautier::create_test_treelog()
 )
 }
 \arguments{

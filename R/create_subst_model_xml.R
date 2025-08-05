@@ -64,7 +64,7 @@ create_hky_subst_model_xml <- function( # nolint indeed a long function name, wh
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
+    beautier::freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
   beautier::check_true(beautier::is_hky_site_model(site_model))
   text <- c(
@@ -94,7 +94,7 @@ create_tn93_subst_model_xml <- function( # nolint indeed a long function name, w
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
+    beautier::freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
   beautier::check_true(beautier::is_tn93_site_model(site_model))
@@ -155,7 +155,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
 
   text <- NULL
   freq_equilibrium_text <- beautier::indent(
-    freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
+    beautier::freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
   beautier::check_true(beautier::is_gtr_site_model(site_model))

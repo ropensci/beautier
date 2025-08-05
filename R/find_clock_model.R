@@ -9,7 +9,7 @@ find_clock_model <- function(
   clock_models,
   id
 ) {
-  if (!are_clock_models(clock_models)) {
+  if (!beautier::are_clock_models(clock_models)) {
     stop("'clock_models' must be a list of clock models")
   }
   if (!beautier::is_id(id)) {

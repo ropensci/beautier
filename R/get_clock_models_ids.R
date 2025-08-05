@@ -6,7 +6,7 @@
 get_clock_models_ids <- function(
   clock_models
 ) {
-  beautier::check_true(are_clock_models(clock_models))
+  beautier::check_true(beautier::are_clock_models(clock_models))
   n <- length(clock_models)
   ids <- rep(NA, n)
   for (i in seq_along(clock_models)) {

@@ -18,8 +18,8 @@
 #' check_empty_beautier_folder()
 #' @export
 get_alignment_ids <- function(filenames) {
-  if (are_fasta_filenames(filenames)) {
-    get_alignment_ids_from_fasta_filenames(
+  if (beautier::are_fasta_filenames(filenames)) {
+    beautier::get_alignment_ids_from_fasta_filenames(
       fasta_filenames = filenames
     )
   }
@@ -50,5 +50,5 @@ get_alignment_ids <- function(filenames) {
 get_alignment_ids_from_fasta_filenames <- function(fasta_filenames) { #nolint indeed a long function name
   # Do not check if the files are actually FASTA filenames
   ids <- fasta_filenames
-  unlist(lapply(ids, get_alignment_id))
+  unlist(lapply(ids, beautier::get_alignment_id))
 }

@@ -5,7 +5,7 @@
 \title{Create a \code{treelog} object to be used in testing}
 \usage{
 create_test_treelog(
-  filename = create_temp_treelog_filename(),
+  filename = beautier::create_temp_treelog_filename(),
   log_every = 1000,
   mode = "tree",
   sanitise_headers = FALSE,

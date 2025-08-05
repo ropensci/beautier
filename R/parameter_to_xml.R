@@ -84,7 +84,7 @@ parameter_to_xml_kappa_1 <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_kappa_1_param(parameter))
+  beautier::check_true(beautier::is_kappa_1_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   paste0("<parameter id=\"kappa1.s:", id, "\" ",
@@ -109,7 +109,7 @@ parameter_to_xml_kappa_2 <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_kappa_2_param(parameter))
+  beautier::check_true(beautier::is_kappa_2_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   paste0("<parameter id=\"kappa2.s:", id, "\" ",

@@ -89,9 +89,9 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
       xml_here,
       "id=\"clockRate.c:", "id=\"ucldMean.c:"
     )
-    text <- c(text, indent(xml_here))
+    text <- c(text, beautier::indent(xml_here))
   }
   text <- c(text, paste0("</branchRateModel>"))
-  beautier::check_true(is.null(text) || is_xml(text))
+  beautier::check_true(is.null(text) || beautier::is_xml(text))
   text
 }

@@ -13,7 +13,7 @@ has_xml_closing_tag <- function(
 ) {
   beautier::check_string(section)
   !beautier::is_one_na(
-    find_last_xml_closing_tag_line(
+    beautier::find_last_xml_closing_tag_line(
       lines = lines,
       section = section
     )

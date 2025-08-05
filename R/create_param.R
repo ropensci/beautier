@@ -56,7 +56,7 @@ create_param <- function(
   if (!beautier::is_param_name(name)) {
     parameters_as_string <- function() {
       s <- NULL
-      for (p in get_param_names()) {
+      for (p in beautier::get_param_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))

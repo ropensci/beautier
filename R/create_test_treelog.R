@@ -6,13 +6,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_treelog <- function(
-  filename = create_temp_treelog_filename(),
+  filename = beautier::create_temp_treelog_filename(),
   log_every = 1000,
   mode = "tree",
   sanitise_headers = FALSE,
   sort = "none"
 ) {
-  create_treelog(
+  beautier::create_treelog(
     filename = filename,
     log_every = log_every,
     mode = mode,

@@ -12,10 +12,10 @@ init_clock_models <- function(
   param_id = 0
 ) {
   beautier::check_true(all(file.exists(fasta_filenames)))
-  beautier::check_true(are_clock_models(clock_models))
+  beautier::check_true(beautier::are_clock_models(clock_models))
   beautier::check_true(length(clock_models) == length(fasta_filenames))
   ids <- beautier::get_alignment_ids_from_fasta_filenames(fasta_filenames)
-  n_taxa <- get_n_taxa(fasta_filenames[1])
+  n_taxa <- beautier::get_n_taxa(fasta_filenames[1])
 
   for (i in seq_along(clock_models)) {
     clock_model <- clock_models[[i]]

@@ -6,13 +6,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_screenlog <- function(
-  filename = create_temp_screenlog_filename(),
+  filename = beautier::create_temp_screenlog_filename(),
   log_every = 1000,
   mode = "autodetect",
   sanitise_headers = FALSE,
   sort = "none"
 ) {
-  create_screenlog(
+  beautier::create_screenlog(
     filename = filename,
     log_every = log_every,
     mode = mode,

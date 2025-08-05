@@ -31,11 +31,11 @@ create_test_ns_mcmc <- function(
   particle_count = 1,
   sub_chain_length = 500,
   epsilon = 1e-12,
-  tracelog = create_test_tracelog(),
-  screenlog = create_test_screenlog(),
-  treelog = create_test_treelog()
+  tracelog = beautier::create_test_tracelog(),
+  screenlog = beautier::create_test_screenlog(),
+  treelog = beautier::create_test_treelog()
 ) {
-  create_ns_mcmc(
+  beautier::create_ns_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,

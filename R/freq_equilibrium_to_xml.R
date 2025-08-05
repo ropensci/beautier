@@ -14,7 +14,7 @@ freq_equilibrium_to_xml <- function(
   freq_equilibrium,
   id
 ) {
-  beautier::check_true(is_freq_equilibrium_name(freq_equilibrium))
+  beautier::check_true(beautier::is_freq_equilibrium_name(freq_equilibrium))
   if (freq_equilibrium == "estimated") {
     paste0("<frequencies ", "id=\"estimatedFreqs.s:", id, "\" ",
       "spec=\"Frequencies\" ",

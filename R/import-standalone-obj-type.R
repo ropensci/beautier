@@ -55,16 +55,15 @@
 #' @param x Any R object.
 #' @param value Whether to describe the value of `x`. Special values
 #'   like `NA` or `""` are always described.
-#' @param length Whether to mention the length of vectors and lists.
 #' @return A string describing the type. Starts with an indefinite
 #'   article, e.g. "an integer vector".
 #' @note adapted from
 #' [https://github.com/r-lib/rlang](https://github.com/r-lib/rlang)
 #' file `R/standalone-obj-type.R`
 #' @author [`olivroy`](https://github.com/olivroy)
-#' @noRd
+#' @export
 obj_type_friendly <- function(x, value = TRUE) {
-  if (is_missing(x)) {
+  if (rlang::is_missing(x)) {
     return("absent")
   }
 
@@ -77,15 +76,15 @@ obj_type_friendly <- function(x, value = TRUE) {
     return(sprintf("a <%s> object", type))
   }
 
-  if (!is_vector(x)) {
+  if (!rlang::is_vector(x)) {
     return(.rlang_as_friendly_type(typeof(x)))
   }
 
   n_dim <- length(dim(x))
 
   if (!n_dim) {
-    if (!is_list(x) && length(x) == 1) {
-      if (is_na(x)) {
+    if (!rlang::is_list(x) && length(x) == 1) {
+      if (rlang::is_na(x)) {
         return(switch(
           typeof(x),
           logical = "`NA`",
@@ -171,7 +170,7 @@ obj_type_friendly <- function(x, value = TRUE) {
 }
 
 vec_type_friendly <- function(x, length = FALSE) {
-  if (!is_vector(x)) {
+  if (!rlang::is_vector(x)) {
     abort("`x` must be a vector.")
   }
   type <- typeof(x)

@@ -9,5 +9,5 @@ is_mrca_prior_with_distr <- function(
 ) {
   if (beautier::is_one_na(x)) return(FALSE)
   if (!beautier::is_mrca_prior(x)) return(FALSE)
-  is_distr(x$mrca_distr)
+  beautier::is_distr(x$mrca_distr)
 }

@@ -23,7 +23,7 @@ get_tree_priors_n_params <- function(
   }
   n <- 0
   for (tree_prior in tree_priors) {
-    n <- n + get_tree_prior_n_params(tree_prior)
+    n <- n + beautier::get_tree_prior_n_params(tree_prior)
   }
   n
 }

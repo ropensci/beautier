@@ -7,5 +7,5 @@
 has_mrca_prior_with_distr <- function(inference_model) {
   beautier::check_inference_model(inference_model)
   if (!beautier::has_mrca_prior(inference_model)) return(FALSE)
-  is_mrca_prior_with_distr(inference_model$mrca_prior)
+  beautier::is_mrca_prior_with_distr(inference_model$mrca_prior)
 }

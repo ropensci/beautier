@@ -10,5 +10,5 @@ find_last_xml_closing_tag_line <- function(
   section
 ) {
   beautier::check_string(section)
-  find_last_regex_line(lines, paste0("</", section, ">"))
+  beautier::find_last_regex_line(lines, paste0("</", section, ">"))
 }

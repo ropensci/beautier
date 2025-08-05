@@ -19,24 +19,24 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
   text <- c(text, "<log idref=\"posterior\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"likelihood\"/>") # nolint this is no absolute path
   text <- c(text, "<log idref=\"prior\"/>") # nolint this is no absolute path
-  text <- c(text, tree_model_to_tracelog_xml(inference_model))
+  text <- c(text, beautier::tree_model_to_tracelog_xml(inference_model))
 
-  site_models_xml <- site_models_to_xml_tracelog(site_models)
+  site_models_xml <- beautier::site_models_to_xml_tracelog(site_models)
   if (!is.null(site_models_xml)) {
     text <- c(text, site_models_xml)
   }
 
-  clock_models_xml <- clock_model_to_xml_tracelog(
+  clock_models_xml <- beautier::clock_model_to_xml_tracelog(
     inference_model = inference_model
   )
   if (!is.null(clock_models_xml)) {
     text <- c(text, clock_models_xml)
   }
 
-  text <- c(text, tree_priors_to_xml_tracelog(tree_priors))
+  text <- c(text, beautier::tree_priors_to_xml_tracelog(tree_priors))
   text <- c(
     text,
-    mrca_prior_to_xml_tracelog(
+    beautier::mrca_prior_to_xml_tracelog(
       inference_model = inference_model
     )
   )

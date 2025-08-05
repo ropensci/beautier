@@ -30,14 +30,14 @@ create_loggers_xml <- function(
   beautier::check_true(length(input_filename) == 1)
   beautier::check_inference_model(inference_model)
 
-  tracelog_text <- create_tracelog_xml(
+  tracelog_text <- beautier::create_tracelog_xml(
     input_filename = input_filename,
     inference_model = inference_model
   )
 
-  screenlog_text <- create_screenlog_xml(inference_model)
+  screenlog_text <- beautier::create_screenlog_xml(inference_model)
 
-  treelogs_text <- create_treelog_xml(inference_model)
+  treelogs_text <- beautier::create_treelog_xml(inference_model)
 
 
   c(

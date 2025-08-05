@@ -39,14 +39,14 @@ create_strict_clock_branch_rate_model_xml <- function(# nolint long function nam
     )
     # initialization may happen here
     inference_model$clock_model$clock_rate_param$id <- id
-    xml_param <- parameter_to_xml(
+    xml_param <- beautier::parameter_to_xml(
       parameter = inference_model$clock_model$clock_rate_param,
       beauti_options = inference_model$beauti_options
     )
     xml_end <- "</branchRateModel>"
 
     # Layout
-    c(xml_begin, indent(xml_param), xml_end)
+    c(xml_begin, beautier::indent(xml_param), xml_end)
   } else {
     paste0(
       "<branchRateModel id=\"StrictClock.c:", id, "\" ",

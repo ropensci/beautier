@@ -21,6 +21,6 @@ has_xml_opening_tag <- function(
     return(!beautier::is_one_na(tag))
   }
   !beautier::is_one_na(
-    find_first_xml_opening_tag_line(lines, section)
+    beautier::find_first_xml_opening_tag_line(lines, section)
   )
 }

@@ -143,7 +143,7 @@ distr_to_xml_inv_gamma <- function(
   distr,
   beauti_options
 ) {
-  beautier::check_true(is_inv_gamma_distr(distr))
+  beautier::check_true(beautier::is_inv_gamma_distr(distr))
   beautier::check_beauti_options(beauti_options)
   id <- distr$id
   beautier::check_true(beautier::is_id(id))

@@ -10,7 +10,7 @@ indent <- function(
   text,
   n_spaces = 4
 ) {
-  check_number_whole(n_spaces, min = 0)
+  beautier::check_number_whole(n_spaces, min = 0)
 
   beautier::check_false(is.null(text))
   for (i in seq_along(text)) {

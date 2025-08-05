@@ -20,7 +20,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
       !beautier::is_jc69_site_model(inference_model$site_model)
   ) {
     beautier::check_true(
-      is_id(
+      beautier::is_id(
         inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id
       )
     )
