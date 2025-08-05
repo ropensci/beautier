@@ -49,10 +49,13 @@ jobs:
         run: testthat::expect_equal(0, length(list.files(rappdirs::user_cache_dir(appname = "beautier"))))
         shell: Rscript {0}
 
-      - name: Test coverage
-        run: Rscript -e 'covr::codecov()'
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ropensci/beautier
 
       - name: Lint
-        run: Rscript -e 'lintr::lint_package()'
+        run: Rscript -e 'Sys.setenv("LINTR_ERROR_ON_LINT" = TRUE); lintr::lint_package()'
 
 
