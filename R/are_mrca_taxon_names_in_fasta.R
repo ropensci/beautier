@@ -8,14 +8,14 @@ are_mrca_taxon_names_in_fasta <- function(
   mrca_prior,
   fasta_filename
 ) {
-  beautier::check_true(is_mrca_prior(mrca_prior))
+  beautier::check_true(beautier::is_mrca_prior(mrca_prior))
   beautier::check_true(
     is_mrca_align_id_in_fasta(
       mrca_prior = mrca_prior,
       fasta_filename = fasta_filename
     )
   )
-  if (get_alignment_id(fasta_filename) == mrca_prior$alignment_id) {
+  if (beautier::get_alignment_id(fasta_filename) == mrca_prior$alignment_id) {
     for (name in mrca_prior$taxa_names) {
       if (!name %in% get_taxa_names(fasta_filename)) {
         return(FALSE)

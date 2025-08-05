@@ -22,7 +22,7 @@
 get_site_models_n_params <- function(
   site_models
 ) {
-  if (!are_site_models(site_models)) {
+  if (!beautier::are_site_models(site_models)) {
     stop("'site_models' must be a list of site models")
   }
   n <- 0

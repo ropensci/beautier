@@ -66,7 +66,7 @@ check_site_model_types <- function(site_model) {
   if (!beautier::is_site_model_name(site_model$name)) {
     stop("Invalid site model name. Actual value: '", site_model$name, "'")
   }
-  if (!is_gamma_site_model(site_model$gamma_site_model)) {
+  if (!beautier::is_gamma_site_model(site_model$gamma_site_model)) {
     stop("Invalid 'site_model$gamma_site_model'")
   }
 }

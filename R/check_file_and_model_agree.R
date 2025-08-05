@@ -13,7 +13,7 @@ check_file_and_model_agree <- function(
   # If there is a CBS tree prior, the number of groups it has
   # must be equals or more than the number of taxa in the alignment
   if (beautier::is_cbs_tree_prior(inference_model$tree_prior)) {
-    n_taxa <- get_n_taxa(input_filename)
+    n_taxa <- beautier::get_n_taxa(input_filename)
     group_sizes_dimension <- inference_model$tree_prior$group_sizes_dimension
     if (n_taxa <= group_sizes_dimension) {
       stop(
@@ -25,10 +25,10 @@ check_file_and_model_agree <- function(
 
   # All MRCA prior's alignment IDs must match the FASTA file IDs
   if (!beautier::is_one_na(inference_model$mrca_prior)) {
-    beautier::check_true(is_mrca_prior(inference_model$mrca_prior))
+    beautier::check_true(beautier::is_mrca_prior(inference_model$mrca_prior))
 
     if (
-      !is_mrca_align_id_in_fasta(
+      !beautier::is_mrca_align_id_in_fasta(
         mrca_prior = inference_model$mrca_prior,
         fasta_filename = input_filename
       )

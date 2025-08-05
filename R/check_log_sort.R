@@ -4,7 +4,7 @@
 #' @return No return value, called for side effects
 #' @export
 check_log_sort <- function(sort) {
-  if (!sort %in% get_log_sorts()) {
+  if (!sort %in% beautier::get_log_sorts()) {
     stop(
       "'sort' must be a valid log sort. \n",
       "Supported values: '",

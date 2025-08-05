@@ -31,7 +31,7 @@ check_inference_model <- function(
     }
   }
   tryCatch(
-    check_site_model(inference_model$site_model),
+    beautier::check_site_model(inference_model$site_model),
     error = function(e) {
       stop(
         "'site_model' must be a valid site model. \n",
@@ -42,7 +42,7 @@ check_inference_model <- function(
   )
 
   tryCatch(
-    check_clock_model(inference_model$clock_model),
+    beautier::check_clock_model(inference_model$clock_model),
     error = function(e) {
       stop(
         "'clock_model' must be a valid clock model. \n",
@@ -54,7 +54,7 @@ check_inference_model <- function(
   beautier::check_tree_prior(inference_model$tree_prior)
   beautier::check_mcmc(inference_model$mcmc)
   tryCatch(
-    check_mrca_prior(inference_model$mrca_prior),
+    beautier::check_mrca_prior(inference_model$mrca_prior),
     error = function(e) {
       stop(
         "'mrca_prior' must be a valid MRCA prior. \n",
@@ -75,8 +75,8 @@ check_inference_model <- function(
   )
   if (!beautier::is_one_na(inference_model$tipdates_filename)) {
     # Must be a string
-    check_string(inference_model$tipdates_filename, allow_na = TRUE)
-    check_tipdates_file(inference_model$tipdates_filename)
+    beautier::check_string(inference_model$tipdates_filename, allow_na = TRUE)
+    beautier::check_tipdates_file(inference_model$tipdates_filename)
   }
 
   invisible(inference_model)

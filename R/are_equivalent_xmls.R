@@ -24,9 +24,9 @@ are_equivalent_xml_files <- function(
   filename_2,
   section = NA
 ) {
-  check_file_exists(filename_1, "filename_1")
-  check_file_exists(filename_2, "filename_2")
-  are_equivalent_xml_lines(
+  beautier::check_file_exists(filename_1, "filename_1")
+  beautier::check_file_exists(filename_2, "filename_2")
+  beautier::are_equivalent_xml_lines(
     readLines(filename_1),
     readLines(filename_2),
     section = section
@@ -50,7 +50,7 @@ are_equivalent_xml_lines <- function(
 ) {
   if (beautier::is_one_na(section)) {
     return(
-      are_equivalent_xml_lines_all(
+      beautier::are_equivalent_xml_lines_all(
         lines_1 = lines_1,
         lines_2 = lines_2,
         verbose = verbose
@@ -59,7 +59,7 @@ are_equivalent_xml_lines <- function(
   } else {
     beautier::check_true(!beautier::is_one_na(section))
     return(
-      are_equivalent_xml_lines_section(
+      beautier::are_equivalent_xml_lines_section(
         lines_1 = lines_1,
         lines_2 = lines_2,
         section = section,
@@ -129,50 +129,50 @@ are_equivalent_xml_lines_section <- function( # nolint don't care about internal
   section,
   verbose = FALSE
 ) {
-  check_string(section)
+  beautier::check_string(section)
   if (section == "operators") {
     return(
-      are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)
+      beautier::are_equivalent_xml_lines_operators(lines_1, lines_2, verbose)
     )
   }
   if (section == "loggers") {
     return(
-      are_equivalent_xml_lines_loggers(lines_1, lines_2, verbose)
+      beautier::are_equivalent_xml_lines_loggers(lines_1, lines_2, verbose)
     )
   }
-  if (!has_xml_opening_tag(lines = lines_1, section = section)) {
+  if (!beautier::has_xml_opening_tag(lines = lines_1, section = section)) {
     stop(
       "Opening tag for 'section' could not be found in 'lines_1', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_closing_tag(lines = lines_1, section = section)) {
+  if (!beautier::has_xml_closing_tag(lines = lines_1, section = section)) {
     stop(
       "Closing tag for 'section' could not be found in 'lines_1', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_opening_tag(lines = lines_2, section = section)) {
+  if (!beautier::has_xml_opening_tag(lines = lines_2, section = section)) {
     stop(
       "Opening tag for 'section' could not be found in 'lines_2', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_closing_tag(lines = lines_2, section = section)) {
+  if (!beautier::has_xml_closing_tag(lines = lines_2, section = section)) {
     stop(
       "Closing tag for 'section' could not be found in 'lines_2', ",
       "'section' has value '", section, "'"
     )
   }
-  section_1 <- extract_xml_section_from_lines(
+  section_1 <- beautier::extract_xml_section_from_lines(
     lines = lines_1,
     section = section
   )
-  section_2 <- extract_xml_section_from_lines(
+  section_2 <- beautier::extract_xml_section_from_lines(
     lines = lines_2,
     section = section
   )
-  are_equivalent_xml_lines_all(
+  beautier::are_equivalent_xml_lines_all(
     section_1,
     section_2,
     verbose = verbose
@@ -192,9 +192,9 @@ are_equivalent_xml_lines_operators <- function( # nolint indeed long function na
   lines_2,
   verbose = FALSE
 ) {
-  section_1 <- extract_xml_operators_from_lines(lines_1)
-  section_2 <- extract_xml_operators_from_lines(lines_2)
-  are_equivalent_xml_lines_all(
+  section_1 <- beautier::extract_xml_operators_from_lines(lines_1)
+  section_2 <- beautier::extract_xml_operators_from_lines(lines_2)
+  beautier::are_equivalent_xml_lines_all(
     section_1, section_2, verbose = verbose
   )
 }
@@ -212,9 +212,9 @@ are_equivalent_xml_lines_loggers <- function(# nolint don't care about internal 
   lines_2,
   verbose = FALSE
 ) {
-  section_1 <- extract_xml_loggers_from_lines(lines_1)
-  section_2 <- extract_xml_loggers_from_lines(lines_2)
-  are_equivalent_xml_lines_all(
+  section_1 <- beautier::extract_xml_loggers_from_lines(lines_1)
+  section_2 <- beautier::extract_xml_loggers_from_lines(lines_2)
+  beautier::are_equivalent_xml_lines_all(
     section_1,
     section_2,
     verbose = verbose

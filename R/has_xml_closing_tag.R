@@ -11,7 +11,7 @@ has_xml_closing_tag <- function(
   lines,
   section
 ) {
-  check_string(section)
+  beautier::check_string(section)
   !beautier::is_one_na(
     find_last_xml_closing_tag_line(
       lines = lines,

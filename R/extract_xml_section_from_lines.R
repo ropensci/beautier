@@ -8,20 +8,20 @@ extract_xml_section_from_lines <- function(
   lines,
   section
 ) {
-  check_string(section)
+  beautier::check_string(section)
   if (section == "operators") {
     return(extract_xml_operators_from_lines(lines))
   }
   if (section == "loggers") {
     return(extract_xml_loggers_from_lines(lines))
   }
-  if (!has_xml_opening_tag(lines = lines, section = section)) {
+  if (!beautier::has_xml_opening_tag(lines = lines, section = section)) {
     stop(
       "Opening tag for 'section' could not be found in 'lines', ",
       "'section' has value '", section, "'"
     )
   }
-  if (!has_xml_closing_tag(lines = lines, section = section)) {
+  if (!beautier::has_xml_closing_tag(lines = lines, section = section)) {
     stop(
       "Closing tag for 'section' could not be found in 'lines', ",
       "'section' has value '", section, "'"

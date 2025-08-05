@@ -39,11 +39,11 @@ compare_lines <- function(
   )
 ) {
   if (!beautier::is_one_na(section)) {
-    lines <- extract_xml_section_from_lines(
+    lines <- beautier::extract_xml_section_from_lines(
       lines = lines,
       section = section
     )
-    expected <- extract_xml_section_from_lines(
+    expected <- beautier::extract_xml_section_from_lines(
       lines = expected,
       section = section
     )

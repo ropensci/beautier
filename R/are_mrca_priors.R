@@ -12,7 +12,7 @@ are_mrca_priors <- function(
   for (i in seq_along(mrca_priors)) {
     mrca_prior <- mrca_priors[[i]]
     tryCatch(
-      check_mrca_prior(mrca_prior),
+      beautier::check_mrca_prior(mrca_prior),
       error = function(e) return(FALSE) # nolint indeed ignore e
     )
   }

@@ -60,7 +60,7 @@ create_distr <- function(
   upper = NA,
   ...
 ) {
-  if (!is_distr_name(name)) {
+  if (!beautier::is_distr_name(name)) {
     distr_as_string <- function() {
       s <- NULL
       for (p in get_distr_names()) {
@@ -137,13 +137,13 @@ create_beta_distr <- create_distr_beta <- function(
   if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
-  if (!is_alpha_param(alpha)) {
+  if (!beautier::is_alpha_param(alpha)) {
     stop(
       "'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'"
     )
   }
-  if (!is_beta_param(beta)) {
+  if (!beautier::is_beta_param(beta)) {
     stop(
       "'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'"
@@ -273,13 +273,13 @@ create_gamma_distr <- create_distr_gamma <- function(
   if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
-  if (!is_alpha_param(alpha)) {
+  if (!beautier::is_alpha_param(alpha)) {
     stop(
       "'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'"
     )
   }
-  if (!is_beta_param(beta)) {
+  if (!beautier::is_beta_param(beta)) {
     stop(
       "'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'"
@@ -350,13 +350,13 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
-  if (!is_alpha_param(alpha)) {
+  if (!beautier::is_alpha_param(alpha)) {
     stop(
       "'alpha' must be an alpha parameter, ",
       "as returned by 'create_alpha_param'"
     )
   }
-  if (!is_beta_param(beta)) {
+  if (!beautier::is_beta_param(beta)) {
     stop(
       "'beta' must be a beta parameter, ",
       "as returned by 'create_beta_param'"

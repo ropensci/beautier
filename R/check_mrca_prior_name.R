@@ -6,6 +6,6 @@
 #' @return No return value, called for side effects
 #' @export
 check_mrca_prior_name <- function(mrca_prior_name) {
-  check_string(mrca_prior_name, allow_empty = FALSE, allow_na = TRUE)
+  beautier::check_string(mrca_prior_name, allow_empty = FALSE, allow_na = TRUE)
   invisible(mrca_prior_name)
 }

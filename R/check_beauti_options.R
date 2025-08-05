@@ -34,15 +34,15 @@ check_beauti_options <- function(
       )
     }
   }
-  check_bool(beauti_options$capitalize_first_char_id)
-  check_bool(beauti_options$nucleotides_uppercase)
-  check_string(beauti_options$beast2_version)
-  check_string(beauti_options$required)
-  if (!is_one_int(beauti_options$sequence_indent)) { #  nolint beautier function
+  beautier::check_bool(beauti_options$capitalize_first_char_id)
+  beautier::check_bool(beauti_options$nucleotides_uppercase)
+  beautier::check_string(beauti_options$beast2_version)
+  beautier::check_string(beauti_options$required)
+  if (!beautier::is_one_int(beauti_options$sequence_indent)) {
     stop(
       "'sequence_indent' must be one number. \n",
       "Actual value: ", beauti_options$sequence_indent
     )
   }
-  check_bool(beauti_options$add_operator_schedule)
+  beautier::check_bool(beauti_options$add_operator_schedule)
 }

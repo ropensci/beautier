@@ -21,7 +21,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_empty_beautier_folder <- function(
-  beautier_folder = get_beautier_folder()
+  beautier_folder = beautier::get_beautier_folder()
 ) {
   beautier_folder <- normalizePath(beautier_folder, mustWork = FALSE)
   if (!dir.exists(beautier_folder)) return(invisible(beautier_folder))

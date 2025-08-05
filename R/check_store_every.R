@@ -5,7 +5,7 @@
 #' @return No return value, called for side effects
 #' @export
 check_store_every <- function(store_every) {
-  check_number_whole(store_every, allow_na = TRUE, min = -1)
+  beautier::check_number_whole(store_every, allow_na = TRUE, min = -1)
   if (is.na(store_every)) return()
 
   if (store_every == 0) {

@@ -11,7 +11,7 @@ init_site_models <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(are_site_models(site_models))
+  beautier::check_true(beautier::are_site_models(site_models))
   beautier::check_true(length(site_models) == length(ids))
 
   for (i in seq_along(site_models)) {
@@ -51,7 +51,7 @@ init_site_models <- function(
     param_id <- param_id + get_site_model_n_params(site_model)
 
     if (beautier::is_one_na(site_model$id)) site_model$id <- ids[i]
-    beautier::check_true(is_init_site_model(site_model))
+    beautier::check_true(beautier::is_init_site_model(site_model))
     site_models[[i]] <- site_model
   }
   site_models
@@ -87,7 +87,7 @@ init_gtr_site_model <- function(
     )
   ) {
     if (
-      !is_init_distr(
+      !beautier::is_init_distr(
         gtr_site_model$gamma_site_model$gamma_shape_prior_distr
       )
     ) {
@@ -104,7 +104,7 @@ init_gtr_site_model <- function(
     }
   }
 
-  if (!is_init_distr(gtr_site_model$rate_ac_prior_distr)) {
+  if (!beautier::is_init_distr(gtr_site_model$rate_ac_prior_distr)) {
     gtr_site_model$rate_ac_prior_distr <- init_distr(
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
@@ -115,7 +115,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_ac_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_ag_prior_distr)) {
+  if (!beautier::is_init_distr(gtr_site_model$rate_ag_prior_distr)) {
     gtr_site_model$rate_ag_prior_distr <- init_distr(
       gtr_site_model$rate_ag_prior_distr,
       distr_id = distr_id,
@@ -126,7 +126,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_ag_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_at_prior_distr)) {
+  if (!beautier::is_init_distr(gtr_site_model$rate_at_prior_distr)) {
     gtr_site_model$rate_at_prior_distr <- init_distr(
       gtr_site_model$rate_at_prior_distr,
       distr_id = distr_id,
@@ -137,7 +137,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_at_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_cg_prior_distr)) {
+  if (!beautier::is_init_distr(gtr_site_model$rate_cg_prior_distr)) {
     gtr_site_model$rate_cg_prior_distr <- init_distr(
       gtr_site_model$rate_cg_prior_distr,
       distr_id = distr_id,
@@ -148,7 +148,7 @@ init_gtr_site_model <- function(
       gtr_site_model$rate_cg_prior_distr
     )
   }
-  if (!is_init_distr(gtr_site_model$rate_gt_prior_distr)) {
+  if (!beautier::is_init_distr(gtr_site_model$rate_gt_prior_distr)) {
     gtr_site_model$rate_gt_prior_distr <- init_distr(
       gtr_site_model$rate_gt_prior_distr,
       distr_id = distr_id,
@@ -235,7 +235,7 @@ init_hky_site_model <- function(
       hky_site_model$gamma_site_model$gamma_shape_prior_distr
     )
   ) {
-    if (!is_init_distr(
+    if (!beautier::is_init_distr(
       hky_site_model$gamma_site_model$gamma_shape_prior_distr
     )) {
       hky_site_model$gamma_site_model$gamma_shape_prior_distr <-
@@ -252,7 +252,7 @@ init_hky_site_model <- function(
   }
 
   # kappa_prior_distr
-  if (!is_init_distr(hky_site_model$kappa_prior_distr)) {
+  if (!beautier::is_init_distr(hky_site_model$kappa_prior_distr)) {
     hky_site_model$kappa_prior_distr <- init_distr(
       hky_site_model$kappa_prior_distr,
       distr_id = distr_id,
@@ -300,7 +300,7 @@ init_jc69_site_model <- function(
     )
   ) {
     if (
-      !is_init_distr(
+      !beautier::is_init_distr(
         jc69_site_model$gamma_site_model$gamma_shape_prior_distr
       )
     ) {
@@ -354,7 +354,7 @@ init_tn93_site_model <- function(
     )
   ) {
     if (
-      !is_init_distr(
+      !beautier::is_init_distr(
         tn93_site_model$gamma_site_model$gamma_shape_prior_distr
       )
     ) {
@@ -372,7 +372,7 @@ init_tn93_site_model <- function(
   }
 
   # kappa_1_prior_distr
-  if (!is_init_distr(tn93_site_model$kappa_1_prior_distr)) {
+  if (!beautier::is_init_distr(tn93_site_model$kappa_1_prior_distr)) {
     tn93_site_model$kappa_1_prior_distr <- init_distr(
       tn93_site_model$kappa_1_prior_distr,
       distr_id = distr_id,
@@ -385,7 +385,7 @@ init_tn93_site_model <- function(
   }
 
   # kappa_2_prior_distr
-  if (!is_init_distr(tn93_site_model$kappa_2_prior_distr)) {
+  if (!beautier::is_init_distr(tn93_site_model$kappa_2_prior_distr)) {
     tn93_site_model$kappa_2_prior_distr <- init_distr(
       tn93_site_model$kappa_2_prior_distr,
       distr_id = distr_id,

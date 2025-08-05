@@ -7,9 +7,9 @@
 are_init_clock_models <- function(
   x
 ) {
-  if (!are_clock_models(x)) return(FALSE)
+  if (!beautier::are_clock_models(x)) return(FALSE)
   for (i in x) {
-    if (!is_init_clock_model(i)) return(FALSE)
+    if (!beautier::is_init_clock_model(i)) return(FALSE)
   }
   TRUE
 }

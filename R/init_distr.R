@@ -11,7 +11,7 @@ init_distr <- function( # nolint simplifying this more hurts readability
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(is_distr(distr))
+  beautier::check_true(beautier::is_distr(distr))
   if (is_beta_distr(distr)) {
     return(
       init_beta_distr(

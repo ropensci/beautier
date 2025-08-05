@@ -25,7 +25,7 @@ check_file_exists <- function(
         "'"
       )
     } else {
-      check_string(filename_description)
+      beautier::check_string(filename_description)
       stop(
         "File '", filename_description, "' not found. ",
         "Could not find file with path '",

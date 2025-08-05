@@ -52,7 +52,7 @@ check_param_names <- function(param) {
 #' @export
 check_param_types <- function(param) {
 
-  if (!param$name %in% get_param_names()) {
+  if (!param$name %in% beautier::get_param_names()) {
     stop("'param$name' must be a valid parameter name")
   }
   if (beautier::is_one_na(param$value)) {

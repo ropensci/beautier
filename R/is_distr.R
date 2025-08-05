@@ -83,9 +83,9 @@ is_beta_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "beta") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
-  if (!is_alpha_param(x$alpha)) return(FALSE)
+  if (!beautier::is_alpha_param(x$alpha)) return(FALSE)
   if (!"beta" %in% names(x)) return(FALSE)
-  if (!is_beta_param(x$beta)) return(FALSE)
+  if (!beautier::is_beta_param(x$beta)) return(FALSE)
   TRUE
 }
 
@@ -151,9 +151,9 @@ is_gamma_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "gamma") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
-  if (!is_alpha_param(x$alpha)) return(FALSE)
+  if (!beautier::is_alpha_param(x$alpha)) return(FALSE)
   if (!"beta" %in% names(x)) return(FALSE)
-  if (!is_beta_param(x$beta)) return(FALSE)
+  if (!beautier::is_beta_param(x$beta)) return(FALSE)
   TRUE
 }
 
@@ -186,9 +186,9 @@ is_inv_gamma_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "inv_gamma") return(FALSE)
   if (!"alpha" %in% names(x)) return(FALSE)
-  if (!is_alpha_param(x$alpha)) return(FALSE)
+  if (!beautier::is_alpha_param(x$alpha)) return(FALSE)
   if (!"beta" %in% names(x)) return(FALSE)
-  if (!is_beta_param(x$beta)) return(FALSE)
+  if (!beautier::is_beta_param(x$beta)) return(FALSE)
   TRUE
 }
 

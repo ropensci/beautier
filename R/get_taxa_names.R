@@ -10,6 +10,6 @@
 #' check_empty_beautier_folder()
 #' @export
 get_taxa_names <- function(filename) {
-  check_file_exists(filename, "filename")
+  beautier::check_file_exists(filename, "filename")
   names(seqinr::read.fasta(filename))
 }

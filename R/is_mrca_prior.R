@@ -25,7 +25,7 @@ is_mrca_prior <- function(
   if (!is.list(mrca_prior)) return(FALSE)
   tryCatch(
     {
-      check_mrca_prior(mrca_prior)
+      beautier::check_mrca_prior(mrca_prior)
       TRUE
     },
     error = function(e) return(FALSE) # nolint indeed ignores e

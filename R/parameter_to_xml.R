@@ -23,9 +23,9 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
   beautier::check_beauti_options(beauti_options)
   beautier::check_param(parameter)
   beautier::check_true(beautier::is_id(parameter$id))
-  if (is_alpha_param(parameter)) {
+  if (beautier::is_alpha_param(parameter)) {
     return(alpha_parameter_to_xml(alpha_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_beta_param(parameter)) {
+  } else if (beautier::is_beta_param(parameter)) {
     return(beta_parameter_to_xml(beta_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (is_clock_rate_param(parameter)) {
     return(clock_rate_param_to_xml(

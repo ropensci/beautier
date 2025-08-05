@@ -13,8 +13,8 @@
 #' @export
 check_treelog <- function(treelog) {
 
-  check_treelog_names(treelog)
-  check_treelog_values(treelog)
+  beautier::check_treelog_names(treelog)
+  beautier::check_treelog_values(treelog)
 
   invisible(treelog)
 }
@@ -53,13 +53,13 @@ check_treelog_names <- function(treelog) {
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_treelog_values <- function(treelog) {
-  check_filename(filename = treelog$filename, allow_na = TRUE)
+  beautier::check_filename(filename = treelog$filename, allow_na = TRUE)
   lapply(
     treelog$log_every,
-    function(x) check_number_whole(x, min = 1, arg = "log_every")
+    function(x) beautier::check_number_whole(x, min = 1, arg = "log_every")
   )
-  check_log_mode(treelog$mode)
-  check_logical(treelog$sanitise_headers)
-  check_log_sort(treelog$sort)
+  beautier::check_log_mode(treelog$mode)
+  beautier::check_logical(treelog$sanitise_headers)
+  beautier::check_log_sort(treelog$sort)
   invisible(treelog)
 }

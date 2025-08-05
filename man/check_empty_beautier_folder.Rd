@@ -4,7 +4,7 @@
 \alias{check_empty_beautier_folder}
 \title{Internal function}
 \usage{
-check_empty_beautier_folder(beautier_folder = get_beautier_folder())
+check_empty_beautier_folder(beautier_folder = beautier::get_beautier_folder())
 }
 \arguments{
 \item{beautier_folder}{the path to

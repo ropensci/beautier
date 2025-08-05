@@ -25,7 +25,7 @@ alpha_parameter_to_xml <- function(
   # Don't be smart yet
   parameter <- alpha_parameter
 
-  beautier::check_true(is_alpha_param(parameter))
+  beautier::check_true(beautier::is_alpha_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true(parameter$estimate == FALSE)

@@ -29,7 +29,7 @@ check_gtr_site_model <- function(gtr_site_model) {
     gtr_site_model$rate_gt_prior_distr
   )
   for (expected_distr in expected_distrs) {
-    if (!is_distr(expected_distr)) {
+    if (!beautier::is_distr(expected_distr)) {
       stop("Invalid gtr_site_model$distr")
     }
   }

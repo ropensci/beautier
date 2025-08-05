@@ -12,7 +12,7 @@
 #' check_empty_beautier_folder()
 #' @export
 get_n_taxa <- function(filename) {
-  check_string(filename)
+  beautier::check_string(filename)
 
   if (!file.exists(filename)) {
     stop("filename must exist.")

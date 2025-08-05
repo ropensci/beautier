@@ -43,12 +43,12 @@ is_init_gtr_site_model <- function( # nolint simplification of this hurts readab
   x
 ) {
   if (!is_gtr_site_model(x)) return(FALSE)
-  if (!is_init_distr(x$rate_ac_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_ag_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_at_prior_distr)) return(FALSE)
-  if (!is_init_distr(x$rate_cg_prior_distr)) return(FALSE)
+  if (!beautier::is_init_distr(x$rate_ac_prior_distr)) return(FALSE)
+  if (!beautier::is_init_distr(x$rate_ag_prior_distr)) return(FALSE)
+  if (!beautier::is_init_distr(x$rate_at_prior_distr)) return(FALSE)
+  if (!beautier::is_init_distr(x$rate_cg_prior_distr)) return(FALSE)
   # Indeed, no rate_ct_prior_distr yet
-  if (!is_init_distr(x$rate_gt_prior_distr)) return(FALSE)
+  if (!beautier::is_init_distr(x$rate_gt_prior_distr)) return(FALSE)
   if (!is_init_param(x$rate_ac_param)) return(FALSE)
   if (!is_init_param(x$rate_ag_param)) return(FALSE)
   if (!is_init_param(x$rate_at_param)) return(FALSE)

@@ -10,7 +10,7 @@ b_pop_sizes_param_to_xml <- function(
   beauti_options = create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_b_pop_sizes_param(b_pop_sizes_param))
+  beautier::check_true(beautier::is_b_pop_sizes_param(b_pop_sizes_param))
   id <- b_pop_sizes_param$id
   beautier::check_true(beautier::is_id(id))
 

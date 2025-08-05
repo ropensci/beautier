@@ -53,7 +53,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
   }
   if (is.na(inference_model$mcmc$tracelog$filename)) {
     # Alignment IDs
-    ids <- get_alignment_id(
+    ids <- beautier::get_alignment_id(
       input_filename,
       capitalize_first_char_id =
         inference_model$beauti_options$capitalize_first_char_id

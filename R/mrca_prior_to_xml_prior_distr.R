@@ -27,7 +27,7 @@ mrca_prior_to_xml_prior_distr <- function(
   has_non_strict_clock_model <- get_has_non_strict_clock_model(
     list(inference_model$clock_model)
   )
-  beautier::check_true(is_mrca_prior(mrca_prior))
+  beautier::check_true(beautier::is_mrca_prior(mrca_prior))
   text <- NULL
   if (!has_non_strict_clock_model &&
       !beautier::is_one_na(mrca_prior$mrca_distr) &&
@@ -78,7 +78,7 @@ mrca_prior_to_xml_prior_distr <- function(
       )
     )
   )
-  if (is_distr(mrca_prior$mrca_distr)) {
+  if (beautier::is_distr(mrca_prior$mrca_distr)) {
     text <- c(
       text,
       beautier::indent(

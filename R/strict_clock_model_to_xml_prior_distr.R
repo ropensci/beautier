@@ -22,7 +22,9 @@
 strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  beautier::check_true(beautier::is_strict_clock_model(inference_model$clock_model))
+  beautier::check_true(
+    beautier::is_strict_clock_model(inference_model$clock_model)
+  )
 
   text <- NULL
 
@@ -66,7 +68,7 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
     )
     text <- c(text,
       beautier::indent(
-        distr_to_xml(
+        beautier::distr_to_xml(
           clock_model$clock_rate_distr,
           beauti_options = inference_model$beauti_options
         )

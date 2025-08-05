@@ -23,7 +23,7 @@
 get_distr_n_params <- function(
   distr
 ) {
-  if (!is_distr(distr)) {
+  if (!beautier::is_distr(distr)) {
     stop("'distr' must be a distribution")
   }
 

@@ -170,7 +170,7 @@ create_strict_clock_model <- create_clock_model_strict <- function(
       "as can be created by 'create_clock_rate_param'"
     )
   }
-  if (!is_distr(clock_rate_distr)) {
+  if (!beautier::is_distr(clock_rate_distr)) {
     stop(
       "'clock_rate_distr' must be a distribution, ",
       "as can be created by 'create_distr'"

@@ -12,7 +12,7 @@ beta_parameter_to_xml <- function(
   beautier::check_beauti_options(beauti_options)
   # Don't be smart yet
   parameter <- beta_parameter
-  beautier::check_true(is_beta_param(parameter))
+  beautier::check_true(beautier::is_beta_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true(parameter$estimate == FALSE)

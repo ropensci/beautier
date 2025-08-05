@@ -23,7 +23,7 @@ mrca_prior_to_xml_taxonset <- function(
   mrca_prior,
   taxa_names_with_ids = NULL
 ) {
-  beautier::check_true(is_mrca_prior(mrca_prior))
+  beautier::check_true(beautier::is_mrca_prior(mrca_prior))
   text <- NULL
   beautier::check_true(!beautier::is_one_na(mrca_prior$taxa_names))
   for (taxon_name in mrca_prior$taxa_names) {

@@ -8,7 +8,7 @@
 is_init_distr <- function(
   x
 ) {
-  if (!is_distr(x)) return(FALSE)
+  if (!beautier::is_distr(x)) return(FALSE)
   if (beautier::is_one_na(x$id)) return(FALSE)
 
   if (is_beta_distr(x)) {

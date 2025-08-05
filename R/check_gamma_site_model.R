@@ -12,7 +12,7 @@
 #' @export
 check_gamma_site_model <- function(gamma_site_model) {
 
-  check_gamma_site_model_names(gamma_site_model)
+  beautier::check_gamma_site_model_names(gamma_site_model)
 
   if (length(gamma_site_model$gamma_cat_count) != 1) {
     stop("'gamma_cat_count' must be one number")
@@ -37,7 +37,7 @@ check_gamma_site_model <- function(gamma_site_model) {
   }
   if (
     !beautier::is_one_na(gamma_site_model$gamma_shape_prior_distr) &&
-      !is_distr(gamma_site_model$gamma_shape_prior_distr)
+      !beautier::is_distr(gamma_site_model$gamma_shape_prior_distr)
   ) {
     stop(
       "'gamma_site_model$gamma_shape_prior_distr' must be NA ",

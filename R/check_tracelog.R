@@ -6,8 +6,8 @@
 #' @export
 check_tracelog <- function(tracelog) {
 
-  check_tracelog_names(tracelog)
-  check_tracelog_values(tracelog)
+  beautier::check_tracelog_names(tracelog)
+  beautier::check_tracelog_values(tracelog)
 }
 
 #' Check if the \code{tracelog} has the list elements
@@ -45,14 +45,14 @@ check_tracelog_names <- function(tracelog) {
 #' @export
 check_tracelog_values <- function(tracelog) {
 
-  check_filename(tracelog$filename, allow_na = TRUE)
+  beautier::check_filename(tracelog$filename, allow_na = TRUE)
   lapply(
     tracelog$log_every,
-    function(x) check_number_whole(x, min = 1, arg = "log_every")
+    function(x) beautier::check_number_whole(x, min = 1, arg = "log_every")
   )
 
-  check_log_mode(tracelog$mode)
-  check_logical(tracelog$sanitise_headers)
-  check_log_sort(tracelog$sort)
+  beautier::check_log_mode(tracelog$mode)
+  beautier::check_logical(tracelog$sanitise_headers)
+  beautier::check_log_sort(tracelog$sort)
   invisible(tracelog)
 }

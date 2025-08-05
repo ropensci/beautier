@@ -16,10 +16,10 @@ create_beast2_input_data <- function(
   input_filename,
   beauti_options = create_beauti_options()
 ) {
-  check_file_exists(input_filename)
+  beautier::check_file_exists(input_filename)
 
   # Data opening tag
-  id <- get_alignment_id(
+  id <- beautier::get_alignment_id(
     fasta_filename = input_filename,
     capitalize_first_char_id = beauti_options$capitalize_first_char_id
   )

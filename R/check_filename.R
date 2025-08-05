@@ -17,9 +17,11 @@ check_filename <- function(
   allow_empty_str = FALSE,
   allow_na = FALSE
 ) {
-  check_logical(allow_empty_str)
-  check_logical(allow_na)
-  check_string(filename, allow_na = allow_na, allow_empty = allow_empty_str)
+  beautier::check_logical(allow_empty_str)
+  beautier::check_logical(allow_na)
+  beautier::check_string(
+    filename, allow_na = allow_na, allow_empty = allow_empty_str
+  )
 
   if (!is.na(filename) &&
       nzchar(filename) &&

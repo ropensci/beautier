@@ -15,7 +15,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_phylogeny <- function(phylogeny) {
-  if (is_phylo(phylogeny)) {
+  if (beautier::is_phylo(phylogeny)) {
     return()
   }
   stop(

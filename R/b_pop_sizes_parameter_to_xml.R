@@ -21,7 +21,7 @@ b_pop_sizes_parameter_to_xml <- function(
   beautier::check_beauti_options(beauti_options)
   # Don't be smart yet
   parameter <- b_pop_sizes_parameter
-  beautier::check_true(is_b_pop_sizes_param(parameter))
+  beautier::check_true(beautier::is_b_pop_sizes_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true("upper" %in% names(b_pop_sizes_parameter))

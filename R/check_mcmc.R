@@ -87,8 +87,8 @@ check_mcmc_values <- function(mcmc) {
     function(x) check_number_whole(x, min = 1, arg = "n_init_attempts")
   )
   check_logical(mcmc$sample_from_prior)
-  check_treelog(mcmc$treelog)
+  beautier::check_treelog(mcmc$treelog)
   beautier::check_screenlog(mcmc$screenlog)
-  check_tracelog(mcmc$tracelog)
+  beautier::check_tracelog(mcmc$tracelog)
   invisible(mcmc)
 }
