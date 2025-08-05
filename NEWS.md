@@ -5,7 +5,7 @@ Newest versions at top.
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD025 -->
 
-# beautier v2.6.13 (unreleased)
+# beautier v2.6.13 (2025-08-05)
 
 ## NEW FEATURES
 
@@ -20,6 +20,7 @@ Newest versions at top.
   not use a tab as a separator. Empty lines are allowed.
 - Clearer error message when the tip dates file has a header.
   A header is not allowed.
+- Improved documentation in `check_` functions
 
 ## BUG FIXES
 
