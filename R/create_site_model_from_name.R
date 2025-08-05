@@ -12,13 +12,13 @@
 #' @export
 create_site_model_from_name <- function(site_model_name) {
   if (site_model_name == "JC69") {
-    create_jc69_site_model()
+    beautier::create_jc69_site_model()
   } else if (site_model_name == "HKY") {
-    create_hky_site_model()
+    beautier::create_hky_site_model()
   } else if (site_model_name == "TN93") {
-    create_tn93_site_model()
+    beautier::create_tn93_site_model()
   } else {
     beautier::check_true(site_model_name == "GTR")
-    create_gtr_site_model()
+    beautier::create_gtr_site_model()
   }
 }

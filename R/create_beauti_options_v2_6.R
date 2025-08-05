@@ -25,7 +25,7 @@ create_beauti_options_v2_6 <- function(
   sequence_indent = 8,
   nucleotides_uppercase = FALSE,
   status = "",
-  namespace = get_default_beast_namespace_v2_6(),
+  namespace = beautier::get_default_beast_namespace_v2_6(),
   required = "",
   add_operator_schedule = TRUE
 ) {

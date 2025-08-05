@@ -10,7 +10,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_default_beast_namespace <- function() {
-  get_default_beast_namespace_v2_4()
+  beautier::get_default_beast_namespace_v2_4()
 }
 
 #' Get the default `namespace` element value of the `beast` XML tag

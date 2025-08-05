@@ -154,8 +154,8 @@ init_yule_tree_prior <- function(
 ) {
   beautier::check_true(beautier::is_yule_tree_prior(yule_tree_prior))
 
-  result <- create_yule_tree_prior(
-    birth_rate_distr = init_distr(
+  result <- beautier::create_yule_tree_prior(
+    birth_rate_distr = beautier::init_distr(
       yule_tree_prior$birth_rate_distr,
       distr_id,
       param_id

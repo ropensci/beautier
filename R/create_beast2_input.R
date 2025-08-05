@@ -17,11 +17,11 @@
 create_beast2_input <- function(
   input_filename,
   tipdates_filename = NA,
-  site_model = create_jc69_site_model(),
-  clock_model = create_strict_clock_model(),
-  tree_prior = create_yule_tree_prior(),
+  site_model = beautier::create_jc69_site_model(),
+  clock_model = beautier::create_strict_clock_model(),
+  tree_prior = beautier::create_yule_tree_prior(),
   mrca_prior = NA,
-  mcmc = create_mcmc(),
+  mcmc = beautier::create_mcmc(),
   beauti_options = beautier::create_beauti_options()
 ) {
   inference_model <- beautier::create_inference_model(

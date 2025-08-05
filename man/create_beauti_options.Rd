@@ -11,7 +11,7 @@ create_beauti_options(
   required = "",
   sequence_indent = 20,
   status = "",
-  namespace = get_default_beast_namespace_v2_4(),
+  namespace = beautier::get_default_beast_namespace_v2_4(),
   add_operator_schedule = FALSE
 )
 }

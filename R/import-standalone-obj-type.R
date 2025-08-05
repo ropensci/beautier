@@ -292,6 +292,7 @@ obj_type_oo <- function(x) {
   }
 }
 
+#' Stops on the input type.
 #' @param x The object type which does not conform to `what`. Its
 #'   `obj_type_friendly()` is taken and mentioned in the error message.
 #' @param what The friendly expected type as a string. Can be a
@@ -299,11 +300,15 @@ obj_type_oo <- function(x) {
 #'   message mentions all of them in an "or" enumeration.
 #' @param show_value Passed to `value` argument of `obj_type_friendly()`.
 #' @param ... Arguments passed to [abort()].
-#' @inheritParams args_error_context
+#' @param allow_na allow NA to be valid
+#' @param allow_null allow NULL to be valid
+#' @param show_value set to TRUE to show the value
+#' @param arg No idea what this does
+#' @param call No idea what this does
 #' @note adapted from
 #' [`r-lib`](https://github.com/r-lib/rlang/blob/main/R/standalone-obj-type.R)
 #' @author [`olivroy`](https://github.com/olivroy)
-#' @noRd
+#' @export
 stop_input_type <- function(
   x,
   what,

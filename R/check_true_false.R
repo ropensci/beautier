@@ -31,7 +31,7 @@ check_true <- function(
     return(invisible(NULL))
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     c("`TRUE`"),
     ...,
@@ -75,7 +75,7 @@ check_false <- function(
     return(invisible(NULL))
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     c("`FALSE`"),
     ...,

@@ -58,7 +58,7 @@ create_ns_mcmc <- create_mcmc_nested_sampling <- function(
   treelog = create_treelog()
 ) {
   # Unsure about 'sample_from_prior' in NS MCMC, Issue #108
-  mcmc <- create_mcmc(
+  mcmc <- beautier::create_mcmc(
     chain_length = chain_length,
     store_every = store_every,
     pre_burnin = pre_burnin,
@@ -71,6 +71,6 @@ create_ns_mcmc <- create_mcmc_nested_sampling <- function(
   mcmc$particle_count <- particle_count
   mcmc$sub_chain_length <- sub_chain_length
   mcmc$epsilon <- epsilon
-  check_nested_sampling_mcmc(mcmc)
+  beautier::check_nested_sampling_mcmc(mcmc)
   mcmc
 }

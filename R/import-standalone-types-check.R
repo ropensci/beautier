@@ -90,7 +90,7 @@ check_bool <- function(
     return(invisible(NULL))
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     c("`TRUE`", "`FALSE`"),
     ...,
@@ -137,7 +137,7 @@ check_string <- function(
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a single string",
     ...,
@@ -186,7 +186,7 @@ check_name <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a valid name",
     ...,
@@ -329,7 +329,7 @@ check_number_whole <- function(
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     what,
     ...,
@@ -354,7 +354,7 @@ check_symbol <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a symbol",
     ...,
@@ -379,7 +379,7 @@ check_arg <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "an argument name",
     ...,
@@ -404,7 +404,7 @@ check_call <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a defused call",
     ...,
@@ -429,7 +429,7 @@ check_environment <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "an environment",
     ...,
@@ -454,7 +454,7 @@ check_function <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a function",
     ...,
@@ -479,7 +479,7 @@ check_closure <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "an R function",
     ...,
@@ -504,7 +504,7 @@ check_formula <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a formula",
     ...,
@@ -532,7 +532,7 @@ check_character <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a character vector",
     ...,
@@ -575,7 +575,7 @@ check_logical <- function(
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a logical vector",
     ...,
@@ -600,7 +600,7 @@ check_data_frame <- function(x,
     }
   }
 
-  stop_input_type(
+  beautier::stop_input_type(
     x,
     "a data frame",
     ...,

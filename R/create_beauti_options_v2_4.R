@@ -25,6 +25,6 @@ create_beauti_options_v2_4 <- function(
     beast2_version = "2.4",
     required = "",
     sequence_indent = 20,
-    namespace = get_default_beast_namespace_v2_4()
+    namespace = beautier::get_default_beast_namespace_v2_4()
   )
 }
