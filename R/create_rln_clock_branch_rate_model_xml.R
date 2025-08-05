@@ -15,7 +15,7 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
   # Do not be smart yet
   clock_model <- inference_model$clock_model
 
-  beautier::check_true(is_clock_model(clock_model))
+  beautier::check_true(beautier::is_clock_model(clock_model))
   id <- clock_model$id
   beautier::check_true(beautier::is_id(id))
 
@@ -61,8 +61,8 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     text,
     beautier::indent(
       beautier::indent(
-        m_param_to_xml(
-          m_param = create_m_param(
+        beautier::m_param_to_xml(
+          m_param = beautier::create_m_param(
             id = mparam_id,
             lower = "0.0",
             upper = "1.0",
@@ -78,7 +78,7 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
       !beautier::has_tip_dating(inference_model)
   ) {
     xml_here <- beautier::clock_rate_param_to_xml(
-      clock_rate_param = create_clock_rate_param(
+      clock_rate_param = beautier::create_clock_rate_param(
         id = id,
         estimate = FALSE,
         value = clock_model$mean_clock_rate

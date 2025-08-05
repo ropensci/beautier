@@ -11,7 +11,7 @@ init_mrca_priors <- function(
   param_id = 0,
   beauti_options
 ) {
-  if (length(mrca_priors) == 1 && is_one_na(mrca_priors)) return(NA)
+  if (length(mrca_priors) == 1 && beautier::is_one_na(mrca_priors)) return(NA)
 
   beautier::check_true(length(mrca_priors) == 1)
   beautier::check_true(beautier::are_mrca_priors(mrca_priors))
@@ -35,13 +35,13 @@ init_mrca_priors <- function(
     if (beautier::is_distr(mrca_prior$mrca_distr) &&
         !beautier::is_init_distr(mrca_prior$mrca_distr)
     ) {
-      mrca_prior$mrca_distr <- init_distr(
+      mrca_prior$mrca_distr <- beautier::init_distr(
         distr = mrca_prior$mrca_distr,
         distr_id = distr_id,
         param_id = param_id
       )
       distr_id <- distr_id + 1
-      param_id <- param_id + get_distr_n_params(mrca_prior$mrca_distr)
+      param_id <- param_id + beautier::get_distr_n_params(mrca_prior$mrca_distr)
     }
 
     beautier::check_true(beautier::is_mrca_prior(mrca_prior))

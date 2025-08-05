@@ -21,7 +21,7 @@ create_strict_clock_branch_rate_model_xml <- function(# nolint long function nam
   has_mrca_prior <- !beautier::is_one_na(inference_model$mrca_prior)
   has_mrca_prior_distr <- NA
   if (has_mrca_prior) {
-    has_mrca_prior_distr <- is_one_na(
+    has_mrca_prior_distr <- beautier::is_one_na(
       inference_model$mrca_prior$mrca_distr
     )
   }

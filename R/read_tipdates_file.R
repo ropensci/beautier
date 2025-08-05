@@ -10,7 +10,7 @@
 #' read_tipdates_file(get_beautier_path("babette_issue_109.tsv"))
 #' @export
 read_tipdates_file <- function(tipdates_filename) {
-  check_tipdates_file(tipdates_filename)
+  beautier::check_tipdates_file(tipdates_filename)
 
   tipdates_table <- readr::read_tsv(
     tipdates_filename,

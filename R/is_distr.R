@@ -41,16 +41,16 @@
 is_distr <- function( # nolint simplification of this will hurt readablity
   x
 ) {
-  if (is_beta_distr(x)) return(TRUE)
-  if (is_exp_distr(x)) return(TRUE)
-  if (is_gamma_distr(x)) return(TRUE)
-  if (is_inv_gamma_distr(x)) return(TRUE)
-  if (is_laplace_distr(x)) return(TRUE)
-  if (is_log_normal_distr(x)) return(TRUE)
-  if (is_normal_distr(x)) return(TRUE)
-  if (is_one_div_x_distr(x)) return(TRUE)
-  if (is_poisson_distr(x)) return(TRUE)
-  if (is_uniform_distr(x)) return(TRUE)
+  if (beautier::is_beta_distr(x)) return(TRUE)
+  if (beautier::is_exp_distr(x)) return(TRUE)
+  if (beautier::is_gamma_distr(x)) return(TRUE)
+  if (beautier::is_inv_gamma_distr(x)) return(TRUE)
+  if (beautier::is_laplace_distr(x)) return(TRUE)
+  if (beautier::is_log_normal_distr(x)) return(TRUE)
+  if (beautier::is_normal_distr(x)) return(TRUE)
+  if (beautier::is_one_div_x_distr(x)) return(TRUE)
+  if (beautier::is_poisson_distr(x)) return(TRUE)
+  if (beautier::is_uniform_distr(x)) return(TRUE)
   FALSE
 }
 
@@ -118,7 +118,7 @@ is_exp_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "exponential") return(FALSE)
   if (!"mean" %in% names(x)) return(FALSE)
-  if (!is_mean_param(x$mean)) return(FALSE)
+  if (!beautier::is_mean_param(x$mean)) return(FALSE)
   TRUE
 }
 
@@ -217,9 +217,9 @@ is_laplace_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "laplace") return(FALSE)
   if (!"mu" %in% names(x)) return(FALSE)
-  if (!is_mu_param(x$mu)) return(FALSE)
+  if (!beautier::is_mu_param(x$mu)) return(FALSE)
   if (!"scale" %in% names(x)) return(FALSE)
-  if (!is_scale_param(x$scale)) return(FALSE)
+  if (!beautier::is_scale_param(x$scale)) return(FALSE)
   TRUE
 }
 
@@ -254,7 +254,7 @@ is_log_normal_distr <- function(
   if (!"m" %in% names(x)) return(FALSE)
   if (!beautier::is_m_param(x$m)) return(FALSE)
   if (!"s" %in% names(x)) return(FALSE)
-  if (!is_s_param(x$s)) return(FALSE)
+  if (!beautier::is_s_param(x$s)) return(FALSE)
   TRUE
 }
 
@@ -287,9 +287,9 @@ is_normal_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "normal") return(FALSE)
   if (!"mean" %in% names(x)) return(FALSE)
-  if (!is_mean_param(x$mean)) return(FALSE)
+  if (!beautier::is_mean_param(x$mean)) return(FALSE)
   if (!"sigma" %in% names(x)) return(FALSE)
-  if (!is_sigma_param(x$sigma)) return(FALSE)
+  if (!beautier::is_sigma_param(x$sigma)) return(FALSE)
   TRUE
 }
 
@@ -351,7 +351,7 @@ is_poisson_distr <- function(
   if (!"name" %in% names(x)) return(FALSE)
   if (x$name != "poisson") return(FALSE)
   if (!"lambda" %in% names(x)) return(FALSE)
-  if (!is_lambda_param(x$lambda)) return(FALSE)
+  if (!beautier::is_lambda_param(x$lambda)) return(FALSE)
   TRUE
 }
 

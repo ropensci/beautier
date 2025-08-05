@@ -92,7 +92,7 @@ init_gtr_site_model <- function(
       )
     ) {
       gtr_site_model$gamma_site_model$gamma_shape_prior_distr <-
-        init_distr(
+        beautier::init_distr(
           gtr_site_model$gamma_site_model$gamma_shape_prior_distr,
           distr_id = distr_id,
           param_id = param_id
@@ -105,7 +105,7 @@ init_gtr_site_model <- function(
   }
 
   if (!beautier::is_init_distr(gtr_site_model$rate_ac_prior_distr)) {
-    gtr_site_model$rate_ac_prior_distr <- init_distr(
+    gtr_site_model$rate_ac_prior_distr <- beautier::init_distr(
       gtr_site_model$rate_ac_prior_distr,
       distr_id = distr_id,
       param_id = param_id
@@ -239,7 +239,7 @@ init_hky_site_model <- function(
       hky_site_model$gamma_site_model$gamma_shape_prior_distr
     )) {
       hky_site_model$gamma_site_model$gamma_shape_prior_distr <-
-        init_distr(
+        beautier::init_distr(
           hky_site_model$gamma_site_model$gamma_shape_prior_distr,
           distr_id = distr_id,
           param_id = param_id
@@ -359,7 +359,7 @@ init_tn93_site_model <- function(
       )
     ) {
       tn93_site_model$gamma_site_model$gamma_shape_prior_distr <-
-        init_distr(
+        beautier::init_distr(
           tn93_site_model$gamma_site_model$gamma_shape_prior_distr,
           distr_id = distr_id,
           param_id = param_id

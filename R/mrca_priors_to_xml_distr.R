@@ -24,7 +24,7 @@ mrca_priors_to_xml_prior_distr <- function(
   beautier::check_true(beautier::are_mrca_priors(mrca_priors))
 
   if (beautier::is_one_na(mrca_priors)) return(NULL)
-  mrca_prior_to_xml_prior_distr(
+  beautier::mrca_prior_to_xml_prior_distr(
     inference_model = inference_model
   )
 }

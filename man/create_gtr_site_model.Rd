@@ -7,25 +7,25 @@
 \usage{
 create_gtr_site_model(
   id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  rate_ac_prior_distr = create_gamma_distr(alpha = 0.05, beta = create_beta_param(value =
-    "10.0")),
-  rate_ag_prior_distr = create_gamma_distr(alpha = 0.05, beta = create_beta_param(value =
-    "20.0")),
-  rate_at_prior_distr = create_gamma_distr(alpha = 0.05, beta = create_beta_param(value =
-    "10.0")),
-  rate_cg_prior_distr = create_gamma_distr(alpha = 0.05, beta = create_beta_param(value =
-    "10.0")),
-  rate_gt_prior_distr = create_gamma_distr(alpha = 0.05, beta = create_beta_param(value =
-    "10.0")),
-  rate_ac_param = create_rate_ac_param(),
-  rate_ag_param = create_rate_ag_param(),
-  rate_at_param = create_rate_at_param(),
-  rate_cg_param = create_rate_cg_param(),
-  rate_ct_param = create_rate_ct_param(),
-  rate_gt_param = create_rate_gt_param(),
+  gamma_site_model = beautier::create_gamma_site_model(),
+  rate_ac_prior_distr = beautier::create_gamma_distr(alpha = 0.05, beta =
+    beautier::create_beta_param(value = "10.0")),
+  rate_ag_prior_distr = beautier::create_gamma_distr(alpha = 0.05, beta =
+    beautier::create_beta_param(value = "20.0")),
+  rate_at_prior_distr = beautier::create_gamma_distr(alpha = 0.05, beta =
+    beautier::create_beta_param(value = "10.0")),
+  rate_cg_prior_distr = beautier::create_gamma_distr(alpha = 0.05, beta =
+    beautier::create_beta_param(value = "10.0")),
+  rate_gt_prior_distr = beautier::create_gamma_distr(alpha = 0.05, beta =
+    beautier::create_beta_param(value = "10.0")),
+  rate_ac_param = beautier::create_rate_ac_param(),
+  rate_ag_param = beautier::create_rate_ag_param(),
+  rate_at_param = beautier::create_rate_at_param(),
+  rate_cg_param = beautier::create_rate_cg_param(),
+  rate_ct_param = beautier::create_rate_ct_param(),
+  rate_gt_param = beautier::create_rate_gt_param(),
   freq_equilibrium = "estimated",
-  freq_param = create_freq_param()
+  freq_param = beautier::create_freq_param()
 )
 }
 \arguments{

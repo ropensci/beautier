@@ -34,16 +34,16 @@ rename_inference_model_filenames <- function( # nolint long function name indeed
   inference_model,
   rename_fun
 ) {
-  check_rename_fun(rename_fun)
+  beautier::check_rename_fun(rename_fun)
 
   # MCMC
-  inference_model$mcmc <- rename_mcmc_filenames(
+  inference_model$mcmc <- beautier::rename_mcmc_filenames(
     inference_model$mcmc,
     rename_fun = rename_fun
   )
 
   # tipdates
-  inference_model$tipdates_filename <- rename_fun(
+  inference_model$tipdates_filename <- beautier::rename_fun(
     inference_model$tipdates_filename
   )
 

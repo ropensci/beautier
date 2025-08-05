@@ -7,13 +7,13 @@
 \usage{
 create_tn93_site_model(
   id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  kappa_1_param = create_kappa_1_param(),
-  kappa_2_param = create_kappa_2_param(),
-  kappa_1_prior_distr = create_log_normal_distr(m = 1, s = 1.25),
-  kappa_2_prior_distr = create_log_normal_distr(m = 1, s = 1.25),
+  gamma_site_model = beautier::create_gamma_site_model(),
+  kappa_1_param = beautier::create_kappa_1_param(),
+  kappa_2_param = beautier::create_kappa_2_param(),
+  kappa_1_prior_distr = beautier::create_log_normal_distr(m = 1, s = 1.25),
+  kappa_2_prior_distr = beautier::create_log_normal_distr(m = 1, s = 1.25),
   freq_equilibrium = "estimated",
-  freq_param = create_freq_param()
+  freq_param = beautier::create_freq_param()
 )
 }
 \arguments{

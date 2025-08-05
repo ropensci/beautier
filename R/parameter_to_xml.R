@@ -24,47 +24,47 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
   beautier::check_param(parameter)
   beautier::check_true(beautier::is_id(parameter$id))
   if (beautier::is_alpha_param(parameter)) {
-    return(alpha_parameter_to_xml(alpha_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
+    return(beautier::alpha_parameter_to_xml(alpha_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_beta_param(parameter)) {
-    return(beta_parameter_to_xml(beta_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
+    return(beautier::beta_parameter_to_xml(beta_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_clock_rate_param(parameter)) {
-    return(clock_rate_param_to_xml(
+    return(beautier::clock_rate_param_to_xml(
       clock_rate_param = parameter,
       beauti_options = beauti_options
     ))
   } else if (beautier::is_kappa_param(parameter)) {
-    return(kappa_param_to_xml(kappa_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_kappa_1_param(parameter)) {
-    return(parameter_to_xml_kappa_1(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_kappa_2_param(parameter)) {
-    return(parameter_to_xml_kappa_2(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_lambda_param(parameter)) {
-    return(parameter_to_xml_lambda(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+    return(beautier::kappa_param_to_xml(kappa_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_kappa_1_param(parameter)) {
+    return(beautier::parameter_to_xml_kappa_1(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_kappa_2_param(parameter)) {
+    return(beautier::parameter_to_xml_kappa_2(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_lambda_param(parameter)) {
+    return(beautier::parameter_to_xml_lambda(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_m_param(parameter)) {
-    return(m_param_to_xml(m_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_mean_param(parameter)) {
-    return(parameter_to_xml_mean(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_mu_param(parameter)) {
-    return(parameter_to_xml_mu(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_rate_ac_param(parameter)) {
-    return(parameter_to_xml_rate_ac(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_rate_ag_param(parameter)) {
-    return(parameter_to_xml_rate_ag(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_rate_at_param(parameter)) {
-    return(parameter_to_xml_rate_at(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_rate_cg_param(parameter)) {
-    return(parameter_to_xml_rate_cg(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_rate_ct_param(parameter)) {
-    return(parameter_to_xml_rate_ct(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_rate_gt_param(parameter)) {
-    return(parameter_to_xml_rate_gt(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_s_param(parameter)) {
-    return(s_parameter_to_xml(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_scale_param(parameter)) {
-    return(parameter_to_xml_scale(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+    return(beautier::m_param_to_xml(m_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_mean_param(parameter)) {
+    return(beautier::parameter_to_xml_mean(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_mu_param(parameter)) {
+    return(beautier::parameter_to_xml_mu(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_rate_ac_param(parameter)) {
+    return(beautier::parameter_to_xml_rate_ac(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_rate_ag_param(parameter)) {
+    return(beautier::parameter_to_xml_rate_ag(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_rate_at_param(parameter)) {
+    return(beautier::parameter_to_xml_rate_at(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_rate_cg_param(parameter)) {
+    return(beautier::parameter_to_xml_rate_cg(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_rate_ct_param(parameter)) {
+    return(beautier::parameter_to_xml_rate_ct(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_rate_gt_param(parameter)) {
+    return(beautier::parameter_to_xml_rate_gt(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_s_param(parameter)) {
+    return(beautier::s_parameter_to_xml(parameter, beauti_options = beauti_options)) # nolint indeed a long line
+  } else if (beautier::is_scale_param(parameter)) {
+    return(beautier::parameter_to_xml_scale(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   }
   # This assert will also fail for new parameter types
-  beautier::check_true(is_sigma_param(parameter))
+  beautier::check_true(beautier::is_sigma_param(parameter))
   beautier::parameter_to_xml_sigma(parameter, beauti_options = beauti_options)
 }
 
@@ -136,7 +136,7 @@ parameter_to_xml_lambda <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_lambda_param(parameter))
+  beautier::check_true(beautier::is_lambda_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   paste0(
@@ -163,7 +163,7 @@ parameter_to_xml_mean <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_mean_param(parameter))
+  beautier::check_true(beautier::is_mean_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true(parameter$estimate == FALSE)
@@ -193,7 +193,7 @@ parameter_to_xml_mu <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_mu_param(parameter))
+  beautier::check_true(beautier::is_mu_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true(parameter$estimate == FALSE)
@@ -226,7 +226,7 @@ parameter_to_xml_rate_ac <- function(
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(which_name %in% c("state_node", "rate_name"))
-  beautier::check_true(is_rate_ac_param(parameter))
+  beautier::check_true(beautier::is_rate_ac_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   value <- parameter$value
@@ -264,7 +264,7 @@ parameter_to_xml_rate_ag <- function(
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(which_name %in% c("state_node", "rate_name"))
-  beautier::check_true(is_rate_ag_param(parameter))
+  beautier::check_true(beautier::is_rate_ag_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   value <- parameter$value
@@ -302,7 +302,7 @@ parameter_to_xml_rate_at <- function(
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(which_name %in% c("state_node", "rate_name"))
-  beautier::check_true(is_rate_at_param(parameter))
+  beautier::check_true(beautier::is_rate_at_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   value <- parameter$value
@@ -340,7 +340,7 @@ parameter_to_xml_rate_cg <- function(
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(which_name %in% c("state_node", "rate_name"))
-  beautier::check_true(is_rate_cg_param(parameter))
+  beautier::check_true(beautier::is_rate_cg_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   value <- parameter$value
@@ -378,7 +378,7 @@ parameter_to_xml_rate_ct <- function(
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(which_name %in% c("state_node", "rate_name"))
-  beautier::check_true(is_rate_ct_param(parameter))
+  beautier::check_true(beautier::is_rate_ct_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   value <- parameter$value
@@ -416,7 +416,7 @@ parameter_to_xml_rate_gt <- function(
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(which_name %in% c("state_node", "rate_name"))
-  beautier::check_true(is_rate_gt_param(parameter))
+  beautier::check_true(beautier::is_rate_gt_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   value <- parameter$value
@@ -451,7 +451,7 @@ parameter_to_xml_scale <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_scale_param(parameter))
+  beautier::check_true(beautier::is_scale_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true(parameter$estimate == FALSE)
@@ -481,7 +481,7 @@ parameter_to_xml_sigma <- function(
   beauti_options = beautier::create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
-  beautier::check_true(is_sigma_param(parameter))
+  beautier::check_true(beautier::is_sigma_param(parameter))
   id <- parameter$id
   beautier::check_true(beautier::is_id(id))
   beautier::check_true(parameter$estimate == FALSE)

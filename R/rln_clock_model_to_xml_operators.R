@@ -53,7 +53,7 @@ rln_clock_model_to_xml_operators <- function( # nolint indeed a long internal fu
     )
   )
   if (
-    has_mrca_prior_with_distr(inference_model) ||
+    beautier::has_mrca_prior_with_distr(inference_model) ||
       beautier::has_tip_dating(inference_model)
   ) {
     text <- c(

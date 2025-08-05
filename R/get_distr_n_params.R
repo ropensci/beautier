@@ -27,26 +27,26 @@ get_distr_n_params <- function(
     stop("'distr' must be a distribution")
   }
 
-  if (is_beta_distr(distr)) {
+  if (beautier::is_beta_distr(distr)) {
     2 # alpha and beta
-  } else if (is_exp_distr(distr)) {
+  } else if (beautier::is_exp_distr(distr)) {
     1 # mean
-  } else if (is_gamma_distr(distr)) {
+  } else if (beautier::is_gamma_distr(distr)) {
     2 # alpha and beta
-  } else if (is_inv_gamma_distr(distr)) {
+  } else if (beautier::is_inv_gamma_distr(distr)) {
     2 # alpha and beta
-  } else if (is_laplace_distr(distr)) {
+  } else if (beautier::is_laplace_distr(distr)) {
     2 # mu and scale
-  } else if (is_log_normal_distr(distr)) {
+  } else if (beautier::is_log_normal_distr(distr)) {
     2 # m and s
-  } else if (is_normal_distr(distr)) {
+  } else if (beautier::is_normal_distr(distr)) {
     2 # mean and sigma
-  } else if (is_one_div_x_distr(distr)) {
+  } else if (beautier::is_one_div_x_distr(distr)) {
     0 # none
-  } else  if (is_poisson_distr(distr)) {
+  } else  if (beautier::is_poisson_distr(distr)) {
     1 # lambda
   } else {
-    beautier::check_true(is_uniform_distr(distr))
+    beautier::check_true(beautier::is_uniform_distr(distr))
     0 # none
   }
 }

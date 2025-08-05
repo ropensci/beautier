@@ -27,17 +27,17 @@ rln_clock_model_to_xml_state <- function(
     if (inference_model$beauti_options$beast2_version != "2.4") {
       text <- c(
         text,
-        create_ucld_mean_state_node_param_xml(inference_model)
+        beautier::create_ucld_mean_state_node_param_xml(inference_model)
       )
     }
   }
   text <- c(
     text,
-    create_ucld_stdev_state_node_param_xml(inference_model)
+    beautier::create_ucld_stdev_state_node_param_xml(inference_model)
   )
   text <- c(
     text,
-    create_rate_categories_state_node_xml(inference_model)
+    beautier::create_rate_categories_state_node_xml(inference_model)
   )
   text
 }

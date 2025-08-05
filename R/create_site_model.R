@@ -47,7 +47,7 @@
 create_site_model <- function(
   name,
   id,
-  gamma_site_model = create_gamma_site_model(),
+  gamma_site_model = beautier::create_gamma_site_model(),
   ...
 ) {
   if (!beautier::is_site_model_name(name)) {
@@ -64,7 +64,7 @@ create_site_model <- function(
       site_models_as_string()
     )
   }
-  check_gamma_site_model(gamma_site_model)
+  beautier::check_gamma_site_model(gamma_site_model)
   site_model <- list(
     name = name,
     id = id,
@@ -144,62 +144,62 @@ create_site_model <- function(
 #' @export create_gtr_site_model create_site_model_gtr
 create_gtr_site_model <- create_site_model_gtr <- function(
   id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  rate_ac_prior_distr = create_gamma_distr(
+  gamma_site_model = beautier::create_gamma_site_model(),
+  rate_ac_prior_distr = beautier::create_gamma_distr(
     alpha = 0.05,
-    beta = create_beta_param(value = "10.0")
+    beta = beautier::create_beta_param(value = "10.0")
   ),
-  rate_ag_prior_distr = create_gamma_distr(
+  rate_ag_prior_distr = beautier::create_gamma_distr(
     alpha = 0.05,
-    beta = create_beta_param(value = "20.0")
+    beta = beautier::create_beta_param(value = "20.0")
   ),
-  rate_at_prior_distr = create_gamma_distr(
+  rate_at_prior_distr = beautier::create_gamma_distr(
     alpha = 0.05,
-    beta = create_beta_param(value = "10.0")
+    beta = beautier::create_beta_param(value = "10.0")
   ),
-  rate_cg_prior_distr = create_gamma_distr(
+  rate_cg_prior_distr = beautier::create_gamma_distr(
     alpha = 0.05,
-    beta = create_beta_param(value = "10.0")
+    beta = beautier::create_beta_param(value = "10.0")
   ),
-  rate_gt_prior_distr = create_gamma_distr(
+  rate_gt_prior_distr = beautier::create_gamma_distr(
     alpha = 0.05,
-    beta = create_beta_param(value = "10.0")
+    beta = beautier::create_beta_param(value = "10.0")
   ),
-  rate_ac_param = create_rate_ac_param(),
-  rate_ag_param = create_rate_ag_param(),
-  rate_at_param = create_rate_at_param(),
-  rate_cg_param = create_rate_cg_param(),
-  rate_ct_param = create_rate_ct_param(),
-  rate_gt_param = create_rate_gt_param(),
+  rate_ac_param = beautier::create_rate_ac_param(),
+  rate_ag_param = beautier::create_rate_ag_param(),
+  rate_at_param = beautier::create_rate_at_param(),
+  rate_cg_param = beautier::create_rate_cg_param(),
+  rate_ct_param = beautier::create_rate_ct_param(),
+  rate_gt_param = beautier::create_rate_gt_param(),
   freq_equilibrium = "estimated",
-  freq_param = create_freq_param()
+  freq_param = beautier::create_freq_param()
 ) {
   if (!beautier::is_one_na(id) && !beautier::is_id(id)) {
     stop("'id' must be NA (recommended) or an ID")
   }
-  if (!is_freq_param(freq_param)) {
+  if (!beautier::is_freq_param(freq_param)) {
     stop("'freq_param' must a valid freq_param. Tip: use 'create_freq_param'")
   }
   if (beautier::is_one_double(rate_ac_param)) {
-    rate_ac_param <- create_rate_ac_param(value = rate_ac_param)
+    rate_ac_param <- beautier::create_rate_ac_param(value = rate_ac_param)
   }
   if (beautier::is_one_double(rate_ag_param)) {
-    rate_ag_param <- create_rate_ag_param(value = rate_ag_param)
+    rate_ag_param <- beautier::create_rate_ag_param(value = rate_ag_param)
   }
   if (beautier::is_one_double(rate_at_param)) {
-    rate_at_param <- create_rate_at_param(value = rate_at_param)
+    rate_at_param <- beautier::create_rate_at_param(value = rate_at_param)
   }
   if (beautier::is_one_double(rate_cg_param)) {
-    rate_cg_param <- create_rate_cg_param(value = rate_cg_param)
+    rate_cg_param <- beautier::create_rate_cg_param(value = rate_cg_param)
   }
   if (beautier::is_one_double(rate_ct_param)) {
-    rate_ct_param <- create_rate_ct_param(value = rate_ct_param)
+    rate_ct_param <- beautier::create_rate_ct_param(value = rate_ct_param)
   }
   if (beautier::is_one_double(rate_gt_param)) {
-    rate_gt_param <- create_rate_gt_param(value = rate_gt_param)
+    rate_gt_param <- beautier::create_rate_gt_param(value = rate_gt_param)
   }
 
-  create_site_model(
+  beautier::create_site_model(
     name = "GTR",
     id = id,
     gamma_site_model = gamma_site_model,
@@ -256,14 +256,14 @@ create_gtr_site_model <- create_site_model_gtr <- function(
 create_hky_site_model <- create_site_model_hky <- function(
   id = NA,
   kappa = "obsolete",
-  kappa_param = create_kappa_param(value = "2.0"),
-  gamma_site_model = create_gamma_site_model(),
-  kappa_prior_distr = create_log_normal_distr(
-    m = create_m_param(value = "1.0"),
+  kappa_param = beautier::create_kappa_param(value = "2.0"),
+  gamma_site_model = beautier::create_gamma_site_model(),
+  kappa_prior_distr = beautier::create_log_normal_distr(
+    m = beautier::create_m_param(value = "1.0"),
     s = 1.25
   ),
   freq_equilibrium = "estimated",
-  freq_param = create_freq_param()
+  freq_param = beautier::create_freq_param()
 ) {
   if (kappa != "obsolete") {
     stop(
@@ -275,7 +275,7 @@ create_hky_site_model <- create_site_model_hky <- function(
       "  create_hky_site_model(kappa_param = create_kappa_param(value = \"123\")) # NEW" # nolint
     )
   }
-  create_site_model(
+  beautier::create_site_model(
     name = "HKY",
     id = id,
     gamma_site_model = gamma_site_model,
@@ -309,9 +309,9 @@ create_hky_site_model <- create_site_model_hky <- function(
 #' @export create_jc69_site_model create_site_model_jc69
 create_jc69_site_model <- create_site_model_jc69 <- function(
   id = NA,
-  gamma_site_model = create_gamma_site_model()
+  gamma_site_model = beautier::create_gamma_site_model()
 ) {
-  create_site_model(
+  beautier::create_site_model(
     name = "JC69",
     id = id,
     gamma_site_model = gamma_site_model
@@ -366,27 +366,27 @@ create_jc69_site_model <- create_site_model_jc69 <- function(
 #' @export create_tn93_site_model create_site_model_tn93
 create_tn93_site_model <- create_site_model_tn93 <- function(
   id = NA,
-  gamma_site_model = create_gamma_site_model(),
-  kappa_1_param = create_kappa_1_param(),
-  kappa_2_param = create_kappa_2_param(),
-  kappa_1_prior_distr = create_log_normal_distr(
+  gamma_site_model = beautier::create_gamma_site_model(),
+  kappa_1_param = beautier::create_kappa_1_param(),
+  kappa_2_param = beautier::create_kappa_2_param(),
+  kappa_1_prior_distr = beautier::create_log_normal_distr(
     m = 1.0,
     s = 1.25
   ),
-  kappa_2_prior_distr = create_log_normal_distr(
+  kappa_2_prior_distr = beautier::create_log_normal_distr(
     m = 1.0,
     s = 1.25
   ),
   freq_equilibrium = "estimated",
-  freq_param = create_freq_param()
+  freq_param = beautier::create_freq_param()
 ) {
   if (beautier::is_one_double(kappa_1_param)) {
-    kappa_1_param <- create_kappa_1_param(value = kappa_1_param)
+    kappa_1_param <- beautier::create_kappa_1_param(value = kappa_1_param)
   }
   if (beautier::is_one_double(kappa_2_param)) {
-    kappa_2_param <- create_kappa_2_param(value = kappa_2_param)
+    kappa_2_param <- beautier::create_kappa_2_param(value = kappa_2_param)
   }
-  create_site_model(
+  beautier::create_site_model(
     name = "TN93",
     id = id,
     gamma_site_model = gamma_site_model,

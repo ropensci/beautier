@@ -57,7 +57,7 @@ is_rln_clock_model <- function(
 ) {
   tryCatch(
     {
-      check_rln_clock_model(x)
+      beautier::check_rln_clock_model(x)
       TRUE
     },
     error = function(e) FALSE
@@ -90,7 +90,7 @@ is_strict_clock_model <- function(
 ) {
   tryCatch(
     {
-      check_strict_clock_model(x)
+      beautier::check_strict_clock_model(x)
       TRUE
     },
     error = function(e) FALSE

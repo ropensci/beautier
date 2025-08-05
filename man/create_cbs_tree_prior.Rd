@@ -8,7 +8,7 @@
 create_cbs_tree_prior(
   id = NA,
   group_sizes_dimension = 5,
-  b_pop_sizes_param = create_b_pop_sizes_param(),
+  b_pop_sizes_param = beautier::create_b_pop_sizes_param(),
   pop_sizes_scaler_scale_factor = ""
 )
 }

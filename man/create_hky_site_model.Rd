@@ -8,12 +8,12 @@
 create_hky_site_model(
   id = NA,
   kappa = "obsolete",
-  kappa_param = create_kappa_param(value = "2.0"),
-  gamma_site_model = create_gamma_site_model(),
-  kappa_prior_distr = create_log_normal_distr(m = create_m_param(value = "1.0"), s =
-    1.25),
+  kappa_param = beautier::create_kappa_param(value = "2.0"),
+  gamma_site_model = beautier::create_gamma_site_model(),
+  kappa_prior_distr = beautier::create_log_normal_distr(m =
+    beautier::create_m_param(value = "1.0"), s = 1.25),
   freq_equilibrium = "estimated",
-  freq_param = create_freq_param()
+  freq_param = beautier::create_freq_param()
 )
 }
 \arguments{

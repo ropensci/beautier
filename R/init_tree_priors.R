@@ -68,16 +68,16 @@ init_bd_tree_prior <- function(
 ) {
   beautier::check_true(beautier::is_bd_tree_prior(bd_tree_prior))
 
-  result <- create_bd_tree_prior(
-    birth_rate_distr = init_distr(
+  result <- beautier::create_bd_tree_prior(
+    birth_rate_distr = beautier::init_distr(
       bd_tree_prior$birth_rate_distr,
       distr_id,
       param_id
     ),
-    death_rate_distr = init_distr(
+    death_rate_distr = beautier::init_distr(
       bd_tree_prior$death_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(bd_tree_prior$birth_rate_distr)
+      param_id + beautier::get_distr_n_params(bd_tree_prior$birth_rate_distr)
     )
   )
 
@@ -97,8 +97,8 @@ init_ccp_tree_prior <- function(
 ) {
   beautier::check_true(beautier::is_ccp_tree_prior(ccp_tree_prior))
 
-  result <- create_ccp_tree_prior(
-    pop_size_distr = init_distr(
+  result <- beautier::create_ccp_tree_prior(
+    pop_size_distr = beautier::init_distr(
       ccp_tree_prior$pop_size_distr,
       distr_id,
       param_id
@@ -122,20 +122,20 @@ init_cep_tree_prior <- function(
   beautier::check_true(!beautier::is_one_na(param_id))
   beautier::check_true(
     !beautier::is_one_na(
-      get_distr_n_params(cep_tree_prior$pop_size_distr)
+      beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )
 
-  result <- create_cep_tree_prior(
-    pop_size_distr = init_distr(
+  result <- beautier::create_cep_tree_prior(
+    pop_size_distr = beautier::init_distr(
       cep_tree_prior$pop_size_distr,
       distr_id,
       param_id
     ),
-    growth_rate_distr = init_distr(
+    growth_rate_distr = beautier::init_distr(
       cep_tree_prior$growth_rate_distr,
       distr_id + 1,
-      param_id + get_distr_n_params(cep_tree_prior$pop_size_distr)
+      param_id + beautier::get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )
 

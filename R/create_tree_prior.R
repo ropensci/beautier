@@ -52,7 +52,7 @@ create_tree_prior <- function(
   if (!beautier::is_tree_prior_name(name)) {
     tree_priors_as_string <- function() {
       s <- NULL
-      for (p in get_tree_prior_names()) {
+      for (p in beautier::get_tree_prior_names()) {
         s <- paste0(s, ", ", p)
       }
       s <- substr(s, start = 3, stop = nchar(s))
@@ -102,10 +102,10 @@ create_tree_prior <- function(
 #' @export create_bd_tree_prior create_tree_prior_bd
 create_bd_tree_prior <- create_tree_prior_bd <- function(
   id = NA,
-  birth_rate_distr = create_uniform_distr(),
-  death_rate_distr = create_uniform_distr()
+  birth_rate_distr = beautier::create_uniform_distr(),
+  death_rate_distr = beautier::create_uniform_distr()
 ) {
-  create_tree_prior(
+  beautier::create_tree_prior(
     name = "birth_death",
     id = id,
     birth_rate_distr = birth_rate_distr,
@@ -139,10 +139,10 @@ create_bd_tree_prior <- create_tree_prior_bd <- function(
 create_cbs_tree_prior <- create_tree_prior_cbs <- function(
   id = NA,
   group_sizes_dimension = 5,
-  b_pop_sizes_param = create_b_pop_sizes_param(),
+  b_pop_sizes_param = beautier::create_b_pop_sizes_param(),
   pop_sizes_scaler_scale_factor = ""
 ) {
-  cbs_tree_prior <- create_tree_prior(
+  cbs_tree_prior <- beautier::create_tree_prior(
     name = "coalescent_bayesian_skyline",
     id = id,
     group_sizes_dimension = group_sizes_dimension,
@@ -180,11 +180,11 @@ create_cbs_tree_prior <- create_tree_prior_cbs <- function(
 #' @export create_ccp_tree_prior create_tree_prior_ccp
 create_ccp_tree_prior <- create_tree_prior_ccp <- function(
   id = NA,
-  pop_size_distr = create_one_div_x_distr(
+  pop_size_distr = beautier::create_one_div_x_distr(
     value = 0.3
   )
 ) {
-  create_tree_prior(
+  beautier::create_tree_prior(
     name = "coalescent_constant_population",
     id = id,
     pop_size_distr = pop_size_distr
@@ -220,10 +220,10 @@ create_ccp_tree_prior <- create_tree_prior_ccp <- function(
 #' @export create_cep_tree_prior create_tree_prior_cep
 create_cep_tree_prior <- create_tree_prior_cep <- function(
   id = NA,
-  pop_size_distr = create_one_div_x_distr(),
-  growth_rate_distr = create_laplace_distr()
+  pop_size_distr = beautier::create_one_div_x_distr(),
+  growth_rate_distr = beautier::create_laplace_distr()
 ) {
-  create_tree_prior(
+  beautier::create_tree_prior(
     name = "coalescent_exp_population",
     id = id,
     pop_size_distr = pop_size_distr,
@@ -263,9 +263,9 @@ create_cep_tree_prior <- create_tree_prior_cep <- function(
 #' @export create_yule_tree_prior create_tree_prior_yule
 create_yule_tree_prior <- create_tree_prior_yule <- function(
   id = NA,
-  birth_rate_distr = create_uniform_distr()
+  birth_rate_distr = beautier::create_uniform_distr()
 ) {
-  create_tree_prior(
+  beautier::create_tree_prior(
     name = "yule",
     id = id,
     birth_rate_distr = birth_rate_distr

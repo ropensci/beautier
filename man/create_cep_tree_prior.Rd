@@ -7,8 +7,8 @@
 \usage{
 create_cep_tree_prior(
   id = NA,
-  pop_size_distr = create_one_div_x_distr(),
-  growth_rate_distr = create_laplace_distr()
+  pop_size_distr = beautier::create_one_div_x_distr(),
+  growth_rate_distr = beautier::create_laplace_distr()
 )
 }
 \arguments{

@@ -32,6 +32,6 @@ get_gamma_site_model_n_params <- function(
   if (gamma_site_model$gamma_cat_count < 2) {
     0
   } else {
-    get_distr_n_params(gamma_site_model$gamma_shape_prior_distr)
+    beautier::get_distr_n_params(gamma_site_model$gamma_shape_prior_distr)
   }
 }

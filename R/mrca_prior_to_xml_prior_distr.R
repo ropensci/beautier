@@ -31,7 +31,7 @@ mrca_prior_to_xml_prior_distr <- function(
   text <- NULL
   if (!has_non_strict_clock_model &&
       !beautier::is_one_na(mrca_prior$mrca_distr) &&
-      is_one_na(inference_model$tipdates_filename)
+      beautier::is_one_na(inference_model$tipdates_filename)
   ) {
     beautier::check_true(!beautier::is_one_na(mrca_prior$alignment_id))
     text <- c(
@@ -72,7 +72,7 @@ mrca_prior_to_xml_prior_distr <- function(
   text <- c(
     text,
     beautier::indent(
-      mrca_prior_to_xml_taxonset(
+      beautier::mrca_prior_to_xml_taxonset(
         mrca_prior,
         taxa_names_with_ids
       )

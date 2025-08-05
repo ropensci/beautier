@@ -8,12 +8,12 @@
 is_init_clock_model <- function(
   x
 ) {
-  if (!is_clock_model(x)) return(FALSE)
+  if (!beautier::is_clock_model(x)) return(FALSE)
   if (beautier::is_strict_clock_model(x)) {
-    is_init_strict_clock_model(x)
+    beautier::is_init_strict_clock_model(x)
   } else {
     beautier::check_true(beautier::is_rln_clock_model(x))
-    is_init_rln_clock_model(x)
+    beautier::is_init_rln_clock_model(x)
   }
 }
 
