@@ -7,7 +7,7 @@
 #' @export
 clock_rate_param_to_xml <- function(
   clock_rate_param,
-  beauti_options = beautier::create_beauti_options()
+  beauti_options = create_beauti_options()
 ) {
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(beautier::is_clock_rate_param(clock_rate_param))

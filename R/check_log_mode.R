@@ -8,7 +8,7 @@ check_log_mode <- function(mode) {
     stop(
       "'mode' must be a valid log mode. \n",
       "Supported values: '",
-      paste0(get_log_modes(), collapse = ", "), "' \n",
+      paste0(beautier::get_log_modes(), collapse = ", "), "' \n",
       "Actual value: '", mode
     )
   }

@@ -27,7 +27,7 @@ check_clock_models <- function(clock_models) {
     )
   }
 
-  if (is_clock_model(clock_models)) {
+  if (beautier::is_clock_model(clock_models)) {
     clock_models <- list(clock_models)
   }
   for (i in seq_along(clock_models)) {

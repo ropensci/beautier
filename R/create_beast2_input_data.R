@@ -14,7 +14,7 @@
 #' @export
 create_beast2_input_data <- function(
   input_filename,
-  beauti_options = beautier::create_beauti_options()
+  beauti_options = create_beauti_options()
 ) {
   beautier::check_file_exists(input_filename)
 

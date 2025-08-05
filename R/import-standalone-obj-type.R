@@ -311,8 +311,8 @@ stop_input_type <- function(
   allow_na = FALSE,
   allow_null = FALSE,
   show_value = TRUE,
-  arg = caller_arg(x),
-  call = caller_env()
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
 ) {
   # From standalone-cli.R
   cli <- env_get_list(

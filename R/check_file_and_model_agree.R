@@ -39,7 +39,7 @@ check_file_and_model_agree <- function(
           "Use 'get_alignment_id' on the FASTA filename ",
           "to get the correct alignment ID. ",
           "Alignment IDs: ",
-          get_alignment_id(input_filename),
+          beautier::get_alignment_id(input_filename),
           ". MRCA alignment ID: ", inference_model$mrca_prior$alignment_id
         )
       )
@@ -49,7 +49,7 @@ check_file_and_model_agree <- function(
   # All MRCA prior's taxa names must be FASTA file taxa names
   if (!beautier::is_one_na(inference_model$mrca_prior)) {
     if (
-      !are_mrca_taxon_names_in_fasta(
+      !beautier::are_mrca_taxon_names_in_fasta(
         mrca_prior = inference_model$mrca_prior,
         fasta_filename = input_filename
       )

@@ -18,8 +18,8 @@ check_true <- function(
   ...,
   allow_na = FALSE,
   allow_null = FALSE,
-  arg = caller_arg(x),
-  call = caller_env()
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
 ) {
   if (
     !missing(x)
@@ -62,8 +62,8 @@ check_false <- function(
   ...,
   allow_na = FALSE,
   allow_null = FALSE,
-  arg = caller_arg(x),
-  call = caller_env()
+  arg = rlang::caller_arg(x),
+  call = rlang::caller_env()
 ) {
   if (
     !missing(x)

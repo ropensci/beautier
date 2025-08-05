@@ -6,7 +6,7 @@
 \usage{
 clock_rate_param_to_xml(
   clock_rate_param,
-  beauti_options = beautier::create_beauti_options()
+  beauti_options = create_beauti_options()
 )
 }
 \arguments{
