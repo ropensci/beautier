@@ -17,7 +17,7 @@ rln_clock_model_to_xml_tracelog <- function( # nolint indeed a long internal fun
   inference_model
 ) {
   beautier::check_true(
-    is_rln_clock_model(inference_model$clock_model)
+    beautier::is_rln_clock_model(inference_model$clock_model)
   )
   id <- inference_model$clock_model$id
   beautier::check_true(beautier::is_id(id))

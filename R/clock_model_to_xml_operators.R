@@ -14,7 +14,7 @@ clock_model_to_xml_operators <- function(
   } else {
     # Will fail on unimplemented clock models
     beautier::check_true(
-      is_rln_clock_model(inference_model$clock_model)
+      beautier::is_rln_clock_model(inference_model$clock_model)
     )
     rln_clock_model_to_xml_operators(inference_model)
   }

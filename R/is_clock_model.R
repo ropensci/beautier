@@ -39,9 +39,11 @@ is_clock_model <- function(
 #' @examples
 #' check_empty_beautier_folder()
 #'
+#' # TRUE
 #' is_rln_clock_model(create_strict_clock_model())
 #' is_rln_clock_model(create_rln_clock_model())
 #'
+#' # FALSE
 #' is_rln_clock_model(NA)
 #' is_rln_clock_model(NULL)
 #' is_rln_clock_model("nonsense")

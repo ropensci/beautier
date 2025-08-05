@@ -47,7 +47,7 @@ create_branch_rate_model_xml <- function(# nolint long function name, which is f
     create_strict_clock_branch_rate_model_xml(inference_model)
   } else {
     beautier::check_true(
-      is_rln_clock_model(inference_model$clock_model)
+      beautier::is_rln_clock_model(inference_model$clock_model)
     )
     create_rln_clock_branch_rate_model_xml(inference_model)
   }

@@ -49,7 +49,7 @@ are_rln_clock_models <- function(
   beautier::check_true(are_clock_models(clock_models))
   rlns <- rep(NA, length(clock_models))
   for (i in seq_along(clock_models)) {
-    rlns[i] <- is_rln_clock_model(clock_models[[i]])
+    rlns[i] <- beautier::is_rln_clock_model(clock_models[[i]])
   }
   rlns
 }
