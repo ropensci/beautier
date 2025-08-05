@@ -16,13 +16,13 @@
 site_model_to_xml_tracelog <- function(
   site_model
 ) {
-  beautier::check_true(is_site_model(site_model))
+  beautier::check_true(beautier::is_site_model(site_model))
   id <- site_model$id
 
   text <- NULL
   if (is_hky_site_model(site_model)) {
     text <- c(text, paste0("<log idref=\"kappa.s:", id, "\"/>")) # nolint this is no absolute path
-  } else if (is_tn93_site_model(site_model)) {
+  } else if (beautier::is_tn93_site_model(site_model)) {
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(text, paste0("<log idref=\"kappa1.s:", id, "\"/>")) # nolint this is no absolute path
     }

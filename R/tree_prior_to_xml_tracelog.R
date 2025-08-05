@@ -16,7 +16,7 @@
 tree_prior_to_xml_tracelog <- function(
   tree_prior
 ) {
-  beautier::check_true(is_tree_prior(tree_prior))
+  beautier::check_true(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
   beautier::check_true(beautier::is_id(id))
 

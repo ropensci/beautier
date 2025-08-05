@@ -11,7 +11,7 @@ strict_clock_model_to_xml_state <- function( # nolint indeed a long internal fun
   inference_model
 ) {
   beautier::check_inference_model(inference_model)
-  beautier::check_true(has_strict_clock_model(inference_model))
+  beautier::check_true(beautier::has_strict_clock_model(inference_model))
 
   text <- NULL
 

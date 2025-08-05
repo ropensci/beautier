@@ -7,7 +7,7 @@
 site_model_to_xml_operators <- function(
   site_model
 ) {
-  beautier::check_true(is_site_model(site_model))
+  beautier::check_true(beautier::is_site_model(site_model))
 
   # May be NA for JC69 model
   id <- site_model$id
@@ -24,7 +24,7 @@ site_model_to_xml_operators <- function(
         "scaleFactor=\"0.5\" weight=\"0.1\"/>"
       )
     )
-  } else if (is_tn93_site_model(site_model)) {
+  } else if (beautier::is_tn93_site_model(site_model)) {
     beautier::check_true(beautier::is_id(id))
     if (site_model$kappa_1_param$estimate == TRUE) {
       text <- c(

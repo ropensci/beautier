@@ -62,6 +62,6 @@ create_mcmc <- function(
   )
 
   # Postcondition
-  check_mcmc(mcmc)
+  beautier::check_mcmc(mcmc)
   mcmc
 }

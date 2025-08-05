@@ -11,11 +11,11 @@ init_tree_priors <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(are_tree_priors(tree_priors))
+  beautier::check_true(beautier::are_tree_priors(tree_priors))
 
   for (i in seq_along(tree_priors)) {
     tree_prior <- tree_priors[[i]]
-    beautier::check_true(is_tree_prior(tree_prior))
+    beautier::check_true(beautier::is_tree_prior(tree_prior))
 
     if (beautier::is_bd_tree_prior(tree_prior)) {
       if (!is_init_bd_tree_prior(tree_prior)) {

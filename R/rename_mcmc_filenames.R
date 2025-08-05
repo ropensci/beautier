@@ -34,7 +34,7 @@ rename_mcmc_filenames <- function(
   mcmc,
   rename_fun
 ) {
-  check_mcmc(mcmc)
+  beautier::check_mcmc(mcmc)
   check_rename_fun(rename_fun)
   mcmc$tracelog$filename <- rename_fun(mcmc$tracelog$filename)
   mcmc$screenlog$filename <-

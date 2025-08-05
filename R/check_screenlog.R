@@ -13,8 +13,8 @@
 #' @export
 check_screenlog <- function(screenlog) {
 
-  check_screenlog_names(screenlog)
-  check_screenlog_values(screenlog)
+  beautier::check_screenlog_names(screenlog)
+  beautier::check_screenlog_values(screenlog)
 
   invisible(screenlog)
 }

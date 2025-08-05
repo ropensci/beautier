@@ -24,7 +24,7 @@ site_model_to_xml_state <- function(
         beauti_options = beauti_options
       )
     )
-  } else if (is_tn93_site_model(site_model)) {
+  } else if (beautier::is_tn93_site_model(site_model)) {
     return(
       tn93_site_model_to_xml_state(
         site_model = site_model,

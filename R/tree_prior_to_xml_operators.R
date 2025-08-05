@@ -14,12 +14,12 @@ tree_prior_to_xml_operators <- function(
   fixed_crown_age <- FALSE
 
   beautier::check_false(fixed_crown_age)
-  beautier::check_true(is_tree_prior(tree_prior))
+  beautier::check_true(beautier::is_tree_prior(tree_prior))
   id <- tree_prior$id
   beautier::check_true(beautier::is_id(id))
 
   text <- NULL
-  operator_id_pre <- get_operator_id_pre(tree_prior)
+  operator_id_pre <- beautier::get_operator_id_pre(tree_prior)
 
   if (beautier::is_bd_tree_prior(tree_prior)) {
     text <- c(

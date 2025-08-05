@@ -22,7 +22,7 @@ tree_priors_to_xml_prior_distr <- function(
   tree_priors,
   beauti_options
 ) {
-  beautier::check_true(are_tree_priors(tree_priors))
+  beautier::check_true(beautier::are_tree_priors(tree_priors))
 
   text <- NULL
   for (tree_prior in tree_priors) {

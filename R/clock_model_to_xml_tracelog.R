@@ -16,7 +16,7 @@
 clock_model_to_xml_tracelog <- function(
   inference_model
 ) {
-  if (is_strict_clock_model(inference_model$clock_model)) {
+  if (beautier::is_strict_clock_model(inference_model$clock_model)) {
     strict_clock_model_to_xml_tracelog(inference_model)
   } else {
     # Will fail on unimplemented clock models

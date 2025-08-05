@@ -28,7 +28,7 @@ clock_model_to_xml_prior_distr <- function(
     rln_clock_model_to_xml_prior_distr(inference_model)
   } else {
     # Fails for unimplemented clock models
-    beautier::check_true(is_strict_clock_model(inference_model$clock_model))
+    beautier::check_true(beautier::is_strict_clock_model(inference_model$clock_model))
     strict_clock_model_to_xml_prior_distr(inference_model)
   }
 }

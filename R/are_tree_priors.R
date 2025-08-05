@@ -22,7 +22,7 @@ are_tree_priors <- function(
   x
 ) {
   if (is.null(x)) return(FALSE)
-  if (is_tree_prior(x)) {
+  if (beautier::is_tree_prior(x)) {
     return(TRUE)
   }
   for (i in x) {

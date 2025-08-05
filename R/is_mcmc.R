@@ -26,7 +26,7 @@ is_mcmc <- function(
 ) {
   result <- FALSE
   tryCatch({
-    check_mcmc(x)
+    beautier::check_mcmc(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e

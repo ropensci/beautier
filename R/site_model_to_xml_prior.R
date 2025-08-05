@@ -41,14 +41,14 @@ site_model_to_xml_prior_distr <- function(
   site_model,
   beauti_options
 ) {
-  beautier::check_true(is_site_model(site_model))
+  beautier::check_true(beautier::is_site_model(site_model))
   id <- site_model$id
   beautier::check_true(beautier::is_id(id))
 
   text <- NULL
   if (is_hky_site_model(site_model)) {
     text <- hky_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
-  } else if (is_tn93_site_model(site_model)) {
+  } else if (beautier::is_tn93_site_model(site_model)) {
     text <- tn93_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
   } else if (is_gtr_site_model(site_model)) {
     text <- gtr_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line

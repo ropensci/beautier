@@ -22,14 +22,14 @@
 strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long internal function name
   inference_model
 ) {
-  beautier::check_true(is_strict_clock_model(inference_model$clock_model))
+  beautier::check_true(beautier::is_strict_clock_model(inference_model$clock_model))
 
   text <- NULL
 
   if (inference_model$clock_model$clock_rate_param$estimate == TRUE) {
     clock_model <- inference_model$clock_model
     # No idea why BEAUti does this, see issue_135 files
-    if (is_one_double(clock_model$clock_rate_distr$upper)) {
+    if (beautier::is_one_double(clock_model$clock_rate_distr$upper)) {
       clock_model$clock_rate_distr$upper <- Inf
     }
 
@@ -40,7 +40,7 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
       "name=\"distribution\" ",
       "x=\"@clockRate.c:", clock_model$id, "\">"
     )
-    distr_xml <- distr_to_xml(
+    distr_xml <- beautier::distr_to_xml(
       clock_model$clock_rate_distr,
       beauti_options = inference_model$beauti_options
     )

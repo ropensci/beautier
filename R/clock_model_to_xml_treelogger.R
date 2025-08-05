@@ -9,7 +9,7 @@ clock_model_to_xml_treelogger <- function(
   beautier::check_true(is_clock_model(clock_model))
   id <- clock_model$id
 
-  if (is_strict_clock_model(clock_model)) {
+  if (beautier::is_strict_clock_model(clock_model)) {
     paste0(
       "<log ",
       "id=\"TreeWithMetaDataLogger.t:", id, "\" ",

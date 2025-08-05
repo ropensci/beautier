@@ -180,22 +180,22 @@ create_gtr_site_model <- create_site_model_gtr <- function(
   if (!is_freq_param(freq_param)) {
     stop("'freq_param' must a valid freq_param. Tip: use 'create_freq_param'")
   }
-  if (is_one_double(rate_ac_param)) {
+  if (beautier::is_one_double(rate_ac_param)) {
     rate_ac_param <- create_rate_ac_param(value = rate_ac_param)
   }
-  if (is_one_double(rate_ag_param)) {
+  if (beautier::is_one_double(rate_ag_param)) {
     rate_ag_param <- create_rate_ag_param(value = rate_ag_param)
   }
-  if (is_one_double(rate_at_param)) {
+  if (beautier::is_one_double(rate_at_param)) {
     rate_at_param <- create_rate_at_param(value = rate_at_param)
   }
-  if (is_one_double(rate_cg_param)) {
+  if (beautier::is_one_double(rate_cg_param)) {
     rate_cg_param <- create_rate_cg_param(value = rate_cg_param)
   }
-  if (is_one_double(rate_ct_param)) {
+  if (beautier::is_one_double(rate_ct_param)) {
     rate_ct_param <- create_rate_ct_param(value = rate_ct_param)
   }
-  if (is_one_double(rate_gt_param)) {
+  if (beautier::is_one_double(rate_gt_param)) {
     rate_gt_param <- create_rate_gt_param(value = rate_gt_param)
   }
 
@@ -380,10 +380,10 @@ create_tn93_site_model <- create_site_model_tn93 <- function(
   freq_equilibrium = "estimated",
   freq_param = create_freq_param()
 ) {
-  if (is_one_double(kappa_1_param)) {
+  if (beautier::is_one_double(kappa_1_param)) {
     kappa_1_param <- create_kappa_1_param(value = kappa_1_param)
   }
-  if (is_one_double(kappa_2_param)) {
+  if (beautier::is_one_double(kappa_2_param)) {
     kappa_2_param <- create_kappa_2_param(value = kappa_2_param)
   }
   create_site_model(

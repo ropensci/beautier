@@ -52,7 +52,7 @@ check_inference_model <- function(
     }
   )
   beautier::check_tree_prior(inference_model$tree_prior)
-  check_mcmc(inference_model$mcmc)
+  beautier::check_mcmc(inference_model$mcmc)
   tryCatch(
     check_mrca_prior(inference_model$mrca_prior),
     error = function(e) {

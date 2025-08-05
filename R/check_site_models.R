@@ -20,7 +20,7 @@
 #' @export
 check_site_models <- function(site_models) {
 
-  if (is_site_model(site_models)) {
+  if (beautier::is_site_model(site_models)) {
     site_models <- list(site_models)
   }
   if (!are_site_models(site_models)) {

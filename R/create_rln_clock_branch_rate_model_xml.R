@@ -31,7 +31,7 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
   if (beautier::has_tip_dating(inference_model)) {
     line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
   }
-  if (has_mrca_prior_with_distr(inference_model)) {
+  if (beautier::has_mrca_prior_with_distr(inference_model)) {
     line <- paste0(line, "clock.rate=\"@ucldMean.c:", id, "\" ")
   }
   if (clock_model$normalize_mean_clock_rate == TRUE) {
@@ -74,7 +74,7 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
     )
   )
   text <- c(text, paste0("    </LogNormal>"))
-  if (!has_mrca_prior_with_distr(inference_model) &&
+  if (!beautier::has_mrca_prior_with_distr(inference_model) &&
       !beautier::has_tip_dating(inference_model)
   ) {
     xml_here <- clock_rate_param_to_xml(

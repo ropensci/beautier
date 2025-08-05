@@ -21,7 +21,7 @@ rln_clock_model_to_xml_state <- function(
   beautier::check_false(beautier::is_one_na(clock_model$mean_clock_rate))
   beautier::check_false(beautier::is_one_na(clock_model$dimension))
 
-  if (has_mrca_prior_with_distr(inference_model) ||
+  if (beautier::has_mrca_prior_with_distr(inference_model) ||
       beautier::has_tip_dating(inference_model)
   ) {
     if (inference_model$beauti_options$beast2_version != "2.4") {

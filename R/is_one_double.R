@@ -16,7 +16,6 @@
 #' is_one_double(NA)
 #' is_one_double(Inf)
 #' is_one_double("nonsense")
-#' is_one_double(is_one_double)
 #' is_one_double(c())
 #' is_one_double(c(1, 2))
 #'

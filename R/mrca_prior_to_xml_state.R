@@ -23,7 +23,7 @@ mrca_prior_to_xml_state <- function(
 ) {
   # Do not be smart yet
   mrca_prior <- inference_model$mrca_prior
-  has_non_strict_clock_model <- !is_strict_clock_model(
+  has_non_strict_clock_model <- !beautier::is_strict_clock_model(
     inference_model$clock_model
   )
   if (beautier::is_one_na(mrca_prior)) {

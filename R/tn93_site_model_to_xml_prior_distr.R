@@ -19,7 +19,7 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
   site_model,
   beauti_options
 ) {
-  beautier::check_true(is_tn93_site_model(site_model))
+  beautier::check_true(beautier::is_tn93_site_model(site_model))
   id <- site_model$id
   beautier::check_true(beautier::is_id(id))
   text <- NULL

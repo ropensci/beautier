@@ -24,8 +24,8 @@
 are_equal_mcmcs <- function( # nolint cannot lower cyclomatic complexity
   mcmc_1, mcmc_2
 ) {
-  check_mcmc(mcmc_1)
-  check_mcmc(mcmc_2)
+  beautier::check_mcmc(mcmc_1)
+  beautier::check_mcmc(mcmc_2)
   mcmc_1$chain_length == mcmc_2$chain_length &&
     mcmc_1$store_every == mcmc_2$store_every &&
     mcmc_1$pre_burnin == mcmc_2$pre_burnin &&

@@ -26,7 +26,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_mcmc_filenames <- function(mcmc) {
-  check_mcmc(mcmc)
+  beautier::check_mcmc(mcmc)
   filenames <- c(
     mcmc$tracelog$filename,
     mcmc$screenlog$filename,

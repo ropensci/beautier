@@ -42,7 +42,7 @@ init_clock_models <- function(
       }
 
     } else {
-      beautier::check_true(is_strict_clock_model(clock_model))
+      beautier::check_true(beautier::is_strict_clock_model(clock_model))
 
       if (!is_init_strict_clock_model(clock_model)) {
 
@@ -149,7 +149,7 @@ init_strict_clock_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(is_strict_clock_model(strict_clock_model))
+  beautier::check_true(beautier::is_strict_clock_model(strict_clock_model))
 
   # clock_rate_distr
   strict_clock_model$clock_rate_distr <- init_distr(

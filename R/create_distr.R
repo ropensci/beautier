@@ -131,10 +131,10 @@ create_beta_distr <- create_distr_beta <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(alpha)) {
+  if (beautier::is_one_double(alpha)) {
     alpha <- create_alpha_param(value = alpha)
   }
-  if (is_one_double(beta)) {
+  if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -202,7 +202,7 @@ create_exp_distr <- create_distr_exp <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(mean)) {
+  if (beautier::is_one_double(mean)) {
     mean <- create_mean_param(value = mean)
   }
   if (!is_mean_param(mean)) {
@@ -267,10 +267,10 @@ create_gamma_distr <- create_distr_gamma <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(alpha)) {
+  if (beautier::is_one_double(alpha)) {
     alpha <- create_alpha_param(value = alpha)
   }
-  if (is_one_double(beta)) {
+  if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -344,10 +344,10 @@ create_inv_gamma_distr <- create_distr_inv_gamma <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(alpha)) {
+  if (beautier::is_one_double(alpha)) {
     alpha <- create_alpha_param(value = alpha)
   }
-  if (is_one_double(beta)) {
+  if (beautier::is_one_double(beta)) {
     beta <- create_beta_param(value = beta)
   }
   if (!is_alpha_param(alpha)) {
@@ -414,10 +414,10 @@ create_laplace_distr <- create_distr_laplace <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(mu)) {
+  if (beautier::is_one_double(mu)) {
     mu <- create_mu_param(value = mu)
   }
-  if (is_one_double(scale)) {
+  if (beautier::is_one_double(scale)) {
     scale <- create_scale_param(value = scale)
   }
 
@@ -485,10 +485,10 @@ create_log_normal_distr <- create_distr_log_normal <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(m)) {
+  if (beautier::is_one_double(m)) {
     m <- create_m_param(value = m)
   }
-  if (is_one_double(s)) {
+  if (beautier::is_one_double(s)) {
     s <- create_s_param(value = s)
   }
   if (!is_m_param(m)) {
@@ -555,10 +555,10 @@ create_normal_distr <- create_distr_normal <- function(
   if (is_one_string_that_is_a_number(mean)) {
     mean <- create_mean_param(value = as.numeric(mean))
   }
-  if (is_one_double(mean)) {
+  if (beautier::is_one_double(mean)) {
     mean <- create_mean_param(value = mean)
   }
-  if (is_one_double(sigma)) {
+  if (beautier::is_one_double(sigma)) {
     sigma <- create_sigma_param(value = sigma)
   }
 
@@ -661,7 +661,7 @@ create_poisson_distr <- create_distr_poisson <- function(
   lower = NA,
   upper = NA
 ) {
-  if (is_one_double(lambda)) {
+  if (beautier::is_one_double(lambda)) {
     lambda <- create_lambda_param(value = lambda)
   }
 

@@ -12,7 +12,7 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
   # Don't be smart yet
   clock_model <- inference_model$clock_model
 
-  beautier::check_true(is_strict_clock_model(clock_model))
+  beautier::check_true(beautier::is_strict_clock_model(clock_model))
   id <- clock_model$id
 
   # May not need ID at all, if it is the first and strict clock model
@@ -39,7 +39,7 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
     )
   }
 
-  if (has_mrca_prior_with_distr(inference_model) ||
+  if (beautier::has_mrca_prior_with_distr(inference_model) ||
       beautier::has_tip_dating(inference_model)
   ) {
     text <- c(

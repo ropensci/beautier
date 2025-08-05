@@ -16,7 +16,7 @@ init_site_models <- function(
 
   for (i in seq_along(site_models)) {
     site_model <- site_models[[i]]
-    beautier::check_true(is_site_model(site_model))
+    beautier::check_true(beautier::is_site_model(site_model))
     if (is_gtr_site_model(site_model)) {
       # GTR
       site_model <- init_gtr_site_model(
@@ -39,7 +39,7 @@ init_site_models <- function(
         param_id = param_id
       )
     } else {
-      beautier::check_true(is_tn93_site_model(site_model))
+      beautier::check_true(beautier::is_tn93_site_model(site_model))
       site_model <- init_tn93_site_model(
         site_model,
         distr_id = distr_id,
@@ -345,7 +345,7 @@ init_tn93_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(is_tn93_site_model(tn93_site_model))
+  beautier::check_true(beautier::is_tn93_site_model(tn93_site_model))
 
   # Initialize gamma site model, if any
   if (

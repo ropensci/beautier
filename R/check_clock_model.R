@@ -93,7 +93,7 @@ check_rln_clock_model <- function(clock_model) {
     )
   }
   if (
-    !is_one_double(clock_model$rate_scaler_factor) &&
+    !beautier::is_one_double(clock_model$rate_scaler_factor) &&
       !is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
       !is_one_empty_string(clock_model$rate_scaler_factor)
   ) {
@@ -157,7 +157,7 @@ check_strict_clock_model <- function(clock_model) {
     )
   }
   if (
-    !is_one_double(clock_model$rate_scaler_factor) &&
+    !beautier::is_one_double(clock_model$rate_scaler_factor) &&
       !is_one_string_that_is_a_number(clock_model$rate_scaler_factor) && # nolint indeed a long line
       !is_one_empty_string(clock_model$rate_scaler_factor)
   ) {

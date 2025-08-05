@@ -88,7 +88,7 @@ check_mcmc_values <- function(mcmc) {
   )
   check_logical(mcmc$sample_from_prior)
   check_treelog(mcmc$treelog)
-  check_screenlog(mcmc$screenlog)
+  beautier::check_screenlog(mcmc$screenlog)
   check_tracelog(mcmc$tracelog)
   invisible(mcmc)
 }
