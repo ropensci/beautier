@@ -43,7 +43,7 @@ rename_inference_model_filenames <- function( # nolint long function name indeed
   )
 
   # tipdates
-  inference_model$tipdates_filename <- beautier::rename_fun(
+  inference_model$tipdates_filename <- rename_fun(
     inference_model$tipdates_filename
   )
 
