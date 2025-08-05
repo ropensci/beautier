@@ -239,15 +239,34 @@ check_number_decimal <- function(x,
   )
 }
 
-check_number_whole <- function(x,
-                               ...,
-                               min = NULL,
-                               max = NULL,
-                               allow_infinite = FALSE,
-                               allow_na = FALSE,
-                               allow_null = FALSE,
-                               arg = caller_arg(x),
-                               call = caller_env()) {
+#' Determine if `x` is one whole number
+#' @param x the object to be determined to be one whole number
+#' @param ... other arguments, no idea why this is needed
+#' @param allow_inifite set to TRUE to allow `Inf` to be valid
+#' @param allow_na set to TRUE to allow NA to be valid
+#' @param allow_null set to TRUE to allow NULL to be valid
+#' @param arg no idea why this is needed
+#' @param call no idea why this is needed
+#' @return Nothing. Will raise an exception if the value is
+#' not one whole number
+#' @note From
+#' [r-lib](https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R)
+#' @author [`olivroy`](https://github.com/olivroy) and Richèl J.C. Bilderbeek
+#' @examples
+#' check_number_whole(1)
+#' check_number_whole(1.0)
+#' @export
+check_number_whole <- function(
+  x,
+  ...,
+  min = NULL,
+  max = NULL,
+  allow_infinite = FALSE,
+  allow_na = FALSE,
+  allow_null = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   if (missing(x)) {
     exit_code <- IS_NUMBER_false
   } else if (0 == (exit_code <- .standalone_types_check_dot_call(
@@ -522,11 +541,30 @@ check_character <- function(x,
   )
 }
 
-check_logical <- function(x,
-                          ...,
-                          allow_null = FALSE,
-                          arg = caller_arg(x),
-                          call = caller_env()) {
+#' Determine if `x` is one logical value
+#' @param x the object to be determined to be one logical value
+#' @param ... other arguments, no idea why this is needed
+#' @param allow_na set to TRUE to allow NA to be valid
+#' @param allow_null set to TRUE to allow NULL to be valid
+#' @param arg no idea why this is needed
+#' @param call no idea why this is needed
+#' @return Nothing. Will raise an exception if the value is not
+#' one logical value
+#' @note From
+#' [r-lib](https://github.com/r-lib/rlang/blob/main/R/standalone-types-check.R)
+#' @author [`olivroy`](https://github.com/olivroy) and Richèl J.C. Bilderbeek
+#' @examples
+#' check_logical(TRUE)
+#' check_logical(FALSE)
+#' check_logical(NA)
+#' @export
+check_logical <- function(
+  x,
+  ...,
+  allow_null = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   if (!missing(x)) {
     if (is_logical(x)) {
       return(invisible(NULL))

@@ -60,7 +60,7 @@ check_screenlog_values <- function(screenlog) {
   )
   lapply(
     screenlog$log_every,
-    function(x) check_number_whole(x, min = 1, arg = "log_every")
+    function(x) beautier::check_number_whole(x, min = 1, arg = "log_every")
   )
   beautier::check_log_mode(screenlog$mode)
   beautier::check_logical(screenlog$sanitise_headers)

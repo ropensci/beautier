@@ -84,7 +84,7 @@ check_mcmc_values <- function(mcmc) {
   }
   lapply(
     mcmc$n_init_attempts,
-    function(x) check_number_whole(x, min = 1, arg = "n_init_attempts")
+    function(x) beautier::check_number_whole(x, min = 1, arg = "n_init_attempts")
   )
   check_logical(mcmc$sample_from_prior)
   beautier::check_treelog(mcmc$treelog)
