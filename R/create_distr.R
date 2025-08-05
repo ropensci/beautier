@@ -491,7 +491,7 @@ create_log_normal_distr <- create_distr_log_normal <- function(
   if (beautier::is_one_double(s)) {
     s <- create_s_param(value = s)
   }
-  if (!is_m_param(m)) {
+  if (!beautier::is_m_param(m)) {
     stop("'m' must be an m parameter, as returned by 'create_m_param'")
   }
   if (!is_s_param(s)) {

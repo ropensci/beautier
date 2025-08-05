@@ -53,7 +53,7 @@ create_param <- function(
   value,
   ...
 ) {
-  if (!is_param_name(name)) {
+  if (!beautier::is_param_name(name)) {
     parameters_as_string <- function() {
       s <- NULL
       for (p in get_param_names()) {

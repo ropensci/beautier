@@ -6,7 +6,7 @@
 clock_model_to_xml_treelogger <- function(
   clock_model
 ) {
-  beautier::check_true(is_clock_model(clock_model))
+  beautier::check_true(beautier::is_clock_model(clock_model))
   id <- clock_model$id
 
   if (beautier::is_strict_clock_model(clock_model)) {

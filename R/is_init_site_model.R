@@ -11,9 +11,9 @@ is_init_site_model <- function(
   if (!beautier::is_site_model(x)) return(FALSE)
   if (is_gtr_site_model(x)) {
     is_init_gtr_site_model(x)
-  } else if (is_hky_site_model(x)) {
+  } else if (beautier::is_hky_site_model(x)) {
     is_init_hky_site_model(x)
-  } else if (is_jc69_site_model(x)) {
+  } else if (beautier::is_jc69_site_model(x)) {
     is_init_jc69_site_model(x)
   } else {
     beautier::check_true(beautier::is_tn93_site_model(x))
@@ -55,7 +55,7 @@ is_init_gtr_site_model <- function( # nolint simplification of this hurts readab
   if (!is_init_param(x$rate_cg_param)) return(FALSE)
   if (!is_init_param(x$rate_ct_param)) return(FALSE)
   if (!is_init_param(x$rate_gt_param)) return(FALSE)
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }
 
@@ -80,9 +80,9 @@ is_init_gtr_site_model <- function( # nolint simplification of this hurts readab
 is_init_hky_site_model <- function(
   x
 ) {
-  beautier::check_true(is_hky_site_model(x))
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
-  is_init_distr(x$kappa_prior)
+  beautier::check_true(beautier::is_hky_site_model(x))
+  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  beautier::is_init_distr(x$kappa_prior)
 }
 
 #' Determine if x is an initialized JC69 site model
@@ -111,8 +111,8 @@ is_init_hky_site_model <- function(
 is_init_jc69_site_model <- function(
   x
 ) {
-  beautier::check_true(is_jc69_site_model(x))
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  beautier::check_true(beautier::is_jc69_site_model(x))
+  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
   TRUE
 }
 
@@ -138,7 +138,7 @@ is_init_tn93_site_model <- function(
   x
 ) {
   beautier::check_true(beautier::is_tn93_site_model(x))
-  if (!is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
-  is_init_distr(x$kappa_1_prior) &&
-    is_init_distr(x$kappa_2_prior)
+  if (!beautier::is_init_gamma_site_model(x$gamma_site_model)) return(FALSE)
+  beautier::is_init_distr(x$kappa_1_prior) &&
+    beautier::is_init_distr(x$kappa_2_prior)
 }

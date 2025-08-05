@@ -9,7 +9,7 @@
 is_init_param <- function(
   x
 ) {
-  if (!is_param(x)) {
+  if (!beautier::is_param(x)) {
     stop("'x' must be a parameter")
   }
   !beautier::is_one_na(x$id)

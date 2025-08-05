@@ -24,7 +24,7 @@ mrca_prior_to_xml_prior_distr <- function(
   # Don't be smart yet
   mrca_prior <- inference_model$mrca_prior
   taxa_names_with_ids <- NULL
-  has_non_strict_clock_model <- get_has_non_strict_clock_model(
+  has_non_strict_clock_model <- beautier::get_has_non_strict_clock_model(
     list(inference_model$clock_model)
   )
   beautier::check_true(beautier::is_mrca_prior(mrca_prior))

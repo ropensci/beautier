@@ -32,8 +32,8 @@ is_init_bd_tree_prior <- function(
   x
 ) {
   beautier::check_true(beautier::is_bd_tree_prior(x))
-  is_init_distr(x$birth_rate_distr) &&
-    is_init_distr(x$death_rate_distr)
+  beautier::is_init_distr(x$birth_rate_distr) &&
+    beautier::is_init_distr(x$death_rate_distr)
 }
 
 #' Determine if x is an initialized Coalescent Bayesian Skyline
@@ -64,7 +64,7 @@ is_init_cbs_tree_prior <- function(
 is_init_ccp_tree_prior <- function(
   x
 ) {
-  is_init_distr(x$pop_size_distr)
+  beautier::is_init_distr(x$pop_size_distr)
 }
 
 #' Determine if x is an initialized Coalescent Exponential Population
@@ -79,8 +79,8 @@ is_init_cep_tree_prior <- function(
   x
 ) {
   beautier::check_true(beautier::is_cep_tree_prior(x))
-  is_init_distr(x$pop_size_distr) &&
-    is_init_distr(x$growth_rate_distr)
+  beautier::is_init_distr(x$pop_size_distr) &&
+    beautier::is_init_distr(x$growth_rate_distr)
 }
 
 #' Determine if x is an initialized Yule tree_prior object
@@ -93,5 +93,5 @@ is_init_yule_tree_prior <- function(
   x
 ) {
   beautier::check_true(beautier::is_yule_tree_prior(x))
-  is_init_distr(x$birth_rate_distr)
+  beautier::is_init_distr(x$birth_rate_distr)
 }

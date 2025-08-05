@@ -10,7 +10,7 @@ init_param <- function(
   param,
   id
 ) {
-  beautier::check_true(is_param(param))
+  beautier::check_true(beautier::is_param(param))
 
   if (beautier::is_one_na(param$id)) {
     param$id <- id

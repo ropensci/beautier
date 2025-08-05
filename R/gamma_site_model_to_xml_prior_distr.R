@@ -17,7 +17,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
   text <- NULL
 
   if (inference_model$beauti_options$beast2_version == "2.6" &&
-      !is_jc69_site_model(inference_model$site_model)
+      !beautier::is_jc69_site_model(inference_model$site_model)
   ) {
     beautier::check_true(
       is_id(

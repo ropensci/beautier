@@ -26,7 +26,7 @@ create_ns_inference_model <- function(
   tree_prior = create_yule_tree_prior(),
   mcmc = create_ns_mcmc()
 ) {
-  check_site_model(site_model)
+  beautier::check_site_model(site_model)
   check_clock_model(clock_model)
   beautier::check_tree_prior(tree_prior)
   check_nested_sampling_mcmc(mcmc)

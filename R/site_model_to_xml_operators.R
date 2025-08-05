@@ -14,7 +14,7 @@ site_model_to_xml_operators <- function(
 
   text <- NULL
 
-  if (is_hky_site_model(site_model)) {
+  if (beautier::is_hky_site_model(site_model)) {
     beautier::check_true(beautier::is_id(id))
     text <- c(
       text,
@@ -99,7 +99,7 @@ site_model_to_xml_operators <- function(
       )
     }
   }
-  if (!is_jc69_site_model(site_model)) {
+  if (!beautier::is_jc69_site_model(site_model)) {
     beautier::check_true(beautier::is_id(id))
     text <- c(
       text,

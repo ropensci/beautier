@@ -18,7 +18,7 @@ mrca_prior_to_xml_tracelog <- function(
   mrca_prior <- inference_model$mrca_prior
 
   beautier::check_true(beautier::is_mrca_prior(mrca_prior))
-  if (!has_mrca_prior(inference_model) &&
+  if (!beautier::has_mrca_prior(inference_model) &&
       !beautier::has_tip_dating(inference_model)
   ) {
     return(NULL)

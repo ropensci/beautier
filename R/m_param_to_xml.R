@@ -9,7 +9,7 @@ m_param_to_xml <- function(
   m_param,
   beauti_options = create_beauti_options()
 ) {
-  beautier::check_true(is_m_param(m_param))
+  beautier::check_true(beautier::is_m_param(m_param))
   beautier::check_beauti_options(beauti_options)
   beautier::check_true(beautier::is_id(m_param$id))
   xml <- paste0(

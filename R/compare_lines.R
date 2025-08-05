@@ -31,10 +31,10 @@ compare_lines <- function(
   lines,
   expected,
   section = NA,
-  created_lines_filename = get_beautier_tempfilename(
+  created_lines_filename = beautier::get_beautier_tempfilename(
     pattern = "created", fileext = ".xml"
   ),
-  expected_lines_filename = get_beautier_tempfilename(
+  expected_lines_filename = beautier::get_beautier_tempfilename(
     pattern = "expected", fileext = ".xml"
   )
 ) {

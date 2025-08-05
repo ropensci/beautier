@@ -22,8 +22,6 @@ check_logical(
 \item{arg}{no idea why this is needed}
 
 \item{call}{no idea why this is needed}
-
-\item{allow_na}{set to TRUE to allow NA to be valid}
 }
 \value{
 Nothing. Will raise an exception if the value is not

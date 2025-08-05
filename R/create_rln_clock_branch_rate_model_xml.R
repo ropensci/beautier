@@ -77,7 +77,7 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
   if (!beautier::has_mrca_prior_with_distr(inference_model) &&
       !beautier::has_tip_dating(inference_model)
   ) {
-    xml_here <- clock_rate_param_to_xml(
+    xml_here <- beautier::clock_rate_param_to_xml(
       clock_rate_param = create_clock_rate_param(
         id = id,
         estimate = FALSE,

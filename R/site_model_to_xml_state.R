@@ -8,7 +8,7 @@ site_model_to_xml_state <- function(
   site_model,
   beauti_options = create_beauti_options()
 ) {
-  check_site_model(site_model)
+  beautier::check_site_model(site_model)
   beautier::check_beauti_options(beauti_options)
   if (is_gtr_site_model(site_model)) {
     return(
@@ -17,7 +17,7 @@ site_model_to_xml_state <- function(
         beauti_options = beauti_options
       )
     )
-  } else if (is_hky_site_model(site_model)) {
+  } else if (beautier::is_hky_site_model(site_model)) {
     return(
       hky_site_model_to_xml_state(
         site_model = site_model,
@@ -32,7 +32,7 @@ site_model_to_xml_state <- function(
       )
     )
   } else {
-    beautier::check_true(is_jc69_site_model(site_model))
+    beautier::check_true(beautier::is_jc69_site_model(site_model))
     return(
       jc69_site_model_to_xml_state(
         site_model = site_model,

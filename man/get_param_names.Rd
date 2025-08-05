@@ -15,7 +15,7 @@ Get the parameter names
 \examples{
 check_empty_beautier_folder()
 
-names <- get_param_names()
+get_param_names()
 
 check_empty_beautier_folder()
 }

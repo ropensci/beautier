@@ -30,14 +30,14 @@
 #' @export
 create_beast2_input_beast <- function(
   input_filename,
-  inference_model = create_inference_model()
+  inference_model = beautier::create_inference_model()
 ) {
   beautier::check_true(length(input_filename) == 1)
   beautier::check_true(file.exists(input_filename))
 
   # The XML declaration is prepended by the caller
   # and is created by 'create_xml_declaration'
-  text <- create_beast2_beast_xml(
+  text <- beautier::create_beast2_beast_xml(
     inference_model$beauti_options
   )
 
@@ -51,7 +51,7 @@ create_beast2_input_beast <- function(
 
   # The <data ...> tag
   text <- c(text,
-    create_beast2_input_data(
+    beautier::create_beast2_input_data(
       input_filename = input_filename,
       beauti_options = inference_model$beauti_options
     )
@@ -74,7 +74,7 @@ create_beast2_input_beast <- function(
   }
 
   # The [map_names] section
-  xml_maps <- create_beast2_input_map(
+  xml_maps <- beautier::create_beast2_input_map(
     beauti_options = inference_model$beauti_options
   )
   if (inference_model$beauti_options$beast2_version == "2.6") {
@@ -90,7 +90,7 @@ create_beast2_input_beast <- function(
   }
 
   # The <run...> tag
-  xml_run <- create_beast2_input_run(
+  xml_run <- beautier::create_beast2_input_run(
     input_filename = input_filename,
     inference_model = inference_model
   )

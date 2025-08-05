@@ -26,7 +26,7 @@ is_site_model <- function(
 ) {
   result <- FALSE
   tryCatch({
-    check_site_model(x)
+    beautier::check_site_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e
@@ -63,7 +63,7 @@ is_gtr_site_model <- function(
 ) {
   result <- FALSE
   tryCatch({
-    check_gtr_site_model(x)
+    beautier::check_gtr_site_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e
@@ -171,7 +171,7 @@ is_tn93_site_model <- function(
 ) {
   result <- FALSE
   tryCatch({
-    check_tn93_site_model(x)
+    beautier::check_tn93_site_model(x)
     result <- TRUE
   },
     error = function(e) {} # nolint do not care about e

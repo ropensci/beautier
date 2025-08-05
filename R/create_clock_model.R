@@ -36,7 +36,7 @@ create_clock_model <- function(
   id,
   ...
 ) {
-  if (!is_clock_model_name(name)) {
+  if (!beautier::is_clock_model_name(name)) {
     clock_models_as_string <- function() {
       s <- NULL
       for (p in get_clock_model_names()) {
@@ -104,7 +104,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
   dimension = NA,
   rate_scaler_factor = 0.75
 ) {
-  rln_clock_model <- create_clock_model(
+  rln_clock_model <- beautier::create_clock_model(
     name = "relaxed_log_normal",
     id = id,
     ucldstdev_distr = ucldstdev_distr,
@@ -116,7 +116,7 @@ create_rln_clock_model <- create_clock_model_rln <- function(
     dimension = dimension,
     rate_scaler_factor = rate_scaler_factor
   )
-  check_rln_clock_model(rln_clock_model)
+  beautier::check_rln_clock_model(rln_clock_model)
   rln_clock_model
 }
 
@@ -159,12 +159,12 @@ create_strict_clock_model <- create_clock_model_strict <- function(
   rate_scaler_factor = 0.75
 ) {
   if (
-    is_one_double(clock_rate_param) ||
-      is_one_string(clock_rate_param)
+    beautier::is_one_double(clock_rate_param) ||
+      beautier::is_one_string(clock_rate_param)
   ) {
-    clock_rate_param <- create_clock_rate_param(clock_rate_param)
+    clock_rate_param <- beautier::create_clock_rate_param(clock_rate_param)
   }
-  if (!is_clock_rate_param(clock_rate_param)) {
+  if (!beautier::is_clock_rate_param(clock_rate_param)) {
     stop(
       "'clock_rate_param' must be a clock rate parameter, ",
       "as can be created by 'create_clock_rate_param'"
@@ -176,13 +176,13 @@ create_strict_clock_model <- create_clock_model_strict <- function(
       "as can be created by 'create_distr'"
     )
   }
-  strict_clock_model <- create_clock_model(
+  strict_clock_model <- beautier::create_clock_model(
     name = "strict",
     id = id,
     clock_rate_param = clock_rate_param,
     clock_rate_distr = clock_rate_distr,
     rate_scaler_factor = rate_scaler_factor
   )
-  check_strict_clock_model(strict_clock_model)
+  beautier::check_strict_clock_model(strict_clock_model)
   strict_clock_model
 }

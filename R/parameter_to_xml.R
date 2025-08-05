@@ -27,12 +27,12 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
     return(alpha_parameter_to_xml(alpha_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (beautier::is_beta_param(parameter)) {
     return(beta_parameter_to_xml(beta_parameter = parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_clock_rate_param(parameter)) {
+  } else if (beautier::is_clock_rate_param(parameter)) {
     return(clock_rate_param_to_xml(
       clock_rate_param = parameter,
       beauti_options = beauti_options
     ))
-  } else if (is_kappa_param(parameter)) {
+  } else if (beautier::is_kappa_param(parameter)) {
     return(kappa_param_to_xml(kappa_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (is_kappa_1_param(parameter)) {
     return(parameter_to_xml_kappa_1(parameter, beauti_options = beauti_options)) # nolint indeed a long line
@@ -40,7 +40,7 @@ parameter_to_xml <- function( # nolint simplifying further hurts readability
     return(parameter_to_xml_kappa_2(parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (is_lambda_param(parameter)) {
     return(parameter_to_xml_lambda(parameter, beauti_options = beauti_options)) # nolint indeed a long line
-  } else if (is_m_param(parameter)) {
+  } else if (beautier::is_m_param(parameter)) {
     return(m_param_to_xml(m_param = parameter, beauti_options = beauti_options)) # nolint indeed a long line
   } else if (is_mean_param(parameter)) {
     return(parameter_to_xml_mean(parameter, beauti_options = beauti_options)) # nolint indeed a long line

@@ -21,9 +21,9 @@ create_subst_model_xml <- function(
   site_model <- inference_model$site_model
   beautier::check_true(beautier::is_site_model(site_model))
 
-  if (is_jc69_site_model(site_model)) {
+  if (beautier::is_jc69_site_model(site_model)) {
     create_jc69_subst_model_xml(site_model)
-  } else if (is_hky_site_model(site_model)) {
+  } else if (beautier::is_hky_site_model(site_model)) {
     create_hky_subst_model_xml(site_model)
   } else if (beautier::is_tn93_site_model(site_model)) {
     create_tn93_subst_model_xml(site_model)
@@ -45,7 +45,7 @@ create_jc69_subst_model_xml <- function( # nolint indeed a long function name, w
   beautier::check_true(beautier::is_site_model(site_model))
   id <- site_model$id
   beautier::check_true(beautier::is_id(id))
-  beautier::check_true(is_jc69_site_model(site_model))
+  beautier::check_true(beautier::is_jc69_site_model(site_model))
   paste0("<substModel ", "id=\"JC69.s:", id, "\" spec=\"JukesCantor\"/>") # nolint this is no absolute path
 }
 
@@ -66,7 +66,7 @@ create_hky_subst_model_xml <- function( # nolint indeed a long function name, wh
   freq_equilibrium_text <- beautier::indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
-  beautier::check_true(is_hky_site_model(site_model))
+  beautier::check_true(beautier::is_hky_site_model(site_model))
   text <- c(
     text,
     paste0(

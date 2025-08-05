@@ -9,17 +9,17 @@ create_beast2_input_operators <- function(
   # Do not be smart yet
   site_models <- list(inference_model$site_model)
 
-  text <- tree_prior_to_xml_operators(
+  text <- beautier::tree_prior_to_xml_operators(
     inference_model = inference_model
   )
 
-  text <- c(text, site_models_to_xml_operators(site_models))
+  text <- c(text, beautier::site_models_to_xml_operators(site_models))
   text <- c(
     text,
-    clock_model_to_xml_operators(
+    beautier::clock_model_to_xml_operators(
       inference_model
     )
   )
-  text <- interspace(text)
+  text <- beautier::interspace(text)
   text
 }

@@ -24,14 +24,14 @@ init_site_models <- function(
         distr_id = distr_id,
         param_id = param_id
       )
-    } else if (is_hky_site_model(site_model)) {
+    } else if (beautier::is_hky_site_model(site_model)) {
       # HKY
       site_model <- init_hky_site_model(
         site_model,
         distr_id = distr_id,
         param_id = param_id
       )
-    } else if (is_jc69_site_model(site_model)) {
+    } else if (beautier::is_jc69_site_model(site_model)) {
       # JC69
       site_model <- init_jc69_site_model(
         site_model,
@@ -227,7 +227,7 @@ init_hky_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(is_hky_site_model(hky_site_model))
+  beautier::check_true(beautier::is_hky_site_model(hky_site_model))
 
   # Initialize gamma site model, if any
   if (
@@ -291,7 +291,7 @@ init_jc69_site_model <- function(
   distr_id = 0,
   param_id = 0
 ) {
-  beautier::check_true(is_jc69_site_model(jc69_site_model))
+  beautier::check_true(beautier::is_jc69_site_model(jc69_site_model))
 
   # Initialize gamma site model, if any
   if (

@@ -20,12 +20,12 @@
 #' @export
 check_site_model <- function(site_model) {
   if (length(site_model) == 1) {
-    check_site_model_names(site_model[[1]])
-    check_site_model_types(site_model[[1]])
+    beautier::check_site_model_names(site_model[[1]])
+    beautier::check_site_model_types(site_model[[1]])
     return()
   }
-  check_site_model_names(site_model)
-  check_site_model_types(site_model)
+  beautier::check_site_model_names(site_model)
+  beautier::check_site_model_types(site_model)
 }
 
 #' Check if the \code{site_model} has the list elements

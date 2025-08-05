@@ -31,9 +31,9 @@ get_site_model_n_distrs <- function(
   )
   if (is_gtr_site_model(site_model)) {
     5 + gamma_site_model_n_distrs
-  } else if (is_hky_site_model(site_model)) {
+  } else if (beautier::is_hky_site_model(site_model)) {
     1 + gamma_site_model_n_distrs
-  } else if (is_jc69_site_model(site_model)) {
+  } else if (beautier::is_jc69_site_model(site_model)) {
     0 + gamma_site_model_n_distrs
   } else {
     beautier::check_true(beautier::is_tn93_site_model(site_model))

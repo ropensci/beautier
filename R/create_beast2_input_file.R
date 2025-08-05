@@ -42,7 +42,7 @@ create_beast2_input_file <- function(
   beauti_options = create_beauti_options(),
   tipdates_filename = NA
 ) {
-  inference_model <- create_inference_model(
+  inference_model <- beautier::create_inference_model(
     site_model = site_model,
     clock_model = clock_model,
     tree_prior = tree_prior,
@@ -51,7 +51,7 @@ create_beast2_input_file <- function(
     beauti_options = beauti_options,
     tipdates_filename = tipdates_filename
   )
-  create_beast2_input_file_from_model(
+  beautier::create_beast2_input_file_from_model(
     input_filename = input_filename,
     output_filename = output_filename,
     inference_model = inference_model

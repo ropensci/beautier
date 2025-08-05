@@ -13,7 +13,7 @@ hky_site_model_to_xml_state <- function(
   id <- site_model$id
   beautier::check_true(beautier::is_id(id))
   text <- NULL
-  beautier::check_true(is_hky_site_model(site_model))
+  beautier::check_true(beautier::is_hky_site_model(site_model))
 
   beautier::check_true("freq_param" %in% names(site_model))
   beautier::check_true("kappa_param" %in% names(site_model))

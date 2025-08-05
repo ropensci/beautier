@@ -46,7 +46,7 @@ site_model_to_xml_prior_distr <- function(
   beautier::check_true(beautier::is_id(id))
 
   text <- NULL
-  if (is_hky_site_model(site_model)) {
+  if (beautier::is_hky_site_model(site_model)) {
     text <- hky_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line
   } else if (beautier::is_tn93_site_model(site_model)) {
     text <- tn93_site_model_to_xml_prior_distr(site_model = site_model, beauti_options = beauti_options) # nolint indeed a long line

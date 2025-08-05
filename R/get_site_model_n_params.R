@@ -36,10 +36,10 @@ get_site_model_n_params <- function(
       get_distr_n_params(site_model$rate_at_prior_distr) +
       get_distr_n_params(site_model$rate_cg_prior_distr) +
       get_distr_n_params(site_model$rate_gt_prior_distr)
-  } else if (is_hky_site_model(site_model)) {
+  } else if (beautier::is_hky_site_model(site_model)) {
     gamma_site_model_n_params +
       get_distr_n_params(site_model$kappa_prior_distr)
-  } else if (is_jc69_site_model(site_model)) {
+  } else if (beautier::is_jc69_site_model(site_model)) {
     gamma_site_model_n_params + 0
   } else {
     beautier::check_true(beautier::is_tn93_site_model(site_model))

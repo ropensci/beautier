@@ -242,9 +242,11 @@ check_number_decimal <- function(x,
 #' Determine if `x` is one whole number
 #' @param x the object to be determined to be one whole number
 #' @param ... other arguments, no idea why this is needed
-#' @param allow_inifite set to TRUE to allow `Inf` to be valid
+#' @param allow_infinite set to TRUE to allow `Inf` to be valid
 #' @param allow_na set to TRUE to allow NA to be valid
 #' @param allow_null set to TRUE to allow NULL to be valid
+#' @param min lowest number allowed
+#' @param max lowest number allowed
 #' @param arg no idea why this is needed
 #' @param call no idea why this is needed
 #' @return Nothing. Will raise an exception if the value is
@@ -544,7 +546,6 @@ check_character <- function(x,
 #' Determine if `x` is one logical value
 #' @param x the object to be determined to be one logical value
 #' @param ... other arguments, no idea why this is needed
-#' @param allow_na set to TRUE to allow NA to be valid
 #' @param allow_null set to TRUE to allow NULL to be valid
 #' @param arg no idea why this is needed
 #' @param call no idea why this is needed

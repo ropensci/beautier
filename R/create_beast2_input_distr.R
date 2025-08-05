@@ -36,7 +36,7 @@ create_beast2_input_distr <- function(
   # prior
   text <- c(
     text,
-    create_beast2_input_distr_prior(
+    beautier::create_beast2_input_distr_prior(
       inference_model = inference_model
     )
   )
@@ -44,7 +44,7 @@ create_beast2_input_distr <- function(
   # likelihood
   text <- c(
     text,
-    create_beast2_input_distr_lh(
+    beautier::create_beast2_input_distr_lh(
       inference_model = inference_model
     )
   )
@@ -91,31 +91,31 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
   text <- NULL
   text <- c(
     text,
-    tree_priors_to_xml_prior_distr(
+    beautier::tree_priors_to_xml_prior_distr(
       tree_priors,
       beauti_options = inference_model$beauti_options
     )
   )
   text <- c(
     text,
-    gamma_site_model_to_xml_prior_distr(
+    beautier::gamma_site_model_to_xml_prior_distr(
       inference_model
     )
   )
   text <- c(
     text,
-    site_models_to_xml_prior_distr(
+    beautier::site_models_to_xml_prior_distr(
       site_models,
       beauti_options = inference_model$beauti_options
     )
   )
   text <- c(
     text,
-    mrca_priors_to_xml_prior_distr(inference_model = inference_model)
+    beautier::mrca_priors_to_xml_prior_distr(inference_model = inference_model)
   )
   text <- c(
     text,
-    clock_model_to_xml_prior_distr(
+    beautier::clock_model_to_xml_prior_distr(
       inference_model = inference_model
     )
   )
@@ -180,7 +180,7 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
 create_beast2_input_distr_lh <- function(
   inference_model
 ) {
-  text <- create_tree_likelihood_distr_xml(inference_model)
+  text <- beautier::create_tree_likelihood_distr_xml(inference_model)
 
   text <- beautier::indent(text)
 
@@ -253,7 +253,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = bd_birth_rate_distr,
         beauti_options = beauti_options
       )
@@ -273,7 +273,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = bd_death_rate_distr,
         beauti_options = beauti_options
       )
@@ -407,7 +407,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = ccp_tree_prior$pop_size_distr,
         beauti_options = beauti_options
       )
@@ -484,7 +484,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = cep_tree_prior$pop_size_distr,
         beauti_options = beauti_options
       )
@@ -502,7 +502,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         distr = cep_tree_prior$growth_rate_distr,
         beauti_options = beauti_options
       )
@@ -561,7 +561,7 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
   )
   text <- c(text,
     beautier::indent(
-      distr_to_xml(
+      beautier::distr_to_xml(
         yule_tree_prior$birth_rate_distr,
         beauti_options = beauti_options
       )

@@ -21,6 +21,12 @@ check_number_whole(
 
 \item{...}{other arguments, no idea why this is needed}
 
+\item{min}{lowest number allowed}
+
+\item{max}{lowest number allowed}
+
+\item{allow_infinite}{set to TRUE to allow `Inf` to be valid}
+
 \item{allow_na}{set to TRUE to allow NA to be valid}
 
 \item{allow_null}{set to TRUE to allow NULL to be valid}
@@ -28,8 +34,6 @@ check_number_whole(
 \item{arg}{no idea why this is needed}
 
 \item{call}{no idea why this is needed}
-
-\item{allow_inifite}{set to TRUE to allow `Inf` to be valid}
 }
 \value{
 Nothing. Will raise an exception if the value is

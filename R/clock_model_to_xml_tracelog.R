@@ -17,12 +17,12 @@ clock_model_to_xml_tracelog <- function(
   inference_model
 ) {
   if (beautier::is_strict_clock_model(inference_model$clock_model)) {
-    strict_clock_model_to_xml_tracelog(inference_model)
+    beautier::strict_clock_model_to_xml_tracelog(inference_model)
   } else {
     # Will fail on unimplemented clock models
     beautier::check_true(
       beautier::is_rln_clock_model(inference_model$clock_model)
     )
-    rln_clock_model_to_xml_tracelog(inference_model)
+    beautier::rln_clock_model_to_xml_tracelog(inference_model)
   }
 }
