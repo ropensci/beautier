@@ -35,7 +35,7 @@ extract_xml_section_from_lines <- function(
     lines = lines,
     section = section
   )
-  beautier::check_true(!is_one_na(from_index))
-  beautier::check_true(!is_one_na(to_index))
+  beautier::check_true(!beautier::is_one_na(from_index))
+  beautier::check_true(!beautier::is_one_na(to_index))
   lines[from_index:to_index]
 }

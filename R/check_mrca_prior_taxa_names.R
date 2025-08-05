@@ -5,7 +5,7 @@
 #' @return No return value, called for side effects
 #' @export
 check_mrca_prior_taxa_names <- function(taxa_names) {
-  if (is_one_na(taxa_names)) return()
+  if (beautier::is_one_na(taxa_names)) return()
   if (length(taxa_names) == 0 ||
       !is.character(taxa_names) ||
       sum(taxa_names == "") > 0

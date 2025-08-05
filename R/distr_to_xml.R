@@ -73,7 +73,7 @@ distr_to_xml_beta <- function(
   text <- NULL
   text <- c(text, paste0("<Beta id=\"Beta.", id, "\" name=\"distr\">"))
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$alpha,
         beauti_options = beauti_options
@@ -81,7 +81,7 @@ distr_to_xml_beta <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$beta,
         beauti_options = beauti_options
@@ -119,7 +119,7 @@ distr_to_xml_exp <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$mean,
         beauti_options = beauti_options
@@ -157,7 +157,7 @@ distr_to_xml_inv_gamma <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$alpha,
         beauti_options = beauti_options
@@ -165,7 +165,7 @@ distr_to_xml_inv_gamma <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$beta,
         beauti_options = beauti_options
@@ -203,7 +203,7 @@ distr_to_xml_laplace <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$mu,
         beauti_options = beauti_options
@@ -211,7 +211,7 @@ distr_to_xml_laplace <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$scale,
         beauti_options = beauti_options
@@ -249,7 +249,7 @@ distr_to_xml_log_normal <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$m,
         beauti_options = beauti_options
@@ -257,7 +257,7 @@ distr_to_xml_log_normal <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$s,
         beauti_options = beauti_options
@@ -296,7 +296,7 @@ distr_to_xml_normal <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$mean,
         beauti_options = beauti_options
@@ -304,7 +304,7 @@ distr_to_xml_normal <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$sigma,
         beauti_options = beauti_options
@@ -367,7 +367,7 @@ distr_to_xml_poisson <- function(
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       beautier::parameter_to_xml(
         distr$lambda,
         beauti_options = beauti_options
@@ -400,7 +400,7 @@ distr_to_xml_uniform <- function(
   line_begin <- paste0("<Uniform id=\"Uniform.", id, "\" name=\"distr\"")
   line_end <- "/>" # nolint this is no absolute path
   upper <- distr$upper
-  if (is_one_na(upper)) {
+  if (beautier::is_one_na(upper)) {
     text <- c(text, paste0(line_begin, line_end))
   } else if (is.infinite(upper)) {
     text <- c(text, paste0(line_begin, " upper=\"Infinity\"", line_end))

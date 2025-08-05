@@ -25,10 +25,10 @@ init_mrca_priors <- function(
     mrca_prior <- mrca_priors[[i]]
     beautier::check_true(is_mrca_prior(mrca_prior))
 
-    if (is_one_na(mrca_prior$name)) {
+    if (beautier::is_one_na(mrca_prior$name)) {
       mrca_prior$name <- names[i]
     }
-    if (is_one_na(mrca_prior$clock_prior_distr_id)) {
+    if (beautier::is_one_na(mrca_prior$clock_prior_distr_id)) {
       mrca_prior$clock_prior_distr_id <- distr_id
       distr_id <- distr_id + 1
     }

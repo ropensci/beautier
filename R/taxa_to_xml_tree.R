@@ -20,7 +20,7 @@
 taxa_to_xml_tree <- function(
   inference_model
 ) {
-  if (is_one_na(inference_model$tipdates_filename)) {
+  if (beautier::is_one_na(inference_model$tipdates_filename)) {
     no_taxa_to_xml_tree(
       inference_model = inference_model
     )
@@ -102,7 +102,7 @@ tipdate_taxa_to_xml_tree <- function(
   tipdates_filename <- inference_model$tipdates_filename
 
   beautier::check_true(beautier::is_id(id))
-  beautier::check_true(!is_one_na(tipdates_filename))
+  beautier::check_true(!beautier::is_one_na(tipdates_filename))
 
   first_line <- paste0("<tree id=\"Tree.t:", id, "\" ")
   if (inference_model$beauti_options$beast2_version == "2.6") {
@@ -112,8 +112,8 @@ tipdate_taxa_to_xml_tree <- function(
 
   c(
     first_line,
-    indent(tipdate_taxa_to_xml_trait(inference_model)),
-    indent(
+    beautier::indent(tipdate_taxa_to_xml_trait(inference_model)),
+    beautier::indent(
       paste0(
         "<taxonset idref=\"TaxonSet.",
         inference_model$site_model$id,

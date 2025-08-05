@@ -28,7 +28,7 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
                            "name=\"distribution\" x=\"@kappa1.s:", id, "\">"))
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$kappa_1_prior,
           beauti_options = beauti_options
@@ -42,7 +42,7 @@ tn93_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal 
                            "name=\"distribution\" x=\"@kappa2.s:", id, "\">"))
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$kappa_2_prior,
           beauti_options = beauti_options

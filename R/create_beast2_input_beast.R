@@ -78,7 +78,7 @@ create_beast2_input_beast <- function(
     beauti_options = inference_model$beauti_options
   )
   if (inference_model$beauti_options$beast2_version == "2.6") {
-    xml_maps <- indent(xml_maps)
+    xml_maps <- beautier::indent(xml_maps)
     xml_maps[xml_maps == ""] <- "    "
   }
   text <- c(text, xml_maps)
@@ -95,7 +95,7 @@ create_beast2_input_beast <- function(
     inference_model = inference_model
   )
   if (inference_model$beauti_options$beast2_version == "2.6") {
-    xml_run <- indent(xml_run)
+    xml_run <- beautier::indent(xml_run)
     xml_run[xml_run == ""] <- "            "
   }
 

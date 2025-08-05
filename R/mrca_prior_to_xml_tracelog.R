@@ -25,7 +25,7 @@ mrca_prior_to_xml_tracelog <- function(
   }
 
   text <- NULL
-  if (!is_one_na(mrca_prior)) {
+  if (!beautier::is_one_na(mrca_prior)) {
     text <- c(text, paste0("<log idref=\"", mrca_prior$name, ".prior\"/>")) # nolint this is no absolute path
   }
 

@@ -28,7 +28,7 @@ create_loggers_xml <- function(
   inference_model
 ) {
   beautier::check_true(length(input_filename) == 1)
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
 
   tracelog_text <- create_tracelog_xml(
     input_filename = input_filename,
@@ -41,9 +41,9 @@ create_loggers_xml <- function(
 
 
   c(
-    indent(tracelog_text),
+    beautier::indent(tracelog_text),
     "",
-    indent(screenlog_text),
-    indent(treelogs_text)
+    beautier::indent(screenlog_text),
+    beautier::indent(treelogs_text)
   )
 }

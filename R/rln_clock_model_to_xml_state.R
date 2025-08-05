@@ -10,7 +10,7 @@
 rln_clock_model_to_xml_state <- function(
   inference_model
 ) {
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
 
   # Don't be smart yet
   clock_model <- inference_model$clock_model
@@ -18,8 +18,8 @@ rln_clock_model_to_xml_state <- function(
   text <- NULL
   # Fails on unimplemented clock models
   beautier::check_true(beautier::is_rln_clock_model(clock_model))
-  beautier::check_false(is_one_na(clock_model$mean_clock_rate))
-  beautier::check_false(is_one_na(clock_model$dimension))
+  beautier::check_false(beautier::is_one_na(clock_model$mean_clock_rate))
+  beautier::check_false(beautier::is_one_na(clock_model$dimension))
 
   if (has_mrca_prior_with_distr(inference_model) ||
       beautier::has_tip_dating(inference_model)

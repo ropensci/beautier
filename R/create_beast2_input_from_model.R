@@ -38,7 +38,7 @@ create_beast2_input_from_model <- function(
   if (!file.exists(input_filename)) {
     stop("'input_filename' not found. Value: ", input_filename)
   }
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
 
   inference_model <- init_inference_model(
     input_filename = input_filename,

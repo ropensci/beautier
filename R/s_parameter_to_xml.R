@@ -43,13 +43,13 @@ s_parameter_to_xml <- function(
     text,
     " estimate=\"", estimate, "\""
   )
-  if (!is_one_na(lower)) {
+  if (!beautier::is_one_na(lower)) {
     if (lower != 0.0) {
       text <- paste0(text, " lower=\"", lower, "\"")
     }
   }
   text <- paste0(text, " name=\"S\"")
-  if (!is_one_na(upper)) {
+  if (!beautier::is_one_na(upper)) {
     if (!is.infinite(upper)) {
       upper_txt <- upper
       if (is.infinite(upper)) {

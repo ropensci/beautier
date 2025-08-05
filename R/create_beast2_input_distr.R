@@ -48,7 +48,7 @@ create_beast2_input_distr <- function(
       inference_model = inference_model
     )
   )
-  text <- indent(text)
+  text <- beautier::indent(text)
   text <- c(
     "<distribution id=\"posterior\" spec=\"util.CompoundDistribution\">",
     text
@@ -120,7 +120,7 @@ create_beast2_input_distr_prior <- function( # nolint indeed long function name
     )
   )
 
-  text <- indent(text)
+  text <- beautier::indent(text)
 
   # Surround text by prior distribution tag
   text <- c(
@@ -182,7 +182,7 @@ create_beast2_input_distr_lh <- function(
 ) {
   text <- create_tree_likelihood_distr_xml(inference_model)
 
-  text <- indent(text)
+  text <- beautier::indent(text)
 
   # Surround by likelihood distribution tags
   text <- c(
@@ -252,7 +252,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       distr_to_xml(
         distr = bd_birth_rate_distr,
         beauti_options = beauti_options
@@ -272,7 +272,7 @@ bd_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function name
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       distr_to_xml(
         distr = bd_death_rate_distr,
         beauti_options = beauti_options
@@ -406,7 +406,7 @@ ccp_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       distr_to_xml(
         distr = ccp_tree_prior$pop_size_distr,
         beauti_options = beauti_options
@@ -483,7 +483,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       distr_to_xml(
         distr = cep_tree_prior$pop_size_distr,
         beauti_options = beauti_options
@@ -501,7 +501,7 @@ cep_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function nam
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       distr_to_xml(
         distr = cep_tree_prior$growth_rate_distr,
         beauti_options = beauti_options
@@ -560,7 +560,7 @@ yule_tree_prior_to_xml_prior_distr <- function( # nolint indeed long function na
     )
   )
   text <- c(text,
-    indent(
+    beautier::indent(
       distr_to_xml(
         yule_tree_prior$birth_rate_distr,
         beauti_options = beauti_options

@@ -50,7 +50,7 @@ init_tree_priors <- function(
     distr_id <- distr_id + get_tree_prior_n_distrs(tree_prior)
     param_id <- param_id + get_tree_prior_n_params(tree_prior)
 
-    if (is_one_na(tree_prior$id)) tree_prior$id <- ids[i]
+    if (beautier::is_one_na(tree_prior$id)) tree_prior$id <- ids[i]
     tree_priors[[i]] <- tree_prior
   }
   tree_priors
@@ -118,10 +118,10 @@ init_cep_tree_prior <- function(
   param_id
 ) {
   beautier::check_true(beautier::is_cep_tree_prior(cep_tree_prior))
-  beautier::check_true(!is_one_na(distr_id))
-  beautier::check_true(!is_one_na(param_id))
+  beautier::check_true(!beautier::is_one_na(distr_id))
+  beautier::check_true(!beautier::is_one_na(param_id))
   beautier::check_true(
-    !is_one_na(
+    !beautier::is_one_na(
       get_distr_n_params(cep_tree_prior$pop_size_distr)
     )
   )

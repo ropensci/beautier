@@ -9,7 +9,7 @@
 gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function name
   inference_model
 ) {
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
   site_model <- inference_model$site_model # don't be smart yet
   beauti_options <- inference_model$beauti_options  # don't be smart yet
   id <- site_model$id
@@ -34,7 +34,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
         "x=\"@freqParameter.s:", id,
         "\">"
       ),
-      indent(
+      beautier::indent(
         paste0(
           "<Uniform ",
           "id=\"Uniform.", inference_model$site_model$gamma_site_model$freq_prior_uniform_distr_id, "\" ", # nolint indeed a long line
@@ -58,7 +58,7 @@ gamma_site_model_to_xml_prior_distr <- function( # nolint indeed long function n
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           gamma_site_model$gamma_shape_prior_distr,
           beauti_options = beauti_options

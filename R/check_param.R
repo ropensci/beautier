@@ -55,7 +55,7 @@ check_param_types <- function(param) {
   if (!param$name %in% get_param_names()) {
     stop("'param$name' must be a valid parameter name")
   }
-  if (is_one_na(param$value)) {
+  if (beautier::is_one_na(param$value)) {
     stop("'param$value' must not be NA")
   }
 }

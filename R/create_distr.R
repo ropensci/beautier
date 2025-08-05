@@ -711,7 +711,7 @@ create_uniform_distr <- create_distr_uniform <- function(
   lower = NA,
   upper = Inf
 ) {
-  if (!is_one_na(upper) && upper <= 0.0) {
+  if (!beautier::is_one_na(upper) && upper <= 0.0) {
     stop("'upper' must be non-zero and positive")
   }
   create_distr(

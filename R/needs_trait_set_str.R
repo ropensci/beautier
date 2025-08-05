@@ -7,11 +7,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 needs_trait_set_str <- function(inference_model) {
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
 
-  if (is_one_na(inference_model$tipdates_filename)) {
+  if (beautier::is_one_na(inference_model$tipdates_filename)) {
     return(FALSE)
   }
-  t <- read_tipdates_file(inference_model$tipdates_filename)
+  t <- beautier::read_tipdates_file(inference_model$tipdates_filename)
   !all(t$time == "0")
 }

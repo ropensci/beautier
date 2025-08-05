@@ -33,7 +33,7 @@ create_beast2_input_data <- function(
     beauti_options = beauti_options
   )
   # Data closing tag
-  data_close_text <- indent(
+  data_close_text <- beautier::indent(
     "</data>", n_spaces = beauti_options$sequence_indent - 4
   )
   if (beauti_options$beast2_version == "2.6") {

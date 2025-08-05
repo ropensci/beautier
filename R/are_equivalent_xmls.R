@@ -48,7 +48,7 @@ are_equivalent_xml_lines <- function(
   section = NA,
   verbose = FALSE
 ) {
-  if (is_one_na(section)) {
+  if (beautier::is_one_na(section)) {
     return(
       are_equivalent_xml_lines_all(
         lines_1 = lines_1,
@@ -57,7 +57,7 @@ are_equivalent_xml_lines <- function(
       )
     )
   } else {
-    beautier::check_true(!is_one_na(section))
+    beautier::check_true(!beautier::is_one_na(section))
     return(
       are_equivalent_xml_lines_section(
         lines_1 = lines_1,

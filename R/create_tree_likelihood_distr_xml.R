@@ -67,7 +67,7 @@ create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
 
   # Create the '<siteModel' XML section
   text <- c(text,
-    indent(
+    beautier::indent(
       create_site_model_xml(
         inference_model = inference_model
       )
@@ -75,7 +75,7 @@ create_tree_likelihood_distr_xml <- function(# nolint long function name indeed
   )
   # Create the '<branchRateModel' XML section
   text <- c(text,
-    indent(
+    beautier::indent(
       create_branch_rate_model_xml(
         inference_model = inference_model
       )

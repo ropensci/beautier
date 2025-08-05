@@ -7,7 +7,7 @@ extract_xml_operators_from_lines <- function(# nolint indeed a long function nam
   lines
 ) {
   first_line <- find_first_regex_line(lines, "<operator id=\"")
-  if (is_one_na(first_line)) {
+  if (beautier::is_one_na(first_line)) {
     return("")
   }
   last_line <- find_last_regex_line(

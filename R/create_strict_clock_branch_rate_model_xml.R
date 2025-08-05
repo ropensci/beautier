@@ -15,10 +15,10 @@ create_strict_clock_branch_rate_model_xml <- function(# nolint long function nam
 
   id <- inference_model$clock_model$id
 
-  has_tipdates_filename <- !is_one_na(
+  has_tipdates_filename <- !beautier::is_one_na(
     inference_model$tipdates_filename
   )
-  has_mrca_prior <- !is_one_na(inference_model$mrca_prior)
+  has_mrca_prior <- !beautier::is_one_na(inference_model$mrca_prior)
   has_mrca_prior_distr <- NA
   if (has_mrca_prior) {
     has_mrca_prior_distr <- is_one_na(

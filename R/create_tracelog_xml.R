@@ -41,7 +41,7 @@ create_tracelog_xml <- function(# nolint keep long function name, as it extends 
     )
   )
 
-  text <- indent(text)
+  text <- beautier::indent(text)
 
   top_line <- paste0(
     "<logger ",

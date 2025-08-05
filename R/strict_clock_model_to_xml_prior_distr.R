@@ -48,12 +48,12 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
     text <- c(
       text,
       opening_tag,
-      indent(distr_xml),
+      beautier::indent(distr_xml),
       closing_tag
     )
   }
 
-  if (!is_one_na(inference_model$tipdates_filename)) {
+  if (!beautier::is_one_na(inference_model$tipdates_filename)) {
     clock_model <- inference_model$clock_model
     id <- clock_model$id
     beautier::check_true(beautier::is_id(id))
@@ -65,7 +65,7 @@ strict_clock_model_to_xml_prior_distr <- function( # nolint indeed a long intern
       )
     )
     text <- c(text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           clock_model$clock_rate_distr,
           beauti_options = inference_model$beauti_options

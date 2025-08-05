@@ -31,7 +31,7 @@ init_clock_models <- function(
           distr_id = distr_id,
           param_id = param_id
         )
-        if (is_one_na(clock_model$dimension)) {
+        if (beautier::is_one_na(clock_model$dimension)) {
           clock_model$dimension <- (2 * n_taxa) - 2
         }
 
@@ -60,7 +60,7 @@ init_clock_models <- function(
       beautier::check_true(is_init_strict_clock_model(clock_model))
     }
 
-    if (is_one_na(clock_model$id)) clock_model$id <- ids[i]
+    if (beautier::is_one_na(clock_model$id)) clock_model$id <- ids[i]
 
     clock_models[[i]] <- clock_model
   }
@@ -109,7 +109,7 @@ init_rln_clock_model <- function(
   param_id <- param_id + get_distr_n_params(mean_rate_prior_distr)
 
   mparam_id <- rln_clock_model$mparam_id
-  if (is_one_na(mparam_id)) {
+  if (beautier::is_one_na(mparam_id)) {
     mparam_id <- param_id
     param_id <- param_id + 1
   }

@@ -38,7 +38,7 @@ compare_lines <- function(
     pattern = "expected", fileext = ".xml"
   )
 ) {
-  if (!is_one_na(section)) {
+  if (!beautier::is_one_na(section)) {
     lines <- extract_xml_section_from_lines(
       lines = lines,
       section = section

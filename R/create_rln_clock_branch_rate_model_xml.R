@@ -59,8 +59,8 @@ create_rln_clock_branch_rate_model_xml <- function(# nolint long function name, 
   )
   text <- c(
     text,
-    indent(
-      indent(
+    beautier::indent(
+      beautier::indent(
         m_param_to_xml(
           m_param = create_m_param(
             id = mparam_id,

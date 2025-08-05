@@ -37,7 +37,7 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$rate_ac_prior_distr,
           beauti_options = beauti_options
@@ -56,7 +56,7 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$rate_ag_prior_distr,
           beauti_options = beauti_options
@@ -75,7 +75,7 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$rate_at_prior_distr,
           beauti_options = beauti_options
@@ -94,7 +94,7 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$rate_cg_prior_distr,
           beauti_options = beauti_options
@@ -113,7 +113,7 @@ gtr_site_model_to_xml_prior_distr <- function( # nolint indeed a long internal f
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           site_model$rate_gt_prior_distr,
           beauti_options = beauti_options

@@ -50,7 +50,7 @@ init_site_models <- function(
     distr_id <- distr_id + get_site_model_n_distrs(site_model)
     param_id <- param_id + get_site_model_n_params(site_model)
 
-    if (is_one_na(site_model$id)) site_model$id <- ids[i]
+    if (beautier::is_one_na(site_model$id)) site_model$id <- ids[i]
     beautier::check_true(is_init_site_model(site_model))
     site_models[[i]] <- site_model
   }
@@ -82,7 +82,7 @@ init_gtr_site_model <- function(
 
   # Initialize gamma site model, if any
   if (
-    !is_one_na(
+    !beautier::is_one_na(
       gtr_site_model$gamma_site_model$gamma_shape_prior_distr
     )
   ) {
@@ -231,7 +231,7 @@ init_hky_site_model <- function(
 
   # Initialize gamma site model, if any
   if (
-    !is_one_na(
+    !beautier::is_one_na(
       hky_site_model$gamma_site_model$gamma_shape_prior_distr
     )
   ) {
@@ -295,7 +295,7 @@ init_jc69_site_model <- function(
 
   # Initialize gamma site model, if any
   if (
-    !is_one_na(
+    !beautier::is_one_na(
       jc69_site_model$gamma_site_model$gamma_shape_prior_distr
     )
   ) {
@@ -349,7 +349,7 @@ init_tn93_site_model <- function(
 
   # Initialize gamma site model, if any
   if (
-    !is_one_na(
+    !beautier::is_one_na(
       tn93_site_model$gamma_site_model$gamma_shape_prior_distr
     )
   ) {

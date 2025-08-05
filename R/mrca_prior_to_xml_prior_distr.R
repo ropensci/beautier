@@ -30,10 +30,10 @@ mrca_prior_to_xml_prior_distr <- function(
   beautier::check_true(is_mrca_prior(mrca_prior))
   text <- NULL
   if (!has_non_strict_clock_model &&
-      !is_one_na(mrca_prior$mrca_distr) &&
+      !beautier::is_one_na(mrca_prior$mrca_distr) &&
       is_one_na(inference_model$tipdates_filename)
   ) {
-    beautier::check_true(!is_one_na(mrca_prior$alignment_id))
+    beautier::check_true(!beautier::is_one_na(mrca_prior$alignment_id))
     text <- c(
       text,
       paste0(
@@ -44,7 +44,7 @@ mrca_prior_to_xml_prior_distr <- function(
     )
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           create_uniform_distr(
             id = mrca_prior$clock_prior_distr_id
@@ -63,7 +63,7 @@ mrca_prior_to_xml_prior_distr <- function(
   if (mrca_prior$is_monophyletic) {
     opening_tag <- paste0(opening_tag, "monophyletic=\"true\" ")
   }
-  beautier::check_true(!is_one_na(mrca_prior$alignment_id))
+  beautier::check_true(!beautier::is_one_na(mrca_prior$alignment_id))
   opening_tag <- paste0(
     opening_tag, "tree=\"@Tree.t:", mrca_prior$alignment_id, "\">"
   )
@@ -71,7 +71,7 @@ mrca_prior_to_xml_prior_distr <- function(
   text <- c(text, opening_tag)
   text <- c(
     text,
-    indent(
+    beautier::indent(
       mrca_prior_to_xml_taxonset(
         mrca_prior,
         taxa_names_with_ids
@@ -81,7 +81,7 @@ mrca_prior_to_xml_prior_distr <- function(
   if (is_distr(mrca_prior$mrca_distr)) {
     text <- c(
       text,
-      indent(
+      beautier::indent(
         distr_to_xml(
           mrca_prior$mrca_distr,
           beauti_options = inference_model$beauti_options

@@ -49,7 +49,7 @@ create_beast2_input_run <- function(
 
   # Create the '<state...' part
   text <- c(text,
-    indent(
+    beautier::indent(
       create_beast2_input_state(
         inference_model = inference_model
       )
@@ -65,7 +65,7 @@ create_beast2_input_run <- function(
   text <- c(text, "")
 
   text <- c(text,
-    indent(
+    beautier::indent(
       create_beast2_input_distr(
         inference_model = inference_model
       )
@@ -76,7 +76,7 @@ create_beast2_input_run <- function(
 
   text <- c(
     text,
-    indent(
+    beautier::indent(
       create_beast2_input_operators(
         inference_model = inference_model
       )

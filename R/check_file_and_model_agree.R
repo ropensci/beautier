@@ -24,7 +24,7 @@ check_file_and_model_agree <- function(
   }
 
   # All MRCA prior's alignment IDs must match the FASTA file IDs
-  if (!is_one_na(inference_model$mrca_prior)) {
+  if (!beautier::is_one_na(inference_model$mrca_prior)) {
     beautier::check_true(is_mrca_prior(inference_model$mrca_prior))
 
     if (
@@ -47,7 +47,7 @@ check_file_and_model_agree <- function(
   }
 
   # All MRCA prior's taxa names must be FASTA file taxa names
-  if (!is_one_na(inference_model$mrca_prior)) {
+  if (!beautier::is_one_na(inference_model$mrca_prior)) {
     if (
       !are_mrca_taxon_names_in_fasta(
         mrca_prior = inference_model$mrca_prior,

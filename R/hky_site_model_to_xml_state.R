@@ -18,11 +18,11 @@ hky_site_model_to_xml_state <- function(
   beautier::check_true("freq_param" %in% names(site_model))
   beautier::check_true("kappa_param" %in% names(site_model))
 
-  if (is_one_na(site_model$freq_param$id)) {
+  if (beautier::is_one_na(site_model$freq_param$id)) {
     site_model$freq_param$id <- id
   }
 
-  if (is_one_na(site_model$kappa_param$id)) {
+  if (beautier::is_one_na(site_model$kappa_param$id)) {
     site_model$kappa_param$id <- id
   }
 

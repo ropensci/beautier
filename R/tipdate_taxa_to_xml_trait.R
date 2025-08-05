@@ -30,9 +30,9 @@ tipdate_taxa_to_xml_trait <- function(inference_model) {
   if (needs_trait_set_str(inference_model)) {
 
     # read_tipdates_file wil check the file
-    tipdates_table <- read_tipdates_file(inference_model$tipdates_filename)
+    tipdates_table <- beautier::read_tipdates_file(inference_model$tipdates_filename)
 
-    trait_set_str <- create_trait_set_string(tipdates_table)
+    trait_set_str <- beautier::create_trait_set_string(tipdates_table)
   }
   first_line <- paste0(
     "<trait id=\"dateTrait.t:", id, "\" ",

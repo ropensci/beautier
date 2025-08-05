@@ -23,6 +23,6 @@
 #' check_empty_beautier_folder()
 #' @export
 has_tip_dating <- function(inference_model) {
-  check_inference_model(inference_model)
-  !is_one_na(inference_model$tipdates_filename)
+  beautier::check_inference_model(inference_model)
+  !beautier::is_one_na(inference_model$tipdates_filename)
 }

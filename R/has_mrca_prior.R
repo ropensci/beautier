@@ -31,6 +31,6 @@
 has_mrca_prior <- function(
   inference_model
 ) {
-  check_inference_model(inference_model)
-  !is_one_na(inference_model$mrca_prior)
+  beautier::check_inference_model(inference_model)
+  !beautier::is_one_na(inference_model$mrca_prior)
 }

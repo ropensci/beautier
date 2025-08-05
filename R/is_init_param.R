@@ -12,5 +12,5 @@ is_init_param <- function(
   if (!is_param(x)) {
     stop("'x' must be a parameter")
   }
-  !is_one_na(x$id)
+  !beautier::is_one_na(x$id)
 }

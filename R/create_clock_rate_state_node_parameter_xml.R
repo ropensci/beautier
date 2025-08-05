@@ -32,7 +32,7 @@ create_clock_rate_state_node_parameter_xml <- function(inference_model) { # noli
   beautier::check_true(beautier::has_tip_dating(inference_model))
   clock_model <- inference_model$clock_model
   id <- clock_model$id
-  beautier::check_false(is_one_na(id))
+  beautier::check_false(beautier::is_one_na(id))
 
   xml <- paste0(
     "<parameter id=\"clockRate.c:", id, "\" "

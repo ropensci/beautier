@@ -63,7 +63,7 @@ create_hky_subst_model_xml <- function( # nolint indeed a long function name, wh
   beautier::check_true(beautier::is_id(id))
 
   text <- NULL
-  freq_equilibrium_text <- indent(
+  freq_equilibrium_text <- beautier::indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
   beautier::check_true(is_hky_site_model(site_model))
@@ -93,7 +93,7 @@ create_tn93_subst_model_xml <- function( # nolint indeed a long function name, w
   beautier::check_true(beautier::is_id(id))
 
   text <- NULL
-  freq_equilibrium_text <- indent(
+  freq_equilibrium_text <- beautier::indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
@@ -154,7 +154,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
   beautier::check_true(beautier::is_id(id))
 
   text <- NULL
-  freq_equilibrium_text <- indent(
+  freq_equilibrium_text <- beautier::indent(
     freq_equilibrium_to_xml(site_model$freq_equilibrium, id)
   )
 
@@ -195,7 +195,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     site_model$rate_ac_param$id <- id
     text <- c(
       text,
-      indent(
+      beautier::indent(
         beautier::parameter_to_xml_rate_ac(
           site_model$rate_ac_param, which_name = "rate_name"
         )
@@ -208,7 +208,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     site_model$rate_ag_param$id <- id
     text <- c(
       text,
-      indent(
+      beautier::indent(
         beautier::parameter_to_xml_rate_ag(
           site_model$rate_ag_param, which_name = "rate_name"
         )
@@ -221,7 +221,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     site_model$rate_at_param$id <- id
     text <- c(
       text,
-      indent(
+      beautier::indent(
         beautier::parameter_to_xml_rate_at(
           site_model$rate_at_param, which_name = "rate_name"
         )
@@ -234,7 +234,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     site_model$rate_cg_param$id <- id
     text <- c(
       text,
-      indent(
+      beautier::indent(
         beautier::parameter_to_xml_rate_cg(
           site_model$rate_cg_param, which_name = "rate_name"
         )
@@ -246,7 +246,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     site_model$rate_ct_param$id <- id
     text <- c(
       text,
-      indent(
+      beautier::indent(
         beautier::parameter_to_xml_rate_ct(
           site_model$rate_ct_param, which_name = "rate_name"
         )
@@ -257,7 +257,7 @@ create_gtr_subst_model_xml <- function( # nolint indeed a long function name, wh
     site_model$rate_gt_param$id <- id
     text <- c(
       text,
-      indent(
+      beautier::indent(
         beautier::parameter_to_xml_rate_gt(
           site_model$rate_gt_param,
           which_name = "rate_name"

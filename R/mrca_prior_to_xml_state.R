@@ -26,7 +26,7 @@ mrca_prior_to_xml_state <- function(
   has_non_strict_clock_model <- !is_strict_clock_model(
     inference_model$clock_model
   )
-  if (is_one_na(mrca_prior)) {
+  if (beautier::is_one_na(mrca_prior)) {
     return(NULL)
   }
   if (mrca_prior$is_monophyletic == FALSE &&
@@ -35,7 +35,7 @@ mrca_prior_to_xml_state <- function(
         is_one_na(mrca_prior$mrca_distr)) return(NULL)
   if (!has_non_strict_clock_model &&
         is_one_na(inference_model$tipdates_filename)) {
-    beautier::check_true(!is_one_na(mrca_prior$alignment_id))
+    beautier::check_true(!beautier::is_one_na(mrca_prior$alignment_id))
     paste0(
       "<parameter ",
       "id=\"clockRate.c:", mrca_prior$alignment_id, "\" ",

@@ -9,7 +9,7 @@ is_init_distr <- function(
   x
 ) {
   if (!is_distr(x)) return(FALSE)
-  if (is_one_na(x$id)) return(FALSE)
+  if (beautier::is_one_na(x$id)) return(FALSE)
 
   if (is_beta_distr(x)) {
     is_init_beta_distr(x)
@@ -46,7 +46,7 @@ is_init_beta_distr <- function(
   x
 ) {
   beautier::check_true(is_beta_distr(x))
-  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
+  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized exponential distribution object
@@ -60,7 +60,7 @@ is_init_exp_distr <- function(
   x
 ) {
   beautier::check_true(is_exp_distr(x))
-  !is_one_na(x$mean$id)
+  !beautier::is_one_na(x$mean$id)
 }
 
 #' Determine if x is an initialized gamma distribution object
@@ -73,7 +73,7 @@ is_init_gamma_distr <- function(
   x
 ) {
   beautier::check_true(is_gamma_distr(x))
-  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
+  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized inverse-gamma distribution
@@ -87,7 +87,7 @@ is_init_inv_gamma_distr <- function(
   x
 ) {
   beautier::check_true(is_inv_gamma_distr(x))
-  !is_one_na(x$alpha$id) && !is_one_na(x$beta$id)
+  !beautier::is_one_na(x$alpha$id) && !beautier::is_one_na(x$beta$id)
 }
 
 #' Determine if x is an initialized Laplace distribution
@@ -101,7 +101,7 @@ is_init_laplace_distr <- function(
   x
 ) {
   beautier::check_true(is_laplace_distr(x))
-  !is_one_na(x$mu$id) && !is_one_na(x$scale$id)
+  !beautier::is_one_na(x$mu$id) && !beautier::is_one_na(x$scale$id)
 }
 
 #' Determine if x is an initialized log_normal distribution object
@@ -115,7 +115,7 @@ is_init_log_normal_distr <- function(
   x
 ) {
   beautier::check_true(is_log_normal_distr(x))
-  !is_one_na(x$m$id) && !is_one_na(x$s$id)
+  !beautier::is_one_na(x$m$id) && !beautier::is_one_na(x$s$id)
 }
 
 #' Determine if x is an initialized normal distribution object
@@ -129,7 +129,7 @@ is_init_normal_distr <- function(
   x
 ) {
   beautier::check_true(is_normal_distr(x))
-  !is_one_na(x$mean$id) && !is_one_na(x$sigma$id)
+  !beautier::is_one_na(x$mean$id) && !beautier::is_one_na(x$sigma$id)
 }
 
 #' Determine if x is an initialized one_div_x distribution object
@@ -157,7 +157,7 @@ is_init_poisson_distr <- function(
   x
 ) {
   beautier::check_true(is_poisson_distr(x))
-  !is_one_na(x$lambda$id)
+  !beautier::is_one_na(x$lambda$id)
 }
 
 #' Determine if x is an initialized uniform distribution object

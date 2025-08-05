@@ -31,8 +31,8 @@ is_init_rln_clock_model <- function(
   if (!is_init_distr(rln_clock_model$mean_rate_prior_distr)) {
     return(FALSE)
   }
-  !is_one_na(rln_clock_model$mparam_id) &&
-    !is_one_na(rln_clock_model$dimension)
+  !beautier::is_one_na(rln_clock_model$mparam_id) &&
+    !beautier::is_one_na(rln_clock_model$dimension)
 }
 
 #' Determine if x is an initialized strict clock_model object
@@ -47,5 +47,5 @@ is_init_strict_clock_model <- function(
   if (!is_init_distr(strict_clock_model$clock_rate_distr)) {
     return(FALSE)
   }
-  !is_one_na(strict_clock_model$clock_rate_param$id)
+  !beautier::is_one_na(strict_clock_model$clock_rate_param$id)
 }

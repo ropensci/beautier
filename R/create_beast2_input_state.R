@@ -61,7 +61,7 @@ create_beast2_input_state <- function(
     )
   )
 
-  text <- indent(text)
+  text <- beautier::indent(text)
 
   state_start_tag <- "<state id=\"state\" "
   if (inference_model$beauti_options$beast2_version == "2.6") {

@@ -53,7 +53,7 @@ check_tipdates_file <- function(tipdates_filename) {
   second_value_as_text <- stringr::str_split(first_line, "\\t")[[1]][2]
   second_value <- suppressWarnings(as.numeric(second_value_as_text))
 
-  if (is_one_na(second_value)) {
+  if (beautier::is_one_na(second_value)) {
     stop(
       "Tipdating filename at path '",
       tipdates_filename, "' ",

@@ -39,7 +39,7 @@ create_treelog_xml <- function(
   text <- c(text, top_line)
   text <- c(
     text,
-    indent(
+    beautier::indent(
       clock_model_to_xml_treelogger(
         inference_model$clock_model
       )

@@ -73,8 +73,8 @@ create_site_model_xml <- function(
   # Layout of the text
   c(
     site_model_begin_tag,
-    indent(site_model_parameters),
-    indent(subst_model_xml),
+    beautier::indent(site_model_parameters),
+    beautier::indent(subst_model_xml),
     site_model_end_tag
   )
 }

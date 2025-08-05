@@ -12,15 +12,15 @@ has_xml_opening_tag <- function(
   section = NA
 ) {
   if (is.null(section) ||
-      (!is.character(section) && !is_one_na(section))
+      (!is.character(section) && !beautier::is_one_na(section))
   ) {
     stop("'section' must be NA or a word")
   }
-  if (is_one_na(section)) {
+  if (beautier::is_one_na(section)) {
     tag <- get_xml_opening_tag(lines)
-    return(!is_one_na(tag))
+    return(!beautier::is_one_na(tag))
   }
-  !is_one_na(
+  !beautier::is_one_na(
     find_first_xml_opening_tag_line(lines, section)
   )
 }

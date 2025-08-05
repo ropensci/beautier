@@ -33,8 +33,8 @@ strict_clock_model_to_xml_operators <- function( # nolint indeed a long internal
         "scaleFactor=\"0.75\" ",
         "weight=\"3.0\">"
       ),
-      indent(paste0("<up idref=\"clockRate.c:", id, "\"/>")),
-      indent(paste0("<down idref=\"Tree.t:", id, "\"/>")),
+      beautier::indent(paste0("<up idref=\"clockRate.c:", id, "\"/>")),
+      beautier::indent(paste0("<down idref=\"Tree.t:", id, "\"/>")),
       "</operator>"
     )
   }

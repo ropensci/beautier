@@ -51,6 +51,6 @@ create_inference_model <- function(
     beauti_options = beauti_options,
     tipdates_filename = tipdates_filename
   )
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
   inference_model
 }

@@ -48,5 +48,5 @@ create_beast2_input_data_sequences <- function( # nolint indeed long function na
     )
   }
 
-  indent(text = text, n_spaces = beauti_options$sequence_indent)
+  beautier::indent(text = text, n_spaces = beauti_options$sequence_indent)
 }

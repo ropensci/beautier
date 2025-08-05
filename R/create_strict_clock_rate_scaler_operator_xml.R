@@ -23,7 +23,7 @@
 #' check_empty_beautier_folder()
 #' @export
 create_strict_clock_rate_scaler_operator_xml <- function(inference_model) { # nolint indeed a long function name
-  check_inference_model(inference_model)
+  beautier::check_inference_model(inference_model)
   clock_model <- inference_model$clock_model
   beautier::check_true(is_strict_clock_model(clock_model))
   id <- clock_model$id

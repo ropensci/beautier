@@ -60,7 +60,7 @@ check_mcmc_values <- function(mcmc) {
     )
   }
   check_store_every(mcmc$store_every)
-  if (!is_one_na(mcmc$store_every) &&
+  if (!beautier::is_one_na(mcmc$store_every) &&
       mcmc$store_every > mcmc$chain_length
   ) {
     stop(
@@ -69,7 +69,7 @@ check_mcmc_values <- function(mcmc) {
       "Actual value of 'mcmc$store_every': ", mcmc$store_every, "'"
     )
   }
-  if (!is_one_na(mcmc$store_every) &&
+  if (!beautier::is_one_na(mcmc$store_every) &&
       mcmc$store_every != -1 && mcmc$store_every < 1000
   ) {
     stop("'mcmc$store_every' must be at least 1000, NA or -1")
