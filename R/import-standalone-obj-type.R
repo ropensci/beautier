@@ -171,7 +171,7 @@ obj_type_friendly <- function(x, value = TRUE) {
 
 vec_type_friendly <- function(x, length = FALSE) {
   if (!rlang::is_vector(x)) {
-    abort("`x` must be a vector.")
+    rlang::abort("`x` must be a vector.")
   }
   type <- typeof(x)
   n_dim <- length(dim(x))
@@ -257,8 +257,8 @@ vec_type_friendly <- function(x, length = FALSE) {
   )
 }
 
-.rlang_stop_unexpected_typeof <- function(x, call = caller_env()) {
-  abort(
+.rlang_stop_unexpected_typeof <- function(x, call = rlang::caller_env()) {
+  rlang::abort(
     sprintf("Unexpected type <%s>.", typeof(x)),
     call = call
   )
@@ -298,7 +298,7 @@ obj_type_oo <- function(x) {
 #'   character vector of expected types, in which case the error
 #'   message mentions all of them in an "or" enumeration.
 #' @param show_value Passed to `value` argument of `obj_type_friendly()`.
-#' @param ... Arguments passed to [abort()].
+#' @param ... Arguments passed to \link[rlang]{abort}.
 #' @param allow_na allow NA to be valid
 #' @param allow_null allow NULL to be valid
 #' @param show_value set to TRUE to show the value
@@ -348,7 +348,7 @@ stop_input_type <- function(
     obj_type_friendly(x, value = show_value)
   )
 
-  abort(message, ..., call = call, arg = arg)
+  rlang::abort(message, ..., call = call, arg = arg)
 }
 
 oxford_comma <- function(chr, sep = ", ", final = "or") {

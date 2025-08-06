@@ -23,7 +23,7 @@ stop_input_type(
 character vector of expected types, in which case the error
 message mentions all of them in an "or" enumeration.}
 
-\item{...}{Arguments passed to [abort()].}
+\item{...}{Arguments passed to \link[rlang]{abort}.}
 
 \item{allow_na}{allow NA to be valid}
 

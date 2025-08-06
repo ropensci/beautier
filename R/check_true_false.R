@@ -24,8 +24,11 @@ check_true <- function(
   if (
     !missing(x)
     && !isFALSE(x)
-    && .standalone_types_check_dot_call(
-      ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null
+    && .standalone_types_check_dot_call( # nolint no idea how to get rid of a linter warning in any other way
+      ffi_standalone_is_bool_1.0.7, # nolint no idea how to get rid of a linter warning in any other way
+      x,
+      allow_na,
+      allow_null
     )
   ) {
     return(invisible(NULL))
@@ -68,8 +71,11 @@ check_false <- function(
   if (
     !missing(x)
     && !isTRUE(x)
-    && .standalone_types_check_dot_call(
-      ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null
+    && .standalone_types_check_dot_call( # nolint no idea how to get rid of a linter warning in any other way
+      ffi_standalone_is_bool_1.0.7, # nolint no idea how to get rid of a linter warning in any other way
+      x,
+      allow_na,
+      allow_null
     )
   ) {
     return(invisible(NULL))
