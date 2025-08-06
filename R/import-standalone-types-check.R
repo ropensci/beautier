@@ -266,7 +266,7 @@ check_number_whole <- function(
   allow_infinite = FALSE,
   allow_na = FALSE,
   allow_null = FALSE,
-  arg = rlang::aller_arg(x),
+  arg = rlang::caller_arg(x),
   call = rlang::caller_env()
 ) {
   if (missing(x)) {
