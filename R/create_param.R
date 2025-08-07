@@ -823,7 +823,7 @@ create_s_param <- create_param_s <- function(
   id = NA,
   value = 0.0,
   lower = 0.0,
-  upper = Inf
+  upper = NA
 ) {
   create_param(
     name = "s",

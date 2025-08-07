@@ -21,7 +21,7 @@ test_that("reproduce same as in BEAUti v2.4 file", {
   xml <- readr::read_lines(beautier::get_beautier_path("tn93_2_4.xml"))
   expected <- unindent(stringr::str_subset(xml, "RealParameter.4.*name=.S."))
   created <- s_parameter_to_xml(
-    create_s_param(id = 4, value = 1.25),
+    create_s_param(id = 4, value = 1.25, upper = NA),
     beauti_options = create_beauti_options_v2_4()
   )
   expect_equal(created, expected)

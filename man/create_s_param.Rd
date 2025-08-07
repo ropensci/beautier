@@ -5,7 +5,7 @@
 \alias{create_param_s}
 \title{Create a parameter called s}
 \usage{
-create_s_param(id = NA, value = 0, lower = 0, upper = Inf)
+create_s_param(id = NA, value = 0, lower = 0, upper = NA)
 }
 \arguments{
 \item{id}{the parameter's ID}
