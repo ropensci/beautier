@@ -84,7 +84,7 @@ check_bool <- function(
   if (
     !missing(x)
     && .standalone_types_check_dot_call(
-      ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null
+      rlang::ffi_standalone_is_bool_1.0.7, x, allow_na, allow_null
     )
   ) {
     return(invisible(NULL))
