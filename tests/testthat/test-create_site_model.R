@@ -35,6 +35,16 @@ test_that("abuse", {
 
 })
 
+test_that("create_gtr_site_model: devious", {
+
+  expect_error(
+    create_gtr_site_model(
+      freq_param = "nonsense"
+    )
+  )
+
+})
+
 test_that("create_gtr_site_model: new interface", {
 
   # Old interface

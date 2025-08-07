@@ -30,13 +30,22 @@ test_that("abuse, general clock model", {
     "'id' must be an element of 'clock_model'"
   )
 
-  # Break clock name
+  # Invalid clock name
   clock_model <- create_strict_clock_model()
   clock_model$name <- "nonsense"
   expect_error(
     check_clock_model(clock_model),
     "'clock_model\\$name' must be one of the clock model names"
   )
+
+  # Invalid rate_scaler_factor
+  clock_model <- create_strict_clock_model()
+  clock_model$rate_scaler_factor <- "nonsense"
+  expect_error(
+    check_clock_model(clock_model),
+    "'rate_scaler_factor' must be a number or a string that can be converted to a number or an empty string"
+  )
+
 })
 
 test_that("abuse, rln clock model", {

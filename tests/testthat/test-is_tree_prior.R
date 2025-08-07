@@ -81,6 +81,15 @@ test_that("is_cbs_tree_prior, devious", {
   # No 'group_sizes_dimension'
   h <- g[names(g) != "group_sizes_dimension"]
   expect_false(is_cbs_tree_prior(h))
+
+  # No 'b_pop_sizes_param'
+  h <- g[names(g) != "b_pop_sizes_param"]
+  expect_false(is_cbs_tree_prior(h))
+
+  # No 'pop_sizes_scaler_scale_factor'
+  h <- g[names(g) != "pop_sizes_scaler_scale_factor"]
+  expect_false(is_cbs_tree_prior(h))
+
 })
 
 test_that("is_ccp_tree_prior, devious", {

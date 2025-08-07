@@ -206,6 +206,12 @@ test_that("is_hky_site_model: devious", {
   h <- g
   h$freq_equilibrium <- "nonsense"
   expect_false(is_hky_site_model(h))
+
+  # Invalid 'kappa_param'
+  h <- g
+  h$kappa_param <- "nonsense"
+  expect_false(is_hky_site_model(h))
+
 })
 
 test_that("is_tn93_site_model: devious", {

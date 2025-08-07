@@ -51,8 +51,7 @@ check_empty_beautier_folder <- function(
       paste(utils::head(filenames), collapse = ",")
     )
   }
-  if (dir.exists(beautier_folder)) {
-    stop("'beautier' folder found at ", beautier_folder)
-  }
-  invisible(beautier_folder)
+  # Last possible cause for an error
+  testthat::expect_true(dir.exists(beautier_folder))
+  stop("'beautier' folder found at ", beautier_folder)
 }

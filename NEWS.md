@@ -13,11 +13,11 @@ Newest versions at top.
 
 ## MINOR IMPROVEMENTS
 
-- None
+- Code coverage is 100.00%
 
 ## BUG FIXES
 
-- None
+- `s_parameter_to_xml` can handle an upper value of infinity
 
 ## DEPRECATED AND DEFUNCT
 

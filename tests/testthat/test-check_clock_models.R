@@ -1,5 +1,3 @@
-context("test-check_clock_models")
-
 test_that("use", {
   expect_silent(
     check_clock_models(

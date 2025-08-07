@@ -52,11 +52,12 @@ s_parameter_to_xml <- function(
   if (!beautier::is_one_na(upper)) {
     if (!is.infinite(upper)) {
       upper_txt <- upper
-      if (is.infinite(upper)) {
-        upper_txt <- "Infinity"
-      }
-      text <- paste0(text, " upper=\"", upper_txt, "\"")
     }
+    else {
+      testthat::expect_true(is.infinite(upper))
+      upper_txt <- "Infinity"
+    }
+    text <- paste0(text, " upper=\"", upper_txt, "\"")
   }
   text <- paste0(text, ">", value, "</parameter>")
   text

@@ -56,6 +56,15 @@ test_that("is_alpha_param", {
 
 })
 
+
+test_that("is_b_pop_sizes_param", {
+
+  expect_true(is_b_pop_sizes_param(create_b_pop_sizes_param()))
+  expect_false(is_b_pop_sizes_param("nonsense"))
+
+})
+
+
 test_that("is_beta_param", {
 
   expect_true(is_beta_param(create_beta_param()))
@@ -74,6 +83,7 @@ test_that("is_freq_param", {
 
   expect_true(is_freq_param(create_freq_param()))
   expect_false(is_freq_param("nonsense"))
+  expect_false(is_freq_param(create_b_pop_sizes_param()))
 })
 
 test_that("is_freq_param, devious", {
@@ -85,6 +95,14 @@ test_that("is_freq_param, devious", {
   h <- g[names(g) != "lower"]
   expect_false(is_freq_param(h))
 
+  # No 'upper'
+  h <- g[names(g) != "upper"]
+  expect_false(is_freq_param(h))
+
+  # No 'value'
+  h <- g[names(g) != "value"]
+  expect_false(is_freq_param(h))
+
   # No 'estimate'
   h <- g[names(g) != "estimate"]
   expect_false(is_freq_param(h))
@@ -94,6 +112,25 @@ test_that("is_freq_param, devious", {
   expect_false(is_freq_param(h))
 })
 
+test_that("is_kappa_param", {
+
+  expect_true(is_kappa_param(create_kappa_param()))
+  expect_false(is_kappa_param("nonsense"))
+})
+
+test_that("is_kappa_param, devious", {
+
+  g <- create_kappa_param()
+  expect_true(is_kappa_param(g))
+
+  # No 'lower'
+  h <- g[names(g) != "lower"]
+  expect_false(is_kappa_param(h))
+
+  # No 'estimate'
+  h <- g[names(g) != "estimate"]
+  expect_false(is_kappa_param(h))
+})
 
 test_that("is_kappa_1_param", {
 

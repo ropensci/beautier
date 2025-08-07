@@ -27,5 +27,5 @@ get_n_taxa <- function(filename) {
       )
     }
   )
-  invisible(filename)
+  # Will never get here
 }
