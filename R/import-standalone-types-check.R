@@ -213,7 +213,7 @@ check_number_decimal <- function(x,
   if (missing(x)) {
     exit_code <- IS_NUMBER_false
   } else if (0 == (exit_code <- .standalone_types_check_dot_call(
-    ffi_standalone_check_number_1.0.7,
+    rlang::ffi_standalone_check_number_1.0.7,
     x,
     allow_decimal = TRUE,
     min,
@@ -272,7 +272,7 @@ check_number_whole <- function(
   if (missing(x)) {
     exit_code <- IS_NUMBER_false
   } else if (0 == (exit_code <- .standalone_types_check_dot_call(
-    ffi_standalone_check_number_1.0.7,
+    rlang::ffi_standalone_check_number_1.0.7,
     x,
     allow_decimal = FALSE,
     min,
@@ -421,7 +421,7 @@ check_environment <- function(x,
                               arg = rlang::caller_arg(x),
                               call = rlang::caller_env()) {
   if (!missing(x)) {
-    if (is_environment(x)) {
+    if (rlang::is_environment(x)) {
       return(invisible(NULL))
     }
     if (allow_null && rlang::is_null(x)) {
@@ -446,7 +446,7 @@ check_function <- function(x,
                            arg = rlang::caller_arg(x),
                            call = rlang::caller_env()) {
   if (!missing(x)) {
-    if (is_function(x)) {
+    if (rlang::is_function(x)) {
       return(invisible(NULL))
     }
     if (allow_null && rlang::is_null(x)) {
@@ -471,7 +471,7 @@ check_closure <- function(x,
                           arg = rlang::caller_arg(x),
                           call = rlang::caller_env()) {
   if (!missing(x)) {
-    if (is_closure(x)) {
+    if (rlang::is_closure(x)) {
       return(invisible(NULL))
     }
     if (allow_null && rlang::is_null(x)) {
@@ -496,7 +496,7 @@ check_formula <- function(x,
                           arg = rlang::caller_arg(x),
                           call = rlang::caller_env()) {
   if (!missing(x)) {
-    if (is_formula(x)) {
+    if (rlang::is_formula(x)) {
       return(invisible(NULL))
     }
     if (allow_null && rlang::is_null(x)) {
@@ -524,7 +524,7 @@ check_character <- function(x,
                             arg = rlang::caller_arg(x),
                             call = rlang::caller_env()) {
   if (!missing(x)) {
-    if (is_character(x)) {
+    if (rlang::is_character(x)) {
       return(invisible(NULL))
     }
     if (allow_null && rlang::is_null(x)) {
@@ -567,7 +567,7 @@ check_logical <- function(
   call = rlang::caller_env()
 ) {
   if (!missing(x)) {
-    if (is_logical(x)) {
+    if (rlang::is_logical(x)) {
       return(invisible(NULL))
     }
     if (allow_null && rlang::is_null(x)) {

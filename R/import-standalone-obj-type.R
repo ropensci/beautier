@@ -319,7 +319,7 @@ stop_input_type <- function(
   call = rlang::caller_env()
 ) {
   # From standalone-cli.R
-  cli <- env_get_list(
+  cli <- rlang::env_get_list(
     nms = c("format_arg", "format_code"),
     last = topenv(),
     default = function(x) sprintf("`%s`", x),
