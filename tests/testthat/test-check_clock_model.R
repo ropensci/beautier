@@ -43,7 +43,7 @@ test_that("abuse, general clock model", {
   clock_model$rate_scaler_factor <- "nonsense"
   expect_error(
     check_clock_model(clock_model),
-    "'rate_scaler_factor' must be a number or a string that can be converted to a number or an empty string"
+    "'rate_scaler_factor' must be a number or a string that can be converted to a number or an empty string" # nolint
   )
 
 })

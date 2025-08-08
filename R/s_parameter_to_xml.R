@@ -52,8 +52,7 @@ s_parameter_to_xml <- function(
   if (!beautier::is_one_na(upper)) {
     if (!is.infinite(upper)) {
       upper_txt <- upper
-    }
-    else {
+    } else {
       testthat::expect_true(is.infinite(upper))
       upper_txt <- "Infinity"
     }
