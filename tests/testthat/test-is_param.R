@@ -99,9 +99,9 @@ test_that("is_freq_param, devious", {
   h <- g[names(g) != "upper"]
   expect_false(is_freq_param(h))
 
-  # No 'value'
+  # No 'value', is checked by 'is_param'
   h <- g[names(g) != "value"]
-  expect_false(is_freq_param(h))
+  expect_false(is_freq_param(x = h))
 
   # No 'estimate'
   h <- g[names(g) != "estimate"]

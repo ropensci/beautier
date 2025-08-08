@@ -18,6 +18,8 @@ Newest versions at top.
 ## BUG FIXES
 
 - `s_parameter_to_xml` can handle an upper value of infinity
+- `create_s_parameter` has `NA` as the default value for `upper`,
+  as was already implicitly assumed when generating the BEAST2 XML
 
 ## DEPRECATED AND DEFUNCT
 

@@ -288,7 +288,8 @@ is_freq_param <- function(
   if (x$name != "freqParameter") return(FALSE) # redundant name
   if (!"lower" %in% names(x)) return(FALSE)
   if (!"upper" %in% names(x)) return(FALSE)
-  if (!"value" %in% names(x)) return(FALSE)
+  # Checked by 'is_param'
+  # if (!"value" %in% names(x)) return(FALSE) # nolint
   if (!"estimate" %in% names(x)) return(FALSE)
   if (!"dimension" %in% names(x)) return(FALSE)
   TRUE
