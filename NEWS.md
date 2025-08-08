@@ -5,7 +5,7 @@ Newest versions at top.
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD025 -->
 
-# beautier v2.6.15 (unreleased)
+# beautier v2.6.15 (2025-08-08)
 
 ## NEW FEATURES
 
