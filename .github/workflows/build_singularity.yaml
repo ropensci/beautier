@@ -1,3 +1,4 @@
+name: Build Singularity container
 
 on:
   push:
@@ -6,8 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
-name: build_singularity
 
 jobs:
   build_singularity:

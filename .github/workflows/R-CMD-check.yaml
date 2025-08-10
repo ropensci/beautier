@@ -1,3 +1,5 @@
+name: R-CMD-check
+
 # Check spelling on the 2nd day of the month.
 # 2nd as the first letter of this repo is the 2nd letter in the alphabet.
 on:
@@ -17,8 +19,6 @@ on:
       - .Rbuildignore
   schedule:
     - cron: "0 0 2 * *"
-
-name: R-CMD-check
 
 jobs:
   R-CMD-check:
