@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Fix markdown style errors,
+# Fix Markdown style errors,
 # as is recommended by the Markdown checker.
 #
 # Usage:
