@@ -1,0 +1,334 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "beautier" in publications use:'
+type: software
+license: GPL-3.0-only
+title: 'beautier: ''BEAUti'' from R'
+version: 2.6.16
+doi: 10.1111/2041-210X.13032
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.beautier
+abstract: '''BEAST2'' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+  tool, that uses DNA/RNA/protein data and many model priors to create a posterior
+  of jointly estimated phylogenies and parameters. ''BEAUti 2'' (which is part of
+  ''BEAST2'') is a GUI tool that allows users to specify the many possible setups
+  and generates the XML file ''BEAST2'' needs to run. This package provides a way
+  to create ''BEAST2'' input files without active user input, but using R function
+  calls instead.'
+authors:
+- family-names: Bilderbeek
+  given-names: Richèl J.C.
+  email: rjcbilderbeek@gmail.com
+  orcid: https://orcid.org/0000-0003-1107-7049
+preferred-citation:
+  type: article
+  title: 'babette: BEAUti 2, BEAST 2 and Tracer for R'
+  authors:
+  - family-names: Bilderbeek
+    given-names: Richèl JC
+  - family-names: Etienne
+    given-names: Rampal S
+  journal: Methods in Ecology and Evolution
+  year: '2018'
+  doi: 10.1111/2041-210X.13032
+repository: https://CRAN.R-project.org/package=beautier
+repository-code: https://github.com/ropensci/beautier
+url: https://docs.ropensci.org/beautier/
+contact:
+- family-names: Bilderbeek
+  given-names: Richèl J.C.
+  email: rjcbilderbeek@gmail.com
+  orcid: https://orcid.org/0000-0003-1107-7049
+keywords:
+- bayesian
+- beast
+- beast2
+- beauti
+- phylogenetic-inference
+- phylogenetics
+- r
+- r-package
+- rstats
+references:
+- type: software
+  title: ape
+  abstract: 'ape: Analyses of Phylogenetics and Evolution'
+  notes: Imports
+  url: https://github.com/emmanuelparadis/ape
+  repository: https://CRAN.R-project.org/package=ape
+  authors:
+  - family-names: Paradis
+    given-names: Emmanuel
+    email: Emmanuel.Paradis@ird.fr
+    orcid: https://orcid.org/0000-0003-3092-2199
+  - family-names: Blomberg
+    given-names: Simon
+    orcid: https://orcid.org/0000-0003-1062-0839
+  - family-names: Bolker
+    given-names: Ben
+    orcid: https://orcid.org/0000-0002-2127-0443
+  - family-names: Brown
+    given-names: Joseph
+    orcid: https://orcid.org/0000-0002-3835-8062
+  - family-names: Claramunt
+    given-names: Santiago
+    orcid: https://orcid.org/0000-0002-8926-5974
+  - family-names: Claude
+    given-names: Julien
+    orcid: https://orcid.org/0000-0002-9267-1228
+  - family-names: Cuong
+    given-names: Hoa Sien
+  - family-names: Desper
+    given-names: Richard
+  - family-names: Didier
+    given-names: Gilles
+    orcid: https://orcid.org/0000-0003-0596-9112
+  - family-names: Durand
+    given-names: Benoit
+  - family-names: Dutheil
+    given-names: Julien
+    orcid: https://orcid.org/0000-0001-7753-4121
+  - family-names: Ewing
+    given-names: RJ
+  - family-names: Gascuel
+    given-names: Olivier
+  - family-names: Guillerme
+    given-names: Thomas
+    orcid: https://orcid.org/0000-0003-4325-1275
+  - family-names: Heibl
+    given-names: Christoph
+    orcid: https://orcid.org/0000-0002-7655-3299
+  - family-names: Ives
+    given-names: Anthony
+    orcid: https://orcid.org/0000-0001-9375-9523
+  - family-names: Jones
+    given-names: Bradley
+    orcid: https://orcid.org/0000-0003-4498-1069
+  - family-names: Krah
+    given-names: Franz
+    orcid: https://orcid.org/0000-0001-7866-7508
+  - family-names: Lawson
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0002-5311-6213
+  - family-names: Lefort
+    given-names: Vincent
+  - family-names: Legendre
+    given-names: Pierre
+    orcid: https://orcid.org/0000-0002-3838-3305
+  - family-names: Lemon
+    given-names: Jim
+  - family-names: Louvel
+    given-names: Guillaume
+    orcid: https://orcid.org/0000-0002-7745-0785
+  - family-names: Marotta
+    given-names: Federico
+  - family-names: Marcon
+    given-names: Eric
+    orcid: https://orcid.org/0000-0002-5249-321X
+  - family-names: McCloskey
+    given-names: Rosemary
+    orcid: https://orcid.org/0000-0002-9772-8553
+  - family-names: Nylander
+    given-names: Johan
+  - family-names: Opgen-Rhein
+    given-names: Rainer
+  - family-names: Popescu
+    given-names: Andrei-Alin
+  - family-names: Royer-Carenzi
+    given-names: Manuela
+  - family-names: Schliep
+    given-names: Klaus
+    orcid: https://orcid.org/0000-0003-2941-0161
+  - family-names: Strimmer
+    given-names: Korbinian
+    orcid: https://orcid.org/0000-0001-7917-2056
+  - family-names: Vienne
+    given-names: Damien
+    name-particle: de
+    orcid: https://orcid.org/0000-0001-9532-5251
+  year: '2025'
+  doi: 10.32614/CRAN.package.ape
+- type: software
+  title: rappdirs
+  abstract: 'rappdirs: Application Directories: Determine Where to Save Data, Caches,
+    and Logs'
+  notes: Imports
+  url: https://rappdirs.r-lib.org
+  repository: https://CRAN.R-project.org/package=rappdirs
+  authors:
+  - family-names: Ratnakumar
+    given-names: Sridhar
+  - family-names: Mick
+    given-names: Trent
+  - family-names: Davis
+    given-names: Trevor
+  year: '2025'
+  doi: 10.32614/CRAN.package.rappdirs
+- type: software
+  title: purrr
+  abstract: 'purrr: Functional Programming Tools'
+  notes: Imports
+  url: https://purrr.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=purrr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.purrr
+- type: software
+  title: rlang
+  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  notes: Imports
+  url: https://rlang.r-lib.org
+  repository: https://CRAN.R-project.org/package=rlang
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.rlang
+  version: '>= 1.1.0'
+- type: software
+  title: seqinr
+  abstract: 'seqinr: Biological Sequences Retrieval and Analysis'
+  notes: Imports
+  url: https://seqinr.r-forge.r-project.org/
+  repository: https://CRAN.R-project.org/package=seqinr
+  authors:
+  - family-names: Charif
+    given-names: Delphine
+  - family-names: Lobry
+    given-names: Jean R.
+  year: '2025'
+  doi: 10.32614/CRAN.package.seqinr
+- type: software
+  title: stringr
+  abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
+  notes: Imports
+  url: https://stringr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=stringr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.stringr
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2025'
+  doi: 10.32614/CRAN.package.knitr
+- type: software
+  title: markdown
+  abstract: 'markdown: Render Markdown with ''commonmark'''
+  notes: Suggests
+  url: https://github.com/rstudio/markdown
+  repository: https://CRAN.R-project.org/package=markdown
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Allaire
+    given-names: JJ
+  - family-names: Horner
+    given-names: Jeffrey
+  year: '2025'
+  doi: 10.32614/CRAN.package.markdown
+- type: software
+  title: readr
+  abstract: 'readr: Read Rectangular Text Data'
+  notes: Suggests
+  url: https://readr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=readr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Bryan
+    given-names: Jennifer
+    email: jenny@posit.co
+    orcid: https://orcid.org/0000-0002-6983-2759
+  year: '2025'
+  doi: 10.32614/CRAN.package.readr
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2025'
+  doi: 10.32614/CRAN.package.rmarkdown
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.testthat
+  version: '>= 2.1.0'
+
