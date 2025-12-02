@@ -9,7 +9,7 @@
 [![DOI](https://zenodo.org/badge/53443354.svg)](https://zenodo.org/badge/latestdoi/53443354)
 
 Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/ropensci/beautier/actions)                                                                                      |[![Codecov logo](man/figures/Codecov.png)](https://about.codecov.io/)
----------|---------|---------
+---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------
 `main`   |[![R-CMD-check](https://github.com/ropensci/beastier/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/ropensci/beastier/actions/workflows/R-CMD-check.yaml)   |[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=main)](https://app.codecov.io/github/ropensci/beastier/branch/main)
 `develop`|[![R-CMD-check](https://github.com/ropensci/beastier/actions/workflows/R-CMD-check.yaml/badge.svg?branch=develop)](https://github.com/ropensci/beastier/actions/workflows/R-CMD-check.yaml)|[![codecov.io](https://codecov.io/github/ropensci/beastier/coverage.svg?branch=develop)](https://app.codecov.io/github/ropensci/beastier/branch/develop)
 
