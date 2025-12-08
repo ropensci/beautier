@@ -49,22 +49,18 @@ are_equivalent_xml_lines <- function(
   verbose = FALSE
 ) {
   if (beautier::is_one_na(section)) {
-    return(
-      beautier::are_equivalent_xml_lines_all(
-        lines_1 = lines_1,
-        lines_2 = lines_2,
-        verbose = verbose
-      )
+    beautier::are_equivalent_xml_lines_all(
+      lines_1 = lines_1,
+      lines_2 = lines_2,
+      verbose = verbose
     )
   } else {
     beautier::check_true(!beautier::is_one_na(section))
-    return(
-      beautier::are_equivalent_xml_lines_section(
-        lines_1 = lines_1,
-        lines_2 = lines_2,
-        section = section,
-        verbose = verbose
-      )
+    beautier::are_equivalent_xml_lines_section(
+      lines_1 = lines_1,
+      lines_2 = lines_2,
+      section = section,
+      verbose = verbose
     )
   }
 }
